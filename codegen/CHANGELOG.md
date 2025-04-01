@@ -1,5 +1,11 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.28.0 (2025-04-01)
+
+## Features
+- Upgraded to smithy-typescript 0.28.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0280-2025-04-01))
+- Enforced singular config object for resolver stack ([#6969](https://github.com/aws/aws-sdk-js-v3/pull/6969))
+
 ## 0.27.0 (2025-03-04)
 
 ## Features
