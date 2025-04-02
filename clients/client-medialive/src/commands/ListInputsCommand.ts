@@ -98,7 +98,7 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * //       Tags: { // Tags
  * //         "<keys>": "STRING_VALUE",
  * //       },
- * //       Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST",
+ * //       Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST" || "SMPTE_2110_RECEIVER_GROUP",
  * //       SrtSettings: { // SrtSettings
  * //         SrtCallerSources: [ // __listOfSrtCallerSource
  * //           { // SrtCallerSource
@@ -119,6 +119,30 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * //           { // MulticastSource
  * //             SourceIp: "STRING_VALUE",
  * //             Url: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       Smpte2110ReceiverGroupSettings: { // Smpte2110ReceiverGroupSettings
+ * //         Smpte2110ReceiverGroups: [ // __listOfSmpte2110ReceiverGroup
+ * //           { // Smpte2110ReceiverGroup
+ * //             SdpSettings: { // Smpte2110ReceiverGroupSdpSettings
+ * //               AncillarySdps: [ // __listOfInputSdpLocation
+ * //                 { // InputSdpLocation
+ * //                   MediaIndex: Number("int"),
+ * //                   SdpUrl: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //               AudioSdps: [
+ * //                 {
+ * //                   MediaIndex: Number("int"),
+ * //                   SdpUrl: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //               VideoSdp: {
+ * //                 MediaIndex: Number("int"),
+ * //                 SdpUrl: "STRING_VALUE",
+ * //               },
+ * //             },
  * //           },
  * //         ],
  * //       },

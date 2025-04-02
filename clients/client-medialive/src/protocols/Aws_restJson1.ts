@@ -311,8 +311,6 @@ import {
   AacSettings,
   Ac3Settings,
   AncillarySourceSettings,
-  ArchiveContainerSettings,
-  ArchiveOutputSettings,
   AribDestinationSettings,
   AribSourceSettings,
   AudioChannelMapping,
@@ -393,6 +391,7 @@ import {
   InputLocation,
   InputLossFailoverSettings,
   InputRequestDestinationRoute,
+  InputSdpLocation,
   InputSecurityGroup,
   InputSettings,
   InputSource,
@@ -406,7 +405,6 @@ import {
   IpPool,
   IpPoolCreateRequest,
   IpPoolUpdateRequest,
-  M2tsSettings,
   MaintenanceStatus,
   MediaConnectFlow,
   MediaConnectFlowRequest,
@@ -435,7 +433,6 @@ import {
   OutputDestination,
   OutputDestinationSettings,
   PassThroughSettings,
-  RawSettings,
   RemixSettings,
   ReservationResourceSpecification,
   Route,
@@ -444,6 +441,9 @@ import {
   Scte20SourceSettings,
   Scte27DestinationSettings,
   Scte27SourceSettings,
+  Smpte2110ReceiverGroup,
+  Smpte2110ReceiverGroupSdpSettings,
+  Smpte2110ReceiverGroupSettings,
   SmpteTtDestinationSettings,
   SrtCallerDecryption,
   SrtCallerSource,
@@ -466,7 +466,9 @@ import {
   AccountConfiguration,
   AnywhereSettings,
   ArchiveCdnSettings,
+  ArchiveContainerSettings,
   ArchiveGroupSettings,
+  ArchiveOutputSettings,
   ArchiveS3Settings,
   AudioOnlyHlsSettings,
   Av1ColorSpaceSettings,
@@ -489,7 +491,6 @@ import {
   ConflictException,
   DolbyVision81Settings,
   Esam,
-  FeatureActivations,
   FecOutputSettings,
   FixedModeScheduleActionStartSettings,
   Fmp4HlsSettings,
@@ -522,11 +523,11 @@ import {
   Id3SegmentTaggingScheduleActionSettings,
   ImmediateModeScheduleActionStartSettings,
   InputClippingSettings,
-  InputLossBehavior,
   InputPrepareScheduleActionSettings,
   InputSwitchScheduleActionSettings,
   InternalServerErrorException,
   KeyProviderSettings,
+  M2tsSettings,
   M3u8Settings,
   MediaPackageGroupSettings,
   MediaPackageOutputSettings,
@@ -549,6 +550,7 @@ import {
   PauseStateScheduleActionSettings,
   PipelineDetail,
   PipelinePauseStateSettings,
+  RawSettings,
   Rec601Settings,
   Rec709Settings,
   RenewalSettings,
@@ -606,10 +608,12 @@ import {
   ClusterNetworkSettingsUpdateRequest,
   EncoderSettings,
   EpochLockingSettings,
+  FeatureActivations,
   GlobalConfiguration,
   HtmlMotionGraphicsSettings,
   InputDeviceConfigurableSettings,
   InputDeviceMediaConnectConfigurableSettings,
+  InputLossBehavior,
   InputVpcRequest,
   MaintenanceCreateSettings,
   MaintenanceUpdateSettings,
@@ -1014,6 +1018,11 @@ export const se_CreateInputCommand = async (
       name: [, , `Name`],
       requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       roleArn: [, , `RoleArn`],
+      smpte2110ReceiverGroupSettings: [
+        ,
+        (_) => se_Smpte2110ReceiverGroupSettings(_, context),
+        `Smpte2110ReceiverGroupSettings`,
+      ],
       sources: [, (_) => se___listOfInputSourceRequest(_, context), `Sources`],
       srtSettings: [, (_) => se_SrtSettingsRequest(_, context), `SrtSettings`],
       tags: [, (_) => _json(_), `Tags`],
@@ -2841,6 +2850,11 @@ export const se_UpdateInputCommand = async (
       multicastSettings: [, (_) => se_MulticastSettingsUpdateRequest(_, context), `MulticastSettings`],
       name: [, , `Name`],
       roleArn: [, , `RoleArn`],
+      smpte2110ReceiverGroupSettings: [
+        ,
+        (_) => se_Smpte2110ReceiverGroupSettings(_, context),
+        `Smpte2110ReceiverGroupSettings`,
+      ],
       sources: [, (_) => se___listOfInputSourceRequest(_, context), `Sources`],
       srtSettings: [, (_) => se_SrtSettingsRequest(_, context), `SrtSettings`],
     })
@@ -4168,6 +4182,11 @@ export const de_DescribeInputCommand = async (
     Name: [, __expectString, `name`],
     RoleArn: [, __expectString, `roleArn`],
     SecurityGroups: [, _json, `securityGroups`],
+    Smpte2110ReceiverGroupSettings: [
+      ,
+      (_) => de_Smpte2110ReceiverGroupSettings(_, context),
+      `smpte2110ReceiverGroupSettings`,
+    ],
     Sources: [, (_) => de___listOfInputSource(_, context), `sources`],
     SrtSettings: [, (_) => de_SrtSettings(_, context), `srtSettings`],
     State: [, __expectString, `state`],
@@ -6430,6 +6449,17 @@ const se___listOfInputRequestDestinationRoute = (
 };
 
 /**
+ * serializeAws_restJson1__listOfInputSdpLocation
+ */
+const se___listOfInputSdpLocation = (input: InputSdpLocation[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_InputSdpLocation(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1__listOfInputSourceRequest
  */
 const se___listOfInputSourceRequest = (input: InputSourceRequest[], context: __SerdeContext): any => {
@@ -6677,6 +6707,17 @@ const se___listOfScte35Descriptor = (input: Scte35Descriptor[], context: __Serde
     .filter((e: any) => e != null)
     .map((entry) => {
       return se_Scte35Descriptor(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfSmpte2110ReceiverGroup
+ */
+const se___listOfSmpte2110ReceiverGroup = (input: Smpte2110ReceiverGroup[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_Smpte2110ReceiverGroup(entry, context);
     });
 };
 
@@ -8200,6 +8241,16 @@ const se_InputRequestDestinationRoute = (input: InputRequestDestinationRoute, co
 };
 
 /**
+ * serializeAws_restJson1InputSdpLocation
+ */
+const se_InputSdpLocation = (input: InputSdpLocation, context: __SerdeContext): any => {
+  return take(input, {
+    mediaIndex: [, , `MediaIndex`],
+    sdpUrl: [, , `SdpUrl`],
+  });
+};
+
+/**
  * serializeAws_restJson1InputSettings
  */
 const se_InputSettings = (input: InputSettings, context: __SerdeContext): any => {
@@ -9315,6 +9366,38 @@ const se_Scte35TimeSignalScheduleActionSettings = (
   });
 };
 
+/**
+ * serializeAws_restJson1Smpte2110ReceiverGroup
+ */
+const se_Smpte2110ReceiverGroup = (input: Smpte2110ReceiverGroup, context: __SerdeContext): any => {
+  return take(input, {
+    sdpSettings: [, (_) => se_Smpte2110ReceiverGroupSdpSettings(_, context), `SdpSettings`],
+  });
+};
+
+/**
+ * serializeAws_restJson1Smpte2110ReceiverGroupSdpSettings
+ */
+const se_Smpte2110ReceiverGroupSdpSettings = (
+  input: Smpte2110ReceiverGroupSdpSettings,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    ancillarySdps: [, (_) => se___listOfInputSdpLocation(_, context), `AncillarySdps`],
+    audioSdps: [, (_) => se___listOfInputSdpLocation(_, context), `AudioSdps`],
+    videoSdp: [, (_) => se_InputSdpLocation(_, context), `VideoSdp`],
+  });
+};
+
+/**
+ * serializeAws_restJson1Smpte2110ReceiverGroupSettings
+ */
+const se_Smpte2110ReceiverGroupSettings = (input: Smpte2110ReceiverGroupSettings, context: __SerdeContext): any => {
+  return take(input, {
+    smpte2110ReceiverGroups: [, (_) => se___listOfSmpte2110ReceiverGroup(_, context), `Smpte2110ReceiverGroups`],
+  });
+};
+
 // se_SmpteTtDestinationSettings omitted.
 
 /**
@@ -10127,6 +10210,18 @@ const de___listOfInputDeviceUhdAudioChannelPairConfig = (
 };
 
 /**
+ * deserializeAws_restJson1__listOfInputSdpLocation
+ */
+const de___listOfInputSdpLocation = (output: any, context: __SerdeContext): InputSdpLocation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InputSdpLocation(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfInputSecurityGroup
  */
 const de___listOfInputSecurityGroup = (output: any, context: __SerdeContext): InputSecurityGroup[] => {
@@ -10442,6 +10537,18 @@ const de___listOfSignalMapSummary = (output: any, context: __SerdeContext): Sign
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_SignalMapSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfSmpte2110ReceiverGroup
+ */
+const de___listOfSmpte2110ReceiverGroup = (output: any, context: __SerdeContext): Smpte2110ReceiverGroup[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Smpte2110ReceiverGroup(entry, context);
     });
   return retVal;
 };
@@ -12112,6 +12219,11 @@ const de_Input = (output: any, context: __SerdeContext): Input => {
     Name: [, __expectString, `name`],
     RoleArn: [, __expectString, `roleArn`],
     SecurityGroups: [, _json, `securityGroups`],
+    Smpte2110ReceiverGroupSettings: [
+      ,
+      (_: any) => de_Smpte2110ReceiverGroupSettings(_, context),
+      `smpte2110ReceiverGroupSettings`,
+    ],
     Sources: [, (_: any) => de___listOfInputSource(_, context), `sources`],
     SrtSettings: [, (_: any) => de_SrtSettings(_, context), `srtSettings`],
     State: [, __expectString, `state`],
@@ -12344,6 +12456,16 @@ const de_InputPrepareScheduleActionSettings = (
     InputAttachmentNameReference: [, __expectString, `inputAttachmentNameReference`],
     InputClippingSettings: [, (_: any) => de_InputClippingSettings(_, context), `inputClippingSettings`],
     UrlPath: [, _json, `urlPath`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1InputSdpLocation
+ */
+const de_InputSdpLocation = (output: any, context: __SerdeContext): InputSdpLocation => {
+  return take(output, {
+    MediaIndex: [, __expectInt32, `mediaIndex`],
+    SdpUrl: [, __expectString, `sdpUrl`],
   }) as any;
 };
 
@@ -13627,6 +13749,38 @@ const de_SignalMapSummary = (output: any, context: __SerdeContext): SignalMapSum
     Name: [, __expectString, `name`],
     Status: [, __expectString, `status`],
     Tags: [, _json, `tags`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Smpte2110ReceiverGroup
+ */
+const de_Smpte2110ReceiverGroup = (output: any, context: __SerdeContext): Smpte2110ReceiverGroup => {
+  return take(output, {
+    SdpSettings: [, (_: any) => de_Smpte2110ReceiverGroupSdpSettings(_, context), `sdpSettings`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Smpte2110ReceiverGroupSdpSettings
+ */
+const de_Smpte2110ReceiverGroupSdpSettings = (
+  output: any,
+  context: __SerdeContext
+): Smpte2110ReceiverGroupSdpSettings => {
+  return take(output, {
+    AncillarySdps: [, (_: any) => de___listOfInputSdpLocation(_, context), `ancillarySdps`],
+    AudioSdps: [, (_: any) => de___listOfInputSdpLocation(_, context), `audioSdps`],
+    VideoSdp: [, (_: any) => de_InputSdpLocation(_, context), `videoSdp`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Smpte2110ReceiverGroupSettings
+ */
+const de_Smpte2110ReceiverGroupSettings = (output: any, context: __SerdeContext): Smpte2110ReceiverGroupSettings => {
+  return take(output, {
+    Smpte2110ReceiverGroups: [, (_: any) => de___listOfSmpte2110ReceiverGroup(_, context), `smpte2110ReceiverGroups`],
   }) as any;
 };
 

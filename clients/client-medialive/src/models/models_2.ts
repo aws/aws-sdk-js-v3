@@ -49,6 +49,7 @@ import {
   InputDeviceSummary,
   InputDeviceType,
   InputDeviceUhdSettings,
+  InputLocation,
   InputNetworkLocation,
   InputSecurityGroup,
   InputSecurityGroupState,
@@ -91,6 +92,7 @@ import {
   OutputDestination,
   ReservationResourceSpecification,
   Route,
+  Smpte2110ReceiverGroupSettings,
   SrtSettings,
   VpcOutputSettingsDescription,
 } from "./models_0";
@@ -103,9 +105,8 @@ import {
   AvailConfiguration,
   BlackoutSlate,
   ColorCorrectionSettings,
-  FeatureActivations,
-  GlobalConfigurationInputEndAction,
-  InputLossBehavior,
+  FeatureActivationsInputPrepareScheduleActions,
+  FeatureActivationsOutputStaticImageOverlayScheduleActions,
   OutputGroup,
   PipelineDetail,
   RenewalSettings,
@@ -122,6 +123,91 @@ import {
   TransferringInputDeviceSummary,
   VideoDescription,
 } from "./models_1";
+
+/**
+ * Feature Activations
+ * @public
+ */
+export interface FeatureActivations {
+  /**
+   * Enables the Input Prepare feature. You can create Input Prepare actions in the schedule only if this feature is enabled.
+   * If you disable the feature on an existing schedule, make sure that you first delete all input prepare actions from the schedule.
+   * @public
+   */
+  InputPrepareScheduleActions?: FeatureActivationsInputPrepareScheduleActions | undefined;
+
+  /**
+   * Enables the output static image overlay feature. Enabling this feature allows you to send channel schedule updates
+   * to display/clear/modify image overlays on an output-by-output bases.
+   * @public
+   */
+  OutputStaticImageOverlayScheduleActions?: FeatureActivationsOutputStaticImageOverlayScheduleActions | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GlobalConfigurationInputEndAction = {
+  NONE: "NONE",
+  SWITCH_AND_LOOP_INPUTS: "SWITCH_AND_LOOP_INPUTS",
+} as const;
+
+/**
+ * @public
+ */
+export type GlobalConfigurationInputEndAction =
+  (typeof GlobalConfigurationInputEndAction)[keyof typeof GlobalConfigurationInputEndAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputLossImageType = {
+  COLOR: "COLOR",
+  SLATE: "SLATE",
+} as const;
+
+/**
+ * @public
+ */
+export type InputLossImageType = (typeof InputLossImageType)[keyof typeof InputLossImageType];
+
+/**
+ * Input Loss Behavior
+ * @public
+ */
+export interface InputLossBehavior {
+  /**
+   * Documentation update needed
+   * @public
+   */
+  BlackFrameMsec?: number | undefined;
+
+  /**
+   * When input loss image type is "color" this field specifies the color to use. Value: 6 hex characters representing the values of RGB.
+   * @public
+   */
+  InputLossImageColor?: string | undefined;
+
+  /**
+   * When input loss image type is "slate" these fields specify the parameters for accessing the slate.
+   * @public
+   */
+  InputLossImageSlate?: InputLocation | undefined;
+
+  /**
+   * Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
+   * @public
+   */
+  InputLossImageType?: InputLossImageType | undefined;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  RepeatFrameMsec?: number | undefined;
+}
 
 /**
  * @public
@@ -1666,6 +1752,12 @@ export interface CreateInputRequest {
    * @public
    */
   MulticastSettings?: MulticastSettingsCreateRequest | undefined;
+
+  /**
+   * Include this parameter if the input is a SMPTE 2110 input, to identify the stream sources for this input.
+   * @public
+   */
+  Smpte2110ReceiverGroupSettings?: Smpte2110ReceiverGroupSettings | undefined;
 }
 
 /**
@@ -3913,6 +4005,12 @@ export interface DescribeInputResponse {
    * @public
    */
   MulticastSettings?: MulticastSettings | undefined;
+
+  /**
+   * Include this parameter if the input is a SMPTE 2110 input, to identify the stream sources for this input.
+   * @public
+   */
+  Smpte2110ReceiverGroupSettings?: Smpte2110ReceiverGroupSettings | undefined;
 }
 
 /**
@@ -8155,6 +8253,12 @@ export interface UpdateInputRequest {
    * @public
    */
   MulticastSettings?: MulticastSettingsUpdateRequest | undefined;
+
+  /**
+   * Include this parameter if the input is a SMPTE 2110 input, to identify the stream sources for this input.
+   * @public
+   */
+  Smpte2110ReceiverGroupSettings?: Smpte2110ReceiverGroupSettings | undefined;
 }
 
 /**
