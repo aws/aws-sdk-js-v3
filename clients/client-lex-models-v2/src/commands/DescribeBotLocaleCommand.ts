@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeBotLocaleRequest } from "../models/models_0";
-import { DescribeBotLocaleResponse } from "../models/models_1";
+import { DescribeBotLocaleRequest, DescribeBotLocaleResponse } from "../models/models_1";
 import { de_DescribeBotLocaleCommand, se_DescribeBotLocaleCommand } from "../protocols/Aws_restJson1";
 
 /**

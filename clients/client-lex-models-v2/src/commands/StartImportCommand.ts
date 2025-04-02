@@ -45,6 +45,9 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  *       dataPrivacy: { // DataPrivacy
  *         childDirected: true || false, // required
  *       },
+ *       errorLogSettings: { // ErrorLogSettings
+ *         enabled: true || false, // required
+ *       },
  *       idleSessionTTLInSeconds: Number("int"),
  *       botTags: { // TagMap
  *         "<keys>": "STRING_VALUE",
@@ -100,6 +103,9 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * //       roleArn: "STRING_VALUE", // required
  * //       dataPrivacy: { // DataPrivacy
  * //         childDirected: true || false, // required
+ * //       },
+ * //       errorLogSettings: { // ErrorLogSettings
+ * //         enabled: true || false, // required
  * //       },
  * //       idleSessionTTLInSeconds: Number("int"),
  * //       botTags: { // TagMap

@@ -334,6 +334,7 @@ import {
   DialogCodeHookSettings,
   DTMFSpecification,
   ElicitationCodeHookInvocationSetting,
+  ErrorLogSettings,
   ExactResponseFields,
   ExportResourceSpecification,
   ExternalSourceSetting,
@@ -361,6 +362,8 @@ import {
   PromptAttempt,
   PromptAttemptSpecification,
   PromptSpecification,
+  QInConnectAssistantConfiguration,
+  QInConnectIntentConfiguration,
   QnAIntentConfiguration,
   QnAKendraConfiguration,
   ResourceNotFoundException,
@@ -585,6 +588,7 @@ export const se_CreateBotCommand = async (
       botType: [],
       dataPrivacy: (_) => _json(_),
       description: [],
+      errorLogSettings: (_) => _json(_),
       idleSessionTTLInSeconds: [],
       roleArn: [],
       testBotAliasTags: (_) => _json(_),
@@ -751,6 +755,7 @@ export const se_CreateIntentCommand = async (
       kendraConfiguration: (_) => _json(_),
       outputContexts: (_) => _json(_),
       parentIntentSignature: [],
+      qInConnectIntentConfiguration: (_) => _json(_),
       qnAIntentConfiguration: (_) => _json(_),
       sampleUtterances: (_) => _json(_),
     })
@@ -2599,6 +2604,7 @@ export const se_UpdateBotCommand = async (
       botType: [],
       dataPrivacy: (_) => _json(_),
       description: [],
+      errorLogSettings: (_) => _json(_),
       idleSessionTTLInSeconds: [],
       roleArn: [],
     })
@@ -2743,6 +2749,7 @@ export const se_UpdateIntentCommand = async (
       kendraConfiguration: (_) => _json(_),
       outputContexts: (_) => _json(_),
       parentIntentSignature: [],
+      qInConnectIntentConfiguration: (_) => _json(_),
       qnAIntentConfiguration: (_) => _json(_),
       sampleUtterances: (_) => _json(_),
       slotPriorities: (_) => _json(_),
@@ -2991,6 +2998,7 @@ export const de_CreateBotCommand = async (
     creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     dataPrivacy: _json,
     description: __expectString,
+    errorLogSettings: _json,
     idleSessionTTLInSeconds: __expectInt32,
     roleArn: __expectString,
     testBotAliasTags: _json,
@@ -3167,6 +3175,7 @@ export const de_CreateIntentCommand = async (
     localeId: __expectString,
     outputContexts: _json,
     parentIntentSignature: __expectString,
+    qInConnectIntentConfiguration: _json,
     qnAIntentConfiguration: _json,
     sampleUtterances: _json,
   });
@@ -3664,6 +3673,7 @@ export const de_DescribeBotCommand = async (
     creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     dataPrivacy: _json,
     description: __expectString,
+    errorLogSettings: _json,
     failureReasons: _json,
     idleSessionTTLInSeconds: __expectInt32,
     lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -3979,6 +3989,7 @@ export const de_DescribeIntentCommand = async (
     localeId: __expectString,
     outputContexts: _json,
     parentIntentSignature: __expectString,
+    qInConnectIntentConfiguration: _json,
     qnAIntentConfiguration: _json,
     sampleUtterances: _json,
     slotPriorities: _json,
@@ -5224,6 +5235,7 @@ export const de_UpdateBotCommand = async (
     creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     dataPrivacy: _json,
     description: __expectString,
+    errorLogSettings: _json,
     idleSessionTTLInSeconds: __expectInt32,
     lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     roleArn: __expectString,
@@ -5383,6 +5395,7 @@ export const de_UpdateIntentCommand = async (
     localeId: __expectString,
     outputContexts: _json,
     parentIntentSignature: __expectString,
+    qInConnectIntentConfiguration: _json,
     qnAIntentConfiguration: _json,
     sampleUtterances: _json,
     slotPriorities: _json,
@@ -5987,6 +6000,8 @@ const se_DialogState = (input: DialogState, context: __SerdeContext): any => {
 
 // se_EncryptionSetting omitted.
 
+// se_ErrorLogSettings omitted.
+
 // se_ExactResponseFields omitted.
 
 // se_ExportFilter omitted.
@@ -6204,6 +6219,10 @@ const se_PostFulfillmentStatusSpecification = (
 // se_PromptAttemptsSpecificationMap omitted.
 
 // se_PromptSpecification omitted.
+
+// se_QInConnectAssistantConfiguration omitted.
+
+// se_QInConnectIntentConfiguration omitted.
 
 // se_QnAIntentConfiguration omitted.
 
@@ -7192,6 +7211,8 @@ const de_DialogState = (output: any, context: __SerdeContext): DialogState => {
 
 // de_EncryptionSetting omitted.
 
+// de_ErrorLogSettings omitted.
+
 // de_ExactResponseFields omitted.
 
 // de_ExecutionErrorDetails omitted.
@@ -7533,6 +7554,10 @@ const de_PostFulfillmentStatusSpecification = (
 // de_PromptAttemptsSpecificationMap omitted.
 
 // de_PromptSpecification omitted.
+
+// de_QInConnectAssistantConfiguration omitted.
+
+// de_QInConnectIntentConfiguration omitted.
 
 // de_QnAIntentConfiguration omitted.
 

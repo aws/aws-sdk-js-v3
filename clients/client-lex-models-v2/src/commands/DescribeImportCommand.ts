@@ -49,6 +49,9 @@ export interface DescribeImportCommandOutput extends DescribeImportResponse, __M
  * //       dataPrivacy: { // DataPrivacy
  * //         childDirected: true || false, // required
  * //       },
+ * //       errorLogSettings: { // ErrorLogSettings
+ * //         enabled: true || false, // required
+ * //       },
  * //       idleSessionTTLInSeconds: Number("int"),
  * //       botTags: { // TagMap
  * //         "<keys>": "STRING_VALUE",

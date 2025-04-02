@@ -34,6 +34,7 @@ import {
   AnalyticsUtteranceSortByName,
   AssociatedTranscript,
   AssociatedTranscriptFilter,
+  BotAliasHistoryEvent,
   BotAliasLocaleSettings,
   BotAliasReplicaSummary,
   BotAliasStatus,
@@ -81,6 +82,7 @@ import {
   DialogAction,
   DialogCodeHookSettings,
   ElicitationCodeHookInvocationSetting,
+  ErrorLogSettings,
   ExecutionErrorDetails,
   ExportResourceSpecification,
   ExportStatus,
@@ -95,8 +97,8 @@ import {
   MultipleValuesSetting,
   ObfuscationSetting,
   OutputContext,
-  ParentBotNetwork,
   PromptSpecification,
+  QInConnectIntentConfiguration,
   QnAIntentConfiguration,
   ResponseSpecification,
   SampleUtterance,
@@ -115,6 +117,138 @@ import {
   VoiceSettings,
   WaitAndContinueSpecification,
 } from "./models_0";
+
+/**
+ * <p>A network of bots.</p>
+ * @public
+ */
+export interface ParentBotNetwork {
+  /**
+   * <p>The identifier of the network of bots assigned by Amazon Lex.</p>
+   * @public
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the network of bots.</p>
+   * @public
+   */
+  botVersion: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBotAliasResponse {
+  /**
+   * <p>The identifier of the bot alias.</p>
+   * @public
+   */
+  botAliasId?: string | undefined;
+
+  /**
+   * <p>The name of the bot alias.</p>
+   * @public
+   */
+  botAliasName?: string | undefined;
+
+  /**
+   * <p>The description of the bot alias.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The version of the bot associated with the bot alias.</p>
+   * @public
+   */
+  botVersion?: string | undefined;
+
+  /**
+   * <p>The locale settings that are unique to the alias.</p>
+   * @public
+   */
+  botAliasLocaleSettings?: Record<string, BotAliasLocaleSettings> | undefined;
+
+  /**
+   * <p>Specifics of how Amazon Lex logs text and audio conversations with the
+   *          bot associated with the alias.</p>
+   * @public
+   */
+  conversationLogSettings?: ConversationLogSettings | undefined;
+
+  /**
+   * <p>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of
+   *          user utterances.</p>
+   * @public
+   */
+  sentimentAnalysisSettings?: SentimentAnalysisSettings | undefined;
+
+  /**
+   * <p>A list of events that affect a bot alias. For example, an event is
+   *          recorded when the version that the alias points to changes.</p>
+   * @public
+   */
+  botAliasHistoryEvents?: BotAliasHistoryEvent[] | undefined;
+
+  /**
+   * <p>The current status of the alias. When the alias is
+   *             <code>Available</code>, the alias is ready for use with your
+   *          bot.</p>
+   * @public
+   */
+  botAliasStatus?: BotAliasStatus | undefined;
+
+  /**
+   * <p>The identifier of the bot associated with the bot alias.</p>
+   * @public
+   */
+  botId?: string | undefined;
+
+  /**
+   * <p>A timestamp of the date and time that the alias was created.</p>
+   * @public
+   */
+  creationDateTime?: Date | undefined;
+
+  /**
+   * <p>A timestamp of the date and time that the alias was last
+   *          updated.</p>
+   * @public
+   */
+  lastUpdatedDateTime?: Date | undefined;
+
+  /**
+   * <p>A list of the networks to which the bot alias you described belongs.</p>
+   * @public
+   */
+  parentBotNetworks?: ParentBotNetwork[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBotLocaleRequest {
+  /**
+   * <p>The identifier of the bot associated with the locale.</p>
+   * @public
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot associated with the
+   *          locale.</p>
+   * @public
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The unique identifier of the locale to describe. The string must
+   *          match one of the supported locales. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>. </p>
+   * @public
+   */
+  localeId: string | undefined;
+}
 
 /**
  * @public
@@ -7030,6 +7164,12 @@ export interface UpdateBotRequest {
    * @public
    */
   botMembers?: BotMember[] | undefined;
+
+  /**
+   * <p>Allows you to modify how Amazon Lex logs errors during bot interactions, including destinations for error logs and the types of errors to be captured.</p>
+   * @public
+   */
+  errorLogSettings?: ErrorLogSettings | undefined;
 }
 
 /**
@@ -7107,6 +7247,12 @@ export interface UpdateBotResponse {
    * @public
    */
   botMembers?: BotMember[] | undefined;
+
+  /**
+   * <p>Settings for managing error logs within the response of an update bot operation.</p>
+   * @public
+   */
+  errorLogSettings?: ErrorLogSettings | undefined;
 }
 
 /**
@@ -9607,6 +9753,12 @@ export interface CreateIntentRequest {
    * @public
    */
   qnAIntentConfiguration?: QnAIntentConfiguration | undefined;
+
+  /**
+   * <p>Qinconnect intent configuration details for the create intent request.</p>
+   * @public
+   */
+  qInConnectIntentConfiguration?: QInConnectIntentConfiguration | undefined;
 }
 
 /**
@@ -9723,6 +9875,12 @@ export interface CreateIntentResponse {
    * @public
    */
   qnAIntentConfiguration?: QnAIntentConfiguration | undefined;
+
+  /**
+   * <p>Qinconnect intent configuration details for the create intent response.</p>
+   * @public
+   */
+  qInConnectIntentConfiguration?: QInConnectIntentConfiguration | undefined;
 }
 
 /**
@@ -9858,6 +10016,12 @@ export interface DescribeIntentResponse {
    * @public
    */
   qnAIntentConfiguration?: QnAIntentConfiguration | undefined;
+
+  /**
+   * <p>Qinconnect intent configuration details for the describe intent response.</p>
+   * @public
+   */
+  qInConnectIntentConfiguration?: QInConnectIntentConfiguration | undefined;
 }
 
 /**
@@ -9983,6 +10147,12 @@ export interface UpdateIntentRequest {
    * @public
    */
   qnAIntentConfiguration?: QnAIntentConfiguration | undefined;
+
+  /**
+   * <p>Qinconnect intent configuration details for the update intent request.</p>
+   * @public
+   */
+  qInConnectIntentConfiguration?: QInConnectIntentConfiguration | undefined;
 }
 
 /**
@@ -10118,6 +10288,12 @@ export interface UpdateIntentResponse {
    * @public
    */
   qnAIntentConfiguration?: QnAIntentConfiguration | undefined;
+
+  /**
+   * <p>Qinconnect intent configuration details for the update intent response.</p>
+   * @public
+   */
+  qInConnectIntentConfiguration?: QInConnectIntentConfiguration | undefined;
 }
 
 /**

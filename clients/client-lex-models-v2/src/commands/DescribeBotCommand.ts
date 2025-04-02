@@ -65,6 +65,9 @@ export interface DescribeBotCommandOutput extends DescribeBotResponse, __Metadat
  * //   failureReasons: [ // FailureReasons
  * //     "STRING_VALUE",
  * //   ],
+ * //   errorLogSettings: { // ErrorLogSettings
+ * //     enabled: true || false, // required
+ * //   },
  * // };
  *
  * ```
