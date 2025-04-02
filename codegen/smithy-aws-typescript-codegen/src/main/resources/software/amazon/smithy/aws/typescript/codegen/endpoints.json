@@ -7001,7 +7001,14 @@
           "endpoints": {
             "ap-northeast-1": {},
             "ap-northeast-2": {},
-            "ap-south-1": {},
+            "ap-south-1": {
+              "variants": [
+                {
+                  "hostname": "comprehend.ap-south-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "ap-southeast-1": {},
             "ap-southeast-2": {},
             "ca-central-1": {
@@ -7056,6 +7063,14 @@
                 {
                   "hostname": "comprehend-fips.us-east-2.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "comprehend-fips.us-east-2.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "comprehend.us-east-2.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -14194,6 +14209,7 @@
             "ap-southeast-3": {},
             "ap-southeast-4": {},
             "ap-southeast-5": {},
+            "ap-southeast-7": {},
             "ca-central-1": {},
             "ca-west-1": {
               "variants": [
@@ -43015,6 +43031,11 @@
                 }
               ]
             }
+          }
+        },
+        "codebuild": {
+          "endpoints": {
+            "us-isob-east-1": {}
           }
         },
         "codedeploy": {
