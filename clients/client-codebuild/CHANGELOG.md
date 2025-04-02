@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.781.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.780.0...v3.781.0) (2025-04-02)
+
+
+### Features
+
+* **client-codebuild:** This release adds support for environment type WINDOWS_SERVER_2022_CONTAINER in ProjectEnvironment ([3fbd78f](https://github.com/aws/aws-sdk-js-v3/commit/3fbd78f96381acf499ab7be815d2e048d0138f23))
+
+
+
+
+
 # [3.778.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.777.0...v3.778.0) (2025-03-28)
 
 
