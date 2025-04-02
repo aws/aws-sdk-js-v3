@@ -1,3 +1,4 @@
+// requires a package.json update
 import "@smithy/signature-v4a";
 
 import { Sha256 } from "@aws-crypto/sha256-js";
