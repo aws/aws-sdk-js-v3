@@ -91,12 +91,14 @@ import {
   BurnRateConfiguration,
   CalendarInterval,
   ConflictException,
+  DependencyConfig,
   Dimension,
   ExclusionWindow,
   Goal,
   Interval,
   Metric,
   MetricDataQuery,
+  MetricSourceType,
   MetricStat,
   MonitoredRequestCountMetricDataQueries,
   RecurrenceRule,
@@ -349,7 +351,9 @@ export const se_ListServiceLevelObjectivesCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      DependencyConfig: (_) => _json(_),
       KeyAttributes: (_) => _json(_),
+      MetricSourceTypes: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).q(query).b(body);
@@ -1043,6 +1047,8 @@ const se_CalendarInterval = (input: CalendarInterval, context: __SerdeContext): 
   });
 };
 
+// se_DependencyConfig omitted.
+
 // se_Dimension omitted.
 
 // se_Dimensions omitted.
@@ -1097,6 +1103,8 @@ const se_Interval = (input: Interval, context: __SerdeContext): any => {
 // se_MetricDataQueries omitted.
 
 // se_MetricDataQuery omitted.
+
+// se_MetricSourceTypes omitted.
 
 // se_MetricStat omitted.
 
@@ -1169,6 +1177,8 @@ const de_CalendarInterval = (output: any, context: __SerdeContext): CalendarInte
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_DependencyConfig omitted.
 
 // de_Dimension omitted.
 
@@ -1297,6 +1307,7 @@ const de_ServiceLevelObjective = (output: any, context: __SerdeContext): Service
     EvaluationType: __expectString,
     Goal: (_: any) => de_Goal(_, context),
     LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MetricSourceType: __expectString,
     Name: __expectString,
     RequestBasedSli: (_: any) => de_RequestBasedServiceLevelIndicator(_, context),
     Sli: (_: any) => de_ServiceLevelIndicator(_, context),
@@ -1366,7 +1377,10 @@ const de_ServiceLevelObjectiveSummary = (output: any, context: __SerdeContext): 
   return take(output, {
     Arn: __expectString,
     CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DependencyConfig: _json,
+    EvaluationType: __expectString,
     KeyAttributes: _json,
+    MetricSourceType: __expectString,
     Name: __expectString,
     OperationName: __expectString,
   }) as any;

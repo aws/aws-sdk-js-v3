@@ -83,6 +83,12 @@ export interface GetServiceLevelObjectiveCommandOutput extends GetServiceLevelOb
  * //             AccountId: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         DependencyConfig: { // DependencyConfig
+ * //           DependencyKeyAttributes: { // required
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           DependencyOperationName: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //       MetricThreshold: Number("double"), // required
  * //       ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo", // required
@@ -171,6 +177,12 @@ export interface GetServiceLevelObjectiveCommandOutput extends GetServiceLevelOb
  * //             },
  * //           ],
  * //         },
+ * //         DependencyConfig: {
+ * //           DependencyKeyAttributes: { // required
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           DependencyOperationName: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //       MetricThreshold: Number("double"),
  * //       ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo",
@@ -196,6 +208,7 @@ export interface GetServiceLevelObjectiveCommandOutput extends GetServiceLevelOb
  * //         LookBackWindowMinutes: Number("int"), // required
  * //       },
  * //     ],
+ * //     MetricSourceType: "ServiceOperation" || "CloudWatchMetric" || "ServiceDependency",
  * //   },
  * // };
  *

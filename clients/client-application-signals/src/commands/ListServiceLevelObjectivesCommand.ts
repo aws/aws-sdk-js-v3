@@ -44,8 +44,17 @@ export interface ListServiceLevelObjectivesCommandOutput extends ListServiceLeve
  *     "<keys>": "STRING_VALUE",
  *   },
  *   OperationName: "STRING_VALUE",
+ *   DependencyConfig: { // DependencyConfig
+ *     DependencyKeyAttributes: { // required
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     DependencyOperationName: "STRING_VALUE", // required
+ *   },
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   MetricSourceTypes: [ // MetricSourceTypes
+ *     "ServiceOperation" || "CloudWatchMetric" || "ServiceDependency",
+ *   ],
  *   IncludeLinkedAccounts: true || false,
  *   SloOwnerAwsAccountId: "STRING_VALUE",
  * };
@@ -60,7 +69,15 @@ export interface ListServiceLevelObjectivesCommandOutput extends ListServiceLeve
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       OperationName: "STRING_VALUE",
+ * //       DependencyConfig: { // DependencyConfig
+ * //         DependencyKeyAttributes: { // required
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         DependencyOperationName: "STRING_VALUE", // required
+ * //       },
  * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       EvaluationType: "PeriodBased" || "RequestBased",
+ * //       MetricSourceType: "ServiceOperation" || "CloudWatchMetric" || "ServiceDependency",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

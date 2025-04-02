@@ -168,6 +168,12 @@ export interface CreateServiceLevelObjectiveCommandOutput extends CreateServiceL
  *           AccountId: "STRING_VALUE",
  *         },
  *       ],
+ *       DependencyConfig: { // DependencyConfig
+ *         DependencyKeyAttributes: { // required
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         DependencyOperationName: "STRING_VALUE", // required
+ *       },
  *     },
  *     MetricThreshold: Number("double"), // required
  *     ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo", // required
@@ -256,6 +262,12 @@ export interface CreateServiceLevelObjectiveCommandOutput extends CreateServiceL
  *           },
  *         ],
  *       },
+ *       DependencyConfig: {
+ *         DependencyKeyAttributes: { // required
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         DependencyOperationName: "STRING_VALUE", // required
+ *       },
  *     },
  *     MetricThreshold: Number("double"),
  *     ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo",
@@ -328,6 +340,12 @@ export interface CreateServiceLevelObjectiveCommandOutput extends CreateServiceL
  * //             AccountId: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         DependencyConfig: { // DependencyConfig
+ * //           DependencyKeyAttributes: { // required
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           DependencyOperationName: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //       MetricThreshold: Number("double"), // required
  * //       ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo", // required
@@ -416,6 +434,12 @@ export interface CreateServiceLevelObjectiveCommandOutput extends CreateServiceL
  * //             },
  * //           ],
  * //         },
+ * //         DependencyConfig: {
+ * //           DependencyKeyAttributes: { // required
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           DependencyOperationName: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //       MetricThreshold: Number("double"),
  * //       ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo",
@@ -441,6 +465,7 @@ export interface CreateServiceLevelObjectiveCommandOutput extends CreateServiceL
  * //         LookBackWindowMinutes: Number("int"), // required
  * //       },
  * //     ],
+ * //     MetricSourceType: "ServiceOperation" || "CloudWatchMetric" || "ServiceDependency",
  * //   },
  * // };
  *

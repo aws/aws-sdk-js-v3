@@ -276,6 +276,53 @@ export type ServiceLevelIndicatorComparisonOperator =
   (typeof ServiceLevelIndicatorComparisonOperator)[keyof typeof ServiceLevelIndicatorComparisonOperator];
 
 /**
+ * <p>Identifies the dependency using the <code>DependencyKeyAttributes</code> and <code>DependencyOperationName</code>.</p>
+ *          <p>When creating a service dependency SLO, you must specify the <code>KeyAttributes</code> of the service, and the <code>DependencyConfig</code> for the dependency. You can specify the <code>OperationName</code> of the service, from which it calls the dependency. Alternatively,
+ *          you can exclude <code>OperationName</code> and the SLO will monitor all of the service's operations that call the dependency.</p>
+ * @public
+ */
+export interface DependencyConfig {
+  /**
+   * <p>This is a string-to-string map. It can
+   *          include the following fields.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Type</code> designates the type of object this is.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
+   *             when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
+   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Identifier</code> identifies the resource objects of this resource.
+   *             This is used only if the value of the <code>Type</code> field
+   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DependencyKeyAttributes: Record<string, string> | undefined;
+
+  /**
+   * <p>The name of the called operation in the dependency.</p>
+   * @public
+   */
+  DependencyOperationName: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -648,6 +695,12 @@ export interface RequestBasedServiceLevelIndicatorMetric {
    * @public
    */
   MonitoredRequestCountMetric: MonitoredRequestCountMetricDataQueries | undefined;
+
+  /**
+   * <p>Identifies the dependency using the <code>DependencyKeyAttributes</code> and <code>DependencyOperationName</code>. </p>
+   * @public
+   */
+  DependencyConfig?: DependencyConfig | undefined;
 }
 
 /**
@@ -733,6 +786,12 @@ export interface ServiceLevelIndicatorMetric {
    * @public
    */
   MetricDataQueries: MetricDataQuery[] | undefined;
+
+  /**
+   * <p>Identifies the dependency using the <code>DependencyKeyAttributes</code> and <code>DependencyOperationName</code>. </p>
+   * @public
+   */
+  DependencyConfig?: DependencyConfig | undefined;
 }
 
 /**
@@ -2297,6 +2356,12 @@ export interface RequestBasedServiceLevelIndicatorMetricConfig {
    * @public
    */
   MonitoredRequestCountMetric?: MonitoredRequestCountMetricDataQueries | undefined;
+
+  /**
+   * <p>Identifies the dependency using the <code>DependencyKeyAttributes</code> and <code>DependencyOperationName</code>. </p>
+   * @public
+   */
+  DependencyConfig?: DependencyConfig | undefined;
 }
 
 /**
@@ -2398,6 +2463,12 @@ export interface ServiceLevelIndicatorMetricConfig {
    * @public
    */
   MetricDataQueries?: MetricDataQuery[] | undefined;
+
+  /**
+   * <p>Identifies the dependency using the <code>DependencyKeyAttributes</code> and <code>DependencyOperationName</code>. </p>
+   * @public
+   */
+  DependencyConfig?: DependencyConfig | undefined;
 }
 
 /**
@@ -2482,6 +2553,21 @@ export interface CreateServiceLevelObjectiveInput {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const MetricSourceType = {
+  CLOUDWATCH_METRIC: "CloudWatchMetric",
+  SERVICE_DEPENDENCY: "ServiceDependency",
+  SERVICE_OPERATION: "ServiceOperation",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricSourceType = (typeof MetricSourceType)[keyof typeof MetricSourceType];
+
+/**
  * <p>A structure containing information about one service level objective (SLO) that has been created in Application Signals.
  *          Creating SLOs can help you ensure your services are
  *          performing to the level that you expect. SLOs help you set and track a specific target level for the
@@ -2556,6 +2642,23 @@ export interface ServiceLevelObjective {
    * @public
    */
   BurnRateConfigurations?: BurnRateConfiguration[] | undefined;
+
+  /**
+   * <p>Displays the SLI metric source type for this SLO. Supported types are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Service operation</p>
+   *             </li>
+   *             <li>
+   *                <p>Service dependency</p>
+   *             </li>
+   *             <li>
+   *                <p>CloudWatch metric</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MetricSourceType?: MetricSourceType | undefined;
 }
 
 /**
@@ -2676,6 +2779,12 @@ export interface ListServiceLevelObjectivesInput {
   OperationName?: string | undefined;
 
   /**
+   * <p>Identifies the dependency using the <code>DependencyKeyAttributes</code> and <code>DependencyOperationName</code>. </p>
+   * @public
+   */
+  DependencyConfig?: DependencyConfig | undefined;
+
+  /**
    * <p>The maximum number of results to return in one operation. If you omit this
    *          parameter, the default of 50 is used.</p>
    * @public
@@ -2687,6 +2796,23 @@ export interface ListServiceLevelObjectivesInput {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>Use this optional field to only include SLOs with the specified metric source types in the output. Supported types are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Service operation</p>
+   *             </li>
+   *             <li>
+   *                <p>Service dependency</p>
+   *             </li>
+   *             <li>
+   *                <p>CloudWatch metric</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MetricSourceTypes?: MetricSourceType[] | undefined;
 
   /**
    * <p>If you are using this operation in a monitoring account, specify <code>true</code> to include SLO from source accounts in the returned data.
@@ -2764,10 +2890,39 @@ export interface ServiceLevelObjectiveSummary {
   OperationName?: string | undefined;
 
   /**
+   * <p>Identifies the dependency using the <code>DependencyKeyAttributes</code> and <code>DependencyOperationName</code>. </p>
+   * @public
+   */
+  DependencyConfig?: DependencyConfig | undefined;
+
+  /**
    * <p>The date and time that this service level objective was created. It is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.</p>
    * @public
    */
   CreatedTime?: Date | undefined;
+
+  /**
+   * <p>Displays whether this is a period-based SLO or a request-based SLO.</p>
+   * @public
+   */
+  EvaluationType?: EvaluationType | undefined;
+
+  /**
+   * <p>Displays the SLI metric source type for this SLO. Supported types are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Service operation</p>
+   *             </li>
+   *             <li>
+   *                <p>Service dependency</p>
+   *             </li>
+   *             <li>
+   *                <p>CloudWatch metric</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MetricSourceType?: MetricSourceType | undefined;
 }
 
 /**
