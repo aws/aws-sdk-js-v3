@@ -60,6 +60,17 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
 
   public async presign(originalRequest: HttpRequest, options: RequestPresigningArguments = {}): Promise<HttpRequest> {
     if (options.signingRegion === "*") {
+      const CrtSignerV4 = signatureV4CrtContainer.CrtSignerV4;
+      if (!CrtSignerV4 || typeof CrtSignerV4 !== "function") {
+        throw new Error(
+          "\n" +
+            `Please check whether you have installed the "@aws-sdk/signature-v4-crt" package explicitly. \n` +
+            `You must also register the package by calling [require("@aws-sdk/signature-v4-crt");] ` +
+            `or an ESM equivalent such as [import "@aws-sdk/signature-v4-crt";]. \n` +
+            "For more information please go to " +
+            "https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt"
+        );
+      }
       return this.getSigv4aSigner().presign(originalRequest, options);
     }
     return this.sigv4Signer.presign(originalRequest, options);

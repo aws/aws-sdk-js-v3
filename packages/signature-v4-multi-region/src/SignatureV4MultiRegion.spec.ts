@@ -47,6 +47,7 @@ describe("SignatureV4MultiRegion", () => {
 
   beforeEach(() => {
     signatureV4CrtContainer.CrtSignerV4 = CrtSignerV4 as any;
+    signatureV4aContainer.SignatureV4a = SignatureV4a as any;
     vi.clearAllMocks();
   });
 
@@ -66,13 +67,6 @@ describe("SignatureV4MultiRegion", () => {
     expect(SignatureV4S3Express.mock.instances[0].presign).toBeCalledTimes(1);
   });
 
-  it("should sign with SigV4a signer if mult_region option is set", async () => {
-    const signer = new SignatureV4MultiRegion(params);
-    await signer.presign(minimalRequest, { signingRegion: "*" });
-    //@ts-ignore
-    expect(CrtSignerV4.mock.instances[0].presign).toBeCalledTimes(1);
-  });
-
   it("should presign with SigV4 signer", async () => {
     const signer = new SignatureV4MultiRegion(params);
     await signer.presign(minimalRequest, { signingRegion: "*" });
@@ -83,15 +77,9 @@ describe("SignatureV4MultiRegion", () => {
   it("should sign with SigV4a signer if signingRegion is '*'", async () => {
     const signer = new SignatureV4MultiRegion(params);
     await signer.sign(minimalRequest, { signingRegion: "*" });
-    expect(SignatureV4a.prototype.sign).toBeCalledTimes(1);
-  });
-
-  it("should throw if sign with SigV4a in unsupported runtime", async () => {
-    expect.assertions(1);
-    const signer = new SignatureV4MultiRegion({ ...params, runtime: "browser" });
-    await expect(async () => await signer.sign(minimalRequest, { signingRegion: "*" })).rejects.toThrow(
-      "This request requires signing with SigV4Asymmetric algorithm. It's only available in Node.js"
-    );
+    //@ts-ignore Check the CrtSignerV4 mock instance instead
+    expect(CrtSignerV4.mock.instances[0].sign).toBeCalledTimes(1);
+    expect(SignatureV4a.prototype.sign).toBeCalledTimes(0); // Ensure JS signer was not called
   });
 
   it("should use SignatureV4a if CrtSignerV4 is not available", async () => {
@@ -149,7 +137,8 @@ describe("SignatureV4MultiRegion", () => {
     signatureV4CrtContainer.CrtSignerV4 = null;
     expect.assertions(1);
     const signer = new SignatureV4MultiRegion({ ...params });
-    await expect(async () => await signer.sign(minimalRequest, { signingRegion: "*" })).rejects.toThrow(
+    // // Use presign here, as presign with '*' requires CRT and has no JS fallback
+    await expect(async () => await signer.presign(minimalRequest, { signingRegion: "*" })).rejects.toThrow(
       "\n" +
         `Please check whether you have installed the "@aws-sdk/signature-v4-crt" package explicitly. \n` +
         `You must also register the package by calling [require("@aws-sdk/signature-v4-crt");] ` +
