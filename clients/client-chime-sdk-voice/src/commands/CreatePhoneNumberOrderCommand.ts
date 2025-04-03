@@ -63,6 +63,7 @@ export interface CreatePhoneNumberOrderCommandOutput extends CreatePhoneNumberOr
  * //     ],
  * //     CreatedTimestamp: new Date("TIMESTAMP"),
  * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     FocDate: new Date("TIMESTAMP"),
  * //   },
  * // };
  *

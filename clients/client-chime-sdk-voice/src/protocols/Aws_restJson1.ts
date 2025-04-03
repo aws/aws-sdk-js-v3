@@ -4804,6 +4804,7 @@ const de_PhoneNumberList = (output: any, context: __SerdeContext): PhoneNumber[]
 const de_PhoneNumberOrder = (output: any, context: __SerdeContext): PhoneNumberOrder => {
   return take(output, {
     CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    FocDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     OrderType: __expectString,
     OrderedPhoneNumbers: _json,
     PhoneNumberOrderId: __expectString,

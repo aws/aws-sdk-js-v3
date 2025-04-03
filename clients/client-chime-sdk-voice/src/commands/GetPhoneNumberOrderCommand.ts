@@ -60,6 +60,7 @@ export interface GetPhoneNumberOrderCommandOutput extends GetPhoneNumberOrderRes
  * //     ],
  * //     CreatedTimestamp: new Date("TIMESTAMP"),
  * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     FocDate: new Date("TIMESTAMP"),
  * //   },
  * // };
  *
