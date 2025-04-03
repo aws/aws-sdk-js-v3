@@ -1476,6 +1476,8 @@ export const ResourceRecordSetRegion = {
   sa_east_1: "sa-east-1",
   us_east_1: "us-east-1",
   us_east_2: "us-east-2",
+  us_gov_east_1: "us-gov-east-1",
+  us_gov_west_1: "us-gov-west-1",
   us_west_1: "us-west-1",
   us_west_2: "us-west-2",
 } as const;
