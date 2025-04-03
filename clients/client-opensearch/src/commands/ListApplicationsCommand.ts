@@ -28,7 +28,7 @@ export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
- * <p>List all OpenSearch Applications under your account.</p>
+ * <p>Lists all OpenSearch applications under your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

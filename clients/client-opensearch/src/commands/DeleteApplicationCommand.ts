@@ -28,7 +28,7 @@ export interface DeleteApplicationCommandInput extends DeleteApplicationRequest 
 export interface DeleteApplicationCommandOutput extends DeleteApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an existing OpenSearch Application.</p>
+ * <p>Deletes a specified OpenSearch application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
