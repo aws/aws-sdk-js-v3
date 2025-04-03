@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.782.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.781.0...v3.782.0) (2025-04-03)
+
+
+### Features
+
+* **client-bedrock-agent:** Added optional "customMetadataField" for Amazon Aurora knowledge bases, allowing single-column metadata. Also added optional "textIndexName" for MongoDB Atlas knowledge bases, enabling hybrid search support. ([7a5625d](https://github.com/aws/aws-sdk-js-v3/commit/7a5625d749a678401538361bbcf62944de194e8f))
+* **client-chime-sdk-voice:** Added FOC date as an attribute of PhoneNumberOrder, added AccessDeniedException as a possible return type of ValidateE911Address ([f6e45d7](https://github.com/aws/aws-sdk-js-v3/commit/f6e45d77696d916ee71d7a43cec0825f9d4b73ea))
+* **client-mailmanager:** Add support for Dual_Stack and PrivateLink types of IngressPoint. For configuration requests, SES Mail Manager will now accept both IPv4/IPv6 dual-stack endpoints and AWS PrivateLink VPC endpoints for email receiving. ([308a75b](https://github.com/aws/aws-sdk-js-v3/commit/308a75bf8c2806e37fb2e7c51d4555b07cf54b2f))
+* **client-route-53:** Added us-gov-east-1 and us-gov-west-1 as valid Latency Based Routing regions for change-resource-record-sets. ([96d1403](https://github.com/aws/aws-sdk-js-v3/commit/96d1403463796a5094354a0813b044d18e90ae9a))
+* **client-sagemaker:** Adds support for i3en, m7i, r7i instance types for SageMaker Hyperpod ([3aaab37](https://github.com/aws/aws-sdk-js-v3/commit/3aaab37ddc0dfd02f20e1f7f03e1524679487a47))
+* **client-sesv2:** This release enables customers to provide attachments in the SESv2 SendEmail and SendBulkEmail APIs. ([ff065ab](https://github.com/aws/aws-sdk-js-v3/commit/ff065ab5f3b47b16fcaac9352f5054cceac02147))
+* **client-transcribe:** This Feature Adds Support for the "zh-HK" Locale for Batch Operations ([7f7181d](https://github.com/aws/aws-sdk-js-v3/commit/7f7181d2f1d71bd68c2a705178cf53977a5a2aa3))
+
+
+
+
+
 # [3.781.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.780.0...v3.781.0) (2025-04-02)
 
 

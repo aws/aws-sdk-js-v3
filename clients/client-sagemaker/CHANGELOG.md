@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.782.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.781.0...v3.782.0) (2025-04-03)
+
+
+### Features
+
+* **client-sagemaker:** Adds support for i3en, m7i, r7i instance types for SageMaker Hyperpod ([3aaab37](https://github.com/aws/aws-sdk-js-v3/commit/3aaab37ddc0dfd02f20e1f7f03e1524679487a47))
+
+
+
+
+
 # [3.780.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.779.0...v3.780.0) (2025-04-01)
 
 
