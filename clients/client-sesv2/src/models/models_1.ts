@@ -13,6 +13,7 @@ import {
   EmailContent,
   EmailTemplateContent,
   EventDestinationDefinition,
+  HttpsPolicy,
   ListManagementOptions,
   MessageTag,
   ScalingMode,
@@ -22,6 +23,78 @@ import {
   TopicPreference,
   VdmOptions,
 } from "./models_0";
+
+/**
+ * <p>A request to change the account suppression list preferences for a specific
+ *             configuration set.</p>
+ * @public
+ */
+export interface PutConfigurationSetSuppressionOptionsRequest {
+  /**
+   * <p>The name of the configuration set to change the suppression list preferences
+   *             for.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>A list that contains the reasons that email addresses are automatically added to the
+   *             suppression list for your account. This list can contain any or all of the
+   *             following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression
+   *                     list for your account when a message sent to that address results in a
+   *                     complaint.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
+   *                     list for your account when a message sent to that address results in a hard
+   *                     bounce.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SuppressedReasons?: SuppressionListReason[] | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetSuppressionOptionsResponse {}
+
+/**
+ * <p>A request to add a custom domain for tracking open and click events to a configuration
+ *             set.</p>
+ * @public
+ */
+export interface PutConfigurationSetTrackingOptionsRequest {
+  /**
+   * <p>The name of the configuration set.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>The domain to use to track open and click events.</p>
+   * @public
+   */
+  CustomRedirectDomain?: string | undefined;
+
+  /**
+   * <p>The https policy to use for tracking open and click events. If the value is OPTIONAL or HttpsPolicy is not
+   *         specified, the open trackers use HTTP and click tracker use the original protocol of the link.
+   *         If the value is REQUIRE, both open and click tracker uses HTTPS and if the value is REQUIRE_OPEN_ONLY
+   *             open tracker uses HTTPS and link tracker is same as original protocol of the link.
+   *         </p>
+   * @public
+   */
+  HttpsPolicy?: HttpsPolicy | undefined;
+}
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
