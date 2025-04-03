@@ -1,5 +1,10 @@
 import { SignatureV4S3Express } from "@aws-sdk/middleware-sdk-s3";
-import { SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
+import {
+  OptionalSigV4aSigner,
+  signatureV4aContainer,
+  SignatureV4CryptoInit,
+  SignatureV4Init,
+} from "@smithy/signature-v4";
 import {
   AwsCredentialIdentity,
   HttpRequest,
@@ -10,7 +15,6 @@ import {
 } from "@smithy/types";
 
 import { OptionalCrtSignerV4, signatureV4CrtContainer } from "./signature-v4-crt-container";
-import { OptionalSigV4aSigner, signatureV4aContainer } from "./signature-v4a-container";
 
 /**
  * @internal
@@ -46,6 +50,7 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
 
   /**
    * Sign with alternate credentials to the ones provided in the constructor.
+   * Note: This is only supported for SigV4a when using the CRT implementation.
    */
   public async signWithCredentials(
     requestToSign: HttpRequest,
@@ -53,25 +58,44 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
     options: RequestSigningArguments = {}
   ): Promise<HttpRequest> {
     if (options.signingRegion === "*") {
-      return this.getSigv4aSigner().signWithCredentials(requestToSign, credentials, options);
+      const signer = this.getSigv4aSigner();
+      const CrtSignerV4 = signatureV4CrtContainer.CrtSignerV4;
+      // Check if the SigV4a signer is the CRT implementation, as JS doesn't support signWithCredentials
+      if (CrtSignerV4 && signer instanceof CrtSignerV4) {
+        return signer.signWithCredentials(requestToSign, credentials, options);
+      } else {
+        throw new Error(
+          `signWithCredentials with signingRegion '*' is only supported when using the CRT dependency @aws-sdk/signature-v4-crt. ` +
+            `Please check whether you have installed the "@aws-sdk/signature-v4-crt" package explicitly. ` +
+            `You must also register the package by calling [require("@aws-sdk/signature-v4-crt");] ` +
+            `or an ESM equivalent such as [import "@aws-sdk/signature-v4-crt";]. ` +
+            `For more information please go to https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt`
+        );
+      }
     }
     return this.sigv4Signer.signWithCredentials(requestToSign, credentials, options);
   }
 
+  /**
+   * Presign a request.
+   * Note: This is only supported for SigV4a when using the CRT implementation.
+   */
   public async presign(originalRequest: HttpRequest, options: RequestPresigningArguments = {}): Promise<HttpRequest> {
     if (options.signingRegion === "*") {
+      const signer = this.getSigv4aSigner();
       const CrtSignerV4 = signatureV4CrtContainer.CrtSignerV4;
-      if (!CrtSignerV4 || typeof CrtSignerV4 !== "function") {
+      // Check if the SigV4a signer is the CRT implementation, as JS doesn't support presign
+      if (CrtSignerV4 && signer instanceof CrtSignerV4) {
+        return signer.presign(originalRequest, options);
+      } else {
         throw new Error(
-          "\n" +
-            `Please check whether you have installed the "@aws-sdk/signature-v4-crt" package explicitly. \n` +
+          `presign with signingRegion '*' is only supported when using the CRT dependency @aws-sdk/signature-v4-crt. ` +
+            `Please check whether you have installed the "@aws-sdk/signature-v4-crt" package explicitly. ` +
             `You must also register the package by calling [require("@aws-sdk/signature-v4-crt");] ` +
-            `or an ESM equivalent such as [import "@aws-sdk/signature-v4-crt";]. \n` +
-            "For more information please go to " +
-            "https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt"
+            `or an ESM equivalent such as [import "@aws-sdk/signature-v4-crt";]. ` +
+            `For more information please go to https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt`
         );
       }
-      return this.getSigv4aSigner().presign(originalRequest, options);
     }
     return this.sigv4Signer.presign(originalRequest, options);
   }

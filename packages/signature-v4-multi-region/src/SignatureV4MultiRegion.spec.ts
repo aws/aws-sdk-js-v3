@@ -8,11 +8,11 @@ vi.mock("@aws-sdk/signature-v4-crt");
 
 import { SignatureV4S3Express } from "@aws-sdk/middleware-sdk-s3";
 import { CrtSignerV4 } from "@aws-sdk/signature-v4-crt";
+import { signatureV4aContainer } from "@smithy/signature-v4";
 import { SignatureV4a } from "@smithy/signature-v4a";
 import { Checksum } from "@smithy/types";
 
 import { signatureV4CrtContainer } from "./signature-v4-crt-container";
-import { signatureV4aContainer } from "./signature-v4a-container";
 import { SignatureV4MultiRegion, SignatureV4MultiRegionInit } from "./SignatureV4MultiRegion";
 
 describe("SignatureV4MultiRegion", () => {
@@ -100,6 +100,34 @@ describe("SignatureV4MultiRegion", () => {
     ).rejects.toThrow("Method presignWithCredentials is not supported for [signingRegion=*].");
   });
 
+  it("should THROW when presigning with signingRegion '*' if CRT is NOT available", async () => {
+    signatureV4CrtContainer.CrtSignerV4 = null; // Simulate CRT not being available
+    const signer = new SignatureV4MultiRegion(params);
+    // Expect the new combined error message
+    await expect(signer.presign(minimalRequest, { signingRegion: "*" })).rejects.toThrow(
+      `presign with signingRegion '*' is only supported when using the CRT dependency @aws-sdk/signature-v4-crt. ` +
+        `Please check whether you have installed the "@aws-sdk/signature-v4-crt" package explicitly. ` +
+        `You must also register the package by calling [require("@aws-sdk/signature-v4-crt");] ` +
+        `or an ESM equivalent such as [import "@aws-sdk/signature-v4-crt";]. ` +
+        `For more information please go to https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt`
+    );
+    expect(CrtSignerV4).not.toHaveBeenCalled();
+  });
+
+  it("should THROW when presigning with signingRegion '*' in non-node runtime (CRT unavailable)", async () => {
+    const nonNodeParams = { ...params, runtime: "browser" };
+    const signer = new SignatureV4MultiRegion(nonNodeParams);
+    // Expect the new combined error message
+    await expect(signer.presign(minimalRequest, { signingRegion: "*" })).rejects.toThrow(
+      `presign with signingRegion '*' is only supported when using the CRT dependency @aws-sdk/signature-v4-crt. ` +
+        `Please check whether you have installed the "@aws-sdk/signature-v4-crt" package explicitly. ` +
+        `You must also register the package by calling [require("@aws-sdk/signature-v4-crt");] ` +
+        `or an ESM equivalent such as [import "@aws-sdk/signature-v4-crt";]. ` +
+        `For more information please go to https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt`
+    );
+    expect(CrtSignerV4).not.toHaveBeenCalled();
+  });
+
   it("should throw an error if neither CrtSignerV4 nor JsSigV4aSigner is available in node runtime", async () => {
     signatureV4CrtContainer.CrtSignerV4 = null;
     signatureV4aContainer.SignatureV4a = null;
@@ -131,20 +159,5 @@ describe("SignatureV4MultiRegion", () => {
     const signer = new SignatureV4MultiRegion(nonNodeParams);
     await signer.sign(minimalRequest, { signingRegion: "*" });
     expect(SignatureV4a).toHaveBeenCalledTimes(1);
-  });
-
-  it("should throw if sign with SigV4a and signature-v4-crt is not installed", async () => {
-    signatureV4CrtContainer.CrtSignerV4 = null;
-    expect.assertions(1);
-    const signer = new SignatureV4MultiRegion({ ...params });
-    // // Use presign here, as presign with '*' requires CRT and has no JS fallback
-    await expect(async () => await signer.presign(minimalRequest, { signingRegion: "*" })).rejects.toThrow(
-      "\n" +
-        `Please check whether you have installed the "@aws-sdk/signature-v4-crt" package explicitly. \n` +
-        `You must also register the package by calling [require("@aws-sdk/signature-v4-crt");] ` +
-        `or an ESM equivalent such as [import "@aws-sdk/signature-v4-crt";]. \n` +
-        "For more information please go to " +
-        "https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt"
-    );
   });
 });
