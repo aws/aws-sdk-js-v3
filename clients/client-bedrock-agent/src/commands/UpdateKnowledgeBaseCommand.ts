@@ -200,6 +200,7 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  *         vectorField: "STRING_VALUE", // required
  *         textField: "STRING_VALUE", // required
  *         metadataField: "STRING_VALUE", // required
+ *         customMetadataField: "STRING_VALUE",
  *       },
  *     },
  *     mongoDbAtlasConfiguration: { // MongoDbAtlasConfiguration
@@ -214,6 +215,7 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  *         metadataField: "STRING_VALUE", // required
  *       },
  *       endpointServiceName: "STRING_VALUE",
+ *       textIndexName: "STRING_VALUE",
  *     },
  *     neptuneAnalyticsConfiguration: { // NeptuneAnalyticsConfiguration
  *       graphArn: "STRING_VALUE", // required
@@ -369,6 +371,7 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  * //           vectorField: "STRING_VALUE", // required
  * //           textField: "STRING_VALUE", // required
  * //           metadataField: "STRING_VALUE", // required
+ * //           customMetadataField: "STRING_VALUE",
  * //         },
  * //       },
  * //       mongoDbAtlasConfiguration: { // MongoDbAtlasConfiguration
@@ -383,6 +386,7 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  * //           metadataField: "STRING_VALUE", // required
  * //         },
  * //         endpointServiceName: "STRING_VALUE",
+ * //         textIndexName: "STRING_VALUE",
  * //       },
  * //       neptuneAnalyticsConfiguration: { // NeptuneAnalyticsConfiguration
  * //         graphArn: "STRING_VALUE", // required
