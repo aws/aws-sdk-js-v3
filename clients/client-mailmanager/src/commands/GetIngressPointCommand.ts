@@ -57,6 +57,14 @@ export interface GetIngressPointCommandOutput extends GetIngressPointResponse, _
  * //     },
  * //     SecretArn: "STRING_VALUE",
  * //   },
+ * //   NetworkConfiguration: { // NetworkConfiguration Union: only one key present
+ * //     PublicNetworkConfiguration: { // PublicNetworkConfiguration
+ * //       IpType: "IPV4" || "DUAL_STACK", // required
+ * //     },
+ * //     PrivateNetworkConfiguration: { // PrivateNetworkConfiguration
+ * //       VpcEndpointId: "STRING_VALUE", // required
+ * //     },
+ * //   },
  * //   CreatedTimestamp: new Date("TIMESTAMP"),
  * //   LastUpdatedTimestamp: new Date("TIMESTAMP"),
  * // };
