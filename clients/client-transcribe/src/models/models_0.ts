@@ -317,6 +317,7 @@ export const LanguageCode = {
   VI_VN: "vi-VN",
   WO_SN: "wo-SN",
   ZH_CN: "zh-CN",
+  ZH_HK: "zh-HK",
   ZH_TW: "zh-TW",
   ZU_ZA: "zu-ZA",
 } as const;
