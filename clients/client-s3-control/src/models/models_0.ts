@@ -1272,7 +1272,7 @@ export type ScopePermission = (typeof ScopePermission)[keyof typeof ScopePermiss
  */
 export interface Scope {
   /**
-   * <p>You can specify any amount of prefixes, but the total length of characters of all prefixes must be less than 512 KB in size.</p>
+   * <p>You can specify any amount of prefixes, but the total length of characters of all prefixes must be less than 256 bytes in size.</p>
    * @public
    */
   Prefixes?: string[] | undefined;
