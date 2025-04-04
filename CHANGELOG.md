@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.783.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.782.0...v3.783.0) (2025-04-04)
+
+
+### Features
+
+* **client-eventbridge:** Amazon EventBridge adds support for customer-managed keys on Archives and validations for two fields: eventSourceArn and kmsKeyIdentifier. ([ef8bd0e](https://github.com/aws/aws-sdk-js-v3/commit/ef8bd0ec7304cf71ce72503ca19882b7aef71902))
+* **clients:** update client endpoints as of 2025-04-04 ([c85cc99](https://github.com/aws/aws-sdk-js-v3/commit/c85cc998809ed7a1613a25dc61a61c6639910051))
+
+
+
+
+
 # [3.782.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.781.0...v3.782.0) (2025-04-03)
 
 
