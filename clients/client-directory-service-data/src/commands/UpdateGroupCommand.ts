@@ -107,6 +107,32 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataB
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
  *
+ * @example To update a group
+ * ```javascript
+ * // The following command updates the preferred language and country attributes for the GuestsLocal group.
+ * const input = {
+ *   ClientToken: "550e8400-e29b-41d4-a716-446655440000",
+ *   DirectoryId: "d-12233abcde",
+ *   GroupScope: "Global",
+ *   GroupType: "Security",
+ *   OtherAttributes: {
+ *     co: {
+ *       S: "US"
+ *     },
+ *     preferredLanguage: {
+ *       S: "English"
+ *     }
+ *   },
+ *   SAMAccountName: "GuestsLocal",
+ *   UpdateType: "REPLACE"
+ * };
+ * const command = new UpdateGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateGroupCommand extends $Command

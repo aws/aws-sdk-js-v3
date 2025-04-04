@@ -94,6 +94,21 @@ export interface DeleteUserCommandOutput extends DeleteUserResult, __MetadataBea
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
  *
+ * @example To delete a user
+ * ```javascript
+ * // The following command deletes a group from the directory.
+ * const input = {
+ *   ClientToken: "550e8400-e29b-41d4-a716-446655440000",
+ *   DirectoryId: "d-12233abcde",
+ *   SAMAccountName: "pcandella"
+ * };
+ * const command = new DeleteUserCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteUserCommand extends $Command

@@ -711,7 +711,7 @@ export interface DescribeGroupRequest {
 
   /**
    * <p> One or more attributes to be returned for the group. For a list of supported attributes,
-   *       see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data-attributes.html">Directory Service Data Attributes</a>.
+   *       see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html">Directory Service Data Attributes</a>.
    *     </p>
    * @public
    */
@@ -843,7 +843,7 @@ export interface DescribeUserResult {
 
   /**
    * <p> The UPN that is an Internet-style login name for a user and is based on the Internet
-   *       standard <a href="https://www.ietf.org/rfc/rfc0822.txt">RFC 822</a>. The UPN is shorter
+   *       standard <a href="https://datatracker.ietf.org/doc/html/rfc822">RFC 822</a>. The UPN is shorter
    *       than the distinguished name and easier to remember. </p>
    * @public
    */
@@ -1596,7 +1596,7 @@ export interface User {
 
   /**
    * <p> The UPN that is an internet-style login name for a user and based on the internet
-   *       standard <a href="https://www.ietf.org/rfc/rfc0822.txt">RFC 822</a>. The UPN is shorter
+   *       standard <a href="https://datatracker.ietf.org/doc/html/rfc822">RFC 822</a>. The UPN is shorter
    *       than the distinguished name and easier to remember. </p>
    * @public
    */
@@ -1780,7 +1780,7 @@ export interface UpdateUserRequest {
   /**
    * <p> An expression that defines one or more attribute names with the data type and value of
    *       each attribute. A key is an attribute name, and the value is a list of maps. For a list of
-   *       supported attributes, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data-attributes.html">Directory Service Data Attributes</a>. </p>
+   *       supported attributes, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html">Directory Service Data Attributes</a>. </p>
    *          <note>
    *             <p> Attribute names are case insensitive. </p>
    *          </note>

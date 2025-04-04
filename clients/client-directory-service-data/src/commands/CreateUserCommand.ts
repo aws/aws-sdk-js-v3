@@ -108,6 +108,36 @@ export interface CreateUserCommandOutput extends CreateUserResult, __MetadataBea
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
  *
+ * @example To create a new user in the directory
+ * ```javascript
+ * // The following command
+ * const input = {
+ *   ClientToken: "550e8400-e29b-41d4-a716-446655440000",
+ *   DirectoryId: "d-12233abcde",
+ *   EmailAddress: "pcandella@exampledomain.com",
+ *   GivenName: "Pat Candella",
+ *   OtherAttributes: {
+ *     department: {
+ *       S: "HR"
+ *     },
+ *     homePhone: {
+ *       S: "212-555-0100"
+ *     }
+ *   },
+ *   SAMAccountName: "pcandella",
+ *   Surname: "Candella"
+ * };
+ * const command = new CreateUserCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DirectoryId: "d-12233abcde",
+ *   SAMAccountName: "pcandella",
+ *   SID: "S-1-5-99-789"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateUserCommand extends $Command

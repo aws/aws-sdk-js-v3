@@ -96,6 +96,23 @@ export interface RemoveGroupMemberCommandOutput extends RemoveGroupMemberResult,
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
  *
+ * @example To remove a member from a group
+ * ```javascript
+ * // The following command removes the specified member from the example.local domain.
+ * const input = {
+ *   ClientToken: "550e8400-e29b-41d4-a716-446655440000",
+ *   DirectoryId: "d-12233abcde",
+ *   GroupName: "DevOps",
+ *   MemberName: "Pat Candella",
+ *   MemberRealm: "example.local"
+ * };
+ * const command = new RemoveGroupMemberCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class RemoveGroupMemberCommand extends $Command

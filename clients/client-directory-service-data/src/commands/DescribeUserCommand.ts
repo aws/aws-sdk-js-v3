@@ -109,6 +109,51 @@ export interface DescribeUserCommandOutput extends DescribeUserResult, __Metadat
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
  *
+ * @example To return the attributes of a user
+ * ```javascript
+ * // The following command returns the mapped attributes for a user along with the department, manager, IP phone, and date the user last set a password.
+ * const input = {
+ *   DirectoryId: "d-12233abcde",
+ *   OtherAttributes: [
+ *     "department",
+ *     "manager",
+ *     "ipPhone",
+ *     "pwdLastSet"
+ *   ],
+ *   Realm: "examplecorp.com",
+ *   SAMAccountName: "twhitlock"
+ * };
+ * const command = new DescribeUserCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DirectoryId: "d-12233abcde",
+ *   DistinguishedName: "Terry Whitlock",
+ *   EmailAddress: "terry.whitlock@examplecorp.com",
+ *   Enabled: true,
+ *   GivenName: "Terry Whitlock",
+ *   OtherAttributes: {
+ *     department: {
+ *       S: "communications"
+ *     },
+ *     ipPhone: {
+ *       S: "111.111.111.111"
+ *     },
+ *     manager: {
+ *       S: "OU=Users,DC=mmajors"
+ *     },
+ *     pwdLastSet: {
+ *       N: 0
+ *     }
+ *   },
+ *   SAMAccountName: "twhitlock",
+ *   SID: "123-456-7890",
+ *   Surname: "Whitlock",
+ *   UserPrincipalName: "terry.whitlock"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DescribeUserCommand extends $Command
