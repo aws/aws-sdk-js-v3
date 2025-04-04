@@ -5105,7 +5105,7 @@ export type RouteServerAssociationState =
 
 /**
  * <p>Describes the association between a route server and a VPC.</p>
- *          <p>A route server association is the connection established between a route server and a VPC. This is a fundamental configuration step that enables the route server to work with appliances in your VPC.</p>
+ *          <p>A route server association is the connection established between a route server and a VPC.</p>
  * @public
  */
 export interface RouteServerAssociation {

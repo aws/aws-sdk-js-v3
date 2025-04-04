@@ -1192,7 +1192,7 @@ export interface EnableEbsEncryptionByDefaultResult {
  * <p>Request to create a launch template for a Windows fast launch enabled AMI.</p>
  *          <note>
  *             <p>Note - You can specify either the <code>LaunchTemplateName</code> or the
- *           <code>LaunchTemplateId</code>, but not both.</p>
+ *         <code>LaunchTemplateId</code>, but not both.</p>
  *          </note>
  * @public
  */
@@ -1617,7 +1617,7 @@ export interface EnableImageDeprecationRequest {
 
   /**
    * <p>The date and time to deprecate the AMI, in UTC, in the following format:
-   *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
+   *       <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
    *       If you specify a value for seconds, Amazon EC2 rounds the seconds to the nearest minute.</p>
    *          <p>You can’t specify a date in the past. The upper limit for <code>DeprecateAt</code> is 10
    *       years from now, except for public AMIs, where the upper limit is 2 years from the creation
@@ -2485,7 +2485,7 @@ export interface GetAllowedImagesSettingsRequest {
  *          <p>Up to 10 <code>imageCriteria</code> objects can be specified, and up to a total of 200
  *       values for all <code>imageProviders</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#allowed-amis-json-configuration">JSON
  *         configuration for the Allowed AMIs criteria</a> in the
- *         <i>Amazon EC2 User Guide</i>.</p>
+ *       <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface ImageCriterion {
@@ -5983,7 +5983,7 @@ export interface RouteServerRoute {
   /**
    * <p>The current status of the route in the routing database. Values are <code>in-rib</code> or <code>in-fib</code> depending on if the routes are in the RIB or the FIB database.</p>
    *          <p>The <a href="https://en.wikipedia.org/wiki/Routing_table">Routing Information Base (RIB)</a> serves as a database that stores all the routing information and network topology data collected by a router or routing system, such as routes learned from BGP peers. The RIB is constantly updated as new routing information is received or existing routes change. This ensures that the route server always has the most current view of the network topology and can make optimal routing decisions.</p>
-   *          <p>The <a href="https://en.wikipedia.org/wiki/Forwarding_information_base">Forwarding Information Base (FIB)</a> serves as a forwarding table for what route server has determined are the best-path routes in the RIB after evaluating all available routing information and policies. The FIB routes that are installed on the route tables. The FIB is recomputed whenever there are changes to the RIB.</p>
+   *          <p>The <a href="https://en.wikipedia.org/wiki/Forwarding_information_base">Forwarding Information Base (FIB)</a> serves as a forwarding table for what route server has determined are the best-path routes in the RIB after evaluating all available routing information and policies. The FIB routes are installed on the route tables. The FIB is recomputed whenever there are changes to the RIB.</p>
    * @public
    */
   RouteStatus?: RouteServerRouteStatus | undefined;

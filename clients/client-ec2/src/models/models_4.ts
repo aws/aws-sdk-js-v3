@@ -4628,8 +4628,8 @@ export interface Image {
   /**
    * <p>If <code>true</code>, the AMI satisfies the criteria for Allowed AMIs and can be
    *       discovered and used in the account. If <code>false</code> and Allowed AMIs is set to
-   *         <code>enabled</code>, the AMI can't be discovered or used in the account. If
-   *         <code>false</code> and Allowed AMIs is set to <code>audit-mode</code>, the AMI can be
+   *       <code>enabled</code>, the AMI can't be discovered or used in the account. If
+   *       <code>false</code> and Allowed AMIs is set to <code>audit-mode</code>, the AMI can be
    *       discovered and used in the account.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html">Control the discovery and use of AMIs in
    *       Amazon EC2 with Allowed AMIs</a> in
@@ -5764,7 +5764,7 @@ export interface DescribeInstanceImageMetadataRequest {
    *             <li>
    *                <p>
    *                   <code>availability-zone</code> - The name of the Availability Zone (for example,
-   *             <code>us-west-2a</code>) or Local Zone (for example, <code>us-west-2-lax-1b</code>) of
+   *           <code>us-west-2a</code>) or Local Zone (for example, <code>us-west-2-lax-1b</code>) of
    *           the instance.</p>
    *             </li>
    *             <li>
@@ -5779,8 +5779,8 @@ export interface DescribeInstanceImageMetadataRequest {
    *             <li>
    *                <p>
    *                   <code>instance-state-name</code> - The state of the instance (<code>pending</code> |
-   *             <code>running</code> | <code>shutting-down</code> | <code>terminated</code> |
-   *             <code>stopping</code> | <code>stopped</code>).</p>
+   *           <code>running</code> | <code>shutting-down</code> | <code>terminated</code> |
+   *           <code>stopping</code> | <code>stopped</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5791,13 +5791,13 @@ export interface DescribeInstanceImageMetadataRequest {
    *                <p>
    *                   <code>launch-time</code> - The time when the instance was launched, in the ISO 8601
    *           format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,
-   *             <code>2023-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
+   *           <code>2023-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
    *           example, <code>2023-09-29T*</code>, which matches an entire day.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>owner-alias</code> - The owner alias (<code>amazon</code> |
-   *             <code>aws-marketplace</code> | <code>aws-backup-vault</code>). The valid aliases are
+   *           <code>aws-marketplace</code> | <code>aws-backup-vault</code>). The valid aliases are
    *           defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be set
    *           using the IAM console. We recommend that you use the <code>Owner</code> request parameter
    *           instead of this filter.</p>
@@ -5819,7 +5819,7 @@ export interface DescribeInstanceImageMetadataRequest {
    *             <li>
    *                <p>
    *                   <code>zone-id</code> - The ID of the Availability Zone (for example,
-   *             <code>usw2-az2</code>) or Local Zone (for example, <code>usw2-lax1-az1</code>) of the
+   *           <code>usw2-az2</code>) or Local Zone (for example, <code>usw2-lax1-az1</code>) of the
    *           instance.</p>
    *             </li>
    *          </ul>
@@ -5892,7 +5892,7 @@ export interface ImageMetadata {
   /**
    * <p>The alias of the AMI owner.</p>
    *          <p>Valid values: <code>amazon</code> | <code>aws-backup-vault</code> |
-   *         <code>aws-marketplace</code>
+   *       <code>aws-marketplace</code>
    *          </p>
    * @public
    */
@@ -5906,7 +5906,7 @@ export interface ImageMetadata {
 
   /**
    * <p>The deprecation date and time of the AMI, in UTC, in the following format:
-   *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.</p>
+   *       <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.</p>
    * @public
    */
   DeprecationTime?: string | undefined;
@@ -8804,6 +8804,11 @@ export interface DescribeInstanceTypesRequest {
    *                <p>
    *                   <code>current-generation</code> - Indicates whether this instance type is the latest
    *      generation instance type of an instance family  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dedicated-hosts-supported</code> - Indicates whether the instance type supports
+   *      Dedicated Hosts.  (<code>true</code> | <code>false</code>)</p>
    *             </li>
    *             <li>
    *                <p>

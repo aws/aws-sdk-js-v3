@@ -1979,6 +1979,13 @@ export interface ModifyInstanceAttributeRequest {
 
   /**
    * <p>The name of the attribute to modify.</p>
+   *          <note>
+   *             <p>When changing the instance type: If the original instance type is configured for
+   *                 configurable bandwidth, and the desired instance type doesn't support configurable
+   *                 bandwidth, first set the existing bandwidth configuration to <code>default</code>
+   *                 using the <a>ModifyInstanceNetworkPerformanceOptions</a>
+   *                 operation.</p>
+   *          </note>
    *          <important>
    *             <p>You can modify the following attributes only: <code>disableApiTermination</code> |
    *                     <code>instanceType</code> | <code>kernel</code> | <code>ramdisk</code> |
@@ -8113,7 +8120,7 @@ export interface ReplaceIamInstanceProfileAssociationResult {
  *          <p>Up to 10 <code>imageCriteria</code> objects can be specified, and up to a total of 200
  *       values for all <code>imageProviders</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#allowed-amis-json-configuration">JSON
  *         configuration for the Allowed AMIs criteria</a> in the
- *         <i>Amazon EC2 User Guide</i>.</p>
+ *       <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface ImageCriterionRequest {

@@ -35,11 +35,11 @@ export interface DisableImageBlockPublicAccessCommandOutput
  *       from your account. With the restriction removed, you can publicly share your AMIs in the
  *       specified Amazon Web Services Region.</p>
  *          <p>The API can take up to 10 minutes to configure this setting. During this time, if you run
- *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html">GetImageBlockPublicAccessState</a>, the response will be
+ *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html">GetImageBlockPublicAccessState</a>, the response will be
  *       <code>block-new-sharing</code>. When the API has completed the configuration, the response
  *       will be <code>unblocked</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis">Block
- *         public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *       public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

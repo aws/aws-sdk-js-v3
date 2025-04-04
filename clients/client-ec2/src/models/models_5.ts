@@ -6648,7 +6648,7 @@ export interface DescribeStoreImageTasksRequest {
    *             <li>
    *                <p>
    *                   <code>task-state</code> - Returns tasks in a certain state (<code>InProgress</code> |
-   *             <code>Completed</code> | <code>Failed</code>)</p>
+   *           <code>Completed</code> | <code>Failed</code>)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6718,14 +6718,14 @@ export interface StoreImageTaskResult {
 
   /**
    * <p>The state of the store task (<code>InProgress</code>, <code>Completed</code>, or
-   *         <code>Failed</code>).</p>
+   *       <code>Failed</code>).</p>
    * @public
    */
   StoreTaskState?: string | undefined;
 
   /**
    * <p>If the tasks fails, the reason for the failure is returned. If the task succeeds,
-   *         <code>null</code> is returned.</p>
+   *       <code>null</code> is returned.</p>
    * @public
    */
   StoreTaskFailureReason?: string | undefined;

@@ -38,7 +38,7 @@ export interface DisableImageCommandOutput extends DisableImageResult, __Metadat
  *          <p>Only the AMI owner can disable an AMI.</p>
  *          <p>You can re-enable a disabled AMI using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableImage.html">EnableImage</a>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html">Disable an AMI</a> in the
- *         <i>Amazon EC2 User Guide</i>.</p>
+ *       <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

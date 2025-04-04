@@ -42,7 +42,7 @@ export interface DisableImageDeregistrationProtectionCommandOutput
  *       protection for the AMI, then, when you disable deregistration protection, you won’t
  *       immediately be able to deregister the AMI.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html#ami-deregistration-protection">Protect an
- *         AMI from deregistration</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *       AMI from deregistration</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

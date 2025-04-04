@@ -31,7 +31,7 @@ export interface DisableAllowedImagesSettingsCommandOutput
 
 /**
  * <p>Disables Allowed AMIs for your account in the specified Amazon Web Services Region. When set to
- *         <code>disabled</code>, the image criteria in your Allowed AMIs settings do not apply, and no
+ *       <code>disabled</code>, the image criteria in your Allowed AMIs settings do not apply, and no
  *       restrictions are placed on AMI discoverability or usage. Users in your account can launch
  *       instances using any public AMI or AMI shared with your account.</p>
  *          <note>
@@ -40,7 +40,7 @@ export interface DisableAllowedImagesSettingsCommandOutput
  *         usable by users in your account.</p>
  *          </note>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html">Control the discovery and use of AMIs in
- *           Amazon EC2 with Allowed AMIs</a> in
+ *       Amazon EC2 with Allowed AMIs</a> in
  *       <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
