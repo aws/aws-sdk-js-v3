@@ -8,6 +8,7 @@ import { AdaptiveRetryStrategy, StandardRetryStrategy } from "@smithy/util-retry
 import { PassThrough } from "stream";
 
 import { defaultProvider } from "./defaultProvider";
+import { clearDefaultProviderCache } from "./memoizeGlobal";
 
 jest.mock("fs", () => {
   const actual = jest.requireActual("fs");
@@ -1343,6 +1344,93 @@ describe("credential-provider-node integration test", () => {
     it("should throw CredentialsProviderError", async () => {
       process.env.AWS_EC2_METADATA_DISABLED = "true";
       expect(async () => sts.getCallerIdentity({})).rejects.toThrow("Could not load credentials from any providers");
+    });
+  });
+
+  describe("Global Cache Behavior", () => {
+    beforeEach(() => {
+      clearDefaultProviderCache();
+      jest.clearAllMocks();
+      for (const variable in RESERVED_ENVIRONMENT_VARIABLES) {
+        delete process.env[variable];
+      }
+    });
+
+    afterEach(() => {
+      clearDefaultProviderCache();
+    });
+
+    it("should cache credentials across provider instances", async () => {
+      // Set up environment credentials to avoid profile warning
+      process.env.AWS_ACCESS_KEY_ID = "AKID";
+      process.env.AWS_SECRET_ACCESS_KEY = "SECRET";
+
+      const provider1 = defaultProvider();
+      const provider2 = defaultProvider();
+
+      const creds1 = await provider1();
+      const creds2 = await provider2();
+
+      expect(creds1).toEqual(creds2);
+      expect(creds1).toEqual({
+        accessKeyId: "AKID",
+        secretAccessKey: "SECRET",
+        $source: {
+          CREDENTIALS_ENV_VARS: "g",
+        },
+      });
+    });
+
+    it("should maintain separate caches for different profiles", async () => {
+      // Clear env variables to allow profile credentials
+      delete process.env.AWS_ACCESS_KEY_ID;
+      delete process.env.AWS_SECRET_ACCESS_KEY;
+
+      Object.assign(iniProfileData, {
+        profile1: {
+          aws_access_key_id: "AKID1",
+          aws_secret_access_key: "SECRET1",
+        },
+        profile2: {
+          aws_access_key_id: "AKID2",
+          aws_secret_access_key: "SECRET2",
+        },
+      });
+
+      const provider1 = defaultProvider({ profile: "profile1" });
+      const provider2 = defaultProvider({ profile: "profile2" });
+
+      const [creds1, creds2] = await Promise.all([provider1(), provider2()]);
+
+      expect(creds1.accessKeyId).toBe("AKID1");
+      expect(creds2.accessKeyId).toBe("AKID2");
+      expect(creds1).not.toEqual(creds2);
+    });
+
+    it("should handle expired credentials", async () => {
+      process.env.AWS_ACCESS_KEY_ID = "AKID";
+      process.env.AWS_SECRET_ACCESS_KEY = "SECRET";
+
+      const provider = defaultProvider();
+      const creds = await provider();
+
+      // Simulate expiration
+      Object.defineProperty(creds, "expiration", {
+        value: new Date(Date.now() - 300001), // Just over 5 minutes ago
+      });
+
+      // Should force a refresh on next call
+      const newCreds = await provider();
+      expect(newCreds).toBeDefined();
+      expect(newCreds.accessKeyId).toBe("AKID");
+    });
+
+    it("should handle provider errors", async () => {
+      delete process.env.AWS_ACCESS_KEY_ID;
+      delete process.env.AWS_SECRET_ACCESS_KEY;
+
+      const provider = defaultProvider();
+      await expect(provider()).rejects.toThrow("Could not load credentials from any providers");
     });
   });
 });
