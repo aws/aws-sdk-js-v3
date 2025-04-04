@@ -137,7 +137,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have the necessary permissons for this action.</p>
+ *  <p>You do not have the necessary permissions for this action.</p>
  *
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>

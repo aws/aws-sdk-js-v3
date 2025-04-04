@@ -138,7 +138,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have the necessary permissons for this action.</p>
+ *  <p>You do not have the necessary permissions for this action.</p>
  *
  * @throws {@link InternalException} (server fault)
  *  <p>This exception occurs due to unexpected causes.</p>

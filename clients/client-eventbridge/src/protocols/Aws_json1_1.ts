@@ -2960,6 +2960,7 @@ const de_DescribeArchiveResponse = (output: any, context: __SerdeContext): Descr
     EventCount: __expectLong,
     EventPattern: __expectString,
     EventSourceArn: __expectString,
+    KmsKeyIdentifier: __expectString,
     RetentionDays: __expectInt32,
     SizeBytes: __expectLong,
     State: __expectString,
