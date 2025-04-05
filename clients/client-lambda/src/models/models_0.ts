@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { LambdaServiceException as __BaseException } from "./LambdaServiceException";
