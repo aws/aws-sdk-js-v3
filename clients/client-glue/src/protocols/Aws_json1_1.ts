@@ -10925,6 +10925,8 @@ const se_ColumnStatisticsData = (input: ColumnStatisticsData, context: __SerdeCo
 
 // se_ConnectionsList omitted.
 
+// se_ConnectionStringList omitted.
+
 // se_ConnectorDataSource omitted.
 
 // se_ConnectorDataTarget omitted.
@@ -12170,8 +12172,6 @@ const se_Mappings = (input: Mapping[], context: __SerdeContext): any => {
 // se_OracleSQLCatalogTarget omitted.
 
 // se_OrchestrationArgumentsMap omitted.
-
-// se_OrchestrationStringList omitted.
 
 // se_Order omitted.
 
@@ -13639,6 +13639,8 @@ const de_ConnectionList = (output: any, context: __SerdeContext): Connection[] =
 // de_ConnectionProperties omitted.
 
 // de_ConnectionsList omitted.
+
+// de_ConnectionStringList omitted.
 
 // de_ConnectionTypeBrief omitted.
 

@@ -71,7 +71,7 @@ export interface BatchGetJobsCommandOutput extends BatchGetJobsResponse, __Metad
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       Connections: { // ConnectionsList
- * //         Connections: [ // OrchestrationStringList
+ * //         Connections: [ // ConnectionStringList
  * //           "STRING_VALUE",
  * //         ],
  * //       },
