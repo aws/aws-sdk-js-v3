@@ -24,6 +24,26 @@ export class AccountLimitExceededException extends __BaseException {
 }
 
 /**
+ * <p>The CodeBuild access has been suspended for the calling Amazon Web Services account.</p>
+ * @public
+ */
+export class AccountSuspendedException extends __BaseException {
+  readonly name: "AccountSuspendedException" = "AccountSuspendedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccountSuspendedException, __BaseException>) {
+    super({
+      name: "AccountSuspendedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountSuspendedException.prototype);
+  }
+}
+
+/**
  * @public
  * @enum
  */
@@ -2791,6 +2811,137 @@ export interface BatchGetBuildsOutput {
 /**
  * @public
  */
+export interface BatchGetCommandExecutionsInput {
+  /**
+   * <p>A <code>sandboxId</code> or <code>sandboxArn</code>.</p>
+   * @public
+   */
+  sandboxId: string | undefined;
+
+  /**
+   * <p>A comma separated list of <code>commandExecutionIds</code>.</p>
+   * @public
+   */
+  commandExecutionIds: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CommandType = {
+  SHELL: "SHELL",
+} as const;
+
+/**
+ * @public
+ */
+export type CommandType = (typeof CommandType)[keyof typeof CommandType];
+
+/**
+ * <p>Contains command execution information.</p>
+ * @public
+ */
+export interface CommandExecution {
+  /**
+   * <p>The ID of the command execution.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>A <code>sandboxId</code>.</p>
+   * @public
+   */
+  sandboxId?: string | undefined;
+
+  /**
+   * <p>When the command execution process was initially submitted, expressed in Unix time format.</p>
+   * @public
+   */
+  submitTime?: Date | undefined;
+
+  /**
+   * <p>When the command execution process started, expressed in Unix time format.</p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p>When the command execution process ended, expressed in Unix time format.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>The status of the command execution.</p>
+   * @public
+   */
+  status?: string | undefined;
+
+  /**
+   * <p>The command that needs to be executed.</p>
+   * @public
+   */
+  command?: string | undefined;
+
+  /**
+   * <p>The command type.</p>
+   * @public
+   */
+  type?: CommandType | undefined;
+
+  /**
+   * <p>The exit code to return upon completion.</p>
+   * @public
+   */
+  exitCode?: string | undefined;
+
+  /**
+   * <p>The text written by the command to stdout.</p>
+   * @public
+   */
+  standardOutputContent?: string | undefined;
+
+  /**
+   * <p>The text written by the command to stderr.</p>
+   * @public
+   */
+  standardErrContent?: string | undefined;
+
+  /**
+   * <p>Information about build logs in CloudWatch Logs.</p>
+   * @public
+   */
+  logs?: LogsLocation | undefined;
+
+  /**
+   * <p>A <code>sandboxArn</code>.</p>
+   * @public
+   */
+  sandboxArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetCommandExecutionsOutput {
+  /**
+   * <p>Information about the requested command executions.</p>
+   * @public
+   */
+  commandExecutions?: CommandExecution[] | undefined;
+
+  /**
+   * <p>The IDs of command executions for which information could not be found.</p>
+   * @public
+   */
+  commandExecutionsNotFound?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface BatchGetFleetsInput {
   /**
    * <p>The names or ARNs of the compute fleets.</p>
@@ -4856,6 +5007,296 @@ export interface BatchGetReportsOutput {
 }
 
 /**
+ * @public
+ */
+export interface BatchGetSandboxesInput {
+  /**
+   * <p>A comma separated list of <code>sandboxIds</code> or <code>sandboxArns</code>.</p>
+   * @public
+   */
+  ids: string[] | undefined;
+}
+
+/**
+ * <p>Contains information about the sandbox phase.</p>
+ * @public
+ */
+export interface SandboxSessionPhase {
+  /**
+   * <p>The name of the sandbox phase.</p>
+   * @public
+   */
+  phaseType?: string | undefined;
+
+  /**
+   * <p>The current status of the sandbox phase. Valid values include:</p>
+   *          <dl>
+   *             <dt>FAILED</dt>
+   *             <dd>
+   *                <p>The sandbox phase failed.</p>
+   *             </dd>
+   *             <dt>FAULT</dt>
+   *             <dd>
+   *                <p>The sandbox phase faulted.</p>
+   *             </dd>
+   *             <dt>IN_PROGRESS</dt>
+   *             <dd>
+   *                <p>The sandbox phase is still in progress.</p>
+   *             </dd>
+   *             <dt>STOPPED</dt>
+   *             <dd>
+   *                <p>The sandbox phase stopped.</p>
+   *             </dd>
+   *             <dt>SUCCEEDED</dt>
+   *             <dd>
+   *                <p>The sandbox phase succeeded.</p>
+   *             </dd>
+   *             <dt>TIMED_OUT</dt>
+   *             <dd>
+   *                <p>The sandbox phase timed out.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  phaseStatus?: StatusType | undefined;
+
+  /**
+   * <p>When the sandbox phase started, expressed in Unix time format.</p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p>When the sandbox phase ended, expressed in Unix time format.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>How long, in seconds, between the starting and ending times of the sandbox's
+   *             phase.</p>
+   * @public
+   */
+  durationInSeconds?: number | undefined;
+
+  /**
+   * <p> An array of <code>PhaseContext</code> objects. </p>
+   * @public
+   */
+  contexts?: PhaseContext[] | undefined;
+}
+
+/**
+ * <p>Contains information about the sandbox session.</p>
+ * @public
+ */
+export interface SandboxSession {
+  /**
+   * <p>The ID of the sandbox session.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The status of the sandbox session.</p>
+   * @public
+   */
+  status?: string | undefined;
+
+  /**
+   * <p>When the sandbox session started, expressed in Unix time format.</p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p>When the sandbox session ended, expressed in Unix time format.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>The current phase for the sandbox.</p>
+   * @public
+   */
+  currentPhase?: string | undefined;
+
+  /**
+   * <p> An array of <code>SandboxSessionPhase</code> objects. </p>
+   * @public
+   */
+  phases?: SandboxSessionPhase[] | undefined;
+
+  /**
+   * <p>An identifier for the version of this sandbox's source code.</p>
+   * @public
+   */
+  resolvedSourceVersion?: string | undefined;
+
+  /**
+   * <p>Information about build logs in CloudWatch Logs.</p>
+   * @public
+   */
+  logs?: LogsLocation | undefined;
+
+  /**
+   * <p>Describes a network interface.</p>
+   * @public
+   */
+  networkInterface?: NetworkInterface | undefined;
+}
+
+/**
+ * <p>Contains sandbox information.</p>
+ * @public
+ */
+export interface Sandbox {
+  /**
+   * <p>The ID of the sandbox.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The ARN of the sandbox.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The CodeBuild project name.</p>
+   * @public
+   */
+  projectName?: string | undefined;
+
+  /**
+   * <p>When the sandbox process was initially requested, expressed in Unix time format.</p>
+   * @public
+   */
+  requestTime?: Date | undefined;
+
+  /**
+   * <p>When the sandbox process started, expressed in Unix time format.</p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p>When the sandbox process ended, expressed in Unix time format.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>The status of the sandbox.</p>
+   * @public
+   */
+  status?: string | undefined;
+
+  /**
+   * <p>Information about the build input source code for the build project.</p>
+   * @public
+   */
+  source?: ProjectSource | undefined;
+
+  /**
+   * <p>Any version identifier for the version of the sandbox to be built.</p>
+   * @public
+   */
+  sourceVersion?: string | undefined;
+
+  /**
+   * <p> An array of <code>ProjectSource</code> objects. </p>
+   * @public
+   */
+  secondarySources?: ProjectSource[] | undefined;
+
+  /**
+   * <p> An array of <code>ProjectSourceVersion</code> objects.</p>
+   * @public
+   */
+  secondarySourceVersions?: ProjectSourceVersion[] | undefined;
+
+  /**
+   * <p>Information about the build environment of the build project.</p>
+   * @public
+   */
+  environment?: ProjectEnvironment | undefined;
+
+  /**
+   * <p>
+   *       An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild build project. A <code>ProjectFileSystemLocation</code> object
+   *       specifies the <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
+   *       <code>mountPoint</code>, and <code>type</code> of a file system created using Amazon Elastic File System.
+   *   </p>
+   * @public
+   */
+  fileSystemLocations?: ProjectFileSystemLocation[] | undefined;
+
+  /**
+   * <p>How long, in minutes, from 5 to 2160 (36 hours), for CodeBuild to wait before timing out this sandbox if it does not
+   *             get marked as completed.</p>
+   * @public
+   */
+  timeoutInMinutes?: number | undefined;
+
+  /**
+   * <p>The number of minutes a sandbox is allowed to be queued before it times out. </p>
+   * @public
+   */
+  queuedTimeoutInMinutes?: number | undefined;
+
+  /**
+   * <p>Information about the VPC configuration that CodeBuild accesses.</p>
+   * @public
+   */
+  vpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p> Information about logs for a build project. These can be logs in CloudWatch Logs, built in a
+   *             specified S3 bucket, or both. </p>
+   * @public
+   */
+  logConfig?: LogsConfig | undefined;
+
+  /**
+   * <p>The Key Management Service customer master key (CMK) to be used for encrypting the sandbox output
+   *             artifacts.</p>
+   * @public
+   */
+  encryptionKey?: string | undefined;
+
+  /**
+   * <p>The name of a service role used for this sandbox.</p>
+   * @public
+   */
+  serviceRole?: string | undefined;
+
+  /**
+   * <p>The current session for the sandbox.</p>
+   * @public
+   */
+  currentSession?: SandboxSession | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetSandboxesOutput {
+  /**
+   * <p>Information about the requested sandboxes.</p>
+   * @public
+   */
+  sandboxes?: Sandbox[] | undefined;
+
+  /**
+   * <p>The IDs of sandboxes for which information could not be found.</p>
+   * @public
+   */
+  sandboxesNotFound?: string[] | undefined;
+}
+
+/**
  * <p>Specifies filters when retrieving batch builds.</p>
  * @public
  */
@@ -6606,6 +7047,52 @@ export interface ListBuildsForProjectOutput {
 /**
  * @public
  */
+export interface ListCommandExecutionsForSandboxInput {
+  /**
+   * <p>A <code>sandboxId</code> or <code>sandboxArn</code>.</p>
+   * @public
+   */
+  sandboxId: string | undefined;
+
+  /**
+   * <p>The maximum number of sandbox records to be retrieved.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The order in which sandbox records should be retrieved.</p>
+   * @public
+   */
+  sortOrder?: SortOrderType | undefined;
+
+  /**
+   * <p>The next token, if any, to get paginated results. You will get this value from previous execution of list sandboxes.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCommandExecutionsForSandboxOutput {
+  /**
+   * <p>Information about the requested command executions.</p>
+   * @public
+   */
+  commandExecutions?: CommandExecution[] | undefined;
+
+  /**
+   * <p>Information about the next token to get paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListCuratedEnvironmentImagesInput {}
 
 /**
@@ -7178,6 +7665,92 @@ export interface ListReportsForReportGroupOutput {
    * @public
    */
   reports?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSandboxesInput {
+  /**
+   * <p>The maximum number of sandbox records to be retrieved.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The order in which sandbox records should be retrieved.</p>
+   * @public
+   */
+  sortOrder?: SortOrderType | undefined;
+
+  /**
+   * <p>The next token, if any, to get paginated results. You will get this value from previous execution of list sandboxes.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSandboxesOutput {
+  /**
+   * <p>Information about the requested sandbox IDs.</p>
+   * @public
+   */
+  ids?: string[] | undefined;
+
+  /**
+   * <p>Information about the next token to get paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSandboxesForProjectInput {
+  /**
+   * <p>The CodeBuild project name.</p>
+   * @public
+   */
+  projectName: string | undefined;
+
+  /**
+   * <p>The maximum number of sandbox records to be retrieved.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The order in which sandbox records should be retrieved.</p>
+   * @public
+   */
+  sortOrder?: SortOrderType | undefined;
+
+  /**
+   * <p>The next token, if any, to get paginated results. You will get this value from previous execution of list sandboxes.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSandboxesForProjectOutput {
+  /**
+   * <p>Information about the requested sandbox IDs.</p>
+   * @public
+   */
+  ids?: string[] | undefined;
+
+  /**
+   * <p>Information about the next token to get paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -8151,6 +8724,114 @@ export interface StartBuildBatchOutput {
 /**
  * @public
  */
+export interface StartCommandExecutionInput {
+  /**
+   * <p>A <code>sandboxId</code> or <code>sandboxArn</code>.</p>
+   * @public
+   */
+  sandboxId: string | undefined;
+
+  /**
+   * <p>The command that needs to be executed.</p>
+   * @public
+   */
+  command: string | undefined;
+
+  /**
+   * <p>The command type.</p>
+   * @public
+   */
+  type?: CommandType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartCommandExecutionOutput {
+  /**
+   * <p>Information about the requested command executions.</p>
+   * @public
+   */
+  commandExecution?: CommandExecution | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartSandboxInput {
+  /**
+   * <p>The CodeBuild project name.</p>
+   * @public
+   */
+  projectName?: string | undefined;
+
+  /**
+   * <p>A unique client token.</p>
+   * @public
+   */
+  idempotencyToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartSandboxOutput {
+  /**
+   * <p>Information about the requested sandbox.</p>
+   * @public
+   */
+  sandbox?: Sandbox | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartSandboxConnectionInput {
+  /**
+   * <p>A <code>sandboxId</code> or <code>sandboxArn</code>.</p>
+   * @public
+   */
+  sandboxId: string | undefined;
+}
+
+/**
+ * <p>Contains information about the Session Manager session.</p>
+ * @public
+ */
+export interface SSMSession {
+  /**
+   * <p>The ID of the session.</p>
+   * @public
+   */
+  sessionId?: string | undefined;
+
+  /**
+   * <p>An encrypted token value containing session and caller information.</p>
+   * @public
+   */
+  tokenValue?: string | undefined;
+
+  /**
+   * <p>A URL back to SSM Agent on the managed node that the Session Manager client uses to send commands and receive output from the node.</p>
+   * @public
+   */
+  streamUrl?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartSandboxConnectionOutput {
+  /**
+   * <p>Information about the Session Manager session.</p>
+   * @public
+   */
+  ssmSession?: SSMSession | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StopBuildInput {
   /**
    * <p>The ID of the build.</p>
@@ -8190,6 +8871,28 @@ export interface StopBuildBatchOutput {
    * @public
    */
   buildBatch?: BuildBatch | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopSandboxInput {
+  /**
+   * <p>Information about the requested sandbox ID.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopSandboxOutput {
+  /**
+   * <p>Information about the requested sandbox.</p>
+   * @public
+   */
+  sandbox?: Sandbox | undefined;
 }
 
 /**
@@ -8860,6 +9563,26 @@ export interface UpdateWebhookOutput {
 /**
  * @internal
  */
+export const CommandExecutionFilterSensitiveLog = (obj: CommandExecution): any => ({
+  ...obj,
+  ...(obj.command && { command: SENSITIVE_STRING }),
+  ...(obj.standardOutputContent && { standardOutputContent: SENSITIVE_STRING }),
+  ...(obj.standardErrContent && { standardErrContent: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchGetCommandExecutionsOutputFilterSensitiveLog = (obj: BatchGetCommandExecutionsOutput): any => ({
+  ...obj,
+  ...(obj.commandExecutions && {
+    commandExecutions: obj.commandExecutions.map((item) => CommandExecutionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const ImportSourceCredentialsInputFilterSensitiveLog = (obj: ImportSourceCredentialsInput): any => ({
   ...obj,
   ...(obj.token && { token: SENSITIVE_STRING }),
@@ -8868,7 +9591,61 @@ export const ImportSourceCredentialsInputFilterSensitiveLog = (obj: ImportSource
 /**
  * @internal
  */
+export const ListCommandExecutionsForSandboxInputFilterSensitiveLog = (
+  obj: ListCommandExecutionsForSandboxInput
+): any => ({
+  ...obj,
+  ...(obj.nextToken && { nextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListCommandExecutionsForSandboxOutputFilterSensitiveLog = (
+  obj: ListCommandExecutionsForSandboxOutput
+): any => ({
+  ...obj,
+  ...(obj.commandExecutions && {
+    commandExecutions: obj.commandExecutions.map((item) => CommandExecutionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const ListFleetsInputFilterSensitiveLog = (obj: ListFleetsInput): any => ({
   ...obj,
   ...(obj.nextToken && { nextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListSandboxesForProjectInputFilterSensitiveLog = (obj: ListSandboxesForProjectInput): any => ({
+  ...obj,
+  ...(obj.nextToken && { nextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartCommandExecutionInputFilterSensitiveLog = (obj: StartCommandExecutionInput): any => ({
+  ...obj,
+  ...(obj.command && { command: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartCommandExecutionOutputFilterSensitiveLog = (obj: StartCommandExecutionOutput): any => ({
+  ...obj,
+  ...(obj.commandExecution && { commandExecution: CommandExecutionFilterSensitiveLog(obj.commandExecution) }),
+});
+
+/**
+ * @internal
+ */
+export const StartSandboxInputFilterSensitiveLog = (obj: StartSandboxInput): any => ({
+  ...obj,
+  ...(obj.idempotencyToken && { idempotencyToken: SENSITIVE_STRING }),
 });
