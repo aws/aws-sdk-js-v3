@@ -133,6 +133,8 @@ import {
   StartDirectoryListingCommandOutput,
 } from "./commands/StartDirectoryListingCommand";
 import { StartFileTransferCommandInput, StartFileTransferCommandOutput } from "./commands/StartFileTransferCommand";
+import { StartRemoteDeleteCommandInput, StartRemoteDeleteCommandOutput } from "./commands/StartRemoteDeleteCommand";
+import { StartRemoteMoveCommandInput, StartRemoteMoveCommandOutput } from "./commands/StartRemoteMoveCommand";
 import { StartServerCommandInput, StartServerCommandOutput } from "./commands/StartServerCommand";
 import { StopServerCommandInput, StopServerCommandOutput } from "./commands/StopServerCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -223,6 +225,8 @@ export type ServiceInputTypes =
   | SendWorkflowStepStateCommandInput
   | StartDirectoryListingCommandInput
   | StartFileTransferCommandInput
+  | StartRemoteDeleteCommandInput
+  | StartRemoteMoveCommandInput
   | StartServerCommandInput
   | StopServerCommandInput
   | TagResourceCommandInput
@@ -297,6 +301,8 @@ export type ServiceOutputTypes =
   | SendWorkflowStepStateCommandOutput
   | StartDirectoryListingCommandOutput
   | StartFileTransferCommandOutput
+  | StartRemoteDeleteCommandOutput
+  | StartRemoteMoveCommandOutput
   | StartServerCommandOutput
   | StopServerCommandOutput
   | TagResourceCommandOutput

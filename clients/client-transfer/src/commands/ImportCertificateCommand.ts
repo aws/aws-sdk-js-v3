@@ -35,6 +35,12 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * <p>Imports the signing and encryption certificates that you need to create local (AS2)
  *       profiles and partner
  *       profiles.</p>
+ *          <p>You can import both the certificate and its chain in the <code>Certificate</code>
+ *       parameter.</p>
+ *          <note>
+ *             <p>If you use the <code>Certificate</code> parameter to upload both the certificate and its
+ *         chain, don't use the <code>CertificateChain</code> parameter.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -638,6 +638,22 @@ StartFileTransfer
 </details>
 <details>
 <summary>
+StartRemoteDelete
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/StartRemoteDeleteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/StartRemoteDeleteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/StartRemoteDeleteCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartRemoteMove
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/StartRemoteMoveCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/StartRemoteMoveCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/StartRemoteMoveCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartServer
 </summary>
 

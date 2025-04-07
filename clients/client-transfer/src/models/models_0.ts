@@ -1054,7 +1054,7 @@ export interface As2ConnectorConfig {
   MdnSigningAlgorithm?: MdnSigningAlg | undefined;
 
   /**
-   * <p>Used  for outbound requests (from an Transfer Family server to a partner AS2 server) to determine whether
+   * <p>Used  for outbound requests (from an Transfer Family connector to a partner AS2 server) to determine whether
    *       the partner response for transfers is synchronous or asynchronous. Specify either of the following values:</p>
    *          <ul>
    *             <li>
@@ -1226,7 +1226,14 @@ export interface DescribedCertificate {
   Usage?: CertificateUsageType | undefined;
 
   /**
-   * <p>Currently, the only available status is <code>ACTIVE</code>: all other values are reserved for future use.</p>
+   * <p>A certificate's status can be either <code>ACTIVE</code> or <code>INACTIVE</code>.</p>
+   *          <p>You can set <code>ActiveDate</code> and <code>InactiveDate</code> in the
+   *         <code>UpdateCertificate</code> call. If you set values for these parameters, those values
+   *       are used to determine whether the certificate has a status of <code>ACTIVE</code> or
+   *         <code>INACTIVE</code>.</p>
+   *          <p>If you don't set values for <code>ActiveDate</code> and <code>InactiveDate</code>, we use
+   *       the <code>NotBefore</code> and <code>NotAfter</code> date as specified on the X509 certificate
+   *       to determine when a certificate is active and when it is inactive.</p>
    * @public
    */
   Status?: CertificateStatusType | undefined;
@@ -1244,13 +1251,16 @@ export interface DescribedCertificate {
   CertificateChain?: string | undefined;
 
   /**
-   * <p>An optional date that specifies when the certificate becomes active.</p>
+   * <p>An optional date that specifies when the certificate becomes active. If you do not specify a value, <code>ActiveDate</code> takes the same value as
+   *        <code>NotBeforeDate</code>, which is specified by the CA.
+   *      </p>
    * @public
    */
   ActiveDate?: Date | undefined;
 
   /**
-   * <p>An optional date that specifies when the certificate becomes inactive.</p>
+   * <p>An optional date that specifies when the certificate becomes inactive. If you do not specify a value, <code>InactiveDate</code> takes the same value as
+   *        <code>NotAfterDate</code>, which is specified by the CA.</p>
    * @public
    */
   InactiveDate?: Date | undefined;
@@ -1338,6 +1348,11 @@ export interface ImportCertificateRequest {
    *                <p>For the SDK, specify the raw content of a certificate file. For example, <code>--certificate "`cat encryption-cert.pem`"</code>.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>You can provide both the certificate and its chain in this parameter, without needing to
+   *         use the <code>CertificateChain</code> parameter. If you use this parameter for both the
+   *         certificate and its chain, do not use the <code>CertificateChain</code> parameter.</p>
+   *          </note>
    * @public
    */
   Certificate: string | undefined;
@@ -1352,8 +1367,9 @@ export interface ImportCertificateRequest {
   /**
    * <ul>
    *             <li>
-   *                <p>For the CLI, provide a file path for a private key in URI format.For example, <code>--private-key file://encryption-key.pem</code>.
-   *         Alternatively, you can provide the raw content of the private key file.</p>
+   *                <p>For the CLI, provide a file path for a private key in URI format. For example,
+   *             <code>--private-key file://encryption-key.pem</code>. Alternatively, you can provide the
+   *           raw content of the private key file.</p>
    *             </li>
    *             <li>
    *                <p>For the SDK, specify the raw content of a private key file. For example, <code>--private-key "`cat encryption-key.pem`"</code>
@@ -1365,13 +1381,16 @@ export interface ImportCertificateRequest {
   PrivateKey?: string | undefined;
 
   /**
-   * <p>An optional date that specifies when the certificate becomes active.</p>
+   * <p>An optional date that specifies when the certificate becomes active. If you do not specify a value, <code>ActiveDate</code> takes the same value as
+   *        <code>NotBeforeDate</code>, which is specified by the CA.
+   *      </p>
    * @public
    */
   ActiveDate?: Date | undefined;
 
   /**
-   * <p>An optional date that specifies when the certificate becomes inactive.</p>
+   * <p>An optional date that specifies when the certificate becomes inactive. If you do not specify a value, <code>InactiveDate</code> takes the same value as
+   *        <code>NotAfterDate</code>, which is specified by the CA.</p>
    * @public
    */
   InactiveDate?: Date | undefined;
@@ -1466,13 +1485,16 @@ export interface ListedCertificate {
   Status?: CertificateStatusType | undefined;
 
   /**
-   * <p>An optional date that specifies when the certificate becomes active.</p>
+   * <p>An optional date that specifies when the certificate becomes active. If you do not specify a value, <code>ActiveDate</code> takes the same value as
+   *        <code>NotBeforeDate</code>, which is specified by the CA.
+   *      </p>
    * @public
    */
   ActiveDate?: Date | undefined;
 
   /**
-   * <p>An optional date that specifies when the certificate becomes inactive.</p>
+   * <p>An optional date that specifies when the certificate becomes inactive. If you do not specify a value, <code>InactiveDate</code> takes the same value as
+   *        <code>NotAfterDate</code>, which is specified by the CA.</p>
    * @public
    */
   InactiveDate?: Date | undefined;
@@ -1521,13 +1543,16 @@ export interface UpdateCertificateRequest {
   CertificateId: string | undefined;
 
   /**
-   * <p>An optional date that specifies when the certificate becomes active.</p>
+   * <p>An optional date that specifies when the certificate becomes active. If you do not specify a value, <code>ActiveDate</code> takes the same value as
+   *        <code>NotBeforeDate</code>, which is specified by the CA.
+   *      </p>
    * @public
    */
   ActiveDate?: Date | undefined;
 
   /**
-   * <p>An optional date that specifies when the certificate becomes inactive.</p>
+   * <p>An optional date that specifies when the certificate becomes inactive. If you do not specify a value, <code>InactiveDate</code> takes the same value as
+   *        <code>NotAfterDate</code>, which is specified by the CA.</p>
    * @public
    */
   InactiveDate?: Date | undefined;
@@ -3065,7 +3090,7 @@ export interface CreateServerRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a server to turn
-   *       on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents. When set, you can view user activity in
+   *       on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in
    *       your CloudWatch logs.</p>
    * @public
    */
@@ -4331,7 +4356,7 @@ export interface FileLocation {
 export interface LoggingConfiguration {
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a server to turn
-   *       on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents. When set, you can view user activity in
+   *       on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in
    *       your CloudWatch logs.</p>
    * @public
    */
@@ -4992,7 +5017,7 @@ export interface DescribedServer {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a server to turn
-   *       on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents. When set, you can view user activity in
+   *       on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in
    *       your CloudWatch logs.</p>
    * @public
    */
@@ -6095,7 +6120,7 @@ export interface ListedServer {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a server to turn
-   *       on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents. When set, you can view user activity in
+   *       on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in
    *       your CloudWatch logs.</p>
    * @public
    */
@@ -6950,7 +6975,7 @@ export interface UpdateServerRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a server to turn
-   *       on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents. When set, you can view user activity in
+   *       on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in
    *       your CloudWatch logs.</p>
    * @public
    */
@@ -7199,6 +7224,68 @@ export interface StartFileTransferResponse {
    * @public
    */
   TransferId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRemoteDeleteRequest {
+  /**
+   * <p>The unique identifier for the connector.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+
+  /**
+   * <p>The absolute path of the file or directory to delete. You can only specify one path per call to this operation.</p>
+   * @public
+   */
+  DeletePath: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRemoteDeleteResponse {
+  /**
+   * <p>Returns a unique identifier for the delete operation.</p>
+   * @public
+   */
+  DeleteId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRemoteMoveRequest {
+  /**
+   * <p>The unique identifier for the connector.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+
+  /**
+   * <p>The absolute path of the file or directory to move or rename. You can only specify one path per call to this operation.</p>
+   * @public
+   */
+  SourcePath: string | undefined;
+
+  /**
+   * <p>The absolute path for the target of the move/rename operation.</p>
+   * @public
+   */
+  TargetPath: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRemoteMoveResponse {
+  /**
+   * <p>Returns a unique identifier for the move/rename operation.</p>
+   * @public
+   */
+  MoveId: string | undefined;
 }
 
 /**

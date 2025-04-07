@@ -99,6 +99,8 @@ import {
   StartDirectoryListingCommandOutput,
 } from "../commands/StartDirectoryListingCommand";
 import { StartFileTransferCommandInput, StartFileTransferCommandOutput } from "../commands/StartFileTransferCommand";
+import { StartRemoteDeleteCommandInput, StartRemoteDeleteCommandOutput } from "../commands/StartRemoteDeleteCommand";
+import { StartRemoteMoveCommandInput, StartRemoteMoveCommandOutput } from "../commands/StartRemoteMoveCommand";
 import { StartServerCommandInput, StartServerCommandOutput } from "../commands/StartServerCommand";
 import { StopServerCommandInput, StopServerCommandOutput } from "../commands/StopServerCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -216,6 +218,8 @@ import {
   SshPublicKey,
   StartDirectoryListingRequest,
   StartFileTransferRequest,
+  StartRemoteDeleteRequest,
+  StartRemoteMoveRequest,
   StartServerRequest,
   StopServerRequest,
   Tag,
@@ -929,6 +933,32 @@ export const se_StartFileTransferCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartFileTransfer");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartRemoteDeleteCommand
+ */
+export const se_StartRemoteDeleteCommand = async (
+  input: StartRemoteDeleteCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartRemoteDelete");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartRemoteMoveCommand
+ */
+export const se_StartRemoteMoveCommand = async (
+  input: StartRemoteMoveCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartRemoteMove");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2167,6 +2197,46 @@ export const de_StartFileTransferCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1StartRemoteDeleteCommand
+ */
+export const de_StartRemoteDeleteCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartRemoteDeleteCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartRemoteDeleteCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartRemoteMoveCommand
+ */
+export const de_StartRemoteMoveCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartRemoteMoveCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartRemoteMoveCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1StartServerCommand
  */
 export const de_StartServerCommand = async (
@@ -2839,6 +2909,10 @@ const se_ImportCertificateRequest = (input: ImportCertificateRequest, context: _
 
 // se_StartFileTransferRequest omitted.
 
+// se_StartRemoteDeleteRequest omitted.
+
+// se_StartRemoteMoveRequest omitted.
+
 // se_StartServerRequest omitted.
 
 // se_StopServerRequest omitted.
@@ -3352,6 +3426,10 @@ const de_SshPublicKeys = (output: any, context: __SerdeContext): SshPublicKey[] 
 // de_StartDirectoryListingResponse omitted.
 
 // de_StartFileTransferResponse omitted.
+
+// de_StartRemoteDeleteResponse omitted.
+
+// de_StartRemoteMoveResponse omitted.
 
 // de_StructuredLogDestinations omitted.
 

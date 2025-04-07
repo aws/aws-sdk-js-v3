@@ -247,6 +247,16 @@ import {
   StartFileTransferCommandInput,
   StartFileTransferCommandOutput,
 } from "./commands/StartFileTransferCommand";
+import {
+  StartRemoteDeleteCommand,
+  StartRemoteDeleteCommandInput,
+  StartRemoteDeleteCommandOutput,
+} from "./commands/StartRemoteDeleteCommand";
+import {
+  StartRemoteMoveCommand,
+  StartRemoteMoveCommandInput,
+  StartRemoteMoveCommandOutput,
+} from "./commands/StartRemoteMoveCommand";
 import { StartServerCommand, StartServerCommandInput, StartServerCommandOutput } from "./commands/StartServerCommand";
 import { StopServerCommand, StopServerCommandInput, StopServerCommandOutput } from "./commands/StopServerCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -367,6 +377,8 @@ const commands = {
   SendWorkflowStepStateCommand,
   StartDirectoryListingCommand,
   StartFileTransferCommand,
+  StartRemoteDeleteCommand,
+  StartRemoteMoveCommand,
   StartServerCommand,
   StopServerCommand,
   TagResourceCommand,
@@ -1131,6 +1143,37 @@ export interface Transfer {
     args: StartFileTransferCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartFileTransferCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartRemoteDeleteCommand}
+   */
+  startRemoteDelete(
+    args: StartRemoteDeleteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartRemoteDeleteCommandOutput>;
+  startRemoteDelete(
+    args: StartRemoteDeleteCommandInput,
+    cb: (err: any, data?: StartRemoteDeleteCommandOutput) => void
+  ): void;
+  startRemoteDelete(
+    args: StartRemoteDeleteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartRemoteDeleteCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartRemoteMoveCommand}
+   */
+  startRemoteMove(
+    args: StartRemoteMoveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartRemoteMoveCommandOutput>;
+  startRemoteMove(args: StartRemoteMoveCommandInput, cb: (err: any, data?: StartRemoteMoveCommandOutput) => void): void;
+  startRemoteMove(
+    args: StartRemoteMoveCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartRemoteMoveCommandOutput) => void
   ): void;
 
   /**

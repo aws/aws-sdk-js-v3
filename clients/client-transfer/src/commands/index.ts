@@ -52,6 +52,8 @@ export * from "./ListWorkflowsCommand";
 export * from "./SendWorkflowStepStateCommand";
 export * from "./StartDirectoryListingCommand";
 export * from "./StartFileTransferCommand";
+export * from "./StartRemoteDeleteCommand";
+export * from "./StartRemoteMoveCommand";
 export * from "./StartServerCommand";
 export * from "./StopServerCommand";
 export * from "./TagResourceCommand";
