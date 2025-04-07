@@ -100,6 +100,15 @@ export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVe
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       eventsConfig: { // EventsConfig
+ * //         eventParametersList: [ // EventParametersList
+ * //           { // EventParameters
+ * //             eventType: "STRING_VALUE",
+ * //             eventValueThreshold: Number("double"),
+ * //             weight: Number("double"),
+ * //           },
+ * //         ],
+ * //       },
  * //       optimizationObjective: { // OptimizationObjective
  * //         itemAttribute: "STRING_VALUE",
  * //         objectiveSensitivity: "LOW" || "MEDIUM" || "HIGH" || "OFF",

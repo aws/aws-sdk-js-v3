@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
+import { TagResourceRequest, TagResourceRequestFilterSensitiveLog, TagResourceResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_json1_1";
 
@@ -94,7 +94,7 @@ export class TagResourceCommand extends $Command
   })
   .s("AmazonPersonalize", "TagResource", {})
   .n("PersonalizeClient", "TagResourceCommand")
-  .f(void 0, void 0)
+  .f(TagResourceRequestFilterSensitiveLog, void 0)
   .ser(se_TagResourceCommand)
   .de(de_TagResourceCommand)
   .build() {

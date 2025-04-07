@@ -51,6 +51,15 @@ export interface UpdateSolutionCommandOutput extends UpdateSolutionResponse, __M
  *     autoTrainingConfig: { // AutoTrainingConfig
  *       schedulingExpression: "STRING_VALUE",
  *     },
+ *     eventsConfig: { // EventsConfig
+ *       eventParametersList: [ // EventParametersList
+ *         { // EventParameters
+ *           eventType: "STRING_VALUE",
+ *           eventValueThreshold: Number("double"),
+ *           weight: Number("double"),
+ *         },
+ *       ],
+ *     },
  *   },
  * };
  * const command = new UpdateSolutionCommand(input);

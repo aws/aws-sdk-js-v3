@@ -100,6 +100,15 @@ export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse,
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       eventsConfig: { // EventsConfig
+ * //         eventParametersList: [ // EventParametersList
+ * //           { // EventParameters
+ * //             eventType: "STRING_VALUE",
+ * //             eventValueThreshold: Number("double"),
+ * //             weight: Number("double"),
+ * //           },
+ * //         ],
+ * //       },
  * //       optimizationObjective: { // OptimizationObjective
  * //         itemAttribute: "STRING_VALUE",
  * //         objectiveSensitivity: "LOW" || "MEDIUM" || "HIGH" || "OFF",
@@ -134,6 +143,15 @@ export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse,
  * //       solutionUpdateConfig: { // SolutionUpdateConfig
  * //         autoTrainingConfig: {
  * //           schedulingExpression: "STRING_VALUE",
+ * //         },
+ * //         eventsConfig: {
+ * //           eventParametersList: [
+ * //             {
+ * //               eventType: "STRING_VALUE",
+ * //               eventValueThreshold: Number("double"),
+ * //               weight: Number("double"),
+ * //             },
+ * //           ],
  * //         },
  * //       },
  * //       status: "STRING_VALUE",

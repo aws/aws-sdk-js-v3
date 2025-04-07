@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
+import {
+  UntagResourceRequest,
+  UntagResourceRequestFilterSensitiveLog,
+  UntagResourceResponse,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_json1_1";
 
@@ -88,7 +92,7 @@ export class UntagResourceCommand extends $Command
   })
   .s("AmazonPersonalize", "UntagResource", {})
   .n("PersonalizeClient", "UntagResourceCommand")
-  .f(void 0, void 0)
+  .f(UntagResourceRequestFilterSensitiveLog, void 0)
   .ser(se_UntagResourceCommand)
   .de(de_UntagResourceCommand)
   .build() {

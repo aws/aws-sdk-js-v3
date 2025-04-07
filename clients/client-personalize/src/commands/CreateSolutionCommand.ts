@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateSolutionRequest, CreateSolutionResponse } from "../models/models_0";
+import {
+  CreateSolutionRequest,
+  CreateSolutionRequestFilterSensitiveLog,
+  CreateSolutionResponse,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { de_CreateSolutionCommand, se_CreateSolutionCommand } from "../protocols/Aws_json1_1";
 
@@ -179,6 +183,15 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  *         "STRING_VALUE",
  *       ],
  *     },
+ *     eventsConfig: { // EventsConfig
+ *       eventParametersList: [ // EventParametersList
+ *         { // EventParameters
+ *           eventType: "STRING_VALUE",
+ *           eventValueThreshold: Number("double"),
+ *           weight: Number("double"),
+ *         },
+ *       ],
+ *     },
  *     optimizationObjective: { // OptimizationObjective
  *       itemAttribute: "STRING_VALUE",
  *       objectiveSensitivity: "LOW" || "MEDIUM" || "HIGH" || "OFF",
@@ -256,7 +269,7 @@ export class CreateSolutionCommand extends $Command
   })
   .s("AmazonPersonalize", "CreateSolution", {})
   .n("PersonalizeClient", "CreateSolutionCommand")
-  .f(void 0, void 0)
+  .f(CreateSolutionRequestFilterSensitiveLog, void 0)
   .ser(se_CreateSolutionCommand)
   .de(de_CreateSolutionCommand)
   .build() {

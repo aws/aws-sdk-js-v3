@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateDatasetGroupRequest, CreateDatasetGroupResponse } from "../models/models_0";
+import {
+  CreateDatasetGroupRequest,
+  CreateDatasetGroupRequestFilterSensitiveLog,
+  CreateDatasetGroupResponse,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { de_CreateDatasetGroupCommand, se_CreateDatasetGroupCommand } from "../protocols/Aws_json1_1";
 
@@ -183,7 +187,7 @@ export class CreateDatasetGroupCommand extends $Command
   })
   .s("AmazonPersonalize", "CreateDatasetGroup", {})
   .n("PersonalizeClient", "CreateDatasetGroupCommand")
-  .f(void 0, void 0)
+  .f(CreateDatasetGroupRequestFilterSensitiveLog, void 0)
   .ser(se_CreateDatasetGroupCommand)
   .de(de_CreateDatasetGroupCommand)
   .build() {

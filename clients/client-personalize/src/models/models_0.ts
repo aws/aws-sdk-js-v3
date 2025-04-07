@@ -1456,6 +1456,42 @@ export interface AutoTrainingConfig {
 }
 
 /**
+ * <p>Describes the parameters of events, which are used in solution creation.</p>
+ * @public
+ */
+export interface EventParameters {
+  /**
+   * <p>The name of the event type to be considered for solution creation.</p>
+   * @public
+   */
+  eventType?: string | undefined;
+
+  /**
+   * <p>The threshold of the event type. Only events with a value greater or equal to this threshold will be considered for solution creation.</p>
+   * @public
+   */
+  eventValueThreshold?: number | undefined;
+
+  /**
+   * <p>The weight of the event type. A higher weight means higher importance of the event type for the created solution.</p>
+   * @public
+   */
+  weight?: number | undefined;
+}
+
+/**
+ * <p>Describes the configuration of events, which are used in solution creation.</p>
+ * @public
+ */
+export interface EventsConfig {
+  /**
+   * <p>A list of event parameters, which includes event types and their event value thresholds and weights.</p>
+   * @public
+   */
+  eventParametersList?: EventParameters[] | undefined;
+}
+
+/**
  * <p>Provides the name and range of a categorical hyperparameter.</p>
  * @public
  */
@@ -1701,6 +1737,12 @@ export interface SolutionConfig {
    * @public
    */
   autoMLConfig?: AutoMLConfig | undefined;
+
+  /**
+   * <p>Describes the configuration of an event, which includes a list of event parameters. You can specify up to 10 event parameters. Events are used in solution creation.</p>
+   * @public
+   */
+  eventsConfig?: EventsConfig | undefined;
 
   /**
    * <p>Describes the additional objective for the solution, such as maximizing streaming
@@ -3725,6 +3767,12 @@ export interface SolutionUpdateConfig {
    * @public
    */
   autoTrainingConfig?: AutoTrainingConfig | undefined;
+
+  /**
+   * <p>Describes the configuration of an event, which includes a list of event parameters. You can specify up to 10 event parameters. Events are used in solution creation.</p>
+   * @public
+   */
+  eventsConfig?: EventsConfig | undefined;
 }
 
 /**
@@ -6082,9 +6130,115 @@ export interface UpdateSolutionResponse {
 /**
  * @internal
  */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+  ...(obj.tagKey && { tagKey: SENSITIVE_STRING }),
+  ...(obj.tagValue && { tagValue: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateBatchInferenceJobRequestFilterSensitiveLog = (obj: CreateBatchInferenceJobRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateBatchSegmentJobRequestFilterSensitiveLog = (obj: CreateBatchSegmentJobRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateCampaignRequestFilterSensitiveLog = (obj: CreateCampaignRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDataDeletionJobRequestFilterSensitiveLog = (obj: CreateDataDeletionJobRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetRequestFilterSensitiveLog = (obj: CreateDatasetRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetExportJobRequestFilterSensitiveLog = (obj: CreateDatasetExportJobRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetGroupRequestFilterSensitiveLog = (obj: CreateDatasetGroupRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetImportJobRequestFilterSensitiveLog = (obj: CreateDatasetImportJobRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEventTrackerRequestFilterSensitiveLog = (obj: CreateEventTrackerRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const CreateFilterRequestFilterSensitiveLog = (obj: CreateFilterRequest): any => ({
   ...obj,
   ...(obj.filterExpression && { filterExpression: SENSITIVE_STRING }),
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateRecommenderRequestFilterSensitiveLog = (obj: CreateRecommenderRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateSolutionRequestFilterSensitiveLog = (obj: CreateSolutionRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateSolutionVersionRequestFilterSensitiveLog = (obj: CreateSolutionVersionRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -6101,4 +6255,28 @@ export const FilterFilterSensitiveLog = (obj: Filter): any => ({
 export const DescribeFilterResponseFilterSensitiveLog = (obj: DescribeFilterResponse): any => ({
   ...obj,
   ...(obj.filter && { filter: FilterFilterSensitiveLog(obj.filter) }),
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+  ...(obj.tagKeys && { tagKeys: SENSITIVE_STRING }),
 });
