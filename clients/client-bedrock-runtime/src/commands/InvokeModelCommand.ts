@@ -73,7 +73,7 @@ export interface InvokeModelCommandOutput extends InvokeModelCommandOutputType, 
  *   contentType: "STRING_VALUE",
  *   accept: "STRING_VALUE",
  *   modelId: "STRING_VALUE", // required
- *   trace: "ENABLED" || "DISABLED",
+ *   trace: "ENABLED" || "DISABLED" || "ENABLED_FULL",
  *   guardrailIdentifier: "STRING_VALUE",
  *   guardrailVersion: "STRING_VALUE",
  *   performanceConfigLatency: "standard" || "optimized",

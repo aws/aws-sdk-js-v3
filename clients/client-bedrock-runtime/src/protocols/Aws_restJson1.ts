@@ -11,6 +11,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
@@ -141,6 +142,7 @@ export const se_ApplyGuardrailCommand = async (
   body = JSON.stringify(
     take(input, {
       content: (_) => se_GuardrailContentBlockList(_, context),
+      outputScope: [],
       source: [],
     })
   );
@@ -346,6 +348,7 @@ export const de_ApplyGuardrailCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     action: __expectString,
+    actionReason: __expectString,
     assessments: (_) => de_GuardrailAssessmentList(_, context),
     guardrailCoverage: _json,
     outputs: _json,
@@ -1689,6 +1692,7 @@ const de_GuardrailContextualGroundingFilter = (
 ): GuardrailContextualGroundingFilter => {
   return take(output, {
     action: __expectString,
+    detected: __expectBoolean,
     score: __limitedParseDouble,
     threshold: __limitedParseDouble,
     type: __expectString,
@@ -1806,6 +1810,7 @@ const de_GuardrailConverseImageSource = (output: any, context: __SerdeContext): 
  */
 const de_GuardrailTraceAssessment = (output: any, context: __SerdeContext): GuardrailTraceAssessment => {
   return take(output, {
+    actionReason: __expectString,
     inputAssessment: (_: any) => de_GuardrailAssessmentMap(_, context),
     modelOutput: _json,
     outputAssessments: (_: any) => de_GuardrailAssessmentListMap(_, context),

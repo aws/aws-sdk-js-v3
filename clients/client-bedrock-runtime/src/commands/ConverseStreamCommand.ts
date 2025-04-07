@@ -220,7 +220,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *   guardrailConfig: { // GuardrailStreamConfiguration
  *     guardrailIdentifier: "STRING_VALUE", // required
  *     guardrailVersion: "STRING_VALUE", // required
- *     trace: "enabled" || "disabled",
+ *     trace: "enabled" || "disabled" || "enabled_full",
  *     streamProcessingMode: "sync" || "async",
  *   },
  *   additionalModelRequestFields: "DOCUMENT_VALUE",
@@ -299,7 +299,8 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                   { // GuardrailTopic
  * //                     name: "STRING_VALUE", // required
  * //                     type: "DENY", // required
- * //                     action: "BLOCKED", // required
+ * //                     action: "BLOCKED" || "NONE", // required
+ * //                     detected: true || false,
  * //                   },
  * //                 ],
  * //               },
@@ -309,7 +310,8 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                     type: "INSULTS" || "HATE" || "SEXUAL" || "VIOLENCE" || "MISCONDUCT" || "PROMPT_ATTACK", // required
  * //                     confidence: "NONE" || "LOW" || "MEDIUM" || "HIGH", // required
  * //                     filterStrength: "NONE" || "LOW" || "MEDIUM" || "HIGH",
- * //                     action: "BLOCKED", // required
+ * //                     action: "BLOCKED" || "NONE", // required
+ * //                     detected: true || false,
  * //                   },
  * //                 ],
  * //               },
@@ -317,14 +319,16 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                 customWords: [ // GuardrailCustomWordList // required
  * //                   { // GuardrailCustomWord
  * //                     match: "STRING_VALUE", // required
- * //                     action: "BLOCKED", // required
+ * //                     action: "BLOCKED" || "NONE", // required
+ * //                     detected: true || false,
  * //                   },
  * //                 ],
  * //                 managedWordLists: [ // GuardrailManagedWordList // required
  * //                   { // GuardrailManagedWord
  * //                     match: "STRING_VALUE", // required
  * //                     type: "PROFANITY", // required
- * //                     action: "BLOCKED", // required
+ * //                     action: "BLOCKED" || "NONE", // required
+ * //                     detected: true || false,
  * //                   },
  * //                 ],
  * //               },
@@ -333,7 +337,8 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                   { // GuardrailPiiEntityFilter
  * //                     match: "STRING_VALUE", // required
  * //                     type: "ADDRESS" || "AGE" || "AWS_ACCESS_KEY" || "AWS_SECRET_KEY" || "CA_HEALTH_NUMBER" || "CA_SOCIAL_INSURANCE_NUMBER" || "CREDIT_DEBIT_CARD_CVV" || "CREDIT_DEBIT_CARD_EXPIRY" || "CREDIT_DEBIT_CARD_NUMBER" || "DRIVER_ID" || "EMAIL" || "INTERNATIONAL_BANK_ACCOUNT_NUMBER" || "IP_ADDRESS" || "LICENSE_PLATE" || "MAC_ADDRESS" || "NAME" || "PASSWORD" || "PHONE" || "PIN" || "SWIFT_CODE" || "UK_NATIONAL_HEALTH_SERVICE_NUMBER" || "UK_NATIONAL_INSURANCE_NUMBER" || "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER" || "URL" || "USERNAME" || "US_BANK_ACCOUNT_NUMBER" || "US_BANK_ROUTING_NUMBER" || "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER" || "US_PASSPORT_NUMBER" || "US_SOCIAL_SECURITY_NUMBER" || "VEHICLE_IDENTIFICATION_NUMBER", // required
- * //                     action: "ANONYMIZED" || "BLOCKED", // required
+ * //                     action: "ANONYMIZED" || "BLOCKED" || "NONE", // required
+ * //                     detected: true || false,
  * //                   },
  * //                 ],
  * //                 regexes: [ // GuardrailRegexFilterList // required
@@ -341,7 +346,8 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                     name: "STRING_VALUE",
  * //                     match: "STRING_VALUE",
  * //                     regex: "STRING_VALUE",
- * //                     action: "ANONYMIZED" || "BLOCKED", // required
+ * //                     action: "ANONYMIZED" || "BLOCKED" || "NONE", // required
+ * //                     detected: true || false,
  * //                   },
  * //                 ],
  * //               },
@@ -352,6 +358,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                     threshold: Number("double"), // required
  * //                     score: Number("double"), // required
  * //                     action: "BLOCKED" || "NONE", // required
+ * //                     detected: true || false,
  * //                   },
  * //                 ],
  * //               },
@@ -387,7 +394,8 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                     {
  * //                       name: "STRING_VALUE", // required
  * //                       type: "DENY", // required
- * //                       action: "BLOCKED", // required
+ * //                       action: "BLOCKED" || "NONE", // required
+ * //                       detected: true || false,
  * //                     },
  * //                   ],
  * //                 },
@@ -397,7 +405,8 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                       type: "INSULTS" || "HATE" || "SEXUAL" || "VIOLENCE" || "MISCONDUCT" || "PROMPT_ATTACK", // required
  * //                       confidence: "NONE" || "LOW" || "MEDIUM" || "HIGH", // required
  * //                       filterStrength: "NONE" || "LOW" || "MEDIUM" || "HIGH",
- * //                       action: "BLOCKED", // required
+ * //                       action: "BLOCKED" || "NONE", // required
+ * //                       detected: true || false,
  * //                     },
  * //                   ],
  * //                 },
@@ -405,14 +414,16 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                   customWords: [ // required
  * //                     {
  * //                       match: "STRING_VALUE", // required
- * //                       action: "BLOCKED", // required
+ * //                       action: "BLOCKED" || "NONE", // required
+ * //                       detected: true || false,
  * //                     },
  * //                   ],
  * //                   managedWordLists: [ // required
  * //                     {
  * //                       match: "STRING_VALUE", // required
  * //                       type: "PROFANITY", // required
- * //                       action: "BLOCKED", // required
+ * //                       action: "BLOCKED" || "NONE", // required
+ * //                       detected: true || false,
  * //                     },
  * //                   ],
  * //                 },
@@ -421,7 +432,8 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                     {
  * //                       match: "STRING_VALUE", // required
  * //                       type: "ADDRESS" || "AGE" || "AWS_ACCESS_KEY" || "AWS_SECRET_KEY" || "CA_HEALTH_NUMBER" || "CA_SOCIAL_INSURANCE_NUMBER" || "CREDIT_DEBIT_CARD_CVV" || "CREDIT_DEBIT_CARD_EXPIRY" || "CREDIT_DEBIT_CARD_NUMBER" || "DRIVER_ID" || "EMAIL" || "INTERNATIONAL_BANK_ACCOUNT_NUMBER" || "IP_ADDRESS" || "LICENSE_PLATE" || "MAC_ADDRESS" || "NAME" || "PASSWORD" || "PHONE" || "PIN" || "SWIFT_CODE" || "UK_NATIONAL_HEALTH_SERVICE_NUMBER" || "UK_NATIONAL_INSURANCE_NUMBER" || "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER" || "URL" || "USERNAME" || "US_BANK_ACCOUNT_NUMBER" || "US_BANK_ROUTING_NUMBER" || "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER" || "US_PASSPORT_NUMBER" || "US_SOCIAL_SECURITY_NUMBER" || "VEHICLE_IDENTIFICATION_NUMBER", // required
- * //                       action: "ANONYMIZED" || "BLOCKED", // required
+ * //                       action: "ANONYMIZED" || "BLOCKED" || "NONE", // required
+ * //                       detected: true || false,
  * //                     },
  * //                   ],
  * //                   regexes: [ // required
@@ -429,7 +441,8 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                       name: "STRING_VALUE",
  * //                       match: "STRING_VALUE",
  * //                       regex: "STRING_VALUE",
- * //                       action: "ANONYMIZED" || "BLOCKED", // required
+ * //                       action: "ANONYMIZED" || "BLOCKED" || "NONE", // required
+ * //                       detected: true || false,
  * //                     },
  * //                   ],
  * //                 },
@@ -440,6 +453,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                       threshold: Number("double"), // required
  * //                       score: Number("double"), // required
  * //                       action: "BLOCKED" || "NONE", // required
+ * //                       detected: true || false,
  * //                     },
  * //                   ],
  * //                 },
@@ -468,6 +482,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //               },
  * //             ],
  * //           },
+ * //           actionReason: "STRING_VALUE",
  * //         },
  * //         promptRouter: { // PromptRouterTrace
  * //           invokedModelId: "STRING_VALUE",

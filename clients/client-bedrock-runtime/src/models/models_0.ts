@@ -697,6 +697,20 @@ export namespace GuardrailContentBlock {
  * @public
  * @enum
  */
+export const GuardrailOutputScope = {
+  FULL: "FULL",
+  INTERVENTIONS: "INTERVENTIONS",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailOutputScope = (typeof GuardrailOutputScope)[keyof typeof GuardrailOutputScope];
+
+/**
+ * @public
+ * @enum
+ */
 export const GuardrailContentSource = {
   INPUT: "INPUT",
   OUTPUT: "OUTPUT",
@@ -734,6 +748,13 @@ export interface ApplyGuardrailRequest {
    * @public
    */
   content: GuardrailContentBlock[] | undefined;
+
+  /**
+   * <p>Specifies the scope of the output that you get in the response. Set to <code>FULL</code> to return the entire output, including any detected and non-detected entries in the response for enhanced debugging.</p>
+   *          <p>Note that the full output scope doesn't apply to word filters or regex in sensitive information filters. It does apply to all other filtering policies, including sensitive information with filters that can detect personally identifiable information (PII).</p>
+   * @public
+   */
+  outputScope?: GuardrailOutputScope | undefined;
 }
 
 /**
@@ -756,6 +777,7 @@ export type GuardrailAction = (typeof GuardrailAction)[keyof typeof GuardrailAct
  */
 export const GuardrailContentPolicyAction = {
   BLOCKED: "BLOCKED",
+  NONE: "NONE",
 } as const;
 
 /**
@@ -844,6 +866,12 @@ export interface GuardrailContentFilter {
    * @public
    */
   action: GuardrailContentPolicyAction | undefined;
+
+  /**
+   * <p>Indicates whether content that breaches the guardrail configuration is detected.</p>
+   * @public
+   */
+  detected?: boolean | undefined;
 }
 
 /**
@@ -916,6 +944,12 @@ export interface GuardrailContextualGroundingFilter {
    * @public
    */
   action: GuardrailContextualGroundingPolicyAction | undefined;
+
+  /**
+   * <p>Indicates whether content that fails the contextual grounding evaluation (grounding or relevance score less than the corresponding threshold) was detected.</p>
+   * @public
+   */
+  detected?: boolean | undefined;
 }
 
 /**
@@ -1063,6 +1097,7 @@ export interface GuardrailInvocationMetrics {
 export const GuardrailSensitiveInformationPolicyAction = {
   ANONYMIZED: "ANONYMIZED",
   BLOCKED: "BLOCKED",
+  NONE: "NONE",
 } as const;
 
 /**
@@ -1136,6 +1171,12 @@ export interface GuardrailPiiEntityFilter {
    * @public
    */
   action: GuardrailSensitiveInformationPolicyAction | undefined;
+
+  /**
+   * <p>Indicates whether personally identifiable information (PII) that breaches the guardrail configuration is detected.</p>
+   * @public
+   */
+  detected?: boolean | undefined;
 }
 
 /**
@@ -1166,6 +1207,12 @@ export interface GuardrailRegexFilter {
    * @public
    */
   action: GuardrailSensitiveInformationPolicyAction | undefined;
+
+  /**
+   * <p>Indicates whether custom regex entities that breach the guardrail configuration are detected.</p>
+   * @public
+   */
+  detected?: boolean | undefined;
 }
 
 /**
@@ -1192,6 +1239,7 @@ export interface GuardrailSensitiveInformationPolicyAssessment {
  */
 export const GuardrailTopicPolicyAction = {
   BLOCKED: "BLOCKED",
+  NONE: "NONE",
 } as const;
 
 /**
@@ -1234,6 +1282,12 @@ export interface GuardrailTopic {
    * @public
    */
   action: GuardrailTopicPolicyAction | undefined;
+
+  /**
+   * <p>Indicates whether topic content that breaches the guardrail configuration is detected.</p>
+   * @public
+   */
+  detected?: boolean | undefined;
 }
 
 /**
@@ -1254,6 +1308,7 @@ export interface GuardrailTopicPolicyAssessment {
  */
 export const GuardrailWordPolicyAction = {
   BLOCKED: "BLOCKED",
+  NONE: "NONE",
 } as const;
 
 /**
@@ -1277,6 +1332,12 @@ export interface GuardrailCustomWord {
    * @public
    */
   action: GuardrailWordPolicyAction | undefined;
+
+  /**
+   * <p>Indicates whether custom word content that breaches the guardrail configuration is detected.</p>
+   * @public
+   */
+  detected?: boolean | undefined;
 }
 
 /**
@@ -1314,6 +1375,12 @@ export interface GuardrailManagedWord {
    * @public
    */
   action: GuardrailWordPolicyAction | undefined;
+
+  /**
+   * <p>Indicates whether managed word content that breaches the guardrail configuration is detected.</p>
+   * @public
+   */
+  detected?: boolean | undefined;
 }
 
 /**
@@ -1405,6 +1472,12 @@ export interface ApplyGuardrailResponse {
   action: GuardrailAction | undefined;
 
   /**
+   * <p>The reason for the action taken when harmful content is detected.</p>
+   * @public
+   */
+  actionReason?: string | undefined;
+
+  /**
    * <p>The output details in the response from the guardrail.</p>
    * @public
    */
@@ -1430,6 +1503,7 @@ export interface ApplyGuardrailResponse {
 export const GuardrailTrace = {
   DISABLED: "disabled",
   ENABLED: "enabled",
+  ENABLED_FULL: "enabled_full",
 } as const;
 
 /**
@@ -3080,6 +3154,12 @@ export interface GuardrailTraceAssessment {
    * @public
    */
   outputAssessments?: Record<string, GuardrailAssessment[]> | undefined;
+
+  /**
+   * <p>Provides the reason for the action taken when harmful content is detected.</p>
+   * @public
+   */
+  actionReason?: string | undefined;
 }
 
 /**
@@ -4118,6 +4198,7 @@ export interface ConverseStreamResponse {
 export const Trace = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
+  ENABLED_FULL: "ENABLED_FULL",
 } as const;
 
 /**
