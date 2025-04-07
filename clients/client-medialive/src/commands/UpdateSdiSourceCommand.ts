@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { CancelInputDeviceTransferRequest, CancelInputDeviceTransferResponse } from "../models/models_2";
-import { de_CancelInputDeviceTransferCommand, se_CancelInputDeviceTransferCommand } from "../protocols/Aws_restJson1";
+import { UpdateSdiSourceRequest, UpdateSdiSourceResponse } from "../models/models_2";
+import { de_UpdateSdiSourceCommand, se_UpdateSdiSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,37 +17,52 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CancelInputDeviceTransferCommand}.
+ * The input for {@link UpdateSdiSourceCommand}.
  */
-export interface CancelInputDeviceTransferCommandInput extends CancelInputDeviceTransferRequest {}
+export interface UpdateSdiSourceCommandInput extends UpdateSdiSourceRequest {}
 /**
  * @public
  *
- * The output of {@link CancelInputDeviceTransferCommand}.
+ * The output of {@link UpdateSdiSourceCommand}.
  */
-export interface CancelInputDeviceTransferCommandOutput extends CancelInputDeviceTransferResponse, __MetadataBearer {}
+export interface UpdateSdiSourceCommandOutput extends UpdateSdiSourceResponse, __MetadataBearer {}
 
 /**
- * Cancel an input device transfer that you have requested.
+ * Change some of the settings in an SdiSource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, CancelInputDeviceTransferCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, CancelInputDeviceTransferCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, UpdateSdiSourceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, UpdateSdiSourceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = { // CancelInputDeviceTransferRequest
- *   InputDeviceId: "STRING_VALUE", // required
+ * const input = { // UpdateSdiSourceRequest
+ *   Mode: "QUADRANT" || "INTERLEAVE",
+ *   Name: "STRING_VALUE",
+ *   SdiSourceId: "STRING_VALUE", // required
+ *   Type: "SINGLE" || "QUAD",
  * };
- * const command = new CancelInputDeviceTransferCommand(input);
+ * const command = new UpdateSdiSourceCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // UpdateSdiSourceResponse
+ * //   SdiSource: { // SdiSource
+ * //     Arn: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     Inputs: [ // __listOf__string
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Mode: "QUADRANT" || "INTERLEAVE",
+ * //     Name: "STRING_VALUE",
+ * //     State: "IDLE" || "IN_USE" || "DELETED",
+ * //     Type: "SINGLE" || "QUAD",
+ * //   },
+ * // };
  *
  * ```
  *
- * @param CancelInputDeviceTransferCommandInput - {@link CancelInputDeviceTransferCommandInput}
- * @returns {@link CancelInputDeviceTransferCommandOutput}
- * @see {@link CancelInputDeviceTransferCommandInput} for command's `input` shape.
- * @see {@link CancelInputDeviceTransferCommandOutput} for command's `response` shape.
+ * @param UpdateSdiSourceCommandInput - {@link UpdateSdiSourceCommandInput}
+ * @returns {@link UpdateSdiSourceCommandOutput}
+ * @see {@link UpdateSdiSourceCommandInput} for command's `input` shape.
+ * @see {@link UpdateSdiSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  * @throws {@link BadGatewayException} (server fault)
@@ -68,14 +83,8 @@ export interface CancelInputDeviceTransferCommandOutput extends CancelInputDevic
  * @throws {@link InternalServerErrorException} (server fault)
  *  Placeholder documentation for InternalServerErrorException
  *
- * @throws {@link NotFoundException} (client fault)
- *  Placeholder documentation for NotFoundException
- *
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
- *
- * @throws {@link UnprocessableEntityException} (client fault)
- *  Placeholder documentation for UnprocessableEntityException
  *
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
@@ -83,10 +92,10 @@ export interface CancelInputDeviceTransferCommandOutput extends CancelInputDevic
  *
  * @public
  */
-export class CancelInputDeviceTransferCommand extends $Command
+export class UpdateSdiSourceCommand extends $Command
   .classBuilder<
-    CancelInputDeviceTransferCommandInput,
-    CancelInputDeviceTransferCommandOutput,
+    UpdateSdiSourceCommandInput,
+    UpdateSdiSourceCommandOutput,
     MediaLiveClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -98,21 +107,21 @@ export class CancelInputDeviceTransferCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("MediaLive", "CancelInputDeviceTransfer", {})
-  .n("MediaLiveClient", "CancelInputDeviceTransferCommand")
+  .s("MediaLive", "UpdateSdiSource", {})
+  .n("MediaLiveClient", "UpdateSdiSourceCommand")
   .f(void 0, void 0)
-  .ser(se_CancelInputDeviceTransferCommand)
-  .de(de_CancelInputDeviceTransferCommand)
+  .ser(se_UpdateSdiSourceCommand)
+  .de(de_UpdateSdiSourceCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CancelInputDeviceTransferRequest;
-      output: {};
+      input: UpdateSdiSourceRequest;
+      output: UpdateSdiSourceResponse;
     };
     sdk: {
-      input: CancelInputDeviceTransferCommandInput;
-      output: CancelInputDeviceTransferCommandOutput;
+      input: UpdateSdiSourceCommandInput;
+      output: UpdateSdiSourceCommandOutput;
     };
   };
 }

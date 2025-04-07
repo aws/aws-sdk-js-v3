@@ -9,7 +9,6 @@ import {
   BatchSuccessfulResultModel,
   CaptionLanguageMapping,
   ChannelEngineVersionResponse,
-  ColorCorrection,
   DvbNitSettings,
   DvbSdtSettings,
   DvbTdtSettings,
@@ -34,11 +33,24 @@ import {
   M2tsScte35Control,
   M2tsSegmentationMarkers,
   M2tsSegmentationStyle,
-  M2tsTimedMetadataBehavior,
   OfferingDurationUnits,
   OfferingType,
   ReservationResourceSpecification,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsTimedMetadataBehavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsTimedMetadataBehavior = (typeof M2tsTimedMetadataBehavior)[keyof typeof M2tsTimedMetadataBehavior];
 
 /**
  * M2ts Settings
@@ -4181,6 +4193,97 @@ export interface ScheduleAction {
  * @public
  * @enum
  */
+export const SdiSourceMode = {
+  INTERLEAVE: "INTERLEAVE",
+  QUADRANT: "QUADRANT",
+} as const;
+
+/**
+ * @public
+ */
+export type SdiSourceMode = (typeof SdiSourceMode)[keyof typeof SdiSourceMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const SdiSourceState = {
+  DELETED: "DELETED",
+  IDLE: "IDLE",
+  IN_USE: "IN_USE",
+} as const;
+
+/**
+ * @public
+ */
+export type SdiSourceState = (typeof SdiSourceState)[keyof typeof SdiSourceState];
+
+/**
+ * @public
+ * @enum
+ */
+export const SdiSourceType = {
+  QUAD: "QUAD",
+  SINGLE: "SINGLE",
+} as const;
+
+/**
+ * @public
+ */
+export type SdiSourceType = (typeof SdiSourceType)[keyof typeof SdiSourceType];
+
+/**
+ * Used in CreateSdiSourceResponse, DeleteSdiSourceResponse, DescribeSdiSourceResponse, ListSdiSourcesResponse, UpdateSdiSourceResponse
+ * @public
+ */
+export interface SdiSourceSummary {
+  /**
+   * The ARN of this SdiSource. It is automatically assigned when the SdiSource is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * The ID of the SdiSource. Unique in the AWS account.The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The list of inputs that are currently using this SDI source. This list will be empty if the SdiSource has just been deleted.
+   * @public
+   */
+  Inputs?: string[] | undefined;
+
+  /**
+   * Applies only if the type is QUAD. The mode for handling the quad-link signal QUADRANT or INTERLEAVE.
+   * @public
+   */
+  Mode?: SdiSourceMode | undefined;
+
+  /**
+   * The name of the SdiSource.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Specifies whether the SDI source is attached to an SDI input (IN_USE) or not (IDLE).
+   * @public
+   */
+  State?: SdiSourceState | undefined;
+
+  /**
+   * Used in SdiSource, CreateSdiSourceRequest, UpdateSdiSourceRequest.
+   * @public
+   */
+  Type?: SdiSourceType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const SignalMapMonitorDeploymentStatus = {
   DELETE_COMPLETE: "DELETE_COMPLETE",
   DELETE_FAILED: "DELETE_FAILED",
@@ -7415,63 +7518,3 @@ export interface BlackoutSlate {
    */
   State?: BlackoutSlateState | undefined;
 }
-
-/**
- * Placeholder documentation for CancelInputDeviceTransferRequest
- * @public
- */
-export interface CancelInputDeviceTransferRequest {
-  /**
-   * The unique ID of the input device to cancel. For example, hd-123456789abcdef.
-   * @public
-   */
-  InputDeviceId: string | undefined;
-}
-
-/**
- * Placeholder documentation for CancelInputDeviceTransferResponse
- * @public
- */
-export interface CancelInputDeviceTransferResponse {}
-
-/**
- * Property of encoderSettings. Controls color conversion when you are using 3D LUT files to perform color conversion on video.
- * @public
- */
-export interface ColorCorrectionSettings {
-  /**
-   * An array of colorCorrections that applies when you are using 3D LUT files to perform color conversion on video. Each colorCorrection contains one 3D LUT file (that defines the color mapping for converting an input color space to an output color space), and the input/output combination that this 3D LUT file applies to. MediaLive reads the color space in the input metadata, determines the color space that you have specified for the output, and finds and uses the LUT file that applies to this combination.
-   * @public
-   */
-  GlobalColorCorrections: ColorCorrection[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const FeatureActivationsInputPrepareScheduleActions = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type FeatureActivationsInputPrepareScheduleActions =
-  (typeof FeatureActivationsInputPrepareScheduleActions)[keyof typeof FeatureActivationsInputPrepareScheduleActions];
-
-/**
- * @public
- * @enum
- */
-export const FeatureActivationsOutputStaticImageOverlayScheduleActions = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type FeatureActivationsOutputStaticImageOverlayScheduleActions =
-  (typeof FeatureActivationsOutputStaticImageOverlayScheduleActions)[keyof typeof FeatureActivationsOutputStaticImageOverlayScheduleActions];

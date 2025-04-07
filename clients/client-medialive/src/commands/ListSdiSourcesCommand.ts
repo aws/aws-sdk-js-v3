@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { CancelInputDeviceTransferRequest, CancelInputDeviceTransferResponse } from "../models/models_2";
-import { de_CancelInputDeviceTransferCommand, se_CancelInputDeviceTransferCommand } from "../protocols/Aws_restJson1";
+import { ListSdiSourcesRequest, ListSdiSourcesResponse } from "../models/models_2";
+import { de_ListSdiSourcesCommand, se_ListSdiSourcesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,37 +17,53 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CancelInputDeviceTransferCommand}.
+ * The input for {@link ListSdiSourcesCommand}.
  */
-export interface CancelInputDeviceTransferCommandInput extends CancelInputDeviceTransferRequest {}
+export interface ListSdiSourcesCommandInput extends ListSdiSourcesRequest {}
 /**
  * @public
  *
- * The output of {@link CancelInputDeviceTransferCommand}.
+ * The output of {@link ListSdiSourcesCommand}.
  */
-export interface CancelInputDeviceTransferCommandOutput extends CancelInputDeviceTransferResponse, __MetadataBearer {}
+export interface ListSdiSourcesCommandOutput extends ListSdiSourcesResponse, __MetadataBearer {}
 
 /**
- * Cancel an input device transfer that you have requested.
+ * List all the SdiSources in the AWS account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, CancelInputDeviceTransferCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, CancelInputDeviceTransferCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, ListSdiSourcesCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, ListSdiSourcesCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = { // CancelInputDeviceTransferRequest
- *   InputDeviceId: "STRING_VALUE", // required
+ * const input = { // ListSdiSourcesRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
  * };
- * const command = new CancelInputDeviceTransferCommand(input);
+ * const command = new ListSdiSourcesCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListSdiSourcesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   SdiSources: [ // __listOfSdiSourceSummary
+ * //     { // SdiSourceSummary
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Inputs: [ // __listOf__string
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Mode: "QUADRANT" || "INTERLEAVE",
+ * //       Name: "STRING_VALUE",
+ * //       State: "IDLE" || "IN_USE" || "DELETED",
+ * //       Type: "SINGLE" || "QUAD",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *
- * @param CancelInputDeviceTransferCommandInput - {@link CancelInputDeviceTransferCommandInput}
- * @returns {@link CancelInputDeviceTransferCommandOutput}
- * @see {@link CancelInputDeviceTransferCommandInput} for command's `input` shape.
- * @see {@link CancelInputDeviceTransferCommandOutput} for command's `response` shape.
+ * @param ListSdiSourcesCommandInput - {@link ListSdiSourcesCommandInput}
+ * @returns {@link ListSdiSourcesCommandOutput}
+ * @see {@link ListSdiSourcesCommandInput} for command's `input` shape.
+ * @see {@link ListSdiSourcesCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  * @throws {@link BadGatewayException} (server fault)
@@ -55,9 +71,6 @@ export interface CancelInputDeviceTransferCommandOutput extends CancelInputDevic
  *
  * @throws {@link BadRequestException} (client fault)
  *  Placeholder documentation for BadRequestException
- *
- * @throws {@link ConflictException} (client fault)
- *  Placeholder documentation for ConflictException
  *
  * @throws {@link ForbiddenException} (client fault)
  *  Placeholder documentation for ForbiddenException
@@ -68,14 +81,8 @@ export interface CancelInputDeviceTransferCommandOutput extends CancelInputDevic
  * @throws {@link InternalServerErrorException} (server fault)
  *  Placeholder documentation for InternalServerErrorException
  *
- * @throws {@link NotFoundException} (client fault)
- *  Placeholder documentation for NotFoundException
- *
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
- *
- * @throws {@link UnprocessableEntityException} (client fault)
- *  Placeholder documentation for UnprocessableEntityException
  *
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
@@ -83,10 +90,10 @@ export interface CancelInputDeviceTransferCommandOutput extends CancelInputDevic
  *
  * @public
  */
-export class CancelInputDeviceTransferCommand extends $Command
+export class ListSdiSourcesCommand extends $Command
   .classBuilder<
-    CancelInputDeviceTransferCommandInput,
-    CancelInputDeviceTransferCommandOutput,
+    ListSdiSourcesCommandInput,
+    ListSdiSourcesCommandOutput,
     MediaLiveClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -98,21 +105,21 @@ export class CancelInputDeviceTransferCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("MediaLive", "CancelInputDeviceTransfer", {})
-  .n("MediaLiveClient", "CancelInputDeviceTransferCommand")
+  .s("MediaLive", "ListSdiSources", {})
+  .n("MediaLiveClient", "ListSdiSourcesCommand")
   .f(void 0, void 0)
-  .ser(se_CancelInputDeviceTransferCommand)
-  .de(de_CancelInputDeviceTransferCommand)
+  .ser(se_ListSdiSourcesCommand)
+  .de(de_ListSdiSourcesCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CancelInputDeviceTransferRequest;
-      output: {};
+      input: ListSdiSourcesRequest;
+      output: ListSdiSourcesResponse;
     };
     sdk: {
-      input: CancelInputDeviceTransferCommandInput;
-      output: CancelInputDeviceTransferCommandOutput;
+      input: ListSdiSourcesCommandInput;
+      output: ListSdiSourcesCommandOutput;
     };
   };
 }

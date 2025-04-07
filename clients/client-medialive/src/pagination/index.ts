@@ -18,4 +18,5 @@ export * from "./ListNetworksPaginator";
 export * from "./ListNodesPaginator";
 export * from "./ListOfferingsPaginator";
 export * from "./ListReservationsPaginator";
+export * from "./ListSdiSourcesPaginator";
 export * from "./ListSignalMapsPaginator";

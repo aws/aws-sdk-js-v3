@@ -109,6 +109,7 @@ import {
   CreateNodeRegistrationScriptCommandOutput,
 } from "./commands/CreateNodeRegistrationScriptCommand";
 import { CreatePartnerInputCommandInput, CreatePartnerInputCommandOutput } from "./commands/CreatePartnerInputCommand";
+import { CreateSdiSourceCommandInput, CreateSdiSourceCommandOutput } from "./commands/CreateSdiSourceCommand";
 import { CreateSignalMapCommandInput, CreateSignalMapCommandOutput } from "./commands/CreateSignalMapCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
@@ -147,6 +148,7 @@ import { DeleteNetworkCommandInput, DeleteNetworkCommandOutput } from "./command
 import { DeleteNodeCommandInput, DeleteNodeCommandOutput } from "./commands/DeleteNodeCommand";
 import { DeleteReservationCommandInput, DeleteReservationCommandOutput } from "./commands/DeleteReservationCommand";
 import { DeleteScheduleCommandInput, DeleteScheduleCommandOutput } from "./commands/DeleteScheduleCommand";
+import { DeleteSdiSourceCommandInput, DeleteSdiSourceCommandOutput } from "./commands/DeleteSdiSourceCommand";
 import { DeleteSignalMapCommandInput, DeleteSignalMapCommandOutput } from "./commands/DeleteSignalMapCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
@@ -185,6 +187,7 @@ import {
   DescribeReservationCommandOutput,
 } from "./commands/DescribeReservationCommand";
 import { DescribeScheduleCommandInput, DescribeScheduleCommandOutput } from "./commands/DescribeScheduleCommand";
+import { DescribeSdiSourceCommandInput, DescribeSdiSourceCommandOutput } from "./commands/DescribeSdiSourceCommand";
 import { DescribeThumbnailsCommandInput, DescribeThumbnailsCommandOutput } from "./commands/DescribeThumbnailsCommand";
 import {
   GetCloudWatchAlarmTemplateCommandInput,
@@ -244,6 +247,7 @@ import { ListNetworksCommandInput, ListNetworksCommandOutput } from "./commands/
 import { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
 import { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "./commands/ListOfferingsCommand";
 import { ListReservationsCommandInput, ListReservationsCommandOutput } from "./commands/ListReservationsCommand";
+import { ListSdiSourcesCommandInput, ListSdiSourcesCommandOutput } from "./commands/ListSdiSourcesCommand";
 import { ListSignalMapsCommandInput, ListSignalMapsCommandOutput } from "./commands/ListSignalMapsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -328,6 +332,7 @@ import { UpdateNetworkCommandInput, UpdateNetworkCommandOutput } from "./command
 import { UpdateNodeCommandInput, UpdateNodeCommandOutput } from "./commands/UpdateNodeCommand";
 import { UpdateNodeStateCommandInput, UpdateNodeStateCommandOutput } from "./commands/UpdateNodeStateCommand";
 import { UpdateReservationCommandInput, UpdateReservationCommandOutput } from "./commands/UpdateReservationCommand";
+import { UpdateSdiSourceCommandInput, UpdateSdiSourceCommandOutput } from "./commands/UpdateSdiSourceCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -365,6 +370,7 @@ export type ServiceInputTypes =
   | CreateNodeCommandInput
   | CreateNodeRegistrationScriptCommandInput
   | CreatePartnerInputCommandInput
+  | CreateSdiSourceCommandInput
   | CreateSignalMapCommandInput
   | CreateTagsCommandInput
   | DeleteChannelCommandInput
@@ -382,6 +388,7 @@ export type ServiceInputTypes =
   | DeleteNodeCommandInput
   | DeleteReservationCommandInput
   | DeleteScheduleCommandInput
+  | DeleteSdiSourceCommandInput
   | DeleteSignalMapCommandInput
   | DeleteTagsCommandInput
   | DescribeAccountConfigurationCommandInput
@@ -399,6 +406,7 @@ export type ServiceInputTypes =
   | DescribeOfferingCommandInput
   | DescribeReservationCommandInput
   | DescribeScheduleCommandInput
+  | DescribeSdiSourceCommandInput
   | DescribeThumbnailsCommandInput
   | GetCloudWatchAlarmTemplateCommandInput
   | GetCloudWatchAlarmTemplateGroupCommandInput
@@ -422,6 +430,7 @@ export type ServiceInputTypes =
   | ListNodesCommandInput
   | ListOfferingsCommandInput
   | ListReservationsCommandInput
+  | ListSdiSourcesCommandInput
   | ListSignalMapsCommandInput
   | ListTagsForResourceCommandInput
   | ListVersionsCommandInput
@@ -457,7 +466,8 @@ export type ServiceInputTypes =
   | UpdateNetworkCommandInput
   | UpdateNodeCommandInput
   | UpdateNodeStateCommandInput
-  | UpdateReservationCommandInput;
+  | UpdateReservationCommandInput
+  | UpdateSdiSourceCommandInput;
 
 /**
  * @public
@@ -485,6 +495,7 @@ export type ServiceOutputTypes =
   | CreateNodeCommandOutput
   | CreateNodeRegistrationScriptCommandOutput
   | CreatePartnerInputCommandOutput
+  | CreateSdiSourceCommandOutput
   | CreateSignalMapCommandOutput
   | CreateTagsCommandOutput
   | DeleteChannelCommandOutput
@@ -502,6 +513,7 @@ export type ServiceOutputTypes =
   | DeleteNodeCommandOutput
   | DeleteReservationCommandOutput
   | DeleteScheduleCommandOutput
+  | DeleteSdiSourceCommandOutput
   | DeleteSignalMapCommandOutput
   | DeleteTagsCommandOutput
   | DescribeAccountConfigurationCommandOutput
@@ -519,6 +531,7 @@ export type ServiceOutputTypes =
   | DescribeOfferingCommandOutput
   | DescribeReservationCommandOutput
   | DescribeScheduleCommandOutput
+  | DescribeSdiSourceCommandOutput
   | DescribeThumbnailsCommandOutput
   | GetCloudWatchAlarmTemplateCommandOutput
   | GetCloudWatchAlarmTemplateGroupCommandOutput
@@ -542,6 +555,7 @@ export type ServiceOutputTypes =
   | ListNodesCommandOutput
   | ListOfferingsCommandOutput
   | ListReservationsCommandOutput
+  | ListSdiSourcesCommandOutput
   | ListSignalMapsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListVersionsCommandOutput
@@ -577,7 +591,8 @@ export type ServiceOutputTypes =
   | UpdateNetworkCommandOutput
   | UpdateNodeCommandOutput
   | UpdateNodeStateCommandOutput
-  | UpdateReservationCommandOutput;
+  | UpdateReservationCommandOutput
+  | UpdateSdiSourceCommandOutput;
 
 /**
  * @public

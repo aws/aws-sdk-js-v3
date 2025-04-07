@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { CancelInputDeviceTransferRequest, CancelInputDeviceTransferResponse } from "../models/models_2";
-import { de_CancelInputDeviceTransferCommand, se_CancelInputDeviceTransferCommand } from "../protocols/Aws_restJson1";
+import { DescribeSdiSourceRequest, DescribeSdiSourceResponse } from "../models/models_2";
+import { de_DescribeSdiSourceCommand, se_DescribeSdiSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,37 +17,49 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CancelInputDeviceTransferCommand}.
+ * The input for {@link DescribeSdiSourceCommand}.
  */
-export interface CancelInputDeviceTransferCommandInput extends CancelInputDeviceTransferRequest {}
+export interface DescribeSdiSourceCommandInput extends DescribeSdiSourceRequest {}
 /**
  * @public
  *
- * The output of {@link CancelInputDeviceTransferCommand}.
+ * The output of {@link DescribeSdiSourceCommand}.
  */
-export interface CancelInputDeviceTransferCommandOutput extends CancelInputDeviceTransferResponse, __MetadataBearer {}
+export interface DescribeSdiSourceCommandOutput extends DescribeSdiSourceResponse, __MetadataBearer {}
 
 /**
- * Cancel an input device transfer that you have requested.
+ * Gets details about a SdiSource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, CancelInputDeviceTransferCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, CancelInputDeviceTransferCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, DescribeSdiSourceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, DescribeSdiSourceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = { // CancelInputDeviceTransferRequest
- *   InputDeviceId: "STRING_VALUE", // required
+ * const input = { // DescribeSdiSourceRequest
+ *   SdiSourceId: "STRING_VALUE", // required
  * };
- * const command = new CancelInputDeviceTransferCommand(input);
+ * const command = new DescribeSdiSourceCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DescribeSdiSourceResponse
+ * //   SdiSource: { // SdiSource
+ * //     Arn: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     Inputs: [ // __listOf__string
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Mode: "QUADRANT" || "INTERLEAVE",
+ * //     Name: "STRING_VALUE",
+ * //     State: "IDLE" || "IN_USE" || "DELETED",
+ * //     Type: "SINGLE" || "QUAD",
+ * //   },
+ * // };
  *
  * ```
  *
- * @param CancelInputDeviceTransferCommandInput - {@link CancelInputDeviceTransferCommandInput}
- * @returns {@link CancelInputDeviceTransferCommandOutput}
- * @see {@link CancelInputDeviceTransferCommandInput} for command's `input` shape.
- * @see {@link CancelInputDeviceTransferCommandOutput} for command's `response` shape.
+ * @param DescribeSdiSourceCommandInput - {@link DescribeSdiSourceCommandInput}
+ * @returns {@link DescribeSdiSourceCommandOutput}
+ * @see {@link DescribeSdiSourceCommandInput} for command's `input` shape.
+ * @see {@link DescribeSdiSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  * @throws {@link BadGatewayException} (server fault)
@@ -55,9 +67,6 @@ export interface CancelInputDeviceTransferCommandOutput extends CancelInputDevic
  *
  * @throws {@link BadRequestException} (client fault)
  *  Placeholder documentation for BadRequestException
- *
- * @throws {@link ConflictException} (client fault)
- *  Placeholder documentation for ConflictException
  *
  * @throws {@link ForbiddenException} (client fault)
  *  Placeholder documentation for ForbiddenException
@@ -74,19 +83,16 @@ export interface CancelInputDeviceTransferCommandOutput extends CancelInputDevic
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
- * @throws {@link UnprocessableEntityException} (client fault)
- *  Placeholder documentation for UnprocessableEntityException
- *
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  *
  * @public
  */
-export class CancelInputDeviceTransferCommand extends $Command
+export class DescribeSdiSourceCommand extends $Command
   .classBuilder<
-    CancelInputDeviceTransferCommandInput,
-    CancelInputDeviceTransferCommandOutput,
+    DescribeSdiSourceCommandInput,
+    DescribeSdiSourceCommandOutput,
     MediaLiveClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -98,21 +104,21 @@ export class CancelInputDeviceTransferCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("MediaLive", "CancelInputDeviceTransfer", {})
-  .n("MediaLiveClient", "CancelInputDeviceTransferCommand")
+  .s("MediaLive", "DescribeSdiSource", {})
+  .n("MediaLiveClient", "DescribeSdiSourceCommand")
   .f(void 0, void 0)
-  .ser(se_CancelInputDeviceTransferCommand)
-  .de(de_CancelInputDeviceTransferCommand)
+  .ser(se_DescribeSdiSourceCommand)
+  .de(de_DescribeSdiSourceCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CancelInputDeviceTransferRequest;
-      output: {};
+      input: DescribeSdiSourceRequest;
+      output: DescribeSdiSourceResponse;
     };
     sdk: {
-      input: CancelInputDeviceTransferCommandInput;
-      output: CancelInputDeviceTransferCommandOutput;
+      input: DescribeSdiSourceCommandInput;
+      output: DescribeSdiSourceCommandOutput;
     };
   };
 }

@@ -87,6 +87,7 @@ import {
   CreateNodeRegistrationScriptCommandOutput,
 } from "../commands/CreateNodeRegistrationScriptCommand";
 import { CreatePartnerInputCommandInput, CreatePartnerInputCommandOutput } from "../commands/CreatePartnerInputCommand";
+import { CreateSdiSourceCommandInput, CreateSdiSourceCommandOutput } from "../commands/CreateSdiSourceCommand";
 import { CreateSignalMapCommandInput, CreateSignalMapCommandOutput } from "../commands/CreateSignalMapCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "../commands/CreateTagsCommand";
 import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "../commands/DeleteChannelCommand";
@@ -125,6 +126,7 @@ import { DeleteNetworkCommandInput, DeleteNetworkCommandOutput } from "../comman
 import { DeleteNodeCommandInput, DeleteNodeCommandOutput } from "../commands/DeleteNodeCommand";
 import { DeleteReservationCommandInput, DeleteReservationCommandOutput } from "../commands/DeleteReservationCommand";
 import { DeleteScheduleCommandInput, DeleteScheduleCommandOutput } from "../commands/DeleteScheduleCommand";
+import { DeleteSdiSourceCommandInput, DeleteSdiSourceCommandOutput } from "../commands/DeleteSdiSourceCommand";
 import { DeleteSignalMapCommandInput, DeleteSignalMapCommandOutput } from "../commands/DeleteSignalMapCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
 import {
@@ -163,6 +165,7 @@ import {
   DescribeReservationCommandOutput,
 } from "../commands/DescribeReservationCommand";
 import { DescribeScheduleCommandInput, DescribeScheduleCommandOutput } from "../commands/DescribeScheduleCommand";
+import { DescribeSdiSourceCommandInput, DescribeSdiSourceCommandOutput } from "../commands/DescribeSdiSourceCommand";
 import { DescribeThumbnailsCommandInput, DescribeThumbnailsCommandOutput } from "../commands/DescribeThumbnailsCommand";
 import {
   GetCloudWatchAlarmTemplateCommandInput,
@@ -222,6 +225,7 @@ import { ListNetworksCommandInput, ListNetworksCommandOutput } from "../commands
 import { ListNodesCommandInput, ListNodesCommandOutput } from "../commands/ListNodesCommand";
 import { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "../commands/ListOfferingsCommand";
 import { ListReservationsCommandInput, ListReservationsCommandOutput } from "../commands/ListReservationsCommand";
+import { ListSdiSourcesCommandInput, ListSdiSourcesCommandOutput } from "../commands/ListSdiSourcesCommand";
 import { ListSignalMapsCommandInput, ListSignalMapsCommandOutput } from "../commands/ListSignalMapsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -306,6 +310,7 @@ import { UpdateNetworkCommandInput, UpdateNetworkCommandOutput } from "../comman
 import { UpdateNodeCommandInput, UpdateNodeCommandOutput } from "../commands/UpdateNodeCommand";
 import { UpdateNodeStateCommandInput, UpdateNodeStateCommandOutput } from "../commands/UpdateNodeStateCommand";
 import { UpdateReservationCommandInput, UpdateReservationCommandOutput } from "../commands/UpdateReservationCommand";
+import { UpdateSdiSourceCommandInput, UpdateSdiSourceCommandOutput } from "../commands/UpdateSdiSourceCommand";
 import { MediaLiveServiceException as __BaseException } from "../models/MediaLiveServiceException";
 import {
   AacSettings,
@@ -441,6 +446,7 @@ import {
   Scte20SourceSettings,
   Scte27DestinationSettings,
   Scte27SourceSettings,
+  SdiSourceMapping,
   Smpte2110ReceiverGroup,
   Smpte2110ReceiverGroupSdpSettings,
   Smpte2110ReceiverGroupSettings,
@@ -486,7 +492,6 @@ import {
   BlackoutSlate,
   CmafIngestGroupSettings,
   CmafIngestOutputSettings,
-  ColorCorrectionSettings,
   ColorSpacePassthroughSettings,
   ConflictException,
   DolbyVision81Settings,
@@ -573,6 +578,7 @@ import {
   Scte35SpliceInsertScheduleActionSettings,
   Scte35TimeSignalApos,
   Scte35TimeSignalScheduleActionSettings,
+  SdiSourceSummary,
   SignalMapSummary,
   SrtCallerDecryptionRequest,
   SrtCallerSourceRequest,
@@ -606,6 +612,7 @@ import {
   ChannelEngineVersionRequest,
   ClusterNetworkSettingsCreateRequest,
   ClusterNetworkSettingsUpdateRequest,
+  ColorCorrectionSettings,
   EncoderSettings,
   EpochLockingSettings,
   FeatureActivations,
@@ -634,6 +641,8 @@ import {
   NielsenConfiguration,
   OutputLockingSettings,
   PipelineLockingSettings,
+  SdiSource,
+  SdiSourceMappingUpdateRequest,
   SrtSettingsRequest,
   SuccessfulMonitorDeployment,
   ThumbnailConfiguration,
@@ -1018,6 +1027,7 @@ export const se_CreateInputCommand = async (
       name: [, , `Name`],
       requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       roleArn: [, , `RoleArn`],
+      sdiSources: [, (_) => _json(_), `SdiSources`],
       smpte2110ReceiverGroupSettings: [
         ,
         (_) => se_Smpte2110ReceiverGroupSettings(_, context),
@@ -1210,6 +1220,32 @@ export const se_CreatePartnerInputCommand = async (
     take(input, {
       requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       tags: [, (_) => _json(_), `Tags`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateSdiSourceCommand
+ */
+export const se_CreateSdiSourceCommand = async (
+  input: CreateSdiSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/sdiSources");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      mode: [, , `Mode`],
+      name: [, , `Name`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
+      tags: [, (_) => _json(_), `Tags`],
+      type: [, , `Type`],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1511,6 +1547,22 @@ export const se_DeleteScheduleCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteSdiSourceCommand
+ */
+export const se_DeleteSdiSourceCommand = async (
+  input: DeleteSdiSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/sdiSources/{SdiSourceId}");
+  b.p("SdiSourceId", () => input.SdiSourceId!, "{SdiSourceId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteSignalMapCommand
  */
 export const se_DeleteSignalMapCommand = async (
@@ -1790,6 +1842,22 @@ export const se_DescribeScheduleCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeSdiSourceCommand
+ */
+export const se_DescribeSdiSourceCommand = async (
+  input: DescribeSdiSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/sdiSources/{SdiSourceId}");
+  b.p("SdiSourceId", () => input.SdiSourceId!, "{SdiSourceId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -2240,6 +2308,25 @@ export const se_ListReservationsCommand = async (
     [_rT]: [, input[_RT]!],
     [_sF]: [, input[_SF]!],
     [_vQ]: [, input[_VQ]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListSdiSourcesCommand
+ */
+export const se_ListSdiSourcesCommand = async (
+  input: ListSdiSourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/sdiSources");
+  const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -2850,6 +2937,7 @@ export const se_UpdateInputCommand = async (
       multicastSettings: [, (_) => se_MulticastSettingsUpdateRequest(_, context), `MulticastSettings`],
       name: [, , `Name`],
       roleArn: [, , `RoleArn`],
+      sdiSources: [, (_) => _json(_), `SdiSources`],
       smpte2110ReceiverGroupSettings: [
         ,
         (_) => se_Smpte2110ReceiverGroupSettings(_, context),
@@ -3006,6 +3094,7 @@ export const se_UpdateNodeCommand = async (
     take(input, {
       name: [, , `Name`],
       role: [, , `Role`],
+      sdiSourceMappings: [, (_) => se_SdiSourceMappingsUpdateRequest(_, context), `SdiSourceMappings`],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -3054,6 +3143,31 @@ export const se_UpdateReservationCommand = async (
     take(input, {
       name: [, , `Name`],
       renewalSettings: [, (_) => se_RenewalSettings(_, context), `RenewalSettings`],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateSdiSourceCommand
+ */
+export const se_UpdateSdiSourceCommand = async (
+  input: UpdateSdiSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/sdiSources/{SdiSourceId}");
+  b.p("SdiSourceId", () => input.SdiSourceId!, "{SdiSourceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      mode: [, , `Mode`],
+      name: [, , `Name`],
+      type: [, , `Type`],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -3531,6 +3645,7 @@ export const de_CreateNodeCommand = async (
     Name: [, __expectString, `name`],
     NodeInterfaceMappings: [, (_) => de___listOfNodeInterfaceMapping(_, context), `nodeInterfaceMappings`],
     Role: [, __expectString, `role`],
+    SdiSourceMappings: [, (_) => de_SdiSourceMappings(_, context), `sdiSourceMappings`],
     State: [, __expectString, `state`],
   });
   Object.assign(contents, doc);
@@ -3574,6 +3689,27 @@ export const de_CreatePartnerInputCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Input: [, (_) => de_Input(_, context), `input`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateSdiSourceCommand
+ */
+export const de_CreateSdiSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSdiSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    SdiSource: [, (_) => de_SdiSource(_, context), `sdiSource`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -3941,6 +4077,7 @@ export const de_DeleteNodeCommand = async (
     Name: [, __expectString, `name`],
     NodeInterfaceMappings: [, (_) => de___listOfNodeInterfaceMapping(_, context), `nodeInterfaceMappings`],
     Role: [, __expectString, `role`],
+    SdiSourceMappings: [, (_) => de_SdiSourceMappings(_, context), `sdiSourceMappings`],
     State: [, __expectString, `state`],
   });
   Object.assign(contents, doc);
@@ -4000,6 +4137,27 @@ export const de_DeleteScheduleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteSdiSourceCommand
+ */
+export const de_DeleteSdiSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSdiSourceCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    SdiSource: [, (_) => de_SdiSource(_, context), `sdiSource`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4181,6 +4339,7 @@ export const de_DescribeInputCommand = async (
     MulticastSettings: [, (_) => de_MulticastSettings(_, context), `multicastSettings`],
     Name: [, __expectString, `name`],
     RoleArn: [, __expectString, `roleArn`],
+    SdiSources: [, _json, `sdiSources`],
     SecurityGroups: [, _json, `securityGroups`],
     Smpte2110ReceiverGroupSettings: [
       ,
@@ -4388,6 +4547,7 @@ export const de_DescribeNodeCommand = async (
     Name: [, __expectString, `name`],
     NodeInterfaceMappings: [, (_) => de___listOfNodeInterfaceMapping(_, context), `nodeInterfaceMappings`],
     Role: [, __expectString, `role`],
+    SdiSourceMappings: [, (_) => de_SdiSourceMappings(_, context), `sdiSourceMappings`],
     State: [, __expectString, `state`],
   });
   Object.assign(contents, doc);
@@ -4481,6 +4641,27 @@ export const de_DescribeScheduleCommand = async (
   const doc = take(data, {
     NextToken: [, __expectString, `nextToken`],
     ScheduleActions: [, (_) => de___listOfScheduleAction(_, context), `scheduleActions`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeSdiSourceCommand
+ */
+export const de_DescribeSdiSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSdiSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    SdiSource: [, (_) => de_SdiSource(_, context), `sdiSource`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -5059,6 +5240,28 @@ export const de_ListReservationsCommand = async (
   const doc = take(data, {
     NextToken: [, __expectString, `nextToken`],
     Reservations: [, (_) => de___listOfReservation(_, context), `reservations`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSdiSourcesCommand
+ */
+export const de_ListSdiSourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSdiSourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    SdiSources: [, (_) => de___listOfSdiSourceSummary(_, context), `sdiSources`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -5967,6 +6170,7 @@ export const de_UpdateNodeCommand = async (
     Name: [, __expectString, `name`],
     NodeInterfaceMappings: [, (_) => de___listOfNodeInterfaceMapping(_, context), `nodeInterfaceMappings`],
     Role: [, __expectString, `role`],
+    SdiSourceMappings: [, (_) => de_SdiSourceMappings(_, context), `sdiSourceMappings`],
     State: [, __expectString, `state`],
   });
   Object.assign(contents, doc);
@@ -5997,6 +6201,7 @@ export const de_UpdateNodeStateCommand = async (
     Name: [, __expectString, `name`],
     NodeInterfaceMappings: [, (_) => de___listOfNodeInterfaceMapping(_, context), `nodeInterfaceMappings`],
     Role: [, __expectString, `role`],
+    SdiSourceMappings: [, (_) => de_SdiSourceMappings(_, context), `sdiSourceMappings`],
     State: [, __expectString, `state`],
   });
   Object.assign(contents, doc);
@@ -6019,6 +6224,27 @@ export const de_UpdateReservationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Reservation: [, (_) => de_Reservation(_, context), `reservation`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateSdiSourceCommand
+ */
+export const de_UpdateSdiSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSdiSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    SdiSource: [, (_) => de_SdiSource(_, context), `sdiSource`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -8240,6 +8466,8 @@ const se_InputRequestDestinationRoute = (input: InputRequestDestinationRoute, co
   });
 };
 
+// se_InputSdiSources omitted.
+
 /**
  * serializeAws_restJson1InputSdpLocation
  */
@@ -9363,6 +9591,28 @@ const se_Scte35TimeSignalScheduleActionSettings = (
 ): any => {
   return take(input, {
     scte35Descriptors: [, (_) => se___listOfScte35Descriptor(_, context), `Scte35Descriptors`],
+  });
+};
+
+/**
+ * serializeAws_restJson1SdiSourceMappingsUpdateRequest
+ */
+const se_SdiSourceMappingsUpdateRequest = (input: SdiSourceMappingUpdateRequest[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_SdiSourceMappingUpdateRequest(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1SdiSourceMappingUpdateRequest
+ */
+const se_SdiSourceMappingUpdateRequest = (input: SdiSourceMappingUpdateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    cardNumber: [, , `CardNumber`],
+    channelNumber: [, , `ChannelNumber`],
+    sdiSource: [, , `SdiSource`],
   });
 };
 
@@ -10530,6 +10780,18 @@ const de___listOfScte35Descriptor = (output: any, context: __SerdeContext): Scte
 };
 
 /**
+ * deserializeAws_restJson1__listOfSdiSourceSummary
+ */
+const de___listOfSdiSourceSummary = (output: any, context: __SerdeContext): SdiSourceSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SdiSourceSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfSignalMapSummary
  */
 const de___listOfSignalMapSummary = (output: any, context: __SerdeContext): SignalMapSummary[] => {
@@ -11439,6 +11701,7 @@ const de_DescribeNodeSummary = (output: any, context: __SerdeContext): DescribeN
     Name: [, __expectString, `name`],
     NodeInterfaceMappings: [, (_: any) => de___listOfNodeInterfaceMapping(_, context), `nodeInterfaceMappings`],
     Role: [, __expectString, `role`],
+    SdiSourceMappings: [, (_: any) => de_SdiSourceMappings(_, context), `sdiSourceMappings`],
     State: [, __expectString, `state`],
   }) as any;
 };
@@ -12218,6 +12481,7 @@ const de_Input = (output: any, context: __SerdeContext): Input => {
     MulticastSettings: [, (_: any) => de_MulticastSettings(_, context), `multicastSettings`],
     Name: [, __expectString, `name`],
     RoleArn: [, __expectString, `roleArn`],
+    SdiSources: [, _json, `sdiSources`],
     SecurityGroups: [, _json, `securityGroups`],
     Smpte2110ReceiverGroupSettings: [
       ,
@@ -12458,6 +12722,8 @@ const de_InputPrepareScheduleActionSettings = (
     UrlPath: [, _json, `urlPath`],
   }) as any;
 };
+
+// de_InputSdiSources omitted.
 
 /**
  * deserializeAws_restJson1InputSdpLocation
@@ -13732,6 +13998,59 @@ const de_Scte35TimeSignalScheduleActionSettings = (
 ): Scte35TimeSignalScheduleActionSettings => {
   return take(output, {
     Scte35Descriptors: [, (_: any) => de___listOfScte35Descriptor(_, context), `scte35Descriptors`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SdiSource
+ */
+const de_SdiSource = (output: any, context: __SerdeContext): SdiSource => {
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    Id: [, __expectString, `id`],
+    Inputs: [, _json, `inputs`],
+    Mode: [, __expectString, `mode`],
+    Name: [, __expectString, `name`],
+    State: [, __expectString, `state`],
+    Type: [, __expectString, `type`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SdiSourceMapping
+ */
+const de_SdiSourceMapping = (output: any, context: __SerdeContext): SdiSourceMapping => {
+  return take(output, {
+    CardNumber: [, __expectInt32, `cardNumber`],
+    ChannelNumber: [, __expectInt32, `channelNumber`],
+    SdiSource: [, __expectString, `sdiSource`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SdiSourceMappings
+ */
+const de_SdiSourceMappings = (output: any, context: __SerdeContext): SdiSourceMapping[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SdiSourceMapping(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1SdiSourceSummary
+ */
+const de_SdiSourceSummary = (output: any, context: __SerdeContext): SdiSourceSummary => {
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    Id: [, __expectString, `id`],
+    Inputs: [, _json, `inputs`],
+    Mode: [, __expectString, `mode`],
+    Name: [, __expectString, `name`],
+    State: [, __expectString, `state`],
+    Type: [, __expectString, `type`],
   }) as any;
 };
 

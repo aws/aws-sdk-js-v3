@@ -40,6 +40,13 @@ export interface UpdateNodeCommandOutput extends UpdateNodeResponse, __MetadataB
  *   Name: "STRING_VALUE",
  *   NodeId: "STRING_VALUE", // required
  *   Role: "BACKUP" || "ACTIVE",
+ *   SdiSourceMappings: [ // SdiSourceMappingsUpdateRequest
+ *     { // SdiSourceMappingUpdateRequest
+ *       CardNumber: Number("int"),
+ *       ChannelNumber: Number("int"),
+ *       SdiSource: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new UpdateNodeCommand(input);
  * const response = await client.send(command);
@@ -62,6 +69,13 @@ export interface UpdateNodeCommandOutput extends UpdateNodeResponse, __MetadataB
  * //   ],
  * //   Role: "BACKUP" || "ACTIVE",
  * //   State: "CREATED" || "REGISTERING" || "READY_TO_ACTIVATE" || "REGISTRATION_FAILED" || "ACTIVATION_FAILED" || "ACTIVE" || "READY" || "IN_USE" || "DEREGISTERING" || "DRAINING" || "DEREGISTRATION_FAILED" || "DEREGISTERED",
+ * //   SdiSourceMappings: [ // SdiSourceMappings
+ * //     { // SdiSourceMapping
+ * //       CardNumber: Number("int"),
+ * //       ChannelNumber: Number("int"),
+ * //       SdiSource: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

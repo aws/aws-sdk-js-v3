@@ -75,7 +75,7 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST" || "SMPTE_2110_RECEIVER_GROUP",
+ *   Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST" || "SMPTE_2110_RECEIVER_GROUP" || "SDI",
  *   Vpc: { // InputVpcRequest
  *     SecurityGroupIds: [
  *       "STRING_VALUE",
@@ -131,6 +131,9 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  *       },
  *     ],
  *   },
+ *   SdiSources: [ // InputSdiSources
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new CreateInputCommand(input);
  * const response = await client.send(command);
@@ -190,7 +193,7 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * //     Tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
- * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST" || "SMPTE_2110_RECEIVER_GROUP",
+ * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST" || "SMPTE_2110_RECEIVER_GROUP" || "SDI",
  * //     SrtSettings: { // SrtSettings
  * //       SrtCallerSources: [ // __listOfSrtCallerSource
  * //         { // SrtCallerSource
@@ -238,6 +241,9 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * //         },
  * //       ],
  * //     },
+ * //     SdiSources: [ // InputSdiSources
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

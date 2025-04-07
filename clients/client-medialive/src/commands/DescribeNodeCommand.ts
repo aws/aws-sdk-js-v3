@@ -60,6 +60,13 @@ export interface DescribeNodeCommandOutput extends DescribeNodeResponse, __Metad
  * //   ],
  * //   Role: "BACKUP" || "ACTIVE",
  * //   State: "CREATED" || "REGISTERING" || "READY_TO_ACTIVATE" || "REGISTRATION_FAILED" || "ACTIVATION_FAILED" || "ACTIVE" || "READY" || "IN_USE" || "DEREGISTERING" || "DRAINING" || "DEREGISTRATION_FAILED" || "DEREGISTERED",
+ * //   SdiSourceMappings: [ // SdiSourceMappings
+ * //     { // SdiSourceMapping
+ * //       CardNumber: Number("int"),
+ * //       ChannelNumber: Number("int"),
+ * //       SdiSource: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

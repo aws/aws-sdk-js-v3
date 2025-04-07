@@ -4388,6 +4388,30 @@ export const NodeRole = {
 export type NodeRole = (typeof NodeRole)[keyof typeof NodeRole];
 
 /**
+ * Used in DescribeNodeSummary, DescribeNodeResult.
+ * @public
+ */
+export interface SdiSourceMapping {
+  /**
+   * A number that uniquely identifies the SDI card on the node hardware.
+   * @public
+   */
+  CardNumber?: number | undefined;
+
+  /**
+   * A number that uniquely identifies a port on the SDI card.
+   * @public
+   */
+  ChannelNumber?: number | undefined;
+
+  /**
+   * The ID of the SdiSource to associate with this port on this card. You can use the ListSdiSources operation to discover all the IDs.
+   * @public
+   */
+  SdiSource?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -4481,6 +4505,12 @@ export interface DescribeNodeSummary {
    * @public
    */
   State?: NodeState | undefined;
+
+  /**
+   * An array of SDI source mappings. Each mapping connects one logical SdiSource to the physical SDI card and port that the physical SDI source uses.
+   * @public
+   */
+  SdiSourceMappings?: SdiSourceMapping[] | undefined;
 }
 
 /**
@@ -5036,6 +5066,7 @@ export const InputType = {
   RTMP_PULL: "RTMP_PULL",
   RTMP_PUSH: "RTMP_PUSH",
   RTP_PUSH: "RTP_PUSH",
+  SDI: "SDI",
   SMPTE_2110_RECEIVER_GROUP: "SMPTE_2110_RECEIVER_GROUP",
   SRT_CALLER: "SRT_CALLER",
   TS_FILE: "TS_FILE",
@@ -5175,6 +5206,12 @@ export interface Input {
    * @public
    */
   Smpte2110ReceiverGroupSettings?: Smpte2110ReceiverGroupSettings | undefined;
+
+  /**
+   * SDI Sources for this Input.
+   * @public
+   */
+  SdiSources?: string[] | undefined;
 }
 
 /**
@@ -6792,17 +6829,3 @@ export const M2tsSegmentationStyle = {
  * @public
  */
 export type M2tsSegmentationStyle = (typeof M2tsSegmentationStyle)[keyof typeof M2tsSegmentationStyle];
-
-/**
- * @public
- * @enum
- */
-export const M2tsTimedMetadataBehavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type M2tsTimedMetadataBehavior = (typeof M2tsTimedMetadataBehavior)[keyof typeof M2tsTimedMetadataBehavior];
