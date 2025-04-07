@@ -1879,6 +1879,21 @@ export interface StopEvaluationJobResponse {}
  * @public
  * @enum
  */
+export const GuardrailContentFilterAction = {
+  BLOCK: "BLOCK",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContentFilterAction =
+  (typeof GuardrailContentFilterAction)[keyof typeof GuardrailContentFilterAction];
+
+/**
+ * @public
+ * @enum
+ */
 export const GuardrailModality = {
   IMAGE: "IMAGE",
   TEXT: "TEXT",
@@ -1988,6 +2003,56 @@ export interface GuardrailContentFilterConfig {
    * @public
    */
   outputModalities?: GuardrailModality[] | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the
+   *                trace response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  inputAction?: GuardrailContentFilterAction | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  outputAction?: GuardrailContentFilterAction | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't
+   *          charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you
+   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
 }
 
 /**
@@ -2001,6 +2066,21 @@ export interface GuardrailContentPolicyConfig {
    */
   filtersConfig: GuardrailContentFilterConfig[] | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailContextualGroundingAction = {
+  BLOCK: "BLOCK",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContextualGroundingAction =
+  (typeof GuardrailContextualGroundingAction)[keyof typeof GuardrailContextualGroundingAction];
 
 /**
  * @public
@@ -2033,6 +2113,30 @@ export interface GuardrailContextualGroundingFilterConfig {
    * @public
    */
   threshold: number | undefined;
+
+  /**
+   * <p>Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  action?: GuardrailContextualGroundingAction | undefined;
+
+  /**
+   * <p>Specifies whether to enable contextual grounding evaluation. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
 }
 
 /**
@@ -2054,6 +2158,7 @@ export interface GuardrailContextualGroundingPolicyConfig {
 export const GuardrailSensitiveInformationAction = {
   ANONYMIZE: "ANONYMIZE",
   BLOCK: "BLOCK",
+  NONE: "NONE",
 } as const;
 
 /**
@@ -2444,6 +2549,66 @@ export interface GuardrailPiiEntityConfig {
    * @public
    */
   action: GuardrailSensitiveInformationAction | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ANONYMIZE</code> – Mask the content and replace it with identifier
+   *                tags.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the
+   *                trace response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  inputAction?: GuardrailSensitiveInformationAction | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ANONYMIZE</code> – Mask the content and replace it with identifier
+   *                tags.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the
+   *                trace response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  outputAction?: GuardrailSensitiveInformationAction | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't
+   *          charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you
+   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
 }
 
 /**
@@ -2474,6 +2639,56 @@ export interface GuardrailRegexConfig {
    * @public
    */
   action: GuardrailSensitiveInformationAction | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  inputAction?: GuardrailSensitiveInformationAction | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  outputAction?: GuardrailSensitiveInformationAction | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't
+   *          charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you
+   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
 }
 
 /**
@@ -2493,6 +2708,20 @@ export interface GuardrailSensitiveInformationPolicyConfig {
    */
   regexesConfig?: GuardrailRegexConfig[] | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailTopicAction = {
+  BLOCK: "BLOCK",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailTopicAction = (typeof GuardrailTopicAction)[keyof typeof GuardrailTopicAction];
 
 /**
  * @public
@@ -2535,6 +2764,56 @@ export interface GuardrailTopicConfig {
    * @public
    */
   type: GuardrailTopicType | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  inputAction?: GuardrailTopicAction | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  outputAction?: GuardrailTopicAction | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't
+   *          charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you
+   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
 }
 
 /**
@@ -2548,6 +2827,20 @@ export interface GuardrailTopicPolicyConfig {
    */
   topicsConfig: GuardrailTopicConfig[] | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailWordAction = {
+  BLOCK: "BLOCK",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailWordAction = (typeof GuardrailWordAction)[keyof typeof GuardrailWordAction];
 
 /**
  * @public
@@ -2572,6 +2865,56 @@ export interface GuardrailManagedWordsConfig {
    * @public
    */
   type: GuardrailManagedWordsType | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  inputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  outputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you
+   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you
+   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
 }
 
 /**
@@ -2584,6 +2927,56 @@ export interface GuardrailWordConfig {
    * @public
    */
   text: string | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  inputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  outputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the intput. When disabled, you
+   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you
+   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
 }
 
 /**
@@ -2899,6 +3292,56 @@ export interface GuardrailContentFilter {
    * @public
    */
   outputModalities?: GuardrailModality[] | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the
+   *                trace response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  inputAction?: GuardrailContentFilterAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  outputAction?: GuardrailContentFilterAction | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't
+   *          charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you
+   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
 }
 
 /**
@@ -2937,6 +3380,30 @@ export interface GuardrailContextualGroundingFilter {
    * @public
    */
   threshold: number | undefined;
+
+  /**
+   * <p>The action to take when content fails the contextual grounding evaluation. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  action?: GuardrailContextualGroundingAction | undefined;
+
+  /**
+   * <p>Indicates whether contextual grounding is enabled for evaluation. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
 }
 
 /**
@@ -2967,6 +3434,66 @@ export interface GuardrailPiiEntity {
    * @public
    */
   action: GuardrailSensitiveInformationAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ANONYMIZE</code> – Mask the content and replace it with identifier
+   *                tags.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the
+   *                trace response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  inputAction?: GuardrailSensitiveInformationAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ANONYMIZE</code> – Mask the content and replace it with identifier
+   *                tags.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the
+   *                trace response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  outputAction?: GuardrailSensitiveInformationAction | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't
+   *          charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you
+   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
 }
 
 /**
@@ -2997,6 +3524,56 @@ export interface GuardrailRegex {
    * @public
    */
   action: GuardrailSensitiveInformationAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  inputAction?: GuardrailSensitiveInformationAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  outputAction?: GuardrailSensitiveInformationAction | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't
+   *          charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you
+   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
 }
 
 /**
@@ -3071,6 +3648,56 @@ export interface GuardrailTopic {
    * @public
    */
   type?: GuardrailTopicType | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  inputAction?: GuardrailTopicAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  outputAction?: GuardrailTopicAction | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you
+   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you
+   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
 }
 
 /**
@@ -3106,6 +3733,56 @@ export interface GuardrailManagedWords {
    * @public
    */
   type: GuardrailManagedWordsType | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  inputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  outputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't
+   *          charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you
+   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
 }
 
 /**
@@ -3118,6 +3795,56 @@ export interface GuardrailWord {
    * @public
    */
   text: string | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  inputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> – Block the content and replace it with blocked
+   *                messaging.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Take no action but return detection information in the trace
+   *                response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  outputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't
+   *          charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you
+   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
 }
 
 /**
@@ -8630,6 +9357,8 @@ export const GuardrailContentFilterConfigFilterSensitiveLog = (obj: GuardrailCon
   ...obj,
   ...(obj.inputModalities && { inputModalities: SENSITIVE_STRING }),
   ...(obj.outputModalities && { outputModalities: SENSITIVE_STRING }),
+  ...(obj.inputAction && { inputAction: SENSITIVE_STRING }),
+  ...(obj.outputAction && { outputAction: SENSITIVE_STRING }),
 });
 
 /**
@@ -8645,11 +9374,35 @@ export const GuardrailContentPolicyConfigFilterSensitiveLog = (obj: GuardrailCon
 /**
  * @internal
  */
+export const GuardrailContextualGroundingFilterConfigFilterSensitiveLog = (
+  obj: GuardrailContextualGroundingFilterConfig
+): any => ({
+  ...obj,
+  ...(obj.action && { action: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailContextualGroundingPolicyConfigFilterSensitiveLog = (
+  obj: GuardrailContextualGroundingPolicyConfig
+): any => ({
+  ...obj,
+  ...(obj.filtersConfig && {
+    filtersConfig: obj.filtersConfig.map((item) => GuardrailContextualGroundingFilterConfigFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const GuardrailTopicConfigFilterSensitiveLog = (obj: GuardrailTopicConfig): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.definition && { definition: SENSITIVE_STRING }),
   ...(obj.examples && { examples: SENSITIVE_STRING }),
+  ...(obj.inputAction && { inputAction: SENSITIVE_STRING }),
+  ...(obj.outputAction && { outputAction: SENSITIVE_STRING }),
 });
 
 /**
@@ -8665,6 +9418,37 @@ export const GuardrailTopicPolicyConfigFilterSensitiveLog = (obj: GuardrailTopic
 /**
  * @internal
  */
+export const GuardrailManagedWordsConfigFilterSensitiveLog = (obj: GuardrailManagedWordsConfig): any => ({
+  ...obj,
+  ...(obj.inputAction && { inputAction: SENSITIVE_STRING }),
+  ...(obj.outputAction && { outputAction: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailWordConfigFilterSensitiveLog = (obj: GuardrailWordConfig): any => ({
+  ...obj,
+  ...(obj.inputAction && { inputAction: SENSITIVE_STRING }),
+  ...(obj.outputAction && { outputAction: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailWordPolicyConfigFilterSensitiveLog = (obj: GuardrailWordPolicyConfig): any => ({
+  ...obj,
+  ...(obj.wordsConfig && { wordsConfig: obj.wordsConfig.map((item) => GuardrailWordConfigFilterSensitiveLog(item)) }),
+  ...(obj.managedWordListsConfig && {
+    managedWordListsConfig: obj.managedWordListsConfig.map((item) =>
+      GuardrailManagedWordsConfigFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const CreateGuardrailRequestFilterSensitiveLog = (obj: CreateGuardrailRequest): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
@@ -8674,6 +9458,12 @@ export const CreateGuardrailRequestFilterSensitiveLog = (obj: CreateGuardrailReq
   }),
   ...(obj.contentPolicyConfig && {
     contentPolicyConfig: GuardrailContentPolicyConfigFilterSensitiveLog(obj.contentPolicyConfig),
+  }),
+  ...(obj.wordPolicyConfig && { wordPolicyConfig: GuardrailWordPolicyConfigFilterSensitiveLog(obj.wordPolicyConfig) }),
+  ...(obj.contextualGroundingPolicyConfig && {
+    contextualGroundingPolicyConfig: GuardrailContextualGroundingPolicyConfigFilterSensitiveLog(
+      obj.contextualGroundingPolicyConfig
+    ),
   }),
   ...(obj.blockedInputMessaging && { blockedInputMessaging: SENSITIVE_STRING }),
   ...(obj.blockedOutputsMessaging && { blockedOutputsMessaging: SENSITIVE_STRING }),
@@ -8694,6 +9484,8 @@ export const GuardrailContentFilterFilterSensitiveLog = (obj: GuardrailContentFi
   ...obj,
   ...(obj.inputModalities && { inputModalities: SENSITIVE_STRING }),
   ...(obj.outputModalities && { outputModalities: SENSITIVE_STRING }),
+  ...(obj.inputAction && { inputAction: SENSITIVE_STRING }),
+  ...(obj.outputAction && { outputAction: SENSITIVE_STRING }),
 });
 
 /**
@@ -8707,11 +9499,31 @@ export const GuardrailContentPolicyFilterSensitiveLog = (obj: GuardrailContentPo
 /**
  * @internal
  */
+export const GuardrailContextualGroundingFilterFilterSensitiveLog = (obj: GuardrailContextualGroundingFilter): any => ({
+  ...obj,
+  ...(obj.action && { action: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailContextualGroundingPolicyFilterSensitiveLog = (obj: GuardrailContextualGroundingPolicy): any => ({
+  ...obj,
+  ...(obj.filters && {
+    filters: obj.filters.map((item) => GuardrailContextualGroundingFilterFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const GuardrailTopicFilterSensitiveLog = (obj: GuardrailTopic): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.definition && { definition: SENSITIVE_STRING }),
   ...(obj.examples && { examples: SENSITIVE_STRING }),
+  ...(obj.inputAction && { inputAction: SENSITIVE_STRING }),
+  ...(obj.outputAction && { outputAction: SENSITIVE_STRING }),
 });
 
 /**
@@ -8725,12 +9537,45 @@ export const GuardrailTopicPolicyFilterSensitiveLog = (obj: GuardrailTopicPolicy
 /**
  * @internal
  */
+export const GuardrailManagedWordsFilterSensitiveLog = (obj: GuardrailManagedWords): any => ({
+  ...obj,
+  ...(obj.inputAction && { inputAction: SENSITIVE_STRING }),
+  ...(obj.outputAction && { outputAction: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailWordFilterSensitiveLog = (obj: GuardrailWord): any => ({
+  ...obj,
+  ...(obj.inputAction && { inputAction: SENSITIVE_STRING }),
+  ...(obj.outputAction && { outputAction: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailWordPolicyFilterSensitiveLog = (obj: GuardrailWordPolicy): any => ({
+  ...obj,
+  ...(obj.words && { words: obj.words.map((item) => GuardrailWordFilterSensitiveLog(item)) }),
+  ...(obj.managedWordLists && {
+    managedWordLists: obj.managedWordLists.map((item) => GuardrailManagedWordsFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const GetGuardrailResponseFilterSensitiveLog = (obj: GetGuardrailResponse): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),
   ...(obj.topicPolicy && { topicPolicy: GuardrailTopicPolicyFilterSensitiveLog(obj.topicPolicy) }),
   ...(obj.contentPolicy && { contentPolicy: GuardrailContentPolicyFilterSensitiveLog(obj.contentPolicy) }),
+  ...(obj.wordPolicy && { wordPolicy: GuardrailWordPolicyFilterSensitiveLog(obj.wordPolicy) }),
+  ...(obj.contextualGroundingPolicy && {
+    contextualGroundingPolicy: GuardrailContextualGroundingPolicyFilterSensitiveLog(obj.contextualGroundingPolicy),
+  }),
   ...(obj.statusReasons && { statusReasons: SENSITIVE_STRING }),
   ...(obj.failureRecommendations && { failureRecommendations: SENSITIVE_STRING }),
   ...(obj.blockedInputMessaging && { blockedInputMessaging: SENSITIVE_STRING }),
@@ -8766,6 +9611,12 @@ export const UpdateGuardrailRequestFilterSensitiveLog = (obj: UpdateGuardrailReq
   }),
   ...(obj.contentPolicyConfig && {
     contentPolicyConfig: GuardrailContentPolicyConfigFilterSensitiveLog(obj.contentPolicyConfig),
+  }),
+  ...(obj.wordPolicyConfig && { wordPolicyConfig: GuardrailWordPolicyConfigFilterSensitiveLog(obj.wordPolicyConfig) }),
+  ...(obj.contextualGroundingPolicyConfig && {
+    contextualGroundingPolicyConfig: GuardrailContextualGroundingPolicyConfigFilterSensitiveLog(
+      obj.contextualGroundingPolicyConfig
+    ),
   }),
   ...(obj.blockedInputMessaging && { blockedInputMessaging: SENSITIVE_STRING }),
   ...(obj.blockedOutputsMessaging && { blockedOutputsMessaging: SENSITIVE_STRING }),

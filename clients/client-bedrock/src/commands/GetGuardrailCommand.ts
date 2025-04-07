@@ -57,6 +57,10 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //           "STRING_VALUE",
  * //         ],
  * //         type: "DENY",
+ * //         inputAction: "BLOCK" || "NONE",
+ * //         outputAction: "BLOCK" || "NONE",
+ * //         inputEnabled: true || false,
+ * //         outputEnabled: true || false,
  * //       },
  * //     ],
  * //   },
@@ -72,6 +76,10 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //         outputModalities: [
  * //           "TEXT" || "IMAGE",
  * //         ],
+ * //         inputAction: "BLOCK" || "NONE",
+ * //         outputAction: "BLOCK" || "NONE",
+ * //         inputEnabled: true || false,
+ * //         outputEnabled: true || false,
  * //       },
  * //     ],
  * //   },
@@ -79,11 +87,19 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //     words: [ // GuardrailWords
  * //       { // GuardrailWord
  * //         text: "STRING_VALUE", // required
+ * //         inputAction: "BLOCK" || "NONE",
+ * //         outputAction: "BLOCK" || "NONE",
+ * //         inputEnabled: true || false,
+ * //         outputEnabled: true || false,
  * //       },
  * //     ],
  * //     managedWordLists: [ // GuardrailManagedWordLists
  * //       { // GuardrailManagedWords
  * //         type: "PROFANITY", // required
+ * //         inputAction: "BLOCK" || "NONE",
+ * //         outputAction: "BLOCK" || "NONE",
+ * //         inputEnabled: true || false,
+ * //         outputEnabled: true || false,
  * //       },
  * //     ],
  * //   },
@@ -91,7 +107,11 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //     piiEntities: [ // GuardrailPiiEntities
  * //       { // GuardrailPiiEntity
  * //         type: "ADDRESS" || "AGE" || "AWS_ACCESS_KEY" || "AWS_SECRET_KEY" || "CA_HEALTH_NUMBER" || "CA_SOCIAL_INSURANCE_NUMBER" || "CREDIT_DEBIT_CARD_CVV" || "CREDIT_DEBIT_CARD_EXPIRY" || "CREDIT_DEBIT_CARD_NUMBER" || "DRIVER_ID" || "EMAIL" || "INTERNATIONAL_BANK_ACCOUNT_NUMBER" || "IP_ADDRESS" || "LICENSE_PLATE" || "MAC_ADDRESS" || "NAME" || "PASSWORD" || "PHONE" || "PIN" || "SWIFT_CODE" || "UK_NATIONAL_HEALTH_SERVICE_NUMBER" || "UK_NATIONAL_INSURANCE_NUMBER" || "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER" || "URL" || "USERNAME" || "US_BANK_ACCOUNT_NUMBER" || "US_BANK_ROUTING_NUMBER" || "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER" || "US_PASSPORT_NUMBER" || "US_SOCIAL_SECURITY_NUMBER" || "VEHICLE_IDENTIFICATION_NUMBER", // required
- * //         action: "BLOCK" || "ANONYMIZE", // required
+ * //         action: "BLOCK" || "ANONYMIZE" || "NONE", // required
+ * //         inputAction: "BLOCK" || "ANONYMIZE" || "NONE",
+ * //         outputAction: "BLOCK" || "ANONYMIZE" || "NONE",
+ * //         inputEnabled: true || false,
+ * //         outputEnabled: true || false,
  * //       },
  * //     ],
  * //     regexes: [ // GuardrailRegexes
@@ -99,7 +119,11 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //         name: "STRING_VALUE", // required
  * //         description: "STRING_VALUE",
  * //         pattern: "STRING_VALUE", // required
- * //         action: "BLOCK" || "ANONYMIZE", // required
+ * //         action: "BLOCK" || "ANONYMIZE" || "NONE", // required
+ * //         inputAction: "BLOCK" || "ANONYMIZE" || "NONE",
+ * //         outputAction: "BLOCK" || "ANONYMIZE" || "NONE",
+ * //         inputEnabled: true || false,
+ * //         outputEnabled: true || false,
  * //       },
  * //     ],
  * //   },
@@ -108,6 +132,8 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //       { // GuardrailContextualGroundingFilter
  * //         type: "GROUNDING" || "RELEVANCE", // required
  * //         threshold: Number("double"), // required
+ * //         action: "BLOCK" || "NONE",
+ * //         enabled: true || false,
  * //       },
  * //     ],
  * //   },

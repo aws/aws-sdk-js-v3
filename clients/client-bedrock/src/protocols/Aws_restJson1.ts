@@ -3307,6 +3307,8 @@ const se_GuardrailContextualGroundingFilterConfig = (
   context: __SerdeContext
 ): any => {
   return take(input, {
+    action: [],
+    enabled: [],
     threshold: __serializeFloat,
     type: [],
   });
@@ -3896,6 +3898,8 @@ const de_GuardrailContextualGroundingFilter = (
   context: __SerdeContext
 ): GuardrailContextualGroundingFilter => {
   return take(output, {
+    action: __expectString,
+    enabled: __expectBoolean,
     threshold: __limitedParseDouble,
     type: __expectString,
   }) as any;
