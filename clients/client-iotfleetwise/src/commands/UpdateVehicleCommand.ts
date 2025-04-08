@@ -28,7 +28,10 @@ export interface UpdateVehicleCommandInput extends UpdateVehicleRequest {}
 export interface UpdateVehicleCommandOutput extends UpdateVehicleResponse, __MetadataBearer {}
 
 /**
- * <p> Updates a vehicle. </p>
+ * <p> Updates a vehicle.</p>
+ *          <important>
+ *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +62,20 @@ export interface UpdateVehicleCommandOutput extends UpdateVehicleResponse, __Met
  *   ],
  *   stateTemplatesToRemove: [ // StateTemplateAssociationIdentifiers
  *     "STRING_VALUE",
+ *   ],
+ *   stateTemplatesToUpdate: [
+ *     {
+ *       identifier: "STRING_VALUE", // required
+ *       stateTemplateUpdateStrategy: {//  Union: only one key present
+ *         periodic: {
+ *           stateTemplateUpdateRate: {
+ *             unit: "MILLISECOND" || "SECOND" || "MINUTE" || "HOUR", // required
+ *             value: Number("int"), // required
+ *           },
+ *         },
+ *         onChange: {},
+ *       },
+ *     },
  *   ],
  * };
  * const command = new UpdateVehicleCommand(input);
