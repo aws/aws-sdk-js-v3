@@ -3204,6 +3204,8 @@ __metadata:
     "@aws-crypto/sha256-js": "npm:5.2.0"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
+    "@aws-sdk/eventstream-handler-node": "npm:*"
+    "@aws-sdk/middleware-eventstream": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
     "@aws-sdk/middleware-logger": "npm:*"
     "@aws-sdk/middleware-recursion-detection": "npm:*"
