@@ -31,6 +31,8 @@ import {
   DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   EventStreamSerdeContext as __EventStreamSerdeContext,
+  Message as __Message,
+  MessageHeaders as __MessageHeaders,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
@@ -41,6 +43,10 @@ import { ConverseCommandInput, ConverseCommandOutput } from "../commands/Convers
 import { ConverseStreamCommandInput, ConverseStreamCommandOutput } from "../commands/ConverseStreamCommand";
 import { GetAsyncInvokeCommandInput, GetAsyncInvokeCommandOutput } from "../commands/GetAsyncInvokeCommand";
 import { InvokeModelCommandInput, InvokeModelCommandOutput } from "../commands/InvokeModelCommand";
+import {
+  InvokeModelWithBidirectionalStreamCommandInput,
+  InvokeModelWithBidirectionalStreamCommandOutput,
+} from "../commands/InvokeModelWithBidirectionalStreamCommand";
 import {
   InvokeModelWithResponseStreamCommandInput,
   InvokeModelWithResponseStreamCommandOutput,
@@ -55,6 +61,8 @@ import {
   AsyncInvokeS3OutputDataConfig,
   AsyncInvokeSummary,
   AutoToolChoice,
+  BidirectionalInputPayloadPart,
+  BidirectionalOutputPayloadPart,
   CachePointBlock,
   ConflictException,
   ContentBlock,
@@ -89,6 +97,8 @@ import {
   ImageSource,
   InferenceConfiguration,
   InternalServerException,
+  InvokeModelWithBidirectionalStreamInput,
+  InvokeModelWithBidirectionalStreamOutput,
   Message,
   MessageStartEvent,
   MessageStopEvent,
@@ -251,6 +261,27 @@ export const se_InvokeModelCommand = async (
   let body: any;
   if (input.body !== undefined) {
     body = input.body;
+  }
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1InvokeModelWithBidirectionalStreamCommand
+ */
+export const se_InvokeModelWithBidirectionalStreamCommand = async (
+  input: InvokeModelWithBidirectionalStreamCommandInput,
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/model/{modelId}/invoke-with-bidirectional-stream");
+  b.p("modelId", () => input.modelId!, "{modelId}", false);
+  let body: any;
+  if (input.body !== undefined) {
+    body = se_InvokeModelWithBidirectionalStreamInput(input.body, context);
   }
   b.m("POST").h(headers).b(body);
   return b.build();
@@ -449,6 +480,24 @@ export const de_InvokeModelCommand = async (
   });
   const data: any = await collectBody(output.body, context);
   contents.body = data;
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1InvokeModelWithBidirectionalStreamCommand
+ */
+export const de_InvokeModelWithBidirectionalStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<InvokeModelWithBidirectionalStreamCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: any = output.body;
+  contents.body = de_InvokeModelWithBidirectionalStreamOutput(data, context);
   return contents;
 };
 
@@ -805,6 +854,34 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 };
 
 /**
+ * serializeAws_restJson1InvokeModelWithBidirectionalStreamInput
+ */
+const se_InvokeModelWithBidirectionalStreamInput = (
+  input: any,
+  context: __SerdeContext & __EventStreamSerdeContext
+): any => {
+  const eventMarshallingVisitor = (event: any): __Message =>
+    InvokeModelWithBidirectionalStreamInput.visit(event, {
+      chunk: (value) => se_BidirectionalInputPayloadPart_event(value, context),
+      _: (value) => value as any,
+    });
+  return context.eventStreamMarshaller.serialize(input, eventMarshallingVisitor);
+};
+const se_BidirectionalInputPayloadPart_event = (
+  input: BidirectionalInputPayloadPart,
+  context: __SerdeContext
+): __Message => {
+  const headers: __MessageHeaders = {
+    ":event-type": { type: "string", value: "chunk" },
+    ":message-type": { type: "string", value: "event" },
+    ":content-type": { type: "string", value: "application/json" },
+  };
+  let body = new Uint8Array();
+  body = se_BidirectionalInputPayloadPart(input, context);
+  body = context.utf8Decoder(JSON.stringify(body));
+  return { headers, body };
+};
+/**
  * deserializeAws_restJson1ConverseStreamOutput
  */
 const de_ConverseStreamOutput = (
@@ -877,6 +954,58 @@ const de_ConverseStreamOutput = (
   });
 };
 /**
+ * deserializeAws_restJson1InvokeModelWithBidirectionalStreamOutput
+ */
+const de_InvokeModelWithBidirectionalStreamOutput = (
+  output: any,
+  context: __SerdeContext & __EventStreamSerdeContext
+): AsyncIterable<InvokeModelWithBidirectionalStreamOutput> => {
+  return context.eventStreamMarshaller.deserialize(output, async (event) => {
+    if (event["chunk"] != null) {
+      return {
+        chunk: await de_BidirectionalOutputPayloadPart_event(event["chunk"], context),
+      };
+    }
+    if (event["internalServerException"] != null) {
+      return {
+        internalServerException: await de_InternalServerException_event(event["internalServerException"], context),
+      };
+    }
+    if (event["modelStreamErrorException"] != null) {
+      return {
+        modelStreamErrorException: await de_ModelStreamErrorException_event(
+          event["modelStreamErrorException"],
+          context
+        ),
+      };
+    }
+    if (event["validationException"] != null) {
+      return {
+        validationException: await de_ValidationException_event(event["validationException"], context),
+      };
+    }
+    if (event["throttlingException"] != null) {
+      return {
+        throttlingException: await de_ThrottlingException_event(event["throttlingException"], context),
+      };
+    }
+    if (event["modelTimeoutException"] != null) {
+      return {
+        modelTimeoutException: await de_ModelTimeoutException_event(event["modelTimeoutException"], context),
+      };
+    }
+    if (event["serviceUnavailableException"] != null) {
+      return {
+        serviceUnavailableException: await de_ServiceUnavailableException_event(
+          event["serviceUnavailableException"],
+          context
+        ),
+      };
+    }
+    return { $unknown: output };
+  });
+};
+/**
  * deserializeAws_restJson1ResponseStream
  */
 const de_ResponseStream = (
@@ -927,6 +1056,15 @@ const de_ResponseStream = (
     }
     return { $unknown: output };
   });
+};
+const de_BidirectionalOutputPayloadPart_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<BidirectionalOutputPayloadPart> => {
+  const contents: BidirectionalOutputPayloadPart = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, de_BidirectionalOutputPayloadPart(data, context));
+  return contents;
 };
 const de_ContentBlockDeltaEvent_event = async (
   output: any,
@@ -1039,6 +1177,15 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
 // se_AsyncInvokeS3OutputDataConfig omitted.
 
 // se_AutoToolChoice omitted.
+
+/**
+ * serializeAws_restJson1BidirectionalInputPayloadPart
+ */
+const se_BidirectionalInputPayloadPart = (input: BidirectionalInputPayloadPart, context: __SerdeContext): any => {
+  return take(input, {
+    bytes: context.base64Encoder,
+  });
+};
 
 // se_CachePointBlock omitted.
 
@@ -1451,6 +1598,15 @@ const de_AsyncInvokeSummary = (output: any, context: __SerdeContext): AsyncInvok
     outputDataConfig: (_: any) => _json(__expectUnion(_)),
     status: __expectString,
     submitTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1BidirectionalOutputPayloadPart
+ */
+const de_BidirectionalOutputPayloadPart = (output: any, context: __SerdeContext): BidirectionalOutputPayloadPart => {
+  return take(output, {
+    bytes: context.base64Decoder,
   }) as any;
 };
 

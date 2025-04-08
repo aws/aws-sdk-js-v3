@@ -4,6 +4,7 @@ import packageInfo from "../package.json"; // eslint-disable-line
 
 import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
+import { eventStreamPayloadHandlerProvider } from "@aws-sdk/eventstream-handler-node";
 import { NODE_APP_ID_CONFIG_OPTIONS, createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-node";
 import {
   NODE_REGION_CONFIG_FILE_OPTIONS,
@@ -44,6 +45,7 @@ export const getRuntimeConfig = (config: BedrockRuntimeClientConfig) => {
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ??
       createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
+    eventStreamPayloadHandlerProvider: config?.eventStreamPayloadHandlerProvider ?? eventStreamPayloadHandlerProvider,
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
     region:
