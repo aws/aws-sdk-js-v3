@@ -840,7 +840,7 @@ export interface DimensionValues {
    *          <p>Not all dimensions are supported in each API. Refer to the documentation for each
    *             specific API to see what is supported.</p>
    *          <p>
-   *             <code>LINK_ACCOUNT_NAME</code> and <code>SERVICE_CODE</code> can only be used in
+   *             <code>LINKED_ACCOUNT_NAME</code> and <code>SERVICE_CODE</code> can only be used in
    *                 <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html">CostCategoryRule</a>.</p>
    *          <p>
    *             <code>ANOMALY_TOTAL_IMPACT_ABSOLUTE</code> and
@@ -6553,9 +6553,6 @@ export interface GetCostAndUsageWithResourcesRequest {
    *         <code>SERVICE</code> and <code>LINKED_ACCOUNT</code> and get the costs that are associated
    *       with that account's usage of that service. You can nest <code>Expression</code> objects to
    *       define any combination of dimension filters. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>. </p>
-   *          <p>The <code>GetCostAndUsageWithResources</code> operation requires that you either group
-   *       by or filter by a <code>ResourceId</code>. It requires the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
-   *             <code>"SERVICE = Amazon Elastic Compute Cloud - Compute"</code> in the filter.</p>
    *          <p>Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are
    *         <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
    *          <p>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and
@@ -6907,11 +6904,6 @@ export interface GetCostForecastRequest {
    *             <li>
    *                <p>
    *                   <code>LINKED_ACCOUNT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LINKED_ACCOUNT_NAME</code>
    *                </p>
    *             </li>
    *             <li>
