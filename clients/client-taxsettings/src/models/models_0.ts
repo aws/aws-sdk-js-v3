@@ -720,6 +720,45 @@ export interface UkraineAdditionalInfo {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const UzbekistanTaxRegistrationNumberType = {
+  BUSINESS: "Business",
+  INDIVIDUAL: "Individual",
+} as const;
+
+/**
+ * @public
+ */
+export type UzbekistanTaxRegistrationNumberType =
+  (typeof UzbekistanTaxRegistrationNumberType)[keyof typeof UzbekistanTaxRegistrationNumberType];
+
+/**
+ * <p>
+ *       Additional tax information to specify for a TRN in Uzbekistan.
+ *     </p>
+ * @public
+ */
+export interface UzbekistanAdditionalInfo {
+  /**
+   * <p>
+   *       The tax registration number type. The tax registration number type valid values are <code>Business</code> and <code>Individual</code>.
+   *     </p>
+   * @public
+   */
+  taxRegistrationNumberType?: UzbekistanTaxRegistrationNumberType | undefined;
+
+  /**
+   * <p>
+   *       The unique 12-digit number issued to identify VAT-registered identities in Uzbekistan.
+   *     </p>
+   * @public
+   */
+  vatRegistrationNumber?: string | undefined;
+}
+
+/**
  * <p>Additional tax information to specify for a TRN in Vietnam.</p>
  * @public
  */
@@ -886,6 +925,14 @@ export interface AdditionalInfoResponse {
    * @public
    */
   greeceAdditionalInfo?: GreeceAdditionalInfo | undefined;
+
+  /**
+   * <p>
+   *       Additional tax information associated with your TRN in Uzbekistan.
+   *     </p>
+   * @public
+   */
+  uzbekistanAdditionalInfo?: UzbekistanAdditionalInfo | undefined;
 }
 
 /**
@@ -1184,6 +1231,14 @@ export interface AdditionalInfoRequest {
    * @public
    */
   greeceAdditionalInfo?: GreeceAdditionalInfo | undefined;
+
+  /**
+   * <p>
+   *       Additional tax information to specify for a TRN in Uzbekistan.
+   *     </p>
+   * @public
+   */
+  uzbekistanAdditionalInfo?: UzbekistanAdditionalInfo | undefined;
 }
 
 /**

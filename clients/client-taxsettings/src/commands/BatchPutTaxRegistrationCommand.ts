@@ -314,6 +314,10 @@ export interface BatchPutTaxRegistrationCommandOutput extends BatchPutTaxRegistr
  *       greeceAdditionalInfo: { // GreeceAdditionalInfo
  *         contractingAuthorityCode: "STRING_VALUE",
  *       },
+ *       uzbekistanAdditionalInfo: { // UzbekistanAdditionalInfo
+ *         taxRegistrationNumberType: "Business" || "Individual",
+ *         vatRegistrationNumber: "STRING_VALUE",
+ *       },
  *     },
  *     verificationDetails: { // VerificationDetails
  *       dateOfBirth: "STRING_VALUE",

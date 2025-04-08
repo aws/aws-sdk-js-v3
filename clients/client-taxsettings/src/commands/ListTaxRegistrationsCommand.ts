@@ -144,6 +144,10 @@ export interface ListTaxRegistrationsCommandOutput extends ListTaxRegistrationsR
  * //           greeceAdditionalInfo: { // GreeceAdditionalInfo
  * //             contractingAuthorityCode: "STRING_VALUE",
  * //           },
+ * //           uzbekistanAdditionalInfo: { // UzbekistanAdditionalInfo
+ * //             taxRegistrationNumberType: "Business" || "Individual",
+ * //             vatRegistrationNumber: "STRING_VALUE",
+ * //           },
  * //         },
  * //         jurisdiction: { // Jurisdiction
  * //           stateOrRegion: "STRING_VALUE",

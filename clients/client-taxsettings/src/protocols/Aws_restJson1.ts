@@ -105,6 +105,7 @@ import {
   TaxRegistrationEntry,
   TurkeyAdditionalInfo,
   UkraineAdditionalInfo,
+  UzbekistanAdditionalInfo,
   ValidationException,
   VerificationDetails,
   VietnamAdditionalInfo,
@@ -1077,6 +1078,8 @@ const se_TaxRegistrationEntry = (input: TaxRegistrationEntry, context: __SerdeCo
 
 // se_UkraineAdditionalInfo omitted.
 
+// se_UzbekistanAdditionalInfo omitted.
+
 /**
  * serializeAws_restJson1VerificationDetails
  */
@@ -1223,6 +1226,8 @@ const de_TaxExemptions = (output: any, context: __SerdeContext): TaxExemption[] 
 // de_TurkeyAdditionalInfo omitted.
 
 // de_UkraineAdditionalInfo omitted.
+
+// de_UzbekistanAdditionalInfo omitted.
 
 // de_ValidationExceptionField omitted.
 

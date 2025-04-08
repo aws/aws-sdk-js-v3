@@ -138,6 +138,10 @@ export interface GetTaxRegistrationCommandOutput extends GetTaxRegistrationRespo
  * //       greeceAdditionalInfo: { // GreeceAdditionalInfo
  * //         contractingAuthorityCode: "STRING_VALUE",
  * //       },
+ * //       uzbekistanAdditionalInfo: { // UzbekistanAdditionalInfo
+ * //         taxRegistrationNumberType: "Business" || "Individual",
+ * //         vatRegistrationNumber: "STRING_VALUE",
+ * //       },
  * //     },
  * //     legalAddress: { // Address
  * //       addressLine1: "STRING_VALUE", // required
