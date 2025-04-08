@@ -60,7 +60,7 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  * const response = await client.send(command);
  * // { // JoinDomainOutput
  * //   GatewayARN: "STRING_VALUE",
- * //   ActiveDirectoryStatus: "ACCESS_DENIED" || "DETACHED" || "JOINED" || "JOINING" || "NETWORK_ERROR" || "TIMEOUT" || "UNKNOWN_ERROR",
+ * //   ActiveDirectoryStatus: "ACCESS_DENIED" || "DETACHED" || "JOINED" || "JOINING" || "NETWORK_ERROR" || "TIMEOUT" || "UNKNOWN_ERROR" || "INSUFFICIENT_PERMISSIONS",
  * // };
  *
  * ```

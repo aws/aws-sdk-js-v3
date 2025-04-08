@@ -340,6 +340,7 @@ export class InvalidGatewayRequestException extends __BaseException {
 export const ActiveDirectoryStatus = {
   ACCESS_DENIED: "ACCESS_DENIED",
   DETACHED: "DETACHED",
+  INSUFFICIENT_PERMISSIONS: "INSUFFICIENT_PERMISSIONS",
   JOINED: "JOINED",
   JOINING: "JOINING",
   NETWORK_ERROR: "NETWORK_ERROR",
@@ -6085,6 +6086,12 @@ export interface JoinDomainOutput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>INSUFFICIENT_PERMISSIONS</code>: Indicates that the <code>JoinDomain</code>
+   *                operation failed because the specified user lacks the necessary permissions to join
+   *                the domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>NETWORK_ERROR</code>: Indicates that <code>JoinDomain</code> operation
    *                failed due to a network or connectivity error.</p>
    *             </li>
@@ -7225,7 +7232,7 @@ export interface StartCacheReportInput {
   Role: string | undefined;
 
   /**
-   * <p>The ARN of the Amazon S3 bucket where the cache report will be saved.</p>
+   * <p>The ARN of the Amazon S3 bucket where you want to save the cache report.</p>
    *          <note>
    *             <p>We do not recommend saving the cache report to the same Amazon S3 bucket for
    *             which you are generating the report.</p>
@@ -7236,8 +7243,8 @@ export interface StartCacheReportInput {
   LocationARN: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region of the Amazon S3 bucket associated with the file
-   *          share for which you want to generate the cache report.</p>
+   * <p>The Amazon Web Services Region of the Amazon S3 bucket where you want to save the
+   *          cache report.</p>
    * @public
    */
   BucketRegion: string | undefined;
