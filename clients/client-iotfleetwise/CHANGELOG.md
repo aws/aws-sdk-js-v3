@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.785.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.784.0...v3.785.0) (2025-04-08)
+
+
+### Features
+
+* **client-iotfleetwise:** This release adds the option to update the strategy of state templates already associated to a vehicle, without the need to remove and re-add them. ([f0a5384](https://github.com/aws/aws-sdk-js-v3/commit/f0a5384c278dba2883c5526237ae872541c41fc7))
+
+
+
+
+
 # [3.782.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.781.0...v3.782.0) (2025-04-03)
 
 **Note:** Version bump only for package @aws-sdk/client-iotfleetwise

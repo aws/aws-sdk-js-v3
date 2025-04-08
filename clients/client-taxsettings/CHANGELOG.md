@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.785.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.784.0...v3.785.0) (2025-04-08)
+
+
+### Features
+
+* **client-taxsettings:** Uzbekistan Launch on TaxSettings Page ([e17e3ec](https://github.com/aws/aws-sdk-js-v3/commit/e17e3ec3bd966ab044ac5ab7cc393fd4ac0f102e))
+
+
+
+
+
 # [3.782.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.781.0...v3.782.0) (2025-04-03)
 
 **Note:** Version bump only for package @aws-sdk/client-taxsettings

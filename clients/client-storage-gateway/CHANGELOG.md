@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.785.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.784.0...v3.785.0) (2025-04-08)
+
+
+### Features
+
+* **client-storage-gateway:** Added new ActiveDirectoryStatus value, ListCacheReports paginator, and support for longer pagination tokens. ([458278b](https://github.com/aws/aws-sdk-js-v3/commit/458278bc2c2114e20ca9525c752f7f01d25d8acb))
+
+
+
+
+
 # [3.782.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.781.0...v3.782.0) (2025-04-03)
 
 **Note:** Version bump only for package @aws-sdk/client-storage-gateway

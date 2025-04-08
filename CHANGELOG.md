@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.785.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.784.0...v3.785.0) (2025-04-08)
+
+
+### Features
+
+* **client-bedrock-runtime:** This release introduces our latest bedrock runtime API, InvokeModelWithBidirectionalStream. The API supports both input and output streams and is supported by only HTTP2.0. ([8f0175d](https://github.com/aws/aws-sdk-js-v3/commit/8f0175dce0b261ad24afca775d68ffd23b1a3178))
+* **client-cost-explorer:** This release supports Pagination traits on Cost Anomaly Detection APIs. ([719eed4](https://github.com/aws/aws-sdk-js-v3/commit/719eed4724c55e1ce06b4958e4a6cfae2cdf5b88))
+* **client-cost-optimization-hub:** This release adds resource type "MemoryDbReservedInstances" and resource type "DynamoDbReservedCapacity" to the GetRecommendation, ListRecommendations, and ListRecommendationSummaries APIs to support new MemoryDB and DynamoDB RI recommendations. ([be8fc6b](https://github.com/aws/aws-sdk-js-v3/commit/be8fc6b82465193623ade994cdfd64fd7ae5c2ec))
+* **client-iotfleetwise:** This release adds the option to update the strategy of state templates already associated to a vehicle, without the need to remove and re-add them. ([f0a5384](https://github.com/aws/aws-sdk-js-v3/commit/f0a5384c278dba2883c5526237ae872541c41fc7))
+* **client-storage-gateway:** Added new ActiveDirectoryStatus value, ListCacheReports paginator, and support for longer pagination tokens. ([458278b](https://github.com/aws/aws-sdk-js-v3/commit/458278bc2c2114e20ca9525c752f7f01d25d8acb))
+* **client-taxsettings:** Uzbekistan Launch on TaxSettings Page ([e17e3ec](https://github.com/aws/aws-sdk-js-v3/commit/e17e3ec3bd966ab044ac5ab7cc393fd4ac0f102e))
+* **clients:** update client endpoints as of 2025-04-08 ([aa29eb0](https://github.com/aws/aws-sdk-js-v3/commit/aa29eb0799e3185ab7df5966cb99e5dc93edc9a4))
+
+
+
+
+
 # [3.784.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.783.0...v3.784.0) (2025-04-07)
 
 
