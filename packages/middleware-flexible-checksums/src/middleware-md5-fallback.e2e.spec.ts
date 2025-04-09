@@ -100,7 +100,7 @@ describe("S3 MD5 Fallback for DeleteObjects", () => {
         Object.keys(headers).forEach((header) => {
           const lowerHeader = header.toLowerCase();
           if (lowerHeader.startsWith("x-amz-checksum-") || lowerHeader.startsWith("x-amz-sdk-checksum-")) {
-            console.log(`[${context.commandName} - ${context.step}] Removing header: ${header}`);
+            console.log(`[${context.commandName}] Removing header: ${header}`);
             delete headers[header];
             crc32Removed = true;
           }
