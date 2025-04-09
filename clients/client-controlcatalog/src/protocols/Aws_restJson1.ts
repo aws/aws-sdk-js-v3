@@ -32,6 +32,7 @@ import {
   AccessDeniedException,
   CommonControlFilter,
   CommonControlSummary,
+  ControlSummary,
   DomainResourceFilter,
   DomainSummary,
   InternalServerException,
@@ -172,11 +173,13 @@ export const de_GetControlCommand = async (
   const doc = take(data, {
     Arn: __expectString,
     Behavior: __expectString,
+    CreateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
     Implementation: _json,
     Name: __expectString,
     Parameters: _json,
     RegionConfiguration: _json,
+    Severity: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -219,7 +222,7 @@ export const de_ListControlsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    Controls: _json,
+    Controls: (_) => de_Controls(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -447,9 +450,32 @@ const de_CommonControlSummaryList = (output: any, context: __SerdeContext): Comm
 
 // de_ControlParameters omitted.
 
-// de_Controls omitted.
+/**
+ * deserializeAws_restJson1Controls
+ */
+const de_Controls = (output: any, context: __SerdeContext): ControlSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ControlSummary(entry, context);
+    });
+  return retVal;
+};
 
-// de_ControlSummary omitted.
+/**
+ * deserializeAws_restJson1ControlSummary
+ */
+const de_ControlSummary = (output: any, context: __SerdeContext): ControlSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Behavior: __expectString,
+    CreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Implementation: _json,
+    Name: __expectString,
+    Severity: __expectString,
+  }) as any;
+};
 
 // de_DeployableRegions omitted.
 
@@ -479,6 +505,8 @@ const de_DomainSummaryList = (output: any, context: __SerdeContext): DomainSumma
 };
 
 // de_ImplementationDetails omitted.
+
+// de_ImplementationSummary omitted.
 
 /**
  * deserializeAws_restJson1ObjectiveSummary

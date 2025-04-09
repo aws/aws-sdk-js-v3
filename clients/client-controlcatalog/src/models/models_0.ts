@@ -325,6 +325,12 @@ export interface ImplementationDetails {
    * @public
    */
   Type: string | undefined;
+
+  /**
+   * <p>A service-specific identifier for the control, assigned by the service that implemented the control. For example, this identifier could be an Amazon Web Services Config Rule ID or a Security Hub Control ID.</p>
+   * @public
+   */
+  Identifier?: string | undefined;
 }
 
 /**
@@ -439,6 +445,22 @@ export interface RegionConfiguration {
 
 /**
  * @public
+ * @enum
+ */
+export const ControlSeverity = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type ControlSeverity = (typeof ControlSeverity)[keyof typeof ControlSeverity];
+
+/**
+ * @public
  */
 export interface GetControlResponse {
   /**
@@ -467,6 +489,12 @@ export interface GetControlResponse {
   Behavior: ControlBehavior | undefined;
 
   /**
+   * <p>An enumerated type, with the following possible values:</p>
+   * @public
+   */
+  Severity?: ControlSeverity | undefined;
+
+  /**
    * <p>Returns information about the control, including the scope of the control, if enabled, and the Regions in which the control currently is available for deployment. For more information about scope, see <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/global-services.html">Global services</a>.</p>
    *          <p>If you are applying controls through an Amazon Web Services Control Tower landing zone environment, remember that the values returned in the <code>RegionConfiguration</code> API operation are not related to the governed Regions in your landing zone. For example, if you are governing Regions <code>A</code>,<code>B</code>,and <code>C</code> while the control is available in Regions <code>A</code>, <code>B</code>, C<code>,</code> and <code>D</code>, you'd see a response with <code>DeployableRegions</code> of <code>A</code>, <code>B</code>, <code>C</code>, and <code>D</code> for a control with <code>REGIONAL</code> scope, even though you may not intend to deploy the control in Region <code>D</code>, because you do not govern it through your landing zone.</p>
    * @public
@@ -485,6 +513,12 @@ export interface GetControlResponse {
    * @public
    */
   Parameters?: ControlParameter[] | undefined;
+
+  /**
+   * <p>A timestamp that notes the time when the control was released (start of its life) as a governance capability in Amazon Web Services.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
 }
 
 /**
@@ -527,6 +561,24 @@ export interface ListControlsRequest {
 }
 
 /**
+ * <p>A summary of how the control is implemented, including the Amazon Web Services service that enforces the control and its service-specific identifier. For example, the value of this field could indicate that the control is implemented as an Amazon Web Services Config Rule or an Amazon Web Services Security Hub control.</p>
+ * @public
+ */
+export interface ImplementationSummary {
+  /**
+   * <p>A string that represents the Amazon Web Services service that implements this control. For example, a value of <code>AWS::Config::ConfigRule</code> indicates that the control is implemented by Amazon Web Services Config, and <code>AWS::SecurityHub::SecurityControl</code> indicates implementation by Amazon Web Services Security Hub.</p>
+   * @public
+   */
+  Type: string | undefined;
+
+  /**
+   * <p>The identifier originally assigned by the Amazon Web Services service that implements the control. For example, <code>CODEPIPELINE_DEPLOYMENT_COUNT_CHECK</code>.</p>
+   * @public
+   */
+  Identifier?: string | undefined;
+}
+
+/**
  * <p>Overview of information about a control.</p>
  * @public
  */
@@ -548,6 +600,30 @@ export interface ControlSummary {
    * @public
    */
   Description: string | undefined;
+
+  /**
+   * <p>An enumerated type, with the following possible values:</p>
+   * @public
+   */
+  Behavior?: ControlBehavior | undefined;
+
+  /**
+   * <p>An enumerated type, with the following possible values:</p>
+   * @public
+   */
+  Severity?: ControlSeverity | undefined;
+
+  /**
+   * <p>An object of type <code>ImplementationSummary</code> that describes how the control is implemented.</p>
+   * @public
+   */
+  Implementation?: ImplementationSummary | undefined;
+
+  /**
+   * <p>A timestamp that notes the time when the control was released (start of its life) as a governance capability in Amazon Web Services.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
 }
 
 /**
