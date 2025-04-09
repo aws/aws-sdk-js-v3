@@ -210,7 +210,7 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link ConditionalCheckFailedException} (client fault)
- *  <p>A condition specified in the operation could not be evaluated.</p>
+ *  <p>A condition specified in the operation failed to be evaluated.</p>
  *
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
@@ -232,7 +232,7 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  *
  * @throws {@link RequestLimitExceeded} (client fault)
  *  <p>Throughput exceeds the current throughput quota for your account. Please contact
- *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+ *                 <a href="https://aws.amazon.com/support">Amazon Web ServicesSupport</a> to request a
  *             quota increase.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
