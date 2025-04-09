@@ -7941,6 +7941,12 @@ export interface IcebergCompactionMetrics {
    * <p>The number of DPU hours consumed by the job.</p>
    * @public
    */
+  DpuHours?: number | undefined;
+
+  /**
+   * <p>The number of DPUs consumed by the job, rounded up to the nearest whole number.</p>
+   * @public
+   */
   NumberOfDpus?: number | undefined;
 
   /**
@@ -7997,7 +8003,7 @@ export interface RunMetrics {
   NumberOfFilesCompacted?: string | undefined;
 
   /**
-   * <p>The number of DPU hours consumed by the job.</p>
+   * <p>The number of DPUs consumed by the job, rounded up to the nearest whole number.</p>
    * @public
    */
   NumberOfDpus?: string | undefined;
@@ -8022,6 +8028,12 @@ export interface IcebergOrphanFileDeletionMetrics {
 
   /**
    * <p>The number of DPU hours consumed by the job.</p>
+   * @public
+   */
+  DpuHours?: number | undefined;
+
+  /**
+   * <p>The number of DPUs consumed by the job, rounded up to the nearest whole number.</p>
    * @public
    */
   NumberOfDpus?: number | undefined;
@@ -8070,6 +8082,12 @@ export interface IcebergRetentionMetrics {
 
   /**
    * <p>The number of DPU hours consumed by the job.</p>
+   * @public
+   */
+  DpuHours?: number | undefined;
+
+  /**
+   * <p>The number of DPUs consumed by the job, rounded up to the nearest whole number.</p>
    * @public
    */
   NumberOfDpus?: number | undefined;

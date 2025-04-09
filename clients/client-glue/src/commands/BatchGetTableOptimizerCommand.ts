@@ -90,6 +90,7 @@ export interface BatchGetTableOptimizerCommandOutput extends BatchGetTableOptimi
  * //             IcebergMetrics: { // IcebergCompactionMetrics
  * //               NumberOfBytesCompacted: Number("long"),
  * //               NumberOfFilesCompacted: Number("long"),
+ * //               DpuHours: Number("double"),
  * //               NumberOfDpus: Number("int"),
  * //               JobDurationInHour: Number("double"),
  * //             },
@@ -99,6 +100,7 @@ export interface BatchGetTableOptimizerCommandOutput extends BatchGetTableOptimi
  * //               NumberOfDataFilesDeleted: Number("long"),
  * //               NumberOfManifestFilesDeleted: Number("long"),
  * //               NumberOfManifestListsDeleted: Number("long"),
+ * //               DpuHours: Number("double"),
  * //               NumberOfDpus: Number("int"),
  * //               JobDurationInHour: Number("double"),
  * //             },
@@ -106,6 +108,7 @@ export interface BatchGetTableOptimizerCommandOutput extends BatchGetTableOptimi
  * //           orphanFileDeletionMetrics: { // OrphanFileDeletionMetrics
  * //             IcebergMetrics: { // IcebergOrphanFileDeletionMetrics
  * //               NumberOfOrphanFilesDeleted: Number("long"),
+ * //               DpuHours: Number("double"),
  * //               NumberOfDpus: Number("int"),
  * //               JobDurationInHour: Number("double"),
  * //             },

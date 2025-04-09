@@ -15471,6 +15471,7 @@ const de_GrokClassifier = (output: any, context: __SerdeContext): GrokClassifier
  */
 const de_IcebergCompactionMetrics = (output: any, context: __SerdeContext): IcebergCompactionMetrics => {
   return take(output, {
+    DpuHours: __limitedParseDouble,
     JobDurationInHour: __limitedParseDouble,
     NumberOfBytesCompacted: __expectLong,
     NumberOfDpus: __expectInt32,
@@ -15488,6 +15489,7 @@ const de_IcebergOrphanFileDeletionMetrics = (
   context: __SerdeContext
 ): IcebergOrphanFileDeletionMetrics => {
   return take(output, {
+    DpuHours: __limitedParseDouble,
     JobDurationInHour: __limitedParseDouble,
     NumberOfDpus: __expectInt32,
     NumberOfOrphanFilesDeleted: __expectLong,
@@ -15501,6 +15503,7 @@ const de_IcebergOrphanFileDeletionMetrics = (
  */
 const de_IcebergRetentionMetrics = (output: any, context: __SerdeContext): IcebergRetentionMetrics => {
   return take(output, {
+    DpuHours: __limitedParseDouble,
     JobDurationInHour: __limitedParseDouble,
     NumberOfDataFilesDeleted: __expectLong,
     NumberOfDpus: __expectInt32,
