@@ -32,15 +32,7 @@ export interface ImportCertificateCommandInput extends ImportCertificateRequest 
 export interface ImportCertificateCommandOutput extends ImportCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Imports the signing and encryption certificates that you need to create local (AS2)
- *       profiles and partner
- *       profiles.</p>
- *          <p>You can import both the certificate and its chain in the <code>Certificate</code>
- *       parameter.</p>
- *          <note>
- *             <p>If you use the <code>Certificate</code> parameter to upload both the certificate and its
- *         chain, don't use the <code>CertificateChain</code> parameter.</p>
- *          </note>
+ * <p>Imports the signing and encryption certificates that you need to create local (AS2) profiles and partner profiles.</p> <p>You can import both the certificate and its chain in the <code>Certificate</code> parameter.</p> <note> <p>If you use the <code>Certificate</code> parameter to upload both the certificate and its chain, don't use the <code>CertificateChain</code> parameter.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,8 +75,7 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>

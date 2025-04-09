@@ -32,8 +32,7 @@ export interface ImportHostKeyCommandInput extends ImportHostKeyRequest {}
 export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a host key to the server that's specified by the <code>ServerId</code>
- *       parameter.</p>
+ * <p>Adds a host key to the server that's specified by the <code>ServerId</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,8 +75,7 @@ export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __Met
  *  <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>

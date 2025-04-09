@@ -3398,6 +3398,8 @@ const de_ListHostKeysResponse = (output: any, context: __SerdeContext): ListHost
 
 // de_SftpConnectorConfig omitted.
 
+// de_SftpConnectorConnectionDetails omitted.
+
 // de_SftpConnectorTrustedHostKeyList omitted.
 
 /**

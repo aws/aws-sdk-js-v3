@@ -28,10 +28,7 @@ export interface ListProfilesCommandInput extends ListProfilesRequest {}
 export interface ListProfilesCommandOutput extends ListProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the profiles for your system. If you want to limit the results to a
- *       certain number, supply a value for the <code>MaxResults</code> parameter. If you ran the
- *       command previously and received a value for <code>NextToken</code>, you can supply that value
- *       to continue listing profiles from where you left off.</p>
+ * <p>Returns a list of the profiles for your system. If you want to limit the results to a certain number, supply a value for the <code>MaxResults</code> parameter. If you ran the command previously and received a value for <code>NextToken</code>, you can supply that value to continue listing profiles from where you left off.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +72,7 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>

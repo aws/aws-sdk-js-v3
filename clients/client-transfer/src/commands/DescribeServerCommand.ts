@@ -28,11 +28,7 @@ export interface DescribeServerCommandInput extends DescribeServerRequest {}
 export interface DescribeServerCommandOutput extends DescribeServerResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a file transfer protocol-enabled server that you specify by passing the
- *         <code>ServerId</code> parameter.</p>
- *          <p>The response contains a description of a server's properties. When you set
- *         <code>EndpointType</code> to VPC, the response will contain the
- *       <code>EndpointDetails</code>.</p>
+ * <p>Describes a file transfer protocol-enabled server that you specify by passing the <code>ServerId</code> parameter.</p> <p>The response contains a description of a server's properties. When you set <code>EndpointType</code> to VPC, the response will contain the <code>EndpointDetails</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -137,8 +133,7 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>

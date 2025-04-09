@@ -28,9 +28,7 @@ export interface TestConnectionCommandInput extends TestConnectionRequest {}
 export interface TestConnectionCommandOutput extends TestConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Tests whether your SFTP connector is set up successfully. We highly recommend that you call this
- *     operation to test your ability to transfer files between local Amazon Web Services storage and a trading partner's
- *     SFTP server.</p>
+ * <p>Tests whether your SFTP connector is set up successfully. We highly recommend that you call this operation to test your ability to transfer files between local Amazon Web Services storage and a trading partner's SFTP server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,6 +44,9 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  * //   ConnectorId: "STRING_VALUE",
  * //   Status: "STRING_VALUE",
  * //   StatusMessage: "STRING_VALUE",
+ * //   SftpConnectionDetails: { // SftpConnectorConnectionDetails
+ * //     HostKey: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
@@ -63,8 +64,7 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
