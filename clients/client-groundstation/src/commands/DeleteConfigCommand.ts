@@ -37,13 +37,13 @@ export interface DeleteConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * const client = new GroundStationClient(config);
  * const input = { // DeleteConfigRequest
  *   configId: "STRING_VALUE", // required
- *   configType: "STRING_VALUE", // required
+ *   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording", // required
  * };
  * const command = new DeleteConfigCommand(input);
  * const response = await client.send(command);
  * // { // ConfigIdResponse
  * //   configId: "STRING_VALUE",
- * //   configType: "STRING_VALUE",
+ * //   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording",
  * //   configArn: "STRING_VALUE",
  * // };
  *

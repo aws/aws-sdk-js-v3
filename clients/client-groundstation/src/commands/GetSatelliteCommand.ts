@@ -48,7 +48,7 @@ export interface GetSatelliteCommandOutput extends GetSatelliteResponse, __Metad
  * //     "STRING_VALUE",
  * //   ],
  * //   currentEphemeris: { // EphemerisMetaData
- * //     source: "STRING_VALUE", // required
+ * //     source: "CUSTOMER_PROVIDED" || "SPACE_TRACK", // required
  * //     ephemerisId: "STRING_VALUE",
  * //     epoch: new Date("TIMESTAMP"),
  * //     name: "STRING_VALUE",

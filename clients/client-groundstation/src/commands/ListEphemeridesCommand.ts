@@ -40,7 +40,7 @@ export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, _
  *   startTime: new Date("TIMESTAMP"), // required
  *   endTime: new Date("TIMESTAMP"), // required
  *   statusList: [ // EphemerisStatusList
- *     "STRING_VALUE",
+ *     "VALIDATING" || "INVALID" || "ERROR" || "ENABLED" || "DISABLED" || "EXPIRED",
  *   ],
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
@@ -52,7 +52,7 @@ export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, _
  * //   ephemerides: [ // EphemeridesList
  * //     { // EphemerisItem
  * //       ephemerisId: "STRING_VALUE",
- * //       status: "STRING_VALUE",
+ * //       status: "VALIDATING" || "INVALID" || "ERROR" || "ENABLED" || "DISABLED" || "EXPIRED",
  * //       priority: Number("int"),
  * //       enabled: true || false,
  * //       creationTime: new Date("TIMESTAMP"),

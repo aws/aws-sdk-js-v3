@@ -207,6 +207,12 @@ export interface RegisterAgentRequest {
    * @public
    */
   agentDetails: AgentDetails | undefined;
+
+  /**
+   * <p>Tags assigned to an <code>Agent</code>.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2027,7 +2033,15 @@ export interface ReserveContactRequest {
  */
 export interface CreateDataflowEndpointGroupRequest {
   /**
-   * <p>Endpoint details of each endpoint in the dataflow endpoint group.</p>
+   * <p>Endpoint details of each endpoint in the dataflow endpoint group.
+   *
+   *          All dataflow endpoints within a single dataflow endpoint group must be of the same type.
+   *          You cannot mix <a href="https://docs.aws.amazon.com/ground-station/latest/APIReference/API_AwsGroundStationAgentEndpoint.html">
+   *             AWS Ground Station Agent endpoints</a> with
+   *          <a href="https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DataflowEndpoint.html">Dataflow endpoints</a> in the same group.
+   *          If your use case requires both types of endpoints, you must create separate dataflow endpoint
+   *          groups for each type.
+   *       </p>
    * @public
    */
   endpointDetails: EndpointDetails[] | undefined;
@@ -2295,7 +2309,7 @@ export interface EphemerisIdResponse {
 }
 
 /**
- * <p>AWS Key Management Service (KMS) Key.</p>
+ * <p>KMS key info.</p>
  * @public
  */
 export type KmsKey =

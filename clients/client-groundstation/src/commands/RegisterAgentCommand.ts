@@ -69,6 +69,9 @@ export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __Met
  *       },
  *     ],
  *   },
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new RegisterAgentCommand(input);
  * const response = await client.send(command);
