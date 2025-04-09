@@ -93,14 +93,14 @@ describe("S3 MD5 Fallback for DeleteObjects", () => {
 
         const headers = request.headers;
 
-        // Log headers *before* modification (in build step)
+        // Log headers *before* modification
         // console.log(`[${context.commandName}] Headers before MD5 middleware:`, JSON.stringify(headers, null, 2));
 
         // Remove checksum headers
         Object.keys(headers).forEach((header) => {
           const lowerHeader = header.toLowerCase();
           if (lowerHeader.startsWith("x-amz-checksum-") || lowerHeader.startsWith("x-amz-sdk-checksum-")) {
-            console.log(`[${context.commandName}] Removing header: ${header}`);
+            // console.log(`[${context.commandName}] Removing header: ${header}`);
             delete headers[header];
             crc32Removed = true;
           }
@@ -111,11 +111,11 @@ describe("S3 MD5 Fallback for DeleteObjects", () => {
           const bodyContent = Buffer.from(request.body);
           const md5Hash = createHash("md5").update(bodyContent).digest("base64");
           headers["Content-MD5"] = md5Hash;
-          console.log(`[${context.commandName}] Added Content-MD5: ${md5Hash}`);
+          // console.log(`[${context.commandName}] Added Content-MD5: ${md5Hash}`);
           md5Added = true;
         }
 
-        // Log headers *after* modification (in build step)
+        // Log headers *after* modification
         // console.log(`[${context.commandName}] Headers after MD5 middleware:`, JSON.stringify(headers, null, 2));
 
         return await next(args);
