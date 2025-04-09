@@ -81,47 +81,56 @@ describe("S3 MD5 Fallback for DeleteObjects", () => {
     let md5Added = false;
     let crc32Removed = false;
 
-    md5S3Client.middlewareStack.add(
+    const md5Middleware =
       (next: FinalizeHandler<ServiceInputTypes, ServiceOutputTypes>, context: HandlerExecutionContext) =>
-        async (
-          args: FinalizeHandlerArguments<ServiceInputTypes>
-        ): Promise<FinalizeHandlerOutput<ServiceOutputTypes>> => {
-          const request = args.request as HttpRequest;
-          const isDeleteObjects = context.commandName === "DeleteObjectsCommand";
+      async (args: FinalizeHandlerArguments<ServiceInputTypes>): Promise<FinalizeHandlerOutput<ServiceOutputTypes>> => {
+        const request = args.request as HttpRequest;
+        const isDeleteObjects = context.commandName === "DeleteObjectsCommand";
 
-          if (!isDeleteObjects) {
-            return next(args);
+        if (!isDeleteObjects) {
+          return next(args);
+        }
+
+        const headers = request.headers;
+
+        // Log headers *before* modification (in build step)
+        // console.log(`[${context.commandName}] Headers before MD5 middleware:`, JSON.stringify(headers, null, 2));
+
+        // Remove checksum headers
+        Object.keys(headers).forEach((header) => {
+          const lowerHeader = header.toLowerCase();
+          if (lowerHeader.startsWith("x-amz-checksum-") || lowerHeader.startsWith("x-amz-sdk-checksum-")) {
+            console.log(`[${context.commandName} - ${context.step}] Removing header: ${header}`);
+            delete headers[header];
+            crc32Removed = true;
           }
+        });
 
-          const result = await next(args);
-          const headers = request.headers;
+        // Add MD5
+        if (request.body) {
+          const bodyContent = Buffer.from(request.body);
+          const md5Hash = createHash("md5").update(bodyContent).digest("base64");
+          headers["Content-MD5"] = md5Hash;
+          console.log(`[${context.commandName}] Added Content-MD5: ${md5Hash}`);
+          md5Added = true;
+        }
 
-          // Remove checksum headers
-          Object.keys(headers).forEach((header) => {
-            if (
-              header.toLowerCase().startsWith("x-amz-checksum-") ||
-              header.toLowerCase().startsWith("x-amz-sdk-checksum-")
-            ) {
-              delete headers[header];
-              crc32Removed = true;
-            }
-          });
+        // Log headers *after* modification (in build step)
+        // console.log(`[${context.commandName}] Headers after MD5 middleware:`, JSON.stringify(headers, null, 2));
 
-          // Add MD5
-          if (request.body) {
-            const bodyContent = Buffer.from(request.body);
-            const md5Hash = createHash("md5").update(bodyContent).digest("base64");
-            headers["Content-MD5"] = md5Hash;
-            md5Added = true;
-          }
+        return await next(args);
+      };
 
-          return result;
-        },
-      {
-        step: "finalizeRequest",
-        name: "addMD5Checksum",
-      }
-    );
+    // Add the middleware relative to the flexible checksums middleware
+    md5S3Client.middlewareStack.addRelativeTo(md5Middleware, {
+      relation: "after",
+      toMiddleware: "flexibleChecksumsMiddleware",
+      name: "addMD5Checksum",
+      tags: ["MD5_CHECKSUM"],
+    });
+
+    // Log the entire middleware stack for debugging if needed
+    // console.log("Middleware Stack:", md5S3Client.middlewareStack.identify());
 
     const response = await md5S3Client.send(
       new DeleteObjectsCommand({
@@ -132,7 +141,6 @@ describe("S3 MD5 Fallback for DeleteObjects", () => {
       })
     );
 
-    // If MD5 wasn't properly set, this call will fail
     expect(response.Deleted?.length).toBe(1);
     expect(md5Added).toBe(true);
     expect(crc32Removed).toBe(true);
