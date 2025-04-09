@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.786.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.785.0...v3.786.0) (2025-04-09)
+
+
+### Features
+
+* **client-controlcatalog:** The GetControl API now surfaces a control's Severity, CreateTime, and Identifier for a control's Implementation. The ListControls API now surfaces a control's Behavior, Severity, CreateTime, and Identifier for a control's Implementation. ([253585c](https://github.com/aws/aws-sdk-js-v3/commit/253585cd1edb566d645556438813b39f07f29a06))
+* **client-glue:** The TableOptimizer APIs in AWS Glue now return the DpuHours field in each TableOptimizerRun, providing clients visibility to the DPU-hours used for billing in managed Apache Iceberg table compaction optimization. ([9874c2e](https://github.com/aws/aws-sdk-js-v3/commit/9874c2e8e3b0bf78b8c1ab083870b2c65703d6d9))
+* **client-groundstation:** Support tagging Agents and adjust input field validations ([83c36c8](https://github.com/aws/aws-sdk-js-v3/commit/83c36c8bc075207fc01d8c293a99e411ad07e88a))
+* **client-transfer:** This launch includes 2 enhancements to SFTP connectors user-experience: 1) Customers can self-serve concurrent connections setting for their connectors, and 2) Customers can discover the public host key of remote servers using their SFTP connectors. ([5816308](https://github.com/aws/aws-sdk-js-v3/commit/5816308962dc1c5e24bc2d35b7d0270520edc652))
+* **clients:** update client endpoints as of 2025-04-09 ([0084003](https://github.com/aws/aws-sdk-js-v3/commit/0084003dbfcb818a2cc6bba864c3e9f65c998420))
+
+
+
+
+
 # [3.785.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.784.0...v3.785.0) (2025-04-08)
 
 
