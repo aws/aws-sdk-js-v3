@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.787.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.786.0...v3.787.0) (2025-04-10)
+
+
+### Features
+
+* **client-application-auto-scaling:** Application Auto Scaling now supports horizontal scaling for Elasticache Memcached self-designed clusters using target tracking scaling policies and scheduled scaling. ([38a22fb](https://github.com/aws/aws-sdk-js-v3/commit/38a22fb9f511da14e28d07d177105e1d2954a965))
+* **client-elasticache:** AWS ElastiCache SDK now supports using MemcachedUpgradeConfig parameter with ModifyCacheCluster API to enable updating Memcached cache node types. Please refer to updated AWS ElastiCache public documentation for detailed information on API usage and implementation. ([7be3674](https://github.com/aws/aws-sdk-js-v3/commit/7be36747d443b46af097b2250daf89a63b183f8b))
+* **client-m2:** Introduce three new APIs: CreateDataSetExportTask, GetDataSetExportTask and ListDataSetExportHistory. Add support for batch restart for Blu Age applications. ([2c22fc3](https://github.com/aws/aws-sdk-js-v3/commit/2c22fc3efada14522f9017f1f351df60dc82aab3))
+* **client-medialive:** AWS Elemental MediaLive / Features : Add support for CMAF Ingest CaptionLanguageMappings, TimedMetadataId3 settings, and Link InputResolution. ([4f30f3e](https://github.com/aws/aws-sdk-js-v3/commit/4f30f3e3ed9a90764f870fdb88298f864fbbe763))
+* **client-qbusiness:** Adds functionality to enable/disable a new Q Business Hallucination Reduction feature. If enabled, Q Business will detect and attempt to remove Hallucinations from certain Chat requests. ([a7fb9d5](https://github.com/aws/aws-sdk-js-v3/commit/a7fb9d51db510186d00481f825219bf1d07a3a7d))
+* **client-quicksight:** Add support to analysis and sheet level highlighting in QuickSight. ([fd1d5c3](https://github.com/aws/aws-sdk-js-v3/commit/fd1d5c3c27305a700f1ec17f9e407db98a733326))
+
+
+
+
+
 # [3.786.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.785.0...v3.786.0) (2025-04-09)
 
 

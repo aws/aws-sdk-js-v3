@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.787.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.786.0...v3.787.0) (2025-04-10)
+
+
+### Features
+
+* **client-application-auto-scaling:** Application Auto Scaling now supports horizontal scaling for Elasticache Memcached self-designed clusters using target tracking scaling policies and scheduled scaling. ([38a22fb](https://github.com/aws/aws-sdk-js-v3/commit/38a22fb9f511da14e28d07d177105e1d2954a965))
+
+
+
+
+
 # [3.782.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.781.0...v3.782.0) (2025-04-03)
 
 **Note:** Version bump only for package @aws-sdk/client-application-auto-scaling
