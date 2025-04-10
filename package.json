@@ -123,7 +123,7 @@
     "packages": [
       "clients/*",
       "lib/*",
-      "packages/*",
+      "packages/!(all-in-one)",
       "private/*"
     ]
   },
