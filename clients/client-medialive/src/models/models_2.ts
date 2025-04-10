@@ -105,7 +105,6 @@ import {
   AnywhereSettings,
   AvailBlanking,
   AvailConfiguration,
-  BlackoutSlate,
   OutputGroup,
   PipelineDetail,
   RenewalSettings,
@@ -126,6 +125,71 @@ import {
   TransferringInputDeviceSummary,
   VideoDescription,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const BlackoutSlateNetworkEndBlackout = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type BlackoutSlateNetworkEndBlackout =
+  (typeof BlackoutSlateNetworkEndBlackout)[keyof typeof BlackoutSlateNetworkEndBlackout];
+
+/**
+ * @public
+ * @enum
+ */
+export const BlackoutSlateState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type BlackoutSlateState = (typeof BlackoutSlateState)[keyof typeof BlackoutSlateState];
+
+/**
+ * Blackout Slate
+ * @public
+ */
+export interface BlackoutSlate {
+  /**
+   * Blackout slate image to be used. Leave empty for solid black. Only bmp and png images are supported.
+   * @public
+   */
+  BlackoutSlateImage?: InputLocation | undefined;
+
+  /**
+   * Setting to enabled causes the encoder to blackout the video, audio, and captions, and raise the "Network Blackout Image" slate when an SCTE104/35 Network End Segmentation Descriptor is encountered. The blackout will be lifted when the Network Start Segmentation Descriptor is encountered. The Network End and Network Start descriptors must contain a network ID that matches the value entered in "Network ID".
+   * @public
+   */
+  NetworkEndBlackout?: BlackoutSlateNetworkEndBlackout | undefined;
+
+  /**
+   * Path to local file to use as Network End Blackout image. Image will be scaled to fill the entire output raster.
+   * @public
+   */
+  NetworkEndBlackoutImage?: InputLocation | undefined;
+
+  /**
+   * Provides Network ID that matches EIDR ID format (e.g., "10.XXXX/XXXX-XXXX-XXXX-XXXX-XXXX-C").
+   * @public
+   */
+  NetworkId?: string | undefined;
+
+  /**
+   * When set to enabled, causes video, audio and captions to be blanked when indicated by program metadata.
+   * @public
+   */
+  State?: BlackoutSlateState | undefined;
+}
 
 /**
  * Placeholder documentation for CancelInputDeviceTransferRequest
@@ -5556,6 +5620,12 @@ export interface InputDeviceConfigurableSettings {
    * @public
    */
   AudioChannelPairs?: InputDeviceConfigurableAudioChannelPairConfig[] | undefined;
+
+  /**
+   * Choose the resolution of the Link device's source (HD or UHD). Make sure the resolution matches the current source from the device. This value determines MediaLive resource allocation and billing for this input. Only UHD devices can specify this parameter.
+   * @public
+   */
+  InputResolution?: string | undefined;
 }
 
 /**

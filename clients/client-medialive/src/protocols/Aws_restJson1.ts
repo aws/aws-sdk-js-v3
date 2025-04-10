@@ -350,6 +350,7 @@ import {
   CloudWatchAlarmTemplateGroupSummary,
   CloudWatchAlarmTemplateSummary,
   ClusterNetworkSettings,
+  CmafIngestCaptionLanguageMapping,
   ColorCorrection,
   DashRoleAudio,
   DashRoleCaption,
@@ -489,7 +490,6 @@ import {
   BatchScheduleActionCreateResult,
   BatchScheduleActionDeleteRequest,
   BatchScheduleActionDeleteResult,
-  BlackoutSlate,
   CmafIngestGroupSettings,
   CmafIngestOutputSettings,
   ColorSpacePassthroughSettings,
@@ -608,6 +608,7 @@ import {
   VideoDescription,
 } from "../models/models_1";
 import {
+  BlackoutSlate,
   Channel,
   ChannelEngineVersionRequest,
   ClusterNetworkSettingsCreateRequest,
@@ -6550,6 +6551,20 @@ const se___listOfCaptionSelector = (input: CaptionSelector[], context: __SerdeCo
 // se___listOfChannelPipelineIdToRestart omitted.
 
 /**
+ * serializeAws_restJson1__listOfCmafIngestCaptionLanguageMapping
+ */
+const se___listOfCmafIngestCaptionLanguageMapping = (
+  input: CmafIngestCaptionLanguageMapping[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_CmafIngestCaptionLanguageMapping(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1__listOfColorCorrection
  */
 const se___listOfColorCorrection = (input: ColorCorrection[], context: __SerdeContext): any => {
@@ -7542,10 +7557,25 @@ const se_ClusterNetworkSettingsUpdateRequest = (
 };
 
 /**
+ * serializeAws_restJson1CmafIngestCaptionLanguageMapping
+ */
+const se_CmafIngestCaptionLanguageMapping = (input: CmafIngestCaptionLanguageMapping, context: __SerdeContext): any => {
+  return take(input, {
+    captionChannel: [, , `CaptionChannel`],
+    languageCode: [, , `LanguageCode`],
+  });
+};
+
+/**
  * serializeAws_restJson1CmafIngestGroupSettings
  */
 const se_CmafIngestGroupSettings = (input: CmafIngestGroupSettings, context: __SerdeContext): any => {
   return take(input, {
+    captionLanguageMappings: [
+      ,
+      (_) => se___listOfCmafIngestCaptionLanguageMapping(_, context),
+      `CaptionLanguageMappings`,
+    ],
     destination: [, (_) => se_OutputLocationRef(_, context), `Destination`],
     id3Behavior: [, , `Id3Behavior`],
     id3NameModifier: [, , `Id3NameModifier`],
@@ -7558,6 +7588,9 @@ const se_CmafIngestGroupSettings = (input: CmafIngestGroupSettings, context: __S
     segmentLength: [, , `SegmentLength`],
     segmentLengthUnits: [, , `SegmentLengthUnits`],
     sendDelayMs: [, , `SendDelayMs`],
+    timedMetadataId3Frame: [, , `TimedMetadataId3Frame`],
+    timedMetadataId3Period: [, , `TimedMetadataId3Period`],
+    timedMetadataPassthrough: [, , `TimedMetadataPassthrough`],
   });
 };
 
@@ -8370,6 +8403,7 @@ const se_InputDeviceConfigurableSettings = (input: InputDeviceConfigurableSettin
     ],
     codec: [, , `Codec`],
     configuredInput: [, , `ConfiguredInput`],
+    inputResolution: [, , `InputResolution`],
     latencyMs: [, , `LatencyMs`],
     maxBitrate: [, , `MaxBitrate`],
     mediaconnectSettings: [, (_) => se_InputDeviceMediaConnectConfigurableSettings(_, context), `MediaconnectSettings`],
@@ -10235,6 +10269,21 @@ const de___listOfCloudWatchAlarmTemplateSummary = (
 };
 
 /**
+ * deserializeAws_restJson1__listOfCmafIngestCaptionLanguageMapping
+ */
+const de___listOfCmafIngestCaptionLanguageMapping = (
+  output: any,
+  context: __SerdeContext
+): CmafIngestCaptionLanguageMapping[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CmafIngestCaptionLanguageMapping(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfColorCorrection
  */
 const de___listOfColorCorrection = (output: any, context: __SerdeContext): ColorCorrection[] => {
@@ -11577,10 +11626,28 @@ const de_ClusterNetworkSettings = (output: any, context: __SerdeContext): Cluste
 };
 
 /**
+ * deserializeAws_restJson1CmafIngestCaptionLanguageMapping
+ */
+const de_CmafIngestCaptionLanguageMapping = (
+  output: any,
+  context: __SerdeContext
+): CmafIngestCaptionLanguageMapping => {
+  return take(output, {
+    CaptionChannel: [, __expectInt32, `captionChannel`],
+    LanguageCode: [, __expectString, `languageCode`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1CmafIngestGroupSettings
  */
 const de_CmafIngestGroupSettings = (output: any, context: __SerdeContext): CmafIngestGroupSettings => {
   return take(output, {
+    CaptionLanguageMappings: [
+      ,
+      (_: any) => de___listOfCmafIngestCaptionLanguageMapping(_, context),
+      `captionLanguageMappings`,
+    ],
     Destination: [, (_: any) => de_OutputLocationRef(_, context), `destination`],
     Id3Behavior: [, __expectString, `id3Behavior`],
     Id3NameModifier: [, __expectString, `id3NameModifier`],
@@ -11593,6 +11660,9 @@ const de_CmafIngestGroupSettings = (output: any, context: __SerdeContext): CmafI
     SegmentLength: [, __expectInt32, `segmentLength`],
     SegmentLengthUnits: [, __expectString, `segmentLengthUnits`],
     SendDelayMs: [, __expectInt32, `sendDelayMs`],
+    TimedMetadataId3Frame: [, __expectString, `timedMetadataId3Frame`],
+    TimedMetadataId3Period: [, __expectInt32, `timedMetadataId3Period`],
+    TimedMetadataPassthrough: [, __expectString, `timedMetadataPassthrough`],
   }) as any;
 };
 
@@ -12668,6 +12738,7 @@ const de_InputDeviceUhdSettings = (output: any, context: __SerdeContext): InputD
     DeviceState: [, __expectString, `deviceState`],
     Framerate: [, __limitedParseDouble, `framerate`],
     Height: [, __expectInt32, `height`],
+    InputResolution: [, __expectString, `inputResolution`],
     LatencyMs: [, __expectInt32, `latencyMs`],
     MaxBitrate: [, __expectInt32, `maxBitrate`],
     MediaconnectSettings: [, (_: any) => de_InputDeviceMediaConnectSettings(_, context), `mediaconnectSettings`],

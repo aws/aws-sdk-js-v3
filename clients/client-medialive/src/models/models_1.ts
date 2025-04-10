@@ -9,6 +9,7 @@ import {
   BatchSuccessfulResultModel,
   CaptionLanguageMapping,
   ChannelEngineVersionResponse,
+  CmafIngestCaptionLanguageMapping,
   DvbNitSettings,
   DvbSdtSettings,
   DvbTdtSettings,
@@ -32,11 +33,24 @@ import {
   M2tsRateMode,
   M2tsScte35Control,
   M2tsSegmentationMarkers,
-  M2tsSegmentationStyle,
   OfferingDurationUnits,
   OfferingType,
   ReservationResourceSpecification,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsSegmentationStyle = {
+  MAINTAIN_CADENCE: "MAINTAIN_CADENCE",
+  RESET_CADENCE: "RESET_CADENCE",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsSegmentationStyle = (typeof M2tsSegmentationStyle)[keyof typeof M2tsSegmentationStyle];
 
 /**
  * @public
@@ -1421,6 +1435,36 @@ export type CmafIngestSegmentLengthUnits =
   (typeof CmafIngestSegmentLengthUnits)[keyof typeof CmafIngestSegmentLengthUnits];
 
 /**
+ * @public
+ * @enum
+ */
+export const CmafTimedMetadataId3Frame = {
+  NONE: "NONE",
+  PRIV: "PRIV",
+  TDRL: "TDRL",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafTimedMetadataId3Frame = (typeof CmafTimedMetadataId3Frame)[keyof typeof CmafTimedMetadataId3Frame];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafTimedMetadataPassthrough = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafTimedMetadataPassthrough =
+  (typeof CmafTimedMetadataPassthrough)[keyof typeof CmafTimedMetadataPassthrough];
+
+/**
  * Cmaf Ingest Group Settings
  * @public
  */
@@ -1496,6 +1540,30 @@ export interface CmafIngestGroupSettings {
    * @public
    */
   Id3NameModifier?: string | undefined;
+
+  /**
+   * An array that identifies the languages in the four caption channels in the embedded captions.
+   * @public
+   */
+  CaptionLanguageMappings?: CmafIngestCaptionLanguageMapping[] | undefined;
+
+  /**
+   * Set to none if you don't want to insert a timecode in the output. Otherwise choose the frame type for the timecode.
+   * @public
+   */
+  TimedMetadataId3Frame?: CmafTimedMetadataId3Frame | undefined;
+
+  /**
+   * If you set up to insert a timecode in the output, specify the frequency for the frame, in seconds.
+   * @public
+   */
+  TimedMetadataId3Period?: number | undefined;
+
+  /**
+   * Set to enabled to pass through ID3 metadata from the input sources.
+   * @public
+   */
+  TimedMetadataPassthrough?: CmafTimedMetadataPassthrough | undefined;
 }
 
 /**
@@ -7452,69 +7520,4 @@ export interface BatchUpdateScheduleResponse {
    * @public
    */
   Deletes?: BatchScheduleActionDeleteResult | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const BlackoutSlateNetworkEndBlackout = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type BlackoutSlateNetworkEndBlackout =
-  (typeof BlackoutSlateNetworkEndBlackout)[keyof typeof BlackoutSlateNetworkEndBlackout];
-
-/**
- * @public
- * @enum
- */
-export const BlackoutSlateState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type BlackoutSlateState = (typeof BlackoutSlateState)[keyof typeof BlackoutSlateState];
-
-/**
- * Blackout Slate
- * @public
- */
-export interface BlackoutSlate {
-  /**
-   * Blackout slate image to be used. Leave empty for solid black. Only bmp and png images are supported.
-   * @public
-   */
-  BlackoutSlateImage?: InputLocation | undefined;
-
-  /**
-   * Setting to enabled causes the encoder to blackout the video, audio, and captions, and raise the "Network Blackout Image" slate when an SCTE104/35 Network End Segmentation Descriptor is encountered. The blackout will be lifted when the Network Start Segmentation Descriptor is encountered. The Network End and Network Start descriptors must contain a network ID that matches the value entered in "Network ID".
-   * @public
-   */
-  NetworkEndBlackout?: BlackoutSlateNetworkEndBlackout | undefined;
-
-  /**
-   * Path to local file to use as Network End Blackout image. Image will be scaled to fill the entire output raster.
-   * @public
-   */
-  NetworkEndBlackoutImage?: InputLocation | undefined;
-
-  /**
-   * Provides Network ID that matches EIDR ID format (e.g., "10.XXXX/XXXX-XXXX-XXXX-XXXX-XXXX-C").
-   * @public
-   */
-  NetworkId?: string | undefined;
-
-  /**
-   * When set to enabled, causes video, audio and captions to be blanked when indicated by program metadata.
-   * @public
-   */
-  State?: BlackoutSlateState | undefined;
 }

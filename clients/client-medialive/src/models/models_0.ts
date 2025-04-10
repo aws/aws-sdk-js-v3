@@ -3995,6 +3995,24 @@ export interface CloudWatchAlarmTemplateSummary {
 }
 
 /**
+ * Add an array item for each language. Follow the order of the caption descriptions. For example, if the first caption description is for German, then the first array item must be for German, and its caption channel must be set to 1. The second array item must be 2, and so on.
+ * @public
+ */
+export interface CmafIngestCaptionLanguageMapping {
+  /**
+   * A number for the channel for this caption, 1 to 4.
+   * @public
+   */
+  CaptionChannel: number | undefined;
+
+  /**
+   * Language code for the language of the caption in this channel.  For example, ger/deu. See http://www.loc.gov/standards/iso639-2
+   * @public
+   */
+  LanguageCode: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -5714,6 +5732,12 @@ export interface InputDeviceUhdSettings {
    * @public
    */
   AudioChannelPairs?: InputDeviceUhdAudioChannelPairConfig[] | undefined;
+
+  /**
+   * The resolution of the Link device's source (HD or UHD). This value determines MediaLive resource allocation and billing for this input.
+   * @public
+   */
+  InputResolution?: string | undefined;
 }
 
 /**
@@ -6815,17 +6839,3 @@ export const M2tsSegmentationMarkers = {
  * @public
  */
 export type M2tsSegmentationMarkers = (typeof M2tsSegmentationMarkers)[keyof typeof M2tsSegmentationMarkers];
-
-/**
- * @public
- * @enum
- */
-export const M2tsSegmentationStyle = {
-  MAINTAIN_CADENCE: "MAINTAIN_CADENCE",
-  RESET_CADENCE: "RESET_CADENCE",
-} as const;
-
-/**
- * @public
- */
-export type M2tsSegmentationStyle = (typeof M2tsSegmentationStyle)[keyof typeof M2tsSegmentationStyle];
