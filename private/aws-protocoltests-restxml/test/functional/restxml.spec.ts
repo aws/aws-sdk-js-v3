@@ -3708,7 +3708,7 @@ it.skip("NestedXmlMapWithXmlNameSerializes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `    <NestedXmlMapWithXmlNameInputOutput>
+    const bodyString = `    <NestedXmlMapWithXmlNameRequest>
             <nestedXmlMapWithXmlNameMap>
                 <entry>
                     <OuterKey>foo</OuterKey>
@@ -3737,7 +3737,7 @@ it.skip("NestedXmlMapWithXmlNameSerializes:Request", async () => {
                     </value>
                 </entry>
             </nestedXmlMapWithXmlNameMap>
-        </NestedXmlMapWithXmlNameInputOutput>
+        </NestedXmlMapWithXmlNameRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -3756,7 +3756,7 @@ it("NestedXmlMapWithXmlNameDeserializes:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `    <NestedXmlMapWithXmlNameInputOutput>
+      `    <NestedXmlMapWithXmlNameResponse>
               <nestedXmlMapWithXmlNameMap>
                   <entry>
                       <OuterKey>foo</OuterKey>
@@ -3785,7 +3785,7 @@ it("NestedXmlMapWithXmlNameDeserializes:Response", async () => {
                       </value>
                   </entry>
               </nestedXmlMapWithXmlNameMap>
-          </NestedXmlMapWithXmlNameInputOutput>
+          </NestedXmlMapWithXmlNameResponse>
       `
     ),
   });
