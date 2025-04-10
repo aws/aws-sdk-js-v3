@@ -6392,11 +6392,45 @@ export interface MetadataEvent {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const SystemMessageType = {
+  GROUNDED_RESPONSE: "GROUNDED_RESPONSE",
+  RESPONSE: "RESPONSE",
+} as const;
+
+/**
+ * @public
+ */
+export type SystemMessageType = (typeof SystemMessageType)[keyof typeof SystemMessageType];
+
+/**
  * <p>An output event for an AI-generated response in an Amazon Q Business web
  *             experience.</p>
  * @public
  */
 export interface TextOutputEvent {
+  /**
+   * <p>The type of AI-generated message in a <code>TextOutputEvent</code>. Amazon Q Business
+   *             currently supports two types of messages:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>RESPONSE</code> - The Amazon Q Business system response.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GROUNDED_RESPONSE</code> - The corrected, hallucination-reduced,
+   *                     response returned by Amazon Q Business. Available only if hallucination reduction is
+   *                     supported and configured for the application and detected in the end user chat
+   *                     query by Amazon Q Business.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  systemMessageType?: SystemMessageType | undefined;
+
   /**
    * <p>The identifier of the conversation with which the text output event is
    *             associated.</p>
@@ -7331,6 +7365,39 @@ export interface GetChatControlsConfigurationRequest {
  * @public
  * @enum
  */
+export const HallucinationReductionControl = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type HallucinationReductionControl =
+  (typeof HallucinationReductionControl)[keyof typeof HallucinationReductionControl];
+
+/**
+ * <p>Configuration information required to setup hallucination reduction. For more
+ *             information, see <a href="amazonq/latest/qbusiness-ug/hallucination-reduction.html">hallucination reduction</a>.</p>
+ *          <note>
+ *             <p>The hallucination reduction feature won't work if chat orchestration controls are
+ *                 enabled for your application.</p>
+ *          </note>
+ * @public
+ */
+export interface HallucinationReductionConfiguration {
+  /**
+   * <p>Controls whether hallucination reduction has been enabled or disabled for your
+   *             application. The default status is <code>DISABLED</code>. </p>
+   * @public
+   */
+  hallucinationReductionControl?: HallucinationReductionControl | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ResponseScope = {
   ENTERPRISE_CONTENT_ONLY: "ENTERPRISE_CONTENT_ONLY",
   EXTENDED_KNOWLEDGE_ENABLED: "EXTENDED_KNOWLEDGE_ENABLED",
@@ -7543,6 +7610,12 @@ export interface GetChatControlsConfigurationResponse {
    * @public
    */
   nextToken?: string | undefined;
+
+  /**
+   * <p> The hallucination reduction settings for your application.</p>
+   * @public
+   */
+  hallucinationReductionConfiguration?: HallucinationReductionConfiguration | undefined;
 }
 
 /**
@@ -8214,66 +8287,6 @@ export interface ListPluginActionsRequest {
    * @public
    */
   maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPluginActionsResponse {
-  /**
-   * <p>If the response is truncated, Amazon Q Business returns this token, which you
-   *             can use in a later request to list the next set of plugin actions.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>An array of information on one or more plugin actions.</p>
-   * @public
-   */
-  items?: ActionSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPluginTypeActionsRequest {
-  /**
-   * <p>The type of the plugin.</p>
-   * @public
-   */
-  pluginType: PluginType | undefined;
-
-  /**
-   * <p>If the number of plugins returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set
-   *             of plugins.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of plugins to return.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPluginTypeActionsResponse {
-  /**
-   * <p>If the response is truncated, Amazon Q Business returns this token, which you
-   *             can use in a later request to list the next set of plugins.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>An array of information on one or more plugins.</p>
-   * @public
-   */
-  items?: ActionSummary[] | undefined;
 }
 
 /**

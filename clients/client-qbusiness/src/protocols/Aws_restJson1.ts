@@ -220,6 +220,7 @@ import {
   ExternalResourceException,
   FailedAttachmentEvent,
   GroupStatusDetail,
+  HallucinationReductionConfiguration,
   HookConfiguration,
   IdcAuthConfiguration,
   IdentityProviderConfiguration,
@@ -1738,6 +1739,7 @@ export const se_UpdateChatControlsConfigurationCommand = async (
       blockedPhrasesConfigurationUpdate: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       creatorModeConfiguration: (_) => _json(_),
+      hallucinationReductionConfiguration: (_) => _json(_),
       orchestrationConfiguration: (_) => _json(_),
       responseScope: [],
       topicConfigurationsToCreateOrUpdate: (_) => _json(_),
@@ -2574,6 +2576,7 @@ export const de_GetChatControlsConfigurationCommand = async (
   const doc = take(data, {
     blockedPhrases: _json,
     creatorModeConfiguration: _json,
+    hallucinationReductionConfiguration: _json,
     nextToken: __expectString,
     orchestrationConfiguration: _json,
     responseScope: __expectString,
@@ -4324,6 +4327,8 @@ const se_Documents = (input: Document[], context: __SerdeContext): any => {
 
 // se_GroupMembers omitted.
 
+// se_HallucinationReductionConfiguration omitted.
+
 /**
  * serializeAws_restJson1HookConfiguration
  */
@@ -5059,6 +5064,8 @@ const de_GroupStatusDetails = (output: any, context: __SerdeContext): GroupStatu
 // de_GroupSummary omitted.
 
 // de_GroupSummaryList omitted.
+
+// de_HallucinationReductionConfiguration omitted.
 
 /**
  * deserializeAws_restJson1HookConfiguration

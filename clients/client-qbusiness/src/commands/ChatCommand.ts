@@ -173,6 +173,7 @@ export interface ChatCommandOutput extends ChatOutput, __MetadataBearer {}
  * // { // ChatOutput
  * //   outputStream: { // ChatOutputStream Union: only one key present
  * //     textEvent: { // TextOutputEvent
+ * //       systemMessageType: "RESPONSE" || "GROUNDED_RESPONSE",
  * //       conversationId: "STRING_VALUE",
  * //       userMessageId: "STRING_VALUE",
  * //       systemMessageId: "STRING_VALUE",

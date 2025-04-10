@@ -146,6 +146,9 @@ export interface UpdateChatControlsConfigurationCommandOutput
  *   creatorModeConfiguration: { // CreatorModeConfiguration
  *     creatorModeControl: "ENABLED" || "DISABLED", // required
  *   },
+ *   hallucinationReductionConfiguration: { // HallucinationReductionConfiguration
+ *     hallucinationReductionControl: "ENABLED" || "DISABLED",
+ *   },
  * };
  * const command = new UpdateChatControlsConfigurationCommand(input);
  * const response = await client.send(command);

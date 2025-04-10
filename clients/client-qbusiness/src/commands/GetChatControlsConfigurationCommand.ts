@@ -106,6 +106,9 @@ export interface GetChatControlsConfigurationCommandOutput
  * //     creatorModeControl: "ENABLED" || "DISABLED", // required
  * //   },
  * //   nextToken: "STRING_VALUE",
+ * //   hallucinationReductionConfiguration: { // HallucinationReductionConfiguration
+ * //     hallucinationReductionControl: "ENABLED" || "DISABLED",
+ * //   },
  * // };
  *
  * ```

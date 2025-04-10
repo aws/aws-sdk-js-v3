@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListPluginTypeActionsRequest, ListPluginTypeActionsResponse } from "../models/models_0";
+import { ListPluginTypeActionsRequest, ListPluginTypeActionsResponse } from "../models/models_1";
 import { de_ListPluginTypeActionsCommand, se_ListPluginTypeActionsCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 

@@ -4,6 +4,7 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 import {
   ActionExecution,
   ActionExecutionEvent,
+  ActionSummary,
   AttachmentInput,
   AttachmentInputEvent,
   AuthChallengeResponse,
@@ -15,6 +16,7 @@ import {
   CreatorModeConfiguration,
   DocumentAttribute,
   EndOfInputEvent,
+  HallucinationReductionConfiguration,
   MembershipType,
   OrchestrationControl,
   PluginType,
@@ -28,6 +30,66 @@ import {
   TopicConfiguration,
   UserAlias,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListPluginActionsResponse {
+  /**
+   * <p>If the response is truncated, Amazon Q Business returns this token, which you
+   *             can use in a later request to list the next set of plugin actions.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An array of information on one or more plugin actions.</p>
+   * @public
+   */
+  items?: ActionSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPluginTypeActionsRequest {
+  /**
+   * <p>The type of the plugin.</p>
+   * @public
+   */
+  pluginType: PluginType | undefined;
+
+  /**
+   * <p>If the number of plugins returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set
+   *             of plugins.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of plugins to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPluginTypeActionsResponse {
+  /**
+   * <p>If the response is truncated, Amazon Q Business returns this token, which you
+   *             can use in a later request to list the next set of plugins.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An array of information on one or more plugins.</p>
+   * @public
+   */
+  items?: ActionSummary[] | undefined;
+}
 
 /**
  * @public
@@ -725,6 +787,12 @@ export interface UpdateChatControlsConfigurationRequest {
    * @public
    */
   creatorModeConfiguration?: CreatorModeConfiguration | undefined;
+
+  /**
+   * <p> The hallucination reduction settings for your application.</p>
+   * @public
+   */
+  hallucinationReductionConfiguration?: HallucinationReductionConfiguration | undefined;
 }
 
 /**
