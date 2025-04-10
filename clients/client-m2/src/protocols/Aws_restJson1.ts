@@ -40,6 +40,10 @@ import {
 } from "../commands/CancelBatchJobExecutionCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
 import {
+  CreateDataSetExportTaskCommandInput,
+  CreateDataSetExportTaskCommandOutput,
+} from "../commands/CreateDataSetExportTaskCommand";
+import {
   CreateDataSetImportTaskCommandInput,
   CreateDataSetImportTaskCommandOutput,
 } from "../commands/CreateDataSetImportTaskCommand";
@@ -61,6 +65,10 @@ import {
   GetBatchJobExecutionCommandOutput,
 } from "../commands/GetBatchJobExecutionCommand";
 import { GetDataSetDetailsCommandInput, GetDataSetDetailsCommandOutput } from "../commands/GetDataSetDetailsCommand";
+import {
+  GetDataSetExportTaskCommandInput,
+  GetDataSetExportTaskCommandOutput,
+} from "../commands/GetDataSetExportTaskCommand";
 import {
   GetDataSetImportTaskCommandInput,
   GetDataSetImportTaskCommandOutput,
@@ -88,6 +96,10 @@ import {
   ListBatchJobRestartPointsCommandInput,
   ListBatchJobRestartPointsCommandOutput,
 } from "../commands/ListBatchJobRestartPointsCommand";
+import {
+  ListDataSetExportHistoryCommandInput,
+  ListDataSetExportHistoryCommandOutput,
+} from "../commands/ListDataSetExportHistoryCommand";
 import {
   ListDataSetImportHistoryCommandInput,
   ListDataSetImportHistoryCommandOutput,
@@ -117,6 +129,8 @@ import {
   BatchJobIdentifier,
   ConflictException,
   DataSet,
+  DataSetExportConfig,
+  DataSetExportItem,
   DataSetImportConfig,
   DataSetImportItem,
   DatasetOrgAttributes,
@@ -133,6 +147,7 @@ import {
   HighAvailabilityConfig,
   InternalServerException,
   JobIdentifier,
+  JobStep,
   JobStepRestartMarker,
   MaintenanceSchedule,
   PendingMaintenance,
@@ -199,6 +214,31 @@ export const se_CreateApplicationCommand = async (
       name: [],
       roleArn: [],
       tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateDataSetExportTaskCommand
+ */
+export const se_CreateDataSetExportTaskCommand = async (
+  input: CreateDataSetExportTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/applications/{applicationId}/dataset-export-task");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      exportConfig: (_) => _json(_),
+      kmsKeyId: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -407,6 +447,23 @@ export const se_GetDataSetDetailsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetDataSetExportTaskCommand
+ */
+export const se_GetDataSetExportTaskCommand = async (
+  input: GetDataSetExportTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/dataset-export-tasks/{taskId}");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("taskId", () => input.taskId!, "{taskId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetDataSetImportTaskCommand
  */
 export const se_GetDataSetImportTaskCommand = async (
@@ -572,6 +629,26 @@ export const se_ListBatchJobRestartPointsCommand = async (
   b.p("executionId", () => input.executionId!, "{executionId}", false);
   const query: any = map({
     [_aSMA]: [, input[_aSMA]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListDataSetExportHistoryCommand
+ */
+export const se_ListDataSetExportHistoryCommand = async (
+  input: ListDataSetExportHistoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/dataset-export-tasks");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -897,6 +974,27 @@ export const de_CreateApplicationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateDataSetExportTaskCommand
+ */
+export const de_CreateDataSetExportTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataSetExportTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    taskId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateDataSetImportTaskCommand
  */
 export const de_CreateDataSetImportTaskCommand = async (
@@ -1140,6 +1238,31 @@ export const de_GetDataSetDetailsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetDataSetExportTaskCommand
+ */
+export const de_GetDataSetExportTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataSetExportTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    kmsKeyArn: __expectString,
+    status: __expectString,
+    statusReason: __expectString,
+    summary: _json,
+    taskId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetDataSetImportTaskCommand
  */
 export const de_GetDataSetImportTaskCommand = async (
@@ -1356,7 +1479,29 @@ export const de_ListBatchJobRestartPointsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    batchJobSteps: _json,
+    batchJobSteps: (_) => de_BatchJobStepList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDataSetExportHistoryCommand
+ */
+export const de_ListDataSetExportHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDataSetExportHistoryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    dataSetExportTasks: _json,
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1869,6 +2014,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DataSet omitted.
 
+// se_DataSetExportConfig omitted.
+
+// se_DataSetExportItem omitted.
+
+// se_DataSetExportList omitted.
+
 // se_DataSetImportConfig omitted.
 
 // se_DataSetImportItem omitted.
@@ -2054,9 +2205,25 @@ const de_BatchJobExecutionSummaryList = (output: any, context: __SerdeContext): 
 
 // de_BatchJobIdentifier omitted.
 
-// de_BatchJobStepList omitted.
+/**
+ * deserializeAws_restJson1BatchJobStepList
+ */
+const de_BatchJobStepList = (output: any, context: __SerdeContext): JobStep[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_JobStep(entry, context);
+    });
+  return retVal;
+};
 
 // de_DatasetDetailOrgAttributes omitted.
+
+// de_DataSetExportSummary omitted.
+
+// de_DataSetExportTask omitted.
+
+// de_DataSetExportTaskList omitted.
 
 // de_DataSetImportSummary omitted.
 
@@ -2182,7 +2349,22 @@ const de_FsxStorageConfiguration = (output: any, context: __SerdeContext): FsxSt
 
 // de_JobIdentifier omitted.
 
-// de_JobStep omitted.
+/**
+ * deserializeAws_restJson1JobStep
+ */
+const de_JobStep = (output: any, context: __SerdeContext): JobStep => {
+  return take(output, {
+    procStepName: __expectString,
+    procStepNumber: __expectInt32,
+    stepCheckpoint: __expectInt32,
+    stepCheckpointStatus: __expectString,
+    stepCheckpointTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    stepCondCode: __expectString,
+    stepName: __expectString,
+    stepNumber: __expectInt32,
+    stepRestartable: __expectBoolean,
+  }) as any;
+};
 
 // de_JobStepRestartMarker omitted.
 

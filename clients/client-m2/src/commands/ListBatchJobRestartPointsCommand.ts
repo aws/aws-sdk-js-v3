@@ -51,6 +51,9 @@ export interface ListBatchJobRestartPointsCommandOutput extends ListBatchJobRest
  * //       procStepName: "STRING_VALUE",
  * //       stepCondCode: "STRING_VALUE",
  * //       stepRestartable: true || false,
+ * //       stepCheckpoint: Number("int"),
+ * //       stepCheckpointStatus: "STRING_VALUE",
+ * //       stepCheckpointTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * // };

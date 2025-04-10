@@ -76,6 +76,8 @@ export interface GetBatchJobExecutionCommandOutput extends GetBatchJobExecutionR
  * //         fromProcStep: "STRING_VALUE",
  * //         toStep: "STRING_VALUE",
  * //         toProcStep: "STRING_VALUE",
+ * //         stepCheckpoint: Number("int"),
+ * //         skip: true || false,
  * //       },
  * //     },
  * //   },
@@ -84,6 +86,8 @@ export interface GetBatchJobExecutionCommandOutput extends GetBatchJobExecutionR
  * //     fromProcStep: "STRING_VALUE",
  * //     toStep: "STRING_VALUE",
  * //     toProcStep: "STRING_VALUE",
+ * //     stepCheckpoint: Number("int"),
+ * //     skip: true || false,
  * //   },
  * // };
  *

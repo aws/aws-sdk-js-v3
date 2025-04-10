@@ -13,6 +13,11 @@ import {
   CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  CreateDataSetExportTaskCommand,
+  CreateDataSetExportTaskCommandInput,
+  CreateDataSetExportTaskCommandOutput,
+} from "./commands/CreateDataSetExportTaskCommand";
+import {
   CreateDataSetImportTaskCommand,
   CreateDataSetImportTaskCommandInput,
   CreateDataSetImportTaskCommandOutput,
@@ -63,6 +68,11 @@ import {
   GetDataSetDetailsCommandOutput,
 } from "./commands/GetDataSetDetailsCommand";
 import {
+  GetDataSetExportTaskCommand,
+  GetDataSetExportTaskCommandInput,
+  GetDataSetExportTaskCommandOutput,
+} from "./commands/GetDataSetExportTaskCommand";
+import {
   GetDataSetImportTaskCommand,
   GetDataSetImportTaskCommandInput,
   GetDataSetImportTaskCommandOutput,
@@ -107,6 +117,11 @@ import {
   ListBatchJobRestartPointsCommandInput,
   ListBatchJobRestartPointsCommandOutput,
 } from "./commands/ListBatchJobRestartPointsCommand";
+import {
+  ListDataSetExportHistoryCommand,
+  ListDataSetExportHistoryCommandInput,
+  ListDataSetExportHistoryCommandOutput,
+} from "./commands/ListDataSetExportHistoryCommand";
 import {
   ListDataSetImportHistoryCommand,
   ListDataSetImportHistoryCommandInput,
@@ -173,6 +188,7 @@ import { M2Client, M2ClientConfig } from "./M2Client";
 const commands = {
   CancelBatchJobExecutionCommand,
   CreateApplicationCommand,
+  CreateDataSetExportTaskCommand,
   CreateDataSetImportTaskCommand,
   CreateDeploymentCommand,
   CreateEnvironmentCommand,
@@ -183,6 +199,7 @@ const commands = {
   GetApplicationVersionCommand,
   GetBatchJobExecutionCommand,
   GetDataSetDetailsCommand,
+  GetDataSetExportTaskCommand,
   GetDataSetImportTaskCommand,
   GetDeploymentCommand,
   GetEnvironmentCommand,
@@ -192,6 +209,7 @@ const commands = {
   ListBatchJobDefinitionsCommand,
   ListBatchJobExecutionsCommand,
   ListBatchJobRestartPointsCommand,
+  ListDataSetExportHistoryCommand,
   ListDataSetImportHistoryCommand,
   ListDataSetsCommand,
   ListDeploymentsCommand,
@@ -240,6 +258,23 @@ export interface M2 {
     args: CreateApplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDataSetExportTaskCommand}
+   */
+  createDataSetExportTask(
+    args: CreateDataSetExportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataSetExportTaskCommandOutput>;
+  createDataSetExportTask(
+    args: CreateDataSetExportTaskCommandInput,
+    cb: (err: any, data?: CreateDataSetExportTaskCommandOutput) => void
+  ): void;
+  createDataSetExportTask(
+    args: CreateDataSetExportTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataSetExportTaskCommandOutput) => void
   ): void;
 
   /**
@@ -410,6 +445,23 @@ export interface M2 {
   ): void;
 
   /**
+   * @see {@link GetDataSetExportTaskCommand}
+   */
+  getDataSetExportTask(
+    args: GetDataSetExportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataSetExportTaskCommandOutput>;
+  getDataSetExportTask(
+    args: GetDataSetExportTaskCommandInput,
+    cb: (err: any, data?: GetDataSetExportTaskCommandOutput) => void
+  ): void;
+  getDataSetExportTask(
+    args: GetDataSetExportTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataSetExportTaskCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDataSetImportTaskCommand}
    */
   getDataSetImportTask(
@@ -553,6 +605,23 @@ export interface M2 {
     args: ListBatchJobRestartPointsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListBatchJobRestartPointsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataSetExportHistoryCommand}
+   */
+  listDataSetExportHistory(
+    args: ListDataSetExportHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataSetExportHistoryCommandOutput>;
+  listDataSetExportHistory(
+    args: ListDataSetExportHistoryCommandInput,
+    cb: (err: any, data?: ListDataSetExportHistoryCommandOutput) => void
+  ): void;
+  listDataSetExportHistory(
+    args: ListDataSetExportHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataSetExportHistoryCommandOutput) => void
   ): void;
 
   /**

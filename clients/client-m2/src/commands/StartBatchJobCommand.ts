@@ -61,6 +61,8 @@ export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __Met
  *         fromProcStep: "STRING_VALUE",
  *         toStep: "STRING_VALUE",
  *         toProcStep: "STRING_VALUE",
+ *         stepCheckpoint: Number("int"),
+ *         skip: true || false,
  *       },
  *     },
  *   },

@@ -225,6 +225,14 @@ CreateApplication
 </details>
 <details>
 <summary>
+CreateDataSetExportTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/m2/command/CreateDataSetExportTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-m2/Interface/CreateDataSetExportTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-m2/Interface/CreateDataSetExportTaskCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateDataSetImportTask
 </summary>
 
@@ -305,6 +313,14 @@ GetDataSetDetails
 </details>
 <details>
 <summary>
+GetDataSetExportTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/m2/command/GetDataSetExportTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-m2/Interface/GetDataSetExportTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-m2/Interface/GetDataSetExportTaskCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetDataSetImportTask
 </summary>
 
@@ -373,6 +389,14 @@ ListBatchJobRestartPoints
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/m2/command/ListBatchJobRestartPointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-m2/Interface/ListBatchJobRestartPointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-m2/Interface/ListBatchJobRestartPointsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDataSetExportHistory
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/m2/command/ListDataSetExportHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-m2/Interface/ListDataSetExportHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-m2/Interface/ListDataSetExportHistoryCommandOutput/)
 
 </details>
 <details>
