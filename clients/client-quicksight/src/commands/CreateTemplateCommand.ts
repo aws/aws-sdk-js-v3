@@ -4807,6 +4807,11 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *           },
  *         ],
  *         ContentType: "PAGINATED" || "INTERACTIVE",
+ *         CustomActionDefaults: { // VisualCustomActionDefaults
+ *           highlightOperation: { // VisualHighlightOperation
+ *             Trigger: "DATA_POINT_CLICK" || "DATA_POINT_HOVER" || "NONE", // required
+ *           },
+ *         },
  *       },
  *     ],
  *     CalculatedFields: [ // CalculatedFields
@@ -5457,6 +5462,11 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *       ExcludedDataSetArns: [ // DataSetArnsList
  *         "STRING_VALUE",
  *       ],
+ *       CustomActionDefaults: {
+ *         highlightOperation: {
+ *           Trigger: "DATA_POINT_CLICK" || "DATA_POINT_HOVER" || "NONE", // required
+ *         },
+ *       },
  *     },
  *     QueryExecutionOptions: { // QueryExecutionOptions
  *       QueryExecutionMode: "AUTO" || "MANUAL",

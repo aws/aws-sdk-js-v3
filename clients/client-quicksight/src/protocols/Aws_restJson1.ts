@@ -803,7 +803,6 @@ import {
   PercentVisibleRange,
   QueryExecutionOptions,
   RangeEndsLabelType,
-  ReferenceLineDynamicDataConfiguration,
   RelativeDatesFilter,
   RelativeDateTimeControlDisplayOptions,
   RollingDateConfiguration,
@@ -848,7 +847,9 @@ import {
   TopBottomFilter,
   VisibleRangeOptions,
   VisualCustomAction,
+  VisualCustomActionDefaults,
   VisualCustomActionOperation,
+  VisualHighlightOperation,
   VisualInteractionOptions,
   VisualMenuOption,
 } from "../models/models_0";
@@ -1037,7 +1038,6 @@ import {
   PieChartVisual,
   PivotFieldSortOptions,
   PivotTableAggregatedFieldWells,
-  PivotTableConditionalFormattingScope,
   PivotTableConfiguration,
   PivotTableDataPathOption,
   PivotTableFieldCollapseStateOption,
@@ -1058,6 +1058,7 @@ import {
   ReferenceLine,
   ReferenceLineCustomLabelConfiguration,
   ReferenceLineDataConfiguration,
+  ReferenceLineDynamicDataConfiguration,
   ReferenceLineLabelConfiguration,
   ReferenceLineStaticDataConfiguration,
   ReferenceLineStyleConfiguration,
@@ -1076,7 +1077,6 @@ import {
   TableCellStyle,
   TableSideBorderOptions,
   TableStyleTarget,
-  TextConditionalFormat,
   TimeBasedForecastProperties,
   TimeRangeDrillDownFilter,
   TooltipItem,
@@ -1177,7 +1177,6 @@ import {
   BrandDetail,
   BrandElementStyle,
   BrandSummary,
-  CalculatedColumn,
   CollectiveConstantEntry,
   ConflictException,
   ContributionAnalysisFactor,
@@ -1216,6 +1215,7 @@ import {
   PivotTableCellConditionalFormatting,
   PivotTableConditionalFormatting,
   PivotTableConditionalFormattingOption,
+  PivotTableConditionalFormattingScope,
   PivotTableVisual,
   PluginVisual,
   PluginVisualConfiguration,
@@ -1296,6 +1296,7 @@ import {
   TableVisual,
   Tag,
   TeradataParameters,
+  TextConditionalFormat,
   ThrottlingException,
   TopicConstantValue,
   TopicIR,
@@ -1335,6 +1336,7 @@ import {
 } from "../models/models_2";
 import {
   _Parameters,
+  CalculatedColumn,
   Capabilities,
   CastColumnTypeOperation,
   CellValueSynonym,
@@ -1494,7 +1496,6 @@ import {
   SchedulesConfigurations,
   SessionLifetimeInMinutesInvalidException,
   SessionTag,
-  SnapshotAnonymousUser,
   SnapshotConfiguration,
   SnapshotDestinationConfiguration,
   SnapshotFileGroup,
@@ -1516,6 +1517,7 @@ import {
 } from "../models/models_4";
 import {
   CreateTopicReviewedAnswer,
+  SnapshotAnonymousUser,
   SnapshotUserConfiguration,
   TopicReviewedAnswer,
   TopicVisual,
@@ -16684,6 +16686,7 @@ const se_ShapeConditionalFormat = (input: ShapeConditionalFormat, context: __Ser
 const se_SheetDefinition = (input: SheetDefinition, context: __SerdeContext): any => {
   return take(input, {
     ContentType: [],
+    CustomActionDefaults: _json,
     Description: [],
     FilterControls: (_) => se_FilterControlList(_, context),
     Images: (_) => se_SheetImageList(_, context),
@@ -17563,6 +17566,8 @@ const se_VisualCustomAction = (input: VisualCustomAction, context: __SerdeContex
   });
 };
 
+// se_VisualCustomActionDefaults omitted.
+
 /**
  * serializeAws_restJson1VisualCustomActionList
  */
@@ -17596,6 +17601,8 @@ const se_VisualCustomActionOperationList = (input: VisualCustomActionOperation[]
       return se_VisualCustomActionOperation(entry, context);
     });
 };
+
+// se_VisualHighlightOperation omitted.
 
 // se_VisualInteractionOptions omitted.
 
@@ -22972,6 +22979,7 @@ const de_Sheet = (output: any, context: __SerdeContext): Sheet => {
 const de_SheetDefinition = (output: any, context: __SerdeContext): SheetDefinition => {
   return take(output, {
     ContentType: __expectString,
+    CustomActionDefaults: _json,
     Description: __expectString,
     FilterControls: (_: any) => de_FilterControlList(_, context),
     Images: (_: any) => de_SheetImageList(_, context),
@@ -24153,6 +24161,8 @@ const de_VisualCustomAction = (output: any, context: __SerdeContext): VisualCust
   }) as any;
 };
 
+// de_VisualCustomActionDefaults omitted.
+
 /**
  * deserializeAws_restJson1VisualCustomActionList
  */
@@ -24188,6 +24198,8 @@ const de_VisualCustomActionOperationList = (output: any, context: __SerdeContext
     });
   return retVal;
 };
+
+// de_VisualHighlightOperation omitted.
 
 // de_VisualInteractionOptions omitted.
 

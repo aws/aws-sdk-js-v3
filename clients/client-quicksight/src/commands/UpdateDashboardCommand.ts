@@ -4845,6 +4845,11 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *           },
  *         ],
  *         ContentType: "PAGINATED" || "INTERACTIVE",
+ *         CustomActionDefaults: { // VisualCustomActionDefaults
+ *           highlightOperation: { // VisualHighlightOperation
+ *             Trigger: "DATA_POINT_CLICK" || "DATA_POINT_HOVER" || "NONE", // required
+ *           },
+ *         },
  *       },
  *     ],
  *     CalculatedFields: [ // CalculatedFields
@@ -5495,6 +5500,11 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *       ExcludedDataSetArns: [ // DataSetArnsList
  *         "STRING_VALUE",
  *       ],
+ *       CustomActionDefaults: {
+ *         highlightOperation: {
+ *           Trigger: "DATA_POINT_CLICK" || "DATA_POINT_HOVER" || "NONE", // required
+ *         },
+ *       },
  *     },
  *     StaticFiles: [ // StaticFileList
  *       { // StaticFile

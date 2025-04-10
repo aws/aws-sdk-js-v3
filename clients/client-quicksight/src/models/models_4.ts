@@ -37,10 +37,8 @@ import {
   AssetBundleImportJobStatus,
   AssetBundleImportJobSummary,
   AssetBundleImportJobWarning,
-  AssetBundleImportSource,
   AssetBundleImportSourceDescription,
   AssetBundleImportSourceDescriptionFilterSensitiveLog,
-  AssetBundleImportSourceFilterSensitiveLog,
   AssignmentStatus,
   AuthorizedTargetsByService,
   BookmarksConfigurations,
@@ -100,6 +98,88 @@ import {
 } from "./models_3";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ */
+export interface DeleteTopicRefreshScheduleRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  DatasetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTopicRefreshScheduleResponse {
+  /**
+   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  TopicArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   * @public
+   */
+  DatasetArn?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteUserRequest {
+  /**
+   * <p>The name of the user that you want to delete.</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
 
 /**
  * @public
@@ -9049,105 +9129,6 @@ export interface StartAssetBundleExportJobResponse {
 }
 
 /**
- * @public
- */
-export interface StartAssetBundleImportJobRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account to import assets into. </p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
-   * @public
-   */
-  AssetBundleImportJobId: string | undefined;
-
-  /**
-   * <p>The source of the asset bundle zip file that contains the data that you want to import. The file must be in <code>QUICKSIGHT_JSON</code> format.
-   *       </p>
-   * @public
-   */
-  AssetBundleImportSource: AssetBundleImportSource | undefined;
-
-  /**
-   * <p>Optional overrides that are applied to the resource configuration before import.</p>
-   * @public
-   */
-  OverrideParameters?: AssetBundleImportJobOverrideParameters | undefined;
-
-  /**
-   * <p>The failure action for the import job.</p>
-   *          <p>If you choose <code>ROLLBACK</code>, failed  import jobs will attempt to  undo any asset changes caused by the failed job.</p>
-   *          <p>If you choose <code>DO_NOTHING</code>, failed import jobs will not attempt to roll back
-   *          any asset changes caused by the failed job, possibly keeping the Amazon QuickSight account in an inconsistent state.</p>
-   * @public
-   */
-  FailureAction?: AssetBundleImportFailureAction | undefined;
-
-  /**
-   * <p>Optional permission overrides that are applied to the resource configuration before import.</p>
-   * @public
-   */
-  OverridePermissions?: AssetBundleImportJobOverridePermissions | undefined;
-
-  /**
-   * <p>Optional tag overrides that are applied to the resource configuration before import.</p>
-   * @public
-   */
-  OverrideTags?: AssetBundleImportJobOverrideTags | undefined;
-
-  /**
-   * <p>An optional validation strategy override for all analyses and dashboards that is applied to the resource configuration before import. </p>
-   * @public
-   */
-  OverrideValidationStrategy?: AssetBundleImportJobOverrideValidationStrategy | undefined;
-}
-
-/**
- * @public
- */
-export interface StartAssetBundleImportJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the import job.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
-   * @public
-   */
-  AssetBundleImportJobId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services response ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the response.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * <p>A structure that contains information on the anonymous user configuration.</p>
- * @public
- */
-export interface SnapshotAnonymousUser {
-  /**
-   * <p>The tags to be used for row-level security (RLS). Make sure that the relevant datasets have RLS tags configured before you start a snapshot export job. You can configure the RLS tags of a dataset with a <code>DataSet$RowLevelPermissionTagConfiguration</code> API call.</p>
-   *          <p>These are not the tags that are used for Amazon Web Services resource tagging. For more information on row level security in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a>in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  RowLevelPermissionTags?: SessionTag[] | undefined;
-}
-
-/**
  * @internal
  */
 export const DescribeAnalysisResponseFilterSensitiveLog = (obj: DescribeAnalysisResponse): any => ({
@@ -9372,25 +9353,5 @@ export const PredictQAResultsResponseFilterSensitiveLog = (obj: PredictQAResults
   ...(obj.PrimaryResult && { PrimaryResult: QAResultFilterSensitiveLog(obj.PrimaryResult) }),
   ...(obj.AdditionalResults && {
     AdditionalResults: obj.AdditionalResults.map((item) => QAResultFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const StartAssetBundleImportJobRequestFilterSensitiveLog = (obj: StartAssetBundleImportJobRequest): any => ({
-  ...obj,
-  ...(obj.AssetBundleImportSource && {
-    AssetBundleImportSource: AssetBundleImportSourceFilterSensitiveLog(obj.AssetBundleImportSource),
-  }),
-});
-
-/**
- * @internal
- */
-export const SnapshotAnonymousUserFilterSensitiveLog = (obj: SnapshotAnonymousUser): any => ({
-  ...obj,
-  ...(obj.RowLevelPermissionTags && {
-    RowLevelPermissionTags: obj.RowLevelPermissionTags.map((item) => SessionTagFilterSensitiveLog(item)),
   }),
 });
