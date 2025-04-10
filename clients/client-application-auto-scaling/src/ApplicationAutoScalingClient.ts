@@ -356,7 +356,7 @@ export interface ApplicationAutoScalingClientResolvedConfig extends ApplicationA
  *                <p>Amazon ECS services</p>
  *             </li>
  *             <li>
- *                <p>Amazon ElastiCache for Redis clusters (replication groups)</p>
+ *                <p>Amazon ElastiCache replication groups (Redis OSS and Valkey) and Memcached clusters</p>
  *             </li>
  *             <li>
  *                <p>Amazon EMR clusters</p>
