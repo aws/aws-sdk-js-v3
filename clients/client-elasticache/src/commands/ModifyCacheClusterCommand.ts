@@ -82,6 +82,10 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  *     },
  *   ],
  *   IpDiscovery: "ipv4" || "ipv6",
+ *   ScaleConfig: { // ScaleConfig
+ *     ScalePercentage: Number("int"),
+ *     ScaleIntervalMinutes: Number("int"),
+ *   },
  * };
  * const command = new ModifyCacheClusterCommand(input);
  * const response = await client.send(command);
@@ -127,6 +131,10 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  * //       ],
  * //       TransitEncryptionEnabled: true || false,
  * //       TransitEncryptionMode: "preferred" || "required",
+ * //       ScaleConfig: { // ScaleConfig
+ * //         ScalePercentage: Number("int"),
+ * //         ScaleIntervalMinutes: Number("int"),
+ * //       },
  * //     },
  * //     NotificationConfiguration: { // NotificationConfiguration
  * //       TopicArn: "STRING_VALUE",
