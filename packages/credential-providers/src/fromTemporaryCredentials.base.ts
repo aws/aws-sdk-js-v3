@@ -21,7 +21,7 @@ const ASSUME_ROLE_DEFAULT_REGION = "us-east-1";
 
 export const fromTemporaryCredentials = (
   options: FromTemporaryCredentialsOptions,
-  credentialDefaultProvider?: () => AwsCredentialIdentityProvider,
+  credentialDefaultProvider?: (init: { profile?: string; logger?: Logger }) => AwsCredentialIdentityProvider,
   regionProvider?: ({ profile }: { profile?: string }) => Promise<string | undefined>
 ): RuntimeConfigAwsCredentialIdentityProvider => {
   let stsClient: STSClient;
@@ -31,6 +31,7 @@ export const fromTemporaryCredentials = (
 
     const logger = options.logger ?? callerClientConfig?.logger;
     logger?.debug("@aws-sdk/credential-providers - fromTemporaryCredentials (STS)");
+    const profile = options.clientConfig?.profile ?? callerClientConfig?.profile;
 
     const params = { ...options.params, RoleSessionName: options.params.RoleSessionName ?? "aws-sdk-js-" + Date.now() };
     if (params?.SerialNumber) {
@@ -48,9 +49,15 @@ export const fromTemporaryCredentials = (
 
     const { AssumeRoleCommand, STSClient } = await import("./loadSts");
 
+    const credentialProviderInit = {
+      profile,
+      logger,
+      parentClientConfig: callerClientConfig,
+    };
+
     if (!stsClient) {
       const defaultCredentialsOrError =
-        typeof credentialDefaultProvider === "function" ? credentialDefaultProvider() : undefined;
+        typeof credentialDefaultProvider === "function" ? credentialDefaultProvider(credentialProviderInit) : undefined;
 
       const credentialSources = [
         options.masterCredentials,
@@ -61,7 +68,7 @@ export const fromTemporaryCredentials = (
          * is the caller client's credential provider function.
          */
         void callerClientConfig?.credentials,
-        callerClientConfig?.credentialDefaultProvider?.(),
+        callerClientConfig?.credentialDefaultProvider?.(credentialProviderInit),
         defaultCredentialsOrError,
       ];
       let credentialSource = "STS client default credentials";

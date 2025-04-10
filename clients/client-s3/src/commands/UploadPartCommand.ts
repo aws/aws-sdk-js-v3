@@ -3,7 +3,6 @@ import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksu
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
@@ -14,8 +13,8 @@ import {
   UploadPartRequest,
   UploadPartRequestFilterSensitiveLog,
 } from "../models/models_1";
-import { de_UploadPartCommand, se_UploadPartCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { UploadPart } from "../schemas/com.amazonaws.s3";
 
 /**
  * @public
@@ -320,7 +319,6 @@ export class UploadPartCommand extends $Command
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
         requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
@@ -333,8 +331,7 @@ export class UploadPartCommand extends $Command
   .s("AmazonS3", "UploadPart", {})
   .n("S3Client", "UploadPartCommand")
   .f(UploadPartRequestFilterSensitiveLog, UploadPartOutputFilterSensitiveLog)
-  .ser(se_UploadPartCommand)
-  .de(de_UploadPartCommand)
+  .sc(UploadPart)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

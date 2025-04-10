@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { NoAuthSigner } from "@smithy/core";
+import { SmithyRpcV2CborProtocol } from "@smithy/core/cbor";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
@@ -29,6 +30,7 @@ export const getRuntimeConfig = (config: RpcV2ProtocolClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol: config?.protocol ?? new SmithyRpcV2CborProtocol(),
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,
     utf8Encoder: config?.utf8Encoder ?? toUtf8,
