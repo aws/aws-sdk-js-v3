@@ -520,8 +520,9 @@ export interface OnDemandThroughput {
 }
 
 /**
- * <p>Represents the provisioned throughput settings for a specified table or index. The
- *             settings can be modified using the <code>UpdateTable</code> operation.</p>
+ * <p>Represents the provisioned throughput settings for the specified global secondary
+ *             index. You must use <code>ProvisionedThroughput</code> or
+ *                 <code>OnDemandThroughput</code> based on your table’s capacity mode.</p>
  *          <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
  *                 Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer
  *                 Guide</i>.</p>
@@ -1881,7 +1882,9 @@ export interface CreateGlobalSecondaryIndexAction {
   /**
    * <p>The maximum number of read and write units for the global secondary index being
    *             created. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
-   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
+   *                 <code>MaxWriteRequestUnits</code>, or both. You must use either
+   *             <code>OnDemand Throughput</code> or <code>ProvisionedThroughput</code> based on your table's
+   *         capacity mode.</p>
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
@@ -2113,8 +2116,9 @@ export const TableStatus = {
 export type TableStatus = (typeof TableStatus)[keyof typeof TableStatus];
 
 /**
- * <p>Represents the warm throughput value (in read units per second and write units per
- *             second) of the base table.</p>
+ * <p>Represents the warm throughput value (in read units per second and write units per second)
+ *             of the table. Warm throughput is applicable for DynamoDB Standard-IA tables and specifies
+ *             the minimum provisioned capacity maintained for immediate data access.</p>
  * @public
  */
 export interface TableWarmThroughputDescription {
@@ -2131,7 +2135,7 @@ export interface TableWarmThroughputDescription {
   WriteUnitsPerSecond?: number | undefined;
 
   /**
-   * <p>Represents warm throughput value of the base table..</p>
+   * <p>Represents warm throughput value of the base table.</p>
    * @public
    */
   Status?: TableStatus | undefined;
@@ -4800,8 +4804,9 @@ export interface TableCreationParameters {
   BillingMode?: BillingMode | undefined;
 
   /**
-   * <p>Represents the provisioned throughput settings for a specified table or index. The
-   *             settings can be modified using the <code>UpdateTable</code> operation.</p>
+   * <p>Represents the provisioned throughput settings for the specified global secondary
+   *             index. You must use <code>ProvisionedThroughput</code> or
+   *                 <code>OnDemandThroughput</code> based on your table’s capacity mode.</p>
    *          <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
    *                 Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>

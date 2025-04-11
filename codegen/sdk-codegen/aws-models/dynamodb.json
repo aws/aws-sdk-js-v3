@@ -858,7 +858,7 @@
         "aws.api#clientDiscoveredEndpoint": {
           "required": false
         },
-        "smithy.api#documentation": "<p>The <code>BatchGetItem</code> operation returns the attributes of one or more items\n            from one or more tables. You identify requested items by primary key.</p>\n         <p>A single operation can retrieve up to 16 MB of data, which can contain as many as 100\n            items. <code>BatchGetItem</code> returns a partial result if the response size limit is\n            exceeded, the table's provisioned throughput is exceeded, more than 1MB per partition is\n            requested, or an internal processing failure occurs. If a partial result is returned,\n            the operation returns a value for <code>UnprocessedKeys</code>. You can use this value\n            to retry the operation starting with the next item to get.</p>\n         <important>\n            <p>If you request more than 100 items, <code>BatchGetItem</code> returns a\n                    <code>ValidationException</code> with the message \"Too many items requested for\n                the BatchGetItem call.\"</p>\n         </important>\n         <p>For example, if you ask to retrieve 100 items, but each individual item is 300 KB in\n            size, the system returns 52 items (so as not to exceed the 16 MB limit). It also returns\n            an appropriate <code>UnprocessedKeys</code> value so you can get the next page of\n            results. If desired, your application can include its own logic to assemble the pages of\n            results into one dataset.</p>\n         <p>If <i>none</i> of the items can be processed due to insufficient\n            provisioned throughput on all of the tables in the request, then\n                <code>BatchGetItem</code> returns a\n                <code>ProvisionedThroughputExceededException</code>. If <i>at least\n                one</i> of the items is successfully processed, then\n                <code>BatchGetItem</code> completes successfully, while returning the keys of the\n            unread items in <code>UnprocessedKeys</code>.</p>\n         <important>\n            <p>If DynamoDB returns any unprocessed items, you should retry the batch operation on\n                those items. However, <i>we strongly recommend that you use an exponential\n                    backoff algorithm</i>. If you retry the batch operation immediately, the\n                underlying read or write requests can still fail due to throttling on the individual\n                tables. If you delay the batch operation using exponential backoff, the individual\n                requests in the batch are much more likely to succeed.</p>\n            <p>For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations\">Batch Operations and Error Handling</a> in the <i>Amazon DynamoDB\n                    Developer Guide</i>.</p>\n         </important>\n         <p>By default, <code>BatchGetItem</code> performs eventually consistent reads on every\n            table in the request. If you want strongly consistent reads instead, you can set\n                <code>ConsistentRead</code> to <code>true</code> for any or all tables.</p>\n         <p>In order to minimize response latency, <code>BatchGetItem</code> may retrieve items in\n            parallel.</p>\n         <p>When designing your application, keep in mind that DynamoDB does not return items in\n            any particular order. To help parse the response by item, include the primary key values\n            for the items in your request in the <code>ProjectionExpression</code> parameter.</p>\n         <p>If a requested item does not exist, it is not returned in the result. Requests for\n            nonexistent items consume the minimum read capacity units according to the type of read.\n            For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations\">Working with Tables</a> in the <i>Amazon DynamoDB Developer\n                Guide</i>.</p>",
+        "smithy.api#documentation": "<p>The <code>BatchGetItem</code> operation returns the attributes of one or more items\n            from one or more tables. You identify requested items by primary key.</p>\n         <p>A single operation can retrieve up to 16 MB of data, which can contain as many as 100\n            items. <code>BatchGetItem</code> returns a partial result if the response size limit is\n            exceeded, the table's provisioned throughput is exceeded, more than 1MB per partition is\n            requested, or an internal processing failure occurs. If a partial result is returned,\n            the operation returns a value for <code>UnprocessedKeys</code>. You can use this value\n            to retry the operation starting with the next item to get.</p>\n         <important>\n            <p>If you request more than 100 items, <code>BatchGetItem</code> returns a\n                    <code>ValidationException</code> with the message \"Too many items requested for\n                the BatchGetItem call.\"</p>\n         </important>\n         <p>For example, if you ask to retrieve 100 items, but each individual item is 300 KB in\n            size, the system returns 52 items (so as not to exceed the 16 MB limit). It also returns\n            an appropriate <code>UnprocessedKeys</code> value so you can get the next page of\n            results. If desired, your application can include its own logic to assemble the pages of\n            results into one dataset.</p>\n         <p>If <i>none</i> of the items can be processed due to insufficient\n            provisioned throughput on all of the tables in the request, then\n                <code>BatchGetItem</code> returns a\n                <code>ProvisionedThroughputExceededException</code>. If <i>at least\n                one</i> of the items is successfully processed, then\n                <code>BatchGetItem</code> completes successfully, while returning the keys of the\n            unread items in <code>UnprocessedKeys</code>.</p>\n         <important>\n            <p>If DynamoDB returns any unprocessed items, you should retry the batch operation on\n                those items. However, <i>we strongly recommend that you use an exponential\n                    backoff algorithm</i>. If you retry the batch operation immediately, the\n                underlying read or write requests can still fail due to throttling on the individual\n                tables. If you delay the batch operation using exponential backoff, the individual\n                requests in the batch are much more likely to succeed.</p>\n            <p>For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations\">Batch Operations and Error Handling</a> in the <i>Amazon DynamoDB\n                    Developer Guide</i>.</p>\n         </important>\n         <p>By default, <code>BatchGetItem</code> performs eventually consistent reads on every\n            table in the request. If you want strongly consistent reads instead, you can set\n                <code>ConsistentRead</code> to <code>true</code> for any or all tables.</p>\n         <p>In order to minimize response latency, <code>BatchGetItem</code> may retrieve items in\n            parallel.</p>\n         <p>When designing your application, keep in mind that DynamoDB does not return items in\n            any particular order. To help parse the response by item, include the primary key values\n            for the items in your request in the <code>ProjectionExpression</code> parameter.</p>\n         <p>If a requested item does not exist, it is not returned in the result. Requests for\n            nonexistent items consume the minimum read capacity units according to the type of read.\n            For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations\">Working with Tables</a> in the <i>Amazon DynamoDB Developer\n                Guide</i>.</p>\n         <note>\n            <p>\n               <code>BatchGetItem</code> will result in a <code>ValidationException</code> if the\n                same key is specified multiple times.</p>\n         </note>",
         "smithy.api#examples": [
           {
             "title": "To retrieve multiple items from a table",
@@ -1984,7 +1984,7 @@
         "OnDemandThroughput": {
           "target": "com.amazonaws.dynamodb#OnDemandThroughput",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of read and write units for the global secondary index being\n            created. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>,\n                <code>MaxWriteRequestUnits</code>, or both.</p>"
+            "smithy.api#documentation": "<p>The maximum number of read and write units for the global secondary index being\n            created. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>,\n                <code>MaxWriteRequestUnits</code>, or both. You must use either\n            <code>OnDemand Throughput</code> or <code>ProvisionedThroughput</code> based on your table's\n        capacity mode.</p>"
           }
         },
         "WarmThroughput": {
@@ -7766,8 +7766,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -7802,8 +7802,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -7852,8 +7852,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -7878,8 +7878,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -7904,8 +7904,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -7930,8 +7930,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -7956,8 +7956,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -7982,8 +7982,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8057,8 +8057,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8095,8 +8095,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8133,8 +8133,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8171,8 +8171,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8234,8 +8234,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8282,8 +8282,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8307,8 +8307,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8369,8 +8369,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8405,8 +8405,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8455,8 +8455,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8481,8 +8481,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8507,8 +8507,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8533,8 +8533,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8559,8 +8559,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8585,8 +8585,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8660,8 +8660,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8698,8 +8698,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8736,8 +8736,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8774,8 +8774,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8837,8 +8837,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8885,8 +8885,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8910,8 +8910,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -8972,8 +8972,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -9008,8 +9008,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -9058,8 +9058,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -9084,8 +9084,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -9110,8 +9110,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -9136,8 +9136,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -9162,8 +9162,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -9188,8 +9188,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -9263,8 +9263,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -9301,8 +9301,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -9339,8 +9339,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -9377,8 +9377,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -9440,8 +9440,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -9488,8 +9488,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -9513,8 +9513,8 @@
                     "authSchemes": [
                       {
                         "signingRegion": "us-east-1",
-                        "name": "sigv4",
-                        "signingName": "dynamodb"
+                        "signingName": "dynamodb",
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -16796,7 +16796,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Represents the provisioned throughput settings for a specified table or index. The\n            settings can be modified using the <code>UpdateTable</code> operation.</p>\n         <p>For current minimum and maximum provisioned throughput values, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html\">Service,\n                Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer\n                Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Represents the provisioned throughput settings for the specified global secondary\n            index. You must use <code>ProvisionedThroughput</code> or\n                <code>OnDemandThroughput</code> based on your table’s capacity mode.</p>\n         <p>For current minimum and maximum provisioned throughput values, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html\">Service,\n                Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer\n                Guide</i>.</p>"
       }
     },
     "com.amazonaws.dynamodb#ProvisionedThroughputDescription": {
@@ -19610,12 +19610,12 @@
         "Status": {
           "target": "com.amazonaws.dynamodb#TableStatus",
           "traits": {
-            "smithy.api#documentation": "<p>Represents warm throughput value of the base table..</p>"
+            "smithy.api#documentation": "<p>Represents warm throughput value of the base table.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Represents the warm throughput value (in read units per second and write units per\n            second) of the base table.</p>"
+        "smithy.api#documentation": "<p>Represents the warm throughput value (in read units per second and write units per second)\n            of the table. Warm throughput is applicable for DynamoDB Standard-IA tables and specifies\n            the minimum provisioned capacity maintained for immediate data access.</p>"
       }
     },
     "com.amazonaws.dynamodb#Tag": {
