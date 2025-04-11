@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.788.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.787.0...v3.788.0) (2025-04-11)
+
+
+### Features
+
+* **client-marketplace-entitlement-service:** Add support for Marketplace Entitlement Service dual-stack endpoints for CN and GOV regions ([239ccb6](https://github.com/aws/aws-sdk-js-v3/commit/239ccb6b3ff46b1edd708867c29595f1405c302b))
+
+
+
+
+
 # [3.787.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.786.0...v3.787.0) (2025-04-10)
 
 **Note:** Version bump only for package @aws-sdk/client-marketplace-entitlement-service

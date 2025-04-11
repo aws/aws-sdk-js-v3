@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.788.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.787.0...v3.788.0) (2025-04-11)
+
+
+### Features
+
+* **client-connect-contact-lens:** Making sentiment optional for ListRealtimeContactAnalysisSegments Response depending on conversational analytics configuration ([73b26af](https://github.com/aws/aws-sdk-js-v3/commit/73b26af3f2dd93701daaff1c0e618b593f9bca3a))
+* **client-datazone:** Raise hard limit of authorized principals per SubscriptionTarget from 10 to 20. ([a0329ca](https://github.com/aws/aws-sdk-js-v3/commit/a0329ca6d634872bccabb700e060af3c0621f12c))
+* **client-detective:** Add support for Detective DualStack endpoints ([82bdb1c](https://github.com/aws/aws-sdk-js-v3/commit/82bdb1c5321f986856851ffb4a64fa3f419a4430))
+* **client-marketplace-entitlement-service:** Add support for Marketplace Entitlement Service dual-stack endpoints for CN and GOV regions ([239ccb6](https://github.com/aws/aws-sdk-js-v3/commit/239ccb6b3ff46b1edd708867c29595f1405c302b))
+* **client-marketplace-metering:** Add support for Marketplace Metering Service dual-stack endpoints for CN regions ([088694d](https://github.com/aws/aws-sdk-js-v3/commit/088694de04aec9ec1a5fbac30ddb752e46d006f6))
+* **client-pcs:** Changed the minimum length of clusterIdentifier, computeNodeGroupIdentifier, and queueIdentifier to 3. ([885595c](https://github.com/aws/aws-sdk-js-v3/commit/885595c4307106c653bee2180ef33d6a455a11a9))
+* **client-verifiedpermissions:** Adds deletion protection support to policy stores. Deletion protection is disabled by default, can be enabled via the CreatePolicyStore or UpdatePolicyStore APIs, and is visible in GetPolicyStore. ([21029cc](https://github.com/aws/aws-sdk-js-v3/commit/21029cc2697810ae0c221ab0723f02bce210c339))
+* **clients:** update client endpoints as of 2025-04-11 ([a3ab47d](https://github.com/aws/aws-sdk-js-v3/commit/a3ab47dc3f4276fcd2e7096356c1e270f748f62d))
+
+
+
+
+
 # [3.787.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.786.0...v3.787.0) (2025-04-10)
 
 
