@@ -1962,6 +1962,20 @@ export interface CreatePolicyOutput {
  * @public
  * @enum
  */
+export const DeletionProtection = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DeletionProtection = (typeof DeletionProtection)[keyof typeof DeletionProtection];
+
+/**
+ * @public
+ * @enum
+ */
 export const ValidationMode = {
   OFF: "OFF",
   STRICT: "STRICT",
@@ -2049,6 +2063,13 @@ export interface CreatePolicyStoreInput {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.</p>
+   *          <p>The default state is <code>DISABLED</code>.</p>
+   * @public
+   */
+  deletionProtection?: DeletionProtection | undefined;
 }
 
 /**
@@ -2211,6 +2232,26 @@ export interface DeletePolicyStoreInput {
  * @public
  */
 export interface DeletePolicyStoreOutput {}
+
+/**
+ * <p>The policy store can't be deleted because deletion protection is enabled. To delete this policy store, disable deletion protection.</p>
+ * @public
+ */
+export class InvalidStateException extends __BaseException {
+  readonly name: "InvalidStateException" = "InvalidStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidStateException, __BaseException>) {
+    super({
+      name: "InvalidStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStateException.prototype);
+  }
+}
 
 /**
  * @public
@@ -2565,6 +2606,13 @@ export interface GetPolicyStoreOutput {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.</p>
+   *          <p>The default state is <code>DISABLED</code>.</p>
+   * @public
+   */
+  deletionProtection?: DeletionProtection | undefined;
 }
 
 /**
@@ -4116,6 +4164,13 @@ export interface UpdatePolicyStoreInput {
    * @public
    */
   validationSettings: ValidationSettings | undefined;
+
+  /**
+   * <p>Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.</p>
+   *          <p>When you call <code>UpdatePolicyStore</code>, this parameter is unchanged unless explicitly included in the call.</p>
+   * @public
+   */
+  deletionProtection?: DeletionProtection | undefined;
 
   /**
    * <p>Descriptive text that you can provide to help with identification

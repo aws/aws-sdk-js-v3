@@ -54,6 +54,7 @@ export interface UpdatePolicyStoreCommandOutput extends UpdatePolicyStoreOutput,
  *   validationSettings: { // ValidationSettings
  *     mode: "OFF" || "STRICT", // required
  *   },
+ *   deletionProtection: "ENABLED" || "DISABLED",
  *   description: "STRING_VALUE",
  * };
  * const command = new UpdatePolicyStoreCommand(input);
