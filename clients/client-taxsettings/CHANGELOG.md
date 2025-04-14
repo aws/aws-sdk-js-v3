@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.789.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.788.0...v3.789.0) (2025-04-14)
+
+
+### Features
+
+* **client-taxsettings:** Indonesia SOR Tax Registration Launch ([24e5bc7](https://github.com/aws/aws-sdk-js-v3/commit/24e5bc718a10926ca8ede373ade3a746f1a2e984))
+
+
+
+
+
 # [3.787.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.786.0...v3.787.0) (2025-04-10)
 
 **Note:** Version bump only for package @aws-sdk/client-taxsettings

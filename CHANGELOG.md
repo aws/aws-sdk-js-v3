@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.789.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.788.0...v3.789.0) (2025-04-14)
+
+
+### Bug Fixes
+
+* **lib-dynamodb:** remove log filter overrides ([#7009](https://github.com/aws/aws-sdk-js-v3/issues/7009)) ([37b59f9](https://github.com/aws/aws-sdk-js-v3/commit/37b59f9f91c2fcdac6542709637c11f41f749d00))
+
+
+### Features
+
+* **client-entityresolution:** This is to add new metrics to our GetIdMappingJob API and also update uniqueId naming for batchDeleteUniqueIds API to be more accurate ([6c75f9f](https://github.com/aws/aws-sdk-js-v3/commit/6c75f9f90be32137af614f0191659057a4688b79))
+* **client-taxsettings:** Indonesia SOR Tax Registration Launch ([24e5bc7](https://github.com/aws/aws-sdk-js-v3/commit/24e5bc718a10926ca8ede373ade3a746f1a2e984))
+* **clients:** update client endpoints as of 2025-04-14 ([63a65db](https://github.com/aws/aws-sdk-js-v3/commit/63a65dbb699722fdc8fe0f3008d22d25506faf9b))
+
+
+
+
+
 # [3.788.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.787.0...v3.788.0) (2025-04-11)
 
 

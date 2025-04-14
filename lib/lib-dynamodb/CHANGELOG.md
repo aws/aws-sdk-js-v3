@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.789.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.788.0...v3.789.0) (2025-04-14)
+
+
+### Bug Fixes
+
+* **lib-dynamodb:** remove log filter overrides ([#7009](https://github.com/aws/aws-sdk-js-v3/issues/7009)) ([37b59f9](https://github.com/aws/aws-sdk-js-v3/commit/37b59f9f91c2fcdac6542709637c11f41f749d00))
+
+
+
+
+
 # [3.788.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.787.0...v3.788.0) (2025-04-11)
 
 **Note:** Version bump only for package @aws-sdk/lib-dynamodb
