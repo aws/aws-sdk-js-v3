@@ -358,6 +358,47 @@ export interface IndiaAdditionalInfo {
  * @public
  * @enum
  */
+export const IndonesiaTaxRegistrationNumberType = {
+  NIK: "NIK",
+  NITKU: "NITKU",
+  NPWP: "NPWP",
+  PASSPORT_NUMBER: "PassportNumber",
+} as const;
+
+/**
+ * @public
+ */
+export type IndonesiaTaxRegistrationNumberType =
+  (typeof IndonesiaTaxRegistrationNumberType)[keyof typeof IndonesiaTaxRegistrationNumberType];
+
+/**
+ * <p>Additional tax information associated with your TRN in Indonesia.</p>
+ * @public
+ */
+export interface IndonesiaAdditionalInfo {
+  /**
+   * <p>The tax registration number type.</p>
+   * @public
+   */
+  taxRegistrationNumberType?: IndonesiaTaxRegistrationNumberType | undefined;
+
+  /**
+   * <p>Exception code if you are designated by Directorate General of Taxation (DGT) as a VAT collector, non-collected VAT, or VAT-exempt customer.</p>
+   * @public
+   */
+  ppnExceptionDesignationCode?: string | undefined;
+
+  /**
+   * <p>VAT-exempt customers have a Directorate General of Taxation (DGT) exemption letter or certificate (Surat Keterangan Bebas) decision number. Non-collected VAT have a DGT letter or certificate (Surat Keterangan Tidak Dipungut).</p>
+   * @public
+   */
+  decisionNumber?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const IsraelCustomerType = {
   BUSINESS: "Business",
   INDIVIDUAL: "Individual",
@@ -906,6 +947,12 @@ export interface AdditionalInfoResponse {
   indiaAdditionalInfo?: IndiaAdditionalInfo | undefined;
 
   /**
+   * <p>Additional tax information associated with your TRN in Indonesia.</p>
+   * @public
+   */
+  indonesiaAdditionalInfo?: IndonesiaAdditionalInfo | undefined;
+
+  /**
    * <p>Additional tax information to specify for a TRN in Vietnam.
    *     </p>
    * @public
@@ -1211,6 +1258,13 @@ export interface AdditionalInfoRequest {
    * @public
    */
   saudiArabiaAdditionalInfo?: SaudiArabiaAdditionalInfo | undefined;
+
+  /**
+   * <p>
+   *     </p>
+   * @public
+   */
+  indonesiaAdditionalInfo?: IndonesiaAdditionalInfo | undefined;
 
   /**
    * <p>Additional tax information to specify for a TRN in Vietnam.

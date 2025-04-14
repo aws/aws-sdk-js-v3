@@ -83,6 +83,7 @@ import {
   ExemptionCertificate,
   GeorgiaAdditionalInfo,
   GreeceAdditionalInfo,
+  IndonesiaAdditionalInfo,
   InternalServerException,
   IsraelAdditionalInfo,
   ItalyAdditionalInfo,
@@ -1001,6 +1002,8 @@ const se_ExemptionCertificate = (input: ExemptionCertificate, context: __SerdeCo
 
 // se_GreeceAdditionalInfo omitted.
 
+// se_IndonesiaAdditionalInfo omitted.
+
 // se_IsraelAdditionalInfo omitted.
 
 // se_ItalyAdditionalInfo omitted.
@@ -1131,6 +1134,8 @@ const se_VerificationDetails = (input: VerificationDetails, context: __SerdeCont
 // de_GreeceAdditionalInfo omitted.
 
 // de_IndiaAdditionalInfo omitted.
+
+// de_IndonesiaAdditionalInfo omitted.
 
 // de_IsraelAdditionalInfo omitted.
 

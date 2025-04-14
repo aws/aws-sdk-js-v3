@@ -125,6 +125,11 @@ export interface GetTaxRegistrationCommandOutput extends GetTaxRegistrationRespo
  * //       indiaAdditionalInfo: { // IndiaAdditionalInfo
  * //         pan: "STRING_VALUE",
  * //       },
+ * //       indonesiaAdditionalInfo: { // IndonesiaAdditionalInfo
+ * //         taxRegistrationNumberType: "NIK" || "PassportNumber" || "NPWP" || "NITKU",
+ * //         ppnExceptionDesignationCode: "STRING_VALUE",
+ * //         decisionNumber: "STRING_VALUE",
+ * //       },
  * //       vietnamAdditionalInfo: { // VietnamAdditionalInfo
  * //         enterpriseIdentificationNumber: "STRING_VALUE",
  * //         electronicTransactionCodeNumber: "STRING_VALUE",
