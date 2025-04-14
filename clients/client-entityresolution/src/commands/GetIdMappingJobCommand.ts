@@ -54,6 +54,7 @@ export interface GetIdMappingJobCommandOutput extends GetIdMappingJobOutput, __M
  * //     totalMappedRecords: Number("int"),
  * //     totalMappedSourceRecords: Number("int"),
  * //     totalMappedTargetRecords: Number("int"),
+ * //     uniqueRecordsLoaded: Number("int"),
  * //   },
  * //   errorDetails: { // ErrorDetails
  * //     errorMessage: "STRING_VALUE",

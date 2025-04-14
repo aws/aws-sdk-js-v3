@@ -1333,8 +1333,10 @@ export const SchemaAttributeType = {
 export type SchemaAttributeType = (typeof SchemaAttributeType)[keyof typeof SchemaAttributeType];
 
 /**
- * <p>An object containing <code>FieldName</code>, <code>Type</code>, <code>GroupName</code>,
- *             <code>MatchKey</code>, <code>Hashing</code>, and <code>SubType</code>.</p>
+ * <p>A
+ *          configuration object for defining input data fields in Entity Resolution. The
+ *          SchemaInputAttribute specifies how individual fields in your input data should be processed
+ *          and matched.</p>
  * @public
  */
 export interface SchemaInputAttribute {
@@ -1346,6 +1348,23 @@ export interface SchemaInputAttribute {
 
   /**
    * <p>The type of the attribute, selected from a list of values.</p>
+   *          <note>
+   *             <p>Normalization is only supported for <code>NAME</code>, <code>ADDRESS</code>,
+   *                <code>PHONE</code>, and <code>EMAIL_ADDRESS</code>. </p>
+   *             <p>If you want to normalize <code>NAME_FIRST</code>, <code>NAME_MIDDLE</code>, and
+   *                <code>NAME_LAST</code>, you must group them by assigning them to the
+   *                <code>NAME</code>
+   *                <code>groupName</code>. </p>
+   *             <p>If you want to normalize <code>ADDRESS_STREET1</code>, <code>ADDRESS_STREET2</code>,
+   *                <code>ADDRESS_STREET3</code>, <code>ADDRESS_CITY</code>, <code>ADDRESS_STATE</code>,
+   *                <code>ADDRESS_COUNTRY</code>, and <code>ADDRESS_POSTALCODE</code>, you must group
+   *             them by assigning them to the <code>ADDRESS</code>
+   *                <code>groupName</code>. </p>
+   *             <p>If you want to normalize <code>PHONE_NUMBER</code> and
+   *             <code>PHONE_COUNTRYCODE</code>, you must group them by assigning them to the
+   *                <code>PHONE</code>
+   *                <code>groupName</code>. </p>
+   *          </note>
    * @public
    */
   type: SchemaAttributeType | undefined;
@@ -1353,10 +1372,13 @@ export interface SchemaInputAttribute {
   /**
    * <p>A string that instructs Entity Resolution to combine several columns into a unified
    *          column with the identical attribute type. </p>
-   *          <p>For example, when working with columns such as <code>first_name</code>,
-   *             <code>middle_name</code>, and <code>last_name</code>, assigning them a common
-   *             <code>groupName</code> will prompt Entity Resolution to concatenate them into a single
-   *          value.</p>
+   *          <p>For example, when working with columns such as
+   *             <code>NAME_FIRST</code>,
+   *             <code>NAME_MIDDLE</code>,
+   *          and
+   *             <code>NAME_LAST</code>,
+   *          assigning them a common <code>groupName</code> will prompt Entity Resolution to concatenate
+   *          them into a single value.</p>
    * @public
    */
   groupName?: string | undefined;
@@ -1380,9 +1402,9 @@ export interface SchemaInputAttribute {
   subType?: string | undefined;
 
   /**
-   * <p> Indicates if the column values are hashed in the schema input. If the value is set to
-   *             <code>TRUE</code>, the column values are hashed. If the value is set to
-   *             <code>FALSE</code>, the column values are cleartext.</p>
+   * <p> Indicates if the column values are hashed in the schema input. </p>
+   *          <p>If the value is set to <code>TRUE</code>, the column values are hashed. </p>
+   *          <p>If the value is set to <code>FALSE</code>, the column values are cleartext.</p>
    * @public
    */
   hashed?: boolean | undefined;
@@ -1611,9 +1633,10 @@ export interface ErrorDetails {
 }
 
 /**
- * <p>An object containing <code>InputRecords</code>, <code>RecordsNotProcessed</code>,
- *             <code>TotalRecordsProcessed</code>, <code>TotalMappedRecords</code>,
- *             <code>TotalMappedSourceRecords</code>, and <code>TotalMappedTargetRecords</code>.</p>
+ * <p>An
+ *          object that contains metrics about an ID mapping job, including counts of input records,
+ *          processed records, and mapped records between source and target identifiers.
+ *          </p>
  * @public
  */
 export interface IdMappingJobMetrics {
@@ -1652,6 +1675,17 @@ export interface IdMappingJobMetrics {
    * @public
    */
   totalMappedTargetRecords?: number | undefined;
+
+  /**
+   * <p>The
+   *          number of records remaining after loading and aggregating duplicate records. Duplicates are
+   *          determined by the field marked as UNIQUE_ID in your schema mapping - records sharing the
+   *          same value in this field are considered duplicates. For example, if you specified
+   *          "customer_id" as a UNIQUE_ID field and had three records with the same customer_id value,
+   *          they would count as one unique record in this metric. </p>
+   * @public
+   */
+  uniqueRecordsLoaded?: number | undefined;
 }
 
 /**
