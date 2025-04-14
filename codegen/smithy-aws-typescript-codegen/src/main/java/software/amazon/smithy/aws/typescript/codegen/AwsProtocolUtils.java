@@ -399,12 +399,6 @@ final class AwsProtocolUtils {
             || testCase.getId().equals("RestJsonWithBodyExpectsApplicationJsonContentTypeNoHeaders")) {
             return true;
         }
-
-        // ToDo: https://github.com/aws/aws-sdk-js-v3/issues/6907
-        if (testCase.getId().equals("RestJsonWithoutBodyEmptyInputExpectsEmptyContentType")) {
-            return true;
-        }
-
         return false;
     }
 }

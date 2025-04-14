@@ -2053,7 +2053,7 @@ export const deserializeMalformedContentTypeWithoutBodyEmptyInputRequest = async
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
