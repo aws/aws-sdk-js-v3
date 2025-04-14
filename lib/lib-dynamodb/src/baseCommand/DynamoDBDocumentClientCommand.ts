@@ -36,11 +36,6 @@ export abstract class DynamoDBDocumentClientCommand<
 
   public abstract middlewareStack: MiddlewareStack<Input | BaseInput, Output | BaseOutput>;
 
-  private static defaultLogFilterOverrides = {
-    overrideInputFilterSensitiveLog(...args: any[]) {},
-    overrideOutputFilterSensitiveLog(...args: any[]) {},
-  };
-
   protected addMarshallingMiddleware(configuration: DynamoDBDocumentClientResolvedConfig): void {
     const { marshallOptions = {}, unmarshallOptions = {} } = configuration.translateConfig || {};
 
@@ -54,13 +49,6 @@ export abstract class DynamoDBDocumentClientCommand<
         ): Promise<InitializeHandlerOutput<Output | BaseOutput>> => {
           setFeature(context, "DDB_MAPPER", "d");
           args.input = marshallInput(args.input, this.inputKeyNodes, marshallOptions);
-          context.dynamoDbDocumentClientOptions =
-            context.dynamoDbDocumentClientOptions || DynamoDBDocumentClientCommand.defaultLogFilterOverrides;
-
-          const input = args.input;
-          context.dynamoDbDocumentClientOptions.overrideInputFilterSensitiveLog = () => {
-            return context.inputFilterSensitiveLog?.(input);
-          };
           return next(args);
         },
       {
@@ -76,21 +64,6 @@ export abstract class DynamoDBDocumentClientCommand<
           args: DeserializeHandlerArguments<Input | BaseInput>
         ): Promise<DeserializeHandlerOutput<Output | BaseOutput>> => {
           const deserialized = await next(args);
-
-          /**
-           * The original filter function is based on the shape of the
-           * base DynamoDB type, whereas the returned output will be
-           * unmarshalled. Therefore the filter log needs to be modified
-           * to act on the original output structure.
-           */
-          const output = deserialized.output;
-          context.dynamoDbDocumentClientOptions =
-            context.dynamoDbDocumentClientOptions || DynamoDBDocumentClientCommand.defaultLogFilterOverrides;
-
-          context.dynamoDbDocumentClientOptions.overrideOutputFilterSensitiveLog = () => {
-            return context.outputFilterSensitiveLog?.(output);
-          };
-
           deserialized.output = unmarshallOutput(deserialized.output, this.outputKeyNodes, unmarshallOptions);
           return deserialized;
         },
