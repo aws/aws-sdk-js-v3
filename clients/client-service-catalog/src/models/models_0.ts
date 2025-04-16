@@ -7369,7 +7369,8 @@ export interface SearchProvisionedProductsInput {
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The access level to use to obtain results. The default is <code>User</code>.</p>
+   * <p>The access level to use to obtain results. The default is
+   *          <code>Account</code>.</p>
    * @public
    */
   AccessLevelFilter?: AccessLevelFilter | undefined;
