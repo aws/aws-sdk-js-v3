@@ -137,6 +137,11 @@ import {
   SearchRelatedItemsResponseItem,
   Section,
   ServiceQuotaExceededException,
+  SlaConfiguration,
+  SlaContent,
+  SlaFilter,
+  SlaInputConfiguration,
+  SlaInputContent,
   Sort,
   TemplateRule,
   ThrottlingException,
@@ -353,7 +358,7 @@ export const se_CreateRelatedItemCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      content: (_) => _json(_),
+      content: (_) => se_RelatedItemInputContent(_, context),
       performedBy: (_) => _json(_),
       type: [],
     })
@@ -2180,7 +2185,18 @@ const se_OperandTwo = (input: OperandTwo, context: __SerdeContext): any => {
 
 // se_RelatedItemFilterList omitted.
 
-// se_RelatedItemInputContent omitted.
+/**
+ * serializeAws_restJson1RelatedItemInputContent
+ */
+const se_RelatedItemInputContent = (input: RelatedItemInputContent, context: __SerdeContext): any => {
+  return RelatedItemInputContent.visit(input, {
+    comment: (value) => ({ comment: _json(value) }),
+    contact: (value) => ({ contact: _json(value) }),
+    file: (value) => ({ file: _json(value) }),
+    sla: (value) => ({ sla: se_SlaInputContent(value, context) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
 
 // se_RelatedItemTypeFilter omitted.
 
@@ -2201,6 +2217,42 @@ const se_RequiredCaseRule = (input: RequiredCaseRule, context: __SerdeContext): 
 // se_Section omitted.
 
 // se_SectionsList omitted.
+
+/**
+ * serializeAws_restJson1SlaFieldValueUnionList
+ */
+const se_SlaFieldValueUnionList = (input: FieldValueUnion[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_FieldValueUnion(entry, context);
+    });
+};
+
+// se_SlaFilter omitted.
+
+/**
+ * serializeAws_restJson1SlaInputConfiguration
+ */
+const se_SlaInputConfiguration = (input: SlaInputConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    fieldId: [],
+    name: [],
+    targetFieldValues: (_) => se_SlaFieldValueUnionList(_, context),
+    targetSlaMinutes: [],
+    type: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1SlaInputContent
+ */
+const se_SlaInputContent = (input: SlaInputContent, context: __SerdeContext): any => {
+  return SlaInputContent.visit(input, {
+    slaInputConfiguration: (value) => ({ slaInputConfiguration: se_SlaInputConfiguration(value, context) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
 
 // se_Sort omitted.
 
@@ -2581,6 +2633,11 @@ const de_RelatedItemContent = (output: any, context: __SerdeContext): RelatedIte
       file: _json(output.file),
     };
   }
+  if (output.sla != null) {
+    return {
+      sla: de_SlaContent(output.sla, context),
+    };
+  }
   return { $unknown: Object.entries(output)[0] };
 };
 
@@ -2658,6 +2715,42 @@ const de_SearchRelatedItemsResponseItemList = (
 // de_Section omitted.
 
 // de_SectionsList omitted.
+
+/**
+ * deserializeAws_restJson1SlaConfiguration
+ */
+const de_SlaConfiguration = (output: any, context: __SerdeContext): SlaConfiguration => {
+  return take(output, {
+    completionTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    fieldId: __expectString,
+    name: __expectString,
+    status: __expectString,
+    targetFieldValues: (_: any) => de_SlaFieldValueUnionList(_, context),
+    targetTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SlaContent
+ */
+const de_SlaContent = (output: any, context: __SerdeContext): SlaContent => {
+  return take(output, {
+    slaConfiguration: (_: any) => de_SlaConfiguration(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SlaFieldValueUnionList
+ */
+const de_SlaFieldValueUnionList = (output: any, context: __SerdeContext): FieldValueUnion[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FieldValueUnion(__expectUnion(entry), context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1Tags

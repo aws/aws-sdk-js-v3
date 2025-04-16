@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateRelatedItemRequest, CreateRelatedItemResponse } from "../models/models_0";
+import {
+  CreateRelatedItemRequest,
+  CreateRelatedItemRequestFilterSensitiveLog,
+  CreateRelatedItemResponse,
+} from "../models/models_0";
 import { de_CreateRelatedItemCommand, se_CreateRelatedItemCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -68,6 +72,23 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  *     },
  *     file: { // FileContent
  *       fileArn: "STRING_VALUE", // required
+ *     },
+ *     sla: { // SlaInputContent Union: only one key present
+ *       slaInputConfiguration: { // SlaInputConfiguration
+ *         name: "STRING_VALUE", // required
+ *         type: "STRING_VALUE", // required
+ *         fieldId: "STRING_VALUE",
+ *         targetFieldValues: [ // SlaFieldValueUnionList
+ *           { // FieldValueUnion Union: only one key present
+ *             stringValue: "STRING_VALUE",
+ *             doubleValue: Number("double"),
+ *             booleanValue: true || false,
+ *             emptyValue: {},
+ *             userArnValue: "STRING_VALUE",
+ *           },
+ *         ],
+ *         targetSlaMinutes: Number("long"), // required
+ *       },
  *     },
  *   },
  *   performedBy: { // UserUnion Union: only one key present
@@ -133,7 +154,7 @@ export class CreateRelatedItemCommand extends $Command
   })
   .s("AmazonConnectCases", "CreateRelatedItem", {})
   .n("ConnectCasesClient", "CreateRelatedItemCommand")
-  .f(void 0, void 0)
+  .f(CreateRelatedItemRequestFilterSensitiveLog, void 0)
   .ser(se_CreateRelatedItemCommand)
   .de(de_CreateRelatedItemCommand)
   .build() {

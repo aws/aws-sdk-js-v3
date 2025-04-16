@@ -29,7 +29,6 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
 
 /**
  * <p>Deletes a cases template. You can delete up to 100 templates per domain.</p>
- *
  *          <p>After a cases template is deleted:</p>
  *          <ul>
  *             <li>

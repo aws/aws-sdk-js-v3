@@ -34,7 +34,6 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  *          <p>Creates a case in the specified Cases domain. Case system and custom fields are taken
  *       as an array id/value pairs with a declared data types.</p>
  *          <p>The following fields are required when creating a case:</p>
- *
  *          <ul>
  *             <li>
  *                <p>

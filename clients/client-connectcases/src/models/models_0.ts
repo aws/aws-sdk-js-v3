@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { ConnectCasesServiceException as __BaseException } from "./ConnectCasesServiceException";
 
@@ -656,6 +656,7 @@ export const RelatedItemType = {
   COMMENT: "Comment",
   CONTACT: "Contact",
   FILE: "File",
+  SLA: "Sla",
 } as const;
 
 /**
@@ -859,6 +860,94 @@ export interface FileContent {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const SlaType = {
+  CASE_FIELD: "CaseField",
+} as const;
+
+/**
+ * @public
+ */
+export type SlaType = (typeof SlaType)[keyof typeof SlaType];
+
+/**
+ * <p>Represents the input configuration of an SLA being created.</p>
+ * @public
+ */
+export interface SlaInputConfiguration {
+  /**
+   * <p>Name of an SLA.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Type of SLA.</p>
+   * @public
+   */
+  type: SlaType | undefined;
+
+  /**
+   * <p>Unique identifier of a field.</p>
+   * @public
+   */
+  fieldId?: string | undefined;
+
+  /**
+   * <p>Represents a list of target field values for the fieldId specified in SlaInputConfiguration.
+   *       The SLA is considered met if any one of these target field values matches the actual field value.</p>
+   * @public
+   */
+  targetFieldValues?: FieldValueUnion[] | undefined;
+
+  /**
+   * <p>Target duration in minutes within which an SLA should be completed.</p>
+   * @public
+   */
+  targetSlaMinutes: number | undefined;
+}
+
+/**
+ * <p>Represents the content of an SLA.</p>
+ * @public
+ */
+export type SlaInputContent = SlaInputContent.SlaInputConfigurationMember | SlaInputContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SlaInputContent {
+  /**
+   * <p>Represents an input SLA configuration.</p>
+   * @public
+   */
+  export interface SlaInputConfigurationMember {
+    slaInputConfiguration: SlaInputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    slaInputConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    slaInputConfiguration: (value: SlaInputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: SlaInputContent, visitor: Visitor<T>): T => {
+    if (value.slaInputConfiguration !== undefined) return visitor.slaInputConfiguration(value.slaInputConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>Represents the content of a related item to be created.</p>
  * @public
  */
@@ -866,6 +955,7 @@ export type RelatedItemInputContent =
   | RelatedItemInputContent.CommentMember
   | RelatedItemInputContent.ContactMember
   | RelatedItemInputContent.FileMember
+  | RelatedItemInputContent.SlaMember
   | RelatedItemInputContent.$UnknownMember;
 
 /**
@@ -880,6 +970,7 @@ export namespace RelatedItemInputContent {
     contact: Contact;
     comment?: never;
     file?: never;
+    sla?: never;
     $unknown?: never;
   }
 
@@ -891,6 +982,7 @@ export namespace RelatedItemInputContent {
     contact?: never;
     comment: CommentContent;
     file?: never;
+    sla?: never;
     $unknown?: never;
   }
 
@@ -902,6 +994,19 @@ export namespace RelatedItemInputContent {
     contact?: never;
     comment?: never;
     file: FileContent;
+    sla?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents the content of an SLA to be created.</p>
+   * @public
+   */
+  export interface SlaMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla: SlaInputContent;
     $unknown?: never;
   }
 
@@ -912,6 +1017,7 @@ export namespace RelatedItemInputContent {
     contact?: never;
     comment?: never;
     file?: never;
+    sla?: never;
     $unknown: [string, any];
   }
 
@@ -919,6 +1025,7 @@ export namespace RelatedItemInputContent {
     contact: (value: Contact) => T;
     comment: (value: CommentContent) => T;
     file: (value: FileContent) => T;
+    sla: (value: SlaInputContent) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -926,6 +1033,7 @@ export namespace RelatedItemInputContent {
     if (value.contact !== undefined) return visitor.contact(value.contact);
     if (value.comment !== undefined) return visitor.comment(value.comment);
     if (value.file !== undefined) return visitor.file(value.file);
+    if (value.sla !== undefined) return visitor.sla(value.sla);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1040,6 +1148,40 @@ export interface FileFilter {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const SlaStatus = {
+  ACTIVE: "Active",
+  MET: "Met",
+  NOT_MET: "NotMet",
+  OVERDUE: "Overdue",
+} as const;
+
+/**
+ * @public
+ */
+export type SlaStatus = (typeof SlaStatus)[keyof typeof SlaStatus];
+
+/**
+ * <p>A filter for related items of type <code>SLA</code>.</p>
+ * @public
+ */
+export interface SlaFilter {
+  /**
+   * <p>Name of an SLA.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Status of an SLA.</p>
+   * @public
+   */
+  status?: SlaStatus | undefined;
+}
+
+/**
  * <p>The list of types of related items and their parameters to use for filtering.</p>
  * @public
  */
@@ -1047,6 +1189,7 @@ export type RelatedItemTypeFilter =
   | RelatedItemTypeFilter.CommentMember
   | RelatedItemTypeFilter.ContactMember
   | RelatedItemTypeFilter.FileMember
+  | RelatedItemTypeFilter.SlaMember
   | RelatedItemTypeFilter.$UnknownMember;
 
 /**
@@ -1061,6 +1204,7 @@ export namespace RelatedItemTypeFilter {
     contact: ContactFilter;
     comment?: never;
     file?: never;
+    sla?: never;
     $unknown?: never;
   }
 
@@ -1072,6 +1216,7 @@ export namespace RelatedItemTypeFilter {
     contact?: never;
     comment: CommentFilter;
     file?: never;
+    sla?: never;
     $unknown?: never;
   }
 
@@ -1083,6 +1228,19 @@ export namespace RelatedItemTypeFilter {
     contact?: never;
     comment?: never;
     file: FileFilter;
+    sla?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> Filter for related items of type <code>SLA</code>.</p>
+   * @public
+   */
+  export interface SlaMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla: SlaFilter;
     $unknown?: never;
   }
 
@@ -1093,6 +1251,7 @@ export namespace RelatedItemTypeFilter {
     contact?: never;
     comment?: never;
     file?: never;
+    sla?: never;
     $unknown: [string, any];
   }
 
@@ -1100,6 +1259,7 @@ export namespace RelatedItemTypeFilter {
     contact: (value: ContactFilter) => T;
     comment: (value: CommentFilter) => T;
     file: (value: FileFilter) => T;
+    sla: (value: SlaFilter) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1107,6 +1267,7 @@ export namespace RelatedItemTypeFilter {
     if (value.contact !== undefined) return visitor.contact(value.contact);
     if (value.comment !== undefined) return visitor.comment(value.comment);
     if (value.file !== undefined) return visitor.file(value.file);
+    if (value.sla !== undefined) return visitor.sla(value.sla);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1173,6 +1334,66 @@ export interface ContactContent {
 }
 
 /**
+ * <p>Represents an SLA configuration.</p>
+ * @public
+ */
+export interface SlaConfiguration {
+  /**
+   * <p>Name of an SLA.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Type of SLA.</p>
+   * @public
+   */
+  type: SlaType | undefined;
+
+  /**
+   * <p>Status of an SLA.</p>
+   * @public
+   */
+  status: SlaStatus | undefined;
+
+  /**
+   * <p>Unique identifier of a field.</p>
+   * @public
+   */
+  fieldId?: string | undefined;
+
+  /**
+   * <p>Represents a list of target field values for the fieldId specified in SlaConfiguration.</p>
+   * @public
+   */
+  targetFieldValues?: FieldValueUnion[] | undefined;
+
+  /**
+   * <p>Target time by which an SLA should be completed.</p>
+   * @public
+   */
+  targetTime: Date | undefined;
+
+  /**
+   * <p>Time at which an SLA was completed.</p>
+   * @public
+   */
+  completionTime?: Date | undefined;
+}
+
+/**
+ * <p>Represents the content of an SLA to be returned to agents.</p>
+ * @public
+ */
+export interface SlaContent {
+  /**
+   * <p>Represents an SLA configuration.</p>
+   * @public
+   */
+  slaConfiguration: SlaConfiguration | undefined;
+}
+
+/**
  * <p>Represents the content of a particular type of related item.</p>
  * @public
  */
@@ -1180,6 +1401,7 @@ export type RelatedItemContent =
   | RelatedItemContent.CommentMember
   | RelatedItemContent.ContactMember
   | RelatedItemContent.FileMember
+  | RelatedItemContent.SlaMember
   | RelatedItemContent.$UnknownMember;
 
 /**
@@ -1194,6 +1416,7 @@ export namespace RelatedItemContent {
     contact: ContactContent;
     comment?: never;
     file?: never;
+    sla?: never;
     $unknown?: never;
   }
 
@@ -1205,6 +1428,7 @@ export namespace RelatedItemContent {
     contact?: never;
     comment: CommentContent;
     file?: never;
+    sla?: never;
     $unknown?: never;
   }
 
@@ -1216,6 +1440,19 @@ export namespace RelatedItemContent {
     contact?: never;
     comment?: never;
     file: FileContent;
+    sla?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents the content of an SLA to be returned to agents.</p>
+   * @public
+   */
+  export interface SlaMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla: SlaContent;
     $unknown?: never;
   }
 
@@ -1226,6 +1463,7 @@ export namespace RelatedItemContent {
     contact?: never;
     comment?: never;
     file?: never;
+    sla?: never;
     $unknown: [string, any];
   }
 
@@ -1233,6 +1471,7 @@ export namespace RelatedItemContent {
     contact: (value: ContactContent) => T;
     comment: (value: CommentContent) => T;
     file: (value: FileContent) => T;
+    sla: (value: SlaContent) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1240,6 +1479,7 @@ export namespace RelatedItemContent {
     if (value.contact !== undefined) return visitor.contact(value.contact);
     if (value.comment !== undefined) return visitor.comment(value.comment);
     if (value.file !== undefined) return visitor.file(value.file);
+    if (value.sla !== undefined) return visitor.sla(value.sla);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -3893,3 +4133,115 @@ export interface SearchCasesRequest {
    */
   fields?: FieldIdentifier[] | undefined;
 }
+
+/**
+ * @internal
+ */
+export const SlaInputConfigurationFilterSensitiveLog = (obj: SlaInputConfiguration): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.targetFieldValues && { targetFieldValues: obj.targetFieldValues.map((item) => item) }),
+});
+
+/**
+ * @internal
+ */
+export const SlaInputContentFilterSensitiveLog = (obj: SlaInputContent): any => {
+  if (obj.slaInputConfiguration !== undefined)
+    return { slaInputConfiguration: SlaInputConfigurationFilterSensitiveLog(obj.slaInputConfiguration) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const RelatedItemInputContentFilterSensitiveLog = (obj: RelatedItemInputContent): any => {
+  if (obj.contact !== undefined) return { contact: obj.contact };
+  if (obj.comment !== undefined) return { comment: obj.comment };
+  if (obj.file !== undefined) return { file: obj.file };
+  if (obj.sla !== undefined) return { sla: SlaInputContentFilterSensitiveLog(obj.sla) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateRelatedItemRequestFilterSensitiveLog = (obj: CreateRelatedItemRequest): any => ({
+  ...obj,
+  ...(obj.content && { content: RelatedItemInputContentFilterSensitiveLog(obj.content) }),
+  ...(obj.performedBy && { performedBy: obj.performedBy }),
+});
+
+/**
+ * @internal
+ */
+export const SlaFilterFilterSensitiveLog = (obj: SlaFilter): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RelatedItemTypeFilterFilterSensitiveLog = (obj: RelatedItemTypeFilter): any => {
+  if (obj.contact !== undefined) return { contact: obj.contact };
+  if (obj.comment !== undefined) return { comment: obj.comment };
+  if (obj.file !== undefined) return { file: obj.file };
+  if (obj.sla !== undefined) return { sla: SlaFilterFilterSensitiveLog(obj.sla) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const SearchRelatedItemsRequestFilterSensitiveLog = (obj: SearchRelatedItemsRequest): any => ({
+  ...obj,
+  ...(obj.filters && { filters: obj.filters.map((item) => RelatedItemTypeFilterFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SlaConfigurationFilterSensitiveLog = (obj: SlaConfiguration): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.targetFieldValues && { targetFieldValues: obj.targetFieldValues.map((item) => item) }),
+});
+
+/**
+ * @internal
+ */
+export const SlaContentFilterSensitiveLog = (obj: SlaContent): any => ({
+  ...obj,
+  ...(obj.slaConfiguration && { slaConfiguration: SlaConfigurationFilterSensitiveLog(obj.slaConfiguration) }),
+});
+
+/**
+ * @internal
+ */
+export const RelatedItemContentFilterSensitiveLog = (obj: RelatedItemContent): any => {
+  if (obj.contact !== undefined) return { contact: obj.contact };
+  if (obj.comment !== undefined) return { comment: obj.comment };
+  if (obj.file !== undefined) return { file: obj.file };
+  if (obj.sla !== undefined) return { sla: SlaContentFilterSensitiveLog(obj.sla) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const SearchRelatedItemsResponseItemFilterSensitiveLog = (obj: SearchRelatedItemsResponseItem): any => ({
+  ...obj,
+  ...(obj.content && { content: RelatedItemContentFilterSensitiveLog(obj.content) }),
+  ...(obj.performedBy && { performedBy: obj.performedBy }),
+});
+
+/**
+ * @internal
+ */
+export const SearchRelatedItemsResponseFilterSensitiveLog = (obj: SearchRelatedItemsResponse): any => ({
+  ...obj,
+  ...(obj.relatedItems && {
+    relatedItems: obj.relatedItems.map((item) => SearchRelatedItemsResponseItemFilterSensitiveLog(item)),
+  }),
+});

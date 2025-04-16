@@ -71,6 +71,11 @@ export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConf
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service
+ *       resource associated with the request. Resolve the conflict before retrying this request. See
+ *       the accompanying error message for details.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>We couldn't process your request because of an issue with the server. Try again
  *       later.</p>

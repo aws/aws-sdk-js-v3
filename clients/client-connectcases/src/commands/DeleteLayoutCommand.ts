@@ -30,7 +30,6 @@ export interface DeleteLayoutCommandOutput extends DeleteLayoutResponse, __Metad
 /**
  * <p>Deletes a layout from a cases template. You can delete up to 100 layouts per
  *       domain.</p>
- *
  *          <p>After a layout is deleted:</p>
  *          <ul>
  *             <li>
