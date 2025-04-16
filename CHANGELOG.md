@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.790.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.789.0...v3.790.0) (2025-04-16)
+
+
+### Features
+
+* **client-connectcases:** This feature provides capabilities to help track and meet service level agreements (SLAs) on cases programmatically. It allows configuring a new related item of type `Sla` on a case using CreateRelatedItem API and provides the ability to search for this new related item using SearchRelatedItems API. ([da3e816](https://github.com/aws/aws-sdk-js-v3/commit/da3e816ce3fc5db6edd91bef128b612093b138cf))
+* **client-dsql:** Added GetClusterEndpointService API. The new API allows retrieving endpoint service name specific to a cluster. ([4c3f4ec](https://github.com/aws/aws-sdk-js-v3/commit/4c3f4ecdf0c3efedacf3f3ad9ea2e4e887b127bf))
+* **client-eks:** Added support for new AL2023 ARM64 NVIDIA AMIs to the supported AMITypes. ([99e54ec](https://github.com/aws/aws-sdk-js-v3/commit/99e54ecea756f6bdef797d20d5b4876026f4a57e))
+* **client-eventbridge:** Adding support for KmsKeyIdentifer in CreateConnection, UpdateConnection and DescribeConnection APIs ([d61677e](https://github.com/aws/aws-sdk-js-v3/commit/d61677e418c1105a58997e2b924bd73c082ec7d8))
+* **client-resource-groups:** Resource Groups: TagSyncTasks can be created with ResourceQuery ([96681c6](https://github.com/aws/aws-sdk-js-v3/commit/96681c69a9cd4e790fc52e6e6a9b9f389784c320))
+* **client-s3tables:** S3 Tables now supports setting encryption configurations on table buckets and tables. Encryption configurations can use server side encryption using AES256 or KMS customer-managed keys. ([601da81](https://github.com/aws/aws-sdk-js-v3/commit/601da818d2de268f8a5734ab79a0ed2d19758cc7))
+* **clients:** update client endpoints as of 2025-04-16 ([b2c0393](https://github.com/aws/aws-sdk-js-v3/commit/b2c039385d8e68aa2cc60b6265f4bd0ad17d5aa2))
+
+
+
+
+
 # [3.789.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.788.0...v3.789.0) (2025-04-14)
 
 
