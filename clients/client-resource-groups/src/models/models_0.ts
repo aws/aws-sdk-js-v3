@@ -907,6 +907,38 @@ export interface GetTagSyncTaskOutput {
   TagValue?: string | undefined;
 
   /**
+   * <p>The query you can use to define a resource group or a search for resources. A
+   *                 <code>ResourceQuery</code> specifies both a query <code>Type</code> and a
+   *                 <code>Query</code> string as JSON string objects. See the examples section for
+   *             example JSON strings. For more information about creating a resource group with a
+   *             resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html">Build queries and groups in
+   *                 Resource Groups</a> in the <i>Resource Groups User Guide</i>
+   *          </p>
+   *          <p>When you combine all of the elements together into a single string, any double quotes
+   *             that are embedded inside another double quote pair must be escaped by preceding the
+   *             embedded double quote with a backslash character (\). For example, a complete
+   *                 <code>ResourceQuery</code> parameter must be formatted like the following CLI
+   *             parameter example:</p>
+   *          <p>
+   *             <code>--resource-query
+   *                 '\{"Type":"TAG_FILTERS_1_0","Query":"\{\"ResourceTypeFilters\":[\"AWS::AllSupported\"],\"TagFilters\":[\{\"Key\":\"Stage\",\"Values\":[\"Test\"]\}]\}"\}'</code>
+   *          </p>
+   *          <p>In the preceding example, all of the double quote characters in the value part of the
+   *                 <code>Query</code> element must be escaped because the value itself is surrounded by
+   *             double quotes. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html">Quoting
+   *                 strings</a> in the <i>Command Line Interface User Guide</i>.</p>
+   *          <p>For the complete list of resource types that you can use in the array value for
+   *                 <code>ResourceTypeFilters</code>, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html">Resources
+   *                 you can use with Resource Groups and Tag Editor</a> in the
+   *                 <i>Resource Groups User Guide</i>. For example:</p>
+   *          <p>
+   *             <code>"ResourceTypeFilters":["AWS::S3::Bucket", "AWS::EC2::Instance"]</code>
+   *          </p>
+   * @public
+   */
+  ResourceQuery?: ResourceQuery | undefined;
+
+  /**
    * <p>The Amazon resource name (ARN) of the role assumed by Resource Groups to tag and untag resources on your behalf. </p>
    *          <p>For more information about this role, review <a href="https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-tag-sync.html#tag-sync-role">Tag-sync required permissions</a>.
    *         </p>
@@ -1542,7 +1574,7 @@ export interface ListGroupsInput {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>AWS::AppRegistry::ApplicationResourceGroups</code>
+   *                         <code>AWS::AppRegistry::ApplicationResourceGroup</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -1759,6 +1791,38 @@ export interface TagSyncTaskItem {
   TagValue?: string | undefined;
 
   /**
+   * <p>The query you can use to define a resource group or a search for resources. A
+   *                 <code>ResourceQuery</code> specifies both a query <code>Type</code> and a
+   *                 <code>Query</code> string as JSON string objects. See the examples section for
+   *             example JSON strings. For more information about creating a resource group with a
+   *             resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html">Build queries and groups in
+   *                 Resource Groups</a> in the <i>Resource Groups User Guide</i>
+   *          </p>
+   *          <p>When you combine all of the elements together into a single string, any double quotes
+   *             that are embedded inside another double quote pair must be escaped by preceding the
+   *             embedded double quote with a backslash character (\). For example, a complete
+   *                 <code>ResourceQuery</code> parameter must be formatted like the following CLI
+   *             parameter example:</p>
+   *          <p>
+   *             <code>--resource-query
+   *                 '\{"Type":"TAG_FILTERS_1_0","Query":"\{\"ResourceTypeFilters\":[\"AWS::AllSupported\"],\"TagFilters\":[\{\"Key\":\"Stage\",\"Values\":[\"Test\"]\}]\}"\}'</code>
+   *          </p>
+   *          <p>In the preceding example, all of the double quote characters in the value part of the
+   *                 <code>Query</code> element must be escaped because the value itself is surrounded by
+   *             double quotes. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html">Quoting
+   *                 strings</a> in the <i>Command Line Interface User Guide</i>.</p>
+   *          <p>For the complete list of resource types that you can use in the array value for
+   *                 <code>ResourceTypeFilters</code>, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html">Resources
+   *                 you can use with Resource Groups and Tag Editor</a> in the
+   *                 <i>Resource Groups User Guide</i>. For example:</p>
+   *          <p>
+   *             <code>"ResourceTypeFilters":["AWS::S3::Bucket", "AWS::EC2::Instance"]</code>
+   *          </p>
+   * @public
+   */
+  ResourceQuery?: ResourceQuery | undefined;
+
+  /**
    * <p>The Amazon resource name (ARN) of the role assumed by the service to tag and untag resources on your behalf.</p>
    * @public
    */
@@ -1945,17 +2009,53 @@ export interface StartTagSyncTaskInput {
    * <p>The tag key. Resources tagged with this tag key-value pair will be added to
    *             the application. If a resource with this tag is later untagged, the tag-sync task removes
    *             the resource from the application. </p>
+   *          <p>When using the <code>TagKey</code> parameter, you must also specify the <code>TagValue</code> parameter. If you specify a tag key-value pair,
+   *             you can't use the <code>ResourceQuery</code> parameter. </p>
    * @public
    */
-  TagKey: string | undefined;
+  TagKey?: string | undefined;
 
   /**
    * <p>The tag value. Resources tagged with this tag key-value pair will be added to
    *             the application. If a resource with this tag is later untagged, the tag-sync task removes
    *             the resource from the application. </p>
+   *          <p>When using the <code>TagValue</code> parameter, you must also specify the <code>TagKey</code> parameter. If you specify a tag key-value pair,
+   *             you can't use the <code>ResourceQuery</code> parameter. </p>
    * @public
    */
-  TagValue: string | undefined;
+  TagValue?: string | undefined;
+
+  /**
+   * <p>The query you can use to create the tag-sync task. With this method, all resources matching the query
+   *             are added to the specified application group. A
+   *             <code>ResourceQuery</code> specifies both a query <code>Type</code> and a
+   *                 <code>Query</code> string as JSON string objects. For more information on defining a resource query for a
+   *                 tag-sync task, see the tag-based query type in <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#getting_started-query_types">
+   *                     Types of resource group queries</a> in <i>Resource Groups User Guide</i>. </p>
+   *          <p>When using the <code>ResourceQuery</code> parameter, you cannot use the <code>TagKey</code> and <code>TagValue</code> parameters. </p>
+   *          <p>When you combine all of the elements together into a single string, any double quotes
+   *             that are embedded inside another double quote pair must be escaped by preceding the
+   *             embedded double quote with a backslash character (\). For example, a complete
+   *             <code>ResourceQuery</code> parameter must be formatted like the following CLI
+   *             parameter example:</p>
+   *          <p>
+   *             <code>--resource-query
+   *             '\{"Type":"TAG_FILTERS_1_0","Query":"\{\"ResourceTypeFilters\":[\"AWS::AllSupported\"],\"TagFilters\":[\{\"Key\":\"Stage\",\"Values\":[\"Test\"]\}]\}"\}'</code>
+   *          </p>
+   *          <p>In the preceding example, all of the double quote characters in the value part of the
+   *             <code>Query</code> element must be escaped because the value itself is surrounded by
+   *             double quotes. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html">Quoting
+   *                 strings</a> in the <i>Command Line Interface User Guide</i>.</p>
+   *          <p>For the complete list of resource types that you can use in the array value for
+   *             <code>ResourceTypeFilters</code>, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html">Resources
+   *                 you can use with Resource Groups and Tag Editor</a> in the
+   *             <i>Resource Groups User Guide</i>. For example:</p>
+   *          <p>
+   *             <code>"ResourceTypeFilters":["AWS::S3::Bucket", "AWS::EC2::Instance"]</code>
+   *          </p>
+   * @public
+   */
+  ResourceQuery?: ResourceQuery | undefined;
 
   /**
    * <p>The Amazon resource name (ARN) of the role assumed by the service to tag and untag resources on your behalf.</p>
@@ -1997,6 +2097,38 @@ export interface StartTagSyncTaskOutput {
    * @public
    */
   TagValue?: string | undefined;
+
+  /**
+   * <p>The query you can use to define a resource group or a search for resources. A
+   *                 <code>ResourceQuery</code> specifies both a query <code>Type</code> and a
+   *                 <code>Query</code> string as JSON string objects. See the examples section for
+   *             example JSON strings. For more information about creating a resource group with a
+   *             resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html">Build queries and groups in
+   *                 Resource Groups</a> in the <i>Resource Groups User Guide</i>
+   *          </p>
+   *          <p>When you combine all of the elements together into a single string, any double quotes
+   *             that are embedded inside another double quote pair must be escaped by preceding the
+   *             embedded double quote with a backslash character (\). For example, a complete
+   *                 <code>ResourceQuery</code> parameter must be formatted like the following CLI
+   *             parameter example:</p>
+   *          <p>
+   *             <code>--resource-query
+   *                 '\{"Type":"TAG_FILTERS_1_0","Query":"\{\"ResourceTypeFilters\":[\"AWS::AllSupported\"],\"TagFilters\":[\{\"Key\":\"Stage\",\"Values\":[\"Test\"]\}]\}"\}'</code>
+   *          </p>
+   *          <p>In the preceding example, all of the double quote characters in the value part of the
+   *                 <code>Query</code> element must be escaped because the value itself is surrounded by
+   *             double quotes. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html">Quoting
+   *                 strings</a> in the <i>Command Line Interface User Guide</i>.</p>
+   *          <p>For the complete list of resource types that you can use in the array value for
+   *                 <code>ResourceTypeFilters</code>, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html">Resources
+   *                 you can use with Resource Groups and Tag Editor</a> in the
+   *                 <i>Resource Groups User Guide</i>. For example:</p>
+   *          <p>
+   *             <code>"ResourceTypeFilters":["AWS::S3::Bucket", "AWS::EC2::Instance"]</code>
+   *          </p>
+   * @public
+   */
+  ResourceQuery?: ResourceQuery | undefined;
 
   /**
    * <p>The Amazon resource name (ARN) of the role assumed by the service to tag and untag resources on your behalf.</p>

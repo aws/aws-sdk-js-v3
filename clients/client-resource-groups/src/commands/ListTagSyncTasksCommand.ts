@@ -66,6 +66,10 @@ export interface ListTagSyncTasksCommandOutput extends ListTagSyncTasksOutput, _
  * //       TaskArn: "STRING_VALUE",
  * //       TagKey: "STRING_VALUE",
  * //       TagValue: "STRING_VALUE",
+ * //       ResourceQuery: { // ResourceQuery
+ * //         Type: "TAG_FILTERS_1_0" || "CLOUDFORMATION_STACK_1_0", // required
+ * //         Query: "STRING_VALUE", // required
+ * //       },
  * //       RoleArn: "STRING_VALUE",
  * //       Status: "ACTIVE" || "ERROR",
  * //       ErrorMessage: "STRING_VALUE",
