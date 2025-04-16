@@ -117,6 +117,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  *       ResourceConfigurationArn: "STRING_VALUE", // required
  *     },
  *   },
+ *   KmsKeyIdentifier: "STRING_VALUE",
  * };
  * const command = new UpdateConnectionCommand(input);
  * const response = await client.send(command);

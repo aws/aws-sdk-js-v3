@@ -2984,6 +2984,7 @@ const de_DescribeConnectionResponse = (output: any, context: __SerdeContext): De
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
     InvocationConnectivityParameters: _json,
+    KmsKeyIdentifier: __expectString,
     LastAuthorizedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,

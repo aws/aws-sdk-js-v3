@@ -119,6 +119,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  *       ResourceConfigurationArn: "STRING_VALUE", // required
  *     },
  *   },
+ *   KmsKeyIdentifier: "STRING_VALUE",
  * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);

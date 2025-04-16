@@ -945,6 +945,18 @@ export interface CreateConnectionRequest {
    * @public
    */
   InvocationConnectivityParameters?: ConnectivityResourceParameters | undefined;
+
+  /**
+   * <p>The identifier of the KMS
+   *       customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key
+   *       Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</p>
+   *          <p>If you do not specify a customer managed key identifier, EventBridge uses an
+   *         Amazon Web Services owned key to encrypt the connection.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html">Identify and view keys</a> in the <i>Key Management Service
+   *                                 Developer Guide</i>. </p>
+   * @public
+   */
+  KmsKeyIdentifier?: string | undefined;
 }
 
 /**
@@ -1301,9 +1313,19 @@ export interface CreateEventBusRequest {
    *                                 Developer Guide</i>. </p>
    *          <note>
    *             <p>Schema discovery is not supported for event buses encrypted using a
-   *         customer managed key. EventBridge returns an error if you call <code>
-   *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/schema-reference/v1-discoverers.html#CreateDiscoverer">CreateDiscoverer</a>
-   *                </code> on an event bus set to use a customer managed key for encryption.</p>
+   *         customer managed key. EventBridge returns an error if: </p>
+   *             <ul>
+   *                <li>
+   *                   <p>You call <code>
+   *                         <a href="https://docs.aws.amazon.com/eventbridge/latest/schema-reference/v1-discoverers.html#CreateDiscoverer">CreateDiscoverer</a>
+   *                      </code> on an event bus set to use a customer managed key for encryption.</p>
+   *                </li>
+   *                <li>
+   *                   <p>You call <code>
+   *                         <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UpdatedEventBus.html">UpdatedEventBus</a>
+   *                      </code> to set a customer managed key on an event bus with schema discovery enabled.</p>
+   *                </li>
+   *             </ul>
    *             <p>To enable schema discovery on an event bus, choose to
    *         use an Amazon Web Services owned key. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption-event-bus-cmkey.html">Encrypting events</a> in the <i>Amazon EventBridge User Guide</i>.</p>
    *          </note>
@@ -2021,6 +2043,14 @@ export interface DescribeConnectionResponse {
    * @public
    */
   SecretArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the KMS
+   *       customer managed key for EventBridge to use to encrypt the connection, if one has been specified.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-connections.html">Encrypting connections</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   * @public
+   */
+  KmsKeyIdentifier?: string | undefined;
 
   /**
    * <p>The parameters to use for authorization for the connection.</p>
@@ -5724,6 +5754,18 @@ export interface UpdateConnectionRequest {
    * @public
    */
   InvocationConnectivityParameters?: ConnectivityResourceParameters | undefined;
+
+  /**
+   * <p>The identifier of the KMS
+   *       customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key
+   *       Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</p>
+   *          <p>If you do not specify a customer managed key identifier, EventBridge uses an
+   *         Amazon Web Services owned key to encrypt the connection.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html">Identify and view keys</a> in the <i>Key Management Service
+   *                                 Developer Guide</i>. </p>
+   * @public
+   */
+  KmsKeyIdentifier?: string | undefined;
 }
 
 /**
@@ -5883,9 +5925,19 @@ export interface UpdateEventBusRequest {
    *                                 Developer Guide</i>. </p>
    *          <note>
    *             <p>Schema discovery is not supported for event buses encrypted using a
-   *         customer managed key. EventBridge returns an error if you call <code>
-   *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/schema-reference/v1-discoverers.html#CreateDiscoverer">CreateDiscoverer</a>
-   *                </code> on an event bus set to use a customer managed key for encryption.</p>
+   *         customer managed key. EventBridge returns an error if: </p>
+   *             <ul>
+   *                <li>
+   *                   <p>You call <code>
+   *                         <a href="https://docs.aws.amazon.com/eventbridge/latest/schema-reference/v1-discoverers.html#CreateDiscoverer">CreateDiscoverer</a>
+   *                      </code> on an event bus set to use a customer managed key for encryption.</p>
+   *                </li>
+   *                <li>
+   *                   <p>You call <code>
+   *                         <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UpdatedEventBus.html">UpdatedEventBus</a>
+   *                      </code> to set a customer managed key on an event bus with schema discovery enabled.</p>
+   *                </li>
+   *             </ul>
    *             <p>To enable schema discovery on an event bus, choose to
    *         use an Amazon Web Services owned key. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption-event-bus-cmkey.html">Encrypting events</a> in the <i>Amazon EventBridge User Guide</i>.</p>
    *          </note>
