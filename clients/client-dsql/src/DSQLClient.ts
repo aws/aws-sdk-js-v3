@@ -64,6 +64,10 @@ import {
   DeleteMultiRegionClustersCommandOutput,
 } from "./commands/DeleteMultiRegionClustersCommand";
 import { GetClusterCommandInput, GetClusterCommandOutput } from "./commands/GetClusterCommand";
+import {
+  GetVpcEndpointServiceNameCommandInput,
+  GetVpcEndpointServiceNameCommandOutput,
+} from "./commands/GetVpcEndpointServiceNameCommand";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -92,6 +96,7 @@ export type ServiceInputTypes =
   | DeleteClusterCommandInput
   | DeleteMultiRegionClustersCommandInput
   | GetClusterCommandInput
+  | GetVpcEndpointServiceNameCommandInput
   | ListClustersCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
@@ -107,6 +112,7 @@ export type ServiceOutputTypes =
   | DeleteClusterCommandOutput
   | DeleteMultiRegionClustersCommandOutput
   | GetClusterCommandOutput
+  | GetVpcEndpointServiceNameCommandOutput
   | ListClustersCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput

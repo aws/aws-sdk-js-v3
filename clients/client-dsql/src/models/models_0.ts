@@ -580,6 +580,28 @@ export interface GetClusterOutput {
 /**
  * @public
  */
+export interface GetVpcEndpointServiceNameInput {
+  /**
+   * <p>The ID of the cluster to retrieve.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpcEndpointServiceNameOutput {
+  /**
+   * <p>The VPC endpoint service name.</p>
+   * @public
+   */
+  serviceName: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListClustersInput {
   /**
    * <p>An optional parameter that specifies the maximum number of results to return.

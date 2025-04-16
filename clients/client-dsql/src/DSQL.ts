@@ -24,6 +24,11 @@ import {
 } from "./commands/DeleteMultiRegionClustersCommand";
 import { GetClusterCommand, GetClusterCommandInput, GetClusterCommandOutput } from "./commands/GetClusterCommand";
 import {
+  GetVpcEndpointServiceNameCommand,
+  GetVpcEndpointServiceNameCommandInput,
+  GetVpcEndpointServiceNameCommandOutput,
+} from "./commands/GetVpcEndpointServiceNameCommand";
+import {
   ListClustersCommand,
   ListClustersCommandInput,
   ListClustersCommandOutput,
@@ -52,6 +57,7 @@ const commands = {
   DeleteClusterCommand,
   DeleteMultiRegionClustersCommand,
   GetClusterCommand,
+  GetVpcEndpointServiceNameCommand,
   ListClustersCommand,
   ListTagsForResourceCommand,
   TagResourceCommand,
@@ -126,6 +132,23 @@ export interface DSQL {
     args: GetClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVpcEndpointServiceNameCommand}
+   */
+  getVpcEndpointServiceName(
+    args: GetVpcEndpointServiceNameCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVpcEndpointServiceNameCommandOutput>;
+  getVpcEndpointServiceName(
+    args: GetVpcEndpointServiceNameCommandInput,
+    cb: (err: any, data?: GetVpcEndpointServiceNameCommandOutput) => void
+  ): void;
+  getVpcEndpointServiceName(
+    args: GetVpcEndpointServiceNameCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVpcEndpointServiceNameCommandOutput) => void
   ): void;
 
   /**

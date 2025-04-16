@@ -37,6 +37,10 @@ import {
   DeleteMultiRegionClustersCommandOutput,
 } from "../commands/DeleteMultiRegionClustersCommand";
 import { GetClusterCommandInput, GetClusterCommandOutput } from "../commands/GetClusterCommand";
+import {
+  GetVpcEndpointServiceNameCommandInput,
+  GetVpcEndpointServiceNameCommandOutput,
+} from "../commands/GetVpcEndpointServiceNameCommand";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "../commands/ListClustersCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -154,6 +158,22 @@ export const se_GetClusterCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/cluster/{identifier}");
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetVpcEndpointServiceNameCommand
+ */
+export const se_GetVpcEndpointServiceNameCommand = async (
+  input: GetVpcEndpointServiceNameCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/clusters/{identifier}/vpc-endpoint-service-name");
   b.p("identifier", () => input.identifier!, "{identifier}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
@@ -371,6 +391,27 @@ export const de_GetClusterCommand = async (
     linkedClusterArns: _json,
     status: __expectString,
     witnessRegion: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetVpcEndpointServiceNameCommand
+ */
+export const de_GetVpcEndpointServiceNameCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVpcEndpointServiceNameCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    serviceName: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
