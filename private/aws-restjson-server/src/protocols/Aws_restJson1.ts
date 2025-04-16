@@ -838,7 +838,7 @@ export const deserializeEmptyInputAndEmptyOutputRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -1182,7 +1182,7 @@ export const deserializeHttpPrefixHeadersInResponseRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -3486,7 +3486,7 @@ export const deserializeResponseCodeHttpFallbackRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
