@@ -32,9 +32,19 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have the <code>s3tables:CreateTable</code> permission to use this operation. </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>You must have the <code>s3tables:CreateTable</code> permission to use this operation. </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>If you use this operation with the optional <code>metadata</code> request parameter you must have the <code>s3tables:PutTableData</code> permission. </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>If you use this operation with the optional <code>encryptionConfiguration</code> request parameter you must have the <code>s3tables:PutTableEncryption</code> permission. </p>
+ *                   </li>
+ *                </ul>
  *                <note>
- *                   <p>Additionally, you must have the <code>s3tables:PutTableData</code> permission to use this operation with the optional <code>metadata</code> request parameter. </p>
+ *                   <p>Additionally,  </p>
  *                </note>
  *             </dd>
  *          </dl>
@@ -61,6 +71,10 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *         ],
  *       },
  *     },
+ *   },
+ *   encryptionConfiguration: { // EncryptionConfiguration
+ *     sseAlgorithm: "AES256" || "aws:kms", // required
+ *     kmsKeyArn: "STRING_VALUE",
  *   },
  * };
  * const command = new CreateTableCommand(input);

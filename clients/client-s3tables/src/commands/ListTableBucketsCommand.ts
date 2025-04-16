@@ -55,6 +55,7 @@ export interface ListTableBucketsCommandOutput extends ListTableBucketsResponse,
  * //       name: "STRING_VALUE", // required
  * //       ownerAccountId: "STRING_VALUE", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       tableBucketId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   continuationToken: "STRING_VALUE",

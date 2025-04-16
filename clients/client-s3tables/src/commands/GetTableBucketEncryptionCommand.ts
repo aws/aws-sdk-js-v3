@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetNamespaceRequest, GetNamespaceResponse } from "../models/models_0";
-import { de_GetNamespaceCommand, se_GetNamespaceCommand } from "../protocols/Aws_restJson1";
+import { GetTableBucketEncryptionRequest, GetTableBucketEncryptionResponse } from "../models/models_0";
+import { de_GetTableBucketEncryptionCommand, se_GetTableBucketEncryptionCommand } from "../protocols/Aws_restJson1";
 import { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
 
 /**
@@ -17,53 +17,48 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetNamespaceCommand}.
+ * The input for {@link GetTableBucketEncryptionCommand}.
  */
-export interface GetNamespaceCommandInput extends GetNamespaceRequest {}
+export interface GetTableBucketEncryptionCommandInput extends GetTableBucketEncryptionRequest {}
 /**
  * @public
  *
- * The output of {@link GetNamespaceCommand}.
+ * The output of {@link GetTableBucketEncryptionCommand}.
  */
-export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __MetadataBearer {}
+export interface GetTableBucketEncryptionCommandOutput extends GetTableBucketEncryptionResponse, __MetadataBearer {}
 
 /**
- * <p>Gets details about a namespace. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-namespace.html">Table namespaces</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ * <p>Gets the encryption configuration for a table bucket.</p>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have the <code>s3tables:GetNamespace</code> permission to use this operation. </p>
+ *                <p>You must have the <code>s3tables:GetTableBucketEncryption</code> permission to use this operation.</p>
  *             </dd>
  *          </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3TablesClient, GetNamespaceCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
- * // const { S3TablesClient, GetNamespaceCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
+ * import { S3TablesClient, GetTableBucketEncryptionCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
+ * // const { S3TablesClient, GetTableBucketEncryptionCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
  * const client = new S3TablesClient(config);
- * const input = { // GetNamespaceRequest
+ * const input = { // GetTableBucketEncryptionRequest
  *   tableBucketARN: "STRING_VALUE", // required
- *   namespace: "STRING_VALUE", // required
  * };
- * const command = new GetNamespaceCommand(input);
+ * const command = new GetTableBucketEncryptionCommand(input);
  * const response = await client.send(command);
- * // { // GetNamespaceResponse
- * //   namespace: [ // NamespaceList // required
- * //     "STRING_VALUE",
- * //   ],
- * //   createdAt: new Date("TIMESTAMP"), // required
- * //   createdBy: "STRING_VALUE", // required
- * //   ownerAccountId: "STRING_VALUE", // required
- * //   namespaceId: "STRING_VALUE",
- * //   tableBucketId: "STRING_VALUE",
+ * // { // GetTableBucketEncryptionResponse
+ * //   encryptionConfiguration: { // EncryptionConfiguration
+ * //     sseAlgorithm: "AES256" || "aws:kms", // required
+ * //     kmsKeyArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
  *
- * @param GetNamespaceCommandInput - {@link GetNamespaceCommandInput}
- * @returns {@link GetNamespaceCommandOutput}
- * @see {@link GetNamespaceCommandInput} for command's `input` shape.
- * @see {@link GetNamespaceCommandOutput} for command's `response` shape.
+ * @param GetTableBucketEncryptionCommandInput - {@link GetTableBucketEncryptionCommandInput}
+ * @returns {@link GetTableBucketEncryptionCommandOutput}
+ * @see {@link GetTableBucketEncryptionCommandInput} for command's `input` shape.
+ * @see {@link GetTableBucketEncryptionCommandOutput} for command's `response` shape.
  * @see {@link S3TablesClientResolvedConfig | config} for S3TablesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -71,10 +66,6 @@ export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __Metad
  *
  * @throws {@link BadRequestException} (client fault)
  *  <p>The request is invalid or malformed.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because there is a conflict with a previous write. You can retry the
- *       request.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The caller isn't authorized to make the request.</p>
@@ -94,10 +85,10 @@ export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __Metad
  *
  * @public
  */
-export class GetNamespaceCommand extends $Command
+export class GetTableBucketEncryptionCommand extends $Command
   .classBuilder<
-    GetNamespaceCommandInput,
-    GetNamespaceCommandOutput,
+    GetTableBucketEncryptionCommandInput,
+    GetTableBucketEncryptionCommandOutput,
     S3TablesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -109,21 +100,21 @@ export class GetNamespaceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("S3TableBuckets", "GetNamespace", {})
-  .n("S3TablesClient", "GetNamespaceCommand")
+  .s("S3TableBuckets", "GetTableBucketEncryption", {})
+  .n("S3TablesClient", "GetTableBucketEncryptionCommand")
   .f(void 0, void 0)
-  .ser(se_GetNamespaceCommand)
-  .de(de_GetNamespaceCommand)
+  .ser(se_GetTableBucketEncryptionCommand)
+  .de(de_GetTableBucketEncryptionCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetNamespaceRequest;
-      output: GetNamespaceResponse;
+      input: GetTableBucketEncryptionRequest;
+      output: GetTableBucketEncryptionResponse;
     };
     sdk: {
-      input: GetNamespaceCommandInput;
-      output: GetNamespaceCommandOutput;
+      input: GetTableBucketEncryptionCommandInput;
+      output: GetTableBucketEncryptionCommandOutput;
     };
   };
 }

@@ -5,8 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTablesRequest, ListTablesResponse } from "../models/models_0";
-import { de_ListTablesCommand, se_ListTablesCommand } from "../protocols/Aws_restJson1";
+import { DeleteTableBucketEncryptionRequest } from "../models/models_0";
+import {
+  de_DeleteTableBucketEncryptionCommand,
+  se_DeleteTableBucketEncryptionCommand,
+} from "../protocols/Aws_restJson1";
 import { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
 
 /**
@@ -17,63 +20,43 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListTablesCommand}.
+ * The input for {@link DeleteTableBucketEncryptionCommand}.
  */
-export interface ListTablesCommandInput extends ListTablesRequest {}
+export interface DeleteTableBucketEncryptionCommandInput extends DeleteTableBucketEncryptionRequest {}
 /**
  * @public
  *
- * The output of {@link ListTablesCommand}.
+ * The output of {@link DeleteTableBucketEncryptionCommand}.
  */
-export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataBearer {}
+export interface DeleteTableBucketEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>List tables in the given table bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-tables.html">S3 Tables</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ * <p>Deletes the encryption configuration for a table bucket.</p>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have the <code>s3tables:ListTables</code> permission to use this operation. </p>
+ *                <p>You must have the <code>s3tables:DeleteTableBucketEncryption</code> permission to use this operation.</p>
  *             </dd>
  *          </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3TablesClient, ListTablesCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
- * // const { S3TablesClient, ListTablesCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
+ * import { S3TablesClient, DeleteTableBucketEncryptionCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
+ * // const { S3TablesClient, DeleteTableBucketEncryptionCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
  * const client = new S3TablesClient(config);
- * const input = { // ListTablesRequest
+ * const input = { // DeleteTableBucketEncryptionRequest
  *   tableBucketARN: "STRING_VALUE", // required
- *   namespace: "STRING_VALUE",
- *   prefix: "STRING_VALUE",
- *   continuationToken: "STRING_VALUE",
- *   maxTables: Number("int"),
  * };
- * const command = new ListTablesCommand(input);
+ * const command = new DeleteTableBucketEncryptionCommand(input);
  * const response = await client.send(command);
- * // { // ListTablesResponse
- * //   tables: [ // TableSummaryList // required
- * //     { // TableSummary
- * //       namespace: [ // NamespaceList // required
- * //         "STRING_VALUE",
- * //       ],
- * //       name: "STRING_VALUE", // required
- * //       type: "customer" || "aws", // required
- * //       tableARN: "STRING_VALUE", // required
- * //       createdAt: new Date("TIMESTAMP"), // required
- * //       modifiedAt: new Date("TIMESTAMP"), // required
- * //       namespaceId: "STRING_VALUE",
- * //       tableBucketId: "STRING_VALUE",
- * //     },
- * //   ],
- * //   continuationToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListTablesCommandInput - {@link ListTablesCommandInput}
- * @returns {@link ListTablesCommandOutput}
- * @see {@link ListTablesCommandInput} for command's `input` shape.
- * @see {@link ListTablesCommandOutput} for command's `response` shape.
+ * @param DeleteTableBucketEncryptionCommandInput - {@link DeleteTableBucketEncryptionCommandInput}
+ * @returns {@link DeleteTableBucketEncryptionCommandOutput}
+ * @see {@link DeleteTableBucketEncryptionCommandInput} for command's `input` shape.
+ * @see {@link DeleteTableBucketEncryptionCommandOutput} for command's `response` shape.
  * @see {@link S3TablesClientResolvedConfig | config} for S3TablesClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -101,10 +84,10 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  *
  * @public
  */
-export class ListTablesCommand extends $Command
+export class DeleteTableBucketEncryptionCommand extends $Command
   .classBuilder<
-    ListTablesCommandInput,
-    ListTablesCommandOutput,
+    DeleteTableBucketEncryptionCommandInput,
+    DeleteTableBucketEncryptionCommandOutput,
     S3TablesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -116,21 +99,21 @@ export class ListTablesCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("S3TableBuckets", "ListTables", {})
-  .n("S3TablesClient", "ListTablesCommand")
+  .s("S3TableBuckets", "DeleteTableBucketEncryption", {})
+  .n("S3TablesClient", "DeleteTableBucketEncryptionCommand")
   .f(void 0, void 0)
-  .ser(se_ListTablesCommand)
-  .de(de_ListTablesCommand)
+  .ser(se_DeleteTableBucketEncryptionCommand)
+  .de(de_DeleteTableBucketEncryptionCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTablesRequest;
-      output: ListTablesResponse;
+      input: DeleteTableBucketEncryptionRequest;
+      output: {};
     };
     sdk: {
-      input: ListTablesCommandInput;
-      output: ListTablesCommandOutput;
+      input: DeleteTableBucketEncryptionCommandInput;
+      output: DeleteTableBucketEncryptionCommandOutput;
     };
   };
 }

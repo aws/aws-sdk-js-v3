@@ -55,6 +55,7 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * //   namespace: [ // NamespaceList // required
  * //     "STRING_VALUE",
  * //   ],
+ * //   namespaceId: "STRING_VALUE",
  * //   versionToken: "STRING_VALUE", // required
  * //   metadataLocation: "STRING_VALUE",
  * //   warehouseLocation: "STRING_VALUE", // required
@@ -65,6 +66,7 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * //   modifiedBy: "STRING_VALUE", // required
  * //   ownerAccountId: "STRING_VALUE", // required
  * //   format: "ICEBERG", // required
+ * //   tableBucketId: "STRING_VALUE",
  * // };
  *
  * ```

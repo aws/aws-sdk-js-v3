@@ -28,6 +28,10 @@ import { CreateTableCommandInput, CreateTableCommandOutput } from "../commands/C
 import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "../commands/DeleteNamespaceCommand";
 import { DeleteTableBucketCommandInput, DeleteTableBucketCommandOutput } from "../commands/DeleteTableBucketCommand";
 import {
+  DeleteTableBucketEncryptionCommandInput,
+  DeleteTableBucketEncryptionCommandOutput,
+} from "../commands/DeleteTableBucketEncryptionCommand";
+import {
   DeleteTableBucketPolicyCommandInput,
   DeleteTableBucketPolicyCommandOutput,
 } from "../commands/DeleteTableBucketPolicyCommand";
@@ -35,6 +39,10 @@ import { DeleteTableCommandInput, DeleteTableCommandOutput } from "../commands/D
 import { DeleteTablePolicyCommandInput, DeleteTablePolicyCommandOutput } from "../commands/DeleteTablePolicyCommand";
 import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "../commands/GetNamespaceCommand";
 import { GetTableBucketCommandInput, GetTableBucketCommandOutput } from "../commands/GetTableBucketCommand";
+import {
+  GetTableBucketEncryptionCommandInput,
+  GetTableBucketEncryptionCommandOutput,
+} from "../commands/GetTableBucketEncryptionCommand";
 import {
   GetTableBucketMaintenanceConfigurationCommandInput,
   GetTableBucketMaintenanceConfigurationCommandOutput,
@@ -44,6 +52,7 @@ import {
   GetTableBucketPolicyCommandOutput,
 } from "../commands/GetTableBucketPolicyCommand";
 import { GetTableCommandInput, GetTableCommandOutput } from "../commands/GetTableCommand";
+import { GetTableEncryptionCommandInput, GetTableEncryptionCommandOutput } from "../commands/GetTableEncryptionCommand";
 import {
   GetTableMaintenanceConfigurationCommandInput,
   GetTableMaintenanceConfigurationCommandOutput,
@@ -60,6 +69,10 @@ import { GetTablePolicyCommandInput, GetTablePolicyCommandOutput } from "../comm
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "../commands/ListNamespacesCommand";
 import { ListTableBucketsCommandInput, ListTableBucketsCommandOutput } from "../commands/ListTableBucketsCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
+import {
+  PutTableBucketEncryptionCommandInput,
+  PutTableBucketEncryptionCommandOutput,
+} from "../commands/PutTableBucketEncryptionCommand";
 import {
   PutTableBucketMaintenanceConfigurationCommandInput,
   PutTableBucketMaintenanceConfigurationCommandOutput,
@@ -82,6 +95,7 @@ import {
   AccessDeniedException,
   BadRequestException,
   ConflictException,
+  EncryptionConfiguration,
   ForbiddenException,
   IcebergCompactionSettings,
   IcebergMetadata,
@@ -145,6 +159,7 @@ export const se_CreateTableCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      encryptionConfiguration: (_) => _json(_),
       format: [],
       metadata: (_) => _json(_),
       name: [],
@@ -169,6 +184,7 @@ export const se_CreateTableBucketCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      encryptionConfiguration: (_) => _json(_),
       name: [],
     })
   );
@@ -224,6 +240,22 @@ export const se_DeleteTableBucketCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/buckets/{tableBucketARN}");
+  b.p("tableBucketARN", () => input.tableBucketARN!, "{tableBucketARN}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteTableBucketEncryptionCommand
+ */
+export const se_DeleteTableBucketEncryptionCommand = async (
+  input: DeleteTableBucketEncryptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/buckets/{tableBucketARN}/encryption");
   b.p("tableBucketARN", () => input.tableBucketARN!, "{tableBucketARN}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
@@ -316,6 +348,22 @@ export const se_GetTableBucketCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetTableBucketEncryptionCommand
+ */
+export const se_GetTableBucketEncryptionCommand = async (
+  input: GetTableBucketEncryptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/buckets/{tableBucketARN}/encryption");
+  b.p("tableBucketARN", () => input.tableBucketARN!, "{tableBucketARN}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetTableBucketMaintenanceConfigurationCommand
  */
 export const se_GetTableBucketMaintenanceConfigurationCommand = async (
@@ -342,6 +390,24 @@ export const se_GetTableBucketPolicyCommand = async (
   const headers: any = {};
   b.bp("/buckets/{tableBucketARN}/policy");
   b.p("tableBucketARN", () => input.tableBucketARN!, "{tableBucketARN}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetTableEncryptionCommand
+ */
+export const se_GetTableEncryptionCommand = async (
+  input: GetTableEncryptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/tables/{tableBucketARN}/{namespace}/{name}/encryption");
+  b.p("tableBucketARN", () => input.tableBucketARN!, "{tableBucketARN}", false);
+  b.p("namespace", () => input.namespace!, "{namespace}", false);
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -479,6 +545,29 @@ export const se_ListTablesCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutTableBucketEncryptionCommand
+ */
+export const se_PutTableBucketEncryptionCommand = async (
+  input: PutTableBucketEncryptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/buckets/{tableBucketARN}/encryption");
+  b.p("tableBucketARN", () => input.tableBucketARN!, "{tableBucketARN}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      encryptionConfiguration: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -750,6 +839,23 @@ export const de_DeleteTableBucketCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteTableBucketEncryptionCommand
+ */
+export const de_DeleteTableBucketEncryptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTableBucketEncryptionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteTableBucketPolicyCommand
  */
 export const de_DeleteTableBucketPolicyCommand = async (
@@ -801,7 +907,9 @@ export const de_GetNamespaceCommand = async (
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     createdBy: __expectString,
     namespace: _json,
+    namespaceId: __expectString,
     ownerAccountId: __expectString,
+    tableBucketId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -831,8 +939,10 @@ export const de_GetTableCommand = async (
     modifiedBy: __expectString,
     name: __expectString,
     namespace: _json,
+    namespaceId: __expectString,
     ownerAccountId: __expectString,
     tableARN: __expectString,
+    tableBucketId: __expectString,
     type: __expectString,
     versionToken: __expectString,
     warehouseLocation: __expectString,
@@ -860,6 +970,28 @@ export const de_GetTableBucketCommand = async (
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
     ownerAccountId: __expectString,
+    tableBucketId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetTableBucketEncryptionCommand
+ */
+export const de_GetTableBucketEncryptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTableBucketEncryptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    encryptionConfiguration: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -903,6 +1035,27 @@ export const de_GetTableBucketPolicyCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     resourcePolicy: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetTableEncryptionCommand
+ */
+export const de_GetTableEncryptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTableEncryptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    encryptionConfiguration: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1059,6 +1212,23 @@ export const de_ListTablesCommand = async (
     tables: (_) => de_TableSummaryList(_, context),
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutTableBucketEncryptionCommand
+ */
+export const de_PutTableBucketEncryptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutTableBucketEncryptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -1342,6 +1512,8 @@ const de_TooManyRequestsExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_EncryptionConfiguration omitted.
+
 // se_IcebergCompactionSettings omitted.
 
 // se_IcebergMetadata omitted.
@@ -1368,6 +1540,8 @@ const de_TooManyRequestsExceptionRes = async (
 
 // se_TableMetadata omitted.
 
+// de_EncryptionConfiguration omitted.
+
 // de_IcebergCompactionSettings omitted.
 
 // de_IcebergSnapshotManagementSettings omitted.
@@ -1384,7 +1558,9 @@ const de_NamespaceSummary = (output: any, context: __SerdeContext): NamespaceSum
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     createdBy: __expectString,
     namespace: _json,
+    namespaceId: __expectString,
     ownerAccountId: __expectString,
+    tableBucketId: __expectString,
   }) as any;
 };
 
@@ -1415,6 +1591,7 @@ const de_TableBucketSummary = (output: any, context: __SerdeContext): TableBucke
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
     ownerAccountId: __expectString,
+    tableBucketId: __expectString,
   }) as any;
 };
 
@@ -1475,7 +1652,9 @@ const de_TableSummary = (output: any, context: __SerdeContext): TableSummary => 
     modifiedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
     namespace: _json,
+    namespaceId: __expectString,
     tableARN: __expectString,
+    tableBucketId: __expectString,
     type: __expectString,
   }) as any;
 };

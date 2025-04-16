@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateTableBucketRequest, CreateTableBucketResponse } from "../models/models_0";
-import { de_CreateTableBucketCommand, se_CreateTableBucketCommand } from "../protocols/Aws_restJson1";
+import { PutTableBucketEncryptionRequest } from "../models/models_0";
+import { de_PutTableBucketEncryptionCommand, se_PutTableBucketEncryptionCommand } from "../protocols/Aws_restJson1";
 import { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
 
 /**
@@ -17,56 +17,51 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateTableBucketCommand}.
+ * The input for {@link PutTableBucketEncryptionCommand}.
  */
-export interface CreateTableBucketCommandInput extends CreateTableBucketRequest {}
+export interface PutTableBucketEncryptionCommandInput extends PutTableBucketEncryptionRequest {}
 /**
  * @public
  *
- * The output of {@link CreateTableBucketCommand}.
+ * The output of {@link PutTableBucketEncryptionCommand}.
  */
-export interface CreateTableBucketCommandOutput extends CreateTableBucketResponse, __MetadataBearer {}
+export interface PutTableBucketEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates a table bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-create.html">Creating a table bucket</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ * <p>Sets the encryption configuration for a table bucket.</p>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <ul>
- *                   <li>
- *                      <p>You must have the <code>s3tables:CreateTableBucket</code> permission to use this operation. </p>
- *                   </li>
- *                   <li>
- *                      <p>If you use this operation with the optional <code>encryptionConfiguration</code> parameter you must have the <code>s3tables:PutTableBucketEncryption</code> permission.</p>
- *                   </li>
- *                </ul>
+ *                <p>You must have the <code>s3tables:PutTableBucketEncryption</code> permission to use this operation.</p>
+ *                <note>
+ *                   <p>If you choose SSE-KMS encryption you must grant the S3 Tables maintenance principal access to your KMS key. For more information, see <a href="AmazonS3/latest/userguide/s3-tables-kms-permissions.html">Permissions requirements for S3 Tables SSE-KMS encryption</a>
+ *                   </p>
+ *                </note>
  *             </dd>
  *          </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3TablesClient, CreateTableBucketCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
- * // const { S3TablesClient, CreateTableBucketCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
+ * import { S3TablesClient, PutTableBucketEncryptionCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
+ * // const { S3TablesClient, PutTableBucketEncryptionCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
  * const client = new S3TablesClient(config);
- * const input = { // CreateTableBucketRequest
- *   name: "STRING_VALUE", // required
+ * const input = { // PutTableBucketEncryptionRequest
+ *   tableBucketARN: "STRING_VALUE", // required
  *   encryptionConfiguration: { // EncryptionConfiguration
  *     sseAlgorithm: "AES256" || "aws:kms", // required
  *     kmsKeyArn: "STRING_VALUE",
  *   },
  * };
- * const command = new CreateTableBucketCommand(input);
+ * const command = new PutTableBucketEncryptionCommand(input);
  * const response = await client.send(command);
- * // { // CreateTableBucketResponse
- * //   arn: "STRING_VALUE", // required
- * // };
+ * // {};
  *
  * ```
  *
- * @param CreateTableBucketCommandInput - {@link CreateTableBucketCommandInput}
- * @returns {@link CreateTableBucketCommandOutput}
- * @see {@link CreateTableBucketCommandInput} for command's `input` shape.
- * @see {@link CreateTableBucketCommandOutput} for command's `response` shape.
+ * @param PutTableBucketEncryptionCommandInput - {@link PutTableBucketEncryptionCommandInput}
+ * @returns {@link PutTableBucketEncryptionCommandOutput}
+ * @see {@link PutTableBucketEncryptionCommandInput} for command's `input` shape.
+ * @see {@link PutTableBucketEncryptionCommandOutput} for command's `response` shape.
  * @see {@link S3TablesClientResolvedConfig | config} for S3TablesClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -94,10 +89,10 @@ export interface CreateTableBucketCommandOutput extends CreateTableBucketRespons
  *
  * @public
  */
-export class CreateTableBucketCommand extends $Command
+export class PutTableBucketEncryptionCommand extends $Command
   .classBuilder<
-    CreateTableBucketCommandInput,
-    CreateTableBucketCommandOutput,
+    PutTableBucketEncryptionCommandInput,
+    PutTableBucketEncryptionCommandOutput,
     S3TablesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -109,21 +104,21 @@ export class CreateTableBucketCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("S3TableBuckets", "CreateTableBucket", {})
-  .n("S3TablesClient", "CreateTableBucketCommand")
+  .s("S3TableBuckets", "PutTableBucketEncryption", {})
+  .n("S3TablesClient", "PutTableBucketEncryptionCommand")
   .f(void 0, void 0)
-  .ser(se_CreateTableBucketCommand)
-  .de(de_CreateTableBucketCommand)
+  .ser(se_PutTableBucketEncryptionCommand)
+  .de(de_PutTableBucketEncryptionCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateTableBucketRequest;
-      output: CreateTableBucketResponse;
+      input: PutTableBucketEncryptionRequest;
+      output: {};
     };
     sdk: {
-      input: CreateTableBucketCommandInput;
-      output: CreateTableBucketCommandOutput;
+      input: PutTableBucketEncryptionCommandInput;
+      output: PutTableBucketEncryptionCommandOutput;
     };
   };
 }
