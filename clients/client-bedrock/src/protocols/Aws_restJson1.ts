@@ -203,11 +203,16 @@ import { BedrockServiceException as __BaseException } from "../models/BedrockSer
 import {
   AccessDeniedException,
   AutomatedEvaluationConfig,
+  AutomatedEvaluationCustomMetricConfig,
+  AutomatedEvaluationCustomMetricSource,
   BedrockEvaluatorModel,
   ByteContentDoc,
   CloudWatchConfig,
   ConflictException,
   CustomizationConfig,
+  CustomMetricBedrockEvaluatorModel,
+  CustomMetricDefinition,
+  CustomMetricEvaluatorModelConfig,
   CustomModelSummary,
   DistillationConfig,
   EndpointConfig,
@@ -282,6 +287,8 @@ import {
   ProvisionedModelSummary,
   QueryTransformationConfiguration,
   RAGConfig,
+  RatingScaleItem,
+  RatingScaleItemValue,
   RequestMetadataBaseFilters,
   RequestMetadataFilters,
   ResourceNotFoundException,
@@ -349,7 +356,7 @@ export const se_CreateEvaluationJobCommand = async (
       applicationType: [],
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       customerEncryptionKeyId: [],
-      evaluationConfig: (_) => _json(_),
+      evaluationConfig: (_) => se_EvaluationConfig(_, context),
       inferenceConfig: (_) => se_EvaluationInferenceConfig(_, context),
       jobDescription: [],
       jobName: [],
@@ -2032,7 +2039,7 @@ export const de_GetEvaluationJobCommand = async (
     applicationType: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     customerEncryptionKeyId: __expectString,
-    evaluationConfig: (_) => _json(__expectUnion(_)),
+    evaluationConfig: (_) => de_EvaluationConfig(__expectUnion(_), context),
     failureMessages: _json,
     inferenceConfig: (_) => de_EvaluationInferenceConfig(__expectUnion(_), context),
     jobArn: __expectString,
@@ -3143,7 +3150,56 @@ const se_AdditionalModelRequestFieldsValue = (input: __DocumentType, context: __
   return input;
 };
 
-// se_AutomatedEvaluationConfig omitted.
+/**
+ * serializeAws_restJson1AutomatedEvaluationConfig
+ */
+const se_AutomatedEvaluationConfig = (input: AutomatedEvaluationConfig, context: __SerdeContext): any => {
+  return take(input, {
+    customMetricConfig: (_) => se_AutomatedEvaluationCustomMetricConfig(_, context),
+    datasetMetricConfigs: _json,
+    evaluatorModelConfig: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1AutomatedEvaluationCustomMetricConfig
+ */
+const se_AutomatedEvaluationCustomMetricConfig = (
+  input: AutomatedEvaluationCustomMetricConfig,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    customMetrics: (_) => se_AutomatedEvaluationCustomMetrics(_, context),
+    evaluatorModelConfig: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1AutomatedEvaluationCustomMetrics
+ */
+const se_AutomatedEvaluationCustomMetrics = (
+  input: AutomatedEvaluationCustomMetricSource[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_AutomatedEvaluationCustomMetricSource(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1AutomatedEvaluationCustomMetricSource
+ */
+const se_AutomatedEvaluationCustomMetricSource = (
+  input: AutomatedEvaluationCustomMetricSource,
+  context: __SerdeContext
+): any => {
+  return AutomatedEvaluationCustomMetricSource.visit(input, {
+    customMetricDefinition: (value) => ({ customMetricDefinition: se_CustomMetricDefinition(value, context) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
 
 // se_BedrockEvaluatorModel omitted.
 
@@ -3164,13 +3220,39 @@ const se_ByteContentDoc = (input: ByteContentDoc, context: __SerdeContext): any 
 
 // se_CustomizationConfig omitted.
 
+// se_CustomMetricBedrockEvaluatorModel omitted.
+
+// se_CustomMetricBedrockEvaluatorModels omitted.
+
+/**
+ * serializeAws_restJson1CustomMetricDefinition
+ */
+const se_CustomMetricDefinition = (input: CustomMetricDefinition, context: __SerdeContext): any => {
+  return take(input, {
+    instructions: [],
+    name: [],
+    ratingScale: (_) => se_RatingScale(_, context),
+  });
+};
+
+// se_CustomMetricEvaluatorModelConfig omitted.
+
 // se_DistillationConfig omitted.
 
 // se_EndpointConfig omitted.
 
 // se_EvaluationBedrockModel omitted.
 
-// se_EvaluationConfig omitted.
+/**
+ * serializeAws_restJson1EvaluationConfig
+ */
+const se_EvaluationConfig = (input: EvaluationConfig, context: __SerdeContext): any => {
+  return EvaluationConfig.visit(input, {
+    automated: (value) => ({ automated: se_AutomatedEvaluationConfig(value, context) }),
+    human: (value) => ({ human: _json(value) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
 
 // se_EvaluationDataset omitted.
 
@@ -3500,6 +3582,38 @@ const se_RagConfigs = (input: RAGConfig[], context: __SerdeContext): any => {
 
 // se_RAGStopSequences omitted.
 
+/**
+ * serializeAws_restJson1RatingScale
+ */
+const se_RatingScale = (input: RatingScaleItem[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_RatingScaleItem(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1RatingScaleItem
+ */
+const se_RatingScaleItem = (input: RatingScaleItem, context: __SerdeContext): any => {
+  return take(input, {
+    definition: [],
+    value: (_) => se_RatingScaleItemValue(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1RatingScaleItemValue
+ */
+const se_RatingScaleItemValue = (input: RatingScaleItemValue, context: __SerdeContext): any => {
+  return RatingScaleItemValue.visit(input, {
+    floatValue: (value) => ({ floatValue: __serializeFloat(value) }),
+    stringValue: (value) => ({ stringValue: value }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
+
 // se_RequestMetadataBaseFilters omitted.
 
 // se_RequestMetadataFilters omitted.
@@ -3633,7 +3747,59 @@ const de_AdditionalModelRequestFieldsValue = (output: any, context: __SerdeConte
   return output;
 };
 
-// de_AutomatedEvaluationConfig omitted.
+/**
+ * deserializeAws_restJson1AutomatedEvaluationConfig
+ */
+const de_AutomatedEvaluationConfig = (output: any, context: __SerdeContext): AutomatedEvaluationConfig => {
+  return take(output, {
+    customMetricConfig: (_: any) => de_AutomatedEvaluationCustomMetricConfig(_, context),
+    datasetMetricConfigs: _json,
+    evaluatorModelConfig: (_: any) => _json(__expectUnion(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AutomatedEvaluationCustomMetricConfig
+ */
+const de_AutomatedEvaluationCustomMetricConfig = (
+  output: any,
+  context: __SerdeContext
+): AutomatedEvaluationCustomMetricConfig => {
+  return take(output, {
+    customMetrics: (_: any) => de_AutomatedEvaluationCustomMetrics(_, context),
+    evaluatorModelConfig: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AutomatedEvaluationCustomMetrics
+ */
+const de_AutomatedEvaluationCustomMetrics = (
+  output: any,
+  context: __SerdeContext
+): AutomatedEvaluationCustomMetricSource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AutomatedEvaluationCustomMetricSource(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AutomatedEvaluationCustomMetricSource
+ */
+const de_AutomatedEvaluationCustomMetricSource = (
+  output: any,
+  context: __SerdeContext
+): AutomatedEvaluationCustomMetricSource => {
+  if (output.customMetricDefinition != null) {
+    return {
+      customMetricDefinition: de_CustomMetricDefinition(output.customMetricDefinition, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
 // de_BatchDeleteEvaluationJobError omitted.
 
@@ -3661,6 +3827,23 @@ const de_ByteContentDoc = (output: any, context: __SerdeContext): ByteContentDoc
 // de_CloudWatchConfig omitted.
 
 // de_CustomizationConfig omitted.
+
+// de_CustomMetricBedrockEvaluatorModel omitted.
+
+// de_CustomMetricBedrockEvaluatorModels omitted.
+
+/**
+ * deserializeAws_restJson1CustomMetricDefinition
+ */
+const de_CustomMetricDefinition = (output: any, context: __SerdeContext): CustomMetricDefinition => {
+  return take(output, {
+    instructions: __expectString,
+    name: __expectString,
+    ratingScale: (_: any) => de_RatingScale(_, context),
+  }) as any;
+};
+
+// de_CustomMetricEvaluatorModelConfig omitted.
 
 /**
  * deserializeAws_restJson1CustomModelSummary
@@ -3703,7 +3886,22 @@ const de_CustomModelSummaryList = (output: any, context: __SerdeContext): Custom
 
 // de_EvaluationBedrockModelIdentifiers omitted.
 
-// de_EvaluationConfig omitted.
+/**
+ * deserializeAws_restJson1EvaluationConfig
+ */
+const de_EvaluationConfig = (output: any, context: __SerdeContext): EvaluationConfig => {
+  if (output.automated != null) {
+    return {
+      automated: de_AutomatedEvaluationConfig(output.automated, context),
+    };
+  }
+  if (output.human != null) {
+    return {
+      human: _json(output.human),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
 // de_EvaluationDataset omitted.
 
@@ -3775,6 +3973,7 @@ const de_EvaluationSummary = (output: any, context: __SerdeContext): EvaluationS
   return take(output, {
     applicationType: __expectString,
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customMetricsEvaluatorModelIdentifiers: _json,
     evaluationTaskTypes: _json,
     evaluatorModelIdentifiers: _json,
     inferenceConfigSummary: _json,
@@ -4428,6 +4627,41 @@ const de_RagConfigs = (output: any, context: __SerdeContext): RAGConfig[] => {
 };
 
 // de_RAGStopSequences omitted.
+
+/**
+ * deserializeAws_restJson1RatingScale
+ */
+const de_RatingScale = (output: any, context: __SerdeContext): RatingScaleItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RatingScaleItem(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1RatingScaleItem
+ */
+const de_RatingScaleItem = (output: any, context: __SerdeContext): RatingScaleItem => {
+  return take(output, {
+    definition: __expectString,
+    value: (_: any) => de_RatingScaleItemValue(__expectUnion(_), context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RatingScaleItemValue
+ */
+const de_RatingScaleItemValue = (output: any, context: __SerdeContext): RatingScaleItemValue => {
+  if (__limitedParseFloat32(output.floatValue) !== undefined) {
+    return { floatValue: __limitedParseFloat32(output.floatValue) as any };
+  }
+  if (__expectString(output.stringValue) !== undefined) {
+    return { stringValue: __expectString(output.stringValue) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
 // de_RequestMetadataBaseFilters omitted.
 

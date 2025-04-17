@@ -77,6 +77,32 @@ export interface GetEvaluationJobCommandOutput extends GetEvaluationJobResponse,
  * //           },
  * //         ],
  * //       },
+ * //       customMetricConfig: { // AutomatedEvaluationCustomMetricConfig
+ * //         customMetrics: [ // AutomatedEvaluationCustomMetrics // required
+ * //           { // AutomatedEvaluationCustomMetricSource Union: only one key present
+ * //             customMetricDefinition: { // CustomMetricDefinition
+ * //               name: "STRING_VALUE", // required
+ * //               instructions: "STRING_VALUE", // required
+ * //               ratingScale: [ // RatingScale
+ * //                 { // RatingScaleItem
+ * //                   definition: "STRING_VALUE", // required
+ * //                   value: { // RatingScaleItemValue Union: only one key present
+ * //                     stringValue: "STRING_VALUE",
+ * //                     floatValue: Number("float"),
+ * //                   },
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
+ * //         evaluatorModelConfig: { // CustomMetricEvaluatorModelConfig
+ * //           bedrockEvaluatorModels: [ // CustomMetricBedrockEvaluatorModels // required
+ * //             { // CustomMetricBedrockEvaluatorModel
+ * //               modelIdentifier: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //     human: { // HumanEvaluationConfig
  * //       humanWorkflowConfig: { // HumanWorkflowConfig

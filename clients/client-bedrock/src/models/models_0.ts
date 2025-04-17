@@ -728,6 +728,194 @@ export const ApplicationType = {
 export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationType];
 
 /**
+ * <p>Defines the value for one rating in a custom metric rating scale.</p>
+ * @public
+ */
+export type RatingScaleItemValue =
+  | RatingScaleItemValue.FloatValueMember
+  | RatingScaleItemValue.StringValueMember
+  | RatingScaleItemValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RatingScaleItemValue {
+  /**
+   * <p>A string representing the value for a rating in a custom metric rating scale.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    stringValue: string;
+    floatValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A floating point number representing the value for a rating in a custom metric rating scale.</p>
+   * @public
+   */
+  export interface FloatValueMember {
+    stringValue?: never;
+    floatValue: number;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    stringValue?: never;
+    floatValue?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    floatValue: (value: number) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RatingScaleItemValue, visitor: Visitor<T>): T => {
+    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
+    if (value.floatValue !== undefined) return visitor.floatValue(value.floatValue);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Defines the value and corresponding definition for one rating in a custom metric rating scale.</p>
+ * @public
+ */
+export interface RatingScaleItem {
+  /**
+   * <p>Defines the definition for one rating in a custom metric rating scale.</p>
+   * @public
+   */
+  definition: string | undefined;
+
+  /**
+   * <p>Defines the value for one rating in a custom metric rating scale.</p>
+   * @public
+   */
+  value: RatingScaleItemValue | undefined;
+}
+
+/**
+ * <p>The definition of a custom metric for use in an Amazon Bedrock evaluation job. A custom metric definition includes a metric name, prompt (instructions) and optionally,
+ *          a rating scale. Your prompt must include a task description and input variables. The required input variables are different for model-as-a-judge and RAG evaluations.</p>
+ *          <p>For more information about how to define a custom metric in Amazon Bedrock,
+ *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-custom-metrics-prompt-formats.html">Create a prompt for a custom metrics (LLM-as-a-judge model evaluations)</a> and
+ *          <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-evaluation-custom-metrics-prompt-formats.html">Create a prompt for a custom metrics (RAG evaluations)</a>.</p>
+ * @public
+ */
+export interface CustomMetricDefinition {
+  /**
+   * <p>The name for a custom metric. Names must be unique in your Amazon Web Services region.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The prompt for a custom metric that instructs the evaluator model how to rate the model or RAG source under evaluation.</p>
+   * @public
+   */
+  instructions: string | undefined;
+
+  /**
+   * <p>Defines the rating scale to be used for a custom metric. We recommend that you always define a ratings scale when creating a custom metric. If you don't
+   *       define a scale, Amazon Bedrock won't be able to visually display the results of the evaluation in the console or calculate average values of numerical scores. For
+   *          more information on specifying a rating scale, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-custom-metrics-prompt-formats.html#model-evaluation-custom-metrics-prompt-formats-schema">Specifying an output schema (rating scale)</a>.</p>
+   * @public
+   */
+  ratingScale?: RatingScaleItem[] | undefined;
+}
+
+/**
+ * <p>An array item definining a single custom metric for use in an Amazon Bedrock evaluation job.</p>
+ * @public
+ */
+export type AutomatedEvaluationCustomMetricSource =
+  | AutomatedEvaluationCustomMetricSource.CustomMetricDefinitionMember
+  | AutomatedEvaluationCustomMetricSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AutomatedEvaluationCustomMetricSource {
+  /**
+   * <p>The definition of a custom metric for use in an Amazon Bedrock evaluation job.</p>
+   * @public
+   */
+  export interface CustomMetricDefinitionMember {
+    customMetricDefinition: CustomMetricDefinition;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    customMetricDefinition?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    customMetricDefinition: (value: CustomMetricDefinition) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AutomatedEvaluationCustomMetricSource, visitor: Visitor<T>): T => {
+    if (value.customMetricDefinition !== undefined) return visitor.customMetricDefinition(value.customMetricDefinition);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Defines the model you want to evaluate custom metrics in an Amazon Bedrock evaluation job.</p>
+ * @public
+ */
+export interface CustomMetricBedrockEvaluatorModel {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the evaluator model for custom metrics. For a list of supported evaluator models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-judge.html">Evaluate model performance
+   *          using another LLM as a judge</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-kb.html">Evaluate the performance of RAG sources using Amazon Bedrock evaluations</a>.</p>
+   * @public
+   */
+  modelIdentifier: string | undefined;
+}
+
+/**
+ * <p>Configuration of the evaluator model you want to use to evaluate custom metrics in an Amazon Bedrock evaluation job.</p>
+ * @public
+ */
+export interface CustomMetricEvaluatorModelConfig {
+  /**
+   * <p>Defines the model you want to evaluate custom metrics in an Amazon Bedrock evaluation job.</p>
+   * @public
+   */
+  bedrockEvaluatorModels: CustomMetricBedrockEvaluatorModel[] | undefined;
+}
+
+/**
+ * <p>Defines the configuration of custom metrics to be used in an evaluation job. To learn more about using custom metrics
+ *          in Amazon Bedrock evaluation jobs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-custom-metrics-prompt-formats.html">Create a prompt for a custom metrics (LLM-as-a-judge model evaluations)</a> and
+ *          <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-evaluation-custom-metrics-prompt-formats.html">Create a prompt for a custom metrics (RAG evaluations)</a>.</p>
+ * @public
+ */
+export interface AutomatedEvaluationCustomMetricConfig {
+  /**
+   * <p>Defines a list of custom metrics to be used in an Amazon Bedrock evaluation job.</p>
+   * @public
+   */
+  customMetrics: AutomatedEvaluationCustomMetricSource[] | undefined;
+
+  /**
+   * <p>Configuration of the evaluator model you want to use to evaluate custom metrics in an Amazon Bedrock evaluation job.</p>
+   * @public
+   */
+  evaluatorModelConfig: CustomMetricEvaluatorModelConfig | undefined;
+}
+
+/**
  * <p>The location in Amazon S3 where your prompt dataset is stored.</p>
  * @public
  */
@@ -823,7 +1011,7 @@ export interface EvaluationDatasetMetricConfig {
   /**
    * <p>The names of the metrics you want to use for your evaluation job.</p>
    *          <p>For knowledge base evaluation jobs that evaluate retrieval only, valid values are
-   *          "<code>Builtin.ContextRelevance</code>", "<code>Builtin.ContextConverage</code>".</p>
+   *          "<code>Builtin.ContextRelevance</code>", "<code>Builtin.ContextCoverage</code>".</p>
    *          <p>For knowledge base evaluation jobs that evaluate retrieval with response generation,
    *          valid values are  "<code>Builtin.Correctness</code>", "<code>Builtin.Completeness</code>",
    *          "<code>Builtin.Helpfulness</code>", "<code>Builtin.LogicalCoherence</code>",
@@ -906,6 +1094,12 @@ export interface AutomatedEvaluationConfig {
    * @public
    */
   evaluatorModelConfig?: EvaluatorModelConfig | undefined;
+
+  /**
+   * <p>Defines the configuration of custom metrics to be used in an evaluation job.</p>
+   * @public
+   */
+  customMetricConfig?: AutomatedEvaluationCustomMetricConfig | undefined;
 }
 
 /**
@@ -1828,6 +2022,12 @@ export interface EvaluationSummary {
    * @public
    */
   evaluatorModelIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the models used to compute custom metrics in an Amazon Bedrock evaluation job.</p>
+   * @public
+   */
+  customMetricsEvaluatorModelIdentifiers?: string[] | undefined;
 
   /**
    * <p>Identifies the models, Knowledge Bases, or other RAG sources evaluated in a model or Knowledge Base evaluation job.</p>
@@ -5865,7 +6065,7 @@ export interface GetModelInvocationJobResponse {
    *                <p>PartiallyCompleted – This job has partially completed. Not all of your records could be processed in time. View the output files in the output S3 location.</p>
    *             </li>
    *             <li>
-   *                <p>Failed – This job has failed. Check the failure message for any further details. For further assistance, reach out to the <a href="https://console.aws.amazon.com/support/home/">Amazon Web Services Support Center</a>.</p>
+   *                <p>Failed – This job has failed. Check the failure message for any further details. For further assistance, reach out to the <a href="https://console.aws.amazon.com/support/home/">Amazon Web ServicesSupport Center</a>.</p>
    *             </li>
    *             <li>
    *                <p>Stopped – This job was stopped by a user.</p>
@@ -5986,7 +6186,7 @@ export interface ListModelInvocationJobsRequest {
    *                <p>PartiallyCompleted – This job has partially completed. Not all of your records could be processed in time. View the output files in the output S3 location.</p>
    *             </li>
    *             <li>
-   *                <p>Failed – This job has failed. Check the failure message for any further details. For further assistance, reach out to the <a href="https://console.aws.amazon.com/support/home/">Amazon Web Services Support Center</a>.</p>
+   *                <p>Failed – This job has failed. Check the failure message for any further details. For further assistance, reach out to the <a href="https://console.aws.amazon.com/support/home/">Amazon Web ServicesSupport Center</a>.</p>
    *             </li>
    *             <li>
    *                <p>Stopped – This job was stopped by a user.</p>
@@ -6107,7 +6307,7 @@ export interface ModelInvocationJobSummary {
    *                <p>PartiallyCompleted – This job has partially completed. Not all of your records could be processed in time. View the output files in the output S3 location.</p>
    *             </li>
    *             <li>
-   *                <p>Failed – This job has failed. Check the failure message for any further details. For further assistance, reach out to the <a href="https://console.aws.amazon.com/support/home/">Amazon Web Services Support Center</a>.</p>
+   *                <p>Failed – This job has failed. Check the failure message for any further details. For further assistance, reach out to the <a href="https://console.aws.amazon.com/support/home/">Amazon Web ServicesSupport Center</a>.</p>
    *             </li>
    *             <li>
    *                <p>Stopped – This job was stopped by a user.</p>
@@ -9191,6 +9391,37 @@ export const BatchDeleteEvaluationJobResponseFilterSensitiveLog = (obj: BatchDel
 /**
  * @internal
  */
+export const CustomMetricDefinitionFilterSensitiveLog = (obj: CustomMetricDefinition): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.ratingScale && { ratingScale: obj.ratingScale.map((item) => item) }),
+});
+
+/**
+ * @internal
+ */
+export const AutomatedEvaluationCustomMetricSourceFilterSensitiveLog = (
+  obj: AutomatedEvaluationCustomMetricSource
+): any => {
+  if (obj.customMetricDefinition !== undefined) return { customMetricDefinition: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const AutomatedEvaluationCustomMetricConfigFilterSensitiveLog = (
+  obj: AutomatedEvaluationCustomMetricConfig
+): any => ({
+  ...obj,
+  ...(obj.customMetrics && {
+    customMetrics: obj.customMetrics.map((item) => AutomatedEvaluationCustomMetricSourceFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const EvaluationDatasetFilterSensitiveLog = (obj: EvaluationDataset): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
@@ -9215,6 +9446,9 @@ export const AutomatedEvaluationConfigFilterSensitiveLog = (obj: AutomatedEvalua
     datasetMetricConfigs: obj.datasetMetricConfigs.map((item) => EvaluationDatasetMetricConfigFilterSensitiveLog(item)),
   }),
   ...(obj.evaluatorModelConfig && { evaluatorModelConfig: obj.evaluatorModelConfig }),
+  ...(obj.customMetricConfig && {
+    customMetricConfig: AutomatedEvaluationCustomMetricConfigFilterSensitiveLog(obj.customMetricConfig),
+  }),
 });
 
 /**
