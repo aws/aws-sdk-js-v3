@@ -45,7 +45,6 @@ import {
   PredefinedAttributeValues,
   QueueReference,
   QuickConnectConfig,
-  QuickConnectType,
   ReferenceStatus,
   ReferenceType,
   RoutingProfileQueueReference,
@@ -65,6 +64,62 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DeletePushNotificationRegistrationResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteQueueRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   * @public
+   */
+  QueueId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteQuickConnectRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the quick connect.</p>
+   * @public
+   */
+  QuickConnectId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRoutingProfileRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the routing profile.</p>
+   * @public
+   */
+  RoutingProfileId: string | undefined;
+}
 
 /**
  * @public
@@ -7590,7 +7645,9 @@ export interface AssociatedContactSummary {
   InitiationTimestamp?: Date | undefined;
 
   /**
-   * <p>The timestamp when the customer endpoint disconnected from Amazon Connect.</p>
+   * <p>The date and time that the customer endpoint disconnected from the current contact, in UTC
+   *    time. In transfer scenarios, the DisconnectTimestamp of the previous contact indicates the date
+   *    and time when that contact ended.</p>
    * @public
    */
   DisconnectTimestamp?: Date | undefined;
@@ -9782,122 +9839,6 @@ export interface ListQueueQuickConnectsRequest {
    * @public
    */
   QueueId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Contains summary information about a quick connect.</p>
- * @public
- */
-export interface QuickConnectSummary {
-  /**
-   * <p>The identifier for the quick connect.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the quick connect.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the quick connect.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The type of quick connect. In the Amazon Connect admin website, when you create a quick connect, you are
-   *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
-   * @public
-   */
-  QuickConnectType?: QuickConnectType | undefined;
-
-  /**
-   * <p>The timestamp when this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedRegion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListQueueQuickConnectsResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the quick connects.</p>
-   * @public
-   */
-  QuickConnectSummaryList?: QuickConnectSummary[] | undefined;
-
-  /**
-   * <p>The timestamp when this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedRegion?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const QueueType = {
-  AGENT: "AGENT",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type QueueType = (typeof QueueType)[keyof typeof QueueType];
-
-/**
- * @public
- */
-export interface ListQueuesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The type of queue.</p>
-   * @public
-   */
-  QueueTypes?: QueueType[] | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous

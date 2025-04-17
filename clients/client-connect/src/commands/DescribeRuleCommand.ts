@@ -47,13 +47,13 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * //     RuleId: "STRING_VALUE", // required
  * //     RuleArn: "STRING_VALUE", // required
  * //     TriggerEventSource: { // RuleTriggerEventSource
- * //       EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnRealTimeChatAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit" || "OnMetricDataUpdate" || "OnCaseCreate" || "OnCaseUpdate", // required
+ * //       EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnRealTimeChatAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit" || "OnMetricDataUpdate" || "OnCaseCreate" || "OnCaseUpdate" || "OnSlaBreach", // required
  * //       IntegrationAssociationId: "STRING_VALUE",
  * //     },
  * //     Function: "STRING_VALUE", // required
  * //     Actions: [ // RuleActions // required
  * //       { // RuleAction
- * //         ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "END_ASSOCIATED_TASKS" || "SUBMIT_AUTO_EVALUATION", // required
+ * //         ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "ASSIGN_SLA" || "END_ASSOCIATED_TASKS" || "SUBMIT_AUTO_EVALUATION", // required
  * //         TaskAction: { // TaskActionDefinition
  * //           Name: "STRING_VALUE", // required
  * //           Description: "STRING_VALUE",
@@ -112,6 +112,23 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * //               },
  * //             },
  * //           ],
+ * //         },
+ * //         AssignSlaAction: { // AssignSlaActionDefinition
+ * //           SlaAssignmentType: "CASES", // required
+ * //           CaseSlaConfiguration: { // CaseSlaConfiguration
+ * //             Name: "STRING_VALUE", // required
+ * //             Type: "CaseField", // required
+ * //             FieldId: "STRING_VALUE",
+ * //             TargetFieldValues: [ // SlaFieldValueUnionList
+ * //               {
+ * //                 BooleanValue: true || false,
+ * //                 DoubleValue: Number("double"),
+ * //                 EmptyValue: {},
+ * //                 StringValue: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //             TargetSlaMinutes: Number("long"), // required
+ * //           },
  * //         },
  * //         EndAssociatedTasksAction: {},
  * //         SubmitAutoEvaluationAction: { // SubmitAutoEvaluationActionDefinition

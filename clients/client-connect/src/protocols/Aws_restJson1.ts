@@ -856,8 +856,10 @@ import {
   AllowedCapabilities,
   Application,
   AssignContactCategoryActionDefinition,
+  AssignSlaActionDefinition,
   AudioQualityMetricsInfo,
   Campaign,
+  CaseSlaConfiguration,
   Channel,
   CommonAttributeAndCondition,
   ConflictException,
@@ -1011,7 +1013,6 @@ import {
   Queue,
   QueueInfo,
   QuickConnect,
-  QuickConnectSummary,
   Range,
   RoutingProfile,
   Rule,
@@ -1077,6 +1078,7 @@ import {
   QueueSearchFilter,
   QueueSummary,
   QuickConnectSearchFilter,
+  QuickConnectSummary,
   RealtimeContactAnalysisSegment,
   RealTimeContactAnalysisSegmentAttachments,
   RealTimeContactAnalysisSegmentEvent,
@@ -13989,6 +13991,16 @@ const se_AgentStatusSearchCriteria = (input: AgentStatusSearchCriteria, context:
 
 // se_AssignContactCategoryActionDefinition omitted.
 
+/**
+ * serializeAws_restJson1AssignSlaActionDefinition
+ */
+const se_AssignSlaActionDefinition = (input: AssignSlaActionDefinition, context: __SerdeContext): any => {
+  return take(input, {
+    CaseSlaConfiguration: (_) => se_CaseSlaConfiguration(_, context),
+    SlaAssignmentType: [],
+  });
+};
+
 // se_AttributeAndCondition omitted.
 
 /**
@@ -14010,6 +14022,19 @@ const se_AttributeCondition = (input: AttributeCondition, context: __SerdeContex
 // se_Attributes omitted.
 
 // se_Campaign omitted.
+
+/**
+ * serializeAws_restJson1CaseSlaConfiguration
+ */
+const se_CaseSlaConfiguration = (input: CaseSlaConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    FieldId: [],
+    Name: [],
+    TargetFieldValues: (_) => se_SlaFieldValueUnionList(_, context),
+    TargetSlaMinutes: [],
+    Type: [],
+  });
+};
 
 // se_ChannelList omitted.
 
@@ -14792,6 +14817,7 @@ const se_RuleAction = (input: RuleAction, context: __SerdeContext): any => {
   return take(input, {
     ActionType: [],
     AssignContactCategoryAction: _json,
+    AssignSlaAction: (_) => se_AssignSlaActionDefinition(_, context),
     CreateCaseAction: (_) => se_CreateCaseActionDefinition(_, context),
     EndAssociatedTasksAction: _json,
     EventBridgeAction: _json,
@@ -14925,6 +14951,17 @@ const se_SegmentAttributeValueMap = (input: Record<string, SegmentAttributeValue
 // se_SingleSelectOptions omitted.
 
 // se_SingleSelectQuestionRuleCategoryAutomation omitted.
+
+/**
+ * serializeAws_restJson1SlaFieldValueUnionList
+ */
+const se_SlaFieldValueUnionList = (input: FieldValueUnion[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_FieldValueUnion(entry, context);
+    });
+};
 
 // se_Sort omitted.
 
@@ -15269,6 +15306,16 @@ const de_AgentStatusSummaryList = (output: any, context: __SerdeContext): AgentS
 // de_AssignContactCategoryActionDefinition omitted.
 
 /**
+ * deserializeAws_restJson1AssignSlaActionDefinition
+ */
+const de_AssignSlaActionDefinition = (output: any, context: __SerdeContext): AssignSlaActionDefinition => {
+  return take(output, {
+    CaseSlaConfiguration: (_: any) => de_CaseSlaConfiguration(_, context),
+    SlaAssignmentType: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1AssociatedContactSummary
  */
 const de_AssociatedContactSummary = (output: any, context: __SerdeContext): AssociatedContactSummary => {
@@ -15394,6 +15441,19 @@ const de_AuthenticationProfileSummaryList = (output: any, context: __SerdeContex
 // de_AvailableNumberSummary omitted.
 
 // de_Campaign omitted.
+
+/**
+ * deserializeAws_restJson1CaseSlaConfiguration
+ */
+const de_CaseSlaConfiguration = (output: any, context: __SerdeContext): CaseSlaConfiguration => {
+  return take(output, {
+    FieldId: __expectString,
+    Name: __expectString,
+    TargetFieldValues: (_: any) => de_SlaFieldValueUnionList(_, context),
+    TargetSlaMinutes: __expectLong,
+    Type: __expectString,
+  }) as any;
+};
 
 // de_ChannelToCountMap omitted.
 
@@ -17038,6 +17098,7 @@ const de_RuleAction = (output: any, context: __SerdeContext): RuleAction => {
   return take(output, {
     ActionType: __expectString,
     AssignContactCategoryAction: _json,
+    AssignSlaAction: (_: any) => de_AssignSlaActionDefinition(_, context),
     CreateCaseAction: (_: any) => de_CreateCaseActionDefinition(_, context),
     EndAssociatedTasksAction: _json,
     EventBridgeAction: _json,
@@ -17216,6 +17277,18 @@ const de_SegmentAttributeValueMap = (output: any, context: __SerdeContext): Reco
 // de_SingleSelectOptions omitted.
 
 // de_SingleSelectQuestionRuleCategoryAutomation omitted.
+
+/**
+ * deserializeAws_restJson1SlaFieldValueUnionList
+ */
+const de_SlaFieldValueUnionList = (output: any, context: __SerdeContext): FieldValueUnion[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FieldValueUnion(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1Step

@@ -6,10 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DeletePushNotificationRegistrationRequest,
-  DeletePushNotificationRegistrationResponse,
-} from "../models/models_0";
+import { DeletePushNotificationRegistrationRequest } from "../models/models_0";
+import { DeletePushNotificationRegistrationResponse } from "../models/models_1";
 import {
   de_DeletePushNotificationRegistrationCommand,
   se_DeletePushNotificationRegistrationCommand,

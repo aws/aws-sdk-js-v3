@@ -23,10 +23,8 @@ import {
   InstanceStorageResourceType,
   MonitorCapability,
   OutboundCallerConfig,
-  OutboundEmailConfig,
   ParticipantRole,
   PredefinedAttributeValues,
-  QuickConnectConfig,
   QuickConnectType,
   Reference,
   RehydrationType,
@@ -61,14 +59,127 @@ import {
   PredefinedAttribute,
   Prompt,
   Queue,
-  QueueStatus,
-  QueueType,
   QuickConnect,
-  QuickConnectSummary,
   RoutingProfile,
   SortOrder,
   TrafficDistributionGroupStatus,
 } from "./models_1";
+
+/**
+ * <p>Contains summary information about a quick connect.</p>
+ * @public
+ */
+export interface QuickConnectSummary {
+  /**
+   * <p>The identifier for the quick connect.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the quick connect.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the quick connect.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The type of quick connect. In the Amazon Connect admin website, when you create a quick connect, you are
+   *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
+   * @public
+   */
+  QuickConnectType?: QuickConnectType | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQueueQuickConnectsResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the quick connects.</p>
+   * @public
+   */
+  QuickConnectSummaryList?: QuickConnectSummary[] | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QueueType = {
+  AGENT: "AGENT",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type QueueType = (typeof QueueType)[keyof typeof QueueType];
+
+/**
+ * @public
+ */
+export interface ListQueuesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The type of queue.</p>
+   * @public
+   */
+  QueueTypes?: QueueType[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
 
 /**
  * <p>Contains summary information about a queue.</p>
@@ -4862,6 +4973,9 @@ export interface SendOutboundEmailRequest {
 
   /**
    * <p>Denotes the class of traffic.</p>
+   *          <note>
+   *             <p>Only the CAMPAIGN traffic type is supported.</p>
+   *          </note>
    * @public
    */
   TrafficType: TrafficType | undefined;
@@ -5587,8 +5701,9 @@ export interface StartOutboundVoiceContactRequest {
   Name?: string | undefined;
 
   /**
-   * <p>A description of the voice contact that is shown to an agent in the Contact Control Panel
-   *    (CCP).</p>
+   * <p>A description of the voice contact that appears in the agent's snapshot in the CCP logs. For
+   *    more information about CCP logs, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/download-ccp-logs.html">Download and review CCP logs</a> in
+   *    the <i>Amazon Connect Administrator Guide</i>.</p>
    * @public
    */
   Description?: string | undefined;
@@ -7590,104 +7705,6 @@ export interface UpdateQueueOutboundCallerConfigRequest {
    * @public
    */
   OutboundCallerConfig: OutboundCallerConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateQueueOutboundEmailConfigRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the queue.</p>
-   * @public
-   */
-  QueueId: string | undefined;
-
-  /**
-   * <p>The outbound email address ID for a specified queue.</p>
-   * @public
-   */
-  OutboundEmailConfig: OutboundEmailConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateQueueStatusRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the queue.</p>
-   * @public
-   */
-  QueueId: string | undefined;
-
-  /**
-   * <p>The status of the queue.</p>
-   * @public
-   */
-  Status: QueueStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateQuickConnectConfigRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the quick connect.</p>
-   * @public
-   */
-  QuickConnectId: string | undefined;
-
-  /**
-   * <p>Information about the configuration settings for the quick connect.</p>
-   * @public
-   */
-  QuickConnectConfig: QuickConnectConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateQuickConnectNameRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the quick connect.</p>
-   * @public
-   */
-  QuickConnectId: string | undefined;
-
-  /**
-   * <p>The name of the quick connect.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the quick connect.</p>
-   * @public
-   */
-  Description?: string | undefined;
 }
 
 /**
