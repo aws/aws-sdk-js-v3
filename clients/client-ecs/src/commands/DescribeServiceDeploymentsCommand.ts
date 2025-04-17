@@ -30,8 +30,7 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
 /**
  * <p>Describes one or more of your service deployments.</p>
  *          <p>A service deployment happens when you release a software update for the service. For
- * 			more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-deployments.html">Amazon ECS service
- * 				deployments</a>.</p>
+ * 			more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-deployment.html">View service history using Amazon ECS service deployments</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
