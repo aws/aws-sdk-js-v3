@@ -159,6 +159,7 @@ import {
   S3AccessPointConfiguration,
   S3BucketAclGrantConfiguration,
   S3BucketConfiguration,
+  S3ExpressDirectoryAccessPointConfiguration,
   S3ExpressDirectoryBucketConfiguration,
   S3PublicAccessBlockConfiguration,
   SecretsManagerSecretConfiguration,
@@ -2100,6 +2101,10 @@ const se_CloudTrailDetails = (input: CloudTrailDetails, context: __SerdeContext)
 
 // se_S3BucketConfiguration omitted.
 
+// se_S3ExpressDirectoryAccessPointConfiguration omitted.
+
+// se_S3ExpressDirectoryAccessPointConfigurationsMap omitted.
+
 // se_S3ExpressDirectoryBucketConfiguration omitted.
 
 // se_S3PublicAccessBlockConfiguration omitted.
@@ -2642,6 +2647,10 @@ const de_RecommendedStepList = (output: any, context: __SerdeContext): Recommend
 // de_S3BucketAclGrantConfigurationsList omitted.
 
 // de_S3BucketConfiguration omitted.
+
+// de_S3ExpressDirectoryAccessPointConfiguration omitted.
+
+// de_S3ExpressDirectoryAccessPointConfigurationsMap omitted.
 
 // de_S3ExpressDirectoryBucketConfiguration omitted.
 

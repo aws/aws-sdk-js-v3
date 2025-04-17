@@ -1179,6 +1179,11 @@ export interface CheckNoNewAccessResponse {
  * @enum
  */
 export const AccessCheckResourceType = {
+  API_GATEWAY_REST_API: "AWS::ApiGateway::RestApi",
+  BACKUP_VAULT: "AWS::Backup::BackupVault",
+  CLOUDTRAIL_DASHBOARD: "AWS::CloudTrail::Dashboard",
+  CLOUDTRAIL_EVENT_DATA_STORE: "AWS::CloudTrail::EventDataStore",
+  CODE_ARTIFACT_DOMAIN: "AWS::CodeArtifact::Domain",
   DYNAMODB_STREAM: "AWS::DynamoDB::Stream",
   DYNAMODB_TABLE: "AWS::DynamoDB::Table",
   EFS_FILESYSTEM: "AWS::EFS::FileSystem",
@@ -1191,9 +1196,12 @@ export const AccessCheckResourceType = {
   S3EXPRESS_DIRECTORYBUCKET: "AWS::S3Express::DirectoryBucket",
   S3_ACCESS_POINT: "AWS::S3::AccessPoint",
   S3_BUCKET: "AWS::S3::Bucket",
+  S3_EXPRESS_ACCESS_POINT: "AWS::S3Express::AccessPoint",
   S3_GLACIER: "AWS::S3::Glacier",
   S3_OUTPOSTS_ACCESS_POINT: "AWS::S3Outposts::AccessPoint",
   S3_OUTPOSTS_BUCKET: "AWS::S3Outposts::Bucket",
+  S3_TABLE: "AWS::S3Tables::Table",
+  S3_TABLE_BUCKET: "AWS::S3Tables::TableBucket",
   SECRETSMANAGER_SECRET: "AWS::SecretsManager::Secret",
   SNS_TOPIC: "AWS::SNS::Topic",
   SQS_QUEUE: "AWS::SQS::Queue",
@@ -1825,9 +1833,8 @@ export interface VpcConfiguration {
 
 /**
  * <p>The proposed <code>InternetConfiguration</code> or <code>VpcConfiguration</code> to
- *          apply to the Amazon S3 access point. <code>VpcConfiguration</code> does not apply to
- *          multi-region access points. You can make the access point accessible from the internet, or
- *          you can specify that all requests made through that access point must originate from a
+ *          apply to the Amazon S3 access point. You can make the access point accessible from the internet,
+ *          or you can specify that all requests made through that access point must originate from a
  *          specific virtual private cloud (VPC). You can specify only one type of network
  *          configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html">Creating access
  *          points</a>.</p>
@@ -1942,7 +1949,7 @@ export interface S3AccessPointConfiguration {
    *          Amazon S3 access point. <code>VpcConfiguration</code> does not apply to multi-region access
    *          points. If the access preview is for a new resource and neither is specified, the access
    *          preview uses <code>Internet</code> for the network origin. If the access preview is for an
-   *          existing resource and neither is specified, the access preview uses the exiting network
+   *          existing resource and neither is specified, the access preview uses the existing network
    *          origin.</p>
    * @public
    */
@@ -2083,6 +2090,35 @@ export interface S3BucketConfiguration {
 }
 
 /**
+ * <p>Proposed configuration for an access point attached to an Amazon S3 directory bucket. You can
+ *          propose up to 10 access points per bucket. If the proposed access point configuration is
+ *          for an existing Amazon S3 directory bucket, the access preview uses the proposed access point
+ *          configuration in place of the existing access points. To propose an access point without a
+ *          policy, you can provide an empty string as the access point policy. For more information
+ *          about access points for Amazon S3 directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html">Managing access to
+ *             directory buckets with access points</a> in the Amazon Simple Storage Service User Guide.</p>
+ * @public
+ */
+export interface S3ExpressDirectoryAccessPointConfiguration {
+  /**
+   * <p>The proposed access point policy for an Amazon S3 directory bucket access point.</p>
+   * @public
+   */
+  accessPointPolicy?: string | undefined;
+
+  /**
+   * <p>The proposed <code>InternetConfiguration</code> or <code>VpcConfiguration</code> to
+   *          apply to the Amazon S3 access point. You can make the access point accessible from the internet,
+   *          or you can specify that all requests made through that access point must originate from a
+   *          specific virtual private cloud (VPC). You can specify only one type of network
+   *          configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html">Creating access
+   *          points</a>.</p>
+   * @public
+   */
+  networkOrigin?: NetworkOriginConfiguration | undefined;
+}
+
+/**
  * <p>Proposed access control configuration for an Amazon S3 directory bucket. You can propose a
  *          configuration for a new Amazon S3 directory bucket or an existing Amazon S3 directory bucket that you
  *          own by specifying the Amazon S3 bucket policy. If the configuration is for an existing Amazon S3
@@ -2091,7 +2127,8 @@ export interface S3BucketConfiguration {
  *          resource and you do not specify the Amazon S3 bucket policy, the access preview assumes an
  *          directory bucket without a policy. To propose deletion of an existing bucket policy, you
  *          can specify an empty string. For more information about Amazon S3 directory bucket policies, see
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html">Example directory bucket policies for S3 Express One Zone</a>.</p>
+ *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html">Example bucket policies for directory buckets</a> in the Amazon Simple Storage Service User
+ *          Guide.</p>
  * @public
  */
 export interface S3ExpressDirectoryBucketConfiguration {
@@ -2100,6 +2137,12 @@ export interface S3ExpressDirectoryBucketConfiguration {
    * @public
    */
   bucketPolicy?: string | undefined;
+
+  /**
+   * <p>The proposed access points for the Amazon S3 directory bucket.</p>
+   * @public
+   */
+  accessPoints?: Record<string, S3ExpressDirectoryAccessPointConfiguration> | undefined;
 }
 
 /**
