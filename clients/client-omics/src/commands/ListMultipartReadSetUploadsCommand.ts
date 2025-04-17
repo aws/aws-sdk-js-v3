@@ -33,8 +33,7 @@ export interface ListMultipartReadSetUploadsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists multipart read set uploads and for in progress uploads.
- *       Once the upload is completed, a read set is created and the upload will no longer be returned in the response.</p>
+ * <p>Lists multipart read set uploads and for in progress uploads. Once the upload is completed, a read set is created and the upload will no longer be returned in the response.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,9 +83,7 @@ export interface ListMultipartReadSetUploadsCommandOutput
  *  <p>An unexpected error occurred. Try the request again.</p>
  *
  * @throws {@link NotSupportedOperationException} (client fault)
- *  <p>
- *       The operation is not supported by Amazon Omics, or the API does not exist.
- *     </p>
+ *  <p> The operation is not supported by Amazon Omics, or the API does not exist. </p>
  *
  * @throws {@link RequestTimeoutException} (client fault)
  *  <p>The request timed out.</p>

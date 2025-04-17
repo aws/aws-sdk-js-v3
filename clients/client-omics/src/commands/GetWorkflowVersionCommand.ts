@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetWorkflowRequest, GetWorkflowResponse } from "../models/models_0";
+import { GetWorkflowVersionRequest, GetWorkflowVersionResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_GetWorkflowCommand, se_GetWorkflowCommand } from "../protocols/Aws_restJson1";
+import { de_GetWorkflowVersionCommand, se_GetWorkflowVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,71 +17,73 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetWorkflowCommand}.
+ * The input for {@link GetWorkflowVersionCommand}.
  */
-export interface GetWorkflowCommandInput extends GetWorkflowRequest {}
+export interface GetWorkflowVersionCommandInput extends GetWorkflowVersionRequest {}
 /**
  * @public
  *
- * The output of {@link GetWorkflowCommand}.
+ * The output of {@link GetWorkflowVersionCommand}.
  */
-export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __MetadataBearer {}
+export interface GetWorkflowVersionCommandOutput extends GetWorkflowVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a workflow.</p> <p>If a workflow is shared with you, you cannot export the workflow.</p>
+ * <p>Gets information about a workflow version. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow versioning in Amazon Web Services HealthOmics</a> in the Amazon Web Services HealthOmics User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, GetWorkflowCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, GetWorkflowCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, GetWorkflowVersionCommand } from "@aws-sdk/client-omics"; // ES Modules import
+ * // const { OmicsClient, GetWorkflowVersionCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = { // GetWorkflowRequest
- *   id: "STRING_VALUE", // required
+ * const input = { // GetWorkflowVersionRequest
+ *   workflowId: "STRING_VALUE", // required
+ *   versionName: "STRING_VALUE", // required
  *   type: "STRING_VALUE",
  *   export: [ // WorkflowExportList
  *     "STRING_VALUE",
  *   ],
  *   workflowOwnerId: "STRING_VALUE",
  * };
- * const command = new GetWorkflowCommand(input);
+ * const command = new GetWorkflowVersionCommand(input);
  * const response = await client.send(command);
- * // { // GetWorkflowResponse
+ * // { // GetWorkflowVersionResponse
  * //   arn: "STRING_VALUE",
- * //   id: "STRING_VALUE",
- * //   status: "STRING_VALUE",
- * //   type: "STRING_VALUE",
- * //   name: "STRING_VALUE",
+ * //   workflowId: "STRING_VALUE",
+ * //   versionName: "STRING_VALUE",
+ * //   accelerators: "STRING_VALUE",
+ * //   creationTime: new Date("TIMESTAMP"),
  * //   description: "STRING_VALUE",
- * //   engine: "STRING_VALUE",
  * //   definition: "STRING_VALUE",
- * //   main: "STRING_VALUE",
  * //   digest: "STRING_VALUE",
+ * //   engine: "STRING_VALUE",
+ * //   main: "STRING_VALUE",
+ * //   metadata: { // WorkflowMetadata
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * //   parameterTemplate: { // WorkflowParameterTemplate
  * //     "<keys>": { // WorkflowParameter
  * //       description: "STRING_VALUE",
  * //       optional: true || false,
  * //     },
  * //   },
- * //   storageCapacity: Number("int"),
- * //   creationTime: new Date("TIMESTAMP"),
+ * //   status: "STRING_VALUE",
  * //   statusMessage: "STRING_VALUE",
+ * //   storageType: "STRING_VALUE",
+ * //   storageCapacity: Number("int"),
+ * //   type: "STRING_VALUE",
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
- * //   metadata: { // WorkflowMetadata
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * //   accelerators: "STRING_VALUE",
- * //   storageType: "STRING_VALUE",
  * //   uuid: "STRING_VALUE",
+ * //   workflowBucketOwnerId: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetWorkflowCommandInput - {@link GetWorkflowCommandInput}
- * @returns {@link GetWorkflowCommandOutput}
- * @see {@link GetWorkflowCommandInput} for command's `input` shape.
- * @see {@link GetWorkflowCommandOutput} for command's `response` shape.
+ * @param GetWorkflowVersionCommandInput - {@link GetWorkflowVersionCommandInput}
+ * @returns {@link GetWorkflowVersionCommandOutput}
+ * @see {@link GetWorkflowVersionCommandInput} for command's `input` shape.
+ * @see {@link GetWorkflowVersionCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -114,10 +116,10 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  *
  * @public
  */
-export class GetWorkflowCommand extends $Command
+export class GetWorkflowVersionCommand extends $Command
   .classBuilder<
-    GetWorkflowCommandInput,
-    GetWorkflowCommandOutput,
+    GetWorkflowVersionCommandInput,
+    GetWorkflowVersionCommandOutput,
     OmicsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -129,21 +131,21 @@ export class GetWorkflowCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Omics", "GetWorkflow", {})
-  .n("OmicsClient", "GetWorkflowCommand")
+  .s("Omics", "GetWorkflowVersion", {})
+  .n("OmicsClient", "GetWorkflowVersionCommand")
   .f(void 0, void 0)
-  .ser(se_GetWorkflowCommand)
-  .de(de_GetWorkflowCommand)
+  .ser(se_GetWorkflowVersionCommand)
+  .de(de_GetWorkflowVersionCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetWorkflowRequest;
-      output: GetWorkflowResponse;
+      input: GetWorkflowVersionRequest;
+      output: GetWorkflowVersionResponse;
     };
     sdk: {
-      input: GetWorkflowCommandInput;
-      output: GetWorkflowCommandOutput;
+      input: GetWorkflowVersionCommandInput;
+      output: GetWorkflowVersionCommandOutput;
     };
   };
 }

@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateWorkflowRequest, CreateWorkflowResponse } from "../models/models_0";
+import { CreateWorkflowVersionRequest, CreateWorkflowVersionResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_CreateWorkflowCommand, se_CreateWorkflowCommand } from "../protocols/Aws_restJson1";
+import { de_CreateWorkflowVersionCommand, se_CreateWorkflowVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,30 +17,32 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateWorkflowCommand}.
+ * The input for {@link CreateWorkflowVersionCommand}.
  */
-export interface CreateWorkflowCommandInput extends CreateWorkflowRequest {}
+export interface CreateWorkflowVersionCommandInput extends CreateWorkflowVersionRequest {}
 /**
  * @public
  *
- * The output of {@link CreateWorkflowCommand}.
+ * The output of {@link CreateWorkflowVersionCommand}.
  */
-export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __MetadataBearer {}
+export interface CreateWorkflowVersionCommandOutput extends CreateWorkflowVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a private workflow.Private workflows depend on a variety of resources that you create and configure before creating the workflow:</p> <ul> <li> <p> <i>Input data</i>: Input data for the workflow, stored in an S3 bucket or a Amazon Web Services HealthOmics sequence store. </p> </li> <li> <p> <i>Workflow definition files</i>: Define your workflow in one or more workflow definition files, written in WDL, Nextflow, or CWL. The workflow definition specifies the inputs and outputs for runs that use the workflow. It also includes specifications for the runs and run tasks for your workflow, including compute and memory requirements.</p> </li> <li> <p> <i>Parameter template files</i>: Define run parameters using a parameter template file (written in JSON). </p> </li> <li> <p> <i>ECR container images</i>: Create one or more container images for the workflow. Store the images in a private ECR repository.</p> </li> <li> <p>(Optional) <i>Sentieon licenses</i>: Request a Sentieon license if you plan to use Sentieon software in a private workflow.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/creating-private-workflows.html">Creating or updating a private workflow in Amazon Web Services HealthOmics</a> in the Amazon Web Services HealthOmics User Guide.</p>
+ * <p>Creates a new workflow version for the workflow that you specify with the <code>workflowId</code> parameter.</p> <p>When you create a new version of a workflow, you need to specify the configuration for the new version. It doesn't inherit any configuration values from the workflow.</p> <p>Provide a version name that is unique for this workflow. You cannot change the name after HealthOmics creates the version.</p> <note> <p>Don’t include any personally identifiable information (PII) in the version name. Version names appear in the workflow version ARN.</p> </note> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow versioning in Amazon Web Services HealthOmics</a> in the Amazon Web Services HealthOmics User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, CreateWorkflowCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, CreateWorkflowCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, CreateWorkflowVersionCommand } from "@aws-sdk/client-omics"; // ES Modules import
+ * // const { OmicsClient, CreateWorkflowVersionCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = { // CreateWorkflowRequest
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   engine: "STRING_VALUE",
+ * const input = { // CreateWorkflowVersionRequest
+ *   workflowId: "STRING_VALUE", // required
+ *   versionName: "STRING_VALUE", // required
  *   definitionZip: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   definitionUri: "STRING_VALUE",
+ *   accelerators: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   engine: "STRING_VALUE",
  *   main: "STRING_VALUE",
  *   parameterTemplate: { // WorkflowParameterTemplate
  *     "<keys>": { // WorkflowParameter
@@ -48,19 +50,20 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  *       optional: true || false,
  *     },
  *   },
+ *   requestId: "STRING_VALUE", // required
+ *   storageType: "STRING_VALUE",
  *   storageCapacity: Number("int"),
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   requestId: "STRING_VALUE", // required
- *   accelerators: "STRING_VALUE",
- *   storageType: "STRING_VALUE",
+ *   workflowBucketOwnerId: "STRING_VALUE",
  * };
- * const command = new CreateWorkflowCommand(input);
+ * const command = new CreateWorkflowVersionCommand(input);
  * const response = await client.send(command);
- * // { // CreateWorkflowResponse
+ * // { // CreateWorkflowVersionResponse
  * //   arn: "STRING_VALUE",
- * //   id: "STRING_VALUE",
+ * //   workflowId: "STRING_VALUE",
+ * //   versionName: "STRING_VALUE",
  * //   status: "STRING_VALUE",
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
@@ -70,10 +73,10 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  *
  * ```
  *
- * @param CreateWorkflowCommandInput - {@link CreateWorkflowCommandInput}
- * @returns {@link CreateWorkflowCommandOutput}
- * @see {@link CreateWorkflowCommandInput} for command's `input` shape.
- * @see {@link CreateWorkflowCommandOutput} for command's `response` shape.
+ * @param CreateWorkflowVersionCommandInput - {@link CreateWorkflowVersionCommandInput}
+ * @returns {@link CreateWorkflowVersionCommandOutput}
+ * @see {@link CreateWorkflowVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateWorkflowVersionCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -106,10 +109,10 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  *
  * @public
  */
-export class CreateWorkflowCommand extends $Command
+export class CreateWorkflowVersionCommand extends $Command
   .classBuilder<
-    CreateWorkflowCommandInput,
-    CreateWorkflowCommandOutput,
+    CreateWorkflowVersionCommandInput,
+    CreateWorkflowVersionCommandOutput,
     OmicsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -121,21 +124,21 @@ export class CreateWorkflowCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Omics", "CreateWorkflow", {})
-  .n("OmicsClient", "CreateWorkflowCommand")
+  .s("Omics", "CreateWorkflowVersion", {})
+  .n("OmicsClient", "CreateWorkflowVersionCommand")
   .f(void 0, void 0)
-  .ser(se_CreateWorkflowCommand)
-  .de(de_CreateWorkflowCommand)
+  .ser(se_CreateWorkflowVersionCommand)
+  .de(de_CreateWorkflowVersionCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateWorkflowRequest;
-      output: CreateWorkflowResponse;
+      input: CreateWorkflowVersionRequest;
+      output: CreateWorkflowVersionResponse;
     };
     sdk: {
-      input: CreateWorkflowCommandInput;
-      output: CreateWorkflowCommandOutput;
+      input: CreateWorkflowVersionCommandInput;
+      output: CreateWorkflowVersionCommandOutput;
     };
   };
 }

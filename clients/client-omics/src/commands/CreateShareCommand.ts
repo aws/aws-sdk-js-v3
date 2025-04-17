@@ -28,20 +28,7 @@ export interface CreateShareCommandInput extends CreateShareRequest {}
 export interface CreateShareCommandOutput extends CreateShareResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a cross-account shared resource. The resource owner makes an offer to share the resource
- *       with the principal subscriber (an AWS user with a different account than the resource owner).</p>
- *          <p>The following resources support cross-account sharing:</p>
- *          <ul>
- *             <li>
- *                <p>HealthOmics variant stores</p>
- *             </li>
- *             <li>
- *                <p>HealthOmics annotation stores</p>
- *             </li>
- *             <li>
- *                <p>Private workflows</p>
- *             </li>
- *          </ul>
+ * <p>Creates a cross-account shared resource. The resource owner makes an offer to share the resource with the principal subscriber (an AWS user with a different account than the resource owner).</p> <p>The following resources support cross-account sharing:</p> <ul> <li> <p>HealthOmics variant stores</p> </li> <li> <p>HealthOmics annotation stores</p> </li> <li> <p>Private workflows</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

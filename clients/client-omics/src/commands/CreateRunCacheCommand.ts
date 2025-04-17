@@ -28,11 +28,7 @@ export interface CreateRunCacheCommandInput extends CreateRunCacheRequest {}
 export interface CreateRunCacheCommandOutput extends CreateRunCacheResponse, __MetadataBearer {}
 
 /**
- * <p>You can create a run cache to save the task outputs from completed tasks in a run for a private workflow.
- *       Subsequent runs use the task outputs from the cache, rather than computing the task outputs again.
- *       You specify an Amazon S3 location where HealthOmics saves the cached data. This data must be
- *       immediately accessible (not in an archived state).</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-cache-create.html">Creating a run cache</a> in the AWS HealthOmics User Guide.</p>
+ * <p>You can create a run cache to save the task outputs from completed tasks in a run for a private workflow. Subsequent runs use the task outputs from the cache, rather than computing the task outputs again. You specify an Amazon S3 location where Amazon Web Services HealthOmics saves the cached data. This data must be immediately accessible (not in an archived state).</p> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-cache-create.html">Creating a run cache</a> in the Amazon Web Services HealthOmics User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

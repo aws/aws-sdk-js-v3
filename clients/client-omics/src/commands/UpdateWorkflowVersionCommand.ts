@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteShareRequest, DeleteShareResponse } from "../models/models_0";
+import { UpdateWorkflowVersionRequest } from "../models/models_1";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_DeleteShareCommand, se_DeleteShareCommand } from "../protocols/Aws_restJson1";
+import { de_UpdateWorkflowVersionCommand, se_UpdateWorkflowVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,39 +17,41 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteShareCommand}.
+ * The input for {@link UpdateWorkflowVersionCommand}.
  */
-export interface DeleteShareCommandInput extends DeleteShareRequest {}
+export interface UpdateWorkflowVersionCommandInput extends UpdateWorkflowVersionRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteShareCommand}.
+ * The output of {@link UpdateWorkflowVersionCommand}.
  */
-export interface DeleteShareCommandOutput extends DeleteShareResponse, __MetadataBearer {}
+export interface UpdateWorkflowVersionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a resource share. If you are the resource owner, the subscriber will no longer have access to the shared resource. If you are the subscriber, this operation deletes your access to the share.</p>
+ * <p>Updates information about the workflow version. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow versioning in Amazon Web Services HealthOmics</a> in the Amazon Web Services HealthOmics User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, DeleteShareCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, DeleteShareCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, UpdateWorkflowVersionCommand } from "@aws-sdk/client-omics"; // ES Modules import
+ * // const { OmicsClient, UpdateWorkflowVersionCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = { // DeleteShareRequest
- *   shareId: "STRING_VALUE", // required
+ * const input = { // UpdateWorkflowVersionRequest
+ *   workflowId: "STRING_VALUE", // required
+ *   versionName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   storageType: "STRING_VALUE",
+ *   storageCapacity: Number("int"),
  * };
- * const command = new DeleteShareCommand(input);
+ * const command = new UpdateWorkflowVersionCommand(input);
  * const response = await client.send(command);
- * // { // DeleteShareResponse
- * //   status: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param DeleteShareCommandInput - {@link DeleteShareCommandInput}
- * @returns {@link DeleteShareCommandOutput}
- * @see {@link DeleteShareCommandInput} for command's `input` shape.
- * @see {@link DeleteShareCommandOutput} for command's `response` shape.
+ * @param UpdateWorkflowVersionCommandInput - {@link UpdateWorkflowVersionCommandInput}
+ * @returns {@link UpdateWorkflowVersionCommandOutput}
+ * @see {@link UpdateWorkflowVersionCommandInput} for command's `input` shape.
+ * @see {@link UpdateWorkflowVersionCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -60,6 +62,9 @@ export interface DeleteShareCommandOutput extends DeleteShareResponse, __Metadat
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The request timed out.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The target resource was not found in the current Region.</p>
@@ -79,10 +84,10 @@ export interface DeleteShareCommandOutput extends DeleteShareResponse, __Metadat
  *
  * @public
  */
-export class DeleteShareCommand extends $Command
+export class UpdateWorkflowVersionCommand extends $Command
   .classBuilder<
-    DeleteShareCommandInput,
-    DeleteShareCommandOutput,
+    UpdateWorkflowVersionCommandInput,
+    UpdateWorkflowVersionCommandOutput,
     OmicsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -94,21 +99,21 @@ export class DeleteShareCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Omics", "DeleteShare", {})
-  .n("OmicsClient", "DeleteShareCommand")
+  .s("Omics", "UpdateWorkflowVersion", {})
+  .n("OmicsClient", "UpdateWorkflowVersionCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteShareCommand)
-  .de(de_DeleteShareCommand)
+  .ser(se_UpdateWorkflowVersionCommand)
+  .de(de_UpdateWorkflowVersionCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteShareRequest;
-      output: DeleteShareResponse;
+      input: UpdateWorkflowVersionRequest;
+      output: {};
     };
     sdk: {
-      input: DeleteShareCommandInput;
-      output: DeleteShareCommandOutput;
+      input: UpdateWorkflowVersionCommandInput;
+      output: UpdateWorkflowVersionCommandOutput;
     };
   };
 }

@@ -99,6 +99,10 @@ import { CreateShareCommandInput, CreateShareCommandOutput } from "./commands/Cr
 import { CreateVariantStoreCommandInput, CreateVariantStoreCommandOutput } from "./commands/CreateVariantStoreCommand";
 import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
 import {
+  CreateWorkflowVersionCommandInput,
+  CreateWorkflowVersionCommandOutput,
+} from "./commands/CreateWorkflowVersionCommand";
+import {
   DeleteAnnotationStoreCommandInput,
   DeleteAnnotationStoreCommandOutput,
 } from "./commands/DeleteAnnotationStoreCommand";
@@ -125,6 +129,10 @@ import {
 import { DeleteShareCommandInput, DeleteShareCommandOutput } from "./commands/DeleteShareCommand";
 import { DeleteVariantStoreCommandInput, DeleteVariantStoreCommandOutput } from "./commands/DeleteVariantStoreCommand";
 import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
+import {
+  DeleteWorkflowVersionCommandInput,
+  DeleteWorkflowVersionCommandOutput,
+} from "./commands/DeleteWorkflowVersionCommand";
 import {
   GetAnnotationImportJobCommandInput,
   GetAnnotationImportJobCommandOutput,
@@ -171,6 +179,7 @@ import {
 } from "./commands/GetVariantImportJobCommand";
 import { GetVariantStoreCommandInput, GetVariantStoreCommandOutput } from "./commands/GetVariantStoreCommand";
 import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
+import { GetWorkflowVersionCommandInput, GetWorkflowVersionCommandOutput } from "./commands/GetWorkflowVersionCommand";
 import {
   ListAnnotationImportJobsCommandInput,
   ListAnnotationImportJobsCommandOutput,
@@ -229,6 +238,10 @@ import {
 } from "./commands/ListVariantImportJobsCommand";
 import { ListVariantStoresCommandInput, ListVariantStoresCommandOutput } from "./commands/ListVariantStoresCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
+import {
+  ListWorkflowVersionsCommandInput,
+  ListWorkflowVersionsCommandOutput,
+} from "./commands/ListWorkflowVersionsCommand";
 import { PutS3AccessPolicyCommandInput, PutS3AccessPolicyCommandOutput } from "./commands/PutS3AccessPolicyCommand";
 import {
   StartAnnotationImportJobCommandInput,
@@ -273,6 +286,10 @@ import {
 } from "./commands/UpdateSequenceStoreCommand";
 import { UpdateVariantStoreCommandInput, UpdateVariantStoreCommandOutput } from "./commands/UpdateVariantStoreCommand";
 import { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "./commands/UpdateWorkflowCommand";
+import {
+  UpdateWorkflowVersionCommandInput,
+  UpdateWorkflowVersionCommandOutput,
+} from "./commands/UpdateWorkflowVersionCommand";
 import { UploadReadSetPartCommandInput, UploadReadSetPartCommandOutput } from "./commands/UploadReadSetPartCommand";
 import {
   ClientInputEndpointParameters,
@@ -306,6 +323,7 @@ export type ServiceInputTypes =
   | CreateShareCommandInput
   | CreateVariantStoreCommandInput
   | CreateWorkflowCommandInput
+  | CreateWorkflowVersionCommandInput
   | DeleteAnnotationStoreCommandInput
   | DeleteAnnotationStoreVersionsCommandInput
   | DeleteReferenceCommandInput
@@ -318,6 +336,7 @@ export type ServiceInputTypes =
   | DeleteShareCommandInput
   | DeleteVariantStoreCommandInput
   | DeleteWorkflowCommandInput
+  | DeleteWorkflowVersionCommandInput
   | GetAnnotationImportJobCommandInput
   | GetAnnotationStoreCommandInput
   | GetAnnotationStoreVersionCommandInput
@@ -340,6 +359,7 @@ export type ServiceInputTypes =
   | GetVariantImportJobCommandInput
   | GetVariantStoreCommandInput
   | GetWorkflowCommandInput
+  | GetWorkflowVersionCommandInput
   | ListAnnotationImportJobsCommandInput
   | ListAnnotationStoreVersionsCommandInput
   | ListAnnotationStoresCommandInput
@@ -361,6 +381,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListVariantImportJobsCommandInput
   | ListVariantStoresCommandInput
+  | ListWorkflowVersionsCommandInput
   | ListWorkflowsCommandInput
   | PutS3AccessPolicyCommandInput
   | StartAnnotationImportJobCommandInput
@@ -379,6 +400,7 @@ export type ServiceInputTypes =
   | UpdateSequenceStoreCommandInput
   | UpdateVariantStoreCommandInput
   | UpdateWorkflowCommandInput
+  | UpdateWorkflowVersionCommandInput
   | UploadReadSetPartCommandInput;
 
 /**
@@ -402,6 +424,7 @@ export type ServiceOutputTypes =
   | CreateShareCommandOutput
   | CreateVariantStoreCommandOutput
   | CreateWorkflowCommandOutput
+  | CreateWorkflowVersionCommandOutput
   | DeleteAnnotationStoreCommandOutput
   | DeleteAnnotationStoreVersionsCommandOutput
   | DeleteReferenceCommandOutput
@@ -414,6 +437,7 @@ export type ServiceOutputTypes =
   | DeleteShareCommandOutput
   | DeleteVariantStoreCommandOutput
   | DeleteWorkflowCommandOutput
+  | DeleteWorkflowVersionCommandOutput
   | GetAnnotationImportJobCommandOutput
   | GetAnnotationStoreCommandOutput
   | GetAnnotationStoreVersionCommandOutput
@@ -436,6 +460,7 @@ export type ServiceOutputTypes =
   | GetVariantImportJobCommandOutput
   | GetVariantStoreCommandOutput
   | GetWorkflowCommandOutput
+  | GetWorkflowVersionCommandOutput
   | ListAnnotationImportJobsCommandOutput
   | ListAnnotationStoreVersionsCommandOutput
   | ListAnnotationStoresCommandOutput
@@ -457,6 +482,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListVariantImportJobsCommandOutput
   | ListVariantStoresCommandOutput
+  | ListWorkflowVersionsCommandOutput
   | ListWorkflowsCommandOutput
   | PutS3AccessPolicyCommandOutput
   | StartAnnotationImportJobCommandOutput
@@ -475,6 +501,7 @@ export type ServiceOutputTypes =
   | UpdateSequenceStoreCommandOutput
   | UpdateVariantStoreCommandOutput
   | UpdateWorkflowCommandOutput
+  | UpdateWorkflowVersionCommandOutput
   | UploadReadSetPartCommandOutput;
 
 /**
@@ -674,8 +701,7 @@ export type OmicsClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
 export interface OmicsClientResolvedConfig extends OmicsClientResolvedConfigType {}
 
 /**
- * <p>This is the <i>AWS HealthOmics API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/omics/latest/dev/">What is AWS HealthOmics?</a> in the
- *       <i>AWS HealthOmics User Guide</i>.</p>
+ * <p>This is the <i>AWS HealthOmics API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/omics/latest/dev/">What is AWS HealthOmics?</a> in the <i>AWS HealthOmics User Guide</i>.</p>
  * @public
  */
 export class OmicsClient extends __Client<

@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRunsRequest, ListRunsResponse } from "../models/models_0";
+import { ListWorkflowVersionsRequest, ListWorkflowVersionsResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_ListRunsCommand, se_ListRunsCommand } from "../protocols/Aws_restJson1";
+import { de_ListWorkflowVersionsCommand, se_ListWorkflowVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,48 +17,47 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListRunsCommand}.
+ * The input for {@link ListWorkflowVersionsCommand}.
  */
-export interface ListRunsCommandInput extends ListRunsRequest {}
+export interface ListWorkflowVersionsCommandInput extends ListWorkflowVersionsRequest {}
 /**
  * @public
  *
- * The output of {@link ListRunsCommand}.
+ * The output of {@link ListWorkflowVersionsCommand}.
  */
-export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBearer {}
+export interface ListWorkflowVersionsCommandOutput extends ListWorkflowVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of runs.</p> <p>Amazon Web Services HealthOmics stores a fixed number of runs that are available to the console and API. If the ListRuns response doesn't include specific runs that you expected, you can find run logs for all runs in the CloudWatch logs. For more information about viewing the run logs, see <a href="https://docs.aws.amazon.com/omics/latest/dev/cloudwatch-logs.html">CloudWatch logs</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+ * <p>Lists the workflow versions for the specified workflow. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow versioning in Amazon Web Services HealthOmics</a> in the Amazon Web Services HealthOmics User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, ListRunsCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, ListRunsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, ListWorkflowVersionsCommand } from "@aws-sdk/client-omics"; // ES Modules import
+ * // const { OmicsClient, ListWorkflowVersionsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = { // ListRunsRequest
- *   name: "STRING_VALUE",
- *   runGroupId: "STRING_VALUE",
+ * const input = { // ListWorkflowVersionsRequest
+ *   workflowId: "STRING_VALUE", // required
+ *   type: "STRING_VALUE",
+ *   workflowOwnerId: "STRING_VALUE",
  *   startingToken: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   status: "STRING_VALUE",
  * };
- * const command = new ListRunsCommand(input);
+ * const command = new ListWorkflowVersionsCommand(input);
  * const response = await client.send(command);
- * // { // ListRunsResponse
- * //   items: [ // RunList
- * //     { // RunListItem
+ * // { // ListWorkflowVersionsResponse
+ * //   items: [ // WorkflowVersionList
+ * //     { // WorkflowVersionListItem
  * //       arn: "STRING_VALUE",
- * //       id: "STRING_VALUE",
- * //       status: "STRING_VALUE",
  * //       workflowId: "STRING_VALUE",
- * //       name: "STRING_VALUE",
- * //       priority: Number("int"),
- * //       storageCapacity: Number("int"),
+ * //       versionName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       type: "STRING_VALUE",
+ * //       digest: "STRING_VALUE",
  * //       creationTime: new Date("TIMESTAMP"),
- * //       startTime: new Date("TIMESTAMP"),
- * //       stopTime: new Date("TIMESTAMP"),
- * //       storageType: "STRING_VALUE",
- * //       workflowVersionName: "STRING_VALUE",
+ * //       metadata: { // WorkflowMetadata
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -66,10 +65,10 @@ export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBeare
  *
  * ```
  *
- * @param ListRunsCommandInput - {@link ListRunsCommandInput}
- * @returns {@link ListRunsCommandOutput}
- * @see {@link ListRunsCommandInput} for command's `input` shape.
- * @see {@link ListRunsCommandOutput} for command's `response` shape.
+ * @param ListWorkflowVersionsCommandInput - {@link ListWorkflowVersionsCommandInput}
+ * @returns {@link ListWorkflowVersionsCommandOutput}
+ * @see {@link ListWorkflowVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListWorkflowVersionsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -102,10 +101,10 @@ export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBeare
  *
  * @public
  */
-export class ListRunsCommand extends $Command
+export class ListWorkflowVersionsCommand extends $Command
   .classBuilder<
-    ListRunsCommandInput,
-    ListRunsCommandOutput,
+    ListWorkflowVersionsCommandInput,
+    ListWorkflowVersionsCommandOutput,
     OmicsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -117,21 +116,21 @@ export class ListRunsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Omics", "ListRuns", {})
-  .n("OmicsClient", "ListRunsCommand")
+  .s("Omics", "ListWorkflowVersions", {})
+  .n("OmicsClient", "ListWorkflowVersionsCommand")
   .f(void 0, void 0)
-  .ser(se_ListRunsCommand)
-  .de(de_ListRunsCommand)
+  .ser(se_ListWorkflowVersionsCommand)
+  .de(de_ListWorkflowVersionsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListRunsRequest;
-      output: ListRunsResponse;
+      input: ListWorkflowVersionsRequest;
+      output: ListWorkflowVersionsResponse;
     };
     sdk: {
-      input: ListRunsCommandInput;
-      output: ListRunsCommandOutput;
+      input: ListWorkflowVersionsCommandInput;
+      output: ListWorkflowVersionsCommandOutput;
     };
   };
 }

@@ -57,9 +57,7 @@ export interface DeleteS3AccessPolicyCommandOutput extends DeleteS3AccessPolicyR
  *  <p>An unexpected error occurred. Try the request again.</p>
  *
  * @throws {@link NotSupportedOperationException} (client fault)
- *  <p>
- *       The operation is not supported by Amazon Omics, or the API does not exist.
- *     </p>
+ *  <p> The operation is not supported by Amazon Omics, or the API does not exist. </p>
  *
  * @throws {@link RequestTimeoutException} (client fault)
  *  <p>The request timed out.</p>

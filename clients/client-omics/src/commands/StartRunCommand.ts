@@ -28,18 +28,7 @@ export interface StartRunCommandInput extends StartRunRequest {}
 export interface StartRunCommandOutput extends StartRunResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a workflow run. To duplicate a run, specify the run's ID and a role ARN. The
- *       remaining parameters are copied from the previous run.</p>
- *          <p>StartRun will not support re-run for a workflow that is shared with you.</p>
- *          <p>HealthOmics stores a fixed number of runs that are available to the console and API.
- *         By default, HealthOmics doesn't any remove any runs. If HealthOmics reaches the maximum
- *         number of runs, you must manually remove runs. To have older runs removed automatically,
- *         set the retention mode to <code>REMOVE</code>.</p>
- *          <p>By default, the run uses STATIC storage. For STATIC storage, set the <code>storageCapacity</code> field.
- *       You can set the storage type to DYNAMIC. You do not set <code>storageCapacity</code>,
- *       because HealthOmics dynamically scales the storage up or down as required.
- *       For more information about static and dynamic storage, see <a href="https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html">Running workflows</a>
- *       in the <i>AWS HealthOmics User Guide</i>.</p>
+ * <p>Starts a new run or duplicates an existing run.</p> <p>For a new run, specify a unique <code>requestId</code>, the <code>workflowId</code>, and a role ARN. If you're using static run storage (the default), specify the required <code>storageCapacity</code>.</p> <p>You duplicate a run by specifing a unique <code>requestId</code>, the <code>runID</code> of the run to duplicate, and a role ARN.</p> <p>For more information about the optional parameters in the StartRun request, see <a href="https://docs.aws.amazon.com/omics/latest/dev/starting-a-run.html">Starting a run</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +56,7 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  *   retentionMode: "STRING_VALUE",
  *   storageType: "STRING_VALUE",
  *   workflowOwnerId: "STRING_VALUE",
+ *   workflowVersionName: "STRING_VALUE",
  * };
  * const command = new StartRunCommand(input);
  * const response = await client.send(command);

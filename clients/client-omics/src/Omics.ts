@@ -76,6 +76,11 @@ import {
   CreateWorkflowCommandOutput,
 } from "./commands/CreateWorkflowCommand";
 import {
+  CreateWorkflowVersionCommand,
+  CreateWorkflowVersionCommandInput,
+  CreateWorkflowVersionCommandOutput,
+} from "./commands/CreateWorkflowVersionCommand";
+import {
   DeleteAnnotationStoreCommand,
   DeleteAnnotationStoreCommandInput,
   DeleteAnnotationStoreCommandOutput,
@@ -127,6 +132,11 @@ import {
   DeleteWorkflowCommandInput,
   DeleteWorkflowCommandOutput,
 } from "./commands/DeleteWorkflowCommand";
+import {
+  DeleteWorkflowVersionCommand,
+  DeleteWorkflowVersionCommandInput,
+  DeleteWorkflowVersionCommandOutput,
+} from "./commands/DeleteWorkflowVersionCommand";
 import {
   GetAnnotationImportJobCommand,
   GetAnnotationImportJobCommandInput,
@@ -209,6 +219,11 @@ import {
   GetVariantStoreCommandOutput,
 } from "./commands/GetVariantStoreCommand";
 import { GetWorkflowCommand, GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
+import {
+  GetWorkflowVersionCommand,
+  GetWorkflowVersionCommandInput,
+  GetWorkflowVersionCommandOutput,
+} from "./commands/GetWorkflowVersionCommand";
 import {
   ListAnnotationImportJobsCommand,
   ListAnnotationImportJobsCommandInput,
@@ -312,6 +327,11 @@ import {
   ListWorkflowsCommandOutput,
 } from "./commands/ListWorkflowsCommand";
 import {
+  ListWorkflowVersionsCommand,
+  ListWorkflowVersionsCommandInput,
+  ListWorkflowVersionsCommandOutput,
+} from "./commands/ListWorkflowVersionsCommand";
+import {
   PutS3AccessPolicyCommand,
   PutS3AccessPolicyCommandInput,
   PutS3AccessPolicyCommandOutput,
@@ -389,6 +409,11 @@ import {
   UpdateWorkflowCommandOutput,
 } from "./commands/UpdateWorkflowCommand";
 import {
+  UpdateWorkflowVersionCommand,
+  UpdateWorkflowVersionCommandInput,
+  UpdateWorkflowVersionCommandOutput,
+} from "./commands/UpdateWorkflowVersionCommand";
+import {
   UploadReadSetPartCommand,
   UploadReadSetPartCommandInput,
   UploadReadSetPartCommandOutput,
@@ -413,6 +438,7 @@ const commands = {
   CreateShareCommand,
   CreateVariantStoreCommand,
   CreateWorkflowCommand,
+  CreateWorkflowVersionCommand,
   DeleteAnnotationStoreCommand,
   DeleteAnnotationStoreVersionsCommand,
   DeleteReferenceCommand,
@@ -425,6 +451,7 @@ const commands = {
   DeleteShareCommand,
   DeleteVariantStoreCommand,
   DeleteWorkflowCommand,
+  DeleteWorkflowVersionCommand,
   GetAnnotationImportJobCommand,
   GetAnnotationStoreCommand,
   GetAnnotationStoreVersionCommand,
@@ -447,6 +474,7 @@ const commands = {
   GetVariantImportJobCommand,
   GetVariantStoreCommand,
   GetWorkflowCommand,
+  GetWorkflowVersionCommand,
   ListAnnotationImportJobsCommand,
   ListAnnotationStoresCommand,
   ListAnnotationStoreVersionsCommand,
@@ -469,6 +497,7 @@ const commands = {
   ListVariantImportJobsCommand,
   ListVariantStoresCommand,
   ListWorkflowsCommand,
+  ListWorkflowVersionsCommand,
   PutS3AccessPolicyCommand,
   StartAnnotationImportJobCommand,
   StartReadSetActivationJobCommand,
@@ -486,6 +515,7 @@ const commands = {
   UpdateSequenceStoreCommand,
   UpdateVariantStoreCommand,
   UpdateWorkflowCommand,
+  UpdateWorkflowVersionCommand,
   UploadReadSetPartCommand,
 };
 
@@ -753,6 +783,23 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link CreateWorkflowVersionCommand}
+   */
+  createWorkflowVersion(
+    args: CreateWorkflowVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorkflowVersionCommandOutput>;
+  createWorkflowVersion(
+    args: CreateWorkflowVersionCommandInput,
+    cb: (err: any, data?: CreateWorkflowVersionCommandOutput) => void
+  ): void;
+  createWorkflowVersion(
+    args: CreateWorkflowVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorkflowVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteAnnotationStoreCommand}
    */
   deleteAnnotationStore(
@@ -930,6 +977,23 @@ export interface Omics {
     args: DeleteWorkflowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteWorkflowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteWorkflowVersionCommand}
+   */
+  deleteWorkflowVersion(
+    args: DeleteWorkflowVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkflowVersionCommandOutput>;
+  deleteWorkflowVersion(
+    args: DeleteWorkflowVersionCommandInput,
+    cb: (err: any, data?: DeleteWorkflowVersionCommandOutput) => void
+  ): void;
+  deleteWorkflowVersion(
+    args: DeleteWorkflowVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorkflowVersionCommandOutput) => void
   ): void;
 
   /**
@@ -1253,6 +1317,23 @@ export interface Omics {
     args: GetWorkflowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetWorkflowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetWorkflowVersionCommand}
+   */
+  getWorkflowVersion(
+    args: GetWorkflowVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkflowVersionCommandOutput>;
+  getWorkflowVersion(
+    args: GetWorkflowVersionCommandInput,
+    cb: (err: any, data?: GetWorkflowVersionCommandOutput) => void
+  ): void;
+  getWorkflowVersion(
+    args: GetWorkflowVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWorkflowVersionCommandOutput) => void
   ): void;
 
   /**
@@ -1595,6 +1676,23 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link ListWorkflowVersionsCommand}
+   */
+  listWorkflowVersions(
+    args: ListWorkflowVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkflowVersionsCommandOutput>;
+  listWorkflowVersions(
+    args: ListWorkflowVersionsCommandInput,
+    cb: (err: any, data?: ListWorkflowVersionsCommandOutput) => void
+  ): void;
+  listWorkflowVersions(
+    args: ListWorkflowVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkflowVersionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutS3AccessPolicyCommand}
    */
   putS3AccessPolicy(
@@ -1857,6 +1955,23 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link UpdateWorkflowVersionCommand}
+   */
+  updateWorkflowVersion(
+    args: UpdateWorkflowVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorkflowVersionCommandOutput>;
+  updateWorkflowVersion(
+    args: UpdateWorkflowVersionCommandInput,
+    cb: (err: any, data?: UpdateWorkflowVersionCommandOutput) => void
+  ): void;
+  updateWorkflowVersion(
+    args: UpdateWorkflowVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWorkflowVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UploadReadSetPartCommand}
    */
   uploadReadSetPart(
@@ -1875,8 +1990,7 @@ export interface Omics {
 }
 
 /**
- * <p>This is the <i>AWS HealthOmics API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/omics/latest/dev/">What is AWS HealthOmics?</a> in the
- *       <i>AWS HealthOmics User Guide</i>.</p>
+ * <p>This is the <i>AWS HealthOmics API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/omics/latest/dev/">What is AWS HealthOmics?</a> in the <i>AWS HealthOmics User Guide</i>.</p>
  * @public
  */
 export class Omics extends OmicsClient implements Omics {}

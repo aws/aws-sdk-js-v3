@@ -28,8 +28,7 @@ export interface GetRunCacheCommandInput extends GetRunCacheRequest {}
 export interface GetRunCacheCommandOutput extends GetRunCacheResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieve the details for the specified run cache.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-call-caching.html">Call caching for HealthOmics runs</a> in the AWS HealthOmics User Guide.</p>
+ * <p>Retrieve the details for the specified run cache.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-call-caching.html">Call caching for Amazon Web Services HealthOmics runs</a> in the Amazon Web Services HealthOmics User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
