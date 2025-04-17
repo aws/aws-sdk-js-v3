@@ -147,7 +147,7 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
         if (!JsSigV4aSigner || typeof JsSigV4aSigner !== "function") {
           throw new Error(
             "JS SigV4a implementation is not available or not a valid constructor. " +
-              "Please check whether you have installed the @smithy/signature-v4a package explicitly. " +
+              "Please check whether you have installed the @smithy/signature-v4a package explicitly. The CRT implementation is not available for browsers. " +
               "You must also register the package by calling [require('@smithy/signature-v4a');] " +
               "or an ESM equivalent such as [import '@smithy/signature-v4a';]. " +
               "For more information please go to " +

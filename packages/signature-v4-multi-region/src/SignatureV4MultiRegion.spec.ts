@@ -100,7 +100,7 @@ describe("SignatureV4MultiRegion", () => {
     ).rejects.toThrow("Method presignWithCredentials is not supported for [signingRegion=*].");
   });
 
-  it("should THROW when presigning with signingRegion '*' if CRT is NOT available", async () => {
+  it("should throw when presigning with signingRegion '*' if CRT is NOT available", async () => {
     signatureV4CrtContainer.CrtSignerV4 = null; // Simulate CRT not being available
     const signer = new SignatureV4MultiRegion(params);
     // Expect the new combined error message
@@ -114,7 +114,7 @@ describe("SignatureV4MultiRegion", () => {
     expect(CrtSignerV4).not.toHaveBeenCalled();
   });
 
-  it("should THROW when presigning with signingRegion '*' in non-node runtime (CRT unavailable)", async () => {
+  it("should throw when presigning with signingRegion '*' in non-node runtime (CRT unavailable)", async () => {
     const nonNodeParams = { ...params, runtime: "browser" };
     const signer = new SignatureV4MultiRegion(nonNodeParams);
     // Expect the new combined error message
@@ -146,7 +146,7 @@ describe("SignatureV4MultiRegion", () => {
     const signer = new SignatureV4MultiRegion(nonNodeParams);
     await expect(signer.sign(minimalRequest, { signingRegion: "*" })).rejects.toThrow(
       "JS SigV4a implementation is not available or not a valid constructor. " +
-        "Please check whether you have installed the @smithy/signature-v4a package explicitly. " +
+        "Please check whether you have installed the @smithy/signature-v4a package explicitly. The CRT implementation is not available for browsers. " +
         "You must also register the package by calling [require('@smithy/signature-v4a');] " +
         "or an ESM equivalent such as [import '@smithy/signature-v4a';]. " +
         "For more information please go to " +
