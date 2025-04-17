@@ -55,9 +55,15 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * //           AvailabilityZone: { // AvailabilityZone
  * //             Name: "STRING_VALUE",
  * //           },
+ * //           SupportedNetworkTypes: [ // NetworkTypeList
+ * //             "ipv4" || "ipv6" || "dual_stack",
+ * //           ],
  * //         },
  * //       ],
  * //       ARN: "STRING_VALUE",
+ * //       SupportedNetworkTypes: [
+ * //         "ipv4" || "ipv6" || "dual_stack",
+ * //       ],
  * //     },
  * //   ],
  * // };

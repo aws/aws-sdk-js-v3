@@ -219,6 +219,35 @@ export const DataTieringStatus = {
 export type DataTieringStatus = (typeof DataTieringStatus)[keyof typeof DataTieringStatus];
 
 /**
+ * @public
+ * @enum
+ */
+export const IpDiscovery = {
+  IPV4: "ipv4",
+  IPV6: "ipv6",
+} as const;
+
+/**
+ * @public
+ */
+export type IpDiscovery = (typeof IpDiscovery)[keyof typeof IpDiscovery];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkType = {
+  DUAL_STACK: "dual_stack",
+  IPV4: "ipv4",
+  IPV6: "ipv6",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
+
+/**
  * <p>Represents the progress of an online resharding operation.</p>
  * @public
  */
@@ -567,6 +596,18 @@ export interface Cluster {
    * @public
    */
   DataTiering?: DataTieringStatus | undefined;
+
+  /**
+   * <p>The IP address type for the cluster. Returns 'ipv4' for IPv4 only, 'ipv6' for IPv6 only, or 'dual-stack' if the cluster supports both IPv4 and IPv6 addressing.</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
+
+  /**
+   * <p>The mechanism that the cluster uses to discover IP addresses. Returns 'ipv4' when DNS endpoints resolve to IPv4 addresses, or 'ipv6' when DNS endpoints resolve to IPv6 addresses.</p>
+   * @public
+   */
+  IpDiscovery?: IpDiscovery | undefined;
 }
 
 /**
@@ -1395,6 +1436,18 @@ export interface CreateClusterRequest {
    * @public
    */
   DataTiering?: boolean | undefined;
+
+  /**
+   * <p>Specifies the IP address type for the cluster. Valid values are 'ipv4', 'ipv6', or 'dual_stack'. When set to 'ipv4', the cluster will only be accessible via IPv4 addresses. When set to 'ipv6', the cluster will only be accessible via IPv6 addresses. When set to 'dual_stack', the cluster will be accessible via both IPv4 and IPv6 addresses. If not specified, the default is 'ipv4'.</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
+
+  /**
+   * <p>The mechanism for discovering IP addresses for the cluster discovery protocol. Valid values are 'ipv4' or 'ipv6'. When set to 'ipv4', cluster discovery functions such as cluster slots, cluster shards, and cluster nodes return IPv4 addresses for cluster nodes. When set to 'ipv6', the cluster discovery functions return IPv6 addresses for cluster nodes. The value must be compatible with the NetworkType parameter. If not specified, the default is 'ipv4'.</p>
+   * @public
+   */
+  IpDiscovery?: IpDiscovery | undefined;
 }
 
 /**
@@ -1633,7 +1686,7 @@ export class SubnetGroupNotFoundFault extends __BaseException {
  */
 export interface CreateMultiRegionClusterRequest {
   /**
-   * <p>A suffix to be added to the multi-Region cluster name.</p>
+   * <p>A suffix to be added to the Multi-Region cluster name. Amazon MemoryDB automatically applies a prefix to the Multi-Region cluster Name when it is created. Each Amazon Region has its own prefix. For instance, a Multi-Region cluster Name created in the US-West-1 region will begin with "virxk", along with the suffix name you provide. The suffix guarantees uniqueness of the Multi-Region cluster name across multiple regions.</p>
    * @public
    */
   MultiRegionClusterNameSuffix: string | undefined;
@@ -2107,6 +2160,12 @@ export interface Subnet {
    * @public
    */
   AvailabilityZone?: AvailabilityZone | undefined;
+
+  /**
+   * <p>The network types supported by this subnet. Returns an array of strings that can include 'ipv4', 'ipv6', or both, indicating whether the subnet supports IPv4 only, IPv6 only, or dual-stack deployments.</p>
+   * @public
+   */
+  SupportedNetworkTypes?: NetworkType[] | undefined;
 }
 
 /**
@@ -2152,6 +2211,12 @@ export interface SubnetGroup {
    * @public
    */
   ARN?: string | undefined;
+
+  /**
+   * <p>The network types supported by this subnet group. Returns an array of strings that can include 'ipv4', 'ipv6', or both, indicating the IP address types that can be used for clusters deployed in this subnet group.</p>
+   * @public
+   */
+  SupportedNetworkTypes?: NetworkType[] | undefined;
 }
 
 /**
@@ -4341,6 +4406,12 @@ export interface UpdateClusterRequest {
    * @public
    */
   ACLName?: string | undefined;
+
+  /**
+   * <p>The mechanism for discovering IP addresses for the cluster discovery protocol. Valid values are 'ipv4' or 'ipv6'. When set to 'ipv4', cluster discovery functions such as cluster slots, cluster shards, and cluster nodes will return IPv4 addresses for cluster nodes. When set to 'ipv6', the cluster discovery functions return IPv6 addresses for cluster nodes. The value must be compatible with the NetworkType parameter. If not specified, the default is 'ipv4'.</p>
+   * @public
+   */
+  IpDiscovery?: IpDiscovery | undefined;
 }
 
 /**
@@ -4409,7 +4480,7 @@ export interface UpdateMultiRegionClusterRequest {
   MultiRegionParameterGroupName?: string | undefined;
 
   /**
-   * <p>Whether to force the update even if it may cause data loss.</p>
+   * <p>The strategy to use for the update operation. Supported values are "coordinated" or "uncoordinated".</p>
    * @public
    */
   UpdateStrategy?: UpdateStrategy | undefined;

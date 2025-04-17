@@ -117,6 +117,8 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * //       ACLName: "STRING_VALUE",
  * //       AutoMinorVersionUpgrade: true || false,
  * //       DataTiering: "true" || "false",
+ * //       NetworkType: "ipv4" || "ipv6" || "dual_stack",
+ * //       IpDiscovery: "ipv4" || "ipv6",
  * //     },
  * //   ],
  * // };

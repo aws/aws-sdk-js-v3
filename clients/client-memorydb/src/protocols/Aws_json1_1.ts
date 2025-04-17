@@ -2937,10 +2937,12 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
     Engine: __expectString,
     EnginePatchVersion: __expectString,
     EngineVersion: __expectString,
+    IpDiscovery: __expectString,
     KmsKeyId: __expectString,
     MaintenanceWindow: __expectString,
     MultiRegionClusterName: __expectString,
     Name: __expectString,
+    NetworkType: __expectString,
     NodeType: __expectString,
     NumberOfShards: __expectInt32,
     ParameterGroupName: __expectString,
@@ -3242,6 +3244,8 @@ const de_FailoverShardResponse = (output: any, context: __SerdeContext): Failove
 // de_MultiRegionClusterNotFoundFault omitted.
 
 // de_MultiRegionParameterGroupNotFoundFault omitted.
+
+// de_NetworkTypeList omitted.
 
 /**
  * deserializeAws_json1_1Node
