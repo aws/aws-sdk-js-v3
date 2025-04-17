@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.791.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.790.0...v3.791.0) (2025-04-17)
+
+
+### Features
+
+* **client-accessanalyzer:** Added new resource types to evaluate for public access in resource policies and added support for S3 directory bucket access points. ([78fb249](https://github.com/aws/aws-sdk-js-v3/commit/78fb249edfc2427cff6760192797bf0d12448924))
+* **client-amp:** Add Workspace Configuration APIs for Amazon Prometheus ([12264e0](https://github.com/aws/aws-sdk-js-v3/commit/12264e03276838d1722c92c9aab768f88530efae))
+* **client-bedrock:** With this release, Bedrock Evaluation will now support custom metrics for evaluation. ([0cbc496](https://github.com/aws/aws-sdk-js-v3/commit/0cbc49677bec024bc9186366a758ca4f9906ab22))
+* **client-connect:** This release adds following capabilities to Contact Lens Rules APIs 1/ 'ASSIGN_SLA' action and  '$.Case.TemplateId' comparison value for 'OnCaseCreate' and 'OnCaseUpdate' event sources 2/ 'OnSlaBreach' Cases event source which supports '$.RelatedItem.SlaConfiguration.Name' comparison value ([2541eba](https://github.com/aws/aws-sdk-js-v3/commit/2541eba0437097c4f6bdadf9cc6cc0a49d6a8934))
+* **client-ecs:** Adds a new AccountSetting - defaultLogDriverMode for ECS. ([15d53e0](https://github.com/aws/aws-sdk-js-v3/commit/15d53e042146f0bb32f3cd621acaf6d9272639f7))
+* **client-iotfleetwise:** We've added stricter parameter validations to AWS IoT FleetWise signal catalog, model manifest, and decoder manifest APIs. ([0f39c71](https://github.com/aws/aws-sdk-js-v3/commit/0f39c711db942a8fa59d7e636c8fbb1594db5f24))
+* **client-memorydb:** Added support for IPv6 and dual stack for Valkey and Redis clusters. Customers can now launch new Valkey and Redis clusters with IPv6 and dual stack networking support. ([82e65ab](https://github.com/aws/aws-sdk-js-v3/commit/82e65abdd16de0ca188197b29565afd7add1a2fe))
+* **client-omics:** Add versioning for HealthOmics workflows ([c5e4cfc](https://github.com/aws/aws-sdk-js-v3/commit/c5e4cfc2e517fdfb224c0471bdf4f5db9dae7623))
+* **clients:** update client endpoints as of 2025-04-17 ([4543098](https://github.com/aws/aws-sdk-js-v3/commit/45430986b248954ae2c037714d605d4a57e7ade9))
+
+
+
+
+
 # [3.790.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.789.0...v3.790.0) (2025-04-16)
 
 
