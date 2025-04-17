@@ -74,6 +74,10 @@ import {
 import { DescribeScraperCommandInput, DescribeScraperCommandOutput } from "../commands/DescribeScraperCommand";
 import { DescribeWorkspaceCommandInput, DescribeWorkspaceCommandOutput } from "../commands/DescribeWorkspaceCommand";
 import {
+  DescribeWorkspaceConfigurationCommandInput,
+  DescribeWorkspaceConfigurationCommandOutput,
+} from "../commands/DescribeWorkspaceConfigurationCommand";
+import {
   GetDefaultScraperConfigurationCommandInput,
   GetDefaultScraperConfigurationCommandOutput,
 } from "../commands/GetDefaultScraperConfigurationCommand";
@@ -106,6 +110,10 @@ import {
   UpdateWorkspaceAliasCommandInput,
   UpdateWorkspaceAliasCommandOutput,
 } from "../commands/UpdateWorkspaceAliasCommand";
+import {
+  UpdateWorkspaceConfigurationCommandInput,
+  UpdateWorkspaceConfigurationCommandOutput,
+} from "../commands/UpdateWorkspaceConfigurationCommand";
 import { AmpServiceException as __BaseException } from "../models/AmpServiceException";
 import {
   AccessDeniedException,
@@ -115,6 +123,8 @@ import {
   Destination,
   EksConfiguration,
   InternalServerException,
+  LimitsPerLabelSet,
+  LimitsPerLabelSetEntry,
   LoggingConfigurationMetadata,
   ResourceNotFoundException,
   RoleConfiguration,
@@ -436,6 +446,22 @@ export const se_DescribeWorkspaceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeWorkspaceConfigurationCommand
+ */
+export const se_DescribeWorkspaceConfigurationCommand = async (
+  input: DescribeWorkspaceConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/workspaces/{workspaceId}/configuration");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetDefaultScraperConfigurationCommand
  */
 export const se_GetDefaultScraperConfigurationCommand = async (
@@ -690,6 +716,31 @@ export const se_UpdateWorkspaceAliasCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateWorkspaceConfigurationCommand
+ */
+export const se_UpdateWorkspaceConfigurationCommand = async (
+  input: UpdateWorkspaceConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/workspaces/{workspaceId}/configuration");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      limitsPerLabelSet: (_) => _json(_),
+      retentionPeriodInDays: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
   return b.build();
 };
 
@@ -1004,6 +1055,27 @@ export const de_DescribeWorkspaceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeWorkspaceConfigurationCommand
+ */
+export const de_DescribeWorkspaceConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorkspaceConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    workspaceConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetDefaultScraperConfigurationCommand
  */
 export const de_GetDefaultScraperConfigurationCommand = async (
@@ -1253,6 +1325,27 @@ export const de_UpdateWorkspaceAliasCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateWorkspaceConfigurationCommand
+ */
+export const de_UpdateWorkspaceConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorkspaceConfigurationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    status: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserialize_Aws_restJson1CommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -1447,6 +1540,14 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_EksConfiguration omitted.
 
+// se_LabelSet omitted.
+
+// se_LimitsPerLabelSet omitted.
+
+// se_LimitsPerLabelSetEntry omitted.
+
+// se_LimitsPerLabelSetList omitted.
+
 // se_RoleConfiguration omitted.
 
 /**
@@ -1489,6 +1590,14 @@ const de_AlertManagerDefinitionDescription = (
 // de_Destination omitted.
 
 // de_EksConfiguration omitted.
+
+// de_LabelSet omitted.
+
+// de_LimitsPerLabelSet omitted.
+
+// de_LimitsPerLabelSetEntry omitted.
+
+// de_LimitsPerLabelSetList omitted.
 
 /**
  * deserializeAws_restJson1LoggingConfigurationMetadata
@@ -1628,6 +1737,10 @@ const de_ScraperSummaryList = (output: any, context: __SerdeContext): ScraperSum
 // de_ValidationExceptionField omitted.
 
 // de_ValidationExceptionFieldList omitted.
+
+// de_WorkspaceConfigurationDescription omitted.
+
+// de_WorkspaceConfigurationStatus omitted.
 
 /**
  * deserializeAws_restJson1WorkspaceDescription
