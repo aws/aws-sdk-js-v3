@@ -431,6 +431,8 @@ export interface ServiceQuotas {
  * <p>With Service Quotas, you can view and manage your quotas easily as your Amazon Web Services workloads grow.
  *             Quotas, also referred to as limits, are the maximum number of resources that you can
  *             create in your Amazon Web Services account. For more information, see the <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/">Service Quotas User Guide</a>.</p>
+ *          <p>You need Amazon Web Services CLI version 2.13.20 or higher to view and manage resource-level quotas such as <code>Instances
+ *         per domain</code> for Amazon OpenSearch Service.</p>
  * @public
  */
 export class ServiceQuotas extends ServiceQuotasClient implements ServiceQuotas {}

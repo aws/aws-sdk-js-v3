@@ -37,7 +37,8 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves the quota increase requests for the specified quota.</p>
+ * <p>Retrieves the quota increase requests for the specified quota. Filter responses to return quota requests at either the
+ *             account level, resource level, or all levels.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

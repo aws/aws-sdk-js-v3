@@ -28,9 +28,10 @@ export interface ListServiceQuotasCommandInput extends ListServiceQuotasRequest 
 export interface ListServiceQuotasCommandOutput extends ListServiceQuotasResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the applied quota values for the specified Amazon Web Service. For some quotas, only
+ * <p>Lists the applied quota values for the specified Amazon Web Services service. For some quotas, only
  *             the default values are available. If the applied quota value is not available for a
- *             quota, the quota is not retrieved.</p>
+ *             quota, the quota is not retrieved. Filter responses to return applied quota values at either the account level,
+ *             resource level, or all levels.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,6 +82,7 @@ export interface ListServiceQuotasCommandOutput extends ListServiceQuotasRespons
  * //         ContextScopeType: "STRING_VALUE",
  * //         ContextId: "STRING_VALUE",
  * //       },
+ * //       Description: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

@@ -30,7 +30,7 @@ export interface ListAWSDefaultServiceQuotasCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the default values for the quotas for the specified Amazon Web Service. A default
+ * <p>Lists the default values for the quotas for the specified Amazon Web Services service. A default
  *             value does not reflect any quota increases.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +80,7 @@ export interface ListAWSDefaultServiceQuotasCommandOutput
  * //         ContextScopeType: "STRING_VALUE",
  * //         ContextId: "STRING_VALUE",
  * //       },
+ * //       Description: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
