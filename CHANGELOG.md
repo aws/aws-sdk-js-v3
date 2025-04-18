@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.792.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.791.0...v3.792.0) (2025-04-18)
+
+
+### Features
+
+* **client-qconnect:** This release adds support for the following capabilities: Chunking generative answer replies from Amazon Q in Connect. Integration support for the use of additional LLM models with Amazon Q in Connect. ([002af75](https://github.com/aws/aws-sdk-js-v3/commit/002af75c22efa8542a51a68c0edb922edbb8a74e))
+* **client-sagemaker:** This release adds a new Neuron driver option in InferenceAmiVersion parameter for ProductionVariant. Additionally, it adds support for fetching model lifecycle status in the ListModelPackages API. Users can now use this API to view the lifecycle stage of models that have been shared with them. ([b436013](https://github.com/aws/aws-sdk-js-v3/commit/b436013ed61efbc4ef5860629c451e6da4062bbd))
+* **client-service-quotas:** Add new optional SupportCaseAllowed query parameter to the RequestServiceQuotaIncrease API ([059c057](https://github.com/aws/aws-sdk-js-v3/commit/059c05772a98c52291a34ae6ceee3d48f48688a8))
+* **clients:** update client endpoints as of 2025-04-18 ([5b1cab6](https://github.com/aws/aws-sdk-js-v3/commit/5b1cab627a8dc590ed9dd6dd7dc8b8e87216df2d))
+
+
+
+
+
 # [3.791.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.790.0...v3.791.0) (2025-04-17)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.792.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.791.0...v3.792.0) (2025-04-18)
+
+
+### Features
+
+* **client-qconnect:** This release adds support for the following capabilities: Chunking generative answer replies from Amazon Q in Connect. Integration support for the use of additional LLM models with Amazon Q in Connect. ([002af75](https://github.com/aws/aws-sdk-js-v3/commit/002af75c22efa8542a51a68c0edb922edbb8a74e))
+
+
+
+
+
 # [3.787.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.786.0...v3.787.0) (2025-04-10)
 
 **Note:** Version bump only for package @aws-sdk/client-qconnect
