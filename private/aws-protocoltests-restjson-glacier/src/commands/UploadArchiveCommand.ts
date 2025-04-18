@@ -60,11 +60,11 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  * @see {@link UploadArchiveCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *
  * @throws {@link MissingParameterValueException} (client fault)
  *
  * @throws {@link RequestTimeoutException} (client fault)
- *
- * @throws {@link InvalidParameterValueException} (client fault)
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *

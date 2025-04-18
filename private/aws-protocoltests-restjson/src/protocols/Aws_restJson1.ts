@@ -105,6 +105,10 @@ import {
   HttpChecksumRequiredCommandInput,
   HttpChecksumRequiredCommandOutput,
 } from "../commands/HttpChecksumRequiredCommand";
+import {
+  HttpEmptyPrefixHeadersCommandInput,
+  HttpEmptyPrefixHeadersCommandOutput,
+} from "../commands/HttpEmptyPrefixHeadersCommand";
 import { HttpEnumPayloadCommandInput, HttpEnumPayloadCommandOutput } from "../commands/HttpEnumPayloadCommand";
 import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "../commands/HttpPayloadTraitsCommand";
 import {
@@ -721,6 +725,28 @@ export const se_HttpChecksumRequiredCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1HttpEmptyPrefixHeadersCommand
+ */
+export const se_HttpEmptyPrefixHeadersCommand = async (
+  input: HttpEmptyPrefixHeadersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_h]: input[_sH]!,
+    ...(input.prefixHeaders !== undefined &&
+      Object.keys(input.prefixHeaders).reduce((acc: any, suffix: string) => {
+        acc[`${suffix.toLowerCase()}`] = input.prefixHeaders![suffix];
+        return acc;
+      }, {})),
+  });
+  b.bp("/HttpEmptyPrefixHeaders");
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -2919,6 +2945,33 @@ export const de_HttpChecksumRequiredCommand = async (
     foo: __expectString,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1HttpEmptyPrefixHeadersCommand
+ */
+export const de_HttpEmptyPrefixHeadersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpEmptyPrefixHeadersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_sH]: [, output.headers[_h]],
+    prefixHeaders: [
+      ,
+      Object.keys(output.headers)
+        .filter((header) => header.startsWith(""))
+        .reduce((acc, header) => {
+          acc[header.substring(0)] = output.headers[header];
+          return acc;
+        }, {} as any),
+    ],
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -5519,6 +5572,7 @@ const _qSu = "queryShort";
 const _qT = "queryTimestamp";
 const _qTL = "queryTimestampList";
 const _s = "shortinheader";
+const _sH = "specificHeader";
 const _sIH = "shortInHeader";
 const _sIQ = "shortInQuery";
 const _t = "timestamp";

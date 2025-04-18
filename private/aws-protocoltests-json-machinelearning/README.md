@@ -1059,6 +1059,14 @@ HttpChecksumRequired
 </details>
 <details>
 <summary>
+HttpEmptyPrefixHeaders
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/machine-learning/command/HttpEmptyPrefixHeadersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-machine-learning/Interface/HttpEmptyPrefixHeadersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-machine-learning/Interface/HttpEmptyPrefixHeadersCommandOutput/)
+
+</details>
+<details>
+<summary>
 HttpEnumPayload
 </summary>
 
@@ -1983,6 +1991,14 @@ GreetingWithErrors
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/machine-learning/command/GreetingWithErrorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-machine-learning/Interface/GreetingWithErrorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-machine-learning/Interface/GreetingWithErrorsCommandOutput/)
+
+</details>
+<details>
+<summary>
+HttpEmptyPrefixHeaders
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/machine-learning/command/HttpEmptyPrefixHeadersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-machine-learning/Interface/HttpEmptyPrefixHeadersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-machine-learning/Interface/HttpEmptyPrefixHeadersCommandOutput/)
 
 </details>
 <details>

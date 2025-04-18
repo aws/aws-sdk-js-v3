@@ -78,6 +78,11 @@ import {
   HttpChecksumRequiredCommandOutput,
 } from "./commands/HttpChecksumRequiredCommand";
 import {
+  HttpEmptyPrefixHeadersCommand,
+  HttpEmptyPrefixHeadersCommandInput,
+  HttpEmptyPrefixHeadersCommandOutput,
+} from "./commands/HttpEmptyPrefixHeadersCommand";
+import {
   HttpEnumPayloadCommand,
   HttpEnumPayloadCommandInput,
   HttpEnumPayloadCommandOutput,
@@ -520,6 +525,7 @@ const commands = {
   GreetingWithErrorsCommand,
   HostWithPathOperationCommand,
   HttpChecksumRequiredCommand,
+  HttpEmptyPrefixHeadersCommand,
   HttpEnumPayloadCommand,
   HttpPayloadTraitsCommand,
   HttpPayloadTraitsWithMediaTypeCommand,
@@ -869,6 +875,24 @@ export interface RestJsonProtocol {
     args: HttpChecksumRequiredCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: HttpChecksumRequiredCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link HttpEmptyPrefixHeadersCommand}
+   */
+  httpEmptyPrefixHeaders(): Promise<HttpEmptyPrefixHeadersCommandOutput>;
+  httpEmptyPrefixHeaders(
+    args: HttpEmptyPrefixHeadersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpEmptyPrefixHeadersCommandOutput>;
+  httpEmptyPrefixHeaders(
+    args: HttpEmptyPrefixHeadersCommandInput,
+    cb: (err: any, data?: HttpEmptyPrefixHeadersCommandOutput) => void
+  ): void;
+  httpEmptyPrefixHeaders(
+    args: HttpEmptyPrefixHeadersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpEmptyPrefixHeadersCommandOutput) => void
   ): void;
 
   /**

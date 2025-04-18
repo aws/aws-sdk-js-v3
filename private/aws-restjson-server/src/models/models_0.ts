@@ -1247,6 +1247,96 @@ export namespace HttpChecksumRequiredInputOutput {
 /**
  * @public
  */
+export interface HttpEmptyPrefixHeadersInput {
+  prefixHeaders?: Record<string, string> | undefined;
+  specificHeader?: string | undefined;
+}
+
+export namespace HttpEmptyPrefixHeadersInput {
+  const memberValidators: {
+    prefixHeaders?: __MultiConstraintValidator<Record<string, string>>;
+    specificHeader?: __MultiConstraintValidator<string>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: HttpEmptyPrefixHeadersInput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "prefixHeaders": {
+            memberValidators["prefixHeaders"] = new __CompositeMapValidator<string>(
+              new __NoOpValidator(),
+              new __NoOpValidator(),
+              new __NoOpValidator()
+            );
+            break;
+          }
+          case "specificHeader": {
+            memberValidators["specificHeader"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("prefixHeaders").validate(obj.prefixHeaders, `${path}/prefixHeaders`),
+      ...getMemberValidator("specificHeader").validate(obj.specificHeader, `${path}/specificHeader`),
+    ];
+  };
+}
+
+/**
+ * @public
+ */
+export interface HttpEmptyPrefixHeadersOutput {
+  prefixHeaders?: Record<string, string> | undefined;
+  specificHeader?: string | undefined;
+}
+
+export namespace HttpEmptyPrefixHeadersOutput {
+  const memberValidators: {
+    prefixHeaders?: __MultiConstraintValidator<Record<string, string>>;
+    specificHeader?: __MultiConstraintValidator<string>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: HttpEmptyPrefixHeadersOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "prefixHeaders": {
+            memberValidators["prefixHeaders"] = new __CompositeMapValidator<string>(
+              new __NoOpValidator(),
+              new __NoOpValidator(),
+              new __NoOpValidator()
+            );
+            break;
+          }
+          case "specificHeader": {
+            memberValidators["specificHeader"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("prefixHeaders").validate(obj.prefixHeaders, `${path}/prefixHeaders`),
+      ...getMemberValidator("specificHeader").validate(obj.specificHeader, `${path}/specificHeader`),
+    ];
+  };
+}
+
+/**
+ * @public
+ */
 export interface HttpPayloadTraitsInputOutput {
   foo?: string | undefined;
   blob?: Uint8Array | undefined;

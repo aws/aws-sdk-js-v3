@@ -267,9 +267,9 @@ export interface KitchenSinkOperationCommandOutput extends KitchenSink, __Metada
  * @see {@link KitchenSinkOperationCommandOutput} for command's `response` shape.
  * @see {@link JsonProtocolClientResolvedConfig | config} for JsonProtocolClient's `config` shape.
  *
- * @throws {@link ErrorWithoutMembers} (server fault)
- *
  * @throws {@link ErrorWithMembers} (client fault)
+ *
+ * @throws {@link ErrorWithoutMembers} (server fault)
  *
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>

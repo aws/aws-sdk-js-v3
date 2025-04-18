@@ -257,6 +257,22 @@ export class InvalidGreeting extends __BaseException {
 /**
  * @public
  */
+export interface HttpEmptyPrefixHeadersInput {
+  prefixHeaders?: Record<string, string> | undefined;
+  specificHeader?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface HttpEmptyPrefixHeadersOutput {
+  prefixHeaders?: Record<string, string> | undefined;
+  specificHeader?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface HttpPayloadTraitsInputOutput {
   foo?: string | undefined;
   blob?: Uint8Array | undefined;

@@ -57,15 +57,15 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * @see {@link GreetingWithErrorsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
- * @throws {@link FooError} (server fault)
- *  This error has test cases that test some of the dark corners of Amazon service
- * framework history. It should only be implemented by clients.
+ * @throws {@link InvalidGreeting} (client fault)
+ *  This error is thrown when an invalid greeting value is provided.
  *
  * @throws {@link ComplexError} (client fault)
  *  This error is thrown when a request is invalid.
  *
- * @throws {@link InvalidGreeting} (client fault)
- *  This error is thrown when an invalid greeting value is provided.
+ * @throws {@link FooError} (server fault)
+ *  This error has test cases that test some of the dark corners of Amazon service
+ * framework history. It should only be implemented by clients.
  *
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>

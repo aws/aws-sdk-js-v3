@@ -21,6 +21,7 @@ import { FlattenedXmlMapWithXmlNameCommand } from "../../src/commands/FlattenedX
 import { FlattenedXmlMapWithXmlNamespaceCommand } from "../../src/commands/FlattenedXmlMapWithXmlNamespaceCommand";
 import { FractionalSecondsCommand } from "../../src/commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommand } from "../../src/commands/GreetingWithErrorsCommand";
+import { HttpEmptyPrefixHeadersCommand } from "../../src/commands/HttpEmptyPrefixHeadersCommand";
 import { HttpEnumPayloadCommand } from "../../src/commands/HttpEnumPayloadCommand";
 import { HttpPayloadTraitsCommand } from "../../src/commands/HttpPayloadTraitsCommand";
 import { HttpPayloadTraitsWithMediaTypeCommand } from "../../src/commands/HttpPayloadTraitsWithMediaTypeCommand";
@@ -1415,6 +1416,82 @@ it("ComplexError:Error:GreetingWithErrors", async () => {
     return;
   }
   fail("Expected an exception to be thrown from response");
+});
+
+/**
+ * Serializes all request headers, using specific when present
+ */
+it("HttpEmptyPrefixHeadersRequestClient:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpEmptyPrefixHeadersCommand({
+    prefixHeaders: {
+      "x-foo": "Foo",
+      hello: "Hello",
+    } as any,
+    specificHeader: "There",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/HttpEmptyPrefixHeaders");
+
+    expect(r.headers["hello"]).toBeDefined();
+    expect(r.headers["hello"]).toBe("There");
+    expect(r.headers["x-foo"]).toBeDefined();
+    expect(r.headers["x-foo"]).toBe("Foo");
+
+    expect(!r.body || r.body === `{}`).toBeTruthy();
+  }
+});
+
+/**
+ * Deserializes all response headers with the same for prefix and specific
+ */
+it("HttpEmptyPrefixHeadersResponseClient:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, {
+      "x-foo": "Foo",
+      hello: "There",
+    }),
+  });
+
+  const params: any = {};
+  const command = new HttpEmptyPrefixHeadersCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      prefixHeaders: {
+        "x-foo": "Foo",
+        hello: "There",
+      },
+      specificHeader: "There",
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
+  });
 });
 
 it("RestXmlEnumPayloadRequest:Request", async () => {

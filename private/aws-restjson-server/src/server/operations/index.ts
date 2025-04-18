@@ -14,6 +14,7 @@ export * from "./FractionalSeconds";
 export * from "./GreetingWithErrors";
 export * from "./HostWithPathOperation";
 export * from "./HttpChecksumRequired";
+export * from "./HttpEmptyPrefixHeaders";
 export * from "./HttpEnumPayload";
 export * from "./HttpPayloadTraits";
 export * from "./HttpPayloadTraitsWithMediaType";

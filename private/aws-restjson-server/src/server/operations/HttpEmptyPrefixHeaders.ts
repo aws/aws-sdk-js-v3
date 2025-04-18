@@ -11,7 +11,6 @@ import {
   SerializationException as __SerializationException,
   ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
-  ServiceException as __BaseException,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
   SmithyFrameworkException as __SmithyFrameworkException,
@@ -23,79 +22,63 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
-import { ComplexError, FooError, GreetingWithErrorsOutput, InvalidGreeting } from "../../models/models_0";
+import { HttpEmptyPrefixHeadersInput, HttpEmptyPrefixHeadersOutput } from "../../models/models_0";
 import {
-  deserializeGreetingWithErrorsRequest,
-  serializeComplexErrorError,
-  serializeFooErrorError,
+  deserializeHttpEmptyPrefixHeadersRequest,
   serializeFrameworkException,
-  serializeGreetingWithErrorsResponse,
-  serializeInvalidGreetingError,
+  serializeHttpEmptyPrefixHeadersResponse,
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type GreetingWithErrors<Context> = __Operation<
-  GreetingWithErrorsServerInput,
-  GreetingWithErrorsServerOutput,
+export type HttpEmptyPrefixHeaders<Context> = __Operation<
+  HttpEmptyPrefixHeadersServerInput,
+  HttpEmptyPrefixHeadersServerOutput,
   Context
 >;
 
-export interface GreetingWithErrorsServerInput {}
-export namespace GreetingWithErrorsServerInput {
+export interface HttpEmptyPrefixHeadersServerInput extends HttpEmptyPrefixHeadersInput {}
+export namespace HttpEmptyPrefixHeadersServerInput {
   /**
    * @internal
    */
-  export const validate: () => __ValidationFailure[] = () => [];
+  export const validate: (obj: Parameters<typeof HttpEmptyPrefixHeadersInput.validate>[0]) => __ValidationFailure[] =
+    HttpEmptyPrefixHeadersInput.validate;
 }
-export interface GreetingWithErrorsServerOutput extends GreetingWithErrorsOutput {}
+export interface HttpEmptyPrefixHeadersServerOutput extends HttpEmptyPrefixHeadersOutput {}
 
-export type GreetingWithErrorsErrors = InvalidGreeting | ComplexError | FooError;
+export type HttpEmptyPrefixHeadersErrors = never;
 
-export class GreetingWithErrorsSerializer
-  implements __OperationSerializer<RestJsonService<any>, "GreetingWithErrors", GreetingWithErrorsErrors>
+export class HttpEmptyPrefixHeadersSerializer
+  implements __OperationSerializer<RestJsonService<any>, "HttpEmptyPrefixHeaders", HttpEmptyPrefixHeadersErrors>
 {
-  serialize = serializeGreetingWithErrorsResponse;
-  deserialize = deserializeGreetingWithErrorsRequest;
+  serialize = serializeHttpEmptyPrefixHeadersResponse;
+  deserialize = deserializeHttpEmptyPrefixHeadersRequest;
 
-  isOperationError(error: any): error is GreetingWithErrorsErrors {
-    const names: GreetingWithErrorsErrors["name"][] = ["InvalidGreeting", "ComplexError", "FooError"];
-    return names.includes(error.name);
+  isOperationError(error: any): error is HttpEmptyPrefixHeadersErrors {
+    return false;
   }
 
-  serializeError(error: GreetingWithErrorsErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
-    switch (error.name) {
-      case "InvalidGreeting": {
-        return serializeInvalidGreetingError(error, ctx);
-      }
-      case "ComplexError": {
-        return serializeComplexErrorError(error, ctx);
-      }
-      case "FooError": {
-        return serializeFooErrorError(error, ctx);
-      }
-      default: {
-        throw error;
-      }
-    }
+  serializeError(error: HttpEmptyPrefixHeadersErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
+    throw error;
   }
 }
 
-export const getGreetingWithErrorsHandler = <Context>(
-  operation: __Operation<GreetingWithErrorsServerInput, GreetingWithErrorsServerOutput, Context>,
-  customizer: __ValidationCustomizer<"GreetingWithErrors">
+export const getHttpEmptyPrefixHeadersHandler = <Context>(
+  operation: __Operation<HttpEmptyPrefixHeadersServerInput, HttpEmptyPrefixHeadersServerOutput, Context>,
+  customizer: __ValidationCustomizer<"HttpEmptyPrefixHeaders">
 ): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
-  const mux = new httpbinding.HttpBindingMux<"RestJson", "GreetingWithErrors">([
-    new httpbinding.UriSpec<"RestJson", "GreetingWithErrors">(
-      "PUT",
-      [{ type: "path_literal", value: "GreetingWithErrors" }],
+  const mux = new httpbinding.HttpBindingMux<"RestJson", "HttpEmptyPrefixHeaders">([
+    new httpbinding.UriSpec<"RestJson", "HttpEmptyPrefixHeaders">(
+      "GET",
+      [{ type: "path_literal", value: "HttpEmptyPrefixHeaders" }],
       [],
-      { service: "RestJson", operation: "GreetingWithErrors" }
+      { service: "RestJson", operation: "HttpEmptyPrefixHeaders" }
     ),
   ]);
-  return new GreetingWithErrorsHandler(
+  return new HttpEmptyPrefixHeadersHandler(
     operation,
     mux,
-    new GreetingWithErrorsSerializer(),
+    new HttpEmptyPrefixHeadersSerializer(),
     serializeFrameworkException,
     customizer
   );
@@ -150,34 +133,38 @@ async function handle<S, O extends keyof S & string, Context>(
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
-export class GreetingWithErrorsHandler<Context> implements __ServiceHandler<Context> {
-  private readonly operation: __Operation<GreetingWithErrorsServerInput, GreetingWithErrorsServerOutput, Context>;
-  private readonly mux: __Mux<"RestJson", "GreetingWithErrors">;
+export class HttpEmptyPrefixHeadersHandler<Context> implements __ServiceHandler<Context> {
+  private readonly operation: __Operation<
+    HttpEmptyPrefixHeadersServerInput,
+    HttpEmptyPrefixHeadersServerOutput,
+    Context
+  >;
+  private readonly mux: __Mux<"RestJson", "HttpEmptyPrefixHeaders">;
   private readonly serializer: __OperationSerializer<
     RestJsonService<Context>,
-    "GreetingWithErrors",
-    GreetingWithErrorsErrors
+    "HttpEmptyPrefixHeaders",
+    HttpEmptyPrefixHeadersErrors
   >;
   private readonly serializeFrameworkException: (
     e: __SmithyFrameworkException,
     ctx: __ServerSerdeContext
   ) => Promise<__HttpResponse>;
-  private readonly validationCustomizer: __ValidationCustomizer<"GreetingWithErrors">;
+  private readonly validationCustomizer: __ValidationCustomizer<"HttpEmptyPrefixHeaders">;
   /**
-   * Construct a GreetingWithErrors handler.
-   * @param operation The {@link __Operation} implementation that supplies the business logic for GreetingWithErrors
+   * Construct a HttpEmptyPrefixHeaders handler.
+   * @param operation The {@link __Operation} implementation that supplies the business logic for HttpEmptyPrefixHeaders
    * @param mux The {@link __Mux} that verifies which service and operation are being invoked by a given {@link __HttpRequest}
-   * @param serializer An {@link __OperationSerializer} for GreetingWithErrors that
+   * @param serializer An {@link __OperationSerializer} for HttpEmptyPrefixHeaders that
    *                   handles deserialization of requests and serialization of responses
    * @param serializeFrameworkException A function that can serialize {@link __SmithyFrameworkException}s
    * @param validationCustomizer A {@link __ValidationCustomizer} for turning validation failures into {@link __SmithyFrameworkException}s
    */
   constructor(
-    operation: __Operation<GreetingWithErrorsServerInput, GreetingWithErrorsServerOutput, Context>,
-    mux: __Mux<"RestJson", "GreetingWithErrors">,
-    serializer: __OperationSerializer<RestJsonService<Context>, "GreetingWithErrors", GreetingWithErrorsErrors>,
+    operation: __Operation<HttpEmptyPrefixHeadersServerInput, HttpEmptyPrefixHeadersServerOutput, Context>,
+    mux: __Mux<"RestJson", "HttpEmptyPrefixHeaders">,
+    serializer: __OperationSerializer<RestJsonService<Context>, "HttpEmptyPrefixHeaders", HttpEmptyPrefixHeadersErrors>,
     serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>,
-    validationCustomizer: __ValidationCustomizer<"GreetingWithErrors">
+    validationCustomizer: __ValidationCustomizer<"HttpEmptyPrefixHeaders">
   ) {
     this.operation = operation;
     this.mux = mux;
@@ -189,18 +176,18 @@ export class GreetingWithErrorsHandler<Context> implements __ServiceHandler<Cont
     const target = this.mux.match(request);
     if (target === undefined) {
       console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.GreetingWithErrors. This indicates a misconfiguration."
+        "Received a request that did not match aws.protocoltests.restjson#RestJson.HttpEmptyPrefixHeaders. This indicates a misconfiguration."
       );
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
     return handle(
       request,
       context,
-      "GreetingWithErrors",
+      "HttpEmptyPrefixHeaders",
       this.serializer,
       this.operation,
       this.serializeFrameworkException,
-      GreetingWithErrorsServerInput.validate,
+      HttpEmptyPrefixHeadersServerInput.validate,
       this.validationCustomizer
     );
   }
