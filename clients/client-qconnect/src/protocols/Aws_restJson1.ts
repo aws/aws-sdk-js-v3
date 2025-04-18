@@ -311,6 +311,7 @@ import {
   KnowledgeBaseData,
   ManagedSourceConfiguration,
   ManualSearchAIAgentConfiguration,
+  MessageConfiguration,
   MessageData,
   MessageInput,
   MessageOutput,
@@ -361,6 +362,7 @@ import {
   DataDetails,
   DataSummary,
   ExternalSourceConfiguration,
+  GenerativeChunkDataDetails,
   GenerativeDataDetails,
   ImportJobData,
   ImportJobSummary,
@@ -1380,6 +1382,7 @@ export const se_GetRecommendationsCommand = async (
   const query: any = map({
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_wTS]: [() => input.waitTimeSeconds !== void 0, () => input[_wTS]!.toString()],
+    [_nCT]: [, input[_nCT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -2011,6 +2014,7 @@ export const se_SendMessageCommand = async (
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      configuration: (_) => _json(_),
       conversationContext: (_) => _json(_),
       message: (_) => _json(_),
       type: [],
@@ -3980,6 +3984,7 @@ export const de_SendMessageCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    configuration: _json,
     nextMessageToken: __expectString,
     requestMessageId: __expectString,
   });
@@ -4690,6 +4695,8 @@ const se_GuardrailContextualGroundingFiltersConfig = (
 
 // se_ManualSearchAIAgentConfiguration omitted.
 
+// se_MessageConfiguration omitted.
+
 // se_MessageData omitted.
 
 // se_MessageInput omitted.
@@ -5205,6 +5212,11 @@ const de_DataDetails = (output: any, context: __SerdeContext): DataDetails => {
       contentData: de_ContentDataDetails(output.contentData, context),
     };
   }
+  if (output.generativeChunkData != null) {
+    return {
+      generativeChunkData: de_GenerativeChunkDataDetails(output.generativeChunkData, context),
+    };
+  }
   if (output.generativeData != null) {
     return {
       generativeData: de_GenerativeDataDetails(output.generativeData, context),
@@ -5292,6 +5304,17 @@ const de_ExtendedMessageTemplateData = (output: any, context: __SerdeContext): E
 // de_FailureReason omitted.
 
 // de_FixedSizeChunkingConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1GenerativeChunkDataDetails
+ */
+const de_GenerativeChunkDataDetails = (output: any, context: __SerdeContext): GenerativeChunkDataDetails => {
+  return take(output, {
+    completion: __expectString,
+    nextChunkToken: __expectString,
+    references: (_: any) => de_DataSummaryList(_, context),
+  }) as any;
+};
 
 // de_GenerativeContentFeedbackData omitted.
 
@@ -5464,6 +5487,8 @@ const de_KnowledgeBaseData = (output: any, context: __SerdeContext): KnowledgeBa
 // de_ManagedSourceConfiguration omitted.
 
 // de_ManualSearchAIAgentConfiguration omitted.
+
+// de_MessageConfiguration omitted.
 
 // de_MessageData omitted.
 
@@ -5900,6 +5925,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const _aAT = "aiAgentType";
 const _mR = "maxResults";
+const _nCT = "nextChunkToken";
 const _nMT = "nextMessageToken";
 const _nT = "nextToken";
 const _o = "origin";

@@ -199,6 +199,13 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //                       endOffsetExclusive: Number("int"),
  * //                     },
  * //                   },
+ * //                   generativeChunkData: { // GenerativeChunkDataDetails
+ * //                     completion: "STRING_VALUE",
+ * //                     references: [
+ * //                       "<DataSummary>",
+ * //                     ],
+ * //                     nextChunkToken: "STRING_VALUE",
+ * //                   },
  * //                 },
  * //               },
  * //             ],
@@ -223,6 +230,13 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //               beginOffsetInclusive: Number("int"),
  * //               endOffsetExclusive: Number("int"),
  * //             },
+ * //           },
+ * //           generativeChunkData: {
+ * //             completion: "STRING_VALUE",
+ * //             references: [
+ * //               "<DataSummary>",
+ * //             ],
+ * //             nextChunkToken: "STRING_VALUE",
  * //           },
  * //         },
  * //       },

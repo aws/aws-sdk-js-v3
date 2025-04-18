@@ -110,6 +110,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * //         aiAgentId: "STRING_VALUE", // required
  * //       },
  * //     },
+ * //     origin: "STRING_VALUE",
  * //   },
  * // };
  *

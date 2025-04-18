@@ -55,12 +55,18 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  *       },
  *     ],
  *   },
+ *   configuration: { // MessageConfiguration
+ *     generateFillerMessage: true || false,
+ *   },
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new SendMessageCommand(input);
  * const response = await client.send(command);
  * // { // SendMessageResponse
  * //   requestMessageId: "STRING_VALUE", // required
+ * //   configuration: { // MessageConfiguration
+ * //     generateFillerMessage: true || false,
+ * //   },
  * //   nextMessageToken: "STRING_VALUE", // required
  * // };
  *

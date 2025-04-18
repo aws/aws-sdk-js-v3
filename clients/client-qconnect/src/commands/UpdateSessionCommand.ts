@@ -106,6 +106,7 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  * //         aiAgentId: "STRING_VALUE", // required
  * //       },
  * //     },
+ * //     origin: "STRING_VALUE",
  * //   },
  * // };
  *

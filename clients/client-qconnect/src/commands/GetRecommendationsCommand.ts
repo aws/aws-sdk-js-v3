@@ -52,6 +52,7 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  *   sessionId: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   waitTimeSeconds: Number("int"),
+ *   nextChunkToken: "STRING_VALUE",
  * };
  * const command = new GetRecommendationsCommand(input);
  * const response = await client.send(command);
@@ -184,6 +185,13 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //                       endOffsetExclusive: Number("int"),
  * //                     },
  * //                   },
+ * //                   generativeChunkData: { // GenerativeChunkDataDetails
+ * //                     completion: "STRING_VALUE",
+ * //                     references: [
+ * //                       "<DataSummary>",
+ * //                     ],
+ * //                     nextChunkToken: "STRING_VALUE",
+ * //                   },
  * //                 },
  * //               },
  * //             ],
@@ -208,6 +216,13 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //               beginOffsetInclusive: Number("int"),
  * //               endOffsetExclusive: Number("int"),
  * //             },
+ * //           },
+ * //           generativeChunkData: {
+ * //             completion: "STRING_VALUE",
+ * //             references: [
+ * //               "<DataSummary>",
+ * //             ],
+ * //             nextChunkToken: "STRING_VALUE",
  * //           },
  * //         },
  * //       },
