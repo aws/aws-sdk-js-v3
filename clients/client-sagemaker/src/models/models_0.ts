@@ -2292,7 +2292,28 @@ export interface StoppingCondition {
 
   /**
    * <p>The maximum length of time, in seconds, that a training or compilation job can be
-   *          pending before it is stopped.</p>
+   *             pending before it is stopped.</p>
+   *          <note>
+   *             <p>When working with training jobs that use capacity from <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/reserve-capacity-with-training-plans.html">training
+   *                     plans</a>, not all <code>Pending</code> job states count against the
+   *                     <code>MaxPendingTimeInSeconds</code> limit. The following scenarios do not
+   *                 increment the <code>MaxPendingTimeInSeconds</code> counter:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>The plan is in a <code>Scheduled</code> state: Jobs queued (in
+   *                             <code>Pending</code> status) before a plan's start date (waiting for
+   *                         scheduled start time)</p>
+   *                </li>
+   *                <li>
+   *                   <p>Between capacity reservations: Jobs temporarily back to
+   *                             <code>Pending</code> status between two capacity reservation
+   *                         periods</p>
+   *                </li>
+   *             </ul>
+   *             <p>
+   *                <code>MaxPendingTimeInSeconds</code> only increments when jobs are actively
+   *                 waiting for capacity in an <code>Active</code> plan.</p>
+   *          </note>
    * @public
    */
   MaxPendingTimeInSeconds?: number | undefined;
