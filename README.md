@@ -195,13 +195,13 @@ we have them listed in [UPGRADING.md](https://github.com/aws/aws-sdk-js-v3/blob/
 
 ### General Info
 
-The Lambda provided AWS SDK is set to a specific minor version, and NOT the latest version. To 
-determine which version of the SDK is included with the runtime you're using, 
-see [Runtime-included SDK versions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-nodejs.html#nodejs-sdk-included) 
-in the Lambda Developer Guide. To maintain full control of your dependencies, and to maximize 
-backward compatibility during automatic runtime updates, we recommend that you always include 
-the SDK modules your code uses in your function's deployment package or in a Lambda  layer. 
-See [Backward compatibility](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-update-compatibility) 
+The Lambda provided AWS SDK is set to a specific minor version, and NOT the latest version. To
+determine which version of the SDK is included with the runtime you're using,
+see [Runtime-included SDK versions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-nodejs.html#nodejs-sdk-included)
+in the Lambda Developer Guide. To maintain full control of your dependencies, and to maximize
+backward compatibility during automatic runtime updates, we recommend that you always include
+the SDK modules your code uses in your function's deployment package or in a Lambda layer.
+See [Backward compatibility](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-update-compatibility)
 to learn more.
 
 The performance of the AWS SDK for JavaScript v3 on node 18 has improved from v2 as seen in the [performance benchmarking](https://aws.amazon.com/blogs/developer/reduce-lambda-cold-start-times-migrate-to-aws-sdk-for-javascript-v3/)
@@ -701,6 +701,8 @@ and becomes available for its use. You do not need to use any imported objects d
 Note that you can also use the native JavaScript implementation of SigV4a that does not depend on AWS CRT and can be used in browsers (unlike the CRT version). The instructions for using that package are below.
 
 ### Using JavaScript (non-CRT) implementation of SigV4a
+
+Note: Use of AWS SignatureV4a in the browser (JS implementation) is not recommended, due to the bundle size of the SigV4a signing algorithm code. Consider whether there are other ways to achieve your desired application functionality without the use of sigv4a before installing these packages.
 
 AWS SDK for JavaScript v3 now supports a native JavaScript version of SigV4a that can be used in browsers and Node, and does not depend on [AWS Common Runtime (CRT)](https://docs.aws.amazon.com/sdkref/latest/guide/common-runtime.html). This is an alternative to the AWS CRT version, so you don't need to have both packages together.
 

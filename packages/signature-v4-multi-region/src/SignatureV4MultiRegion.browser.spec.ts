@@ -2,7 +2,7 @@ import { HttpRequest } from "@smithy/protocol-http";
 import { Checksum } from "@smithy/types";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { SignatureV4MultiRegion } from "./browser-build/browser-signature-v4-multi-region-bundle.js";
+import { SignatureV4MultiRegion } from "../test-browser/browser-build/browser-signature-v4-multi-region-bundle.js";
 
 describe("SignatureV4MultiRegion (Browser Bundle SigV4a Test)", () => {
   const credentials = {

@@ -23524,9 +23524,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/signature-v4-multi-region@workspace:packages/signature-v4-multi-region"
   dependencies:
-    "@aws-sdk/client-s3": "npm:*"
     "@aws-sdk/middleware-sdk-s3": "npm:*"
-    "@aws-sdk/signature-v4-crt": "npm:*"
     "@aws-sdk/types": "npm:*"
     "@smithy/protocol-http": "npm:^5.1.0"
     "@smithy/signature-v4": "npm:^5.0.2"
