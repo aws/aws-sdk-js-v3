@@ -2,14 +2,14 @@ import { HttpRequest } from "@smithy/protocol-http";
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 vi.mock("@smithy/signature-v4");
-vi.mock("@smithy/signature-v4a");
+vi.mock("@aws-sdk/signature-v4a");
 vi.mock("@aws-sdk/middleware-sdk-s3");
 vi.mock("@aws-sdk/signature-v4-crt");
 
 import { SignatureV4S3Express } from "@aws-sdk/middleware-sdk-s3";
 import { CrtSignerV4 } from "@aws-sdk/signature-v4-crt";
+import { SignatureV4a } from "@aws-sdk/signature-v4a";
 import { signatureV4aContainer } from "@smithy/signature-v4";
-import { SignatureV4a } from "@smithy/signature-v4a";
 import { Checksum } from "@smithy/types";
 
 import { signatureV4CrtContainer } from "./signature-v4-crt-container";
@@ -134,7 +134,7 @@ describe("SignatureV4MultiRegion", () => {
     const signer = new SignatureV4MultiRegion(params);
     await expect(signer.sign(minimalRequest, { signingRegion: "*" })).rejects.toThrow(
       "Neither CRT nor JS SigV4a implementation is available. " +
-        "Please load either @aws-sdk/signature-v4-crt or @smithy/signature-v4a. " +
+        "Please load either @aws-sdk/signature-v4-crt or @aws-sdk/signature-v4a. " +
         "For more information please go to " +
         "https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt"
     );
@@ -146,9 +146,9 @@ describe("SignatureV4MultiRegion", () => {
     const signer = new SignatureV4MultiRegion(nonNodeParams);
     await expect(signer.sign(minimalRequest, { signingRegion: "*" })).rejects.toThrow(
       "JS SigV4a implementation is not available or not a valid constructor. " +
-        "Please check whether you have installed the @smithy/signature-v4a package explicitly. The CRT implementation is not available for browsers. " +
-        "You must also register the package by calling [require('@smithy/signature-v4a');] " +
-        "or an ESM equivalent such as [import '@smithy/signature-v4a';]. " +
+        "Please check whether you have installed the @aws-sdk/signature-v4a package explicitly. The CRT implementation is not available for browsers. " +
+        "You must also register the package by calling [require('@aws-sdk/signature-v4a');] " +
+        "or an ESM equivalent such as [import '@aws-sdk/signature-v4a';]. " +
         "For more information please go to " +
         "https://github.com/aws/aws-sdk-js-v3#using-javascript-non-crt-implementation-of-sigv4a"
     );

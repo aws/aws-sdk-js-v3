@@ -1,4 +1,4 @@
-import "@smithy/signature-v4a";
+import "@aws-sdk/signature-v4a";
 
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { CloudFrontClient, CreateKeyValueStoreCommand, DeleteKeyValueStoreCommand } from "@aws-sdk/client-cloudfront";
@@ -87,7 +87,7 @@ describe("CloudFront KeyValue Store with SignatureV4a (JS Implementation)", () =
     keyValueStoreETag = createResponse.ETag!;
 
     await waitForKeyValueStoreReady(kvsClient, keyValueStoreARN);
-  });
+  }, LONG_TIMEOUT);
 
   afterAll(async () => {
     vi.setConfig({ testTimeout: LONG_TIMEOUT });

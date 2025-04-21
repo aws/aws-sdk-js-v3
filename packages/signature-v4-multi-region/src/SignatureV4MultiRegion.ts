@@ -120,7 +120,7 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
         if (!CrtSignerV4 && !JsSigV4aSigner) {
           throw new Error(
             "Neither CRT nor JS SigV4a implementation is available. " +
-              "Please load either @aws-sdk/signature-v4-crt or @smithy/signature-v4a. " +
+              "Please load either @aws-sdk/signature-v4-crt or @aws-sdk/signature-v4a. " +
               "For more information please go to " +
               "https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt"
           );
@@ -138,7 +138,7 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
         } else {
           throw new Error(
             "Available SigV4a implementation is not a valid constructor. " +
-              "Please ensure you've properly imported @aws-sdk/signature-v4-crt or @smithy/signature-v4a." +
+              "Please ensure you've properly imported @aws-sdk/signature-v4-crt or @aws-sdk/signature-v4a." +
               "For more information please go to " +
               "https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt"
           );
@@ -147,9 +147,9 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
         if (!JsSigV4aSigner || typeof JsSigV4aSigner !== "function") {
           throw new Error(
             "JS SigV4a implementation is not available or not a valid constructor. " +
-              "Please check whether you have installed the @smithy/signature-v4a package explicitly. The CRT implementation is not available for browsers. " +
-              "You must also register the package by calling [require('@smithy/signature-v4a');] " +
-              "or an ESM equivalent such as [import '@smithy/signature-v4a';]. " +
+              "Please check whether you have installed the @aws-sdk/signature-v4a package explicitly. The CRT implementation is not available for browsers. " +
+              "You must also register the package by calling [require('@aws-sdk/signature-v4a');] " +
+              "or an ESM equivalent such as [import '@aws-sdk/signature-v4a';]. " +
               "For more information please go to " +
               "https://github.com/aws/aws-sdk-js-v3#using-javascript-non-crt-implementation-of-sigv4a"
           );

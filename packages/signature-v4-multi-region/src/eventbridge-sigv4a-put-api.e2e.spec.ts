@@ -1,5 +1,5 @@
 // eventbridge global endpoints: https://aws.amazon.com/blogs/compute/introducing-global-endpoints-for-amazon-eventbridge/
-import "@smithy/signature-v4a";
+import "@aws-sdk/signature-v4a";
 
 import { Sha256 } from "@aws-crypto/sha256-js";
 import {

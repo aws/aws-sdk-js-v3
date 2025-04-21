@@ -4,6 +4,7 @@
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/signature-v4-multi-region.svg)](https://www.npmjs.com/package/@aws-sdk/signature-v4-multi-region)
 
 See also https://github.com/aws/aws-sdk-js-v3/tree/main#functionality-requiring-aws-common-runtime-crt.
+
 ## Usage
 
 This package contains optional dependency [`@aws-sdk/signature-v4-crt`](https://www.npmjs.com/package/@aws-sdk/signature-v4).
@@ -14,6 +15,11 @@ instance building the package runs a different operating system than the instanc
 The `@aws-sdk/signature-v4-crt` is only supported in Node.js currently because it depends on a native dependency.
 
 Please refer to [this issue](https://github.com/aws/aws-sdk-js-v3/issues/2822) for more information.
+
+Note: You can also use a native JS (non-CRT) implementation of the SigV4A signer, instructions for which are here:
+https://github.com/aws/aws-sdk-js-v3/tree/main#functionality-requiring-aws-common-runtime-crt
+
+Please refer to the note regarding bundle size in the link above, before deciding to use the JS SigV4A signer (including in browsers).
 
 ## Description
 

@@ -1,1 +1,1 @@
-import "@smithy/signature-v4a";
+import "@aws-sdk/signature-v4a";

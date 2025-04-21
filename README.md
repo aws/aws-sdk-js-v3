@@ -710,7 +710,7 @@ If neither the CRT components nor the JavaScript SigV4a implementation are insta
 
 ```console
 Neither CRT nor JS SigV4a implementation is available.
-Please load either @aws-sdk/signature-v4-crt or @smithy/signature-v4a.
+Please load either @aws-sdk/signature-v4-crt or @aws-sdk/signature-v4a.
 ```
 
 indicating that at least one of the required dependencies is missing to use the associated functionality. To install the JavaScript SigV4a dependency, follow the provided instructions.
@@ -721,21 +721,21 @@ You can install the JavaScript SigV4a dependency with different commands dependi
 If you are using NPM:
 
 ```console
-npm install @smithy/signature-v4a
+npm install @aws-sdk/signature-v4a
 ```
 
 If you are using Yarn:
 
 ```console
-yarn add @smithy/signature-v4a
+yarn add @aws-sdk/signature-v4a
 ```
 
 Additionally, load the signature-v4a package by importing it.
 
 ```js
-require("@smithy/signature-v4a");
+require("@aws-sdk/signature-v4a");
 // or ESM
-import "@smithy/signature-v4a";
+import "@aws-sdk/signature-v4a";
 ```
 
 Only the import statement is needed. The implementation then registers itself with `@aws-sdk/signature-v4-multi-region`

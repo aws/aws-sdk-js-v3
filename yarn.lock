@@ -23538,6 +23538,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/signature-v4a@workspace:packages/signature-v4a":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/signature-v4a@workspace:packages/signature-v4a"
+  dependencies:
+    "@smithy/signature-v4a": "file:../../../smithy-typescript/packages/signature-v4a/package.tgz"
+    "@tsconfig/recommended": "npm:1.0.1"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    rimraf: "npm:3.0.2"
+    typescript: "npm:~5.2.2"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/smithy-client@workspace:packages/smithy-client":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/smithy-client@workspace:packages/smithy-client"
@@ -28050,6 +28063,19 @@ __metadata:
     "@smithy/util-utf8": "npm:^4.0.0"
     tslib: "npm:^2.6.2"
   checksum: 10c0/379b2bcd535cfcf68567b8931920eefd3ec30fc734369b5a1055792377a815cb7b6c7fc3a18567e6066d771ddfd0d06da8e45334a02bf86d69985d1923a11c29
+  languageName: node
+  linkType: hard
+
+"@smithy/signature-v4a@file:../../../smithy-typescript/packages/signature-v4a/package.tgz::locator=%40aws-sdk%2Fsignature-v4a%40workspace%3Apackages%2Fsignature-v4a":
+  version: 3.0.0
+  resolution: "@smithy/signature-v4a@file:../../../smithy-typescript/packages/signature-v4a/package.tgz#../../../smithy-typescript/packages/signature-v4a/package.tgz::hash=1482c2&locator=%40aws-sdk%2Fsignature-v4a%40workspace%3Apackages%2Fsignature-v4a"
+  dependencies:
+    "@smithy/signature-v4": "npm:^5.0.2"
+    "@smithy/types": "npm:^4.2.0"
+    "@smithy/util-hex-encoding": "npm:^4.0.0"
+    "@smithy/util-utf8": "npm:^4.0.0"
+    tslib: "npm:^2.6.2"
+  checksum: 10c0/da083a9b219721d4885b151025295216291495b242a69151c993cf7d01308e514d432fcd3c46ec91f66b0039c042cd3e7b4cdbfb6759f71b09d21cc24e73aa92
   languageName: node
   linkType: hard
 
