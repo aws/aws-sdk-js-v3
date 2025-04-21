@@ -13,7 +13,7 @@ sync:
 	make -f Makefile.private.mk sync
 
 test-unit: build-s3-browser-bundle
-  build-signature-v4-multi-region-browser-bundle
+    build-signature-v4-multi-region-browser-bundle
 	yarn g:vitest run -c vitest.config.ts
 	yarn g:vitest run -c vitest.config.browser.ts
 	yarn g:vitest run -c vitest.config.clients.unit.ts
