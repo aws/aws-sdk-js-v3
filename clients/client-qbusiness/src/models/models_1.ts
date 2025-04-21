@@ -4,9 +4,11 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 import {
   ActionExecution,
   ActionExecutionEvent,
+  ActionReview,
   ActionSummary,
   AttachmentInput,
   AttachmentInputEvent,
+  AttachmentOutput,
   AuthChallengeResponse,
   AuthChallengeResponseEvent,
   BlockedPhrasesConfigurationUpdate,
@@ -15,6 +17,7 @@ import {
   ContentSource,
   CreatorModeConfiguration,
   DocumentAttribute,
+  DocumentDetails,
   EndOfInputEvent,
   HallucinationReductionConfiguration,
   MembershipType,
@@ -22,6 +25,7 @@ import {
   PluginType,
   ResponseScope,
   S3,
+  SourceAttribution,
   SubscriptionDetails,
   SubscriptionPrincipal,
   SubscriptionType,
@@ -34,10 +38,245 @@ import {
 /**
  * @public
  */
+export interface ListDocumentsResponse {
+  /**
+   * <p>A list of document details.</p>
+   * @public
+   */
+  documentDetailList?: DocumentDetails[] | undefined;
+
+  /**
+   * <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of documents.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGroupsRequest {
+  /**
+   * <p>The identifier of the application for getting a list of groups mapped to users.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The identifier of the index for getting a list of groups mapped to users.</p>
+   * @public
+   */
+  indexId: string | undefined;
+
+  /**
+   * <p>The timestamp identifier used for the latest <code>PUT</code> or <code>DELETE</code> action for mapping users to their groups.</p>
+   * @public
+   */
+  updatedEarlierThan: Date | undefined;
+
+  /**
+   * <p>The identifier of the data source for getting a list of groups mapped to users.</p>
+   * @public
+   */
+  dataSourceId?: string | undefined;
+
+  /**
+   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of groups that are mapped to users.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of returned groups that are mapped to users.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Summary information for groups.</p>
+ * @public
+ */
+export interface GroupSummary {
+  /**
+   * <p>The name of the group the summary information is for.</p>
+   * @public
+   */
+  groupName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGroupsResponse {
+  /**
+   * <p>If the response is truncated, Amazon Q Business returns this token that you can use in the subsequent request to retrieve the next set of groups that are mapped to users.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Summary information for list of groups that are mapped to users.</p>
+   * @public
+   */
+  items?: GroupSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessagesRequest {
+  /**
+   * <p>The identifier of the Amazon Q Business web experience conversation.</p>
+   * @public
+   */
+  conversationId: string | undefined;
+
+  /**
+   * <p>The identifier for the Amazon Q Business application.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The identifier of the user involved in the Amazon Q Business web experience conversation.</p>
+   * @public
+   */
+  userId?: string | undefined;
+
+  /**
+   * <p>If the number of messages returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set of messages.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of messages to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MessageType = {
+  SYSTEM: "SYSTEM",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type MessageType = (typeof MessageType)[keyof typeof MessageType];
+
+/**
+ * <p>A message in an Amazon Q Business web experience.</p>
+ * @public
+ */
+export interface Message {
+  /**
+   * <p>The identifier of the Amazon Q Business web experience message.</p>
+   * @public
+   */
+  messageId?: string | undefined;
+
+  /**
+   * <p>The content of the Amazon Q Business web experience message.</p>
+   * @public
+   */
+  body?: string | undefined;
+
+  /**
+   * <p>The timestamp of the first Amazon Q Business web experience message.</p>
+   * @public
+   */
+  time?: Date | undefined;
+
+  /**
+   * <p>The type of Amazon Q Business message, whether <code>HUMAN</code> or <code>AI</code> generated.</p>
+   * @public
+   */
+  type?: MessageType | undefined;
+
+  /**
+   * <p>A file directly uploaded into an Amazon Q Business web experience chat.</p>
+   * @public
+   */
+  attachments?: AttachmentOutput[] | undefined;
+
+  /**
+   * <p>The source documents used to generate Amazon Q Business web experience message.</p>
+   * @public
+   */
+  sourceAttribution?: SourceAttribution[] | undefined;
+
+  /**
+   * <p>An output event that Amazon Q Business returns to an user who wants to perform a plugin action during a non-streaming chat conversation. It contains information about the selected action with a list of possible user input fields, some pre-populated by Amazon Q Business.</p>
+   * @public
+   */
+  actionReview?: ActionReview | undefined;
+
+  /**
+   * <p>Performs an Amazon Q Business plugin action during a non-streaming chat conversation.</p>
+   * @public
+   */
+  actionExecution?: ActionExecution | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessagesResponse {
+  /**
+   * <p>An array of information on one or more messages.</p>
+   * @public
+   */
+  messages?: Message[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a later request to list the next set of messages.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPluginActionsRequest {
+  /**
+   * <p>The identifier of the Amazon Q Business application the plugin is attached to.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q Business plugin.</p>
+   * @public
+   */
+  pluginId: string | undefined;
+
+  /**
+   * <p>If the number of plugin actions returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set of plugin actions.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of plugin actions to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListPluginActionsResponse {
   /**
-   * <p>If the response is truncated, Amazon Q Business returns this token, which you
-   *             can use in a later request to list the next set of plugin actions.</p>
+   * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a later request to list the next set of plugin actions.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -60,8 +299,7 @@ export interface ListPluginTypeActionsRequest {
   pluginType: PluginType | undefined;
 
   /**
-   * <p>If the number of plugins returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set
-   *             of plugins.</p>
+   * <p>If the number of plugins returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set of plugins.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -78,8 +316,7 @@ export interface ListPluginTypeActionsRequest {
  */
 export interface ListPluginTypeActionsResponse {
   /**
-   * <p>If the response is truncated, Amazon Q Business returns this token, which you
-   *             can use in a later request to list the next set of plugins.</p>
+   * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a later request to list the next set of plugins.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -96,8 +333,7 @@ export interface ListPluginTypeActionsResponse {
  */
 export interface ListPluginTypeMetadataRequest {
   /**
-   * <p>If the metadata returned exceeds <code>maxResults</code>, Amazon Q Business
-   *             returns a next token as a pagination token to retrieve the next set of metadata.</p>
+   * <p>If the metadata returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set of metadata.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -144,8 +380,7 @@ export interface PluginTypeMetadataSummary {
   category?: PluginTypeCategory | undefined;
 
   /**
-   * <p>The description assigned by Amazon Q Business to a plugin. You can't
-   *             modify this value.</p>
+   * <p>The description assigned by Amazon Q Business to a plugin. You can't modify this value.</p>
    * @public
    */
   description?: string | undefined;
@@ -156,8 +391,7 @@ export interface PluginTypeMetadataSummary {
  */
 export interface ListPluginTypeMetadataResponse {
   /**
-   * <p>If the response is truncated, Amazon Q Business returns this token, which you
-   *             can use in a later request to list the next set of plugin metadata.</p>
+   * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a later request to list the next set of plugin metadata.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -180,9 +414,7 @@ export interface ListSubscriptionsRequest {
   applicationId: string | undefined;
 
   /**
-   * <p>If the <code>maxResults</code> response was incomplete because there is more data to
-   *             retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-   *             pagination token to retrieve the next set of Amazon Q Business subscriptions.</p>
+   * <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of Amazon Q Business subscriptions.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -195,13 +427,7 @@ export interface ListSubscriptionsRequest {
 }
 
 /**
- * <p>Information about an Amazon Q Business subscription.</p>
- *          <p>Subscriptions are used to provide access for an IAM Identity Center user or a group to
- *             an Amazon Q Business application.</p>
- *          <p>Amazon Q Business offers two subscription tiers: <code>Q_LITE</code> and
- *                 <code>Q_BUSINESS</code>. Subscription tier determines feature access for the user.
- *             For more information on subscriptions and pricing tiers, see <a href="https://aws.amazon.com/q/business/pricing/">Amazon Q Business
- *             pricing</a>.</p>
+ * <p>Information about an Amazon Q Business subscription.</p> <p>Subscriptions are used to provide access for an IAM Identity Center user or a group to an Amazon Q Business application.</p> <p>Amazon Q Business offers two subscription tiers: <code>Q_LITE</code> and <code>Q_BUSINESS</code>. Subscription tier determines feature access for the user. For more information on subscriptions and pricing tiers, see <a href="https://aws.amazon.com/q/business/pricing/">Amazon Q Business pricing</a>.</p>
  * @public
  */
 export interface Subscription {
@@ -212,15 +438,13 @@ export interface Subscription {
   subscriptionId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business subscription that was
-   *             updated.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business subscription that was updated.</p>
    * @public
    */
   subscriptionArn?: string | undefined;
 
   /**
-   * <p>The IAM Identity Center <code>UserId</code> or <code>GroupId</code> of a user or group
-   *             in the IAM Identity Center instance connected to the Amazon Q Business application.</p>
+   * <p>The IAM Identity Center <code>UserId</code> or <code>GroupId</code> of a user or group in the IAM Identity Center instance connected to the Amazon Q Business application.</p>
    * @public
    */
   principal?: SubscriptionPrincipal | undefined;
@@ -243,15 +467,13 @@ export interface Subscription {
  */
 export interface ListSubscriptionsResponse {
   /**
-   * <p>If the response is truncated, Amazon Q Business returns this token. You can use this token
-   *             in a subsequent request to retrieve the next set of subscriptions.</p>
+   * <p>If the response is truncated, Amazon Q Business returns this token. You can use this token in a subsequent request to retrieve the next set of subscriptions.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An array of summary information on the subscriptions configured for an Amazon Q Business
-   *             application.</p>
+   * <p>An array of summary information on the subscriptions configured for an Amazon Q Business application.</p>
    * @public
    */
   subscriptions?: Subscription[] | undefined;
@@ -262,8 +484,7 @@ export interface ListSubscriptionsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business application or data source to get
-   *             a list of tags for.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business application or data source to get a list of tags for.</p>
    * @public
    */
   resourceARN: string | undefined;
@@ -336,8 +557,7 @@ export interface MessageUsefulnessFeedback {
   reason?: MessageUsefulnessReason | undefined;
 
   /**
-   * <p>A comment given by an end user on the usefulness of an AI-generated chat
-   *             message.</p>
+   * <p>A comment given by an end user on the usefulness of an AI-generated chat message.</p>
    * @public
    */
   comment?: string | undefined;
@@ -427,28 +647,24 @@ export interface MemberUser {
 }
 
 /**
- * <p>A list of users or sub groups that belong to a group. This is for generating
- *             Amazon Q Business chat results only from document a user has access to.</p>
+ * <p>A list of users or sub groups that belong to a group. This is for generating Amazon Q Business chat results only from document a user has access to.</p>
  * @public
  */
 export interface GroupMembers {
   /**
-   * <p>A list of sub groups that belong to a group. For example, the sub groups "Research",
-   *             "Engineering", and "Sales and Marketing" all belong to the group "Company".</p>
+   * <p>A list of sub groups that belong to a group. For example, the sub groups "Research", "Engineering", and "Sales and Marketing" all belong to the group "Company".</p>
    * @public
    */
   memberGroups?: MemberGroup[] | undefined;
 
   /**
-   * <p>A list of users that belong to a group. For example, a list of interns all belong to
-   *             the "Interns" group.</p>
+   * <p>A list of users that belong to a group. For example, a list of interns all belong to the "Interns" group.</p>
    * @public
    */
   memberUsers?: MemberUser[] | undefined;
 
   /**
-   * <p>Information required for Amazon Q Business to find a specific file in an Amazon S3
-   *             bucket.</p>
+   * <p>Information required for Amazon Q Business to find a specific file in an Amazon S3 bucket.</p>
    * @public
    */
   s3PathForGroupMembers?: S3 | undefined;
@@ -471,20 +687,13 @@ export interface PutGroupRequest {
   indexId: string | undefined;
 
   /**
-   * <p>The list that contains your users or sub groups that belong the same group. For
-   *             example, the group "Company" includes the user "CEO" and the sub groups "Research",
-   *             "Engineering", and "Sales and Marketing".</p>
+   * <p>The list that contains your users or sub groups that belong the same group. For example, the group "Company" includes the user "CEO" and the sub groups "Research", "Engineering", and "Sales and Marketing".</p>
    * @public
    */
   groupName: string | undefined;
 
   /**
-   * <p>The identifier of the data source for which you want to map users to their groups.
-   *             This is useful if a group is tied to multiple data sources, but you only want the group
-   *             to access documents of a certain data source. For example, the groups "Research",
-   *             "Engineering", and "Sales and Marketing" are all tied to the company's documents stored
-   *             in the data sources Confluence and Salesforce. However, "Sales and Marketing" team only
-   *             needs access to customer-related documents stored in Salesforce.</p>
+   * <p>The identifier of the data source for which you want to map users to their groups. This is useful if a group is tied to multiple data sources, but you only want the group to access documents of a certain data source. For example, the groups "Research", "Engineering", and "Sales and Marketing" are all tied to the company's documents stored in the data sources Confluence and Salesforce. However, "Sales and Marketing" team only needs access to customer-related documents stored in Salesforce.</p>
    * @public
    */
   dataSourceId?: string | undefined;
@@ -496,15 +705,13 @@ export interface PutGroupRequest {
   type: MembershipType | undefined;
 
   /**
-   * <p>A list of users or sub groups that belong to a group. This is for generating
-   *             Amazon Q Business chat results only from document a user has access to.</p>
+   * <p>A list of users or sub groups that belong to a group. This is for generating Amazon Q Business chat results only from document a user has access to.</p>
    * @public
    */
   groupMembers: GroupMembers | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that has access to the S3 file that contains
-   *             your list of users that belong to a group.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role that has access to the S3 file that contains your list of users that belong to a group.</p>
    * @public
    */
   roleArn?: string | undefined;
@@ -648,8 +855,7 @@ export interface StopDataSourceSyncJobRequest {
   dataSourceId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q Business application that the data source is connected
-   *             to.</p>
+   * <p>The identifier of the Amazon Q Business application that the data source is connected to.</p>
    * @public
    */
   applicationId: string | undefined;
@@ -671,15 +877,13 @@ export interface StopDataSourceSyncJobResponse {}
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business application or data source to
-   *             tag.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business application or data source to tag.</p>
    * @public
    */
   resourceARN: string | undefined;
 
   /**
-   * <p>A list of tag keys to add to the Amazon Q Business application or data source. If a tag
-   *             already exists, the existing value is replaced with the new value.</p>
+   * <p>A list of tag keys to add to the Amazon Q Business application or data source. If a tag already exists, the existing value is replaced with the new value.</p>
    * @public
    */
   tags: Tag[] | undefined;
@@ -695,15 +899,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business application, or data source to
-   *             remove the tag from.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business application, or data source to remove the tag from.</p>
    * @public
    */
   resourceARN: string | undefined;
 
   /**
-   * <p>A list of tag keys to remove from the Amazon Q Business application or data source. If a
-   *             tag key does not exist on the resource, it is ignored.</p>
+   * <p>A list of tag keys to remove from the Amazon Q Business application or data source. If a tag key does not exist on the resource, it is ignored.</p>
    * @public
    */
   tagKeys: string[] | undefined;
@@ -715,18 +917,12 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * <p>Configuration information required to enable chat orchestration for your Amazon Q Business
- *             application.</p>
- *          <note>
- *             <p>Chat orchestration is optimized to work for English language content. For more
- *                 details on language support in Amazon Q Business, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/supported-languages.html">Supported languages</a>.</p>
- *          </note>
+ * <p>Configuration information required to enable chat orchestration for your Amazon Q Business application.</p> <note> <p>Chat orchestration is optimized to work for English language content. For more details on language support in Amazon Q Business, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/supported-languages.html">Supported languages</a>.</p> </note>
  * @public
  */
 export interface OrchestrationConfiguration {
   /**
-   * <p> Status information about whether chat orchestration is activated or deactivated for
-   *             your Amazon Q Business application.</p>
+   * <p> Status information about whether chat orchestration is activated or deactivated for your Amazon Q Business application.</p>
    * @public
    */
   control: OrchestrationControl | undefined;
@@ -743,17 +939,13 @@ export interface UpdateChatControlsConfigurationRequest {
   applicationId: string | undefined;
 
   /**
-   * <p>A token that you provide to identify the request to update a Amazon Q Business application
-   *             chat configuration.</p>
+   * <p>A token that you provide to identify the request to update a Amazon Q Business application chat configuration.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The response scope configured for your application. This determines whether your
-   *             application uses its retrieval augmented generation (RAG) system to generate answers
-   *             only from your enterprise data, or also uses the large language models (LLM) knowledge
-   *             to respons to end user questions in chat.</p>
+   * <p>The response scope configured for your application. This determines whether your application uses its retrieval augmented generation (RAG) system to generate answers only from your enterprise data, or also uses the large language models (LLM) knowledge to respons to end user questions in chat.</p>
    * @public
    */
   responseScope?: ResponseScope | undefined;
@@ -805,8 +997,7 @@ export interface UpdateChatControlsConfigurationResponse {}
  */
 export interface UpdateSubscriptionRequest {
   /**
-   * <p>The identifier of the Amazon Q Business application where the subscription update should
-   *             take effect.</p>
+   * <p>The identifier of the Amazon Q Business application where the subscription update should take effect.</p>
    * @public
    */
   applicationId: string | undefined;
@@ -829,8 +1020,7 @@ export interface UpdateSubscriptionRequest {
  */
 export interface UpdateSubscriptionResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business subscription that was
-   *             updated.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business subscription that was updated.</p>
    * @public
    */
   subscriptionArn?: string | undefined;
@@ -924,58 +1114,43 @@ export interface AttributeFilter {
   notFilter?: AttributeFilter | undefined;
 
   /**
-   * <p>Performs an equals operation on two document attributes or metadata fields. Supported
-   *             for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code>,
-   *                 <code>longValue</code>, <code>stringListValue</code> and
-   *             <code>stringValue</code>.</p>
+   * <p>Performs an equals operation on two document attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code>, <code>longValue</code>, <code>stringListValue</code> and <code>stringValue</code>.</p>
    * @public
    */
   equalsTo?: DocumentAttribute | undefined;
 
   /**
-   * <p>Returns <code>true</code> when a document contains all the specified document
-   *             attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>:
-   *                 <code>stringListValue</code>.</p>
+   * <p>Returns <code>true</code> when a document contains all the specified document attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>stringListValue</code>.</p>
    * @public
    */
   containsAll?: DocumentAttribute | undefined;
 
   /**
-   * <p>Returns <code>true</code> when a document contains any of the specified document
-   *             attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>:
-   *                 <code>stringListValue</code>.</p>
+   * <p>Returns <code>true</code> when a document contains any of the specified document attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>stringListValue</code>.</p>
    * @public
    */
   containsAny?: DocumentAttribute | undefined;
 
   /**
-   * <p>Performs a greater than operation on two document attributes or metadata fields.
-   *             Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code>
-   *             and <code>longValue</code>.</p>
+   * <p>Performs a greater than operation on two document attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code> and <code>longValue</code>.</p>
    * @public
    */
   greaterThan?: DocumentAttribute | undefined;
 
   /**
-   * <p>Performs a greater or equals than operation on two document attributes or metadata
-   *             fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code>
-   *             and <code>longValue</code>. </p>
+   * <p>Performs a greater or equals than operation on two document attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code> and <code>longValue</code>. </p>
    * @public
    */
   greaterThanOrEquals?: DocumentAttribute | undefined;
 
   /**
-   * <p>Performs a less than operation on two document attributes or metadata fields.
-   *             Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code>
-   *             and <code>longValue</code>.</p>
+   * <p>Performs a less than operation on two document attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code> and <code>longValue</code>.</p>
    * @public
    */
   lessThan?: DocumentAttribute | undefined;
 
   /**
-   * <p>Performs a less than or equals operation on two document attributes or metadata
-   *             fields.Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value type</a>: <code>dateValue</code>
-   *             and <code>longValue</code>. </p>
+   * <p>Performs a less than or equals operation on two document attributes or metadata fields.Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value type</a>: <code>dateValue</code> and <code>longValue</code>. </p>
    * @public
    */
   lessThanOrEquals?: DocumentAttribute | undefined;
@@ -998,8 +1173,7 @@ export interface ActionFilterConfiguration {
  */
 export interface ChatSyncInput {
   /**
-   * <p>The identifier of the Amazon Q Business application linked to the Amazon Q Business
-   *             conversation.</p>
+   * <p>The identifier of the Amazon Q Business application linked to the Amazon Q Business conversation.</p>
    * @public
    */
   applicationId: string | undefined;
@@ -1023,8 +1197,7 @@ export interface ChatSyncInput {
   userMessage?: string | undefined;
 
   /**
-   * <p>A list of files uploaded directly during chat. You can upload a maximum of 5 files of
-   *             upto 10 MB each.</p>
+   * <p>A list of files uploaded directly during chat. You can upload a maximum of 5 files of upto 10 MB each.</p>
    * @public
    */
   attachments?: AttachmentInput[] | undefined;
@@ -1036,8 +1209,7 @@ export interface ChatSyncInput {
   actionExecution?: ActionExecution | undefined;
 
   /**
-   * <p>An authentication verification event response by a third party authentication server
-   *             to Amazon Q Business.</p>
+   * <p>An authentication verification event response by a third party authentication server to Amazon Q Business.</p>
    * @public
    */
   authChallengeResponse?: AuthChallengeResponse | undefined;
@@ -1055,45 +1227,13 @@ export interface ChatSyncInput {
   parentMessageId?: string | undefined;
 
   /**
-   * <p>Enables filtering of Amazon Q Business web experience responses based on document
-   *             attributes or metadata fields.</p>
+   * <p>Enables filtering of Amazon Q Business web experience responses based on document attributes or metadata fields.</p>
    * @public
    */
   attributeFilter?: AttributeFilter | undefined;
 
   /**
-   * <p>The <code>chatMode</code> parameter determines the chat modes available to
-   *             Amazon Q Business users:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>RETRIEVAL_MODE</code> - If you choose this mode, Amazon Q generates responses solely from the data sources connected and
-   *                     indexed by the application. If an answer is not found in the data sources or
-   *                     there are no data sources available, Amazon Q will respond with a
-   *                         "<i>No Answer Found</i>" message, unless LLM knowledge has
-   *                     been enabled. In that case, Amazon Q will generate a response from
-   *                     the LLM knowledge</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATOR_MODE</code> - By selecting this mode, you can choose to generate
-   *                     responses only from the LLM knowledge. You can also attach files and have Amazon Q
-   *                     generate a response based on the data in those files.
-   *                     If the attached files do not contain an answer for the query, Amazon Q
-   *                     will automatically fall back to generating a response from the LLM knowledge.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PLUGIN_MODE</code> - By selecting this mode, users can choose to
-   *                     use plugins in chat to get their responses.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>If none of the modes are selected, Amazon Q will only respond using the information
-   *                 from the attached files.</p>
-   *          </note>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a>, <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/plugins.html">Plugins</a>,
-   *             and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Response sources</a>.</p>
+   * <p>The <code>chatMode</code> parameter determines the chat modes available to Amazon Q Business users:</p> <ul> <li> <p> <code>RETRIEVAL_MODE</code> - If you choose this mode, Amazon Q generates responses solely from the data sources connected and indexed by the application. If an answer is not found in the data sources or there are no data sources available, Amazon Q will respond with a "<i>No Answer Found</i>" message, unless LLM knowledge has been enabled. In that case, Amazon Q will generate a response from the LLM knowledge</p> </li> <li> <p> <code>CREATOR_MODE</code> - By selecting this mode, you can choose to generate responses only from the LLM knowledge. You can also attach files and have Amazon Q generate a response based on the data in those files. If the attached files do not contain an answer for the query, Amazon Q will automatically fall back to generating a response from the LLM knowledge.</p> </li> <li> <p> <code>PLUGIN_MODE</code> - By selecting this mode, users can choose to use plugins in chat to get their responses.</p> </li> </ul> <note> <p>If none of the modes are selected, Amazon Q will only respond using the information from the attached files.</p> </note> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a>, <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/plugins.html">Plugins</a>, and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Response sources</a>.</p>
    * @public
    */
   chatMode?: ChatMode | undefined;
@@ -1112,42 +1252,18 @@ export interface ChatSyncInput {
 }
 
 /**
- * <p>A configuration event activated by an end user request to select a specific chat
- *             mode.</p>
+ * <p>A configuration event activated by an end user request to select a specific chat mode.</p>
  * @public
  */
 export interface ConfigurationEvent {
   /**
-   * <p>The chat modes available to an Amazon Q Business end user.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>RETRIEVAL_MODE</code> - The default chat mode for an
-   *                     Amazon Q Business application. When this mode is enabled, Amazon Q Business generates
-   *                     responses only from data sources connected to an Amazon Q Business
-   *                     application.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATOR_MODE</code> - By selecting this mode, users can choose to
-   *                     generate responses only from the LLM knowledge, without consulting connected
-   *                     data sources, for a chat request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PLUGIN_MODE</code> - By selecting this mode, users can choose to
-   *                     use plugins in chat.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a>, <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/plugins.html">Plugins</a>,
-   *             and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
+   * <p>The chat modes available to an Amazon Q Business end user.</p> <ul> <li> <p> <code>RETRIEVAL_MODE</code> - The default chat mode for an Amazon Q Business application. When this mode is enabled, Amazon Q Business generates responses only from data sources connected to an Amazon Q Business application.</p> </li> <li> <p> <code>CREATOR_MODE</code> - By selecting this mode, users can choose to generate responses only from the LLM knowledge, without consulting connected data sources, for a chat request.</p> </li> <li> <p> <code>PLUGIN_MODE</code> - By selecting this mode, users can choose to use plugins in chat.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a>, <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/plugins.html">Plugins</a>, and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
    * @public
    */
   chatMode?: ChatMode | undefined;
 
   /**
-   * <p>Configuration information for Amazon Q Business conversation modes.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a> and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
+   * <p>Configuration information for Amazon Q Business conversation modes.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a> and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
    * @public
    */
   chatModeConfiguration?: ChatModeConfiguration | undefined;
@@ -1236,8 +1352,7 @@ export type ChatInputStream =
  */
 export namespace ChatInputStream {
   /**
-   * <p>A configuration event activated by an end user request to select a specific chat
-   *             mode.</p>
+   * <p>A configuration event activated by an end user request to select a specific chat mode.</p>
    * @public
    */
   export interface ConfigurationEventMember {
@@ -1251,8 +1366,7 @@ export namespace ChatInputStream {
   }
 
   /**
-   * <p>Information about the payload of the <code>ChatInputStream</code> event containing the
-   *             end user message input.</p>
+   * <p>Information about the payload of the <code>ChatInputStream</code> event containing the end user message input.</p>
    * @public
    */
   export interface TextEventMember {
@@ -1308,8 +1422,7 @@ export namespace ChatInputStream {
   }
 
   /**
-   * <p>An authentication verification event response by a third party authentication server
-   *             to Amazon Q Business.</p>
+   * <p>An authentication verification event response by a third party authentication server to Amazon Q Business.</p>
    * @public
    */
   export interface AuthChallengeResponseEventMember {
@@ -1362,8 +1475,7 @@ export namespace ChatInputStream {
  */
 export interface ChatInput {
   /**
-   * <p>The identifier of the Amazon Q Business application linked to a streaming Amazon Q Business
-   *             conversation.</p>
+   * <p>The identifier of the Amazon Q Business application linked to a streaming Amazon Q Business conversation.</p>
    * @public
    */
   applicationId: string | undefined;

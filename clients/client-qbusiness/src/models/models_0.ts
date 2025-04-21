@@ -96,8 +96,7 @@ export interface PrincipalUser {
 }
 
 /**
- * <p>Provides user and group information used for filtering documents to use for generating
- *             Amazon Q Business conversation responses.</p>
+ * <p>Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.</p>
  * @public
  */
 export type Principal = Principal.GroupMember | Principal.UserMember | Principal.$UnknownMember;
@@ -149,16 +148,12 @@ export namespace Principal {
 }
 
 /**
- * <p>A list of principals. Each principal can be either a <code>USER</code> or a
- *                 <code>GROUP</code> and can be designated document access permissions of either
- *                 <code>ALLOW</code> or <code>DENY</code>.</p>
+ * <p>A list of principals. Each principal can be either a <code>USER</code> or a <code>GROUP</code> and can be designated document access permissions of either <code>ALLOW</code> or <code>DENY</code>.</p>
  * @public
  */
 export interface AccessControl {
   /**
-   * <p>Contains a list of principals, where a principal can be either a <code>USER</code> or
-   *             a <code>GROUP</code>. Each principal can be have the following type of document access:
-   *                 <code>ALLOW</code> or <code>DENY</code>.</p>
+   * <p>Contains a list of principals, where a principal can be either a <code>USER</code> or a <code>GROUP</code>. Each principal can be have the following type of document access: <code>ALLOW</code> or <code>DENY</code>.</p>
    * @public
    */
   principals: Principal[] | undefined;
@@ -189,8 +184,7 @@ export interface AccessConfiguration {
 }
 
 /**
- * <p> You don't have access to perform this action. Make sure you have the required
- *             permission policies and user accounts and try again.</p>
+ * <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -210,8 +204,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The value of a document attribute. You can only provide one value for a document
- *             attribute.</p>
+ * <p>The value of a document attribute. You can only provide one value for a document attribute.</p>
  * @public
  */
 export type DocumentAttributeValue =
@@ -262,10 +255,7 @@ export namespace DocumentAttributeValue {
   }
 
   /**
-   * <p>A date expressed as an ISO 8601 string.</p>
-   *          <p>It's important for the time zone to be included in the ISO 8601 date-time format. For
-   *             example, 2012-03-25T12:30:10+01:00 is the ISO 8601 date-time format for March 25th 2012
-   *             at 12:30PM (plus 10 seconds) in Central European Time. </p>
+   * <p>A date expressed as an ISO 8601 string.</p> <p>It's important for the time zone to be included in the ISO 8601 date-time format. For example, 2012-03-25T12:30:10+01:00 is the ISO 8601 date-time format for March 25th 2012 at 12:30PM (plus 10 seconds) in Central European Time. </p>
    * @public
    */
   export interface DateValueMember {
@@ -335,8 +325,7 @@ export interface ActionExecutionPayloadField {
 }
 
 /**
- * <p>Performs an Amazon Q Business plugin action during a non-streaming chat
- *             conversation.</p>
+ * <p>Performs an Amazon Q Business plugin action during a non-streaming chat conversation.</p>
  * @public
  */
 export interface ActionExecution {
@@ -347,23 +336,20 @@ export interface ActionExecution {
   pluginId: string | undefined;
 
   /**
-   * <p>A mapping of field names to the field values in input that an end user provides to
-   *             Amazon Q Business requests to perform their plugin action. </p>
+   * <p>A mapping of field names to the field values in input that an end user provides to Amazon Q Business requests to perform their plugin action. </p>
    * @public
    */
   payload: Record<string, ActionExecutionPayloadField> | undefined;
 
   /**
-   * <p>A string used to retain information about the hierarchical contexts within an action
-   *             execution event payload.</p>
+   * <p>A string used to retain information about the hierarchical contexts within an action execution event payload.</p>
    * @public
    */
   payloadFieldNameSeparator: string | undefined;
 }
 
 /**
- * <p>A request from an end user signalling an intent to perform an Amazon Q Business plugin
- *             action during a streaming chat.</p>
+ * <p>A request from an end user signalling an intent to perform an Amazon Q Business plugin action during a streaming chat.</p>
  * @public
  */
 export interface ActionExecutionEvent {
@@ -374,15 +360,13 @@ export interface ActionExecutionEvent {
   pluginId: string | undefined;
 
   /**
-   * <p>A mapping of field names to the field values in input that an end user provides to
-   *             Amazon Q Business requests to perform their plugin action. </p>
+   * <p>A mapping of field names to the field values in input that an end user provides to Amazon Q Business requests to perform their plugin action. </p>
    * @public
    */
   payload: Record<string, ActionExecutionPayloadField> | undefined;
 
   /**
-   * <p>A string used to retain information about the hierarchical contexts within a action
-   *             execution event payload.</p>
+   * <p>A string used to retain information about the hierarchical contexts within a action execution event payload.</p>
    * @public
    */
   payloadFieldNameSeparator: string | undefined;
@@ -405,8 +389,7 @@ export const ActionPayloadFieldType = {
 export type ActionPayloadFieldType = (typeof ActionPayloadFieldType)[keyof typeof ActionPayloadFieldType];
 
 /**
- * <p>Information about the field values that an end user can use to provide to
- *             Amazon Q Business for Amazon Q Business to perform the requested plugin action.</p>
+ * <p>Information about the field values that an end user can use to provide to Amazon Q Business for Amazon Q Business to perform the requested plugin action.</p>
  * @public
  */
 export interface ActionReviewPayloadFieldAllowedValue {
@@ -441,9 +424,7 @@ export interface ActionReviewPayloadField {
   displayOrder?: number | undefined;
 
   /**
-   * <p>The field level description of each action review input field. This could be an
-   *             explanation of the field. In the Amazon Q Business web experience, these descriptions could
-   *             be used to display as tool tips to help users understand the field. </p>
+   * <p>The field level description of each action review input field. This could be an explanation of the field. In the Amazon Q Business web experience, these descriptions could be used to display as tool tips to help users understand the field. </p>
    * @public
    */
   displayDescription?: string | undefined;
@@ -461,23 +442,19 @@ export interface ActionReviewPayloadField {
   value?: __DocumentType | undefined;
 
   /**
-   * <p>Information about the field values that an end user can use to provide to
-   *             Amazon Q Business for Amazon Q Business to perform the requested plugin action.</p>
+   * <p>Information about the field values that an end user can use to provide to Amazon Q Business for Amazon Q Business to perform the requested plugin action.</p>
    * @public
    */
   allowedValues?: ActionReviewPayloadFieldAllowedValue[] | undefined;
 
   /**
-   * <p>The expected data format for the action review input field value. For example, in PTO
-   *             request, <code>from</code> and <code>to</code> would be of <code>datetime</code> allowed
-   *             format. </p>
+   * <p>The expected data format for the action review input field value. For example, in PTO request, <code>from</code> and <code>to</code> would be of <code>datetime</code> allowed format. </p>
    * @public
    */
   allowedFormat?: string | undefined;
 
   /**
-   * <p>Use to create a custom form with array fields (fields with nested objects inside an
-   *             array).</p>
+   * <p>Use to create a custom form with array fields (fields with nested objects inside an array).</p>
    * @public
    */
   arrayItemJsonSchema?: __DocumentType | undefined;
@@ -519,10 +496,7 @@ export const PluginType = {
 export type PluginType = (typeof PluginType)[keyof typeof PluginType];
 
 /**
- * <p>An output event that Amazon Q Business returns to an user who wants to perform a plugin
- *             action during a non-streaming chat conversation. It contains information about the
- *             selected action with a list of possible user input fields, some pre-populated by
- *             Amazon Q Business.</p>
+ * <p>An output event that Amazon Q Business returns to an user who wants to perform a plugin action during a non-streaming chat conversation. It contains information about the selected action with a list of possible user input fields, some pre-populated by Amazon Q Business.</p>
  * @public
  */
 export interface ActionReview {
@@ -539,31 +513,25 @@ export interface ActionReview {
   pluginType?: PluginType | undefined;
 
   /**
-   * <p>Field values that an end user needs to provide to Amazon Q Business for Amazon Q Business to
-   *             perform the requested plugin action.</p>
+   * <p>Field values that an end user needs to provide to Amazon Q Business for Amazon Q Business to perform the requested plugin action.</p>
    * @public
    */
   payload?: Record<string, ActionReviewPayloadField> | undefined;
 
   /**
-   * <p>A string used to retain information about the hierarchical contexts within an action
-   *             review payload.</p>
+   * <p>A string used to retain information about the hierarchical contexts within an action review payload.</p>
    * @public
    */
   payloadFieldNameSeparator?: string | undefined;
 }
 
 /**
- * <p>An output event that Amazon Q Business returns to an user who wants to perform a plugin
- *             action during a streaming chat conversation. It contains information about the selected
- *             action with a list of possible user input fields, some pre-populated by Amazon Q Business.
- *         </p>
+ * <p>An output event that Amazon Q Business returns to an user who wants to perform a plugin action during a streaming chat conversation. It contains information about the selected action with a list of possible user input fields, some pre-populated by Amazon Q Business. </p>
  * @public
  */
 export interface ActionReviewEvent {
   /**
-   * <p>The identifier of the conversation with which the action review event is
-   *             associated.</p>
+   * <p>The identifier of the conversation with which the action review event is associated.</p>
    * @public
    */
   conversationId?: string | undefined;
@@ -575,8 +543,7 @@ export interface ActionReviewEvent {
   userMessageId?: string | undefined;
 
   /**
-   * <p>The identifier of an Amazon Q Business AI generated associated with the action review
-   *             event.</p>
+   * <p>The identifier of an Amazon Q Business AI generated associated with the action review event.</p>
    * @public
    */
   systemMessageId?: string | undefined;
@@ -594,15 +561,13 @@ export interface ActionReviewEvent {
   pluginType?: PluginType | undefined;
 
   /**
-   * <p>Field values that an end user needs to provide to Amazon Q Business for Amazon Q Business to
-   *             perform the requested plugin action.</p>
+   * <p>Field values that an end user needs to provide to Amazon Q Business for Amazon Q Business to perform the requested plugin action.</p>
    * @public
    */
   payload?: Record<string, ActionReviewPayloadField> | undefined;
 
   /**
-   * <p>A string used to retain information about the hierarchical contexts within an action
-   *             review event payload.</p>
+   * <p>A string used to retain information about the hierarchical contexts within an action review event payload.</p>
    * @public
    */
   payloadFieldNameSeparator?: string | undefined;
@@ -620,25 +585,13 @@ export interface ActionSummary {
   actionIdentifier?: string | undefined;
 
   /**
-   * <p>The display name assigned by Amazon Q Business to a plugin action. You can't
-   *             modify this value.</p>
+   * <p>The display name assigned by Amazon Q Business to a plugin action. You can't modify this value.</p>
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>An Amazon Q Business suggested prompt and end user can use to invoke a plugin
-   *             action. This value can be modified and sent as input to initiate an action. For
-   *             example:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Create a Jira task</p>
-   *             </li>
-   *             <li>
-   *                <p>Create a chat assistant task to find the root cause of a specific
-   *                     incident</p>
-   *             </li>
-   *          </ul>
+   * <p>An Amazon Q Business suggested prompt and end user can use to invoke a plugin action. This value can be modified and sent as input to initiate an action. For example:</p> <ul> <li> <p>Create a Jira task</p> </li> <li> <p>Create a chat assistant task to find the root cause of a specific incident</p> </li> </ul>
    * @public
    */
   instructionExample?: string | undefined;
@@ -651,8 +604,7 @@ export interface ActionSummary {
 }
 
 /**
- * <p>Information required for Amazon Q Business to find a specific file in an Amazon S3
- *             bucket.</p>
+ * <p>Information required for Amazon Q Business to find a specific file in an Amazon S3 bucket.</p>
  * @public
  */
 export interface S3 {
@@ -670,10 +622,7 @@ export interface S3 {
 }
 
 /**
- * <p>Contains details about the OpenAPI schema for a custom plugin. For more information,
- *             see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/custom-plugin.html#plugins-api-schema">custom plugin OpenAPI schemas</a>. You can either include
- *             the schema directly in the payload field or you can upload it to an S3 bucket and
- *             specify the S3 bucket location in the <code>s3</code> field. </p>
+ * <p>Contains details about the OpenAPI schema for a custom plugin. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/custom-plugin.html#plugins-api-schema">custom plugin OpenAPI schemas</a>. You can either include the schema directly in the payload field or you can upload it to an S3 bucket and specify the S3 bucket location in the <code>s3</code> field. </p>
  * @public
  */
 export type APISchema = APISchema.PayloadMember | APISchema.S3Member | APISchema.$UnknownMember;
@@ -683,8 +632,7 @@ export type APISchema = APISchema.PayloadMember | APISchema.S3Member | APISchema
  */
 export namespace APISchema {
   /**
-   * <p>The JSON or YAML-formatted payload defining the OpenAPI schema for a custom plugin.
-   *         </p>
+   * <p>The JSON or YAML-formatted payload defining the OpenAPI schema for a custom plugin. </p>
    * @public
    */
   export interface PayloadMember {
@@ -694,8 +642,7 @@ export namespace APISchema {
   }
 
   /**
-   * <p>Contains details about the S3 object containing the OpenAPI schema for a custom
-   *             plugin. The schema could be in either JSON or YAML format.</p>
+   * <p>Contains details about the S3 object containing the OpenAPI schema for a custom plugin. The schema could be in either JSON or YAML format.</p>
    * @public
    */
   export interface S3Member {
@@ -756,16 +703,12 @@ export const IdentityType = {
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 /**
- * <p>The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider.
- *             For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/create-quicksight-integrated-application.html">Creating an
- *                 Amazon QuickSight integrated application</a>.</p>
+ * <p>The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/create-quicksight-integrated-application.html">Creating an Amazon QuickSight integrated application</a>.</p>
  * @public
  */
 export interface QuickSightConfiguration {
   /**
-   * <p>The Amazon QuickSight namespace that is used as the identity provider. For more information about QuickSight namespaces, see
-   *             <a href="https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html">Namespace operations</a>.
-   *         </p>
+   * <p>The Amazon QuickSight namespace that is used as the identity provider. For more information about QuickSight namespaces, see <a href="https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html">Namespace operations</a>. </p>
    * @public
    */
   clientNamespace: string | undefined;
@@ -818,8 +761,7 @@ export interface Application {
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The status of the Amazon Q Business application. The application is ready to use when the
-   *             status is <code>ACTIVE</code>.</p>
+   * <p>The status of the Amazon Q Business application. The application is ready to use when the status is <code>ACTIVE</code>.</p>
    * @public
    */
   status?: ApplicationStatus | undefined;
@@ -838,8 +780,7 @@ export interface Application {
 }
 
 /**
- * <p>You are trying to perform an action that conflicts with the current status of your
- *             resource. Fix any inconsistencies with your resources and try again.</p>
+ * <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -892,22 +833,19 @@ export type AttachmentsControlMode = (typeof AttachmentsControlMode)[keyof typeo
  */
 export interface AttachmentsConfiguration {
   /**
-   * <p>Status information about whether file upload functionality is activated or deactivated
-   *             for your end user.</p>
+   * <p>Status information about whether file upload functionality is activated or deactivated for your end user.</p>
    * @public
    */
   attachmentsControlMode: AttachmentsControlMode | undefined;
 }
 
 /**
- * <p>Provides the identifier of the KMS key used to encrypt data indexed by
- *             Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.</p>
+ * <p>Provides the identifier of the KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.</p>
  * @public
  */
 export interface EncryptionConfiguration {
   /**
-   * <p>The identifier of the KMS key. Amazon Q Business doesn't support asymmetric
-   *             keys.</p>
+   * <p>The identifier of the KMS key. Amazon Q Business doesn't support asymmetric keys.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -928,15 +866,12 @@ export const PersonalizationControlMode = {
 export type PersonalizationControlMode = (typeof PersonalizationControlMode)[keyof typeof PersonalizationControlMode];
 
 /**
- * <p>Configuration information about chat response personalization. For more information,
- *             see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html">Personalizing chat responses</a>.</p>
+ * <p>Configuration information about chat response personalization. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html">Personalizing chat responses</a>.</p>
  * @public
  */
 export interface PersonalizationConfiguration {
   /**
-   * <p>An option to allow Amazon Q Business to customize chat responses using user
-   *             specific metadata—specifically, location and job information—in your
-   *                 IAM Identity Center instance.</p>
+   * <p>An option to allow Amazon Q Business to customize chat responses using user specific metadata—specifically, location and job information—in your IAM Identity Center instance.</p>
    * @public
    */
   personalizationControlMode: PersonalizationControlMode | undefined;
@@ -962,30 +897,25 @@ export type QAppsControlMode = (typeof QAppsControlMode)[keyof typeof QAppsContr
  */
 export interface QAppsConfiguration {
   /**
-   * <p>Status information about whether end users can create and use Amazon Q Apps in the web
-   *             experience.</p>
+   * <p>Status information about whether end users can create and use Amazon Q Apps in the web experience.</p>
    * @public
    */
   qAppsControlMode: QAppsControlMode | undefined;
 }
 
 /**
- * <p>A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and
- *             values can consist of Unicode letters, digits, white space, and any of the following
- *             symbols: _ . : / = + - @.</p>
+ * <p>A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.</p>
  * @public
  */
 export interface Tag {
   /**
-   * <p> The key for the tag. Keys are not case sensitive and must be unique for the
-   *             Amazon Q Business application or data source.</p>
+   * <p> The key for the tag. Keys are not case sensitive and must be unique for the Amazon Q Business application or data source.</p>
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The value associated with the tag. The value may be an empty string but it can't be
-   *             null.</p>
+   * <p>The value associated with the tag. The value may be an empty string but it can't be null.</p>
    * @public
    */
   value: string | undefined;
@@ -1002,9 +932,7 @@ export interface CreateApplicationRequest {
   displayName: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon
-   *                 CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions">service linked role (SLR)</a> and use it as the
-   *             application's role.</p>
+   * <p> The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions">service linked role (SLR)</a> and use it as the application's role.</p>
    * @public
    */
   roleArn?: string | undefined;
@@ -1022,8 +950,7 @@ export interface CreateApplicationRequest {
   iamIdentityProviderArn?: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either
-   *             creating for—or connecting to—your Amazon Q Business application.</p>
+   * <p> The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.</p>
    * @public
    */
   identityCenterInstanceArn?: string | undefined;
@@ -1041,24 +968,19 @@ export interface CreateApplicationRequest {
   description?: string | undefined;
 
   /**
-   * <p>The identifier of the KMS key that is used to encrypt your data.
-   *             Amazon Q Business doesn't support asymmetric keys.</p>
+   * <p>The identifier of the KMS key that is used to encrypt your data. Amazon Q Business doesn't support asymmetric keys.</p>
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>A list of key-value pairs that identify or categorize your Amazon Q Business application.
-   *             You can also use tags to help control access to the application. Tag keys and values can
-   *             consist of Unicode letters, digits, white space, and any of the following symbols: _ . :
-   *             / = + - @.</p>
+   * <p>A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.</p>
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>A token that you provide to identify the request to create your Amazon Q Business
-   *             application.</p>
+   * <p>A token that you provide to identify the request to create your Amazon Q Business application.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1070,24 +992,19 @@ export interface CreateApplicationRequest {
   attachmentsConfiguration?: AttachmentsConfiguration | undefined;
 
   /**
-   * <p>An option to allow end users to create and use Amazon Q Apps in the web
-   *             experience.</p>
+   * <p>An option to allow end users to create and use Amazon Q Apps in the web experience.</p>
    * @public
    */
   qAppsConfiguration?: QAppsConfiguration | undefined;
 
   /**
-   * <p>Configuration information about chat response personalization. For more information,
-   *             see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html">Personalizing chat responses</a>
-   *          </p>
+   * <p>Configuration information about chat response personalization. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html">Personalizing chat responses</a> </p>
    * @public
    */
   personalizationConfiguration?: PersonalizationConfiguration | undefined;
 
   /**
-   * <p>The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight for authentication. This configuration is
-   *             required if your application uses QuickSight as the identity provider. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/create-quicksight-integrated-application.html">Creating an
-   *                 Amazon QuickSight integrated application</a>.</p>
+   * <p>The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight for authentication. This configuration is required if your application uses QuickSight as the identity provider. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/create-quicksight-integrated-application.html">Creating an Amazon QuickSight integrated application</a>.</p>
    * @public
    */
   quickSightConfiguration?: QuickSightConfiguration | undefined;
@@ -1111,8 +1028,7 @@ export interface CreateApplicationResponse {
 }
 
 /**
- * <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
- *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ * <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -1132,8 +1048,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
- *             provided the correct resource and try again.</p>
+ * <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -1201,8 +1116,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to throttling. Reduce the number of requests and try
- *             again.</p>
+ * <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -1222,8 +1136,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input failed to meet the constraints specified by Amazon Q Business in a specified
- *             field.</p>
+ * <p>The input failed to meet the constraints specified by Amazon Q Business in a specified field.</p>
  * @public
  */
 export interface ValidationExceptionField {
@@ -1256,8 +1169,7 @@ export const ValidationExceptionReason = {
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
- * <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the
- *             correct input and try again.</p>
+ * <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -1473,14 +1385,12 @@ export interface GetApplicationRequest {
 }
 
 /**
- * <p>Configuration information about the file upload during chat feature for your
- *             application.</p>
+ * <p>Configuration information about the file upload during chat feature for your application.</p>
  * @public
  */
 export interface AppliedAttachmentsConfiguration {
   /**
-   * <p>Information about whether file upload during chat functionality is activated for your
-   *             application.</p>
+   * <p>Information about whether file upload during chat functionality is activated for your application.</p>
    * @public
    */
   attachmentsControlMode?: AttachmentsControlMode | undefined;
@@ -1515,23 +1425,18 @@ export const SubscriptionType = {
 export type SubscriptionType = (typeof SubscriptionType)[keyof typeof SubscriptionType];
 
 /**
- * <p>Subscription configuration information for an Amazon Q Business application
- *             using IAM identity federation for user management. </p>
+ * <p>Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management. </p>
  * @public
  */
 export interface AutoSubscriptionConfiguration {
   /**
-   * <p>Describes whether automatic subscriptions are enabled for an Amazon Q Business
-   *             application using IAM identity federation for user management.</p>
+   * <p>Describes whether automatic subscriptions are enabled for an Amazon Q Business application using IAM identity federation for user management.</p>
    * @public
    */
   autoSubscribe: AutoSubscriptionStatus | undefined;
 
   /**
-   * <p>Describes the default subscription type assigned to an Amazon Q Business
-   *             application using IAM identity federation for user management. If the
-   *             value for <code>autoSubscribe</code> is set to <code>ENABLED</code> you must select a
-   *             value for this field.</p>
+   * <p>Describes the default subscription type assigned to an Amazon Q Business application using IAM identity federation for user management. If the value for <code>autoSubscribe</code> is set to <code>ENABLED</code> you must select a value for this field.</p>
    * @public
    */
   defaultSubscriptionType?: SubscriptionType | undefined;
@@ -1606,15 +1511,13 @@ export interface GetApplicationResponse {
   iamIdentityProviderArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to
-   *             your Amazon Q Business application.</p>
+   * <p>The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.</p>
    * @public
    */
   identityCenterApplicationArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM with permissions to access
-   *             your CloudWatch logs and metrics.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM with permissions to access your CloudWatch logs and metrics.</p>
    * @public
    */
   roleArn?: string | undefined;
@@ -1632,9 +1535,7 @@ export interface GetApplicationResponse {
   description?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services
-   *             KMS key that is used to encrypt your data. Amazon Q Business doesn't support
-   *             asymmetric keys.</p>
+   * <p>The identifier of the Amazon Web Services KMS key that is used to encrypt your data. Amazon Q Business doesn't support asymmetric keys.</p>
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
@@ -1652,9 +1553,7 @@ export interface GetApplicationResponse {
   updatedAt?: Date | undefined;
 
   /**
-   * <p>If the <code>Status</code> field is set to <code>ERROR</code>, the
-   *                 <code>ErrorMessage</code> field contains a description of the error that caused the
-   *             synchronization to fail.</p>
+   * <p>If the <code>Status</code> field is set to <code>ERROR</code>, the <code>ErrorMessage</code> field contains a description of the error that caused the synchronization to fail.</p>
    * @public
    */
   error?: ErrorDetail | undefined;
@@ -1666,22 +1565,19 @@ export interface GetApplicationResponse {
   attachmentsConfiguration?: AppliedAttachmentsConfiguration | undefined;
 
   /**
-   * <p>Settings for whether end users can create and use Amazon Q Apps in the web
-   *             experience.</p>
+   * <p>Settings for whether end users can create and use Amazon Q Apps in the web experience.</p>
    * @public
    */
   qAppsConfiguration?: QAppsConfiguration | undefined;
 
   /**
-   * <p>Configuration information about chat response personalization. For more information,
-   *             see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html">Personalizing chat responses</a>.</p>
+   * <p>Configuration information about chat response personalization. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html">Personalizing chat responses</a>.</p>
    * @public
    */
   personalizationConfiguration?: PersonalizationConfiguration | undefined;
 
   /**
-   * <p>Settings for auto-subscription behavior for this application. This is only applicable
-   *             to SAML and OIDC applications.</p>
+   * <p>Settings for auto-subscription behavior for this application. This is only applicable to SAML and OIDC applications.</p>
    * @public
    */
   autoSubscriptionConfiguration?: AutoSubscriptionConfiguration | undefined;
@@ -1748,32 +1644,25 @@ export interface CreateIndexRequest {
   description?: string | undefined;
 
   /**
-   * <p>The index type that's suitable for your needs. For more information on what's included
-   *             in each type of index, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers">Amazon Q Business
-   *             tiers</a>.</p>
+   * <p>The index type that's suitable for your needs. For more information on what's included in each type of index, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers">Amazon Q Business tiers</a>.</p>
    * @public
    */
   type?: IndexType | undefined;
 
   /**
-   * <p>A list of key-value pairs that identify or categorize the index. You can also use tags
-   *             to help control access to the index. Tag keys and values can consist of Unicode letters,
-   *             digits, white space, and any of the following symbols: _ . : / = + - @.</p>
+   * <p>A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.</p>
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The capacity units you want to provision for your index. You can add and remove
-   *             capacity to fit your usage needs.</p>
+   * <p>The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.</p>
    * @public
    */
   capacityConfiguration?: IndexCapacityConfiguration | undefined;
 
   /**
-   * <p>A token that you provide to identify the request to create an index. Multiple calls to
-   *             the <code>CreateIndex</code> API with the same client token will create only one
-   *             index.</p>
+   * <p>A token that you provide to identify the request to create an index. Multiple calls to the <code>CreateIndex</code> API with the same client token will create only one index.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1821,45 +1710,24 @@ export type DocumentEnrichmentConditionOperator =
   (typeof DocumentEnrichmentConditionOperator)[keyof typeof DocumentEnrichmentConditionOperator];
 
 /**
- * <p>The condition used for the target document attribute or metadata field when ingesting
- *             documents into Amazon Q Business. You use this with <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html">
- *                <code>DocumentAttributeTarget</code>
- *             </a> to apply the condition.</p>
- *          <p>For example, you can create the 'Department' target field and have it prefill
- *             department names associated with the documents based on information in the 'Source_URI'
- *             field. Set the condition that if the 'Source_URI' field contains 'financial' in its URI
- *             value, then prefill the target field 'Department' with the target value 'Finance' for
- *             the document.</p>
- *          <p>Amazon Q Business can't create a target field if it has not already been created as an
- *             index field. After you create your index field, you can create a document metadata field
- *             using <code>DocumentAttributeTarget</code>. Amazon Q Business then will map your newly
- *             created metadata field to your index field.</p>
+ * <p>The condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business. You use this with <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html"> <code>DocumentAttributeTarget</code> </a> to apply the condition.</p> <p>For example, you can create the 'Department' target field and have it prefill department names associated with the documents based on information in the 'Source_URI' field. Set the condition that if the 'Source_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document.</p> <p>Amazon Q Business can't create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using <code>DocumentAttributeTarget</code>. Amazon Q Business then will map your newly created metadata field to your index field.</p>
  * @public
  */
 export interface DocumentAttributeCondition {
   /**
-   * <p>The identifier of the document attribute used for the condition.</p>
-   *          <p>For example, 'Source_URI' could be an identifier for the attribute or metadata field
-   *             that contains source URIs associated with the documents.</p>
-   *          <p>Amazon Q Business currently doesn't support <code>_document_body</code> as an attribute
-   *             key used for the condition.</p>
+   * <p>The identifier of the document attribute used for the condition.</p> <p>For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.</p> <p>Amazon Q Business currently doesn't support <code>_document_body</code> as an attribute key used for the condition.</p>
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The identifier of the document attribute used for the condition.</p>
-   *          <p>For example, 'Source_URI' could be an identifier for the attribute or metadata field
-   *             that contains source URIs associated with the documents.</p>
-   *          <p>Amazon Q Business currently does not support <code>_document_body</code> as an attribute
-   *             key used for the condition.</p>
+   * <p>The identifier of the document attribute used for the condition.</p> <p>For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.</p> <p>Amazon Q Business currently does not support <code>_document_body</code> as an attribute key used for the condition.</p>
    * @public
    */
   operator: DocumentEnrichmentConditionOperator | undefined;
 
   /**
-   * <p>The value of a document attribute. You can only provide one value for a document
-   *             attribute.</p>
+   * <p>The value of a document attribute. You can only provide one value for a document attribute.</p>
    * @public
    */
   value?: DocumentAttributeValue | undefined;
@@ -1892,202 +1760,102 @@ export const AttributeValueOperator = {
 export type AttributeValueOperator = (typeof AttributeValueOperator)[keyof typeof AttributeValueOperator];
 
 /**
- * <p>The target document attribute or metadata field you want to alter when ingesting
- *             documents into Amazon Q Business.</p>
- *          <p>For example, you can delete all customer identification numbers associated with the
- *             documents, stored in the document metadata field called 'Customer_ID' by setting the
- *             target key as 'Customer_ID' and the deletion flag to <code>TRUE</code>. This removes all
- *             customer ID values in the field 'Customer_ID'. This would scrub personally identifiable
- *             information from each document's metadata.</p>
- *          <p>Amazon Q Business can't create a target field if it has not already been created as an
- *             index field. After you create your index field, you can create a document metadata field
- *             using <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html">
- *                <code>DocumentAttributeTarget</code>
- *             </a>. Amazon Q Business
- *             will then map your newly created document attribute to your index field.</p>
- *          <p>You can also use this with <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeCondition.html">
- *                <code>DocumentAttributeCondition</code>
- *             </a>.</p>
+ * <p>The target document attribute or metadata field you want to alter when ingesting documents into Amazon Q Business.</p> <p>For example, you can delete all customer identification numbers associated with the documents, stored in the document metadata field called 'Customer_ID' by setting the target key as 'Customer_ID' and the deletion flag to <code>TRUE</code>. This removes all customer ID values in the field 'Customer_ID'. This would scrub personally identifiable information from each document's metadata.</p> <p>Amazon Q Business can't create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html"> <code>DocumentAttributeTarget</code> </a>. Amazon Q Business will then map your newly created document attribute to your index field.</p> <p>You can also use this with <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeCondition.html"> <code>DocumentAttributeCondition</code> </a>.</p>
  * @public
  */
 export interface DocumentAttributeTarget {
   /**
-   * <p>The identifier of the target document attribute or metadata field. For example,
-   *             'Department' could be an identifier for the target attribute or metadata field that
-   *             includes the department names associated with the documents.</p>
+   * <p>The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.</p>
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The value of a document attribute. You can only provide one value for a document
-   *             attribute.</p>
+   * <p>The value of a document attribute. You can only provide one value for a document attribute.</p>
    * @public
    */
   value?: DocumentAttributeValue | undefined;
 
   /**
-   * <p>
-   *             <code>TRUE</code> to delete the existing target value for your specified target
-   *             attribute key. You cannot create a target value and set this to
-   *             <code>TRUE</code>.</p>
+   * <p> <code>TRUE</code> to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to <code>TRUE</code>.</p>
    * @public
    */
   attributeValueOperator?: AttributeValueOperator | undefined;
 }
 
 /**
- * <p>Provides the configuration information for applying basic logic to alter document
- *             metadata and content when ingesting documents into Amazon Q Business.</p>
- *          <p>To apply advanced logic, to go beyond what you can do with basic logic, see <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_HookConfiguration.html">
- *                <code>HookConfiguration</code>
- *             </a>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>. </p>
+ * <p>Provides the configuration information for applying basic logic to alter document metadata and content when ingesting documents into Amazon Q Business.</p> <p>To apply advanced logic, to go beyond what you can do with basic logic, see <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_HookConfiguration.html"> <code>HookConfiguration</code> </a>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>. </p>
  * @public
  */
 export interface InlineDocumentEnrichmentConfiguration {
   /**
-   * <p>The condition used for the target document attribute or metadata field when ingesting
-   *             documents into Amazon Q Business. You use this with <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html">
-   *                <code>DocumentAttributeTarget</code>
-   *             </a> to apply the condition.</p>
-   *          <p>For example, you can create the 'Department' target field and have it prefill
-   *             department names associated with the documents based on information in the 'Source_URI'
-   *             field. Set the condition that if the 'Source_URI' field contains 'financial' in its URI
-   *             value, then prefill the target field 'Department' with the target value 'Finance' for
-   *             the document.</p>
-   *          <p>Amazon Q Business can't create a target field if it has not already been created as an
-   *             index field. After you create your index field, you can create a document metadata field
-   *             using <code>DocumentAttributeTarget</code>. Amazon Q Business then will map your newly
-   *             created metadata field to your index field.</p>
+   * <p>The condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business. You use this with <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html"> <code>DocumentAttributeTarget</code> </a> to apply the condition.</p> <p>For example, you can create the 'Department' target field and have it prefill department names associated with the documents based on information in the 'Source_URI' field. Set the condition that if the 'Source_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document.</p> <p>Amazon Q Business can't create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using <code>DocumentAttributeTarget</code>. Amazon Q Business then will map your newly created metadata field to your index field.</p>
    * @public
    */
   condition?: DocumentAttributeCondition | undefined;
 
   /**
-   * <p>The target document attribute or metadata field you want to alter when ingesting
-   *             documents into Amazon Q Business.</p>
-   *          <p>For example, you can delete all customer identification numbers associated with the
-   *             documents, stored in the document metadata field called 'Customer_ID' by setting the
-   *             target key as 'Customer_ID' and the deletion flag to <code>TRUE</code>. This removes all
-   *             customer ID values in the field 'Customer_ID'. This would scrub personally identifiable
-   *             information from each document's metadata.</p>
-   *          <p>Amazon Q Business can't create a target field if it has not already been created as an
-   *             index field. After you create your index field, you can create a document metadata field
-   *             using <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html">
-   *                <code>DocumentAttributeTarget</code>
-   *             </a>. Amazon Q Business
-   *             will then map your newly created document attribute to your index field.</p>
-   *          <p>You can also use this with <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeCondition.html">
-   *                <code>DocumentAttributeCondition</code>
-   *             </a>.</p>
+   * <p>The target document attribute or metadata field you want to alter when ingesting documents into Amazon Q Business.</p> <p>For example, you can delete all customer identification numbers associated with the documents, stored in the document metadata field called 'Customer_ID' by setting the target key as 'Customer_ID' and the deletion flag to <code>TRUE</code>. This removes all customer ID values in the field 'Customer_ID'. This would scrub personally identifiable information from each document's metadata.</p> <p>Amazon Q Business can't create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html"> <code>DocumentAttributeTarget</code> </a>. Amazon Q Business will then map your newly created document attribute to your index field.</p> <p>You can also use this with <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeCondition.html"> <code>DocumentAttributeCondition</code> </a>.</p>
    * @public
    */
   target?: DocumentAttributeTarget | undefined;
 
   /**
-   * <p>
-   *             <code>TRUE</code> to delete content if the condition used for the target attribute is
-   *             met.</p>
+   * <p> <code>TRUE</code> to delete content if the condition used for the target attribute is met.</p>
    * @public
    */
   documentContentOperator?: DocumentContentOperator | undefined;
 }
 
 /**
- * <p>Provides the configuration information for invoking a Lambda function in
- *                 Lambda to alter document metadata and content when ingesting
- *             documents into Amazon Q Business.</p>
- *          <p>You can configure your Lambda function using the
- *                 <code>PreExtractionHookConfiguration</code> parameter if you want to apply advanced
- *             alterations on the original or raw documents.</p>
- *          <p>If you want to apply advanced alterations on the Amazon Q Business structured documents,
- *             you must configure your Lambda function using
- *                 <code>PostExtractionHookConfiguration</code>.</p>
- *          <p>You can only invoke one Lambda function. However, this function can invoke
- *             other functions it requires.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>. </p>
+ * <p>Provides the configuration information for invoking a Lambda function in Lambda to alter document metadata and content when ingesting documents into Amazon Q Business.</p> <p>You can configure your Lambda function using the <code>PreExtractionHookConfiguration</code> parameter if you want to apply advanced alterations on the original or raw documents.</p> <p>If you want to apply advanced alterations on the Amazon Q Business structured documents, you must configure your Lambda function using <code>PostExtractionHookConfiguration</code>.</p> <p>You can only invoke one Lambda function. However, this function can invoke other functions it requires.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>. </p>
  * @public
  */
 export interface HookConfiguration {
   /**
-   * <p>The condition used for when a Lambda function should be invoked.</p>
-   *          <p>For example, you can specify a condition that if there are empty date-time values,
-   *             then Amazon Q Business should invoke a function that inserts the current date-time.</p>
+   * <p>The condition used for when a Lambda function should be invoked.</p> <p>For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.</p>
    * @public
    */
   invocationCondition?: DocumentAttributeCondition | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a role with permission to run a Lambda
-   *             function during ingestion. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role">IAM roles for
-   *                 Custom Document Enrichment (CDE)</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html">Using Lambda functions for Amazon Q Business document enrichment</a>.</p>
    * @public
    */
   lambdaArn?: string | undefined;
 
   /**
-   * <p>Stores the original, raw documents or the structured, parsed documents before and
-   *             after altering them. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts">Data contracts for Lambda functions</a>.</p>
+   * <p>Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts">Data contracts for Lambda functions</a>.</p>
    * @public
    */
   s3BucketName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a role with permission to run
-   *                 <code>PreExtractionHookConfiguration</code> and
-   *                 <code>PostExtractionHookConfiguration</code> for altering document metadata and
-   *             content during the document ingestion process.</p>
+   * <p>The Amazon Resource Name (ARN) of a role with permission to run <code>PreExtractionHookConfiguration</code> and <code>PostExtractionHookConfiguration</code> for altering document metadata and content during the document ingestion process.</p>
    * @public
    */
   roleArn?: string | undefined;
 }
 
 /**
- * <p>Provides the configuration information for altering document metadata and content
- *             during the document ingestion process.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document
- *                 enrichment</a>.</p>
+ * <p>Provides the configuration information for altering document metadata and content during the document ingestion process.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>.</p>
  * @public
  */
 export interface DocumentEnrichmentConfiguration {
   /**
-   * <p>Configuration information to alter document attributes or metadata fields and content
-   *             when ingesting documents into Amazon Q Business.</p>
+   * <p>Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Q Business.</p>
    * @public
    */
   inlineConfigurations?: InlineDocumentEnrichmentConfiguration[] | undefined;
 
   /**
-   * <p>Provides the configuration information for invoking a Lambda function in
-   *                 Lambda to alter document metadata and content when ingesting
-   *             documents into Amazon Q Business.</p>
-   *          <p>You can configure your Lambda function using the
-   *                 <code>PreExtractionHookConfiguration</code> parameter if you want to apply advanced
-   *             alterations on the original or raw documents.</p>
-   *          <p>If you want to apply advanced alterations on the Amazon Q Business structured documents,
-   *             you must configure your Lambda function using
-   *                 <code>PostExtractionHookConfiguration</code>.</p>
-   *          <p>You can only invoke one Lambda function. However, this function can invoke
-   *             other functions it requires.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>. </p>
+   * <p>Provides the configuration information for invoking a Lambda function in Lambda to alter document metadata and content when ingesting documents into Amazon Q Business.</p> <p>You can configure your Lambda function using the <code>PreExtractionHookConfiguration</code> parameter if you want to apply advanced alterations on the original or raw documents.</p> <p>If you want to apply advanced alterations on the Amazon Q Business structured documents, you must configure your Lambda function using <code>PostExtractionHookConfiguration</code>.</p> <p>You can only invoke one Lambda function. However, this function can invoke other functions it requires.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>. </p>
    * @public
    */
   preExtractionHookConfiguration?: HookConfiguration | undefined;
 
   /**
-   * <p>Provides the configuration information for invoking a Lambda function in
-   *                 Lambda to alter document metadata and content when ingesting
-   *             documents into Amazon Q Business.</p>
-   *          <p>You can configure your Lambda function using the
-   *                 <code>PreExtractionHookConfiguration</code> parameter if you want to apply advanced
-   *             alterations on the original or raw documents.</p>
-   *          <p>If you want to apply advanced alterations on the Amazon Q Business structured documents,
-   *             you must configure your Lambda function using
-   *                 <code>PostExtractionHookConfiguration</code>.</p>
-   *          <p>You can only invoke one Lambda function. However, this function can invoke
-   *             other functions it requires.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>. </p>
+   * <p>Provides the configuration information for invoking a Lambda function in Lambda to alter document metadata and content when ingesting documents into Amazon Q Business.</p> <p>You can configure your Lambda function using the <code>PreExtractionHookConfiguration</code> parameter if you want to apply advanced alterations on the original or raw documents.</p> <p>If you want to apply advanced alterations on the Amazon Q Business structured documents, you must configure your Lambda function using <code>PostExtractionHookConfiguration</code>.</p> <p>You can only invoke one Lambda function. However, this function can invoke other functions it requires.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>. </p>
    * @public
    */
   postExtractionHookConfiguration?: HookConfiguration | undefined;
@@ -2177,8 +1945,7 @@ export interface VideoExtractionConfiguration {
  */
 export interface MediaExtractionConfiguration {
   /**
-   * <p>The configuration for extracting semantic meaning from images in documents.
-   *             For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html">Extracting semantic meaning from images and visuals</a>. </p>
+   * <p>The configuration for extracting semantic meaning from images in documents. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html">Extracting semantic meaning from images and visuals</a>. </p>
    * @public
    */
   imageExtractionConfiguration?: ImageExtractionConfiguration | undefined;
@@ -2197,22 +1964,18 @@ export interface MediaExtractionConfiguration {
 }
 
 /**
- * <p>Provides configuration information needed to connect to an Amazon VPC (Virtual
- *             Private Cloud).</p>
+ * <p>Provides configuration information needed to connect to an Amazon VPC (Virtual Private Cloud).</p>
  * @public
  */
 export interface DataSourceVpcConfiguration {
   /**
-   * <p>A list of identifiers for subnets within your Amazon VPC. The subnets should
-   *             be able to connect to each other in the VPC, and they should have outgoing access to the
-   *             Internet through a NAT device.</p>
+   * <p>A list of identifiers for subnets within your Amazon VPC. The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.</p>
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>A list of identifiers of security groups within your Amazon VPC. The security
-   *             groups should enable Amazon Q Business to connect to the data source.</p>
+   * <p>A list of identifiers of security groups within your Amazon VPC. The security groups should enable Amazon Q Business to connect to the data source.</p>
    * @public
    */
   securityGroupIds: string[] | undefined;
@@ -2223,15 +1986,13 @@ export interface DataSourceVpcConfiguration {
  */
 export interface CreateDataSourceRequest {
   /**
-   * <p> The identifier of the Amazon Q Business application the data source will be attached
-   *             to.</p>
+   * <p> The identifier of the Amazon Q Business application the data source will be attached to.</p>
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The identifier of the index that you want to use with the data source
-   *             connector.</p>
+   * <p>The identifier of the index that you want to use with the data source connector.</p>
    * @public
    */
   indexId: string | undefined;
@@ -2243,44 +2004,13 @@ export interface CreateDataSourceRequest {
   displayName: string | undefined;
 
   /**
-   * <p>Configuration information to connect your data source repository to Amazon Q Business. Use this parameter to provide a JSON schema with configuration
-   *             information specific to your data source connector.</p>
-   *          <p>Each data source has a JSON schema provided by Amazon Q Business that you must
-   *             use. For example, the Amazon S3 and Web Crawler connectors require the following
-   *             JSON schemas:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/s3-api.html">Amazon S3 JSON schema</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/web-crawler-api.html">Web Crawler JSON schema</a>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>You can find configuration templates for your specific data source using the following
-   *             steps:</p>
-   *          <ol>
-   *             <li>
-   *                <p>Navigate to the <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html">Supported
-   *                         connectors</a> page in the Amazon Q Business User Guide, and
-   *                     select the data source of your choice.</p>
-   *             </li>
-   *             <li>
-   *                <p>Then, from your specific data source connector page, select <b>Using the API</b>. You will find the JSON schema for your
-   *                     data source, including parameter descriptions, in this section.</p>
-   *             </li>
-   *          </ol>
+   * <p>Configuration information to connect your data source repository to Amazon Q Business. Use this parameter to provide a JSON schema with configuration information specific to your data source connector.</p> <p>Each data source has a JSON schema provided by Amazon Q Business that you must use. For example, the Amazon S3 and Web Crawler connectors require the following JSON schemas:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/s3-api.html">Amazon S3 JSON schema</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/web-crawler-api.html">Web Crawler JSON schema</a> </p> </li> </ul> <p>You can find configuration templates for your specific data source using the following steps:</p> <ol> <li> <p>Navigate to the <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html">Supported connectors</a> page in the Amazon Q Business User Guide, and select the data source of your choice.</p> </li> <li> <p>Then, from your specific data source connector page, select <b>Using the API</b>. You will find the JSON schema for your data source, including parameter descriptions, in this section.</p> </li> </ol>
    * @public
    */
   configuration: __DocumentType | undefined;
 
   /**
-   * <p>Configuration information for an Amazon VPC (Virtual Private Cloud) to connect
-   *             to your data source. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html">Using
-   *                     Amazon VPC with Amazon Q Business connectors</a>.</p>
+   * <p>Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html">Using Amazon VPC with Amazon Q Business connectors</a>.</p>
    * @public
    */
   vpcConfiguration?: DataSourceVpcConfiguration | undefined;
@@ -2292,46 +2022,31 @@ export interface CreateDataSourceRequest {
   description?: string | undefined;
 
   /**
-   * <p>A list of key-value pairs that identify or categorize the data source connector. You
-   *             can also use tags to help control access to the data source connector. Tag keys and
-   *             values can consist of Unicode letters, digits, white space, and any of the following
-   *             symbols: _ . : / = + - @.</p>
+   * <p>A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.</p>
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>Sets the frequency for Amazon Q Business to check the documents in your data source
-   *             repository and update your index. If you don't set a schedule, Amazon Q Business won't
-   *             periodically update the index.</p>
-   *          <p>Specify a <code>cron-</code> format schedule string or an empty string to indicate
-   *             that the index is updated on demand. You can't specify the <code>Schedule</code>
-   *             parameter when the <code>Type</code> parameter is set to <code>CUSTOM</code>. If you do,
-   *             you receive a <code>ValidationException</code> exception. </p>
+   * <p>Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.</p> <p>Specify a <code>cron-</code> format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the <code>Schedule</code> parameter when the <code>Type</code> parameter is set to <code>CUSTOM</code>. If you do, you receive a <code>ValidationException</code> exception. </p>
    * @public
    */
   syncSchedule?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access
-   *             the data source and required resources.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.</p>
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>A token you provide to identify a request to create a data source connector. Multiple
-   *             calls to the <code>CreateDataSource</code> API with the same client token will create
-   *             only one data source connector. </p>
+   * <p>A token you provide to identify a request to create a data source connector. Multiple calls to the <code>CreateDataSource</code> API with the same client token will create only one data source connector. </p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Provides the configuration information for altering document metadata and content
-   *             during the document ingestion process.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document
-   *                 enrichment</a>.</p>
+   * <p>Provides the configuration information for altering document metadata and content during the document ingestion process.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>.</p>
    * @public
    */
   documentEnrichmentConfiguration?: DocumentEnrichmentConfiguration | undefined;
@@ -2354,8 +2069,7 @@ export interface CreateDataSourceResponse {
   dataSourceId?: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of a data source in an Amazon Q Business application.
-   *         </p>
+   * <p> The Amazon Resource Name (ARN) of a data source in an Amazon Q Business application. </p>
    * @public
    */
   dataSourceArn?: string | undefined;
@@ -2366,8 +2080,7 @@ export interface CreateDataSourceResponse {
  */
 export interface DeleteDataSourceRequest {
   /**
-   * <p>The identifier of the Amazon Q Business application used with the data source
-   *             connector.</p>
+   * <p>The identifier of the Amazon Q Business application used with the data source connector.</p>
    * @public
    */
   applicationId: string | undefined;
@@ -2478,8 +2191,7 @@ export interface GetDataSourceResponse {
   configuration?: __DocumentType | undefined;
 
   /**
-   * <p>Configuration information for an Amazon VPC (Virtual Private Cloud) to connect
-   *             to your data source.</p>
+   * <p>Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source.</p>
    * @public
    */
   vpcConfiguration?: DataSourceVpcConfiguration | undefined;
@@ -2503,9 +2215,7 @@ export interface GetDataSourceResponse {
   description?: string | undefined;
 
   /**
-   * <p>The current status of the data source connector. When the <code>Status</code> field
-   *             value is <code>FAILED</code>, the <code>ErrorMessage</code> field contains a description
-   *             of the error that caused the data source connector to fail.</p>
+   * <p>The current status of the data source connector. When the <code>Status</code> field value is <code>FAILED</code>, the <code>ErrorMessage</code> field contains a description of the error that caused the data source connector to fail.</p>
    * @public
    */
   status?: DataSourceStatus | undefined;
@@ -2517,32 +2227,25 @@ export interface GetDataSourceResponse {
   syncSchedule?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role with permission to access the data source
-   *             and required resources.</p>
+   * <p>The Amazon Resource Name (ARN) of the role with permission to access the data source and required resources.</p>
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>When the <code>Status</code> field value is <code>FAILED</code>, the
-   *                 <code>ErrorMessage</code> field contains a description of the error that caused the
-   *             data source connector to fail.</p>
+   * <p>When the <code>Status</code> field value is <code>FAILED</code>, the <code>ErrorMessage</code> field contains a description of the error that caused the data source connector to fail.</p>
    * @public
    */
   error?: ErrorDetail | undefined;
 
   /**
-   * <p>Provides the configuration information for altering document metadata and content
-   *             during the document ingestion process.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document
-   *                 enrichment</a>.</p>
+   * <p>Provides the configuration information for altering document metadata and content during the document ingestion process.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>.</p>
    * @public
    */
   documentEnrichmentConfiguration?: DocumentEnrichmentConfiguration | undefined;
 
   /**
-   * <p>The configuration for extracting information from media in documents for the data source.
-   *         </p>
+   * <p>The configuration for extracting information from media in documents for the data source. </p>
    * @public
    */
   mediaExtractionConfiguration?: MediaExtractionConfiguration | undefined;
@@ -2553,8 +2256,7 @@ export interface GetDataSourceResponse {
  */
 export interface ListDataSourcesRequest {
   /**
-   * <p>The identifier of the Amazon Q Business application linked to the data source
-   *             connectors.</p>
+   * <p>The identifier of the Amazon Q Business application linked to the data source connectors.</p>
    * @public
    */
   applicationId: string | undefined;
@@ -2566,10 +2268,7 @@ export interface ListDataSourcesRequest {
   indexId: string | undefined;
 
   /**
-   * <p>If the <code>maxResults</code> response was incomplete because there is more data to
-   *             retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-   *             pagination token to retrieve the next set of Amazon Q Business data source
-   *             connectors.</p>
+   * <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of Amazon Q Business data source connectors.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2634,8 +2333,7 @@ export interface ListDataSourcesResponse {
   dataSources?: DataSource[] | undefined;
 
   /**
-   * <p>If the response is truncated, Amazon Q Business returns this token. You can use this token
-   *             in a subsequent request to retrieve the next set of data source connectors.</p>
+   * <p>If the response is truncated, Amazon Q Business returns this token. You can use this token in a subsequent request to retrieve the next set of data source connectors.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2646,8 +2344,7 @@ export interface ListDataSourcesResponse {
  */
 export interface UpdateDataSourceRequest {
   /**
-   * <p> The identifier of the Amazon Q Business application the data source is attached
-   *             to.</p>
+   * <p> The identifier of the Amazon Q Business application the data source is attached to.</p>
    * @public
    */
   applicationId: string | undefined;
@@ -2677,8 +2374,7 @@ export interface UpdateDataSourceRequest {
   configuration?: __DocumentType | undefined;
 
   /**
-   * <p>Provides configuration information needed to connect to an Amazon VPC (Virtual
-   *             Private Cloud).</p>
+   * <p>Provides configuration information needed to connect to an Amazon VPC (Virtual Private Cloud).</p>
    * @public
    */
   vpcConfiguration?: DataSourceVpcConfiguration | undefined;
@@ -2696,17 +2392,13 @@ export interface UpdateDataSourceRequest {
   syncSchedule?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access
-   *             the data source and required resources.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.</p>
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>Provides the configuration information for altering document metadata and content
-   *             during the document ingestion process.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document
-   *                 enrichment</a>.</p>
+   * <p>Provides the configuration information for altering document metadata and content during the document ingestion process.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>.</p>
    * @public
    */
   documentEnrichmentConfiguration?: DocumentEnrichmentConfiguration | undefined;
@@ -2728,8 +2420,7 @@ export interface UpdateDataSourceResponse {}
  */
 export interface DeleteIndexRequest {
   /**
-   * <p>The identifier of the Amazon Q Business application the Amazon Q Business index is linked
-   *             to.</p>
+   * <p>The identifier of the Amazon Q Business application the Amazon Q Business index is linked to.</p>
    * @public
    */
   applicationId: string | undefined;
@@ -2794,10 +2485,7 @@ export const AttributeType = {
 export type AttributeType = (typeof AttributeType)[keyof typeof AttributeType];
 
 /**
- * <p>Configuration information for document attributes. Document attributes are metadata or
- *             fields associated with your documents. For example, the company department name
- *             associated with each document.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html">Understanding document attributes</a>.</p>
+ * <p>Configuration information for document attributes. Document attributes are metadata or fields associated with your documents. For example, the company department name associated with each document.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html">Understanding document attributes</a>.</p>
  * @public
  */
 export interface DocumentAttributeConfiguration {
@@ -2814,8 +2502,7 @@ export interface DocumentAttributeConfiguration {
   type?: AttributeType | undefined;
 
   /**
-   * <p>Information about whether the document attribute can be used by an end user to search
-   *             for information on their web experience.</p>
+   * <p>Information about whether the document attribute can be used by an end user to search for information on their web experience.</p>
    * @public
    */
   search?: Status | undefined;
@@ -2897,9 +2584,7 @@ export interface GetIndexResponse {
   indexArn?: string | undefined;
 
   /**
-   * <p>The current status of the index. When the value is <code>ACTIVE</code>, the index is
-   *             ready for use. If the <code>Status</code> field value is <code>FAILED</code>, the
-   *                 <code>ErrorMessage</code> field contains a message that explains why.</p>
+   * <p>The current status of the index. When the value is <code>ACTIVE</code>, the index is ready for use. If the <code>Status</code> field value is <code>FAILED</code>, the <code>ErrorMessage</code> field contains a message that explains why.</p>
    * @public
    */
   status?: IndexStatus | undefined;
@@ -2935,16 +2620,13 @@ export interface GetIndexResponse {
   capacityConfiguration?: IndexCapacityConfiguration | undefined;
 
   /**
-   * <p>Configuration information for document attributes or metadata. Document metadata are
-   *             fields associated with your documents. For example, the company department name
-   *             associated with each document. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes-types.html#doc-attributes">Understanding document attributes</a>.</p>
+   * <p>Configuration information for document attributes or metadata. Document metadata are fields associated with your documents. For example, the company department name associated with each document. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes-types.html#doc-attributes">Understanding document attributes</a>.</p>
    * @public
    */
   documentAttributeConfigurations?: DocumentAttributeConfiguration[] | undefined;
 
   /**
-   * <p>When the <code>Status</code> field value is <code>FAILED</code>, the
-   *                 <code>ErrorMessage</code> field contains a message that explains why.</p>
+   * <p>When the <code>Status</code> field value is <code>FAILED</code>, the <code>ErrorMessage</code> field contains a message that explains why.</p>
    * @public
    */
   error?: ErrorDetail | undefined;
@@ -2967,9 +2649,7 @@ export interface ListIndicesRequest {
   applicationId: string | undefined;
 
   /**
-   * <p>If the maxResults response was incomplete because there is more data to retrieve,
-   *             Amazon Q Business returns a pagination token in the response. You can use this pagination
-   *             token to retrieve the next set of Amazon Q Business indices.</p>
+   * <p>If the maxResults response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of Amazon Q Business indices.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3011,8 +2691,7 @@ export interface Index {
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The current status of the index. When the status is <code>ACTIVE</code>, the index is
-   *             ready.</p>
+   * <p>The current status of the index. When the status is <code>ACTIVE</code>, the index is ready.</p>
    * @public
    */
   status?: IndexStatus | undefined;
@@ -3023,8 +2702,7 @@ export interface Index {
  */
 export interface ListIndicesResponse {
   /**
-   * <p>If the response is truncated, Amazon Q Business returns this token that you can use in the
-   *             subsequent request to retrieve the next set of indexes.</p>
+   * <p>If the response is truncated, Amazon Q Business returns this token that you can use in the subsequent request to retrieve the next set of indexes.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3065,16 +2743,13 @@ export interface UpdateIndexRequest {
   description?: string | undefined;
 
   /**
-   * <p>The storage capacity units you want to provision for your Amazon Q Business index. You can
-   *             add and remove capacity to fit your usage needs.</p>
+   * <p>The storage capacity units you want to provision for your Amazon Q Business index. You can add and remove capacity to fit your usage needs.</p>
    * @public
    */
   capacityConfiguration?: IndexCapacityConfiguration | undefined;
 
   /**
-   * <p>Configuration information for document metadata or fields. Document metadata are
-   *             fields or attributes associated with your documents. For example, the company department
-   *             name associated with each document. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes-types.html#doc-attributes">Understanding document attributes</a>.</p>
+   * <p>Configuration information for document metadata or fields. Document metadata are fields or attributes associated with your documents. For example, the company department name associated with each document. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes-types.html#doc-attributes">Understanding document attributes</a>.</p>
    * @public
    */
   documentAttributeConfigurations?: DocumentAttributeConfiguration[] | undefined;
@@ -3090,9 +2765,7 @@ export interface UpdateIndexResponse {}
  */
 export interface ListApplicationsRequest {
   /**
-   * <p>If the <code>maxResults</code> response was incomplete because there is more data to
-   *             retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-   *             pagination token to retrieve the next set of Amazon Q Business applications.</p>
+   * <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of Amazon Q Business applications.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3109,36 +2782,31 @@ export interface ListApplicationsRequest {
  */
 export interface ListApplicationsResponse {
   /**
-   * <p>If the response is truncated, Amazon Q Business returns this token. You can use this token
-   *             in a subsequent request to retrieve the next set of applications.</p>
+   * <p>If the response is truncated, Amazon Q Business returns this token. You can use this token in a subsequent request to retrieve the next set of applications.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An array of summary information on the configuration of one or more Amazon Q Business
-   *             applications.</p>
+   * <p>An array of summary information on the configuration of one or more Amazon Q Business applications.</p>
    * @public
    */
   applications?: Application[] | undefined;
 }
 
 /**
- * <p>Information about the basic authentication credentials used to configure a
- *             plugin.</p>
+ * <p>Information about the basic authentication credentials used to configure a plugin.</p>
  * @public
  */
 export interface BasicAuthConfiguration {
   /**
-   * <p>The ARN of the Secrets Manager secret that stores the basic authentication
-   *             credentials used for plugin configuration..</p>
+   * <p>The ARN of the Secrets Manager secret that stores the basic authentication credentials used for plugin configuration..</p>
    * @public
    */
   secretArn: string | undefined;
 
   /**
-   * <p>The ARN of an IAM role used by Amazon Q Business to access the basic
-   *             authentication credentials stored in a Secrets Manager secret.</p>
+   * <p>The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.</p>
    * @public
    */
   roleArn: string | undefined;
@@ -3156,50 +2824,43 @@ export interface IdcAuthConfiguration {
   idcApplicationArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to perform actions on Amazon Web Services services
-   *             on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to perform actions on Amazon Web Services services on your behalf.</p>
    * @public
    */
   roleArn: string | undefined;
 }
 
 /**
- * <p>Information about invoking a custom plugin without any authentication or authorization
- *             requirement.</p>
+ * <p>Information about invoking a custom plugin without any authentication or authorization requirement.</p>
  * @public
  */
 export interface NoAuthConfiguration {}
 
 /**
- * <p>Information about the OAuth 2.0 authentication credential/token used to configure a
- *             plugin.</p>
+ * <p>Information about the OAuth 2.0 authentication credential/token used to configure a plugin.</p>
  * @public
  */
 export interface OAuth2ClientCredentialConfiguration {
   /**
-   * <p>The ARN of the Secrets Manager secret that stores the OAuth 2.0 credentials/token
-   *             used for plugin configuration.</p>
+   * <p>The ARN of the Secrets Manager secret that stores the OAuth 2.0 credentials/token used for plugin configuration.</p>
    * @public
    */
   secretArn: string | undefined;
 
   /**
-   * <p>The ARN of an IAM role used by Amazon Q Business to access the OAuth 2.0
-   *             authentication credentials stored in a Secrets Manager secret.</p>
+   * <p>The ARN of an IAM role used by Amazon Q Business to access the OAuth 2.0 authentication credentials stored in a Secrets Manager secret.</p>
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The redirect URL required by the OAuth 2.0 protocol for Amazon Q Business to
-   *             authenticate a plugin user through a third party authentication server.</p>
+   * <p>The redirect URL required by the OAuth 2.0 protocol for Amazon Q Business to authenticate a plugin user through a third party authentication server.</p>
    * @public
    */
   authorizationUrl?: string | undefined;
 
   /**
-   * <p>The URL required by the OAuth 2.0 protocol to exchange an end user authorization code
-   *             for an access token.</p>
+   * <p>The URL required by the OAuth 2.0 protocol to exchange an end user authorization code for an access token.</p>
    * @public
    */
   tokenUrl?: string | undefined;
@@ -3221,8 +2882,7 @@ export type PluginAuthConfiguration =
  */
 export namespace PluginAuthConfiguration {
   /**
-   * <p>Information about the basic authentication credentials used to configure a
-   *             plugin.</p>
+   * <p>Information about the basic authentication credentials used to configure a plugin.</p>
    * @public
    */
   export interface BasicAuthConfigurationMember {
@@ -3234,8 +2894,7 @@ export namespace PluginAuthConfiguration {
   }
 
   /**
-   * <p>Information about the OAuth 2.0 authentication credential/token used to configure a
-   *             plugin.</p>
+   * <p>Information about the OAuth 2.0 authentication credential/token used to configure a plugin.</p>
    * @public
    */
   export interface OAuth2ClientCredentialConfigurationMember {
@@ -3317,8 +2976,7 @@ export interface CustomPluginConfiguration {
   apiSchemaType: APISchemaType | undefined;
 
   /**
-   * <p>Contains either details about the S3 object containing the OpenAPI schema for the
-   *             action group or the JSON or YAML-formatted payload defining the schema.</p>
+   * <p>Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema.</p>
    * @public
    */
   apiSchema: APISchema | undefined;
@@ -3365,17 +3023,13 @@ export interface CreatePluginRequest {
   customPluginConfiguration?: CustomPluginConfiguration | undefined;
 
   /**
-   * <p>A list of key-value pairs that identify or categorize the data source connector. You
-   *             can also use tags to help control access to the data source connector. Tag keys and
-   *             values can consist of Unicode letters, digits, white space, and any of the following
-   *             symbols: _ . : / = + - @.</p>
+   * <p>A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.</p>
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>A token that you provide to identify the request to create your Amazon Q Business
-   *             plugin.</p>
+   * <p>A token that you provide to identify the request to create your Amazon Q Business plugin.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -3529,8 +3183,7 @@ export interface GetPluginResponse {
   buildStatus?: PluginBuildStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role with permission to access resources needed
-   *             to create the plugin.</p>
+   * <p>The Amazon Resource Name (ARN) of the role with permission to access resources needed to create the plugin.</p>
    * @public
    */
   pluginArn?: string | undefined;
@@ -3565,9 +3218,7 @@ export interface ListPluginsRequest {
   applicationId: string | undefined;
 
   /**
-   * <p>If the <code>maxResults</code> response was incomplete because there is more data to
-   *             retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-   *             pagination token to retrieve the next set of plugins.</p>
+   * <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of plugins.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3638,9 +3289,7 @@ export interface Plugin {
  */
 export interface ListPluginsResponse {
   /**
-   * <p>If the <code>maxResults</code> response was incomplete because there is more data to
-   *             retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-   *             pagination token to retrieve the next set of plugins.</p>
+   * <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of plugins.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3735,9 +3384,7 @@ export type DocumentAttributeBoostingLevel =
   (typeof DocumentAttributeBoostingLevel)[keyof typeof DocumentAttributeBoostingLevel];
 
 /**
- * <p>Provides information on boosting <code>DATE</code> type document attributes.</p>
- *          <p>For more information on how boosting document attributes work in Amazon Q Business, see
- *                 <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
+ * <p>Provides information on boosting <code>DATE</code> type document attributes.</p> <p>For more information on how boosting document attributes work in Amazon Q Business, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
  * @public
  */
 export interface DateAttributeBoostingConfiguration {
@@ -3748,8 +3395,7 @@ export interface DateAttributeBoostingConfiguration {
   boostingLevel: DocumentAttributeBoostingLevel | undefined;
 
   /**
-   * <p>Specifies the duration, in seconds, of a boost applies to a <code>DATE</code> type
-   *             document attribute.</p>
+   * <p>Specifies the duration, in seconds, of a boost applies to a <code>DATE</code> type document attribute.</p>
    * @public
    */
   boostingDurationInSeconds?: number | undefined;
@@ -3771,15 +3417,12 @@ export type NumberAttributeBoostingType =
   (typeof NumberAttributeBoostingType)[keyof typeof NumberAttributeBoostingType];
 
 /**
- * <p>Provides information on boosting <code>NUMBER</code> type document attributes.</p>
- *          <p>For more information on how boosting document attributes work in Amazon Q Business, see
- *                 <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
+ * <p>Provides information on boosting <code>NUMBER</code> type document attributes.</p> <p>For more information on how boosting document attributes work in Amazon Q Business, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
  * @public
  */
 export interface NumberAttributeBoostingConfiguration {
   /**
-   * <p>Specifies the duration, in seconds, of a boost applies to a <code>NUMBER</code> type
-   *             document attribute.</p>
+   * <p>Specifies the duration, in seconds, of a boost applies to a <code>NUMBER</code> type document attribute.</p>
    * @public
    */
   boostingLevel: DocumentAttributeBoostingLevel | undefined;
@@ -3809,16 +3452,7 @@ export type StringAttributeValueBoostingLevel =
   (typeof StringAttributeValueBoostingLevel)[keyof typeof StringAttributeValueBoostingLevel];
 
 /**
- * <p>Provides information on boosting <code>STRING</code> type document attributes.</p>
- *          <note>
- *             <p>For <code>STRING</code> and <code>STRING_LIST</code> type document attributes to
- *                 be used for boosting on the console and the API, they must be enabled for search
- *                 using the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeConfiguration.html">DocumentAttributeConfiguration</a> object of the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateIndex.html">UpdateIndex</a> API. If you haven't enabled searching on these attributes,
- *                 you can't boost attributes of these data types on either the console or the
- *                 API.</p>
- *          </note>
- *          <p>For more information on how boosting document attributes work in Amazon Q Business, see
- *                 <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
+ * <p>Provides information on boosting <code>STRING</code> type document attributes.</p> <note> <p>For <code>STRING</code> and <code>STRING_LIST</code> type document attributes to be used for boosting on the console and the API, they must be enabled for search using the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeConfiguration.html">DocumentAttributeConfiguration</a> object of the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateIndex.html">UpdateIndex</a> API. If you haven't enabled searching on these attributes, you can't boost attributes of these data types on either the console or the API.</p> </note> <p>For more information on how boosting document attributes work in Amazon Q Business, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
  * @public
  */
 export interface StringAttributeBoostingConfiguration {
@@ -3829,25 +3463,14 @@ export interface StringAttributeBoostingConfiguration {
   boostingLevel: DocumentAttributeBoostingLevel | undefined;
 
   /**
-   * <p>Specifies specific values of a <code>STRING</code> type document attribute being
-   *             boosted.</p>
+   * <p>Specifies specific values of a <code>STRING</code> type document attribute being boosted.</p>
    * @public
    */
   attributeValueBoosting?: Record<string, StringAttributeValueBoostingLevel> | undefined;
 }
 
 /**
- * <p>Provides information on boosting <code>STRING_LIST</code> type document
- *             attributes.</p>
- *          <note>
- *             <p>For <code>STRING</code> and <code>STRING_LIST</code> type document attributes to
- *                 be used for boosting on the console and the API, they must be enabled for search
- *                 using the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeConfiguration.html">DocumentAttributeConfiguration</a> object of the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateIndex.html">UpdateIndex</a> API. If you haven't enabled searching on these attributes,
- *                 you can't boost attributes of these data types on either the console or the
- *                 API.</p>
- *          </note>
- *          <p>For more information on how boosting document attributes work in Amazon Q Business, see
- *                 <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
+ * <p>Provides information on boosting <code>STRING_LIST</code> type document attributes.</p> <note> <p>For <code>STRING</code> and <code>STRING_LIST</code> type document attributes to be used for boosting on the console and the API, they must be enabled for search using the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeConfiguration.html">DocumentAttributeConfiguration</a> object of the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateIndex.html">UpdateIndex</a> API. If you haven't enabled searching on these attributes, you can't boost attributes of these data types on either the console or the API.</p> </note> <p>For more information on how boosting document attributes work in Amazon Q Business, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
  * @public
  */
 export interface StringListAttributeBoostingConfiguration {
@@ -3859,19 +3482,7 @@ export interface StringListAttributeBoostingConfiguration {
 }
 
 /**
- * <p>Provides information on boosting supported Amazon Q Business document attribute types.
- *             When an end user chat query matches document attributes that have been boosted,
- *             Amazon Q Business prioritizes generating responses from content that matches the boosted
- *             document attributes.</p>
- *          <note>
- *             <p>For <code>STRING</code> and <code>STRING_LIST</code> type document attributes to
- *                 be used for boosting on the console and the API, they must be enabled for search
- *                 using the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeConfiguration.html">DocumentAttributeConfiguration</a> object of the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateIndex.html">UpdateIndex</a> API. If you haven't enabled searching on these attributes,
- *                 you can't boost attributes of these data types on either the console or the
- *                 API.</p>
- *          </note>
- *          <p>For more information on how boosting document attributes work in Amazon Q Business, see
- *                 <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
+ * <p>Provides information on boosting supported Amazon Q Business document attribute types. When an end user chat query matches document attributes that have been boosted, Amazon Q Business prioritizes generating responses from content that matches the boosted document attributes.</p> <note> <p>For <code>STRING</code> and <code>STRING_LIST</code> type document attributes to be used for boosting on the console and the API, they must be enabled for search using the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeConfiguration.html">DocumentAttributeConfiguration</a> object of the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateIndex.html">UpdateIndex</a> API. If you haven't enabled searching on these attributes, you can't boost attributes of these data types on either the console or the API.</p> </note> <p>For more information on how boosting document attributes work in Amazon Q Business, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
  * @public
  */
 export type DocumentAttributeBoostingConfiguration =
@@ -3922,8 +3533,7 @@ export namespace DocumentAttributeBoostingConfiguration {
   }
 
   /**
-   * <p>Provides information on boosting <code>STRING_LIST</code> type document
-   *             attributes.</p>
+   * <p>Provides information on boosting <code>STRING_LIST</code> type document attributes.</p>
    * @public
    */
   export interface StringListConfigurationMember {
@@ -3975,16 +3585,14 @@ export interface NativeIndexConfiguration {
   indexId: string | undefined;
 
   /**
-   * <p>Overrides the default boosts applied by Amazon Q Business to supported document attribute
-   *             data types.</p>
+   * <p>Overrides the default boosts applied by Amazon Q Business to supported document attribute data types.</p>
    * @public
    */
   boostingOverride?: Record<string, DocumentAttributeBoostingConfiguration> | undefined;
 }
 
 /**
- * <p>Provides information on how the retriever used for your Amazon Q Business application is
- *             configured.</p>
+ * <p>Provides information on how the retriever used for your Amazon Q Business application is configured.</p>
  * @public
  */
 export type RetrieverConfiguration =
@@ -3997,8 +3605,7 @@ export type RetrieverConfiguration =
  */
 export namespace RetrieverConfiguration {
   /**
-   * <p>Provides information on how a Amazon Q Business index used as a retriever for your
-   *             Amazon Q Business application is configured.</p>
+   * <p>Provides information on how a Amazon Q Business index used as a retriever for your Amazon Q Business application is configured.</p>
    * @public
    */
   export interface NativeIndexConfigurationMember {
@@ -4008,8 +3615,7 @@ export namespace RetrieverConfiguration {
   }
 
   /**
-   * <p>Provides information on how the Amazon Kendra index used as a retriever for your
-   *             Amazon Q Business application is configured.</p>
+   * <p>Provides information on how the Amazon Kendra index used as a retriever for your Amazon Q Business application is configured.</p>
    * @public
    */
   export interface KendraIndexConfigurationMember {
@@ -4079,30 +3685,25 @@ export interface CreateRetrieverRequest {
   displayName: string | undefined;
 
   /**
-   * <p>Provides information on how the retriever used for your Amazon Q Business application is
-   *             configured.</p>
+   * <p>Provides information on how the retriever used for your Amazon Q Business application is configured.</p>
    * @public
    */
   configuration: RetrieverConfiguration | undefined;
 
   /**
-   * <p>The ARN of an IAM role used by Amazon Q Business to access the basic
-   *             authentication credentials stored in a Secrets Manager secret.</p>
+   * <p>The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.</p>
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>A token that you provide to identify the request to create your Amazon Q Business
-   *             application retriever.</p>
+   * <p>A token that you provide to identify the request to create your Amazon Q Business application retriever.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>A list of key-value pairs that identify or categorize the retriever. You can also use
-   *             tags to help control access to the retriever. Tag keys and values can consist of Unicode
-   *             letters, digits, white space, and any of the following symbols: _ . : / = + - @.</p>
+   * <p>A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -4220,15 +3821,13 @@ export interface GetRetrieverResponse {
   displayName?: string | undefined;
 
   /**
-   * <p>Provides information on how the retriever used for your Amazon Q Business application is
-   *             configured.</p>
+   * <p>Provides information on how the retriever used for your Amazon Q Business application is configured.</p>
    * @public
    */
   configuration?: RetrieverConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role with the permission to access the retriever
-   *             and required resources.</p>
+   * <p>The Amazon Resource Name (ARN) of the role with the permission to access the retriever and required resources.</p>
    * @public
    */
   roleArn?: string | undefined;
@@ -4257,9 +3856,7 @@ export interface ListRetrieversRequest {
   applicationId: string | undefined;
 
   /**
-   * <p>If the number of retrievers returned exceeds <code>maxResults</code>, Amazon Q Business
-   *             returns a next token as a pagination token to retrieve the next set of
-   *             retrievers.</p>
+   * <p>If the number of retrievers returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set of retrievers.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -4318,8 +3915,7 @@ export interface ListRetrieversResponse {
   retrievers?: Retriever[] | undefined;
 
   /**
-   * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a
-   *             later request to list the next set of retrievers.</p>
+   * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a later request to list the next set of retrievers.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -4342,8 +3938,7 @@ export interface UpdateRetrieverRequest {
   retrieverId: string | undefined;
 
   /**
-   * <p>Provides information on how the retriever used for your Amazon Q Business application is
-   *             configured.</p>
+   * <p>Provides information on how the retriever used for your Amazon Q Business application is configured.</p>
    * @public
    */
   configuration?: RetrieverConfiguration | undefined;
@@ -4355,8 +3950,7 @@ export interface UpdateRetrieverRequest {
   displayName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access the retriever
-   *             and required resources. </p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access the retriever and required resources. </p>
    * @public
    */
   roleArn?: string | undefined;
@@ -4378,8 +3972,7 @@ export interface UpdateApplicationRequest {
   applicationId: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either
-   *             creating for—or connecting to—your Amazon Q Business application.</p>
+   * <p> The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.</p>
    * @public
    */
   identityCenterInstanceArn?: string | undefined;
@@ -4397,9 +3990,7 @@ export interface UpdateApplicationRequest {
   description?: string | undefined;
 
   /**
-   * <p>An Amazon Web Services Identity and Access Management (IAM) role that
-   *             gives Amazon Q Business permission to access Amazon CloudWatch logs and
-   *             metrics.</p>
+   * <p>An Amazon Web Services Identity and Access Management (IAM) role that gives Amazon Q Business permission to access Amazon CloudWatch logs and metrics.</p>
    * @public
    */
   roleArn?: string | undefined;
@@ -4411,22 +4002,19 @@ export interface UpdateApplicationRequest {
   attachmentsConfiguration?: AttachmentsConfiguration | undefined;
 
   /**
-   * <p>An option to allow end users to create and use Amazon Q Apps in the web
-   *             experience.</p>
+   * <p>An option to allow end users to create and use Amazon Q Apps in the web experience.</p>
    * @public
    */
   qAppsConfiguration?: QAppsConfiguration | undefined;
 
   /**
-   * <p>Configuration information about chat response personalization. For more information,
-   *             see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html">Personalizing chat responses</a>.</p>
+   * <p>Configuration information about chat response personalization. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html">Personalizing chat responses</a>.</p>
    * @public
    */
   personalizationConfiguration?: PersonalizationConfiguration | undefined;
 
   /**
-   * <p>An option to enable updating the default subscription type assigned to an Amazon Q Business application using IAM identity federation for user
-   *             management.</p>
+   * <p>An option to enable updating the default subscription type assigned to an Amazon Q Business application using IAM identity federation for user management.</p>
    * @public
    */
   autoSubscriptionConfiguration?: AutoSubscriptionConfiguration | undefined;
@@ -4457,23 +4045,7 @@ export type BrowserExtension = (typeof BrowserExtension)[keyof typeof BrowserExt
  */
 export interface BrowserExtensionConfiguration {
   /**
-   * <p>Specify the browser extensions allowed for your Amazon Q web experience.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CHROME</code> — Enables the extension for Chromium-based browsers (Google Chrome, Microsoft
-   *                     Edge, Opera, etc.).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FIREFOX</code> — Enables the extension for Mozilla Firefox.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CHROME</code> and <code>FIREFOX</code> — Enable the extension for Chromium-based browsers
-   *                     and Mozilla Firefox.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specify the browser extensions allowed for your Amazon Q web experience.</p> <ul> <li> <p> <code>CHROME</code> — Enables the extension for Chromium-based browsers (Google Chrome, Microsoft Edge, Opera, etc.).</p> </li> <li> <p> <code>FIREFOX</code> — Enables the extension for Mozilla Firefox.</p> </li> <li> <p> <code>CHROME</code> and <code>FIREFOX</code> — Enable the extension for Chromium-based browsers and Mozilla Firefox.</p> </li> </ul>
    * @public
    */
   enabledBrowserExtensions: BrowserExtension[] | undefined;
@@ -4510,43 +4082,37 @@ export interface CustomizationConfiguration {
 }
 
 /**
- * <p>Information about the OIDC-compliant identity provider (IdP) used to authenticate end
- *             users of an Amazon Q Business web experience.</p>
+ * <p>Information about the OIDC-compliant identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.</p>
  * @public
  */
 export interface OpenIDConnectProviderConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of a Secrets Manager secret containing the OIDC
-   *             client secret.</p>
+   * <p>The Amazon Resource Name (ARN) of a Secrets Manager secret containing the OIDC client secret.</p>
    * @public
    */
   secretsArn: string | undefined;
 
   /**
-   * <p>An IAM role with permissions to access KMS to decrypt
-   *             the Secrets Manager secret containing your OIDC client secret.</p>
+   * <p>An IAM role with permissions to access KMS to decrypt the Secrets Manager secret containing your OIDC client secret.</p>
    * @public
    */
   secretsRole: string | undefined;
 }
 
 /**
- * <p>Information about the SAML 2.0-compliant identity provider (IdP) used to authenticate
- *             end users of an Amazon Q Business web experience.</p>
+ * <p>Information about the SAML 2.0-compliant identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.</p>
  * @public
  */
 export interface SamlProviderConfiguration {
   /**
-   * <p>The URL where Amazon Q Business end users will be redirected for authentication.
-   *         </p>
+   * <p>The URL where Amazon Q Business end users will be redirected for authentication. </p>
    * @public
    */
   authenticationUrl: string | undefined;
 }
 
 /**
- * <p>Provides information about the identity provider (IdP) used to authenticate end users
- *             of an Amazon Q Business web experience.</p>
+ * <p>Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.</p>
  * @public
  */
 export type IdentityProviderConfiguration =
@@ -4559,8 +4125,7 @@ export type IdentityProviderConfiguration =
  */
 export namespace IdentityProviderConfiguration {
   /**
-   * <p>Information about the SAML 2.0-compliant identity provider (IdP) used to authenticate
-   *             end users of an Amazon Q Business web experience.</p>
+   * <p>Information about the SAML 2.0-compliant identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.</p>
    * @public
    */
   export interface SamlConfigurationMember {
@@ -4570,8 +4135,7 @@ export namespace IdentityProviderConfiguration {
   }
 
   /**
-   * <p>Information about the OIDC-compliant identity provider (IdP) used to authenticate end
-   *             users of an Amazon Q Business web experience.</p>
+   * <p>Information about the OIDC-compliant identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.</p>
    * @public
    */
   export interface OpenIDConnectConfigurationMember {
@@ -4641,79 +4205,49 @@ export interface CreateWebExperienceRequest {
   subtitle?: string | undefined;
 
   /**
-   * <p>The customized welcome message for end users of an Amazon Q Business web
-   *             experience.</p>
+   * <p>The customized welcome message for end users of an Amazon Q Business web experience.</p>
    * @public
    */
   welcomeMessage?: string | undefined;
 
   /**
-   * <p>Determines whether sample prompts are enabled in the web experience for an end
-   *             user.</p>
+   * <p>Determines whether sample prompts are enabled in the web experience for an end user.</p>
    * @public
    */
   samplePromptsControlMode?: WebExperienceSamplePromptsControlMode | undefined;
 
   /**
-   * <p>Sets the website domain origins that
-   *             are allowed to embed the Amazon Q Business web experience.
-   *
-   *             The <i>domain origin</i> refers to the
-   *             base URL for accessing a website including the protocol
-   *             (<code>http/https</code>), the domain name, and the port number (if specified).
-   *         </p>
-   *          <note>
-   *             <p>You must only submit a <i>base URL</i> and
-   *             not a full path. For example, <code>https://docs.aws.amazon.com</code>.</p>
-   *          </note>
+   * <p>Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The <i>domain origin</i> refers to the base URL for accessing a website including the protocol (<code>http/https</code>), the domain name, and the port number (if specified). </p> <note> <p>You must only submit a <i>base URL</i> and not a full path. For example, <code>https://docs.aws.amazon.com</code>.</p> </note>
    * @public
    */
   origins?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service role attached to your web
-   *             experience.</p>
-   *          <note>
-   *             <p>You must provide this value if you're using IAM Identity Center to manage end user
-   *                 access to your application. If you're using legacy identity management to manage
-   *                 user access, you don't need to provide this value.</p>
-   *          </note>
+   * <p>The Amazon Resource Name (ARN) of the service role attached to your web experience.</p> <note> <p>You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.</p> </note>
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>A list of key-value pairs that identify or categorize your Amazon Q Business web
-   *             experience. You can also use tags to help control access to the web experience. Tag keys
-   *             and values can consist of Unicode letters, digits, white space, and any of the following
-   *             symbols: _ . : / = + - @.</p>
+   * <p>A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.</p>
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>A token you provide to identify a request to create an Amazon Q Business web experience.
-   *         </p>
+   * <p>A token you provide to identify a request to create an Amazon Q Business web experience. </p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Information about the identity provider (IdP) used to authenticate end users of an
-   *                 Amazon Q Business web experience.</p>
+   * <p>Information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.</p>
    * @public
    */
   identityProviderConfiguration?: IdentityProviderConfiguration | undefined;
 
   /**
-   * <p>The browser extension configuration for an Amazon Q Business web experience.</p>
-   *          <note>
-   *             <p>
-   *                 For Amazon Q Business application using external OIDC-compliant identity providers (IdPs).
-   *                 The IdP administrator must add the browser extension sign-in redirect URLs to the IdP application.
-   *                 For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/browser-extensions.html">Configure external OIDC identity provider for your browser extensions.</a>.
-   *             </p>
-   *          </note>
+   * <p>The browser extension configuration for an Amazon Q Business web experience.</p> <note> <p> For Amazon Q Business application using external OIDC-compliant identity providers (IdPs). The IdP administrator must add the browser extension sign-in redirect URLs to the IdP application. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/browser-extensions.html">Configure external OIDC identity provider for your browser extensions.</a>. </p> </note>
    * @public
    */
   browserExtensionConfiguration?: BrowserExtensionConfiguration | undefined;
@@ -4747,8 +4281,7 @@ export interface CreateWebExperienceResponse {
  */
 export interface DeleteWebExperienceRequest {
   /**
-   * <p>The identifier of the Amazon Q Business application linked to the Amazon Q Business web
-   *             experience.</p>
+   * <p>The identifier of the Amazon Q Business application linked to the Amazon Q Business web experience.</p>
    * @public
    */
   applicationId: string | undefined;
@@ -4783,8 +4316,7 @@ export interface GetWebExperienceRequest {
 }
 
 /**
- * <p>Provides the SAML 2.0 compliant identity provider (IdP) configuration information
- *             Amazon Q Business needs to deploy a Amazon Q Business web experience.</p>
+ * <p>Provides the SAML 2.0 compliant identity provider (IdP) configuration information Amazon Q Business needs to deploy a Amazon Q Business web experience.</p>
  * @public
  */
 export interface SamlConfiguration {
@@ -4795,9 +4327,7 @@ export interface SamlConfiguration {
   metadataXML: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role assumed by users when
-   *             they authenticate into their Amazon Q Business web experience, containing the relevant
-   *             Amazon Q Business permissions for conversing with Amazon Q Business.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role assumed by users when they authenticate into their Amazon Q Business web experience, containing the relevant Amazon Q Business permissions for conversing with Amazon Q Business.</p>
    * @public
    */
   roleArn: string | undefined;
@@ -4816,8 +4346,7 @@ export interface SamlConfiguration {
 }
 
 /**
- * <p>Provides the authorization configuration information needed to deploy a Amazon Q Business
- *             web experience to end users.</p>
+ * <p>Provides the authorization configuration information needed to deploy a Amazon Q Business web experience to end users.</p>
  * @public
  */
 export type WebExperienceAuthConfiguration =
@@ -4829,8 +4358,7 @@ export type WebExperienceAuthConfiguration =
  */
 export namespace WebExperienceAuthConfiguration {
   /**
-   * <p>Provides the SAML 2.0 compliant identity provider (IdP) configuration information
-   *             Amazon Q Business needs to deploy a Amazon Q Business web experience.</p>
+   * <p>Provides the SAML 2.0 compliant identity provider (IdP) configuration information Amazon Q Business needs to deploy a Amazon Q Business web experience.</p>
    * @public
    */
   export interface SamlConfigurationMember {
@@ -4891,8 +4419,7 @@ export interface GetWebExperienceResponse {
   webExperienceId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role with the permission to access the
-   *             Amazon Q Business web experience and required resources.</p>
+   * <p>The Amazon Resource Name (ARN) of the role with the permission to access the Amazon Q Business web experience and required resources.</p>
    * @public
    */
   webExperienceArn?: string | undefined;
@@ -4904,9 +4431,7 @@ export interface GetWebExperienceResponse {
   defaultEndpoint?: string | undefined;
 
   /**
-   * <p>The current status of the Amazon Q Business web experience. When the <code>Status</code>
-   *             field value is <code>FAILED</code>, the <code>ErrorMessage</code> field contains a
-   *             description of the error that caused the data source connector to fail. </p>
+   * <p>The current status of the Amazon Q Business web experience. When the <code>Status</code> field value is <code>FAILED</code>, the <code>ErrorMessage</code> field contains a description of the error that caused the data source connector to fail. </p>
    * @public
    */
   status?: WebExperienceStatus | undefined;
@@ -4936,48 +4461,37 @@ export interface GetWebExperienceResponse {
   subtitle?: string | undefined;
 
   /**
-   * <p>The customized welcome message for end users of an Amazon Q Business web
-   *             experience.</p>
+   * <p>The customized welcome message for end users of an Amazon Q Business web experience.</p>
    * @public
    */
   welcomeMessage?: string | undefined;
 
   /**
-   * <p>Determines whether sample prompts are enabled in the web experience for an end
-   *             user.</p>
+   * <p>Determines whether sample prompts are enabled in the web experience for an end user.</p>
    * @public
    */
   samplePromptsControlMode?: WebExperienceSamplePromptsControlMode | undefined;
 
   /**
-   * <p>Gets the website domain origins that
-   *             are allowed to embed the Amazon Q Business web experience.
-   *
-   *             The <i>domain origin</i> refers to the
-   *             base URL for accessing a website including the protocol
-   *             (<code>http/https</code>), the domain name, and the port number (if specified).
-   *         </p>
+   * <p>Gets the website domain origins that are allowed to embed the Amazon Q Business web experience. The <i>domain origin</i> refers to the base URL for accessing a website including the protocol (<code>http/https</code>), the domain name, and the port number (if specified). </p>
    * @public
    */
   origins?: string[] | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the service role attached to your web
-   *             experience.</p>
+   * <p> The Amazon Resource Name (ARN) of the service role attached to your web experience.</p>
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>Information about the identity provider (IdP) used to authenticate end users of an
-   *                 Amazon Q Business web experience.</p>
+   * <p>Information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.</p>
    * @public
    */
   identityProviderConfiguration?: IdentityProviderConfiguration | undefined;
 
   /**
-   * <p>The authentication configuration information for your Amazon Q Business web
-   *             experience.</p>
+   * <p>The authentication configuration information for your Amazon Q Business web experience.</p>
    *
    * @deprecated
    * @public
@@ -4985,9 +4499,7 @@ export interface GetWebExperienceResponse {
   authenticationConfiguration?: WebExperienceAuthConfiguration | undefined;
 
   /**
-   * <p>When the <code>Status</code> field value is <code>FAILED</code>, the
-   *                 <code>ErrorMessage</code> field contains a description of the error that caused the
-   *             data source connector to fail.</p>
+   * <p>When the <code>Status</code> field value is <code>FAILED</code>, the <code>ErrorMessage</code> field contains a description of the error that caused the data source connector to fail.</p>
    * @public
    */
   error?: ErrorDetail | undefined;
@@ -4999,8 +4511,7 @@ export interface GetWebExperienceResponse {
   browserExtensionConfiguration?: BrowserExtensionConfiguration | undefined;
 
   /**
-   * <p>Gets the custom logo, favicon, font, and color used in the Amazon Q web experience.
-   *         </p>
+   * <p>Gets the custom logo, favicon, font, and color used in the Amazon Q web experience. </p>
    * @public
    */
   customizationConfiguration?: CustomizationConfiguration | undefined;
@@ -5011,16 +4522,13 @@ export interface GetWebExperienceResponse {
  */
 export interface ListWebExperiencesRequest {
   /**
-   * <p>The identifier of the Amazon Q Business application linked to the listed web
-   *             experiences.</p>
+   * <p>The identifier of the Amazon Q Business application linked to the listed web experiences.</p>
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>If the <code>maxResults</code> response was incomplete because there is more data to
-   *             retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-   *             pagination token to retrieve the next set of Amazon Q Business conversations.</p>
+   * <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of Amazon Q Business conversations.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -5056,8 +4564,7 @@ export interface WebExperience {
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully
-   *             hosted by Amazon Web Services.</p>
+   * <p>The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by Amazon Web Services.</p>
    * @public
    */
   defaultEndpoint?: string | undefined;
@@ -5080,8 +4587,7 @@ export interface ListWebExperiencesResponse {
   webExperiences?: WebExperience[] | undefined;
 
   /**
-   * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a
-   *             later request to list the next set of messages.</p>
+   * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a later request to list the next set of messages.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -5104,8 +4610,7 @@ export interface UpdateWebExperienceRequest {
   webExperienceId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role with permission to access the Amazon Q Business
-   *             web experience and required resources.</p>
+   * <p>The Amazon Resource Name (ARN) of the role with permission to access the Amazon Q Business web experience and required resources.</p>
    * @public
    */
   roleArn?: string | undefined;
@@ -5131,58 +4636,31 @@ export interface UpdateWebExperienceRequest {
   subtitle?: string | undefined;
 
   /**
-   * <p>A customized welcome message for an end user in an Amazon Q Business web
-   *             experience.</p>
+   * <p>A customized welcome message for an end user in an Amazon Q Business web experience.</p>
    * @public
    */
   welcomeMessage?: string | undefined;
 
   /**
-   * <p>Determines whether sample prompts are enabled in the web experience for an end
-   *             user.</p>
+   * <p>Determines whether sample prompts are enabled in the web experience for an end user.</p>
    * @public
    */
   samplePromptsControlMode?: WebExperienceSamplePromptsControlMode | undefined;
 
   /**
-   * <p>Information about the identity provider (IdP) used to authenticate end users of an
-   *                 Amazon Q Business web experience.</p>
+   * <p>Information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.</p>
    * @public
    */
   identityProviderConfiguration?: IdentityProviderConfiguration | undefined;
 
   /**
-   * <p>Updates the website domain origins that
-   *             are allowed to embed the Amazon Q Business web experience.
-   *
-   *             The <i>domain origin</i> refers to the
-   *             <i>base URL</i> for accessing a website including the protocol
-   *             (<code>http/https</code>), the domain name, and the port number (if specified).</p>
-   *          <note>
-   *             <ul>
-   *                <li>
-   *                   <p>Any values except <code>null</code> submitted as part of this
-   *                 update will replace all previous values.</p>
-   *                </li>
-   *                <li>
-   *                   <p>You must only submit a <i>base URL</i> and
-   *                     not a full path. For example, <code>https://docs.aws.amazon.com</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   * <p>Updates the website domain origins that are allowed to embed the Amazon Q Business web experience. The <i>domain origin</i> refers to the <i>base URL</i> for accessing a website including the protocol (<code>http/https</code>), the domain name, and the port number (if specified).</p> <note> <ul> <li> <p>Any values except <code>null</code> submitted as part of this update will replace all previous values.</p> </li> <li> <p>You must only submit a <i>base URL</i> and not a full path. For example, <code>https://docs.aws.amazon.com</code>.</p> </li> </ul> </note>
    * @public
    */
   origins?: string[] | undefined;
 
   /**
-   * <p>The browser extension configuration for an Amazon Q Business web experience.</p>
-   *          <note>
-   *             <p>
-   *                 For Amazon Q Business application using external OIDC-compliant identity providers (IdPs).
-   *                 The IdP administrator must add the browser extension sign-in redirect URLs to the IdP application.
-   *                 For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/browser-extensions.html">Configure external OIDC identity provider for your browser extensions.</a>.
-   *             </p>
-   *          </note>
+   * <p>The browser extension configuration for an Amazon Q Business web experience.</p> <note> <p> For Amazon Q Business application using external OIDC-compliant identity providers (IdPs). The IdP administrator must add the browser extension sign-in redirect URLs to the IdP application. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/browser-extensions.html">Configure external OIDC identity provider for your browser extensions.</a>. </p> </note>
    * @public
    */
   browserExtensionConfiguration?: BrowserExtensionConfiguration | undefined;
@@ -5214,16 +4692,12 @@ export const CreatorModeControl = {
 export type CreatorModeControl = (typeof CreatorModeControl)[keyof typeof CreatorModeControl];
 
 /**
- * <p>The creator mode specific admin controls configured for an Amazon Q Business application.
- *             Determines whether an end user can generate LLM-only responses when they use the web
- *             experience.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a> and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
+ * <p>The creator mode specific admin controls configured for an Amazon Q Business application. Determines whether an end user can generate LLM-only responses when they use the web experience.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a> and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
  * @public
  */
 export interface AppliedCreatorModeConfiguration {
   /**
-   * <p> Information about whether creator mode is enabled or disabled for an Amazon Q Business
-   *             application. </p>
+   * <p> Information about whether creator mode is enabled or disabled for an Amazon Q Business application. </p>
    * @public
    */
   creatorModeControl: CreatorModeControl | undefined;
@@ -5244,19 +4718,51 @@ export const OrchestrationControl = {
 export type OrchestrationControl = (typeof OrchestrationControl)[keyof typeof OrchestrationControl];
 
 /**
- * <p>The chat orchestration specific admin controls configured for an Amazon Q Business
- *             application. Determines whether Amazon Q Business automatically routes chat requests across
- *             configured plugins and data sources in your Amazon Q Business application.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails-global-controls.html#guardrails-global-orchestration">Chat orchestration settings</a>.</p>
+ * <p>The chat orchestration specific admin controls configured for an Amazon Q Business application. Determines whether Amazon Q Business automatically routes chat requests across configured plugins and data sources in your Amazon Q Business application.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails-global-controls.html#guardrails-global-orchestration">Chat orchestration settings</a>.</p>
  * @public
  */
 export interface AppliedOrchestrationConfiguration {
   /**
-   * <p> Information about whether chat orchestration is enabled or disabled for an
-   *             Amazon Q Business application. </p>
+   * <p> Information about whether chat orchestration is enabled or disabled for an Amazon Q Business application. </p>
    * @public
    */
   control: OrchestrationControl | undefined;
+}
+
+/**
+ * <p>Represents a group associated with a given user in the access control system.</p>
+ * @public
+ */
+export interface AssociatedGroup {
+  /**
+   * <p>The name of the group associated with the user. This is used to identify the group in access control decisions.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The type of the associated group. This indicates the scope of the group's applicability.</p>
+   * @public
+   */
+  type?: MembershipType | undefined;
+}
+
+/**
+ * <p>Represents an associated user in the access control system.</p>
+ * @public
+ */
+export interface AssociatedUser {
+  /**
+   * <p>The unique identifier of the associated user. This is used to identify the user in access control decisions.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The type of the associated user. This indicates the scope of the user's association.</p>
+   * @public
+   */
+  type?: MembershipType | undefined;
 }
 
 /**
@@ -5460,8 +4966,7 @@ export interface AttachmentInput {
 }
 
 /**
- * <p>A file input event activated by a end user request to upload files into their web
- *             experience chat.</p>
+ * <p>A file input event activated by a end user request to upload files into their web experience chat.</p>
  * @public
  */
 export interface AttachmentInputEvent {
@@ -5559,37 +5064,31 @@ export interface AudioSourceDetails {
 }
 
 /**
- * <p>A request made by Amazon Q Business to a third paty authentication server to authenticate
- *             a custom plugin user.</p>
+ * <p>A request made by Amazon Q Business to a third paty authentication server to authenticate a custom plugin user.</p>
  * @public
  */
 export interface AuthChallengeRequest {
   /**
-   * <p>The URL sent by Amazon Q Business to the third party authentication server to authenticate
-   *             a custom plugin user through an OAuth protocol.</p>
+   * <p>The URL sent by Amazon Q Business to the third party authentication server to authenticate a custom plugin user through an OAuth protocol.</p>
    * @public
    */
   authorizationUrl: string | undefined;
 }
 
 /**
- * <p>An authentication verification event activated by an end user request to use a custom
- *             plugin.</p>
+ * <p>An authentication verification event activated by an end user request to use a custom plugin.</p>
  * @public
  */
 export interface AuthChallengeRequestEvent {
   /**
-   * <p>The URL sent by Amazon Q Business to a third party authentication server in response to an
-   *             authentication verification event activated by an end user request to use a custom
-   *             plugin. </p>
+   * <p>The URL sent by Amazon Q Business to a third party authentication server in response to an authentication verification event activated by an end user request to use a custom plugin. </p>
    * @public
    */
   authorizationUrl: string | undefined;
 }
 
 /**
- * <p>Contains details of the authentication information received from a third party
- *             authentication server in response to an authentication challenge.</p>
+ * <p>Contains details of the authentication information received from a third party authentication server in response to an authentication challenge.</p>
  * @public
  */
 export interface AuthChallengeResponse {
@@ -5601,8 +5100,7 @@ export interface AuthChallengeResponse {
 }
 
 /**
- * <p>An authentication verification event response by a third party authentication server
- *             to Amazon Q Business.</p>
+ * <p>An authentication verification event response by a third party authentication server to Amazon Q Business.</p>
  * @public
  */
 export interface AuthChallengeResponseEvent {
@@ -5636,8 +5134,7 @@ export interface BatchDeleteDocumentRequest {
   applicationId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q Business index that contains the documents to
-   *             delete.</p>
+   * <p>The identifier of the Amazon Q Business index that contains the documents to delete.</p>
    * @public
    */
   indexId: string | undefined;
@@ -5656,15 +5153,12 @@ export interface BatchDeleteDocumentRequest {
 }
 
 /**
- * <p>A list of documents that could not be removed from an Amazon Q Business index. Each entry
- *             contains an error message that indicates why the document couldn't be removed from the
- *             index.</p>
+ * <p>A list of documents that could not be removed from an Amazon Q Business index. Each entry contains an error message that indicates why the document couldn't be removed from the index.</p>
  * @public
  */
 export interface FailedDocument {
   /**
-   * <p>The identifier of the document that couldn't be removed from the Amazon Q Business
-   *             index.</p>
+   * <p>The identifier of the document that couldn't be removed from the Amazon Q Business index.</p>
    * @public
    */
   id?: string | undefined;
@@ -5676,8 +5170,7 @@ export interface FailedDocument {
   error?: ErrorDetail | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q Business data source connector that contains the failed
-   *             document.</p>
+   * <p>The identifier of the Amazon Q Business data source connector that contains the failed document.</p>
    * @public
    */
   dataSourceId?: string | undefined;
@@ -5688,9 +5181,7 @@ export interface FailedDocument {
  */
 export interface BatchDeleteDocumentResponse {
   /**
-   * <p>A list of documents that couldn't be removed from the Amazon Q Business index. Each entry
-   *             contains an error message that indicates why the document couldn't be removed from the
-   *             index. </p>
+   * <p>A list of documents that couldn't be removed from the Amazon Q Business index. Each entry contains an error message that indicates why the document couldn't be removed from the index. </p>
    * @public
    */
   failedDocuments?: FailedDocument[] | undefined;
@@ -5707,11 +5198,7 @@ export type DocumentContent = DocumentContent.BlobMember | DocumentContent.S3Mem
  */
 export namespace DocumentContent {
   /**
-   * <p>The contents of the document. Documents passed to the <code>blob</code> parameter must
-   *             be base64 encoded. Your code might not need to encode the document file bytes if you're
-   *             using an Amazon Web Services SDK to call Amazon Q Business APIs. If you are calling the
-   *             Amazon Q Business endpoint directly using REST, you must base64 encode the contents before
-   *             sending.</p>
+   * <p>The contents of the document. Documents passed to the <code>blob</code> parameter must be base64 encoded. Your code might not need to encode the document file bytes if you're using an Amazon Web Services SDK to call Amazon Q Business APIs. If you are calling the Amazon Q Business endpoint directly using REST, you must base64 encode the contents before sending.</p>
    * @public
    */
   export interface BlobMember {
@@ -5788,8 +5275,7 @@ export interface Document {
   id: string | undefined;
 
   /**
-   * <p>Custom attributes to apply to the document for refining Amazon Q Business web experience
-   *             responses.</p>
+   * <p>Custom attributes to apply to the document for refining Amazon Q Business web experience responses.</p>
    * @public
    */
   attributes?: DocumentAttribute[] | undefined;
@@ -5801,10 +5287,7 @@ export interface Document {
   content?: DocumentContent | undefined;
 
   /**
-   * <p>The file type of the document in the Blob field.</p>
-   *          <p>If you want to index snippets or subsets of HTML documents instead of the entirety of
-   *             the HTML documents, you add the <code>HTML</code> start and closing tags
-   *                 (<code>&lt;HTML&gt;content&lt;/HTML&gt;</code>) around the content.</p>
+   * <p>The file type of the document in the Blob field.</p> <p>If you want to index snippets or subsets of HTML documents instead of the entirety of the HTML documents, you add the <code>HTML</code> start and closing tags (<code>&lt;HTML&gt;content&lt;/HTML&gt;</code>) around the content.</p>
    * @public
    */
   contentType?: ContentType | undefined;
@@ -5822,8 +5305,7 @@ export interface Document {
   accessConfiguration?: AccessConfiguration | undefined;
 
   /**
-   * <p>The configuration information for altering document metadata and content during the
-   *             document ingestion process.</p>
+   * <p>The configuration information for altering document metadata and content during the document ingestion process.</p>
    * @public
    */
   documentEnrichmentConfiguration?: DocumentEnrichmentConfiguration | undefined;
@@ -5858,8 +5340,7 @@ export interface BatchPutDocumentRequest {
   documents: Document[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access your S3
-   *             bucket.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access your S3 bucket.</p>
    * @public
    */
   roleArn?: string | undefined;
@@ -5876,17 +5357,14 @@ export interface BatchPutDocumentRequest {
  */
 export interface BatchPutDocumentResponse {
   /**
-   * <p> A list of documents that were not added to the Amazon Q Business index because the
-   *             document failed a validation check. Each document contains an error message that
-   *             indicates why the document couldn't be added to the index. </p>
+   * <p> A list of documents that were not added to the Amazon Q Business index because the document failed a validation check. Each document contains an error message that indicates why the document couldn't be added to the index. </p>
    * @public
    */
   failedDocuments?: FailedDocument[] | undefined;
 }
 
 /**
- * <p>Provides information about the phrases blocked from chat by your chat control
- *             configuration.</p>
+ * <p>Provides information about the phrases blocked from chat by your chat control configuration.</p>
  * @public
  */
 export interface BlockedPhrasesConfiguration {
@@ -5897,8 +5375,7 @@ export interface BlockedPhrasesConfiguration {
   blockedPhrases?: string[] | undefined;
 
   /**
-   * <p>The configured custom message displayed to an end user informing them that they've
-   *             used a blocked phrase during chat.</p>
+   * <p>The configured custom message displayed to an end user informing them that they've used a blocked phrase during chat.</p>
    * @public
    */
   systemMessageOverride?: string | undefined;
@@ -5910,8 +5387,7 @@ export interface BlockedPhrasesConfiguration {
  */
 export interface BlockedPhrasesConfigurationUpdate {
   /**
-   * <p>Creates or updates a blocked phrases configuration in your Amazon Q Business
-   *             application.</p>
+   * <p>Creates or updates a blocked phrases configuration in your Amazon Q Business application.</p>
    * @public
    */
   blockedPhrasesToCreateOrUpdate?: string[] | undefined;
@@ -5923,8 +5399,7 @@ export interface BlockedPhrasesConfigurationUpdate {
   blockedPhrasesToDelete?: string[] | undefined;
 
   /**
-   * <p>The configured custom message displayed to your end user when they use blocked phrase
-   *             during chat.</p>
+   * <p>The configured custom message displayed to your end user when they use blocked phrase during chat.</p>
    * @public
    */
   systemMessageOverride?: string | undefined;
@@ -5935,8 +5410,7 @@ export interface BlockedPhrasesConfigurationUpdate {
  */
 export interface CancelSubscriptionRequest {
   /**
-   * <p>The identifier of the Amazon Q Business application for which the subscription is being
-   *             cancelled.</p>
+   * <p>The identifier of the Amazon Q Business application for which the subscription is being cancelled.</p>
    * @public
    */
   applicationId: string | undefined;
@@ -5965,8 +5439,7 @@ export interface SubscriptionDetails {
  */
 export interface CancelSubscriptionResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business subscription being
-   *             cancelled.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business subscription being cancelled.</p>
    * @public
    */
   subscriptionArn?: string | undefined;
@@ -6000,9 +5473,7 @@ export const ChatMode = {
 export type ChatMode = (typeof ChatMode)[keyof typeof ChatMode];
 
 /**
- * <p>Configuration information required to invoke chat in <code>PLUGIN_MODE</code>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a>, <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/plugins.html">Plugins</a>,
- *             and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
+ * <p>Configuration information required to invoke chat in <code>PLUGIN_MODE</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a>, <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/plugins.html">Plugins</a>, and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
  * @public
  */
 export interface PluginConfiguration {
@@ -6014,8 +5485,7 @@ export interface PluginConfiguration {
 }
 
 /**
- * <p>Configuration information for Amazon Q Business conversation modes.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a> and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
+ * <p>Configuration information for Amazon Q Business conversation modes.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a> and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
  * @public
  */
 export type ChatModeConfiguration =
@@ -6103,14 +5573,12 @@ export interface FailedAttachmentEvent {
 }
 
 /**
- * <p>Contains the relevant text excerpt from a source that was used to generate a citation
- *             text segment in an Amazon Q Business chat response.</p>
+ * <p>Contains the relevant text excerpt from a source that was used to generate a citation text segment in an Amazon Q Business chat response.</p>
  * @public
  */
 export interface SnippetExcerpt {
   /**
-   * <p>The relevant text excerpt from a source that was used to generate a citation text
-   *             segment in an Amazon Q chat response.</p>
+   * <p>The relevant text excerpt from a source that was used to generate a citation text segment in an Amazon Q chat response.</p>
    * @public
    */
   text?: string | undefined;
@@ -6257,28 +5725,24 @@ export namespace SourceDetails {
 }
 
 /**
- * <p>Provides information about a text extract in a chat response that can be attributed to
- *             a source document.</p>
+ * <p>Provides information about a text extract in a chat response that can be attributed to a source document.</p>
  * @public
  */
 export interface TextSegment {
   /**
-   * <p>The zero-based location in the response string where the source attribution
-   *             starts.</p>
+   * <p>The zero-based location in the response string where the source attribution starts.</p>
    * @public
    */
   beginOffset?: number | undefined;
 
   /**
-   * <p>The zero-based location in the response string where the source attribution
-   *             ends.</p>
+   * <p>The zero-based location in the response string where the source attribution ends.</p>
    * @public
    */
   endOffset?: number | undefined;
 
   /**
-   * <p>The relevant text excerpt from a source that was used to generate a citation text
-   *             segment in an Amazon Q Business chat response.</p>
+   * <p>The relevant text excerpt from a source that was used to generate a citation text segment in an Amazon Q Business chat response.</p>
    * @public
    */
   snippetExcerpt?: SnippetExcerpt | undefined;
@@ -6312,22 +5776,19 @@ export interface TextSegment {
  */
 export interface SourceAttribution {
   /**
-   * <p>The title of the document which is the source for the Amazon Q Business generated
-   *             response. </p>
+   * <p>The title of the document which is the source for the Amazon Q Business generated response. </p>
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The content extract from the document on which the generated response is based.
-   *         </p>
+   * <p>The content extract from the document on which the generated response is based. </p>
    * @public
    */
   snippet?: string | undefined;
 
   /**
-   * <p>The URL of the document which is the source for the Amazon Q Business generated response.
-   *         </p>
+   * <p>The URL of the document which is the source for the Amazon Q Business generated response. </p>
    * @public
    */
   url?: string | undefined;
@@ -6352,28 +5813,24 @@ export interface SourceAttribution {
 }
 
 /**
- * <p>A metadata event for a AI-generated text output message in a Amazon Q Business
- *             conversation, containing associated metadata generated.</p>
+ * <p>A metadata event for a AI-generated text output message in a Amazon Q Business conversation, containing associated metadata generated.</p>
  * @public
  */
 export interface MetadataEvent {
   /**
-   * <p>The identifier of the conversation with which the generated metadata is
-   *             associated.</p>
+   * <p>The identifier of the conversation with which the generated metadata is associated.</p>
    * @public
    */
   conversationId?: string | undefined;
 
   /**
-   * <p>The identifier of an Amazon Q Business end user text input message within the
-   *             conversation.</p>
+   * <p>The identifier of an Amazon Q Business end user text input message within the conversation.</p>
    * @public
    */
   userMessageId?: string | undefined;
 
   /**
-   * <p>The identifier of an Amazon Q Business AI generated message within the
-   *             conversation.</p>
+   * <p>The identifier of an Amazon Q Business AI generated message within the conversation.</p>
    * @public
    */
   systemMessageId?: string | undefined;
@@ -6406,34 +5863,18 @@ export const SystemMessageType = {
 export type SystemMessageType = (typeof SystemMessageType)[keyof typeof SystemMessageType];
 
 /**
- * <p>An output event for an AI-generated response in an Amazon Q Business web
- *             experience.</p>
+ * <p>An output event for an AI-generated response in an Amazon Q Business web experience.</p>
  * @public
  */
 export interface TextOutputEvent {
   /**
-   * <p>The type of AI-generated message in a <code>TextOutputEvent</code>. Amazon Q Business
-   *             currently supports two types of messages:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>RESPONSE</code> - The Amazon Q Business system response.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>GROUNDED_RESPONSE</code> - The corrected, hallucination-reduced,
-   *                     response returned by Amazon Q Business. Available only if hallucination reduction is
-   *                     supported and configured for the application and detected in the end user chat
-   *                     query by Amazon Q Business.</p>
-   *             </li>
-   *          </ul>
+   * <p>The type of AI-generated message in a <code>TextOutputEvent</code>. Amazon Q Business currently supports two types of messages:</p> <ul> <li> <p> <code>RESPONSE</code> - The Amazon Q Business system response.</p> </li> <li> <p> <code>GROUNDED_RESPONSE</code> - The corrected, hallucination-reduced, response returned by Amazon Q Business. Available only if hallucination reduction is supported and configured for the application and detected in the end user chat query by Amazon Q Business.</p> </li> </ul>
    * @public
    */
   systemMessageType?: SystemMessageType | undefined;
 
   /**
-   * <p>The identifier of the conversation with which the text output event is
-   *             associated.</p>
+   * <p>The identifier of the conversation with which the text output event is associated.</p>
    * @public
    */
   conversationId?: string | undefined;
@@ -6474,8 +5915,7 @@ export type ChatOutputStream =
  */
 export namespace ChatOutputStream {
   /**
-   * <p>Information about the payload of the <code>ChatOutputStream</code> event containing
-   *             the AI-generated message output.</p>
+   * <p>Information about the payload of the <code>ChatOutputStream</code> event containing the AI-generated message output.</p>
    * @public
    */
   export interface TextEventMember {
@@ -6488,8 +5928,7 @@ export namespace ChatOutputStream {
   }
 
   /**
-   * <p>A metadata event for a AI-generated text output message in a Amazon Q Business
-   *             conversation. </p>
+   * <p>A metadata event for a AI-generated text output message in a Amazon Q Business conversation. </p>
    * @public
    */
   export interface MetadataEventMember {
@@ -6502,8 +5941,7 @@ export namespace ChatOutputStream {
   }
 
   /**
-   * <p>A request from Amazon Q Business to the end user for information Amazon Q Business needs to
-   *             successfully complete a requested plugin action.</p>
+   * <p>A request from Amazon Q Business to the end user for information Amazon Q Business needs to successfully complete a requested plugin action.</p>
    * @public
    */
   export interface ActionReviewEventMember {
@@ -6529,8 +5967,7 @@ export namespace ChatOutputStream {
   }
 
   /**
-   * <p>An authentication verification event activated by an end user request to use a custom
-   *             plugin.</p>
+   * <p>An authentication verification event activated by an end user request to use a custom plugin.</p>
    * @public
    */
   export interface AuthChallengeRequestEventMember {
@@ -6586,9 +6023,7 @@ export interface ChatOutput {
 }
 
 /**
- * <p>An external resource that you configured with your application is returning errors and
- *             preventing this operation from succeeding. Fix those errors and try again.
- *         </p>
+ * <p>An external resource that you configured with your application is returning errors and preventing this operation from succeeding. Fix those errors and try again. </p>
  * @public
  */
 export class ExternalResourceException extends __BaseException {
@@ -6608,8 +6043,7 @@ export class ExternalResourceException extends __BaseException {
 }
 
 /**
- * <p>You don't have permissions to perform the action because your license is inactive. Ask
- *             your admin to activate your license and try again after your licence is active.</p>
+ * <p>You don't have permissions to perform the action because your license is inactive. Ask your admin to activate your license and try again after your licence is active.</p>
  * @public
  */
 export class LicenseNotFoundException extends __BaseException {
@@ -6645,29 +6079,25 @@ export interface ChatSyncOutput {
   systemMessage?: string | undefined;
 
   /**
-   * <p>The identifier of an Amazon Q Business AI generated message within the
-   *             conversation.</p>
+   * <p>The identifier of an Amazon Q Business AI generated message within the conversation.</p>
    * @public
    */
   systemMessageId?: string | undefined;
 
   /**
-   * <p>The identifier of an Amazon Q Business end user text input message within the
-   *             conversation.</p>
+   * <p>The identifier of an Amazon Q Business end user text input message within the conversation.</p>
    * @public
    */
   userMessageId?: string | undefined;
 
   /**
-   * <p>A request from Amazon Q Business to the end user for information Amazon Q Business needs to
-   *             successfully complete a requested plugin action.</p>
+   * <p>A request from Amazon Q Business to the end user for information Amazon Q Business needs to successfully complete a requested plugin action.</p>
    * @public
    */
   actionReview?: ActionReview | undefined;
 
   /**
-   * <p>An authentication verification event activated by an end user request to use a custom
-   *             plugin.</p>
+   * <p>An authentication verification event activated by an end user request to use a custom plugin.</p>
    * @public
    */
   authChallengeRequest?: AuthChallengeRequest | undefined;
@@ -6686,15 +6116,172 @@ export interface ChatSyncOutput {
 }
 
 /**
- * <p>A rule for configuring how Amazon Q Business responds when it encounters a a blocked
- *             topic. You can configure a custom message to inform your end users that they have asked
- *             about a restricted topic and suggest any next steps they should take.</p>
+ * @public
+ */
+export interface CheckDocumentAccessRequest {
+  /**
+   * <p>The unique identifier of the application. This is required to identify the specific Amazon Q Business application context for the document access check.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the index. Used to locate the correct index within the application where the document is stored.</p>
+   * @public
+   */
+  indexId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the user. Used to check the access permissions for this specific user against the document's ACL.</p>
+   * @public
+   */
+  userId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the document. Specifies which document's access permissions are being checked.</p>
+   * @public
+   */
+  documentId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source. Identifies the specific data source from which the document originates. Should not be used when a document is uploaded directly with BatchPutDocument, as no dataSourceId is available or necessary. </p>
+   * @public
+   */
+  dataSourceId?: string | undefined;
+}
+
+/**
+ * <p>Represents a group in the document's ACL, used to define access permissions for multiple users collectively.</p>
+ * @public
+ */
+export interface DocumentAclGroup {
+  /**
+   * <p>The name of the group in the document's ACL. This is used to identify the group when applying access rules.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The type of the group. This indicates the scope of the group's applicability in access control.</p>
+   * @public
+   */
+  type?: MembershipType | undefined;
+}
+
+/**
+ * <p>Represents a user in the document's ACL, used to define access permissions for individual users.</p>
+ * @public
+ */
+export interface DocumentAclUser {
+  /**
+   * <p>The unique identifier of the user in the document's ACL. This is used to identify the user when applying access rules.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The type of the user. This indicates the scope of the user's applicability in access control.</p>
+   * @public
+   */
+  type?: MembershipType | undefined;
+}
+
+/**
+ * <p>Represents a condition in the document's ACL, specifying access rules for users and groups.</p>
+ * @public
+ */
+export interface DocumentAclCondition {
+  /**
+   * <p>The logical relation between members in the condition, determining how multiple user or group conditions are combined.</p>
+   * @public
+   */
+  memberRelation?: MemberRelation | undefined;
+
+  /**
+   * <p>An array of user identifiers that this condition applies to. Users listed here are subject to the access rule defined by this condition.</p>
+   * @public
+   */
+  users?: DocumentAclUser[] | undefined;
+
+  /**
+   * <p>An array of group identifiers that this condition applies to. Groups listed here are subject to the access rule defined by this condition.</p>
+   * @public
+   */
+  groups?: DocumentAclGroup[] | undefined;
+}
+
+/**
+ * <p>Represents membership rules in the document's ACL, defining how users or groups are associated with access permissions.</p>
+ * @public
+ */
+export interface DocumentAclMembership {
+  /**
+   * <p>The logical relation between members in the membership rule, determining how multiple conditions are combined.</p>
+   * @public
+   */
+  memberRelation?: MemberRelation | undefined;
+
+  /**
+   * <p>An array of conditions that define the membership rules. Each condition specifies criteria for users or groups to be included in this membership.</p>
+   * @public
+   */
+  conditions?: DocumentAclCondition[] | undefined;
+}
+
+/**
+ * <p>Represents the Access Control List (ACL) for a document, containing both allowlist and denylist conditions.</p>
+ * @public
+ */
+export interface DocumentAcl {
+  /**
+   * <p>The allowlist conditions for the document. Users or groups matching these conditions are granted access to the document.</p>
+   * @public
+   */
+  allowlist?: DocumentAclMembership | undefined;
+
+  /**
+   * <p>The denylist conditions for the document. Users or groups matching these conditions are denied access to the document, overriding allowlist permissions.</p>
+   * @public
+   */
+  denyList?: DocumentAclMembership | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CheckDocumentAccessResponse {
+  /**
+   * <p>An array of groups the user is part of for the specified data source. Each group has a name and type.</p>
+   * @public
+   */
+  userGroups?: AssociatedGroup[] | undefined;
+
+  /**
+   * <p>An array of aliases associated with the user. This includes both global and local aliases, each with a name and type.</p>
+   * @public
+   */
+  userAliases?: AssociatedUser[] | undefined;
+
+  /**
+   * <p>A boolean value indicating whether the specified user has access to the document, either direct access or transitive access via groups and aliases attached to the document.</p>
+   * @public
+   */
+  hasAccess?: boolean | undefined;
+
+  /**
+   * <p>The Access Control List (ACL) associated with the document. Includes allowlist and denylist conditions that determine user access.</p>
+   * @public
+   */
+  documentAcl?: DocumentAcl | undefined;
+}
+
+/**
+ * <p>A rule for configuring how Amazon Q Business responds when it encounters a a blocked topic. You can configure a custom message to inform your end users that they have asked about a restricted topic and suggest any next steps they should take.</p>
  * @public
  */
 export interface ContentBlockerRule {
   /**
-   * <p>The configured custom message displayed to an end user informing them that they've
-   *             used a blocked phrase during chat.</p>
+   * <p>The configured custom message displayed to an end user informing them that they've used a blocked phrase during chat.</p>
    * @public
    */
   systemMessageOverride?: string | undefined;
@@ -6719,14 +6306,12 @@ export interface EligibleDataSource {
 }
 
 /**
- * <p>Rules for retrieving content from data sources connected to a Amazon Q Business
- *             application for a specific topic control configuration.</p>
+ * <p>Rules for retrieving content from data sources connected to a Amazon Q Business application for a specific topic control configuration.</p>
  * @public
  */
 export interface ContentRetrievalRule {
   /**
-   * <p>Specifies data sources in a Amazon Q Business application to use for content
-   *             generation.</p>
+   * <p>Specifies data sources in a Amazon Q Business application to use for content generation.</p>
    * @public
    */
   eligibleDataSources?: EligibleDataSource[] | undefined;
@@ -6807,8 +6392,7 @@ export interface Conversation {
 }
 
 /**
- * <p>A user or group in the IAM Identity Center instance connected to the Amazon Q Business
- *             application.</p>
+ * <p>A user or group in the IAM Identity Center instance connected to the Amazon Q Business application.</p>
  * @public
  */
 export type SubscriptionPrincipal =
@@ -6821,8 +6405,7 @@ export type SubscriptionPrincipal =
  */
 export namespace SubscriptionPrincipal {
   /**
-   * <p>The identifier of a user in the IAM Identity Center instance connected to the
-   *             Amazon Q Business application.</p>
+   * <p>The identifier of a user in the IAM Identity Center instance connected to the Amazon Q Business application.</p>
    * @public
    */
   export interface UserMember {
@@ -6832,8 +6415,7 @@ export namespace SubscriptionPrincipal {
   }
 
   /**
-   * <p>The identifier of a group in the IAM Identity Center instance connected to the
-   *             Amazon Q Business application.</p>
+   * <p>The identifier of a group in the IAM Identity Center instance connected to the Amazon Q Business application.</p>
    * @public
    */
   export interface GroupMember {
@@ -6869,15 +6451,13 @@ export namespace SubscriptionPrincipal {
  */
 export interface CreateSubscriptionRequest {
   /**
-   * <p>The identifier of the Amazon Q Business application the subscription should be added
-   *             to.</p>
+   * <p>The identifier of the Amazon Q Business application the subscription should be added to.</p>
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The IAM Identity Center <code>UserId</code> or <code>GroupId</code> of a user or group
-   *             in the IAM Identity Center instance connected to the Amazon Q Business application.</p>
+   * <p>The IAM Identity Center <code>UserId</code> or <code>GroupId</code> of a user or group in the IAM Identity Center instance connected to the Amazon Q Business application.</p>
    * @public
    */
   principal: SubscriptionPrincipal | undefined;
@@ -6889,8 +6469,7 @@ export interface CreateSubscriptionRequest {
   type: SubscriptionType | undefined;
 
   /**
-   * <p>A token that you provide to identify the request to create a subscription for your
-   *             Amazon Q Business application.</p>
+   * <p>A token that you provide to identify the request to create a subscription for your Amazon Q Business application.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -6972,8 +6551,7 @@ export interface CreateUserRequest {
   userAliases?: UserAlias[] | undefined;
 
   /**
-   * <p>A token that you provide to identify the request to create your Amazon Q Business user
-   *             mapping.</p>
+   * <p>A token that you provide to identify the request to create your Amazon Q Business user mapping.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -6985,56 +6563,48 @@ export interface CreateUserRequest {
 export interface CreateUserResponse {}
 
 /**
- * <p>Configuration information required to invoke chat in <code>CREATOR_MODE</code>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a> and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
+ * <p>Configuration information required to invoke chat in <code>CREATOR_MODE</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a> and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
  * @public
  */
 export interface CreatorModeConfiguration {
   /**
-   * <p>Status information about whether <code>CREATOR_MODE</code> has been enabled or
-   *             disabled. The default status is <code>DISABLED</code>.</p>
+   * <p>Status information about whether <code>CREATOR_MODE</code> has been enabled or disabled. The default status is <code>DISABLED</code>.</p>
    * @public
    */
   creatorModeControl: CreatorModeControl | undefined;
 }
 
 /**
- * <p>Maps a batch delete document request to a specific Amazon Q Business data source connector
- *             sync job.</p>
+ * <p>Maps a batch delete document request to a specific Amazon Q Business data source connector sync job.</p>
  * @public
  */
 export interface DataSourceSyncJobMetrics {
   /**
-   * <p>The current count of documents added from the data source during the data source
-   *             sync.</p>
+   * <p>The current count of documents added from the data source during the data source sync.</p>
    * @public
    */
   documentsAdded?: string | undefined;
 
   /**
-   * <p>The current count of documents modified in the data source during the data source
-   *             sync.</p>
+   * <p>The current count of documents modified in the data source during the data source sync.</p>
    * @public
    */
   documentsModified?: string | undefined;
 
   /**
-   * <p>The current count of documents deleted from the data source during the data source
-   *             sync.</p>
+   * <p>The current count of documents deleted from the data source during the data source sync.</p>
    * @public
    */
   documentsDeleted?: string | undefined;
 
   /**
-   * <p>The current count of documents that failed to sync from the data source during the
-   *             data source sync.</p>
+   * <p>The current count of documents that failed to sync from the data source during the data source sync.</p>
    * @public
    */
   documentsFailed?: string | undefined;
 
   /**
-   * <p>The current count of documents crawled by the ongoing sync job in the data
-   *             source.</p>
+   * <p>The current count of documents crawled by the ongoing sync job in the data source.</p>
    * @public
    */
   documentsScanned?: string | undefined;
@@ -7060,8 +6630,7 @@ export const DataSourceSyncJobStatus = {
 export type DataSourceSyncJobStatus = (typeof DataSourceSyncJobStatus)[keyof typeof DataSourceSyncJobStatus];
 
 /**
- * <p>Provides information about an Amazon Q Business data source connector synchronization
- *             job.</p>
+ * <p>Provides information about an Amazon Q Business data source connector synchronization job.</p>
  * @public
  */
 export interface DataSourceSyncJob {
@@ -7084,32 +6653,25 @@ export interface DataSourceSyncJob {
   endTime?: Date | undefined;
 
   /**
-   * <p>The status of the synchronization job. When the <code>Status</code> field is set to
-   *                 <code>SUCCEEDED</code>, the synchronization job is done. If the status code is
-   *                 <code>FAILED</code>, the <code>ErrorCode</code> and <code>ErrorMessage</code> fields
-   *             give you the reason for the failure.</p>
+   * <p>The status of the synchronization job. When the <code>Status</code> field is set to <code>SUCCEEDED</code>, the synchronization job is done. If the status code is <code>FAILED</code>, the <code>ErrorCode</code> and <code>ErrorMessage</code> fields give you the reason for the failure.</p>
    * @public
    */
   status?: DataSourceSyncJobStatus | undefined;
 
   /**
-   * <p>If the <code>Status</code> field is set to <code>FAILED</code>, the
-   *                 <code>ErrorCode</code> field indicates the reason the synchronization failed. </p>
+   * <p>If the <code>Status</code> field is set to <code>FAILED</code>, the <code>ErrorCode</code> field indicates the reason the synchronization failed. </p>
    * @public
    */
   error?: ErrorDetail | undefined;
 
   /**
-   * <p>If the reason that the synchronization failed is due to an error with the underlying
-   *             data source, this field contains a code that identifies the error.</p>
+   * <p>If the reason that the synchronization failed is due to an error with the underlying data source, this field contains a code that identifies the error.</p>
    * @public
    */
   dataSourceErrorCode?: string | undefined;
 
   /**
-   * <p>Maps a batch delete document request to a specific data source sync job. This is
-   *             optional and should only be supplied when documents are deleted by a data source
-   *             connector.</p>
+   * <p>Maps a batch delete document request to a specific data source sync job. This is optional and should only be supplied when documents are deleted by a data source connector.</p>
    * @public
    */
   metrics?: DataSourceSyncJobMetrics | undefined;
@@ -7176,8 +6738,7 @@ export interface DeleteConversationRequest {
   conversationId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q Business application associated with the
-   *             conversation.</p>
+   * <p>The identifier of the Amazon Q Business application associated with the conversation.</p>
    * @public
    */
   applicationId: string | undefined;
@@ -7217,14 +6778,7 @@ export interface DeleteGroupRequest {
   groupName: string | undefined;
 
   /**
-   * <p>The identifier of the data source linked to the group</p>
-   *          <p>A group can be tied to multiple data sources. You can delete a group from accessing
-   *             documents in a certain data source. For example, the groups "Research", "Engineering",
-   *             and "Sales and Marketing" are all tied to the company's documents stored in the data
-   *             sources Confluence and Salesforce. You want to delete "Research" and "Engineering"
-   *             groups from Salesforce, so that these groups cannot access customer-related documents
-   *             stored in Salesforce. Only "Sales and Marketing" should access documents in the
-   *             Salesforce data source.</p>
+   * <p>The identifier of the data source linked to the group</p> <p>A group can be tied to multiple data sources. You can delete a group from accessing documents in a certain data source. For example, the groups "Research", "Engineering", and "Sales and Marketing" are all tied to the company's documents stored in the data sources Confluence and Salesforce. You want to delete "Research" and "Engineering" groups from Salesforce, so that these groups cannot access customer-related documents stored in Salesforce. Only "Sales and Marketing" should access documents in the Salesforce data source.</p>
    * @public
    */
   dataSourceId?: string | undefined;
@@ -7352,10 +6906,7 @@ export interface GetChatControlsConfigurationRequest {
   maxResults?: number | undefined;
 
   /**
-   * <p>If the <code>maxResults</code> response was incomplete because there is more data to
-   *             retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-   *             pagination token to retrieve the next set of Amazon Q Business chat controls
-   *             configured.</p>
+   * <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of Amazon Q Business chat controls configured.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7377,18 +6928,12 @@ export type HallucinationReductionControl =
   (typeof HallucinationReductionControl)[keyof typeof HallucinationReductionControl];
 
 /**
- * <p>Configuration information required to setup hallucination reduction. For more
- *             information, see <a href="amazonq/latest/qbusiness-ug/hallucination-reduction.html">hallucination reduction</a>.</p>
- *          <note>
- *             <p>The hallucination reduction feature won't work if chat orchestration controls are
- *                 enabled for your application.</p>
- *          </note>
+ * <p>Configuration information required to setup hallucination reduction. For more information, see <a href="amazonq/latest/qbusiness-ug/hallucination-reduction.html">hallucination reduction</a>.</p> <note> <p>The hallucination reduction feature won't work if chat orchestration controls are enabled for your application.</p> </note>
  * @public
  */
 export interface HallucinationReductionConfiguration {
   /**
-   * <p>Controls whether hallucination reduction has been enabled or disabled for your
-   *             application. The default status is <code>DISABLED</code>. </p>
+   * <p>Controls whether hallucination reduction has been enabled or disabled for your application. The default status is <code>DISABLED</code>. </p>
    * @public
    */
   hallucinationReductionControl?: HallucinationReductionControl | undefined;
@@ -7409,8 +6954,7 @@ export const ResponseScope = {
 export type ResponseScope = (typeof ResponseScope)[keyof typeof ResponseScope];
 
 /**
- * <p>Provides information about users and group names associated with a topic control
- *             rule.</p>
+ * <p>Provides information about users and group names associated with a topic control rule.</p>
  * @public
  */
 export interface UsersAndGroups {
@@ -7441,8 +6985,7 @@ export type RuleConfiguration =
  */
 export namespace RuleConfiguration {
   /**
-   * <p>A rule for configuring how Amazon Q Business responds when it encounters a a blocked
-   *             topic.</p>
+   * <p>A rule for configuring how Amazon Q Business responds when it encounters a a blocked topic.</p>
    * @public
    */
   export interface ContentBlockerRuleMember {
@@ -7452,8 +6995,7 @@ export namespace RuleConfiguration {
   }
 
   /**
-   * <p>Rules for retrieving content from data sources connected to a Amazon Q Business
-   *             application for a specific topic control configuration.</p>
+   * <p>Rules for retrieving content from data sources connected to a Amazon Q Business application for a specific topic control configuration.</p>
    * @public
    */
   export interface ContentRetrievalRuleMember {
@@ -7499,8 +7041,7 @@ export const RuleType = {
 export type RuleType = (typeof RuleType)[keyof typeof RuleType];
 
 /**
- * <p>Guardrail rules for an Amazon Q Business application. Amazon Q Business supports only one rule
- *             at a time.</p>
+ * <p>Guardrail rules for an Amazon Q Business application. Amazon Q Business supports only one rule at a time.</p>
  * @public
  */
 export interface Rule {
@@ -7541,15 +7082,13 @@ export interface TopicConfiguration {
   name: string | undefined;
 
   /**
-   * <p>A description for your topic control configuration. Use this to outline how the large
-   *             language model (LLM) should use this topic control configuration.</p>
+   * <p>A description for your topic control configuration. Use this to outline how the large language model (LLM) should use this topic control configuration.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A list of example phrases that you expect the end user to use in relation to the
-   *             topic.</p>
+   * <p>A list of example phrases that you expect the end user to use in relation to the topic.</p>
    * @public
    */
   exampleChatMessages?: string[] | undefined;
@@ -7566,20 +7105,13 @@ export interface TopicConfiguration {
  */
 export interface GetChatControlsConfigurationResponse {
   /**
-   * <p>The response scope configured for a Amazon Q Business application. This determines whether
-   *             your application uses its retrieval augmented generation (RAG) system to generate
-   *             answers only from your enterprise data, or also uses the large language models (LLM)
-   *             knowledge to respons to end user questions in chat.</p>
+   * <p>The response scope configured for a Amazon Q Business application. This determines whether your application uses its retrieval augmented generation (RAG) system to generate answers only from your enterprise data, or also uses the large language models (LLM) knowledge to respons to end user questions in chat.</p>
    * @public
    */
   responseScope?: ResponseScope | undefined;
 
   /**
-   * <p> The chat response orchestration settings for your application.</p>
-   *          <note>
-   *             <p>Chat orchestration is optimized to work for English language content. For more
-   *                 details on language support in Amazon Q Business, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/supported-languages.html">Supported languages</a>.</p>
-   *          </note>
+   * <p> The chat response orchestration settings for your application.</p> <note> <p>Chat orchestration is optimized to work for English language content. For more details on language support in Amazon Q Business, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/supported-languages.html">Supported languages</a>.</p> </note>
    * @public
    */
   orchestrationConfiguration?: AppliedOrchestrationConfiguration | undefined;
@@ -7603,10 +7135,7 @@ export interface GetChatControlsConfigurationResponse {
   creatorModeConfiguration?: AppliedCreatorModeConfiguration | undefined;
 
   /**
-   * <p>If the <code>maxResults</code> response was incomplete because there is more data to
-   *             retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-   *             pagination token to retrieve the next set of Amazon Q Business chat controls
-   *             configured.</p>
+   * <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of Amazon Q Business chat controls configured.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7844,8 +7373,7 @@ export interface ListAttachmentsRequest {
   userId?: string | undefined;
 
   /**
-   * <p>If the number of attachments returned exceeds <code>maxResults</code>, Amazon Q Business
-   *             returns a next token as a pagination token to retrieve the next set of attachments.</p>
+   * <p>If the number of attachments returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set of attachments.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7868,8 +7396,7 @@ export interface ListAttachmentsResponse {
   attachments?: Attachment[] | undefined;
 
   /**
-   * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a
-   *             later request to list the next set of attachments.</p>
+   * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a later request to list the next set of attachments.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7886,16 +7413,13 @@ export interface ListConversationsRequest {
   applicationId: string | undefined;
 
   /**
-   * <p>The identifier of the user involved in the Amazon Q Business web experience conversation.
-   *         </p>
+   * <p>The identifier of the user involved in the Amazon Q Business web experience conversation. </p>
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * <p>If the <code>maxResults</code> response was incomplete because there is more data to
-   *             retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-   *             pagination token to retrieve the next set of Amazon Q Business conversations.</p>
+   * <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of Amazon Q Business conversations.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7912,15 +7436,13 @@ export interface ListConversationsRequest {
  */
 export interface ListConversationsResponse {
   /**
-   * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a
-   *             later request to list the next set of messages.</p>
+   * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a later request to list the next set of messages.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An array of summary information on the configuration of one or more Amazon Q Business web
-   *             experiences.</p>
+   * <p>An array of summary information on the configuration of one or more Amazon Q Business web experiences.</p>
    * @public
    */
   conversations?: Conversation[] | undefined;
@@ -7949,9 +7471,7 @@ export interface ListDataSourceSyncJobsRequest {
   indexId: string | undefined;
 
   /**
-   * <p>If the <code>maxResults</code> response was incpmplete because there is more data to
-   *             retriever, Amazon Q Business returns a pagination token in the response. You can use this
-   *             pagination token to retrieve the next set of responses.</p>
+   * <p>If the <code>maxResults</code> response was incpmplete because there is more data to retriever, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of responses.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7975,8 +7495,7 @@ export interface ListDataSourceSyncJobsRequest {
   endTime?: Date | undefined;
 
   /**
-   * <p>Only returns synchronization jobs with the <code>Status</code> field equal to the
-   *             specified status.</p>
+   * <p>Only returns synchronization jobs with the <code>Status</code> field equal to the specified status.</p>
    * @public
    */
   statusFilter?: DataSourceSyncJobStatus | undefined;
@@ -7993,8 +7512,7 @@ export interface ListDataSourceSyncJobsResponse {
   history?: DataSourceSyncJob[] | undefined;
 
   /**
-   * <p>If the response is truncated, Amazon Q Business returns this token. You can use this token
-   *             in any subsequent request to retrieve the next set of jobs.</p>
+   * <p>If the response is truncated, Amazon Q Business returns this token. You can use this token in any subsequent request to retrieve the next set of jobs.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -8023,267 +7541,13 @@ export interface ListDocumentsRequest {
   dataSourceIds?: string[] | undefined;
 
   /**
-   * <p>If the <code>maxResults</code> response was incomplete because there is more data to
-   *             retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-   *             pagination token to retrieve the next set of documents.</p>
+   * <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of documents.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of documents to return.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDocumentsResponse {
-  /**
-   * <p>A list of document details.</p>
-   * @public
-   */
-  documentDetailList?: DocumentDetails[] | undefined;
-
-  /**
-   * <p>If the <code>maxResults</code> response was incomplete because there is more data to
-   *             retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-   *             pagination token to retrieve the next set of documents.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGroupsRequest {
-  /**
-   * <p>The identifier of the application for getting a list of groups mapped to users.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>The identifier of the index for getting a list of groups mapped to users.</p>
-   * @public
-   */
-  indexId: string | undefined;
-
-  /**
-   * <p>The timestamp identifier used for the latest <code>PUT</code> or <code>DELETE</code>
-   *             action for mapping users to their groups.</p>
-   * @public
-   */
-  updatedEarlierThan: Date | undefined;
-
-  /**
-   * <p>The identifier of the data source for getting a list of groups mapped to users.</p>
-   * @public
-   */
-  dataSourceId?: string | undefined;
-
-  /**
-   * <p>If the previous response was incomplete (because there is more data to retrieve),
-   *             Amazon Q Business returns a pagination token in the response. You can use this pagination
-   *             token to retrieve the next set of groups that are mapped to users.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of returned groups that are mapped to users.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>Summary information for groups.</p>
- * @public
- */
-export interface GroupSummary {
-  /**
-   * <p>The name of the group the summary information is for.</p>
-   * @public
-   */
-  groupName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGroupsResponse {
-  /**
-   * <p>If the response is truncated, Amazon Q Business returns this token that you can use in the
-   *             subsequent request to retrieve the next set of groups that are mapped to users.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>Summary information for list of groups that are mapped to users.</p>
-   * @public
-   */
-  items?: GroupSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMessagesRequest {
-  /**
-   * <p>The identifier of the Amazon Q Business web experience conversation.</p>
-   * @public
-   */
-  conversationId: string | undefined;
-
-  /**
-   * <p>The identifier for the Amazon Q Business application.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>The identifier of the user involved in the Amazon Q Business web experience
-   *             conversation.</p>
-   * @public
-   */
-  userId?: string | undefined;
-
-  /**
-   * <p>If the number of messages returned exceeds <code>maxResults</code>, Amazon Q Business
-   *             returns a next token as a pagination token to retrieve the next set of messages.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of messages to return.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MessageType = {
-  SYSTEM: "SYSTEM",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type MessageType = (typeof MessageType)[keyof typeof MessageType];
-
-/**
- * <p>A message in an Amazon Q Business web experience.</p>
- * @public
- */
-export interface Message {
-  /**
-   * <p>The identifier of the Amazon Q Business web experience message.</p>
-   * @public
-   */
-  messageId?: string | undefined;
-
-  /**
-   * <p>The content of the Amazon Q Business web experience message.</p>
-   * @public
-   */
-  body?: string | undefined;
-
-  /**
-   * <p>The timestamp of the first Amazon Q Business web experience message.</p>
-   * @public
-   */
-  time?: Date | undefined;
-
-  /**
-   * <p>The type of Amazon Q Business message, whether <code>HUMAN</code> or <code>AI</code>
-   *             generated.</p>
-   * @public
-   */
-  type?: MessageType | undefined;
-
-  /**
-   * <p>A file directly uploaded into an Amazon Q Business web experience chat.</p>
-   * @public
-   */
-  attachments?: AttachmentOutput[] | undefined;
-
-  /**
-   * <p>The source documents used to generate Amazon Q Business web experience message.</p>
-   * @public
-   */
-  sourceAttribution?: SourceAttribution[] | undefined;
-
-  /**
-   * <p>An output event that Amazon Q Business returns to an user who wants to perform a plugin
-   *             action during a non-streaming chat conversation. It contains information about the
-   *             selected action with a list of possible user input fields, some pre-populated by
-   *             Amazon Q Business.</p>
-   * @public
-   */
-  actionReview?: ActionReview | undefined;
-
-  /**
-   * <p>Performs an Amazon Q Business plugin action during a non-streaming chat
-   *             conversation.</p>
-   * @public
-   */
-  actionExecution?: ActionExecution | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMessagesResponse {
-  /**
-   * <p>An array of information on one or more messages.</p>
-   * @public
-   */
-  messages?: Message[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a
-   *             later request to list the next set of messages.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPluginActionsRequest {
-  /**
-   * <p>The identifier of the Amazon Q Business application the plugin is attached
-   *             to.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Q Business plugin.</p>
-   * @public
-   */
-  pluginId: string | undefined;
-
-  /**
-   * <p>If the number of plugin actions returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set
-   *             of plugin actions.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of plugin actions to return.</p>
    * @public
    */
   maxResults?: number | undefined;
