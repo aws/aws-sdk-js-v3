@@ -28,7 +28,7 @@ describe("SignatureV4MultiRegion (Browser Bundle SigV4a Test)", () => {
     async digest() {
       return Buffer.from(this.hash, "hex");
     }
-    update(chunk: Uint8Array | string) {
+    update() {
       // No-op
     }
     reset() {

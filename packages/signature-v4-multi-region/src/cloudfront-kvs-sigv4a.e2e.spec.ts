@@ -57,7 +57,7 @@ describe("CloudFront KeyValue Store with SignatureV4a (JS Implementation)", () =
   beforeAll(async () => {
     vi.setConfig({ testTimeout: LONG_TIMEOUT, hookTimeout: LONG_TIMEOUT });
 
-    const stsClient = new STSClient({});
+    const stsClient = new STSClient({ region: "us-west-2" });
     const { Account } = await stsClient.send(new GetCallerIdentityCommand({}));
     const timestamp = Date.now();
     keyValueStoreName = `test-store-${Account}-${timestamp}`;

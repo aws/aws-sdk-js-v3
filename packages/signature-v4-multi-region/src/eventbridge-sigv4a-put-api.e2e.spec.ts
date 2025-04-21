@@ -38,8 +38,6 @@ const getSubdomainFromUrl = (url: string | undefined): string | undefined => {
     // Check if the 3rd part from the end is 'events'
     if (hostnameParts.length >= 5 && hostnameParts[hostnameParts.length - 3] === "events") {
       return `${hostnameParts[0]}.${hostnameParts[1]}`;
-    } else {
-      console.warn(`Hostname format unexpected: ${parsedUrl.hostname}`);
     }
   } catch (e) {
     console.error(`Error parsing EndpointUrl: ${url}`, e);
@@ -112,7 +110,7 @@ describe("EventBridge Client with SignatureV4a", () => {
     primaryRegion = "us-west-2";
     secondaryRegion = "us-east-1";
 
-    stsClient = new STSClient({});
+    stsClient = new STSClient({ region: primaryRegion });
     primaryEbClient = new EventBridgeClient({ region: primaryRegion });
     secondaryEbClient = new EventBridgeClient({ region: secondaryRegion });
     route53Client = new Route53Client({ region: "us-west-2" });

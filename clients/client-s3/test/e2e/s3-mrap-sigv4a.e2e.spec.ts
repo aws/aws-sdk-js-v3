@@ -1,21 +1,21 @@
+import "@smithy/signature-v4a";
+
 import {
-  S3Client,
   CreateBucketCommand,
   HeadBucketCommand,
   ListObjectsV2Command,
+  S3Client,
   waitUntilBucketExists,
 } from "@aws-sdk/client-s3";
 import {
-  S3ControlClient,
   CreateMultiRegionAccessPointCommand,
   DescribeMultiRegionAccessPointOperationCommand,
   GetMultiRegionAccessPointCommand,
   Region as S3ControlRegion,
+  S3ControlClient,
 } from "@aws-sdk/client-s3-control";
-import { STSClient, GetCallerIdentityCommand } from "@aws-sdk/client-sts";
-import { describe, it, expect, beforeAll, afterAll, vi } from "vitest";
-
-import "@smithy/signature-v4a";
+import { GetCallerIdentityCommand, STSClient } from "@aws-sdk/client-sts";
+import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 
 const MRAP_NAME = "jsv3-e2e-mrap-sigv4a-min";
 const BUCKET_PREFIX = "jsv3-e2e-mrap-sigv4a-min-";
