@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.793.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.792.0...v3.793.0) (2025-04-21)
+
+
+### Features
+
+* **client-arc-zonal-shift:** Updates to documentation and exception types for Zonal Autoshift ([3d4a573](https://github.com/aws/aws-sdk-js-v3/commit/3d4a5734bb2770981b61a5eff560f87963ebc913))
+* **client-budgets:** Releasing the new Budget FilterExpression and Metrics fields to support more granular filtering options. These new fields are intended to replace CostFilters and CostTypes, which are deprecated as of 2025/18/04. ([7195ab0](https://github.com/aws/aws-sdk-js-v3/commit/7195ab05417ba1a1f1fcddb8051ae1164cbf48ee))
+* **client-mediatailor:** Added support for Recurring Prefetch and Traffic Shaping on both Single and Recurring Prefetch. ListPrefetchSchedules now return single prefetchs by default and can be provided scheduleType of SINGLE, RECURRING, AND ALL. ([224ce72](https://github.com/aws/aws-sdk-js-v3/commit/224ce729a3b584518c6047b1ce4f498960a79267))
+* **client-qbusiness:** The CheckDocumentAccess API for Amazon Q Business is a self-service debugging API that allows administrators to verify document access permissions and review Access Control List (ACL) configurations. ([4f906b2](https://github.com/aws/aws-sdk-js-v3/commit/4f906b23adabfbd5affd546f5e0329243ec5e7a7))
+
+
+
+
+
 # [3.792.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.791.0...v3.792.0) (2025-04-18)
 
 
