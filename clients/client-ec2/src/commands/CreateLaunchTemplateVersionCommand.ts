@@ -9,9 +9,11 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateLaunchTemplateVersionRequest,
   CreateLaunchTemplateVersionRequestFilterSensitiveLog,
+} from "../models/models_1";
+import {
   CreateLaunchTemplateVersionResult,
   CreateLaunchTemplateVersionResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_CreateLaunchTemplateVersionCommand, se_CreateLaunchTemplateVersionCommand } from "../protocols/Aws_ec2";
 
 /**

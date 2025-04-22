@@ -67,6 +67,9 @@ export interface ModifyClientVpnEndpointCommandOutput extends ModifyClientVpnEnd
  *     Enabled: true || false,
  *     BannerText: "STRING_VALUE",
  *   },
+ *   ClientRouteEnforcementOptions: { // ClientRouteEnforcementOptions
+ *     Enforced: true || false,
+ *   },
  *   DisconnectOnSessionTimeout: true || false,
  * };
  * const command = new ModifyClientVpnEndpointCommand(input);

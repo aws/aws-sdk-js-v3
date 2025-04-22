@@ -40,14 +40,36 @@ import {
   InstanceIpv6Address,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
+  LaunchTemplateVersion,
+  LaunchTemplateVersionFilterSensitiveLog,
   OperatorRequest,
   OperatorResponse,
   PrivateIpAddressSpecification,
   Subnet,
   Tenancy,
+  ValidationWarning,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateLaunchTemplateVersionResult {
+  /**
+   * <p>Information about the launch template version.</p>
+   * @public
+   */
+  LaunchTemplateVersion?: LaunchTemplateVersion | undefined;
+
+  /**
+   * <p>If the new version of the launch template contains parameters or parameter
+   *             combinations that are not valid, an error code and an error message are returned for
+   *             each issue that's found.</p>
+   * @public
+   */
+  Warning?: ValidationWarning | undefined;
+}
 
 /**
  * @public
@@ -6000,7 +6022,11 @@ export interface TransitGatewayOptions {
   AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue | undefined;
 
   /**
-   * <p>Indicates whether resource attachments are automatically associated with the default association route table.</p>
+   * <p>Indicates whether resource attachments are automatically associated with the default
+   *          association route table. Enabled by default. If <code>defaultRouteTableAssociation</code>
+   *          is set to <code>enable</code>,
+   *          Amazon Web Services Transit Gateway will create the default transit gateway route
+   *          table.</p>
    * @public
    */
   DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue | undefined;
@@ -6012,7 +6038,11 @@ export interface TransitGatewayOptions {
   AssociationDefaultRouteTableId?: string | undefined;
 
   /**
-   * <p>Indicates whether resource attachments automatically propagate routes to the default propagation route table.</p>
+   * <p>Indicates whether resource attachments automatically propagate routes to the default
+   *          propagation route table. Enabled by default. If <code>defaultRouteTablePropagation</code>
+   *          is set to <code>enable</code>,
+   *          Amazon Web Services Transit Gateway will create the default transit gateway route
+   *          table.</p>
    * @public
    */
   DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue | undefined;
@@ -10295,16 +10325,14 @@ export interface CloudWatchLogOptionsSpecification {
 }
 
 /**
- * <p>Options for logging VPN tunnel activity.</p>
- * @public
+ * @internal
  */
-export interface VpnTunnelLogOptionsSpecification {
-  /**
-   * <p>Options for sending VPN tunnel logs to CloudWatch.</p>
-   * @public
-   */
-  CloudWatchLogOptions?: CloudWatchLogOptionsSpecification | undefined;
-}
+export const CreateLaunchTemplateVersionResultFilterSensitiveLog = (obj: CreateLaunchTemplateVersionResult): any => ({
+  ...obj,
+  ...(obj.LaunchTemplateVersion && {
+    LaunchTemplateVersion: LaunchTemplateVersionFilterSensitiveLog(obj.LaunchTemplateVersion),
+  }),
+});
 
 /**
  * @internal

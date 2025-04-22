@@ -2563,6 +2563,25 @@ export interface ClientLoginBannerOptions {
 }
 
 /**
+ * <p>Client route enforcement is a feature of the Client VPN service that helps enforce administrator defined routes on devices connected through the VPN. T
+ * 		his feature helps improve your security posture by ensuring that network traffic originating from a connected client is not inadvertently sent outside the VPN tunnel.</p>
+ *          <p>Client route enforcement works by monitoring the route table of a connected device for routing policy changes to the VPN connection. If the feature detects any VPN routing policy modifications, it will automatically force an update to the route table,
+ * 			reverting it back to the expected route configurations.</p>
+ * @public
+ */
+export interface ClientRouteEnforcementOptions {
+  /**
+   * <p>Enable or disable the client route enforcement feature.</p>
+   *          <p>Valid values: <code>true | false</code>
+   *          </p>
+   *          <p>Default value: <code>false</code>
+   *          </p>
+   * @public
+   */
+  Enforced?: boolean | undefined;
+}
+
+/**
  * <p>Describes the client connection logging options for the Client VPN endpoint.</p>
  * @public
  */
@@ -2760,6 +2779,15 @@ export interface CreateClientVpnEndpointRequest {
    * @public
    */
   ClientLoginBannerOptions?: ClientLoginBannerOptions | undefined;
+
+  /**
+   * <p>Client route enforcement is a feature of the Client VPN service that helps enforce administrator defined routes on devices connected through the VPN. T
+   * 		his feature helps improve your security posture by ensuring that network traffic originating from a connected client is not inadvertently sent outside the VPN tunnel.</p>
+   *          <p>Client route enforcement works by monitoring the route table of a connected device for routing policy changes to the VPN connection. If the feature detects any VPN routing policy modifications, it will automatically force an update to the route table,
+   * 			reverting it back to the expected route configurations.</p>
+   * @public
+   */
+  ClientRouteEnforcementOptions?: ClientRouteEnforcementOptions | undefined;
 
   /**
    * <p>Indicates whether the client VPN session is disconnected after the maximum timeout specified in <code>SessionTimeoutHours</code> is reached. If <code>true</code>, users are prompted to reconnect client VPN. If <code>false</code>, client VPN attempts to reconnect automatically.
@@ -12582,25 +12610,6 @@ export interface LaunchTemplateVersion {
 }
 
 /**
- * @public
- */
-export interface CreateLaunchTemplateVersionResult {
-  /**
-   * <p>Information about the launch template version.</p>
-   * @public
-   */
-  LaunchTemplateVersion?: LaunchTemplateVersion | undefined;
-
-  /**
-   * <p>If the new version of the launch template contains parameters or parameter
-   *             combinations that are not valid, an error code and an error message are returned for
-   *             each issue that's found.</p>
-   * @public
-   */
-  Warning?: ValidationWarning | undefined;
-}
-
-/**
  * @internal
  */
 export const CopySnapshotRequestFilterSensitiveLog = (obj: CopySnapshotRequest): any => ({
@@ -12659,15 +12668,5 @@ export const LaunchTemplateVersionFilterSensitiveLog = (obj: LaunchTemplateVersi
   ...obj,
   ...(obj.LaunchTemplateData && {
     LaunchTemplateData: ResponseLaunchTemplateDataFilterSensitiveLog(obj.LaunchTemplateData),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateLaunchTemplateVersionResultFilterSensitiveLog = (obj: CreateLaunchTemplateVersionResult): any => ({
-  ...obj,
-  ...(obj.LaunchTemplateVersion && {
-    LaunchTemplateVersion: LaunchTemplateVersionFilterSensitiveLog(obj.LaunchTemplateVersion),
   }),
 });

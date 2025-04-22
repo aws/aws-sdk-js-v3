@@ -28,6 +28,7 @@ import {
   DefaultTargetCapacityType,
   DestinationFileFormat,
   DhcpOptions,
+  DiskImageFormat,
   Ec2InstanceConnectEndpoint,
   EgressOnlyInternetGateway,
   ExportTask,
@@ -73,16 +74,58 @@ import {
   StateReason,
 } from "./models_2";
 
-import {
-  Byoasn,
-  DiskImageDescription,
-  DiskImageDescriptionFilterSensitiveLog,
-  DiskImageVolumeDescription,
-  Filter,
-  FleetStateCode,
-  IdFormat,
-  InstanceTagNotificationAttribute,
-} from "./models_3";
+import { Byoasn, Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+
+/**
+ * <p>Describes a disk image.</p>
+ * @public
+ */
+export interface DiskImageDescription {
+  /**
+   * <p>The checksum computed for the disk image.</p>
+   * @public
+   */
+  Checksum?: string | undefined;
+
+  /**
+   * <p>The disk image format.</p>
+   * @public
+   */
+  Format?: DiskImageFormat | undefined;
+
+  /**
+   * <p>A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for
+   *    an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">Authenticating REST Requests</a> topic in
+   *    the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
+   * @public
+   */
+  ImportManifestUrl?: string | undefined;
+
+  /**
+   * <p>The size of the disk image, in GiB.</p>
+   * @public
+   */
+  Size?: number | undefined;
+}
+
+/**
+ * <p>Describes a disk image volume.</p>
+ * @public
+ */
+export interface DiskImageVolumeDescription {
+  /**
+   * <p>The volume identifier.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   * @public
+   */
+  Size?: number | undefined;
+}
 
 /**
  * <p>Describes an import volume task.</p>
@@ -12212,66 +12255,12 @@ export interface DescribeManagedPrefixListsResult {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeMovingAddressesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>One or more Elastic IP addresses.</p>
-   * @public
-   */
-  PublicIps?: string[] | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>moving-status</code> - The status of the Elastic IP address
-   *           (<code>MovingToVpc</code> | <code>RestoringToClassic</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining
-   *       results of the initial request can be seen by sending another request with the returned
-   *       <code>NextToken</code> value. This value can be between 5 and 1000; if
-   *       <code>MaxResults</code> is given a value outside of this range, an error is returned.</p>
-   *          <p>Default: If no value is provided, the default is 1000.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MoveStatus = {
-  movingToVpc: "movingToVpc",
-  restoringToClassic: "restoringToClassic",
-} as const;
-
-/**
- * @public
- */
-export type MoveStatus = (typeof MoveStatus)[keyof typeof MoveStatus];
+export const DiskImageDescriptionFilterSensitiveLog = (obj: DiskImageDescription): any => ({
+  ...obj,
+  ...(obj.ImportManifestUrl && { ImportManifestUrl: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

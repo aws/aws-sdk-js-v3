@@ -2863,6 +2863,7 @@ export type DomainType = (typeof DomainType)[keyof typeof DomainType];
 export const ServiceManaged = {
   alb: "alb",
   nlb: "nlb",
+  rnat: "rnat",
 } as const;
 
 /**

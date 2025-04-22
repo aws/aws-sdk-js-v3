@@ -75,6 +75,36 @@ import { AnalysisStatus, ManagedBy } from "./models_5";
 /**
  * @public
  */
+export interface DisableImageDeregistrationProtectionResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableIpamOrganizationAdminAccountRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The Organizations member account ID that you want to disable as IPAM account.</p>
+   * @public
+   */
+  DelegatedAdminAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DisableIpamOrganizationAdminAccountResult {
   /**
    * <p>The result of disabling the IPAM account.</p>
@@ -7971,42 +8001,6 @@ export interface DiskImageDetail {
 }
 
 /**
- * <p>Describes an EBS volume.</p>
- * @public
- */
-export interface VolumeDetail {
-  /**
-   * <p>The size of the volume, in GiB.</p>
-   * @public
-   */
-  Size: number | undefined;
-}
-
-/**
- * <p>Describes a disk image.</p>
- * @public
- */
-export interface DiskImage {
-  /**
-   * <p>A description of the disk image.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Information about the disk image.</p>
-   * @public
-   */
-  Image?: DiskImageDetail | undefined;
-
-  /**
-   * <p>Information about the volume.</p>
-   * @public
-   */
-  Volume?: VolumeDetail | undefined;
-}
-
-/**
  * @internal
  */
 export const VerifiedAccessInstanceUserTrustProviderClientConfigurationFilterSensitiveLog = (
@@ -8100,12 +8094,4 @@ export const ImportImageResultFilterSensitiveLog = (obj: ImportImageResult): any
 export const DiskImageDetailFilterSensitiveLog = (obj: DiskImageDetail): any => ({
   ...obj,
   ...(obj.ImportManifestUrl && { ImportManifestUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DiskImageFilterSensitiveLog = (obj: DiskImage): any => ({
-  ...obj,
-  ...(obj.Image && { Image: DiskImageDetailFilterSensitiveLog(obj.Image) }),
 });
