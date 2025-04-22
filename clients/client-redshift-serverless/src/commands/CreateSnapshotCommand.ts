@@ -34,7 +34,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
 /**
  * <p>Creates a snapshot of all databases in a namespace.
  *          For more information about snapshots, see
- *          <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html">
+ *          <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html">
  *          Working with snapshots and recovery points</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

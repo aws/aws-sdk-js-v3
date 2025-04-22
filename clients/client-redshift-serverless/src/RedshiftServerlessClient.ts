@@ -66,6 +66,7 @@ import {
   CreateEndpointAccessCommandOutput,
 } from "./commands/CreateEndpointAccessCommand";
 import { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "./commands/CreateNamespaceCommand";
+import { CreateReservationCommandInput, CreateReservationCommandOutput } from "./commands/CreateReservationCommand";
 import {
   CreateScheduledActionCommandInput,
   CreateScheduledActionCommandOutput,
@@ -109,6 +110,11 @@ import {
 import { GetEndpointAccessCommandInput, GetEndpointAccessCommandOutput } from "./commands/GetEndpointAccessCommand";
 import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "./commands/GetNamespaceCommand";
 import { GetRecoveryPointCommandInput, GetRecoveryPointCommandOutput } from "./commands/GetRecoveryPointCommand";
+import { GetReservationCommandInput, GetReservationCommandOutput } from "./commands/GetReservationCommand";
+import {
+  GetReservationOfferingCommandInput,
+  GetReservationOfferingCommandOutput,
+} from "./commands/GetReservationOfferingCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import { GetScheduledActionCommandInput, GetScheduledActionCommandOutput } from "./commands/GetScheduledActionCommand";
 import { GetSnapshotCommandInput, GetSnapshotCommandOutput } from "./commands/GetSnapshotCommand";
@@ -130,6 +136,11 @@ import {
 } from "./commands/ListManagedWorkgroupsCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
 import { ListRecoveryPointsCommandInput, ListRecoveryPointsCommandOutput } from "./commands/ListRecoveryPointsCommand";
+import {
+  ListReservationOfferingsCommandInput,
+  ListReservationOfferingsCommandOutput,
+} from "./commands/ListReservationOfferingsCommand";
+import { ListReservationsCommandInput, ListReservationsCommandOutput } from "./commands/ListReservationsCommand";
 import {
   ListScheduledActionsCommandInput,
   ListScheduledActionsCommandOutput,
@@ -208,6 +219,7 @@ export type ServiceInputTypes =
   | CreateCustomDomainAssociationCommandInput
   | CreateEndpointAccessCommandInput
   | CreateNamespaceCommandInput
+  | CreateReservationCommandInput
   | CreateScheduledActionCommandInput
   | CreateSnapshotCommandInput
   | CreateSnapshotCopyConfigurationCommandInput
@@ -227,6 +239,8 @@ export type ServiceInputTypes =
   | GetEndpointAccessCommandInput
   | GetNamespaceCommandInput
   | GetRecoveryPointCommandInput
+  | GetReservationCommandInput
+  | GetReservationOfferingCommandInput
   | GetResourcePolicyCommandInput
   | GetScheduledActionCommandInput
   | GetSnapshotCommandInput
@@ -239,6 +253,8 @@ export type ServiceInputTypes =
   | ListManagedWorkgroupsCommandInput
   | ListNamespacesCommandInput
   | ListRecoveryPointsCommandInput
+  | ListReservationOfferingsCommandInput
+  | ListReservationsCommandInput
   | ListScheduledActionsCommandInput
   | ListSnapshotCopyConfigurationsCommandInput
   | ListSnapshotsCommandInput
@@ -271,6 +287,7 @@ export type ServiceOutputTypes =
   | CreateCustomDomainAssociationCommandOutput
   | CreateEndpointAccessCommandOutput
   | CreateNamespaceCommandOutput
+  | CreateReservationCommandOutput
   | CreateScheduledActionCommandOutput
   | CreateSnapshotCommandOutput
   | CreateSnapshotCopyConfigurationCommandOutput
@@ -290,6 +307,8 @@ export type ServiceOutputTypes =
   | GetEndpointAccessCommandOutput
   | GetNamespaceCommandOutput
   | GetRecoveryPointCommandOutput
+  | GetReservationCommandOutput
+  | GetReservationOfferingCommandOutput
   | GetResourcePolicyCommandOutput
   | GetScheduledActionCommandOutput
   | GetSnapshotCommandOutput
@@ -302,6 +321,8 @@ export type ServiceOutputTypes =
   | ListManagedWorkgroupsCommandOutput
   | ListNamespacesCommandOutput
   | ListRecoveryPointsCommandOutput
+  | ListReservationOfferingsCommandOutput
+  | ListReservationsCommandOutput
   | ListScheduledActionsCommandOutput
   | ListSnapshotCopyConfigurationsCommandOutput
   | ListSnapshotsCommandOutput

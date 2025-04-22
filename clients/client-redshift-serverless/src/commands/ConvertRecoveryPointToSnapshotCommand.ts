@@ -38,7 +38,7 @@ export interface ConvertRecoveryPointToSnapshotCommandOutput
 
 /**
  * <p>Converts a recovery point to a snapshot. For more information about recovery points and snapshots,
- *          see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html">Working with snapshots and recovery points</a>.</p>
+ *          see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html">Working with snapshots and recovery points</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
