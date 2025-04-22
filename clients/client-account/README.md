@@ -237,6 +237,14 @@ EnableRegion
 </details>
 <details>
 <summary>
+GetAccountInformation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/account/command/GetAccountInformationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/GetAccountInformationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/GetAccountInformationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetAlternateContact
 </summary>
 
@@ -273,6 +281,14 @@ ListRegions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/account/command/ListRegionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/ListRegionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/ListRegionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutAccountName
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/account/command/PutAccountNameCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/PutAccountNameCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/PutAccountNameCommandOutput/)
 
 </details>
 <details>

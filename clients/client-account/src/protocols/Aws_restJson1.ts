@@ -10,6 +10,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   map,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -30,6 +31,10 @@ import {
 import { DisableRegionCommandInput, DisableRegionCommandOutput } from "../commands/DisableRegionCommand";
 import { EnableRegionCommandInput, EnableRegionCommandOutput } from "../commands/EnableRegionCommand";
 import {
+  GetAccountInformationCommandInput,
+  GetAccountInformationCommandOutput,
+} from "../commands/GetAccountInformationCommand";
+import {
   GetAlternateContactCommandInput,
   GetAlternateContactCommandOutput,
 } from "../commands/GetAlternateContactCommand";
@@ -40,6 +45,7 @@ import {
 import { GetPrimaryEmailCommandInput, GetPrimaryEmailCommandOutput } from "../commands/GetPrimaryEmailCommand";
 import { GetRegionOptStatusCommandInput, GetRegionOptStatusCommandOutput } from "../commands/GetRegionOptStatusCommand";
 import { ListRegionsCommandInput, ListRegionsCommandOutput } from "../commands/ListRegionsCommand";
+import { PutAccountNameCommandInput, PutAccountNameCommandOutput } from "../commands/PutAccountNameCommand";
 import {
   PutAlternateContactCommandInput,
   PutAlternateContactCommandOutput,
@@ -158,6 +164,28 @@ export const se_EnableRegionCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetAccountInformationCommand
+ */
+export const se_GetAccountInformationCommand = async (
+  input: GetAccountInformationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/getAccountInformation");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetAlternateContactCommand
  */
 export const se_GetAlternateContactCommand = async (
@@ -266,6 +294,29 @@ export const se_ListRegionsCommand = async (
       MaxResults: [],
       NextToken: [],
       RegionOptStatusContains: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutAccountNameCommand
+ */
+export const se_PutAccountNameCommand = async (
+  input: PutAccountNameCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/putAccountName");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+      AccountName: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -418,6 +469,29 @@ export const de_EnableRegionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetAccountInformationCommand
+ */
+export const de_GetAccountInformationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccountInformationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AccountCreatedDate: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    AccountId: __expectString,
+    AccountName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetAlternateContactCommand
  */
 export const de_GetAlternateContactCommand = async (
@@ -525,6 +599,23 @@ export const de_ListRegionsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1PutAccountNameCommand
+ */
+export const de_PutAccountNameCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccountNameCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1PutAlternateContactCommand
  */
 export const de_PutAlternateContactCommand = async (
@@ -625,7 +716,9 @@ const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_eT]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
@@ -642,7 +735,9 @@ const de_AccessDeniedExceptionRes = async (
  * deserializeAws_restJson1ConflictExceptionRes
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_eT]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
@@ -662,7 +757,9 @@ const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_eT]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
@@ -682,7 +779,9 @@ const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_eT]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
@@ -702,7 +801,9 @@ const de_TooManyRequestsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_eT]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
@@ -761,3 +862,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
+
+const _eT = "errorType";
+const _xae = "x-amzn-errortype";

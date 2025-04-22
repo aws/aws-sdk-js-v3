@@ -6,8 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRegionsRequest, ListRegionsResponse } from "../models/models_0";
-import { de_ListRegionsCommand, se_ListRegionsCommand } from "../protocols/Aws_restJson1";
+import {
+  GetAccountInformationRequest,
+  GetAccountInformationResponse,
+  GetAccountInformationResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_GetAccountInformationCommand, se_GetAccountInformationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,50 +21,41 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListRegionsCommand}.
+ * The input for {@link GetAccountInformationCommand}.
  */
-export interface ListRegionsCommandInput extends ListRegionsRequest {}
+export interface GetAccountInformationCommandInput extends GetAccountInformationRequest {}
 /**
  * @public
  *
- * The output of {@link ListRegionsCommand}.
+ * The output of {@link GetAccountInformationCommand}.
  */
-export interface ListRegionsCommandOutput extends ListRegionsResponse, __MetadataBearer {}
+export interface GetAccountInformationCommandOutput extends GetAccountInformationResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the Regions for a given account and their respective opt-in statuses. Optionally, this list can be filtered by the <code>region-opt-status-contains</code> parameter. </p>
+ * <p>Retrieves information about the specified account including its account name, account ID, and account creation date and time. To use this API, an IAM user or role must have the <code>account:GetAccountInformation</code> IAM permission. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccountClient, ListRegionsCommand } from "@aws-sdk/client-account"; // ES Modules import
- * // const { AccountClient, ListRegionsCommand } = require("@aws-sdk/client-account"); // CommonJS import
+ * import { AccountClient, GetAccountInformationCommand } from "@aws-sdk/client-account"; // ES Modules import
+ * // const { AccountClient, GetAccountInformationCommand } = require("@aws-sdk/client-account"); // CommonJS import
  * const client = new AccountClient(config);
- * const input = { // ListRegionsRequest
+ * const input = { // GetAccountInformationRequest
  *   AccountId: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   RegionOptStatusContains: [ // RegionOptStatusList
- *     "STRING_VALUE",
- *   ],
  * };
- * const command = new ListRegionsCommand(input);
+ * const command = new GetAccountInformationCommand(input);
  * const response = await client.send(command);
- * // { // ListRegionsResponse
- * //   NextToken: "STRING_VALUE",
- * //   Regions: [ // RegionOptList
- * //     { // Region
- * //       RegionName: "STRING_VALUE",
- * //       RegionOptStatus: "STRING_VALUE",
- * //     },
- * //   ],
+ * // { // GetAccountInformationResponse
+ * //   AccountId: "STRING_VALUE",
+ * //   AccountName: "STRING_VALUE",
+ * //   AccountCreatedDate: new Date("TIMESTAMP"),
  * // };
  *
  * ```
  *
- * @param ListRegionsCommandInput - {@link ListRegionsCommandInput}
- * @returns {@link ListRegionsCommandOutput}
- * @see {@link ListRegionsCommandInput} for command's `input` shape.
- * @see {@link ListRegionsCommandOutput} for command's `response` shape.
+ * @param GetAccountInformationCommandInput - {@link GetAccountInformationCommandInput}
+ * @returns {@link GetAccountInformationCommandOutput}
+ * @see {@link GetAccountInformationCommandInput} for command's `input` shape.
+ * @see {@link GetAccountInformationCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -81,10 +76,10 @@ export interface ListRegionsCommandOutput extends ListRegionsResponse, __Metadat
  *
  * @public
  */
-export class ListRegionsCommand extends $Command
+export class GetAccountInformationCommand extends $Command
   .classBuilder<
-    ListRegionsCommandInput,
-    ListRegionsCommandOutput,
+    GetAccountInformationCommandInput,
+    GetAccountInformationCommandOutput,
     AccountClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -96,21 +91,21 @@ export class ListRegionsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Account", "ListRegions", {})
-  .n("AccountClient", "ListRegionsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListRegionsCommand)
-  .de(de_ListRegionsCommand)
+  .s("Account", "GetAccountInformation", {})
+  .n("AccountClient", "GetAccountInformationCommand")
+  .f(void 0, GetAccountInformationResponseFilterSensitiveLog)
+  .ser(se_GetAccountInformationCommand)
+  .de(de_GetAccountInformationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListRegionsRequest;
-      output: ListRegionsResponse;
+      input: GetAccountInformationRequest;
+      output: GetAccountInformationResponse;
     };
     sdk: {
-      input: ListRegionsCommandInput;
-      output: ListRegionsCommandOutput;
+      input: GetAccountInformationCommandInput;
+      output: GetAccountInformationCommandOutput;
     };
   };
 }
