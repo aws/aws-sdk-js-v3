@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.794.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.793.0...v3.794.0) (2025-04-22)
+
+
+### Features
+
+* **client-redshift-serverless:** Provides new and updated API members to support the Redshift Serverless reservations feature. ([70b5d82](https://github.com/aws/aws-sdk-js-v3/commit/70b5d82557446f8f2d4c26419aa8236617c42cef))
+
+
+
+
+
 # [3.787.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.786.0...v3.787.0) (2025-04-10)
 
 **Note:** Version bump only for package @aws-sdk/client-redshift-serverless

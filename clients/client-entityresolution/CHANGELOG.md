@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.794.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.793.0...v3.794.0) (2025-04-22)
+
+
+### Features
+
+* **client-entityresolution:** To expand support for matching records using digital identifiers with TransUnion ([b56962b](https://github.com/aws/aws-sdk-js-v3/commit/b56962b2c486363be07ea7a22a2cdcb0b8d695e7))
+
+
+
+
+
 # [3.789.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.788.0...v3.789.0) (2025-04-14)
 
 

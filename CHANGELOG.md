@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.794.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.793.0...v3.794.0) (2025-04-22)
+
+
+### Features
+
+* **client-account:** AWS Account Management now supports account name update via IAM principals. ([b462a80](https://github.com/aws/aws-sdk-js-v3/commit/b462a8097b71cc739f5d800acfbaa7ea928b7b15))
+* **client-cognito-identity-provider:** This release adds refresh token rotation. ([d8884d3](https://github.com/aws/aws-sdk-js-v3/commit/d8884d3344d0fdeb3bf58edf803d6867d04d6d12))
+* **client-ec2:** Added support for  ClientRouteEnforcementOptions flag in CreateClientVpnEndpoint and ModifyClientVpnEndpoint requests and DescribeClientVpnEndpoints responses ([216c012](https://github.com/aws/aws-sdk-js-v3/commit/216c0129a3ef1dc1e03342a347be727a31a22b01))
+* **client-entityresolution:** To expand support for matching records using digital identifiers with TransUnion ([b56962b](https://github.com/aws/aws-sdk-js-v3/commit/b56962b2c486363be07ea7a22a2cdcb0b8d695e7))
+* **client-mq:** You can now delete Amazon MQ broker configurations using the DeleteConfiguration API. For more information, see Configurations in the Amazon MQ API Reference. ([a52a975](https://github.com/aws/aws-sdk-js-v3/commit/a52a975babb6bda1900b2d2c0a1393211a5dc8bf))
+* **client-redshift-serverless:** Provides new and updated API members to support the Redshift Serverless reservations feature. ([70b5d82](https://github.com/aws/aws-sdk-js-v3/commit/70b5d82557446f8f2d4c26419aa8236617c42cef))
+* **client-s3-control:** Fix endpoint resolution test cases ([1bca5fe](https://github.com/aws/aws-sdk-js-v3/commit/1bca5fe02d5a83c1c91988a6ebec1f3daf3cc88b))
+* **clients:** update client endpoints as of 2025-04-22 ([d3898c5](https://github.com/aws/aws-sdk-js-v3/commit/d3898c51f4fd1e7c1c52e6844d8f4f185c2ebd3b))
+
+
+
+
+
 # [3.793.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.792.0...v3.793.0) (2025-04-21)
 
 
