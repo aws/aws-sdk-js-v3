@@ -7,7 +7,7 @@ See: https://github.com/aws/aws-sdk-js-v3/tree/main#functionality-requiring-aws-
 
 ## Description
 
-Alias package for `@smithy/signature-v4a`. This package provides a SigV4a-compatible request signer ([`@smithy/signature-v4a`](https://www.npmjs.com/package/@smithy/signature-v4a)) if the request is not regional.
+Alias package for `@smithy/signature-v4a`. This package provides a SigV4a-compatible request signer ([`@smithy/signature-v4a`](https://www.npmjs.com/package/@smithy/signature-v4a)) if the request is multi-region.
 
-An un-regional request is identified by the `signingRegion` parameter. A region is un-regional if the `signingRegion`
+A multi-region request is identified by the `signingRegion` parameter. A region is multi-region if the `signingRegion`
 parameter is set to `*`.
