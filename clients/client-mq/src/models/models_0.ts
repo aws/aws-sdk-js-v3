@@ -1219,6 +1219,28 @@ export interface DeleteBrokerResponse {
 /**
  * @public
  */
+export interface DeleteConfigurationRequest {
+  /**
+   * <p>The unique ID that Amazon MQ generates for the configuration.</p>
+   * @public
+   */
+  ConfigurationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConfigurationResponse {
+  /**
+   * <p>The unique ID that Amazon MQ generates for the configuration.</p>
+   * @public
+   */
+  ConfigurationId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteTagsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource tag.</p>

@@ -61,6 +61,10 @@ import {
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import { DeleteBrokerCommandInput, DeleteBrokerCommandOutput } from "./commands/DeleteBrokerCommand";
+import {
+  DeleteConfigurationCommandInput,
+  DeleteConfigurationCommandOutput,
+} from "./commands/DeleteConfigurationCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import { DescribeBrokerCommandInput, DescribeBrokerCommandOutput } from "./commands/DescribeBrokerCommand";
@@ -117,6 +121,7 @@ export type ServiceInputTypes =
   | CreateTagsCommandInput
   | CreateUserCommandInput
   | DeleteBrokerCommandInput
+  | DeleteConfigurationCommandInput
   | DeleteTagsCommandInput
   | DeleteUserCommandInput
   | DescribeBrokerCommandInput
@@ -145,6 +150,7 @@ export type ServiceOutputTypes =
   | CreateTagsCommandOutput
   | CreateUserCommandOutput
   | DeleteBrokerCommandOutput
+  | DeleteConfigurationCommandOutput
   | DeleteTagsCommandOutput
   | DeleteUserCommandOutput
   | DescribeBrokerCommandOutput
