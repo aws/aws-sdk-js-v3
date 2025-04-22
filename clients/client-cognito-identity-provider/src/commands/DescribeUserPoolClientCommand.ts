@@ -125,6 +125,10 @@ export interface DescribeUserPoolClientCommandOutput extends DescribeUserPoolCli
  * //     EnableTokenRevocation: true || false,
  * //     EnablePropagateAdditionalUserContextData: true || false,
  * //     AuthSessionValidity: Number("int"),
+ * //     RefreshTokenRotation: { // RefreshTokenRotationType
+ * //       Feature: "ENABLED" || "DISABLED", // required
+ * //       RetryGracePeriodSeconds: Number("int"),
+ * //     },
  * //   },
  * // };
  *

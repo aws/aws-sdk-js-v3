@@ -779,6 +779,14 @@ GetSigningCertificate
 </details>
 <details>
 <summary>
+GetTokensFromRefreshToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/GetTokensFromRefreshTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/GetTokensFromRefreshTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/GetTokensFromRefreshTokenCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetUICustomization
 </summary>
 

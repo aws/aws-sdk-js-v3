@@ -16,6 +16,7 @@ import {
   AttributeTypeFilterSensitiveLog,
   AuthenticationResultType,
   AuthenticationResultTypeFilterSensitiveLog,
+  AuthFactorType,
   AuthFlowType,
   ChallengeNameType,
   CodeDeliveryDetailsType,
@@ -26,7 +27,6 @@ import {
   DeviceRememberedStatusType,
   DeviceType,
   EmailConfigurationType,
-  EmailMfaConfigType,
   EmailMfaSettingsType,
   ExplicitAuthFlowsType,
   FeedbackValueType,
@@ -40,15 +40,14 @@ import {
   MFAOptionType,
   OAuthFlowType,
   PreventUserExistenceErrorTypes,
+  RefreshTokenRotationType,
   ResourceServerScopeType,
   ResourceServerType,
   RiskConfigurationType,
   RiskConfigurationTypeFilterSensitiveLog,
   RiskExceptionConfigurationType,
   SmsConfigurationType,
-  SmsMfaConfigType,
   SMSMfaSettingsType,
-  SoftwareTokenMfaConfigType,
   SoftwareTokenMfaSettingsType,
   StatusType,
   TokenValidityUnitsType,
@@ -68,6 +67,127 @@ import {
   VerificationMessageTemplateType,
   VerifiedAttributeType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetUserAuthFactorsRequest {
+  /**
+   * <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for
+   * <code>aws.cognito.signin.user.admin</code>.</p>
+   * @public
+   */
+  AccessToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetUserAuthFactorsResponse {
+  /**
+   * <p>The name of the user who is eligible for the authentication factors in the
+   *             response.</p>
+   * @public
+   */
+  Username: string | undefined;
+
+  /**
+   * <p>The challenge method that Amazon Cognito returns to the user in response to sign-in requests.
+   *             Users can prefer SMS message, email message, or TOTP MFA.</p>
+   * @public
+   */
+  PreferredMfaSetting?: string | undefined;
+
+  /**
+   * <p>The MFA options that are activated for the user. The possible values in this list are
+   *                 <code>SMS_MFA</code>, <code>EMAIL_OTP</code>, and
+   *             <code>SOFTWARE_TOKEN_MFA</code>.</p>
+   * @public
+   */
+  UserMFASettingList?: string[] | undefined;
+
+  /**
+   * <p>The authentication types that are available to the user with <code>USER_AUTH</code>
+   *             sign-in, for example <code>["PASSWORD", "WEB_AUTHN"]</code>.</p>
+   * @public
+   */
+  ConfiguredUserAuthFactors?: AuthFactorType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetUserPoolMfaConfigRequest {
+  /**
+   * <p>The ID of the user pool where you want to query WebAuthn and MFA configuration.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+}
+
+/**
+ * <p>Sets or shows configuration for user pool email message MFA and sign-in with one-time
+ *             passwords (OTPs). Includes the subject and body of the email message template for
+ *             sign-in and MFA messages. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html">
+ *                      Essentials tier</a> or higher.</p>
+ * @public
+ */
+export interface EmailMfaConfigType {
+  /**
+   * <p>The template for the email messages that your user pool sends to users with codes for
+   *             MFA and sign-in with email OTPs. The message must contain the <code>\{####\}</code>
+   *             placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you
+   *             don't provide this parameter, Amazon Cognito sends messages in the default format.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The subject of the email messages that your user pool sends to users with codes for
+   *             MFA and email OTP sign-in.</p>
+   * @public
+   */
+  Subject?: string | undefined;
+}
+
+/**
+ * <p>The configuration of multi-factor authentication (MFA) with SMS messages in a user
+ *             pool.</p>
+ * @public
+ */
+export interface SmsMfaConfigType {
+  /**
+   * <p>The SMS authentication message that will be sent to users with the code they must sign
+   *             in with. The message must contain the <code>\{####\}</code> placeholder. Your user pool
+   *             replaces the placeholder with the MFA code. If this parameter isn't provided, your user
+   *             pool sends a default message.</p>
+   * @public
+   */
+  SmsAuthenticationMessage?: string | undefined;
+
+  /**
+   * <p>User pool configuration for delivery of SMS messages with Amazon Simple Notification Service. To send SMS
+   *             messages with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an
+   *             Identity and Access Management (IAM) role in your Amazon Web Services account.</p>
+   *          <p>You can set <code>SmsConfiguration</code> in <code>CreateUserPool</code> and <code>
+   *                 UpdateUserPool</code>, or in <code>SetUserPoolMfaConfig</code>.</p>
+   * @public
+   */
+  SmsConfiguration?: SmsConfigurationType | undefined;
+}
+
+/**
+ * <p>Settings for time-based one-time password (TOTP) multi-factor authentication (MFA) in
+ *             a user pool. Enables and disables availability of this feature.</p>
+ * @public
+ */
+export interface SoftwareTokenMfaConfigType {
+  /**
+   * <p>The activation state of TOTP MFA.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+}
 
 /**
  * @public
@@ -2002,27 +2122,6 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p>Exception that is thrown when you attempt to perform an operation that isn't enabled
- *             for the user pool client.</p>
- * @public
- */
-export class UnsupportedOperationException extends __BaseException {
-  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
-    super({
-      name: "UnsupportedOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
-  }
-}
-
-/**
  * <p>Exception that is thrown when an unsupported token is passed to an operation.</p>
  * @public
  */
@@ -3715,6 +3814,15 @@ export interface UpdateUserPoolClientRequest {
    * @public
    */
   AuthSessionValidity?: number | undefined;
+
+  /**
+   * <p>The configuration of your app client for refresh token rotation. When enabled, your
+   *             app client issues new ID, access, and refresh tokens when users renew their sessions
+   *             with refresh tokens. When disabled, token refresh issues only ID and access
+   *             tokens.</p>
+   * @public
+   */
+  RefreshTokenRotation?: RefreshTokenRotationType | undefined;
 }
 
 /**
@@ -3913,6 +4021,22 @@ export interface VerifyUserAttributeRequest {
  * @public
  */
 export interface VerifyUserAttributeResponse {}
+
+/**
+ * @internal
+ */
+export const GetUserAuthFactorsRequestFilterSensitiveLog = (obj: GetUserAuthFactorsRequest): any => ({
+  ...obj,
+  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetUserAuthFactorsResponseFilterSensitiveLog = (obj: GetUserAuthFactorsResponse): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

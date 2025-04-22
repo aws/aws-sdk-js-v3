@@ -193,6 +193,10 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  *  <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with
  *             Lambda.</p>
  *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>Exception that is thrown when you attempt to perform an operation that isn't enabled
+ *             for the user pool client.</p>
+ *
  * @throws {@link UserLambdaValidationException} (client fault)
  *  <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception
  *             with the Lambda service.</p>

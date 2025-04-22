@@ -15,7 +15,7 @@ import {
   GetUserAuthFactorsRequestFilterSensitiveLog,
   GetUserAuthFactorsResponse,
   GetUserAuthFactorsResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GetUserAuthFactorsCommand, se_GetUserAuthFactorsCommand } from "../protocols/Aws_json1_1";
 
 /**

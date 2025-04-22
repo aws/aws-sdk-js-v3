@@ -253,6 +253,10 @@ import {
   GetSigningCertificateCommandInput,
   GetSigningCertificateCommandOutput,
 } from "./commands/GetSigningCertificateCommand";
+import {
+  GetTokensFromRefreshTokenCommandInput,
+  GetTokensFromRefreshTokenCommandOutput,
+} from "./commands/GetTokensFromRefreshTokenCommand";
 import { GetUICustomizationCommandInput, GetUICustomizationCommandOutput } from "./commands/GetUICustomizationCommand";
 import {
   GetUserAttributeVerificationCodeCommandInput,
@@ -450,6 +454,7 @@ export type ServiceInputTypes =
   | GetIdentityProviderByIdentifierCommandInput
   | GetLogDeliveryConfigurationCommandInput
   | GetSigningCertificateCommandInput
+  | GetTokensFromRefreshTokenCommandInput
   | GetUICustomizationCommandInput
   | GetUserAttributeVerificationCodeCommandInput
   | GetUserAuthFactorsCommandInput
@@ -568,6 +573,7 @@ export type ServiceOutputTypes =
   | GetIdentityProviderByIdentifierCommandOutput
   | GetLogDeliveryConfigurationCommandOutput
   | GetSigningCertificateCommandOutput
+  | GetTokensFromRefreshTokenCommandOutput
   | GetUICustomizationCommandOutput
   | GetUserAttributeVerificationCodeCommandOutput
   | GetUserAuthFactorsCommandOutput

@@ -82,8 +82,8 @@ export type AccountTakeoverEventActionType =
 
 /**
  * <p>The automated response to a risk level for adaptive authentication in full-function,
- *             or <code>ENFORCED</code>, mode. You can assign an action to each risk level that
- *             threat protection evaluates.</p>
+ *             or <code>ENFORCED</code>, mode. You can assign an action to each risk level that threat
+ *             protection evaluates.</p>
  * @public
  */
 export interface AccountTakeoverActionType {
@@ -153,9 +153,8 @@ export interface AccountTakeoverActionsType {
 }
 
 /**
- * <p>The template for email messages that threat protection sends to a user when
- *             your threat protection automated response has a <i>Notify</i>
- *             action.</p>
+ * <p>The template for email messages that threat protection sends to a user when your
+ *             threat protection automated response has a <i>Notify</i> action.</p>
  * @public
  */
 export interface NotifyEmailType {
@@ -183,9 +182,9 @@ export interface NotifyEmailType {
 }
 
 /**
- * <p>The configuration for Amazon SES email messages that threat protection sends to a
- *             user when your adaptive authentication automated response has a
- *                 <i>Notify</i> action.</p>
+ * <p>The configuration for Amazon SES email messages that threat protection sends to a user when
+ *             your adaptive authentication automated response has a <i>Notify</i>
+ *             action.</p>
  * @public
  */
 export interface NotifyConfigurationType {
@@ -240,9 +239,10 @@ export interface NotifyConfigurationType {
  */
 export interface AccountTakeoverRiskConfigurationType {
   /**
-   * <p>The settings for composing and sending an email message when threat protection assesses a risk level with adaptive authentication. When you choose to notify
-   *             users in <code>AccountTakeoverRiskConfiguration</code>, Amazon Cognito sends an email message
-   *             using the method and template that you set with this data type.</p>
+   * <p>The settings for composing and sending an email message when threat protection
+   *             assesses a risk level with adaptive authentication. When you choose to notify users in
+   *                 <code>AccountTakeoverRiskConfiguration</code>, Amazon Cognito sends an email message using
+   *             the method and template that you set with this data type.</p>
    * @public
    */
   NotifyConfiguration?: NotifyConfigurationType | undefined;
@@ -2425,6 +2425,27 @@ export class PasswordResetRequiredException extends __BaseException {
 }
 
 /**
+ * <p>Exception that is thrown when you attempt to perform an operation that isn't enabled
+ *             for the user pool client.</p>
+ * @public
+ */
+export class UnsupportedOperationException extends __BaseException {
+  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
+    super({
+      name: "UnsupportedOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
+  }
+}
+
+/**
  * <p>This exception is thrown when a user isn't confirmed successfully.</p>
  * @public
  */
@@ -3015,8 +3036,8 @@ export const FeedbackValueType = {
 export type FeedbackValueType = (typeof FeedbackValueType)[keyof typeof FeedbackValueType];
 
 /**
- * <p>The feedback that your application submitted to a threat protection event
- *             log, as displayed in an <code>AdminListUserAuthEvents</code> response.</p>
+ * <p>The feedback that your application submitted to a threat protection event log, as
+ *             displayed in an <code>AdminListUserAuthEvents</code> response.</p>
  * @public
  */
 export interface EventFeedbackType {
@@ -3139,7 +3160,8 @@ export const EventType = {
 export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
- * <p>One authentication event that Amazon Cognito logged in a user pool with threat protection active. Contains user and device metadata and a risk assessment from your user
+ * <p>One authentication event that Amazon Cognito logged in a user pool with threat protection
+ *             active. Contains user and device metadata and a risk assessment from your user
  *             pool.</p>
  * @public
  */
@@ -6788,9 +6810,9 @@ export interface UsernameConfigurationType {
  */
 export interface UserPoolAddOnsType {
   /**
-   * <p>The operating mode of threat protection for standard authentication types in
-   *             your user pool, including username-password and secure remote password (SRP)
-   *             authentication. </p>
+   * <p>The operating mode of threat protection for standard authentication types in your user
+   *             pool, including username-password and secure remote password (SRP) authentication.
+   *         </p>
    * @public
    */
   AdvancedSecurityMode: AdvancedSecurityModeType | undefined;
@@ -7567,6 +7589,45 @@ export type PreventUserExistenceErrorTypes =
  * @public
  * @enum
  */
+export const FeatureType = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureType = (typeof FeatureType)[keyof typeof FeatureType];
+
+/**
+ * <p>The configuration of your app client for refresh token rotation. When enabled, your
+ *             app client issues new ID, access, and refresh tokens when users renew their sessions
+ *             with refresh tokens. When disabled, token refresh issues only ID and access
+ *             tokens.</p>
+ * @public
+ */
+export interface RefreshTokenRotationType {
+  /**
+   * <p>The state of refresh token rotation for the current app client.</p>
+   * @public
+   */
+  Feature: FeatureType | undefined;
+
+  /**
+   * <p>When you request a token refresh with <code>GetTokensFromRefreshToken</code>, the
+   *             original refresh token that you're rotating out can remain valid for a period of time of
+   *             up to 60 seconds. This allows for client-side retries. When
+   *                 <code>RetryGracePeriodSeconds</code> is <code>0</code>, the grace period is disabled
+   *             and a successful request immediately invalidates the submitted refresh token.</p>
+   * @public
+   */
+  RetryGracePeriodSeconds?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const TimeUnitsType = {
   DAYS: "days",
   HOURS: "hours",
@@ -7983,6 +8044,15 @@ export interface CreateUserPoolClientRequest {
    * @public
    */
   AuthSessionValidity?: number | undefined;
+
+  /**
+   * <p>The configuration of your app client for refresh token rotation. When enabled, your
+   *             app client issues new ID, access, and refresh tokens when users renew their sessions
+   *             with refresh tokens. When disabled, token refresh issues only ID and access
+   *             tokens.</p>
+   * @public
+   */
+  RefreshTokenRotation?: RefreshTokenRotationType | undefined;
 }
 
 /**
@@ -8359,9 +8429,9 @@ export interface UserPoolClientType {
   /**
    * <p>When <code>EnablePropagateAdditionalUserContextData</code> is true, Amazon Cognito accepts an
    *                 <code>IpAddress</code> value that you send in the <code>UserContextData</code>
-   *             parameter. The <code>UserContextData</code> parameter sends information to Amazon Cognito
-   *             threat protection for risk analysis. You can send <code>UserContextData</code> when you
-   *             sign in Amazon Cognito native users with the <code>InitiateAuth</code> and
+   *             parameter. The <code>UserContextData</code> parameter sends information to Amazon Cognito threat
+   *             protection for risk analysis. You can send <code>UserContextData</code> when you sign in
+   *             Amazon Cognito native users with the <code>InitiateAuth</code> and
    *                 <code>RespondToAuthChallenge</code> API operations.</p>
    *          <p>When <code>EnablePropagateAdditionalUserContextData</code> is false, you can't send
    *             your user's source IP address to Amazon Cognito threat protection with unauthenticated API
@@ -8382,6 +8452,15 @@ export interface UserPoolClientType {
    * @public
    */
   AuthSessionValidity?: number | undefined;
+
+  /**
+   * <p>The configuration of your app client for refresh token rotation. When enabled, your
+   *             app client issues new ID, access, and refresh tokens when users renew their sessions
+   *             with refresh tokens. When disabled, token refresh issues only ID and access
+   *             tokens.</p>
+   * @public
+   */
+  RefreshTokenRotation?: RefreshTokenRotationType | undefined;
 }
 
 /**
@@ -8899,8 +8978,8 @@ export type CompromisedCredentialsEventActionType =
   (typeof CompromisedCredentialsEventActionType)[keyof typeof CompromisedCredentialsEventActionType];
 
 /**
- * <p>Settings for user pool actions when Amazon Cognito detects compromised credentials with
- *             threat protection in full-function <code>ENFORCED</code> mode.</p>
+ * <p>Settings for user pool actions when Amazon Cognito detects compromised credentials with threat
+ *             protection in full-function <code>ENFORCED</code> mode.</p>
  * @public
  */
 export interface CompromisedCredentialsActionsType {
@@ -8969,7 +9048,8 @@ export interface RiskExceptionConfigurationType {
 }
 
 /**
- * <p>The settings of risk configuration for threat protection with threat protection in a user pool.</p>
+ * <p>The settings of risk configuration for threat protection with threat protection in a
+ *             user pool.</p>
  * @public
  */
 export interface RiskConfigurationType {
@@ -8988,7 +9068,8 @@ export interface RiskConfigurationType {
   ClientId?: string | undefined;
 
   /**
-   * <p>Settings for compromised-credentials actions and authentication types with threat protection in full-function <code>ENFORCED</code> mode.</p>
+   * <p>Settings for compromised-credentials actions and authentication types with threat
+   *             protection in full-function <code>ENFORCED</code> mode.</p>
    * @public
    */
   CompromisedCredentialsRiskConfiguration?: CompromisedCredentialsRiskConfigurationType | undefined;
@@ -9544,7 +9625,8 @@ export type EventSourceName = (typeof EventSourceName)[keyof typeof EventSourceN
  */
 export interface FirehoseConfigurationType {
   /**
-   * <p>The ARN of an Amazon Data Firehose stream that's the destination for threat protection log export.</p>
+   * <p>The ARN of an Amazon Data Firehose stream that's the destination for threat protection log
+   *             export.</p>
    * @public
    */
   StreamArn?: string | undefined;
@@ -9565,14 +9647,14 @@ export const LogLevel = {
 export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
 
 /**
- * <p>Configuration for the Amazon S3 bucket destination of user activity log export with
- *             threat protection.</p>
+ * <p>Configuration for the Amazon S3 bucket destination of user activity log export with threat
+ *             protection.</p>
  * @public
  */
 export interface S3ConfigurationType {
   /**
-   * <p>The ARN of an Amazon S3 bucket that's the destination for threat protection
-   *             log export.</p>
+   * <p>The ARN of an Amazon S3 bucket that's the destination for threat protection log
+   *             export.</p>
    * @public
    */
   BucketArn?: string | undefined;
@@ -9613,14 +9695,16 @@ export interface LogConfigurationType {
   CloudWatchLogsConfiguration?: CloudWatchLogsConfigurationType | undefined;
 
   /**
-   * <p>The Amazon S3 bucket destination of user activity log export with threat protection. To activate this setting, your user pool must be on the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html">
+   * <p>The Amazon S3 bucket destination of user activity log export with threat protection.
+   *             To activate this setting, your user pool must be on the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html">
    *                      Plus tier</a>.</p>
    * @public
    */
   S3Configuration?: S3ConfigurationType | undefined;
 
   /**
-   * <p>The Amazon Data Firehose stream destination of user activity log export with threat protection. To activate this setting, your user pool must be on the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html">
+   * <p>The Amazon Data Firehose stream destination of user activity log export with threat protection.
+   *             To activate this setting, your user pool must be on the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html">
    *                      Plus tier</a>.</p>
    * @public
    */
@@ -9682,6 +9766,109 @@ export interface GetSigningCertificateResponse {
    * @public
    */
   Certificate?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTokensFromRefreshTokenRequest {
+  /**
+   * <p>A valid refresh token that can authorize the request for new tokens. When refresh
+   *             token rotation is active in the requested app client, this token is invalidated after
+   *             the request is complete.</p>
+   * @public
+   */
+  RefreshToken: string | undefined;
+
+  /**
+   * <p>The app client that issued the refresh token to the user who wants to request new
+   *             tokens.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>The client secret of the requested app client, if the client has a secret.</p>
+   * @public
+   */
+  ClientSecret?: string | undefined;
+
+  /**
+   * <p>When you enable device remembering, Amazon Cognito issues a device key that you can use for
+   *             device authentication that bypasses multi-factor authentication (MFA). To implement
+   *                 <code>GetTokensFromRefreshToken</code> in a user pool with device remembering, you
+   *             must capture the device key from the initial authentication request. If your application
+   *             doesn't provide the key of a registered device, Amazon Cognito issues a new one. You must
+   *             provide the confirmed device key in this request if device remembering is
+   *             enabled in your user pool.</p>
+   *          <p>For more information about device remembering, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with devices</a>.</p>
+   * @public
+   */
+  DeviceKey?: string | undefined;
+
+  /**
+   * <p>A map of custom key-value pairs that you can provide as input for certain custom
+   *             workflows that this action triggers.</p>
+   *          <p>You create custom workflows by assigning Lambda functions to user pool triggers.
+   *             When you use the <code>GetTokensFromRefreshToken</code> API action, Amazon Cognito invokes the
+   *             Lambda function the pre token generation trigger.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+   * Using Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *          <note>
+   *             <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the
+   *                 following:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Store the <code>ClientMetadata</code> value. This data is available only
+   *                         to Lambda triggers that are assigned to a user pool to support custom
+   *                         workflows. If your user pool configuration doesn't include triggers, the
+   *                         <code>ClientMetadata</code> parameter serves no purpose.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Validate the <code>ClientMetadata</code> value.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive
+   *                         information in this parameter.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  ClientMetadata?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTokensFromRefreshTokenResponse {
+  /**
+   * <p>The object that your application receives after authentication. Contains tokens and
+   *             information for device authentication.</p>
+   * @public
+   */
+  AuthenticationResult?: AuthenticationResultType | undefined;
+}
+
+/**
+ * <p>This exception is throw when your application requests token refresh with a refresh
+ *             token that has been invalidated by refresh-token rotation.</p>
+ * @public
+ */
+export class RefreshTokenReuseException extends __BaseException {
+  readonly name: "RefreshTokenReuseException" = "RefreshTokenReuseException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RefreshTokenReuseException, __BaseException>) {
+    super({
+      name: "RefreshTokenReuseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RefreshTokenReuseException.prototype);
+  }
 }
 
 /**
@@ -9893,127 +10080,6 @@ export interface GetUserAttributeVerificationCodeResponse {
    * @public
    */
   CodeDeliveryDetails?: CodeDeliveryDetailsType | undefined;
-}
-
-/**
- * @public
- */
-export interface GetUserAuthFactorsRequest {
-  /**
-   * <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for
-   * <code>aws.cognito.signin.user.admin</code>.</p>
-   * @public
-   */
-  AccessToken: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetUserAuthFactorsResponse {
-  /**
-   * <p>The name of the user who is eligible for the authentication factors in the
-   *             response.</p>
-   * @public
-   */
-  Username: string | undefined;
-
-  /**
-   * <p>The challenge method that Amazon Cognito returns to the user in response to sign-in requests.
-   *             Users can prefer SMS message, email message, or TOTP MFA.</p>
-   * @public
-   */
-  PreferredMfaSetting?: string | undefined;
-
-  /**
-   * <p>The MFA options that are activated for the user. The possible values in this list are
-   *                 <code>SMS_MFA</code>, <code>EMAIL_OTP</code>, and
-   *             <code>SOFTWARE_TOKEN_MFA</code>.</p>
-   * @public
-   */
-  UserMFASettingList?: string[] | undefined;
-
-  /**
-   * <p>The authentication types that are available to the user with <code>USER_AUTH</code>
-   *             sign-in, for example <code>["PASSWORD", "WEB_AUTHN"]</code>.</p>
-   * @public
-   */
-  ConfiguredUserAuthFactors?: AuthFactorType[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetUserPoolMfaConfigRequest {
-  /**
-   * <p>The ID of the user pool where you want to query WebAuthn and MFA configuration.</p>
-   * @public
-   */
-  UserPoolId: string | undefined;
-}
-
-/**
- * <p>Sets or shows configuration for user pool email message MFA and sign-in with one-time
- *             passwords (OTPs). Includes the subject and body of the email message template for
- *             sign-in and MFA messages. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html">
- *                      Essentials tier</a> or higher.</p>
- * @public
- */
-export interface EmailMfaConfigType {
-  /**
-   * <p>The template for the email messages that your user pool sends to users with codes for
-   *             MFA and sign-in with email OTPs. The message must contain the <code>\{####\}</code>
-   *             placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you
-   *             don't provide this parameter, Amazon Cognito sends messages in the default format.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The subject of the email messages that your user pool sends to users with codes for
-   *             MFA and email OTP sign-in.</p>
-   * @public
-   */
-  Subject?: string | undefined;
-}
-
-/**
- * <p>The configuration of multi-factor authentication (MFA) with SMS messages in a user
- *             pool.</p>
- * @public
- */
-export interface SmsMfaConfigType {
-  /**
-   * <p>The SMS authentication message that will be sent to users with the code they must sign
-   *             in with. The message must contain the <code>\{####\}</code> placeholder. Your user pool
-   *             replaces the placeholder with the MFA code. If this parameter isn't provided, your user
-   *             pool sends a default message.</p>
-   * @public
-   */
-  SmsAuthenticationMessage?: string | undefined;
-
-  /**
-   * <p>User pool configuration for delivery of SMS messages with Amazon Simple Notification Service. To send SMS
-   *             messages with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an
-   *             Identity and Access Management (IAM) role in your Amazon Web Services account.</p>
-   *          <p>You can set <code>SmsConfiguration</code> in <code>CreateUserPool</code> and <code>
-   *                 UpdateUserPool</code>, or in <code>SetUserPoolMfaConfig</code>.</p>
-   * @public
-   */
-  SmsConfiguration?: SmsConfigurationType | undefined;
-}
-
-/**
- * <p>Settings for time-based one-time password (TOTP) multi-factor authentication (MFA) in
- *             a user pool. Enables and disables availability of this feature.</p>
- * @public
- */
-export interface SoftwareTokenMfaConfigType {
-  /**
-   * <p>The activation state of TOTP MFA.</p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
 }
 
 /**
@@ -10550,6 +10616,26 @@ export const GetDeviceResponseFilterSensitiveLog = (obj: GetDeviceResponse): any
 /**
  * @internal
  */
+export const GetTokensFromRefreshTokenRequestFilterSensitiveLog = (obj: GetTokensFromRefreshTokenRequest): any => ({
+  ...obj,
+  ...(obj.RefreshToken && { RefreshToken: SENSITIVE_STRING }),
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetTokensFromRefreshTokenResponseFilterSensitiveLog = (obj: GetTokensFromRefreshTokenResponse): any => ({
+  ...obj,
+  ...(obj.AuthenticationResult && {
+    AuthenticationResult: AuthenticationResultTypeFilterSensitiveLog(obj.AuthenticationResult),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const GetUICustomizationRequestFilterSensitiveLog = (obj: GetUICustomizationRequest): any => ({
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
@@ -10598,20 +10684,4 @@ export const GetUserAttributeVerificationCodeRequestFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetUserAuthFactorsRequestFilterSensitiveLog = (obj: GetUserAuthFactorsRequest): any => ({
-  ...obj,
-  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetUserAuthFactorsResponseFilterSensitiveLog = (obj: GetUserAuthFactorsResponse): any => ({
-  ...obj,
-  ...(obj.Username && { Username: SENSITIVE_STRING }),
 });
