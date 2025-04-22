@@ -26,7 +26,7 @@ test-unit: bundles
 test-types:
 	npx tsc -p tsconfig.test.json
 
-test-protocols: build-s3-browser-bundle
+test-protocols: bundles
 	yarn g:vitest run -c vitest.config.protocols.integ.ts
 
 test-integration: bundles

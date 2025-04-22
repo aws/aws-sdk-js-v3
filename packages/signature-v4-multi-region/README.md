@@ -26,7 +26,7 @@ Please refer to the note regarding bundle size in the link above, before decidin
 This package provides a SigV4-compatible request signer that wraps a pure-JS SigV4 signer
 ([`@aws-sdk/signature-v4`](https://www.npmjs.com/package/@aws-sdk/signature-v4)) for regional requests, and attempts to
 call a native implementation of SigV4a signer([`@aws-sdk/signature-v4-crt`](https://www.npmjs.com/package/@aws-sdk/signature-v4))
-it the request is not regional.
+it the request is multi-region.
 
-An un-regional request is identified by the `signingRegion` parameter. A region is un-regional if the `signingRegion`
+A multi-region request is identified by the `signingRegion` parameter. A request is multi-region if the `signingRegion`
 parameter is set to `*`.
