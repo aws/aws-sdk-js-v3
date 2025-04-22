@@ -1315,6 +1315,9 @@ export const SchemaAttributeType = {
   ADDRESS_STREET3: "ADDRESS_STREET3",
   DATE: "DATE",
   EMAIL_ADDRESS: "EMAIL_ADDRESS",
+  IPV4: "IPV4",
+  IPV6: "IPV6",
+  MAID: "MAID",
   NAME: "NAME",
   NAME_FIRST: "NAME_FIRST",
   NAME_LAST: "NAME_LAST",
@@ -1333,10 +1336,9 @@ export const SchemaAttributeType = {
 export type SchemaAttributeType = (typeof SchemaAttributeType)[keyof typeof SchemaAttributeType];
 
 /**
- * <p>A
- *          configuration object for defining input data fields in Entity Resolution. The
- *          SchemaInputAttribute specifies how individual fields in your input data should be processed
- *          and matched.</p>
+ * <p>A configuration object for defining input data fields in Entity Resolution. The
+ *             <code>SchemaInputAttribute</code> specifies how individual fields in your input data
+ *          should be processed and matched.</p>
  * @public
  */
 export interface SchemaInputAttribute {
@@ -1348,6 +1350,23 @@ export interface SchemaInputAttribute {
 
   /**
    * <p>The type of the attribute, selected from a list of values.</p>
+   *          <p>LiveRamp supports: <code>NAME</code> | <code>NAME_FIRST</code> |
+   *             <code>NAME_MIDDLE</code> | <code>NAME_LAST</code> | <code>ADDRESS</code> |
+   *             <code>ADDRESS_STREET1</code> | <code>ADDRESS_STREET2</code> |
+   *             <code>ADDRESS_STREET3</code> | <code>ADDRESS_CITY</code> | <code>ADDRESS_STATE</code> |
+   *             <code>ADDRESS_COUNTRY</code> | <code>ADDRESS_POSTALCODE</code> | <code>PHONE</code> |
+   *             <code>PHONE_NUMBER</code> | <code>EMAIL_ADDRESS</code> | <code>UNIQUE_ID</code> |
+   *             <code>PROVIDER_ID</code>
+   *          </p>
+   *          <p>TransUnion supports: <code>NAME</code> | <code>NAME_FIRST</code> |
+   *             <code>NAME_LAST</code> | <code>ADDRESS</code> | <code>ADDRESS_CITY</code> |
+   *             <code>ADDRESS_STATE</code> | <code>ADDRESS_COUNTRY</code> |
+   *             <code>ADDRESS_POSTALCODE</code> | <code>PHONE_NUMBER</code> | <code>EMAIL_ADDRESS</code>
+   *          | <code>UNIQUE_ID</code> | <code>IPV4</code> | <code>IPV6</code> | <code>MAID</code>
+   *          </p>
+   *          <p>Unified ID 2.0 supports: <code>PHONE_NUMBER</code> | <code>EMAIL_ADDRESS</code> |
+   *             <code>UNIQUE_ID</code>
+   *          </p>
    *          <note>
    *             <p>Normalization is only supported for <code>NAME</code>, <code>ADDRESS</code>,
    *                <code>PHONE</code>, and <code>EMAIL_ADDRESS</code>. </p>
@@ -1372,13 +1391,10 @@ export interface SchemaInputAttribute {
   /**
    * <p>A string that instructs Entity Resolution to combine several columns into a unified
    *          column with the identical attribute type. </p>
-   *          <p>For example, when working with columns such as
-   *             <code>NAME_FIRST</code>,
-   *             <code>NAME_MIDDLE</code>,
-   *          and
-   *             <code>NAME_LAST</code>,
-   *          assigning them a common <code>groupName</code> will prompt Entity Resolution to concatenate
-   *          them into a single value.</p>
+   *          <p>For example, when working with columns such as <code>NAME_FIRST</code>,
+   *             <code>NAME_MIDDLE</code>, and <code>NAME_LAST</code>, assigning them a common
+   *             <code>groupName</code> will prompt Entity Resolution to concatenate them into a single
+   *          value.</p>
    * @public
    */
   groupName?: string | undefined;
@@ -2268,6 +2284,24 @@ export interface ProviderSchemaAttribute {
 
   /**
    * <p>The type of the provider schema attribute.</p>
+   *          <p>LiveRamp supports: <code>NAME</code> | <code>NAME_FIRST</code> |
+   *             <code>NAME_MIDDLE</code> | <code>NAME_LAST</code> | <code>ADDRESS</code> |
+   *             <code>ADDRESS_STREET1</code> | <code>ADDRESS_STREET2</code> |
+   *             <code>ADDRESS_STREET3</code> | <code>ADDRESS_CITY</code> | <code>ADDRESS_STATE</code> |
+   *             <code>ADDRESS_COUNTRY</code> | <code>ADDRESS_POSTALCODE</code> | <code>PHONE</code> |
+   *             <code>PHONE_NUMBER</code> | <code>EMAIL_ADDRESS</code> | <code>UNIQUE_ID</code> |
+   *             <code>PROVIDER_ID</code>
+   *          </p>
+   *          <p>TransUnion supports: <code>NAME</code> | <code>NAME_FIRST</code> |
+   *             <code>NAME_LAST</code> | <code>ADDRESS</code> | <code>ADDRESS_CITY</code> |
+   *             <code>ADDRESS_STATE</code> | <code>ADDRESS_COUNTRY</code> |
+   *             <code>ADDRESS_POSTALCODE</code> | <code>PHONE_NUMBER</code> | <code>EMAIL_ADDRESS</code>
+   *          | <code>UNIQUE_ID</code> | <code>DATE</code> | <code>IPV4</code> | <code>IPV6</code> |
+   *             <code>MAID</code>
+   *          </p>
+   *          <p>Unified ID 2.0 supports: <code>PHONE_NUMBER</code> | <code>EMAIL_ADDRESS</code> |
+   *             <code>UNIQUE_ID</code>
+   *          </p>
    * @public
    */
   type: SchemaAttributeType | undefined;

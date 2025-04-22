@@ -28,11 +28,9 @@ export interface GetMatchIdCommandInput extends GetMatchIdInput {}
 export interface GetMatchIdCommandOutput extends GetMatchIdOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the corresponding Match ID of a customer record if the record has been
- *          processed in a
- *          rule-based matching workflow or ML matching workflow.</p>
- *          <p>You can call this API as a dry run of an incremental load on the rule-based
- *          matching
+ * <p>Returns the corresponding Match ID of a customer record if the record has been processed
+ *          in a rule-based matching workflow or ML matching workflow.</p>
+ *          <p>You can call this API as a dry run of an incremental load on the rule-based matching
  *          workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
