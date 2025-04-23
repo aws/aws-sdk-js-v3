@@ -43991,6 +43991,11 @@
             }
           }
         },
+        "glue": {
+          "endpoints": {
+            "us-isob-east-1": {}
+          }
+        },
         "health": {
           "endpoints": {
             "us-isob-east-1": {}
