@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.795.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.794.0...v3.795.0) (2025-04-23)
+
+
+### Features
+
+* **client-codebuild:** Add support for custom instance type for reserved capacity fleets ([7c92ddd](https://github.com/aws/aws-sdk-js-v3/commit/7c92ddd97a2eab15802ea1ba7953cfa1b5a22c99))
+* **client-ecs:** Add support to roll back an In_Progress ECS Service Deployment ([b970bdd](https://github.com/aws/aws-sdk-js-v3/commit/b970bdda59564e040dc58c024973a6383138a374))
+* **clients:** update client endpoints as of 2025-04-23 ([9f5fe0e](https://github.com/aws/aws-sdk-js-v3/commit/9f5fe0e35429a1a0bfb373d7ed13847e87b83807))
+
+
+
+
+
 # [3.794.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.793.0...v3.794.0) (2025-04-22)
 
 
