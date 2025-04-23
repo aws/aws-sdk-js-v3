@@ -733,7 +733,7 @@ export const MachineType = {
 export type MachineType = (typeof MachineType)[keyof typeof MachineType];
 
 /**
- * <p>Contains compute attributes. These attributes only need be specified when your project's or fleet's <code>computeType</code> is set to <code>ATTRIBUTE_BASED_COMPUTE</code>.</p>
+ * <p>Contains compute attributes. These attributes only need be specified when your project's or fleet's <code>computeType</code> is set to <code>ATTRIBUTE_BASED_COMPUTE</code> or <code>CUSTOM_INSTANCE_TYPE</code>.</p>
  * @public
  */
 export interface ComputeConfiguration {
@@ -760,6 +760,12 @@ export interface ComputeConfiguration {
    * @public
    */
   machineType?: MachineType | undefined;
+
+  /**
+   * <p>The EC2 instance type to be launched in your fleet.</p>
+   * @public
+   */
+  instanceType?: string | undefined;
 }
 
 /**
@@ -778,6 +784,7 @@ export const ComputeType = {
   BUILD_LAMBDA_2GB: "BUILD_LAMBDA_2GB",
   BUILD_LAMBDA_4GB: "BUILD_LAMBDA_4GB",
   BUILD_LAMBDA_8GB: "BUILD_LAMBDA_8GB",
+  CUSTOM_INSTANCE_TYPE: "CUSTOM_INSTANCE_TYPE",
 } as const;
 
 /**
@@ -4119,7 +4126,7 @@ export interface ScopeConfiguration {
   domain?: string | undefined;
 
   /**
-   * <p>The type of scope for a GitHub or GitLab webhook.</p>
+   * <p>The type of scope for a GitHub or GitLab webhook. The scope default is GITHUB_ORGANIZATION.</p>
    * @public
    */
   scope: WebhookScopeType | undefined;
