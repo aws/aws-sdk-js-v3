@@ -456,5 +456,4 @@ public final class AddS3Config implements TypeScriptIntegration {
     private static boolean isS3(Shape serviceShape) {
         return serviceShape.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("").equals("S3");
     }
-    
 }
