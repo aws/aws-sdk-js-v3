@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
+import { TagResourceRequest, TagResourceResponse } from "../models/models_1";
 import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_json1_1";
 
 /**

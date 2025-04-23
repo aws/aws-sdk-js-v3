@@ -138,6 +138,10 @@ import {
 } from "../commands/RegisterTaskDefinitionCommand";
 import { RunTaskCommandInput, RunTaskCommandOutput } from "../commands/RunTaskCommand";
 import { StartTaskCommandInput, StartTaskCommandOutput } from "../commands/StartTaskCommand";
+import {
+  StopServiceDeploymentCommandInput,
+  StopServiceDeploymentCommandOutput,
+} from "../commands/StopServiceDeploymentCommand";
 import { StopTaskCommandInput, StopTaskCommandOutput } from "../commands/StopTaskCommand";
 import {
   SubmitAttachmentStateChangesCommandInput,
@@ -339,6 +343,7 @@ import {
   ServiceConnectTlsConfiguration,
   ServiceDeployment,
   ServiceDeploymentBrief,
+  ServiceDeploymentNotFoundException,
   ServiceDeploymentStatus,
   ServiceEvent,
   ServiceField,
@@ -350,6 +355,7 @@ import {
   ServiceVolumeConfiguration,
   StartTaskRequest,
   StartTaskResponse,
+  StopServiceDeploymentRequest,
   StopTaskRequest,
   StopTaskResponse,
   SubmitAttachmentStateChangesRequest,
@@ -357,7 +363,6 @@ import {
   SubmitTaskStateChangeRequest,
   SystemControl,
   Tag,
-  TagResourceRequest,
   TargetNotConnectedException,
   TargetNotFoundException,
   Task,
@@ -376,7 +381,6 @@ import {
   Tmpfs,
   Ulimit,
   UnsupportedFeatureException,
-  UntagResourceRequest,
   UpdateInProgressException,
   VersionInfo,
   Volume,
@@ -387,6 +391,8 @@ import {
   AutoScalingGroupProviderUpdate,
   MissingVersionException,
   NoUpdateAvailableException,
+  TagResourceRequest,
+  UntagResourceRequest,
   UpdateCapacityProviderRequest,
   UpdateClusterRequest,
   UpdateClusterSettingsRequest,
@@ -971,6 +977,19 @@ export const se_StartTaskCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartTask");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StopServiceDeploymentCommand
+ */
+export const se_StopServiceDeploymentCommand = async (
+  input: StopServiceDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StopServiceDeployment");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2052,6 +2071,26 @@ export const de_StartTaskCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1StopServiceDeploymentCommand
+ */
+export const de_StopServiceDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopServiceDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopServiceDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1StopTaskCommand
  */
 export const de_StopTaskCommand = async (
@@ -2433,6 +2472,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ConflictException":
     case "com.amazonaws.ecs#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ServiceDeploymentNotFoundException":
+    case "com.amazonaws.ecs#ServiceDeploymentNotFoundException":
+      throw await de_ServiceDeploymentNotFoundExceptionRes(parsedOutput, context);
     case "MissingVersionException":
     case "com.amazonaws.ecs#MissingVersionException":
       throw await de_MissingVersionExceptionRes(parsedOutput, context);
@@ -2735,6 +2777,22 @@ const de_ServerExceptionRes = async (parsedOutput: any, context: __SerdeContext)
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new ServerException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ServiceDeploymentNotFoundExceptionRes
+ */
+const de_ServiceDeploymentNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceDeploymentNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ServiceDeploymentNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3264,6 +3322,8 @@ const se_Scale = (input: Scale, context: __SerdeContext): any => {
 // se_ServiceVolumeConfigurations omitted.
 
 // se_StartTaskRequest omitted.
+
+// se_StopServiceDeploymentRequest omitted.
 
 // se_StopTaskRequest omitted.
 
@@ -4203,6 +4263,8 @@ const de_ServiceDeploymentBrief = (output: any, context: __SerdeContext): Servic
 
 // de_ServiceDeploymentCircuitBreaker omitted.
 
+// de_ServiceDeploymentNotFoundException omitted.
+
 /**
  * deserializeAws_json1_1ServiceDeployments
  */
@@ -4335,6 +4397,8 @@ const de_StartTaskResponse = (output: any, context: __SerdeContext): StartTaskRe
 };
 
 // de_Statistics omitted.
+
+// de_StopServiceDeploymentResponse omitted.
 
 /**
  * deserializeAws_json1_1StopTaskResponse

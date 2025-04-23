@@ -69,7 +69,7 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
  * //         runningTaskCount: Number("int"),
  * //         pendingTaskCount: Number("int"),
  * //       },
- * //       status: "PENDING" || "SUCCESSFUL" || "STOPPED" || "STOP_REQUESTED" || "IN_PROGRESS" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_SUCCESSFUL" || "ROLLBACK_FAILED",
+ * //       status: "PENDING" || "SUCCESSFUL" || "STOPPED" || "STOP_REQUESTED" || "IN_PROGRESS" || "ROLLBACK_REQUESTED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_SUCCESSFUL" || "ROLLBACK_FAILED",
  * //       statusReason: "STRING_VALUE",
  * //       deploymentConfiguration: { // DeploymentConfiguration
  * //         deploymentCircuitBreaker: { // DeploymentCircuitBreaker
