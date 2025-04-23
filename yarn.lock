@@ -22433,7 +22433,7 @@ __metadata:
     "@smithy/node-config-provider": "npm:^4.0.2"
     "@smithy/property-provider": "npm:^4.0.2"
     "@smithy/protocol-http": "npm:^5.1.0"
-    "@smithy/signature-v4": "npm:^5.0.2"
+    "@smithy/signature-v4": "npm:^5.1.0"
     "@smithy/smithy-client": "npm:^4.2.0"
     "@smithy/types": "npm:^4.2.0"
     "@smithy/util-middleware": "npm:^4.0.2"
@@ -22693,7 +22693,7 @@ __metadata:
     "@smithy/invalid-dependency": "npm:^4.0.2"
     "@smithy/node-config-provider": "npm:^4.0.2"
     "@smithy/protocol-http": "npm:^5.1.0"
-    "@smithy/signature-v4": "npm:^5.0.2"
+    "@smithy/signature-v4": "npm:^5.1.0"
     "@smithy/types": "npm:^4.2.0"
     "@types/node": "npm:^18.19.69"
     concurrently: "npm:7.0.0"
@@ -23037,7 +23037,7 @@ __metadata:
     "@aws-sdk/util-format-url": "npm:*"
     "@smithy/middleware-endpoint": "npm:^4.1.0"
     "@smithy/protocol-http": "npm:^5.1.0"
-    "@smithy/signature-v4": "npm:^5.0.2"
+    "@smithy/signature-v4": "npm:^5.1.0"
     "@smithy/smithy-client": "npm:^4.2.0"
     "@smithy/types": "npm:^4.2.0"
     "@tsconfig/recommended": "npm:1.0.1"
@@ -23089,7 +23089,7 @@ __metadata:
     "@aws-sdk/util-format-url": "npm:*"
     "@smithy/middleware-endpoint": "npm:^4.1.0"
     "@smithy/protocol-http": "npm:^5.1.0"
-    "@smithy/signature-v4": "npm:^5.0.2"
+    "@smithy/signature-v4": "npm:^5.1.0"
     "@smithy/types": "npm:^4.2.0"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
@@ -23146,7 +23146,7 @@ __metadata:
     "@smithy/core": "npm:^3.2.0"
     "@smithy/node-config-provider": "npm:^4.0.2"
     "@smithy/protocol-http": "npm:^5.1.0"
-    "@smithy/signature-v4": "npm:^5.0.2"
+    "@smithy/signature-v4": "npm:^5.1.0"
     "@smithy/smithy-client": "npm:^4.2.0"
     "@smithy/types": "npm:^4.2.0"
     "@smithy/util-config-provider": "npm:^4.0.0"
@@ -23204,7 +23204,7 @@ __metadata:
     "@aws-sdk/util-format-url": "npm:*"
     "@smithy/eventstream-serde-browser": "npm:^4.0.2"
     "@smithy/protocol-http": "npm:^5.1.0"
-    "@smithy/signature-v4": "npm:^5.0.2"
+    "@smithy/signature-v4": "npm:^5.1.0"
     "@smithy/types": "npm:^4.2.0"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
@@ -23224,7 +23224,7 @@ __metadata:
     "@aws-sdk/types": "npm:*"
     "@smithy/property-provider": "npm:^4.0.2"
     "@smithy/protocol-http": "npm:^5.1.0"
-    "@smithy/signature-v4": "npm:^5.0.2"
+    "@smithy/signature-v4": "npm:^5.1.0"
     "@smithy/types": "npm:^4.2.0"
     "@smithy/util-middleware": "npm:^4.0.2"
     "@tsconfig/recommended": "npm:1.0.1"
@@ -23300,7 +23300,7 @@ __metadata:
     "@smithy/eventstream-serde-browser": "npm:^4.0.2"
     "@smithy/fetch-http-handler": "npm:^5.0.2"
     "@smithy/protocol-http": "npm:^5.1.0"
-    "@smithy/signature-v4": "npm:^5.0.2"
+    "@smithy/signature-v4": "npm:^5.1.0"
     "@smithy/types": "npm:^4.2.0"
     "@smithy/util-hex-encoding": "npm:^4.0.0"
     "@tsconfig/recommended": "npm:1.0.1"
@@ -23372,7 +23372,7 @@ __metadata:
     "@aws-sdk/types": "npm:*"
     "@aws-sdk/util-format-url": "npm:*"
     "@smithy/protocol-http": "npm:^5.1.0"
-    "@smithy/signature-v4": "npm:^5.0.2"
+    "@smithy/signature-v4": "npm:^5.1.0"
     "@smithy/types": "npm:^4.2.0"
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^18.19.69"
@@ -23408,7 +23408,7 @@ __metadata:
     "@smithy/invalid-dependency": "npm:^4.0.2"
     "@smithy/node-config-provider": "npm:^4.0.2"
     "@smithy/protocol-http": "npm:^5.1.0"
-    "@smithy/signature-v4": "npm:^5.0.2"
+    "@smithy/signature-v4": "npm:^5.1.0"
     "@smithy/types": "npm:^4.2.0"
     "@types/node": "npm:^18.19.69"
     concurrently: "npm:7.0.0"
@@ -23446,7 +23446,7 @@ __metadata:
     "@aws-sdk/types": "npm:*"
     "@aws-sdk/util-format-url": "npm:*"
     "@smithy/middleware-endpoint": "npm:^4.1.0"
-    "@smithy/signature-v4": "npm:^5.0.2"
+    "@smithy/signature-v4": "npm:^5.1.0"
     "@smithy/types": "npm:^4.2.0"
     "@smithy/util-hex-encoding": "npm:^4.0.0"
     "@smithy/util-utf8": "npm:^4.0.0"
@@ -23512,7 +23512,7 @@ __metadata:
     "@aws-sdk/types": "npm:*"
     "@smithy/protocol-http": "npm:^5.1.0"
     "@smithy/querystring-parser": "npm:^4.0.2"
-    "@smithy/signature-v4": "npm:^5.0.2"
+    "@smithy/signature-v4": "npm:^5.1.0"
     "@smithy/types": "npm:^4.2.0"
     "@smithy/util-middleware": "npm:^4.0.2"
     "@tsconfig/recommended": "npm:1.0.1"
@@ -23531,7 +23531,7 @@ __metadata:
     "@aws-sdk/middleware-sdk-s3": "npm:*"
     "@aws-sdk/types": "npm:*"
     "@smithy/protocol-http": "npm:^5.1.0"
-    "@smithy/signature-v4": "npm:^5.0.2"
+    "@smithy/signature-v4": "npm:^5.1.0"
     "@smithy/types": "npm:^4.2.0"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
@@ -23829,7 +23829,7 @@ __metadata:
     "@aws-sdk/util-user-agent-node": "npm:*"
     "@smithy/config-resolver": "npm:^4.1.0"
     "@smithy/core": "npm:^3.2.0"
-    "@smithy/experimental-identity-and-auth": "npm:^0.3.45"
+    "@smithy/experimental-identity-and-auth": "npm:^0.3.46"
     "@smithy/fetch-http-handler": "npm:^5.0.2"
     "@smithy/hash-node": "npm:^4.0.2"
     "@smithy/invalid-dependency": "npm:^4.0.2"
@@ -27759,19 +27759,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/experimental-identity-and-auth@npm:^0.3.45":
-  version: 0.3.45
-  resolution: "@smithy/experimental-identity-and-auth@npm:0.3.45"
+"@smithy/experimental-identity-and-auth@npm:^0.3.46":
+  version: 0.3.46
+  resolution: "@smithy/experimental-identity-and-auth@npm:0.3.46"
   dependencies:
     "@smithy/middleware-endpoint": "npm:^4.1.0"
     "@smithy/middleware-retry": "npm:^4.1.0"
     "@smithy/middleware-serde": "npm:^4.0.3"
     "@smithy/protocol-http": "npm:^5.1.0"
-    "@smithy/signature-v4": "npm:^5.0.2"
+    "@smithy/signature-v4": "npm:^5.1.0"
     "@smithy/types": "npm:^4.2.0"
     "@smithy/util-middleware": "npm:^4.0.2"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/b34cde8f95289911b476121c7a4f821f98ac20ee1c178ebc78cfb5c84b06f92702a5c02dfed547467eb3bd16ed1a039033932b2db177fcadd0b3602d1546604e
+  checksum: 10c0/f93a506c5c05deafb9ac2f17a06a8597d4db76ce801f85e3665a56af57e0c11cbfed080e88784ca18b409d509623840c21bce46cb0b4225df17bc2c2c2acc3b3
   languageName: node
   linkType: hard
 
@@ -28041,9 +28041,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/signature-v4@npm:^5.0.2":
-  version: 5.0.2
-  resolution: "@smithy/signature-v4@npm:5.0.2"
+"@smithy/signature-v4@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "@smithy/signature-v4@npm:5.1.0"
   dependencies:
     "@smithy/is-array-buffer": "npm:^4.0.0"
     "@smithy/protocol-http": "npm:^5.1.0"
@@ -28053,7 +28053,7 @@ __metadata:
     "@smithy/util-uri-escape": "npm:^4.0.0"
     "@smithy/util-utf8": "npm:^4.0.0"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/379b2bcd535cfcf68567b8931920eefd3ec30fc734369b5a1055792377a815cb7b6c7fc3a18567e6066d771ddfd0d06da8e45334a02bf86d69985d1923a11c29
+  checksum: 10c0/7f3aed4999b47f04485846a90a08d0863c8bf4201a38616faf4bcb3166892a5b2946e7d0f1d5dc068b667913713873e21ab8374d60c1ff02828972d8c9201282
   languageName: node
   linkType: hard
 
