@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
@@ -32,6 +33,7 @@ import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.traits.RequiredTrait;
 import software.amazon.smithy.model.transform.ModelTransformer;
+import software.amazon.smithy.rulesengine.traits.EndpointRuleSetTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -90,16 +92,19 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
         if (!isS3Control(settings.getService(model))) {
             return model;
         }
-        model = AddS3Config.removeHostPrefixTrait(model, settings);
+        boolean hasRuleset = !model.getServiceShapesWithTrait(EndpointRuleSetTrait.class).isEmpty();
         ServiceShape serviceShape = model.expectShape(settings.getService(), ServiceShape.class);
-        return ModelTransformer.create().mapShapes(model, shape -> {
+        Function<Shape, Shape> removeRequired = shape -> {
             Optional<MemberShape> modified = shape.asMemberShape()
-                    .filter(memberShape -> memberShape.getTarget().getName(serviceShape).equals("AccountId"))
-                    .filter(memberShape -> model.expectShape(memberShape.getTarget()).isStringShape())
-                    .filter(memberShape -> memberShape.isRequired())
-                    .map(memberShape -> Shape.shapeToBuilder(memberShape).removeTrait(RequiredTrait.ID).build());
+                .filter(memberShape -> memberShape.getTarget().getName(serviceShape).equals("AccountId"))
+                .filter(memberShape -> model.expectShape(memberShape.getTarget()).isStringShape())
+                .filter(MemberShape::isRequired)
+                .map(memberShape -> Shape.shapeToBuilder(memberShape).removeTrait(RequiredTrait.ID).build());
             return modified.isPresent() ? modified.get() : shape;
-        });
+        };
+        return ModelTransformer.create().mapShapes(
+            model, hasRuleset ? removeRequired.andThen(AddS3Config::removeHostPrefixTrait) : removeRequired
+        );
     }
 
     @Override

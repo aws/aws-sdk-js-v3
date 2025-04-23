@@ -19,7 +19,6 @@ import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isEnd
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -44,9 +43,12 @@ import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.TimestampShape;
 import software.amazon.smithy.model.traits.DeprecatedTrait;
 import software.amazon.smithy.model.traits.DocumentationTrait;
+import software.amazon.smithy.model.traits.EndpointTrait;
 import software.amazon.smithy.model.traits.HttpHeaderTrait;
 import software.amazon.smithy.model.traits.HttpPayloadTrait;
 import software.amazon.smithy.model.traits.StreamingTrait;
+import software.amazon.smithy.model.transform.ModelTransformer;
+import software.amazon.smithy.rulesengine.traits.EndpointRuleSetTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -81,22 +83,16 @@ public final class AddS3Config implements TypeScriptIntegration {
         + "For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>";
 
     /**
-     * This removes the host prefix from the endpoint traits of the model.
-     * 
-    */
-    public static Model removeHostPrefixTrait(Model model, TypeScriptSettings settings) {
-       boolean checkEndPointRuleSet = model.hasTrait(EndpointRuleSetTrait.class)
-       Set<Shape> shapesWithTraits =  model.getShapesWithTrait(EndpointTrait.class);
-       Model.Builder mb = model.toBuilder();
-       for(Shape shape: shapesWithTraits) {
-            OperationShape.Builder ob = OperationShape.shapeToBuilder(shape.asOperationShape().get()); 
-            ob.removeTrait(EndpointTrait.ID);
-            OperationShape operation = ob.build();
-            mb.removeShape(operation.getId());
-            mb.addShape(operation);       
-       }
-       return mb.build();
-
+     * Remove the hostPrefix functionality by removing the endpoint traits.
+     * Only applied if endpointRuleSet trait present on S3/S3Control services.
+     */
+    public static Shape removeHostPrefixTrait(Shape shape) {
+        return shape.asOperationShape()
+            .map(OperationShape::shapeToBuilder)
+            .map(builder -> ((OperationShape.Builder) builder).removeTrait(EndpointTrait.ID))
+            .map(OperationShape.Builder::build)
+            .map(s -> (Shape) s)
+            .orElse(shape);
     }
 
     @Override
@@ -114,9 +110,9 @@ public final class AddS3Config implements TypeScriptIntegration {
         if (!isS3(serviceShape)) {
             return model;
         }
-        removeHostPrefixTrait(model, settings);
 
         Model.Builder modelBuilder = model.toBuilder();
+        boolean hasRuleset = !model.getServiceShapesWithTrait(EndpointRuleSetTrait.class).isEmpty();
 
         TopDownIndex topDownIndex = TopDownIndex.of(model);
         Set<StructureShape> inputShapes = new HashSet<>();
@@ -227,7 +223,13 @@ public final class AddS3Config implements TypeScriptIntegration {
             }
         }
 
-        return modelBuilder.addShapes(inputShapes).build();
+        Model builtModel = modelBuilder.addShapes(inputShapes).build();
+        if (hasRuleset) {
+            ModelTransformer.create().mapShapes(
+                builtModel, AddS3Config::removeHostPrefixTrait
+            );
+        }
+        return builtModel;
     }
 
     @Override
