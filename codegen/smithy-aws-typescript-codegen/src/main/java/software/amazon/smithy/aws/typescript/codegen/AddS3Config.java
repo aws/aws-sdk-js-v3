@@ -19,6 +19,7 @@ import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isEnd
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -79,6 +80,25 @@ public final class AddS3Config implements TypeScriptIntegration {
         + " you need to install the \"@aws-sdk/signature-v4-crt\" package to your project dependencies. \n"
         + "For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>";
 
+    /**
+     * This removes the host prefix from the endpoint traits of the model.
+     * 
+    */
+    public static Model removeHostPrefixTrait(Model model, TypeScriptSettings settings) {
+       boolean checkEndPointRuleSet = model.hasTrait(EndpointRuleSetTrait.class)
+       Set<Shape> shapesWithTraits =  model.getShapesWithTrait(EndpointTrait.class);
+       Model.Builder mb = model.toBuilder();
+       for(Shape shape: shapesWithTraits) {
+            OperationShape.Builder ob = OperationShape.shapeToBuilder(shape.asOperationShape().get()); 
+            ob.removeTrait(EndpointTrait.ID);
+            OperationShape operation = ob.build();
+            mb.removeShape(operation.getId());
+            mb.addShape(operation);       
+       }
+       return mb.build();
+
+    }
+
     @Override
     public List<String> runAfter() {
         return List.of(
@@ -94,6 +114,7 @@ public final class AddS3Config implements TypeScriptIntegration {
         if (!isS3(serviceShape)) {
             return model;
         }
+        removeHostPrefixTrait(model, settings);
 
         Model.Builder modelBuilder = model.toBuilder();
 
@@ -433,4 +454,5 @@ public final class AddS3Config implements TypeScriptIntegration {
     private static boolean isS3(Shape serviceShape) {
         return serviceShape.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("").equals("S3");
     }
+    
 }

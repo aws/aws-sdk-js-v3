@@ -90,6 +90,7 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
         if (!isS3Control(settings.getService(model))) {
             return model;
         }
+        model = AddS3Config.removeHostPrefixTrait(model, settings);
         ServiceShape serviceShape = model.expectShape(settings.getService(), ServiceShape.class);
         return ModelTransformer.create().mapShapes(model, shape -> {
             Optional<MemberShape> modified = shape.asMemberShape()
