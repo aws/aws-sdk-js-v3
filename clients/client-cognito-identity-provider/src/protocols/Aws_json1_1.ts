@@ -223,6 +223,10 @@ import {
   GetSigningCertificateCommandInput,
   GetSigningCertificateCommandOutput,
 } from "../commands/GetSigningCertificateCommand";
+import {
+  GetTokensFromRefreshTokenCommandInput,
+  GetTokensFromRefreshTokenCommandOutput,
+} from "../commands/GetTokensFromRefreshTokenCommand";
 import { GetUICustomizationCommandInput, GetUICustomizationCommandOutput } from "../commands/GetUICustomizationCommand";
 import {
   GetUserAttributeVerificationCodeCommandInput,
@@ -449,7 +453,6 @@ import {
   DeviceType,
   DuplicateProviderException,
   EmailConfigurationType,
-  EmailMfaConfigType,
   EmailMfaSettingsType,
   EventFeedbackType,
   EventFilterType,
@@ -469,11 +472,10 @@ import {
   GetIdentityProviderByIdentifierResponse,
   GetLogDeliveryConfigurationRequest,
   GetSigningCertificateRequest,
+  GetTokensFromRefreshTokenRequest,
   GetUICustomizationRequest,
   GetUICustomizationResponse,
   GetUserAttributeVerificationCodeRequest,
-  GetUserAuthFactorsRequest,
-  GetUserPoolMfaConfigRequest,
   GetUserRequest,
   GroupExistsException,
   GroupType,
@@ -508,6 +510,8 @@ import {
   PreTokenGenerationVersionConfigType,
   ProviderUserIdentifierType,
   RecoveryOptionType,
+  RefreshTokenReuseException,
+  RefreshTokenRotationType,
   ResourceNotFoundException,
   ResourceServerScopeType,
   RiskConfigurationType,
@@ -517,9 +521,7 @@ import {
   ScopeDoesNotExistException,
   SignInPolicyType,
   SmsConfigurationType,
-  SmsMfaConfigType,
   SMSMfaSettingsType,
-  SoftwareTokenMfaConfigType,
   SoftwareTokenMFANotFoundException,
   SoftwareTokenMfaSettingsType,
   StringAttributeConstraintsType,
@@ -530,6 +532,7 @@ import {
   UICustomizationType,
   UnexpectedLambdaException,
   UnsupportedIdentityProviderException,
+  UnsupportedOperationException,
   UnsupportedUserStateException,
   UserAttributeUpdateSettingsType,
   UserContextDataType,
@@ -558,7 +561,10 @@ import {
   WebAuthnRelyingPartyMismatchException,
 } from "../models/models_0";
 import {
+  EmailMfaConfigType,
   EnableSoftwareTokenMFAException,
+  GetUserAuthFactorsRequest,
+  GetUserPoolMfaConfigRequest,
   GlobalSignOutRequest,
   InitiateAuthRequest,
   ListDevicesRequest,
@@ -593,6 +599,8 @@ import {
   SetUserPoolMfaConfigRequest,
   SetUserSettingsRequest,
   SignUpRequest,
+  SmsMfaConfigType,
+  SoftwareTokenMfaConfigType,
   StartUserImportJobRequest,
   StartUserImportJobResponse,
   StartWebAuthnRegistrationRequest,
@@ -601,7 +609,6 @@ import {
   StopUserImportJobResponse,
   TagResourceRequest,
   UnauthorizedException,
-  UnsupportedOperationException,
   UnsupportedTokenTypeException,
   UntagResourceRequest,
   UpdateAuthEventFeedbackRequest,
@@ -1505,6 +1512,19 @@ export const se_GetSigningCertificateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetSigningCertificate");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetTokensFromRefreshTokenCommand
+ */
+export const se_GetTokensFromRefreshTokenCommand = async (
+  input: GetTokensFromRefreshTokenCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetTokensFromRefreshToken");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3417,6 +3437,26 @@ export const de_GetSigningCertificateCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GetTokensFromRefreshTokenCommand
+ */
+export const de_GetTokensFromRefreshTokenCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTokensFromRefreshTokenCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetTokensFromRefreshTokenCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1GetUICustomizationCommand
  */
 export const de_GetUICustomizationCommand = async (
@@ -4398,6 +4438,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
       throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cognitoidentityprovider#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
       throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
@@ -4470,12 +4513,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "UnsupportedIdentityProviderException":
     case "com.amazonaws.cognitoidentityprovider#UnsupportedIdentityProviderException":
       throw await de_UnsupportedIdentityProviderExceptionRes(parsedOutput, context);
+    case "RefreshTokenReuseException":
+    case "com.amazonaws.cognitoidentityprovider#RefreshTokenReuseException":
+      throw await de_RefreshTokenReuseExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.cognitoidentityprovider#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cognitoidentityprovider#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     case "UnsupportedTokenTypeException":
     case "com.amazonaws.cognitoidentityprovider#UnsupportedTokenTypeException":
       throw await de_UnsupportedTokenTypeExceptionRes(parsedOutput, context);
@@ -4918,6 +4961,22 @@ const de_PreconditionNotMetExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new PreconditionNotMetException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1RefreshTokenReuseExceptionRes
+ */
+const de_RefreshTokenReuseExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RefreshTokenReuseException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new RefreshTokenReuseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -5608,6 +5667,8 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 
 // se_GetSigningCertificateRequest omitted.
 
+// se_GetTokensFromRefreshTokenRequest omitted.
+
 // se_GetUICustomizationRequest omitted.
 
 // se_GetUserAttributeVerificationCodeRequest omitted.
@@ -5683,6 +5744,8 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 // se_RecoveryMechanismsType omitted.
 
 // se_RecoveryOptionType omitted.
+
+// se_RefreshTokenRotationType omitted.
 
 // se_ResendConfirmationCodeRequest omitted.
 
@@ -6309,6 +6372,8 @@ const de_GetIdentityProviderByIdentifierResponse = (
 
 // de_GetSigningCertificateResponse omitted.
 
+// de_GetTokensFromRefreshTokenResponse omitted.
+
 /**
  * deserializeAws_json1_1GetUICustomizationResponse
  */
@@ -6571,6 +6636,10 @@ const de_ProvidersListType = (output: any, context: __SerdeContext): ProviderDes
 // de_RecoveryMechanismsType omitted.
 
 // de_RecoveryOptionType omitted.
+
+// de_RefreshTokenReuseException omitted.
+
+// de_RefreshTokenRotationType omitted.
 
 // de_ResendConfirmationCodeResponse omitted.
 
@@ -6862,6 +6931,7 @@ const de_UserPoolClientType = (output: any, context: __SerdeContext): UserPoolCl
     LogoutURLs: _json,
     PreventUserExistenceErrors: __expectString,
     ReadAttributes: _json,
+    RefreshTokenRotation: _json,
     RefreshTokenValidity: __expectInt32,
     SupportedIdentityProviders: _json,
     TokenValidityUnits: _json,

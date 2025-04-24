@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.795.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.794.0...v3.795.0) (2025-04-23)
+
+
+### Features
+
+* **client-ecs:** Add support to roll back an In_Progress ECS Service Deployment ([b970bdd](https://github.com/aws/aws-sdk-js-v3/commit/b970bdda59564e040dc58c024973a6383138a374))
+
+
+
+
+
+# [3.791.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.790.0...v3.791.0) (2025-04-17)
+
+
+### Features
+
+* **client-ecs:** Adds a new AccountSetting - defaultLogDriverMode for ECS. ([15d53e0](https://github.com/aws/aws-sdk-js-v3/commit/15d53e042146f0bb32f3cd621acaf6d9272639f7))
+
+
+
+
+
+# [3.787.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.786.0...v3.787.0) (2025-04-10)
+
+**Note:** Version bump only for package @aws-sdk/client-ecs
+
+
+
+
+
+# [3.782.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.781.0...v3.782.0) (2025-04-03)
+
+**Note:** Version bump only for package @aws-sdk/client-ecs
+
+
+
+
+
+# [3.781.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.780.0...v3.781.0) (2025-04-02)
+
+**Note:** Version bump only for package @aws-sdk/client-ecs
+
+
+
+
+
 # [3.778.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.777.0...v3.778.0) (2025-03-28)
 
 **Note:** Version bump only for package @aws-sdk/client-ecs

@@ -48,6 +48,7 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  * //   EventPattern: "STRING_VALUE",
  * //   State: "ENABLED" || "DISABLED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED",
  * //   StateReason: "STRING_VALUE",
+ * //   KmsKeyIdentifier: "STRING_VALUE",
  * //   RetentionDays: Number("int"),
  * //   SizeBytes: Number("long"),
  * //   EventCount: Number("long"),

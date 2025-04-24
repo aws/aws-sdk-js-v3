@@ -28,7 +28,7 @@ export interface CreateWorkflowCommandInput extends CreateWorkflowRequest {}
 export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a workflow.</p>
+ * <p>Creates a private workflow.Private workflows depend on a variety of resources that you create and configure before creating the workflow:</p> <ul> <li> <p> <i>Input data</i>: Input data for the workflow, stored in an S3 bucket or a Amazon Web Services HealthOmics sequence store. </p> </li> <li> <p> <i>Workflow definition files</i>: Define your workflow in one or more workflow definition files, written in WDL, Nextflow, or CWL. The workflow definition specifies the inputs and outputs for runs that use the workflow. It also includes specifications for the runs and run tasks for your workflow, including compute and memory requirements.</p> </li> <li> <p> <i>Parameter template files</i>: Define run parameters using a parameter template file (written in JSON). </p> </li> <li> <p> <i>ECR container images</i>: Create one or more container images for the workflow. Store the images in a private ECR repository.</p> </li> <li> <p>(Optional) <i>Sentieon licenses</i>: Request a Sentieon license if you plan to use Sentieon software in a private workflow.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/creating-private-workflows.html">Creating or updating a private workflow in Amazon Web Services HealthOmics</a> in the Amazon Web Services HealthOmics User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +54,7 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  *   },
  *   requestId: "STRING_VALUE", // required
  *   accelerators: "STRING_VALUE",
+ *   storageType: "STRING_VALUE",
  * };
  * const command = new CreateWorkflowCommand(input);
  * const response = await client.send(command);
@@ -64,6 +65,7 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   uuid: "STRING_VALUE",
  * // };
  *
  * ```

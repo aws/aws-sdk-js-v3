@@ -28,12 +28,7 @@ export interface DeleteRunCacheCommandInput extends DeleteRunCacheRequest {}
 export interface DeleteRunCacheCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete a run cache. This action removes the cache metadata stored in the service account,
- *       but doesn't delete the data in Amazon S3.
- *       You can access the cache data in Amazon S3, for inspection or to troubleshoot issues.
- *       You can remove old cache data using standard S3 <code>Delete</code> operations.
- *     </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-cache-delete.html">Deleting a run cache</a> in the AWS HealthOmics User Guide.</p>
+ * <p>Delete a run cache. This action removes the cache metadata stored in the service account, but doesn't delete the data in Amazon S3. You can access the cache data in Amazon S3, for inspection or to troubleshoot issues. You can remove old cache data using standard S3 <code>Delete</code> operations. </p> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-cache-delete.html">Deleting a run cache</a> in the Amazon Web Services HealthOmics User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

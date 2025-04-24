@@ -2292,7 +2292,28 @@ export interface StoppingCondition {
 
   /**
    * <p>The maximum length of time, in seconds, that a training or compilation job can be
-   *          pending before it is stopped.</p>
+   *             pending before it is stopped.</p>
+   *          <note>
+   *             <p>When working with training jobs that use capacity from <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/reserve-capacity-with-training-plans.html">training
+   *                     plans</a>, not all <code>Pending</code> job states count against the
+   *                     <code>MaxPendingTimeInSeconds</code> limit. The following scenarios do not
+   *                 increment the <code>MaxPendingTimeInSeconds</code> counter:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>The plan is in a <code>Scheduled</code> state: Jobs queued (in
+   *                             <code>Pending</code> status) before a plan's start date (waiting for
+   *                         scheduled start time)</p>
+   *                </li>
+   *                <li>
+   *                   <p>Between capacity reservations: Jobs temporarily back to
+   *                             <code>Pending</code> status between two capacity reservation
+   *                         periods</p>
+   *                </li>
+   *             </ul>
+   *             <p>
+   *                <code>MaxPendingTimeInSeconds</code> only increments when jobs are actively
+   *                 waiting for capacity in an <code>Active</code> plan.</p>
+   *          </note>
    * @public
    */
   MaxPendingTimeInSeconds?: number | undefined;
@@ -9551,6 +9572,13 @@ export const ClusterInstanceType = {
   ML_G6_XLARGE: "ml.g6.xlarge",
   ML_GR6_4XLARGE: "ml.gr6.4xlarge",
   ML_GR6_8XLARGE: "ml.gr6.8xlarge",
+  ML_I3EN_12XLARGE: "ml.i3en.12xlarge",
+  ML_I3EN_24XLARGE: "ml.i3en.24xlarge",
+  ML_I3EN_2XLARGE: "ml.i3en.2xlarge",
+  ML_I3EN_3XLARGE: "ml.i3en.3xlarge",
+  ML_I3EN_6XLARGE: "ml.i3en.6xlarge",
+  ML_I3EN_LARGE: "ml.i3en.large",
+  ML_I3EN_XLARGE: "ml.i3en.xlarge",
   ML_M5_12XLARGE: "ml.m5.12xlarge",
   ML_M5_16XLARGE: "ml.m5.16xlarge",
   ML_M5_24XLARGE: "ml.m5.24xlarge",
@@ -9568,6 +9596,15 @@ export const ClusterInstanceType = {
   ML_M6I_8XLARGE: "ml.m6i.8xlarge",
   ML_M6I_LARGE: "ml.m6i.large",
   ML_M6I_XLARGE: "ml.m6i.xlarge",
+  ML_M7I_12XLARGE: "ml.m7i.12xlarge",
+  ML_M7I_16XLARGE: "ml.m7i.16xlarge",
+  ML_M7I_24XLARGE: "ml.m7i.24xlarge",
+  ML_M7I_2XLARGE: "ml.m7i.2xlarge",
+  ML_M7I_48XLARGE: "ml.m7i.48xlarge",
+  ML_M7I_4XLARGE: "ml.m7i.4xlarge",
+  ML_M7I_8XLARGE: "ml.m7i.8xlarge",
+  ML_M7I_LARGE: "ml.m7i.large",
+  ML_M7I_XLARGE: "ml.m7i.xlarge",
   ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
   ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
@@ -9582,6 +9619,15 @@ export const ClusterInstanceType = {
   ML_R6I_8XLARGE: "ml.r6i.8xlarge",
   ML_R6I_LARGE: "ml.r6i.large",
   ML_R6I_XLARGE: "ml.r6i.xlarge",
+  ML_R7I_12XLARGE: "ml.r7i.12xlarge",
+  ML_R7I_16XLARGE: "ml.r7i.16xlarge",
+  ML_R7I_24XLARGE: "ml.r7i.24xlarge",
+  ML_R7I_2XLARGE: "ml.r7i.2xlarge",
+  ML_R7I_48XLARGE: "ml.r7i.48xlarge",
+  ML_R7I_4XLARGE: "ml.r7i.4xlarge",
+  ML_R7I_8XLARGE: "ml.r7i.8xlarge",
+  ML_R7I_LARGE: "ml.r7i.large",
+  ML_R7I_XLARGE: "ml.r7i.xlarge",
   ML_T3_2XLARGE: "ml.t3.2xlarge",
   ML_T3_LARGE: "ml.t3.large",
   ML_T3_MEDIUM: "ml.t3.medium",

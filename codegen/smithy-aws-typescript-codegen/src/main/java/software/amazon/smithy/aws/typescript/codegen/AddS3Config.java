@@ -43,9 +43,12 @@ import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.TimestampShape;
 import software.amazon.smithy.model.traits.DeprecatedTrait;
 import software.amazon.smithy.model.traits.DocumentationTrait;
+import software.amazon.smithy.model.traits.EndpointTrait;
 import software.amazon.smithy.model.traits.HttpHeaderTrait;
 import software.amazon.smithy.model.traits.HttpPayloadTrait;
 import software.amazon.smithy.model.traits.StreamingTrait;
+import software.amazon.smithy.model.transform.ModelTransformer;
+import software.amazon.smithy.rulesengine.traits.EndpointRuleSetTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -79,6 +82,19 @@ public final class AddS3Config implements TypeScriptIntegration {
         + " you need to install the \"@aws-sdk/signature-v4-crt\" package to your project dependencies. \n"
         + "For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>";
 
+    /**
+     * Remove the hostPrefix functionality by removing the endpoint traits.
+     * Only applied if endpointRuleSet trait present on S3/S3Control services.
+     */
+    public static Shape removeHostPrefixTrait(Shape shape) {
+        return shape.asOperationShape()
+            .map(OperationShape::shapeToBuilder)
+            .map(builder -> ((OperationShape.Builder) builder).removeTrait(EndpointTrait.ID))
+            .map(OperationShape.Builder::build)
+            .map(s -> (Shape) s)
+            .orElse(shape);
+    }
+
     @Override
     public List<String> runAfter() {
         return List.of(
@@ -96,6 +112,7 @@ public final class AddS3Config implements TypeScriptIntegration {
         }
 
         Model.Builder modelBuilder = model.toBuilder();
+        boolean hasRuleset = !model.getServiceShapesWithTrait(EndpointRuleSetTrait.class).isEmpty();
 
         TopDownIndex topDownIndex = TopDownIndex.of(model);
         Set<StructureShape> inputShapes = new HashSet<>();
@@ -206,7 +223,13 @@ public final class AddS3Config implements TypeScriptIntegration {
             }
         }
 
-        return modelBuilder.addShapes(inputShapes).build();
+        Model builtModel = modelBuilder.addShapes(inputShapes).build();
+        if (hasRuleset) {
+            ModelTransformer.create().mapShapes(
+                builtModel, AddS3Config::removeHostPrefixTrait
+            );
+        }
+        return builtModel;
     }
 
     @Override

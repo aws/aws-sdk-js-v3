@@ -151,6 +151,17 @@ export interface GetAccessPreviewCommandOutput extends GetAccessPreviewResponse,
  * //         },
  * //         s3ExpressDirectoryBucket: { // S3ExpressDirectoryBucketConfiguration
  * //           bucketPolicy: "STRING_VALUE",
+ * //           accessPoints: { // S3ExpressDirectoryAccessPointConfigurationsMap
+ * //             "<keys>": { // S3ExpressDirectoryAccessPointConfiguration
+ * //               accessPointPolicy: "STRING_VALUE",
+ * //               networkOrigin: {//  Union: only one key present
+ * //                 vpcConfiguration: {
+ * //                   vpcId: "STRING_VALUE", // required
+ * //                 },
+ * //                 internetConfiguration: {},
+ * //               },
+ * //             },
+ * //           },
  * //         },
  * //         dynamodbStream: { // DynamodbStreamConfiguration
  * //           streamPolicy: "STRING_VALUE",

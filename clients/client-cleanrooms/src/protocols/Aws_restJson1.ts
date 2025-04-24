@@ -1983,6 +1983,7 @@ export const se_UpdateCollaborationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      analyticsEngine: [],
       description: [],
       name: [],
     })

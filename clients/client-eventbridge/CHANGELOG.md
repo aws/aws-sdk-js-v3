@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.790.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.789.0...v3.790.0) (2025-04-16)
+
+
+### Features
+
+* **client-eventbridge:** Adding support for KmsKeyIdentifer in CreateConnection, UpdateConnection and DescribeConnection APIs ([d61677e](https://github.com/aws/aws-sdk-js-v3/commit/d61677e418c1105a58997e2b924bd73c082ec7d8))
+
+
+
+
+
+# [3.787.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.786.0...v3.787.0) (2025-04-10)
+
+**Note:** Version bump only for package @aws-sdk/client-eventbridge
+
+
+
+
+
+# [3.783.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.782.0...v3.783.0) (2025-04-04)
+
+
+### Features
+
+* **client-eventbridge:** Amazon EventBridge adds support for customer-managed keys on Archives and validations for two fields: eventSourceArn and kmsKeyIdentifier. ([ef8bd0e](https://github.com/aws/aws-sdk-js-v3/commit/ef8bd0ec7304cf71ce72503ca19882b7aef71902))
+
+
+
+
+
+# [3.782.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.781.0...v3.782.0) (2025-04-03)
+
+**Note:** Version bump only for package @aws-sdk/client-eventbridge
+
+
+
+
+
 # [3.777.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.776.0...v3.777.0) (2025-03-27)
 
 **Note:** Version bump only for package @aws-sdk/client-eventbridge

@@ -21,6 +21,11 @@ import {
 } from "./commands/GetAsyncInvokeCommand";
 import { InvokeModelCommand, InvokeModelCommandInput, InvokeModelCommandOutput } from "./commands/InvokeModelCommand";
 import {
+  InvokeModelWithBidirectionalStreamCommand,
+  InvokeModelWithBidirectionalStreamCommandInput,
+  InvokeModelWithBidirectionalStreamCommandOutput,
+} from "./commands/InvokeModelWithBidirectionalStreamCommand";
+import {
   InvokeModelWithResponseStreamCommand,
   InvokeModelWithResponseStreamCommandInput,
   InvokeModelWithResponseStreamCommandOutput,
@@ -42,6 +47,7 @@ const commands = {
   ConverseStreamCommand,
   GetAsyncInvokeCommand,
   InvokeModelCommand,
+  InvokeModelWithBidirectionalStreamCommand,
   InvokeModelWithResponseStreamCommand,
   ListAsyncInvokesCommand,
   StartAsyncInvokeCommand,
@@ -110,6 +116,23 @@ export interface BedrockRuntime {
     args: InvokeModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: InvokeModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link InvokeModelWithBidirectionalStreamCommand}
+   */
+  invokeModelWithBidirectionalStream(
+    args: InvokeModelWithBidirectionalStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeModelWithBidirectionalStreamCommandOutput>;
+  invokeModelWithBidirectionalStream(
+    args: InvokeModelWithBidirectionalStreamCommandInput,
+    cb: (err: any, data?: InvokeModelWithBidirectionalStreamCommandOutput) => void
+  ): void;
+  invokeModelWithBidirectionalStream(
+    args: InvokeModelWithBidirectionalStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InvokeModelWithBidirectionalStreamCommandOutput) => void
   ): void;
 
   /**

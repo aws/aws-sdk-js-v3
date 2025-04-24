@@ -24,6 +24,11 @@ import {
   EnableRegionCommandOutput,
 } from "./commands/EnableRegionCommand";
 import {
+  GetAccountInformationCommand,
+  GetAccountInformationCommandInput,
+  GetAccountInformationCommandOutput,
+} from "./commands/GetAccountInformationCommand";
+import {
   GetAlternateContactCommand,
   GetAlternateContactCommandInput,
   GetAlternateContactCommandOutput,
@@ -45,6 +50,11 @@ import {
 } from "./commands/GetRegionOptStatusCommand";
 import { ListRegionsCommand, ListRegionsCommandInput, ListRegionsCommandOutput } from "./commands/ListRegionsCommand";
 import {
+  PutAccountNameCommand,
+  PutAccountNameCommandInput,
+  PutAccountNameCommandOutput,
+} from "./commands/PutAccountNameCommand";
+import {
   PutAlternateContactCommand,
   PutAlternateContactCommandInput,
   PutAlternateContactCommandOutput,
@@ -65,11 +75,13 @@ const commands = {
   DeleteAlternateContactCommand,
   DisableRegionCommand,
   EnableRegionCommand,
+  GetAccountInformationCommand,
   GetAlternateContactCommand,
   GetContactInformationCommand,
   GetPrimaryEmailCommand,
   GetRegionOptStatusCommand,
   ListRegionsCommand,
+  PutAccountNameCommand,
   PutAlternateContactCommand,
   PutContactInformationCommand,
   StartPrimaryEmailUpdateCommand,
@@ -130,6 +142,24 @@ export interface Account {
     args: EnableRegionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: EnableRegionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAccountInformationCommand}
+   */
+  getAccountInformation(): Promise<GetAccountInformationCommandOutput>;
+  getAccountInformation(
+    args: GetAccountInformationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountInformationCommandOutput>;
+  getAccountInformation(
+    args: GetAccountInformationCommandInput,
+    cb: (err: any, data?: GetAccountInformationCommandOutput) => void
+  ): void;
+  getAccountInformation(
+    args: GetAccountInformationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccountInformationCommandOutput) => void
   ): void;
 
   /**
@@ -208,6 +238,20 @@ export interface Account {
     args: ListRegionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRegionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAccountNameCommand}
+   */
+  putAccountName(
+    args: PutAccountNameCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAccountNameCommandOutput>;
+  putAccountName(args: PutAccountNameCommandInput, cb: (err: any, data?: PutAccountNameCommandOutput) => void): void;
+  putAccountName(
+    args: PutAccountNameCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAccountNameCommandOutput) => void
   ): void;
 
   /**

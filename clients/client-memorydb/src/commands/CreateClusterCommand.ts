@@ -69,6 +69,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *   EngineVersion: "STRING_VALUE",
  *   AutoMinorVersionUpgrade: true || false,
  *   DataTiering: true || false,
+ *   NetworkType: "ipv4" || "ipv6" || "dual_stack",
+ *   IpDiscovery: "ipv4" || "ipv6",
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -144,6 +146,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //     ACLName: "STRING_VALUE",
  * //     AutoMinorVersionUpgrade: true || false,
  * //     DataTiering: "true" || "false",
+ * //     NetworkType: "ipv4" || "ipv6" || "dual_stack",
+ * //     IpDiscovery: "ipv4" || "ipv6",
  * //   },
  * // };
  *

@@ -107,6 +107,39 @@ export interface ListUsersCommandOutput extends ListUsersResult, __MetadataBeare
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
  *
+ * @example To list users in a realm
+ * ```javascript
+ * // The following command lists users on the examplecorp.com domain.
+ * const input = {
+ *   DirectoryId: "d-12233abcde",
+ *   Realm: "examplecorp.com"
+ * };
+ * const command = new ListUsersCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DirectoryId: "d-12233abcde",
+ *   Users: [
+ *     {
+ *       Enabled: true,
+ *       SAMAccountName: "twhitlock",
+ *       SID: "S-1-5-11-111"
+ *     },
+ *     {
+ *       Enabled: true,
+ *       SAMAccountName: "pcandella",
+ *       SID: "S-1-5-11-112"
+ *     },
+ *     {
+ *       Enabled: true,
+ *       SAMAccountName: "jstiles",
+ *       SID: "S-1-5-11-113"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListUsersCommand extends $Command

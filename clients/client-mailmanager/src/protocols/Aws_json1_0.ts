@@ -237,6 +237,8 @@ import {
   IngressBooleanToEvaluate,
   IngressIpToEvaluate,
   IngressIpv4Expression,
+  IngressIpv6Expression,
+  IngressIpv6ToEvaluate,
   IngressIsInAddressList,
   IngressPointAuthConfiguration,
   IngressPointConfiguration,
@@ -269,9 +271,12 @@ import {
   ListTagsForResourceRequest,
   ListTrafficPoliciesRequest,
   Metadata,
+  NetworkConfiguration,
   NoAuthentication,
   PolicyCondition,
   PolicyStatement,
+  PrivateNetworkConfiguration,
+  PublicNetworkConfiguration,
   RegisterMemberToAddressListRequest,
   Relay,
   RelayAction,
@@ -2520,6 +2525,7 @@ const se_CreateIngressPointRequest = (input: CreateIngressPointRequest, context:
     ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     IngressPointConfiguration: _json,
     IngressPointName: [],
+    NetworkConfiguration: _json,
     RuleSetId: [],
     Tags: _json,
     TrafficPolicyId: [],
@@ -2637,6 +2643,10 @@ const se_CreateTrafficPolicyRequest = (input: CreateTrafficPolicyRequest, contex
 
 // se_IngressIpv4Expression omitted.
 
+// se_IngressIpv6Expression omitted.
+
+// se_IngressIpv6ToEvaluate omitted.
+
 // se_IngressIsInAddressList omitted.
 
 // se_IngressPointConfiguration omitted.
@@ -2650,6 +2660,8 @@ const se_CreateTrafficPolicyRequest = (input: CreateTrafficPolicyRequest, contex
 // se_IngressTlsProtocolToEvaluate omitted.
 
 // se_Ipv4Cidrs omitted.
+
+// se_Ipv6Cidrs omitted.
 
 // se_ListAddonInstancesRequest omitted.
 
@@ -2677,6 +2689,8 @@ const se_CreateTrafficPolicyRequest = (input: CreateTrafficPolicyRequest, contex
 
 // se_ListTrafficPoliciesRequest omitted.
 
+// se_NetworkConfiguration omitted.
+
 // se_NoAuthentication omitted.
 
 // se_PolicyCondition omitted.
@@ -2686,6 +2700,10 @@ const se_CreateTrafficPolicyRequest = (input: CreateTrafficPolicyRequest, contex
 // se_PolicyStatement omitted.
 
 // se_PolicyStatementList omitted.
+
+// se_PrivateNetworkConfiguration omitted.
+
+// se_PublicNetworkConfiguration omitted.
 
 // se_Recipients omitted.
 
@@ -3209,6 +3227,7 @@ const de_GetIngressPointResponse = (output: any, context: __SerdeContext): GetIn
     IngressPointId: __expectString,
     IngressPointName: __expectString,
     LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NetworkConfiguration: (_: any) => _json(__expectUnion(_)),
     RuleSetId: __expectString,
     Status: __expectString,
     TrafficPolicyId: __expectString,
@@ -3318,6 +3337,10 @@ const de_ImportJobs = (output: any, context: __SerdeContext): ImportJob[] => {
 
 // de_IngressIpv4Expression omitted.
 
+// de_IngressIpv6Expression omitted.
+
+// de_IngressIpv6ToEvaluate omitted.
+
 // de_IngressIsInAddressList omitted.
 
 // de_IngressPoint omitted.
@@ -3357,6 +3380,8 @@ const de_IngressPointPasswordConfiguration = (
 // de_IngressTlsProtocolToEvaluate omitted.
 
 // de_Ipv4Cidrs omitted.
+
+// de_Ipv6Cidrs omitted.
 
 /**
  * deserializeAws_json1_0ListAddonInstancesResponse
@@ -3493,6 +3518,8 @@ const de_Metadata = (output: any, context: __SerdeContext): Metadata => {
   }) as any;
 };
 
+// de_NetworkConfiguration omitted.
+
 // de_NoAuthentication omitted.
 
 // de_PolicyCondition omitted.
@@ -3502,6 +3529,10 @@ const de_Metadata = (output: any, context: __SerdeContext): Metadata => {
 // de_PolicyStatement omitted.
 
 // de_PolicyStatementList omitted.
+
+// de_PrivateNetworkConfiguration omitted.
+
+// de_PublicNetworkConfiguration omitted.
 
 // de_Recipients omitted.
 

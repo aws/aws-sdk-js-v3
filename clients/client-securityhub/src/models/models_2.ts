@@ -4395,7 +4395,7 @@ export const StatusReasonCode = {
 export type StatusReasonCode = (typeof StatusReasonCode)[keyof typeof StatusReasonCode];
 
 /**
- * <p>The reason for the current status of a standard subscription.</p>
+ * <p>The reason for the current status of your subscription to the standard.</p>
  * @public
  */
 export interface StandardsStatusReason {
@@ -4412,13 +4412,13 @@ export interface StandardsStatusReason {
  */
 export interface StandardsSubscription {
   /**
-   * <p>The ARN of a resource that represents your subscription to a supported standard.</p>
+   * <p>The ARN of the resource that represents your subscription to the standard.</p>
    * @public
    */
   StandardsSubscriptionArn: string | undefined;
 
   /**
-   * <p>The ARN of a standard.</p>
+   * <p>The ARN of the standard.</p>
    * @public
    */
   StandardsArn: string | undefined;
@@ -4430,28 +4430,30 @@ export interface StandardsSubscription {
   StandardsInput: Record<string, string> | undefined;
 
   /**
-   * <p>The status of the standard subscription.</p>
-   *          <p>The status values are as follows:</p>
+   * <p>The status of your subscription to the standard. Possible values are:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PENDING</code> - Standard is in the process of being enabled.</p>
+   *                   <code>PENDING</code> - The standard is in the process of being enabled. Or the standard is already
+   *                enabled and Security Hub is adding new controls to the standard.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>READY</code> - Standard is enabled.</p>
+   *                   <code>READY</code> - The standard is enabled.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INCOMPLETE</code> - Standard could not be enabled completely. Some controls may not be available.</p>
+   *                   <code>INCOMPLETE</code> - The standard could not be enabled completely. One or more errors (<code>StandardsStatusReason</code>)
+   *                occurred when Security Hub attempted to enable the standard.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETING</code> - Standard is in the process of being disabled.</p>
+   *                   <code>DELETING</code> - The standard is in the process of being disabled.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FAILED</code> - Standard could not be disabled.</p>
+   *                   <code>FAILED</code> - The standard could not be disabled. One or more errors (<code>StandardsStatusReason</code>)
+   *                occurred when Security Hub attempted to disable the standard.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4459,16 +4461,15 @@ export interface StandardsSubscription {
   StandardsStatus: StandardsStatus | undefined;
 
   /**
-   * <p>Indicates whether the controls associated with this standards subscription can be viewed and updated.</p>
-   *          <p>The values are as follows:</p>
+   * <p>Specifies whether you can retrieve information about and configure individual controls that apply to the standard. Possible values are:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>READY_FOR_UPDATES</code> - Controls associated with this standards subscription can be viewed and updated.</p>
+   *                   <code>READY_FOR_UPDATES</code> - Controls in the standard can be retrieved and configured.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NOT_READY_FOR_UPDATES</code> - Controls associated with this standards subscription cannot be retrieved or updated yet. Security Hub is still processing a request to create the controls.</p>
+   *                   <code>NOT_READY_FOR_UPDATES</code> - Controls in the standard cannot be retrieved or configured.</p>
    *             </li>
    *          </ul>
    * @public
@@ -7622,7 +7623,7 @@ export interface StandardsManagedBy {
  */
 export interface Standard {
   /**
-   * <p>The ARN of a standard.</p>
+   * <p>The ARN of the standard.</p>
    * @public
    */
   StandardsArn?: string | undefined;

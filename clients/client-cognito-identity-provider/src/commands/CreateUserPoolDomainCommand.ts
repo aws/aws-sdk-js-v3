@@ -91,6 +91,10 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  * @see {@link CreateUserPoolDomainCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>This exception is thrown if two or more modifications are happening
+ *             concurrently.</p>
+ *
  * @throws {@link FeatureUnavailableInTierException} (client fault)
  *  <p>This exception is thrown when a feature you attempted to configure isn't
  *             available in your current feature plan.</p>

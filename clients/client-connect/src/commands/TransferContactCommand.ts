@@ -37,7 +37,7 @@ export interface TransferContactCommandOutput extends TransferContactResponse, _
  *          <p>Note the following requirements:</p>
  *          <ul>
  *             <li>
- *                <p>Transfer is supported for only <code>TASK</code> and <code>EMAIL</code> contacts.</p>
+ *                <p>Transfer is only supported for <code>TASK</code> and <code>EMAIL</code> contacts.</p>
  *             </li>
  *             <li>
  *                <p>Do not use both <code>QueueId</code> and <code>UserId</code> in the same call.</p>

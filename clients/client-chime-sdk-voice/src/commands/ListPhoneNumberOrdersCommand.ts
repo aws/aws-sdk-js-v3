@@ -60,6 +60,7 @@ export interface ListPhoneNumberOrdersCommandOutput extends ListPhoneNumberOrder
  * //       ],
  * //       CreatedTimestamp: new Date("TIMESTAMP"),
  * //       UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //       FocDate: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

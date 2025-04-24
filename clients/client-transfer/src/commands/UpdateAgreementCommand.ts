@@ -28,14 +28,7 @@ export interface UpdateAgreementCommandInput extends UpdateAgreementRequest {}
 export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, __MetadataBearer {}
 
 /**
- * <p>Updates some of the parameters for an existing agreement. Provide the
- *         <code>AgreementId</code> and the <code>ServerId</code> for the agreement that you want to
- *       update, along with the new values for the parameters to update.</p>
- *          <note>
- *             <p>Specify <i>either</i>
- *                <code>BaseDirectory</code> or <code>CustomDirectories</code>, but not both. Specifying both causes the command to fail.</p>
- *             <p>If you update an agreement from using base directory to custom directories, the base directory is no longer used. Similarly, if you change from custom directories to a base directory, the custom directories are no longer used.</p>
- *          </note>
+ * <p>Updates some of the parameters for an existing agreement. Provide the <code>AgreementId</code> and the <code>ServerId</code> for the agreement that you want to update, along with the new values for the parameters to update.</p> <note> <p>Specify <i>either</i> <code>BaseDirectory</code> or <code>CustomDirectories</code>, but not both. Specifying both causes the command to fail.</p> <p>If you update an agreement from using base directory to custom directories, the base directory is no longer used. Similarly, if you change from custom directories to a base directory, the custom directories are no longer used.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,8 +78,7 @@ export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, _
  *  <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>

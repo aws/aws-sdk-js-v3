@@ -46,6 +46,7 @@ import {
   CapacityReservationTarget,
   ClientConnectOptions,
   ClientLoginBannerOptions,
+  ClientRouteEnforcementOptions,
   ConnectionLogOptions,
   ConnectionTrackingSpecificationRequest,
   EndDateType,
@@ -104,7 +105,6 @@ import {
   VerifiedAccessSseSpecificationRequest,
   VpcBlockPublicAccessExclusion,
   VpnEcmpSupportValue,
-  VpnTunnelLogOptionsSpecification,
 } from "./models_2";
 
 import {
@@ -120,6 +120,7 @@ import {
   Phase2IntegrityAlgorithmsRequestListValue,
   VpnConnection,
   VpnConnectionFilterSensitiveLog,
+  VpnTunnelLogOptionsSpecification,
 } from "./models_3";
 
 import {
@@ -171,17 +172,50 @@ import {
 
 import {
   ClientData,
-  DiskImage,
   DiskImageDetail,
   DiskImageDetailFilterSensitiveLog,
-  DiskImageFilterSensitiveLog,
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
   UnlimitedSupportedInstanceFamily,
   UserBucket,
-  VolumeDetail,
 } from "./models_6";
+
+/**
+ * <p>Describes an EBS volume.</p>
+ * @public
+ */
+export interface VolumeDetail {
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   * @public
+   */
+  Size: number | undefined;
+}
+
+/**
+ * <p>Describes a disk image.</p>
+ * @public
+ */
+export interface DiskImage {
+  /**
+   * <p>A description of the disk image.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Information about the disk image.</p>
+   * @public
+   */
+  Image?: DiskImageDetail | undefined;
+
+  /**
+   * <p>Information about the volume.</p>
+   * @public
+   */
+  Volume?: VolumeDetail | undefined;
+}
 
 /**
  * <p>Describes the user data for an instance.</p>
@@ -1330,6 +1364,15 @@ export interface ModifyClientVpnEndpointRequest {
   ClientLoginBannerOptions?: ClientLoginBannerOptions | undefined;
 
   /**
+   * <p>Client route enforcement is a feature of the Client VPN service that helps enforce administrator defined routes on devices connected through the VPN. T
+   * 		his feature helps improve your security posture by ensuring that network traffic originating from a connected client is not inadvertently sent outside the VPN tunnel.</p>
+   *          <p>Client route enforcement works by monitoring the route table of a connected device for routing policy changes to the VPN connection. If the feature detects any VPN routing policy modifications, it will automatically force an update to the route table,
+   * 			reverting it back to the expected route configurations.</p>
+   * @public
+   */
+  ClientRouteEnforcementOptions?: ClientRouteEnforcementOptions | undefined;
+
+  /**
    * <p>Indicates whether the client VPN session is disconnected after the maximum timeout specified in <code>sessionTimeoutHours</code> is reached. If <code>true</code>, users are prompted to reconnect client VPN. If <code>false</code>, client VPN attempts to reconnect automatically. The default value is <code>false</code>.</p>
    * @public
    */
@@ -1979,6 +2022,13 @@ export interface ModifyInstanceAttributeRequest {
 
   /**
    * <p>The name of the attribute to modify.</p>
+   *          <note>
+   *             <p>When changing the instance type: If the original instance type is configured for
+   *                 configurable bandwidth, and the desired instance type doesn't support configurable
+   *                 bandwidth, first set the existing bandwidth configuration to <code>default</code>
+   *                 using the <a>ModifyInstanceNetworkPerformanceOptions</a>
+   *                 operation.</p>
+   *          </note>
    *          <important>
    *             <p>You can modify the following attributes only: <code>disableApiTermination</code> |
    *                     <code>instanceType</code> | <code>kernel</code> | <code>ramdisk</code> |
@@ -8113,7 +8163,7 @@ export interface ReplaceIamInstanceProfileAssociationResult {
  *          <p>Up to 10 <code>imageCriteria</code> objects can be specified, and up to a total of 200
  *       values for all <code>imageProviders</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#allowed-amis-json-configuration">JSON
  *         configuration for the Allowed AMIs criteria</a> in the
- *         <i>Amazon EC2 User Guide</i>.</p>
+ *       <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface ImageCriterionRequest {
@@ -9208,34 +9258,12 @@ export interface RestoreAddressToClassicResult {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface RestoreImageFromRecycleBinRequest {
-  /**
-   * <p>The ID of the AMI to restore.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreImageFromRecycleBinResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
+export const DiskImageFilterSensitiveLog = (obj: DiskImage): any => ({
+  ...obj,
+  ...(obj.Image && { Image: DiskImageDetailFilterSensitiveLog(obj.Image) }),
+});
 
 /**
  * @internal

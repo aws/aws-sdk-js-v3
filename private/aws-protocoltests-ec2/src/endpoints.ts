@@ -82,6 +82,20 @@ const partitionHash: PartitionHash = {
       },
     ],
   },
+  "aws-eusc": {
+    regions: ["eusc-de-east-1"],
+    regionRegex: "^eusc\\-(de)\\-\\w+\\-\\d+$",
+    variants: [
+      {
+        hostname: "awsec2.{region}.amazonaws.eu",
+        tags: [],
+      },
+      {
+        hostname: "awsec2-fips.{region}.amazonaws.eu",
+        tags: ["fips"],
+      },
+    ],
+  },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",

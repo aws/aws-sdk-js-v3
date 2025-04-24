@@ -133,6 +133,7 @@ import {
   IdentitySourceFilter,
   IdentitySourceItem,
   InternalServerException,
+  InvalidStateException,
   IsAuthorizedInput,
   IsAuthorizedWithTokenInput,
   ListIdentitySourcesInput,
@@ -1106,6 +1107,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ServiceQuotaExceededException":
     case "com.amazonaws.verifiedpermissions#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "InvalidStateException":
+    case "com.amazonaws.verifiedpermissions#InvalidStateException":
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1155,6 +1159,22 @@ const de_InternalServerExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new InternalServerException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_0InvalidStateExceptionRes
+ */
+const de_InvalidStateExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidStateException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new InvalidStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -1382,6 +1402,7 @@ const se_CreatePolicyInput = (input: CreatePolicyInput, context: __SerdeContext)
 const se_CreatePolicyStoreInput = (input: CreatePolicyStoreInput, context: __SerdeContext): any => {
   return take(input, {
     clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    deletionProtection: [],
     description: [],
     validationSettings: _json,
   });
@@ -1928,6 +1949,7 @@ const de_GetPolicyStoreOutput = (output: any, context: __SerdeContext): GetPolic
   return take(output, {
     arn: __expectString,
     createdDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    deletionProtection: __expectString,
     description: __expectString,
     lastUpdatedDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     policyStoreId: __expectString,
@@ -1994,6 +2016,8 @@ const de_IdentitySources = (output: any, context: __SerdeContext): IdentitySourc
 };
 
 // de_InternalServerException omitted.
+
+// de_InvalidStateException omitted.
 
 // de_IsAuthorizedOutput omitted.
 

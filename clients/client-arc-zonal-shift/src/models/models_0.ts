@@ -104,7 +104,6 @@ export interface ListAutoshiftsRequest {
  * 			Supported Amazon Web Services resources are automatically registered with ARC.</p>
  *          <p>Autoshifts are temporary. When the Availability Zone recovers, Amazon Web Services ends the autoshift, and
  * 			traffic for the resource is no longer directed to the other Availability Zones in the Region.</p>
- *          <p>You can stop an autoshift for a resource by disabling zonal autoshift.</p>
  * @public
  */
 export interface AutoshiftSummary {
@@ -180,6 +179,7 @@ export class ThrottlingException extends __BaseException {
  * @enum
  */
 export const ValidationExceptionReason = {
+  AUTOSHIFT_UPDATE_NOT_ALLOWED: "AutoshiftUpdateNotAllowed",
   FIS_EXPERIMENT_UPDATE_NOT_ALLOWED: "FISExperimentUpdateNotAllowed",
   INVALID_ALARM_CONDITION: "InvalidAlarmCondition",
   INVALID_AZ: "InvalidAz",

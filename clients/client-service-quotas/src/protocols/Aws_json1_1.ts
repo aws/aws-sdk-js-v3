@@ -1166,6 +1166,7 @@ const se_RequestServiceQuotaIncreaseRequest = (
     DesiredValue: __serializeFloat,
     QuotaCode: [],
     ServiceCode: [],
+    SupportCaseAllowed: [],
   });
 };
 
@@ -1403,6 +1404,7 @@ const de_RequestServiceQuotaIncreaseResponse = (
 const de_ServiceQuota = (output: any, context: __SerdeContext): ServiceQuota => {
   return take(output, {
     Adjustable: __expectBoolean,
+    Description: __expectString,
     ErrorReason: _json,
     GlobalQuota: __expectBoolean,
     Period: _json,

@@ -121,10 +121,71 @@ import {
   FastLaunchSnapshotConfigurationResponse,
   FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
-  MoveStatus,
   PermissionGroup,
   ProductCode,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeMovingAddressesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>One or more Elastic IP addresses.</p>
+   * @public
+   */
+  PublicIps?: string[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>moving-status</code> - The status of the Elastic IP address
+   *           (<code>MovingToVpc</code> | <code>RestoringToClassic</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining
+   *       results of the initial request can be seen by sending another request with the returned
+   *       <code>NextToken</code> value. This value can be between 5 and 1000; if
+   *       <code>MaxResults</code> is given a value outside of this range, an error is returned.</p>
+   *          <p>Default: If no value is provided, the default is 1000.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MoveStatus = {
+  movingToVpc: "movingToVpc",
+  restoringToClassic: "restoringToClassic",
+} as const;
+
+/**
+ * @public
+ */
+export type MoveStatus = (typeof MoveStatus)[keyof typeof MoveStatus];
 
 /**
  * <note>
@@ -6648,7 +6709,7 @@ export interface DescribeStoreImageTasksRequest {
    *             <li>
    *                <p>
    *                   <code>task-state</code> - Returns tasks in a certain state (<code>InProgress</code> |
-   *             <code>Completed</code> | <code>Failed</code>)</p>
+   *           <code>Completed</code> | <code>Failed</code>)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6718,14 +6779,14 @@ export interface StoreImageTaskResult {
 
   /**
    * <p>The state of the store task (<code>InProgress</code>, <code>Completed</code>, or
-   *         <code>Failed</code>).</p>
+   *       <code>Failed</code>).</p>
    * @public
    */
   StoreTaskState?: string | undefined;
 
   /**
    * <p>If the tasks fails, the reason for the failure is returned. If the task succeeds,
-   *         <code>null</code> is returned.</p>
+   *       <code>null</code> is returned.</p>
    * @public
    */
   StoreTaskFailureReason?: string | undefined;
@@ -12052,36 +12113,6 @@ export interface DisableImageDeregistrationProtectionRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableImageDeregistrationProtectionResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableIpamOrganizationAdminAccountRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The Organizations member account ID that you want to disable as IPAM account.</p>
-   * @public
-   */
-  DelegatedAdminAccountId: string | undefined;
 }
 
 /**

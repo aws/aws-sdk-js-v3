@@ -33,9 +33,7 @@ export interface DeleteAnnotationStoreVersionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- * Deletes one or multiple versions of an annotation store.
- * </p>
+ * <p> Deletes one or multiple versions of an annotation store. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

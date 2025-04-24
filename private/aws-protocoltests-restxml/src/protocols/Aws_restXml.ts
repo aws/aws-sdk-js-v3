@@ -1038,7 +1038,7 @@ export const se_NestedXmlMapWithXmlNameCommand = async (
   b.bp("/NestedXmlMapWithXmlName");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_NXMWXNIO);
+  const bn = new __XmlNode(_NXMWXNR);
   bn.lc(input, "nestedXmlMapWithXmlNameMap", "nestedXmlMapWithXmlNameMap", () =>
     se_NestedXmlMapWithXmlNameMap(input[_nXMWXNM]!, context)
   );
@@ -4518,7 +4518,7 @@ const _M = "Message";
 const _N = "Null";
 const _NP = "NestedPayload";
 const _NXMR = "NestedXmlMapsRequest";
-const _NXMWXNIO = "NestedXmlMapWithXmlNameInputOutput";
+const _NXMWXNR = "NestedXmlMapWithXmlNameRequest";
 const _Ne = "Nested";
 const _PWCEI = "PutWithContentEncodingInput";
 const _PWXN = "PayloadWithXmlNamespace";

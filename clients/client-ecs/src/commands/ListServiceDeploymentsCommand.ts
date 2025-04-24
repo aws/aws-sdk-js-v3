@@ -44,7 +44,7 @@ export interface ListServiceDeploymentsCommandOutput extends ListServiceDeployme
  *   service: "STRING_VALUE", // required
  *   cluster: "STRING_VALUE",
  *   status: [ // ServiceDeploymentStatusList
- *     "PENDING" || "SUCCESSFUL" || "STOPPED" || "STOP_REQUESTED" || "IN_PROGRESS" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_SUCCESSFUL" || "ROLLBACK_FAILED",
+ *     "PENDING" || "SUCCESSFUL" || "STOPPED" || "STOP_REQUESTED" || "IN_PROGRESS" || "ROLLBACK_REQUESTED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_SUCCESSFUL" || "ROLLBACK_FAILED",
  *   ],
  *   createdAt: { // CreatedAt
  *     before: new Date("TIMESTAMP"),
@@ -65,7 +65,7 @@ export interface ListServiceDeploymentsCommandOutput extends ListServiceDeployme
  * //       createdAt: new Date("TIMESTAMP"),
  * //       finishedAt: new Date("TIMESTAMP"),
  * //       targetServiceRevisionArn: "STRING_VALUE",
- * //       status: "PENDING" || "SUCCESSFUL" || "STOPPED" || "STOP_REQUESTED" || "IN_PROGRESS" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_SUCCESSFUL" || "ROLLBACK_FAILED",
+ * //       status: "PENDING" || "SUCCESSFUL" || "STOPPED" || "STOP_REQUESTED" || "IN_PROGRESS" || "ROLLBACK_REQUESTED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_SUCCESSFUL" || "ROLLBACK_FAILED",
  * //       statusReason: "STRING_VALUE",
  * //     },
  * //   ],

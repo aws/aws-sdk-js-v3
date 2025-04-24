@@ -68,6 +68,20 @@ export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleRespo
  *       stateTemplatesToRemove: [ // StateTemplateAssociationIdentifiers
  *         "STRING_VALUE",
  *       ],
+ *       stateTemplatesToUpdate: [
+ *         {
+ *           identifier: "STRING_VALUE", // required
+ *           stateTemplateUpdateStrategy: {//  Union: only one key present
+ *             periodic: {
+ *               stateTemplateUpdateRate: {
+ *                 unit: "MILLISECOND" || "SECOND" || "MINUTE" || "HOUR", // required
+ *                 value: Number("int"), // required
+ *               },
+ *             },
+ *             onChange: {},
+ *           },
+ *         },
+ *       ],
  *     },
  *   ],
  * };

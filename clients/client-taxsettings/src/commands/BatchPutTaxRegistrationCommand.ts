@@ -67,6 +67,29 @@ export interface BatchPutTaxRegistrationCommandOutput extends BatchPutTaxRegistr
  *             </li>
  *          </ul>
  *          <p>
+ *             <b>Indonesia</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>PutTaxRegistration</code>: The use of this operation to submit tax information is subject to the <a href="http://aws.amazon.com/service-terms/">Amazon Web Services service terms</a>. By submitting, you’re providing consent for Amazon Web Services to validate NIK, NPWP, and NITKU data, provided by you with the Directorate General of Taxes of Indonesia in accordance with the Minister of Finance Regulation (PMK) Number 112/PMK.03/2022.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BatchPutTaxRegistration</code>: The use of this operation to submit tax information is subject to the <a href="http://aws.amazon.com/service-terms/">Amazon Web Services service terms</a>. By submitting, you’re providing consent for Amazon Web Services to validate NIK, NPWP, and NITKU data, provided by you with the Directorate General of Taxes of Indonesia in accordance with the Minister of Finance Regulation (PMK) Number 112/PMK.03/2022, through our third-party partner PT Achilles Advanced Management (OnlinePajak).</p>
+ *             </li>
+ *             <li>
+ *                <p>You must specify the <code>taxRegistrationNumberType</code> in the <code>indonesiaAdditionalInfo</code> field of the <code>additionalTaxInformation</code> object.</p>
+ *             </li>
+ *             <li>
+ *                <p>If you specify <code>decisionNumber</code>, you must specify the <code>ppnExceptionDesignationCode</code> in the <code>indonesiaAdditionalInfo</code> field of the <code>additionalTaxInformation</code> object. If the <code>taxRegistrationNumberType</code> is set to NPWP or NITKU, valid values for <code>ppnExceptionDesignationCode</code> are either <code>01</code>, <code>02</code>, <code>03</code>, <code>07</code>, or <code>08</code>.</p>
+ *                <p>For other <code>taxRegistrationNumberType</code> values, <code>ppnExceptionDesignationCode</code> must be either <code>01</code>, <code>07</code>, or <code>08</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If <code>ppnExceptionDesignationCode</code> is <code>07</code>, you must specify the <code>decisionNumber</code> in the <code>indonesiaAdditionalInfo</code> field of the <code>additionalTaxInformation</code> object.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
  *             <b>Kenya</b>
  *          </p>
  *          <ul>
@@ -301,6 +324,11 @@ export interface BatchPutTaxRegistrationCommandOutput extends BatchPutTaxRegistr
  *       saudiArabiaAdditionalInfo: { // SaudiArabiaAdditionalInfo
  *         taxRegistrationNumberType: "TaxRegistrationNumber" || "TaxIdentificationNumber" || "CommercialRegistrationNumber",
  *       },
+ *       indonesiaAdditionalInfo: { // IndonesiaAdditionalInfo
+ *         taxRegistrationNumberType: "NIK" || "PassportNumber" || "NPWP" || "NITKU",
+ *         ppnExceptionDesignationCode: "STRING_VALUE",
+ *         decisionNumber: "STRING_VALUE",
+ *       },
  *       vietnamAdditionalInfo: { // VietnamAdditionalInfo
  *         enterpriseIdentificationNumber: "STRING_VALUE",
  *         electronicTransactionCodeNumber: "STRING_VALUE",
@@ -313,6 +341,10 @@ export interface BatchPutTaxRegistrationCommandOutput extends BatchPutTaxRegistr
  *       },
  *       greeceAdditionalInfo: { // GreeceAdditionalInfo
  *         contractingAuthorityCode: "STRING_VALUE",
+ *       },
+ *       uzbekistanAdditionalInfo: { // UzbekistanAdditionalInfo
+ *         taxRegistrationNumberType: "Business" || "Individual",
+ *         vatRegistrationNumber: "STRING_VALUE",
  *       },
  *     },
  *     verificationDetails: { // VerificationDetails

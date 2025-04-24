@@ -29,7 +29,11 @@ export interface StartTagSyncTaskCommandOutput extends StartTagSyncTaskOutput, _
 
 /**
  * <p>Creates a new tag-sync task to onboard and sync resources tagged with a specific tag key-value pair to an
- *             application. </p>
+ *             application. To start a tag-sync task, you need a <a href="https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-tag-sync.html#tag-sync-role">resource tagging role</a>.
+ *             The resource tagging role grants permissions to tag and untag applications resources and must include a
+ *         trust policy that allows Resource Groups to assume the role and perform resource tagging tasks on your behalf. </p>
+ *          <p>For instructions on creating a tag-sync task, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-tag-sync.html#create-tag-sync">Create a tag-sync
+ *             using the Resource Groups API</a> in the <i>Amazon Web Services Service Catalog AppRegistry Administrator Guide</i>.  </p>
  *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
@@ -57,8 +61,12 @@ export interface StartTagSyncTaskCommandOutput extends StartTagSyncTaskOutput, _
  * const client = new ResourceGroupsClient(config);
  * const input = { // StartTagSyncTaskInput
  *   Group: "STRING_VALUE", // required
- *   TagKey: "STRING_VALUE", // required
- *   TagValue: "STRING_VALUE", // required
+ *   TagKey: "STRING_VALUE",
+ *   TagValue: "STRING_VALUE",
+ *   ResourceQuery: { // ResourceQuery
+ *     Type: "TAG_FILTERS_1_0" || "CLOUDFORMATION_STACK_1_0", // required
+ *     Query: "STRING_VALUE", // required
+ *   },
  *   RoleArn: "STRING_VALUE", // required
  * };
  * const command = new StartTagSyncTaskCommand(input);
@@ -69,6 +77,10 @@ export interface StartTagSyncTaskCommandOutput extends StartTagSyncTaskOutput, _
  * //   TaskArn: "STRING_VALUE",
  * //   TagKey: "STRING_VALUE",
  * //   TagValue: "STRING_VALUE",
+ * //   ResourceQuery: { // ResourceQuery
+ * //     Type: "TAG_FILTERS_1_0" || "CLOUDFORMATION_STACK_1_0", // required
+ * //     Query: "STRING_VALUE", // required
+ * //   },
  * //   RoleArn: "STRING_VALUE",
  * // };
  *

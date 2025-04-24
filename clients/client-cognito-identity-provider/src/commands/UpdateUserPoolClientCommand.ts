@@ -122,6 +122,10 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  *   EnableTokenRevocation: true || false,
  *   EnablePropagateAdditionalUserContextData: true || false,
  *   AuthSessionValidity: Number("int"),
+ *   RefreshTokenRotation: { // RefreshTokenRotationType
+ *     Feature: "ENABLED" || "DISABLED", // required
+ *     RetryGracePeriodSeconds: Number("int"),
+ *   },
  * };
  * const command = new UpdateUserPoolClientCommand(input);
  * const response = await client.send(command);
@@ -178,6 +182,10 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  * //     EnableTokenRevocation: true || false,
  * //     EnablePropagateAdditionalUserContextData: true || false,
  * //     AuthSessionValidity: Number("int"),
+ * //     RefreshTokenRotation: { // RefreshTokenRotationType
+ * //       Feature: "ENABLED" || "DISABLED", // required
+ * //       RetryGracePeriodSeconds: Number("int"),
+ * //     },
  * //   },
  * // };
  *
@@ -192,6 +200,10 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>This exception is thrown if two or more modifications are happening
  *             concurrently.</p>
+ *
+ * @throws {@link FeatureUnavailableInTierException} (client fault)
+ *  <p>This exception is thrown when a feature you attempted to configure isn't
+ *             available in your current feature plan.</p>
  *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>

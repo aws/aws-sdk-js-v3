@@ -57,6 +57,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *     ShardCount: Number("int"),
  *   },
  *   ACLName: "STRING_VALUE",
+ *   IpDiscovery: "ipv4" || "ipv6",
  * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);
@@ -132,6 +133,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * //     ACLName: "STRING_VALUE",
  * //     AutoMinorVersionUpgrade: true || false,
  * //     DataTiering: "true" || "false",
+ * //     NetworkType: "ipv4" || "ipv6" || "dual_stack",
+ * //     IpDiscovery: "ipv4" || "ipv6",
  * //   },
  * // };
  *

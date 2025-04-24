@@ -789,8 +789,8 @@ export interface ClusterServiceConnectDefaultsRequest {
   /**
    * <p>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace that's used when you create a service and don't specify
    * 			a Service Connect configuration. The namespace name can include up to 1024 characters.
-   * 			The name is case-sensitive. The name can't include greater than
-   * 			(>), less than (<), double quotation marks ("), or slash (/).</p>
+   * 			The name is case-sensitive. The name can't include greater than (>), less than
+   * 			(<), double quotation marks ("), or slash (/).</p>
    *          <p>If you enter an existing namespace name or ARN, then that namespace will be used.
    * 			Any namespace type is supported. The namespace must be in this account and this Amazon Web Services
    * 			Region.</p>
@@ -1473,9 +1473,10 @@ export interface DeploymentConfiguration {
    * 				uses either the blue/green (<code>CODE_DEPLOY</code>) or <code>EXTERNAL</code>
    * 				deployment types and has tasks that use the EC2 launch type.</p>
    *          </note>
-   *          <p>If the service uses either the blue/green (<code>CODE_DEPLOY</code>) or <code>EXTERNAL</code>
-   * 			deployment types, and the tasks in the service use the Fargate launch type, the maximum
-   * 			percent value is not used. The value is still returned when describing your service.</p>
+   *          <p>If the service uses either the blue/green (<code>CODE_DEPLOY</code>) or
+   * 				<code>EXTERNAL</code> deployment types, and the tasks in the service use the
+   * 			Fargate launch type, the maximum percent value is not used. The value is
+   * 			still returned when describing your service.</p>
    * @public
    */
   maximumPercent?: number | undefined;
@@ -1745,12 +1746,12 @@ export interface AwsVpcConfiguration {
    *          <p>Consider the following when you set this value:</p>
    *          <ul>
    *             <li>
-   *                <p>When you use <code>create-service</code> or <code>update-service</code>, the default is
-   * 						<code>DISABLED</code>. </p>
+   *                <p>When you use <code>create-service</code> or <code>update-service</code>, the
+   * 					default is <code>DISABLED</code>. </p>
    *             </li>
    *             <li>
-   *                <p>When the service <code>deploymentController</code> is <code>ECS</code>, the value must be
-   * 						<code>DISABLED</code>. </p>
+   *                <p>When the service <code>deploymentController</code> is <code>ECS</code>, the
+   * 					value must be <code>DISABLED</code>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -2054,9 +2055,7 @@ export interface LogConfiguration {
    *             </dd>
    *             <dt>awslogs-stream-prefix</dt>
    *             <dd>
-   *                <p>Required: Yes, when using the Fargate launch
-   * 							type.Optional for the EC2 launch type,
-   * 							required for the Fargate launch type.</p>
+   *                <p>Required: Yes, when using Fargate.Optional when using EC2.</p>
    *                <p>Use the <code>awslogs-stream-prefix</code> option to associate a log
    * 						stream with the specified prefix, the container name, and the ID of the
    * 						Amazon ECS task that the container belongs to. If you specify a prefix with this
@@ -2112,15 +2111,19 @@ export interface LogConfiguration {
    * 							performance.</p>
    *                </note>
    *             </dd>
+   *          </dl>
+   *          <p>The following options apply to all supported log drivers.</p>
+   *          <dl>
    *             <dt>mode</dt>
    *             <dd>
    *                <p>Required: No</p>
    *                <p>Valid values: <code>non-blocking</code> | <code>blocking</code>
    *                </p>
    *                <p>This option defines the delivery mode of log messages from the container
-   * 						to CloudWatch Logs. The delivery mode you choose affects application availability when
-   * 						the flow of logs from container to CloudWatch is interrupted.</p>
-   *                <p>If you use the <code>blocking</code> mode and the flow of logs to CloudWatch is
+   * 						to the log driver specified using <code>logDriver</code>. The delivery mode
+   * 						you choose affects application availability when the flow of logs from
+   * 						container is interrupted.</p>
+   *                <p>If you use the <code>blocking</code> mode and the flow of logs is
    * 						interrupted, calls from container code to write to the <code>stdout</code>
    * 						and <code>stderr</code> streams will block. The logging thread of the
    * 						application will block as a result. This may cause the application to become
@@ -2128,10 +2131,15 @@ export interface LogConfiguration {
    *                <p>If you use the <code>non-blocking</code> mode, the container's logs are
    * 						instead stored in an in-memory intermediate buffer configured with the
    * 							<code>max-buffer-size</code> option. This prevents the application from
-   * 						becoming unresponsive when logs cannot be sent to CloudWatch. We recommend using
-   * 						this mode if you want to ensure service availability and are okay with some
-   * 						log loss. For more information, see <a href="http://aws.amazon.com/blogs/containers/preventing-log-loss-with-non-blocking-mode-in-the-awslogs-container-log-driver/">Preventing log loss with non-blocking mode in the <code>awslogs</code>
+   * 						becoming unresponsive when logs cannot be sent. We recommend using this mode
+   * 						if you want to ensure service availability and are okay with some log loss.
+   * 						For more information, see <a href="http://aws.amazon.com/blogs/containers/preventing-log-loss-with-non-blocking-mode-in-the-awslogs-container-log-driver/">Preventing log loss with non-blocking mode in the <code>awslogs</code>
    * 							container log driver</a>.</p>
+   *                <p>You can set a default <code>mode</code> for all containers in a specific
+   * 						Amazon Web Services Region by using the <code>defaultLogDriverMode</code> account setting.
+   * 						If you don't specify the <code>mode</code> option or
+   * 						configure the account setting, Amazon ECS will default to the
+   * 							<code>blocking</code> mode. For more information about the account setting, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#default-log-driver-mode">Default log driver mode</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *             </dd>
    *             <dt>max-buffer-size</dt>
    *             <dd>
@@ -2162,8 +2170,9 @@ export interface LogConfiguration {
    *          <p> When you export logs to Amazon OpenSearch Service, you can specify options like <code>Name</code>,
    * 				<code>Host</code> (OpenSearch Service endpoint without protocol), <code>Port</code>,
    * 				<code>Index</code>, <code>Type</code>, <code>Aws_auth</code>,
-   * 				<code>Aws_region</code>, <code>Suppress_Type_Name</code>, and
-   * 			<code>tls</code>. For more information, see <a href="http://aws.amazon.com/blogs/containers/under-the-hood-firelens-for-amazon-ecs-tasks/">Under the hood: FireLens for Amazon ECS Tasks</a>.</p>
+   * 				<code>Aws_region</code>, <code>Suppress_Type_Name</code>, and <code>tls</code>. For
+   * 			more information, see <a href="http://aws.amazon.com/blogs/containers/under-the-hood-firelens-for-amazon-ecs-tasks/">Under the hood:
+   * 				FireLens for Amazon ECS Tasks</a>.</p>
    *          <p>When you export logs to Amazon S3, you can specify the bucket using the <code>bucket</code>
    * 			option. You can also specify <code>region</code>, <code>total_file_size</code>,
    * 				<code>upload_timeout</code>, and <code>use_put_object</code> as options.</p>
@@ -4295,6 +4304,7 @@ export const SettingName = {
   AWSVPC_TRUNKING: "awsvpcTrunking",
   CONTAINER_INSIGHTS: "containerInsights",
   CONTAINER_INSTANCE_LONG_ARN_FORMAT: "containerInstanceLongArnFormat",
+  DEFAULT_LOG_DRIVER_MODE: "defaultLogDriverMode",
   FARGATE_FIPS_MODE: "fargateFIPSMode",
   FARGATE_TASK_RETIREMENT_WAIT_PERIOD: "fargateTaskRetirementWaitPeriod",
   GUARD_DUTY_ACTIVATE: "guardDutyActivate",
@@ -5063,7 +5073,8 @@ export interface FirelensConfiguration {
  * 					that's configured to use a Classic Load Balancer.</p>
  *             </li>
  *          </ul>
- *          <p>For an example of how to specify a task definition with multiple containers where container dependency is specified, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/example_task_definitions.html#example_task_definition-containerdependency">Container dependency</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          <p>For an example of how to specify a task definition with multiple containers where
+ * 			container dependency is specified, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/example_task_definitions.html#example_task_definition-containerdependency">Container dependency</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @public
  */
 export interface HealthCheck {
@@ -5089,17 +5100,17 @@ export interface HealthCheck {
   command: string[] | undefined;
 
   /**
-   * <p>The time period in seconds between each health check execution. You may specify between 5
-   * 			and 300 seconds. The default value is 30 seconds. This value applies only when you
-   * 			specify a <code>command</code>. </p>
+   * <p>The time period in seconds between each health check execution. You may specify
+   * 			between 5 and 300 seconds. The default value is 30 seconds. This value applies only when
+   * 			you specify a <code>command</code>. </p>
    * @public
    */
   interval?: number | undefined;
 
   /**
-   * <p>The time period in seconds to wait for a health check to succeed before it is considered a
-   * 			failure. You may specify between 2 and 60 seconds. The default value is 5. This value
-   * 			applies only when you specify a <code>command</code>. </p>
+   * <p>The time period in seconds to wait for a health check to succeed before it is
+   * 			considered a failure. You may specify between 2 and 60 seconds. The default value is 5.
+   * 			This value applies only when you specify a <code>command</code>. </p>
    * @public
    */
   timeout?: number | undefined;
@@ -5131,15 +5142,16 @@ export interface HealthCheck {
  * <p>The Linux capabilities to add or remove from the default Docker configuration for a
  * 			container defined in the task definition. For more detailed information about these
  * 			Linux capabilities, see the <a href="http://man7.org/linux/man-pages/man7/capabilities.7.html">capabilities(7)</a> Linux manual page.</p>
- *          <p>The following describes how Docker processes the Linux capabilities specified in the <code>add</code> and
- * 				<code>drop</code> request parameters. For information about the latest behavior, see
- * 			<a href="https://forums.docker.com/t/docker-compose-order-of-cap-drop-and-cap-add/97136/1">Docker Compose: order of cap_drop and cap_add</a>  in the Docker Community Forum.</p>
+ *          <p>The following describes how Docker processes the Linux capabilities specified in the
+ * 				<code>add</code> and <code>drop</code> request parameters. For information about the
+ * 			latest behavior, see <a href="https://forums.docker.com/t/docker-compose-order-of-cap-drop-and-cap-add/97136/1">Docker Compose: order of cap_drop and cap_add</a> in the Docker Community
+ * 			Forum.</p>
  *          <ul>
  *             <li>
- *                <p>When the container is a privleged container, the container capabilities are all of the
- * 					default Docker capabilities. The capabilities specified in the <code>add</code>
- * 					request parameter, and the <code>drop</code> request parameter are
- * 					ignored.</p>
+ *                <p>When the container is a privleged container, the container capabilities are
+ * 					all of the default Docker capabilities. The capabilities specified in the
+ * 						<code>add</code> request parameter, and the <code>drop</code> request
+ * 					parameter are ignored.</p>
  *             </li>
  *             <li>
  *                <p>When the <code>add</code> request parameter is set to ALL, the container
@@ -5147,17 +5159,19 @@ export interface HealthCheck {
  * 					specified in the <code>drop</code> request parameter.</p>
  *             </li>
  *             <li>
- *                <p>When the <code>drop</code> request parameter is set to ALL, the container capabilities are
- * 					the capabilities specified in the <code>add</code> request parameter.</p>
+ *                <p>When the <code>drop</code> request parameter is set to ALL, the container
+ * 					capabilities are the capabilities specified in the <code>add</code> request
+ * 					parameter.</p>
  *             </li>
  *             <li>
- *                <p>When the <code>add</code> request parameter and the <code>drop</code> request parameter are both empty, the capabilities the container
- * 					capabilities are all of the default Docker capabilities.</p>
+ *                <p>When the <code>add</code> request parameter and the <code>drop</code> request
+ * 					parameter are both empty, the capabilities the container capabilities are all of
+ * 					the default Docker capabilities.</p>
  *             </li>
  *             <li>
- *                <p>The default is to first drop the capabilities specified in the <code>drop</code> request
- * 					parameter, and then add the capabilities specified in the <code>add</code>
- * 					request parameter.</p>
+ *                <p>The default is to first drop the capabilities specified in the
+ * 						<code>drop</code> request parameter, and then add the capabilities specified
+ * 					in the <code>add</code> request parameter.</p>
  *             </li>
  *          </ul>
  * @public
@@ -6198,8 +6212,8 @@ export interface ContainerDefinition {
   volumesFrom?: VolumeFrom[] | undefined;
 
   /**
-   * <p>Linux-specific modifications that are applied to the default Docker container configuration, such as Linux kernel
-   * 			capabilities. For more information see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html">KernelCapabilities</a>.</p>
+   * <p>Linux-specific modifications that are applied to the default Docker container
+   * 			configuration, such as Linux kernel capabilities. For more information see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html">KernelCapabilities</a>.</p>
    *          <note>
    *             <p>This parameter is not supported for Windows containers.</p>
    *          </note>
@@ -7607,8 +7621,8 @@ export interface TaskDefinition {
   ephemeralStorage?: EphemeralStorage | undefined;
 
   /**
-   * <p>Enables fault injection and allows for fault injection requests to be accepted from the task's containers.
-   * 			The default value is <code>false</code>.</p>
+   * <p>Enables fault injection and allows for fault injection requests to be accepted from
+   * 			the task's containers. The default value is <code>false</code>.</p>
    * @public
    */
   enableFaultInjection?: boolean | undefined;
@@ -8440,12 +8454,6 @@ export interface Rollback {
 
   /**
    * <p>The ARN of the service revision deployed as part of the rollback.</p>
-   *          <p>When the type is <code>GPU</code>, the value is the number of physical
-   * 				<code>GPUs</code> the Amazon ECS container agent reserves for the container. The number
-   * 			of GPUs that's reserved for all containers in a task can't exceed the number of
-   * 			available GPUs on the container instance that the task is launched on.</p>
-   *          <p>When the type is <code>InferenceAccelerator</code>, the <code>value</code> matches the
-   * 				<code>deviceName</code> for an <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html">InferenceAccelerator</a> specified in a task definition.</p>
    * @public
    */
   serviceRevisionArn?: string | undefined;
@@ -8491,6 +8499,7 @@ export const ServiceDeploymentStatus = {
   PENDING: "PENDING",
   ROLLBACK_FAILED: "ROLLBACK_FAILED",
   ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+  ROLLBACK_REQUESTED: "ROLLBACK_REQUESTED",
   ROLLBACK_SUCCESSFUL: "ROLLBACK_SUCCESSFUL",
   STOPPED: "STOPPED",
   STOP_REQUESTED: "STOP_REQUESTED",
@@ -8505,8 +8514,7 @@ export type ServiceDeploymentStatus = (typeof ServiceDeploymentStatus)[keyof typ
 /**
  * <p>Information about the service deployment.</p>
  *          <p>Service deployments provide a comprehensive view of your deployments. For information
- * 			about service deployments, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-deployment.html">View service history
- * 				using Amazon ECS service deployments</a> in the
+ * 			about service deployments, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-deployment.html">View service history using Amazon ECS service deployments</a> in the
  * 			<i>
  *                <i>Amazon Elastic Container Service Developer Guide</i>
  *             </i>.</p>
@@ -9600,13 +9608,13 @@ export interface Task {
    * 			expressed as a string using vCPUs (for example, <code>1 vCPU</code> or <code>1
    * 				vcpu</code>). String values are converted to an integer that indicates the CPU units
    * 			when the task definition is registered.</p>
-   *          <p>If you're using the EC2 launch type or the external launch type, this field is
-   * 			optional. Supported values are between <code>128</code> CPU units (<code>0.125</code>
-   * 			vCPUs) and <code>196608</code> CPU units (<code>192</code> vCPUs). If you do not specify
-   * 			a value, the parameter is ignored.</p>
-   *          <p>If you're using the Fargate launch type, this field is required. You must use
-   * 			one of the following values. These values determine the range of supported values for
-   * 			the <code>memory</code> parameter:</p>
+   *          <p>If you're using the EC2 launch type or the external launch type, this
+   * 			field is optional. Supported values are between <code>128</code> CPU units
+   * 				(<code>0.125</code> vCPUs) and <code>196608</code> CPU units (<code>192</code>
+   * 			vCPUs). If you do not specify a value, the parameter is ignored.</p>
+   *          <p>If you're using the Fargate launch type, this field is required. You
+   * 			must use one of the following values. These values determine the range of supported
+   * 			values for the <code>memory</code> parameter:</p>
    *          <p>The CPU units cannot be less than 1 vCPU when you use Windows containers on
    * 			Fargate.</p>
    *          <ul>
@@ -11366,6 +11374,17 @@ export interface PutAccountSettingRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>defaultLogDriverMode</code> - Amazon ECS supports setting a default delivery
+   * 					mode of log messages from a container to the <code>logDriver</code> that you specify in the container's <code>logConfiguration</code>. The delivery mode affects
+   * 					application stability when the flow of logs from the container to the log driver is
+   * 					interrupted. The <code>defaultLogDriverMode</code> setting supports two values:
+   * 					<code>blocking</code> and <code>non-blocking</code>. If you don't specify a
+   * 					delivery mode in your container definition's <code>logConfiguration</code>, the
+   * 					mode you specify using this account setting will be used as the default. For
+   * 					more information about log delivery modes, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html">LogConfiguration</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>guardDutyActivate</code> - The <code>guardDutyActivate</code> parameter is read-only in Amazon ECS and indicates whether
    * 			Amazon ECS Runtime Monitoring is enabled or disabled by your security administrator in your
    * 			Amazon ECS account. Amazon GuardDuty controls this account setting on your behalf. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-guard-duty-integration.html">Protecting Amazon ECS workloads with Amazon ECS Runtime Monitoring</a>.</p>
@@ -11528,6 +11547,17 @@ export interface PutAccountSettingDefaultRequest {
    * 					grant explicit permissions to use the <code>ecs:TagResource</code> action. For
    * 					more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/supported-iam-actions-tagging.html">Grant permission to tag resources on creation</a> in the
    * 						<i>Amazon ECS Developer Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>defaultLogDriverMode</code> -Amazon ECS supports setting a default delivery
+   * 					mode of log messages from a container to the <code>logDriver</code> that you specify in the container's <code>logConfiguration</code>. The delivery mode affects
+   * 					application stability when the flow of logs from the container to the log driver is
+   * 					interrupted. The <code>defaultLogDriverMode</code> setting supports two values:
+   * 						<code>blocking</code> and <code>non-blocking</code>. If you don't specify a
+   * 					delivery mode in your container definition's <code>logConfiguration</code>, the
+   * 					mode you specify using this account setting will be used as the default. For
+   * 					more information about log delivery modes, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html">LogConfiguration</a>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -11953,8 +11983,8 @@ export interface RegisterTaskDefinitionRequest {
    *             <p>Task-level CPU and memory parameters are ignored for Windows containers. We
    * 				recommend specifying container-level resources for Windows containers.</p>
    *          </note>
-   *          <p>If you're using the EC2 launch type or external launch type, this field is
-   * 			optional. Supported values are between <code>128</code> CPU units (<code>0.125</code>
+   *          <p>If you're using the EC2 launch type or external launch type, this field
+   * 			is optional. Supported values are between <code>128</code> CPU units (<code>0.125</code>
    * 			vCPUs) and <code>196608</code> CPU units (<code>192</code> vCPUs). If you do not specify
    * 			a value, the parameter is ignored.</p>
    *          <p>If you're using the Fargate launch type, this field is required and you
@@ -12188,8 +12218,9 @@ export interface RegisterTaskDefinitionRequest {
   runtimePlatform?: RuntimePlatform | undefined;
 
   /**
-   * <p>Enables fault injection when you register your task definition and allows for fault injection requests
-   * 			to be accepted from the task's containers. The default value is <code>false</code>.</p>
+   * <p>Enables fault injection when you register your task definition and allows for fault
+   * 			injection requests to be accepted from the task's containers. The default value is
+   * 				<code>false</code>.</p>
    * @public
    */
   enableFaultInjection?: boolean | undefined;
@@ -12514,6 +12545,8 @@ export interface RunTaskRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster to run your task on.
    * 			If you do not specify a cluster, the default cluster is assumed.</p>
+   *          <p>Each account receives a default cluster the first time you use the service, but you
+   * 			may also create other clusters.</p>
    * @public
    */
   cluster?: string | undefined;
@@ -12908,6 +12941,70 @@ export interface StartTaskResponse {
 }
 
 /**
+ * <p>The service deploy ARN that you specified in the <code>StopServiceDeployment</code> doesn't exist. You can use <code>ListServiceDeployments</code> to retrieve the service deployment ARNs.</p>
+ * @public
+ */
+export class ServiceDeploymentNotFoundException extends __BaseException {
+  readonly name: "ServiceDeploymentNotFoundException" = "ServiceDeploymentNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceDeploymentNotFoundException, __BaseException>) {
+    super({
+      name: "ServiceDeploymentNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceDeploymentNotFoundException.prototype);
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StopServiceDeploymentStopType = {
+  ABORT: "ABORT",
+  ROLLBACK: "ROLLBACK",
+} as const;
+
+/**
+ * @public
+ */
+export type StopServiceDeploymentStopType =
+  (typeof StopServiceDeploymentStopType)[keyof typeof StopServiceDeploymentStopType];
+
+/**
+ * @public
+ */
+export interface StopServiceDeploymentRequest {
+  /**
+   * <p>The ARN of the service deployment that you want to stop.</p>
+   * @public
+   */
+  serviceDeploymentArn: string | undefined;
+
+  /**
+   * <p>How you want Amazon ECS to stop the task. </p>
+   *          <p>The valid values are <code>ROLLBACK</code>.</p>
+   * @public
+   */
+  stopType?: StopServiceDeploymentStopType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopServiceDeploymentResponse {
+  /**
+   * <p>The ARN of the stopped service deployment.</p>
+   * @public
+   */
+  serviceDeploymentArn?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface StopTaskRequest {
@@ -13210,96 +13307,6 @@ export interface SubmitTaskStateChangeResponse {
    */
   acknowledgment?: string | undefined;
 }
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource to add tags to. Currently, the supported resources are
-   * 			Amazon ECS capacity providers, tasks, services, task definitions, clusters, and container
-   * 			instances.</p>
-   *          <p>In order to tag a service that has the following ARN format, you need to migrate the
-   * 			service to the long ARN. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-arn-migration.html">Migrate an Amazon ECS short service ARN to a long ARN</a> in the <i>Amazon Elastic Container Service
-   * 				Developer Guide</i>.</p>
-   *          <p>
-   *             <code>arn:aws:ecs:region:aws_account_id:service/service-name</code>
-   *          </p>
-   *          <p>After the migration is complete, the service has the long ARN format, as shown below. Use this ARN to tag the service.</p>
-   *          <p>
-   *             <code>arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name</code>
-   *          </p>
-   *          <p>If you try to tag a service with a short ARN, you receive an <code>InvalidParameterException</code> error.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The tags to add to the resource. A tag is an array of key-value pairs.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per resource - 50</p>
-   *             </li>
-   *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only
-   *                     one value.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length - 128 Unicode characters in UTF-8</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length - 256 Unicode characters in UTF-8</p>
-   *             </li>
-   *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources,
-   *                     remember that other services may have restrictions on allowed characters.
-   *                     Generally allowed characters are: letters, numbers, and spaces representable in
-   *                     UTF-8, and the following characters: + - = . _ : / @.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case-sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
-   *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
-   *                     this prefix do not count against your tags per resource limit.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  tags: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource to delete tags from. Currently, the supported resources
-   * 			are Amazon ECS capacity providers, tasks, services, task definitions, clusters, and container
-   * 			instances.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The keys of the tags to be removed.</p>
-   * @public
-   */
-  tagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceResponse {}
 
 /**
  * @internal

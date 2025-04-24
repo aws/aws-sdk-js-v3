@@ -28,8 +28,7 @@ export interface ListHostKeysCommandInput extends ListHostKeysRequest {}
 export interface ListHostKeysCommandOutput extends ListHostKeysResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of host keys for the server that's specified by the <code>ServerId</code>
- *       parameter.</p>
+ * <p>Returns a list of host keys for the server that's specified by the <code>ServerId</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,8 +75,7 @@ export interface ListHostKeysCommandOutput extends ListHostKeysResponse, __Metad
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>

@@ -40,14 +40,36 @@ import {
   InstanceIpv6Address,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
+  LaunchTemplateVersion,
+  LaunchTemplateVersionFilterSensitiveLog,
   OperatorRequest,
   OperatorResponse,
   PrivateIpAddressSpecification,
   Subnet,
   Tenancy,
+  ValidationWarning,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateLaunchTemplateVersionResult {
+  /**
+   * <p>Information about the launch template version.</p>
+   * @public
+   */
+  LaunchTemplateVersion?: LaunchTemplateVersion | undefined;
+
+  /**
+   * <p>If the new version of the launch template contains parameters or parameter
+   *             combinations that are not valid, an error code and an error message are returned for
+   *             each issue that's found.</p>
+   * @public
+   */
+  Warning?: ValidationWarning | undefined;
+}
 
 /**
  * @public
@@ -3060,7 +3082,7 @@ export interface CreateRestoreImageTaskRequest {
    *             </li>
    *             <li>
    *                <p>To tag the snapshots, the value for <code>ResourceType</code> must be
-   *             <code>snapshot</code>. The same tag is applied to all of the snapshots that are
+   *           <code>snapshot</code>. The same tag is applied to all of the snapshots that are
    *           created.</p>
    *             </li>
    *          </ul>
@@ -3308,11 +3330,12 @@ export type RouteServerState = (typeof RouteServerState)[keyof typeof RouteServe
 
 /**
  * <p>Describes a route server and its configuration.</p>
- *          <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p>
+ *          <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature,
+ * VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p>
  *          <p>Route server supports the follow route table types:</p>
  *          <ul>
  *             <li>
- *                <p>VPC route tables</p>
+ *                <p>VPC route tables not associated with subnets</p>
  *             </li>
  *             <li>
  *                <p>Subnet route tables</p>
@@ -3444,7 +3467,7 @@ export type RouteServerEndpointState = (typeof RouteServerEndpointState)[keyof t
 
 /**
  * <p>Describes a route server endpoint and its properties.</p>
- *          <p>A route server endpoint is an Amazon Web Services-managed component inside a subnet that facilitates BGP (Border Gateway Protocol) connections between your route server and your BGP peers. Create two endpoints per subnet for redundancy.</p>
+ *          <p>A route server endpoint is an Amazon Web Services-managed component inside a subnet that facilitates <a href="https://en.wikipedia.org/wiki/Border_Gateway_Protocol">BGP (Border Gateway Protocol)</a> connections between your route server and your BGP peers.</p>
  * @public
  */
 export interface RouteServerEndpoint {
@@ -3569,7 +3592,7 @@ export interface CreateRouteServerPeerRequest {
   RouteServerEndpointId: string | undefined;
 
   /**
-   * <p>The IPv4 address of the peer.</p>
+   * <p>The IPv4 address of the peer device.</p>
    * @public
    */
   PeerAddress: string | undefined;
@@ -3697,7 +3720,7 @@ export type RouteServerPeerState = (typeof RouteServerPeerState)[keyof typeof Ro
 
 /**
  * <p>Describes a BGP peer configuration for a route server endpoint.</p>
- *          <p>A route server peer is a network appliance or function deployed in Amazon Web Services, such as firewall appliances and other network security functions, that meet these requirements:</p>
+ *          <p>A route server peer is a session between a route server endpoint and the device deployed in Amazon Web Services (such as a firewall appliance or other network security function running on an EC2 instance). The device must meet these requirements:</p>
  *          <ul>
  *             <li>
  *                <p>Have an elastic network interface in the VPC</p>
@@ -3767,7 +3790,7 @@ export interface RouteServerPeer {
   EndpointEniAddress?: string | undefined;
 
   /**
-   * <p>The IPv4 address of the peer.</p>
+   * <p>The IPv4 address of the peer device.</p>
    * @public
    */
   PeerAddress?: string | undefined;
@@ -5999,7 +6022,11 @@ export interface TransitGatewayOptions {
   AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue | undefined;
 
   /**
-   * <p>Indicates whether resource attachments are automatically associated with the default association route table.</p>
+   * <p>Indicates whether resource attachments are automatically associated with the default
+   *          association route table. Enabled by default. If <code>defaultRouteTableAssociation</code>
+   *          is set to <code>enable</code>,
+   *          Amazon Web Services Transit Gateway will create the default transit gateway route
+   *          table.</p>
    * @public
    */
   DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue | undefined;
@@ -6011,7 +6038,11 @@ export interface TransitGatewayOptions {
   AssociationDefaultRouteTableId?: string | undefined;
 
   /**
-   * <p>Indicates whether resource attachments automatically propagate routes to the default propagation route table.</p>
+   * <p>Indicates whether resource attachments automatically propagate routes to the default
+   *          propagation route table. Enabled by default. If <code>defaultRouteTablePropagation</code>
+   *          is set to <code>enable</code>,
+   *          Amazon Web Services Transit Gateway will create the default transit gateway route
+   *          table.</p>
    * @public
    */
   DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue | undefined;
@@ -10294,16 +10325,14 @@ export interface CloudWatchLogOptionsSpecification {
 }
 
 /**
- * <p>Options for logging VPN tunnel activity.</p>
- * @public
+ * @internal
  */
-export interface VpnTunnelLogOptionsSpecification {
-  /**
-   * <p>Options for sending VPN tunnel logs to CloudWatch.</p>
-   * @public
-   */
-  CloudWatchLogOptions?: CloudWatchLogOptionsSpecification | undefined;
-}
+export const CreateLaunchTemplateVersionResultFilterSensitiveLog = (obj: CreateLaunchTemplateVersionResult): any => ({
+  ...obj,
+  ...(obj.LaunchTemplateVersion && {
+    LaunchTemplateVersion: LaunchTemplateVersionFilterSensitiveLog(obj.LaunchTemplateVersion),
+  }),
+});
 
 /**
  * @internal

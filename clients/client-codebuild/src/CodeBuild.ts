@@ -19,6 +19,11 @@ import {
   BatchGetBuildsCommandOutput,
 } from "./commands/BatchGetBuildsCommand";
 import {
+  BatchGetCommandExecutionsCommand,
+  BatchGetCommandExecutionsCommandInput,
+  BatchGetCommandExecutionsCommandOutput,
+} from "./commands/BatchGetCommandExecutionsCommand";
+import {
   BatchGetFleetsCommand,
   BatchGetFleetsCommandInput,
   BatchGetFleetsCommandOutput,
@@ -38,6 +43,11 @@ import {
   BatchGetReportsCommandInput,
   BatchGetReportsCommandOutput,
 } from "./commands/BatchGetReportsCommand";
+import {
+  BatchGetSandboxesCommand,
+  BatchGetSandboxesCommandInput,
+  BatchGetSandboxesCommandOutput,
+} from "./commands/BatchGetSandboxesCommand";
 import { CreateFleetCommand, CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import {
   CreateProjectCommand,
@@ -137,6 +147,11 @@ import {
   ListBuildsForProjectCommandOutput,
 } from "./commands/ListBuildsForProjectCommand";
 import {
+  ListCommandExecutionsForSandboxCommand,
+  ListCommandExecutionsForSandboxCommandInput,
+  ListCommandExecutionsForSandboxCommandOutput,
+} from "./commands/ListCommandExecutionsForSandboxCommand";
+import {
   ListCuratedEnvironmentImagesCommand,
   ListCuratedEnvironmentImagesCommandInput,
   ListCuratedEnvironmentImagesCommandOutput,
@@ -158,6 +173,16 @@ import {
   ListReportsForReportGroupCommandInput,
   ListReportsForReportGroupCommandOutput,
 } from "./commands/ListReportsForReportGroupCommand";
+import {
+  ListSandboxesCommand,
+  ListSandboxesCommandInput,
+  ListSandboxesCommandOutput,
+} from "./commands/ListSandboxesCommand";
+import {
+  ListSandboxesForProjectCommand,
+  ListSandboxesForProjectCommandInput,
+  ListSandboxesForProjectCommandOutput,
+} from "./commands/ListSandboxesForProjectCommand";
 import {
   ListSharedProjectsCommand,
   ListSharedProjectsCommandInput,
@@ -191,11 +216,27 @@ import {
 } from "./commands/StartBuildBatchCommand";
 import { StartBuildCommand, StartBuildCommandInput, StartBuildCommandOutput } from "./commands/StartBuildCommand";
 import {
+  StartCommandExecutionCommand,
+  StartCommandExecutionCommandInput,
+  StartCommandExecutionCommandOutput,
+} from "./commands/StartCommandExecutionCommand";
+import {
+  StartSandboxCommand,
+  StartSandboxCommandInput,
+  StartSandboxCommandOutput,
+} from "./commands/StartSandboxCommand";
+import {
+  StartSandboxConnectionCommand,
+  StartSandboxConnectionCommandInput,
+  StartSandboxConnectionCommandOutput,
+} from "./commands/StartSandboxConnectionCommand";
+import {
   StopBuildBatchCommand,
   StopBuildBatchCommandInput,
   StopBuildBatchCommandOutput,
 } from "./commands/StopBuildBatchCommand";
 import { StopBuildCommand, StopBuildCommandInput, StopBuildCommandOutput } from "./commands/StopBuildCommand";
+import { StopSandboxCommand, StopSandboxCommandInput, StopSandboxCommandOutput } from "./commands/StopSandboxCommand";
 import { UpdateFleetCommand, UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
 import {
   UpdateProjectCommand,
@@ -222,10 +263,12 @@ const commands = {
   BatchDeleteBuildsCommand,
   BatchGetBuildBatchesCommand,
   BatchGetBuildsCommand,
+  BatchGetCommandExecutionsCommand,
   BatchGetFleetsCommand,
   BatchGetProjectsCommand,
   BatchGetReportGroupsCommand,
   BatchGetReportsCommand,
+  BatchGetSandboxesCommand,
   CreateFleetCommand,
   CreateProjectCommand,
   CreateReportGroupCommand,
@@ -248,12 +291,15 @@ const commands = {
   ListBuildBatchesForProjectCommand,
   ListBuildsCommand,
   ListBuildsForProjectCommand,
+  ListCommandExecutionsForSandboxCommand,
   ListCuratedEnvironmentImagesCommand,
   ListFleetsCommand,
   ListProjectsCommand,
   ListReportGroupsCommand,
   ListReportsCommand,
   ListReportsForReportGroupCommand,
+  ListSandboxesCommand,
+  ListSandboxesForProjectCommand,
   ListSharedProjectsCommand,
   ListSharedReportGroupsCommand,
   ListSourceCredentialsCommand,
@@ -262,8 +308,12 @@ const commands = {
   RetryBuildBatchCommand,
   StartBuildCommand,
   StartBuildBatchCommand,
+  StartCommandExecutionCommand,
+  StartSandboxCommand,
+  StartSandboxConnectionCommand,
   StopBuildCommand,
   StopBuildBatchCommand,
+  StopSandboxCommand,
   UpdateFleetCommand,
   UpdateProjectCommand,
   UpdateProjectVisibilityCommand,
@@ -318,6 +368,23 @@ export interface CodeBuild {
     args: BatchGetBuildsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetBuildsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetCommandExecutionsCommand}
+   */
+  batchGetCommandExecutions(
+    args: BatchGetCommandExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetCommandExecutionsCommandOutput>;
+  batchGetCommandExecutions(
+    args: BatchGetCommandExecutionsCommandInput,
+    cb: (err: any, data?: BatchGetCommandExecutionsCommandOutput) => void
+  ): void;
+  batchGetCommandExecutions(
+    args: BatchGetCommandExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetCommandExecutionsCommandOutput) => void
   ): void;
 
   /**
@@ -380,6 +447,23 @@ export interface CodeBuild {
     args: BatchGetReportsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetReportsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetSandboxesCommand}
+   */
+  batchGetSandboxes(
+    args: BatchGetSandboxesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetSandboxesCommandOutput>;
+  batchGetSandboxes(
+    args: BatchGetSandboxesCommandInput,
+    cb: (err: any, data?: BatchGetSandboxesCommandOutput) => void
+  ): void;
+  batchGetSandboxes(
+    args: BatchGetSandboxesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetSandboxesCommandOutput) => void
   ): void;
 
   /**
@@ -712,6 +796,23 @@ export interface CodeBuild {
   ): void;
 
   /**
+   * @see {@link ListCommandExecutionsForSandboxCommand}
+   */
+  listCommandExecutionsForSandbox(
+    args: ListCommandExecutionsForSandboxCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCommandExecutionsForSandboxCommandOutput>;
+  listCommandExecutionsForSandbox(
+    args: ListCommandExecutionsForSandboxCommandInput,
+    cb: (err: any, data?: ListCommandExecutionsForSandboxCommandOutput) => void
+  ): void;
+  listCommandExecutionsForSandbox(
+    args: ListCommandExecutionsForSandboxCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCommandExecutionsForSandboxCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCuratedEnvironmentImagesCommand}
    */
   listCuratedEnvironmentImages(): Promise<ListCuratedEnvironmentImagesCommandOutput>;
@@ -798,6 +899,35 @@ export interface CodeBuild {
     args: ListReportsForReportGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReportsForReportGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSandboxesCommand}
+   */
+  listSandboxes(): Promise<ListSandboxesCommandOutput>;
+  listSandboxes(args: ListSandboxesCommandInput, options?: __HttpHandlerOptions): Promise<ListSandboxesCommandOutput>;
+  listSandboxes(args: ListSandboxesCommandInput, cb: (err: any, data?: ListSandboxesCommandOutput) => void): void;
+  listSandboxes(
+    args: ListSandboxesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSandboxesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSandboxesForProjectCommand}
+   */
+  listSandboxesForProject(
+    args: ListSandboxesForProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSandboxesForProjectCommandOutput>;
+  listSandboxesForProject(
+    args: ListSandboxesForProjectCommandInput,
+    cb: (err: any, data?: ListSandboxesForProjectCommandOutput) => void
+  ): void;
+  listSandboxesForProject(
+    args: ListSandboxesForProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSandboxesForProjectCommandOutput) => void
   ): void;
 
   /**
@@ -924,6 +1054,52 @@ export interface CodeBuild {
   ): void;
 
   /**
+   * @see {@link StartCommandExecutionCommand}
+   */
+  startCommandExecution(
+    args: StartCommandExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCommandExecutionCommandOutput>;
+  startCommandExecution(
+    args: StartCommandExecutionCommandInput,
+    cb: (err: any, data?: StartCommandExecutionCommandOutput) => void
+  ): void;
+  startCommandExecution(
+    args: StartCommandExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCommandExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartSandboxCommand}
+   */
+  startSandbox(): Promise<StartSandboxCommandOutput>;
+  startSandbox(args: StartSandboxCommandInput, options?: __HttpHandlerOptions): Promise<StartSandboxCommandOutput>;
+  startSandbox(args: StartSandboxCommandInput, cb: (err: any, data?: StartSandboxCommandOutput) => void): void;
+  startSandbox(
+    args: StartSandboxCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSandboxCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartSandboxConnectionCommand}
+   */
+  startSandboxConnection(
+    args: StartSandboxConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSandboxConnectionCommandOutput>;
+  startSandboxConnection(
+    args: StartSandboxConnectionCommandInput,
+    cb: (err: any, data?: StartSandboxConnectionCommandOutput) => void
+  ): void;
+  startSandboxConnection(
+    args: StartSandboxConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSandboxConnectionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopBuildCommand}
    */
   stopBuild(args: StopBuildCommandInput, options?: __HttpHandlerOptions): Promise<StopBuildCommandOutput>;
@@ -946,6 +1122,17 @@ export interface CodeBuild {
     args: StopBuildBatchCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopBuildBatchCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopSandboxCommand}
+   */
+  stopSandbox(args: StopSandboxCommandInput, options?: __HttpHandlerOptions): Promise<StopSandboxCommandOutput>;
+  stopSandbox(args: StopSandboxCommandInput, cb: (err: any, data?: StopSandboxCommandOutput) => void): void;
+  stopSandbox(
+    args: StopSandboxCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopSandboxCommandOutput) => void
   ): void;
 
   /**

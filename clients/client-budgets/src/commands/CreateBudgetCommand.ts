@@ -30,7 +30,16 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
 /**
  * <p>Creates a budget and, if included, notifications and subscribers. </p>
  *          <important>
- *             <p>Only one of <code>BudgetLimit</code> or <code>PlannedBudgetLimits</code> can be present in the syntax at one time. Use the syntax that matches your case. The Request Syntax section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_CreateBudget.html#API_CreateBudget_Examples">Examples</a> section. </p>
+ *             <p>Only one of <code>BudgetLimit</code> or <code>PlannedBudgetLimits</code> can be present in
+ *             the syntax at one time. Use the syntax that matches your use case. The Request Syntax
+ *             section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>,
+ *             see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_CreateBudget.html#API_CreateBudget_Examples">Examples</a> section.</p>
+ *             <p>Similarly, only one set of filter and metric selections can be present in the syntax
+ *             at one time. Either <code>FilterExpression</code> and <code>Metrics</code> or
+ *                <code>CostFilters</code> and <code>CostTypes</code>, not both or a different
+ *             combination. We recommend using <code>FilterExpression</code> and <code>Metrics</code>
+ *             as they provide more flexible and powerful filtering capabilities. The Request Syntax
+ *             section shows the <code>FilterExpression</code>/<code>Metrics</code> syntax.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +104,76 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  *       },
  *       LastAutoAdjustTime: new Date("TIMESTAMP"),
  *     },
+ *     FilterExpression: { // Expression
+ *       Or: [ // Expressions
+ *         {
+ *           Or: [
+ *             "<Expression>",
+ *           ],
+ *           And: [
+ *             "<Expression>",
+ *           ],
+ *           Not: "<Expression>",
+ *           Dimensions: { // ExpressionDimensionValues
+ *             Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "INVOICING_ENTITY" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "RESERVATION_MODIFIED" || "TAG_KEY" || "COST_CATEGORY_NAME", // required
+ *             Values: [ // Values // required
+ *               "STRING_VALUE",
+ *             ],
+ *             MatchOptions: [ // MatchOptions
+ *               "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ *             ],
+ *           },
+ *           Tags: { // TagValues
+ *             Key: "STRING_VALUE",
+ *             Values: [
+ *               "STRING_VALUE",
+ *             ],
+ *             MatchOptions: [
+ *               "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ *             ],
+ *           },
+ *           CostCategories: { // CostCategoryValues
+ *             Key: "STRING_VALUE",
+ *             Values: [
+ *               "STRING_VALUE",
+ *             ],
+ *             MatchOptions: [
+ *               "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *       And: [
+ *         "<Expression>",
+ *       ],
+ *       Not: "<Expression>",
+ *       Dimensions: {
+ *         Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "INVOICING_ENTITY" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "RESERVATION_MODIFIED" || "TAG_KEY" || "COST_CATEGORY_NAME", // required
+ *         Values: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         MatchOptions: [
+ *           "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ *         ],
+ *       },
+ *       Tags: {
+ *         Key: "STRING_VALUE",
+ *         Values: [
+ *           "STRING_VALUE",
+ *         ],
+ *         MatchOptions: [
+ *           "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ *         ],
+ *       },
+ *       CostCategories: {
+ *         Key: "STRING_VALUE",
+ *         Values: "<Values>",
+ *         MatchOptions: "<MatchOptions>",
+ *       },
+ *     },
+ *     Metrics: [ // Metrics
+ *       "BlendedCost" || "UnblendedCost" || "AmortizedCost" || "NetUnblendedCost" || "NetAmortizedCost" || "UsageQuantity" || "NormalizedUsageAmount" || "Hours",
+ *     ],
  *   },
  *   NotificationsWithSubscribers: [ // NotificationWithSubscribersList
  *     { // NotificationWithSubscribers

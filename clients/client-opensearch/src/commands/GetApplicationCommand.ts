@@ -28,7 +28,7 @@ export interface GetApplicationCommandInput extends GetApplicationRequest {}
 export interface GetApplicationCommandOutput extends GetApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Check the configuration and status of an existing OpenSearch Application.</p>
+ * <p>Retrieves the configuration and status of an existing OpenSearch application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

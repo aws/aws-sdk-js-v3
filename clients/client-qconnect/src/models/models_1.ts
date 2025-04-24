@@ -47,6 +47,17 @@ import {
 import { QConnectServiceException as __BaseException } from "./QConnectServiceException";
 
 /**
+ * @public
+ */
+export interface CreateMessageTemplateVersionResponse {
+  /**
+   * <p>The message template.</p>
+   * @public
+   */
+  messageTemplate?: ExtendedMessageTemplateData | undefined;
+}
+
+/**
  * <p>The container of quick response data.</p>
  * @public
  */
@@ -2806,6 +2817,7 @@ export interface UntagResourceResponse {}
  */
 export type DataDetails =
   | DataDetails.ContentDataMember
+  | DataDetails.GenerativeChunkDataMember
   | DataDetails.GenerativeDataMember
   | DataDetails.IntentDetectedDataMember
   | DataDetails.SourceContentDataMember
@@ -2824,6 +2836,7 @@ export namespace DataDetails {
     generativeData?: never;
     intentDetectedData?: never;
     sourceContentData?: never;
+    generativeChunkData?: never;
     $unknown?: never;
   }
 
@@ -2836,6 +2849,7 @@ export namespace DataDetails {
     generativeData: GenerativeDataDetails;
     intentDetectedData?: never;
     sourceContentData?: never;
+    generativeChunkData?: never;
     $unknown?: never;
   }
 
@@ -2848,6 +2862,7 @@ export namespace DataDetails {
     generativeData?: never;
     intentDetectedData: IntentDetectedDataDetails;
     sourceContentData?: never;
+    generativeChunkData?: never;
     $unknown?: never;
   }
 
@@ -2860,6 +2875,20 @@ export namespace DataDetails {
     generativeData?: never;
     intentDetectedData?: never;
     sourceContentData: SourceContentDataDetails;
+    generativeChunkData?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about the generative chunk data.</p>
+   * @public
+   */
+  export interface GenerativeChunkDataMember {
+    contentData?: never;
+    generativeData?: never;
+    intentDetectedData?: never;
+    sourceContentData?: never;
+    generativeChunkData: GenerativeChunkDataDetails;
     $unknown?: never;
   }
 
@@ -2871,6 +2900,7 @@ export namespace DataDetails {
     generativeData?: never;
     intentDetectedData?: never;
     sourceContentData?: never;
+    generativeChunkData?: never;
     $unknown: [string, any];
   }
 
@@ -2879,6 +2909,7 @@ export namespace DataDetails {
     generativeData: (value: GenerativeDataDetails) => T;
     intentDetectedData: (value: IntentDetectedDataDetails) => T;
     sourceContentData: (value: SourceContentDataDetails) => T;
+    generativeChunkData: (value: GenerativeChunkDataDetails) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2887,6 +2918,7 @@ export namespace DataDetails {
     if (value.generativeData !== undefined) return visitor.generativeData(value.generativeData);
     if (value.intentDetectedData !== undefined) return visitor.intentDetectedData(value.intentDetectedData);
     if (value.sourceContentData !== undefined) return visitor.sourceContentData(value.sourceContentData);
+    if (value.generativeChunkData !== undefined) return visitor.generativeChunkData(value.generativeChunkData);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2907,6 +2939,31 @@ export interface DataSummary {
    * @public
    */
   details: DataDetails | undefined;
+}
+
+/**
+ * <p>Details about the generative chunk data.</p>
+ * @public
+ */
+export interface GenerativeChunkDataDetails {
+  /**
+   * <p>A chunk of the LLM response.</p>
+   * @public
+   */
+  completion?: string | undefined;
+
+  /**
+   * <p>The references used to generate the LLM response.</p>
+   * @public
+   */
+  references?: DataSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of chunks. Use the value returned in the previous response in
+   *       the next request to retrieve the next set of chunks.</p>
+   * @public
+   */
+  nextChunkToken?: string | undefined;
 }
 
 /**
@@ -3044,6 +3101,16 @@ export interface QueryAssistantResponse {
    */
   nextToken?: string | undefined;
 }
+
+/**
+ * @internal
+ */
+export const CreateMessageTemplateVersionResponseFilterSensitiveLog = (
+  obj: CreateMessageTemplateVersionResponse
+): any => ({
+  ...obj,
+  ...(obj.messageTemplate && { messageTemplate: ExtendedMessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
+});
 
 /**
  * @internal
@@ -3348,6 +3415,8 @@ export const DataDetailsFilterSensitiveLog = (obj: DataDetails): any => {
     return { intentDetectedData: IntentDetectedDataDetailsFilterSensitiveLog(obj.intentDetectedData) };
   if (obj.sourceContentData !== undefined)
     return { sourceContentData: SourceContentDataDetailsFilterSensitiveLog(obj.sourceContentData) };
+  if (obj.generativeChunkData !== undefined)
+    return { generativeChunkData: GenerativeChunkDataDetailsFilterSensitiveLog(obj.generativeChunkData) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -3358,6 +3427,15 @@ export const DataSummaryFilterSensitiveLog = (obj: DataSummary): any => ({
   ...obj,
   ...(obj.reference && { reference: obj.reference }),
   ...(obj.details && { details: DataDetailsFilterSensitiveLog(obj.details) }),
+});
+
+/**
+ * @internal
+ */
+export const GenerativeChunkDataDetailsFilterSensitiveLog = (obj: GenerativeChunkDataDetails): any => ({
+  ...obj,
+  ...(obj.completion && { completion: SENSITIVE_STRING }),
+  ...(obj.references && { references: obj.references.map((item) => DataSummaryFilterSensitiveLog(item)) }),
 });
 
 /**

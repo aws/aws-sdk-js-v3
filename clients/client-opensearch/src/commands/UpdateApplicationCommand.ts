@@ -28,7 +28,7 @@ export interface UpdateApplicationCommandInput extends UpdateApplicationRequest 
 export interface UpdateApplicationCommandOutput extends UpdateApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Update the OpenSearch Application. </p>
+ * <p>Updates the configuration and settings of an existing OpenSearch application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -94,6 +94,21 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResult, __MetadataB
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
  *
+ * @example To delete a group
+ * ```javascript
+ * // The following command deletes the marketing group from the specified directory.
+ * const input = {
+ *   ClientToken: "550e8400-e29b-41d4-a716-446655440000",
+ *   DirectoryId: "d-12233abcde",
+ *   SAMAccountName: "marketing"
+ * };
+ * const command = new DeleteGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteGroupCommand extends $Command

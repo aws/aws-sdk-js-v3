@@ -24,6 +24,11 @@ import {
   DeleteTableBucketCommandOutput,
 } from "./commands/DeleteTableBucketCommand";
 import {
+  DeleteTableBucketEncryptionCommand,
+  DeleteTableBucketEncryptionCommandInput,
+  DeleteTableBucketEncryptionCommandOutput,
+} from "./commands/DeleteTableBucketEncryptionCommand";
+import {
   DeleteTableBucketPolicyCommand,
   DeleteTableBucketPolicyCommandInput,
   DeleteTableBucketPolicyCommandOutput,
@@ -45,6 +50,11 @@ import {
   GetTableBucketCommandOutput,
 } from "./commands/GetTableBucketCommand";
 import {
+  GetTableBucketEncryptionCommand,
+  GetTableBucketEncryptionCommandInput,
+  GetTableBucketEncryptionCommandOutput,
+} from "./commands/GetTableBucketEncryptionCommand";
+import {
   GetTableBucketMaintenanceConfigurationCommand,
   GetTableBucketMaintenanceConfigurationCommandInput,
   GetTableBucketMaintenanceConfigurationCommandOutput,
@@ -55,6 +65,11 @@ import {
   GetTableBucketPolicyCommandOutput,
 } from "./commands/GetTableBucketPolicyCommand";
 import { GetTableCommand, GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
+import {
+  GetTableEncryptionCommand,
+  GetTableEncryptionCommandInput,
+  GetTableEncryptionCommandOutput,
+} from "./commands/GetTableEncryptionCommand";
 import {
   GetTableMaintenanceConfigurationCommand,
   GetTableMaintenanceConfigurationCommandInput,
@@ -86,6 +101,11 @@ import {
   ListTableBucketsCommandOutput,
 } from "./commands/ListTableBucketsCommand";
 import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
+import {
+  PutTableBucketEncryptionCommand,
+  PutTableBucketEncryptionCommandInput,
+  PutTableBucketEncryptionCommandOutput,
+} from "./commands/PutTableBucketEncryptionCommand";
 import {
   PutTableBucketMaintenanceConfigurationCommand,
   PutTableBucketMaintenanceConfigurationCommandInput,
@@ -121,13 +141,16 @@ const commands = {
   DeleteNamespaceCommand,
   DeleteTableCommand,
   DeleteTableBucketCommand,
+  DeleteTableBucketEncryptionCommand,
   DeleteTableBucketPolicyCommand,
   DeleteTablePolicyCommand,
   GetNamespaceCommand,
   GetTableCommand,
   GetTableBucketCommand,
+  GetTableBucketEncryptionCommand,
   GetTableBucketMaintenanceConfigurationCommand,
   GetTableBucketPolicyCommand,
+  GetTableEncryptionCommand,
   GetTableMaintenanceConfigurationCommand,
   GetTableMaintenanceJobStatusCommand,
   GetTableMetadataLocationCommand,
@@ -135,6 +158,7 @@ const commands = {
   ListNamespacesCommand,
   ListTableBucketsCommand,
   ListTablesCommand,
+  PutTableBucketEncryptionCommand,
   PutTableBucketMaintenanceConfigurationCommand,
   PutTableBucketPolicyCommand,
   PutTableMaintenanceConfigurationCommand,
@@ -229,6 +253,23 @@ export interface S3Tables {
   ): void;
 
   /**
+   * @see {@link DeleteTableBucketEncryptionCommand}
+   */
+  deleteTableBucketEncryption(
+    args: DeleteTableBucketEncryptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTableBucketEncryptionCommandOutput>;
+  deleteTableBucketEncryption(
+    args: DeleteTableBucketEncryptionCommandInput,
+    cb: (err: any, data?: DeleteTableBucketEncryptionCommandOutput) => void
+  ): void;
+  deleteTableBucketEncryption(
+    args: DeleteTableBucketEncryptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTableBucketEncryptionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteTableBucketPolicyCommand}
    */
   deleteTableBucketPolicy(
@@ -299,6 +340,23 @@ export interface S3Tables {
   ): void;
 
   /**
+   * @see {@link GetTableBucketEncryptionCommand}
+   */
+  getTableBucketEncryption(
+    args: GetTableBucketEncryptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableBucketEncryptionCommandOutput>;
+  getTableBucketEncryption(
+    args: GetTableBucketEncryptionCommandInput,
+    cb: (err: any, data?: GetTableBucketEncryptionCommandOutput) => void
+  ): void;
+  getTableBucketEncryption(
+    args: GetTableBucketEncryptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTableBucketEncryptionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTableBucketMaintenanceConfigurationCommand}
    */
   getTableBucketMaintenanceConfiguration(
@@ -330,6 +388,23 @@ export interface S3Tables {
     args: GetTableBucketPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTableBucketPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTableEncryptionCommand}
+   */
+  getTableEncryption(
+    args: GetTableEncryptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableEncryptionCommandOutput>;
+  getTableEncryption(
+    args: GetTableEncryptionCommandInput,
+    cb: (err: any, data?: GetTableEncryptionCommandOutput) => void
+  ): void;
+  getTableEncryption(
+    args: GetTableEncryptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTableEncryptionCommandOutput) => void
   ): void;
 
   /**
@@ -441,6 +516,23 @@ export interface S3Tables {
   ): void;
 
   /**
+   * @see {@link PutTableBucketEncryptionCommand}
+   */
+  putTableBucketEncryption(
+    args: PutTableBucketEncryptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutTableBucketEncryptionCommandOutput>;
+  putTableBucketEncryption(
+    args: PutTableBucketEncryptionCommandInput,
+    cb: (err: any, data?: PutTableBucketEncryptionCommandOutput) => void
+  ): void;
+  putTableBucketEncryption(
+    args: PutTableBucketEncryptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutTableBucketEncryptionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutTableBucketMaintenanceConfigurationCommand}
    */
   putTableBucketMaintenanceConfiguration(
@@ -535,7 +627,7 @@ export interface S3Tables {
 }
 
 /**
- * <p>An Amazon S3 table represents a structured dataset consisting of tabular data in <a href="https://parquet.apache.org/docs/">Apache Parquet</a> format and related metadata. This data is stored inside an S3 table as a subresource. All tables in a table bucket are stored in the <a href="https://iceberg.apache.org/docs/latest/">Apache Iceberg</a> table format. Through integration with the <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html">AWS Glue Data Catalog</a> you can interact with your tables using AWS analytics services, such as <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/athena/">Amazon Athena</a> and <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/redshift/">Amazon Redshift</a>. Amazon S3 manages maintenance of your tables through automatic file compaction and snapshot management. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html">Amazon S3 table buckets</a>.</p>
+ * <p>An Amazon S3 table represents a structured dataset consisting of tabular data in <a href="https://parquet.apache.org/docs/">Apache Parquet</a> format and related metadata. This data is stored inside an S3 table as a subresource. All tables in a table bucket are stored in the <a href="https://iceberg.apache.org/docs/latest/">Apache Iceberg</a> table format. Through integration with the <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html">Amazon Web Services Glue Data Catalog</a> you can interact with your tables using Amazon Web Services analytics services, such as <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/athena/">Amazon Athena</a> and <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/redshift/">Amazon Redshift</a>. Amazon S3 manages maintenance of your tables through automatic file compaction and snapshot management. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html">Amazon S3 table buckets</a>.</p>
  * @public
  */
 export class S3Tables extends S3TablesClient implements S3Tables {}

@@ -245,6 +245,14 @@ DeleteBroker
 </details>
 <details>
 <summary>
+DeleteConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mq/command/DeleteConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mq/Interface/DeleteConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mq/Interface/DeleteConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteTags
 </summary>
 

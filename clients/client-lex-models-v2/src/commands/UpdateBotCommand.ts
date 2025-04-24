@@ -54,6 +54,9 @@ export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBea
  *       botMemberVersion: "STRING_VALUE", // required
  *     },
  *   ],
+ *   errorLogSettings: { // ErrorLogSettings
+ *     enabled: true || false, // required
+ *   },
  * };
  * const command = new UpdateBotCommand(input);
  * const response = await client.send(command);
@@ -79,6 +82,9 @@ export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBea
  * //       botMemberVersion: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   errorLogSettings: { // ErrorLogSettings
+ * //     enabled: true || false, // required
+ * //   },
  * // };
  *
  * ```

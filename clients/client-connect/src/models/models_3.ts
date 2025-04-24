@@ -18,6 +18,8 @@ import {
   EvaluationFormScoringStrategy,
   InitiateAs,
   MediaConcurrency,
+  OutboundEmailConfig,
+  QuickConnectConfig,
   Reference,
   RoutingProfileQueueConfig,
   RuleAction,
@@ -54,6 +56,7 @@ import {
   Expiry,
   QualityMetrics,
   QueueInfo,
+  QueueStatus,
   RoutingCriteriaStepStatus,
   SignInConfig,
   TelephonyConfig,
@@ -89,6 +92,104 @@ import {
   UserHierarchyGroupSearchFilter,
   UserSearchFilter,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface UpdateQueueOutboundEmailConfigRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   * @public
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The outbound email address ID for a specified queue.</p>
+   * @public
+   */
+  OutboundEmailConfig: OutboundEmailConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQueueStatusRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   * @public
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The status of the queue.</p>
+   * @public
+   */
+  Status: QueueStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQuickConnectConfigRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the quick connect.</p>
+   * @public
+   */
+  QuickConnectId: string | undefined;
+
+  /**
+   * <p>Information about the configuration settings for the quick connect.</p>
+   * @public
+   */
+  QuickConnectConfig: QuickConnectConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQuickConnectNameRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the quick connect.</p>
+   * @public
+   */
+  QuickConnectId: string | undefined;
+
+  /**
+   * <p>The name of the quick connect.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the quick connect.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
 
 /**
  * @public
@@ -1078,8 +1179,7 @@ export interface CreateContactRequest {
   ClientToken?: string | undefined;
 
   /**
-   * <p>The unique identifier for an Amazon Connect contact. This identifier is related to the
-   *    contact starting.</p>
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
    * @public
    */
   RelatedContactId?: string | undefined;
@@ -1103,7 +1203,7 @@ export interface CreateContactRequest {
   /**
    * <p>The channel for the contact</p>
    *          <important>
-   *             <p>CreateContact only supports the EMAIL channel. The following information that states other
+   *             <p>CreateContact only supports the EMAIL and VOICE channels. The following information that states other
    *     channels are supported is incorrect. We are working to update this topic.</p>
    *          </important>
    * @public
@@ -1113,8 +1213,17 @@ export interface CreateContactRequest {
   /**
    * <p>Indicates how the contact was initiated. </p>
    *          <important>
-   *             <p>CreateContact only supports the following initiation methods: OUTBOUND, AGENT_REPLY, and
-   *     FLOW. The following information that states other initiation methods are supported is incorrect.
+   *             <p>CreateContact only supports the following initiation methods: </p>
+   *             <ul>
+   *                <li>
+   *                   <p>For EMAIL: OUTBOUND, AGENT_REPLY, and
+   *      FLOW. </p>
+   *                </li>
+   *                <li>
+   *                   <p>For VOICE: TRANSFER and the subtype connect:ExternalAudio. </p>
+   *                </li>
+   *             </ul>
+   *             <p>The following information that states other initiation methods are supported is incorrect.
    *     We are working to update this topic.</p>
    *          </important>
    * @public
@@ -1170,8 +1279,7 @@ export interface CreateContactRequest {
   /**
    * <p>The ID of the previous contact when creating a transfer contact. This value can be provided
    *    only for external audio contacts. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html">Integrate Amazon Connect Contact Lens
-   *     with external voice systems</a> in the <i>Amazon Connect Administrator
-   *     Guide</i>.</p>
+   *     with external voice systems</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    * @public
    */
   PreviousContactId?: string | undefined;

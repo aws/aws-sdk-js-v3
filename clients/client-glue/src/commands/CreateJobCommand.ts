@@ -59,7 +59,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *     "<keys>": "STRING_VALUE",
  *   },
  *   Connections: { // ConnectionsList
- *     Connections: [ // OrchestrationStringList
+ *     Connections: [ // ConnectionStringList
  *       "STRING_VALUE",
  *     ],
  *   },

@@ -166,6 +166,10 @@ import {
 } from "./commands/RegisterTaskDefinitionCommand";
 import { RunTaskCommandInput, RunTaskCommandOutput } from "./commands/RunTaskCommand";
 import { StartTaskCommandInput, StartTaskCommandOutput } from "./commands/StartTaskCommand";
+import {
+  StopServiceDeploymentCommandInput,
+  StopServiceDeploymentCommandOutput,
+} from "./commands/StopServiceDeploymentCommand";
 import { StopTaskCommandInput, StopTaskCommandOutput } from "./commands/StopTaskCommand";
 import {
   SubmitAttachmentStateChangesCommandInput,
@@ -267,6 +271,7 @@ export type ServiceInputTypes =
   | RegisterTaskDefinitionCommandInput
   | RunTaskCommandInput
   | StartTaskCommandInput
+  | StopServiceDeploymentCommandInput
   | StopTaskCommandInput
   | SubmitAttachmentStateChangesCommandInput
   | SubmitContainerStateChangeCommandInput
@@ -331,6 +336,7 @@ export type ServiceOutputTypes =
   | RegisterTaskDefinitionCommandOutput
   | RunTaskCommandOutput
   | StartTaskCommandOutput
+  | StopServiceDeploymentCommandOutput
   | StopTaskCommandOutput
   | SubmitAttachmentStateChangesCommandOutput
   | SubmitContainerStateChangeCommandOutput

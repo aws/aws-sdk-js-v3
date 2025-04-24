@@ -49,6 +49,14 @@ export interface CreateIngressPointCommandOutput extends CreateIngressPointRespo
  *     SmtpPassword: "STRING_VALUE",
  *     SecretArn: "STRING_VALUE",
  *   },
+ *   NetworkConfiguration: { // NetworkConfiguration Union: only one key present
+ *     PublicNetworkConfiguration: { // PublicNetworkConfiguration
+ *       IpType: "IPV4" || "DUAL_STACK", // required
+ *     },
+ *     PrivateNetworkConfiguration: { // PrivateNetworkConfiguration
+ *       VpcEndpointId: "STRING_VALUE", // required
+ *     },
+ *   },
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required

@@ -28,13 +28,7 @@ export interface CreateUserCommandInput extends CreateUserRequest {}
 export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a user and associates them with an existing file transfer protocol-enabled server.
- *       You can only create and associate users with servers that have the
- *         <code>IdentityProviderType</code> set to <code>SERVICE_MANAGED</code>. Using parameters for
- *         <code>CreateUser</code>, you can specify the user name, set the home directory, store the
- *       user's public key, and assign the user's Identity and Access Management (IAM)
- *       role. You can also optionally add a session policy, and assign metadata with tags that can
- *       be used to group and search for users.</p>
+ * <p>Creates a user and associates them with an existing file transfer protocol-enabled server. You can only create and associate users with servers that have the <code>IdentityProviderType</code> set to <code>SERVICE_MANAGED</code>. Using parameters for <code>CreateUser</code>, you can specify the user name, set the home directory, store the user's public key, and assign the user's Identity and Access Management (IAM) role. You can also optionally add a session policy, and assign metadata with tags that can be used to group and search for users.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,8 +89,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *  <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>

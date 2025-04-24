@@ -4,6 +4,7 @@ export * from "./CreateConfigurationCommand";
 export * from "./CreateTagsCommand";
 export * from "./CreateUserCommand";
 export * from "./DeleteBrokerCommand";
+export * from "./DeleteConfigurationCommand";
 export * from "./DeleteTagsCommand";
 export * from "./DeleteUserCommand";
 export * from "./DescribeBrokerCommand";

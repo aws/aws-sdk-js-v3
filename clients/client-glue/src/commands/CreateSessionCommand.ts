@@ -49,7 +49,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  *     "<keys>": "STRING_VALUE",
  *   },
  *   Connections: { // ConnectionsList
- *     Connections: [ // OrchestrationStringList
+ *     Connections: [ // ConnectionStringList
  *       "STRING_VALUE",
  *     ],
  *   },
@@ -81,7 +81,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     Connections: { // ConnectionsList
- * //       Connections: [ // OrchestrationStringList
+ * //       Connections: [ // ConnectionStringList
  * //         "STRING_VALUE",
  * //       ],
  * //     },

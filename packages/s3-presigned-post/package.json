@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/s3-presigned-post",
-  "version": "3.779.0",
+  "version": "3.787.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline s3-presigned-post",
@@ -28,7 +28,7 @@
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
     "@smithy/middleware-endpoint": "^4.1.0",
-    "@smithy/signature-v4": "^5.0.2",
+    "@smithy/signature-v4": "^5.1.0",
     "@smithy/types": "^4.2.0",
     "@smithy/util-hex-encoding": "^4.0.0",
     "@smithy/util-utf8": "^4.0.0",

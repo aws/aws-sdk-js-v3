@@ -126,6 +126,44 @@ export interface SearchUsersCommandOutput extends SearchUsersResult, __MetadataB
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
  *
+ * @example To search for users
+ * ```javascript
+ * // The following command searches for users in the domain based on the SearchAttributes.
+ * const input = {
+ *   DirectoryId: "d-12233abcde",
+ *   Realm: "examplecorp.com",
+ *   SearchAttributes: [
+ *     "department"
+ *   ],
+ *   SearchString: "DevOps"
+ * };
+ * const command = new SearchUsersCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DirectoryId: "d-12233abcde",
+ *   NextToken: "223456",
+ *   Users: [
+ *     {
+ *       EmailAddress: "twhitlock@examplecorp.com",
+ *       SAMAccountName: "twhitlock",
+ *       SID: "S-1-5-11-111"
+ *     },
+ *     {
+ *       EmailAddress: "pcandella@examplecorp.com",
+ *       SAMAccountName: "pcandella",
+ *       SID: "S-1-5-11-112"
+ *     },
+ *     {
+ *       EmailAddress: "jstiles@examplecorp.com",
+ *       SAMAccountName: "jstiles",
+ *       SID: "S-1-5-11-113"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class SearchUsersCommand extends $Command

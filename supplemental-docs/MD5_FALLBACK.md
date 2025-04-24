@@ -6,9 +6,9 @@ In AWS SDK for JavaScript [v3.729.0](https://github.com/aws/aws-sdk-js-v3/releas
 shipped a feature that [changed default object integrity in S3](https://github.com/aws/aws-sdk-js-v3/issues/6810).
 The SDKs now default to using more modern checksums (like CRC32) to ensure object integrity, whereas
 previously MD5 checksums were being used. Some third-party S3-compatible services currently do not
-support these checksums and require MD5 checksums. Furthermore, the [DeleteObjects operation in S3
-requires a Content-MD5 request header](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjects.html)
-in which case too, you should use the MD5 fallback as noted below.
+support these checksums. To our knowledge, [`DeleteObjects` operation in S3
+is the only affected operation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjects.html).
+
 If you wish to fallback to the old behavior of sending MD5 checksums, for operations like
 `DeleteObjectsCommand` this is how you can do it in AWS SDK for JavaScript v3:
 
@@ -27,43 +27,44 @@ import { createHash } from "crypto";
  */
 export function createS3ClientWithMD5() {
   const client = new S3Client({});
-  const md5Hash = createHash("md5");
 
-  client.middlewareStack.add(
-    (next, context) => async (args) => {
-      // Check if this is a DeleteObjects command
-      const isDeleteObjects = context.commandName === "DeleteObjectsCommand";
+  // Define the middleware function
+  const md5Middleware = (next, context) => async (args) => {
+    // Check if this is a DeleteObjects command
+    const isDeleteObjects = context.commandName === "DeleteObjectsCommand";
 
-      if (!isDeleteObjects) {
-        return next(args);
-      }
-
-      const result = await next(args);
-      const headers = args.request.headers;
-
-      // Remove any checksum headers
-      Object.keys(headers).forEach((header) => {
-        if (
-          header.toLowerCase().startsWith("x-amz-checksum-") ||
-          header.toLowerCase().startsWith("x-amz-sdk-checksum-")
-        ) {
-          delete headers[header];
-        }
-      });
-
-      // Add MD5
-      if (args.request.body) {
-        const bodyContent = Buffer.from(args.request.body);
-        headers["Content-MD5"] = md5Hash.update(bodyContent).digest("base64");
-      }
-
-      return result;
-    },
-    {
-      step: "finalizeRequest",
-      name: "addMD5Checksum",
+    if (!isDeleteObjects) {
+      return next(args);
     }
-  );
+
+    const headers = args.request.headers;
+
+    // Remove any checksum headers added by default middleware
+    // This ensures our Content-MD5 is the primary integrity check
+    Object.keys(headers).forEach((header) => {
+      const lowerHeader = header.toLowerCase();
+      if (lowerHeader.startsWith("x-amz-checksum-") || lowerHeader.startsWith("x-amz-sdk-checksum-")) {
+        delete headers[header];
+      }
+    });
+
+    // Add Content-MD5 header
+    if (args.request.body) {
+      const bodyContent = Buffer.from(args.request.body);
+      headers["Content-MD5"] = createHash("md5").update(bodyContent).digest("base64");
+    }
+
+    return await next(args);
+  };
+
+  // Add the middleware relative to the flexible checksums middleware
+  // This ensures it runs after default checksums might be added, but before signing
+  client.middlewareStack.addRelativeTo(md5Middleware, {
+    relation: "after",
+    toMiddleware: "flexibleChecksumsMiddleware",
+    name: "addMD5ChecksumForDeleteObjects", // Optional: Name it whatever you'd like
+    tags: ["MD5_FALLBACK"],
+  });
 
   return client;
 }
@@ -98,15 +99,15 @@ try {
 
 ## How It Works
 
-The solution adds middleware to the S3 client that:
+The solution adds middleware to the S3 client's stack using `addRelativeTo`. This ensures the custom middleware executes at the correct point in the request lifecycle:
 
-1. Detects DeleteObjects operations using the command name
-2. Lets the SDK add its default headers
-3. Removes any checksum headers in the finalizeRequest step
-4. Calculates an MD5 hash of the request body
-5. Adds the MD5 hash as a Content-MD5 header
+1.  Detects `DeleteObjects` operations using the command name.
+2.  It's placed **after** the SDK's default `flexibleChecksumsMiddleware`. This allows the default middleware to potentially add its checksum headers first (usually in the `build` step).
+3.  The custom middleware then **removes** any `x-amz-checksum-*` or `x-amz-sdk-checksum-*` headers that might have been added.
+4.  It calculates an MD5 hash of the request body.
+5.  It adds the MD5 hash as a `Content-MD5` header.
 
-This sequence ensures that we properly replace the checksums with MD5 checksum.
+This sequence ensures that we reliably replace the default checksums with `Content-MD5` specifically for `DeleteObjects` operations before the request is signed and sent.
 
 ## Usage Notes
 

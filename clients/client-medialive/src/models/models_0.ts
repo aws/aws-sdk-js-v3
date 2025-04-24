@@ -3995,6 +3995,24 @@ export interface CloudWatchAlarmTemplateSummary {
 }
 
 /**
+ * Add an array item for each language. Follow the order of the caption descriptions. For example, if the first caption description is for German, then the first array item must be for German, and its caption channel must be set to 1. The second array item must be 2, and so on.
+ * @public
+ */
+export interface CmafIngestCaptionLanguageMapping {
+  /**
+   * A number for the channel for this caption, 1 to 4.
+   * @public
+   */
+  CaptionChannel: number | undefined;
+
+  /**
+   * Language code for the language of the caption in this channel.  For example, ger/deu. See http://www.loc.gov/standards/iso639-2
+   * @public
+   */
+  LanguageCode: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -4388,6 +4406,30 @@ export const NodeRole = {
 export type NodeRole = (typeof NodeRole)[keyof typeof NodeRole];
 
 /**
+ * Used in DescribeNodeSummary, DescribeNodeResult.
+ * @public
+ */
+export interface SdiSourceMapping {
+  /**
+   * A number that uniquely identifies the SDI card on the node hardware.
+   * @public
+   */
+  CardNumber?: number | undefined;
+
+  /**
+   * A number that uniquely identifies a port on the SDI card.
+   * @public
+   */
+  ChannelNumber?: number | undefined;
+
+  /**
+   * The ID of the SdiSource to associate with this port on this card. You can use the ListSdiSources operation to discover all the IDs.
+   * @public
+   */
+  SdiSource?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -4481,6 +4523,12 @@ export interface DescribeNodeSummary {
    * @public
    */
   State?: NodeState | undefined;
+
+  /**
+   * An array of SDI source mappings. Each mapping connects one logical SdiSource to the physical SDI card and port that the physical SDI source uses.
+   * @public
+   */
+  SdiSourceMappings?: SdiSourceMapping[] | undefined;
 }
 
 /**
@@ -4834,6 +4882,73 @@ export interface MulticastSettings {
 }
 
 /**
+ * The location of the SDP file for one of the SMPTE 2110 streams in a receiver group.
+ * @public
+ */
+export interface InputSdpLocation {
+  /**
+   * The index of the media stream in the SDP file for one SMPTE 2110 stream.
+   * @public
+   */
+  MediaIndex?: number | undefined;
+
+  /**
+   * The URL of the SDP file for one SMPTE 2110 stream.
+   * @public
+   */
+  SdpUrl?: string | undefined;
+}
+
+/**
+ * Information about the SDP files that describe the SMPTE 2110 streams that go into one SMPTE 2110 receiver group.
+ * @public
+ */
+export interface Smpte2110ReceiverGroupSdpSettings {
+  /**
+   * A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one ancillary SMPTE 2110 stream.
+   * Each stream encapsulates one captions stream (out of any number you can include) or the single SCTE 35 stream that you can include.
+   * @public
+   */
+  AncillarySdps?: InputSdpLocation[] | undefined;
+
+  /**
+   * A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one audio SMPTE 2110 stream.
+   * @public
+   */
+  AudioSdps?: InputSdpLocation[] | undefined;
+
+  /**
+   * The InputSdpLocation that specifies the SDP file and index for the single video SMPTE 2110 stream for this 2110 input.
+   * @public
+   */
+  VideoSdp?: InputSdpLocation | undefined;
+}
+
+/**
+ * A receiver group is a collection of video, audio, and ancillary streams that you want to group together and attach to one input.
+ * @public
+ */
+export interface Smpte2110ReceiverGroup {
+  /**
+   * The single Smpte2110ReceiverGroupSdpSettings that identify the video, audio, and ancillary streams for this receiver group.
+   * @public
+   */
+  SdpSettings?: Smpte2110ReceiverGroupSdpSettings | undefined;
+}
+
+/**
+ * Configures the sources for the SMPTE 2110 Receiver Group input.
+ * @public
+ */
+export interface Smpte2110ReceiverGroupSettings {
+  /**
+   * Placeholder documentation for __listOfSmpte2110ReceiverGroup
+   * @public
+   */
+  Smpte2110ReceiverGroups?: Smpte2110ReceiverGroup[] | undefined;
+}
+
+/**
  * The settings for a PULL type input.
  * @public
  */
@@ -4969,6 +5084,8 @@ export const InputType = {
   RTMP_PULL: "RTMP_PULL",
   RTMP_PUSH: "RTMP_PUSH",
   RTP_PUSH: "RTP_PUSH",
+  SDI: "SDI",
+  SMPTE_2110_RECEIVER_GROUP: "SMPTE_2110_RECEIVER_GROUP",
   SRT_CALLER: "SRT_CALLER",
   TS_FILE: "TS_FILE",
   UDP_PUSH: "UDP_PUSH",
@@ -5101,6 +5218,18 @@ export interface Input {
    * @public
    */
   MulticastSettings?: MulticastSettings | undefined;
+
+  /**
+   * Include this parameter if the input is a SMPTE 2110 input, to identify the stream sources for this input.
+   * @public
+   */
+  Smpte2110ReceiverGroupSettings?: Smpte2110ReceiverGroupSettings | undefined;
+
+  /**
+   * SDI Sources for this Input.
+   * @public
+   */
+  SdiSources?: string[] | undefined;
 }
 
 /**
@@ -5603,6 +5732,12 @@ export interface InputDeviceUhdSettings {
    * @public
    */
   AudioChannelPairs?: InputDeviceUhdAudioChannelPairConfig[] | undefined;
+
+  /**
+   * The resolution of the Link device's source (HD or UHD). This value determines MediaLive resource allocation and billing for this input.
+   * @public
+   */
+  InputResolution?: string | undefined;
 }
 
 /**
@@ -6704,377 +6839,3 @@ export const M2tsSegmentationMarkers = {
  * @public
  */
 export type M2tsSegmentationMarkers = (typeof M2tsSegmentationMarkers)[keyof typeof M2tsSegmentationMarkers];
-
-/**
- * @public
- * @enum
- */
-export const M2tsSegmentationStyle = {
-  MAINTAIN_CADENCE: "MAINTAIN_CADENCE",
-  RESET_CADENCE: "RESET_CADENCE",
-} as const;
-
-/**
- * @public
- */
-export type M2tsSegmentationStyle = (typeof M2tsSegmentationStyle)[keyof typeof M2tsSegmentationStyle];
-
-/**
- * @public
- * @enum
- */
-export const M2tsTimedMetadataBehavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type M2tsTimedMetadataBehavior = (typeof M2tsTimedMetadataBehavior)[keyof typeof M2tsTimedMetadataBehavior];
-
-/**
- * M2ts Settings
- * @public
- */
-export interface M2tsSettings {
-  /**
-   * When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
-   * @public
-   */
-  AbsentInputAudioBehavior?: M2tsAbsentInputAudioBehavior | undefined;
-
-  /**
-   * When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
-   * @public
-   */
-  Arib?: M2tsArib | undefined;
-
-  /**
-   * Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  AribCaptionsPid?: string | undefined;
-
-  /**
-   * If set to auto, pid number used for ARIB Captions will be auto-selected from unused pids.  If set to useConfigured, ARIB Captions will be on the configured pid number.
-   * @public
-   */
-  AribCaptionsPidControl?: M2tsAribCaptionsPidControl | undefined;
-
-  /**
-   * When set to dvb, uses DVB buffer model for Dolby Digital audio.  When set to atsc, the ATSC model is used.
-   * @public
-   */
-  AudioBufferModel?: M2tsAudioBufferModel | undefined;
-
-  /**
-   * The number of audio frames to insert for each PES packet.
-   * @public
-   */
-  AudioFramesPerPes?: number | undefined;
-
-  /**
-   * Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values. Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  AudioPids?: string | undefined;
-
-  /**
-   * When set to atsc, uses stream type = 0x81 for AC3 and stream type = 0x87 for EAC3. When set to dvb, uses stream type = 0x06.
-   * @public
-   */
-  AudioStreamType?: M2tsAudioStreamType | undefined;
-
-  /**
-   * The output bitrate of the transport stream in bits per second. Setting to 0 lets the muxer automatically determine the appropriate bitrate.
-   * @public
-   */
-  Bitrate?: number | undefined;
-
-  /**
-   * Controls the timing accuracy for output network traffic. Leave as MULTIPLEX to ensure accurate network packet timing. Or set to NONE, which might result in lower latency but will result in more variability in output network packet timing. This variability might cause interruptions, jitter, or bursty behavior in your playback or receiving devices.
-   * @public
-   */
-  BufferModel?: M2tsBufferModel | undefined;
-
-  /**
-   * When set to enabled, generates captionServiceDescriptor in PMT.
-   * @public
-   */
-  CcDescriptor?: M2tsCcDescriptor | undefined;
-
-  /**
-   * Inserts DVB Network Information Table (NIT) at the specified table repetition interval.
-   * @public
-   */
-  DvbNitSettings?: DvbNitSettings | undefined;
-
-  /**
-   * Inserts DVB Service Description Table (SDT) at the specified table repetition interval.
-   * @public
-   */
-  DvbSdtSettings?: DvbSdtSettings | undefined;
-
-  /**
-   * Packet Identifier (PID) for input source DVB Subtitle data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  DvbSubPids?: string | undefined;
-
-  /**
-   * Inserts DVB Time and Date Table (TDT) at the specified table repetition interval.
-   * @public
-   */
-  DvbTdtSettings?: DvbTdtSettings | undefined;
-
-  /**
-   * Packet Identifier (PID) for input source DVB Teletext data to this output. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  DvbTeletextPid?: string | undefined;
-
-  /**
-   * If set to passthrough, passes any EBIF data from the input source to this output.
-   * @public
-   */
-  Ebif?: M2tsEbifControl | undefined;
-
-  /**
-   * When videoAndFixedIntervals is selected, audio EBP markers will be added to partitions 3 and 4. The interval between these additional markers will be fixed, and will be slightly shorter than the video EBP marker interval. Only available when EBP Cablelabs segmentation markers are selected.  Partitions 1 and 2 will always follow the video interval.
-   * @public
-   */
-  EbpAudioInterval?: M2tsAudioInterval | undefined;
-
-  /**
-   * When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is "stretched" to the next marker.  The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate.
-   * @public
-   */
-  EbpLookaheadMs?: number | undefined;
-
-  /**
-   * Controls placement of EBP on Audio PIDs. If set to videoAndAudioPids, EBP markers will be placed on the video PID and all audio PIDs.  If set to videoPid, EBP markers will be placed on only the video PID.
-   * @public
-   */
-  EbpPlacement?: M2tsEbpPlacement | undefined;
-
-  /**
-   * This field is unused and deprecated.
-   * @public
-   */
-  EcmPid?: string | undefined;
-
-  /**
-   * Include or exclude the ES Rate field in the PES header.
-   * @public
-   */
-  EsRateInPes?: M2tsEsRateInPes | undefined;
-
-  /**
-   * Packet Identifier (PID) for input source ETV Platform data to this output. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  EtvPlatformPid?: string | undefined;
-
-  /**
-   * Packet Identifier (PID) for input source ETV Signal data to this output. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  EtvSignalPid?: string | undefined;
-
-  /**
-   * The length in seconds of each fragment. Only used with EBP markers.
-   * @public
-   */
-  FragmentTime?: number | undefined;
-
-  /**
-   * If set to passthrough, passes any KLV data from the input source to this output.
-   * @public
-   */
-  Klv?: M2tsKlv | undefined;
-
-  /**
-   * Packet Identifier (PID) for input source KLV data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  KlvDataPids?: string | undefined;
-
-  /**
-   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
-   * @public
-   */
-  NielsenId3Behavior?: M2tsNielsenId3Behavior | undefined;
-
-  /**
-   * Value in bits per second of extra null packets to insert into the transport stream. This can be used if a downstream encryption system requires periodic null packets.
-   * @public
-   */
-  NullPacketBitrate?: number | undefined;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream.  Valid values are 0, 10..1000.
-   * @public
-   */
-  PatInterval?: number | undefined;
-
-  /**
-   * When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
-   * @public
-   */
-  PcrControl?: M2tsPcrControl | undefined;
-
-  /**
-   * Maximum time in milliseconds between Program Clock Reference (PCRs) inserted into the transport stream.
-   * @public
-   */
-  PcrPeriod?: number | undefined;
-
-  /**
-   * Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  PcrPid?: string | undefined;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream. Valid values are 0, 10..1000.
-   * @public
-   */
-  PmtInterval?: number | undefined;
-
-  /**
-   * Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  PmtPid?: string | undefined;
-
-  /**
-   * The value of the program number field in the Program Map Table.
-   * @public
-   */
-  ProgramNum?: number | undefined;
-
-  /**
-   * When vbr, does not insert null packets into transport stream to fill specified bitrate. The bitrate setting acts as the maximum bitrate when vbr is set.
-   * @public
-   */
-  RateMode?: M2tsRateMode | undefined;
-
-  /**
-   * Packet Identifier (PID) for input source SCTE-27 data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  Scte27Pids?: string | undefined;
-
-  /**
-   * Optionally pass SCTE-35 signals from the input source to this output.
-   * @public
-   */
-  Scte35Control?: M2tsScte35Control | undefined;
-
-  /**
-   * Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  Scte35Pid?: string | undefined;
-
-  /**
-   * Inserts segmentation markers at each segmentationTime period. raiSegstart sets the Random Access Indicator bit in the adaptation field. raiAdapt sets the RAI bit and adds the current timecode in the private data bytes. psiSegstart inserts PAT and PMT tables at the start of segments. ebp adds Encoder Boundary Point information to the adaptation field as per OpenCable specification OC-SP-EBP-I01-130118. ebpLegacy adds Encoder Boundary Point information to the adaptation field using a legacy proprietary format.
-   * @public
-   */
-  SegmentationMarkers?: M2tsSegmentationMarkers | undefined;
-
-  /**
-   * The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted.
-   *
-   * When a segmentation style of "resetCadence" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of $segmentationTime seconds.
-   *
-   * When a segmentation style of "maintainCadence" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentationTime seconds. Note that EBP lookahead is a slight exception to this rule.
-   * @public
-   */
-  SegmentationStyle?: M2tsSegmentationStyle | undefined;
-
-  /**
-   * The length in seconds of each segment. Required unless markers is set to _none_.
-   * @public
-   */
-  SegmentationTime?: number | undefined;
-
-  /**
-   * When set to passthrough, timed metadata will be passed through from input to output.
-   * @public
-   */
-  TimedMetadataBehavior?: M2tsTimedMetadataBehavior | undefined;
-
-  /**
-   * Packet Identifier (PID) of the timed metadata stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  TimedMetadataPid?: string | undefined;
-
-  /**
-   * The value of the transport stream ID field in the Program Map Table.
-   * @public
-   */
-  TransportStreamId?: number | undefined;
-
-  /**
-   * Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  VideoPid?: string | undefined;
-
-  /**
-   * Defines the amount SCTE-35 preroll will be increased (in milliseconds) on the output. Preroll is the amount of time between the presence of a SCTE-35 indication in a transport stream and the PTS of the video frame it references. Zero means don't add pullup (it doesn't mean set the preroll to zero). Negative pullup is not supported, which means that you can't make the preroll shorter. Be aware that latency in the output will increase by the pullup amount.
-   * @public
-   */
-  Scte35PrerollPullupMilliseconds?: number | undefined;
-}
-
-/**
- * Raw Settings
- * @public
- */
-export interface RawSettings {}
-
-/**
- * Archive Container Settings
- * @public
- */
-export interface ArchiveContainerSettings {
-  /**
-   * M2ts Settings
-   * @public
-   */
-  M2tsSettings?: M2tsSettings | undefined;
-
-  /**
-   * Raw Settings
-   * @public
-   */
-  RawSettings?: RawSettings | undefined;
-}
-
-/**
- * Archive Output Settings
- * @public
- */
-export interface ArchiveOutputSettings {
-  /**
-   * Settings specific to the container type of the file.
-   * @public
-   */
-  ContainerSettings: ArchiveContainerSettings | undefined;
-
-  /**
-   * Output file extension. If excluded, this will be auto-selected from the container type.
-   * @public
-   */
-  Extension?: string | undefined;
-
-  /**
-   * String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
-   * @public
-   */
-  NameModifier?: string | undefined;
-}

@@ -35,7 +35,6 @@ import {
   ClientVpnRouteStatus,
   CoipCidr,
   CoipPool,
-  DiskImageFormat,
   Ec2InstanceConnectEndpoint,
   FleetCapacityReservation,
   FleetCapacityReservationTenancy,
@@ -51,6 +50,7 @@ import {
 } from "./models_1";
 
 import {
+  CloudWatchLogOptionsSpecification,
   GroupIdentifier,
   IKEVersionsRequestListValue,
   LocalGatewayRoute,
@@ -75,8 +75,19 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
-  VpnTunnelLogOptionsSpecification,
 } from "./models_2";
+
+/**
+ * <p>Options for logging VPN tunnel activity.</p>
+ * @public
+ */
+export interface VpnTunnelLogOptionsSpecification {
+  /**
+   * <p>Options for sending VPN tunnel logs to CloudWatch.</p>
+   * @public
+   */
+  CloudWatchLogOptions?: CloudWatchLogOptionsSpecification | undefined;
+}
 
 /**
  * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE
@@ -7123,6 +7134,22 @@ export interface ClientLoginBannerResponseOptions {
 }
 
 /**
+ * <p>The current status of client route enforcement. The state will either be <code>true</code> (enabled) or <code>false</code> (disabled).</p>
+ * @public
+ */
+export interface ClientRouteEnforcementResponseOptions {
+  /**
+   * <p>Status of the client route enforcement feature.</p>
+   *          <p>Valid values: <code>true | false</code>
+   *          </p>
+   *          <p>Default value: <code>false</code>
+   *          </p>
+   * @public
+   */
+  Enforced?: boolean | undefined;
+}
+
+/**
  * <p>Information about the client connection logging options for a Client VPN endpoint.</p>
  * @public
  */
@@ -7310,6 +7337,15 @@ export interface ClientVpnEndpoint {
    * @public
    */
   ClientLoginBannerOptions?: ClientLoginBannerResponseOptions | undefined;
+
+  /**
+   * <p>Client route enforcement is a feature of the Client VPN service that helps enforce administrator defined routes on devices connected through the VPN. T
+   * 		his feature helps improve your security posture by ensuring that network traffic originating from a connected client is not inadvertently sent outside the VPN tunnel.</p>
+   *          <p>Client route enforcement works by monitoring the route table of a connected device for routing policy changes to the VPN connection. If the feature detects any VPN routing policy modifications, it will automatically force an update to the route table,
+   * 			reverting it back to the expected route configurations.</p>
+   * @public
+   */
+  ClientRouteEnforcementOptions?: ClientRouteEnforcementResponseOptions | undefined;
 
   /**
    * <p>Indicates whether the client VPN session is disconnected after the maximum <code>sessionTimeoutHours</code> is reached. If <code>true</code>, users are prompted to reconnect client VPN. If <code>false</code>, client VPN attempts to reconnect automatically. The default value is <code>false</code>.</p>
@@ -7651,57 +7687,6 @@ export interface DescribeConversionTasksRequest {
 }
 
 /**
- * <p>Describes a disk image.</p>
- * @public
- */
-export interface DiskImageDescription {
-  /**
-   * <p>The checksum computed for the disk image.</p>
-   * @public
-   */
-  Checksum?: string | undefined;
-
-  /**
-   * <p>The disk image format.</p>
-   * @public
-   */
-  Format?: DiskImageFormat | undefined;
-
-  /**
-   * <p>A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for
-   *    an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">Authenticating REST Requests</a> topic in
-   *    the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
-   * @public
-   */
-  ImportManifestUrl?: string | undefined;
-
-  /**
-   * <p>The size of the disk image, in GiB.</p>
-   * @public
-   */
-  Size?: number | undefined;
-}
-
-/**
- * <p>Describes a disk image volume.</p>
- * @public
- */
-export interface DiskImageVolumeDescription {
-  /**
-   * <p>The volume identifier.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The size of the volume, in GiB.</p>
-   * @public
-   */
-  Size?: number | undefined;
-}
-
-/**
  * @internal
  */
 export const VpnTunnelOptionsSpecificationFilterSensitiveLog = (obj: VpnTunnelOptionsSpecification): any => ({
@@ -7778,12 +7763,4 @@ export const DeleteVerifiedAccessTrustProviderResultFilterSensitiveLog = (
 export const DescribeBundleTasksResultFilterSensitiveLog = (obj: DescribeBundleTasksResult): any => ({
   ...obj,
   ...(obj.BundleTasks && { BundleTasks: obj.BundleTasks.map((item) => BundleTaskFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const DiskImageDescriptionFilterSensitiveLog = (obj: DiskImageDescription): any => ({
-  ...obj,
-  ...(obj.ImportManifestUrl && { ImportManifestUrl: SENSITIVE_STRING }),
 });

@@ -47,6 +47,13 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  * //       Arn: "STRING_VALUE", // required
  * //       Name: "STRING_VALUE", // required
  * //       Description: "STRING_VALUE", // required
+ * //       Behavior: "PREVENTIVE" || "PROACTIVE" || "DETECTIVE",
+ * //       Severity: "LOW" || "MEDIUM" || "HIGH" || "CRITICAL",
+ * //       Implementation: { // ImplementationSummary
+ * //         Type: "STRING_VALUE", // required
+ * //         Identifier: "STRING_VALUE",
+ * //       },
+ * //       CreateTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

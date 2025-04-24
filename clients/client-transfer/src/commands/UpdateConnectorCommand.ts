@@ -28,9 +28,7 @@ export interface UpdateConnectorCommandInput extends UpdateConnectorRequest {}
 export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Updates some of the parameters for an existing connector. Provide the
- *         <code>ConnectorId</code> for the connector that you want to update, along with the new
- *       values for the parameters to update.</p>
+ * <p>Updates some of the parameters for an existing connector. Provide the <code>ConnectorId</code> for the connector that you want to update, along with the new values for the parameters to update.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +57,7 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *     TrustedHostKeys: [ // SftpConnectorTrustedHostKeyList
  *       "STRING_VALUE",
  *     ],
+ *     MaxConcurrentConnections: Number("int"),
  *   },
  *   SecurityPolicyName: "STRING_VALUE",
  * };
@@ -86,8 +85,7 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *  <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>

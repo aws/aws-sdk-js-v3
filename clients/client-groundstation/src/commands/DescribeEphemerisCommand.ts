@@ -43,7 +43,7 @@ export interface DescribeEphemerisCommandOutput extends DescribeEphemerisRespons
  * // { // DescribeEphemerisResponse
  * //   ephemerisId: "STRING_VALUE",
  * //   satelliteId: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "VALIDATING" || "INVALID" || "ERROR" || "ENABLED" || "DISABLED" || "EXPIRED",
  * //   priority: Number("int"),
  * //   creationTime: new Date("TIMESTAMP"),
  * //   enabled: true || false,
@@ -69,7 +69,7 @@ export interface DescribeEphemerisCommandOutput extends DescribeEphemerisRespons
  * //       ephemerisData: "STRING_VALUE",
  * //     },
  * //   },
- * //   invalidReason: "STRING_VALUE",
+ * //   invalidReason: "METADATA_INVALID" || "TIME_RANGE_INVALID" || "TRAJECTORY_INVALID" || "KMS_KEY_INVALID" || "VALIDATION_ERROR",
  * // };
  *
  * ```

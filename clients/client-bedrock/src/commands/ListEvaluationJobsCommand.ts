@@ -69,6 +69,9 @@ export interface ListEvaluationJobsCommandOutput extends ListEvaluationJobsRespo
  * //       evaluatorModelIdentifiers: [ // EvaluatorModelIdentifiers
  * //         "STRING_VALUE",
  * //       ],
+ * //       customMetricsEvaluatorModelIdentifiers: [
+ * //         "STRING_VALUE",
+ * //       ],
  * //       inferenceConfigSummary: { // EvaluationInferenceConfigSummary
  * //         modelConfigSummary: { // EvaluationModelConfigSummary
  * //           bedrockModelIdentifiers: [

@@ -519,6 +519,11 @@ export interface DescribeIntentCommandOutput extends DescribeIntentResponse, __M
  * //       customPrompt: "STRING_VALUE",
  * //     },
  * //   },
+ * //   qInConnectIntentConfiguration: { // QInConnectIntentConfiguration
+ * //     qInConnectAssistantConfiguration: { // QInConnectAssistantConfiguration
+ * //       assistantArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
  * // };
  *
  * ```

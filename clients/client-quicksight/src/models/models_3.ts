@@ -34,8 +34,6 @@ import {
   BorderStyle,
   BrandDefinition,
   BrandDetail,
-  CalculatedColumn,
-  CalculatedColumnFilterSensitiveLog,
   ConstantType,
   DataSetReference,
   DataSourceParameters,
@@ -53,6 +51,84 @@ import {
 } from "./models_2";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>A calculated column for a dataset.</p>
+ * @public
+ */
+export interface CalculatedColumn {
+  /**
+   * <p>Column name.</p>
+   * @public
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>A unique ID to identify a calculated column. During a dataset update, if the column ID
+   *             of a calculated column matches that of an existing calculated column, Amazon QuickSight
+   *             preserves the existing calculated column.</p>
+   * @public
+   */
+  ColumnId: string | undefined;
+
+  /**
+   * <p>An expression that defines the calculated column.</p>
+   * @public
+   */
+  Expression: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelIngestionRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the dataset used in the ingestion.</p>
+   * @public
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>An ID for the ingestion.</p>
+   * @public
+   */
+  IngestionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelIngestionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the data ingestion.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>An ID for the ingestion.</p>
+   * @public
+   */
+  IngestionId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
 
 /**
  * <p>The resource specified already exists. </p>
@@ -8813,86 +8889,12 @@ export interface DeleteTopicResponse {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface DeleteTopicRefreshScheduleRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-
-  /**
-   * <p>The ID of the dataset.</p>
-   * @public
-   */
-  DatasetId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTopicRefreshScheduleResponse {
-  /**
-   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   * @public
-   */
-  TopicArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   * @public
-   */
-  DatasetArn?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteUserRequest {
-  /**
-   * <p>The name of the user that you want to delete.</p>
-   * @public
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
+export const CalculatedColumnFilterSensitiveLog = (obj: CalculatedColumn): any => ({
+  ...obj,
+  ...(obj.Expression && { Expression: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

@@ -29,7 +29,6 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
 
 /**
  * <p>Deletes a Cases domain.</p>
- *
  *          <note>
  *             <p>After deleting your domain you must disassociate the deleted domain from your Amazon Connect instance with another API call before being able to use Cases again with this
  *           Amazon Connect instance. See <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteIntegrationAssociation.html">DeleteIntegrationAssociation</a>.</p>

@@ -79,6 +79,11 @@ import {
   DescribeWorkspaceCommandOutput,
 } from "./commands/DescribeWorkspaceCommand";
 import {
+  DescribeWorkspaceConfigurationCommand,
+  DescribeWorkspaceConfigurationCommandInput,
+  DescribeWorkspaceConfigurationCommandOutput,
+} from "./commands/DescribeWorkspaceConfigurationCommand";
+import {
   GetDefaultScraperConfigurationCommand,
   GetDefaultScraperConfigurationCommandInput,
   GetDefaultScraperConfigurationCommandOutput,
@@ -134,6 +139,11 @@ import {
   UpdateWorkspaceAliasCommandInput,
   UpdateWorkspaceAliasCommandOutput,
 } from "./commands/UpdateWorkspaceAliasCommand";
+import {
+  UpdateWorkspaceConfigurationCommand,
+  UpdateWorkspaceConfigurationCommandInput,
+  UpdateWorkspaceConfigurationCommandOutput,
+} from "./commands/UpdateWorkspaceConfigurationCommand";
 
 const commands = {
   CreateAlertManagerDefinitionCommand,
@@ -151,6 +161,7 @@ const commands = {
   DescribeRuleGroupsNamespaceCommand,
   DescribeScraperCommand,
   DescribeWorkspaceCommand,
+  DescribeWorkspaceConfigurationCommand,
   GetDefaultScraperConfigurationCommand,
   ListRuleGroupsNamespacesCommand,
   ListScrapersCommand,
@@ -163,6 +174,7 @@ const commands = {
   UpdateLoggingConfigurationCommand,
   UpdateScraperCommand,
   UpdateWorkspaceAliasCommand,
+  UpdateWorkspaceConfigurationCommand,
 };
 
 export interface Amp {
@@ -402,6 +414,23 @@ export interface Amp {
   ): void;
 
   /**
+   * @see {@link DescribeWorkspaceConfigurationCommand}
+   */
+  describeWorkspaceConfiguration(
+    args: DescribeWorkspaceConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWorkspaceConfigurationCommandOutput>;
+  describeWorkspaceConfiguration(
+    args: DescribeWorkspaceConfigurationCommandInput,
+    cb: (err: any, data?: DescribeWorkspaceConfigurationCommandOutput) => void
+  ): void;
+  describeWorkspaceConfiguration(
+    args: DescribeWorkspaceConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWorkspaceConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDefaultScraperConfigurationCommand}
    */
   getDefaultScraperConfiguration(): Promise<GetDefaultScraperConfigurationCommandOutput>;
@@ -579,6 +608,23 @@ export interface Amp {
     args: UpdateWorkspaceAliasCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkspaceAliasCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateWorkspaceConfigurationCommand}
+   */
+  updateWorkspaceConfiguration(
+    args: UpdateWorkspaceConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorkspaceConfigurationCommandOutput>;
+  updateWorkspaceConfiguration(
+    args: UpdateWorkspaceConfigurationCommandInput,
+    cb: (err: any, data?: UpdateWorkspaceConfigurationCommandOutput) => void
+  ): void;
+  updateWorkspaceConfiguration(
+    args: UpdateWorkspaceConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWorkspaceConfigurationCommandOutput) => void
   ): void;
 }
 

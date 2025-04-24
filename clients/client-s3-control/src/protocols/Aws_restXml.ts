@@ -2,11 +2,7 @@
 import { loadRestXmlErrorCode, parseXmlBody as parseBody, parseXmlErrorBody as parseErrorBody } from "@aws-sdk/core";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
 import { requestBuilder as rb } from "@smithy/core";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
-  isValidHostname as __isValidHostname,
-} from "@smithy/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   collectBody,
   decorateServiceException as __decorateServiceException,
@@ -514,18 +510,6 @@ export const se_AssociateAccessGrantsIdentityCenterCommand = async (
   bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
   bn.cc(input, _ICA);
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -561,18 +545,6 @@ export const se_CreateAccessGrantCommand = async (
   bn.cc(input, _SPT);
   bn.lc(input, "Tags", "Tags", () => se_TagList(input[_T]!, context));
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -597,18 +569,6 @@ export const se_CreateAccessGrantsInstanceCommand = async (
   bn.cc(input, _ICA);
   bn.lc(input, "Tags", "Tags", () => se_TagList(input[_T]!, context));
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -636,18 +596,6 @@ export const se_CreateAccessGrantsLocationCommand = async (
   }
   bn.lc(input, "Tags", "Tags", () => se_TagList(input[_T]!, context));
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -686,18 +634,6 @@ export const se_CreateAccessPointCommand = async (
     bn.c(se_VpcConfiguration(input[_VC], context).n(_VC));
   }
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -724,18 +660,6 @@ export const se_CreateAccessPointForObjectLambdaCommand = async (
     bn.c(se_ObjectLambdaConfiguration(input[_C], context).n(_C));
   }
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -822,18 +746,6 @@ export const se_CreateJobCommand = async (
   }
   bn.lc(input, "Tags", "Tags", () => se_S3TagSet(input[_T]!, context));
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -865,18 +777,6 @@ export const se_CreateMultiRegionAccessPointCommand = async (
     bn.c(se_CreateMultiRegionAccessPointInput(input[_De], context).n(_De));
   }
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -903,18 +803,6 @@ export const se_CreateStorageLensGroupCommand = async (
   }
   bn.lc(input, "Tags", "Tags", () => se_TagList(input[_T]!, context));
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -933,18 +821,6 @@ export const se_DeleteAccessGrantCommand = async (
   b.bp("/v20180820/accessgrantsinstance/grant/{AccessGrantId}");
   b.p("AccessGrantId", () => input.AccessGrantId!, "{AccessGrantId}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -962,18 +838,6 @@ export const se_DeleteAccessGrantsInstanceCommand = async (
   });
   b.bp("/v20180820/accessgrantsinstance");
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -991,18 +855,6 @@ export const se_DeleteAccessGrantsInstanceResourcePolicyCommand = async (
   });
   b.bp("/v20180820/accessgrantsinstance/resourcepolicy");
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -1021,18 +873,6 @@ export const se_DeleteAccessGrantsLocationCommand = async (
   b.bp("/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}");
   b.p("AccessGrantsLocationId", () => input.AccessGrantsLocationId!, "{AccessGrantsLocationId}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -1051,18 +891,6 @@ export const se_DeleteAccessPointCommand = async (
   b.bp("/v20180820/accesspoint/{Name}");
   b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -1081,18 +909,6 @@ export const se_DeleteAccessPointForObjectLambdaCommand = async (
   b.bp("/v20180820/accesspointforobjectlambda/{Name}");
   b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -1111,18 +927,6 @@ export const se_DeleteAccessPointPolicyCommand = async (
   b.bp("/v20180820/accesspoint/{Name}/policy");
   b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -1141,18 +945,6 @@ export const se_DeleteAccessPointPolicyForObjectLambdaCommand = async (
   b.bp("/v20180820/accesspointforobjectlambda/{Name}/policy");
   b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -1189,18 +981,6 @@ export const se_DeleteBucketCommand = async (
   b.bp("/v20180820/bucket/{Bucket}");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -1219,18 +999,6 @@ export const se_DeleteBucketLifecycleConfigurationCommand = async (
   b.bp("/v20180820/bucket/{Bucket}/lifecycleconfiguration");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -1249,18 +1017,6 @@ export const se_DeleteBucketPolicyCommand = async (
   b.bp("/v20180820/bucket/{Bucket}/policy");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -1279,18 +1035,6 @@ export const se_DeleteBucketReplicationCommand = async (
   b.bp("/v20180820/bucket/{Bucket}/replication");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -1309,18 +1053,6 @@ export const se_DeleteBucketTaggingCommand = async (
   b.bp("/v20180820/bucket/{Bucket}/tagging");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -1339,18 +1071,6 @@ export const se_DeleteJobTaggingCommand = async (
   b.bp("/v20180820/jobs/{JobId}/tagging");
   b.p("JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -1382,18 +1102,6 @@ export const se_DeleteMultiRegionAccessPointCommand = async (
     bn.c(se_DeleteMultiRegionAccessPointInput(input[_De], context).n(_De));
   }
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -1411,18 +1119,6 @@ export const se_DeletePublicAccessBlockCommand = async (
   });
   b.bp("/v20180820/configuration/publicAccessBlock");
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -1441,18 +1137,6 @@ export const se_DeleteStorageLensConfigurationCommand = async (
   b.bp("/v20180820/storagelens/{ConfigId}");
   b.p("ConfigId", () => input.ConfigId!, "{ConfigId}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -1471,18 +1155,6 @@ export const se_DeleteStorageLensConfigurationTaggingCommand = async (
   b.bp("/v20180820/storagelens/{ConfigId}/tagging");
   b.p("ConfigId", () => input.ConfigId!, "{ConfigId}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -1501,18 +1173,6 @@ export const se_DeleteStorageLensGroupCommand = async (
   b.bp("/v20180820/storagelensgroup/{Name}");
   b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -1531,18 +1191,6 @@ export const se_DescribeJobCommand = async (
   b.bp("/v20180820/jobs/{JobId}");
   b.p("JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1561,18 +1209,6 @@ export const se_DescribeMultiRegionAccessPointOperationCommand = async (
   b.bp("/v20180820/async-requests/mrap/{RequestTokenARN+}");
   b.p("RequestTokenARN", () => input.RequestTokenARN!, "{RequestTokenARN+}", true);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1590,18 +1226,6 @@ export const se_DissociateAccessGrantsIdentityCenterCommand = async (
   });
   b.bp("/v20180820/accessgrantsinstance/identitycenter");
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -1620,18 +1244,6 @@ export const se_GetAccessGrantCommand = async (
   b.bp("/v20180820/accessgrantsinstance/grant/{AccessGrantId}");
   b.p("AccessGrantId", () => input.AccessGrantId!, "{AccessGrantId}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1649,18 +1261,6 @@ export const se_GetAccessGrantsInstanceCommand = async (
   });
   b.bp("/v20180820/accessgrantsinstance");
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1681,18 +1281,6 @@ export const se_GetAccessGrantsInstanceForPrefixCommand = async (
     [_s]: [, __expectNonNull(input[_SP]!, `S3Prefix`)],
   });
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
@@ -1710,18 +1298,6 @@ export const se_GetAccessGrantsInstanceResourcePolicyCommand = async (
   });
   b.bp("/v20180820/accessgrantsinstance/resourcepolicy");
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1740,18 +1316,6 @@ export const se_GetAccessGrantsLocationCommand = async (
   b.bp("/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}");
   b.p("AccessGrantsLocationId", () => input.AccessGrantsLocationId!, "{AccessGrantsLocationId}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1770,18 +1334,6 @@ export const se_GetAccessPointCommand = async (
   b.bp("/v20180820/accesspoint/{Name}");
   b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1800,18 +1352,6 @@ export const se_GetAccessPointConfigurationForObjectLambdaCommand = async (
   b.bp("/v20180820/accesspointforobjectlambda/{Name}/configuration");
   b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1830,18 +1370,6 @@ export const se_GetAccessPointForObjectLambdaCommand = async (
   b.bp("/v20180820/accesspointforobjectlambda/{Name}");
   b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1860,18 +1388,6 @@ export const se_GetAccessPointPolicyCommand = async (
   b.bp("/v20180820/accesspoint/{Name}/policy");
   b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1890,18 +1406,6 @@ export const se_GetAccessPointPolicyForObjectLambdaCommand = async (
   b.bp("/v20180820/accesspointforobjectlambda/{Name}/policy");
   b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1920,18 +1424,6 @@ export const se_GetAccessPointPolicyStatusCommand = async (
   b.bp("/v20180820/accesspoint/{Name}/policyStatus");
   b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1950,18 +1442,6 @@ export const se_GetAccessPointPolicyStatusForObjectLambdaCommand = async (
   b.bp("/v20180820/accesspointforobjectlambda/{Name}/policyStatus");
   b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1998,18 +1478,6 @@ export const se_GetBucketCommand = async (
   b.bp("/v20180820/bucket/{Bucket}");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2028,18 +1496,6 @@ export const se_GetBucketLifecycleConfigurationCommand = async (
   b.bp("/v20180820/bucket/{Bucket}/lifecycleconfiguration");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2058,18 +1514,6 @@ export const se_GetBucketPolicyCommand = async (
   b.bp("/v20180820/bucket/{Bucket}/policy");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2088,18 +1532,6 @@ export const se_GetBucketReplicationCommand = async (
   b.bp("/v20180820/bucket/{Bucket}/replication");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2118,18 +1550,6 @@ export const se_GetBucketTaggingCommand = async (
   b.bp("/v20180820/bucket/{Bucket}/tagging");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2148,18 +1568,6 @@ export const se_GetBucketVersioningCommand = async (
   b.bp("/v20180820/bucket/{Bucket}/versioning");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2184,18 +1592,6 @@ export const se_GetDataAccessCommand = async (
     [_tT]: [, input[_TT]!],
   });
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
@@ -2214,18 +1610,6 @@ export const se_GetJobTaggingCommand = async (
   b.bp("/v20180820/jobs/{JobId}/tagging");
   b.p("JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2244,18 +1628,6 @@ export const se_GetMultiRegionAccessPointCommand = async (
   b.bp("/v20180820/mrap/instances/{Name+}");
   b.p("Name", () => input.Name!, "{Name+}", true);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2274,18 +1646,6 @@ export const se_GetMultiRegionAccessPointPolicyCommand = async (
   b.bp("/v20180820/mrap/instances/{Name+}/policy");
   b.p("Name", () => input.Name!, "{Name+}", true);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2304,18 +1664,6 @@ export const se_GetMultiRegionAccessPointPolicyStatusCommand = async (
   b.bp("/v20180820/mrap/instances/{Name+}/policystatus");
   b.p("Name", () => input.Name!, "{Name+}", true);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2334,18 +1682,6 @@ export const se_GetMultiRegionAccessPointRoutesCommand = async (
   b.bp("/v20180820/mrap/instances/{Mrap+}/routes");
   b.p("Mrap", () => input.Mrap!, "{Mrap+}", true);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2363,18 +1699,6 @@ export const se_GetPublicAccessBlockCommand = async (
   });
   b.bp("/v20180820/configuration/publicAccessBlock");
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2393,18 +1717,6 @@ export const se_GetStorageLensConfigurationCommand = async (
   b.bp("/v20180820/storagelens/{ConfigId}");
   b.p("ConfigId", () => input.ConfigId!, "{ConfigId}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2423,18 +1735,6 @@ export const se_GetStorageLensConfigurationTaggingCommand = async (
   b.bp("/v20180820/storagelens/{ConfigId}/tagging");
   b.p("ConfigId", () => input.ConfigId!, "{ConfigId}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2453,18 +1753,6 @@ export const se_GetStorageLensGroupCommand = async (
   b.bp("/v20180820/storagelensgroup/{Name}");
   b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2491,18 +1779,6 @@ export const se_ListAccessGrantsCommand = async (
     [_aa]: [, input[_AA]!],
   });
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
@@ -2524,18 +1800,6 @@ export const se_ListAccessGrantsInstancesCommand = async (
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
@@ -2558,18 +1822,6 @@ export const se_ListAccessGrantsLocationsCommand = async (
     [_l]: [, input[_LS]!],
   });
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
@@ -2592,18 +1844,6 @@ export const se_ListAccessPointsCommand = async (
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
@@ -2647,18 +1887,6 @@ export const se_ListAccessPointsForObjectLambdaCommand = async (
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
@@ -2682,18 +1910,6 @@ export const se_ListCallerAccessGrantsCommand = async (
     [_aBA]: [() => input.AllowedByApplication !== void 0, () => input[_ABA]!.toString()],
   });
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
@@ -2716,18 +1932,6 @@ export const se_ListJobsCommand = async (
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
@@ -2749,18 +1953,6 @@ export const se_ListMultiRegionAccessPointsCommand = async (
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
@@ -2783,18 +1975,6 @@ export const se_ListRegionalBucketsCommand = async (
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
@@ -2815,18 +1995,6 @@ export const se_ListStorageLensConfigurationsCommand = async (
     [_nT]: [, input[_NT]!],
   });
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
@@ -2847,18 +2015,6 @@ export const se_ListStorageLensGroupsCommand = async (
     [_nT]: [, input[_NT]!],
   });
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
@@ -2877,18 +2033,6 @@ export const se_ListTagsForResourceCommand = async (
   b.bp("/v20180820/tags/{ResourceArn+}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn+}", true);
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2915,18 +2059,6 @@ export const se_PutAccessGrantsInstanceResourcePolicyCommand = async (
     bn.c(__XmlNode.of(_PD, input[_Po]).n(_Po));
   }
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -2953,18 +2085,6 @@ export const se_PutAccessPointConfigurationForObjectLambdaCommand = async (
     bn.c(se_ObjectLambdaConfiguration(input[_C], context).n(_C));
   }
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -2989,18 +2109,6 @@ export const se_PutAccessPointPolicyCommand = async (
   bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
   bn.cc(input, _Po);
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -3027,18 +2135,6 @@ export const se_PutAccessPointPolicyForObjectLambdaCommand = async (
     bn.c(__XmlNode.of(_OLP, input[_Po]).n(_Po));
   }
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -3091,18 +2187,6 @@ export const se_PutBucketLifecycleConfigurationCommand = async (
     contents.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
     body += contents.toString();
   }
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -3128,18 +2212,6 @@ export const se_PutBucketPolicyCommand = async (
   bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
   bn.cc(input, _Po);
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -3166,18 +2238,6 @@ export const se_PutBucketReplicationCommand = async (
     contents.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
     body += contents.toString();
   }
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -3204,18 +2264,6 @@ export const se_PutBucketTaggingCommand = async (
     contents.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
     body += contents.toString();
   }
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -3243,18 +2291,6 @@ export const se_PutBucketVersioningCommand = async (
     contents.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
     body += contents.toString();
   }
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -3279,18 +2315,6 @@ export const se_PutJobTaggingCommand = async (
   bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
   bn.lc(input, "Tags", "Tags", () => se_S3TagSet(input[_T]!, context));
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -3322,18 +2346,6 @@ export const se_PutMultiRegionAccessPointPolicyCommand = async (
     bn.c(se_PutMultiRegionAccessPointPolicyInput(input[_De], context).n(_De));
   }
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -3359,18 +2371,6 @@ export const se_PutPublicAccessBlockCommand = async (
     contents.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
     body += contents.toString();
   }
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -3398,18 +2398,6 @@ export const se_PutStorageLensConfigurationCommand = async (
   }
   bn.lc(input, "Tags", "Tags", () => se_StorageLensTags(input[_T]!, context));
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -3434,18 +2422,6 @@ export const se_PutStorageLensConfigurationTaggingCommand = async (
   bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
   bn.lc(input, "Tags", "Tags", () => se_StorageLensTags(input[_T]!, context));
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -3470,18 +2446,6 @@ export const se_SubmitMultiRegionAccessPointRoutesCommand = async (
   bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
   bn.lc(input, "RouteUpdates", "RouteUpdates", () => se_RouteList(input[_RU]!, context));
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("PATCH").h(headers).b(body);
   return b.build();
 };
@@ -3506,18 +2470,6 @@ export const se_TagResourceCommand = async (
   bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
   bn.lc(input, "Tags", "Tags", () => se_TagList(input[_T]!, context));
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -3539,18 +2491,6 @@ export const se_UntagResourceCommand = async (
     [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
@@ -3575,18 +2515,6 @@ export const se_UpdateAccessGrantsLocationCommand = async (
   bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
   bn.cc(input, _IAMRA);
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -3608,18 +2536,6 @@ export const se_UpdateJobPriorityCommand = async (
     [_pri]: [__expectNonNull(input.Priority, `Priority`) != null, () => input[_Pr]!.toString()],
   });
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("POST").h(headers).q(query).b(body);
   return b.build();
 };
@@ -3642,18 +2558,6 @@ export const se_UpdateJobStatusCommand = async (
     [_sUR]: [, input[_SUR]!],
   });
   let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("POST").h(headers).q(query).b(body);
   return b.build();
 };
@@ -3680,18 +2584,6 @@ export const se_UpdateStorageLensGroupCommand = async (
     bn.c(se_StorageLensGroup(input[_SLG], context).n(_SLG));
   }
   body += bn.toString();
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "{AccountId}." + resolvedHostname;
-    if (input.AccountId === undefined) {
-      throw new Error("Empty value provided for input host prefix: AccountId.");
-    }
-    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  b.hn(resolvedHostname);
   b.m("PUT").h(headers).b(body);
   return b.build();
 };

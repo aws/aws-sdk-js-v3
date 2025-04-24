@@ -32,7 +32,14 @@ export interface CreateTableBucketCommandOutput extends CreateTableBucketRespons
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have the <code>s3tables:CreateTableBucket</code> permission to use this operation. </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>You must have the <code>s3tables:CreateTableBucket</code> permission to use this operation. </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>If you use this operation with the optional <code>encryptionConfiguration</code> parameter you must have the <code>s3tables:PutTableBucketEncryption</code> permission.</p>
+ *                   </li>
+ *                </ul>
  *             </dd>
  *          </dl>
  * @example
@@ -43,6 +50,10 @@ export interface CreateTableBucketCommandOutput extends CreateTableBucketRespons
  * const client = new S3TablesClient(config);
  * const input = { // CreateTableBucketRequest
  *   name: "STRING_VALUE", // required
+ *   encryptionConfiguration: { // EncryptionConfiguration
+ *     sseAlgorithm: "AES256" || "aws:kms", // required
+ *     kmsKeyArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateTableBucketCommand(input);
  * const response = await client.send(command);

@@ -123,6 +123,43 @@ export interface SearchGroupsCommandOutput extends SearchGroupsResult, __Metadat
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
  *
+ * @example To search for groups
+ * ```javascript
+ * // The following command searches the examplecorp.com domain for groups with the GroupType security.
+ * const input = {
+ *   DirectoryId: "d-12233abcde",
+ *   MaxResults: 123,
+ *   NextToken: "123456",
+ *   Realm: "examplecorp.com",
+ *   SearchAttributes: [
+ *     "GroupScope"
+ *   ],
+ *   SearchString: "Security"
+ * };
+ * const command = new SearchGroupsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DirectoryId: "d-12233abcde",
+ *   Groups: [
+ *     {
+ *       GroupScope: "BuiltinLocal",
+ *       GroupType: "Security",
+ *       SAMAccountName: "Administrators",
+ *       SID: "S-1-5-32-544"
+ *     },
+ *     {
+ *       GroupScope: "BuiltinLocal",
+ *       GroupType: "Security",
+ *       SAMAccountName: "Users",
+ *       SID: "S-1-5-32-545"
+ *     }
+ *   ],
+ *   NextToken: "223456"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class SearchGroupsCommand extends $Command

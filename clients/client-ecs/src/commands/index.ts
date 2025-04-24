@@ -43,6 +43,7 @@ export * from "./RegisterContainerInstanceCommand";
 export * from "./RegisterTaskDefinitionCommand";
 export * from "./RunTaskCommand";
 export * from "./StartTaskCommand";
+export * from "./StopServiceDeploymentCommand";
 export * from "./StopTaskCommand";
 export * from "./SubmitAttachmentStateChangesCommand";
 export * from "./SubmitContainerStateChangeCommand";

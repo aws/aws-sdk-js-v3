@@ -327,7 +327,7 @@ export interface Transcript {
    * <p>The sentiment detected for this piece of transcript.</p>
    * @public
    */
-  Sentiment: SentimentValue | undefined;
+  Sentiment?: SentimentValue | undefined;
 
   /**
    * <p>List of positions where issues were detected on the transcript.</p>

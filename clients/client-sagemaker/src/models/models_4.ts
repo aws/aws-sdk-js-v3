@@ -3479,6 +3479,12 @@ export interface ModelPackageSummary {
    * @public
    */
   ModelApprovalStatus?: ModelApprovalStatus | undefined;
+
+  /**
+   * <p> A structure describing the current state of the model in its life cycle. </p>
+   * @public
+   */
+  ModelLifeCycle?: ModelLifeCycle | undefined;
 }
 
 /**

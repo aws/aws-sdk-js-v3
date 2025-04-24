@@ -106,6 +106,44 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResult, __Metad
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
  *
+ * @example To return the attributes of a group
+ * ```javascript
+ * // The following command returns the mapped attributes for a group along with the display name, description, and GUID for the group.
+ * const input = {
+ *   DirectoryId: "d-12233abcde",
+ *   OtherAttributes: [
+ *     "displayName",
+ *     "description",
+ *     "objectGUID"
+ *   ],
+ *   Realm: "example.domain.com",
+ *   SAMAccountName: "DevOpsMail"
+ * };
+ * const command = new DescribeGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DirectoryId: "d-12233abcde",
+ *   DistinguishedName: "DevOpsmail",
+ *   GroupScope: "Global",
+ *   GroupType: "Distribution",
+ *   OtherAttributes: {
+ *     description: {
+ *       S: "A group for DevOps email."
+ *     },
+ *     displayName: {
+ *       S: "DevOps mailing list"
+ *     },
+ *     objectGUID: {
+ *       S: "123456789"
+ *     }
+ *   },
+ *   SAMAccountName: "DevOpsMail",
+ *   SID: "S-1-5-55-678"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DescribeGroupCommand extends $Command

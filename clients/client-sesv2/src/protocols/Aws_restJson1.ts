@@ -327,6 +327,7 @@ import {
   AccountSuspendedException,
   AlreadyExistsException,
   ArchivingOptions,
+  Attachment,
   BadRequestException,
   BatchGetMetricDataQuery,
   BlacklistEntry,
@@ -2165,7 +2166,7 @@ export const se_SendBulkEmailCommand = async (
     take(input, {
       BulkEmailEntries: (_) => _json(_),
       ConfigurationSetName: [],
-      DefaultContent: (_) => _json(_),
+      DefaultContent: (_) => se_BulkEmailContent(_, context),
       DefaultEmailTags: (_) => _json(_),
       EndpointId: [],
       FeedbackForwardingEmailAddress: [],
@@ -4703,6 +4704,32 @@ const de_TooManyRequestsExceptionRes = async (
 // se_ArchivingOptions omitted.
 
 /**
+ * serializeAws_restJson1Attachment
+ */
+const se_Attachment = (input: Attachment, context: __SerdeContext): any => {
+  return take(input, {
+    ContentDescription: [],
+    ContentDisposition: [],
+    ContentId: [],
+    ContentTransferEncoding: [],
+    ContentType: [],
+    FileName: [],
+    RawContent: context.base64Encoder,
+  });
+};
+
+/**
+ * serializeAws_restJson1AttachmentList
+ */
+const se_AttachmentList = (input: Attachment[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_Attachment(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1BatchGetMetricDataQueries
  */
 const se_BatchGetMetricDataQueries = (input: BatchGetMetricDataQuery[], context: __SerdeContext): any => {
@@ -4729,7 +4756,14 @@ const se_BatchGetMetricDataQuery = (input: BatchGetMetricDataQuery, context: __S
 
 // se_Body omitted.
 
-// se_BulkEmailContent omitted.
+/**
+ * serializeAws_restJson1BulkEmailContent
+ */
+const se_BulkEmailContent = (input: BulkEmailContent, context: __SerdeContext): any => {
+  return take(input, {
+    Template: (_) => se_Template(_, context),
+  });
+};
 
 // se_BulkEmailEntry omitted.
 
@@ -4797,8 +4831,8 @@ const se_DomainDeliverabilityTrackingOptions = (
 const se_EmailContent = (input: EmailContent, context: __SerdeContext): any => {
   return take(input, {
     Raw: (_) => se_RawMessage(_, context),
-    Simple: _json,
-    Template: _json,
+    Simple: (_) => se_Message(_, context),
+    Template: (_) => se_Template(_, context),
   });
 };
 
@@ -4858,7 +4892,17 @@ const se_ExportDataSource = (input: ExportDataSource, context: __SerdeContext): 
 
 // se_ListRecommendationsFilter omitted.
 
-// se_Message omitted.
+/**
+ * serializeAws_restJson1Message
+ */
+const se_Message = (input: Message, context: __SerdeContext): any => {
+  return take(input, {
+    Attachments: (_) => se_AttachmentList(_, context),
+    Body: _json,
+    Headers: _json,
+    Subject: _json,
+  });
+};
 
 // se_MessageHeader omitted.
 
@@ -4939,7 +4983,19 @@ const se_ReputationOptions = (input: ReputationOptions, context: __SerdeContext)
 
 // se_TagList omitted.
 
-// se_Template omitted.
+/**
+ * serializeAws_restJson1Template
+ */
+const se_Template = (input: Template, context: __SerdeContext): any => {
+  return take(input, {
+    Attachments: (_) => se_AttachmentList(_, context),
+    Headers: _json,
+    TemplateArn: [],
+    TemplateContent: _json,
+    TemplateData: [],
+    TemplateName: [],
+  });
+};
 
 // se_Topic omitted.
 

@@ -4161,6 +4161,45 @@ export interface FilterGroup {
  * @public
  * @enum
  */
+export const VisualHighlightTrigger = {
+  DATA_POINT_CLICK: "DATA_POINT_CLICK",
+  DATA_POINT_HOVER: "DATA_POINT_HOVER",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type VisualHighlightTrigger = (typeof VisualHighlightTrigger)[keyof typeof VisualHighlightTrigger];
+
+/**
+ * <p>Defines what initiates a highlight operation on a visual, such as a click or hover.</p>
+ * @public
+ */
+export interface VisualHighlightOperation {
+  /**
+   * <p>Specifies whether a highlight operation is initiated by a click or hover, or whether it's disabled.</p>
+   * @public
+   */
+  Trigger: VisualHighlightTrigger | undefined;
+}
+
+/**
+ * <p>A list of custom actions applied to visuals in an analysis or sheet.</p>
+ * @public
+ */
+export interface VisualCustomActionDefaults {
+  /**
+   * <p>A list of highlight operations available for visuals in an analysis or sheet.</p>
+   * @public
+   */
+  highlightOperation?: VisualHighlightOperation | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const QBusinessInsightsStatus = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -4218,6 +4257,12 @@ export interface AssetOptions {
    * @public
    */
   ExcludedDataSetArns?: string[] | undefined;
+
+  /**
+   * <p>A list of visual custom actions for the analysis.</p>
+   * @public
+   */
+  CustomActionDefaults?: VisualCustomActionDefaults | undefined;
 }
 
 /**
@@ -7364,58 +7409,6 @@ export interface LegendOptions {
    * @public
    */
   ValueFontConfiguration?: FontConfiguration | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const BarChartOrientation = {
-  HORIZONTAL: "HORIZONTAL",
-  VERTICAL: "VERTICAL",
-} as const;
-
-/**
- * @public
- */
-export type BarChartOrientation = (typeof BarChartOrientation)[keyof typeof BarChartOrientation];
-
-/**
- * @public
- * @enum
- */
-export const AxisBinding = {
-  PRIMARY_YAXIS: "PRIMARY_YAXIS",
-  SECONDARY_YAXIS: "SECONDARY_YAXIS",
-} as const;
-
-/**
- * @public
- */
-export type AxisBinding = (typeof AxisBinding)[keyof typeof AxisBinding];
-
-/**
- * <p>The dynamic configuration of the reference line data configuration.</p>
- * @public
- */
-export interface ReferenceLineDynamicDataConfiguration {
-  /**
-   * <p>The column that the dynamic data targets.</p>
-   * @public
-   */
-  Column: ColumnIdentifier | undefined;
-
-  /**
-   * <p>The aggregation function that is used in the dynamic data.</p>
-   * @public
-   */
-  MeasureAggregationFunction?: AggregationFunction | undefined;
-
-  /**
-   * <p>The calculation that is used in the dynamic data.</p>
-   * @public
-   */
-  Calculation: NumericalAggregationFunction | undefined;
 }
 
 /**

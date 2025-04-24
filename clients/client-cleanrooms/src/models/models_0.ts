@@ -4832,6 +4832,12 @@ export interface UpdateCollaborationInput {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The analytics engine.</p>
+   * @public
+   */
+  analyticsEngine?: AnalyticsEngine | undefined;
 }
 
 /**

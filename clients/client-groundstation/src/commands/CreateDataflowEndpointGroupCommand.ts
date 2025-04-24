@@ -60,7 +60,7 @@ export interface CreateDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  *           name: "STRING_VALUE", // required
  *           port: Number("int"), // required
  *         },
- *         status: "STRING_VALUE",
+ *         status: "created" || "creating" || "deleted" || "deleting" || "failed",
  *         mtu: Number("int"),
  *       },
  *       awsGroundStationAgentEndpoint: { // AwsGroundStationAgentEndpoint
@@ -82,12 +82,12 @@ export interface CreateDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  *           },
  *           mtu: Number("int"),
  *         },
- *         agentStatus: "STRING_VALUE",
- *         auditResults: "STRING_VALUE",
+ *         agentStatus: "SUCCESS" || "FAILED" || "ACTIVE" || "INACTIVE",
+ *         auditResults: "HEALTHY" || "UNHEALTHY",
  *       },
- *       healthStatus: "STRING_VALUE",
+ *       healthStatus: "HEALTHY" || "UNHEALTHY",
  *       healthReasons: [ // CapabilityHealthReasonList
- *         "STRING_VALUE",
+ *         "NO_REGISTERED_AGENT" || "INVALID_IP_OWNERSHIP" || "NOT_AUTHORIZED_TO_CREATE_SLR" || "UNVERIFIED_IP_OWNERSHIP" || "INITIALIZING_DATAPLANE" || "DATAPLANE_FAILURE" || "HEALTHY",
  *       ],
  *     },
  *   ],

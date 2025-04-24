@@ -46,6 +46,7 @@ export interface GetControlCommandOutput extends GetControlResponse, __MetadataB
  * //   Name: "STRING_VALUE", // required
  * //   Description: "STRING_VALUE", // required
  * //   Behavior: "PREVENTIVE" || "PROACTIVE" || "DETECTIVE", // required
+ * //   Severity: "LOW" || "MEDIUM" || "HIGH" || "CRITICAL",
  * //   RegionConfiguration: { // RegionConfiguration
  * //     Scope: "GLOBAL" || "REGIONAL", // required
  * //     DeployableRegions: [ // DeployableRegions
@@ -54,12 +55,14 @@ export interface GetControlCommandOutput extends GetControlResponse, __MetadataB
  * //   },
  * //   Implementation: { // ImplementationDetails
  * //     Type: "STRING_VALUE", // required
+ * //     Identifier: "STRING_VALUE",
  * //   },
  * //   Parameters: [ // ControlParameters
  * //     { // ControlParameter
  * //       Name: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   CreateTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```

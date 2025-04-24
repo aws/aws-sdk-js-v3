@@ -75,6 +75,7 @@ export interface GetAWSDefaultServiceQuotaCommandOutput extends GetAWSDefaultSer
  * //       ContextScopeType: "STRING_VALUE",
  * //       ContextId: "STRING_VALUE",
  * //     },
+ * //     Description: "STRING_VALUE",
  * //   },
  * // };
  *

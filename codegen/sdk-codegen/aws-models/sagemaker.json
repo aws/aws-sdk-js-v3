@@ -7715,6 +7715,156 @@
           "traits": {
             "smithy.api#enumValue": "ml.r6i.32xlarge"
           }
+        },
+        "ML_I3EN_LARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.i3en.large"
+          }
+        },
+        "ML_I3EN_XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.i3en.xlarge"
+          }
+        },
+        "ML_I3EN_2XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.i3en.2xlarge"
+          }
+        },
+        "ML_I3EN_3XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.i3en.3xlarge"
+          }
+        },
+        "ML_I3EN_6XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.i3en.6xlarge"
+          }
+        },
+        "ML_I3EN_12XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.i3en.12xlarge"
+          }
+        },
+        "ML_I3EN_24XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.i3en.24xlarge"
+          }
+        },
+        "ML_M7I_LARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.m7i.large"
+          }
+        },
+        "ML_M7I_XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.m7i.xlarge"
+          }
+        },
+        "ML_M7I_2XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.m7i.2xlarge"
+          }
+        },
+        "ML_M7I_4XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.m7i.4xlarge"
+          }
+        },
+        "ML_M7I_8XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.m7i.8xlarge"
+          }
+        },
+        "ML_M7I_12XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.m7i.12xlarge"
+          }
+        },
+        "ML_M7I_16XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.m7i.16xlarge"
+          }
+        },
+        "ML_M7I_24XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.m7i.24xlarge"
+          }
+        },
+        "ML_M7I_48XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.m7i.48xlarge"
+          }
+        },
+        "ML_R7I_LARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.r7i.large"
+          }
+        },
+        "ML_R7I_XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.r7i.xlarge"
+          }
+        },
+        "ML_R7I_2XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.r7i.2xlarge"
+          }
+        },
+        "ML_R7I_4XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.r7i.4xlarge"
+          }
+        },
+        "ML_R7I_8XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.r7i.8xlarge"
+          }
+        },
+        "ML_R7I_12XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.r7i.12xlarge"
+          }
+        },
+        "ML_R7I_16XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.r7i.16xlarge"
+          }
+        },
+        "ML_R7I_24XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.r7i.24xlarge"
+          }
+        },
+        "ML_R7I_48XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.r7i.48xlarge"
+          }
         }
       }
     },
@@ -13746,6 +13896,12 @@
           "target": "com.amazonaws.sagemaker#NotebookInstanceLifecycleConfigList",
           "traits": {
             "smithy.api#documentation": "<p>A shell script that runs every time you start a notebook instance, including when you\n            create the notebook instance. The shell script must be a base64-encoded string.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.sagemaker#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services\n            resources in different ways, for example, by purpose, owner, or environment. For more\n            information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html\">Tagging Amazon Web Services Resources</a>.</p>"
           }
         }
       },
@@ -49769,6 +49925,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The approval status of the model. This can be one of the following values.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>APPROVED</code> - The model is approved</p>\n            </li>\n            <li>\n               <p>\n                  <code>REJECTED</code> - The model is rejected.</p>\n            </li>\n            <li>\n               <p>\n                  <code>PENDING_MANUAL_APPROVAL</code> - The model is waiting for manual\n                    approval.</p>\n            </li>\n         </ul>"
           }
+        },
+        "ModelLifeCycle": {
+          "target": "com.amazonaws.sagemaker#ModelLifeCycle"
         }
       },
       "traits": {
@@ -56141,7 +56300,7 @@
         "InferenceAmiVersion": {
           "target": "com.amazonaws.sagemaker#ProductionVariantInferenceAmiVersion",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies an option from a collection of preconfigured Amazon Machine Image (AMI)\n            images. Each image is configured by Amazon Web Services with a set of software and driver\n            versions. Amazon Web Services optimizes these configurations for different machine\n            learning workloads.</p>\n         <p>By selecting an AMI version, you can ensure that your inference environment is\n            compatible with specific software requirements, such as CUDA driver versions, Linux\n            kernel versions, or Amazon Web Services Neuron driver versions.</p>\n         <p>The AMI version names, and their configurations, are the following:</p>\n         <dl>\n            <dt>al2-ami-sagemaker-inference-gpu-2</dt>\n            <dd>\n               <ul>\n                  <li>\n                     <p>Accelerator: GPU</p>\n                  </li>\n                  <li>\n                     <p>NVIDIA driver version: 535</p>\n                  </li>\n                  <li>\n                     <p>CUDA version: 12.2</p>\n                  </li>\n               </ul>\n            </dd>\n            <dt>al2-ami-sagemaker-inference-gpu-2-1</dt>\n            <dd>\n               <ul>\n                  <li>\n                     <p>Accelerator: GPU</p>\n                  </li>\n                  <li>\n                     <p>NVIDIA driver version: 535</p>\n                  </li>\n                  <li>\n                     <p>CUDA version: 12.2</p>\n                  </li>\n                  <li>\n                     <p>NVIDIA Container Toolkit with disabled CUDA-compat mounting</p>\n                  </li>\n               </ul>\n            </dd>\n            <dt>al2-ami-sagemaker-inference-gpu-3-1</dt>\n            <dd>\n               <ul>\n                  <li>\n                     <p>Accelerator: GPU</p>\n                  </li>\n                  <li>\n                     <p>NVIDIA driver version: 550</p>\n                  </li>\n                  <li>\n                     <p>CUDA version: 12.4</p>\n                  </li>\n                  <li>\n                     <p>NVIDIA Container Toolkit with disabled CUDA-compat mounting</p>\n                  </li>\n               </ul>\n            </dd>\n         </dl>"
+            "smithy.api#documentation": "<p>Specifies an option from a collection of preconfigured Amazon Machine Image (AMI)\n            images. Each image is configured by Amazon Web Services with a set of software and driver\n            versions. Amazon Web Services optimizes these configurations for different machine\n            learning workloads.</p>\n         <p>By selecting an AMI version, you can ensure that your inference environment is\n            compatible with specific software requirements, such as CUDA driver versions, Linux\n            kernel versions, or Amazon Web Services Neuron driver versions.</p>\n         <p>The AMI version names, and their configurations, are the following:</p>\n         <dl>\n            <dt>al2-ami-sagemaker-inference-gpu-2</dt>\n            <dd>\n               <ul>\n                  <li>\n                     <p>Accelerator: GPU</p>\n                  </li>\n                  <li>\n                     <p>NVIDIA driver version: 535</p>\n                  </li>\n                  <li>\n                     <p>CUDA version: 12.2</p>\n                  </li>\n               </ul>\n            </dd>\n            <dt>al2-ami-sagemaker-inference-gpu-2-1</dt>\n            <dd>\n               <ul>\n                  <li>\n                     <p>Accelerator: GPU</p>\n                  </li>\n                  <li>\n                     <p>NVIDIA driver version: 535</p>\n                  </li>\n                  <li>\n                     <p>CUDA version: 12.2</p>\n                  </li>\n                  <li>\n                     <p>NVIDIA Container Toolkit with disabled CUDA-compat mounting</p>\n                  </li>\n               </ul>\n            </dd>\n            <dt>al2-ami-sagemaker-inference-gpu-3-1</dt>\n            <dd>\n               <ul>\n                  <li>\n                     <p>Accelerator: GPU</p>\n                  </li>\n                  <li>\n                     <p>NVIDIA driver version: 550</p>\n                  </li>\n                  <li>\n                     <p>CUDA version: 12.4</p>\n                  </li>\n                  <li>\n                     <p>NVIDIA Container Toolkit with disabled CUDA-compat mounting</p>\n                  </li>\n               </ul>\n            </dd>\n            <dt>al2-ami-sagemaker-inference-neuron-2</dt>\n            <dd>\n               <ul>\n                  <li>\n                     <p>Accelerator: Inferentia2 and Trainium</p>\n                  </li>\n                  <li>\n                     <p>Neuron driver version: 2.19</p>\n                  </li>\n               </ul>\n            </dd>\n         </dl>"
           }
         }
       },
@@ -56240,6 +56399,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "al2-ami-sagemaker-inference-gpu-3-1"
+          }
+        },
+        "AL2_NEURON_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "al2-ami-sagemaker-inference-neuron-2"
           }
         }
       }
@@ -66758,7 +66923,7 @@
         "MaxPendingTimeInSeconds": {
           "target": "com.amazonaws.sagemaker#MaxPendingTimeInSeconds",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum length of time, in seconds, that a training or compilation job can be\n         pending before it is stopped.</p>"
+            "smithy.api#documentation": "<p>The maximum length of time, in seconds, that a training or compilation job can be\n            pending before it is stopped.</p>\n         <note>\n            <p>When working with training jobs that use capacity from <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/reserve-capacity-with-training-plans.html\">training\n                    plans</a>, not all <code>Pending</code> job states count against the\n                    <code>MaxPendingTimeInSeconds</code> limit. The following scenarios do not\n                increment the <code>MaxPendingTimeInSeconds</code> counter:</p>\n            <ul>\n               <li>\n                  <p>The plan is in a <code>Scheduled</code> state: Jobs queued (in\n                            <code>Pending</code> status) before a plan's start date (waiting for\n                        scheduled start time)</p>\n               </li>\n               <li>\n                  <p>Between capacity reservations: Jobs temporarily back to\n                            <code>Pending</code> status between two capacity reservation\n                        periods</p>\n               </li>\n            </ul>\n            <p>\n               <code>MaxPendingTimeInSeconds</code> only increments when jobs are actively\n                waiting for capacity in an <code>Active</code> plan.</p>\n         </note>"
           }
         }
       },

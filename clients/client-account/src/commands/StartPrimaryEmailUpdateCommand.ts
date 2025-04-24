@@ -32,8 +32,7 @@ export interface StartPrimaryEmailUpdateCommandInput extends StartPrimaryEmailUp
 export interface StartPrimaryEmailUpdateCommandOutput extends StartPrimaryEmailUpdateResponse, __MetadataBearer {}
 
 /**
- * <p>Starts the process to update the primary email address for the specified
- *             account.</p>
+ * <p>Starts the process to update the primary email address for the specified account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,24 +58,19 @@ export interface StartPrimaryEmailUpdateCommandOutput extends StartPrimaryEmailU
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The operation failed because the calling identity doesn't have the minimum required
- *             permissions.</p>
+ *  <p>The operation failed because the calling identity doesn't have the minimum required permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of a conflict in the current status of the
- *             resource. For example, this happens if you try to enable a Region that is currently being disabled
- *             (in a status of DISABLING).</p>
+ *  <p>The request could not be processed because of a conflict in the current status of the resource. For example, this happens if you try to enable a Region that is currently being disabled (in a status of DISABLING) or if you try to change an account’s root user email to an email address which is already in use.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again
- *             later.</p>
+ *  <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again later.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The operation failed because it specified a resource that can't be found.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The operation failed because it was called too frequently and exceeded a throttle
- *             limit.</p>
+ *  <p>The operation failed because it was called too frequently and exceeded a throttle limit.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed because one of the input parameters was invalid.</p>

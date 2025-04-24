@@ -182,6 +182,38 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  * @enum
  */
+export const SSEAlgorithm = {
+  AES256: "AES256",
+  AWS_KMS: "aws:kms",
+} as const;
+
+/**
+ * @public
+ */
+export type SSEAlgorithm = (typeof SSEAlgorithm)[keyof typeof SSEAlgorithm];
+
+/**
+ * <p>Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.</p>
+ * @public
+ */
+export interface EncryptionConfiguration {
+  /**
+   * <p>The server-side encryption algorithm to use. Valid values are <code>AES256</code> for S3-managed encryption keys, or <code>aws:kms</code> for Amazon Web Services KMS-managed encryption keys. If you choose SSE-KMS encryption you must grant the S3 Tables maintenance principal access to your KMS key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html">Permissions requirements for S3 Tables SSE-KMS encryption</a>.</p>
+   * @public
+   */
+  sseAlgorithm: SSEAlgorithm | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key to use for encryption. This field is required only when <code>sseAlgorithm</code> is set to <code>aws:kms</code>.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const OpenTableFormat = {
   ICEBERG: "ICEBERG",
 } as const;
@@ -310,6 +342,15 @@ export interface CreateTableRequest {
    * @public
    */
   metadata?: TableMetadata | undefined;
+
+  /**
+   * <p>The encryption configuration to use for the table. This configuration specifies the encryption algorithm and, if using SSE-KMS, the KMS key to use for encrypting the table. </p>
+   *          <note>
+   *             <p>If you choose SSE-KMS encryption you must grant the S3 Tables maintenance principal access to your KMS key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html">Permissions requirements for S3 Tables SSE-KMS encryption</a>.</p>
+   *          </note>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
 }
 
 /**
@@ -338,6 +379,12 @@ export interface CreateTableBucketRequest {
    * @public
    */
   name: string | undefined;
+
+  /**
+   * <p>The encryption configuration to use for the table bucket. This configuration specifies the default encryption settings that will be applied to all tables created in this bucket unless overridden at the table level. The configuration includes the encryption algorithm and, if using SSE-KMS, the KMS key to use.</p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
 }
 
 /**
@@ -401,6 +448,17 @@ export interface DeleteTableRequest {
  * @public
  */
 export interface DeleteTableBucketRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * @public
+   */
+  tableBucketARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTableBucketEncryptionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
    * @public
@@ -486,6 +544,18 @@ export interface GetNamespaceResponse {
    * @public
    */
   ownerAccountId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the namespace.</p>
+   * @public
+   */
+  namespaceId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the table bucket containing this namespace.</p>
+   * @public
+   */
+  tableBucketId?: string | undefined;
 }
 
 /**
@@ -554,6 +624,12 @@ export interface GetTableResponse {
   namespace: string[] | undefined;
 
   /**
+   * <p>The unique identifier of the namespace containing this table.</p>
+   * @public
+   */
+  namespaceId?: string | undefined;
+
+  /**
    * <p>The version token of the table.</p>
    * @public
    */
@@ -612,6 +688,12 @@ export interface GetTableResponse {
    * @public
    */
   format: OpenTableFormat | undefined;
+
+  /**
+   * <p>The unique identifier of the table bucket containing this table.</p>
+   * @public
+   */
+  tableBucketId?: string | undefined;
 }
 
 /**
@@ -652,6 +734,34 @@ export interface GetTableBucketResponse {
    * @public
    */
   createdAt: Date | undefined;
+
+  /**
+   * <p>The unique identifier of the table bucket.</p>
+   * @public
+   */
+  tableBucketId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTableBucketEncryptionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * @public
+   */
+  tableBucketARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTableBucketEncryptionResponse {
+  /**
+   * <p>The encryption configuration for the table bucket.</p>
+   * @public
+   */
+  encryptionConfiguration: EncryptionConfiguration | undefined;
 }
 
 /**
@@ -680,23 +790,18 @@ export const TableBucketMaintenanceType = {
 export type TableBucketMaintenanceType = (typeof TableBucketMaintenanceType)[keyof typeof TableBucketMaintenanceType];
 
 /**
- * <p>Contains details about the unreferenced file removal settings for an Iceberg table bucket.
- *     </p>
+ * <p>Contains details about the unreferenced file removal settings for an Iceberg table bucket.</p>
  * @public
  */
 export interface IcebergUnreferencedFileRemovalSettings {
   /**
-   * <p>The number of days an object has to be unreferenced before it is marked as non-current.
-   *
-   *        </p>
+   * <p>The number of days an object has to be unreferenced before it is marked as non-current.</p>
    * @public
    */
   unreferencedDays?: number | undefined;
 
   /**
-   * <p>The number of days an object has to be non-current before it is deleted.
-   *
-   *     </p>
+   * <p>The number of days an object has to be non-current before it is deleted.</p>
    * @public
    */
   nonCurrentDays?: number | undefined;
@@ -818,6 +923,40 @@ export interface GetTableBucketPolicyResponse {
 /**
  * @public
  */
+export interface GetTableEncryptionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table bucket containing the table.</p>
+   * @public
+   */
+  tableBucketARN: string | undefined;
+
+  /**
+   * <p>The namespace associated with the table.</p>
+   * @public
+   */
+  namespace: string | undefined;
+
+  /**
+   * <p>The name of the table.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTableEncryptionResponse {
+  /**
+   * <p>The encryption configuration for the table.</p>
+   * @public
+   */
+  encryptionConfiguration: EncryptionConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetTableMaintenanceConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
@@ -853,8 +992,7 @@ export const TableMaintenanceType = {
 export type TableMaintenanceType = (typeof TableMaintenanceType)[keyof typeof TableMaintenanceType];
 
 /**
- * <p>Contains details about the compaction settings for an Iceberg table.
- *     </p>
+ * <p>Contains details about the compaction settings for an Iceberg table.</p>
  * @public
  */
 export interface IcebergCompactionSettings {
@@ -866,8 +1004,7 @@ export interface IcebergCompactionSettings {
 }
 
 /**
- * <p>Contains details about the snapshot management settings for an Iceberg table. The oldest snapshot expires when its age exceeds the <code>maxSnapshotAgeHours</code> and the total number of snapshots exceeds the value for the minimum number of snapshots to keep <code>minSnapshotsToKeep</code>.
- *     </p>
+ * <p>Contains details about the snapshot management settings for an Iceberg table. The oldest snapshot expires when its age exceeds the <code>maxSnapshotAgeHours</code> and the total number of snapshots exceeds the value for the minimum number of snapshots to keep <code>minSnapshotsToKeep</code>.</p>
  * @public
  */
 export interface IcebergSnapshotManagementSettings {
@@ -1212,6 +1349,18 @@ export interface NamespaceSummary {
    * @public
    */
   ownerAccountId: string | undefined;
+
+  /**
+   * <p>The system-assigned unique identifier for the namespace.</p>
+   * @public
+   */
+  namespaceId?: string | undefined;
+
+  /**
+   * <p>The system-assigned unique identifier for the table bucket that contains this namespace.</p>
+   * @public
+   */
+  tableBucketId?: string | undefined;
 }
 
 /**
@@ -1285,6 +1434,12 @@ export interface TableBucketSummary {
    * @public
    */
   createdAt: Date | undefined;
+
+  /**
+   * <p>The system-assigned unique identifier for the table bucket.</p>
+   * @public
+   */
+  tableBucketId?: string | undefined;
 }
 
 /**
@@ -1382,6 +1537,18 @@ export interface TableSummary {
    * @public
    */
   modifiedAt: Date | undefined;
+
+  /**
+   * <p>The unique identifier for the namespace that contains this table.</p>
+   * @public
+   */
+  namespaceId?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the table bucket that contains this table.</p>
+   * @public
+   */
+  tableBucketId?: string | undefined;
 }
 
 /**
@@ -1399,6 +1566,23 @@ export interface ListTablesResponse {
    * @public
    */
   continuationToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutTableBucketEncryptionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * @public
+   */
+  tableBucketARN: string | undefined;
+
+  /**
+   * <p>The encryption configuration to apply to the table bucket.</p>
+   * @public
+   */
+  encryptionConfiguration: EncryptionConfiguration | undefined;
 }
 
 /**

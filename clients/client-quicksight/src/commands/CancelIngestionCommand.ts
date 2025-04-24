@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CancelIngestionRequest, CancelIngestionResponse } from "../models/models_2";
+import { CancelIngestionRequest, CancelIngestionResponse } from "../models/models_3";
 import { de_CancelIngestionCommand, se_CancelIngestionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

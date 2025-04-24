@@ -1458,6 +1458,101 @@ export namespace IngressPointConfiguration {
 }
 
 /**
+ * <p>Specifies the network configuration for the private ingress point.</p>
+ * @public
+ */
+export interface PrivateNetworkConfiguration {
+  /**
+   * <p>The identifier of the VPC endpoint to associate with this private ingress point.</p>
+   * @public
+   */
+  VpcEndpointId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IpType = {
+  DUAL_STACK: "DUAL_STACK",
+  IPV4: "IPV4",
+} as const;
+
+/**
+ * @public
+ */
+export type IpType = (typeof IpType)[keyof typeof IpType];
+
+/**
+ * <p>Specifies the network configuration for the public ingress point.</p>
+ * @public
+ */
+export interface PublicNetworkConfiguration {
+  /**
+   * <p>The IP address type for the public ingress point. Valid values are IPV4 and DUAL_STACK.</p>
+   * @public
+   */
+  IpType: IpType | undefined;
+}
+
+/**
+ * <p>The network type (IPv4-only, Dual-Stack, PrivateLink) of the ingress endpoint resource.</p>
+ * @public
+ */
+export type NetworkConfiguration =
+  | NetworkConfiguration.PrivateNetworkConfigurationMember
+  | NetworkConfiguration.PublicNetworkConfigurationMember
+  | NetworkConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace NetworkConfiguration {
+  /**
+   * <p>Specifies the network configuration for the public ingress point.</p>
+   * @public
+   */
+  export interface PublicNetworkConfigurationMember {
+    PublicNetworkConfiguration: PublicNetworkConfiguration;
+    PrivateNetworkConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Specifies the network configuration for the private ingress point.</p>
+   * @public
+   */
+  export interface PrivateNetworkConfigurationMember {
+    PublicNetworkConfiguration?: never;
+    PrivateNetworkConfiguration: PrivateNetworkConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    PublicNetworkConfiguration?: never;
+    PrivateNetworkConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    PublicNetworkConfiguration: (value: PublicNetworkConfiguration) => T;
+    PrivateNetworkConfiguration: (value: PrivateNetworkConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: NetworkConfiguration, visitor: Visitor<T>): T => {
+    if (value.PublicNetworkConfiguration !== undefined)
+      return visitor.PublicNetworkConfiguration(value.PublicNetworkConfiguration);
+    if (value.PrivateNetworkConfiguration !== undefined)
+      return visitor.PrivateNetworkConfiguration(value.PrivateNetworkConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * @public
  * @enum
  */
@@ -1514,6 +1609,14 @@ export interface CreateIngressPointRequest {
    * @public
    */
   IngressPointConfiguration?: IngressPointConfiguration | undefined;
+
+  /**
+   * <p>Specifies the network configuration for the ingress point.
+   *             This allows you to create an IPv4-only, Dual-Stack, or PrivateLink type of ingress point. If not specified, the default network type is IPv4-only.
+   *         </p>
+   * @public
+   */
+  NetworkConfiguration?: NetworkConfiguration | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for the resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
@@ -3168,6 +3271,81 @@ export interface IngressIpv4Expression {
  * @public
  * @enum
  */
+export const IngressIpv6Attribute = {
+  SENDER_IPV6: "SENDER_IPV6",
+} as const;
+
+/**
+ * @public
+ */
+export type IngressIpv6Attribute = (typeof IngressIpv6Attribute)[keyof typeof IngressIpv6Attribute];
+
+/**
+ * <p>The structure for an IPv6 based condition matching on the incoming mail.</p>
+ * @public
+ */
+export type IngressIpv6ToEvaluate = IngressIpv6ToEvaluate.AttributeMember | IngressIpv6ToEvaluate.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace IngressIpv6ToEvaluate {
+  /**
+   * <p>An enum type representing the allowed attribute types for an IPv6 condition.</p>
+   * @public
+   */
+  export interface AttributeMember {
+    Attribute: IngressIpv6Attribute;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Attribute?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Attribute: (value: IngressIpv6Attribute) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: IngressIpv6ToEvaluate, visitor: Visitor<T>): T => {
+    if (value.Attribute !== undefined) return visitor.Attribute(value.Attribute);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The union type representing the allowed types for the left hand side of an IPv6 condition.</p>
+ * @public
+ */
+export interface IngressIpv6Expression {
+  /**
+   * <p>The left hand side argument of an IPv6 condition expression.</p>
+   * @public
+   */
+  Evaluate: IngressIpv6ToEvaluate | undefined;
+
+  /**
+   * <p>The matching operator for an IPv6 condition expression.</p>
+   * @public
+   */
+  Operator: IngressIpOperator | undefined;
+
+  /**
+   * <p>The right hand side argument of an IPv6 condition expression.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const IngressStringEmailAttribute = {
   RECIPIENT: "RECIPIENT",
 } as const;
@@ -3390,6 +3568,7 @@ export interface IngressTlsProtocolExpression {
 export type PolicyCondition =
   | PolicyCondition.BooleanExpressionMember
   | PolicyCondition.IpExpressionMember
+  | PolicyCondition.Ipv6ExpressionMember
   | PolicyCondition.StringExpressionMember
   | PolicyCondition.TlsExpressionMember
   | PolicyCondition.$UnknownMember;
@@ -3407,6 +3586,7 @@ export namespace PolicyCondition {
   export interface StringExpressionMember {
     StringExpression: IngressStringExpression;
     IpExpression?: never;
+    Ipv6Expression?: never;
     TlsExpression?: never;
     BooleanExpression?: never;
     $unknown?: never;
@@ -3421,6 +3601,22 @@ export namespace PolicyCondition {
   export interface IpExpressionMember {
     StringExpression?: never;
     IpExpression: IngressIpv4Expression;
+    Ipv6Expression?: never;
+    TlsExpression?: never;
+    BooleanExpression?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>This represents an IPv6 based condition matching on the incoming mail. It performs the
+   *             operation configured in 'Operator' and evaluates the 'Protocol' object against the
+   *             'Value'.</p>
+   * @public
+   */
+  export interface Ipv6ExpressionMember {
+    StringExpression?: never;
+    IpExpression?: never;
+    Ipv6Expression: IngressIpv6Expression;
     TlsExpression?: never;
     BooleanExpression?: never;
     $unknown?: never;
@@ -3435,6 +3631,7 @@ export namespace PolicyCondition {
   export interface TlsExpressionMember {
     StringExpression?: never;
     IpExpression?: never;
+    Ipv6Expression?: never;
     TlsExpression: IngressTlsProtocolExpression;
     BooleanExpression?: never;
     $unknown?: never;
@@ -3449,6 +3646,7 @@ export namespace PolicyCondition {
   export interface BooleanExpressionMember {
     StringExpression?: never;
     IpExpression?: never;
+    Ipv6Expression?: never;
     TlsExpression?: never;
     BooleanExpression: IngressBooleanExpression;
     $unknown?: never;
@@ -3460,6 +3658,7 @@ export namespace PolicyCondition {
   export interface $UnknownMember {
     StringExpression?: never;
     IpExpression?: never;
+    Ipv6Expression?: never;
     TlsExpression?: never;
     BooleanExpression?: never;
     $unknown: [string, any];
@@ -3468,6 +3667,7 @@ export namespace PolicyCondition {
   export interface Visitor<T> {
     StringExpression: (value: IngressStringExpression) => T;
     IpExpression: (value: IngressIpv4Expression) => T;
+    Ipv6Expression: (value: IngressIpv6Expression) => T;
     TlsExpression: (value: IngressTlsProtocolExpression) => T;
     BooleanExpression: (value: IngressBooleanExpression) => T;
     _: (name: string, value: any) => T;
@@ -3476,6 +3676,7 @@ export namespace PolicyCondition {
   export const visit = <T>(value: PolicyCondition, visitor: Visitor<T>): T => {
     if (value.StringExpression !== undefined) return visitor.StringExpression(value.StringExpression);
     if (value.IpExpression !== undefined) return visitor.IpExpression(value.IpExpression);
+    if (value.Ipv6Expression !== undefined) return visitor.Ipv6Expression(value.Ipv6Expression);
     if (value.TlsExpression !== undefined) return visitor.TlsExpression(value.TlsExpression);
     if (value.BooleanExpression !== undefined) return visitor.BooleanExpression(value.BooleanExpression);
     return visitor._(value.$unknown[0], value.$unknown[1]);
@@ -4508,6 +4709,12 @@ export interface GetIngressPointResponse {
    * @public
    */
   IngressPointAuthConfiguration?: IngressPointAuthConfiguration | undefined;
+
+  /**
+   * <p>The network configuration for the ingress point.</p>
+   * @public
+   */
+  NetworkConfiguration?: NetworkConfiguration | undefined;
 
   /**
    * <p>The timestamp of when the ingress endpoint was created.</p>
@@ -5757,6 +5964,7 @@ export const CreateIngressPointRequestFilterSensitiveLog = (obj: CreateIngressPo
   ...(obj.IngressPointConfiguration && {
     IngressPointConfiguration: IngressPointConfigurationFilterSensitiveLog(obj.IngressPointConfiguration),
   }),
+  ...(obj.NetworkConfiguration && { NetworkConfiguration: obj.NetworkConfiguration }),
 });
 
 /**

@@ -28,8 +28,7 @@ export interface DeleteServerCommandInput extends DeleteServerRequest {}
 export interface DeleteServerCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the file transfer protocol-enabled server that you specify.</p>
- *          <p>No response returns from this operation.</p>
+ * <p>Deletes the file transfer protocol-enabled server that you specify.</p> <p>No response returns from this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +60,7 @@ export interface DeleteServerCommandOutput extends __MetadataBearer {}
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>

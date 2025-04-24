@@ -3,10 +3,8 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   AggregationFunction,
-  AxisBinding,
   AxisDisplayOptions,
   BarChartFieldWells,
-  BarChartOrientation,
   BarsArrangement,
   ChartAxisLabelOptions,
   ColumnIdentifier,
@@ -29,11 +27,11 @@ import {
   MeasureFieldFilterSensitiveLog,
   NumberDisplayFormatConfiguration,
   NumberDisplayFormatConfigurationFilterSensitiveLog,
+  NumericalAggregationFunction,
   NumericFormatConfiguration,
   NumericFormatConfigurationFilterSensitiveLog,
   PercentageDisplayFormatConfiguration,
   PercentageDisplayFormatConfigurationFilterSensitiveLog,
-  ReferenceLineDynamicDataConfiguration,
   SortDirection,
   TimeGranularity,
   Visibility,
@@ -41,6 +39,58 @@ import {
   VisualInteractionOptions,
   WidgetStatus,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const BarChartOrientation = {
+  HORIZONTAL: "HORIZONTAL",
+  VERTICAL: "VERTICAL",
+} as const;
+
+/**
+ * @public
+ */
+export type BarChartOrientation = (typeof BarChartOrientation)[keyof typeof BarChartOrientation];
+
+/**
+ * @public
+ * @enum
+ */
+export const AxisBinding = {
+  PRIMARY_YAXIS: "PRIMARY_YAXIS",
+  SECONDARY_YAXIS: "SECONDARY_YAXIS",
+} as const;
+
+/**
+ * @public
+ */
+export type AxisBinding = (typeof AxisBinding)[keyof typeof AxisBinding];
+
+/**
+ * <p>The dynamic configuration of the reference line data configuration.</p>
+ * @public
+ */
+export interface ReferenceLineDynamicDataConfiguration {
+  /**
+   * <p>The column that the dynamic data targets.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The aggregation function that is used in the dynamic data.</p>
+   * @public
+   */
+  MeasureAggregationFunction?: AggregationFunction | undefined;
+
+  /**
+   * <p>The calculation that is used in the dynamic data.</p>
+   * @public
+   */
+  Calculation: NumericalAggregationFunction | undefined;
+}
 
 /**
  * @public
@@ -7741,58 +7791,6 @@ export interface PivotTableConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const PivotTableConditionalFormattingScopeRole = {
-  FIELD: "FIELD",
-  FIELD_TOTAL: "FIELD_TOTAL",
-  GRAND_TOTAL: "GRAND_TOTAL",
-} as const;
-
-/**
- * @public
- */
-export type PivotTableConditionalFormattingScopeRole =
-  (typeof PivotTableConditionalFormattingScopeRole)[keyof typeof PivotTableConditionalFormattingScopeRole];
-
-/**
- * <p>The scope of the cell for conditional formatting.</p>
- * @public
- */
-export interface PivotTableConditionalFormattingScope {
-  /**
-   * <p>The role (field, field total, grand total) of the cell for conditional formatting.</p>
-   * @public
-   */
-  Role?: PivotTableConditionalFormattingScopeRole | undefined;
-}
-
-/**
- * <p>The conditional formatting for the text.</p>
- * @public
- */
-export interface TextConditionalFormat {
-  /**
-   * <p>The conditional formatting for the text background color.</p>
-   * @public
-   */
-  BackgroundColor?: ConditionalFormattingColor | undefined;
-
-  /**
-   * <p>The conditional formatting for the text color.</p>
-   * @public
-   */
-  TextColor?: ConditionalFormattingColor | undefined;
-
-  /**
-   * <p>The conditional formatting for the icon.</p>
-   * @public
-   */
-  Icon?: ConditionalFormattingIcon | undefined;
-}
-
-/**
  * @internal
  */
 export const ReferenceLineStaticDataConfigurationFilterSensitiveLog = (
@@ -8803,14 +8801,4 @@ export const PivotTableSortConfigurationFilterSensitiveLog = (obj: PivotTableSor
  */
 export const PivotTableConfigurationFilterSensitiveLog = (obj: PivotTableConfiguration): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const TextConditionalFormatFilterSensitiveLog = (obj: TextConditionalFormat): any => ({
-  ...obj,
-  ...(obj.BackgroundColor && { BackgroundColor: ConditionalFormattingColorFilterSensitiveLog(obj.BackgroundColor) }),
-  ...(obj.TextColor && { TextColor: ConditionalFormattingColorFilterSensitiveLog(obj.TextColor) }),
-  ...(obj.Icon && { Icon: ConditionalFormattingIconFilterSensitiveLog(obj.Icon) }),
 });

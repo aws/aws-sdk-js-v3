@@ -210,6 +210,11 @@ import {
 } from "./commands/RegisterTaskDefinitionCommand";
 import { RunTaskCommand, RunTaskCommandInput, RunTaskCommandOutput } from "./commands/RunTaskCommand";
 import { StartTaskCommand, StartTaskCommandInput, StartTaskCommandOutput } from "./commands/StartTaskCommand";
+import {
+  StopServiceDeploymentCommand,
+  StopServiceDeploymentCommandInput,
+  StopServiceDeploymentCommandOutput,
+} from "./commands/StopServiceDeploymentCommand";
 import { StopTaskCommand, StopTaskCommandInput, StopTaskCommandOutput } from "./commands/StopTaskCommand";
 import {
   SubmitAttachmentStateChangesCommand,
@@ -324,6 +329,7 @@ const commands = {
   RegisterTaskDefinitionCommand,
   RunTaskCommand,
   StartTaskCommand,
+  StopServiceDeploymentCommand,
   StopTaskCommand,
   SubmitAttachmentStateChangesCommand,
   SubmitContainerStateChangeCommand,
@@ -1016,6 +1022,23 @@ export interface ECS {
     args: StartTaskCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopServiceDeploymentCommand}
+   */
+  stopServiceDeployment(
+    args: StopServiceDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopServiceDeploymentCommandOutput>;
+  stopServiceDeployment(
+    args: StopServiceDeploymentCommandInput,
+    cb: (err: any, data?: StopServiceDeploymentCommandOutput) => void
+  ): void;
+  stopServiceDeployment(
+    args: StopServiceDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopServiceDeploymentCommandOutput) => void
   ): void;
 
   /**

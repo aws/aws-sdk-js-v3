@@ -64,6 +64,10 @@ import {
 import { DisableRegionCommandInput, DisableRegionCommandOutput } from "./commands/DisableRegionCommand";
 import { EnableRegionCommandInput, EnableRegionCommandOutput } from "./commands/EnableRegionCommand";
 import {
+  GetAccountInformationCommandInput,
+  GetAccountInformationCommandOutput,
+} from "./commands/GetAccountInformationCommand";
+import {
   GetAlternateContactCommandInput,
   GetAlternateContactCommandOutput,
 } from "./commands/GetAlternateContactCommand";
@@ -74,6 +78,7 @@ import {
 import { GetPrimaryEmailCommandInput, GetPrimaryEmailCommandOutput } from "./commands/GetPrimaryEmailCommand";
 import { GetRegionOptStatusCommandInput, GetRegionOptStatusCommandOutput } from "./commands/GetRegionOptStatusCommand";
 import { ListRegionsCommandInput, ListRegionsCommandOutput } from "./commands/ListRegionsCommand";
+import { PutAccountNameCommandInput, PutAccountNameCommandOutput } from "./commands/PutAccountNameCommand";
 import {
   PutAlternateContactCommandInput,
   PutAlternateContactCommandOutput,
@@ -105,11 +110,13 @@ export type ServiceInputTypes =
   | DeleteAlternateContactCommandInput
   | DisableRegionCommandInput
   | EnableRegionCommandInput
+  | GetAccountInformationCommandInput
   | GetAlternateContactCommandInput
   | GetContactInformationCommandInput
   | GetPrimaryEmailCommandInput
   | GetRegionOptStatusCommandInput
   | ListRegionsCommandInput
+  | PutAccountNameCommandInput
   | PutAlternateContactCommandInput
   | PutContactInformationCommandInput
   | StartPrimaryEmailUpdateCommandInput;
@@ -122,11 +129,13 @@ export type ServiceOutputTypes =
   | DeleteAlternateContactCommandOutput
   | DisableRegionCommandOutput
   | EnableRegionCommandOutput
+  | GetAccountInformationCommandOutput
   | GetAlternateContactCommandOutput
   | GetContactInformationCommandOutput
   | GetPrimaryEmailCommandOutput
   | GetRegionOptStatusCommandOutput
   | ListRegionsCommandOutput
+  | PutAccountNameCommandOutput
   | PutAlternateContactCommandOutput
   | PutContactInformationCommandOutput
   | StartPrimaryEmailUpdateCommandOutput;

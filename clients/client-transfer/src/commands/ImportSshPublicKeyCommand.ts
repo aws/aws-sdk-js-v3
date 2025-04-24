@@ -28,11 +28,7 @@ export interface ImportSshPublicKeyCommandInput extends ImportSshPublicKeyReques
 export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a Secure Shell (SSH) public key to a Transfer Family user identified by a
- *         <code>UserName</code> value assigned to the specific file transfer protocol-enabled server,
- *       identified by <code>ServerId</code>.</p>
- *          <p>The response returns the <code>UserName</code> value, the <code>ServerId</code> value, and
- *       the name of the <code>SshPublicKeyId</code>.</p>
+ * <p>Adds a Secure Shell (SSH) public key to a Transfer Family user identified by a <code>UserName</code> value assigned to the specific file transfer protocol-enabled server, identified by <code>ServerId</code>.</p> <p>The response returns the <code>UserName</code> value, the <code>ServerId</code> value, and the name of the <code>SshPublicKeyId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +66,7 @@ export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyRespo
  *  <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>

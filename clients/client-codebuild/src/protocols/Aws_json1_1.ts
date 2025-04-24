@@ -30,6 +30,10 @@ import {
   BatchGetBuildBatchesCommandOutput,
 } from "../commands/BatchGetBuildBatchesCommand";
 import { BatchGetBuildsCommandInput, BatchGetBuildsCommandOutput } from "../commands/BatchGetBuildsCommand";
+import {
+  BatchGetCommandExecutionsCommandInput,
+  BatchGetCommandExecutionsCommandOutput,
+} from "../commands/BatchGetCommandExecutionsCommand";
 import { BatchGetFleetsCommandInput, BatchGetFleetsCommandOutput } from "../commands/BatchGetFleetsCommand";
 import { BatchGetProjectsCommandInput, BatchGetProjectsCommandOutput } from "../commands/BatchGetProjectsCommand";
 import {
@@ -37,6 +41,7 @@ import {
   BatchGetReportGroupsCommandOutput,
 } from "../commands/BatchGetReportGroupsCommand";
 import { BatchGetReportsCommandInput, BatchGetReportsCommandOutput } from "../commands/BatchGetReportsCommand";
+import { BatchGetSandboxesCommandInput, BatchGetSandboxesCommandOutput } from "../commands/BatchGetSandboxesCommand";
 import { CreateFleetCommandInput, CreateFleetCommandOutput } from "../commands/CreateFleetCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "../commands/CreateProjectCommand";
 import { CreateReportGroupCommandInput, CreateReportGroupCommandOutput } from "../commands/CreateReportGroupCommand";
@@ -84,6 +89,10 @@ import {
   ListBuildsForProjectCommandOutput,
 } from "../commands/ListBuildsForProjectCommand";
 import {
+  ListCommandExecutionsForSandboxCommandInput,
+  ListCommandExecutionsForSandboxCommandOutput,
+} from "../commands/ListCommandExecutionsForSandboxCommand";
+import {
   ListCuratedEnvironmentImagesCommandInput,
   ListCuratedEnvironmentImagesCommandOutput,
 } from "../commands/ListCuratedEnvironmentImagesCommand";
@@ -95,6 +104,11 @@ import {
   ListReportsForReportGroupCommandInput,
   ListReportsForReportGroupCommandOutput,
 } from "../commands/ListReportsForReportGroupCommand";
+import { ListSandboxesCommandInput, ListSandboxesCommandOutput } from "../commands/ListSandboxesCommand";
+import {
+  ListSandboxesForProjectCommandInput,
+  ListSandboxesForProjectCommandOutput,
+} from "../commands/ListSandboxesForProjectCommand";
 import { ListSharedProjectsCommandInput, ListSharedProjectsCommandOutput } from "../commands/ListSharedProjectsCommand";
 import {
   ListSharedReportGroupsCommandInput,
@@ -109,8 +123,18 @@ import { RetryBuildBatchCommandInput, RetryBuildBatchCommandOutput } from "../co
 import { RetryBuildCommandInput, RetryBuildCommandOutput } from "../commands/RetryBuildCommand";
 import { StartBuildBatchCommandInput, StartBuildBatchCommandOutput } from "../commands/StartBuildBatchCommand";
 import { StartBuildCommandInput, StartBuildCommandOutput } from "../commands/StartBuildCommand";
+import {
+  StartCommandExecutionCommandInput,
+  StartCommandExecutionCommandOutput,
+} from "../commands/StartCommandExecutionCommand";
+import { StartSandboxCommandInput, StartSandboxCommandOutput } from "../commands/StartSandboxCommand";
+import {
+  StartSandboxConnectionCommandInput,
+  StartSandboxConnectionCommandOutput,
+} from "../commands/StartSandboxConnectionCommand";
 import { StopBuildBatchCommandInput, StopBuildBatchCommandOutput } from "../commands/StopBuildBatchCommand";
 import { StopBuildCommandInput, StopBuildCommandOutput } from "../commands/StopBuildCommand";
+import { StopSandboxCommandInput, StopSandboxCommandOutput } from "../commands/StopSandboxCommand";
 import { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "../commands/UpdateFleetCommand";
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "../commands/UpdateProjectCommand";
 import {
@@ -122,11 +146,14 @@ import { UpdateWebhookCommandInput, UpdateWebhookCommandOutput } from "../comman
 import { CodeBuildServiceException as __BaseException } from "../models/CodeBuildServiceException";
 import {
   AccountLimitExceededException,
+  AccountSuspendedException,
   BatchDeleteBuildsInput,
   BatchGetBuildBatchesInput,
   BatchGetBuildBatchesOutput,
   BatchGetBuildsInput,
   BatchGetBuildsOutput,
+  BatchGetCommandExecutionsInput,
+  BatchGetCommandExecutionsOutput,
   BatchGetFleetsInput,
   BatchGetFleetsOutput,
   BatchGetProjectsInput,
@@ -135,6 +162,8 @@ import {
   BatchGetReportGroupsOutput,
   BatchGetReportsInput,
   BatchGetReportsOutput,
+  BatchGetSandboxesInput,
+  BatchGetSandboxesOutput,
   BatchRestrictions,
   Build,
   BuildBatch,
@@ -148,6 +177,7 @@ import {
   CloudWatchLogsConfig,
   CodeCoverage,
   CodeCoverageReportSummary,
+  CommandExecution,
   ComputeConfiguration,
   CreateFleetInput,
   CreateFleetOutput,
@@ -182,12 +212,16 @@ import {
   ListBuildBatchesInput,
   ListBuildsForProjectInput,
   ListBuildsInput,
+  ListCommandExecutionsForSandboxInput,
+  ListCommandExecutionsForSandboxOutput,
   ListCuratedEnvironmentImagesInput,
   ListFleetsInput,
   ListProjectsInput,
   ListReportGroupsInput,
   ListReportsForReportGroupInput,
   ListReportsInput,
+  ListSandboxesForProjectInput,
+  ListSandboxesInput,
   ListSharedProjectsInput,
   ListSharedReportGroupsInput,
   ListSourceCredentialsInput,
@@ -217,6 +251,9 @@ import {
   RetryBuildOutput,
   S3LogsConfig,
   S3ReportExportConfig,
+  Sandbox,
+  SandboxSession,
+  SandboxSessionPhase,
   ScalingConfigurationInput,
   ScalingConfigurationOutput,
   ScopeConfiguration,
@@ -225,10 +262,17 @@ import {
   StartBuildBatchOutput,
   StartBuildInput,
   StartBuildOutput,
+  StartCommandExecutionInput,
+  StartCommandExecutionOutput,
+  StartSandboxConnectionInput,
+  StartSandboxInput,
+  StartSandboxOutput,
   StopBuildBatchInput,
   StopBuildBatchOutput,
   StopBuildInput,
   StopBuildOutput,
+  StopSandboxInput,
+  StopSandboxOutput,
   Tag,
   TargetTrackingScalingConfiguration,
   TestCase,
@@ -287,6 +331,19 @@ export const se_BatchGetBuildsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1BatchGetCommandExecutionsCommand
+ */
+export const se_BatchGetCommandExecutionsCommand = async (
+  input: BatchGetCommandExecutionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("BatchGetCommandExecutions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1BatchGetFleetsCommand
  */
 export const se_BatchGetFleetsCommand = async (
@@ -333,6 +390,19 @@ export const se_BatchGetReportsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchGetReports");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1BatchGetSandboxesCommand
+ */
+export const se_BatchGetSandboxesCommand = async (
+  input: BatchGetSandboxesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("BatchGetSandboxes");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -625,6 +695,19 @@ export const se_ListBuildsForProjectCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListCommandExecutionsForSandboxCommand
+ */
+export const se_ListCommandExecutionsForSandboxCommand = async (
+  input: ListCommandExecutionsForSandboxCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListCommandExecutionsForSandbox");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListCuratedEnvironmentImagesCommand
  */
 export const se_ListCuratedEnvironmentImagesCommand = async (
@@ -697,6 +780,32 @@ export const se_ListReportsForReportGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListReportsForReportGroup");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListSandboxesCommand
+ */
+export const se_ListSandboxesCommand = async (
+  input: ListSandboxesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListSandboxes");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListSandboxesForProjectCommand
+ */
+export const se_ListSandboxesForProjectCommand = async (
+  input: ListSandboxesForProjectCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListSandboxesForProject");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -807,6 +916,45 @@ export const se_StartBuildBatchCommand = async (
 };
 
 /**
+ * serializeAws_json1_1StartCommandExecutionCommand
+ */
+export const se_StartCommandExecutionCommand = async (
+  input: StartCommandExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartCommandExecution");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartSandboxCommand
+ */
+export const se_StartSandboxCommand = async (
+  input: StartSandboxCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartSandbox");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartSandboxConnectionCommand
+ */
+export const se_StartSandboxConnectionCommand = async (
+  input: StartSandboxConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartSandboxConnection");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1StopBuildCommand
  */
 export const se_StopBuildCommand = async (
@@ -827,6 +975,19 @@ export const se_StopBuildBatchCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopBuildBatch");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StopSandboxCommand
+ */
+export const se_StopSandboxCommand = async (
+  input: StopSandboxCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StopSandbox");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -958,6 +1119,26 @@ export const de_BatchGetBuildsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1BatchGetCommandExecutionsCommand
+ */
+export const de_BatchGetCommandExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetCommandExecutionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchGetCommandExecutionsOutput(data, context);
+  const response: BatchGetCommandExecutionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1BatchGetFleetsCommand
  */
 export const de_BatchGetFleetsCommand = async (
@@ -1031,6 +1212,26 @@ export const de_BatchGetReportsCommand = async (
   let contents: any = {};
   contents = de_BatchGetReportsOutput(data, context);
   const response: BatchGetReportsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1BatchGetSandboxesCommand
+ */
+export const de_BatchGetSandboxesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetSandboxesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchGetSandboxesOutput(data, context);
+  const response: BatchGetSandboxesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1478,6 +1679,26 @@ export const de_ListBuildsForProjectCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListCommandExecutionsForSandboxCommand
+ */
+export const de_ListCommandExecutionsForSandboxCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCommandExecutionsForSandboxCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListCommandExecutionsForSandboxOutput(data, context);
+  const response: ListCommandExecutionsForSandboxCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListCuratedEnvironmentImagesCommand
  */
 export const de_ListCuratedEnvironmentImagesCommand = async (
@@ -1591,6 +1812,46 @@ export const de_ListReportsForReportGroupCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ListReportsForReportGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListSandboxesCommand
+ */
+export const de_ListSandboxesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSandboxesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListSandboxesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListSandboxesForProjectCommand
+ */
+export const de_ListSandboxesForProjectCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSandboxesForProjectCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListSandboxesForProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1758,6 +2019,66 @@ export const de_StartBuildBatchCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1StartCommandExecutionCommand
+ */
+export const de_StartCommandExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartCommandExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartCommandExecutionOutput(data, context);
+  const response: StartCommandExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartSandboxCommand
+ */
+export const de_StartSandboxCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSandboxCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartSandboxOutput(data, context);
+  const response: StartSandboxCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartSandboxConnectionCommand
+ */
+export const de_StartSandboxConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSandboxConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartSandboxConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1StopBuildCommand
  */
 export const de_StopBuildCommand = async (
@@ -1791,6 +2112,26 @@ export const de_StopBuildBatchCommand = async (
   let contents: any = {};
   contents = de_StopBuildBatchOutput(data, context);
   const response: StopBuildBatchCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopSandboxCommand
+ */
+export const de_StopSandboxCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopSandboxCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StopSandboxOutput(data, context);
+  const response: StopSandboxCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1922,6 +2263,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "AccountSuspendedException":
+    case "com.amazonaws.codebuild#AccountSuspendedException":
+      throw await de_AccountSuspendedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1942,6 +2286,22 @@ const de_AccountLimitExceededExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new AccountLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1AccountSuspendedExceptionRes
+ */
+const de_AccountSuspendedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccountSuspendedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new AccountSuspendedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2018,6 +2378,8 @@ const de_ResourceNotFoundExceptionRes = async (
 
 // se_BatchGetBuildsInput omitted.
 
+// se_BatchGetCommandExecutionsInput omitted.
+
 // se_BatchGetFleetsInput omitted.
 
 // se_BatchGetProjectsInput omitted.
@@ -2025,6 +2387,8 @@ const de_ResourceNotFoundExceptionRes = async (
 // se_BatchGetReportGroupsInput omitted.
 
 // se_BatchGetReportsInput omitted.
+
+// se_BatchGetSandboxesInput omitted.
 
 // se_BatchRestrictions omitted.
 
@@ -2037,6 +2401,8 @@ const de_ResourceNotFoundExceptionRes = async (
 // se_BuildStatusConfig omitted.
 
 // se_CloudWatchLogsConfig omitted.
+
+// se_CommandExecutionIds omitted.
 
 // se_ComputeConfiguration omitted.
 
@@ -2137,6 +2503,8 @@ const se_DescribeCodeCoveragesInput = (input: DescribeCodeCoveragesInput, contex
 
 // se_ListBuildsInput omitted.
 
+// se_ListCommandExecutionsForSandboxInput omitted.
+
 // se_ListCuratedEnvironmentImagesInput omitted.
 
 // se_ListFleetsInput omitted.
@@ -2148,6 +2516,10 @@ const se_DescribeCodeCoveragesInput = (input: DescribeCodeCoveragesInput, contex
 // se_ListReportsForReportGroupInput omitted.
 
 // se_ListReportsInput omitted.
+
+// se_ListSandboxesForProjectInput omitted.
+
+// se_ListSandboxesInput omitted.
 
 // se_ListSharedProjectsInput omitted.
 
@@ -2207,6 +2579,8 @@ const se_DescribeCodeCoveragesInput = (input: DescribeCodeCoveragesInput, contex
 
 // se_S3ReportExportConfig omitted.
 
+// se_SandboxIds omitted.
+
 /**
  * serializeAws_json1_1ScalingConfigurationInput
  */
@@ -2228,9 +2602,17 @@ const se_ScalingConfigurationInput = (input: ScalingConfigurationInput, context:
 
 // se_StartBuildInput omitted.
 
+// se_StartCommandExecutionInput omitted.
+
+// se_StartSandboxConnectionInput omitted.
+
+// se_StartSandboxInput omitted.
+
 // se_StopBuildBatchInput omitted.
 
 // se_StopBuildInput omitted.
+
+// se_StopSandboxInput omitted.
 
 // se_Subnets omitted.
 
@@ -2301,6 +2683,8 @@ const se_UpdateFleetInput = (input: UpdateFleetInput, context: __SerdeContext): 
 
 // de_AccountLimitExceededException omitted.
 
+// de_AccountSuspendedException omitted.
+
 // de_AutoRetryConfig omitted.
 
 // de_BatchDeleteBuildsOutput omitted.
@@ -2322,6 +2706,16 @@ const de_BatchGetBuildsOutput = (output: any, context: __SerdeContext): BatchGet
   return take(output, {
     builds: (_: any) => de_Builds(_, context),
     buildsNotFound: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1BatchGetCommandExecutionsOutput
+ */
+const de_BatchGetCommandExecutionsOutput = (output: any, context: __SerdeContext): BatchGetCommandExecutionsOutput => {
+  return take(output, {
+    commandExecutions: (_: any) => de_CommandExecutions(_, context),
+    commandExecutionsNotFound: _json,
   }) as any;
 };
 
@@ -2362,6 +2756,16 @@ const de_BatchGetReportsOutput = (output: any, context: __SerdeContext): BatchGe
   return take(output, {
     reports: (_: any) => de_Reports(_, context),
     reportsNotFound: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1BatchGetSandboxesOutput
+ */
+const de_BatchGetSandboxesOutput = (output: any, context: __SerdeContext): BatchGetSandboxesOutput => {
+  return take(output, {
+    sandboxes: (_: any) => de_Sandboxes(_, context),
+    sandboxesNotFound: _json,
   }) as any;
 };
 
@@ -2635,6 +3039,41 @@ const de_CodeCoverages = (output: any, context: __SerdeContext): CodeCoverage[] 
   return retVal;
 };
 
+/**
+ * deserializeAws_json1_1CommandExecution
+ */
+const de_CommandExecution = (output: any, context: __SerdeContext): CommandExecution => {
+  return take(output, {
+    command: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    exitCode: __expectString,
+    id: __expectString,
+    logs: _json,
+    sandboxArn: __expectString,
+    sandboxId: __expectString,
+    standardErrContent: __expectString,
+    standardOutputContent: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    submitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    type: __expectString,
+  }) as any;
+};
+
+// de_CommandExecutionIds omitted.
+
+/**
+ * deserializeAws_json1_1CommandExecutions
+ */
+const de_CommandExecutions = (output: any, context: __SerdeContext): CommandExecution[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CommandExecution(entry, context);
+    });
+  return retVal;
+};
+
 // de_ComputeConfiguration omitted.
 
 // de_ComputeTypesAllowed omitted.
@@ -2812,6 +3251,19 @@ const de_Fleets = (output: any, context: __SerdeContext): Fleet[] => {
 
 // de_ListBuildsOutput omitted.
 
+/**
+ * deserializeAws_json1_1ListCommandExecutionsForSandboxOutput
+ */
+const de_ListCommandExecutionsForSandboxOutput = (
+  output: any,
+  context: __SerdeContext
+): ListCommandExecutionsForSandboxOutput => {
+  return take(output, {
+    commandExecutions: (_: any) => de_CommandExecutions(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
+
 // de_ListCuratedEnvironmentImagesOutput omitted.
 
 // de_ListFleetsOutput omitted.
@@ -2823,6 +3275,10 @@ const de_Fleets = (output: any, context: __SerdeContext): Fleet[] => {
 // de_ListReportsForReportGroupOutput omitted.
 
 // de_ListReportsOutput omitted.
+
+// de_ListSandboxesForProjectOutput omitted.
+
+// de_ListSandboxesOutput omitted.
 
 // de_ListSharedProjectsOutput omitted.
 
@@ -3034,6 +3490,91 @@ const de_RetryBuildOutput = (output: any, context: __SerdeContext): RetryBuildOu
 // de_S3ReportExportConfig omitted.
 
 /**
+ * deserializeAws_json1_1Sandbox
+ */
+const de_Sandbox = (output: any, context: __SerdeContext): Sandbox => {
+  return take(output, {
+    arn: __expectString,
+    currentSession: (_: any) => de_SandboxSession(_, context),
+    encryptionKey: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    environment: _json,
+    fileSystemLocations: _json,
+    id: __expectString,
+    logConfig: _json,
+    projectName: __expectString,
+    queuedTimeoutInMinutes: __expectInt32,
+    requestTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    secondarySourceVersions: _json,
+    secondarySources: _json,
+    serviceRole: __expectString,
+    source: _json,
+    sourceVersion: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    timeoutInMinutes: __expectInt32,
+    vpcConfig: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1Sandboxes
+ */
+const de_Sandboxes = (output: any, context: __SerdeContext): Sandbox[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Sandbox(entry, context);
+    });
+  return retVal;
+};
+
+// de_SandboxIds omitted.
+
+/**
+ * deserializeAws_json1_1SandboxSession
+ */
+const de_SandboxSession = (output: any, context: __SerdeContext): SandboxSession => {
+  return take(output, {
+    currentPhase: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    logs: _json,
+    networkInterface: _json,
+    phases: (_: any) => de_SandboxSessionPhases(_, context),
+    resolvedSourceVersion: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SandboxSessionPhase
+ */
+const de_SandboxSessionPhase = (output: any, context: __SerdeContext): SandboxSessionPhase => {
+  return take(output, {
+    contexts: _json,
+    durationInSeconds: __expectLong,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    phaseStatus: __expectString,
+    phaseType: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SandboxSessionPhases
+ */
+const de_SandboxSessionPhases = (output: any, context: __SerdeContext): SandboxSessionPhase[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SandboxSessionPhase(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_json1_1ScalingConfigurationOutput
  */
 const de_ScalingConfigurationOutput = (output: any, context: __SerdeContext): ScalingConfigurationOutput => {
@@ -3055,6 +3596,8 @@ const de_ScalingConfigurationOutput = (output: any, context: __SerdeContext): Sc
 
 // de_SourceCredentialsInfos omitted.
 
+// de_SSMSession omitted.
+
 /**
  * deserializeAws_json1_1StartBuildBatchOutput
  */
@@ -3074,6 +3617,26 @@ const de_StartBuildOutput = (output: any, context: __SerdeContext): StartBuildOu
 };
 
 /**
+ * deserializeAws_json1_1StartCommandExecutionOutput
+ */
+const de_StartCommandExecutionOutput = (output: any, context: __SerdeContext): StartCommandExecutionOutput => {
+  return take(output, {
+    commandExecution: (_: any) => de_CommandExecution(_, context),
+  }) as any;
+};
+
+// de_StartSandboxConnectionOutput omitted.
+
+/**
+ * deserializeAws_json1_1StartSandboxOutput
+ */
+const de_StartSandboxOutput = (output: any, context: __SerdeContext): StartSandboxOutput => {
+  return take(output, {
+    sandbox: (_: any) => de_Sandbox(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1StopBuildBatchOutput
  */
 const de_StopBuildBatchOutput = (output: any, context: __SerdeContext): StopBuildBatchOutput => {
@@ -3088,6 +3651,15 @@ const de_StopBuildBatchOutput = (output: any, context: __SerdeContext): StopBuil
 const de_StopBuildOutput = (output: any, context: __SerdeContext): StopBuildOutput => {
   return take(output, {
     build: (_: any) => de_Build(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1StopSandboxOutput
+ */
+const de_StopSandboxOutput = (output: any, context: __SerdeContext): StopSandboxOutput => {
+  return take(output, {
+    sandbox: (_: any) => de_Sandbox(_, context),
   }) as any;
 };
 

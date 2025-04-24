@@ -6,7 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchRelatedItemsRequest, SearchRelatedItemsResponse } from "../models/models_0";
+import {
+  SearchRelatedItemsRequest,
+  SearchRelatedItemsRequestFilterSensitiveLog,
+  SearchRelatedItemsResponse,
+  SearchRelatedItemsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_SearchRelatedItemsCommand, se_SearchRelatedItemsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -56,6 +61,10 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  *       file: { // FileFilter
  *         fileArn: "STRING_VALUE",
  *       },
+ *       sla: { // SlaFilter
+ *         name: "STRING_VALUE",
+ *         status: "STRING_VALUE",
+ *       },
  *     },
  *   ],
  * };
@@ -80,6 +89,25 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  * //         },
  * //         file: { // FileContent
  * //           fileArn: "STRING_VALUE", // required
+ * //         },
+ * //         sla: { // SlaContent
+ * //           slaConfiguration: { // SlaConfiguration
+ * //             name: "STRING_VALUE", // required
+ * //             type: "STRING_VALUE", // required
+ * //             status: "STRING_VALUE", // required
+ * //             fieldId: "STRING_VALUE",
+ * //             targetFieldValues: [ // SlaFieldValueUnionList
+ * //               { // FieldValueUnion Union: only one key present
+ * //                 stringValue: "STRING_VALUE",
+ * //                 doubleValue: Number("double"),
+ * //                 booleanValue: true || false,
+ * //                 emptyValue: {},
+ * //                 userArnValue: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //             targetTime: new Date("TIMESTAMP"), // required
+ * //             completionTime: new Date("TIMESTAMP"),
+ * //           },
  * //         },
  * //       },
  * //       tags: { // Tags
@@ -140,7 +168,7 @@ export class SearchRelatedItemsCommand extends $Command
   })
   .s("AmazonConnectCases", "SearchRelatedItems", {})
   .n("ConnectCasesClient", "SearchRelatedItemsCommand")
-  .f(void 0, void 0)
+  .f(SearchRelatedItemsRequestFilterSensitiveLog, SearchRelatedItemsResponseFilterSensitiveLog)
   .ser(se_SearchRelatedItemsCommand)
   .de(de_SearchRelatedItemsCommand)
   .build() {

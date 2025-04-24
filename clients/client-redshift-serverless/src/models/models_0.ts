@@ -913,6 +913,172 @@ export interface CreateNamespaceResponse {
 }
 
 /**
+ * @public
+ */
+export interface CreateReservationRequest {
+  /**
+   * <p>The number of Redshift Processing Units (RPUs) to reserve.</p>
+   * @public
+   */
+  capacity: number | undefined;
+
+  /**
+   * <p>The ID of the offering associated with the reservation. The offering determines the payment schedule for the reservation.</p>
+   * @public
+   */
+  offeringId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services
+   *          SDK populates this field. This token must be a valid UUIDv4 value. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">
+   *             Making retries safe with idempotent APIs
+   *          </a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OfferingType = {
+  ALL_UPFRONT: "ALL_UPFRONT",
+  NO_UPFRONT: "NO_UPFRONT",
+} as const;
+
+/**
+ * @public
+ */
+export type OfferingType = (typeof OfferingType)[keyof typeof OfferingType];
+
+/**
+ * <p>The class of offering for the reservation. The offering class determines the payment
+ *          schedule for the reservation.</p>
+ * @public
+ */
+export interface ReservationOffering {
+  /**
+   * <p>The offering identifier.</p>
+   * @public
+   */
+  offeringId?: string | undefined;
+
+  /**
+   * <p>The duration, in seconds, for which the reservation reserves the RPUs.</p>
+   * @public
+   */
+  duration?: number | undefined;
+
+  /**
+   * <p>The up-front price you are charged for the reservation.</p>
+   * @public
+   */
+  upfrontCharge?: number | undefined;
+
+  /**
+   * <p>The rate you are charged for each hour the reservation is active.</p>
+   * @public
+   */
+  hourlyCharge?: number | undefined;
+
+  /**
+   * <p>The currency code for the offering.</p>
+   * @public
+   */
+  currencyCode?: string | undefined;
+
+  /**
+   * <p>Determines the payment schedule for the reservation.</p>
+   * @public
+   */
+  offeringType?: OfferingType | undefined;
+}
+
+/**
+ * <p>Represents an Amazon Redshift Serverless reservation, which gives you the option to commit to a specified number of Redshift Processing Units (RPUs)
+ *          for a year at a discount from Serverless on-demand (OD) rates.</p>
+ * @public
+ */
+export interface Reservation {
+  /**
+   * <p>The identifier that uniquely identifies the serverless reservation.</p>
+   * @public
+   */
+  reservationId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the serverless reservation.</p>
+   * @public
+   */
+  reservationArn?: string | undefined;
+
+  /**
+   * <p>The start date for the serverless reservation. This is the date you specified for the reservation to start when
+   *          you created the reservation.</p>
+   * @public
+   */
+  startDate?: Date | undefined;
+
+  /**
+   * <p>The end date for the serverless reservation. This date is one year after the start date that you specify.</p>
+   * @public
+   */
+  endDate?: Date | undefined;
+
+  /**
+   * <p>The number of Redshift Processing Units (RPUs) to reserve.</p>
+   * @public
+   */
+  capacity?: number | undefined;
+
+  /**
+   * <p>The type of offering for the reservation. The offering class determines the payment schedule for the reservation.</p>
+   * @public
+   */
+  offering?: ReservationOffering | undefined;
+
+  /**
+   * <p>The status of the reservation. Possible values include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>payment-pending</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>active</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>payment-failed</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>retired</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  status?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateReservationResponse {
+  /**
+   * <p>The reservation object that the <code>CreateReservation</code> action created.</p>
+   * @public
+   */
+  reservation?: Reservation | undefined;
+}
+
+/**
  * <p>The schedule of when Amazon Redshift Serverless should run the scheduled action.</p>
  * @public
  */
@@ -2402,6 +2568,50 @@ export interface GetRecoveryPointResponse {
 /**
  * @public
  */
+export interface GetReservationRequest {
+  /**
+   * <p>The ID of the reservation to retrieve.</p>
+   * @public
+   */
+  reservationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetReservationResponse {
+  /**
+   * <p>The returned reservation object.</p>
+   * @public
+   */
+  reservation: Reservation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetReservationOfferingRequest {
+  /**
+   * <p>The identifier for the offering..</p>
+   * @public
+   */
+  offeringId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetReservationOfferingResponse {
+  /**
+   * <p>The returned reservation offering. The offering determines the payment schedule for the reservation.</p>
+   * @public
+   */
+  reservationOffering: ReservationOffering | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to return.</p>
@@ -3001,6 +3211,74 @@ export interface ListRecoveryPointsResponse {
    * <p>If <code>nextToken</code> is returned, there are more results available.
    *          The value of <code>nextToken</code> is a unique pagination token for each page.
    *          Make the call again using the returned token to retrieve the next page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListReservationOfferingsRequest {
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListReservationOfferingsResponse {
+  /**
+   * <p>The returned list of reservation offerings.</p>
+   * @public
+   */
+  reservationOfferingsList: ReservationOffering[] | undefined;
+
+  /**
+   * <p>The token to use when requesting the next set of items.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListReservationsRequest {
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListReservationsResponse {
+  /**
+   * <p>The serverless reservations returned by the request.</p>
+   * @public
+   */
+  reservationsList: Reservation[] | undefined;
+
+  /**
+   * <p>The token to use when requesting the next set of items.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3719,8 +3997,9 @@ export interface RestoreFromSnapshotRequest {
   snapshotName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the snapshot to restore from. Required if restoring from Amazon Redshift Serverless to a provisioned cluster.
-   *       Must not be specified at the same time as <code>snapshotName</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the snapshot to restore from. Required if restoring
+   *          from a provisioned cluster to Amazon Redshift Serverless. Must not be specified at the same time as
+   *             <code>snapshotName</code>.</p>
    *          <p>The format of the ARN is arn:aws:redshift:&lt;region&gt;:&lt;account_id&gt;:snapshot:&lt;cluster_identifier&gt;/&lt;snapshot_identifier&gt;.</p>
    * @public
    */

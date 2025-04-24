@@ -59,6 +59,10 @@ import {
 } from "./commands/CancelBatchJobExecutionCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import {
+  CreateDataSetExportTaskCommandInput,
+  CreateDataSetExportTaskCommandOutput,
+} from "./commands/CreateDataSetExportTaskCommand";
+import {
   CreateDataSetImportTaskCommandInput,
   CreateDataSetImportTaskCommandOutput,
 } from "./commands/CreateDataSetImportTaskCommand";
@@ -80,6 +84,10 @@ import {
   GetBatchJobExecutionCommandOutput,
 } from "./commands/GetBatchJobExecutionCommand";
 import { GetDataSetDetailsCommandInput, GetDataSetDetailsCommandOutput } from "./commands/GetDataSetDetailsCommand";
+import {
+  GetDataSetExportTaskCommandInput,
+  GetDataSetExportTaskCommandOutput,
+} from "./commands/GetDataSetExportTaskCommand";
 import {
   GetDataSetImportTaskCommandInput,
   GetDataSetImportTaskCommandOutput,
@@ -107,6 +115,10 @@ import {
   ListBatchJobRestartPointsCommandInput,
   ListBatchJobRestartPointsCommandOutput,
 } from "./commands/ListBatchJobRestartPointsCommand";
+import {
+  ListDataSetExportHistoryCommandInput,
+  ListDataSetExportHistoryCommandOutput,
+} from "./commands/ListDataSetExportHistoryCommand";
 import {
   ListDataSetImportHistoryCommandInput,
   ListDataSetImportHistoryCommandOutput,
@@ -143,6 +155,7 @@ export { __Client };
 export type ServiceInputTypes =
   | CancelBatchJobExecutionCommandInput
   | CreateApplicationCommandInput
+  | CreateDataSetExportTaskCommandInput
   | CreateDataSetImportTaskCommandInput
   | CreateDeploymentCommandInput
   | CreateEnvironmentCommandInput
@@ -153,6 +166,7 @@ export type ServiceInputTypes =
   | GetApplicationVersionCommandInput
   | GetBatchJobExecutionCommandInput
   | GetDataSetDetailsCommandInput
+  | GetDataSetExportTaskCommandInput
   | GetDataSetImportTaskCommandInput
   | GetDeploymentCommandInput
   | GetEnvironmentCommandInput
@@ -162,6 +176,7 @@ export type ServiceInputTypes =
   | ListBatchJobDefinitionsCommandInput
   | ListBatchJobExecutionsCommandInput
   | ListBatchJobRestartPointsCommandInput
+  | ListDataSetExportHistoryCommandInput
   | ListDataSetImportHistoryCommandInput
   | ListDataSetsCommandInput
   | ListDeploymentsCommandInput
@@ -182,6 +197,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CancelBatchJobExecutionCommandOutput
   | CreateApplicationCommandOutput
+  | CreateDataSetExportTaskCommandOutput
   | CreateDataSetImportTaskCommandOutput
   | CreateDeploymentCommandOutput
   | CreateEnvironmentCommandOutput
@@ -192,6 +208,7 @@ export type ServiceOutputTypes =
   | GetApplicationVersionCommandOutput
   | GetBatchJobExecutionCommandOutput
   | GetDataSetDetailsCommandOutput
+  | GetDataSetExportTaskCommandOutput
   | GetDataSetImportTaskCommandOutput
   | GetDeploymentCommandOutput
   | GetEnvironmentCommandOutput
@@ -201,6 +218,7 @@ export type ServiceOutputTypes =
   | ListBatchJobDefinitionsCommandOutput
   | ListBatchJobExecutionsCommandOutput
   | ListBatchJobRestartPointsCommandOutput
+  | ListDataSetExportHistoryCommandOutput
   | ListDataSetImportHistoryCommandOutput
   | ListDataSetsCommandOutput
   | ListDeploymentsCommandOutput

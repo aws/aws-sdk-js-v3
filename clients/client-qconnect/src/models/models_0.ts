@@ -2625,6 +2625,8 @@ export interface UpdateAIGuardrailResponse {
 export const AIPromptAPIFormat = {
   ANTHROPIC_CLAUDE_MESSAGES: "ANTHROPIC_CLAUDE_MESSAGES",
   ANTHROPIC_CLAUDE_TEXT_COMPLETIONS: "ANTHROPIC_CLAUDE_TEXT_COMPLETIONS",
+  MESSAGES: "MESSAGES",
+  TEXT_COMPLETIONS: "TEXT_COMPLETIONS",
 } as const;
 
 /**
@@ -2769,15 +2771,19 @@ export interface CreateAIPromptRequest {
   templateType: AIPromptTemplateType | undefined;
 
   /**
-   * <p>The identifier of the model used for this AI Prompt. Model Ids supported are:
-   *       <code>anthropic.claude-3-haiku-20240307-v1:0</code>
-   *          </p>
+   * <p>The identifier of the model used for this AI Prompt.</p>
    * @public
    */
   modelId: string | undefined;
 
   /**
    * <p>The API Format of the AI Prompt.</p>
+   *          <p>Recommended values: <code>MESSAGES | TEXT_COMPLETIONS</code>
+   *          </p>
+   *          <note>
+   *             <p>The values <code>ANTHROPIC_CLAUDE_MESSAGES | ANTHROPIC_CLAUDE_TEXT_COMPLETIONS</code>
+   *         will be deprecated.</p>
+   *          </note>
    * @public
    */
   apiFormat: AIPromptAPIFormat | undefined;
@@ -2844,8 +2850,95 @@ export interface AIPromptData {
   templateType: AIPromptTemplateType | undefined;
 
   /**
-   * <p>The identifier of the model used for this AI Prompt. Model Ids supported are:
-   *       <code>anthropic.claude-3-haiku-20240307-v1:0</code>.</p>
+   * <p>The identifier of the model used for this AI Prompt. The following model Ids are
+   *       supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>anthropic.claude-3-haiku--v1:0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>apac.amazon.nova-lite-v1:0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>apac.amazon.nova-micro-v1:0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>apac.amazon.nova-pro-v1:0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>apac.anthropic.claude-3-5-sonnet--v2:0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>apac.anthropic.claude-3-haiku-20240307-v1:0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>eu.amazon.nova-lite-v1:0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>eu.amazon.nova-micro-v1:0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>eu.amazon.nova-pro-v1:0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>eu.anthropic.claude-3-7-sonnet-20250219-v1:0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>eu.anthropic.claude-3-haiku-20240307-v1:0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>us.amazon.nova-lite-v1:0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>us.amazon.nova-micro-v1:0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>us.amazon.nova-pro-v1:0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>us.anthropic.claude-3-5-haiku-20241022-v1:0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>us.anthropic.claude-3-7-sonnet-20250219-v1:0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>us.anthropic.claude-3-haiku-20240307-v1:0</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   modelId: string | undefined;
@@ -3140,7 +3233,7 @@ export interface AIPromptSummary {
 
   /**
    * <p>The identifier of the model used for this AI Prompt. Model Ids supported are:
-   *       <code>anthropic.claude-3-haiku-20240307-v1:0</code>.</p>
+   *         <code>anthropic.claude-3-haiku-20240307-v1:0</code>.</p>
    * @public
    */
   modelId: string | undefined;
@@ -4068,6 +4161,13 @@ export interface GetRecommendationsRequest {
    * @public
    */
   waitTimeSeconds?: number | undefined;
+
+  /**
+   * <p>The token for the next set of chunks. Use the value returned in the previous response in
+   *       the next request to retrieve the next set of chunks.</p>
+   * @public
+   */
+  nextChunkToken?: string | undefined;
 }
 
 /**
@@ -4421,9 +4521,13 @@ export interface Document {
  * @enum
  */
 export const RecommendationType = {
+  BLOCKED_GENERATIVE_ANSWER_CHUNK: "BLOCKED_GENERATIVE_ANSWER_CHUNK",
+  BLOCKED_INTENT_ANSWER_CHUNK: "BLOCKED_INTENT_ANSWER_CHUNK",
   DETECTED_INTENT: "DETECTED_INTENT",
   GENERATIVE_ANSWER: "GENERATIVE_ANSWER",
+  GENERATIVE_ANSWER_CHUNK: "GENERATIVE_ANSWER_CHUNK",
   GENERATIVE_RESPONSE: "GENERATIVE_RESPONSE",
+  INTENT_ANSWER_CHUNK: "INTENT_ANSWER_CHUNK",
   KNOWLEDGE_CONTENT: "KNOWLEDGE_CONTENT",
 } as const;
 
@@ -5111,8 +5215,12 @@ export interface QueryAssistantRequest {
  * @enum
  */
 export const QueryResultType = {
+  BLOCKED_GENERATIVE_ANSWER_CHUNK: "BLOCKED_GENERATIVE_ANSWER_CHUNK",
+  BLOCKED_INTENT_ANSWER_CHUNK: "BLOCKED_INTENT_ANSWER_CHUNK",
   GENERATIVE_ANSWER: "GENERATIVE_ANSWER",
+  GENERATIVE_ANSWER_CHUNK: "GENERATIVE_ANSWER_CHUNK",
   INTENT_ANSWER: "INTENT_ANSWER",
+  INTENT_ANSWER_CHUNK: "INTENT_ANSWER_CHUNK",
   KNOWLEDGE_CONTENT: "KNOWLEDGE_CONTENT",
 } as const;
 
@@ -5423,6 +5531,13 @@ export interface SessionData {
    * @public
    */
   aiAgentConfiguration?: Partial<Record<AIAgentType, AIAgentConfigurationData>> | undefined;
+
+  /**
+   * <p>The origin of the Session to be listed. <code>SYSTEM</code> for a default Session created
+   *       by Amazon Q in Connect or <code>CUSTOMER</code> for a Session created by calling <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_CreateSession.html">CreateSession</a> API.</p>
+   * @public
+   */
+  origin?: Origin | undefined;
 }
 
 /**
@@ -5792,8 +5907,21 @@ export interface ListMessagesResponse {
 }
 
 /**
- * <p>The conversation history data to included in conversation context data before the
- *       Amazon Q in Connect session.</p>
+ * <p>The configuration for a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_SendMessage.html">SendMessage</a>
+ *       request.</p>
+ * @public
+ */
+export interface MessageConfiguration {
+  /**
+   * <p>Generates a filler response when tool selection is <code>QUESTION</code>.</p>
+   * @public
+   */
+  generateFillerMessage?: boolean | undefined;
+}
+
+/**
+ * <p>The conversation history data to included in conversation context data before the Amazon Q
+ *       in Connect session.</p>
  * @public
  */
 export interface SelfServiceConversationHistory {
@@ -5875,6 +6003,13 @@ export interface SendMessageRequest {
   conversationContext?: ConversationContext | undefined;
 
   /**
+   * <p>The configuration of the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_SendMessage.html">SendMessage</a>
+   *       request.</p>
+   * @public
+   */
+  configuration?: MessageConfiguration | undefined;
+
+  /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *       request. If not provided, the AWS SDK populates this field.For more information about
    *       idempotency, see Making retries safe with idempotent APIs.</p>
@@ -5892,6 +6027,13 @@ export interface SendMessageResponse {
    * @public
    */
   requestMessageId: string | undefined;
+
+  /**
+   * <p>The configuration of the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_SendMessage.html">SendMessage</a>
+   *       request.</p>
+   * @public
+   */
+  configuration?: MessageConfiguration | undefined;
 
   /**
    * <p>The token for the next message, used by GetNextMessage.</p>
@@ -8745,17 +8887,6 @@ export interface ExtendedMessageTemplateData {
 }
 
 /**
- * @public
- */
-export interface CreateMessageTemplateVersionResponse {
-  /**
-   * <p>The message template.</p>
-   * @public
-   */
-  messageTemplate?: ExtendedMessageTemplateData | undefined;
-}
-
-/**
  * @internal
  */
 export const AgentAttributesFilterSensitiveLog = (obj: AgentAttributes): any => ({
@@ -9686,14 +9817,4 @@ export const ExtendedMessageTemplateDataFilterSensitiveLog = (obj: ExtendedMessa
   ...(obj.attachments && {
     attachments: obj.attachments.map((item) => MessageTemplateAttachmentFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const CreateMessageTemplateVersionResponseFilterSensitiveLog = (
-  obj: CreateMessageTemplateVersionResponse
-): any => ({
-  ...obj,
-  ...(obj.messageTemplate && { messageTemplate: ExtendedMessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
 });

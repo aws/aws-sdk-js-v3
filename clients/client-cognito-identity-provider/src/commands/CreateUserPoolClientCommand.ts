@@ -119,6 +119,10 @@ export interface CreateUserPoolClientCommandOutput extends CreateUserPoolClientR
  *   EnableTokenRevocation: true || false,
  *   EnablePropagateAdditionalUserContextData: true || false,
  *   AuthSessionValidity: Number("int"),
+ *   RefreshTokenRotation: { // RefreshTokenRotationType
+ *     Feature: "ENABLED" || "DISABLED", // required
+ *     RetryGracePeriodSeconds: Number("int"),
+ *   },
  * };
  * const command = new CreateUserPoolClientCommand(input);
  * const response = await client.send(command);
@@ -175,6 +179,10 @@ export interface CreateUserPoolClientCommandOutput extends CreateUserPoolClientR
  * //     EnableTokenRevocation: true || false,
  * //     EnablePropagateAdditionalUserContextData: true || false,
  * //     AuthSessionValidity: Number("int"),
+ * //     RefreshTokenRotation: { // RefreshTokenRotationType
+ * //       Feature: "ENABLED" || "DISABLED", // required
+ * //       RetryGracePeriodSeconds: Number("int"),
+ * //     },
  * //   },
  * // };
  *
@@ -185,6 +193,10 @@ export interface CreateUserPoolClientCommandOutput extends CreateUserPoolClientR
  * @see {@link CreateUserPoolClientCommandInput} for command's `input` shape.
  * @see {@link CreateUserPoolClientCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link FeatureUnavailableInTierException} (client fault)
+ *  <p>This exception is thrown when a feature you attempted to configure isn't
+ *             available in your current feature plan.</p>
  *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>

@@ -37,7 +37,8 @@ export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuo
  *                 <code>LatestRestorableDateTime</code>. </p>
  *          <p>
  *             <code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.
- *             You can restore your table to any point in time in the last 35 days. You can set the recovery period to any value between 1 and 35 days. </p>
+ *             You can restore your table to any point in time in the last 35 days. You can set the
+ *             recovery period to any value between 1 and 35 days. </p>
  *          <p>You can call <code>DescribeContinuousBackups</code> at a maximum rate of 10 times per
  *             second.</p>
  * @example

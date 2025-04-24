@@ -49,6 +49,10 @@ import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "../
 import { CancelSubscriptionCommandInput, CancelSubscriptionCommandOutput } from "../commands/CancelSubscriptionCommand";
 import { ChatCommandInput, ChatCommandOutput } from "../commands/ChatCommand";
 import { ChatSyncCommandInput, ChatSyncCommandOutput } from "../commands/ChatSyncCommand";
+import {
+  CheckDocumentAccessCommandInput,
+  CheckDocumentAccessCommandOutput,
+} from "../commands/CheckDocumentAccessCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
 import { CreateDataAccessorCommandInput, CreateDataAccessorCommandOutput } from "../commands/CreateDataAccessorCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "../commands/CreateDataSourceCommand";
@@ -220,6 +224,7 @@ import {
   ExternalResourceException,
   FailedAttachmentEvent,
   GroupStatusDetail,
+  HallucinationReductionConfiguration,
   HookConfiguration,
   IdcAuthConfiguration,
   IdentityProviderConfiguration,
@@ -232,7 +237,6 @@ import {
   LicenseNotFoundException,
   MediaExtractionConfiguration,
   MediaTooLargeException,
-  Message,
   MetadataEvent,
   NativeIndexConfiguration,
   NoAuthConfiguration,
@@ -283,6 +287,7 @@ import {
   GroupMembers,
   MemberGroup,
   MemberUser,
+  Message,
   MessageUsefulnessFeedback,
   OrchestrationConfiguration,
   RelevantContent,
@@ -444,6 +449,28 @@ export const se_ChatSyncCommand = async (
     })
   );
   b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CheckDocumentAccessCommand
+ */
+export const se_CheckDocumentAccessCommand = async (
+  input: CheckDocumentAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/index/{indexId}/users/{userId}/documents/{documentId}/check-document-access");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("indexId", () => input.indexId!, "{indexId}", false);
+  b.p("userId", () => input.userId!, "{userId}", false);
+  b.p("documentId", () => input.documentId!, "{documentId}", false);
+  const query: any = map({
+    [_dSI]: [, input[_dSI]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1738,6 +1765,7 @@ export const se_UpdateChatControlsConfigurationCommand = async (
       blockedPhrasesConfigurationUpdate: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       creatorModeConfiguration: (_) => _json(_),
+      hallucinationReductionConfiguration: (_) => _json(_),
       orchestrationConfiguration: (_) => _json(_),
       responseScope: [],
       topicConfigurationsToCreateOrUpdate: (_) => _json(_),
@@ -2095,6 +2123,30 @@ export const de_ChatSyncCommand = async (
     systemMessage: __expectString,
     systemMessageId: __expectString,
     userMessageId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CheckDocumentAccessCommand
+ */
+export const de_CheckDocumentAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CheckDocumentAccessCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    documentAcl: _json,
+    hasAccess: __expectBoolean,
+    userAliases: _json,
+    userGroups: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2574,6 +2626,7 @@ export const de_GetChatControlsConfigurationCommand = async (
   const doc = take(data, {
     blockedPhrases: _json,
     creatorModeConfiguration: _json,
+    hallucinationReductionConfiguration: _json,
     nextToken: __expectString,
     orchestrationConfiguration: _json,
     responseScope: __expectString,
@@ -4324,6 +4377,8 @@ const se_Documents = (input: Document[], context: __SerdeContext): any => {
 
 // se_GroupMembers omitted.
 
+// se_HallucinationReductionConfiguration omitted.
+
 /**
  * serializeAws_restJson1HookConfiguration
  */
@@ -4690,6 +4745,14 @@ const de_Applications = (output: any, context: __SerdeContext): Application[] =>
 
 // de_AppliedOrchestrationConfiguration omitted.
 
+// de_AssociatedGroup omitted.
+
+// de_AssociatedGroups omitted.
+
+// de_AssociatedUser omitted.
+
+// de_AssociatedUsers omitted.
+
 /**
  * deserializeAws_restJson1Attachment
  */
@@ -4904,6 +4967,22 @@ const de_DataSourceSyncJobs = (output: any, context: __SerdeContext): DataSource
 
 // de_DateAttributeBoostingConfiguration omitted.
 
+// de_DocumentAcl omitted.
+
+// de_DocumentAclCondition omitted.
+
+// de_DocumentAclConditions omitted.
+
+// de_DocumentAclGroup omitted.
+
+// de_DocumentAclGroups omitted.
+
+// de_DocumentAclMembership omitted.
+
+// de_DocumentAclUser omitted.
+
+// de_DocumentAclUsers omitted.
+
 /**
  * deserializeAws_restJson1DocumentAttribute
  */
@@ -5059,6 +5138,8 @@ const de_GroupStatusDetails = (output: any, context: __SerdeContext): GroupStatu
 // de_GroupSummary omitted.
 
 // de_GroupSummaryList omitted.
+
+// de_HallucinationReductionConfiguration omitted.
 
 /**
  * deserializeAws_restJson1HookConfiguration

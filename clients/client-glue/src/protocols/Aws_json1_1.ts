@@ -10925,6 +10925,8 @@ const se_ColumnStatisticsData = (input: ColumnStatisticsData, context: __SerdeCo
 
 // se_ConnectionsList omitted.
 
+// se_ConnectionStringList omitted.
+
 // se_ConnectorDataSource omitted.
 
 // se_ConnectorDataTarget omitted.
@@ -12170,8 +12172,6 @@ const se_Mappings = (input: Mapping[], context: __SerdeContext): any => {
 // se_OracleSQLCatalogTarget omitted.
 
 // se_OrchestrationArgumentsMap omitted.
-
-// se_OrchestrationStringList omitted.
 
 // se_Order omitted.
 
@@ -13639,6 +13639,8 @@ const de_ConnectionList = (output: any, context: __SerdeContext): Connection[] =
 // de_ConnectionProperties omitted.
 
 // de_ConnectionsList omitted.
+
+// de_ConnectionStringList omitted.
 
 // de_ConnectionTypeBrief omitted.
 
@@ -15469,6 +15471,7 @@ const de_GrokClassifier = (output: any, context: __SerdeContext): GrokClassifier
  */
 const de_IcebergCompactionMetrics = (output: any, context: __SerdeContext): IcebergCompactionMetrics => {
   return take(output, {
+    DpuHours: __limitedParseDouble,
     JobDurationInHour: __limitedParseDouble,
     NumberOfBytesCompacted: __expectLong,
     NumberOfDpus: __expectInt32,
@@ -15486,6 +15489,7 @@ const de_IcebergOrphanFileDeletionMetrics = (
   context: __SerdeContext
 ): IcebergOrphanFileDeletionMetrics => {
   return take(output, {
+    DpuHours: __limitedParseDouble,
     JobDurationInHour: __limitedParseDouble,
     NumberOfDpus: __expectInt32,
     NumberOfOrphanFilesDeleted: __expectLong,
@@ -15499,6 +15503,7 @@ const de_IcebergOrphanFileDeletionMetrics = (
  */
 const de_IcebergRetentionMetrics = (output: any, context: __SerdeContext): IcebergRetentionMetrics => {
   return take(output, {
+    DpuHours: __limitedParseDouble,
     JobDurationInHour: __limitedParseDouble,
     NumberOfDataFilesDeleted: __expectLong,
     NumberOfDpus: __expectInt32,

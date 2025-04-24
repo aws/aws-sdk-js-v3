@@ -750,19 +750,19 @@ export interface StartServiceSoftwareUpdateResponse {
  */
 export interface UpdateApplicationRequest {
   /**
-   * <p>Unique identifier of the OpenSearch Application to be updated.</p>
+   * <p>The unique identifier for the OpenSearch application to be updated.</p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Data sources to be associated with the OpenSearch Application.</p>
+   * <p>The data sources to associate with the OpenSearch application.</p>
    * @public
    */
   dataSources?: DataSource[] | undefined;
 
   /**
-   * <p>Configurations to be changed for the OpenSearch Application.</p>
+   * <p>The configuration settings to modify for the OpenSearch application.</p>
    * @public
    */
   appConfigs?: AppConfig[] | undefined;
@@ -773,13 +773,13 @@ export interface UpdateApplicationRequest {
  */
 export interface UpdateApplicationResponse {
   /**
-   * <p>Unique identifier of the updated OpenSearch Application.</p>
+   * <p>The unique identifier of the updated OpenSearch application.</p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Name of the updated OpenSearch Application.</p>
+   * <p>The name of the updated OpenSearch application.</p>
    * @public
    */
   name?: string | undefined;
@@ -793,31 +793,31 @@ export interface UpdateApplicationResponse {
   arn?: string | undefined;
 
   /**
-   * <p>Data sources associated with the updated OpenSearch Application.</p>
+   * <p>The data sources associated with the updated OpenSearch application.</p>
    * @public
    */
   dataSources?: DataSource[] | undefined;
 
   /**
-   * <p>IAM Identity Center settings for the updated OpenSearch Application.</p>
+   * <p>The IAM Identity Center configuration for the updated OpenSearch application.</p>
    * @public
    */
   iamIdentityCenterOptions?: IamIdentityCenterOptions | undefined;
 
   /**
-   * <p>Configurations for the updated OpenSearch Application.</p>
+   * <p>The configuration settings for the updated OpenSearch application.</p>
    * @public
    */
   appConfigs?: AppConfig[] | undefined;
 
   /**
-   * <p>Timestamp at which the OpenSearch Application was created.</p>
+   * <p>The timestamp when the OpenSearch application was originally created.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>Timestamp at which the OpenSearch Application was last updated.</p>
+   * <p>The timestamp when the OpenSearch application was last updated.</p>
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -1063,7 +1063,7 @@ export interface UpdateDomainConfigRequest {
   AdvancedSecurityOptions?: AdvancedSecurityOptionsInput | undefined;
 
   /**
-   * <p>Container for IAM Identity Center Options settings.</p>
+   * <p>Configuration settings for enabling and managing IAM Identity Center.</p>
    * @public
    */
   IdentityCenterOptions?: IdentityCenterOptionsInput | undefined;

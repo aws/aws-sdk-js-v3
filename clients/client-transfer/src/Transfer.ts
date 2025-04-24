@@ -247,6 +247,16 @@ import {
   StartFileTransferCommandInput,
   StartFileTransferCommandOutput,
 } from "./commands/StartFileTransferCommand";
+import {
+  StartRemoteDeleteCommand,
+  StartRemoteDeleteCommandInput,
+  StartRemoteDeleteCommandOutput,
+} from "./commands/StartRemoteDeleteCommand";
+import {
+  StartRemoteMoveCommand,
+  StartRemoteMoveCommandInput,
+  StartRemoteMoveCommandOutput,
+} from "./commands/StartRemoteMoveCommand";
 import { StartServerCommand, StartServerCommandInput, StartServerCommandOutput } from "./commands/StartServerCommand";
 import { StopServerCommand, StopServerCommandInput, StopServerCommandOutput } from "./commands/StopServerCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -367,6 +377,8 @@ const commands = {
   SendWorkflowStepStateCommand,
   StartDirectoryListingCommand,
   StartFileTransferCommand,
+  StartRemoteDeleteCommand,
+  StartRemoteMoveCommand,
   StartServerCommand,
   StopServerCommand,
   TagResourceCommand,
@@ -1134,6 +1146,37 @@ export interface Transfer {
   ): void;
 
   /**
+   * @see {@link StartRemoteDeleteCommand}
+   */
+  startRemoteDelete(
+    args: StartRemoteDeleteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartRemoteDeleteCommandOutput>;
+  startRemoteDelete(
+    args: StartRemoteDeleteCommandInput,
+    cb: (err: any, data?: StartRemoteDeleteCommandOutput) => void
+  ): void;
+  startRemoteDelete(
+    args: StartRemoteDeleteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartRemoteDeleteCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartRemoteMoveCommand}
+   */
+  startRemoteMove(
+    args: StartRemoteMoveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartRemoteMoveCommandOutput>;
+  startRemoteMove(args: StartRemoteMoveCommandInput, cb: (err: any, data?: StartRemoteMoveCommandOutput) => void): void;
+  startRemoteMove(
+    args: StartRemoteMoveCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartRemoteMoveCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartServerCommand}
    */
   startServer(args: StartServerCommandInput, options?: __HttpHandlerOptions): Promise<StartServerCommandOutput>;
@@ -1338,16 +1381,7 @@ export interface Transfer {
 }
 
 /**
- * <p>Transfer Family is a fully managed service that enables the transfer of files over the File
- *       Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell (SSH) File
- *       Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service (Amazon S3) or Amazon EFS.
- *       Additionally, you can use Applicability Statement 2 (AS2) to transfer files into and out of Amazon S3.
- *       Amazon Web Services helps you seamlessly migrate your file transfer workflows to Transfer Family by integrating
- *       with existing authentication systems, and providing DNS routing with Amazon Route 53 so
- *       nothing changes for your customers and partners, or their applications. With your data in
- *       Amazon S3, you can use it with Amazon Web Services services for processing, analytics, machine learning, and
- *       archiving. Getting started with Transfer Family is easy since there is no infrastructure to buy and
- *       set up.</p>
+ * <p>Transfer Family is a fully managed service that enables the transfer of files over the File Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell (SSH) File Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service (Amazon S3) or Amazon EFS. Additionally, you can use Applicability Statement 2 (AS2) to transfer files into and out of Amazon S3. Amazon Web Services helps you seamlessly migrate your file transfer workflows to Transfer Family by integrating with existing authentication systems, and providing DNS routing with Amazon Route 53 so nothing changes for your customers and partners, or their applications. With your data in Amazon S3, you can use it with Amazon Web Services services for processing, analytics, machine learning, and archiving. Getting started with Transfer Family is easy since there is no infrastructure to buy and set up.</p>
  * @public
  */
 export class Transfer extends TransferClient implements Transfer {}

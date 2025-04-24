@@ -99,6 +99,17 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *           Value: "STRING_VALUE", // required
  *         },
  *       ],
+ *       Attachments: [ // AttachmentList
+ *         { // Attachment
+ *           RawContent: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")           // required
+ *           ContentDisposition: "ATTACHMENT" || "INLINE",
+ *           FileName: "STRING_VALUE", // required
+ *           ContentDescription: "STRING_VALUE",
+ *           ContentId: "STRING_VALUE",
+ *           ContentTransferEncoding: "BASE64" || "QUOTED_PRINTABLE" || "SEVEN_BIT",
+ *           ContentType: "STRING_VALUE",
+ *         },
+ *       ],
  *     },
  *     Raw: { // RawMessage
  *       Data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")       // required
@@ -116,6 +127,17 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *         {
  *           Name: "STRING_VALUE", // required
  *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       Attachments: [
+ *         {
+ *           RawContent: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")           // required
+ *           ContentDisposition: "ATTACHMENT" || "INLINE",
+ *           FileName: "STRING_VALUE", // required
+ *           ContentDescription: "STRING_VALUE",
+ *           ContentId: "STRING_VALUE",
+ *           ContentTransferEncoding: "BASE64" || "QUOTED_PRINTABLE" || "SEVEN_BIT",
+ *           ContentType: "STRING_VALUE",
  *         },
  *       ],
  *     },

@@ -67,7 +67,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     Connections: { // ConnectionsList
- * //       Connections: [ // OrchestrationStringList
+ * //       Connections: [ // ConnectionStringList
  * //         "STRING_VALUE",
  * //       ],
  * //     },

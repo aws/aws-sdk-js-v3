@@ -1355,6 +1355,13 @@ export interface MongoDbAtlasConfiguration {
    * @public
    */
   endpointServiceName?: string | undefined;
+
+  /**
+   * <p>The name of the text search index in the MongoDB collection. This is required for using the hybrid search
+   *       feature.</p>
+   * @public
+   */
+  textIndexName?: string | undefined;
 }
 
 /**
@@ -1576,6 +1583,13 @@ export interface RdsFieldMapping {
    * @public
    */
   metadataField: string | undefined;
+
+  /**
+   * <p>Provide a name for the universal metadata field where Amazon Bedrock will store any custom metadata from
+   *       your data source.</p>
+   * @public
+   */
+  customMetadataField?: string | undefined;
 }
 
 /**

@@ -280,6 +280,8 @@ import {
   DescribeSolutionResponse,
   DescribeSolutionVersionRequest,
   DescribeSolutionVersionResponse,
+  EventParameters,
+  EventsConfig,
   EventTracker,
   EventTrackerSummary,
   FeatureTransformation,
@@ -1289,7 +1291,7 @@ export const se_UpdateSolutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateSolution");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_UpdateSolutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3006,6 +3008,37 @@ const se_CreateSolutionRequest = (input: CreateSolutionRequest, context: __Serde
 
 // se_DescribeSolutionVersionRequest omitted.
 
+/**
+ * serializeAws_json1_1EventParameters
+ */
+const se_EventParameters = (input: EventParameters, context: __SerdeContext): any => {
+  return take(input, {
+    eventType: [],
+    eventValueThreshold: __serializeFloat,
+    weight: __serializeFloat,
+  });
+};
+
+/**
+ * serializeAws_json1_1EventParametersList
+ */
+const se_EventParametersList = (input: EventParameters[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_EventParameters(entry, context);
+    });
+};
+
+/**
+ * serializeAws_json1_1EventsConfig
+ */
+const se_EventsConfig = (input: EventsConfig, context: __SerdeContext): any => {
+  return take(input, {
+    eventParametersList: (_) => se_EventParametersList(_, context),
+  });
+};
+
 // se_ExcludedDatasetColumns omitted.
 
 // se_FeatureTransformationParameters omitted.
@@ -3105,6 +3138,7 @@ const se_SolutionConfig = (input: SolutionConfig, context: __SerdeContext): any 
     autoMLConfig: _json,
     autoTrainingConfig: _json,
     eventValueThreshold: [],
+    eventsConfig: (_) => se_EventsConfig(_, context),
     featureTransformationParameters: _json,
     hpoConfig: (_) => se_HPOConfig(_, context),
     optimizationObjective: _json,
@@ -3112,7 +3146,15 @@ const se_SolutionConfig = (input: SolutionConfig, context: __SerdeContext): any 
   });
 };
 
-// se_SolutionUpdateConfig omitted.
+/**
+ * serializeAws_json1_1SolutionUpdateConfig
+ */
+const se_SolutionUpdateConfig = (input: SolutionUpdateConfig, context: __SerdeContext): any => {
+  return take(input, {
+    autoTrainingConfig: _json,
+    eventsConfig: (_) => se_EventsConfig(_, context),
+  });
+};
 
 // se_StartRecommenderRequest omitted.
 
@@ -3142,7 +3184,16 @@ const se_SolutionConfig = (input: SolutionConfig, context: __SerdeContext): any 
 
 // se_UpdateRecommenderRequest omitted.
 
-// se_UpdateSolutionRequest omitted.
+/**
+ * serializeAws_json1_1UpdateSolutionRequest
+ */
+const se_UpdateSolutionRequest = (input: UpdateSolutionRequest, context: __SerdeContext): any => {
+  return take(input, {
+    performAutoTraining: [],
+    solutionArn: [],
+    solutionUpdateConfig: (_) => se_SolutionUpdateConfig(_, context),
+  });
+};
 
 /**
  * deserializeAws_json1_1Algorithm
@@ -3896,6 +3947,38 @@ const de_DescribeSolutionVersionResponse = (output: any, context: __SerdeContext
 };
 
 /**
+ * deserializeAws_json1_1EventParameters
+ */
+const de_EventParameters = (output: any, context: __SerdeContext): EventParameters => {
+  return take(output, {
+    eventType: __expectString,
+    eventValueThreshold: __limitedParseDouble,
+    weight: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1EventParametersList
+ */
+const de_EventParametersList = (output: any, context: __SerdeContext): EventParameters[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EventParameters(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1EventsConfig
+ */
+const de_EventsConfig = (output: any, context: __SerdeContext): EventsConfig => {
+  return take(output, {
+    eventParametersList: (_: any) => de_EventParametersList(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1EventTracker
  */
 const de_EventTracker = (output: any, context: __SerdeContext): EventTracker => {
@@ -4435,6 +4518,7 @@ const de_SolutionConfig = (output: any, context: __SerdeContext): SolutionConfig
     autoMLConfig: _json,
     autoTrainingConfig: _json,
     eventValueThreshold: __expectString,
+    eventsConfig: (_: any) => de_EventsConfig(_, context),
     featureTransformationParameters: _json,
     hpoConfig: (_: any) => de_HPOConfig(_, context),
     optimizationObjective: _json,
@@ -4468,7 +4552,15 @@ const de_SolutionSummary = (output: any, context: __SerdeContext): SolutionSumma
   }) as any;
 };
 
-// de_SolutionUpdateConfig omitted.
+/**
+ * deserializeAws_json1_1SolutionUpdateConfig
+ */
+const de_SolutionUpdateConfig = (output: any, context: __SerdeContext): SolutionUpdateConfig => {
+  return take(output, {
+    autoTrainingConfig: _json,
+    eventsConfig: (_: any) => de_EventsConfig(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1SolutionUpdateSummary
@@ -4479,7 +4571,7 @@ const de_SolutionUpdateSummary = (output: any, context: __SerdeContext): Solutio
     failureReason: __expectString,
     lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     performAutoTraining: __expectBoolean,
-    solutionUpdateConfig: _json,
+    solutionUpdateConfig: (_: any) => de_SolutionUpdateConfig(_, context),
     status: __expectString,
   }) as any;
 };

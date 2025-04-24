@@ -110,6 +110,10 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  * //       ],
  * //       TransitEncryptionEnabled: true || false,
  * //       TransitEncryptionMode: "preferred" || "required",
+ * //       ScaleConfig: { // ScaleConfig
+ * //         ScalePercentage: Number("int"),
+ * //         ScaleIntervalMinutes: Number("int"),
+ * //       },
  * //     },
  * //     NotificationConfiguration: { // NotificationConfiguration
  * //       TopicArn: "STRING_VALUE",

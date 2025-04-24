@@ -34,7 +34,7 @@ export interface StartCostAllocationTagBackfillCommandOutput
 
 /**
  * <p>
- *       Request a cost allocation tag backfill. This will backfill the activation status (either <code>active</code> or <code>inactive</code>) for all tag keys from <code>para:BackfillFrom</code> up to the when this request is made.</p>
+ *       Request a cost allocation tag backfill. This will backfill the activation status (either <code>active</code> or <code>inactive</code>) for all tag keys from <code>para:BackfillFrom</code> up to the time this request is made.</p>
  *          <p>You can request a backfill once every 24 hours.
  *     </p>
  * @example

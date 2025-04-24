@@ -95,6 +95,36 @@ export interface BatchDeleteEvaluationJobCommandOutput extends BatchDeleteEvalua
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
  *
+ * @example Delete evaluation jobs
+ * ```javascript
+ * // The following example shows a request to delete two model evaluation jobs, where one of the jobs is not found.
+ * const input = {
+ *   jobIdentifiers: [
+ *     "arn:aws:bedrock:us-east-2:123456789012:evaluation-job/12rnxmplqv0v",
+ *     "arn:aws:bedrock:us-east-2:123456789012:evaluation-job/rispxmpl12rn"
+ *   ]
+ * };
+ * const command = new BatchDeleteEvaluationJobCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   errors: [
+ *     {
+ *       code: "404",
+ *       jobIdentifier: "arn:aws:bedrock:us-east-2:123456789012:evaluation-job/rispxmpl12rn",
+ *       message: "Unable to locate this job to delete."
+ *     }
+ *   ],
+ *   evaluationJobs: [
+ *     {
+ *       jobIdentifier: "arn:aws:bedrock:us-east-2:123456789012:evaluation-job/12rnxmplqv0v",
+ *       jobStatus: "Deleting"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class BatchDeleteEvaluationJobCommand extends $Command

@@ -82,6 +82,12 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  *           AccountId: "STRING_VALUE",
  *         },
  *       ],
+ *       DependencyConfig: { // DependencyConfig
+ *         DependencyKeyAttributes: { // required
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         DependencyOperationName: "STRING_VALUE", // required
+ *       },
  *     },
  *     MetricThreshold: Number("double"), // required
  *     ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo", // required
@@ -170,6 +176,12 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  *           },
  *         ],
  *       },
+ *       DependencyConfig: {
+ *         DependencyKeyAttributes: { // required
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         DependencyOperationName: "STRING_VALUE", // required
+ *       },
  *     },
  *     MetricThreshold: Number("double"),
  *     ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo",
@@ -236,6 +248,12 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  * //             AccountId: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         DependencyConfig: { // DependencyConfig
+ * //           DependencyKeyAttributes: { // required
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           DependencyOperationName: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //       MetricThreshold: Number("double"), // required
  * //       ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo", // required
@@ -324,6 +342,12 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  * //             },
  * //           ],
  * //         },
+ * //         DependencyConfig: {
+ * //           DependencyKeyAttributes: { // required
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           DependencyOperationName: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //       MetricThreshold: Number("double"),
  * //       ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo",
@@ -349,6 +373,7 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  * //         LookBackWindowMinutes: Number("int"), // required
  * //       },
  * //     ],
+ * //     MetricSourceType: "ServiceOperation" || "CloudWatchMetric" || "ServiceDependency",
  * //   },
  * // };
  *

@@ -5,6 +5,8 @@ export * from "./ListEndpointAccessPaginator";
 export * from "./ListManagedWorkgroupsPaginator";
 export * from "./ListNamespacesPaginator";
 export * from "./ListRecoveryPointsPaginator";
+export * from "./ListReservationOfferingsPaginator";
+export * from "./ListReservationsPaginator";
 export * from "./ListScheduledActionsPaginator";
 export * from "./ListSnapshotCopyConfigurationsPaginator";
 export * from "./ListSnapshotsPaginator";

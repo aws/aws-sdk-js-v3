@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.790.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.789.0...v3.790.0) (2025-04-16)
+
+
+### Features
+
+* **client-dsql:** Added GetClusterEndpointService API. The new API allows retrieving endpoint service name specific to a cluster. ([4c3f4ec](https://github.com/aws/aws-sdk-js-v3/commit/4c3f4ecdf0c3efedacf3f3ad9ea2e4e887b127bf))
+
+
+
+
+
+# [3.787.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.786.0...v3.787.0) (2025-04-10)
+
+**Note:** Version bump only for package @aws-sdk/client-dsql
+
+
+
+
+
+# [3.782.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.781.0...v3.782.0) (2025-04-03)
+
+**Note:** Version bump only for package @aws-sdk/client-dsql
+
+
+
+
+
 # [3.777.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.776.0...v3.777.0) (2025-03-27)
 
 **Note:** Version bump only for package @aws-sdk/client-dsql

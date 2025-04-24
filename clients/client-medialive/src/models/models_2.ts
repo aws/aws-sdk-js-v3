@@ -21,6 +21,7 @@ import {
   ClusterNetworkSettings,
   ClusterState,
   ClusterType,
+  ColorCorrection,
   DescribeAnywhereSettings,
   DescribeChannelPlacementGroupSummary,
   DescribeClusterSummary,
@@ -49,6 +50,7 @@ import {
   InputDeviceSummary,
   InputDeviceType,
   InputDeviceUhdSettings,
+  InputLocation,
   InputNetworkLocation,
   InputSecurityGroup,
   InputSecurityGroupState,
@@ -91,6 +93,8 @@ import {
   OutputDestination,
   ReservationResourceSpecification,
   Route,
+  SdiSourceMapping,
+  Smpte2110ReceiverGroupSettings,
   SrtSettings,
   VpcOutputSettingsDescription,
 } from "./models_0";
@@ -101,11 +105,6 @@ import {
   AnywhereSettings,
   AvailBlanking,
   AvailConfiguration,
-  BlackoutSlate,
-  ColorCorrectionSettings,
-  FeatureActivations,
-  GlobalConfigurationInputEndAction,
-  InputLossBehavior,
   OutputGroup,
   PipelineDetail,
   RenewalSettings,
@@ -114,6 +113,10 @@ import {
   RouteCreateRequest,
   RouteUpdateRequest,
   ScheduleAction,
+  SdiSourceMode,
+  SdiSourceState,
+  SdiSourceSummary,
+  SdiSourceType,
   SignalMapMonitorDeploymentStatus,
   SignalMapStatus,
   SignalMapSummary,
@@ -122,6 +125,216 @@ import {
   TransferringInputDeviceSummary,
   VideoDescription,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const BlackoutSlateNetworkEndBlackout = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type BlackoutSlateNetworkEndBlackout =
+  (typeof BlackoutSlateNetworkEndBlackout)[keyof typeof BlackoutSlateNetworkEndBlackout];
+
+/**
+ * @public
+ * @enum
+ */
+export const BlackoutSlateState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type BlackoutSlateState = (typeof BlackoutSlateState)[keyof typeof BlackoutSlateState];
+
+/**
+ * Blackout Slate
+ * @public
+ */
+export interface BlackoutSlate {
+  /**
+   * Blackout slate image to be used. Leave empty for solid black. Only bmp and png images are supported.
+   * @public
+   */
+  BlackoutSlateImage?: InputLocation | undefined;
+
+  /**
+   * Setting to enabled causes the encoder to blackout the video, audio, and captions, and raise the "Network Blackout Image" slate when an SCTE104/35 Network End Segmentation Descriptor is encountered. The blackout will be lifted when the Network Start Segmentation Descriptor is encountered. The Network End and Network Start descriptors must contain a network ID that matches the value entered in "Network ID".
+   * @public
+   */
+  NetworkEndBlackout?: BlackoutSlateNetworkEndBlackout | undefined;
+
+  /**
+   * Path to local file to use as Network End Blackout image. Image will be scaled to fill the entire output raster.
+   * @public
+   */
+  NetworkEndBlackoutImage?: InputLocation | undefined;
+
+  /**
+   * Provides Network ID that matches EIDR ID format (e.g., "10.XXXX/XXXX-XXXX-XXXX-XXXX-XXXX-C").
+   * @public
+   */
+  NetworkId?: string | undefined;
+
+  /**
+   * When set to enabled, causes video, audio and captions to be blanked when indicated by program metadata.
+   * @public
+   */
+  State?: BlackoutSlateState | undefined;
+}
+
+/**
+ * Placeholder documentation for CancelInputDeviceTransferRequest
+ * @public
+ */
+export interface CancelInputDeviceTransferRequest {
+  /**
+   * The unique ID of the input device to cancel. For example, hd-123456789abcdef.
+   * @public
+   */
+  InputDeviceId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for CancelInputDeviceTransferResponse
+ * @public
+ */
+export interface CancelInputDeviceTransferResponse {}
+
+/**
+ * Property of encoderSettings. Controls color conversion when you are using 3D LUT files to perform color conversion on video.
+ * @public
+ */
+export interface ColorCorrectionSettings {
+  /**
+   * An array of colorCorrections that applies when you are using 3D LUT files to perform color conversion on video. Each colorCorrection contains one 3D LUT file (that defines the color mapping for converting an input color space to an output color space), and the input/output combination that this 3D LUT file applies to. MediaLive reads the color space in the input metadata, determines the color space that you have specified for the output, and finds and uses the LUT file that applies to this combination.
+   * @public
+   */
+  GlobalColorCorrections: ColorCorrection[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FeatureActivationsInputPrepareScheduleActions = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureActivationsInputPrepareScheduleActions =
+  (typeof FeatureActivationsInputPrepareScheduleActions)[keyof typeof FeatureActivationsInputPrepareScheduleActions];
+
+/**
+ * @public
+ * @enum
+ */
+export const FeatureActivationsOutputStaticImageOverlayScheduleActions = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureActivationsOutputStaticImageOverlayScheduleActions =
+  (typeof FeatureActivationsOutputStaticImageOverlayScheduleActions)[keyof typeof FeatureActivationsOutputStaticImageOverlayScheduleActions];
+
+/**
+ * Feature Activations
+ * @public
+ */
+export interface FeatureActivations {
+  /**
+   * Enables the Input Prepare feature. You can create Input Prepare actions in the schedule only if this feature is enabled.
+   * If you disable the feature on an existing schedule, make sure that you first delete all input prepare actions from the schedule.
+   * @public
+   */
+  InputPrepareScheduleActions?: FeatureActivationsInputPrepareScheduleActions | undefined;
+
+  /**
+   * Enables the output static image overlay feature. Enabling this feature allows you to send channel schedule updates
+   * to display/clear/modify image overlays on an output-by-output bases.
+   * @public
+   */
+  OutputStaticImageOverlayScheduleActions?: FeatureActivationsOutputStaticImageOverlayScheduleActions | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GlobalConfigurationInputEndAction = {
+  NONE: "NONE",
+  SWITCH_AND_LOOP_INPUTS: "SWITCH_AND_LOOP_INPUTS",
+} as const;
+
+/**
+ * @public
+ */
+export type GlobalConfigurationInputEndAction =
+  (typeof GlobalConfigurationInputEndAction)[keyof typeof GlobalConfigurationInputEndAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputLossImageType = {
+  COLOR: "COLOR",
+  SLATE: "SLATE",
+} as const;
+
+/**
+ * @public
+ */
+export type InputLossImageType = (typeof InputLossImageType)[keyof typeof InputLossImageType];
+
+/**
+ * Input Loss Behavior
+ * @public
+ */
+export interface InputLossBehavior {
+  /**
+   * Documentation update needed
+   * @public
+   */
+  BlackFrameMsec?: number | undefined;
+
+  /**
+   * When input loss image type is "color" this field specifies the color to use. Value: 6 hex characters representing the values of RGB.
+   * @public
+   */
+  InputLossImageColor?: string | undefined;
+
+  /**
+   * When input loss image type is "slate" these fields specify the parameters for accessing the slate.
+   * @public
+   */
+  InputLossImageSlate?: InputLocation | undefined;
+
+  /**
+   * Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
+   * @public
+   */
+  InputLossImageType?: InputLossImageType | undefined;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  RepeatFrameMsec?: number | undefined;
+}
 
 /**
  * @public
@@ -1666,6 +1879,18 @@ export interface CreateInputRequest {
    * @public
    */
   MulticastSettings?: MulticastSettingsCreateRequest | undefined;
+
+  /**
+   * Include this parameter if the input is a SMPTE 2110 input, to identify the stream sources for this input.
+   * @public
+   */
+  Smpte2110ReceiverGroupSettings?: Smpte2110ReceiverGroupSettings | undefined;
+
+  /**
+   * SDI Sources for this Input.
+   * @public
+   */
+  SdiSources?: string[] | undefined;
 }
 
 /**
@@ -2339,6 +2564,12 @@ export interface CreateNodeResponse {
    * @public
    */
   State?: NodeState | undefined;
+
+  /**
+   * An array of SDI source mappings. Each mapping connects one logical SdiSource to the physical SDI card and port that the physical SDI source uses.
+   * @public
+   */
+  SdiSourceMappings?: SdiSourceMapping[] | undefined;
 }
 
 /**
@@ -2430,6 +2661,102 @@ export interface CreatePartnerInputResponse {
    * @public
    */
   Input?: Input | undefined;
+}
+
+/**
+ * A request to create a SdiSource.
+ * @public
+ */
+export interface CreateSdiSourceRequest {
+  /**
+   * Applies only if the type is QUAD. Specify the mode for handling the quad-link signal: QUADRANT or INTERLEAVE.
+   * @public
+   */
+  Mode?: SdiSourceMode | undefined;
+
+  /**
+   * Specify a name that is unique in the AWS account. We recommend you assign a name that describes the source, for example curling-cameraA. Names are case-sensitive.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * An ID that you assign to a create request. This ID ensures idempotency when creating resources.
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * Specify the  type of the SDI source: SINGLE: The source  is a single-link source. QUAD: The source  is one part of a quad-link source.
+   * @public
+   */
+  Type?: SdiSourceType | undefined;
+}
+
+/**
+ * Used in CreateSdiSourceResponse, DeleteSdiSourceResponse, DescribeSdiSourceResponse, ListSdiSourcesResponse, UpdateSdiSourceResponse
+ * @public
+ */
+export interface SdiSource {
+  /**
+   * The ARN of this SdiSource. It is automatically assigned when the SdiSource is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * The ID of the SdiSource. Unique in the AWS account.The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The list of inputs that are currently using this SDI source. This list will be empty if the SdiSource has just been deleted.
+   * @public
+   */
+  Inputs?: string[] | undefined;
+
+  /**
+   * Applies only if the type is QUAD. The mode for handling the quad-link signal QUADRANT or INTERLEAVE.
+   * @public
+   */
+  Mode?: SdiSourceMode | undefined;
+
+  /**
+   * The name of the SdiSource.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Specifies whether the SDI source is attached to an SDI input (IN_USE) or not (IDLE).
+   * @public
+   */
+  State?: SdiSourceState | undefined;
+
+  /**
+   * Used in SdiSource, CreateSdiSourceRequest, UpdateSdiSourceRequest.
+   * @public
+   */
+  Type?: SdiSourceType | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateSdiSourceResponse
+ * @public
+ */
+export interface CreateSdiSourceResponse {
+  /**
+   * Settings for the SDI source.
+   * @public
+   */
+  SdiSource?: SdiSource | undefined;
 }
 
 /**
@@ -3308,6 +3635,12 @@ export interface DeleteNodeResponse {
    * @public
    */
   State?: NodeState | undefined;
+
+  /**
+   * An array of SDI source mappings. Each mapping connects one logical SdiSource to the physical SDI card and port that the physical SDI source uses.
+   * @public
+   */
+  SdiSourceMappings?: SdiSourceMapping[] | undefined;
 }
 
 /**
@@ -3459,6 +3792,30 @@ export interface DeleteScheduleRequest {
  * @public
  */
 export interface DeleteScheduleResponse {}
+
+/**
+ * Placeholder documentation for DeleteSdiSourceRequest
+ * @public
+ */
+export interface DeleteSdiSourceRequest {
+  /**
+   * The ID of the SdiSource.
+   * @public
+   */
+  SdiSourceId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteSdiSourceResponse
+ * @public
+ */
+export interface DeleteSdiSourceResponse {
+  /**
+   * Settings for the SDI source.
+   * @public
+   */
+  SdiSource?: SdiSource | undefined;
+}
 
 /**
  * Placeholder documentation for DeleteSignalMapRequest
@@ -3913,6 +4270,18 @@ export interface DescribeInputResponse {
    * @public
    */
   MulticastSettings?: MulticastSettings | undefined;
+
+  /**
+   * Include this parameter if the input is a SMPTE 2110 input, to identify the stream sources for this input.
+   * @public
+   */
+  Smpte2110ReceiverGroupSettings?: Smpte2110ReceiverGroupSettings | undefined;
+
+  /**
+   * SDI Sources for this Input.
+   * @public
+   */
+  SdiSources?: string[] | undefined;
 }
 
 /**
@@ -4411,6 +4780,12 @@ export interface DescribeNodeResponse {
    * @public
    */
   State?: NodeState | undefined;
+
+  /**
+   * An array of SDI source mappings. Each mapping connects one logical SdiSource to the physical SDI card and port that the physical SDI source uses.
+   * @public
+   */
+  SdiSourceMappings?: SdiSourceMapping[] | undefined;
 }
 
 /**
@@ -4669,6 +5044,30 @@ export interface DescribeScheduleResponse {
    * @public
    */
   ScheduleActions?: ScheduleAction[] | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeSdiSourceRequest
+ * @public
+ */
+export interface DescribeSdiSourceRequest {
+  /**
+   * Get details about an SdiSource.
+   * @public
+   */
+  SdiSourceId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeSdiSourceResponse
+ * @public
+ */
+export interface DescribeSdiSourceResponse {
+  /**
+   * Settings for the SDI source.
+   * @public
+   */
+  SdiSource?: SdiSource | undefined;
 }
 
 /**
@@ -5221,6 +5620,12 @@ export interface InputDeviceConfigurableSettings {
    * @public
    */
   AudioChannelPairs?: InputDeviceConfigurableAudioChannelPairConfig[] | undefined;
+
+  /**
+   * Choose the resolution of the Link device's source (HD or UHD). Make sure the resolution matches the current source from the device. This value determines MediaLive resource allocation and billing for this input. Only UHD devices can specify this parameter.
+   * @public
+   */
+  InputResolution?: string | undefined;
 }
 
 /**
@@ -6013,6 +6418,42 @@ export interface ListReservationsResponse {
    * @public
    */
   Reservations?: Reservation[] | undefined;
+}
+
+/**
+ * Placeholder documentation for ListSdiSourcesRequest
+ * @public
+ */
+export interface ListSdiSourcesRequest {
+  /**
+   * The maximum number of items to return.
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * The token to retrieve the next page of results.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListSdiSourcesResponse
+ * @public
+ */
+export interface ListSdiSourcesResponse {
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOfSdiSourceSummary
+   * @public
+   */
+  SdiSources?: SdiSourceSummary[] | undefined;
 }
 
 /**
@@ -8155,6 +8596,18 @@ export interface UpdateInputRequest {
    * @public
    */
   MulticastSettings?: MulticastSettingsUpdateRequest | undefined;
+
+  /**
+   * Include this parameter if the input is a SMPTE 2110 input, to identify the stream sources for this input.
+   * @public
+   */
+  Smpte2110ReceiverGroupSettings?: Smpte2110ReceiverGroupSettings | undefined;
+
+  /**
+   * SDI Sources for this Input.
+   * @public
+   */
+  SdiSources?: string[] | undefined;
 }
 
 /**
@@ -8502,6 +8955,30 @@ export interface UpdateNetworkResponse {
 }
 
 /**
+ * Used in SdiSourceMappingsUpdateRequest. One SDI source mapping. It connects one logical SdiSource to the physical SDI card and port that the physical SDI source uses. You must specify all three parameters in this object.
+ * @public
+ */
+export interface SdiSourceMappingUpdateRequest {
+  /**
+   * A number that uniquely identifies the SDI card on the node hardware. For information about how physical cards are identified on your node hardware, see the documentation for your node hardware. The numbering always starts at 1.
+   * @public
+   */
+  CardNumber?: number | undefined;
+
+  /**
+   * A number that uniquely identifies a port on the card. This must be an SDI port (not a timecode port, for example). For information about how ports are identified on physical cards, see the documentation for your node hardware.
+   * @public
+   */
+  ChannelNumber?: number | undefined;
+
+  /**
+   * The ID of a SDI source streaming on the given SDI capture card port.
+   * @public
+   */
+  SdiSource?: string | undefined;
+}
+
+/**
  * A request to update the node.
  * @public
  */
@@ -8529,6 +9006,12 @@ export interface UpdateNodeRequest {
    * @public
    */
   Role?: NodeRole | undefined;
+
+  /**
+   * The mappings of a SDI capture card port to a logical SDI data stream
+   * @public
+   */
+  SdiSourceMappings?: SdiSourceMappingUpdateRequest[] | undefined;
 }
 
 /**
@@ -8595,6 +9078,12 @@ export interface UpdateNodeResponse {
    * @public
    */
   State?: NodeState | undefined;
+
+  /**
+   * An array of SDI source mappings. Each mapping connects one logical SdiSource to the physical SDI card and port that the physical SDI source uses.
+   * @public
+   */
+  SdiSourceMappings?: SdiSourceMapping[] | undefined;
 }
 
 /**
@@ -8699,6 +9188,12 @@ export interface UpdateNodeStateResponse {
    * @public
    */
   State?: NodeState | undefined;
+
+  /**
+   * An array of SDI source mappings. Each mapping connects one logical SdiSource to the physical SDI card and port that the physical SDI source uses.
+   * @public
+   */
+  SdiSourceMappings?: SdiSourceMapping[] | undefined;
 }
 
 /**
@@ -8735,6 +9230,48 @@ export interface UpdateReservationResponse {
    * @public
    */
   Reservation?: Reservation | undefined;
+}
+
+/**
+ * A request to update the SdiSource.
+ * @public
+ */
+export interface UpdateSdiSourceRequest {
+  /**
+   * Include this parameter only if you want to change the name of the SdiSource. Specify a name that is unique in the AWS account. We recommend you assign a name that describes the source, for example curling-cameraA. Names are case-sensitive.
+   * @public
+   */
+  Mode?: SdiSourceMode | undefined;
+
+  /**
+   * Include this parameter only if you want to change the name of the SdiSource. Specify a name that is unique in the AWS account. We recommend you assign a name that describes the source, for example curling-cameraA. Names are case-sensitive.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * The ID of the SdiSource
+   * @public
+   */
+  SdiSourceId: string | undefined;
+
+  /**
+   * Include this parameter only if you want to change the mode. Specify the type of the SDI source: SINGLE: The source is a single-link source. QUAD: The source is one part of a quad-link source.
+   * @public
+   */
+  Type?: SdiSourceType | undefined;
+}
+
+/**
+ * Placeholder documentation for UpdateSdiSourceResponse
+ * @public
+ */
+export interface UpdateSdiSourceResponse {
+  /**
+   * Settings for the SDI source.
+   * @public
+   */
+  SdiSource?: SdiSource | undefined;
 }
 
 /**

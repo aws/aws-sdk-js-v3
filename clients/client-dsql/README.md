@@ -254,6 +254,14 @@ GetCluster
 </details>
 <details>
 <summary>
+GetVpcEndpointServiceName
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/GetVpcEndpointServiceNameCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/GetVpcEndpointServiceNameCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/GetVpcEndpointServiceNameCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListClusters
 </summary>
 

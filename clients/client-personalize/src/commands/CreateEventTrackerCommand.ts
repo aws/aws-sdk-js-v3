@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateEventTrackerRequest, CreateEventTrackerResponse } from "../models/models_0";
+import {
+  CreateEventTrackerRequest,
+  CreateEventTrackerRequestFilterSensitiveLog,
+  CreateEventTrackerResponse,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { de_CreateEventTrackerCommand, se_CreateEventTrackerCommand } from "../protocols/Aws_json1_1";
 
@@ -146,7 +150,7 @@ export class CreateEventTrackerCommand extends $Command
   })
   .s("AmazonPersonalize", "CreateEventTracker", {})
   .n("PersonalizeClient", "CreateEventTrackerCommand")
-  .f(void 0, void 0)
+  .f(CreateEventTrackerRequestFilterSensitiveLog, void 0)
   .ser(se_CreateEventTrackerCommand)
   .de(de_CreateEventTrackerCommand)
   .build() {

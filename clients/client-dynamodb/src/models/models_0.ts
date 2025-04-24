@@ -520,8 +520,9 @@ export interface OnDemandThroughput {
 }
 
 /**
- * <p>Represents the provisioned throughput settings for a specified table or index. The
- *             settings can be modified using the <code>UpdateTable</code> operation.</p>
+ * <p>Represents the provisioned throughput settings for the specified global secondary
+ *             index. You must use <code>ProvisionedThroughput</code> or
+ *                 <code>OnDemandThroughput</code> based on your table’s capacity mode.</p>
  *          <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
  *                 Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer
  *                 Guide</i>.</p>
@@ -683,10 +684,13 @@ export interface Projection {
 
   /**
    * <p>Represents the non-key attribute names which will be projected into the index.</p>
-   *          <p>For local secondary indexes, the total count of <code>NonKeyAttributes</code> summed
-   *             across all of the local secondary indexes, must not exceed 100. If you project the same
+   *          <p>For global and local secondary indexes, the total count of <code>NonKeyAttributes</code> summed
+   *             across all of the secondary indexes, must not exceed 100. If you project the same
    *             attribute into two different indexes, this counts as two distinct attributes when
-   *             determining the total.</p>
+   *             determining the total. This limit only applies when you specify the ProjectionType of
+   *             <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to
+   *             project all attributes from the source table, even if the table has more than 100
+   *             attributes.</p>
    * @public
    */
   NonKeyAttributes?: string[] | undefined;
@@ -1343,7 +1347,7 @@ export class InternalServerError extends __BaseException {
 
 /**
  * <p>Throughput exceeds the current throughput quota for your account. Please contact
- *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+ *                 <a href="https://aws.amazon.com/support">Amazon Web ServicesSupport</a> to request a
  *             quota increase.</p>
  * @public
  */
@@ -1595,8 +1599,7 @@ export interface PointInTimeRecoveryDescription {
   /**
    * <p>The number of preceding days for which continuous backups are taken and maintained.
    *             Your table data is only recoverable to any point-in-time from within the configured
-   *             recovery period. This parameter is optional. If no value is provided, the value will
-   *             default to 35.</p>
+   *             recovery period. This parameter is optional.</p>
    * @public
    */
   RecoveryPeriodInDays?: number | undefined;
@@ -1879,7 +1882,9 @@ export interface CreateGlobalSecondaryIndexAction {
   /**
    * <p>The maximum number of read and write units for the global secondary index being
    *             created. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
-   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
+   *                 <code>MaxWriteRequestUnits</code>, or both. You must use either
+   *             <code>OnDemand Throughput</code> or <code>ProvisionedThroughput</code> based on your table's
+   *         capacity mode.</p>
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
@@ -2111,8 +2116,9 @@ export const TableStatus = {
 export type TableStatus = (typeof TableStatus)[keyof typeof TableStatus];
 
 /**
- * <p>Represents the warm throughput value (in read units per second and write units per
- *             second) of the base table.</p>
+ * <p>Represents the warm throughput value (in read units per second and write units per second)
+ *             of the table. Warm throughput is applicable for DynamoDB Standard-IA tables and specifies
+ *             the minimum provisioned capacity maintained for immediate data access.</p>
  * @public
  */
 export interface TableWarmThroughputDescription {
@@ -2129,7 +2135,7 @@ export interface TableWarmThroughputDescription {
   WriteUnitsPerSecond?: number | undefined;
 
   /**
-   * <p>Represents warm throughput value of the base table..</p>
+   * <p>Represents warm throughput value of the base table.</p>
    * @public
    */
   Status?: TableStatus | undefined;
@@ -2732,7 +2738,10 @@ export interface CreateTableInput {
    *                             attributes provided in <code>NonKeyAttributes</code>, summed across all
    *                             of the secondary indexes, must not exceed 100. If you project the same
    *                             attribute into two different indexes, this counts as two distinct
-   *                             attributes when determining the total.</p>
+   *                             attributes when determining the total. This limit only applies when you
+   *                             specify the ProjectionType of <code>INCLUDE</code>. You still can specify the
+   *                             ProjectionType of <code>ALL</code> to project all attributes from the
+   *                             source table, even if the table has more than 100 attributes.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -2792,7 +2801,10 @@ export interface CreateTableInput {
    *                             attributes provided in <code>NonKeyAttributes</code>, summed across all
    *                             of the secondary indexes, must not exceed 100. If you project the same
    *                             attribute into two different indexes, this counts as two distinct
-   *                             attributes when determining the total.</p>
+   *                             attributes when determining the total. This limit only applies when you
+   *                             specify the ProjectionType of <code>INCLUDE</code>. You still can
+   *                             specify the ProjectionType of <code>ALL</code> to project all attributes
+   *                             from the source table, even if the table has more than 100 attributes.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -2812,14 +2824,15 @@ export interface CreateTableInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for
-   *                     predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p>
+   *                   <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code>
+   *                     for most DynamoDB workloads. <code>PAY_PER_REQUEST</code> sets the billing mode
+   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code>
-   *                     for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode
-   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>. </p>
+   *                   <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for
+   *                     steady workloads with predictable growth where capacity requirements can be
+   *                     reliably forecasted. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2908,7 +2921,8 @@ export interface CreateTableInput {
   DeletionProtectionEnabled?: boolean | undefined;
 
   /**
-   * <p>Represents the warm throughput (in read units per second and write units per second) for creating a table.</p>
+   * <p>Represents the warm throughput (in read units per second and write units per second)
+   *             for creating a table.</p>
    * @public
    */
   WarmThroughput?: WarmThroughput | undefined;
@@ -3445,7 +3459,10 @@ export interface TableDescription {
    *                             attributes provided in <code>NonKeyAttributes</code>, summed across all
    *                             of the secondary indexes, must not exceed 100. If you project the same
    *                             attribute into two different indexes, this counts as two distinct
-   *                             attributes when determining the total.</p>
+   *                             attributes when determining the total. This limit only applies when you
+   *                             specify the ProjectionType of <code>INCLUDE</code>. You still can
+   *                             specify the ProjectionType of <code>ALL</code> to project all attributes
+   *                             from the source table, even if the table has more than 100 attributes.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -3567,7 +3584,10 @@ export interface TableDescription {
    *                             attributes provided in <code>NonKeyAttributes</code>, summed across all
    *                             of the secondary indexes, must not exceed 100. If you project the same
    *                             attribute into two different indexes, this counts as two distinct
-   *                             attributes when determining the total.</p>
+   *                             attributes when determining the total. This limit only applies when you
+   *                             specify the ProjectionType of <code>INCLUDE</code>. You still can
+   *                             specify the ProjectionType of <code>ALL</code> to project all attributes
+   *                             from the source table, even if the table has more than 100 attributes.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4784,8 +4804,9 @@ export interface TableCreationParameters {
   BillingMode?: BillingMode | undefined;
 
   /**
-   * <p>Represents the provisioned throughput settings for a specified table or index. The
-   *             settings can be modified using the <code>UpdateTable</code> operation.</p>
+   * <p>Represents the provisioned throughput settings for the specified global secondary
+   *             index. You must use <code>ProvisionedThroughput</code> or
+   *                 <code>OnDemandThroughput</code> based on your table’s capacity mode.</p>
    *          <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
    *                 Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
@@ -7274,14 +7295,15 @@ export interface UpdateTableInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for
-   *                     predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p>
+   *                   <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code>
+   *                     for most DynamoDB workloads. <code>PAY_PER_REQUEST</code> sets the billing mode
+   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code>
-   *                     for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode
-   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>. </p>
+   *                   <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for
+   *                     steady workloads with predictable growth where capacity requirements can be
+   *                     reliably forecasted. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -7363,22 +7385,28 @@ export interface UpdateTableInput {
   DeletionProtectionEnabled?: boolean | undefined;
 
   /**
-   * <p>Specifies the consistency mode for a new global table. This parameter is only valid when you create a global table by specifying one or more <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ReplicationGroupUpdate.html#DDB-Type-ReplicationGroupUpdate-Create">Create</a> actions in the <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html#DDB-UpdateTable-request-ReplicaUpdates">ReplicaUpdates</a> action list.</p>
+   * <p>Specifies the consistency mode for a new global table. This parameter is only valid
+   *             when you create a global table by specifying one or more <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ReplicationGroupUpdate.html#DDB-Type-ReplicationGroupUpdate-Create">Create</a> actions in the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html#DDB-UpdateTable-request-ReplicaUpdates">ReplicaUpdates</a> action list.</p>
    *          <p>You can specify one of the following consistency modes:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>EVENTUAL</code>: Configures a new global table for multi-Region eventual consistency. This is the default consistency mode for global tables.</p>
+   *                   <code>EVENTUAL</code>: Configures a new global table for multi-Region eventual
+   *                     consistency. This is the default consistency mode for global tables.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>STRONG</code>: Configures a new global table for multi-Region strong consistency (preview).</p>
+   *                   <code>STRONG</code>: Configures a new global table for multi-Region strong
+   *                     consistency (preview).</p>
    *                <note>
-   *                   <p>Multi-Region strong consistency (MRSC) is a new DynamoDB global tables capability currently available in preview mode. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PreviewFeatures.html#multi-region-strong-consistency-gt">Global tables multi-Region strong consistency</a>.</p>
+   *                   <p>Multi-Region strong consistency (MRSC) is a new DynamoDB global
+   *                         tables capability currently available in preview mode. For more information,
+   *                         see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PreviewFeatures.html#multi-region-strong-consistency-gt">Global tables multi-Region strong consistency</a>.</p>
    *                </note>
    *             </li>
    *          </ul>
-   *          <p>If you don't specify this parameter, the global table consistency mode defaults to <code>EVENTUAL</code>.</p>
+   *          <p>If you don't specify this parameter, the global table consistency mode defaults to
+   *                 <code>EVENTUAL</code>.</p>
    * @public
    */
   MultiRegionConsistency?: MultiRegionConsistency | undefined;
@@ -7392,7 +7420,8 @@ export interface UpdateTableInput {
   OnDemandThroughput?: OnDemandThroughput | undefined;
 
   /**
-   * <p>Represents the warm throughput (in read units per second and write units per second) for updating a table.</p>
+   * <p>Represents the warm throughput (in read units per second and write units per second)
+   *             for updating a table.</p>
    * @public
    */
   WarmThroughput?: WarmThroughput | undefined;
@@ -8298,7 +8327,7 @@ export interface Condition {
 }
 
 /**
- * <p>A condition specified in the operation could not be evaluated.</p>
+ * <p>A condition specified in the operation failed to be evaluated.</p>
  * @public
  */
 export class ConditionalCheckFailedException extends __BaseException {
@@ -10075,9 +10104,8 @@ export interface QueryOutput {
   /**
    * <p>The number of items evaluated, before any <code>QueryFilter</code> is applied. A high
    *                 <code>ScannedCount</code> value with few, or no, <code>Count</code> results
-   *             indicates an inefficient <code>Query</code> operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Count">Count and
-   *                 ScannedCount</a> in the <i>Amazon DynamoDB Developer
-   *             Guide</i>.</p>
+   *             indicates an inefficient <code>Query</code> operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Count">Count and ScannedCount</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
    *          <p>If you did not use a filter in the request, then <code>ScannedCount</code> is the same
    *             as <code>Count</code>.</p>
    * @public

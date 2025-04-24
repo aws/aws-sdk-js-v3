@@ -84,6 +84,7 @@ export interface GetTableOptimizerCommandOutput extends GetTableOptimizerRespons
  * //         IcebergMetrics: { // IcebergCompactionMetrics
  * //           NumberOfBytesCompacted: Number("long"),
  * //           NumberOfFilesCompacted: Number("long"),
+ * //           DpuHours: Number("double"),
  * //           NumberOfDpus: Number("int"),
  * //           JobDurationInHour: Number("double"),
  * //         },
@@ -93,6 +94,7 @@ export interface GetTableOptimizerCommandOutput extends GetTableOptimizerRespons
  * //           NumberOfDataFilesDeleted: Number("long"),
  * //           NumberOfManifestFilesDeleted: Number("long"),
  * //           NumberOfManifestListsDeleted: Number("long"),
+ * //           DpuHours: Number("double"),
  * //           NumberOfDpus: Number("int"),
  * //           JobDurationInHour: Number("double"),
  * //         },
@@ -100,6 +102,7 @@ export interface GetTableOptimizerCommandOutput extends GetTableOptimizerRespons
  * //       orphanFileDeletionMetrics: { // OrphanFileDeletionMetrics
  * //         IcebergMetrics: { // IcebergOrphanFileDeletionMetrics
  * //           NumberOfOrphanFilesDeleted: Number("long"),
+ * //           DpuHours: Number("double"),
  * //           NumberOfDpus: Number("int"),
  * //           JobDurationInHour: Number("double"),
  * //         },

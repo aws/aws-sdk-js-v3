@@ -33,6 +33,10 @@ import {
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "../commands/CreateTagsCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/CreateUserCommand";
 import { DeleteBrokerCommandInput, DeleteBrokerCommandOutput } from "../commands/DeleteBrokerCommand";
+import {
+  DeleteConfigurationCommandInput,
+  DeleteConfigurationCommandOutput,
+} from "../commands/DeleteConfigurationCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand";
 import { DescribeBrokerCommandInput, DescribeBrokerCommandOutput } from "../commands/DescribeBrokerCommand";
@@ -232,6 +236,22 @@ export const se_DeleteBrokerCommand = async (
   const headers: any = {};
   b.bp("/v1/brokers/{BrokerId}");
   b.p("BrokerId", () => input.BrokerId!, "{BrokerId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteConfigurationCommand
+ */
+export const se_DeleteConfigurationCommand = async (
+  input: DeleteConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/configurations/{ConfigurationId}");
+  b.p("ConfigurationId", () => input.ConfigurationId!, "{ConfigurationId}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -695,6 +715,27 @@ export const de_DeleteBrokerCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     BrokerId: [, __expectString, `brokerId`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteConfigurationCommand
+ */
+export const de_DeleteConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ConfigurationId: [, __expectString, `configurationId`],
   });
   Object.assign(contents, doc);
   return contents;

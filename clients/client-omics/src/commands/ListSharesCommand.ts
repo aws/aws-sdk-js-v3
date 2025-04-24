@@ -28,8 +28,7 @@ export interface ListSharesCommandInput extends ListSharesRequest {}
 export interface ListSharesCommandOutput extends ListSharesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the resource shares associated with an account. Use the filter parameter to
- *              retrieve a specific subset of the shares.</p>
+ * <p>Retrieves the resource shares associated with an account. Use the filter parameter to retrieve a specific subset of the shares.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

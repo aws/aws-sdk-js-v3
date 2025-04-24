@@ -54,6 +54,7 @@ import {
   BlockStoragePerformanceConfiguration,
   ComputeConfiguration,
   ComputeSavingsPlans,
+  DynamoDbReservedCapacity,
   EbsVolume,
   EbsVolumeConfiguration,
   Ec2AutoScalingGroup,
@@ -78,6 +79,7 @@ import {
   ListRecommendationsResponse,
   ListRecommendationSummariesRequest,
   ListRecommendationSummariesResponse,
+  MemoryDbReservedInstances,
   OpenSearchReservedInstances,
   OrderBy,
   RdsDbInstance,
@@ -553,6 +555,18 @@ const de_ComputeSavingsPlans = (output: any, context: __SerdeContext): ComputeSa
 // de_DbInstanceConfiguration omitted.
 
 /**
+ * deserializeAws_json1_0DynamoDbReservedCapacity
+ */
+const de_DynamoDbReservedCapacity = (output: any, context: __SerdeContext): DynamoDbReservedCapacity => {
+  return take(output, {
+    configuration: _json,
+    costCalculation: (_: any) => de_ReservedInstancesCostCalculation(_, context),
+  }) as any;
+};
+
+// de_DynamoDbReservedCapacityConfiguration omitted.
+
+/**
  * deserializeAws_json1_0EbsVolume
  */
 const de_EbsVolume = (output: any, context: __SerdeContext): EbsVolume => {
@@ -757,6 +771,18 @@ const de_ListRecommendationSummariesResponse = (
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_0MemoryDbReservedInstances
+ */
+const de_MemoryDbReservedInstances = (output: any, context: __SerdeContext): MemoryDbReservedInstances => {
+  return take(output, {
+    configuration: _json,
+    costCalculation: (_: any) => de_ReservedInstancesCostCalculation(_, context),
+  }) as any;
+};
+
+// de_MemoryDbReservedInstancesConfiguration omitted.
+
 // de_MixedInstanceConfiguration omitted.
 
 // de_MixedInstanceConfigurationList omitted.
@@ -941,6 +967,11 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
       computeSavingsPlans: de_ComputeSavingsPlans(output.computeSavingsPlans, context),
     };
   }
+  if (output.dynamoDbReservedCapacity != null) {
+    return {
+      dynamoDbReservedCapacity: de_DynamoDbReservedCapacity(output.dynamoDbReservedCapacity, context),
+    };
+  }
   if (output.ebsVolume != null) {
     return {
       ebsVolume: de_EbsVolume(output.ebsVolume, context),
@@ -979,6 +1010,11 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
   if (output.lambdaFunction != null) {
     return {
       lambdaFunction: de_LambdaFunction(output.lambdaFunction, context),
+    };
+  }
+  if (output.memoryDbReservedInstances != null) {
+    return {
+      memoryDbReservedInstances: de_MemoryDbReservedInstances(output.memoryDbReservedInstances, context),
     };
   }
   if (output.openSearchReservedInstances != null) {

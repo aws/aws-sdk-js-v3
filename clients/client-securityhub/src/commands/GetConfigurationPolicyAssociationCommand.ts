@@ -111,7 +111,7 @@ export interface GetConfigurationPolicyAssociationCommandOutput
  * /* response is
  * {
  *   AssociationStatus: "FAILED",
- *   AssociationStatusMessage: "Configuration Policy a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 couldn’t be applied to account 111122223333 in us-east-1 Region. Retry your request.",
+ *   AssociationStatusMessage: "Configuration Policy a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 couldn't be applied to account 111122223333 in us-east-1 Region. Retry your request.",
  *   AssociationType: "INHERITED",
  *   ConfigurationPolicyId: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
  *   TargetId: "111122223333",

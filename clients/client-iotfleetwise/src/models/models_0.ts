@@ -765,6 +765,9 @@ export type UpdateMode = (typeof UpdateMode)[keyof typeof UpdateMode];
 
 /**
  * <p>Information about the vehicle to update.</p>
+ *          <important>
+ *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          </important>
  * @public
  */
 export interface UpdateVehicleRequestItem {
@@ -816,6 +819,12 @@ export interface UpdateVehicleRequestItem {
    * @public
    */
   stateTemplatesToRemove?: string[] | undefined;
+
+  /**
+   * <p>Change the <code>stateTemplateUpdateStrategy</code> of state templates already associated with the vehicle.</p>
+   * @public
+   */
+  stateTemplatesToUpdate?: StateTemplateAssociation[] | undefined;
 }
 
 /**
@@ -6229,6 +6238,12 @@ export interface UpdateVehicleRequest {
    * @public
    */
   stateTemplatesToRemove?: string[] | undefined;
+
+  /**
+   * <p>Change the <code>stateTemplateUpdateStrategy</code> of state templates already associated with the vehicle.</p>
+   * @public
+   */
+  stateTemplatesToUpdate?: StateTemplateAssociation[] | undefined;
 }
 
 /**

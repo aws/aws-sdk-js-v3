@@ -581,18 +581,20 @@ export namespace Destination {
 }
 
 /**
- * <p>To configure roles that allows users to write to an Amazon Managed Service for Prometheus workspace in a different account.</p>
+ * <p>Use this structure to enable cross-account access, so that you can use a target account to access Prometheus metrics from source accounts.</p>
  * @public
  */
 export interface RoleConfiguration {
   /**
-   * <p>A ARN identifying the source role configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the role used in the source account to enable cross-account scraping. For information about
+   *             the contents of this policy, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#cross-account-remote-write">Cross-account setup</a>.</p>
    * @public
    */
   sourceRoleArn?: string | undefined;
 
   /**
-   * <p>A ARN identifying the target role configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the role used in the target account to enable cross-account scraping. For information about
+   *             the contents of this policy, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#cross-account-remote-write">Cross-account setup</a>.</p>
    * @public
    */
   targetRoleArn?: string | undefined;
@@ -732,7 +734,7 @@ export interface CreateScraperRequest {
   destination: Destination | undefined;
 
   /**
-   * <p>The scraper role configuration for the workspace.</p>
+   * <p>Use this structure to enable cross-account access, so that you can use a target account to access Prometheus metrics from source accounts.</p>
    * @public
    */
   roleConfiguration?: RoleConfiguration | undefined;
@@ -965,7 +967,7 @@ export interface ScraperDescription {
   destination: Destination | undefined;
 
   /**
-   * <p>To configure roles that allows users to write to an Amazon Managed Service for Prometheus workspace in a different account.</p>
+   * <p>This structure displays information about the IAM roles used for cross-account scraping configuration.</p>
    * @public
    */
   roleConfiguration?: RoleConfiguration | undefined;
@@ -1098,7 +1100,7 @@ export interface ScraperSummary {
   destination: Destination | undefined;
 
   /**
-   * <p>To configure roles that allows users to write to an Amazon Managed Service for Prometheus workspace in a different account.</p>
+   * <p>This structure displays information about the IAM roles used for cross-account scraping configuration.</p>
    * @public
    */
   roleConfiguration?: RoleConfiguration | undefined;
@@ -1159,7 +1161,7 @@ export interface UpdateScraperRequest {
   destination?: Destination | undefined;
 
   /**
-   * <p>The scraper role configuration for the workspace.</p>
+   * <p>Use this structure to enable cross-account access, so that you can use a target account to access Prometheus metrics from source accounts.</p>
    * @public
    */
   roleConfiguration?: RoleConfiguration | undefined;
@@ -2201,4 +2203,175 @@ export interface UpdateWorkspaceAliasRequest {
    * @public
    */
   clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeWorkspaceConfigurationRequest {
+  /**
+   * <p>The ID of the workspace that you want to retrieve information for. To find the IDs of your workspaces, use
+   *             the <a href="https://docs.aws.amazon.com/prometheus/latest/APIReference/API_ListWorkspaces.htm">ListWorkspaces</a> operation.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+}
+
+/**
+ * <p>This structure contains the information about the limits that apply to time series that match one label set.</p>
+ * @public
+ */
+export interface LimitsPerLabelSetEntry {
+  /**
+   * <p>The maximum number of active series that can be ingested that match this label set. </p>
+   *          <p>Setting this to 0 causes no label set limit to be enforced, but it does cause Amazon Managed Service for Prometheus to vend label set metrics to CloudWatch</p>
+   * @public
+   */
+  maxSeries?: number | undefined;
+}
+
+/**
+ * <p>This structure defines one label set used to enforce ingestion limits for the workspace, and defines the limit for that label set.</p>
+ *          <p>A label set is
+ *             a unique combination of label-value pairs. Use them to control time series ingestion limits and to monitor usage by specific label groups.
+ *             Example label sets might be <code>team:finance</code> or <code>env:prod</code>
+ *          </p>
+ * @public
+ */
+export interface LimitsPerLabelSet {
+  /**
+   * <p>This structure contains the information about the limits that apply to time series that match this label set.</p>
+   * @public
+   */
+  limits: LimitsPerLabelSetEntry | undefined;
+
+  /**
+   * <p>This defines one label set that will have an enforced ingestion limit. </p>
+   *          <p>Label values accept ASCII characters and must contain at least one character that isn't whitespace. ASCII control characters are not accepted.
+   *             If the label name is metric name label <code>__<i>name</i>__</code>, then the <i>metric</i> part of the name
+   *             must conform to the following pattern: <code>[a-zA-Z_:][a-zA-Z0-9_:]*</code>
+   *          </p>
+   * @public
+   */
+  labelSet: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkspaceConfigurationStatusCode = {
+  /**
+   * Workspace configuration has been updated. Update is disallowed until workspace configuration is ACTIVE and workspace status is ACTIVE.
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * Workspace configuration update failed.
+   */
+  UPDATE_FAILED: "UPDATE_FAILED",
+  /**
+   * Workspace configuration is being updated. Update is disallowed until workspace configuration is ACTIVE and workspace status is ACTIVE.
+   */
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkspaceConfigurationStatusCode =
+  (typeof WorkspaceConfigurationStatusCode)[keyof typeof WorkspaceConfigurationStatusCode];
+
+/**
+ * <p>This structure displays the current status of the workspace configuration, and might also contain a reason for that status.</p>
+ * @public
+ */
+export interface WorkspaceConfigurationStatus {
+  /**
+   * <p>The current status of the workspace configuration.</p>
+   * @public
+   */
+  statusCode: WorkspaceConfigurationStatusCode | undefined;
+
+  /**
+   * <p>The reason for the current status, if a reason is available.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * <p>This structure contains the description of the workspace configuration.</p>
+ * @public
+ */
+export interface WorkspaceConfigurationDescription {
+  /**
+   * <p>This structure displays the current status of the workspace configuration, and might also contain a reason for that status.</p>
+   * @public
+   */
+  status: WorkspaceConfigurationStatus | undefined;
+
+  /**
+   * <p>This is an array of structures, where each structure displays one label sets for the workspace and the limits for that label set.</p>
+   * @public
+   */
+  limitsPerLabelSet?: LimitsPerLabelSet[] | undefined;
+
+  /**
+   * <p>This field displays how many days that metrics are retained in the workspace.</p>
+   * @public
+   */
+  retentionPeriodInDays?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeWorkspaceConfigurationResponse {
+  /**
+   * <p>This structure contains the information about the workspace configuration.</p>
+   * @public
+   */
+  workspaceConfiguration: WorkspaceConfigurationDescription | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateWorkspaceConfigurationRequest {
+  /**
+   * <p>The ID of the workspace that you want to update. To find the IDs of your workspaces, use
+   *             the <a href="https://docs.aws.amazon.com/prometheus/latest/APIReference/API_ListWorkspaces.htm">ListWorkspaces</a> operation.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>You can include a token in your operation to make it an idempotent opeartion. </p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>This is an array of structures, where each structure defines a label set for the workspace, and
+   *             defines the ingestion limit for active time series for each of those label sets. Each label name in a label set must be unique.</p>
+   * @public
+   */
+  limitsPerLabelSet?: LimitsPerLabelSet[] | undefined;
+
+  /**
+   * <p>Specifies how many days that metrics will be retained in the workspace.</p>
+   * @public
+   */
+  retentionPeriodInDays?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateWorkspaceConfigurationResponse {
+  /**
+   * <p>The status of the workspace configuration.</p>
+   * @public
+   */
+  status: WorkspaceConfigurationStatus | undefined;
 }

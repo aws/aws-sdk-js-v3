@@ -59,6 +59,7 @@ export interface CreatePolicyStoreCommandOutput extends CreatePolicyStoreOutput,
  *     mode: "OFF" || "STRICT", // required
  *   },
  *   description: "STRING_VALUE",
+ *   deletionProtection: "ENABLED" || "DISABLED",
  * };
  * const command = new CreatePolicyStoreCommand(input);
  * const response = await client.send(command);

@@ -342,16 +342,16 @@ export interface ErrorReason {
    *                <p>
    *                   <code>DEPENDENCY_ACCESS_DENIED_ERROR</code> - The caller does not have the
    *                     required permissions to complete the action. To resolve the error, you must have
-   *                     permission to access the Amazon Web Service or quota.</p>
+   *                     permission to access the Amazon Web Services service or quota.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DEPENDENCY_THROTTLING_ERROR</code> - The Amazon Web Service is throttling
+   *                   <code>DEPENDENCY_THROTTLING_ERROR</code> - The Amazon Web Services service is throttling
    *                     Service Quotas. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DEPENDENCY_SERVICE_ERROR</code> - The Amazon Web Service is not
+   *                   <code>DEPENDENCY_SERVICE_ERROR</code> - The Amazon Web Services service is not
    *                     available.</p>
    *             </li>
    *             <li>
@@ -476,25 +476,24 @@ export const QuotaContextScope = {
 export type QuotaContextScope = (typeof QuotaContextScope)[keyof typeof QuotaContextScope];
 
 /**
- * <p>A structure that describes the context for a service quota. The context identifies what the quota applies to.</p>
+ * <p>A structure that describes the context for a resource-level quota. For resource-level quotas, such as <code>Instances per OpenSearch Service Domain</code>, you can apply the quota value at the resource-level for each OpenSearch Service Domain in your Amazon Web Services account. Together the attributes of this structure help you understand how the quota is implemented by Amazon Web Services and how you can manage it. For quotas such as <code>Amazon OpenSearch Service Domains</code> which can be managed at the account-level for each Amazon Web Services Region, the <code>QuotaContext</code> field is absent. See the attribute descriptions below to further understand how to use them.</p>
  * @public
  */
 export interface QuotaContextInfo {
   /**
-   * <p>Specifies whether the quota applies to an Amazon Web Services account, or to a resource.</p>
+   * <p>Specifies the scope to which the quota value is applied. If the scope is <code>RESOURCE</code>, the quota value is applied to each resource in the Amazon Web Services account. If the scope is <code>ACCOUNT</code>, the quota value is applied to the Amazon Web Services account.</p>
    * @public
    */
   ContextScope?: QuotaContextScope | undefined;
 
   /**
-   * <p>When the <code>ContextScope</code> is <code>RESOURCE</code>, then this specifies the resource type of the specified resource.</p>
+   * <p>Specifies the resource type to which the quota can be applied.</p>
    * @public
    */
   ContextScopeType?: string | undefined;
 
   /**
-   * <p>Specifies the Amazon Web Services account or resource to which the quota applies. The value in this field
-   *               depends on the context scope associated with the specified service quota.</p>
+   * <p>Specifies the resource, or resources, to which the quota applies. The value for this field is either an Amazon Resource Name (ARN) or *. If the value is an ARN, the quota value applies to that resource. If the value is *, then the quota value applies to all resources listed in the <code>ContextScopeType</code> field. The quota value applies to all resources for which you haven’t previously applied a quota value, and any new resources you create in your Amazon Web Services account.</p>
    * @public
    */
   ContextId?: string | undefined;
@@ -612,7 +611,7 @@ export interface ServiceQuota {
   ErrorReason?: ErrorReason | undefined;
 
   /**
-   * <p>Specifies at which level of granularity that the quota value is applied.</p>
+   * <p>Filters the response to return applied quota values for the <code>ACCOUNT</code>, <code>RESOURCE</code>, or <code>ALL</code> levels. <code>ACCOUNT</code> is the default.</p>
    * @public
    */
   QuotaAppliedAtLevel?: AppliedLevelEnum | undefined;
@@ -622,6 +621,12 @@ export interface ServiceQuota {
    * @public
    */
   QuotaContext?: QuotaContextInfo | undefined;
+
+  /**
+   * <p>The quota description. </p>
+   * @public
+   */
+  Description?: string | undefined;
 }
 
 /**
@@ -717,6 +722,41 @@ export interface RequestedServiceQuotaChange {
 
   /**
    * <p>The state of the quota increase request.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code>: The quota increase request is under review by Amazon Web Services. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CASE_OPENED</code>: Service Quotas opened a support case to process the quota increase
+   *                 request. Follow-up on the support case for more information.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>APPROVED</code>: The quota increase request is approved. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DENIED</code>: The quota increase request can't be approved by Service Quotas. Contact
+   *                Amazon Web Services Support for more details.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT APPROVED</code>: The quota increase request can't be approved by Service Quotas. Contact
+   *                 Amazon Web Services Support for more details.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CASE_CLOSED</code>: The support case associated with this quota increase request was closed.
+   *             Check the support case correspondence for the outcome of your quota request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INVALID_REQUEST</code>: Service Quotas couldn't process your resource-level quota increase request because the
+   *             Amazon Resource Name (ARN) specified as part of the <code>ContextId</code> is invalid.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Status?: RequestStatus | undefined;
@@ -759,7 +799,7 @@ export interface RequestedServiceQuotaChange {
   Unit?: string | undefined;
 
   /**
-   * <p>Specifies at which level within the Amazon Web Services account the quota request applies to.</p>
+   * <p>Filters the response to return quota requests for the <code>ACCOUNT</code>, <code>RESOURCE</code>, or <code>ALL</code> levels. <code>ACCOUNT</code> is the default.</p>
    * @public
    */
   QuotaRequestedAtLevel?: AppliedLevelEnum | undefined;
@@ -802,8 +842,7 @@ export interface GetServiceQuotaRequest {
   QuotaCode: string | undefined;
 
   /**
-   * <p>Specifies the Amazon Web Services account or resource to which the quota applies. The value in this field
-   *               depends on the context scope associated with the specified service quota.</p>
+   * <p>Specifies the resource with an Amazon Resource Name (ARN).</p>
    * @public
    */
   ContextId?: string | undefined;
@@ -1083,7 +1122,7 @@ export interface ListRequestedServiceQuotaChangeHistoryRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>Specifies at which level within the Amazon Web Services account the quota request applies to.</p>
+   * <p>Filters the response to return quota requests for the <code>ACCOUNT</code>, <code>RESOURCE</code>, or <code>ALL</code> levels. <code>ACCOUNT</code> is the default.</p>
    * @public
    */
   QuotaRequestedAtLevel?: AppliedLevelEnum | undefined;
@@ -1162,7 +1201,7 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>Specifies at which level within the Amazon Web Services account the quota request applies to.</p>
+   * <p>Filters the response to return quota requests for the <code>ACCOUNT</code>, <code>RESOURCE</code>, or <code>ALL</code> levels. <code>ACCOUNT</code> is the default.</p>
    * @public
    */
   QuotaRequestedAtLevel?: AppliedLevelEnum | undefined;
@@ -1298,7 +1337,7 @@ export interface ListServiceQuotasRequest {
   QuotaCode?: string | undefined;
 
   /**
-   * <p>Specifies at which level of granularity that the quota value is applied.</p>
+   * <p>Filters the response to return applied quota values for the <code>ACCOUNT</code>, <code>RESOURCE</code>, or <code>ALL</code> levels. <code>ACCOUNT</code> is the default.</p>
    * @public
    */
   QuotaAppliedAtLevel?: AppliedLevelEnum | undefined;
@@ -1356,7 +1395,7 @@ export interface ListServicesRequest {
 }
 
 /**
- * <p>Information about an Amazon Web Service.</p>
+ * <p>Information about an Amazon Web Services service.</p>
  * @public
  */
 export interface ServiceInfo {
@@ -1388,7 +1427,7 @@ export interface ListServicesResponse {
   NextToken?: string | undefined;
 
   /**
-   * <p>The list of the Amazon Web Service names and service codes.</p>
+   * <p>The list of the Amazon Web Services service names and service codes.</p>
    * @public
    */
   Services?: ServiceInfo[] | undefined;
@@ -1510,11 +1549,20 @@ export interface RequestServiceQuotaIncreaseRequest {
   DesiredValue: number | undefined;
 
   /**
-   * <p>Specifies the Amazon Web Services account or resource to which the quota applies. The value in this field
-   *               depends on the context scope associated with the specified service quota.</p>
+   * <p>Specifies the resource with an Amazon Resource Name (ARN).</p>
    * @public
    */
   ContextId?: string | undefined;
+
+  /**
+   * <p>Specifies if an Amazon Web Services Support case can be opened for the quota increase request. This parameter is optional. </p>
+   *          <p>By default, this flag is set to <code>True</code> and Amazon Web Services may create a support case for some quota increase requests.
+   *             You can set this flag to <code>False</code>
+   *            if you do not want a support case created when you request a quota increase. If you set the flag to <code>False</code>,
+   *             Amazon Web Services does not open a support case and updates the request status to <code>Not approved</code>. </p>
+   * @public
+   */
+  SupportCaseAllowed?: boolean | undefined;
 }
 
 /**

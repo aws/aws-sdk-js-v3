@@ -203,6 +203,96 @@ export interface ArchivingOptions {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AttachmentContentDisposition = {
+  ATTACHMENT: "ATTACHMENT",
+  INLINE: "INLINE",
+} as const;
+
+/**
+ * @public
+ */
+export type AttachmentContentDisposition =
+  (typeof AttachmentContentDisposition)[keyof typeof AttachmentContentDisposition];
+
+/**
+ * @public
+ * @enum
+ */
+export const AttachmentContentTransferEncoding = {
+  BASE64: "BASE64",
+  QUOTED_PRINTABLE: "QUOTED_PRINTABLE",
+  SEVEN_BIT: "SEVEN_BIT",
+} as const;
+
+/**
+ * @public
+ */
+export type AttachmentContentTransferEncoding =
+  (typeof AttachmentContentTransferEncoding)[keyof typeof AttachmentContentTransferEncoding];
+
+/**
+ * <p> Contains metadata and attachment raw content.</p>
+ * @public
+ */
+export interface Attachment {
+  /**
+   * <p> The raw data of the attachment. It needs to be base64-encoded if you are accessing Amazon SES
+   *             directly through the HTTPS interface. If you are accessing Amazon SES using an Amazon Web Services
+   *             SDK, the SDK takes care of the base 64-encoding for you.</p>
+   * @public
+   */
+  RawContent: Uint8Array | undefined;
+
+  /**
+   * <p> A standard descriptor indicating how the attachment should be rendered in the email.
+   *             Supported values: <code>ATTACHMENT</code> or <code>INLINE</code>.</p>
+   * @public
+   */
+  ContentDisposition?: AttachmentContentDisposition | undefined;
+
+  /**
+   * <p>The file name for the attachment as it will appear in the email.
+   *             Amazon SES restricts certain file extensions. To ensure attachments are accepted,
+   *             check the <a href="https://docs.aws.amazon.com/ses/latest/dg/mime-types.html">Unsupported attachment types</a>
+   *             in the Amazon SES Developer Guide.</p>
+   * @public
+   */
+  FileName: string | undefined;
+
+  /**
+   * <p> A brief description of the attachment content.</p>
+   * @public
+   */
+  ContentDescription?: string | undefined;
+
+  /**
+   * <p> Unique identifier for the attachment, used for referencing attachments with INLINE disposition in HTML content.</p>
+   * @public
+   */
+  ContentId?: string | undefined;
+
+  /**
+   * <p> Specifies how the attachment is encoded.
+   *             Supported values: <code>BASE64</code>, <code>QUOTED_PRINTABLE</code>, <code>SEVEN_BIT</code>.</p>
+   * @public
+   */
+  ContentTransferEncoding?: AttachmentContentTransferEncoding | undefined;
+
+  /**
+   * <p> The MIME type of the attachment.</p>
+   *          <note>
+   *             <p>Example: <code>application/pdf</code>, <code>image/jpeg</code>
+   *             </p>
+   *          </note>
+   * @public
+   */
+  ContentType?: string | undefined;
+}
+
+/**
  * <p>The input you provided is invalid.</p>
  * @public
  */
@@ -780,6 +870,12 @@ export interface Template {
    * @public
    */
   Headers?: MessageHeader[] | undefined;
+
+  /**
+   * <p> The List of attachments to include in your email. All recipients will receive the same attachments.</p>
+   * @public
+   */
+  Attachments?: Attachment[] | undefined;
 }
 
 /**
@@ -2230,19 +2326,25 @@ export interface Message {
    * @public
    */
   Headers?: MessageHeader[] | undefined;
+
+  /**
+   * <p> The List of attachments to include in your email. All recipients will receive the same attachments.</p>
+   * @public
+   */
+  Attachments?: Attachment[] | undefined;
 }
 
 /**
- * <p>An object that defines the entire content of the email, including the message headers
- *             and the body content. You can create a simple email message, in which you specify the
- *             subject and the text and HTML versions of the message body. You can also create raw
- *             messages, in which you specify a complete MIME-formatted message. Raw messages can
- *             include attachments and custom headers.</p>
+ * <p>An object that defines the entire content of the email, including the message headers, body content,
+ *             and attachments. For a simple email message, you specify the subject and provide both text
+ *             and HTML versions of the message body. You can also add attachments to simple and templated
+ *             messages. For a raw message, you provide a complete MIME-formatted message, which can
+ *             include custom headers and attachments.</p>
  * @public
  */
 export interface EmailContent {
   /**
-   * <p>The simple email message. The message consists of a subject and a message body.</p>
+   * <p>The simple email message. The message consists of a subject, message body and attachments list.</p>
    * @public
    */
   Simple?: Message | undefined;
@@ -7895,78 +7997,6 @@ export interface PutConfigurationSetSendingOptionsRequest {
  * @public
  */
 export interface PutConfigurationSetSendingOptionsResponse {}
-
-/**
- * <p>A request to change the account suppression list preferences for a specific
- *             configuration set.</p>
- * @public
- */
-export interface PutConfigurationSetSuppressionOptionsRequest {
-  /**
-   * <p>The name of the configuration set to change the suppression list preferences
-   *             for.</p>
-   * @public
-   */
-  ConfigurationSetName: string | undefined;
-
-  /**
-   * <p>A list that contains the reasons that email addresses are automatically added to the
-   *             suppression list for your account. This list can contain any or all of the
-   *             following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression
-   *                     list for your account when a message sent to that address results in a
-   *                     complaint.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
-   *                     list for your account when a message sent to that address results in a hard
-   *                     bounce.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SuppressedReasons?: SuppressionListReason[] | undefined;
-}
-
-/**
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- * @public
- */
-export interface PutConfigurationSetSuppressionOptionsResponse {}
-
-/**
- * <p>A request to add a custom domain for tracking open and click events to a configuration
- *             set.</p>
- * @public
- */
-export interface PutConfigurationSetTrackingOptionsRequest {
-  /**
-   * <p>The name of the configuration set.</p>
-   * @public
-   */
-  ConfigurationSetName: string | undefined;
-
-  /**
-   * <p>The domain to use to track open and click events.</p>
-   * @public
-   */
-  CustomRedirectDomain?: string | undefined;
-
-  /**
-   * <p>The https policy to use for tracking open and click events. If the value is OPTIONAL or HttpsPolicy is not
-   *         specified, the open trackers use HTTP and click tracker use the original protocol of the link.
-   *         If the value is REQUIRE, both open and click tracker uses HTTPS and if the value is REQUIRE_OPEN_ONLY
-   *             open tracker uses HTTPS and link tracker is same as original protocol of the link.
-   *         </p>
-   * @public
-   */
-  HttpsPolicy?: HttpsPolicy | undefined;
-}
 
 /**
  * @internal

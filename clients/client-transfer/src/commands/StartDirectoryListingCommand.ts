@@ -28,51 +28,7 @@ export interface StartDirectoryListingCommandInput extends StartDirectoryListing
 export interface StartDirectoryListingCommandOutput extends StartDirectoryListingResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of the contents of a directory from a remote SFTP server. You specify the
- *       connector ID, the output path, and the remote directory path. You can also specify the
- *       optional <code>MaxItems</code> value to control the maximum number of items that are listed
- *       from the remote directory. This API returns a list of all files and directories in the remote
- *       directory (up to the maximum value), but does not return files or folders in sub-directories.
- *       That is, it only returns a list of files and directories one-level deep.</p>
- *          <p>After you receive the listing file, you can provide the files that you want to transfer to
- *       the <code>RetrieveFilePaths</code> parameter of the <code>StartFileTransfer</code> API
- *       call.</p>
- *          <p>The naming convention for the output file is
- *           <code>
- *                <i>connector-ID</i>-<i>listing-ID</i>.json</code>. The
- *       output file contains the following information:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>filePath</code>: the complete path of a remote file, relative to the directory
- *           of the listing request for your SFTP connector on the remote server.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>modifiedTimestamp</code>: the last time the file was modified, in UTC time
- *           format. This field is optional. If the remote file attributes don't contain a timestamp,
- *           it is omitted from the file listing.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>size</code>: the size of the file, in bytes. This field is optional. If the
- *           remote file attributes don't contain a file size, it is omitted from the file
- *           listing.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>path</code>: the complete path of a remote directory, relative to the directory
- *           of the listing request for your SFTP connector on the remote server.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>truncated</code>: a flag indicating whether the list output contains all of the
- *           items contained in the remote directory or not. If your <code>Truncated</code> output
- *           value is true, you can increase the value provided in the optional <code>max-items</code>
- *           input attribute to be able to list more items (up to the maximum allowed list size of
- *           10,000 items).</p>
- *             </li>
- *          </ul>
+ * <p>Retrieves a list of the contents of a directory from a remote SFTP server. You specify the connector ID, the output path, and the remote directory path. You can also specify the optional <code>MaxItems</code> value to control the maximum number of items that are listed from the remote directory. This API returns a list of all files and directories in the remote directory (up to the maximum value), but does not return files or folders in sub-directories. That is, it only returns a list of files and directories one-level deep.</p> <p>After you receive the listing file, you can provide the files that you want to transfer to the <code>RetrieveFilePaths</code> parameter of the <code>StartFileTransfer</code> API call.</p> <p>The naming convention for the output file is <code> <i>connector-ID</i>-<i>listing-ID</i>.json</code>. The output file contains the following information:</p> <ul> <li> <p> <code>filePath</code>: the complete path of a remote file, relative to the directory of the listing request for your SFTP connector on the remote server.</p> </li> <li> <p> <code>modifiedTimestamp</code>: the last time the file was modified, in UTC time format. This field is optional. If the remote file attributes don't contain a timestamp, it is omitted from the file listing.</p> </li> <li> <p> <code>size</code>: the size of the file, in bytes. This field is optional. If the remote file attributes don't contain a file size, it is omitted from the file listing.</p> </li> <li> <p> <code>path</code>: the complete path of a remote directory, relative to the directory of the listing request for your SFTP connector on the remote server.</p> </li> <li> <p> <code>truncated</code>: a flag indicating whether the list output contains all of the items contained in the remote directory or not. If your <code>Truncated</code> output value is true, you can increase the value provided in the optional <code>max-items</code> input attribute to be able to list more items (up to the maximum allowed list size of 10,000 items).</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,8 +63,7 @@ export interface StartDirectoryListingCommandOutput extends StartDirectoryListin
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>

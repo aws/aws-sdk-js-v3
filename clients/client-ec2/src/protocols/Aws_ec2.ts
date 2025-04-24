@@ -2594,6 +2594,7 @@ import {
   CertificateAuthenticationRequest,
   ClientConnectOptions,
   ClientLoginBannerOptions,
+  ClientRouteEnforcementOptions,
   ClientVpnAuthenticationRequest,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
@@ -2667,7 +2668,6 @@ import {
   CreateLaunchTemplateRequest,
   CreateLaunchTemplateResult,
   CreateLaunchTemplateVersionRequest,
-  CreateLaunchTemplateVersionResult,
   CreditSpecification,
   CreditSpecificationRequest,
   CustomerGateway,
@@ -2808,6 +2808,7 @@ import {
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
   ConnectionTrackingConfiguration,
+  CreateLaunchTemplateVersionResult,
   CreateLocalGatewayRouteRequest,
   CreateLocalGatewayRouteResult,
   CreateLocalGatewayRouteTableRequest,
@@ -3027,7 +3028,6 @@ import {
   Volume,
   VpcBlockPublicAccessExclusion,
   VpcEndpoint,
-  VpnTunnelLogOptionsSpecification,
 } from "../models/models_2";
 import {
   AssociatedTargetNetwork,
@@ -3045,6 +3045,7 @@ import {
   ClassicLinkInstance,
   ClientConnectResponseOptions,
   ClientLoginBannerResponseOptions,
+  ClientRouteEnforcementResponseOptions,
   ClientVpnAuthentication,
   ClientVpnConnection,
   ClientVpnConnectionStatus,
@@ -3269,8 +3270,6 @@ import {
   DescribeCoipPoolsResult,
   DescribeConversionTasksRequest,
   DirectoryServiceAuthentication,
-  DiskImageDescription,
-  DiskImageVolumeDescription,
   FailedQueuedPurchaseDeletion,
   FederatedAuthentication,
   Filter,
@@ -3306,6 +3305,7 @@ import {
   VpnGateway,
   VpnStaticRoute,
   VpnTunnelLogOptions,
+  VpnTunnelLogOptionsSpecification,
   VpnTunnelOptionsSpecification,
 } from "../models/models_3";
 import {
@@ -3437,8 +3437,9 @@ import {
   DescribeMacHostsResult,
   DescribeManagedPrefixListsRequest,
   DescribeManagedPrefixListsResult,
-  DescribeMovingAddressesRequest,
   DestinationOptionsResponse,
+  DiskImageDescription,
+  DiskImageVolumeDescription,
   DiskInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
@@ -3562,6 +3563,7 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeMovingAddressesRequest,
   DescribeMovingAddressesResult,
   DescribeNatGatewaysRequest,
   DescribeNatGatewaysResult,
@@ -3756,10 +3758,8 @@ import {
   DisableImageDeprecationRequest,
   DisableImageDeprecationResult,
   DisableImageDeregistrationProtectionRequest,
-  DisableImageDeregistrationProtectionResult,
   DisableImageRequest,
   DisableImageResult,
-  DisableIpamOrganizationAdminAccountRequest,
   HistoryRecord,
   InstanceNetworkInterfaceSpecification,
   LaunchSpecification,
@@ -3842,6 +3842,8 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DisableImageDeregistrationProtectionResult,
+  DisableIpamOrganizationAdminAccountRequest,
   DisableIpamOrganizationAdminAccountResult,
   DisableRouteServerPropagationRequest,
   DisableRouteServerPropagationResult,
@@ -3890,7 +3892,6 @@ import {
   DisassociateTrunkInterfaceResult,
   DisassociateVpcCidrBlockRequest,
   DisassociateVpcCidrBlockResult,
-  DiskImage,
   DiskImageDetail,
   EnableAddressTransferRequest,
   EnableAddressTransferResult,
@@ -4109,7 +4110,6 @@ import {
   VerifiedAccessInstanceOpenVpnClientConfiguration,
   VerifiedAccessInstanceOpenVpnClientConfigurationRoute,
   VerifiedAccessInstanceUserTrustProviderClientConfiguration,
-  VolumeDetail,
   VpnConnectionDeviceType,
 } from "../models/models_6";
 import {
@@ -4118,6 +4118,7 @@ import {
   CapacityReservationSpecification,
   CidrAuthorizationContext,
   CreateVolumePermissionModifications,
+  DiskImage,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
   ImageCriterionRequest,
@@ -4380,8 +4381,6 @@ import {
   ResetSnapshotAttributeRequest,
   RestoreAddressToClassicRequest,
   RestoreAddressToClassicResult,
-  RestoreImageFromRecycleBinRequest,
-  RestoreImageFromRecycleBinResult,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
@@ -4398,6 +4397,7 @@ import {
   VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
   VerifiedAccessLogOptions,
   VerifiedAccessLogS3DestinationOptions,
+  VolumeDetail,
 } from "../models/models_7";
 import {
   CpuOptionsRequest,
@@ -4412,6 +4412,8 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RestoreImageFromRecycleBinRequest,
+  RestoreImageFromRecycleBinResult,
   RestoreManagedPrefixListVersionRequest,
   RestoreManagedPrefixListVersionResult,
   RestoreSnapshotFromRecycleBinRequest,
@@ -31519,6 +31521,17 @@ const se_ClientLoginBannerOptions = (input: ClientLoginBannerOptions, context: _
 };
 
 /**
+ * serializeAws_ec2ClientRouteEnforcementOptions
+ */
+const se_ClientRouteEnforcementOptions = (input: ClientRouteEnforcementOptions, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_Enf] != null) {
+    entries[_Enf] = input[_Enf];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2ClientVpnAuthenticationRequest
  */
 const se_ClientVpnAuthenticationRequest = (input: ClientVpnAuthenticationRequest, context: __SerdeContext): any => {
@@ -32176,6 +32189,13 @@ const se_CreateClientVpnEndpointRequest = (input: CreateClientVpnEndpointRequest
     const memberEntries = se_ClientLoginBannerOptions(input[_CLBO], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ClientLoginBannerOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_CREO] != null) {
+    const memberEntries = se_ClientRouteEnforcementOptions(input[_CREO], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ClientRouteEnforcementOptions.${key}`;
       entries[loc] = value;
     });
   }
@@ -49125,6 +49145,13 @@ const se_ModifyClientVpnEndpointRequest = (input: ModifyClientVpnEndpointRequest
       entries[loc] = value;
     });
   }
+  if (input[_CREO] != null) {
+    const memberEntries = se_ClientRouteEnforcementOptions(input[_CREO], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ClientRouteEnforcementOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input[_DOST] != null) {
     entries[_DOST] = input[_DOST];
   }
@@ -61393,6 +61420,20 @@ const de_ClientLoginBannerResponseOptions = (
 };
 
 /**
+ * deserializeAws_ec2ClientRouteEnforcementResponseOptions
+ */
+const de_ClientRouteEnforcementResponseOptions = (
+  output: any,
+  context: __SerdeContext
+): ClientRouteEnforcementResponseOptions => {
+  const contents: any = {};
+  if (output[_enf] != null) {
+    contents[_Enf] = __parseBoolean(output[_enf]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2ClientVpnAuthentication
  */
 const de_ClientVpnAuthentication = (output: any, context: __SerdeContext): ClientVpnAuthentication => {
@@ -61600,6 +61641,9 @@ const de_ClientVpnEndpoint = (output: any, context: __SerdeContext): ClientVpnEn
   }
   if (output[_cLBO] != null) {
     contents[_CLBO] = de_ClientLoginBannerResponseOptions(output[_cLBO], context);
+  }
+  if (output[_cREO] != null) {
+    contents[_CREO] = de_ClientRouteEnforcementResponseOptions(output[_cREO], context);
   }
   if (output[_dOST] != null) {
     contents[_DOST] = __parseBoolean(output[_dOST]);
@@ -89749,6 +89793,7 @@ const _CRA = "CapacityReservationArn";
 const _CRBR = "CapacityReservationBillingRequests";
 const _CRCC = "ClientRootCertificateChain";
 const _CRCCA = "ClientRootCertificateChainArn";
+const _CREO = "ClientRouteEnforcementOptions";
 const _CRF = "CapacityReservationFleets";
 const _CRFA = "CapacityReservationFleetArn";
 const _CRFI = "CapacityReservationFleetIds";
@@ -90404,6 +90449,7 @@ const _En = "Enabled";
 const _Enc = "Encrypted";
 const _End = "End";
 const _Endp = "Endpoint";
+const _Enf = "Enforced";
 const _Ent = "Entries";
 const _Er = "Error";
 const _Err = "Errors";
@@ -92367,6 +92413,7 @@ const _cR = "capacityReservation";
 const _cRA = "capacityReservationArn";
 const _cRBRS = "capacityReservationBillingRequestSet";
 const _cRCC = "clientRootCertificateChain";
+const _cREO = "clientRouteEnforcementOptions";
 const _cRFA = "capacityReservationFleetArn";
 const _cRFI = "capacityReservationFleetId";
 const _cRFS = "capacityReservationFleetSet";
@@ -92614,6 +92661,7 @@ const _eb = "ebs";
 const _en = "enabled";
 const _enc = "encrypted";
 const _end = "end";
+const _enf = "enforced";
 const _er = "error";
 const _ev = "event";
 const _f = "format";

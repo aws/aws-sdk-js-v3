@@ -30,7 +30,8 @@ export interface DescribeBudgetCommandOutput extends DescribeBudgetResponse, __M
 /**
  * <p>Describes a budget.</p>
  *          <important>
- *             <p>The Request Syntax section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudget.html#API_DescribeBudget_Examples">Examples</a> section. </p>
+ *             <p>The Request Syntax section shows the <code>BudgetLimit</code> syntax. For
+ *                <code>PlannedBudgetLimits</code>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudget.html#API_DescribeBudget_Examples">Examples</a> section.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +42,7 @@ export interface DescribeBudgetCommandOutput extends DescribeBudgetResponse, __M
  * const input = { // DescribeBudgetRequest
  *   AccountId: "STRING_VALUE", // required
  *   BudgetName: "STRING_VALUE", // required
+ *   ShowFilterExpression: true || false,
  * };
  * const command = new DescribeBudgetCommand(input);
  * const response = await client.send(command);
@@ -100,6 +102,76 @@ export interface DescribeBudgetCommandOutput extends DescribeBudgetResponse, __M
  * //       },
  * //       LastAutoAdjustTime: new Date("TIMESTAMP"),
  * //     },
+ * //     FilterExpression: { // Expression
+ * //       Or: [ // Expressions
+ * //         {
+ * //           Or: [
+ * //             "<Expression>",
+ * //           ],
+ * //           And: [
+ * //             "<Expression>",
+ * //           ],
+ * //           Not: "<Expression>",
+ * //           Dimensions: { // ExpressionDimensionValues
+ * //             Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "INVOICING_ENTITY" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "RESERVATION_MODIFIED" || "TAG_KEY" || "COST_CATEGORY_NAME", // required
+ * //             Values: [ // Values // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             MatchOptions: [ // MatchOptions
+ * //               "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ * //             ],
+ * //           },
+ * //           Tags: { // TagValues
+ * //             Key: "STRING_VALUE",
+ * //             Values: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             MatchOptions: [
+ * //               "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ * //             ],
+ * //           },
+ * //           CostCategories: { // CostCategoryValues
+ * //             Key: "STRING_VALUE",
+ * //             Values: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             MatchOptions: [
+ * //               "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ * //             ],
+ * //           },
+ * //         },
+ * //       ],
+ * //       And: [
+ * //         "<Expression>",
+ * //       ],
+ * //       Not: "<Expression>",
+ * //       Dimensions: {
+ * //         Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "INVOICING_ENTITY" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "RESERVATION_MODIFIED" || "TAG_KEY" || "COST_CATEGORY_NAME", // required
+ * //         Values: [ // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         MatchOptions: [
+ * //           "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ * //         ],
+ * //       },
+ * //       Tags: {
+ * //         Key: "STRING_VALUE",
+ * //         Values: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         MatchOptions: [
+ * //           "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ * //         ],
+ * //       },
+ * //       CostCategories: {
+ * //         Key: "STRING_VALUE",
+ * //         Values: "<Values>",
+ * //         MatchOptions: "<MatchOptions>",
+ * //       },
+ * //     },
+ * //     Metrics: [ // Metrics
+ * //       "BlendedCost" || "UnblendedCost" || "AmortizedCost" || "NetUnblendedCost" || "NetAmortizedCost" || "UsageQuantity" || "NormalizedUsageAmount" || "Hours",
+ * //     ],
  * //   },
  * // };
  *

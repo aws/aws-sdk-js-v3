@@ -28,8 +28,7 @@ export interface DescribeConnectorCommandInput extends DescribeConnectorRequest 
 export interface DescribeConnectorCommandOutput extends DescribeConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the connector that's identified by the <code>ConnectorId.</code>
- *          </p>
+ * <p>Describes the connector that's identified by the <code>ConnectorId.</code> </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,6 +70,7 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * //       TrustedHostKeys: [ // SftpConnectorTrustedHostKeyList
  * //         "STRING_VALUE",
  * //       ],
+ * //       MaxConcurrentConnections: Number("int"),
  * //     },
  * //     ServiceManagedEgressIpAddresses: [ // ServiceManagedEgressIpAddresses
  * //       "STRING_VALUE",
@@ -94,8 +94,7 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>

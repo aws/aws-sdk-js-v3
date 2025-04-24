@@ -20,4 +20,5 @@ export * from "./ListSequenceStoresPaginator";
 export * from "./ListSharesPaginator";
 export * from "./ListVariantImportJobsPaginator";
 export * from "./ListVariantStoresPaginator";
+export * from "./ListWorkflowVersionsPaginator";
 export * from "./ListWorkflowsPaginator";

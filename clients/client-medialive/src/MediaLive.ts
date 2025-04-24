@@ -89,6 +89,11 @@ import {
   CreatePartnerInputCommandOutput,
 } from "./commands/CreatePartnerInputCommand";
 import {
+  CreateSdiSourceCommand,
+  CreateSdiSourceCommandInput,
+  CreateSdiSourceCommandOutput,
+} from "./commands/CreateSdiSourceCommand";
+import {
   CreateSignalMapCommand,
   CreateSignalMapCommandInput,
   CreateSignalMapCommandOutput,
@@ -161,6 +166,11 @@ import {
   DeleteScheduleCommandInput,
   DeleteScheduleCommandOutput,
 } from "./commands/DeleteScheduleCommand";
+import {
+  DeleteSdiSourceCommand,
+  DeleteSdiSourceCommandInput,
+  DeleteSdiSourceCommandOutput,
+} from "./commands/DeleteSdiSourceCommand";
 import {
   DeleteSignalMapCommand,
   DeleteSignalMapCommandInput,
@@ -242,6 +252,11 @@ import {
   DescribeScheduleCommandInput,
   DescribeScheduleCommandOutput,
 } from "./commands/DescribeScheduleCommand";
+import {
+  DescribeSdiSourceCommand,
+  DescribeSdiSourceCommandInput,
+  DescribeSdiSourceCommandOutput,
+} from "./commands/DescribeSdiSourceCommand";
 import {
   DescribeThumbnailsCommand,
   DescribeThumbnailsCommandInput,
@@ -349,6 +364,11 @@ import {
   ListReservationsCommandInput,
   ListReservationsCommandOutput,
 } from "./commands/ListReservationsCommand";
+import {
+  ListSdiSourcesCommand,
+  ListSdiSourcesCommandInput,
+  ListSdiSourcesCommandOutput,
+} from "./commands/ListSdiSourcesCommand";
 import {
   ListSignalMapsCommand,
   ListSignalMapsCommandInput,
@@ -517,6 +537,11 @@ import {
   UpdateReservationCommandInput,
   UpdateReservationCommandOutput,
 } from "./commands/UpdateReservationCommand";
+import {
+  UpdateSdiSourceCommand,
+  UpdateSdiSourceCommandInput,
+  UpdateSdiSourceCommandOutput,
+} from "./commands/UpdateSdiSourceCommand";
 import { MediaLiveClient, MediaLiveClientConfig } from "./MediaLiveClient";
 
 const commands = {
@@ -542,6 +567,7 @@ const commands = {
   CreateNodeCommand,
   CreateNodeRegistrationScriptCommand,
   CreatePartnerInputCommand,
+  CreateSdiSourceCommand,
   CreateSignalMapCommand,
   CreateTagsCommand,
   DeleteChannelCommand,
@@ -559,6 +585,7 @@ const commands = {
   DeleteNodeCommand,
   DeleteReservationCommand,
   DeleteScheduleCommand,
+  DeleteSdiSourceCommand,
   DeleteSignalMapCommand,
   DeleteTagsCommand,
   DescribeAccountConfigurationCommand,
@@ -576,6 +603,7 @@ const commands = {
   DescribeOfferingCommand,
   DescribeReservationCommand,
   DescribeScheduleCommand,
+  DescribeSdiSourceCommand,
   DescribeThumbnailsCommand,
   GetCloudWatchAlarmTemplateCommand,
   GetCloudWatchAlarmTemplateGroupCommand,
@@ -599,6 +627,7 @@ const commands = {
   ListNodesCommand,
   ListOfferingsCommand,
   ListReservationsCommand,
+  ListSdiSourcesCommand,
   ListSignalMapsCommand,
   ListTagsForResourceCommand,
   ListVersionsCommand,
@@ -635,6 +664,7 @@ const commands = {
   UpdateNodeCommand,
   UpdateNodeStateCommand,
   UpdateReservationCommand,
+  UpdateSdiSourceCommand,
 };
 
 export interface MediaLive {
@@ -965,6 +995,21 @@ export interface MediaLive {
   ): void;
 
   /**
+   * @see {@link CreateSdiSourceCommand}
+   */
+  createSdiSource(): Promise<CreateSdiSourceCommandOutput>;
+  createSdiSource(
+    args: CreateSdiSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSdiSourceCommandOutput>;
+  createSdiSource(args: CreateSdiSourceCommandInput, cb: (err: any, data?: CreateSdiSourceCommandOutput) => void): void;
+  createSdiSource(
+    args: CreateSdiSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSdiSourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateSignalMapCommand}
    */
   createSignalMap(
@@ -1206,6 +1251,20 @@ export interface MediaLive {
     args: DeleteScheduleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSdiSourceCommand}
+   */
+  deleteSdiSource(
+    args: DeleteSdiSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSdiSourceCommandOutput>;
+  deleteSdiSource(args: DeleteSdiSourceCommandInput, cb: (err: any, data?: DeleteSdiSourceCommandOutput) => void): void;
+  deleteSdiSource(
+    args: DeleteSdiSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSdiSourceCommandOutput) => void
   ): void;
 
   /**
@@ -1466,6 +1525,23 @@ export interface MediaLive {
     args: DescribeScheduleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeSdiSourceCommand}
+   */
+  describeSdiSource(
+    args: DescribeSdiSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSdiSourceCommandOutput>;
+  describeSdiSource(
+    args: DescribeSdiSourceCommandInput,
+    cb: (err: any, data?: DescribeSdiSourceCommandOutput) => void
+  ): void;
+  describeSdiSource(
+    args: DescribeSdiSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSdiSourceCommandOutput) => void
   ): void;
 
   /**
@@ -1825,6 +1901,21 @@ export interface MediaLive {
     args: ListReservationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReservationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSdiSourcesCommand}
+   */
+  listSdiSources(): Promise<ListSdiSourcesCommandOutput>;
+  listSdiSources(
+    args: ListSdiSourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSdiSourcesCommandOutput>;
+  listSdiSources(args: ListSdiSourcesCommandInput, cb: (err: any, data?: ListSdiSourcesCommandOutput) => void): void;
+  listSdiSources(
+    args: ListSdiSourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSdiSourcesCommandOutput) => void
   ): void;
 
   /**
@@ -2371,6 +2462,20 @@ export interface MediaLive {
     args: UpdateReservationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateReservationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSdiSourceCommand}
+   */
+  updateSdiSource(
+    args: UpdateSdiSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSdiSourceCommandOutput>;
+  updateSdiSource(args: UpdateSdiSourceCommandInput, cb: (err: any, data?: UpdateSdiSourceCommandOutput) => void): void;
+  updateSdiSource(
+    args: UpdateSdiSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSdiSourceCommandOutput) => void
   ): void;
 }
 

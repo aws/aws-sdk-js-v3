@@ -4,6 +4,7 @@ export * from "./ListApplicationVersionsPaginator";
 export * from "./ListApplicationsPaginator";
 export * from "./ListBatchJobDefinitionsPaginator";
 export * from "./ListBatchJobExecutionsPaginator";
+export * from "./ListDataSetExportHistoryPaginator";
 export * from "./ListDataSetImportHistoryPaginator";
 export * from "./ListDataSetsPaginator";
 export * from "./ListDeploymentsPaginator";

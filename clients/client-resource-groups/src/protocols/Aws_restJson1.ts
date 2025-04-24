@@ -460,6 +460,7 @@ export const se_StartTagSyncTaskCommand = async (
   body = JSON.stringify(
     take(input, {
       Group: [],
+      ResourceQuery: (_) => _json(_),
       RoleArn: [],
       TagKey: [],
       TagValue: [],
@@ -792,6 +793,7 @@ export const de_GetTagSyncTaskCommand = async (
     ErrorMessage: __expectString,
     GroupArn: __expectString,
     GroupName: __expectString,
+    ResourceQuery: _json,
     RoleArn: __expectString,
     Status: __expectString,
     TagKey: __expectString,
@@ -974,6 +976,7 @@ export const de_StartTagSyncTaskCommand = async (
   const doc = take(data, {
     GroupArn: __expectString,
     GroupName: __expectString,
+    ResourceQuery: _json,
     RoleArn: __expectString,
     TagKey: __expectString,
     TagValue: __expectString,
@@ -1411,6 +1414,7 @@ const de_TagSyncTaskItem = (output: any, context: __SerdeContext): TagSyncTaskIt
     ErrorMessage: __expectString,
     GroupArn: __expectString,
     GroupName: __expectString,
+    ResourceQuery: _json,
     RoleArn: __expectString,
     Status: __expectString,
     TagKey: __expectString,

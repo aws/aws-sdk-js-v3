@@ -112,6 +112,38 @@ export interface ListGroupsForMemberCommandOutput extends ListGroupsForMemberRes
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
  *
+ * @example To list groups for a member
+ * ```javascript
+ * // The following command
+ * const input = {
+ *   DirectoryId: "d-12233abcde",
+ *   MemberRealm: "example.local",
+ *   Realm: "examplecorp.com",
+ *   SAMAccountName: "twhitlock"
+ * };
+ * const command = new ListGroupsForMemberCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DirectoryId: "d-12233abcde",
+ *   Groups: [
+ *     {
+ *       GroupScope: "BuiltinLocal",
+ *       GroupType: "Security",
+ *       SAMAccountName: "Administrators",
+ *       SID: "S-1-5-32-544"
+ *     },
+ *     {
+ *       GroupScope: "BuiltinLocal",
+ *       GroupType: "Security",
+ *       SAMAccountName: "Users",
+ *       SID: "S-1-5-32-545"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListGroupsForMemberCommand extends $Command

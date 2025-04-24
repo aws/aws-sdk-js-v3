@@ -1482,7 +1482,7 @@ export interface PackageDetailsForAssociation {
   PackageID: string | undefined;
 
   /**
-   * <p>List of package IDs that must be associated with the domain with or before the package can be associated.</p>
+   * <p>List of package IDs that must be linked to the domain before or simultaneously with the package association.</p>
    * @public
    */
   PrerequisitePackageIDList?: string[] | undefined;
@@ -1787,18 +1787,19 @@ export const AppConfigType = {
 export type AppConfigType = (typeof AppConfigType)[keyof typeof AppConfigType];
 
 /**
- * <p>Configurations of the OpenSearch Application.</p>
+ * <p>Configuration settings for an OpenSearch application. For more information, see
+ *    see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application.html">Using the OpenSearch user interface in Amazon OpenSearch Service</a>.</p>
  * @public
  */
 export interface AppConfig {
   /**
-   * <p>Specify the item to configure, such as admin role for the OpenSearch Application.</p>
+   * <p>The configuration item to set, such as the admin role for the OpenSearch application.</p>
    * @public
    */
   key?: AppConfigType | undefined;
 
   /**
-   * <p>Specifies the value to configure for the key, such as an IAM user ARN.</p>
+   * <p>The value assigned to the configuration key, such as an IAM user ARN.</p>
    * @public
    */
   value?: string | undefined;
@@ -1825,12 +1826,12 @@ export interface DataSource {
 }
 
 /**
- * <p>Settings for IAM Identity Center.</p>
+ * <p>Configuration settings for enabling and managing IAM Identity Center.</p>
  * @public
  */
 export interface IamIdentityCenterOptionsInput {
   /**
-   * <p>Enable/disable settings for IAM Identity Center.</p>
+   * <p>Specifies whether IAM Identity Center is enabled or disabled.</p>
    * @public
    */
   enabled?: boolean | undefined;
@@ -1844,7 +1845,7 @@ export interface IamIdentityCenterOptionsInput {
   iamIdentityCenterInstanceArn?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name of IAM Identity Center's application.</p>
+   * <p>The ARN of the IAM role associated with the IAM Identity Center application.</p>
    * @public
    */
   iamRoleForIdentityCenterApplicationArn?: string | undefined;
@@ -1855,32 +1856,31 @@ export interface IamIdentityCenterOptionsInput {
  */
 export interface CreateApplicationRequest {
   /**
-   * <p>A unique client idempotency token. It will be auto generated if not provided.</p>
+   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Name of the OpenSearch Appication to create. Application names are unique across the applications
-   *   owned by an account within an Amazon Web Services Region.</p>
+   * <p>The unique name of the OpenSearch application. Names must be unique within an Amazon Web Services Region for each account.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Data sources to be associated with the OpenSearch Application.</p>
+   * <p>The data sources to link to the OpenSearch application.</p>
    * @public
    */
   dataSources?: DataSource[] | undefined;
 
   /**
-   * <p>Settings of IAM Identity Center for the OpenSearch Application.</p>
+   * <p>Configuration settings for integrating Amazon Web Services IAM Identity Center with the OpenSearch application.</p>
    * @public
    */
   iamIdentityCenterOptions?: IamIdentityCenterOptionsInput | undefined;
 
   /**
-   * <p>Configurations of the OpenSearch Application, inlcuding admin configuration.</p>
+   * <p>Configuration settings for the OpenSearch application, including administrative options.</p>
    * @public
    */
   appConfigs?: AppConfig[] | undefined;
@@ -1893,12 +1893,12 @@ export interface CreateApplicationRequest {
 }
 
 /**
- * <p>Settings for IAM Identity Center for an OpenSearch Application.</p>
+ * <p>Configuration settings for IAM Identity Center in an OpenSearch Application.</p>
  * @public
  */
 export interface IamIdentityCenterOptions {
   /**
-   * <p>IAM Identity Center is enabled for the OpenSearch Application.</p>
+   * <p>Indicates whether IAM Identity Center is enabled for the OpenSearch Application.</p>
    * @public
    */
   enabled?: boolean | undefined;
@@ -1912,7 +1912,7 @@ export interface IamIdentityCenterOptions {
   iamIdentityCenterInstanceArn?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name of the IAM Identity Center's Application created for the OpenSearch Application after enabling IAM Identity Center.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role assigned to the IAM Identity Center application for the OpenSearch Application.</p>
    * @public
    */
   iamRoleForIdentityCenterApplicationArn?: string | undefined;
@@ -1931,13 +1931,13 @@ export interface IamIdentityCenterOptions {
  */
 export interface CreateApplicationResponse {
   /**
-   * <p>Unique identifier for the created OpenSearch Application.</p>
+   * <p>The unique identifier assigned to the OpenSearch application.</p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Name of the created OpenSearch Application.</p>
+   * <p>The name of the OpenSearch application.</p>
    * @public
    */
   name?: string | undefined;
@@ -1951,19 +1951,19 @@ export interface CreateApplicationResponse {
   arn?: string | undefined;
 
   /**
-   * <p>Data sources associated with the created OpenSearch Application.</p>
+   * <p>The data sources linked to the OpenSearch application.</p>
    * @public
    */
   dataSources?: DataSource[] | undefined;
 
   /**
-   * <p>Settings of IAM Identity Center for the created OpenSearch Application.</p>
+   * <p>The IAM Identity Center settings configured for the OpenSearch application.</p>
    * @public
    */
   iamIdentityCenterOptions?: IamIdentityCenterOptions | undefined;
 
   /**
-   * <p>Configurations of the OpenSearch Application, inlcuding admin configuration.</p>
+   * <p>Configuration settings for the OpenSearch application, including administrative options.</p>
    * @public
    */
   appConfigs?: AppConfig[] | undefined;
@@ -1975,7 +1975,7 @@ export interface CreateApplicationResponse {
   tagList?: Tag[] | undefined;
 
   /**
-   * <p>Timestamp when the OpenSearch Application was created.</p>
+   * <p>The timestamp indicating when the OpenSearch application was created.</p>
    * @public
    */
   createdAt?: Date | undefined;
@@ -2217,24 +2217,24 @@ export type OpenSearchPartitionInstanceType =
   (typeof OpenSearchPartitionInstanceType)[keyof typeof OpenSearchPartitionInstanceType];
 
 /**
- * <p>Container for specifying configuration of any node type.</p>
+ * <p>Configuration options for defining the setup of any node type within the cluster.</p>
  * @public
  */
 export interface NodeConfig {
   /**
-   * <p>A boolean that indicates whether a particular node type is enabled or not.</p>
+   * <p>A boolean value indicating whether a specific node type is active or inactive.</p>
    * @public
    */
   Enabled?: boolean | undefined;
 
   /**
-   * <p>The instance type of a particular node type in the cluster.</p>
+   * <p>The instance type of a particular node within the cluster.</p>
    * @public
    */
   Type?: OpenSearchPartitionInstanceType | undefined;
 
   /**
-   * <p>The number of nodes of a particular node type in the cluster.</p>
+   * <p>The number of nodes of a specific type within the cluster.</p>
    * @public
    */
   Count?: number | undefined;
@@ -2254,18 +2254,18 @@ export const NodeOptionsNodeType = {
 export type NodeOptionsNodeType = (typeof NodeOptionsNodeType)[keyof typeof NodeOptionsNodeType];
 
 /**
- * <p>Container for specifying node type.</p>
+ * <p>Configuration settings for defining the node type within a cluster.</p>
  * @public
  */
 export interface NodeOption {
   /**
-   * <p>Container for node type like coordinating.</p>
+   * <p>Defines the type of node, such as coordinating nodes.</p>
    * @public
    */
   NodeType?: NodeOptionsNodeType | undefined;
 
   /**
-   * <p>Container for specifying configuration of any node type.</p>
+   * <p>Configuration options for defining the setup of any node type.</p>
    * @public
    */
   NodeConfig?: NodeConfig | undefined;
@@ -2602,30 +2602,30 @@ export const SubjectKeyIdCOption = {
 export type SubjectKeyIdCOption = (typeof SubjectKeyIdCOption)[keyof typeof SubjectKeyIdCOption];
 
 /**
- * <p>Container for IAM Identity Center Options settings.</p>
+ * <p>Configuration settings for enabling and managing IAM Identity Center.</p>
  * @public
  */
 export interface IdentityCenterOptionsInput {
   /**
-   * <p>True to enable IAM Identity Center for API access in Amazon OpenSearch Service.</p>
+   * <p>Indicates whether IAM Identity Center is enabled for API access in Amazon OpenSearch Service.</p>
    * @public
    */
   EnabledAPIAccess?: boolean | undefined;
 
   /**
-   * <p>The ARN for IAM Identity Center Instance which will be used for IAM Identity Center Application creation.</p>
+   * <p>The ARN of the IAM Identity Center instance used to create an OpenSearch UI application that uses IAM Identity Center for authentication.</p>
    * @public
    */
   IdentityCenterInstanceARN?: string | undefined;
 
   /**
-   * <p>Specify the attribute that contains the subject (username, userID, email) of IAM Identity Center.</p>
+   * <p>Specifies the attribute that contains the subject identifier (such as username, user ID, or email) in IAM Identity Center.</p>
    * @public
    */
   SubjectKey?: SubjectKeyIdCOption | undefined;
 
   /**
-   * <p>Specify the attribute that contains the backend role (groupName, groupID) of IAM Identity Center</p>
+   * <p>Specifies the attribute that contains the backend role identifier (such as group name or group ID) in IAM Identity Center.</p>
    * @public
    */
   RolesKey?: RolesKeyIdCOption | undefined;
@@ -2947,7 +2947,7 @@ export interface CreateDomainRequest {
   AdvancedSecurityOptions?: AdvancedSecurityOptionsInput | undefined;
 
   /**
-   * <p>Options for IAM Identity Center Option control for the domain.</p>
+   * <p>Configuration options for enabling and managing IAM Identity Center integration within a domain.</p>
    * @public
    */
   IdentityCenterOptions?: IdentityCenterOptionsInput | undefined;
@@ -3128,42 +3128,44 @@ export const DomainProcessingStatusType = {
 export type DomainProcessingStatusType = (typeof DomainProcessingStatusType)[keyof typeof DomainProcessingStatusType];
 
 /**
- * <p>Container for IAM Identity Center Options settings.</p>
+ * <p>Settings container for integrating IAM Identity Center with OpenSearch UI applications,
+ *    which enables enabling secure user authentication and access control across multiple data sources.
+ *    This setup supports single sign-on (SSO) through IAM Identity Center, allowing centralized user management.</p>
  * @public
  */
 export interface IdentityCenterOptions {
   /**
-   * <p>True to enable IAM Identity Center for API access in Amazon OpenSearch Service.</p>
+   * <p>Indicates whether IAM Identity Center is enabled for the application.</p>
    * @public
    */
   EnabledAPIAccess?: boolean | undefined;
 
   /**
-   * <p>The ARN for IAM Identity Center Instance.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance.</p>
    * @public
    */
   IdentityCenterInstanceARN?: string | undefined;
 
   /**
-   * <p>Specify the attribute that contains the subject (username, userID, email) of IAM Identity Center.</p>
+   * <p>Specifies the attribute that contains the subject identifier (such as username, user ID, or email) in IAM Identity Center.</p>
    * @public
    */
   SubjectKey?: SubjectKeyIdCOption | undefined;
 
   /**
-   * <p>Specify the attribute that contains the backend role (groupName, groupID) of IAM Identity Center</p>
+   * <p>Specifies the attribute that contains the backend role identifier (such as group name or group ID) in IAM Identity Center.</p>
    * @public
    */
   RolesKey?: RolesKeyIdCOption | undefined;
 
   /**
-   * <p>The ARN for IAM Identity Center Application which will integrate with Amazon OpenSearch Service.</p>
+   * <p>The ARN of the IAM Identity Center application that integrates with Amazon OpenSearch Service.</p>
    * @public
    */
   IdentityCenterApplicationARN?: string | undefined;
 
   /**
-   * <p>The ID of IAM Identity Store.</p>
+   * <p>The identifier of the IAM Identity Store.</p>
    * @public
    */
   IdentityStoreId?: string | undefined;
@@ -3448,7 +3450,7 @@ export interface DomainStatus {
   AdvancedSecurityOptions?: AdvancedSecurityOptions | undefined;
 
   /**
-   * <p>Container for IAM Identity Center Option control for the domain.</p>
+   * <p>Configuration options for controlling IAM Identity Center integration within a domain.</p>
    * @public
    */
   IdentityCenterOptions?: IdentityCenterOptions | undefined;
@@ -3826,13 +3828,13 @@ export interface PackageConfiguration {
  */
 export interface PackageEncryptionOptions {
   /**
-   * <p> KMS key ID for encrypting the package.</p>
+   * <p>KMS key ID for encrypting the package.</p>
    * @public
    */
   KmsKeyIdentifier?: string | undefined;
 
   /**
-   * <p>This indicates whether encryption is enabled for the package.</p>
+   * <p>Whether encryption is enabled for the package.</p>
    * @public
    */
   EncryptionEnabled: boolean | undefined;
@@ -3857,14 +3859,12 @@ export interface PackageSource {
 }
 
 /**
- * <p>The vending options for a package to determine if the package can be used by other users.
- *   </p>
+ * <p>Configuration options for determining whether a package can be made available for use by other users.</p>
  * @public
  */
 export interface PackageVendingOptions {
   /**
-   * <p>This indicates whether vending is enabled for the package to determine if package can be used by other users.
-   *   </p>
+   * <p>Indicates whether the package vending feature is enabled, allowing the package to be used by other users.</p>
    * @public
    */
   VendingEnabled: boolean | undefined;
@@ -4066,7 +4066,7 @@ export interface PackageDetails {
   AllowListedUserList?: string[] | undefined;
 
   /**
-   * <p>The owner of the package who is allowed to create/update a package and add users to the package scope.</p>
+   * <p>The owner of the package who is allowed to create and update a package and add users to the package scope.</p>
    * @public
    */
   PackageOwner?: string | undefined;
@@ -4078,7 +4078,7 @@ export interface PackageDetails {
   PackageVendingOptions?: PackageVendingOptions | undefined;
 
   /**
-   * <p>Package Encryption Options for a package.</p>
+   * <p>Encryption options for a package.</p>
    * @public
    */
   PackageEncryptionOptions?: PackageEncryptionOptions | undefined;
@@ -4198,7 +4198,7 @@ export interface CreateVpcEndpointResponse {
  */
 export interface DeleteApplicationRequest {
   /**
-   * <p>Unique identifier for the OpenSearch Application that you want to delete.</p>
+   * <p>The unique identifier of the OpenSearch application to delete.</p>
    * @public
    */
   id: string | undefined;
@@ -5012,18 +5012,18 @@ export interface VersionStatus {
 }
 
 /**
- * <p>The status of IAM Identity Center Options settings for a domain.</p>
+ * <p>The status of IAM Identity Center configuration settings for a domain.</p>
  * @public
  */
 export interface IdentityCenterOptionsStatus {
   /**
-   * <p>Container for IAM Identity Center Options settings.</p>
+   * <p>Configuration settings for IAM Identity Center integration.</p>
    * @public
    */
   Options: IdentityCenterOptions | undefined;
 
   /**
-   * <p>The status of IAM Identity Center Options settings for a domain.</p>
+   * <p>The status of IAM Identity Center configuration settings for a domain.</p>
    * @public
    */
   Status: OptionStatus | undefined;
@@ -5252,7 +5252,7 @@ export interface DomainConfig {
   AdvancedSecurityOptions?: AdvancedSecurityOptionsStatus | undefined;
 
   /**
-   * <p>Container for IAM Identity Center Option control for the domain.</p>
+   * <p>Configuration options for enabling and managing IAM Identity Center integration within a domain.</p>
    * @public
    */
   IdentityCenterOptions?: IdentityCenterOptionsStatus | undefined;
@@ -5624,7 +5624,7 @@ export interface DomainNodesStatus {
   NodeId?: string | undefined;
 
   /**
-   * <p>Indicates whether the nodes is a data, master, or ultrawarm node.</p>
+   * <p>Indicates whether the nodes is a data, master, or UltraWarm node.</p>
    * @public
    */
   NodeType?: NodeType | undefined;
@@ -5654,7 +5654,7 @@ export interface DomainNodesStatus {
   StorageType?: string | undefined;
 
   /**
-   * <p>If the nodes has EBS storage, indicates if the volume type is GP2 or GP3. Only applicable
+   * <p>If the nodes has EBS storage, indicates if the volume type is gp2 or gp3. Only applicable
    *    for data nodes. </p>
    * @public
    */
@@ -6653,7 +6653,7 @@ export interface DissociatePackagesResponse {
  */
 export interface GetApplicationRequest {
   /**
-   * <p>Unique identifier of the checked OpenSearch Application.</p>
+   * <p>The unique identifier of the OpenSearch application to retrieve.</p>
    * @public
    */
   id: string | undefined;
@@ -6681,7 +6681,7 @@ export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof Applicat
  */
 export interface GetApplicationResponse {
   /**
-   * <p>Unique identifier of the checked OpenSearch Application.</p>
+   * <p>The unique identifier of the OpenSearch application.</p>
    * @public
    */
   id?: string | undefined;
@@ -6695,49 +6695,49 @@ export interface GetApplicationResponse {
   arn?: string | undefined;
 
   /**
-   * <p>Name of the checked OpenSearch Application.</p>
+   * <p>The name of the OpenSearch application.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Endpoint URL of the checked OpenSearch Application.</p>
+   * <p>The endpoint URL of the OpenSearch application.</p>
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>Current status of the checked OpenSearch Application. Possible values are <code>CREATING</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>FAILED</code>, <code>ACTIVE</code>, and <code>DELETED</code>.</p>
+   * <p>The current status of the OpenSearch application. Possible values: <code>CREATING</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>FAILED</code>, <code>ACTIVE</code>, and <code>DELETED</code>.</p>
    * @public
    */
   status?: ApplicationStatus | undefined;
 
   /**
-   * <p>IAM Identity Center settings for the checked OpenSearch Application.</p>
+   * <p>The IAM Identity Center settings configured for the OpenSearch application.</p>
    * @public
    */
   iamIdentityCenterOptions?: IamIdentityCenterOptions | undefined;
 
   /**
-   * <p>Associated data sources to the checked OpenSearch Application.</p>
+   * <p>The data sources associated with the OpenSearch application.</p>
    * @public
    */
   dataSources?: DataSource[] | undefined;
 
   /**
-   * <p>App configurations of the checked OpenSearch Application.</p>
+   * <p>The configuration settings of the OpenSearch application.</p>
    * @public
    */
   appConfigs?: AppConfig[] | undefined;
 
   /**
-   * <p>Timestamp at which the checked OpenSearch Application was created.</p>
+   * <p>The timestamp when the OpenSearch application was created.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>Timestamp at which the checked OpenSearch Application was last updated.</p>
+   * <p>The timestamp of the last update to the OpenSearch application.</p>
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -7325,7 +7325,7 @@ export interface ListApplicationsRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>OpenSearch Application Status can be used as filters for the listing request. Possible values are <code>CREATING</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>FAILED</code>, <code>ACTIVE</code>, and <code>DELETED</code>.</p>
+   * <p>Filters the list of OpenSearch applications by status. Possible values: <code>CREATING</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>FAILED</code>, <code>ACTIVE</code>, and <code>DELETED</code>.</p>
    * @public
    */
   statuses?: ApplicationStatus[] | undefined;
@@ -7339,12 +7339,12 @@ export interface ListApplicationsRequest {
 }
 
 /**
- * <p>Basic information of the OpenSearch Application.</p>
+ * <p>Basic details of an OpenSearch application.</p>
  * @public
  */
 export interface ApplicationSummary {
   /**
-   * <p>Unique identifier for an OpenSearch application.</p>
+   * <p>The unique identifier of an OpenSearch application.</p>
    * @public
    */
   id?: string | undefined;
@@ -7358,31 +7358,31 @@ export interface ApplicationSummary {
   arn?: string | undefined;
 
   /**
-   * <p>Name of an OpenSearch Application.</p>
+   * <p>The name of an OpenSearch application.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Endpoint URL of an OpenSearch Application.</p>
+   * <p>The endpoint URL of an OpenSearch application.</p>
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>Status of an OpenSearch Application. Possible values are <code>CREATING</code>, <code>UPDATING</code>,<code> DELETING</code>, <code>FAILED</code>, <code>ACTIVE</code>, and <code>DELETED</code>.</p>
+   * <p>The current status of an OpenSearch application. Possible values: <code>CREATING</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>FAILED</code>, <code>ACTIVE</code>, and <code>DELETED</code>.</p>
    * @public
    */
   status?: ApplicationStatus | undefined;
 
   /**
-   * <p>Timestamp at which an OpenSearch Application was created.</p>
+   * <p>The timestamp when an OpenSearch application was created.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>Timestamp at which an OpenSearch Application was last updated.</p>
+   * <p>The timestamp of the last update to an OpenSearch application.</p>
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -7393,7 +7393,7 @@ export interface ApplicationSummary {
  */
 export interface ListApplicationsResponse {
   /**
-   * <p>Summary of the OpenSearch Applications, including ID, ARN, name, endpoint, status, create time and last update time.</p>
+   * <p>Summarizes OpenSearch applications, including ID, ARN, name, endpoint, status, creation time, and last update time.</p>
    * @public
    */
   ApplicationSummaries?: ApplicationSummary[] | undefined;

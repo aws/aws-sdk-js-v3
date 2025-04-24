@@ -570,6 +570,14 @@ StartTask
 </details>
 <details>
 <summary>
+StopServiceDeployment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/StopServiceDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/StopServiceDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/StopServiceDeploymentCommandOutput/)
+
+</details>
+<details>
+<summary>
 StopTask
 </summary>
 

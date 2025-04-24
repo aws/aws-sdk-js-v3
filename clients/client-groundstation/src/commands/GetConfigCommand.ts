@@ -38,7 +38,7 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * const client = new GroundStationClient(config);
  * const input = { // GetConfigRequest
  *   configId: "STRING_VALUE", // required
- *   configType: "STRING_VALUE", // required
+ *   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording", // required
  * };
  * const command = new GetConfigCommand(input);
  * const response = await client.send(command);
@@ -46,23 +46,23 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * //   configId: "STRING_VALUE", // required
  * //   configArn: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
- * //   configType: "STRING_VALUE",
+ * //   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording",
  * //   configData: { // ConfigTypeData Union: only one key present
  * //     antennaDownlinkConfig: { // AntennaDownlinkConfig
  * //       spectrumConfig: { // SpectrumConfig
  * //         centerFrequency: { // Frequency
  * //           value: Number("double"), // required
- * //           units: "STRING_VALUE", // required
+ * //           units: "GHz" || "MHz" || "kHz", // required
  * //         },
  * //         bandwidth: { // FrequencyBandwidth
  * //           value: Number("double"), // required
- * //           units: "STRING_VALUE", // required
+ * //           units: "GHz" || "MHz" || "kHz", // required
  * //         },
- * //         polarization: "STRING_VALUE",
+ * //         polarization: "RIGHT_HAND" || "LEFT_HAND" || "NONE",
  * //       },
  * //     },
  * //     trackingConfig: { // TrackingConfig
- * //       autotrack: "STRING_VALUE", // required
+ * //       autotrack: "REQUIRED" || "PREFERRED" || "REMOVED", // required
  * //     },
  * //     dataflowEndpointConfig: { // DataflowEndpointConfig
  * //       dataflowEndpointName: "STRING_VALUE", // required
@@ -72,13 +72,13 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * //       spectrumConfig: {
  * //         centerFrequency: {
  * //           value: Number("double"), // required
- * //           units: "STRING_VALUE", // required
+ * //           units: "GHz" || "MHz" || "kHz", // required
  * //         },
  * //         bandwidth: {
  * //           value: Number("double"), // required
- * //           units: "STRING_VALUE", // required
+ * //           units: "GHz" || "MHz" || "kHz", // required
  * //         },
- * //         polarization: "STRING_VALUE",
+ * //         polarization: "RIGHT_HAND" || "LEFT_HAND" || "NONE",
  * //       },
  * //       demodulationConfig: { // DemodulationConfig
  * //         unvalidatedJSON: "STRING_VALUE", // required
@@ -92,13 +92,13 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * //       spectrumConfig: { // UplinkSpectrumConfig
  * //         centerFrequency: {
  * //           value: Number("double"), // required
- * //           units: "STRING_VALUE", // required
+ * //           units: "GHz" || "MHz" || "kHz", // required
  * //         },
- * //         polarization: "STRING_VALUE",
+ * //         polarization: "RIGHT_HAND" || "LEFT_HAND" || "NONE",
  * //       },
  * //       targetEirp: { // Eirp
  * //         value: Number("double"), // required
- * //         units: "STRING_VALUE", // required
+ * //         units: "dBW", // required
  * //       },
  * //     },
  * //     uplinkEchoConfig: { // UplinkEchoConfig

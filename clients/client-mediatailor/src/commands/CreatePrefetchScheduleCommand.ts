@@ -54,7 +54,35 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  *     },
  *     EndTime: new Date("TIMESTAMP"), // required
  *     StartTime: new Date("TIMESTAMP"),
+ *     TrafficShapingType: "RETRIEVAL_WINDOW",
+ *     TrafficShapingRetrievalWindow: { // TrafficShapingRetrievalWindow
+ *       RetrievalWindowDurationSeconds: Number("int"),
+ *     },
  *   },
+ *   RecurringPrefetchConfiguration: { // RecurringPrefetchConfiguration
+ *     StartTime: new Date("TIMESTAMP"),
+ *     EndTime: new Date("TIMESTAMP"), // required
+ *     RecurringConsumption: { // RecurringConsumption
+ *       RetrievedAdExpirationSeconds: Number("int"),
+ *       AvailMatchingCriteria: [
+ *         {
+ *           DynamicVariable: "STRING_VALUE", // required
+ *           Operator: "EQUALS", // required
+ *         },
+ *       ],
+ *     },
+ *     RecurringRetrieval: { // RecurringRetrieval
+ *       DynamicVariables: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       DelayAfterAvailEndSeconds: Number("int"),
+ *       TrafficShapingType: "RETRIEVAL_WINDOW",
+ *       TrafficShapingRetrievalWindow: {
+ *         RetrievalWindowDurationSeconds: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   ScheduleType: "SINGLE" || "RECURRING",
  *   StreamId: "STRING_VALUE",
  * };
  * const command = new CreatePrefetchScheduleCommand(input);
@@ -79,7 +107,35 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  * //     },
  * //     EndTime: new Date("TIMESTAMP"), // required
  * //     StartTime: new Date("TIMESTAMP"),
+ * //     TrafficShapingType: "RETRIEVAL_WINDOW",
+ * //     TrafficShapingRetrievalWindow: { // TrafficShapingRetrievalWindow
+ * //       RetrievalWindowDurationSeconds: Number("int"),
+ * //     },
  * //   },
+ * //   RecurringPrefetchConfiguration: { // RecurringPrefetchConfiguration
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"), // required
+ * //     RecurringConsumption: { // RecurringConsumption
+ * //       RetrievedAdExpirationSeconds: Number("int"),
+ * //       AvailMatchingCriteria: [
+ * //         {
+ * //           DynamicVariable: "STRING_VALUE", // required
+ * //           Operator: "EQUALS", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //     RecurringRetrieval: { // RecurringRetrieval
+ * //       DynamicVariables: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       DelayAfterAvailEndSeconds: Number("int"),
+ * //       TrafficShapingType: "RETRIEVAL_WINDOW",
+ * //       TrafficShapingRetrievalWindow: {
+ * //         RetrievalWindowDurationSeconds: Number("int"),
+ * //       },
+ * //     },
+ * //   },
+ * //   ScheduleType: "SINGLE" || "RECURRING",
  * //   StreamId: "STRING_VALUE",
  * // };
  *

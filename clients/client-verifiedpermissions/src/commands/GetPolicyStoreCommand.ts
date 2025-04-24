@@ -53,6 +53,7 @@ export interface GetPolicyStoreCommandOutput extends GetPolicyStoreOutput, __Met
  * //   createdDate: new Date("TIMESTAMP"), // required
  * //   lastUpdatedDate: new Date("TIMESTAMP"), // required
  * //   description: "STRING_VALUE",
+ * //   deletionProtection: "ENABLED" || "DISABLED",
  * // };
  *
  * ```

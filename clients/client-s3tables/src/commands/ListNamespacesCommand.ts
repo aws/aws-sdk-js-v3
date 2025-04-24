@@ -58,6 +58,8 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       createdBy: "STRING_VALUE", // required
  * //       ownerAccountId: "STRING_VALUE", // required
+ * //       namespaceId: "STRING_VALUE",
+ * //       tableBucketId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   continuationToken: "STRING_VALUE",

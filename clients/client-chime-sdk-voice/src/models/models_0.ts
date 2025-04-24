@@ -745,6 +745,13 @@ export interface PhoneNumberOrder {
    * @public
    */
   UpdatedTimestamp?: Date | undefined;
+
+  /**
+   * <p>The Firm Order Commitment (FOC) date for phone number porting orders. This field is null
+   *          if a phone number order is not a porting order.</p>
+   * @public
+   */
+  FocDate?: Date | undefined;
 }
 
 /**

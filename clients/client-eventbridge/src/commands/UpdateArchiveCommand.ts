@@ -40,6 +40,7 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  *   Description: "STRING_VALUE",
  *   EventPattern: "STRING_VALUE",
  *   RetentionDays: Number("int"),
+ *   KmsKeyIdentifier: "STRING_VALUE",
  * };
  * const command = new UpdateArchiveCommand(input);
  * const response = await client.send(command);

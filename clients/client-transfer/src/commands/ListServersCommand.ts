@@ -28,8 +28,7 @@ export interface ListServersCommandInput extends ListServersRequest {}
 export interface ListServersCommandOutput extends ListServersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the file transfer protocol-enabled servers that are associated with your Amazon Web Services
- *       account.</p>
+ * <p>Lists the file transfer protocol-enabled servers that are associated with your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

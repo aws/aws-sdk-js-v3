@@ -28,9 +28,7 @@ export interface GetAnnotationStoreVersionCommandInput extends GetAnnotationStor
 export interface GetAnnotationStoreVersionCommandOutput extends GetAnnotationStoreVersionResponse, __MetadataBearer {}
 
 /**
- * <p>
- * Retrieves the metadata for an annotation store version.
- * </p>
+ * <p> Retrieves the metadata for an annotation store version. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

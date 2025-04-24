@@ -54,6 +54,8 @@ export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __Metad
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   createdBy: "STRING_VALUE", // required
  * //   ownerAccountId: "STRING_VALUE", // required
+ * //   namespaceId: "STRING_VALUE",
+ * //   tableBucketId: "STRING_VALUE",
  * // };
  *
  * ```

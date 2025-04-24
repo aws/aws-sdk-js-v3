@@ -31,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  */
 export const ActionType = {
   ASSIGN_CONTACT_CATEGORY: "ASSIGN_CONTACT_CATEGORY",
+  ASSIGN_SLA: "ASSIGN_SLA",
   CREATE_CASE: "CREATE_CASE",
   CREATE_TASK: "CREATE_TASK",
   END_ASSOCIATED_TASKS: "END_ASSOCIATED_TASKS",
@@ -5281,6 +5282,87 @@ export interface FieldValueUnion {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const SlaType = {
+  CASE_FIELD: "CaseField",
+} as const;
+
+/**
+ * @public
+ */
+export type SlaType = (typeof SlaType)[keyof typeof SlaType];
+
+/**
+ * <p>The SLA configuration for Case SlaAssignmentType.</p>
+ * @public
+ */
+export interface CaseSlaConfiguration {
+  /**
+   * <p>Name of an SLA.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Type of SLA for Case SlaAssignmentType.</p>
+   * @public
+   */
+  Type: SlaType | undefined;
+
+  /**
+   * <p>Unique identifier of a Case field.</p>
+   * @public
+   */
+  FieldId?: string | undefined;
+
+  /**
+   * <p>Represents a list of target field values for the fieldId specified in CaseSlaConfiguration.
+   *    The SLA is considered met if any one of these target field values matches the actual field value.</p>
+   * @public
+   */
+  TargetFieldValues?: FieldValueUnion[] | undefined;
+
+  /**
+   * <p>Target duration in minutes within which an SLA should be completed.</p>
+   * @public
+   */
+  TargetSlaMinutes: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SlaAssignmentType = {
+  CASES: "CASES",
+} as const;
+
+/**
+ * @public
+ */
+export type SlaAssignmentType = (typeof SlaAssignmentType)[keyof typeof SlaAssignmentType];
+
+/**
+ * <p>The AssignSla action definition.</p>
+ * @public
+ */
+export interface AssignSlaActionDefinition {
+  /**
+   * <p>Type of SLA assignment.</p>
+   * @public
+   */
+  SlaAssignmentType: SlaAssignmentType | undefined;
+
+  /**
+   * <p>The SLA configuration for Case SLA Assignment.</p>
+   * @public
+   */
+  CaseSlaConfiguration?: CaseSlaConfiguration | undefined;
+}
+
+/**
  * <p>Object for case field values.</p>
  * @public
  */
@@ -5551,6 +5633,12 @@ export interface RuleAction {
   UpdateCaseAction?: UpdateCaseActionDefinition | undefined;
 
   /**
+   * <p>Information about the assign SLA action.</p>
+   * @public
+   */
+  AssignSlaAction?: AssignSlaActionDefinition | undefined;
+
+  /**
    * <p>Information about the end associated tasks action.</p>
    *          <p>Supported only for <code>TriggerEventSource</code> values: <code>OnCaseUpdate</code>.</p>
    * @public
@@ -5592,6 +5680,7 @@ export const EventSourceName = {
   OnRealTimeCallAnalysisAvailable: "OnRealTimeCallAnalysisAvailable",
   OnRealTimeChatAnalysisAvailable: "OnRealTimeChatAnalysisAvailable",
   OnSalesforceCaseCreate: "OnSalesforceCaseCreate",
+  OnSlaBreach: "OnSlaBreach",
   OnZendeskTicketCreate: "OnZendeskTicketCreate",
   OnZendeskTicketStatusUpdate: "OnZendeskTicketStatusUpdate",
 } as const;
@@ -7302,62 +7391,6 @@ export interface DeletePushNotificationRegistrationRequest {
    * @public
    */
   ContactId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePushNotificationRegistrationResponse {}
-
-/**
- * @public
- */
-export interface DeleteQueueRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the queue.</p>
-   * @public
-   */
-  QueueId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteQuickConnectRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the quick connect.</p>
-   * @public
-   */
-  QuickConnectId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRoutingProfileRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the routing profile.</p>
-   * @public
-   */
-  RoutingProfileId: string | undefined;
 }
 
 /**

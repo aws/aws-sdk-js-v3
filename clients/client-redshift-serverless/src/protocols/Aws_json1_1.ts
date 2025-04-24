@@ -28,6 +28,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
   ConvertRecoveryPointToSnapshotCommandInput,
@@ -42,6 +43,7 @@ import {
   CreateEndpointAccessCommandOutput,
 } from "../commands/CreateEndpointAccessCommand";
 import { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "../commands/CreateNamespaceCommand";
+import { CreateReservationCommandInput, CreateReservationCommandOutput } from "../commands/CreateReservationCommand";
 import {
   CreateScheduledActionCommandInput,
   CreateScheduledActionCommandOutput,
@@ -85,6 +87,11 @@ import {
 import { GetEndpointAccessCommandInput, GetEndpointAccessCommandOutput } from "../commands/GetEndpointAccessCommand";
 import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "../commands/GetNamespaceCommand";
 import { GetRecoveryPointCommandInput, GetRecoveryPointCommandOutput } from "../commands/GetRecoveryPointCommand";
+import { GetReservationCommandInput, GetReservationCommandOutput } from "../commands/GetReservationCommand";
+import {
+  GetReservationOfferingCommandInput,
+  GetReservationOfferingCommandOutput,
+} from "../commands/GetReservationOfferingCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import { GetScheduledActionCommandInput, GetScheduledActionCommandOutput } from "../commands/GetScheduledActionCommand";
 import { GetSnapshotCommandInput, GetSnapshotCommandOutput } from "../commands/GetSnapshotCommand";
@@ -106,6 +113,11 @@ import {
 } from "../commands/ListManagedWorkgroupsCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "../commands/ListNamespacesCommand";
 import { ListRecoveryPointsCommandInput, ListRecoveryPointsCommandOutput } from "../commands/ListRecoveryPointsCommand";
+import {
+  ListReservationOfferingsCommandInput,
+  ListReservationOfferingsCommandOutput,
+} from "../commands/ListReservationOfferingsCommand";
+import { ListReservationsCommandInput, ListReservationsCommandOutput } from "../commands/ListReservationsCommand";
 import {
   ListScheduledActionsCommandInput,
   ListScheduledActionsCommandOutput,
@@ -178,6 +190,8 @@ import {
   CreateEndpointAccessResponse,
   CreateNamespaceRequest,
   CreateNamespaceResponse,
+  CreateReservationRequest,
+  CreateReservationResponse,
   CreateScheduledActionRequest,
   CreateScheduledActionResponse,
   CreateSnapshotCopyConfigurationRequest,
@@ -212,6 +226,10 @@ import {
   GetNamespaceResponse,
   GetRecoveryPointRequest,
   GetRecoveryPointResponse,
+  GetReservationOfferingRequest,
+  GetReservationOfferingResponse,
+  GetReservationRequest,
+  GetReservationResponse,
   GetResourcePolicyRequest,
   GetScheduledActionRequest,
   GetScheduledActionResponse,
@@ -237,6 +255,10 @@ import {
   ListNamespacesResponse,
   ListRecoveryPointsRequest,
   ListRecoveryPointsResponse,
+  ListReservationOfferingsRequest,
+  ListReservationOfferingsResponse,
+  ListReservationsRequest,
+  ListReservationsResponse,
   ListScheduledActionsRequest,
   ListSnapshotCopyConfigurationsRequest,
   ListSnapshotsRequest,
@@ -254,6 +276,8 @@ import {
   PerformanceTarget,
   PutResourcePolicyRequest,
   RecoveryPoint,
+  Reservation,
+  ReservationOffering,
   ResourceNotFoundException,
   RestoreFromRecoveryPointRequest,
   RestoreFromRecoveryPointResponse,
@@ -342,6 +366,19 @@ export const se_CreateNamespaceCommand = async (
   const headers: __HeaderBag = sharedHeaders("CreateNamespace");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateReservationCommand
+ */
+export const se_CreateReservationCommand = async (
+  input: CreateReservationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateReservation");
+  let body: any;
+  body = JSON.stringify(se_CreateReservationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -593,6 +630,32 @@ export const se_GetRecoveryPointCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetReservationCommand
+ */
+export const se_GetReservationCommand = async (
+  input: GetReservationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetReservation");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetReservationOfferingCommand
+ */
+export const se_GetReservationOfferingCommand = async (
+  input: GetReservationOfferingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetReservationOffering");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetResourcePolicyCommand
  */
 export const se_GetResourcePolicyCommand = async (
@@ -745,6 +808,32 @@ export const se_ListRecoveryPointsCommand = async (
   const headers: __HeaderBag = sharedHeaders("ListRecoveryPoints");
   let body: any;
   body = JSON.stringify(se_ListRecoveryPointsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListReservationOfferingsCommand
+ */
+export const se_ListReservationOfferingsCommand = async (
+  input: ListReservationOfferingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListReservationOfferings");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListReservationsCommand
+ */
+export const se_ListReservationsCommand = async (
+  input: ListReservationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListReservations");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1121,6 +1210,26 @@ export const de_CreateNamespaceCommand = async (
   let contents: any = {};
   contents = de_CreateNamespaceResponse(data, context);
   const response: CreateNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateReservationCommand
+ */
+export const de_CreateReservationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateReservationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateReservationResponse(data, context);
+  const response: CreateReservationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1508,6 +1617,46 @@ export const de_GetRecoveryPointCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GetReservationCommand
+ */
+export const de_GetReservationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReservationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetReservationResponse(data, context);
+  const response: GetReservationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetReservationOfferingCommand
+ */
+export const de_GetReservationOfferingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReservationOfferingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetReservationOfferingResponse(data, context);
+  const response: GetReservationOfferingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1GetResourcePolicyCommand
  */
 export const de_GetResourcePolicyCommand = async (
@@ -1741,6 +1890,46 @@ export const de_ListRecoveryPointsCommand = async (
   let contents: any = {};
   contents = de_ListRecoveryPointsResponse(data, context);
   const response: ListRecoveryPointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListReservationOfferingsCommand
+ */
+export const de_ListReservationOfferingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReservationOfferingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListReservationOfferingsResponse(data, context);
+  const response: ListReservationOfferingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListReservationsCommand
+ */
+export const de_ListReservationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReservationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListReservationsResponse(data, context);
+  const response: ListReservationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2440,6 +2629,17 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_CreateNamespaceRequest omitted.
 
 /**
+ * serializeAws_json1_1CreateReservationRequest
+ */
+const se_CreateReservationRequest = (input: CreateReservationRequest, context: __SerdeContext): any => {
+  return take(input, {
+    capacity: [],
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    offeringId: [],
+  });
+};
+
+/**
  * serializeAws_json1_1CreateScheduledActionRequest
  */
 const se_CreateScheduledActionRequest = (input: CreateScheduledActionRequest, context: __SerdeContext): any => {
@@ -2494,6 +2694,10 @@ const se_CreateScheduledActionRequest = (input: CreateScheduledActionRequest, co
 
 // se_GetRecoveryPointRequest omitted.
 
+// se_GetReservationOfferingRequest omitted.
+
+// se_GetReservationRequest omitted.
+
 // se_GetResourcePolicyRequest omitted.
 
 // se_GetScheduledActionRequest omitted.
@@ -2531,6 +2735,10 @@ const se_ListRecoveryPointsRequest = (input: ListRecoveryPointsRequest, context:
     startTime: (_) => _.getTime() / 1_000,
   });
 };
+
+// se_ListReservationOfferingsRequest omitted.
+
+// se_ListReservationsRequest omitted.
 
 // se_ListScheduledActionsRequest omitted.
 
@@ -2714,6 +2922,15 @@ const de_CreateNamespaceResponse = (output: any, context: __SerdeContext): Creat
 };
 
 /**
+ * deserializeAws_json1_1CreateReservationResponse
+ */
+const de_CreateReservationResponse = (output: any, context: __SerdeContext): CreateReservationResponse => {
+  return take(output, {
+    reservation: (_: any) => de_Reservation(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1CreateScheduledActionResponse
  */
 const de_CreateScheduledActionResponse = (output: any, context: __SerdeContext): CreateScheduledActionResponse => {
@@ -2885,6 +3102,24 @@ const de_GetRecoveryPointResponse = (output: any, context: __SerdeContext): GetR
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_1GetReservationOfferingResponse
+ */
+const de_GetReservationOfferingResponse = (output: any, context: __SerdeContext): GetReservationOfferingResponse => {
+  return take(output, {
+    reservationOffering: (_: any) => de_ReservationOffering(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1GetReservationResponse
+ */
+const de_GetReservationResponse = (output: any, context: __SerdeContext): GetReservationResponse => {
+  return take(output, {
+    reservation: (_: any) => de_Reservation(_, context),
+  }) as any;
+};
+
 // de_GetResourcePolicyResponse omitted.
 
 /**
@@ -2987,6 +3222,29 @@ const de_ListRecoveryPointsResponse = (output: any, context: __SerdeContext): Li
   return take(output, {
     nextToken: __expectString,
     recoveryPoints: (_: any) => de_RecoveryPointList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListReservationOfferingsResponse
+ */
+const de_ListReservationOfferingsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListReservationOfferingsResponse => {
+  return take(output, {
+    nextToken: __expectString,
+    reservationOfferingsList: (_: any) => de_ReservationOfferingsList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListReservationsResponse
+ */
+const de_ListReservationsResponse = (output: any, context: __SerdeContext): ListReservationsResponse => {
+  return take(output, {
+    nextToken: __expectString,
+    reservationsList: (_: any) => de_ReservationsList(_, context),
   }) as any;
 };
 
@@ -3132,6 +3390,59 @@ const de_RecoveryPointList = (output: any, context: __SerdeContext): RecoveryPoi
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_RecoveryPoint(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1Reservation
+ */
+const de_Reservation = (output: any, context: __SerdeContext): Reservation => {
+  return take(output, {
+    capacity: __expectInt32,
+    endDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    offering: (_: any) => de_ReservationOffering(_, context),
+    reservationArn: __expectString,
+    reservationId: __expectString,
+    startDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ReservationOffering
+ */
+const de_ReservationOffering = (output: any, context: __SerdeContext): ReservationOffering => {
+  return take(output, {
+    currencyCode: __expectString,
+    duration: __expectInt32,
+    hourlyCharge: __limitedParseDouble,
+    offeringId: __expectString,
+    offeringType: __expectString,
+    upfrontCharge: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ReservationOfferingsList
+ */
+const de_ReservationOfferingsList = (output: any, context: __SerdeContext): ReservationOffering[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ReservationOffering(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1ReservationsList
+ */
+const de_ReservationsList = (output: any, context: __SerdeContext): Reservation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Reservation(entry, context);
     });
   return retVal;
 };

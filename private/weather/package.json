@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/weather",
   "description": "@aws-sdk/weather client",
-  "version": "3.777.0",
+  "version": "3.787.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -31,7 +31,7 @@
     "@aws-sdk/util-user-agent-node": "*",
     "@smithy/config-resolver": "^4.1.0",
     "@smithy/core": "^3.2.0",
-    "@smithy/experimental-identity-and-auth": "^0.3.45",
+    "@smithy/experimental-identity-and-auth": "^0.3.46",
     "@smithy/fetch-http-handler": "^5.0.2",
     "@smithy/hash-node": "^4.0.2",
     "@smithy/invalid-dependency": "^4.0.2",

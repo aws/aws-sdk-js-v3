@@ -30,10 +30,10 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
 
 /**
  * <important>
- *             <p>Only the EMAIL channel is supported. The supported initiation methods are: OUTBOUND,
- *     AGENT_REPLY, and FLOW.</p>
+ *             <p>Only the EMAIL and VOICE channels are supported. The supported initiation methods for EMAIL are: OUTBOUND,
+ *     AGENT_REPLY, and FLOW. For VOICE the supported initiation methods are TRANSFER and the subtype connect:ExternalAudio. </p>
  *          </important>
- *          <p>Creates a new EMAIL contact. </p>
+ *          <p>Creates a new EMAIL or VOICE contact. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

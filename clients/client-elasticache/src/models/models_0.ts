@@ -3459,6 +3459,24 @@ export interface NotificationConfiguration {
 }
 
 /**
+ * <p>Configuration settings for horizontal or vertical scaling operations on Memcached clusters.</p>
+ * @public
+ */
+export interface ScaleConfig {
+  /**
+   * <p>The percentage by which to scale the Memcached cluster, either horizontally by adding nodes or vertically by increasing resources.</p>
+   * @public
+   */
+  ScalePercentage?: number | undefined;
+
+  /**
+   * <p>The time interval in seconds between scaling operations when performing gradual scaling for a Memcached cluster.</p>
+   * @public
+   */
+  ScaleIntervalMinutes?: number | undefined;
+}
+
+/**
  * <p>A group of settings that are applied to the cluster in the future, or that are
  *             currently being applied.</p>
  * @public
@@ -3515,6 +3533,12 @@ export interface PendingModifiedValues {
    * @public
    */
   TransitEncryptionMode?: TransitEncryptionMode | undefined;
+
+  /**
+   * <p>The scaling configuration changes that are pending for the Memcached cluster.</p>
+   * @public
+   */
+  ScaleConfig?: ScaleConfig | undefined;
 }
 
 /**
@@ -10653,7 +10677,7 @@ export interface ModifyCacheClusterMessage {
   ApplyImmediately?: boolean | undefined;
 
   /**
-   * <p>Modifies the engine listed in a cluster message. The options are redis, memcached or valkey.</p>
+   * <p>The engine type used by the cache cluster. The options are valkey, memcached or redis.</p>
    * @public
    */
   Engine?: string | undefined;
@@ -10757,6 +10781,12 @@ export interface ModifyCacheClusterMessage {
    * @public
    */
   IpDiscovery?: IpDiscovery | undefined;
+
+  /**
+   * <p>Configures horizontal or vertical scaling for Memcached clusters, specifying the scaling percentage and interval.</p>
+   * @public
+   */
+  ScaleConfig?: ScaleConfig | undefined;
 }
 
 /**
@@ -11843,32 +11873,4 @@ export interface RevokeCacheSecurityGroupIngressMessage {
    * @public
    */
   EC2SecurityGroupOwnerId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RevokeCacheSecurityGroupIngressResult {
-  /**
-   * <p>Represents the output of one of the following operations:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AuthorizeCacheSecurityGroupIngress</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CreateCacheSecurityGroup</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RevokeCacheSecurityGroupIngress</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  CacheSecurityGroup?: CacheSecurityGroup | undefined;
 }

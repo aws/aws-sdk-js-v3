@@ -33,9 +33,7 @@ export interface UpdateAnnotationStoreVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- * Updates the description of an annotation store version.
- * </p>
+ * <p> Updates the description of an annotation store version. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

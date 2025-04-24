@@ -38,7 +38,7 @@ export interface DescribeVpcEndpointServicePermissionsCommandOutput
 
 /**
  * <p>Describes the principals (service consumers) that are permitted to discover your VPC
- *             endpoint service.</p>
+ *             endpoint service. Principal ARNs with path components aren't supported.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

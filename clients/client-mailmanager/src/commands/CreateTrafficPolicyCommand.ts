@@ -64,6 +64,15 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  *               "STRING_VALUE",
  *             ],
  *           },
+ *           Ipv6Expression: { // IngressIpv6Expression
+ *             Evaluate: { // IngressIpv6ToEvaluate Union: only one key present
+ *               Attribute: "SENDER_IPV6",
+ *             },
+ *             Operator: "CIDR_MATCHES" || "NOT_CIDR_MATCHES", // required
+ *             Values: [ // Ipv6Cidrs // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
  *           TlsExpression: { // IngressTlsProtocolExpression
  *             Evaluate: { // IngressTlsProtocolToEvaluate Union: only one key present
  *               Attribute: "TLS_PROTOCOL",

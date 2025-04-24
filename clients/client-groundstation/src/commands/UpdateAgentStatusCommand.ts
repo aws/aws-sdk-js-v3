@@ -42,7 +42,7 @@ export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusRespons
  *   agentId: "STRING_VALUE", // required
  *   taskId: "STRING_VALUE", // required
  *   aggregateStatus: { // AggregateStatus
- *     status: "STRING_VALUE", // required
+ *     status: "SUCCESS" || "FAILED" || "ACTIVE" || "INACTIVE", // required
  *     signatureMap: { // SignatureMap
  *       "<keys>": true || false,
  *     },
@@ -51,7 +51,7 @@ export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusRespons
  *     { // ComponentStatusData
  *       componentType: "STRING_VALUE", // required
  *       capabilityArn: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
+ *       status: "SUCCESS" || "FAILED" || "ACTIVE" || "INACTIVE", // required
  *       bytesSent: Number("long"),
  *       bytesReceived: Number("long"),
  *       packetsDropped: Number("long"),

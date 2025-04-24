@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
+import {
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
+  ListTagsForResourceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_json1_1";
 
@@ -89,7 +93,7 @@ export class ListTagsForResourceCommand extends $Command
   })
   .s("AmazonPersonalize", "ListTagsForResource", {})
   .n("PersonalizeClient", "ListTagsForResourceCommand")
-  .f(void 0, void 0)
+  .f(void 0, ListTagsForResourceResponseFilterSensitiveLog)
   .ser(se_ListTagsForResourceCommand)
   .de(de_ListTagsForResourceCommand)
   .build() {

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./CancelBatchJobExecutionCommand";
 export * from "./CreateApplicationCommand";
+export * from "./CreateDataSetExportTaskCommand";
 export * from "./CreateDataSetImportTaskCommand";
 export * from "./CreateDeploymentCommand";
 export * from "./CreateEnvironmentCommand";
@@ -11,6 +12,7 @@ export * from "./GetApplicationCommand";
 export * from "./GetApplicationVersionCommand";
 export * from "./GetBatchJobExecutionCommand";
 export * from "./GetDataSetDetailsCommand";
+export * from "./GetDataSetExportTaskCommand";
 export * from "./GetDataSetImportTaskCommand";
 export * from "./GetDeploymentCommand";
 export * from "./GetEnvironmentCommand";
@@ -20,6 +22,7 @@ export * from "./ListApplicationsCommand";
 export * from "./ListBatchJobDefinitionsCommand";
 export * from "./ListBatchJobExecutionsCommand";
 export * from "./ListBatchJobRestartPointsCommand";
+export * from "./ListDataSetExportHistoryCommand";
 export * from "./ListDataSetImportHistoryCommand";
 export * from "./ListDataSetsCommand";
 export * from "./ListDeploymentsCommand";

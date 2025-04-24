@@ -85,6 +85,8 @@ export interface ListBatchJobExecutionsCommandOutput extends ListBatchJobExecuti
  * //             fromProcStep: "STRING_VALUE",
  * //             toStep: "STRING_VALUE",
  * //             toProcStep: "STRING_VALUE",
+ * //             stepCheckpoint: Number("int"),
+ * //             skip: true || false,
  * //           },
  * //         },
  * //       },

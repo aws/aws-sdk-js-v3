@@ -28,7 +28,7 @@ export interface ListServicesCommandInput extends ListServicesRequest {}
 export interface ListServicesCommandOutput extends ListServicesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the names and codes for the Amazon Web Services integrated with Service Quotas.</p>
+ * <p>Lists the names and codes for the Amazon Web Services services integrated with Service Quotas.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

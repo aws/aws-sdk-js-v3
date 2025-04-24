@@ -53,6 +53,36 @@ import { CapacityReservationSpecification, InstanceMonitoring } from "./models_7
 /**
  * @public
  */
+export interface RestoreImageFromRecycleBinRequest {
+  /**
+   * <p>The ID of the AMI to restore.</p>
+   * @public
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RestoreImageFromRecycleBinResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
 export interface RestoreManagedPrefixListVersionRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,

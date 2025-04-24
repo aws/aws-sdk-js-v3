@@ -39,6 +39,7 @@ export interface UpdateCollaborationCommandOutput extends UpdateCollaborationOut
  *   collaborationIdentifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
+ *   analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
  * };
  * const command = new UpdateCollaborationCommand(input);
  * const response = await client.send(command);

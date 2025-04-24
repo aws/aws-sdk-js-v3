@@ -56,6 +56,9 @@ export interface DeletePolicyStoreCommandOutput extends DeletePolicyStoreOutput,
  * @see {@link DeletePolicyStoreCommandOutput} for command's `response` shape.
  * @see {@link VerifiedPermissionsClientResolvedConfig | config} for VerifiedPermissionsClient's `config` shape.
  *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>The policy store can't be deleted because deletion protection is enabled. To delete this policy store, disable deletion protection.</p>
+ *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have sufficient access to perform this action.</p>
  *

@@ -23,6 +23,11 @@ import {
   CreateNamespaceCommandOutput,
 } from "./commands/CreateNamespaceCommand";
 import {
+  CreateReservationCommand,
+  CreateReservationCommandInput,
+  CreateReservationCommandOutput,
+} from "./commands/CreateReservationCommand";
+import {
   CreateScheduledActionCommand,
   CreateScheduledActionCommandInput,
   CreateScheduledActionCommandOutput,
@@ -118,6 +123,16 @@ import {
   GetRecoveryPointCommandOutput,
 } from "./commands/GetRecoveryPointCommand";
 import {
+  GetReservationCommand,
+  GetReservationCommandInput,
+  GetReservationCommandOutput,
+} from "./commands/GetReservationCommand";
+import {
+  GetReservationOfferingCommand,
+  GetReservationOfferingCommandInput,
+  GetReservationOfferingCommandOutput,
+} from "./commands/GetReservationOfferingCommand";
+import {
   GetResourcePolicyCommand,
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput,
@@ -169,6 +184,16 @@ import {
   ListRecoveryPointsCommandInput,
   ListRecoveryPointsCommandOutput,
 } from "./commands/ListRecoveryPointsCommand";
+import {
+  ListReservationOfferingsCommand,
+  ListReservationOfferingsCommandInput,
+  ListReservationOfferingsCommandOutput,
+} from "./commands/ListReservationOfferingsCommand";
+import {
+  ListReservationsCommand,
+  ListReservationsCommandInput,
+  ListReservationsCommandOutput,
+} from "./commands/ListReservationsCommand";
 import {
   ListScheduledActionsCommand,
   ListScheduledActionsCommandInput,
@@ -283,6 +308,7 @@ const commands = {
   CreateCustomDomainAssociationCommand,
   CreateEndpointAccessCommand,
   CreateNamespaceCommand,
+  CreateReservationCommand,
   CreateScheduledActionCommand,
   CreateSnapshotCommand,
   CreateSnapshotCopyConfigurationCommand,
@@ -302,6 +328,8 @@ const commands = {
   GetEndpointAccessCommand,
   GetNamespaceCommand,
   GetRecoveryPointCommand,
+  GetReservationCommand,
+  GetReservationOfferingCommand,
   GetResourcePolicyCommand,
   GetScheduledActionCommand,
   GetSnapshotCommand,
@@ -314,6 +342,8 @@ const commands = {
   ListManagedWorkgroupsCommand,
   ListNamespacesCommand,
   ListRecoveryPointsCommand,
+  ListReservationOfferingsCommand,
+  ListReservationsCommand,
   ListScheduledActionsCommand,
   ListSnapshotCopyConfigurationsCommand,
   ListSnapshotsCommand,
@@ -403,6 +433,23 @@ export interface RedshiftServerless {
     args: CreateNamespaceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateNamespaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateReservationCommand}
+   */
+  createReservation(
+    args: CreateReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateReservationCommandOutput>;
+  createReservation(
+    args: CreateReservationCommandInput,
+    cb: (err: any, data?: CreateReservationCommandOutput) => void
+  ): void;
+  createReservation(
+    args: CreateReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateReservationCommandOutput) => void
   ): void;
 
   /**
@@ -706,6 +753,37 @@ export interface RedshiftServerless {
   ): void;
 
   /**
+   * @see {@link GetReservationCommand}
+   */
+  getReservation(
+    args: GetReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetReservationCommandOutput>;
+  getReservation(args: GetReservationCommandInput, cb: (err: any, data?: GetReservationCommandOutput) => void): void;
+  getReservation(
+    args: GetReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetReservationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetReservationOfferingCommand}
+   */
+  getReservationOffering(
+    args: GetReservationOfferingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetReservationOfferingCommandOutput>;
+  getReservationOffering(
+    args: GetReservationOfferingCommandInput,
+    cb: (err: any, data?: GetReservationOfferingCommandOutput) => void
+  ): void;
+  getReservationOffering(
+    args: GetReservationOfferingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetReservationOfferingCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetResourcePolicyCommand}
    */
   getResourcePolicy(
@@ -886,6 +964,42 @@ export interface RedshiftServerless {
     args: ListRecoveryPointsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRecoveryPointsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListReservationOfferingsCommand}
+   */
+  listReservationOfferings(): Promise<ListReservationOfferingsCommandOutput>;
+  listReservationOfferings(
+    args: ListReservationOfferingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReservationOfferingsCommandOutput>;
+  listReservationOfferings(
+    args: ListReservationOfferingsCommandInput,
+    cb: (err: any, data?: ListReservationOfferingsCommandOutput) => void
+  ): void;
+  listReservationOfferings(
+    args: ListReservationOfferingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReservationOfferingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListReservationsCommand}
+   */
+  listReservations(): Promise<ListReservationsCommandOutput>;
+  listReservations(
+    args: ListReservationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReservationsCommandOutput>;
+  listReservations(
+    args: ListReservationsCommandInput,
+    cb: (err: any, data?: ListReservationsCommandOutput) => void
+  ): void;
+  listReservations(
+    args: ListReservationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReservationsCommandOutput) => void
   ): void;
 
   /**

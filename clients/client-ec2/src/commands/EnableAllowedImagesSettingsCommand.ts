@@ -44,7 +44,7 @@ export interface EnableAllowedImagesSettingsCommandOutput extends EnableAllowedI
  *           can launch instances using any public AMI or AMI shared with your account.</p>
  *                <p>The purpose of <code>audit-mode</code> is to indicate which AMIs will be affected when
  *           Allowed AMIs is <code>enabled</code>. In <code>audit-mode</code>, each AMI displays either
- *             <code>"ImageAllowed": true</code> or <code>"ImageAllowed": false</code> to indicate
+ *           <code>"ImageAllowed": true</code> or <code>"ImageAllowed": false</code> to indicate
  *           whether the AMI will be discoverable and available to users in the account when Allowed
  *           AMIs is enabled.</p>
  *             </li>
@@ -55,7 +55,7 @@ export interface EnableAllowedImagesSettingsCommandOutput extends EnableAllowedI
  *         usable by users in your account.</p>
  *          </note>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html">Control the discovery and use of AMIs in
- *           Amazon EC2 with Allowed AMIs</a> in
+ *       Amazon EC2 with Allowed AMIs</a> in
  *       <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

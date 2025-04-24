@@ -27207,6 +27207,7 @@ const de_ModelPackageSummary = (output: any, context: __SerdeContext): ModelPack
   return take(output, {
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ModelApprovalStatus: __expectString,
+    ModelLifeCycle: (_: any) => de_ModelLifeCycle(_, context),
     ModelPackageArn: __expectString,
     ModelPackageDescription: __expectString,
     ModelPackageGroupName: __expectString,

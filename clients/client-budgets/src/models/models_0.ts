@@ -686,6 +686,165 @@ export interface CostTypes {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const MatchOption = {
+  ABSENT: "ABSENT",
+  CASE_INSENSITIVE: "CASE_INSENSITIVE",
+  CASE_SENSITIVE: "CASE_SENSITIVE",
+  CONTAINS: "CONTAINS",
+  ENDS_WITH: "ENDS_WITH",
+  EQUALS: "EQUALS",
+  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
+  STARTS_WITH: "STARTS_WITH",
+} as const;
+
+/**
+ * @public
+ */
+export type MatchOption = (typeof MatchOption)[keyof typeof MatchOption];
+
+/**
+ * <p>The cost category values used for filtering the costs.</p>
+ * @public
+ */
+export interface CostCategoryValues {
+  /**
+   * <p>The unique name of the cost category.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The specific value of the cost category.</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+
+  /**
+   * <p>The match options that you can use to filter your results. </p>
+   * @public
+   */
+  MatchOptions?: MatchOption[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Dimension = {
+  AZ: "AZ",
+  BILLING_ENTITY: "BILLING_ENTITY",
+  CACHE_ENGINE: "CACHE_ENGINE",
+  COST_CATEGORY_NAME: "COST_CATEGORY_NAME",
+  DATABASE_ENGINE: "DATABASE_ENGINE",
+  DEPLOYMENT_OPTION: "DEPLOYMENT_OPTION",
+  INSTANCE_TYPE: "INSTANCE_TYPE",
+  INSTANCE_TYPE_FAMILY: "INSTANCE_TYPE_FAMILY",
+  INVOICING_ENTITY: "INVOICING_ENTITY",
+  LEGAL_ENTITY_NAME: "LEGAL_ENTITY_NAME",
+  LINKED_ACCOUNT: "LINKED_ACCOUNT",
+  LINKED_ACCOUNT_NAME: "LINKED_ACCOUNT_NAME",
+  OPERATING_SYSTEM: "OPERATING_SYSTEM",
+  OPERATION: "OPERATION",
+  PAYMENT_OPTION: "PAYMENT_OPTION",
+  PLATFORM: "PLATFORM",
+  PURCHASE_TYPE: "PURCHASE_TYPE",
+  RECORD_TYPE: "RECORD_TYPE",
+  REGION: "REGION",
+  RESERVATION_ID: "RESERVATION_ID",
+  RESERVATION_MODIFIED: "RESERVATION_MODIFIED",
+  RESOURCE_ID: "RESOURCE_ID",
+  RIGHTSIZING_TYPE: "RIGHTSIZING_TYPE",
+  SAVINGS_PLANS_TYPE: "SAVINGS_PLANS_TYPE",
+  SAVINGS_PLAN_ARN: "SAVINGS_PLAN_ARN",
+  SCOPE: "SCOPE",
+  SERVICE: "SERVICE",
+  SERVICE_CODE: "SERVICE_CODE",
+  SUBSCRIPTION_ID: "SUBSCRIPTION_ID",
+  TAG_KEY: "TAG_KEY",
+  TENANCY: "TENANCY",
+  USAGE_TYPE: "USAGE_TYPE",
+  USAGE_TYPE_GROUP: "USAGE_TYPE_GROUP",
+} as const;
+
+/**
+ * @public
+ */
+export type Dimension = (typeof Dimension)[keyof typeof Dimension];
+
+/**
+ * <p>Contains the specifications for the filters to use for your request.</p>
+ * @public
+ */
+export interface ExpressionDimensionValues {
+  /**
+   * <p>The name of the dimension that you want to filter on.</p>
+   * @public
+   */
+  Key: Dimension | undefined;
+
+  /**
+   * <p>The metadata values you can specify to filter upon, so that the results all match at least
+   * 			one of the specified values.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+
+  /**
+   * <p>The match options that you can use to filter your results. You can specify only one of these
+   * 			values in the array.</p>
+   * @public
+   */
+  MatchOptions?: MatchOption[] | undefined;
+}
+
+/**
+ * <p>The values that are available for a tag.</p>
+ * @public
+ */
+export interface TagValues {
+  /**
+   * <p>The key for the tag.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The specific value of the tag.</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+
+  /**
+   * <p>The match options that you can use to filter your results.</p>
+   * @public
+   */
+  MatchOptions?: MatchOption[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Metric = {
+  AMORTIZED_COST: "AmortizedCost",
+  BLENDED_COST: "BlendedCost",
+  HOURS: "Hours",
+  NET_AMORTIZED_COST: "NetAmortizedCost",
+  NET_UNBLENDED_COST: "NetUnblendedCost",
+  NORMALIZED_USAGE_AMOUNT: "NormalizedUsageAmount",
+  UNBLENDED_COST: "UnblendedCost",
+  USAGE_QUANTITY: "UsageQuantity",
+} as const;
+
+/**
+ * @public
+ */
+export type Metric = (typeof Metric)[keyof typeof Metric];
+
+/**
  * <p>The period of time that's covered by a budget. The period has a start date and an end
  * 			date. The start date must come before the end date. There are no restrictions on the end
  * 			date. </p>
@@ -732,158 +891,6 @@ export const TimeUnit = {
  * @public
  */
 export type TimeUnit = (typeof TimeUnit)[keyof typeof TimeUnit];
-
-/**
- * <p>Represents the output of the <code>CreateBudget</code> operation. The content consists
- * 			of the detailed metadata and data file information, and the current status of the
- * 				<code>budget</code> object.</p>
- *          <p>This is the Amazon Resource Name (ARN) pattern for a budget: </p>
- *          <p>
- *             <code>arn:aws:budgets::AccountId:budget/budgetName</code>
- *          </p>
- * @public
- */
-export interface Budget {
-  /**
-   * <p>The name of a budget. The name must be unique within an account. The <code>:</code>
-   * 			and <code>\</code> characters, and the "/action/" substring, aren't allowed in
-   * 				<code>BudgetName</code>.</p>
-   * @public
-   */
-  BudgetName: string | undefined;
-
-  /**
-   * <p>The total amount of cost, usage, RI utilization, RI coverage, Savings Plans
-   * 			utilization, or Savings Plans coverage that you want to track with your budget.</p>
-   *          <p>
-   *             <code>BudgetLimit</code> is required for cost or usage budgets, but optional for RI or
-   * 			Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or
-   * 			coverage budgets default to <code>100</code>. This is the only valid value for RI or
-   * 			Savings Plans utilization or coverage budgets. You can't use <code>BudgetLimit</code>
-   * 			with <code>PlannedBudgetLimits</code> for <code>CreateBudget</code> and
-   * 				<code>UpdateBudget</code> actions. </p>
-   * @public
-   */
-  BudgetLimit?: Spend | undefined;
-
-  /**
-   * <p>A map containing multiple <code>BudgetLimit</code>, including current or future
-   * 			limits.</p>
-   *          <p>
-   *             <code>PlannedBudgetLimits</code> is available for cost or usage budget and supports
-   * 			both monthly and quarterly <code>TimeUnit</code>. </p>
-   *          <p>For monthly budgets, provide 12 months of <code>PlannedBudgetLimits</code> values.
-   * 			This must start from the current month and include the next 11 months. The
-   * 				<code>key</code> is the start of the month, <code>UTC</code> in epoch seconds. </p>
-   *          <p>For quarterly budgets, provide four quarters of <code>PlannedBudgetLimits</code> value
-   * 			entries in standard calendar quarter increments. This must start from the current
-   * 			quarter and include the next three quarters. The <code>key</code> is the start of the
-   * 			quarter, <code>UTC</code> in epoch seconds. </p>
-   *          <p>If the planned budget expires before 12 months for monthly or four quarters for
-   * 			quarterly, provide the <code>PlannedBudgetLimits</code> values only for the remaining
-   * 			periods.</p>
-   *          <p>If the budget begins at a date in the future, provide <code>PlannedBudgetLimits</code>
-   * 			values from the start date of the budget. </p>
-   *          <p>After all of the <code>BudgetLimit</code> values in <code>PlannedBudgetLimits</code>
-   * 			are used, the budget continues to use the last limit as the <code>BudgetLimit</code>. At
-   * 			that point, the planned budget provides the same experience as a fixed budget. </p>
-   *          <p>
-   *             <code>DescribeBudget</code> and <code>DescribeBudgets</code> response along with
-   * 				<code>PlannedBudgetLimits</code> also contain <code>BudgetLimit</code> representing
-   * 			the current month or quarter limit present in <code>PlannedBudgetLimits</code>. This
-   * 			only applies to budgets that are created with <code>PlannedBudgetLimits</code>. Budgets
-   * 			that are created without <code>PlannedBudgetLimits</code> only contain
-   * 				<code>BudgetLimit</code>. They don't contain
-   * 			<code>PlannedBudgetLimits</code>.</p>
-   * @public
-   */
-  PlannedBudgetLimits?: Record<string, Spend> | undefined;
-
-  /**
-   * <p>The cost filters, such as <code>Region</code>, <code>Service</code>,
-   * 				<code>LinkedAccount</code>, <code>Tag</code>, or <code>CostCategory</code>, that are
-   * 			applied to a budget.</p>
-   *          <p>Amazon Web Services Budgets supports the following services as a <code>Service</code> filter for RI budgets:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Amazon EC2</p>
-   *             </li>
-   *             <li>
-   *                <p>Amazon Redshift</p>
-   *             </li>
-   *             <li>
-   *                <p>Amazon Relational Database Service</p>
-   *             </li>
-   *             <li>
-   *                <p>Amazon ElastiCache</p>
-   *             </li>
-   *             <li>
-   *                <p>Amazon OpenSearch Service</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  CostFilters?: Record<string, string[]> | undefined;
-
-  /**
-   * <p>The types of costs that are included in this <code>COST</code> budget.</p>
-   *          <p>
-   *             <code>USAGE</code>, <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>,
-   * 				<code>SAVINGS_PLANS_UTILIZATION</code>, and <code>SAVINGS_PLANS_COVERAGE</code>
-   * 			budgets do not have <code>CostTypes</code>.</p>
-   * @public
-   */
-  CostTypes?: CostTypes | undefined;
-
-  /**
-   * <p>The length of time until a budget resets the actual and forecasted spend.</p>
-   * @public
-   */
-  TimeUnit: TimeUnit | undefined;
-
-  /**
-   * <p>The period of time that's covered by a budget. You setthe start date and end date. The
-   * 			start date must come before the end date. The end date must come before <code>06/15/87
-   * 				00:00 UTC</code>. </p>
-   *          <p>If you create your budget and don't specify a start date, Amazon Web Services defaults
-   * 			to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For
-   * 			example, if you created your budget on January 24, 2018, chose <code>DAILY</code>, and
-   * 			didn't set a start date, Amazon Web Services set your start date to <code>01/24/18 00:00
-   * 				UTC</code>. If you chose <code>MONTHLY</code>, Amazon Web Services set your start
-   * 			date to <code>01/01/18 00:00 UTC</code>. If you didn't specify an end date, Amazon Web Services set your end date to <code>06/15/87 00:00 UTC</code>. The defaults are
-   * 			the same for the Billing and Cost Management console and the API. </p>
-   *          <p>You can change either date with the <code>UpdateBudget</code> operation.</p>
-   *          <p>After the end date, Amazon Web Services deletes the budget and all the associated
-   * 			notifications and subscribers.</p>
-   * @public
-   */
-  TimePeriod?: TimePeriod | undefined;
-
-  /**
-   * <p>The actual and forecasted cost or usage that the budget tracks.</p>
-   * @public
-   */
-  CalculatedSpend?: CalculatedSpend | undefined;
-
-  /**
-   * <p>Specifies whether this budget tracks costs, usage, RI utilization, RI coverage,
-   * 			Savings Plans utilization, or Savings Plans coverage.</p>
-   * @public
-   */
-  BudgetType: BudgetType | undefined;
-
-  /**
-   * <p>The last time that you updated this budget.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-
-  /**
-   * <p>The parameters that determine the budget amount for an auto-adjusting budget.</p>
-   * @public
-   */
-  AutoAdjustData?: AutoAdjustData | undefined;
-}
 
 /**
  * @public
@@ -1020,37 +1027,6 @@ export interface ResourceTag {
    * @public
    */
   Value: string | undefined;
-}
-
-/**
- * <p> Request of CreateBudget </p>
- * @public
- */
-export interface CreateBudgetRequest {
-  /**
-   * <p>The <code>accountId</code> that is associated with the budget.</p>
-   * @public
-   */
-  AccountId: string | undefined;
-
-  /**
-   * <p>The budget object that you want to create.</p>
-   * @public
-   */
-  Budget: Budget | undefined;
-
-  /**
-   * <p>A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your <code>CreateBudget</code> call, Amazon Web Services creates the notifications and subscribers for you.</p>
-   * @public
-   */
-  NotificationsWithSubscribers?: NotificationWithSubscribers[] | undefined;
-
-  /**
-   * <p>An optional list of tags to associate with the specified budget. Each tag consists of a
-   *          key and a value, and each key must be unique for the resource.</p>
-   * @public
-   */
-  ResourceTags?: ResourceTag[] | undefined;
 }
 
 /**
@@ -1596,18 +1572,14 @@ export interface DescribeBudgetRequest {
    * @public
    */
   BudgetName: string | undefined;
-}
 
-/**
- * <p> Response of DescribeBudget </p>
- * @public
- */
-export interface DescribeBudgetResponse {
   /**
-   * <p>The description of the budget.</p>
+   * <p>Specifies whether the response includes the filter expression associated with the
+   *          budget. By showing the filter expression, you can see detailed filtering logic applied to
+   *          the budget, such as Amazon Web Services services or tags that are being tracked.</p>
    * @public
    */
-  Budget?: Budget | undefined;
+  ShowFilterExpression?: boolean | undefined;
 }
 
 /**
@@ -2088,24 +2060,14 @@ export interface DescribeBudgetsRequest {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p> Response of DescribeBudgets </p>
- * @public
- */
-export interface DescribeBudgetsResponse {
-  /**
-   * <p>A list of budgets.</p>
-   * @public
-   */
-  Budgets?: Budget[] | undefined;
 
   /**
-   * <p>The pagination token in the service response that indicates the next set of results that you can retrieve.</p>
+   * <p>Specifies whether the response includes the filter expression associated with the
+   *          budgets. By showing the filter expression, you can see detailed filtering logic applied to
+   *          the budgets, such as Amazon Web Services services or tags that are being tracked.</p>
    * @public
    */
-  NextToken?: string | undefined;
+  ShowFilterExpression?: boolean | undefined;
 }
 
 /**
@@ -2362,24 +2324,6 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * <p> Request of UpdateBudget </p>
- * @public
- */
-export interface UpdateBudgetRequest {
-  /**
-   * <p>The <code>accountId</code> that is associated with the budget that you want to update.</p>
-   * @public
-   */
-  AccountId: string | undefined;
-
-  /**
-   * <p>The budget that you want to update your budget to.</p>
-   * @public
-   */
-  NewBudget: Budget | undefined;
-}
-
-/**
  * <p> Response of UpdateBudget </p>
  * @public
  */
@@ -2564,6 +2508,295 @@ export interface UpdateSubscriberRequest {
 export interface UpdateSubscriberResponse {}
 
 /**
+ * <p>Use Expression to filter in various Budgets APIs.</p>
+ * @public
+ */
+export interface Expression {
+  /**
+   * <p>Return results that match either Dimension object.</p>
+   * @public
+   */
+  Or?: Expression[] | undefined;
+
+  /**
+   * <p>Return results that match both Dimension objects.</p>
+   * @public
+   */
+  And?: Expression[] | undefined;
+
+  /**
+   * <p>Return results that don't match a Dimension object.</p>
+   * @public
+   */
+  Not?: Expression | undefined;
+
+  /**
+   * <p>The specific Dimension to use for Expression.</p>
+   * @public
+   */
+  Dimensions?: ExpressionDimensionValues | undefined;
+
+  /**
+   * <p>The specific Tag to use for Expression.</p>
+   * @public
+   */
+  Tags?: TagValues | undefined;
+
+  /**
+   * <p>The filter that's based on CostCategoryValues.</p>
+   * @public
+   */
+  CostCategories?: CostCategoryValues | undefined;
+}
+
+/**
+ * <p>Represents the output of the <code>CreateBudget</code> operation. The content consists
+ * 			of the detailed metadata and data file information, and the current status of the
+ * 				<code>budget</code> object.</p>
+ *          <p>This is the Amazon Resource Name (ARN) pattern for a budget: </p>
+ *          <p>
+ *             <code>arn:aws:budgets::AccountId:budget/budgetName</code>
+ *          </p>
+ * @public
+ */
+export interface Budget {
+  /**
+   * <p>The name of a budget. The name must be unique within an account. The <code>:</code>
+   * 			and <code>\</code> characters, and the "/action/" substring, aren't allowed in
+   * 				<code>BudgetName</code>.</p>
+   * @public
+   */
+  BudgetName: string | undefined;
+
+  /**
+   * <p>The total amount of cost, usage, RI utilization, RI coverage, Savings Plans
+   * 			utilization, or Savings Plans coverage that you want to track with your budget.</p>
+   *          <p>
+   *             <code>BudgetLimit</code> is required for cost or usage budgets, but optional for RI or
+   * 			Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or
+   * 			coverage budgets default to <code>100</code>. This is the only valid value for RI or
+   * 			Savings Plans utilization or coverage budgets. You can't use <code>BudgetLimit</code>
+   * 			with <code>PlannedBudgetLimits</code> for <code>CreateBudget</code> and
+   * 				<code>UpdateBudget</code> actions. </p>
+   * @public
+   */
+  BudgetLimit?: Spend | undefined;
+
+  /**
+   * <p>A map containing multiple <code>BudgetLimit</code>, including current or future
+   * 			limits.</p>
+   *          <p>
+   *             <code>PlannedBudgetLimits</code> is available for cost or usage budget and supports
+   * 			both monthly and quarterly <code>TimeUnit</code>. </p>
+   *          <p>For monthly budgets, provide 12 months of <code>PlannedBudgetLimits</code> values.
+   * 			This must start from the current month and include the next 11 months. The
+   * 				<code>key</code> is the start of the month, <code>UTC</code> in epoch seconds. </p>
+   *          <p>For quarterly budgets, provide four quarters of <code>PlannedBudgetLimits</code> value
+   * 			entries in standard calendar quarter increments. This must start from the current
+   * 			quarter and include the next three quarters. The <code>key</code> is the start of the
+   * 			quarter, <code>UTC</code> in epoch seconds. </p>
+   *          <p>If the planned budget expires before 12 months for monthly or four quarters for
+   * 			quarterly, provide the <code>PlannedBudgetLimits</code> values only for the remaining
+   * 			periods.</p>
+   *          <p>If the budget begins at a date in the future, provide <code>PlannedBudgetLimits</code>
+   * 			values from the start date of the budget. </p>
+   *          <p>After all of the <code>BudgetLimit</code> values in <code>PlannedBudgetLimits</code>
+   * 			are used, the budget continues to use the last limit as the <code>BudgetLimit</code>. At
+   * 			that point, the planned budget provides the same experience as a fixed budget. </p>
+   *          <p>
+   *             <code>DescribeBudget</code> and <code>DescribeBudgets</code> response along with
+   * 				<code>PlannedBudgetLimits</code> also contain <code>BudgetLimit</code> representing
+   * 			the current month or quarter limit present in <code>PlannedBudgetLimits</code>. This
+   * 			only applies to budgets that are created with <code>PlannedBudgetLimits</code>. Budgets
+   * 			that are created without <code>PlannedBudgetLimits</code> only contain
+   * 				<code>BudgetLimit</code>. They don't contain
+   * 			<code>PlannedBudgetLimits</code>.</p>
+   * @public
+   */
+  PlannedBudgetLimits?: Record<string, Spend> | undefined;
+
+  /**
+   * <p>The cost filters, such as <code>Region</code>, <code>Service</code>,
+   * 				<code>LinkedAccount</code>, <code>Tag</code>, or <code>CostCategory</code>, that are
+   * 			applied to a budget.</p>
+   *          <p>Amazon Web Services Budgets supports the following services as a <code>Service</code> filter for RI budgets:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Amazon EC2</p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Redshift</p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Relational Database Service</p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon ElastiCache</p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon OpenSearch Service</p>
+   *             </li>
+   *          </ul>
+   *
+   * @deprecated
+   * @public
+   */
+  CostFilters?: Record<string, string[]> | undefined;
+
+  /**
+   * <p>The types of costs that are included in this <code>COST</code> budget.</p>
+   *          <p>
+   *             <code>USAGE</code>, <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>,
+   * 				<code>SAVINGS_PLANS_UTILIZATION</code>, and <code>SAVINGS_PLANS_COVERAGE</code>
+   * 			budgets do not have <code>CostTypes</code>.</p>
+   *
+   * @deprecated
+   * @public
+   */
+  CostTypes?: CostTypes | undefined;
+
+  /**
+   * <p>The length of time until a budget resets the actual and forecasted spend.</p>
+   * @public
+   */
+  TimeUnit: TimeUnit | undefined;
+
+  /**
+   * <p>The period of time that's covered by a budget. You set the start date and end date. The
+   * 			start date must come before the end date. The end date must come before <code>06/15/87
+   * 				00:00 UTC</code>. </p>
+   *          <p>If you create your budget and don't specify a start date, Amazon Web Services defaults
+   * 			to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For
+   * 			example, if you created your budget on January 24, 2018, chose <code>DAILY</code>, and
+   * 			didn't set a start date, Amazon Web Services set your start date to <code>01/24/18 00:00
+   * 				UTC</code>. If you chose <code>MONTHLY</code>, Amazon Web Services set your start
+   * 			date to <code>01/01/18 00:00 UTC</code>. If you didn't specify an end date, Amazon Web Services set your end date to <code>06/15/87 00:00 UTC</code>. The defaults are
+   * 			the same for the Billing and Cost Management console and the API. </p>
+   *          <p>You can change either date with the <code>UpdateBudget</code> operation.</p>
+   *          <p>After the end date, Amazon Web Services deletes the budget and all the associated
+   * 			notifications and subscribers.</p>
+   * @public
+   */
+  TimePeriod?: TimePeriod | undefined;
+
+  /**
+   * <p>The actual and forecasted cost or usage that the budget tracks.</p>
+   * @public
+   */
+  CalculatedSpend?: CalculatedSpend | undefined;
+
+  /**
+   * <p>Specifies whether this budget tracks costs, usage, RI utilization, RI coverage,
+   * 			Savings Plans utilization, or Savings Plans coverage.</p>
+   * @public
+   */
+  BudgetType: BudgetType | undefined;
+
+  /**
+   * <p>The last time that you updated this budget.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>The parameters that determine the budget amount for an auto-adjusting budget.</p>
+   * @public
+   */
+  AutoAdjustData?: AutoAdjustData | undefined;
+
+  /**
+   * <p>The filtering dimensions for the budget and their corresponding values.</p>
+   * @public
+   */
+  FilterExpression?: Expression | undefined;
+
+  /**
+   * <p>The definition for how the budget data is aggregated.</p>
+   * @public
+   */
+  Metrics?: Metric[] | undefined;
+}
+
+/**
+ * <p> Request of CreateBudget </p>
+ * @public
+ */
+export interface CreateBudgetRequest {
+  /**
+   * <p>The <code>accountId</code> that is associated with the budget.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The budget object that you want to create.</p>
+   * @public
+   */
+  Budget: Budget | undefined;
+
+  /**
+   * <p>A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your <code>CreateBudget</code> call, Amazon Web Services creates the notifications and subscribers for you.</p>
+   * @public
+   */
+  NotificationsWithSubscribers?: NotificationWithSubscribers[] | undefined;
+
+  /**
+   * <p>An optional list of tags to associate with the specified budget. Each tag consists of a
+   *          key and a value, and each key must be unique for the resource.</p>
+   * @public
+   */
+  ResourceTags?: ResourceTag[] | undefined;
+}
+
+/**
+ * <p> Response of DescribeBudget </p>
+ * @public
+ */
+export interface DescribeBudgetResponse {
+  /**
+   * <p>The description of the budget.</p>
+   * @public
+   */
+  Budget?: Budget | undefined;
+}
+
+/**
+ * <p> Request of UpdateBudget </p>
+ * @public
+ */
+export interface UpdateBudgetRequest {
+  /**
+   * <p>The <code>accountId</code> that is associated with the budget that you want to update.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The budget that you want to update your budget to.</p>
+   * @public
+   */
+  NewBudget: Budget | undefined;
+}
+
+/**
+ * <p> Response of DescribeBudgets </p>
+ * @public
+ */
+export interface DescribeBudgetsResponse {
+  /**
+   * <p>A list of budgets.</p>
+   * @public
+   */
+  Budgets?: Budget[] | undefined;
+
+  /**
+   * <p>The pagination token in the service response that indicates the next set of results that you can retrieve.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * @internal
  */
 export const SubscriberFilterSensitiveLog = (obj: Subscriber): any => ({
@@ -2603,13 +2836,6 @@ export const ActionHistoryFilterSensitiveLog = (obj: ActionHistory): any => ({
 export const NotificationWithSubscribersFilterSensitiveLog = (obj: NotificationWithSubscribers): any => ({
   ...obj,
   ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => SubscriberFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateBudgetRequestFilterSensitiveLog = (obj: CreateBudgetRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2721,4 +2947,11 @@ export const UpdateSubscriberRequestFilterSensitiveLog = (obj: UpdateSubscriberR
   ...obj,
   ...(obj.OldSubscriber && { OldSubscriber: SubscriberFilterSensitiveLog(obj.OldSubscriber) }),
   ...(obj.NewSubscriber && { NewSubscriber: SubscriberFilterSensitiveLog(obj.NewSubscriber) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateBudgetRequestFilterSensitiveLog = (obj: CreateBudgetRequest): any => ({
+  ...obj,
 });

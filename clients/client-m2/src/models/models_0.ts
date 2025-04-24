@@ -490,6 +490,157 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * <p>Defines an external storage location.</p>
+ * @public
+ */
+export type ExternalLocation = ExternalLocation.S3LocationMember | ExternalLocation.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ExternalLocation {
+  /**
+   * <p>The URI of the Amazon S3 bucket.</p>
+   * @public
+   */
+  export interface S3LocationMember {
+    s3Location: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3Location?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3Location: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ExternalLocation, visitor: Visitor<T>): T => {
+    if (value.s3Location !== undefined) return visitor.s3Location(value.s3Location);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Identifies a specific data set to export from an external location.</p>
+ * @public
+ */
+export interface DataSetExportItem {
+  /**
+   * <p>The data set.</p>
+   * @public
+   */
+  datasetName: string | undefined;
+
+  /**
+   * <p>The location of the data set.</p>
+   * @public
+   */
+  externalLocation: ExternalLocation | undefined;
+}
+
+/**
+ * <p>Identifies one or more data sets you want to import with the <a>CreateDataSetExportTask</a> operation.</p>
+ * @public
+ */
+export type DataSetExportConfig =
+  | DataSetExportConfig.DataSetsMember
+  | DataSetExportConfig.S3LocationMember
+  | DataSetExportConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DataSetExportConfig {
+  /**
+   * <p>The Amazon S3 location of the data sets.</p>
+   * @public
+   */
+  export interface S3LocationMember {
+    s3Location: string;
+    dataSets?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The data sets.</p>
+   * @public
+   */
+  export interface DataSetsMember {
+    s3Location?: never;
+    dataSets: DataSetExportItem[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3Location?: never;
+    dataSets?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3Location: (value: string) => T;
+    dataSets: (value: DataSetExportItem[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DataSetExportConfig, visitor: Visitor<T>): T => {
+    if (value.s3Location !== undefined) return visitor.s3Location(value.s3Location);
+    if (value.dataSets !== undefined) return visitor.dataSets(value.dataSets);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateDataSetExportTaskRequest {
+  /**
+   * <p>The unique identifier of the application for which you want to export data sets.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The data set export task configuration.</p>
+   * @public
+   */
+  exportConfig: DataSetExportConfig | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request to create a data set export. The service generates the clientToken when the API call is triggered. The token expires after one hour, so if you retry the API within this timeframe with the same clientToken, you will get the same response. The service also handles deleting the clientToken after it expires.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The identifier of a customer managed key.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataSetExportTaskResponse {
+  /**
+   * <p>The task identifier. This operation is asynchronous. Use this identifier with the <a>GetDataSetExportTask</a> operation to obtain the status of this task.</p>
+   * @public
+   */
+  taskId: string | undefined;
+}
+
+/**
  * <p>The required attributes for a generation data group data set. A generation data set is
  *          one of a collection of successive, historically related, catalogued data sets that together
  *          are known as a generation data group (GDG). Use this structure when you want to import a
@@ -766,44 +917,6 @@ export interface DataSet {
    * @public
    */
   recordLength: RecordLength | undefined;
-}
-
-/**
- * <p>Defines an external storage location.</p>
- * @public
- */
-export type ExternalLocation = ExternalLocation.S3LocationMember | ExternalLocation.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ExternalLocation {
-  /**
-   * <p>The URI of the Amazon S3 bucket.</p>
-   * @public
-   */
-  export interface S3LocationMember {
-    s3Location: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3Location?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    s3Location: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: ExternalLocation, visitor: Visitor<T>): T => {
-    if (value.s3Location !== undefined) return visitor.s3Location(value.s3Location);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1402,6 +1515,18 @@ export interface JobStepRestartMarker {
    * @public
    */
   toProcStep?: string | undefined;
+
+  /**
+   * <p>Skip selected step and issue a restart from immediate successor step for an Amazon Web Services Blu Age application batch job.</p>
+   * @public
+   */
+  stepCheckpoint?: number | undefined;
+
+  /**
+   * <p>The step-level checkpoint timestamp (creation or last modification) for an Amazon Web Services Blu Age application batch job.</p>
+   * @public
+   */
+  skip?: boolean | undefined;
 }
 
 /**
@@ -2049,7 +2174,7 @@ export class ServiceUnavailableException extends __BaseException {
 /**
  * @public
  */
-export interface GetDataSetImportTaskRequest {
+export interface GetDataSetExportTaskRequest {
   /**
    * <p>The application identifier.</p>
    * @public
@@ -2057,8 +2182,7 @@ export interface GetDataSetImportTaskRequest {
   applicationId: string | undefined;
 
   /**
-   * <p>The task identifier returned by the <a>CreateDataSetImportTask</a> operation.
-   *       </p>
+   * <p>The task identifier returned by the <a>CreateDataSetExportTask</a> operation.</p>
    * @public
    */
   taskId: string | undefined;
@@ -2079,6 +2203,95 @@ export const DataSetTaskLifecycle = {
  * @public
  */
 export type DataSetTaskLifecycle = (typeof DataSetTaskLifecycle)[keyof typeof DataSetTaskLifecycle];
+
+/**
+ * <p>Represents a summary of data set exports.</p>
+ * @public
+ */
+export interface DataSetExportSummary {
+  /**
+   * <p>The total number of data set exports.</p>
+   * @public
+   */
+  total: number | undefined;
+
+  /**
+   * <p>The number of data set exports that have succeeded.</p>
+   * @public
+   */
+  succeeded: number | undefined;
+
+  /**
+   * <p>The number of data set exports that have failed.</p>
+   * @public
+   */
+  failed: number | undefined;
+
+  /**
+   * <p>The number of data set exports that are pending.</p>
+   * @public
+   */
+  pending: number | undefined;
+
+  /**
+   * <p>The number of data set exports that are in progress.</p>
+   * @public
+   */
+  inProgress: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataSetExportTaskResponse {
+  /**
+   * <p>The task identifier.</p>
+   * @public
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>The status of the task.</p>
+   * @public
+   */
+  status: DataSetTaskLifecycle | undefined;
+
+  /**
+   * <p>A summary of the status of the task.</p>
+   * @public
+   */
+  summary?: DataSetExportSummary | undefined;
+
+  /**
+   * <p>If dataset export failed, the failure reason will show here.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The identifier of a customer managed key used for exported data set encryption.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataSetImportTaskRequest {
+  /**
+   * <p>The application identifier.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The task identifier returned by the <a>CreateDataSetImportTask</a> operation.
+   *       </p>
+   * @public
+   */
+  taskId: string | undefined;
+}
 
 /**
  * <p>Represents a summary of data set imports.</p>
@@ -2736,6 +2949,24 @@ export interface JobStep {
    * @public
    */
   stepRestartable?: boolean | undefined;
+
+  /**
+   * <p>A registered step-level checkpoint identifier that can be used for restarting an Amazon Web Services Blu Age application batch job.</p>
+   * @public
+   */
+  stepCheckpoint?: number | undefined;
+
+  /**
+   * <p>The step-level checkpoint status for an Amazon Web Services Blu Age application batch job.</p>
+   * @public
+   */
+  stepCheckpointStatus?: string | undefined;
+
+  /**
+   * <p>The step-level checkpoint status for an Amazon Web Services Blu Age application batch job.</p>
+   * @public
+   */
+  stepCheckpointTime?: Date | undefined;
 }
 
 /**
@@ -2747,6 +2978,79 @@ export interface ListBatchJobRestartPointsResponse {
    * @public
    */
   batchJobSteps?: JobStep[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDataSetExportHistoryRequest {
+  /**
+   * <p>A pagination token returned from a previous call to
+   *   this operation. This specifies the next item to return. To return to the beginning of the
+   *   list, exclude this parameter.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of objects to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The unique identifier of the application.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+}
+
+/**
+ * <p>Contains information about a data set export task.</p>
+ * @public
+ */
+export interface DataSetExportTask {
+  /**
+   * <p>The identifier of the data set export task.</p>
+   * @public
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>The status of the data set export task.</p>
+   * @public
+   */
+  status: DataSetTaskLifecycle | undefined;
+
+  /**
+   * <p>A summary of the data set export task.</p>
+   * @public
+   */
+  summary: DataSetExportSummary | undefined;
+
+  /**
+   * <p>If dataset exports failed, the failure reason will show here.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDataSetExportHistoryResponse {
+  /**
+   * <p>The data set export tasks.</p>
+   * @public
+   */
+  dataSetExportTasks: DataSetExportTask[] | undefined;
+
+  /**
+   * <p>If there are more items to return, this contains a token
+   *   that is passed to a subsequent call to this operation to retrieve the next set of items.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**

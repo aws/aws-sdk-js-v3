@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/signature-v4-crt",
-  "version": "3.775.0",
+  "version": "3.787.0",
   "description": "A revision of AWS Signature V4 request signer based on AWS Common Runtime https://github.com/awslabs/aws-crt-nodejs",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -26,7 +26,7 @@
     "@aws-sdk/signature-v4-multi-region": "*",
     "@aws-sdk/types": "*",
     "@smithy/querystring-parser": "^4.0.2",
-    "@smithy/signature-v4": "^5.0.2",
+    "@smithy/signature-v4": "^5.1.0",
     "@smithy/types": "^4.2.0",
     "@smithy/util-middleware": "^4.0.2",
     "tslib": "^2.6.2"

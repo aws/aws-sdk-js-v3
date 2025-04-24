@@ -51,6 +51,7 @@ export interface GetTableBucketCommandOutput extends GetTableBucketResponse, __M
  * //   name: "STRING_VALUE", // required
  * //   ownerAccountId: "STRING_VALUE", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   tableBucketId: "STRING_VALUE",
  * // };
  *
  * ```

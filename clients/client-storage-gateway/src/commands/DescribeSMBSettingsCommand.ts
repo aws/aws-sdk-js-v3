@@ -44,7 +44,7 @@ export interface DescribeSMBSettingsCommandOutput extends DescribeSMBSettingsOut
  * // { // DescribeSMBSettingsOutput
  * //   GatewayARN: "STRING_VALUE",
  * //   DomainName: "STRING_VALUE",
- * //   ActiveDirectoryStatus: "ACCESS_DENIED" || "DETACHED" || "JOINED" || "JOINING" || "NETWORK_ERROR" || "TIMEOUT" || "UNKNOWN_ERROR",
+ * //   ActiveDirectoryStatus: "ACCESS_DENIED" || "DETACHED" || "JOINED" || "JOINING" || "NETWORK_ERROR" || "TIMEOUT" || "UNKNOWN_ERROR" || "INSUFFICIENT_PERMISSIONS",
  * //   SMBGuestPasswordSet: true || false,
  * //   SMBSecurityStrategy: "ClientSpecified" || "MandatorySigning" || "MandatoryEncryption" || "MandatoryEncryptionNoAes128",
  * //   FileSharesVisible: true || false,

@@ -96,6 +96,21 @@ export interface DisableUserCommandOutput extends DisableUserResult, __MetadataB
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
  *
+ * @example To disable a user account
+ * ```javascript
+ * // The following command disables the account for twhitlock.
+ * const input = {
+ *   ClientToken: "550e8400-e29b-41d4-a716-446655440000",
+ *   DirectoryId: "d-12233abcde",
+ *   SAMAccountName: "twhitlock"
+ * };
+ * const command = new DisableUserCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DisableUserCommand extends $Command

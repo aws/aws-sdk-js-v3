@@ -96,6 +96,10 @@ import {
 import { DescribeScraperCommandInput, DescribeScraperCommandOutput } from "./commands/DescribeScraperCommand";
 import { DescribeWorkspaceCommandInput, DescribeWorkspaceCommandOutput } from "./commands/DescribeWorkspaceCommand";
 import {
+  DescribeWorkspaceConfigurationCommandInput,
+  DescribeWorkspaceConfigurationCommandOutput,
+} from "./commands/DescribeWorkspaceConfigurationCommand";
+import {
   GetDefaultScraperConfigurationCommandInput,
   GetDefaultScraperConfigurationCommandOutput,
 } from "./commands/GetDefaultScraperConfigurationCommand";
@@ -129,6 +133,10 @@ import {
   UpdateWorkspaceAliasCommandOutput,
 } from "./commands/UpdateWorkspaceAliasCommand";
 import {
+  UpdateWorkspaceConfigurationCommandInput,
+  UpdateWorkspaceConfigurationCommandOutput,
+} from "./commands/UpdateWorkspaceConfigurationCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -158,6 +166,7 @@ export type ServiceInputTypes =
   | DescribeRuleGroupsNamespaceCommandInput
   | DescribeScraperCommandInput
   | DescribeWorkspaceCommandInput
+  | DescribeWorkspaceConfigurationCommandInput
   | GetDefaultScraperConfigurationCommandInput
   | ListRuleGroupsNamespacesCommandInput
   | ListScrapersCommandInput
@@ -169,7 +178,8 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateLoggingConfigurationCommandInput
   | UpdateScraperCommandInput
-  | UpdateWorkspaceAliasCommandInput;
+  | UpdateWorkspaceAliasCommandInput
+  | UpdateWorkspaceConfigurationCommandInput;
 
 /**
  * @public
@@ -190,6 +200,7 @@ export type ServiceOutputTypes =
   | DescribeRuleGroupsNamespaceCommandOutput
   | DescribeScraperCommandOutput
   | DescribeWorkspaceCommandOutput
+  | DescribeWorkspaceConfigurationCommandOutput
   | GetDefaultScraperConfigurationCommandOutput
   | ListRuleGroupsNamespacesCommandOutput
   | ListScrapersCommandOutput
@@ -201,7 +212,8 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateLoggingConfigurationCommandOutput
   | UpdateScraperCommandOutput
-  | UpdateWorkspaceAliasCommandOutput;
+  | UpdateWorkspaceAliasCommandOutput
+  | UpdateWorkspaceConfigurationCommandOutput;
 
 /**
  * @public

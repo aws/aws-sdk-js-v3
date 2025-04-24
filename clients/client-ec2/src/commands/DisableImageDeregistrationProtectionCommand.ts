@@ -6,10 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DisableImageDeregistrationProtectionRequest,
-  DisableImageDeregistrationProtectionResult,
-} from "../models/models_5";
+import { DisableImageDeregistrationProtectionRequest } from "../models/models_5";
+import { DisableImageDeregistrationProtectionResult } from "../models/models_6";
 import {
   de_DisableImageDeregistrationProtectionCommand,
   se_DisableImageDeregistrationProtectionCommand,
@@ -42,7 +40,7 @@ export interface DisableImageDeregistrationProtectionCommandOutput
  *       protection for the AMI, then, when you disable deregistration protection, you won’t
  *       immediately be able to deregister the AMI.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html#ami-deregistration-protection">Protect an
- *         AMI from deregistration</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *       AMI from deregistration</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

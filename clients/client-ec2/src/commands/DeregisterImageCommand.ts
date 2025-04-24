@@ -28,18 +28,30 @@ export interface DeregisterImageCommandInput extends DeregisterImageRequest {}
 export interface DeregisterImageCommandOutput extends DeregisterImageResult, __MetadataBearer {}
 
 /**
- * <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch new
+ * <p>Deregisters the specified AMI. A deregistered AMI can't be used to launch new
  *       instances.</p>
- *          <p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained in
- *       the Recycle Bin for the specified retention period. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in
- *       the <i>Amazon EC2 User Guide</i>.</p>
- *          <p>When you deregister an AMI, it doesn't affect any instances that you've already launched
- *       from the AMI. You'll continue to incur usage costs for those instances until you terminate
- *       them.</p>
- *          <p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was created
- *       for the root volume of the instance during the AMI creation process. When you deregister an
- *       instance store-backed AMI, it doesn't affect the files that you uploaded to Amazon S3 when you
- *       created the AMI.</p>
+ *          <p>If a deregistered EBS-backed AMI matches a Recycle Bin retention rule, it moves to the
+ *       Recycle Bin for the specified retention period. It can be restored before its retention period
+ *       expires, after which it is permanently deleted. If the deregistered AMI doesn't match a
+ *       retention rule, it is permanently deleted immediately. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in
+ *       the <i>Amazon EBS User Guide</i>.</p>
+ *          <p>Deregistering an AMI does not delete the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Instances already launched from the AMI. You'll continue to incur usage costs for the
+ *           instances until you terminate them.</p>
+ *             </li>
+ *             <li>
+ *                <p>For EBS-backed AMIs: The snapshots that were created of the root and data volumes of
+ *           the instance during AMI creation. You'll continue to incur snapshot storage costs.</p>
+ *             </li>
+ *             <li>
+ *                <p>For instance store-backed AMIs: The files uploaded to Amazon S3 during AMI creation. You'll
+ *           continue to incur S3 storage costs.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html">Deregister an Amazon EC2 AMI</a> in the
+ *         <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

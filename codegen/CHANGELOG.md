@@ -1,5 +1,25 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.29.1 (2025-04-24)
+
+## Features
+- Upgraded to smithy-typescript 0.29.1 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0291-2025-04-24))
+
+## Bug Fixes
+- Removed host prefix behaviour for S3 and S3Control ([#7025](https://github.com/aws/aws-sdk-js-v3/pull/7025))
+
+## 0.29.0 (2025-04-11)
+
+## Features
+- Upgraded to smithy-typescript 0.29.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0290-2025-04-11))
+- Upgraded to smithy 1.55.0 ([#7005](https://github.com/aws/aws-sdk-js-v3/pull/7005))
+
+## 0.28.0 (2025-04-01)
+
+## Features
+- Upgraded to smithy-typescript 0.28.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0280-2025-04-01))
+- Enforced singular config object for resolver stack ([#6969](https://github.com/aws/aws-sdk-js-v3/pull/6969))
+
 ## 0.27.0 (2025-03-04)
 
 ## Features

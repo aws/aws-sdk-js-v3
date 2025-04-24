@@ -41,6 +41,7 @@ import {
   URLTargetConfiguration,
   Visibility,
   VisualCustomAction,
+  VisualCustomActionDefaults,
   VisualInteractionOptions,
 } from "./models_0";
 
@@ -52,6 +53,8 @@ import {
   ComboChartVisual,
   ConditionalFormattingColor,
   ConditionalFormattingColorFilterSensitiveLog,
+  ConditionalFormattingIcon,
+  ConditionalFormattingIconFilterSensitiveLog,
   CustomContentVisual,
   EmptyVisual,
   FieldSortOptions,
@@ -73,14 +76,11 @@ import {
   LineChartVisual,
   PaginationConfiguration,
   PieChartVisual,
-  PivotTableConditionalFormattingScope,
   PivotTableConfiguration,
   RowAlternateColorOptions,
   TableCellStyle,
   TableTotalsPlacement,
   TableTotalsScrollStatus,
-  TextConditionalFormat,
-  TextConditionalFormatFilterSensitiveLog,
   TooltipOptions,
   TotalAggregationOption,
   UnaggregatedField,
@@ -92,6 +92,58 @@ import {
 } from "./models_1";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const PivotTableConditionalFormattingScopeRole = {
+  FIELD: "FIELD",
+  FIELD_TOTAL: "FIELD_TOTAL",
+  GRAND_TOTAL: "GRAND_TOTAL",
+} as const;
+
+/**
+ * @public
+ */
+export type PivotTableConditionalFormattingScopeRole =
+  (typeof PivotTableConditionalFormattingScopeRole)[keyof typeof PivotTableConditionalFormattingScopeRole];
+
+/**
+ * <p>The scope of the cell for conditional formatting.</p>
+ * @public
+ */
+export interface PivotTableConditionalFormattingScope {
+  /**
+   * <p>The role (field, field total, grand total) of the cell for conditional formatting.</p>
+   * @public
+   */
+  Role?: PivotTableConditionalFormattingScopeRole | undefined;
+}
+
+/**
+ * <p>The conditional formatting for the text.</p>
+ * @public
+ */
+export interface TextConditionalFormat {
+  /**
+   * <p>The conditional formatting for the text background color.</p>
+   * @public
+   */
+  BackgroundColor?: ConditionalFormattingColor | undefined;
+
+  /**
+   * <p>The conditional formatting for the text color.</p>
+   * @public
+   */
+  TextColor?: ConditionalFormattingColor | undefined;
+
+  /**
+   * <p>The conditional formatting for the icon.</p>
+   * @public
+   */
+  Icon?: ConditionalFormattingIcon | undefined;
+}
 
 /**
  * <p>The cell conditional formatting option for a pivot table.</p>
@@ -2568,6 +2620,12 @@ export interface SheetDefinition {
    * @public
    */
   ContentType?: SheetContentType | undefined;
+
+  /**
+   * <p>A list of visual custom actions for the sheet.</p>
+   * @public
+   */
+  CustomActionDefaults?: VisualCustomActionDefaults | undefined;
 }
 
 /**
@@ -8295,82 +8353,14 @@ export interface BrandSummary {
 }
 
 /**
- * <p>A calculated column for a dataset.</p>
- * @public
+ * @internal
  */
-export interface CalculatedColumn {
-  /**
-   * <p>Column name.</p>
-   * @public
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>A unique ID to identify a calculated column. During a dataset update, if the column ID
-   *             of a calculated column matches that of an existing calculated column, Amazon QuickSight
-   *             preserves the existing calculated column.</p>
-   * @public
-   */
-  ColumnId: string | undefined;
-
-  /**
-   * <p>An expression that defines the calculated column.</p>
-   * @public
-   */
-  Expression: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CancelIngestionRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the dataset used in the ingestion.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>An ID for the ingestion.</p>
-   * @public
-   */
-  IngestionId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CancelIngestionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the data ingestion.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>An ID for the ingestion.</p>
-   * @public
-   */
-  IngestionId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
+export const TextConditionalFormatFilterSensitiveLog = (obj: TextConditionalFormat): any => ({
+  ...obj,
+  ...(obj.BackgroundColor && { BackgroundColor: ConditionalFormattingColorFilterSensitiveLog(obj.BackgroundColor) }),
+  ...(obj.TextColor && { TextColor: ConditionalFormattingColorFilterSensitiveLog(obj.TextColor) }),
+  ...(obj.Icon && { Icon: ConditionalFormattingIconFilterSensitiveLog(obj.Icon) }),
+});
 
 /**
  * @internal
@@ -8854,12 +8844,4 @@ export const TopicIRMetricFilterSensitiveLog = (obj: TopicIRMetric): any => ({
 export const TopicIRFilterSensitiveLog = (obj: TopicIR): any => ({
   ...obj,
   ...(obj.Metrics && { Metrics: obj.Metrics.map((item) => TopicIRMetricFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CalculatedColumnFilterSensitiveLog = (obj: CalculatedColumn): any => ({
-  ...obj,
-  ...(obj.Expression && { Expression: SENSITIVE_STRING }),
 });

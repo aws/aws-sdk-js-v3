@@ -3,7 +3,35 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 
 import { ElastiCacheServiceException as __BaseException } from "./ElastiCacheServiceException";
 
-import { ReplicationGroup } from "./models_0";
+import { CacheSecurityGroup, ReplicationGroup } from "./models_0";
+
+/**
+ * @public
+ */
+export interface RevokeCacheSecurityGroupIngressResult {
+  /**
+   * <p>Represents the output of one of the following operations:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AuthorizeCacheSecurityGroupIngress</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CreateCacheSecurityGroup</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RevokeCacheSecurityGroupIngress</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CacheSecurityGroup?: CacheSecurityGroup | undefined;
+}
 
 /**
  * <p>The targeted replication group is not available. </p>

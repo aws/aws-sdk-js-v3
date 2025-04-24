@@ -509,6 +509,11 @@ export interface UpdateIntentCommandOutput extends UpdateIntentResponse, __Metad
  *       customPrompt: "STRING_VALUE",
  *     },
  *   },
+ *   qInConnectIntentConfiguration: { // QInConnectIntentConfiguration
+ *     qInConnectAssistantConfiguration: { // QInConnectAssistantConfiguration
+ *       assistantArn: "STRING_VALUE", // required
+ *     },
+ *   },
  * };
  * const command = new UpdateIntentCommand(input);
  * const response = await client.send(command);
@@ -986,6 +991,11 @@ export interface UpdateIntentCommandOutput extends UpdateIntentResponse, __Metad
  * //       },
  * //       traceStatus: "ENABLED" || "DISABLED",
  * //       customPrompt: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   qInConnectIntentConfiguration: { // QInConnectIntentConfiguration
+ * //     qInConnectAssistantConfiguration: { // QInConnectAssistantConfiguration
+ * //       assistantArn: "STRING_VALUE", // required
  * //     },
  * //   },
  * // };

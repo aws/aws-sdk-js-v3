@@ -42,7 +42,7 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  *   statusList: [ // StatusList // required
- *     "STRING_VALUE",
+ *     "SCHEDULING" || "FAILED_TO_SCHEDULE" || "SCHEDULED" || "CANCELLED" || "AWS_CANCELLED" || "PREPASS" || "PASS" || "POSTPASS" || "COMPLETED" || "FAILED" || "AVAILABLE" || "CANCELLING" || "AWS_FAILED",
  *   ],
  *   startTime: new Date("TIMESTAMP"), // required
  *   endTime: new Date("TIMESTAMP"), // required
@@ -64,11 +64,11 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * //       prePassStartTime: new Date("TIMESTAMP"),
  * //       postPassEndTime: new Date("TIMESTAMP"),
  * //       groundStation: "STRING_VALUE",
- * //       contactStatus: "STRING_VALUE",
+ * //       contactStatus: "SCHEDULING" || "FAILED_TO_SCHEDULE" || "SCHEDULED" || "CANCELLED" || "AWS_CANCELLED" || "PREPASS" || "PASS" || "POSTPASS" || "COMPLETED" || "FAILED" || "AVAILABLE" || "CANCELLING" || "AWS_FAILED",
  * //       errorMessage: "STRING_VALUE",
  * //       maximumElevation: { // Elevation
  * //         value: Number("double"), // required
- * //         unit: "STRING_VALUE", // required
+ * //         unit: "DEGREE_ANGLE" || "RADIAN", // required
  * //       },
  * //       region: "STRING_VALUE",
  * //       tags: { // TagsMap

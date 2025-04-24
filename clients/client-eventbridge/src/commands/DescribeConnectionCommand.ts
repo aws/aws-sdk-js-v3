@@ -58,6 +58,7 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * //   StateReason: "STRING_VALUE",
  * //   AuthorizationType: "BASIC" || "OAUTH_CLIENT_CREDENTIALS" || "API_KEY",
  * //   SecretArn: "STRING_VALUE",
+ * //   KmsKeyIdentifier: "STRING_VALUE",
  * //   AuthParameters: { // ConnectionAuthResponseParameters
  * //     BasicAuthParameters: { // ConnectionBasicAuthResponseParameters
  * //       Username: "STRING_VALUE",

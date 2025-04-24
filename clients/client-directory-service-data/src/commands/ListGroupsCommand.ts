@@ -106,6 +106,39 @@ export interface ListGroupsCommandOutput extends ListGroupsResult, __MetadataBea
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
  *
+ * @example To list domain groups
+ * ```javascript
+ * // The following command lists the name and default attributes for groups on the examplecorp.com domain.
+ * const input = {
+ *   DirectoryId: "d-12233abcde",
+ *   MaxResults: 123,
+ *   NextToken: "123456",
+ *   Realm: "examplecorp.com"
+ * };
+ * const command = new ListGroupsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DirectoryId: "d-12233abcde",
+ *   Groups: [
+ *     {
+ *       GroupScope: "BuiltinLocal",
+ *       GroupType: "Security",
+ *       SAMAccountName: "Administrators",
+ *       SID: "S-1-5-32-544"
+ *     },
+ *     {
+ *       GroupScope: "BuiltinLocal",
+ *       GroupType: "Security",
+ *       SAMAccountName: "Users",
+ *       SID: "S-1-5-32-545"
+ *     }
+ *   ],
+ *   NextToken: "223456"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListGroupsCommand extends $Command

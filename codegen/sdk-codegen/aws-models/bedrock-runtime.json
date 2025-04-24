@@ -805,6 +805,12 @@
             "smithy.api#documentation": "<p>The content details used in the request to apply the guardrail.</p>",
             "smithy.api#required": {}
           }
+        },
+        "outputScope": {
+          "target": "com.amazonaws.bedrockruntime#GuardrailOutputScope",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the scope of the output that you get in the response. Set to <code>FULL</code> to return the entire output, including any detected and non-detected entries in the response for enhanced debugging.</p>\n         <p>Note that the full output scope doesn't apply to word filters or regex in sensitive information filters. It does apply to all other filtering policies, including sensitive information with filters that can detect personally identifiable information (PII).</p>"
+          }
         }
       },
       "traits": {
@@ -826,6 +832,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The action taken in the response from the guardrail.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "actionReason": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The reason for the action taken when harmful content is detected.</p>"
           }
         },
         "outputs": {
@@ -1047,6 +1059,36 @@
       "members": {},
       "traits": {
         "smithy.api#documentation": "<p>The Model automatically decides if a tool should be called or whether to generate text instead.\n         For example, <code>{\"auto\" : {}}</code>.</p>"
+      }
+    },
+    "com.amazonaws.bedrockruntime#BidirectionalInputPayloadPart": {
+      "type": "structure",
+      "members": {
+        "bytes": {
+          "target": "com.amazonaws.bedrockruntime#PartBody",
+          "traits": {
+            "smithy.api#documentation": "<p>The audio content for the bidirectional input.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Payload content for the bidirectional input. The input is an audio stream.</p>",
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.bedrockruntime#BidirectionalOutputPayloadPart": {
+      "type": "structure",
+      "members": {
+        "bytes": {
+          "target": "com.amazonaws.bedrockruntime#PartBody",
+          "traits": {
+            "smithy.api#documentation": "<p>The speech output of the bidirectional stream.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Output from the bidirectional stream. The output is speech and a text transcription.</p>",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.bedrockruntime#Body": {
@@ -2196,6 +2238,12 @@
             "smithy.api#documentation": "<p>The guardrail action.</p>",
             "smithy.api#required": {}
           }
+        },
+        "detected": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether content that breaches the guardrail configuration is detected.</p>"
+          }
         }
       },
       "traits": {
@@ -2315,6 +2363,12 @@
           "traits": {
             "smithy.api#enumValue": "BLOCKED"
           }
+        },
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NONE"
+          }
         }
       }
     },
@@ -2422,6 +2476,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The action performed by the guardrails contextual grounding filter.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "detected": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether content that fails the contextual grounding evaluation (grounding or relevance score less than the corresponding threshold) was detected.</p>"
           }
         }
       },
@@ -2650,6 +2710,12 @@
             "smithy.api#documentation": "<p>The action for the custom word.</p>",
             "smithy.api#required": {}
           }
+        },
+        "detected": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether custom word content that breaches the guardrail configuration is detected.</p>"
+          }
         }
       },
       "traits": {
@@ -2798,6 +2864,12 @@
             "smithy.api#documentation": "<p>The action for the managed word.</p>",
             "smithy.api#required": {}
           }
+        },
+        "detected": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether managed word content that breaches the guardrail configuration is detected.</p>"
+          }
         }
       },
       "traits": {
@@ -2841,6 +2913,23 @@
         "target": "com.amazonaws.bedrockruntime#GuardrailOutputContent"
       }
     },
+    "com.amazonaws.bedrockruntime#GuardrailOutputScope": {
+      "type": "enum",
+      "members": {
+        "INTERVENTIONS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INTERVENTIONS"
+          }
+        },
+        "FULL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FULL"
+          }
+        }
+      }
+    },
     "com.amazonaws.bedrockruntime#GuardrailOutputText": {
       "type": "string"
     },
@@ -2866,6 +2955,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The PII entity filter action.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "detected": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether personally identifiable information (PII) that breaches the guardrail configuration is detected.</p>"
           }
         }
       },
@@ -3100,6 +3195,12 @@
             "smithy.api#documentation": "<p>The region filter action.</p>",
             "smithy.api#required": {}
           }
+        },
+        "detected": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether custom regex entities that breach the guardrail configuration are detected.</p>"
+          }
         }
       },
       "traits": {
@@ -3133,6 +3234,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "BLOCKED"
+          }
+        },
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NONE"
           }
         }
       }
@@ -3282,6 +3389,12 @@
             "smithy.api#documentation": "<p>The action the guardrail should take when it intervenes on a topic.</p>",
             "smithy.api#required": {}
           }
+        },
+        "detected": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether topic content that breaches the guardrail configuration is detected.</p>"
+          }
         }
       },
       "traits": {
@@ -3301,6 +3414,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "BLOCKED"
+          }
+        },
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NONE"
           }
         }
       }
@@ -3348,6 +3467,12 @@
           "traits": {
             "smithy.api#enumValue": "disabled"
           }
+        },
+        "ENABLED_FULL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "enabled_full"
+          }
         }
       }
     },
@@ -3370,6 +3495,12 @@
           "target": "com.amazonaws.bedrockruntime#GuardrailAssessmentListMap",
           "traits": {
             "smithy.api#documentation": "<p>the output assessments.</p>"
+          }
+        },
+        "actionReason": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides the reason for the action taken when harmful content is detected.</p>"
           }
         }
       },
@@ -3446,6 +3577,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "BLOCKED"
+          }
+        },
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NONE"
           }
         }
       }
@@ -3606,6 +3743,9 @@
         },
         {
           "target": "com.amazonaws.bedrockruntime#InvokeModel"
+        },
+        {
+          "target": "com.amazonaws.bedrockruntime#InvokeModelWithBidirectionalStream"
         },
         {
           "target": "com.amazonaws.bedrockruntime#InvokeModelWithResponseStream"
@@ -3784,6 +3924,164 @@
           "traits": {
             "smithy.api#documentation": "<p>Model performance settings for the request.</p>",
             "smithy.api#httpHeader": "X-Amzn-Bedrock-PerformanceConfig-Latency"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.bedrockruntime#InvokeModelWithBidirectionalStream": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.bedrockruntime#InvokeModelWithBidirectionalStreamRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.bedrockruntime#InvokeModelWithBidirectionalStreamResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.bedrockruntime#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.bedrockruntime#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.bedrockruntime#ModelErrorException"
+        },
+        {
+          "target": "com.amazonaws.bedrockruntime#ModelNotReadyException"
+        },
+        {
+          "target": "com.amazonaws.bedrockruntime#ModelStreamErrorException"
+        },
+        {
+          "target": "com.amazonaws.bedrockruntime#ModelTimeoutException"
+        },
+        {
+          "target": "com.amazonaws.bedrockruntime#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.bedrockruntime#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.bedrockruntime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.bedrockruntime#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.bedrockruntime#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Invoke the specified Amazon Bedrock model to run inference using the bidirectional stream. The response is returned in a stream that remains open for 8 minutes. A single session can contain multiple prompts and responses from the model. The prompts to the model are provided as audio files and the model's responses are spoken back to the user and transcribed.</p>\n         <p>It is possible for users to interrupt the model's response with a new prompt, which will halt the response speech. The model will retain contextual awareness of the conversation while pivoting to respond to the new prompt.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/model/{modelId}/invoke-with-bidirectional-stream"
+        }
+      }
+    },
+    "com.amazonaws.bedrockruntime#InvokeModelWithBidirectionalStreamInput": {
+      "type": "union",
+      "members": {
+        "chunk": {
+          "target": "com.amazonaws.bedrockruntime#BidirectionalInputPayloadPart",
+          "traits": {
+            "smithy.api#documentation": "<p>The audio chunk that is used as input for the invocation step.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Payload content, the speech chunk, for the bidirectional input of the invocation step.</p>",
+        "smithy.api#streaming": {}
+      }
+    },
+    "com.amazonaws.bedrockruntime#InvokeModelWithBidirectionalStreamOutput": {
+      "type": "union",
+      "members": {
+        "chunk": {
+          "target": "com.amazonaws.bedrockruntime#BidirectionalOutputPayloadPart",
+          "traits": {
+            "smithy.api#documentation": "<p>The speech chunk that was provided as output from the invocation step.</p>"
+          }
+        },
+        "internalServerException": {
+          "target": "com.amazonaws.bedrockruntime#InternalServerException",
+          "traits": {
+            "smithy.api#documentation": "<p>The request encountered an unknown internal error.</p>"
+          }
+        },
+        "modelStreamErrorException": {
+          "target": "com.amazonaws.bedrockruntime#ModelStreamErrorException",
+          "traits": {
+            "smithy.api#documentation": "<p>The request encountered an error with the model stream.</p>"
+          }
+        },
+        "validationException": {
+          "target": "com.amazonaws.bedrockruntime#ValidationException",
+          "traits": {
+            "smithy.api#documentation": "<p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>"
+          }
+        },
+        "throttlingException": {
+          "target": "com.amazonaws.bedrockruntime#ThrottlingException",
+          "traits": {
+            "smithy.api#documentation": "<p>The request was denied due to request throttling.</p>"
+          }
+        },
+        "modelTimeoutException": {
+          "target": "com.amazonaws.bedrockruntime#ModelTimeoutException",
+          "traits": {
+            "smithy.api#documentation": "<p>The connection was closed because a request was not received within the timeout period.</p>"
+          }
+        },
+        "serviceUnavailableException": {
+          "target": "com.amazonaws.bedrockruntime#ServiceUnavailableException",
+          "traits": {
+            "smithy.api#documentation": "<p>The request has failed due to a temporary failure of the server.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Output from the bidirectional stream that was used for model invocation.</p>",
+        "smithy.api#streaming": {}
+      }
+    },
+    "com.amazonaws.bedrockruntime#InvokeModelWithBidirectionalStreamRequest": {
+      "type": "structure",
+      "members": {
+        "modelId": {
+          "target": "com.amazonaws.bedrockruntime#InvokeModelIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The model ID or ARN of the model ID to use. Currently, only <code>amazon.nova-sonic-v1:0</code> is supported.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "body": {
+          "target": "com.amazonaws.bedrockruntime#InvokeModelWithBidirectionalStreamInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The prompt and inference parameters in the format specified in the <code>BidirectionalInputPayloadPart</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html\">Inference parameters</a>. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html\">Run inference</a> in the Bedrock User Guide.</p>",
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.bedrockruntime#InvokeModelWithBidirectionalStreamResponse": {
+      "type": "structure",
+      "members": {
+        "body": {
+          "target": "com.amazonaws.bedrockruntime#InvokeModelWithBidirectionalStreamOutput",
+          "traits": {
+            "smithy.api#documentation": "<p>Streaming response from the model in the format specified by the <code>BidirectionalOutputPayloadPart</code> header.</p>",
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -5260,6 +5558,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "DISABLED"
+          }
+        },
+        "ENABLED_FULL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED_FULL"
           }
         }
       }

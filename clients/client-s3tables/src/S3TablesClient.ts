@@ -59,6 +59,10 @@ import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/Cr
 import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
 import { DeleteTableBucketCommandInput, DeleteTableBucketCommandOutput } from "./commands/DeleteTableBucketCommand";
 import {
+  DeleteTableBucketEncryptionCommandInput,
+  DeleteTableBucketEncryptionCommandOutput,
+} from "./commands/DeleteTableBucketEncryptionCommand";
+import {
   DeleteTableBucketPolicyCommandInput,
   DeleteTableBucketPolicyCommandOutput,
 } from "./commands/DeleteTableBucketPolicyCommand";
@@ -66,6 +70,10 @@ import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/De
 import { DeleteTablePolicyCommandInput, DeleteTablePolicyCommandOutput } from "./commands/DeleteTablePolicyCommand";
 import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "./commands/GetNamespaceCommand";
 import { GetTableBucketCommandInput, GetTableBucketCommandOutput } from "./commands/GetTableBucketCommand";
+import {
+  GetTableBucketEncryptionCommandInput,
+  GetTableBucketEncryptionCommandOutput,
+} from "./commands/GetTableBucketEncryptionCommand";
 import {
   GetTableBucketMaintenanceConfigurationCommandInput,
   GetTableBucketMaintenanceConfigurationCommandOutput,
@@ -75,6 +83,7 @@ import {
   GetTableBucketPolicyCommandOutput,
 } from "./commands/GetTableBucketPolicyCommand";
 import { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
+import { GetTableEncryptionCommandInput, GetTableEncryptionCommandOutput } from "./commands/GetTableEncryptionCommand";
 import {
   GetTableMaintenanceConfigurationCommandInput,
   GetTableMaintenanceConfigurationCommandOutput,
@@ -91,6 +100,10 @@ import { GetTablePolicyCommandInput, GetTablePolicyCommandOutput } from "./comma
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
 import { ListTableBucketsCommandInput, ListTableBucketsCommandOutput } from "./commands/ListTableBucketsCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
+import {
+  PutTableBucketEncryptionCommandInput,
+  PutTableBucketEncryptionCommandOutput,
+} from "./commands/PutTableBucketEncryptionCommand";
 import {
   PutTableBucketMaintenanceConfigurationCommandInput,
   PutTableBucketMaintenanceConfigurationCommandOutput,
@@ -129,14 +142,17 @@ export type ServiceInputTypes =
   | CreateTableCommandInput
   | DeleteNamespaceCommandInput
   | DeleteTableBucketCommandInput
+  | DeleteTableBucketEncryptionCommandInput
   | DeleteTableBucketPolicyCommandInput
   | DeleteTableCommandInput
   | DeleteTablePolicyCommandInput
   | GetNamespaceCommandInput
   | GetTableBucketCommandInput
+  | GetTableBucketEncryptionCommandInput
   | GetTableBucketMaintenanceConfigurationCommandInput
   | GetTableBucketPolicyCommandInput
   | GetTableCommandInput
+  | GetTableEncryptionCommandInput
   | GetTableMaintenanceConfigurationCommandInput
   | GetTableMaintenanceJobStatusCommandInput
   | GetTableMetadataLocationCommandInput
@@ -144,6 +160,7 @@ export type ServiceInputTypes =
   | ListNamespacesCommandInput
   | ListTableBucketsCommandInput
   | ListTablesCommandInput
+  | PutTableBucketEncryptionCommandInput
   | PutTableBucketMaintenanceConfigurationCommandInput
   | PutTableBucketPolicyCommandInput
   | PutTableMaintenanceConfigurationCommandInput
@@ -160,14 +177,17 @@ export type ServiceOutputTypes =
   | CreateTableCommandOutput
   | DeleteNamespaceCommandOutput
   | DeleteTableBucketCommandOutput
+  | DeleteTableBucketEncryptionCommandOutput
   | DeleteTableBucketPolicyCommandOutput
   | DeleteTableCommandOutput
   | DeleteTablePolicyCommandOutput
   | GetNamespaceCommandOutput
   | GetTableBucketCommandOutput
+  | GetTableBucketEncryptionCommandOutput
   | GetTableBucketMaintenanceConfigurationCommandOutput
   | GetTableBucketPolicyCommandOutput
   | GetTableCommandOutput
+  | GetTableEncryptionCommandOutput
   | GetTableMaintenanceConfigurationCommandOutput
   | GetTableMaintenanceJobStatusCommandOutput
   | GetTableMetadataLocationCommandOutput
@@ -175,6 +195,7 @@ export type ServiceOutputTypes =
   | ListNamespacesCommandOutput
   | ListTableBucketsCommandOutput
   | ListTablesCommandOutput
+  | PutTableBucketEncryptionCommandOutput
   | PutTableBucketMaintenanceConfigurationCommandOutput
   | PutTableBucketPolicyCommandOutput
   | PutTableMaintenanceConfigurationCommandOutput
@@ -373,7 +394,7 @@ export type S3TablesClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface S3TablesClientResolvedConfig extends S3TablesClientResolvedConfigType {}
 
 /**
- * <p>An Amazon S3 table represents a structured dataset consisting of tabular data in <a href="https://parquet.apache.org/docs/">Apache Parquet</a> format and related metadata. This data is stored inside an S3 table as a subresource. All tables in a table bucket are stored in the <a href="https://iceberg.apache.org/docs/latest/">Apache Iceberg</a> table format. Through integration with the <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html">AWS Glue Data Catalog</a> you can interact with your tables using AWS analytics services, such as <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/athena/">Amazon Athena</a> and <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/redshift/">Amazon Redshift</a>. Amazon S3 manages maintenance of your tables through automatic file compaction and snapshot management. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html">Amazon S3 table buckets</a>.</p>
+ * <p>An Amazon S3 table represents a structured dataset consisting of tabular data in <a href="https://parquet.apache.org/docs/">Apache Parquet</a> format and related metadata. This data is stored inside an S3 table as a subresource. All tables in a table bucket are stored in the <a href="https://iceberg.apache.org/docs/latest/">Apache Iceberg</a> table format. Through integration with the <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html">Amazon Web Services Glue Data Catalog</a> you can interact with your tables using Amazon Web Services analytics services, such as <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/athena/">Amazon Athena</a> and <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/redshift/">Amazon Redshift</a>. Amazon S3 manages maintenance of your tables through automatic file compaction and snapshot management. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html">Amazon S3 table buckets</a>.</p>
  * @public
  */
 export class S3TablesClient extends __Client<

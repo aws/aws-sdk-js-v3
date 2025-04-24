@@ -108,6 +108,48 @@ export interface UpdateUserCommandOutput extends UpdateUserResult, __MetadataBea
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
  *
+ * @example To update user attributes
+ * ```javascript
+ * // The following command
+ * const input = {
+ *   ClientToken: "550e8400-e29b-41d4-a716-446655440000",
+ *   DirectoryId: "d-12233abcde",
+ *   EmailAddress: "twhitlock@examplecorp.com",
+ *   GivenName: "Terry",
+ *   OtherAttributes: {
+ *     co: {
+ *       S: "US"
+ *     },
+ *     homePhone: {
+ *       S: "333-333-3333"
+ *     },
+ *     physicalDeliveryOfficeName: {
+ *       S: "Example Company"
+ *     },
+ *     postalCode: {
+ *       S: "54321"
+ *     },
+ *     st: {
+ *       S: "WA"
+ *     },
+ *     streetAddress: {
+ *       S: "123 Any Street"
+ *     },
+ *     telephoneNumber: {
+ *       S: "212-555-1111"
+ *     }
+ *   },
+ *   SAMAccountName: "twhitlock",
+ *   Surname: "Whitlock",
+ *   UpdateType: "ADD"
+ * };
+ * const command = new UpdateUserCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateUserCommand extends $Command

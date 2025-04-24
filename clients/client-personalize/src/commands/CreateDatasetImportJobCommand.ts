@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateDatasetImportJobRequest, CreateDatasetImportJobResponse } from "../models/models_0";
+import {
+  CreateDatasetImportJobRequest,
+  CreateDatasetImportJobRequestFilterSensitiveLog,
+  CreateDatasetImportJobResponse,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { de_CreateDatasetImportJobCommand, se_CreateDatasetImportJobCommand } from "../protocols/Aws_json1_1";
 
@@ -155,7 +159,7 @@ export class CreateDatasetImportJobCommand extends $Command
   })
   .s("AmazonPersonalize", "CreateDatasetImportJob", {})
   .n("PersonalizeClient", "CreateDatasetImportJobCommand")
-  .f(void 0, void 0)
+  .f(CreateDatasetImportJobRequestFilterSensitiveLog, void 0)
   .ser(se_CreateDatasetImportJobCommand)
   .de(de_CreateDatasetImportJobCommand)
   .build() {

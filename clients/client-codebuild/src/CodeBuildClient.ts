@@ -59,6 +59,10 @@ import {
   BatchGetBuildBatchesCommandOutput,
 } from "./commands/BatchGetBuildBatchesCommand";
 import { BatchGetBuildsCommandInput, BatchGetBuildsCommandOutput } from "./commands/BatchGetBuildsCommand";
+import {
+  BatchGetCommandExecutionsCommandInput,
+  BatchGetCommandExecutionsCommandOutput,
+} from "./commands/BatchGetCommandExecutionsCommand";
 import { BatchGetFleetsCommandInput, BatchGetFleetsCommandOutput } from "./commands/BatchGetFleetsCommand";
 import { BatchGetProjectsCommandInput, BatchGetProjectsCommandOutput } from "./commands/BatchGetProjectsCommand";
 import {
@@ -66,6 +70,7 @@ import {
   BatchGetReportGroupsCommandOutput,
 } from "./commands/BatchGetReportGroupsCommand";
 import { BatchGetReportsCommandInput, BatchGetReportsCommandOutput } from "./commands/BatchGetReportsCommand";
+import { BatchGetSandboxesCommandInput, BatchGetSandboxesCommandOutput } from "./commands/BatchGetSandboxesCommand";
 import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
 import { CreateReportGroupCommandInput, CreateReportGroupCommandOutput } from "./commands/CreateReportGroupCommand";
@@ -113,6 +118,10 @@ import {
   ListBuildsForProjectCommandOutput,
 } from "./commands/ListBuildsForProjectCommand";
 import {
+  ListCommandExecutionsForSandboxCommandInput,
+  ListCommandExecutionsForSandboxCommandOutput,
+} from "./commands/ListCommandExecutionsForSandboxCommand";
+import {
   ListCuratedEnvironmentImagesCommandInput,
   ListCuratedEnvironmentImagesCommandOutput,
 } from "./commands/ListCuratedEnvironmentImagesCommand";
@@ -124,6 +133,11 @@ import {
   ListReportsForReportGroupCommandInput,
   ListReportsForReportGroupCommandOutput,
 } from "./commands/ListReportsForReportGroupCommand";
+import { ListSandboxesCommandInput, ListSandboxesCommandOutput } from "./commands/ListSandboxesCommand";
+import {
+  ListSandboxesForProjectCommandInput,
+  ListSandboxesForProjectCommandOutput,
+} from "./commands/ListSandboxesForProjectCommand";
 import { ListSharedProjectsCommandInput, ListSharedProjectsCommandOutput } from "./commands/ListSharedProjectsCommand";
 import {
   ListSharedReportGroupsCommandInput,
@@ -138,8 +152,18 @@ import { RetryBuildBatchCommandInput, RetryBuildBatchCommandOutput } from "./com
 import { RetryBuildCommandInput, RetryBuildCommandOutput } from "./commands/RetryBuildCommand";
 import { StartBuildBatchCommandInput, StartBuildBatchCommandOutput } from "./commands/StartBuildBatchCommand";
 import { StartBuildCommandInput, StartBuildCommandOutput } from "./commands/StartBuildCommand";
+import {
+  StartCommandExecutionCommandInput,
+  StartCommandExecutionCommandOutput,
+} from "./commands/StartCommandExecutionCommand";
+import { StartSandboxCommandInput, StartSandboxCommandOutput } from "./commands/StartSandboxCommand";
+import {
+  StartSandboxConnectionCommandInput,
+  StartSandboxConnectionCommandOutput,
+} from "./commands/StartSandboxConnectionCommand";
 import { StopBuildBatchCommandInput, StopBuildBatchCommandOutput } from "./commands/StopBuildBatchCommand";
 import { StopBuildCommandInput, StopBuildCommandOutput } from "./commands/StopBuildCommand";
+import { StopSandboxCommandInput, StopSandboxCommandOutput } from "./commands/StopSandboxCommand";
 import { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
 import {
@@ -166,10 +190,12 @@ export type ServiceInputTypes =
   | BatchDeleteBuildsCommandInput
   | BatchGetBuildBatchesCommandInput
   | BatchGetBuildsCommandInput
+  | BatchGetCommandExecutionsCommandInput
   | BatchGetFleetsCommandInput
   | BatchGetProjectsCommandInput
   | BatchGetReportGroupsCommandInput
   | BatchGetReportsCommandInput
+  | BatchGetSandboxesCommandInput
   | CreateFleetCommandInput
   | CreateProjectCommandInput
   | CreateReportGroupCommandInput
@@ -192,12 +218,15 @@ export type ServiceInputTypes =
   | ListBuildBatchesForProjectCommandInput
   | ListBuildsCommandInput
   | ListBuildsForProjectCommandInput
+  | ListCommandExecutionsForSandboxCommandInput
   | ListCuratedEnvironmentImagesCommandInput
   | ListFleetsCommandInput
   | ListProjectsCommandInput
   | ListReportGroupsCommandInput
   | ListReportsCommandInput
   | ListReportsForReportGroupCommandInput
+  | ListSandboxesCommandInput
+  | ListSandboxesForProjectCommandInput
   | ListSharedProjectsCommandInput
   | ListSharedReportGroupsCommandInput
   | ListSourceCredentialsCommandInput
@@ -206,8 +235,12 @@ export type ServiceInputTypes =
   | RetryBuildCommandInput
   | StartBuildBatchCommandInput
   | StartBuildCommandInput
+  | StartCommandExecutionCommandInput
+  | StartSandboxCommandInput
+  | StartSandboxConnectionCommandInput
   | StopBuildBatchCommandInput
   | StopBuildCommandInput
+  | StopSandboxCommandInput
   | UpdateFleetCommandInput
   | UpdateProjectCommandInput
   | UpdateProjectVisibilityCommandInput
@@ -221,10 +254,12 @@ export type ServiceOutputTypes =
   | BatchDeleteBuildsCommandOutput
   | BatchGetBuildBatchesCommandOutput
   | BatchGetBuildsCommandOutput
+  | BatchGetCommandExecutionsCommandOutput
   | BatchGetFleetsCommandOutput
   | BatchGetProjectsCommandOutput
   | BatchGetReportGroupsCommandOutput
   | BatchGetReportsCommandOutput
+  | BatchGetSandboxesCommandOutput
   | CreateFleetCommandOutput
   | CreateProjectCommandOutput
   | CreateReportGroupCommandOutput
@@ -247,12 +282,15 @@ export type ServiceOutputTypes =
   | ListBuildBatchesForProjectCommandOutput
   | ListBuildsCommandOutput
   | ListBuildsForProjectCommandOutput
+  | ListCommandExecutionsForSandboxCommandOutput
   | ListCuratedEnvironmentImagesCommandOutput
   | ListFleetsCommandOutput
   | ListProjectsCommandOutput
   | ListReportGroupsCommandOutput
   | ListReportsCommandOutput
   | ListReportsForReportGroupCommandOutput
+  | ListSandboxesCommandOutput
+  | ListSandboxesForProjectCommandOutput
   | ListSharedProjectsCommandOutput
   | ListSharedReportGroupsCommandOutput
   | ListSourceCredentialsCommandOutput
@@ -261,8 +299,12 @@ export type ServiceOutputTypes =
   | RetryBuildCommandOutput
   | StartBuildBatchCommandOutput
   | StartBuildCommandOutput
+  | StartCommandExecutionCommandOutput
+  | StartSandboxCommandOutput
+  | StartSandboxConnectionCommandOutput
   | StopBuildBatchCommandOutput
   | StopBuildCommandOutput
+  | StopSandboxCommandOutput
   | UpdateFleetCommandOutput
   | UpdateProjectCommandOutput
   | UpdateProjectVisibilityCommandOutput

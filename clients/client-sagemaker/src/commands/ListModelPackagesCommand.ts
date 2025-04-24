@@ -60,6 +60,11 @@ export interface ListModelPackagesCommandOutput extends ListModelPackagesOutput,
  * //       CreationTime: new Date("TIMESTAMP"), // required
  * //       ModelPackageStatus: "Pending" || "InProgress" || "Completed" || "Failed" || "Deleting", // required
  * //       ModelApprovalStatus: "Approved" || "Rejected" || "PendingManualApproval",
+ * //       ModelLifeCycle: { // ModelLifeCycle
+ * //         Stage: "STRING_VALUE", // required
+ * //         StageStatus: "STRING_VALUE", // required
+ * //         StageDescription: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

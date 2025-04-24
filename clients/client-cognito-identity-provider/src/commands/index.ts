@@ -67,6 +67,7 @@ export * from "./GetGroupCommand";
 export * from "./GetIdentityProviderByIdentifierCommand";
 export * from "./GetLogDeliveryConfigurationCommand";
 export * from "./GetSigningCertificateCommand";
+export * from "./GetTokensFromRefreshTokenCommand";
 export * from "./GetUICustomizationCommand";
 export * from "./GetUserAttributeVerificationCodeCommand";
 export * from "./GetUserAuthFactorsCommand";

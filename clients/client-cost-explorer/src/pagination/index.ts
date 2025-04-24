@@ -1,3 +1,9 @@
+export * from "./GetAnomaliesPaginator";
+
+export * from "./GetAnomalyMonitorsPaginator";
+
+export * from "./GetAnomalySubscriptionsPaginator";
+
 export * from "./GetSavingsPlansCoveragePaginator";
 
 export * from "./GetSavingsPlansUtilizationDetailsPaginator";

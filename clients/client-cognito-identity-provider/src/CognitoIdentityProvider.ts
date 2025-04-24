@@ -324,6 +324,11 @@ import {
   GetSigningCertificateCommandOutput,
 } from "./commands/GetSigningCertificateCommand";
 import {
+  GetTokensFromRefreshTokenCommand,
+  GetTokensFromRefreshTokenCommandInput,
+  GetTokensFromRefreshTokenCommandOutput,
+} from "./commands/GetTokensFromRefreshTokenCommand";
+import {
   GetUICustomizationCommand,
   GetUICustomizationCommandInput,
   GetUICustomizationCommandOutput,
@@ -586,6 +591,7 @@ const commands = {
   GetIdentityProviderByIdentifierCommand,
   GetLogDeliveryConfigurationCommand,
   GetSigningCertificateCommand,
+  GetTokensFromRefreshTokenCommand,
   GetUICustomizationCommand,
   GetUserCommand,
   GetUserAttributeVerificationCodeCommand,
@@ -1705,6 +1711,23 @@ export interface CognitoIdentityProvider {
     args: GetSigningCertificateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSigningCertificateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTokensFromRefreshTokenCommand}
+   */
+  getTokensFromRefreshToken(
+    args: GetTokensFromRefreshTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTokensFromRefreshTokenCommandOutput>;
+  getTokensFromRefreshToken(
+    args: GetTokensFromRefreshTokenCommandInput,
+    cb: (err: any, data?: GetTokensFromRefreshTokenCommandOutput) => void
+  ): void;
+  getTokensFromRefreshToken(
+    args: GetTokensFromRefreshTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTokensFromRefreshTokenCommandOutput) => void
   ): void;
 
   /**

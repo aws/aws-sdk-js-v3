@@ -158,6 +158,9 @@ import {
   PrefetchConsumption,
   PrefetchRetrieval,
   PrefetchSchedule,
+  RecurringConsumption,
+  RecurringPrefetchConfiguration,
+  RecurringRetrieval,
   RequestOutputItem,
   ScheduleAdBreak,
   ScheduleConfiguration,
@@ -170,6 +173,7 @@ import {
   SpliceInsertMessage,
   TimeShiftConfiguration,
   TimeSignalMessage,
+  TrafficShapingRetrievalWindow,
   Transition,
   UpdateProgramScheduleConfiguration,
   UpdateProgramTransition,
@@ -297,7 +301,9 @@ export const se_CreatePrefetchScheduleCommand = async (
   body = JSON.stringify(
     take(input, {
       Consumption: (_) => se_PrefetchConsumption(_, context),
+      RecurringPrefetchConfiguration: (_) => se_RecurringPrefetchConfiguration(_, context),
       Retrieval: (_) => se_PrefetchRetrieval(_, context),
+      ScheduleType: [],
       StreamId: [],
     })
   );
@@ -768,6 +774,7 @@ export const se_ListPrefetchSchedulesCommand = async (
     take(input, {
       MaxResults: [],
       NextToken: [],
+      ScheduleType: [],
       StreamId: [],
     })
   );
@@ -1215,7 +1222,9 @@ export const de_CreatePrefetchScheduleCommand = async (
     Consumption: (_) => de_PrefetchConsumption(_, context),
     Name: __expectString,
     PlaybackConfigurationName: __expectString,
+    RecurringPrefetchConfiguration: (_) => de_RecurringPrefetchConfiguration(_, context),
     Retrieval: (_) => de_PrefetchRetrieval(_, context),
+    ScheduleType: __expectString,
     StreamId: __expectString,
   });
   Object.assign(contents, doc);
@@ -1698,7 +1707,9 @@ export const de_GetPrefetchScheduleCommand = async (
     Consumption: (_) => de_PrefetchConsumption(_, context),
     Name: __expectString,
     PlaybackConfigurationName: __expectString,
+    RecurringPrefetchConfiguration: (_) => de_RecurringPrefetchConfiguration(_, context),
     Retrieval: (_) => de_PrefetchRetrieval(_, context),
+    ScheduleType: __expectString,
     StreamId: __expectString,
   });
   Object.assign(contents, doc);
@@ -2289,8 +2300,26 @@ const se_PrefetchRetrieval = (input: PrefetchRetrieval, context: __SerdeContext)
     DynamicVariables: _json,
     EndTime: (_) => _.getTime() / 1_000,
     StartTime: (_) => _.getTime() / 1_000,
+    TrafficShapingRetrievalWindow: _json,
+    TrafficShapingType: [],
   });
 };
+
+// se_RecurringConsumption omitted.
+
+/**
+ * serializeAws_restJson1RecurringPrefetchConfiguration
+ */
+const se_RecurringPrefetchConfiguration = (input: RecurringPrefetchConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    EndTime: (_) => _.getTime() / 1_000,
+    RecurringConsumption: _json,
+    RecurringRetrieval: _json,
+    StartTime: (_) => _.getTime() / 1_000,
+  });
+};
+
+// se_RecurringRetrieval omitted.
 
 // se_RequestOutputItem omitted.
 
@@ -2313,6 +2342,8 @@ const se_PrefetchRetrieval = (input: PrefetchRetrieval, context: __SerdeContext)
 // se_TimeShiftConfiguration omitted.
 
 // se_TimeSignalMessage omitted.
+
+// se_TrafficShapingRetrievalWindow omitted.
 
 // se_Transition omitted.
 
@@ -2613,6 +2644,8 @@ const de_PrefetchRetrieval = (output: any, context: __SerdeContext): PrefetchRet
     DynamicVariables: _json,
     EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TrafficShapingRetrievalWindow: _json,
+    TrafficShapingType: __expectString,
   }) as any;
 };
 
@@ -2625,10 +2658,28 @@ const de_PrefetchSchedule = (output: any, context: __SerdeContext): PrefetchSche
     Consumption: (_: any) => de_PrefetchConsumption(_, context),
     Name: __expectString,
     PlaybackConfigurationName: __expectString,
+    RecurringPrefetchConfiguration: (_: any) => de_RecurringPrefetchConfiguration(_, context),
     Retrieval: (_: any) => de_PrefetchRetrieval(_, context),
+    ScheduleType: __expectString,
     StreamId: __expectString,
   }) as any;
 };
+
+// de_RecurringConsumption omitted.
+
+/**
+ * deserializeAws_restJson1RecurringPrefetchConfiguration
+ */
+const de_RecurringPrefetchConfiguration = (output: any, context: __SerdeContext): RecurringPrefetchConfiguration => {
+  return take(output, {
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RecurringConsumption: _json,
+    RecurringRetrieval: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_RecurringRetrieval omitted.
 
 // de_ResponseOutputItem omitted.
 
@@ -2697,6 +2748,8 @@ const de_SourceLocation = (output: any, context: __SerdeContext): SourceLocation
 // de_TimeShiftConfiguration omitted.
 
 // de_TimeSignalMessage omitted.
+
+// de_TrafficShapingRetrievalWindow omitted.
 
 /**
  * deserializeAws_restJson1VodSource

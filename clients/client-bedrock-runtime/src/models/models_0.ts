@@ -697,6 +697,20 @@ export namespace GuardrailContentBlock {
  * @public
  * @enum
  */
+export const GuardrailOutputScope = {
+  FULL: "FULL",
+  INTERVENTIONS: "INTERVENTIONS",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailOutputScope = (typeof GuardrailOutputScope)[keyof typeof GuardrailOutputScope];
+
+/**
+ * @public
+ * @enum
+ */
 export const GuardrailContentSource = {
   INPUT: "INPUT",
   OUTPUT: "OUTPUT",
@@ -734,6 +748,13 @@ export interface ApplyGuardrailRequest {
    * @public
    */
   content: GuardrailContentBlock[] | undefined;
+
+  /**
+   * <p>Specifies the scope of the output that you get in the response. Set to <code>FULL</code> to return the entire output, including any detected and non-detected entries in the response for enhanced debugging.</p>
+   *          <p>Note that the full output scope doesn't apply to word filters or regex in sensitive information filters. It does apply to all other filtering policies, including sensitive information with filters that can detect personally identifiable information (PII).</p>
+   * @public
+   */
+  outputScope?: GuardrailOutputScope | undefined;
 }
 
 /**
@@ -756,6 +777,7 @@ export type GuardrailAction = (typeof GuardrailAction)[keyof typeof GuardrailAct
  */
 export const GuardrailContentPolicyAction = {
   BLOCKED: "BLOCKED",
+  NONE: "NONE",
 } as const;
 
 /**
@@ -844,6 +866,12 @@ export interface GuardrailContentFilter {
    * @public
    */
   action: GuardrailContentPolicyAction | undefined;
+
+  /**
+   * <p>Indicates whether content that breaches the guardrail configuration is detected.</p>
+   * @public
+   */
+  detected?: boolean | undefined;
 }
 
 /**
@@ -916,6 +944,12 @@ export interface GuardrailContextualGroundingFilter {
    * @public
    */
   action: GuardrailContextualGroundingPolicyAction | undefined;
+
+  /**
+   * <p>Indicates whether content that fails the contextual grounding evaluation (grounding or relevance score less than the corresponding threshold) was detected.</p>
+   * @public
+   */
+  detected?: boolean | undefined;
 }
 
 /**
@@ -1063,6 +1097,7 @@ export interface GuardrailInvocationMetrics {
 export const GuardrailSensitiveInformationPolicyAction = {
   ANONYMIZED: "ANONYMIZED",
   BLOCKED: "BLOCKED",
+  NONE: "NONE",
 } as const;
 
 /**
@@ -1136,6 +1171,12 @@ export interface GuardrailPiiEntityFilter {
    * @public
    */
   action: GuardrailSensitiveInformationPolicyAction | undefined;
+
+  /**
+   * <p>Indicates whether personally identifiable information (PII) that breaches the guardrail configuration is detected.</p>
+   * @public
+   */
+  detected?: boolean | undefined;
 }
 
 /**
@@ -1166,6 +1207,12 @@ export interface GuardrailRegexFilter {
    * @public
    */
   action: GuardrailSensitiveInformationPolicyAction | undefined;
+
+  /**
+   * <p>Indicates whether custom regex entities that breach the guardrail configuration are detected.</p>
+   * @public
+   */
+  detected?: boolean | undefined;
 }
 
 /**
@@ -1192,6 +1239,7 @@ export interface GuardrailSensitiveInformationPolicyAssessment {
  */
 export const GuardrailTopicPolicyAction = {
   BLOCKED: "BLOCKED",
+  NONE: "NONE",
 } as const;
 
 /**
@@ -1234,6 +1282,12 @@ export interface GuardrailTopic {
    * @public
    */
   action: GuardrailTopicPolicyAction | undefined;
+
+  /**
+   * <p>Indicates whether topic content that breaches the guardrail configuration is detected.</p>
+   * @public
+   */
+  detected?: boolean | undefined;
 }
 
 /**
@@ -1254,6 +1308,7 @@ export interface GuardrailTopicPolicyAssessment {
  */
 export const GuardrailWordPolicyAction = {
   BLOCKED: "BLOCKED",
+  NONE: "NONE",
 } as const;
 
 /**
@@ -1277,6 +1332,12 @@ export interface GuardrailCustomWord {
    * @public
    */
   action: GuardrailWordPolicyAction | undefined;
+
+  /**
+   * <p>Indicates whether custom word content that breaches the guardrail configuration is detected.</p>
+   * @public
+   */
+  detected?: boolean | undefined;
 }
 
 /**
@@ -1314,6 +1375,12 @@ export interface GuardrailManagedWord {
    * @public
    */
   action: GuardrailWordPolicyAction | undefined;
+
+  /**
+   * <p>Indicates whether managed word content that breaches the guardrail configuration is detected.</p>
+   * @public
+   */
+  detected?: boolean | undefined;
 }
 
 /**
@@ -1405,6 +1472,12 @@ export interface ApplyGuardrailResponse {
   action: GuardrailAction | undefined;
 
   /**
+   * <p>The reason for the action taken when harmful content is detected.</p>
+   * @public
+   */
+  actionReason?: string | undefined;
+
+  /**
    * <p>The output details in the response from the guardrail.</p>
    * @public
    */
@@ -1430,6 +1503,7 @@ export interface ApplyGuardrailResponse {
 export const GuardrailTrace = {
   DISABLED: "disabled",
   ENABLED: "enabled",
+  ENABLED_FULL: "enabled_full",
 } as const;
 
 /**
@@ -3080,6 +3154,12 @@ export interface GuardrailTraceAssessment {
    * @public
    */
   outputAssessments?: Record<string, GuardrailAssessment[]> | undefined;
+
+  /**
+   * <p>Provides the reason for the action taken when harmful content is detected.</p>
+   * @public
+   */
+  actionReason?: string | undefined;
 }
 
 /**
@@ -4118,6 +4198,7 @@ export interface ConverseStreamResponse {
 export const Trace = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
+  ENABLED_FULL: "ENABLED_FULL",
 } as const;
 
 /**
@@ -4231,6 +4312,261 @@ export interface InvokeModelResponse {
    * @public
    */
   performanceConfigLatency?: PerformanceConfigLatency | undefined;
+}
+
+/**
+ * <p>Payload content for the bidirectional input. The input is an audio stream.</p>
+ * @public
+ */
+export interface BidirectionalInputPayloadPart {
+  /**
+   * <p>The audio content for the bidirectional input.</p>
+   * @public
+   */
+  bytes?: Uint8Array | undefined;
+}
+
+/**
+ * <p>Payload content, the speech chunk, for the bidirectional input of the invocation step.</p>
+ * @public
+ */
+export type InvokeModelWithBidirectionalStreamInput =
+  | InvokeModelWithBidirectionalStreamInput.ChunkMember
+  | InvokeModelWithBidirectionalStreamInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InvokeModelWithBidirectionalStreamInput {
+  /**
+   * <p>The audio chunk that is used as input for the invocation step.</p>
+   * @public
+   */
+  export interface ChunkMember {
+    chunk: BidirectionalInputPayloadPart;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    chunk?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    chunk: (value: BidirectionalInputPayloadPart) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: InvokeModelWithBidirectionalStreamInput, visitor: Visitor<T>): T => {
+    if (value.chunk !== undefined) return visitor.chunk(value.chunk);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface InvokeModelWithBidirectionalStreamRequest {
+  /**
+   * <p>The model ID or ARN of the model ID to use. Currently, only <code>amazon.nova-sonic-v1:0</code> is supported.</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>The prompt and inference parameters in the format specified in the <code>BidirectionalInputPayloadPart</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
+   * @public
+   */
+  body: AsyncIterable<InvokeModelWithBidirectionalStreamInput> | undefined;
+}
+
+/**
+ * <p>Output from the bidirectional stream. The output is speech and a text transcription.</p>
+ * @public
+ */
+export interface BidirectionalOutputPayloadPart {
+  /**
+   * <p>The speech output of the bidirectional stream.</p>
+   * @public
+   */
+  bytes?: Uint8Array | undefined;
+}
+
+/**
+ * <p>Output from the bidirectional stream that was used for model invocation.</p>
+ * @public
+ */
+export type InvokeModelWithBidirectionalStreamOutput =
+  | InvokeModelWithBidirectionalStreamOutput.ChunkMember
+  | InvokeModelWithBidirectionalStreamOutput.InternalServerExceptionMember
+  | InvokeModelWithBidirectionalStreamOutput.ModelStreamErrorExceptionMember
+  | InvokeModelWithBidirectionalStreamOutput.ModelTimeoutExceptionMember
+  | InvokeModelWithBidirectionalStreamOutput.ServiceUnavailableExceptionMember
+  | InvokeModelWithBidirectionalStreamOutput.ThrottlingExceptionMember
+  | InvokeModelWithBidirectionalStreamOutput.ValidationExceptionMember
+  | InvokeModelWithBidirectionalStreamOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InvokeModelWithBidirectionalStreamOutput {
+  /**
+   * <p>The speech chunk that was provided as output from the invocation step.</p>
+   * @public
+   */
+  export interface ChunkMember {
+    chunk: BidirectionalOutputPayloadPart;
+    internalServerException?: never;
+    modelStreamErrorException?: never;
+    validationException?: never;
+    throttlingException?: never;
+    modelTimeoutException?: never;
+    serviceUnavailableException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The request encountered an unknown internal error.</p>
+   * @public
+   */
+  export interface InternalServerExceptionMember {
+    chunk?: never;
+    internalServerException: InternalServerException;
+    modelStreamErrorException?: never;
+    validationException?: never;
+    throttlingException?: never;
+    modelTimeoutException?: never;
+    serviceUnavailableException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The request encountered an error with the model stream.</p>
+   * @public
+   */
+  export interface ModelStreamErrorExceptionMember {
+    chunk?: never;
+    internalServerException?: never;
+    modelStreamErrorException: ModelStreamErrorException;
+    validationException?: never;
+    throttlingException?: never;
+    modelTimeoutException?: never;
+    serviceUnavailableException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+   * @public
+   */
+  export interface ValidationExceptionMember {
+    chunk?: never;
+    internalServerException?: never;
+    modelStreamErrorException?: never;
+    validationException: ValidationException;
+    throttlingException?: never;
+    modelTimeoutException?: never;
+    serviceUnavailableException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The request was denied due to request throttling.</p>
+   * @public
+   */
+  export interface ThrottlingExceptionMember {
+    chunk?: never;
+    internalServerException?: never;
+    modelStreamErrorException?: never;
+    validationException?: never;
+    throttlingException: ThrottlingException;
+    modelTimeoutException?: never;
+    serviceUnavailableException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The connection was closed because a request was not received within the timeout period.</p>
+   * @public
+   */
+  export interface ModelTimeoutExceptionMember {
+    chunk?: never;
+    internalServerException?: never;
+    modelStreamErrorException?: never;
+    validationException?: never;
+    throttlingException?: never;
+    modelTimeoutException: ModelTimeoutException;
+    serviceUnavailableException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The request has failed due to a temporary failure of the server.</p>
+   * @public
+   */
+  export interface ServiceUnavailableExceptionMember {
+    chunk?: never;
+    internalServerException?: never;
+    modelStreamErrorException?: never;
+    validationException?: never;
+    throttlingException?: never;
+    modelTimeoutException?: never;
+    serviceUnavailableException: ServiceUnavailableException;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    chunk?: never;
+    internalServerException?: never;
+    modelStreamErrorException?: never;
+    validationException?: never;
+    throttlingException?: never;
+    modelTimeoutException?: never;
+    serviceUnavailableException?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    chunk: (value: BidirectionalOutputPayloadPart) => T;
+    internalServerException: (value: InternalServerException) => T;
+    modelStreamErrorException: (value: ModelStreamErrorException) => T;
+    validationException: (value: ValidationException) => T;
+    throttlingException: (value: ThrottlingException) => T;
+    modelTimeoutException: (value: ModelTimeoutException) => T;
+    serviceUnavailableException: (value: ServiceUnavailableException) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: InvokeModelWithBidirectionalStreamOutput, visitor: Visitor<T>): T => {
+    if (value.chunk !== undefined) return visitor.chunk(value.chunk);
+    if (value.internalServerException !== undefined)
+      return visitor.internalServerException(value.internalServerException);
+    if (value.modelStreamErrorException !== undefined)
+      return visitor.modelStreamErrorException(value.modelStreamErrorException);
+    if (value.validationException !== undefined) return visitor.validationException(value.validationException);
+    if (value.throttlingException !== undefined) return visitor.throttlingException(value.throttlingException);
+    if (value.modelTimeoutException !== undefined) return visitor.modelTimeoutException(value.modelTimeoutException);
+    if (value.serviceUnavailableException !== undefined)
+      return visitor.serviceUnavailableException(value.serviceUnavailableException);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface InvokeModelWithBidirectionalStreamResponse {
+  /**
+   * <p>Streaming response from the model in the format specified by the <code>BidirectionalOutputPayloadPart</code> header.</p>
+   * @public
+   */
+  body: AsyncIterable<InvokeModelWithBidirectionalStreamOutput> | undefined;
 }
 
 /**
@@ -4774,6 +5110,69 @@ export const InvokeModelRequestFilterSensitiveLog = (obj: InvokeModelRequest): a
 export const InvokeModelResponseFilterSensitiveLog = (obj: InvokeModelResponse): any => ({
   ...obj,
   ...(obj.body && { body: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BidirectionalInputPayloadPartFilterSensitiveLog = (obj: BidirectionalInputPayloadPart): any => ({
+  ...obj,
+  ...(obj.bytes && { bytes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InvokeModelWithBidirectionalStreamInputFilterSensitiveLog = (
+  obj: InvokeModelWithBidirectionalStreamInput
+): any => {
+  if (obj.chunk !== undefined) return { chunk: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const InvokeModelWithBidirectionalStreamRequestFilterSensitiveLog = (
+  obj: InvokeModelWithBidirectionalStreamRequest
+): any => ({
+  ...obj,
+  ...(obj.body && { body: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @internal
+ */
+export const BidirectionalOutputPayloadPartFilterSensitiveLog = (obj: BidirectionalOutputPayloadPart): any => ({
+  ...obj,
+  ...(obj.bytes && { bytes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InvokeModelWithBidirectionalStreamOutputFilterSensitiveLog = (
+  obj: InvokeModelWithBidirectionalStreamOutput
+): any => {
+  if (obj.chunk !== undefined) return { chunk: SENSITIVE_STRING };
+  if (obj.internalServerException !== undefined) return { internalServerException: obj.internalServerException };
+  if (obj.modelStreamErrorException !== undefined) return { modelStreamErrorException: obj.modelStreamErrorException };
+  if (obj.validationException !== undefined) return { validationException: obj.validationException };
+  if (obj.throttlingException !== undefined) return { throttlingException: obj.throttlingException };
+  if (obj.modelTimeoutException !== undefined) return { modelTimeoutException: obj.modelTimeoutException };
+  if (obj.serviceUnavailableException !== undefined)
+    return { serviceUnavailableException: obj.serviceUnavailableException };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const InvokeModelWithBidirectionalStreamResponseFilterSensitiveLog = (
+  obj: InvokeModelWithBidirectionalStreamResponse
+): any => ({
+  ...obj,
+  ...(obj.body && { body: "STREAMING_CONTENT" }),
 });
 
 /**

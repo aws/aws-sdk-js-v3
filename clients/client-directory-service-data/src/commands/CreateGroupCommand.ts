@@ -107,6 +107,35 @@ export interface CreateGroupCommandOutput extends CreateGroupResult, __MetadataB
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
  *
+ * @example To create a group
+ * ```javascript
+ * // The following command creates a distribution list group named AcctngMail.
+ * const input = {
+ *   ClientToken: "550e8400-e29b-41d4-a716-446655440000",
+ *   DirectoryId: "d-12233abcde",
+ *   GroupScope: "DomainLocal",
+ *   GroupType: "Distribution",
+ *   OtherAttributes: {
+ *     description: {
+ *       S: "Accounting dept mailing list"
+ *     },
+ *     displayName: {
+ *       S: "Acctng-mailing-list"
+ *     }
+ *   },
+ *   SAMAccountName: "AcctngMail"
+ * };
+ * const command = new CreateGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DirectoryId: "d-12233abcde",
+ *   SAMAccountName: "AcctngMail",
+ *   SID: "S-1-5-33-123"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateGroupCommand extends $Command

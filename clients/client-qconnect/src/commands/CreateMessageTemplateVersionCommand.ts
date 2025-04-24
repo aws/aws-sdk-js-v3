@@ -5,11 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
+import { CreateMessageTemplateVersionRequest } from "../models/models_0";
 import {
-  CreateMessageTemplateVersionRequest,
   CreateMessageTemplateVersionResponse,
   CreateMessageTemplateVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_CreateMessageTemplateVersionCommand,
   se_CreateMessageTemplateVersionCommand,

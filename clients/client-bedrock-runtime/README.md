@@ -245,6 +245,14 @@ InvokeModel
 </details>
 <details>
 <summary>
+InvokeModelWithBidirectionalStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/InvokeModelWithBidirectionalStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/InvokeModelWithBidirectionalStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/InvokeModelWithBidirectionalStreamCommandOutput/)
+
+</details>
+<details>
+<summary>
 InvokeModelWithResponseStream
 </summary>
 

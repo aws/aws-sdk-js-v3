@@ -190,7 +190,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link ConditionalCheckFailedException} (client fault)
- *  <p>A condition specified in the operation could not be evaluated.</p>
+ *  <p>A condition specified in the operation failed to be evaluated.</p>
  *
  * @throws {@link DuplicateItemException} (client fault)
  *  <p> There was an attempt to insert an item with the same primary key as an item that
@@ -211,7 +211,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  *
  * @throws {@link RequestLimitExceeded} (client fault)
  *  <p>Throughput exceeds the current throughput quota for your account. Please contact
- *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+ *                 <a href="https://aws.amazon.com/support">Amazon Web ServicesSupport</a> to request a
  *             quota increase.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)

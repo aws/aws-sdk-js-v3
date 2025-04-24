@@ -6,16 +6,7 @@
 
 AWS SDK for JavaScript Transfer Client for Node.js, Browser and React Native.
 
-<p>Transfer Family is a fully managed service that enables the transfer of files over the File
-Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell (SSH) File
-Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service (Amazon S3) or Amazon EFS.
-Additionally, you can use Applicability Statement 2 (AS2) to transfer files into and out of Amazon S3.
-Amazon Web Services helps you seamlessly migrate your file transfer workflows to Transfer Family by integrating
-with existing authentication systems, and providing DNS routing with Amazon Route 53 so
-nothing changes for your customers and partners, or their applications. With your data in
-Amazon S3, you can use it with Amazon Web Services services for processing, analytics, machine learning, and
-archiving. Getting started with Transfer Family is easy since there is no infrastructure to buy and
-set up.</p>
+<p>Transfer Family is a fully managed service that enables the transfer of files over the File Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell (SSH) File Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service (Amazon S3) or Amazon EFS. Additionally, you can use Applicability Statement 2 (AS2) to transfer files into and out of Amazon S3. Amazon Web Services helps you seamlessly migrate your file transfer workflows to Transfer Family by integrating with existing authentication systems, and providing DNS routing with Amazon Route 53 so nothing changes for your customers and partners, or their applications. With your data in Amazon S3, you can use it with Amazon Web Services services for processing, analytics, machine learning, and archiving. Getting started with Transfer Family is easy since there is no infrastructure to buy and set up.</p>
 
 ## Installing
 
@@ -634,6 +625,22 @@ StartFileTransfer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/StartFileTransferCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/StartFileTransferCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/StartFileTransferCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartRemoteDelete
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/StartRemoteDeleteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/StartRemoteDeleteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/StartRemoteDeleteCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartRemoteMove
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/StartRemoteMoveCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/StartRemoteMoveCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/StartRemoteMoveCommandOutput/)
 
 </details>
 <details>

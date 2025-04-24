@@ -542,6 +542,15 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //             Scte35NameModifier: "STRING_VALUE",
  * //             Id3Behavior: "DISABLED" || "ENABLED",
  * //             Id3NameModifier: "STRING_VALUE",
+ * //             CaptionLanguageMappings: [ // __listOfCmafIngestCaptionLanguageMapping
+ * //               { // CmafIngestCaptionLanguageMapping
+ * //                 CaptionChannel: Number("int"), // required
+ * //                 LanguageCode: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //             TimedMetadataId3Frame: "NONE" || "PRIV" || "TDRL",
+ * //             TimedMetadataId3Period: Number("int"),
+ * //             TimedMetadataPassthrough: "DISABLED" || "ENABLED",
  * //           },
  * //           SrtGroupSettings: { // SrtGroupSettings
  * //             InputLossAction: "DROP_PROGRAM" || "DROP_TS" || "EMIT_PROGRAM",

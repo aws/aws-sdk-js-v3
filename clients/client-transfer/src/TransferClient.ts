@@ -133,6 +133,8 @@ import {
   StartDirectoryListingCommandOutput,
 } from "./commands/StartDirectoryListingCommand";
 import { StartFileTransferCommandInput, StartFileTransferCommandOutput } from "./commands/StartFileTransferCommand";
+import { StartRemoteDeleteCommandInput, StartRemoteDeleteCommandOutput } from "./commands/StartRemoteDeleteCommand";
+import { StartRemoteMoveCommandInput, StartRemoteMoveCommandOutput } from "./commands/StartRemoteMoveCommand";
 import { StartServerCommandInput, StartServerCommandOutput } from "./commands/StartServerCommand";
 import { StopServerCommandInput, StopServerCommandOutput } from "./commands/StopServerCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -223,6 +225,8 @@ export type ServiceInputTypes =
   | SendWorkflowStepStateCommandInput
   | StartDirectoryListingCommandInput
   | StartFileTransferCommandInput
+  | StartRemoteDeleteCommandInput
+  | StartRemoteMoveCommandInput
   | StartServerCommandInput
   | StopServerCommandInput
   | TagResourceCommandInput
@@ -297,6 +301,8 @@ export type ServiceOutputTypes =
   | SendWorkflowStepStateCommandOutput
   | StartDirectoryListingCommandOutput
   | StartFileTransferCommandOutput
+  | StartRemoteDeleteCommandOutput
+  | StartRemoteMoveCommandOutput
   | StartServerCommandOutput
   | StopServerCommandOutput
   | TagResourceCommandOutput
@@ -505,16 +511,7 @@ export type TransferClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface TransferClientResolvedConfig extends TransferClientResolvedConfigType {}
 
 /**
- * <p>Transfer Family is a fully managed service that enables the transfer of files over the File
- *       Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell (SSH) File
- *       Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service (Amazon S3) or Amazon EFS.
- *       Additionally, you can use Applicability Statement 2 (AS2) to transfer files into and out of Amazon S3.
- *       Amazon Web Services helps you seamlessly migrate your file transfer workflows to Transfer Family by integrating
- *       with existing authentication systems, and providing DNS routing with Amazon Route 53 so
- *       nothing changes for your customers and partners, or their applications. With your data in
- *       Amazon S3, you can use it with Amazon Web Services services for processing, analytics, machine learning, and
- *       archiving. Getting started with Transfer Family is easy since there is no infrastructure to buy and
- *       set up.</p>
+ * <p>Transfer Family is a fully managed service that enables the transfer of files over the File Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell (SSH) File Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service (Amazon S3) or Amazon EFS. Additionally, you can use Applicability Statement 2 (AS2) to transfer files into and out of Amazon S3. Amazon Web Services helps you seamlessly migrate your file transfer workflows to Transfer Family by integrating with existing authentication systems, and providing DNS routing with Amazon Route 53 so nothing changes for your customers and partners, or their applications. With your data in Amazon S3, you can use it with Amazon Web Services services for processing, analytics, machine learning, and archiving. Getting started with Transfer Family is easy since there is no infrastructure to buy and set up.</p>
  * @public
  */
 export class TransferClient extends __Client<

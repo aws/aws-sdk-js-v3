@@ -83,6 +83,7 @@ import {
   ExemptionCertificate,
   GeorgiaAdditionalInfo,
   GreeceAdditionalInfo,
+  IndonesiaAdditionalInfo,
   InternalServerException,
   IsraelAdditionalInfo,
   ItalyAdditionalInfo,
@@ -105,6 +106,7 @@ import {
   TaxRegistrationEntry,
   TurkeyAdditionalInfo,
   UkraineAdditionalInfo,
+  UzbekistanAdditionalInfo,
   ValidationException,
   VerificationDetails,
   VietnamAdditionalInfo,
@@ -1000,6 +1002,8 @@ const se_ExemptionCertificate = (input: ExemptionCertificate, context: __SerdeCo
 
 // se_GreeceAdditionalInfo omitted.
 
+// se_IndonesiaAdditionalInfo omitted.
+
 // se_IsraelAdditionalInfo omitted.
 
 // se_ItalyAdditionalInfo omitted.
@@ -1077,6 +1081,8 @@ const se_TaxRegistrationEntry = (input: TaxRegistrationEntry, context: __SerdeCo
 
 // se_UkraineAdditionalInfo omitted.
 
+// se_UzbekistanAdditionalInfo omitted.
+
 /**
  * serializeAws_restJson1VerificationDetails
  */
@@ -1128,6 +1134,8 @@ const se_VerificationDetails = (input: VerificationDetails, context: __SerdeCont
 // de_GreeceAdditionalInfo omitted.
 
 // de_IndiaAdditionalInfo omitted.
+
+// de_IndonesiaAdditionalInfo omitted.
 
 // de_IsraelAdditionalInfo omitted.
 
@@ -1223,6 +1231,8 @@ const de_TaxExemptions = (output: any, context: __SerdeContext): TaxExemption[] 
 // de_TurkeyAdditionalInfo omitted.
 
 // de_UkraineAdditionalInfo omitted.
+
+// de_UzbekistanAdditionalInfo omitted.
 
 // de_ValidationExceptionField omitted.
 

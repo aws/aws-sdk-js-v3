@@ -43,6 +43,30 @@ const regionHash: RegionHash = {
       },
     ],
   },
+  "us-iso-east-1": {
+    variants: [
+      {
+        hostname: "glacier-fips.us-iso-east-1.c2s.ic.gov",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-iso-west-1": {
+    variants: [
+      {
+        hostname: "glacier-fips.us-iso-west-1.c2s.ic.gov",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-isob-east-1": {
+    variants: [
+      {
+        hostname: "glacier-fips.us-isob-east-1.sc2s.sgov.gov",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-west-1": {
     variants: [
       {
@@ -144,8 +168,22 @@ const partitionHash: PartitionHash = {
       },
     ],
   },
+  "aws-eusc": {
+    regions: ["eusc-de-east-1"],
+    regionRegex: "^eusc\\-(de)\\-\\w+\\-\\d+$",
+    variants: [
+      {
+        hostname: "glacier.{region}.amazonaws.eu",
+        tags: [],
+      },
+      {
+        hostname: "glacier-fips.{region}.amazonaws.eu",
+        tags: ["fips"],
+      },
+    ],
+  },
   "aws-iso": {
-    regions: ["us-iso-east-1", "us-iso-west-1"],
+    regions: ["fips-us-iso-east-1", "fips-us-iso-west-1", "us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     variants: [
       {
@@ -159,7 +197,7 @@ const partitionHash: PartitionHash = {
     ],
   },
   "aws-iso-b": {
-    regions: ["us-isob-east-1"],
+    regions: ["fips-us-isob-east-1", "us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     variants: [
       {

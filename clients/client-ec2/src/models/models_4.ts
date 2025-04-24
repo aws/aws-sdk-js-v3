@@ -28,6 +28,7 @@ import {
   DefaultTargetCapacityType,
   DestinationFileFormat,
   DhcpOptions,
+  DiskImageFormat,
   Ec2InstanceConnectEndpoint,
   EgressOnlyInternetGateway,
   ExportTask,
@@ -73,16 +74,58 @@ import {
   StateReason,
 } from "./models_2";
 
-import {
-  Byoasn,
-  DiskImageDescription,
-  DiskImageDescriptionFilterSensitiveLog,
-  DiskImageVolumeDescription,
-  Filter,
-  FleetStateCode,
-  IdFormat,
-  InstanceTagNotificationAttribute,
-} from "./models_3";
+import { Byoasn, Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+
+/**
+ * <p>Describes a disk image.</p>
+ * @public
+ */
+export interface DiskImageDescription {
+  /**
+   * <p>The checksum computed for the disk image.</p>
+   * @public
+   */
+  Checksum?: string | undefined;
+
+  /**
+   * <p>The disk image format.</p>
+   * @public
+   */
+  Format?: DiskImageFormat | undefined;
+
+  /**
+   * <p>A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for
+   *    an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">Authenticating REST Requests</a> topic in
+   *    the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
+   * @public
+   */
+  ImportManifestUrl?: string | undefined;
+
+  /**
+   * <p>The size of the disk image, in GiB.</p>
+   * @public
+   */
+  Size?: number | undefined;
+}
+
+/**
+ * <p>Describes a disk image volume.</p>
+ * @public
+ */
+export interface DiskImageVolumeDescription {
+  /**
+   * <p>The volume identifier.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   * @public
+   */
+  Size?: number | undefined;
+}
 
 /**
  * <p>Describes an import volume task.</p>
@@ -4628,8 +4671,8 @@ export interface Image {
   /**
    * <p>If <code>true</code>, the AMI satisfies the criteria for Allowed AMIs and can be
    *       discovered and used in the account. If <code>false</code> and Allowed AMIs is set to
-   *         <code>enabled</code>, the AMI can't be discovered or used in the account. If
-   *         <code>false</code> and Allowed AMIs is set to <code>audit-mode</code>, the AMI can be
+   *       <code>enabled</code>, the AMI can't be discovered or used in the account. If
+   *       <code>false</code> and Allowed AMIs is set to <code>audit-mode</code>, the AMI can be
    *       discovered and used in the account.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html">Control the discovery and use of AMIs in
    *       Amazon EC2 with Allowed AMIs</a> in
@@ -5764,7 +5807,7 @@ export interface DescribeInstanceImageMetadataRequest {
    *             <li>
    *                <p>
    *                   <code>availability-zone</code> - The name of the Availability Zone (for example,
-   *             <code>us-west-2a</code>) or Local Zone (for example, <code>us-west-2-lax-1b</code>) of
+   *           <code>us-west-2a</code>) or Local Zone (for example, <code>us-west-2-lax-1b</code>) of
    *           the instance.</p>
    *             </li>
    *             <li>
@@ -5779,8 +5822,8 @@ export interface DescribeInstanceImageMetadataRequest {
    *             <li>
    *                <p>
    *                   <code>instance-state-name</code> - The state of the instance (<code>pending</code> |
-   *             <code>running</code> | <code>shutting-down</code> | <code>terminated</code> |
-   *             <code>stopping</code> | <code>stopped</code>).</p>
+   *           <code>running</code> | <code>shutting-down</code> | <code>terminated</code> |
+   *           <code>stopping</code> | <code>stopped</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5791,13 +5834,13 @@ export interface DescribeInstanceImageMetadataRequest {
    *                <p>
    *                   <code>launch-time</code> - The time when the instance was launched, in the ISO 8601
    *           format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,
-   *             <code>2023-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
+   *           <code>2023-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
    *           example, <code>2023-09-29T*</code>, which matches an entire day.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>owner-alias</code> - The owner alias (<code>amazon</code> |
-   *             <code>aws-marketplace</code> | <code>aws-backup-vault</code>). The valid aliases are
+   *           <code>aws-marketplace</code> | <code>aws-backup-vault</code>). The valid aliases are
    *           defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be set
    *           using the IAM console. We recommend that you use the <code>Owner</code> request parameter
    *           instead of this filter.</p>
@@ -5819,7 +5862,7 @@ export interface DescribeInstanceImageMetadataRequest {
    *             <li>
    *                <p>
    *                   <code>zone-id</code> - The ID of the Availability Zone (for example,
-   *             <code>usw2-az2</code>) or Local Zone (for example, <code>usw2-lax1-az1</code>) of the
+   *           <code>usw2-az2</code>) or Local Zone (for example, <code>usw2-lax1-az1</code>) of the
    *           instance.</p>
    *             </li>
    *          </ul>
@@ -5892,7 +5935,7 @@ export interface ImageMetadata {
   /**
    * <p>The alias of the AMI owner.</p>
    *          <p>Valid values: <code>amazon</code> | <code>aws-backup-vault</code> |
-   *         <code>aws-marketplace</code>
+   *       <code>aws-marketplace</code>
    *          </p>
    * @public
    */
@@ -5906,7 +5949,7 @@ export interface ImageMetadata {
 
   /**
    * <p>The deprecation date and time of the AMI, in UTC, in the following format:
-   *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.</p>
+   *       <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.</p>
    * @public
    */
   DeprecationTime?: string | undefined;
@@ -8804,6 +8847,11 @@ export interface DescribeInstanceTypesRequest {
    *                <p>
    *                   <code>current-generation</code> - Indicates whether this instance type is the latest
    *      generation instance type of an instance family  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dedicated-hosts-supported</code> - Indicates whether the instance type supports
+   *      Dedicated Hosts.  (<code>true</code> | <code>false</code>)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -12207,66 +12255,12 @@ export interface DescribeManagedPrefixListsResult {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeMovingAddressesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>One or more Elastic IP addresses.</p>
-   * @public
-   */
-  PublicIps?: string[] | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>moving-status</code> - The status of the Elastic IP address
-   *           (<code>MovingToVpc</code> | <code>RestoringToClassic</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining
-   *       results of the initial request can be seen by sending another request with the returned
-   *       <code>NextToken</code> value. This value can be between 5 and 1000; if
-   *       <code>MaxResults</code> is given a value outside of this range, an error is returned.</p>
-   *          <p>Default: If no value is provided, the default is 1000.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MoveStatus = {
-  movingToVpc: "movingToVpc",
-  restoringToClassic: "restoringToClassic",
-} as const;
-
-/**
- * @public
- */
-export type MoveStatus = (typeof MoveStatus)[keyof typeof MoveStatus];
+export const DiskImageDescriptionFilterSensitiveLog = (obj: DiskImageDescription): any => ({
+  ...obj,
+  ...(obj.ImportManifestUrl && { ImportManifestUrl: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

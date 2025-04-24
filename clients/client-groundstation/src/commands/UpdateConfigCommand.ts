@@ -40,23 +40,23 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * const input = { // UpdateConfigRequest
  *   configId: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
- *   configType: "STRING_VALUE", // required
+ *   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording", // required
  *   configData: { // ConfigTypeData Union: only one key present
  *     antennaDownlinkConfig: { // AntennaDownlinkConfig
  *       spectrumConfig: { // SpectrumConfig
  *         centerFrequency: { // Frequency
  *           value: Number("double"), // required
- *           units: "STRING_VALUE", // required
+ *           units: "GHz" || "MHz" || "kHz", // required
  *         },
  *         bandwidth: { // FrequencyBandwidth
  *           value: Number("double"), // required
- *           units: "STRING_VALUE", // required
+ *           units: "GHz" || "MHz" || "kHz", // required
  *         },
- *         polarization: "STRING_VALUE",
+ *         polarization: "RIGHT_HAND" || "LEFT_HAND" || "NONE",
  *       },
  *     },
  *     trackingConfig: { // TrackingConfig
- *       autotrack: "STRING_VALUE", // required
+ *       autotrack: "REQUIRED" || "PREFERRED" || "REMOVED", // required
  *     },
  *     dataflowEndpointConfig: { // DataflowEndpointConfig
  *       dataflowEndpointName: "STRING_VALUE", // required
@@ -66,13 +66,13 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  *       spectrumConfig: {
  *         centerFrequency: {
  *           value: Number("double"), // required
- *           units: "STRING_VALUE", // required
+ *           units: "GHz" || "MHz" || "kHz", // required
  *         },
  *         bandwidth: {
  *           value: Number("double"), // required
- *           units: "STRING_VALUE", // required
+ *           units: "GHz" || "MHz" || "kHz", // required
  *         },
- *         polarization: "STRING_VALUE",
+ *         polarization: "RIGHT_HAND" || "LEFT_HAND" || "NONE",
  *       },
  *       demodulationConfig: { // DemodulationConfig
  *         unvalidatedJSON: "STRING_VALUE", // required
@@ -86,13 +86,13 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  *       spectrumConfig: { // UplinkSpectrumConfig
  *         centerFrequency: {
  *           value: Number("double"), // required
- *           units: "STRING_VALUE", // required
+ *           units: "GHz" || "MHz" || "kHz", // required
  *         },
- *         polarization: "STRING_VALUE",
+ *         polarization: "RIGHT_HAND" || "LEFT_HAND" || "NONE",
  *       },
  *       targetEirp: { // Eirp
  *         value: Number("double"), // required
- *         units: "STRING_VALUE", // required
+ *         units: "dBW", // required
  *       },
  *     },
  *     uplinkEchoConfig: { // UplinkEchoConfig
@@ -110,7 +110,7 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * const response = await client.send(command);
  * // { // ConfigIdResponse
  * //   configId: "STRING_VALUE",
- * //   configType: "STRING_VALUE",
+ * //   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording",
  * //   configArn: "STRING_VALUE",
  * // };
  *

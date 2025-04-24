@@ -28,8 +28,7 @@ export interface GetWorkflowCommandInput extends GetWorkflowRequest {}
 export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a workflow.</p>
- *          <p>If a workflow is shared with you, you cannot export the workflow.</p>
+ * <p>Gets information about a workflow.</p> <p>If a workflow is shared with you, you cannot export the workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +72,8 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   accelerators: "STRING_VALUE",
+ * //   storageType: "STRING_VALUE",
+ * //   uuid: "STRING_VALUE",
  * // };
  *
  * ```

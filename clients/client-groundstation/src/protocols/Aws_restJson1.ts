@@ -659,6 +659,7 @@ export const se_RegisterAgentCommand = async (
     take(input, {
       agentDetails: (_) => _json(_),
       discoveryData: (_) => _json(_),
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
