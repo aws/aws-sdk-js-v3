@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.796.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.795.0...v3.796.0) (2025-04-24)
+
+
+### Features
+
+* **client-rds:** This Amazon RDS release adds support for managed master user passwords for Oracle CDBs. ([5ab41aa](https://github.com/aws/aws-sdk-js-v3/commit/5ab41aa80ee264cc3c3478c43be1d3c33a92db30))
+
+
+
+
+
 # [3.787.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.786.0...v3.787.0) (2025-04-10)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

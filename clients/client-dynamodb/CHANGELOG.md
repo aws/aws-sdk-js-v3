@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.796.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.795.0...v3.796.0) (2025-04-24)
+
+
+### Features
+
+* **client-dynamodb:** Add support for ARN-sourced account endpoint generation for TransactWriteItems. This will generate account endpoints for DynamoDB TransactWriteItems requests using ARN-sourced account ID when available. ([34789ba](https://github.com/aws/aws-sdk-js-v3/commit/34789bacdec8c51a149c5b64f9e47f8a9e44e477))
+
+
+
+
+
 # [3.788.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.787.0...v3.788.0) (2025-04-11)
 
 **Note:** Version bump only for package @aws-sdk/client-dynamodb

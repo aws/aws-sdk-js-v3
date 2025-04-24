@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.796.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.795.0...v3.796.0) (2025-04-24)
+
+
+### Bug Fixes
+
+* **client-s3-control:** remove host prefix behavior ([#7025](https://github.com/aws/aws-sdk-js-v3/issues/7025)) ([6c590fc](https://github.com/aws/aws-sdk-js-v3/commit/6c590fc6077ffbb06091ba3e2d0944a7863e0cbd))
+
+
+
+
+
 # [3.787.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.786.0...v3.787.0) (2025-04-10)
 
 **Note:** Version bump only for package @aws-sdk/middleware-sdk-s3-control

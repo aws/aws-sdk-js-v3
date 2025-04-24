@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.796.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.795.0...v3.796.0) (2025-04-24)
+
+
+### Features
+
+* **client-bedrock-data-automation:** Added support for modality routing and modality enablement on CreateDataAutomationProject and UpdateDataAutomationProject APIs ([c1ae828](https://github.com/aws/aws-sdk-js-v3/commit/c1ae828cab47ff70dfa0d0ac1a98ac8dfb0bd247))
+
+
+
+
+
 # [3.787.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.786.0...v3.787.0) (2025-04-10)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-data-automation

@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.796.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.795.0...v3.796.0) (2025-04-24)
+
+
+### Bug Fixes
+
+* **client-s3-control:** remove host prefix behavior ([#7025](https://github.com/aws/aws-sdk-js-v3/issues/7025)) ([6c590fc](https://github.com/aws/aws-sdk-js-v3/commit/6c590fc6077ffbb06091ba3e2d0944a7863e0cbd))
+
+
+### Features
+
+* **client-apprunner:** AWS App Runner adds Node.js 22 runtime. ([15aea07](https://github.com/aws/aws-sdk-js-v3/commit/15aea07214f81545152248a4ec9d4a5f9bdbb870))
+* **client-appsync:** Add data source support to Event APIs ([62af85a](https://github.com/aws/aws-sdk-js-v3/commit/62af85afb2fa5546ea1897c4f6aa63f42e3f20a4))
+* **client-bedrock-data-automation:** Added support for modality routing and modality enablement on CreateDataAutomationProject and UpdateDataAutomationProject APIs ([c1ae828](https://github.com/aws/aws-sdk-js-v3/commit/c1ae828cab47ff70dfa0d0ac1a98ac8dfb0bd247))
+* **client-codebuild:** Remove redundant validation check. ([4b61b68](https://github.com/aws/aws-sdk-js-v3/commit/4b61b68040027a1b672d7afe5d30ffb72fc46fa0))
+* **client-dynamodb:** Add support for ARN-sourced account endpoint generation for TransactWriteItems. This will generate account endpoints for DynamoDB TransactWriteItems requests using ARN-sourced account ID when available. ([34789ba](https://github.com/aws/aws-sdk-js-v3/commit/34789bacdec8c51a149c5b64f9e47f8a9e44e477))
+* **client-rds:** This Amazon RDS release adds support for managed master user passwords for Oracle CDBs. ([5ab41aa](https://github.com/aws/aws-sdk-js-v3/commit/5ab41aa80ee264cc3c3478c43be1d3c33a92db30))
+
+
+
+
+
 # [3.795.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.794.0...v3.795.0) (2025-04-23)
 
 
