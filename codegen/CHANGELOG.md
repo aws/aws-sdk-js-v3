@@ -6,7 +6,7 @@
 - Upgraded to smithy-typescript 0.29.1 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0291-2025-04-24))
 
 ## Bug Fixes
-- Removed host prefix behaviour ([#7025](https://github.com/aws/aws-sdk-js-v3/pull/7025))
+- Removed host prefix behaviour for S3 and S3Control ([#7025](https://github.com/aws/aws-sdk-js-v3/pull/7025))
 
 ## 0.29.0 (2025-04-11)
 
