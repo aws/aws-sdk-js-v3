@@ -1213,7 +1213,11 @@ export interface SchedulerRequest {
   type: SchedulerType | undefined;
 
   /**
-   * <p>The version of the specified scheduling software that Amazon Web Services PCS uses to manage cluster scaling and job scheduling.</p>
+   * <p>The version of the specified scheduling software that Amazon Web Services PCS uses to manage cluster scaling and job scheduling.
+   *          For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in
+   *             Amazon Web Services PCS</a> in the <i>Amazon Web Services PCS User Guide</i>.</p>
+   *          <p>Valid Values: <code>23.11 | 24.05</code>
+   *          </p>
    * @public
    */
   version: string | undefined;
@@ -1456,7 +1460,11 @@ export interface Scheduler {
   type: SchedulerType | undefined;
 
   /**
-   * <p>The version of the specified scheduling software that Amazon Web Services PCS uses to manage cluster scaling and job scheduling.</p>
+   * <p>The version of the specified scheduling software that Amazon Web Services PCS uses to manage cluster scaling and job scheduling.
+   *          For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in
+   *             Amazon Web Services PCS</a> in the <i>Amazon Web Services PCS User Guide</i>.</p>
+   *          <p>Valid Values: <code>23.11 | 24.05</code>
+   *          </p>
    * @public
    */
   version: string | undefined;
