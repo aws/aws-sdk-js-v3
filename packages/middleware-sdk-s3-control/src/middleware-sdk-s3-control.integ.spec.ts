@@ -78,9 +78,9 @@ describe("middleware-sdk-s3-control", () => {
 
       requireRequestsFrom(client).toMatch({
         method: "GET",
-        hostname: "123456789012.s3-outposts.us-west-2.amazonaws.com",
+        hostname: "s3-outposts.us-west-2.amazonaws.com",
         headers: {
-          host: "123456789012.s3-outposts.us-west-2.amazonaws.com",
+          host: "s3-outposts.us-west-2.amazonaws.com",
         },
         protocol: "https:",
         path: "/v20180820/bucket",

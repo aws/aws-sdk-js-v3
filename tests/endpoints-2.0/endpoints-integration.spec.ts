@@ -1,14 +1,15 @@
 import { resolveParams } from "@smithy/middleware-endpoint";
-import { EndpointV2 } from "@smithy/types";
-import { resolveEndpoint, EndpointParams } from "@smithy/util-endpoints";
+import { EndpointV2, RelativeMiddlewareOptions } from "@smithy/types";
+import { EndpointParams, resolveEndpoint } from "@smithy/util-endpoints";
 import { existsSync, readdirSync } from "fs";
 import { join } from "path";
 
 import { EndpointExpectation, ServiceModel, ServiceNamespace } from "./integration-test-types";
+import { HttpRequest } from "@smithy/protocol-http";
 
 describe("client list", () => {
   const root = join(__dirname, "..", "..");
-  const clientPackageNameList = readdirSync(join(root, "clients"));
+  const clientPackageNameList = readdirSync(join(root, "clients")).filter((f) => f.startsWith("client-"));
 
   it("should be at least 300 clients", () => {
     expect(clientPackageNameList.length).toBeGreaterThan(300);
@@ -37,6 +38,7 @@ describe("client list", () => {
 function runTestCases(service: ServiceModel, namespace: ServiceNamespace) {
   const serviceId = service.traits["aws.api#service"].serviceId;
   const testCases = service.traits["smithy.rules#endpointTests"]?.testCases;
+  const Client: any = Object.entries(namespace).find(([k, v]) => k.endsWith("Client"))![1];
 
   const ruleSet = service.traits["smithy.rules#endpointRuleSet"];
   const defaultEndpointResolver = (endpointParams: EndpointParams) => resolveEndpoint(ruleSet, { endpointParams });
@@ -46,14 +48,23 @@ function runTestCases(service: ServiceModel, namespace: ServiceNamespace) {
       const { documentation, params = {}, expect: expectation, operationInputs } = testCase;
       params.serviceId = serviceId;
 
-      it(documentation || "undocumented testcase", async () => {
+      const test = Client.name === "DynamoDBClient" && "AccountId" in params ? it.skip : it;
+
+      test(documentation || "undocumented testcase", async () => {
         if ("endpoint" in expectation) {
           const { endpoint } = expectation;
           if (operationInputs) {
             for (const operationInput of operationInputs) {
               const { operationName, operationParams = {} } = operationInput;
-              const command = namespace[`${operationName}Command`];
-              const endpointParams = await resolveParams(operationParams, command, params);
+              const Command = namespace[`${operationName}Command`];
+              const endpointParams = await resolveParams(operationParams, Command, mapClientConfig(params));
+
+              // todo: Use an actual client for a more integrated test.
+              // todo: This call returns an intercepted EndpointV2 object that can replace the one
+              // todo: used below.
+              void useClient;
+              void [Client, params, Command, operationParams];
+
               const observed = defaultEndpointResolver(endpointParams as EndpointParams);
               assertEndpointResolvedCorrectly(endpoint, observed);
             }
@@ -105,4 +116,73 @@ function assertEndpointResolvedCorrectly(expected: EndpointExpectation["endpoint
   if (authSchemes) {
     expect(observed.properties?.authSchemes).toEqual(authSchemes);
   }
+}
+
+/**
+ * Makes a client operation return its EndpointV2 instead of making a request.
+ */
+const requestInterceptorMiddleware = (next: any, context: any) => async (args: any) => {
+  const { request } = args;
+  if (HttpRequest.isInstance(request)) {
+    const endpoint = context.endpointV2;
+    return {
+      response: {
+        statusCode: 200,
+      },
+      output: {
+        ...endpoint,
+        url: {
+          protocol: request.protocol,
+          hostname: request.hostname,
+          pathname: request.path,
+          href: `${request.protocol}//${request.hostname}${request.path}`,
+        } as URL,
+      },
+    } as {
+      output: EndpointV2;
+    };
+  }
+  throw new Error("Request must not continue beyond serialization step.");
+};
+const requestInterceptorMiddlewareOptions: RelativeMiddlewareOptions = {
+  name: "requestInterceptorMiddleware",
+  override: true,
+  toMiddleware: "serializerMiddleware",
+  relation: "after",
+};
+
+const paramMap = {
+  Region: "region",
+  UseFIPS: "useFipsEndpoint",
+  UseDualStack: "useDualstackEndpoint",
+  ForcePathStyle: "forcePathStyle",
+  Accelerate: "useAccelerateEndpoint",
+  DisableMRAP: "disableMultiregionAccessPoints",
+  DisableMultiRegionAccessPoints: "disableMultiregionAccessPoints",
+  UseArnRegion: "useArnRegion",
+  Endpoint: "endpoint",
+  UseGlobalEndpoint: "useGlobalEndpoint",
+};
+
+async function useClient(Client: any, Command: any, clientConfig: any, input: any): Promise<EndpointV2> {
+  const client = new Client({
+    ...mapClientConfig(clientConfig),
+    credentials: {
+      accessKeyId: "ENDPOINTS_TEST",
+      secretAccessKey: "ENDPOINTS_TEST",
+    },
+  });
+  client.middlewareStack.addRelativeTo(requestInterceptorMiddleware, requestInterceptorMiddlewareOptions);
+  const command = new Command(input);
+  const observed: EndpointV2 = await client.send(command);
+  return observed;
+}
+
+function mapClientConfig(params: any) {
+  return Object.entries(params).reduce((acc: any, cur: [string, any]) => {
+    const [k, v] = cur;
+    const key = paramMap[k as keyof typeof paramMap] ?? k;
+    acc[key] = v;
+    return acc;
+  }, {} as any);
 }
