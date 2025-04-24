@@ -652,7 +652,18 @@ export class TransactWriteItemsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep(commonParams)
+  .ep({
+    ...commonParams,
+    ResourceArnList: {
+      type: "operationContextParams",
+      get: (input?: any) =>
+        input?.TransactItems?.map((obj: any) =>
+          [obj?.ConditionCheck?.TableName, obj?.Put?.TableName, obj?.Delete?.TableName, obj?.Update?.TableName].filter(
+            (i) => i
+          )
+        ).flat(),
+    },
+  })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
