@@ -63,6 +63,7 @@ import {
   AccessDeniedException,
   AudioExtractionCategory,
   AudioExtractionCategoryType,
+  AudioOverrideConfiguration,
   AudioStandardExtraction,
   AudioStandardGenerativeField,
   AudioStandardGenerativeFieldType,
@@ -91,11 +92,14 @@ import {
   ImageBoundingBox,
   ImageExtractionCategory,
   ImageExtractionCategoryType,
+  ImageOverrideConfiguration,
   ImageStandardExtraction,
   ImageStandardGenerativeField,
   ImageStandardGenerativeFieldType,
   ImageStandardOutputConfiguration,
   InternalServerException,
+  ModalityProcessingConfiguration,
+  ModalityRoutingConfiguration,
   OverrideConfiguration,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
@@ -107,6 +111,7 @@ import {
   VideoBoundingBox,
   VideoExtractionCategory,
   VideoExtractionCategoryType,
+  VideoOverrideConfiguration,
   VideoStandardExtraction,
   VideoStandardGenerativeField,
   VideoStandardGenerativeFieldType,
@@ -917,6 +922,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AudioExtractionCategoryTypes omitted.
 
+// se_AudioOverrideConfiguration omitted.
+
 // se_AudioStandardExtraction omitted.
 
 // se_AudioStandardGenerativeField omitted.
@@ -965,6 +972,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ImageExtractionCategoryTypes omitted.
 
+// se_ImageOverrideConfiguration omitted.
+
 // se_ImageStandardExtraction omitted.
 
 // se_ImageStandardGenerativeField omitted.
@@ -974,6 +983,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ImageStandardOutputConfiguration omitted.
 
 // se_KmsEncryptionContext omitted.
+
+// se_ModalityProcessingConfiguration omitted.
+
+// se_ModalityRoutingConfiguration omitted.
 
 // se_OverrideConfiguration omitted.
 
@@ -993,6 +1006,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_VideoExtractionCategoryTypes omitted.
 
+// se_VideoOverrideConfiguration omitted.
+
 // se_VideoStandardExtraction omitted.
 
 // se_VideoStandardGenerativeField omitted.
@@ -1004,6 +1019,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_AudioExtractionCategory omitted.
 
 // de_AudioExtractionCategoryTypes omitted.
+
+// de_AudioOverrideConfiguration omitted.
 
 // de_AudioStandardExtraction omitted.
 
@@ -1135,6 +1152,8 @@ const de_DataAutomationProjectSummary = (output: any, context: __SerdeContext): 
 
 // de_ImageExtractionCategoryTypes omitted.
 
+// de_ImageOverrideConfiguration omitted.
+
 // de_ImageStandardExtraction omitted.
 
 // de_ImageStandardGenerativeField omitted.
@@ -1144,6 +1163,10 @@ const de_DataAutomationProjectSummary = (output: any, context: __SerdeContext): 
 // de_ImageStandardOutputConfiguration omitted.
 
 // de_KmsEncryptionContext omitted.
+
+// de_ModalityProcessingConfiguration omitted.
+
+// de_ModalityRoutingConfiguration omitted.
 
 // de_OverrideConfiguration omitted.
 
@@ -1164,6 +1187,8 @@ const de_DataAutomationProjectSummary = (output: any, context: __SerdeContext): 
 // de_VideoExtractionCategory omitted.
 
 // de_VideoExtractionCategoryTypes omitted.
+
+// de_VideoOverrideConfiguration omitted.
 
 // de_VideoStandardExtraction omitted.
 

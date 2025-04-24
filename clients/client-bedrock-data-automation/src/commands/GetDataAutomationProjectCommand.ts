@@ -152,6 +152,30 @@ export interface GetDataAutomationProjectCommandOutput extends GetDataAutomation
  * //         splitter: { // SplitterConfiguration
  * //           state: "ENABLED" || "DISABLED",
  * //         },
+ * //         modalityProcessing: { // ModalityProcessingConfiguration
+ * //           state: "ENABLED" || "DISABLED",
+ * //         },
+ * //       },
+ * //       image: { // ImageOverrideConfiguration
+ * //         modalityProcessing: {
+ * //           state: "ENABLED" || "DISABLED",
+ * //         },
+ * //       },
+ * //       video: { // VideoOverrideConfiguration
+ * //         modalityProcessing: {
+ * //           state: "ENABLED" || "DISABLED",
+ * //         },
+ * //       },
+ * //       audio: { // AudioOverrideConfiguration
+ * //         modalityProcessing: {
+ * //           state: "ENABLED" || "DISABLED",
+ * //         },
+ * //       },
+ * //       modalityRouting: { // ModalityRoutingConfiguration
+ * //         jpeg: "IMAGE" || "DOCUMENT" || "AUDIO" || "VIDEO",
+ * //         png: "IMAGE" || "DOCUMENT" || "AUDIO" || "VIDEO",
+ * //         mp4: "IMAGE" || "DOCUMENT" || "AUDIO" || "VIDEO",
+ * //         mov: "IMAGE" || "DOCUMENT" || "AUDIO" || "VIDEO",
  * //       },
  * //     },
  * //     status: "COMPLETED" || "IN_PROGRESS" || "FAILED", // required
