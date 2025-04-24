@@ -75,6 +75,11 @@ export interface DescribeTenantDatabasesCommandOutput extends TenantDatabasesMes
  * //         MasterUserPassword: "STRING_VALUE",
  * //         TenantDBName: "STRING_VALUE",
  * //       },
+ * //       MasterUserSecret: { // MasterUserSecret
+ * //         SecretArn: "STRING_VALUE",
+ * //         SecretStatus: "STRING_VALUE",
+ * //         KmsKeyId: "STRING_VALUE",
+ * //       },
  * //       TagList: [ // TagList
  * //         { // Tag
  * //           Key: "STRING_VALUE",

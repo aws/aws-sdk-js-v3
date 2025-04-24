@@ -5218,7 +5218,8 @@ export interface CreateDBClusterMessage {
   /**
    * <p>Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window.
    *             By default, minor engine upgrades are applied automatically.</p>
-   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster.</p>
+   *          <p>For more information about automatic minor version upgrades, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades">Automatically upgrading the minor engine version</a>.</p>
    * @public
    */
   AutoMinorVersionUpgrade?: boolean | undefined;
@@ -6414,6 +6415,7 @@ export interface DBCluster {
   /**
    * <p>Indicates whether minor version patches are applied automatically.</p>
    *          <p>This setting is for Aurora DB clusters and Multi-AZ DB clusters.</p>
+   *          <p>For more information about automatic minor version upgrades, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades">Automatically upgrading the minor engine version</a>.</p>
    * @public
    */
   AutoMinorVersionUpgrade?: boolean | undefined;
@@ -8057,6 +8059,7 @@ export interface CreateDBInstanceMessage {
    *           By default, minor engine upgrades are applied automatically.</p>
    *          <p>If you create an RDS Custom DB instance, you must set <code>AutoMinorVersionUpgrade</code> to
    *           <code>false</code>.</p>
+   *          <p>For more information about automatic minor version upgrades, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades">Automatically upgrading the minor engine version</a>.</p>
    * @public
    */
   AutoMinorVersionUpgrade?: boolean | undefined;
@@ -9423,6 +9426,7 @@ export interface DBInstance {
 
   /**
    * <p>Indicates whether minor version patches are applied automatically.</p>
+   *          <p>For more information about automatic minor version upgrades, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades">Automatically upgrading the minor engine version</a>.</p>
    * @public
    */
   AutoMinorVersionUpgrade?: boolean | undefined;
@@ -10152,6 +10156,7 @@ export interface CreateDBInstanceReadReplicaMessage {
    *             read replica during the maintenance window.</p>
    *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    *          <p>Default: Inherits the value from the source DB instance.</p>
+   *          <p>For more information about automatic minor version upgrades, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades">Automatically upgrading the minor engine version</a>.</p>
    * @public
    */
   AutoMinorVersionUpgrade?: boolean | undefined;
@@ -10993,7 +10998,21 @@ export interface UserAuthConfig {
   IAMAuth?: IAMAuthMode | undefined;
 
   /**
-   * <p>The type of authentication the proxy uses for connections from clients.</p>
+   * <p>The type of authentication the proxy uses for connections from clients. The following values are defaults for the corresponding engines:</p>
+   *          <ul>
+   *             <li>
+   *                <p>RDS for MySQL: <code>MYSQL_CACHING_SHA2_PASSWORD</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for SQL Server: <code>SQL_SERVER_AUTHENTICATION</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for PostgreSQL: <code>POSTGRES_SCRAM_SHA2_256</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ClientPasswordAuthType?: ClientPasswordAuthType | undefined;
@@ -13162,10 +13181,14 @@ export interface CreateTenantDatabaseMessage {
    *                     (<code>/</code>), double quote (<code>"</code>), at symbol (<code>@</code>),
    *                     ampersand (<code>&</code>), or single quote (<code>'</code>).</p>
    *             </li>
+   *             <li>
+   *                <p>Can't be specified when <code>ManageMasterUserPassword</code> is
+   *                     enabled.</p>
+   *             </li>
    *          </ul>
    * @public
    */
-  MasterUserPassword: string | undefined;
+  MasterUserPassword?: string | undefined;
 
   /**
    * <p>The character set for your tenant database. If you don't specify a value, the
@@ -13179,6 +13202,39 @@ export interface CreateTenantDatabaseMessage {
    * @public
    */
   NcharCharacterSetName?: string | undefined;
+
+  /**
+   * <p>Specifies whether to manage the master user password with Amazon Web Services Secrets Manager.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
+   *             in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't manage the master user password with Amazon Web Services Secrets Manager if <code>MasterUserPassword</code>
+   *                     is specified.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ManageMasterUserPassword?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and
+   *             managed in Amazon Web Services Secrets Manager.</p>
+   *          <p>This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets
+   *             Manager for the DB instance.</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+   *             To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
+   *          <p>If you don't specify <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code>
+   *             KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't
+   *             use the <code>aws/secretsmanager</code> KMS key to encrypt the secret, and you must use a customer
+   *             managed KMS key.</p>
+   *          <p>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account
+   *             has a different default KMS key for each Amazon Web Services Region.</p>
+   * @public
+   */
+  MasterUserSecretKmsKeyId?: string | undefined;
 
   /**
    * <p>A list of tags.</p>
@@ -13287,6 +13343,16 @@ export interface TenantDatabase {
    * @public
    */
   PendingModifiedValues?: TenantDatabasePendingModifiedValues | undefined;
+
+  /**
+   * <p>Contains the secret managed by RDS in Amazon Web Services Secrets Manager for the master user password.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
+   *             in the <i>Amazon RDS User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
+   *             in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   * @public
+   */
+  MasterUserSecret?: MasterUserSecret | undefined;
 
   /**
    * <p>A list of tags.</p>

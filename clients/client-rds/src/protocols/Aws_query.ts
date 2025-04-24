@@ -11532,6 +11532,12 @@ const se_CreateTenantDatabaseMessage = (input: CreateTenantDatabaseMessage, cont
   if (input[_NCSN] != null) {
     entries[_NCSN] = input[_NCSN];
   }
+  if (input[_MMUP] != null) {
+    entries[_MMUP] = input[_MMUP];
+  }
+  if (input[_MUSKKI] != null) {
+    entries[_MUSKKI] = input[_MUSKKI];
+  }
   if (input[_T] != null) {
     const memberEntries = se_TagList(input[_T], context);
     if (input[_T]?.length === 0) {
@@ -14426,6 +14432,15 @@ const se_ModifyTenantDatabaseMessage = (input: ModifyTenantDatabaseMessage, cont
   if (input[_NTDBN] != null) {
     entries[_NTDBN] = input[_NTDBN];
   }
+  if (input[_MMUP] != null) {
+    entries[_MMUP] = input[_MMUP];
+  }
+  if (input[_RMUP] != null) {
+    entries[_RMUP] = input[_RMUP];
+  }
+  if (input[_MUSKKI] != null) {
+    entries[_MUSKKI] = input[_MUSKKI];
+  }
   return entries;
 };
 
@@ -15608,6 +15623,12 @@ const se_RestoreDBInstanceFromDBSnapshotMessage = (
   if (input[_ELS] != null) {
     entries[_ELS] = input[_ELS];
   }
+  if (input[_MMUP] != null) {
+    entries[_MMUP] = input[_MMUP];
+  }
+  if (input[_MUSKKI] != null) {
+    entries[_MUSKKI] = input[_MUSKKI];
+  }
   return entries;
 };
 
@@ -15990,6 +16011,12 @@ const se_RestoreDBInstanceToPointInTimeMessage = (
   }
   if (input[_ELS] != null) {
     entries[_ELS] = input[_ELS];
+  }
+  if (input[_MMUP] != null) {
+    entries[_MMUP] = input[_MMUP];
+  }
+  if (input[_MUSKKI] != null) {
+    entries[_MUSKKI] = input[_MUSKKI];
   }
   return entries;
 };
@@ -24712,6 +24739,9 @@ const de_TenantDatabase = (output: any, context: __SerdeContext): TenantDatabase
   }
   if (output[_PMV] != null) {
     contents[_PMV] = de_TenantDatabasePendingModifiedValues(output[_PMV], context);
+  }
+  if (output[_MUS] != null) {
+    contents[_MUS] = de_MasterUserSecret(output[_MUS], context);
   }
   if (output.TagList === "") {
     contents[_TL] = [];

@@ -7904,7 +7904,8 @@ export interface ModifyDBClusterMessage {
   /**
    * <p>Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window.
    *             By default, minor engine upgrades are applied automatically.</p>
-   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters.</p>
+   *          <p>For more information about automatic minor version upgrades, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades">Automatically upgrading the minor engine version</a>.</p>
    * @public
    */
   AutoMinorVersionUpgrade?: boolean | undefined;
@@ -8532,11 +8533,17 @@ export interface ModifyDBInstanceMessage {
    *          <p>This setting doesn't apply to the following DB instances:</p>
    *          <ul>
    *             <li>
-   *                <p>Amazon Aurora (The password for the master user is managed by the DB cluster. For
-   *             more information, see <code>ModifyDBCluster</code>.)</p>
+   *                <p>Amazon Aurora</p>
+   *                <p>The password for the master user is managed by the DB cluster. For more
+   *                     information, see <code>ModifyDBCluster</code>.</p>
    *             </li>
    *             <li>
    *                <p>RDS Custom</p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for Oracle CDBs in the multi-tenant configuration</p>
+   *                <p>Specify the master password in <code>ModifyTenantDatabase</code>
+   *                     instead.</p>
    *             </li>
    *          </ul>
    *          <p>Default: Uses existing setting</p>
@@ -8755,6 +8762,7 @@ export interface ModifyDBInstanceMessage {
    *          <p>If any of the preceding conditions isn't met, Amazon RDS applies the change as soon as possible and
    *       doesn't cause an outage.</p>
    *          <p>For an RDS Custom DB instance, don't enable this setting. Otherwise, the operation returns an error.</p>
+   *          <p>For more information about automatic minor version upgrades, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades">Automatically upgrading the minor engine version</a>.</p>
    * @public
    */
   AutoMinorVersionUpgrade?: boolean | undefined;
@@ -9385,6 +9393,14 @@ export interface ModifyDBInstanceMessage {
    *                <p>Can't manage the master user password with Amazon Web Services Secrets Manager if <code>MasterUserPassword</code>
    *                     is specified.</p>
    *             </li>
+   *             <li>
+   *                <p>Can't specify for RDS for Oracle CDB instances in the multi-tenant
+   *                     configuration. Use <code>ModifyTenantDatabase</code> instead.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't specify the parameters <code>ManageMasterUserPassword</code> and
+   *                         <code>MultiTenant</code> in the same operation.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -9394,7 +9410,7 @@ export interface ModifyDBInstanceMessage {
    * <p>Specifies whether to rotate the secret managed by Amazon Web Services Secrets Manager for the
    *             master user password.</p>
    *          <p>This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets
-   *             Manager for the DB cluster. The secret value contains the updated password.</p>
+   *             Manager for the DB instance. The secret value contains the updated password.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
    *             in the <i>Amazon RDS User Guide.</i>
    *          </p>
@@ -10440,6 +10456,91 @@ export interface ModifyTenantDatabaseMessage {
    * @public
    */
   NewTenantDBName?: string | undefined;
+
+  /**
+   * <p>Specifies whether to manage the master user password with Amazon Web Services Secrets Manager.</p>
+   *          <p>If the tenant database doesn't manage the master user password with Amazon Web Services Secrets
+   *             Manager, you can turn on this management. In this case, you can't specify
+   *                 <code>MasterUserPassword</code>.</p>
+   *          <p>If the tenant database already manages the master user password with Amazon Web Services Secrets
+   *             Manager, and you specify that the master user password is not managed with Amazon Web Services Secrets
+   *             Manager, then you must specify <code>MasterUserPassword</code>. In this case, Amazon RDS
+   *             deletes the secret and uses the new password for the master user specified by
+   *                 <code>MasterUserPassword</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
+   *             in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't manage the master user password with Amazon Web Services Secrets Manager if <code>MasterUserPassword</code>
+   *                     is specified.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ManageMasterUserPassword?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to rotate the secret managed by Amazon Web Services Secrets Manager for the
+   *             master user password.</p>
+   *          <p>This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets
+   *             Manager for the DB instance. The secret value contains the updated password.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
+   *             in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You must apply the change immediately when rotating the master user password.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  RotateMasterUserPassword?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and
+   *             managed in Amazon Web Services Secrets Manager.</p>
+   *          <p>This setting is valid only if both of the following conditions are met:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The tenant database doesn't manage the master user password in Amazon Web Services Secrets Manager.</p>
+   *                <p>If the tenant database already manages the master user password in Amazon Web Services Secrets Manager,
+   *                     you can't change the KMS key used to encrypt the secret.</p>
+   *             </li>
+   *             <li>
+   *                <p>You're turning on <code>ManageMasterUserPassword</code> to manage the master user password
+   *                     in Amazon Web Services Secrets Manager.</p>
+   *                <p>If you're turning on <code>ManageMasterUserPassword</code> and don't specify
+   *                     <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code>
+   *                     KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't
+   *                     use the <code>aws/secretsmanager</code> KMS key to encrypt the secret, and you must use a self-managed
+   *                     KMS key.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The Amazon Web Services KMS key identifier is any of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ARN</p>
+   *             </li>
+   *             <li>
+   *                <p>Key ID</p>
+   *             </li>
+   *             <li>
+   *                <p>Alias ARN</p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name for the KMS key</p>
+   *             </li>
+   *          </ul>
+   *          <p>To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias
+   *             ARN.</p>
+   *          <p>A default KMS key exists for your Amazon Web Services account. Your Amazon Web Services account has a different
+   *             default KMS key for each Amazon Web Services Region.</p>
+   * @public
+   */
+  MasterUserSecretKmsKeyId?: string | undefined;
 }
 
 /**
@@ -12817,6 +12918,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    * <p>Specifies whether to automatically apply minor version upgrades to the DB instance
    *           during the maintenance window.</p>
    *          <p>If you restore an RDS Custom DB instance, you must disable this parameter.</p>
+   *          <p>For more information about automatic minor version upgrades, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades">Automatically upgrading the minor engine version</a>.</p>
    * @public
    */
   AutoMinorVersionUpgrade?: boolean | undefined;
@@ -13328,6 +13430,38 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    * @public
    */
   EngineLifecycleSupport?: string | undefined;
+
+  /**
+   * <p>Specifies whether to manage the master user password with Amazon Web Services Secrets Manager in the
+   *             restored DB instance.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
+   *             in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Applies to RDS for Oracle only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ManageMasterUserPassword?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and
+   *             managed in Amazon Web Services Secrets Manager.</p>
+   *          <p>This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets
+   *             Manager for the DB instance.</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+   *             To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
+   *          <p>If you don't specify <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code>
+   *             KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't
+   *             use the <code>aws/secretsmanager</code> KMS key to encrypt the secret, and you must use a customer
+   *             managed KMS key.</p>
+   *          <p>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account
+   *             has a different default KMS key for each Amazon Web Services Region.</p>
+   * @public
+   */
+  MasterUserSecretKmsKeyId?: string | undefined;
 }
 
 /**
@@ -13598,6 +13732,7 @@ export interface RestoreDBInstanceFromS3Message {
    * <p>Specifies whether to automatically apply minor engine upgrades
    *             to the DB instance during the maintenance window. By default, minor engine upgrades
    *             are not applied automatically.</p>
+   *          <p>For more information about automatic minor version upgrades, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades">Automatically upgrading the minor engine version</a>.</p>
    * @public
    */
   AutoMinorVersionUpgrade?: boolean | undefined;
@@ -14162,6 +14297,7 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    * <p>Specifies whether minor version upgrades are applied automatically to the
    *           DB instance during the maintenance window.</p>
    *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>For more information about automatic minor version upgrades, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades">Automatically upgrading the minor engine version</a>.</p>
    * @public
    */
   AutoMinorVersionUpgrade?: boolean | undefined;
@@ -14696,6 +14832,38 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    * @public
    */
   EngineLifecycleSupport?: string | undefined;
+
+  /**
+   * <p>Specifies whether to manage the master user password with Amazon Web Services Secrets Manager in the
+   *             restored DB instance.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
+   *             in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Applies to RDS for Oracle only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ManageMasterUserPassword?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and
+   *             managed in Amazon Web Services Secrets Manager.</p>
+   *          <p>This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets
+   *             Manager for the DB instance.</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+   *             To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
+   *          <p>If you don't specify <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code>
+   *             KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't
+   *             use the <code>aws/secretsmanager</code> KMS key to encrypt the secret, and you must use a customer
+   *             managed KMS key.</p>
+   *          <p>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account
+   *             has a different default KMS key for each Amazon Web Services Region.</p>
+   * @public
+   */
+  MasterUserSecretKmsKeyId?: string | undefined;
 }
 
 /**

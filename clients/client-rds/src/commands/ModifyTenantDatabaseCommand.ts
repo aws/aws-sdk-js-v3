@@ -47,6 +47,9 @@ export interface ModifyTenantDatabaseCommandOutput extends ModifyTenantDatabaseR
  *   TenantDBName: "STRING_VALUE", // required
  *   MasterUserPassword: "STRING_VALUE",
  *   NewTenantDBName: "STRING_VALUE",
+ *   ManageMasterUserPassword: true || false,
+ *   RotateMasterUserPassword: true || false,
+ *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  * };
  * const command = new ModifyTenantDatabaseCommand(input);
  * const response = await client.send(command);
@@ -66,6 +69,11 @@ export interface ModifyTenantDatabaseCommandOutput extends ModifyTenantDatabaseR
  * //     PendingModifiedValues: { // TenantDatabasePendingModifiedValues
  * //       MasterUserPassword: "STRING_VALUE",
  * //       TenantDBName: "STRING_VALUE",
+ * //     },
+ * //     MasterUserSecret: { // MasterUserSecret
+ * //       SecretArn: "STRING_VALUE",
+ * //       SecretStatus: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
  * //     },
  * //     TagList: [ // TagList
  * //       { // Tag
@@ -90,6 +98,9 @@ export interface ModifyTenantDatabaseCommandOutput extends ModifyTenantDatabaseR
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
  *
  * @throws {@link TenantDatabaseAlreadyExistsFault} (client fault)
  *  <p>You attempted to either create a tenant database that already exists or
