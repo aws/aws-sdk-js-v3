@@ -110,6 +110,7 @@ export const initializeWithMaximalConfiguration = () => {
     streamHasher: streamHasher,
     utf8Decoder: fromUtf8,
     utf8Encoder: toUtf8,
+    authSchemePreference: [],
     httpAuthSchemes: [],
     httpAuthSchemeProvider: (() => null) as unknown as HttpAuthSchemeProvider<any>,
     serviceConfiguredEndpoint: null as never,
