@@ -12265,20 +12265,7 @@ export class BlockedException extends __BaseException {
 }
 
 /**
- * <p>The <code>RunTask</code> request could not be processed due to conflicts. The provided
- * 				<code>clientToken</code> is already in use with a different <code>RunTask</code>
- * 			request. The <code>resourceIds</code> are the existing task ARNs which are already
- * 			associated with the <code>clientToken</code>. </p>
- *          <p>To fix this issue:</p>
- *          <ul>
- *             <li>
- *                <p>Run <code>RunTask</code> with a unique <code>clientToken</code>.</p>
- *             </li>
- *             <li>
- *                <p>Run <code>RunTask</code> with the <code>clientToken</code> and the original
- * 					set of parameters</p>
- *             </li>
- *          </ul>
+ * <p>The request could not be processed because of conflict in the current state of the resource. </p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -12986,8 +12973,8 @@ export interface StopServiceDeploymentRequest {
   serviceDeploymentArn: string | undefined;
 
   /**
-   * <p>How you want Amazon ECS to stop the task. </p>
-   *          <p>The valid values are <code>ROLLBACK</code>.</p>
+   * <p>How you want Amazon ECS to stop the service. </p>
+   *          <p>The ROLLBACK and ABORT stopType aren't supported.</p>
    * @public
    */
   stopType?: StopServiceDeploymentStopType | undefined;
