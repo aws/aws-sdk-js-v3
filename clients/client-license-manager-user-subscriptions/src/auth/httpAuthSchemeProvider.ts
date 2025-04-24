@@ -103,7 +103,10 @@ export const defaultLicenseManagerUserSubscriptionsHttpAuthSchemeProvider: Licen
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**
-   * A comma-separated list of case-sensitive auth scheme names. An auth scheme name is a fully qualified auth scheme ID with the namespace prefix trimmed. For example, the auth scheme with ID aws.auth#sigv4 is named sigv4. @public
+   * A comma-separated list of case-sensitive auth scheme names.
+   * An auth scheme name is a fully qualified auth scheme ID with the namespace prefix trimmed.
+   * For example, the auth scheme with ID aws.auth#sigv4 is named sigv4.
+   * @public
    */
   authSchemePreference?: string[] | Provider<string[]>;
 
@@ -125,7 +128,10 @@ export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
  */
 export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedConfig {
   /**
-   * A comma-separated list of case-sensitive auth scheme names. An auth scheme name is a fully qualified auth scheme ID with the namespace prefix trimmed. For example, the auth scheme with ID aws.auth#sigv4 is named sigv4. @public
+   * A comma-separated list of case-sensitive auth scheme names.
+   * An auth scheme name is a fully qualified auth scheme ID with the namespace prefix trimmed.
+   * For example, the auth scheme with ID aws.auth#sigv4 is named sigv4.
+   * @public
    */
   readonly authSchemePreference: Provider<string[]>;
 
