@@ -1711,6 +1711,100 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const HandlerBehavior = {
+  CODE: "CODE",
+  DIRECT: "DIRECT",
+} as const;
+
+/**
+ * @public
+ */
+export type HandlerBehavior = (typeof HandlerBehavior)[keyof typeof HandlerBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const InvokeType = {
+  EVENT: "EVENT",
+  REQUEST_RESPONSE: "REQUEST_RESPONSE",
+} as const;
+
+/**
+ * @public
+ */
+export type InvokeType = (typeof InvokeType)[keyof typeof InvokeType];
+
+/**
+ * <p>The configuration for a Lambda data source.</p>
+ * @public
+ */
+export interface LambdaConfig {
+  /**
+   * <p>The invocation type for a Lambda data source.</p>
+   * @public
+   */
+  invokeType?: InvokeType | undefined;
+}
+
+/**
+ * <p>The integration data source configuration for the handler.</p>
+ * @public
+ */
+export interface Integration {
+  /**
+   * <p>The unique name of the data source that has been configured on the API.</p>
+   * @public
+   */
+  dataSourceName: string | undefined;
+
+  /**
+   * <p>The configuration for a Lambda data source.</p>
+   * @public
+   */
+  lambdaConfig?: LambdaConfig | undefined;
+}
+
+/**
+ * <p>The configuration for a handler.</p>
+ * @public
+ */
+export interface HandlerConfig {
+  /**
+   * <p>The behavior for the handler.</p>
+   * @public
+   */
+  behavior: HandlerBehavior | undefined;
+
+  /**
+   * <p>The integration data source configuration for the handler.</p>
+   * @public
+   */
+  integration: Integration | undefined;
+}
+
+/**
+ * <p>The configuration for the <code>OnPublish</code> and <code>OnSubscribe</code> handlers.</p>
+ * @public
+ */
+export interface HandlerConfigs {
+  /**
+   * <p>The configuration for the <code>OnPublish</code> handler.</p>
+   * @public
+   */
+  onPublish?: HandlerConfig | undefined;
+
+  /**
+   * <p>The configuration for the <code>OnSubscribe</code> handler.</p>
+   * @public
+   */
+  onSubscribe?: HandlerConfig | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateChannelNamespaceRequest {
   /**
@@ -1754,6 +1848,12 @@ export interface CreateChannelNamespaceRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration for the <code>OnPublish</code> and <code>OnSubscribe</code> handlers.</p>
+   * @public
+   */
+  handlerConfigs?: HandlerConfigs | undefined;
 }
 
 /**
@@ -1821,6 +1921,12 @@ export interface ChannelNamespace {
    * @public
    */
   lastModified?: Date | undefined;
+
+  /**
+   * <p>The configuration for the <code>OnPublish</code> and <code>OnSubscribe</code> handlers.</p>
+   * @public
+   */
+  handlerConfigs?: HandlerConfigs | undefined;
 }
 
 /**
@@ -5906,6 +6012,12 @@ export interface UpdateChannelNamespaceRequest {
    * @public
    */
   codeHandlers?: string | undefined;
+
+  /**
+   * <p>The configuration for the <code>OnPublish</code> and <code>OnSubscribe</code> handlers.</p>
+   * @public
+   */
+  handlerConfigs?: HandlerConfigs | undefined;
 }
 
 /**

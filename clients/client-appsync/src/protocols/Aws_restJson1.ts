@@ -200,9 +200,13 @@ import {
   EventConfig,
   EventLogConfig,
   GraphQLSchemaException,
+  HandlerConfig,
+  HandlerConfigs,
   HttpDataSourceConfig,
+  Integration,
   InternalFailureException,
   LambdaAuthorizerConfig,
+  LambdaConfig,
   LambdaConflictHandlerConfig,
   LambdaDataSourceConfig,
   LimitExceededException,
@@ -389,6 +393,7 @@ export const se_CreateChannelNamespaceCommand = async (
   body = JSON.stringify(
     take(input, {
       codeHandlers: [],
+      handlerConfigs: (_) => _json(_),
       name: [],
       publishAuthModes: (_) => _json(_),
       subscribeAuthModes: (_) => _json(_),
@@ -1605,6 +1610,7 @@ export const se_UpdateChannelNamespaceCommand = async (
   body = JSON.stringify(
     take(input, {
       codeHandlers: [],
+      handlerConfigs: (_) => _json(_),
       publishAuthModes: (_) => _json(_),
       subscribeAuthModes: (_) => _json(_),
     })
@@ -3702,9 +3708,17 @@ const de_UnauthorizedExceptionRes = async (
 
 // se_FunctionsIds omitted.
 
+// se_HandlerConfig omitted.
+
+// se_HandlerConfigs omitted.
+
 // se_HttpDataSourceConfig omitted.
 
+// se_Integration omitted.
+
 // se_LambdaAuthorizerConfig omitted.
+
+// se_LambdaConfig omitted.
 
 // se_LambdaConflictHandlerConfig omitted.
 
@@ -3803,6 +3817,7 @@ const de_ChannelNamespace = (output: any, context: __SerdeContext): ChannelNames
     channelNamespaceArn: __expectString,
     codeHandlers: __expectString,
     created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    handlerConfigs: _json,
     lastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
     publishAuthModes: _json,
@@ -3958,9 +3973,17 @@ const de_DataSourceIntrospectionResult = (output: any, context: __SerdeContext):
 
 // de_GraphqlApis omitted.
 
+// de_HandlerConfig omitted.
+
+// de_HandlerConfigs omitted.
+
 // de_HttpDataSourceConfig omitted.
 
+// de_Integration omitted.
+
 // de_LambdaAuthorizerConfig omitted.
+
+// de_LambdaConfig omitted.
 
 // de_LambdaConflictHandlerConfig omitted.
 

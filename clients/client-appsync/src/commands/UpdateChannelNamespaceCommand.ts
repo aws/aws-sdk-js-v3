@@ -49,6 +49,26 @@ export interface UpdateChannelNamespaceCommandOutput extends UpdateChannelNamesp
  *     },
  *   ],
  *   codeHandlers: "STRING_VALUE",
+ *   handlerConfigs: { // HandlerConfigs
+ *     onPublish: { // HandlerConfig
+ *       behavior: "CODE" || "DIRECT", // required
+ *       integration: { // Integration
+ *         dataSourceName: "STRING_VALUE", // required
+ *         lambdaConfig: { // LambdaConfig
+ *           invokeType: "REQUEST_RESPONSE" || "EVENT",
+ *         },
+ *       },
+ *     },
+ *     onSubscribe: {
+ *       behavior: "CODE" || "DIRECT", // required
+ *       integration: {
+ *         dataSourceName: "STRING_VALUE", // required
+ *         lambdaConfig: {
+ *           invokeType: "REQUEST_RESPONSE" || "EVENT",
+ *         },
+ *       },
+ *     },
+ *   },
  * };
  * const command = new UpdateChannelNamespaceCommand(input);
  * const response = await client.send(command);
@@ -73,6 +93,26 @@ export interface UpdateChannelNamespaceCommandOutput extends UpdateChannelNamesp
  * //     channelNamespaceArn: "STRING_VALUE",
  * //     created: new Date("TIMESTAMP"),
  * //     lastModified: new Date("TIMESTAMP"),
+ * //     handlerConfigs: { // HandlerConfigs
+ * //       onPublish: { // HandlerConfig
+ * //         behavior: "CODE" || "DIRECT", // required
+ * //         integration: { // Integration
+ * //           dataSourceName: "STRING_VALUE", // required
+ * //           lambdaConfig: { // LambdaConfig
+ * //             invokeType: "REQUEST_RESPONSE" || "EVENT",
+ * //           },
+ * //         },
+ * //       },
+ * //       onSubscribe: {
+ * //         behavior: "CODE" || "DIRECT", // required
+ * //         integration: {
+ * //           dataSourceName: "STRING_VALUE", // required
+ * //           lambdaConfig: {
+ * //             invokeType: "REQUEST_RESPONSE" || "EVENT",
+ * //           },
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * // };
  *
