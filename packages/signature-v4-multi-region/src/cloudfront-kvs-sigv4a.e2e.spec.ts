@@ -71,11 +71,13 @@ describe("CloudFront KeyValue Store with SignatureV4a (JS Implementation)", () =
 
     cfClient = new CloudFrontClient({
       region: "us-west-2",
+      disableHostPrefix: true,
     });
 
     kvsClient = new CloudFrontKeyValueStoreClient({
       region: "us-west-2",
       signer,
+      disableHostPrefix: true,
     });
 
     const createResponse = await cfClient.send(
