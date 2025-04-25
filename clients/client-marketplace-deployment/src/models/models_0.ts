@@ -73,6 +73,11 @@ export class InternalServerException extends __BaseException {
 
 /**
  * <p>The shape containing the requested deployment parameter name and secretString.</p>
+ *          <note>
+ *             <p>To support AWS CloudFormation dynamic references to this resource using Quick Launch,
+ *         this value must match a parameter defined in the CloudFormation templated provided to
+ *         buyers.</p>
+ *          </note>
  * @public
  */
 export interface DeploymentParameterInput {
@@ -94,7 +99,7 @@ export interface DeploymentParameterInput {
  */
 export interface PutDeploymentParameterRequest {
   /**
-   * <p>The catalog related to the request. Fixed value: <code>AWS Marketplace</code>
+   * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
    *          </p>
    * @public
    */
@@ -132,6 +137,10 @@ export interface PutDeploymentParameterRequest {
 
   /**
    * <p>The idempotency token for deployment parameters. A unique identifier for the new version.</p>
+   *          <note>
+   *             <p>This field is not required if you're calling using an AWS SDK. Otherwise, a
+   *           <code>clientToken</code> must be provided with the request.</p>
+   *          </note>
    * @public
    */
   clientToken?: string | undefined;
