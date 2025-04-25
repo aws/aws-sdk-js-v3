@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.797.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.796.0...v3.797.0) (2025-04-25)
+
+
+### Features
+
+* **client-bedrock-runtime:** You can now reference images and documents stored in Amazon S3 when using InvokeModel and Converse APIs with Amazon Nova Lite and Nova Pro. This enables direct integration of S3-stored multimedia assets in your model requests without manual downloading or base64 encoding. ([25f581e](https://github.com/aws/aws-sdk-js-v3/commit/25f581e4aacaeb2f01a17e88807fd2d980786adb))
+* **clients:** update client endpoints as of 2025-04-25 ([a6438dd](https://github.com/aws/aws-sdk-js-v3/commit/a6438dd23b6a8ffb183201d953d954d52c080948))
+
+
+
+
+
 # [3.796.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.795.0...v3.796.0) (2025-04-24)
 
 
