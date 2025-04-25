@@ -81,6 +81,10 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *             format: "png" || "jpeg" || "gif" || "webp", // required
  *             source: { // ImageSource Union: only one key present
  *               bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *               s3Location: { // S3Location
+ *                 uri: "STRING_VALUE", // required
+ *                 bucketOwner: "STRING_VALUE",
+ *               },
  *             },
  *           },
  *           document: { // DocumentBlock
@@ -88,13 +92,17 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *             name: "STRING_VALUE", // required
  *             source: { // DocumentSource Union: only one key present
  *               bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *               s3Location: {
+ *                 uri: "STRING_VALUE", // required
+ *                 bucketOwner: "STRING_VALUE",
+ *               },
  *             },
  *           },
  *           video: { // VideoBlock
  *             format: "mkv" || "mov" || "mp4" || "webm" || "flv" || "mpeg" || "mpg" || "wmv" || "three_gp", // required
  *             source: { // VideoSource Union: only one key present
  *               bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
- *               s3Location: { // S3Location
+ *               s3Location: {
  *                 uri: "STRING_VALUE", // required
  *                 bucketOwner: "STRING_VALUE",
  *               },
@@ -115,6 +123,10 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *                   format: "png" || "jpeg" || "gif" || "webp", // required
  *                   source: {//  Union: only one key present
  *                     bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *                     s3Location: {
+ *                       uri: "STRING_VALUE", // required
+ *                       bucketOwner: "STRING_VALUE",
+ *                     },
  *                   },
  *                 },
  *                 document: {
@@ -122,16 +134,17 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *                   name: "STRING_VALUE", // required
  *                   source: {//  Union: only one key present
  *                     bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *                     s3Location: {
+ *                       uri: "STRING_VALUE", // required
+ *                       bucketOwner: "STRING_VALUE",
+ *                     },
  *                   },
  *                 },
  *                 video: {
  *                   format: "mkv" || "mov" || "mp4" || "webm" || "flv" || "mpeg" || "mpg" || "wmv" || "three_gp", // required
  *                   source: {//  Union: only one key present
  *                     bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
- *                     s3Location: {
- *                       uri: "STRING_VALUE", // required
- *                       bucketOwner: "STRING_VALUE",
- *                     },
+ *                     s3Location: "<S3Location>",
  *                   },
  *                 },
  *               },

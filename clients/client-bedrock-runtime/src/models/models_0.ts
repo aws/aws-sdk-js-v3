@@ -1630,10 +1630,31 @@ export const DocumentFormat = {
 export type DocumentFormat = (typeof DocumentFormat)[keyof typeof DocumentFormat];
 
 /**
+ * <p>A storage location in an Amazon S3 bucket.</p>
+ * @public
+ */
+export interface S3Location {
+  /**
+   * <p>An object URI starting with <code>s3://</code>.</p>
+   * @public
+   */
+  uri: string | undefined;
+
+  /**
+   * <p>If the bucket belongs to another AWS account, specify that account's ID.</p>
+   * @public
+   */
+  bucketOwner?: string | undefined;
+}
+
+/**
  * <p>Contains the content of a document.</p>
  * @public
  */
-export type DocumentSource = DocumentSource.BytesMember | DocumentSource.$UnknownMember;
+export type DocumentSource =
+  | DocumentSource.BytesMember
+  | DocumentSource.S3LocationMember
+  | DocumentSource.$UnknownMember;
 
 /**
  * @public
@@ -1645,6 +1666,17 @@ export namespace DocumentSource {
    */
   export interface BytesMember {
     bytes: Uint8Array;
+    s3Location?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The location of a document object in an Amazon S3 bucket. To see which models support S3 uploads, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html">Supported models and features for Converse</a>.</p>
+   * @public
+   */
+  export interface S3LocationMember {
+    bytes?: never;
+    s3Location: S3Location;
     $unknown?: never;
   }
 
@@ -1653,16 +1685,19 @@ export namespace DocumentSource {
    */
   export interface $UnknownMember {
     bytes?: never;
+    s3Location?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     bytes: (value: Uint8Array) => T;
+    s3Location: (value: S3Location) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: DocumentSource, visitor: Visitor<T>): T => {
     if (value.bytes !== undefined) return visitor.bytes(value.bytes);
+    if (value.s3Location !== undefined) return visitor.s3Location(value.s3Location);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1895,7 +1930,7 @@ export type ImageFormat = (typeof ImageFormat)[keyof typeof ImageFormat];
  * <p>The source for an image.</p>
  * @public
  */
-export type ImageSource = ImageSource.BytesMember | ImageSource.$UnknownMember;
+export type ImageSource = ImageSource.BytesMember | ImageSource.S3LocationMember | ImageSource.$UnknownMember;
 
 /**
  * @public
@@ -1907,6 +1942,17 @@ export namespace ImageSource {
    */
   export interface BytesMember {
     bytes: Uint8Array;
+    s3Location?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The location of an image object in an Amazon S3 bucket. To see which models support S3 uploads, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html">Supported models and features for Converse</a>.</p>
+   * @public
+   */
+  export interface S3LocationMember {
+    bytes?: never;
+    s3Location: S3Location;
     $unknown?: never;
   }
 
@@ -1915,16 +1961,19 @@ export namespace ImageSource {
    */
   export interface $UnknownMember {
     bytes?: never;
+    s3Location?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     bytes: (value: Uint8Array) => T;
+    s3Location: (value: S3Location) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ImageSource, visitor: Visitor<T>): T => {
     if (value.bytes !== undefined) return visitor.bytes(value.bytes);
+    if (value.s3Location !== undefined) return visitor.s3Location(value.s3Location);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2042,24 +2091,6 @@ export const VideoFormat = {
 export type VideoFormat = (typeof VideoFormat)[keyof typeof VideoFormat];
 
 /**
- * <p>A storage location in an S3 bucket.</p>
- * @public
- */
-export interface S3Location {
-  /**
-   * <p>An object URI starting with <code>s3://</code>.</p>
-   * @public
-   */
-  uri: string | undefined;
-
-  /**
-   * <p>If the bucket belongs to another AWS account, specify that account's ID.</p>
-   * @public
-   */
-  bucketOwner?: string | undefined;
-}
-
-/**
  * <p>A video source. You can upload a smaller video as a base64-encoded string as
  *     long as the encoded file is less than 25MB. You can also transfer videos up to 1GB in size
  *     from an S3 bucket.</p>
@@ -2082,7 +2113,7 @@ export namespace VideoSource {
   }
 
   /**
-   * <p>The location of a video object in an S3 bucket.</p>
+   * <p>The location of a video object in an Amazon S3 bucket. To see which models support S3 uploads, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html">Supported models and features for Converse</a>.</p>
    * @public
    */
   export interface S3LocationMember {

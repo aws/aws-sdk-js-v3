@@ -1235,6 +1235,7 @@ const se_DocumentBlock = (input: DocumentBlock, context: __SerdeContext): any =>
 const se_DocumentSource = (input: DocumentSource, context: __SerdeContext): any => {
   return DocumentSource.visit(input, {
     bytes: (value) => ({ bytes: context.base64Encoder(value) }),
+    s3Location: (value) => ({ s3Location: _json(value) }),
     _: (name, value) => ({ [name]: value } as any),
   });
 };
@@ -1340,6 +1341,7 @@ const se_ImageBlock = (input: ImageBlock, context: __SerdeContext): any => {
 const se_ImageSource = (input: ImageSource, context: __SerdeContext): any => {
   return ImageSource.visit(input, {
     bytes: (value) => ({ bytes: context.base64Encoder(value) }),
+    s3Location: (value) => ({ s3Location: _json(value) }),
     _: (name, value) => ({ [name]: value } as any),
   });
 };
@@ -1778,6 +1780,11 @@ const de_DocumentSource = (output: any, context: __SerdeContext): DocumentSource
       bytes: context.base64Decoder(output.bytes),
     };
   }
+  if (output.s3Location != null) {
+    return {
+      s3Location: _json(output.s3Location),
+    };
+  }
   return { $unknown: Object.entries(output)[0] };
 };
 
@@ -1994,6 +2001,11 @@ const de_ImageSource = (output: any, context: __SerdeContext): ImageSource => {
   if (output.bytes != null) {
     return {
       bytes: context.base64Decoder(output.bytes),
+    };
+  }
+  if (output.s3Location != null) {
+    return {
+      s3Location: _json(output.s3Location),
     };
   }
   return { $unknown: Object.entries(output)[0] };
