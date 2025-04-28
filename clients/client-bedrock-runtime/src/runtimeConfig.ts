@@ -16,7 +16,7 @@ import { eventStreamSerdeProvider } from "@smithy/eventstream-serde-node";
 import { Hash } from "@smithy/hash-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@smithy/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@smithy/node-config-provider";
-import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
+import { NodeHttp2Handler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
 import { calculateBodyLength } from "@smithy/util-body-length-node";
 import { DEFAULT_RETRY_MODE } from "@smithy/util-retry";
 import { BedrockRuntimeClientConfig } from "./BedrockRuntimeClient";
@@ -51,7 +51,9 @@ export const getRuntimeConfig = (config: BedrockRuntimeClientConfig) => {
     region:
       config?.region ??
       loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, { ...NODE_REGION_CONFIG_FILE_OPTIONS, ...profileConfig }),
-    requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
+    requestHandler: RequestHandler.create(
+      config?.requestHandler ?? (async () => ({ ...(await defaultConfigProvider()), disableConcurrentStreams: true }))
+    ),
     retryMode:
       config?.retryMode ??
       loadNodeConfig(
