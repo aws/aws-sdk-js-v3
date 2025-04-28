@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { UpdateLifecyclePolicyRequest, UpdateLifecyclePolicyResponse } from "../models/models_0";
+import { UpdateLifecyclePolicyRequest } from "../models/models_0";
+import { UpdateLifecyclePolicyResponse } from "../models/models_1";
 import { de_UpdateLifecyclePolicyCommand, se_UpdateLifecyclePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**

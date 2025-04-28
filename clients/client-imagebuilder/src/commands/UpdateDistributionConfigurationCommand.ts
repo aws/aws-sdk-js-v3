@@ -113,6 +113,13 @@ export interface UpdateDistributionConfigurationCommandOutput
  *           accountId: "STRING_VALUE",
  *         },
  *       ],
+ *       ssmParameterConfigurations: [ // SsmParameterConfigurationList
+ *         { // SsmParameterConfiguration
+ *           amiAccountId: "STRING_VALUE",
+ *           parameterName: "STRING_VALUE", // required
+ *           dataType: "text" || "aws:ec2:image",
+ *         },
+ *       ],
  *     },
  *   ],
  *   clientToken: "STRING_VALUE", // required

@@ -304,6 +304,7 @@ import {
   ServiceException,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
+  SsmParameterConfiguration,
   SystemsManagerAgent,
   TargetContainerRepository,
   WorkflowConfiguration,
@@ -4297,6 +4298,10 @@ const de_ServiceUnavailableExceptionRes = async (
 
 // se_SecurityGroupIds omitted.
 
+// se_SsmParameterConfiguration omitted.
+
+// se_SsmParameterConfigurationList omitted.
+
 // se_StringList omitted.
 
 // se_SystemsManagerAgent omitted.
@@ -4791,6 +4796,10 @@ const de_PackageVulnerabilityDetails = (output: any, context: __SerdeContext): P
 // de_SecurityGroupIds omitted.
 
 // de_SeverityCounts omitted.
+
+// de_SsmParameterConfiguration omitted.
+
+// de_SsmParameterConfigurationList omitted.
 
 // de_StringList omitted.
 

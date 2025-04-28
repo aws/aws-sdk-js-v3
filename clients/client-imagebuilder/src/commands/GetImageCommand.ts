@@ -275,6 +275,13 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //               accountId: "STRING_VALUE",
  * //             },
  * //           ],
+ * //           ssmParameterConfigurations: [ // SsmParameterConfigurationList
+ * //             { // SsmParameterConfiguration
+ * //               amiAccountId: "STRING_VALUE",
+ * //               parameterName: "STRING_VALUE", // required
+ * //               dataType: "text" || "aws:ec2:image",
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //       timeoutMinutes: Number("int"), // required

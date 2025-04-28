@@ -1243,8 +1243,10 @@ export interface InstanceBlockDeviceMapping {
  */
 export interface InstanceConfiguration {
   /**
-   * <p>The AMI ID to use as the base image for a container build and test instance. If not
-   * 			specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.</p>
+   * <p>The base image for a container build and test instance. This can contain an AMI ID
+   * 			or it can specify an Amazon Web Services Systems Manager (SSM) Parameter Store Parameter, prefixed by <code>ssm:</code>,
+   * 			followed by the parameter name or ARN.</p>
+   *          <p>If not specified, Image Builder uses the appropriate ECS-optimized AMI as a base image.</p>
    * @public
    */
   image?: string | undefined;
@@ -1375,7 +1377,9 @@ export interface ContainerRecipe {
   encrypted?: boolean | undefined;
 
   /**
-   * <p>The base image for the container recipe.</p>
+   * <p>The base image for customizations specified in the container recipe. This can
+   * 			contain an Image Builder image resource ARN or a container image URI, for example
+   * 			<code>amazonlinux:latest</code>.</p>
    * @public
    */
   parentImage?: string | undefined;
@@ -1982,6 +1986,50 @@ export interface S3ExportConfiguration {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const SsmParameterDataType = {
+  AWS_EC2_IMAGE: "aws:ec2:image",
+  TEXT: "text",
+} as const;
+
+/**
+ * @public
+ */
+export type SsmParameterDataType = (typeof SsmParameterDataType)[keyof typeof SsmParameterDataType];
+
+/**
+ * <p>Configuration for a single Parameter in the Amazon Web Services Systems Manager (SSM) Parameter Store in
+ * 			a given Region.</p>
+ * @public
+ */
+export interface SsmParameterConfiguration {
+  /**
+   * <p>Specify the account that will own the Parameter in a given Region. During distribution,
+   * 			this account must be specified in distribution settings as a target account for the
+   * 			Region.</p>
+   * @public
+   */
+  amiAccountId?: string | undefined;
+
+  /**
+   * <p>This is the name of the Parameter in the target Region or account. The image
+   * 			distribution creates the Parameter if it doesn't already exist. Otherwise, it updates
+   * 			the parameter.</p>
+   * @public
+   */
+  parameterName: string | undefined;
+
+  /**
+   * <p>The data type specifies what type of value the Parameter contains. We recommend that
+   * 			you use data type <code>aws:ec2:image</code>.</p>
+   * @public
+   */
+  dataType?: SsmParameterDataType | undefined;
+}
+
+/**
  * <p>Defines the settings for a specific Region.</p>
  * @public
  */
@@ -2020,8 +2068,8 @@ export interface Distribution {
   launchTemplateConfigurations?: LaunchTemplateConfiguration[] | undefined;
 
   /**
-   * <p>Configure export settings to deliver disk images created from your image build, using
-   * 			a file format that is compatible with your VMs in that Region.</p>
+   * <p>Configure export settings to deliver disk images created from your image build,
+   * 			using a file format that is compatible with your VMs in that Region.</p>
    * @public
    */
   s3ExportConfiguration?: S3ExportConfiguration | undefined;
@@ -2031,6 +2079,13 @@ export interface Distribution {
    * @public
    */
   fastLaunchConfigurations?: FastLaunchConfiguration[] | undefined;
+
+  /**
+   * <p>Contains settings to update Amazon Web Services Systems Manager (SSM) Parameter Store Parameters with
+   * 			output AMI IDs from the build by target Region.</p>
+   * @public
+   */
+  ssmParameterConfigurations?: SsmParameterConfiguration[] | undefined;
 }
 
 /**
@@ -3799,8 +3854,8 @@ export interface DistributionConfiguration {
   description?: string | undefined;
 
   /**
-   * <p>The distribution objects that apply Region-specific settings for the deployment of the
-   * 			image to targeted Regions.</p>
+   * <p>The distribution objects that apply Region-specific settings for the deployment of
+   * 			the image to targeted Regions.</p>
    * @public
    */
   distributions?: Distribution[] | undefined;
@@ -4143,7 +4198,23 @@ export interface ImageRecipe {
   components?: ComponentConfiguration[] | undefined;
 
   /**
-   * <p>The base image of the image recipe.</p>
+   * <p>The base image for customizations specified in the image recipe. You can specify the
+   * 			parent image using one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>AMI ID</p>
+   *             </li>
+   *             <li>
+   *                <p>Image Builder image Amazon Resource Name (ARN)</p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Web Services Systems Manager (SSM) Parameter Store Parameter, prefixed by <code>ssm:</code>,
+   * 					followed by the parameter name or ARN.</p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Web Services Marketplace product ID</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   parentImage?: string | undefined;
@@ -9540,15 +9611,4 @@ export interface UpdateLifecyclePolicyRequest {
    * @public
    */
   clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateLifecyclePolicyResponse {
-  /**
-   * <p>The ARN of the image lifecycle policy resource that was updated.</p>
-   * @public
-   */
-  lifecyclePolicyArn?: string | undefined;
 }
