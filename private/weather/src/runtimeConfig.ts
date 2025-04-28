@@ -2,6 +2,7 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 
+import { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "@aws-sdk/core";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { NODE_APP_ID_CONFIG_OPTIONS, createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-node";
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "@smithy/config-resolver";
@@ -31,6 +32,8 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
     ...config,
     runtime: "node",
     defaultsMode,
+    authSchemePreference:
+      config?.authSchemePreference ?? loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, profileConfig),
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentials: config?.credentials ?? credentialDefaultProvider(),
     defaultUserAgentProvider:
