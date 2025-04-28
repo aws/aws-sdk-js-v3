@@ -5,6 +5,9 @@ import { getArrayForCommaSeparatedString } from "../utils/getArrayForCommaSepara
 const NODE_AUTH_SCHEME_PREFERENCE_ENV_KEY = "AWS_AUTH_SCHEME_PREFERENCE";
 const NODE_AUTH_SCHEME_PREFERENCE_CONFIG_KEY = "auth_scheme_preference";
 
+/**
+ * @public
+ */
 export const NODE_AUTH_SCHEME_PREFERENCE_OPTIONS: LoadedConfigSelectors<string[]> = {
   /**
    * Retrieves auth scheme preference from environment variables
