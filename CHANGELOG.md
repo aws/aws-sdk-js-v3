@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.798.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.797.0...v3.798.0) (2025-04-28)
+
+
+### Features
+
+* **client-acm:** Add support for file-based HTTP domain control validation, available through Amazon CloudFront. ([3d9e319](https://github.com/aws/aws-sdk-js-v3/commit/3d9e3195ada788d008f0c15334db93b128344fa5))
+* **client-bedrock-runtime:** This release adds native h2 support for the bedrock runtime API, the support is only limited to SDKs that support h2 requests natively. ([3c9a894](https://github.com/aws/aws-sdk-js-v3/commit/3c9a8946e29aa21770528d5c61b03f1f24f328c5))
+* **client-cloudfront:** Add distribution tenant, connection group, and multi-tenant distribution APIs to the CloudFront SDK. ([fcac15c](https://github.com/aws/aws-sdk-js-v3/commit/fcac15c647ad505e3d3b9d0d7c3b457a5a01b5ba))
+* **client-imagebuilder:** Add integration with SSM Parameter Store to Image Builder. ([d20379b](https://github.com/aws/aws-sdk-js-v3/commit/d20379b63dcacf7139decf7b1852dee943047583))
+* **clients:** update client endpoints as of 2025-04-28 ([1deb7c6](https://github.com/aws/aws-sdk-js-v3/commit/1deb7c6f007b985b8747910f2762615d77fc1df4))
+* **signature-v4-multi-region:** add support for sigv4a package ([#6267](https://github.com/aws/aws-sdk-js-v3/issues/6267)) ([ecbba9f](https://github.com/aws/aws-sdk-js-v3/commit/ecbba9f6573ee0513a92b163f7b5db4c70e4390a))
+
+
+
+
+
 # [3.797.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.796.0...v3.797.0) (2025-04-25)
 
 

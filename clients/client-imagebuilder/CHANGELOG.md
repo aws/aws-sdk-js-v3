@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.798.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.797.0...v3.798.0) (2025-04-28)
+
+
+### Features
+
+* **client-imagebuilder:** Add integration with SSM Parameter Store to Image Builder. ([d20379b](https://github.com/aws/aws-sdk-js-v3/commit/d20379b63dcacf7139decf7b1852dee943047583))
+
+
+
+
+
 # [3.797.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.796.0...v3.797.0) (2025-04-25)
 
 **Note:** Version bump only for package @aws-sdk/client-imagebuilder

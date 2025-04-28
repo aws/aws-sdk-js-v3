@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.798.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.797.0...v3.798.0) (2025-04-28)
+
+
+### Features
+
+* **client-bedrock-runtime:** This release adds native h2 support for the bedrock runtime API, the support is only limited to SDKs that support h2 requests natively. ([3c9a894](https://github.com/aws/aws-sdk-js-v3/commit/3c9a8946e29aa21770528d5c61b03f1f24f328c5))
+
+
+
+
+
 # [3.797.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.796.0...v3.797.0) (2025-04-25)
 
 
