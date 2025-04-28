@@ -2479,7 +2479,9 @@ export interface GlobalSecondaryIndex {
 
   /**
    * <p>Represents the provisioned throughput settings for the specified global secondary
-   *             index.</p>
+   *             index. You must use either
+   *             <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based
+   *             on your table's capacity mode.</p>
    *          <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
    *                 Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
@@ -2490,7 +2492,9 @@ export interface GlobalSecondaryIndex {
   /**
    * <p>The maximum number of read and write units for the specified global secondary index.
    *             If you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
-   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
+   *                 <code>MaxWriteRequestUnits</code>, or both. You must use either
+   *         <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based
+   *         on your table's capacity mode.</p>
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
