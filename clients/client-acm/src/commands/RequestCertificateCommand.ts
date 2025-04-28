@@ -52,7 +52,7 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  * const client = new ACMClient(config);
  * const input = { // RequestCertificateRequest
  *   DomainName: "STRING_VALUE", // required
- *   ValidationMethod: "EMAIL" || "DNS",
+ *   ValidationMethod: "EMAIL" || "DNS" || "HTTP",
  *   SubjectAlternativeNames: [ // DomainList
  *     "STRING_VALUE",
  *   ],
@@ -74,6 +74,7 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  *     },
  *   ],
  *   KeyAlgorithm: "RSA_1024" || "RSA_2048" || "RSA_3072" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1" || "EC_secp521r1",
+ *   ManagedBy: "CLOUDFRONT",
  * };
  * const command = new RequestCertificateCommand(input);
  * const response = await client.send(command);

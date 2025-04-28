@@ -977,6 +977,7 @@ const de_CertificateDetail = (output: any, context: __SerdeContext): Certificate
     Issuer: __expectString,
     KeyAlgorithm: __expectString,
     KeyUsages: _json,
+    ManagedBy: __expectString,
     NotAfter: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     NotBefore: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Options: _json,
@@ -1011,6 +1012,7 @@ const de_CertificateSummary = (output: any, context: __SerdeContext): Certificat
     IssuedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     KeyAlgorithm: __expectString,
     KeyUsages: _json,
+    ManagedBy: __expectString,
     NotAfter: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     NotBefore: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     RenewalEligibility: __expectString,
@@ -1063,6 +1065,8 @@ const de_DescribeCertificateResponse = (output: any, context: __SerdeContext): D
 // de_GetAccountConfigurationResponse omitted.
 
 // de_GetCertificateResponse omitted.
+
+// de_HttpRedirect omitted.
 
 // de_ImportCertificateResponse omitted.
 

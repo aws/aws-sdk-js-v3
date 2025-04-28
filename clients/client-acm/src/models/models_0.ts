@@ -208,6 +208,25 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
+ * <p>Contains information for HTTP-based domain validation of certificates requested through CloudFront and issued by ACM.
+ *       This field exists only when the certificate type is <code>AMAZON_ISSUED</code> and the validation method is <code>HTTP</code>.</p>
+ * @public
+ */
+export interface HttpRedirect {
+  /**
+   * <p>The URL including the domain to be validated. The certificate authority sends <code>GET</code> requests here during validation.</p>
+   * @public
+   */
+  RedirectFrom?: string | undefined;
+
+  /**
+   * <p>The URL hosting the validation token. <code>RedirectFrom</code> must return this content or redirect here.</p>
+   * @public
+   */
+  RedirectTo?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -253,6 +272,7 @@ export interface ResourceRecord {
 export const ValidationMethod = {
   DNS: "DNS",
   EMAIL: "EMAIL",
+  HTTP: "HTTP",
 } as const;
 
 /**
@@ -309,13 +329,11 @@ export interface DomainValidation {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUCCESS</code>
-   *                </p>
+   *                   <code/>SUCCESS</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FAILED</code>
-   *                </p>
+   *                   <code/>FAILED</p>
    *             </li>
    *          </ul>
    * @public
@@ -326,12 +344,19 @@ export interface DomainValidation {
    * <p>Contains the CNAME record that you add to your DNS database for domain validation. For
    *       more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">Use DNS to Validate Domain Ownership</a>.</p>
    *          <p>Note: The CNAME information that you need does not include the name of your domain. If you
-   *       include  your domain name in the DNS database CNAME record, validation fails.  For example, if
+   *       include your domain name in the DNS database CNAME record, validation fails. For example, if
    *       the name is "_a79865eb4cd1a6ab990a45779b4e0b96.yourdomain.com", only
    *       "_a79865eb4cd1a6ab990a45779b4e0b96" must be used.</p>
    * @public
    */
   ResourceRecord?: ResourceRecord | undefined;
+
+  /**
+   * <p>Contains information for HTTP-based domain validation of certificates requested through CloudFront and issued by ACM.
+   *       This field exists only when the certificate type is <code>AMAZON_ISSUED</code> and the validation method is <code>HTTP</code>.</p>
+   * @public
+   */
+  HttpRedirect?: HttpRedirect | undefined;
 
   /**
    * <p>Specifies the domain validation method.</p>
@@ -520,6 +545,19 @@ export interface KeyUsage {
  * @public
  * @enum
  */
+export const CertificateManagedBy = {
+  CLOUDFRONT: "CLOUDFRONT",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateManagedBy = (typeof CertificateManagedBy)[keyof typeof CertificateManagedBy];
+
+/**
+ * @public
+ * @enum
+ */
 export const CertificateTransparencyLoggingPreference = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -629,6 +667,7 @@ export const RevocationReason = {
   PRIVILEGE_WITHDRAWN: "PRIVILEGE_WITHDRAWN",
   REMOVE_FROM_CRL: "REMOVE_FROM_CRL",
   SUPERCEDED: "SUPERCEDED",
+  SUPERSEDED: "SUPERSEDED",
   UNSPECIFIED: "UNSPECIFIED",
 } as const;
 
@@ -701,6 +740,12 @@ export interface CertificateDetail {
    * @public
    */
   SubjectAlternativeNames?: string[] | undefined;
+
+  /**
+   * <p>Identifies the Amazon Web Services service that manages the certificate issued by ACM.</p>
+   * @public
+   */
+  ManagedBy?: CertificateManagedBy | undefined;
 
   /**
    * <p>Contains information about the initial validation of each domain name that occurs as a
@@ -1213,6 +1258,12 @@ export interface Filters {
    * @public
    */
   keyTypes?: KeyAlgorithm[] | undefined;
+
+  /**
+   * <p>Identifies the Amazon Web Services service that manages the certificate issued by ACM.</p>
+   * @public
+   */
+  managedBy?: CertificateManagedBy | undefined;
 }
 
 /**
@@ -1320,19 +1371,19 @@ export interface CertificateSummary {
    *       list contains the domain names that are bound to the public key that is contained in the
    *       certificate. The subject alternative names include the canonical domain name (CN) of the
    *       certificate and additional domain names that can be used to connect to the website. </p>
-   *          <p>When called by <a>ListCertificates</a>, this parameter will only return the first 100 subject alternative
+   *          <p>When called by <a href="https://docs.aws.amazon.com/acm/latestAPIReference/API_ListCertificates.html">ListCertificates</a>, this parameter will only return the first 100 subject alternative
    *       names included in the certificate. To display the full list of subject alternative names, use
-   *       <a>DescribeCertificate</a>.</p>
+   *         <a href="https://docs.aws.amazon.com/acm/latestAPIReference/API_DescribeCertificate.html">DescribeCertificate</a>.</p>
    * @public
    */
   SubjectAlternativeNameSummaries?: string[] | undefined;
 
   /**
-   * <p>When called by <a>ListCertificates</a>, indicates whether the full list of subject alternative names has
+   * <p>When called by <a href="https://docs.aws.amazon.com/acm/latestAPIReference/API_ListCertificates.html">ListCertificates</a>, indicates whether the full list of subject alternative names has
    *       been included in the response. If false, the response includes all of the subject alternative
    *       names included in the certificate. If true, the response only includes the first 100 subject
    *       alternative names included in the certificate. To display the full list of subject alternative
-   *       names, use <a>DescribeCertificate</a>.</p>
+   *       names, use <a href="https://docs.aws.amazon.com/acm/latestAPIReference/API_DescribeCertificate.html">DescribeCertificate</a>.</p>
    * @public
    */
   HasAdditionalSubjectAlternativeNames?: boolean | undefined;
@@ -1440,6 +1491,12 @@ export interface CertificateSummary {
    * @public
    */
   RevokedAt?: Date | undefined;
+
+  /**
+   * <p>Identifies the Amazon Web Services service that manages the certificate issued by ACM.</p>
+   * @public
+   */
+  ManagedBy?: CertificateManagedBy | undefined;
 }
 
 /**
@@ -1770,6 +1827,12 @@ export interface RequestCertificateRequest {
    * @public
    */
   KeyAlgorithm?: KeyAlgorithm | undefined;
+
+  /**
+   * <p>Identifies the Amazon Web Services service that manages the certificate issued by ACM.</p>
+   * @public
+   */
+  ManagedBy?: CertificateManagedBy | undefined;
 }
 
 /**

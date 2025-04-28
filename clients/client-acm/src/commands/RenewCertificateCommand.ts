@@ -57,6 +57,10 @@ export interface RenewCertificateCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidArnException} (client fault)
  *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  *
+ * @throws {@link RequestInProgressException} (client fault)
+ *  <p>The certificate request is in process and the certificate in your account has not yet been
+ *       issued.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified certificate cannot be found in the caller's account or the caller's account
  *       cannot be found.</p>

@@ -49,6 +49,7 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * //     SubjectAlternativeNames: [ // DomainList
  * //       "STRING_VALUE",
  * //     ],
+ * //     ManagedBy: "CLOUDFRONT",
  * //     DomainValidationOptions: [ // DomainValidationList
  * //       { // DomainValidation
  * //         DomainName: "STRING_VALUE", // required
@@ -62,7 +63,11 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * //           Type: "CNAME", // required
  * //           Value: "STRING_VALUE", // required
  * //         },
- * //         ValidationMethod: "EMAIL" || "DNS",
+ * //         HttpRedirect: { // HttpRedirect
+ * //           RedirectFrom: "STRING_VALUE",
+ * //           RedirectTo: "STRING_VALUE",
+ * //         },
+ * //         ValidationMethod: "EMAIL" || "DNS" || "HTTP",
  * //       },
  * //     ],
  * //     Serial: "STRING_VALUE",
@@ -73,7 +78,7 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * //     ImportedAt: new Date("TIMESTAMP"),
  * //     Status: "PENDING_VALIDATION" || "ISSUED" || "INACTIVE" || "EXPIRED" || "VALIDATION_TIMED_OUT" || "REVOKED" || "FAILED",
  * //     RevokedAt: new Date("TIMESTAMP"),
- * //     RevocationReason: "UNSPECIFIED" || "KEY_COMPROMISE" || "CA_COMPROMISE" || "AFFILIATION_CHANGED" || "SUPERCEDED" || "CESSATION_OF_OPERATION" || "CERTIFICATE_HOLD" || "REMOVE_FROM_CRL" || "PRIVILEGE_WITHDRAWN" || "A_A_COMPROMISE",
+ * //     RevocationReason: "UNSPECIFIED" || "KEY_COMPROMISE" || "CA_COMPROMISE" || "AFFILIATION_CHANGED" || "SUPERCEDED" || "SUPERSEDED" || "CESSATION_OF_OPERATION" || "CERTIFICATE_HOLD" || "REMOVE_FROM_CRL" || "PRIVILEGE_WITHDRAWN" || "A_A_COMPROMISE",
  * //     NotBefore: new Date("TIMESTAMP"),
  * //     NotAfter: new Date("TIMESTAMP"),
  * //     KeyAlgorithm: "RSA_1024" || "RSA_2048" || "RSA_3072" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1" || "EC_secp521r1",
@@ -98,7 +103,11 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * //             Type: "CNAME", // required
  * //             Value: "STRING_VALUE", // required
  * //           },
- * //           ValidationMethod: "EMAIL" || "DNS",
+ * //           HttpRedirect: {
+ * //             RedirectFrom: "STRING_VALUE",
+ * //             RedirectTo: "STRING_VALUE",
+ * //           },
+ * //           ValidationMethod: "EMAIL" || "DNS" || "HTTP",
  * //         },
  * //       ],
  * //       RenewalStatusReason: "NO_AVAILABLE_CONTACTS" || "ADDITIONAL_VERIFICATION_REQUIRED" || "DOMAIN_NOT_ALLOWED" || "INVALID_PUBLIC_DOMAIN" || "DOMAIN_VALIDATION_DENIED" || "CAA_ERROR" || "PCA_LIMIT_EXCEEDED" || "PCA_INVALID_ARN" || "PCA_INVALID_STATE" || "PCA_REQUEST_FAILED" || "PCA_NAME_CONSTRAINTS_VALIDATION" || "PCA_RESOURCE_NOT_FOUND" || "PCA_INVALID_ARGS" || "PCA_INVALID_DURATION" || "PCA_ACCESS_DENIED" || "SLR_NOT_FOUND" || "OTHER",
