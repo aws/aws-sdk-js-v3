@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateOriginAccessControlRequest, UpdateOriginAccessControlResult } from "../models/models_1";
+import { UpdateOriginAccessControlRequest, UpdateOriginAccessControlResult } from "../models/models_2";
 import { de_UpdateOriginAccessControlCommand, se_UpdateOriginAccessControlCommand } from "../protocols/Aws_restXml";
 
 /**

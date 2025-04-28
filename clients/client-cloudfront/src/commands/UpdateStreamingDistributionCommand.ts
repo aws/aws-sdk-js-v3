@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateStreamingDistributionRequest, UpdateStreamingDistributionResult } from "../models/models_1";
+import { UpdateStreamingDistributionRequest, UpdateStreamingDistributionResult } from "../models/models_2";
 import { de_UpdateStreamingDistributionCommand, se_UpdateStreamingDistributionCommand } from "../protocols/Aws_restXml";
 
 /**
@@ -61,7 +61,7 @@ export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamin
  *         "STRING_VALUE",
  *       ],
  *     },
- *     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ *     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None",
  *     Enabled: true || false, // required
  *   },
  *   Id: "STRING_VALUE", // required
@@ -116,7 +116,7 @@ export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamin
  * //           "STRING_VALUE",
  * //         ],
  * //       },
- * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None",
  * //       Enabled: true || false, // required
  * //     },
  * //   },

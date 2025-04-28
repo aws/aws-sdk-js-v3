@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdatePublicKeyRequest, UpdatePublicKeyResult } from "../models/models_1";
+import { UpdatePublicKeyRequest, UpdatePublicKeyResult } from "../models/models_2";
 import { de_UpdatePublicKeyCommand, se_UpdatePublicKeyCommand } from "../protocols/Aws_restXml";
 
 /**

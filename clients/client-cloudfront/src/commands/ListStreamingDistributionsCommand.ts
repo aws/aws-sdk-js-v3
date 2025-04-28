@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListStreamingDistributionsRequest, ListStreamingDistributionsResult } from "../models/models_1";
+import { ListStreamingDistributionsRequest } from "../models/models_1";
+import { ListStreamingDistributionsResult } from "../models/models_2";
 import { de_ListStreamingDistributionsCommand, se_ListStreamingDistributionsCommand } from "../protocols/Aws_restXml";
 
 /**
@@ -73,7 +74,7 @@ export interface ListStreamingDistributionsCommandOutput extends ListStreamingDi
  * //           ],
  * //         },
  * //         Comment: "STRING_VALUE", // required
- * //         PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All", // required
+ * //         PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None", // required
  * //         Enabled: true || false, // required
  * //       },
  * //     ],

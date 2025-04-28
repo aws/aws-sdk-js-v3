@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PublishFunctionRequest, PublishFunctionResult } from "../models/models_1";
+import { PublishFunctionRequest, PublishFunctionResult } from "../models/models_2";
 import { de_PublishFunctionCommand, se_PublishFunctionCommand } from "../protocols/Aws_restXml";
 
 /**

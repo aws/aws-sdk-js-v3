@@ -68,6 +68,9 @@ export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
  *  <p>The precondition in one or more of the request fields evaluated to
  * 			<code>false</code>.</p>
  *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Cannot delete this resource because it is in use.</p>
+ *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *

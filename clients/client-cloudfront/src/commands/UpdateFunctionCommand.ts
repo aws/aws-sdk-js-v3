@@ -10,7 +10,7 @@ import {
   UpdateFunctionRequest,
   UpdateFunctionRequestFilterSensitiveLog,
   UpdateFunctionResult,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_UpdateFunctionCommand, se_UpdateFunctionCommand } from "../protocols/Aws_restXml";
 
 /**

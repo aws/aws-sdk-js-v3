@@ -314,7 +314,7 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  *       Bucket: "STRING_VALUE",
  *       Prefix: "STRING_VALUE",
  *     },
- *     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ *     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None",
  *     Enabled: true || false, // required
  *     ViewerCertificate: { // ViewerCertificate
  *       CloudFrontDefaultCertificate: true || false,
@@ -340,6 +340,21 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  *     ContinuousDeploymentPolicyId: "STRING_VALUE",
  *     Staging: true || false,
  *     AnycastIpListId: "STRING_VALUE",
+ *     TenantConfig: { // TenantConfig
+ *       ParameterDefinitions: [ // ParameterDefinitions
+ *         { // ParameterDefinition
+ *           Name: "STRING_VALUE", // required
+ *           Definition: { // ParameterDefinitionSchema
+ *             StringSchema: { // StringSchemaConfig
+ *               Comment: "STRING_VALUE",
+ *               DefaultValue: "STRING_VALUE",
+ *               Required: true || false, // required
+ *             },
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     ConnectionMode: "direct" || "tenant-only",
  *   },
  * };
  * const command = new CreateDistributionCommand(input);
@@ -655,7 +670,7 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  * //         Bucket: "STRING_VALUE",
  * //         Prefix: "STRING_VALUE",
  * //       },
- * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None",
  * //       Enabled: true || false, // required
  * //       ViewerCertificate: { // ViewerCertificate
  * //         CloudFrontDefaultCertificate: true || false,
@@ -681,6 +696,21 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  * //       ContinuousDeploymentPolicyId: "STRING_VALUE",
  * //       Staging: true || false,
  * //       AnycastIpListId: "STRING_VALUE",
+ * //       TenantConfig: { // TenantConfig
+ * //         ParameterDefinitions: [ // ParameterDefinitions
+ * //           { // ParameterDefinition
+ * //             Name: "STRING_VALUE", // required
+ * //             Definition: { // ParameterDefinitionSchema
+ * //               StringSchema: { // StringSchemaConfig
+ * //                 Comment: "STRING_VALUE",
+ * //                 DefaultValue: "STRING_VALUE",
+ * //                 Required: true || false, // required
+ * //               },
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //       ConnectionMode: "direct" || "tenant-only",
  * //     },
  * //     AliasICPRecordals: [ // AliasICPRecordals
  * //       { // AliasICPRecordal
@@ -714,6 +744,9 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  * @throws {@link DistributionAlreadyExists} (client fault)
  *  <p>The caller reference you attempted to create the distribution with is associated with
  * 			another distribution.</p>
+ *
+ * @throws {@link EntityLimitExceeded} (client fault)
+ *  <p>The entity limit has been exceeded.</p>
  *
  * @throws {@link EntityNotFound} (client fault)
  *  <p>The entity was not found.</p>

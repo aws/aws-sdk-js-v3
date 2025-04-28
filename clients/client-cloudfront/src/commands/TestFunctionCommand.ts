@@ -11,7 +11,7 @@ import {
   TestFunctionRequestFilterSensitiveLog,
   TestFunctionResult,
   TestFunctionResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_TestFunctionCommand, se_TestFunctionCommand } from "../protocols/Aws_restXml";
 
 /**

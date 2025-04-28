@@ -218,6 +218,22 @@ AssociateAlias
 </details>
 <details>
 <summary>
+AssociateDistributionTenantWebACL
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/AssociateDistributionTenantWebACLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/AssociateDistributionTenantWebACLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/AssociateDistributionTenantWebACLCommandOutput/)
+
+</details>
+<details>
+<summary>
+AssociateDistributionWebACL
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/AssociateDistributionWebACLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/AssociateDistributionWebACLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/AssociateDistributionWebACLCommandOutput/)
+
+</details>
+<details>
+<summary>
 CopyDistribution
 </summary>
 
@@ -250,6 +266,14 @@ CreateCloudFrontOriginAccessIdentity
 </details>
 <details>
 <summary>
+CreateConnectionGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/CreateConnectionGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/CreateConnectionGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/CreateConnectionGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateContinuousDeploymentPolicy
 </summary>
 
@@ -262,6 +286,14 @@ CreateDistribution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/CreateDistributionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/CreateDistributionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/CreateDistributionCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateDistributionTenant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/CreateDistributionTenantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/CreateDistributionTenantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/CreateDistributionTenantCommandOutput/)
 
 </details>
 <details>
@@ -302,6 +334,14 @@ CreateInvalidation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/CreateInvalidationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/CreateInvalidationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/CreateInvalidationCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateInvalidationForDistributionTenant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/CreateInvalidationForDistributionTenantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/CreateInvalidationForDistributionTenantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/CreateInvalidationForDistributionTenantCommandOutput/)
 
 </details>
 <details>
@@ -418,6 +458,14 @@ DeleteCloudFrontOriginAccessIdentity
 </details>
 <details>
 <summary>
+DeleteConnectionGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/DeleteConnectionGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DeleteConnectionGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DeleteConnectionGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteContinuousDeploymentPolicy
 </summary>
 
@@ -430,6 +478,14 @@ DeleteDistribution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/DeleteDistributionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DeleteDistributionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DeleteDistributionCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteDistributionTenant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/DeleteDistributionTenantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DeleteDistributionTenantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DeleteDistributionTenantCommandOutput/)
 
 </details>
 <details>
@@ -554,6 +610,22 @@ DescribeKeyValueStore
 </details>
 <details>
 <summary>
+DisassociateDistributionTenantWebACL
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/DisassociateDistributionTenantWebACLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DisassociateDistributionTenantWebACLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DisassociateDistributionTenantWebACLCommandOutput/)
+
+</details>
+<details>
+<summary>
+DisassociateDistributionWebACL
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/DisassociateDistributionWebACLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DisassociateDistributionWebACLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DisassociateDistributionWebACLCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetAnycastIpList
 </summary>
 
@@ -594,6 +666,22 @@ GetCloudFrontOriginAccessIdentityConfig
 </details>
 <details>
 <summary>
+GetConnectionGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/GetConnectionGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetConnectionGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetConnectionGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetConnectionGroupByRoutingEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/GetConnectionGroupByRoutingEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetConnectionGroupByRoutingEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetConnectionGroupByRoutingEndpointCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetContinuousDeploymentPolicy
 </summary>
 
@@ -622,6 +710,22 @@ GetDistributionConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/GetDistributionConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetDistributionConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetDistributionConfigCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetDistributionTenant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/GetDistributionTenantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetDistributionTenantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetDistributionTenantCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetDistributionTenantByDomain
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/GetDistributionTenantByDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetDistributionTenantByDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetDistributionTenantByDomainCommandOutput/)
 
 </details>
 <details>
@@ -674,6 +778,14 @@ GetInvalidation
 </details>
 <details>
 <summary>
+GetInvalidationForDistributionTenant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/GetInvalidationForDistributionTenantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetInvalidationForDistributionTenantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetInvalidationForDistributionTenantCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetKeyGroup
 </summary>
 
@@ -686,6 +798,14 @@ GetKeyGroupConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/GetKeyGroupConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetKeyGroupConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetKeyGroupConfigCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetManagedCertificateDetails
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/GetManagedCertificateDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetManagedCertificateDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetManagedCertificateDetailsCommandOutput/)
 
 </details>
 <details>
@@ -826,6 +946,14 @@ ListConflictingAliases
 </details>
 <details>
 <summary>
+ListConnectionGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListConnectionGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListConnectionGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListConnectionGroupsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListContinuousDeploymentPolicies
 </summary>
 
@@ -854,6 +982,14 @@ ListDistributionsByCachePolicyId
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListDistributionsByCachePolicyIdCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionsByCachePolicyIdCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionsByCachePolicyIdCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDistributionsByConnectionMode
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListDistributionsByConnectionModeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionsByConnectionModeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionsByConnectionModeCommandOutput/)
 
 </details>
 <details>
@@ -906,6 +1042,30 @@ ListDistributionsByWebACLId
 </details>
 <details>
 <summary>
+ListDistributionTenants
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListDistributionTenantsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionTenantsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionTenantsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDistributionTenantsByCustomization
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListDistributionTenantsByCustomizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionTenantsByCustomizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionTenantsByCustomizationCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDomainConflicts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListDomainConflictsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDomainConflictsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDomainConflictsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListFieldLevelEncryptionConfigs
 </summary>
 
@@ -934,6 +1094,14 @@ ListInvalidations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListInvalidationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListInvalidationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListInvalidationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListInvalidationsForDistributionTenant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListInvalidationsForDistributionTenantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListInvalidationsForDistributionTenantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListInvalidationsForDistributionTenantCommandOutput/)
 
 </details>
 <details>
@@ -1066,6 +1234,14 @@ UpdateCloudFrontOriginAccessIdentity
 </details>
 <details>
 <summary>
+UpdateConnectionGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/UpdateConnectionGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateConnectionGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateConnectionGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateContinuousDeploymentPolicy
 </summary>
 
@@ -1082,10 +1258,26 @@ UpdateDistribution
 </details>
 <details>
 <summary>
+UpdateDistributionTenant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/UpdateDistributionTenantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateDistributionTenantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateDistributionTenantCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateDistributionWithStagingConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/UpdateDistributionWithStagingConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateDistributionWithStagingConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateDistributionWithStagingConfigCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateDomainAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/UpdateDomainAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateDomainAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateDomainAssociationCommandOutput/)
 
 </details>
 <details>
@@ -1182,5 +1374,13 @@ UpdateVpcOrigin
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/UpdateVpcOriginCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateVpcOriginCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateVpcOriginCommandOutput/)
+
+</details>
+<details>
+<summary>
+VerifyDnsConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/VerifyDnsConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/VerifyDnsConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/VerifyDnsConfigurationCommandOutput/)
 
 </details>

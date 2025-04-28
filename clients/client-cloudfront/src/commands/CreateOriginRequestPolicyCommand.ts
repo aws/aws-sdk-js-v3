@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateOriginRequestPolicyRequest, CreateOriginRequestPolicyResult } from "../models/models_0";
+import { CreateOriginRequestPolicyRequest, CreateOriginRequestPolicyResult } from "../models/models_1";
 import { de_CreateOriginRequestPolicyCommand, se_CreateOriginRequestPolicyCommand } from "../protocols/Aws_restXml";
 
 /**

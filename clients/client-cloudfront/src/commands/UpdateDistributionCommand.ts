@@ -11,7 +11,7 @@ import {
   UpdateDistributionRequestFilterSensitiveLog,
   UpdateDistributionResult,
   UpdateDistributionResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_UpdateDistributionCommand, se_UpdateDistributionCommand } from "../protocols/Aws_restXml";
 
 /**
@@ -347,7 +347,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *       Bucket: "STRING_VALUE",
  *       Prefix: "STRING_VALUE",
  *     },
- *     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ *     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None",
  *     Enabled: true || false, // required
  *     ViewerCertificate: { // ViewerCertificate
  *       CloudFrontDefaultCertificate: true || false,
@@ -373,6 +373,21 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *     ContinuousDeploymentPolicyId: "STRING_VALUE",
  *     Staging: true || false,
  *     AnycastIpListId: "STRING_VALUE",
+ *     TenantConfig: { // TenantConfig
+ *       ParameterDefinitions: [ // ParameterDefinitions
+ *         { // ParameterDefinition
+ *           Name: "STRING_VALUE", // required
+ *           Definition: { // ParameterDefinitionSchema
+ *             StringSchema: { // StringSchemaConfig
+ *               Comment: "STRING_VALUE",
+ *               DefaultValue: "STRING_VALUE",
+ *               Required: true || false, // required
+ *             },
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     ConnectionMode: "direct" || "tenant-only",
  *   },
  *   Id: "STRING_VALUE", // required
  *   IfMatch: "STRING_VALUE",
@@ -690,7 +705,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * //         Bucket: "STRING_VALUE",
  * //         Prefix: "STRING_VALUE",
  * //       },
- * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None",
  * //       Enabled: true || false, // required
  * //       ViewerCertificate: { // ViewerCertificate
  * //         CloudFrontDefaultCertificate: true || false,
@@ -716,6 +731,21 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * //       ContinuousDeploymentPolicyId: "STRING_VALUE",
  * //       Staging: true || false,
  * //       AnycastIpListId: "STRING_VALUE",
+ * //       TenantConfig: { // TenantConfig
+ * //         ParameterDefinitions: [ // ParameterDefinitions
+ * //           { // ParameterDefinition
+ * //             Name: "STRING_VALUE", // required
+ * //             Definition: { // ParameterDefinitionSchema
+ * //               StringSchema: { // StringSchemaConfig
+ * //                 Comment: "STRING_VALUE",
+ * //                 DefaultValue: "STRING_VALUE",
+ * //                 Required: true || false, // required
+ * //               },
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //       ConnectionMode: "direct" || "tenant-only",
  * //     },
  * //     AliasICPRecordals: [ // AliasICPRecordals
  * //       { // AliasICPRecordal

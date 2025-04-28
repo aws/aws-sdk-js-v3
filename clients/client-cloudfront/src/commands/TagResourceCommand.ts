@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceRequest } from "../models/models_1";
+import { TagResourceRequest } from "../models/models_2";
 import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restXml";
 
 /**

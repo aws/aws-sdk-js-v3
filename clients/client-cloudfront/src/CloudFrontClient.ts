@@ -54,6 +54,14 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import { AssociateAliasCommandInput, AssociateAliasCommandOutput } from "./commands/AssociateAliasCommand";
+import {
+  AssociateDistributionTenantWebACLCommandInput,
+  AssociateDistributionTenantWebACLCommandOutput,
+} from "./commands/AssociateDistributionTenantWebACLCommand";
+import {
+  AssociateDistributionWebACLCommandInput,
+  AssociateDistributionWebACLCommandOutput,
+} from "./commands/AssociateDistributionWebACLCommand";
 import { CopyDistributionCommandInput, CopyDistributionCommandOutput } from "./commands/CopyDistributionCommand";
 import {
   CreateAnycastIpListCommandInput,
@@ -65,10 +73,18 @@ import {
   CreateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/CreateCloudFrontOriginAccessIdentityCommand";
 import {
+  CreateConnectionGroupCommandInput,
+  CreateConnectionGroupCommandOutput,
+} from "./commands/CreateConnectionGroupCommand";
+import {
   CreateContinuousDeploymentPolicyCommandInput,
   CreateContinuousDeploymentPolicyCommandOutput,
 } from "./commands/CreateContinuousDeploymentPolicyCommand";
 import { CreateDistributionCommandInput, CreateDistributionCommandOutput } from "./commands/CreateDistributionCommand";
+import {
+  CreateDistributionTenantCommandInput,
+  CreateDistributionTenantCommandOutput,
+} from "./commands/CreateDistributionTenantCommand";
 import {
   CreateDistributionWithTagsCommandInput,
   CreateDistributionWithTagsCommandOutput,
@@ -83,6 +99,10 @@ import {
 } from "./commands/CreateFieldLevelEncryptionProfileCommand";
 import { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "./commands/CreateFunctionCommand";
 import { CreateInvalidationCommandInput, CreateInvalidationCommandOutput } from "./commands/CreateInvalidationCommand";
+import {
+  CreateInvalidationForDistributionTenantCommandInput,
+  CreateInvalidationForDistributionTenantCommandOutput,
+} from "./commands/CreateInvalidationForDistributionTenantCommand";
 import { CreateKeyGroupCommandInput, CreateKeyGroupCommandOutput } from "./commands/CreateKeyGroupCommand";
 import {
   CreateKeyValueStoreCommandInput,
@@ -128,10 +148,18 @@ import {
   DeleteCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/DeleteCloudFrontOriginAccessIdentityCommand";
 import {
+  DeleteConnectionGroupCommandInput,
+  DeleteConnectionGroupCommandOutput,
+} from "./commands/DeleteConnectionGroupCommand";
+import {
   DeleteContinuousDeploymentPolicyCommandInput,
   DeleteContinuousDeploymentPolicyCommandOutput,
 } from "./commands/DeleteContinuousDeploymentPolicyCommand";
 import { DeleteDistributionCommandInput, DeleteDistributionCommandOutput } from "./commands/DeleteDistributionCommand";
+import {
+  DeleteDistributionTenantCommandInput,
+  DeleteDistributionTenantCommandOutput,
+} from "./commands/DeleteDistributionTenantCommand";
 import {
   DeleteFieldLevelEncryptionConfigCommandInput,
   DeleteFieldLevelEncryptionConfigCommandOutput,
@@ -177,6 +205,14 @@ import {
   DescribeKeyValueStoreCommandInput,
   DescribeKeyValueStoreCommandOutput,
 } from "./commands/DescribeKeyValueStoreCommand";
+import {
+  DisassociateDistributionTenantWebACLCommandInput,
+  DisassociateDistributionTenantWebACLCommandOutput,
+} from "./commands/DisassociateDistributionTenantWebACLCommand";
+import {
+  DisassociateDistributionWebACLCommandInput,
+  DisassociateDistributionWebACLCommandOutput,
+} from "./commands/DisassociateDistributionWebACLCommand";
 import { GetAnycastIpListCommandInput, GetAnycastIpListCommandOutput } from "./commands/GetAnycastIpListCommand";
 import { GetCachePolicyCommandInput, GetCachePolicyCommandOutput } from "./commands/GetCachePolicyCommand";
 import {
@@ -192,6 +228,11 @@ import {
   GetCloudFrontOriginAccessIdentityConfigCommandOutput,
 } from "./commands/GetCloudFrontOriginAccessIdentityConfigCommand";
 import {
+  GetConnectionGroupByRoutingEndpointCommandInput,
+  GetConnectionGroupByRoutingEndpointCommandOutput,
+} from "./commands/GetConnectionGroupByRoutingEndpointCommand";
+import { GetConnectionGroupCommandInput, GetConnectionGroupCommandOutput } from "./commands/GetConnectionGroupCommand";
+import {
   GetContinuousDeploymentPolicyCommandInput,
   GetContinuousDeploymentPolicyCommandOutput,
 } from "./commands/GetContinuousDeploymentPolicyCommand";
@@ -204,6 +245,14 @@ import {
   GetDistributionConfigCommandInput,
   GetDistributionConfigCommandOutput,
 } from "./commands/GetDistributionConfigCommand";
+import {
+  GetDistributionTenantByDomainCommandInput,
+  GetDistributionTenantByDomainCommandOutput,
+} from "./commands/GetDistributionTenantByDomainCommand";
+import {
+  GetDistributionTenantCommandInput,
+  GetDistributionTenantCommandOutput,
+} from "./commands/GetDistributionTenantCommand";
 import {
   GetFieldLevelEncryptionCommandInput,
   GetFieldLevelEncryptionCommandOutput,
@@ -222,8 +271,16 @@ import {
 } from "./commands/GetFieldLevelEncryptionProfileConfigCommand";
 import { GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
 import { GetInvalidationCommandInput, GetInvalidationCommandOutput } from "./commands/GetInvalidationCommand";
+import {
+  GetInvalidationForDistributionTenantCommandInput,
+  GetInvalidationForDistributionTenantCommandOutput,
+} from "./commands/GetInvalidationForDistributionTenantCommand";
 import { GetKeyGroupCommandInput, GetKeyGroupCommandOutput } from "./commands/GetKeyGroupCommand";
 import { GetKeyGroupConfigCommandInput, GetKeyGroupConfigCommandOutput } from "./commands/GetKeyGroupConfigCommand";
+import {
+  GetManagedCertificateDetailsCommandInput,
+  GetManagedCertificateDetailsCommandOutput,
+} from "./commands/GetManagedCertificateDetailsCommand";
 import {
   GetMonitoringSubscriptionCommandInput,
   GetMonitoringSubscriptionCommandOutput,
@@ -278,6 +335,10 @@ import {
   ListConflictingAliasesCommandOutput,
 } from "./commands/ListConflictingAliasesCommand";
 import {
+  ListConnectionGroupsCommandInput,
+  ListConnectionGroupsCommandOutput,
+} from "./commands/ListConnectionGroupsCommand";
+import {
   ListContinuousDeploymentPoliciesCommandInput,
   ListContinuousDeploymentPoliciesCommandOutput,
 } from "./commands/ListContinuousDeploymentPoliciesCommand";
@@ -289,6 +350,10 @@ import {
   ListDistributionsByCachePolicyIdCommandInput,
   ListDistributionsByCachePolicyIdCommandOutput,
 } from "./commands/ListDistributionsByCachePolicyIdCommand";
+import {
+  ListDistributionsByConnectionModeCommandInput,
+  ListDistributionsByConnectionModeCommandOutput,
+} from "./commands/ListDistributionsByConnectionModeCommand";
 import {
   ListDistributionsByKeyGroupCommandInput,
   ListDistributionsByKeyGroupCommandOutput,
@@ -315,6 +380,18 @@ import {
 } from "./commands/ListDistributionsByWebACLIdCommand";
 import { ListDistributionsCommandInput, ListDistributionsCommandOutput } from "./commands/ListDistributionsCommand";
 import {
+  ListDistributionTenantsByCustomizationCommandInput,
+  ListDistributionTenantsByCustomizationCommandOutput,
+} from "./commands/ListDistributionTenantsByCustomizationCommand";
+import {
+  ListDistributionTenantsCommandInput,
+  ListDistributionTenantsCommandOutput,
+} from "./commands/ListDistributionTenantsCommand";
+import {
+  ListDomainConflictsCommandInput,
+  ListDomainConflictsCommandOutput,
+} from "./commands/ListDomainConflictsCommand";
+import {
   ListFieldLevelEncryptionConfigsCommandInput,
   ListFieldLevelEncryptionConfigsCommandOutput,
 } from "./commands/ListFieldLevelEncryptionConfigsCommand";
@@ -324,6 +401,10 @@ import {
 } from "./commands/ListFieldLevelEncryptionProfilesCommand";
 import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./commands/ListFunctionsCommand";
 import { ListInvalidationsCommandInput, ListInvalidationsCommandOutput } from "./commands/ListInvalidationsCommand";
+import {
+  ListInvalidationsForDistributionTenantCommandInput,
+  ListInvalidationsForDistributionTenantCommandOutput,
+} from "./commands/ListInvalidationsForDistributionTenantCommand";
 import { ListKeyGroupsCommandInput, ListKeyGroupsCommandOutput } from "./commands/ListKeyGroupsCommand";
 import { ListKeyValueStoresCommandInput, ListKeyValueStoresCommandOutput } from "./commands/ListKeyValueStoresCommand";
 import {
@@ -362,14 +443,26 @@ import {
   UpdateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/UpdateCloudFrontOriginAccessIdentityCommand";
 import {
+  UpdateConnectionGroupCommandInput,
+  UpdateConnectionGroupCommandOutput,
+} from "./commands/UpdateConnectionGroupCommand";
+import {
   UpdateContinuousDeploymentPolicyCommandInput,
   UpdateContinuousDeploymentPolicyCommandOutput,
 } from "./commands/UpdateContinuousDeploymentPolicyCommand";
 import { UpdateDistributionCommandInput, UpdateDistributionCommandOutput } from "./commands/UpdateDistributionCommand";
 import {
+  UpdateDistributionTenantCommandInput,
+  UpdateDistributionTenantCommandOutput,
+} from "./commands/UpdateDistributionTenantCommand";
+import {
   UpdateDistributionWithStagingConfigCommandInput,
   UpdateDistributionWithStagingConfigCommandOutput,
 } from "./commands/UpdateDistributionWithStagingConfigCommand";
+import {
+  UpdateDomainAssociationCommandInput,
+  UpdateDomainAssociationCommandOutput,
+} from "./commands/UpdateDomainAssociationCommand";
 import {
   UpdateFieldLevelEncryptionConfigCommandInput,
   UpdateFieldLevelEncryptionConfigCommandOutput,
@@ -407,6 +500,10 @@ import {
 } from "./commands/UpdateStreamingDistributionCommand";
 import { UpdateVpcOriginCommandInput, UpdateVpcOriginCommandOutput } from "./commands/UpdateVpcOriginCommand";
 import {
+  VerifyDnsConfigurationCommandInput,
+  VerifyDnsConfigurationCommandOutput,
+} from "./commands/VerifyDnsConfigurationCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -422,17 +519,22 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateAliasCommandInput
+  | AssociateDistributionTenantWebACLCommandInput
+  | AssociateDistributionWebACLCommandInput
   | CopyDistributionCommandInput
   | CreateAnycastIpListCommandInput
   | CreateCachePolicyCommandInput
   | CreateCloudFrontOriginAccessIdentityCommandInput
+  | CreateConnectionGroupCommandInput
   | CreateContinuousDeploymentPolicyCommandInput
   | CreateDistributionCommandInput
+  | CreateDistributionTenantCommandInput
   | CreateDistributionWithTagsCommandInput
   | CreateFieldLevelEncryptionConfigCommandInput
   | CreateFieldLevelEncryptionProfileCommandInput
   | CreateFunctionCommandInput
   | CreateInvalidationCommandInput
+  | CreateInvalidationForDistributionTenantCommandInput
   | CreateKeyGroupCommandInput
   | CreateKeyValueStoreCommandInput
   | CreateMonitoringSubscriptionCommandInput
@@ -447,8 +549,10 @@ export type ServiceInputTypes =
   | DeleteAnycastIpListCommandInput
   | DeleteCachePolicyCommandInput
   | DeleteCloudFrontOriginAccessIdentityCommandInput
+  | DeleteConnectionGroupCommandInput
   | DeleteContinuousDeploymentPolicyCommandInput
   | DeleteDistributionCommandInput
+  | DeleteDistributionTenantCommandInput
   | DeleteFieldLevelEncryptionConfigCommandInput
   | DeleteFieldLevelEncryptionProfileCommandInput
   | DeleteFunctionCommandInput
@@ -464,23 +568,31 @@ export type ServiceInputTypes =
   | DeleteVpcOriginCommandInput
   | DescribeFunctionCommandInput
   | DescribeKeyValueStoreCommandInput
+  | DisassociateDistributionTenantWebACLCommandInput
+  | DisassociateDistributionWebACLCommandInput
   | GetAnycastIpListCommandInput
   | GetCachePolicyCommandInput
   | GetCachePolicyConfigCommandInput
   | GetCloudFrontOriginAccessIdentityCommandInput
   | GetCloudFrontOriginAccessIdentityConfigCommandInput
+  | GetConnectionGroupByRoutingEndpointCommandInput
+  | GetConnectionGroupCommandInput
   | GetContinuousDeploymentPolicyCommandInput
   | GetContinuousDeploymentPolicyConfigCommandInput
   | GetDistributionCommandInput
   | GetDistributionConfigCommandInput
+  | GetDistributionTenantByDomainCommandInput
+  | GetDistributionTenantCommandInput
   | GetFieldLevelEncryptionCommandInput
   | GetFieldLevelEncryptionConfigCommandInput
   | GetFieldLevelEncryptionProfileCommandInput
   | GetFieldLevelEncryptionProfileConfigCommandInput
   | GetFunctionCommandInput
   | GetInvalidationCommandInput
+  | GetInvalidationForDistributionTenantCommandInput
   | GetKeyGroupCommandInput
   | GetKeyGroupConfigCommandInput
+  | GetManagedCertificateDetailsCommandInput
   | GetMonitoringSubscriptionCommandInput
   | GetOriginAccessControlCommandInput
   | GetOriginAccessControlConfigCommandInput
@@ -498,9 +610,13 @@ export type ServiceInputTypes =
   | ListCachePoliciesCommandInput
   | ListCloudFrontOriginAccessIdentitiesCommandInput
   | ListConflictingAliasesCommandInput
+  | ListConnectionGroupsCommandInput
   | ListContinuousDeploymentPoliciesCommandInput
+  | ListDistributionTenantsByCustomizationCommandInput
+  | ListDistributionTenantsCommandInput
   | ListDistributionsByAnycastIpListIdCommandInput
   | ListDistributionsByCachePolicyIdCommandInput
+  | ListDistributionsByConnectionModeCommandInput
   | ListDistributionsByKeyGroupCommandInput
   | ListDistributionsByOriginRequestPolicyIdCommandInput
   | ListDistributionsByRealtimeLogConfigCommandInput
@@ -508,10 +624,12 @@ export type ServiceInputTypes =
   | ListDistributionsByVpcOriginIdCommandInput
   | ListDistributionsByWebACLIdCommandInput
   | ListDistributionsCommandInput
+  | ListDomainConflictsCommandInput
   | ListFieldLevelEncryptionConfigsCommandInput
   | ListFieldLevelEncryptionProfilesCommandInput
   | ListFunctionsCommandInput
   | ListInvalidationsCommandInput
+  | ListInvalidationsForDistributionTenantCommandInput
   | ListKeyGroupsCommandInput
   | ListKeyValueStoresCommandInput
   | ListOriginAccessControlsCommandInput
@@ -528,9 +646,12 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateCachePolicyCommandInput
   | UpdateCloudFrontOriginAccessIdentityCommandInput
+  | UpdateConnectionGroupCommandInput
   | UpdateContinuousDeploymentPolicyCommandInput
   | UpdateDistributionCommandInput
+  | UpdateDistributionTenantCommandInput
   | UpdateDistributionWithStagingConfigCommandInput
+  | UpdateDomainAssociationCommandInput
   | UpdateFieldLevelEncryptionConfigCommandInput
   | UpdateFieldLevelEncryptionProfileCommandInput
   | UpdateFunctionCommandInput
@@ -542,24 +663,30 @@ export type ServiceInputTypes =
   | UpdateRealtimeLogConfigCommandInput
   | UpdateResponseHeadersPolicyCommandInput
   | UpdateStreamingDistributionCommandInput
-  | UpdateVpcOriginCommandInput;
+  | UpdateVpcOriginCommandInput
+  | VerifyDnsConfigurationCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
   | AssociateAliasCommandOutput
+  | AssociateDistributionTenantWebACLCommandOutput
+  | AssociateDistributionWebACLCommandOutput
   | CopyDistributionCommandOutput
   | CreateAnycastIpListCommandOutput
   | CreateCachePolicyCommandOutput
   | CreateCloudFrontOriginAccessIdentityCommandOutput
+  | CreateConnectionGroupCommandOutput
   | CreateContinuousDeploymentPolicyCommandOutput
   | CreateDistributionCommandOutput
+  | CreateDistributionTenantCommandOutput
   | CreateDistributionWithTagsCommandOutput
   | CreateFieldLevelEncryptionConfigCommandOutput
   | CreateFieldLevelEncryptionProfileCommandOutput
   | CreateFunctionCommandOutput
   | CreateInvalidationCommandOutput
+  | CreateInvalidationForDistributionTenantCommandOutput
   | CreateKeyGroupCommandOutput
   | CreateKeyValueStoreCommandOutput
   | CreateMonitoringSubscriptionCommandOutput
@@ -574,8 +701,10 @@ export type ServiceOutputTypes =
   | DeleteAnycastIpListCommandOutput
   | DeleteCachePolicyCommandOutput
   | DeleteCloudFrontOriginAccessIdentityCommandOutput
+  | DeleteConnectionGroupCommandOutput
   | DeleteContinuousDeploymentPolicyCommandOutput
   | DeleteDistributionCommandOutput
+  | DeleteDistributionTenantCommandOutput
   | DeleteFieldLevelEncryptionConfigCommandOutput
   | DeleteFieldLevelEncryptionProfileCommandOutput
   | DeleteFunctionCommandOutput
@@ -591,23 +720,31 @@ export type ServiceOutputTypes =
   | DeleteVpcOriginCommandOutput
   | DescribeFunctionCommandOutput
   | DescribeKeyValueStoreCommandOutput
+  | DisassociateDistributionTenantWebACLCommandOutput
+  | DisassociateDistributionWebACLCommandOutput
   | GetAnycastIpListCommandOutput
   | GetCachePolicyCommandOutput
   | GetCachePolicyConfigCommandOutput
   | GetCloudFrontOriginAccessIdentityCommandOutput
   | GetCloudFrontOriginAccessIdentityConfigCommandOutput
+  | GetConnectionGroupByRoutingEndpointCommandOutput
+  | GetConnectionGroupCommandOutput
   | GetContinuousDeploymentPolicyCommandOutput
   | GetContinuousDeploymentPolicyConfigCommandOutput
   | GetDistributionCommandOutput
   | GetDistributionConfigCommandOutput
+  | GetDistributionTenantByDomainCommandOutput
+  | GetDistributionTenantCommandOutput
   | GetFieldLevelEncryptionCommandOutput
   | GetFieldLevelEncryptionConfigCommandOutput
   | GetFieldLevelEncryptionProfileCommandOutput
   | GetFieldLevelEncryptionProfileConfigCommandOutput
   | GetFunctionCommandOutput
   | GetInvalidationCommandOutput
+  | GetInvalidationForDistributionTenantCommandOutput
   | GetKeyGroupCommandOutput
   | GetKeyGroupConfigCommandOutput
+  | GetManagedCertificateDetailsCommandOutput
   | GetMonitoringSubscriptionCommandOutput
   | GetOriginAccessControlCommandOutput
   | GetOriginAccessControlConfigCommandOutput
@@ -625,9 +762,13 @@ export type ServiceOutputTypes =
   | ListCachePoliciesCommandOutput
   | ListCloudFrontOriginAccessIdentitiesCommandOutput
   | ListConflictingAliasesCommandOutput
+  | ListConnectionGroupsCommandOutput
   | ListContinuousDeploymentPoliciesCommandOutput
+  | ListDistributionTenantsByCustomizationCommandOutput
+  | ListDistributionTenantsCommandOutput
   | ListDistributionsByAnycastIpListIdCommandOutput
   | ListDistributionsByCachePolicyIdCommandOutput
+  | ListDistributionsByConnectionModeCommandOutput
   | ListDistributionsByKeyGroupCommandOutput
   | ListDistributionsByOriginRequestPolicyIdCommandOutput
   | ListDistributionsByRealtimeLogConfigCommandOutput
@@ -635,10 +776,12 @@ export type ServiceOutputTypes =
   | ListDistributionsByVpcOriginIdCommandOutput
   | ListDistributionsByWebACLIdCommandOutput
   | ListDistributionsCommandOutput
+  | ListDomainConflictsCommandOutput
   | ListFieldLevelEncryptionConfigsCommandOutput
   | ListFieldLevelEncryptionProfilesCommandOutput
   | ListFunctionsCommandOutput
   | ListInvalidationsCommandOutput
+  | ListInvalidationsForDistributionTenantCommandOutput
   | ListKeyGroupsCommandOutput
   | ListKeyValueStoresCommandOutput
   | ListOriginAccessControlsCommandOutput
@@ -655,9 +798,12 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateCachePolicyCommandOutput
   | UpdateCloudFrontOriginAccessIdentityCommandOutput
+  | UpdateConnectionGroupCommandOutput
   | UpdateContinuousDeploymentPolicyCommandOutput
   | UpdateDistributionCommandOutput
+  | UpdateDistributionTenantCommandOutput
   | UpdateDistributionWithStagingConfigCommandOutput
+  | UpdateDomainAssociationCommandOutput
   | UpdateFieldLevelEncryptionConfigCommandOutput
   | UpdateFieldLevelEncryptionProfileCommandOutput
   | UpdateFunctionCommandOutput
@@ -669,7 +815,8 @@ export type ServiceOutputTypes =
   | UpdateRealtimeLogConfigCommandOutput
   | UpdateResponseHeadersPolicyCommandOutput
   | UpdateStreamingDistributionCommandOutput
-  | UpdateVpcOriginCommandOutput;
+  | UpdateVpcOriginCommandOutput
+  | VerifyDnsConfigurationCommandOutput;
 
 /**
  * @public

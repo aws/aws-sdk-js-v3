@@ -63,7 +63,7 @@ export interface CreateStreamingDistributionCommandOutput extends CreateStreamin
  *         "STRING_VALUE",
  *       ],
  *     },
- *     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ *     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None",
  *     Enabled: true || false, // required
  *   },
  * };
@@ -116,7 +116,7 @@ export interface CreateStreamingDistributionCommandOutput extends CreateStreamin
  * //           "STRING_VALUE",
  * //         ],
  * //       },
- * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None",
  * //       Enabled: true || false, // required
  * //     },
  * //   },

@@ -603,6 +603,165 @@ export class TooManyDistributionCNAMEs extends __BaseException {
 }
 
 /**
+ * @public
+ */
+export interface AssociateDistributionTenantWebACLRequest {
+  /**
+   * <p>The ID of the distribution tenant.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the WAF web ACL to associate.</p>
+   * @public
+   */
+  WebACLArn: string | undefined;
+
+  /**
+   * <p>The current <code>ETag</code> of the distribution tenant. This value is returned in the response of the <code>GetDistributionTenant</code> API operation.</p>
+   * @public
+   */
+  IfMatch?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateDistributionTenantWebACLResult {
+  /**
+   * <p>The ID of the distribution tenant.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The ARN of the WAF web ACL that you associated with the distribution tenant.</p>
+   * @public
+   */
+  WebACLArn?: string | undefined;
+
+  /**
+   * <p>The current version of the distribution tenant.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * <p>The entity was not found.</p>
+ * @public
+ */
+export class EntityNotFound extends __BaseException {
+  readonly name: "EntityNotFound" = "EntityNotFound";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityNotFound, __BaseException>) {
+    super({
+      name: "EntityNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityNotFound.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The <code>If-Match</code> version is missing or not valid.</p>
+ * @public
+ */
+export class InvalidIfMatchVersion extends __BaseException {
+  readonly name: "InvalidIfMatchVersion" = "InvalidIfMatchVersion";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidIfMatchVersion, __BaseException>) {
+    super({
+      name: "InvalidIfMatchVersion",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidIfMatchVersion.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ * @public
+ */
+export class PreconditionFailed extends __BaseException {
+  readonly name: "PreconditionFailed" = "PreconditionFailed";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PreconditionFailed, __BaseException>) {
+    super({
+      name: "PreconditionFailed",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PreconditionFailed.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface AssociateDistributionWebACLRequest {
+  /**
+   * <p>The ID of the distribution.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the WAF web ACL to associate.</p>
+   * @public
+   */
+  WebACLArn: string | undefined;
+
+  /**
+   * <p>The value of the <code>ETag</code> header that you received when retrieving the distribution that you're associating with the WAF web ACL.</p>
+   * @public
+   */
+  IfMatch?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateDistributionWebACLResult {
+  /**
+   * <p>The ID of the distribution.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The ARN of the WAF web ACL that you associated with the distribution.</p>
+   * @public
+   */
+  WebACLArn?: string | undefined;
+
+  /**
+   * <p>The current version of the distribution.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
  * <p>Invalidation batch specified is too large.</p>
  * @public
  */
@@ -2022,6 +2181,18 @@ export class CannotUpdateEntityWhileInUse extends __BaseException {
 }
 
 /**
+ * <p>The Certificate Manager (ACM) certificate associated with your distribution.</p>
+ * @public
+ */
+export interface Certificate {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ACM certificate.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -2035,6 +2206,21 @@ export const CertificateSource = {
  * @public
  */
 export type CertificateSource = (typeof CertificateSource)[keyof typeof CertificateSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const CertificateTransparencyLoggingPreference = {
+  Disabled: "disabled",
+  Enabled: "enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateTransparencyLoggingPreference =
+  (typeof CertificateTransparencyLoggingPreference)[keyof typeof CertificateTransparencyLoggingPreference];
 
 /**
  * <p>The CNAME specified is already defined for CloudFront.</p>
@@ -2103,6 +2289,20 @@ export interface CopyDistributionRequest {
    */
   Enabled?: boolean | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionMode = {
+  Direct: "direct",
+  TenantOnly: "tenant-only",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionMode = (typeof ConnectionMode)[keyof typeof ConnectionMode];
 
 /**
  * <p>A complex type that controls:</p>
@@ -3134,6 +3334,7 @@ export interface Origins {
  * @enum
  */
 export const PriceClass = {
+  None: "None",
   PriceClass_100: "PriceClass_100",
   PriceClass_200: "PriceClass_200",
   PriceClass_All: "PriceClass_All",
@@ -3167,8 +3368,7 @@ export type GeoRestrictionType = (typeof GeoRestrictionType)[keyof typeof GeoRes
  */
 export interface GeoRestriction {
   /**
-   * <p>The method that you want to use to restrict distribution of your content by
-   * 			country:</p>
+   * <p>The method that you want to use to restrict distribution of your content by country:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3228,6 +3428,72 @@ export interface Restrictions {
    * @public
    */
   GeoRestriction: GeoRestriction | undefined;
+}
+
+/**
+ * <p>The configuration for a string schema.</p>
+ * @public
+ */
+export interface StringSchemaConfig {
+  /**
+   * <p>A comment to describe the parameter.</p>
+   * @public
+   */
+  Comment?: string | undefined;
+
+  /**
+   * <p>The default value of the parameter.</p>
+   * @public
+   */
+  DefaultValue?: string | undefined;
+
+  /**
+   * <p>Whether the defined parameter is required.</p>
+   * @public
+   */
+  Required: boolean | undefined;
+}
+
+/**
+ * <p>An object that contains information about the parameter definition.</p>
+ * @public
+ */
+export interface ParameterDefinitionSchema {
+  /**
+   * <p>An object that contains information about the string schema.</p>
+   * @public
+   */
+  StringSchema?: StringSchemaConfig | undefined;
+}
+
+/**
+ * <p>A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.</p>
+ * @public
+ */
+export interface ParameterDefinition {
+  /**
+   * <p>The name of the parameter.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The value that you assigned to the parameter.</p>
+   * @public
+   */
+  Definition: ParameterDefinitionSchema | undefined;
+}
+
+/**
+ * <p>The configuration for a distribution tenant.</p>
+ * @public
+ */
+export interface TenantConfig {
+  /**
+   * <p>The parameters that you specify for a distribution tenant.</p>
+   * @public
+   */
+  ParameterDefinitions?: ParameterDefinition[] | undefined;
 }
 
 /**
@@ -3396,7 +3662,7 @@ export interface ViewerCertificate {
    *                   <code>static-ip</code> - Do not specify this value unless your distribution
    * 					has been enabled for this feature by the CloudFront team. If you have a use case
    * 					that requires static IP addresses for a distribution, contact CloudFront through
-   * 					the <a href="https://console.aws.amazon.com/support/home">Amazon Web ServicesSupport Center</a>.</p>
+   * 					the <a href="https://console.aws.amazon.com/support/home">Amazon Web Services Support Center</a>.</p>
    *             </li>
    *          </ul>
    *          <p>If the distribution uses the CloudFront domain name such as
@@ -3722,6 +3988,18 @@ export interface DistributionConfig {
    * @public
    */
   AnycastIpListId?: string | undefined;
+
+  /**
+   * <p>A distribution tenant configuration.</p>
+   * @public
+   */
+  TenantConfig?: TenantConfig | undefined;
+
+  /**
+   * <p>The connection mode to filter distributions by.</p>
+   * @public
+   */
+  ConnectionMode?: ConnectionMode | undefined;
 }
 
 /**
@@ -4031,28 +4309,6 @@ export class InvalidHeadersForS3Origin extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidHeadersForS3Origin.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The <code>If-Match</code> version is missing or not valid.</p>
- * @public
- */
-export class InvalidIfMatchVersion extends __BaseException {
-  readonly name: "InvalidIfMatchVersion" = "InvalidIfMatchVersion";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidIfMatchVersion, __BaseException>) {
-    super({
-      name: "InvalidIfMatchVersion",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidIfMatchVersion.prototype);
     this.Message = opts.Message;
   }
 }
@@ -4568,29 +4824,6 @@ export class NoSuchResponseHeadersPolicy extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, NoSuchResponseHeadersPolicy.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
- * @public
- */
-export class PreconditionFailed extends __BaseException {
-  readonly name: "PreconditionFailed" = "PreconditionFailed";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PreconditionFailed, __BaseException>) {
-    super({
-      name: "PreconditionFailed",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PreconditionFailed.prototype);
     this.Message = opts.Message;
   }
 }
@@ -5223,7 +5456,7 @@ export interface CreateAnycastIpListRequest {
   Name: string | undefined;
 
   /**
-   * <p>The number of static IP addresses that are allocated to the Anycast static IP list.</p>
+   * <p>The number of static IP addresses that are allocated to the Anycast static IP list. Valid values: 21 or 3.</p>
    * @public
    */
   IpCount: number | undefined;
@@ -5620,6 +5853,137 @@ export class TooManyCloudFrontOriginAccessIdentities extends __BaseException {
 }
 
 /**
+ * @public
+ */
+export interface CreateConnectionGroupRequest {
+  /**
+   * <p>The name of the connection group. Enter a friendly identifier that is unique within your Amazon Web Services account. This name can't be updated after you create the connection group.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Enable IPv6 for the connection group. The default is <code>true</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesEnableIPv6">Enable IPv6</a> in the
+   *   	<i>Amazon CloudFront Developer Guide</i>.</p>
+   * @public
+   */
+  Ipv6Enabled?: boolean | undefined;
+
+  /**
+   * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
+   * @public
+   */
+  Tags?: Tags | undefined;
+
+  /**
+   * <p>The ID of the Anycast static IP list.</p>
+   * @public
+   */
+  AnycastIpListId?: string | undefined;
+
+  /**
+   * <p>Enable the connection group.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+}
+
+/**
+ * <p>The connection group for your distribution tenants. When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.</p>
+ * @public
+ */
+export interface ConnectionGroup {
+  /**
+   * <p>The ID of the connection group.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The name of the connection group.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connection group.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The date and time when the connection group was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The date and time when the connection group was updated.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
+   * @public
+   */
+  Tags?: Tags | undefined;
+
+  /**
+   * <p>IPv6 is enabled for the connection group.</p>
+   * @public
+   */
+  Ipv6Enabled?: boolean | undefined;
+
+  /**
+   * <p>The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.</p>
+   * @public
+   */
+  RoutingEndpoint?: string | undefined;
+
+  /**
+   * <p>The ID of the Anycast static IP list.</p>
+   * @public
+   */
+  AnycastIpListId?: string | undefined;
+
+  /**
+   * <p>The status of the connection group.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>Whether the connection group is enabled.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>Whether the connection group is the default connection group for the distribution tenants.</p>
+   * @public
+   */
+  IsDefault?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectionGroupResult {
+  /**
+   * <p>The connection group that you created.</p>
+   * @public
+   */
+  ConnectionGroup?: ConnectionGroup | undefined;
+
+  /**
+   * <p>The current version of the connection group.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
  * <p>A continuous deployment policy with this configuration already exists.</p>
  * @public
  */
@@ -5960,28 +6324,6 @@ export interface CreateDistributionResult {
 }
 
 /**
- * <p>The entity was not found.</p>
- * @public
- */
-export class EntityNotFound extends __BaseException {
-  readonly name: "EntityNotFound" = "EntityNotFound";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntityNotFound, __BaseException>) {
-    super({
-      name: "EntityNotFound",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntityNotFound.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>An origin cannot contain both an origin access control (OAC) and an origin access
  * 			identity (OAI).</p>
  * @public
@@ -6045,6 +6387,391 @@ export class NoSuchContinuousDeploymentPolicy extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, NoSuchContinuousDeploymentPolicy.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The customizations that you specified for the distribution tenant for geographic restrictions.</p>
+ * @public
+ */
+export interface GeoRestrictionCustomization {
+  /**
+   * <p>The method that you want to use to restrict distribution of your content by
+   * 			country:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>none</code>: No geographic restriction is enabled, meaning access to content is
+   * 					not restricted by client geo location.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>blacklist</code>: The <code>Location</code> elements specify the
+   * 					countries in which you don't want CloudFront to distribute your content.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>whitelist</code>: The <code>Location</code> elements specify the
+   * 					countries in which you want CloudFront to distribute your content.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  RestrictionType: GeoRestrictionType | undefined;
+
+  /**
+   * <p>The locations for geographic restrictions.</p>
+   * @public
+   */
+  Locations?: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomizationActionType = {
+  disable: "disable",
+  override: "override",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomizationActionType = (typeof CustomizationActionType)[keyof typeof CustomizationActionType];
+
+/**
+ * <p>The WAF web ACL customization specified for the distribution tenant.</p>
+ * @public
+ */
+export interface WebAclCustomization {
+  /**
+   * <p>The action for the WAF web ACL customization. You can specify <code>override</code> to specify a separate WAF web ACL for the distribution tenant. If you specify <code>disable</code>, the distribution tenant won't have WAF web ACL protections and won't inherit from the multi-tenant distribution.</p>
+   * @public
+   */
+  Action: CustomizationActionType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the WAF web ACL.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * <p>Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.</p>
+ * @public
+ */
+export interface Customizations {
+  /**
+   * <p>The WAF web ACL.</p>
+   * @public
+   */
+  WebAcl?: WebAclCustomization | undefined;
+
+  /**
+   * <p>The Certificate Manager (ACM) certificate.</p>
+   * @public
+   */
+  Certificate?: Certificate | undefined;
+
+  /**
+   * <p>The geographic restrictions.</p>
+   * @public
+   */
+  GeoRestrictions?: GeoRestrictionCustomization | undefined;
+}
+
+/**
+ * <p>The domain for the specified distribution tenant.</p>
+ * @public
+ */
+export interface DomainItem {
+  /**
+   * <p>The domain name.</p>
+   * @public
+   */
+  Domain: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationTokenHost = {
+  CloudFront: "cloudfront",
+  SelfHosted: "self-hosted",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationTokenHost = (typeof ValidationTokenHost)[keyof typeof ValidationTokenHost];
+
+/**
+ * <p>An object that represents the request for the Amazon CloudFront managed ACM certificate.</p>
+ * @public
+ */
+export interface ManagedCertificateRequest {
+  /**
+   * <p>Specify how the HTTP validation token will be served when requesting the CloudFront managed ACM certificate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For <code>cloudfront</code>, CloudFront will automatically serve the validation token. Choose this mode if you can point the domain's DNS to CloudFront immediately.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>self-hosted</code>, you serve the validation token from your existing infrastructure. Choose this mode when you need to maintain current traffic flow while your certificate is being issued. You can place the validation token at the well-known path on your existing web server, wait for ACM to validate and issue the certificate, and then update your DNS to point to CloudFront.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ValidationTokenHost: ValidationTokenHost | undefined;
+
+  /**
+   * <p>The primary domain name associated with the CloudFront managed ACM certificate.</p>
+   * @public
+   */
+  PrimaryDomainName?: string | undefined;
+
+  /**
+   * <p>You can opt out of certificate transparency logging by specifying the <code>disabled</code>
+   * 			option. Opt in by specifying <code>enabled</code>. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency">Certificate
+   * 				Transparency Logging </a> in the <i>Certificate Manager User
+   * 			Guide</i>.</p>
+   * @public
+   */
+  CertificateTransparencyLoggingPreference?: CertificateTransparencyLoggingPreference | undefined;
+}
+
+/**
+ * <p>A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.</p>
+ * @public
+ */
+export interface Parameter {
+  /**
+   * <p>The parameter name.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The parameter value.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDistributionTenantRequest {
+  /**
+   * <p>The ID of the multi-tenant distribution to use for creating the distribution tenant.</p>
+   * @public
+   */
+  DistributionId: string | undefined;
+
+  /**
+   * <p>The name of the distribution tenant. Enter a friendly identifier that is unique within your Amazon Web Services account. This name can't be updated after you create the distribution tenant.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The domains associated with the distribution tenant. You must specify at least one domain in the request.</p>
+   * @public
+   */
+  Domains: DomainItem[] | undefined;
+
+  /**
+   * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
+   * @public
+   */
+  Tags?: Tags | undefined;
+
+  /**
+   * <p>Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.</p>
+   * @public
+   */
+  Customizations?: Customizations | undefined;
+
+  /**
+   * <p>A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.</p>
+   * @public
+   */
+  Parameters?: Parameter[] | undefined;
+
+  /**
+   * <p>The ID of the connection group to associate with the distribution tenant.</p>
+   * @public
+   */
+  ConnectionGroupId?: string | undefined;
+
+  /**
+   * <p>The configuration for the CloudFront managed ACM certificate request.</p>
+   * @public
+   */
+  ManagedCertificateRequest?: ManagedCertificateRequest | undefined;
+
+  /**
+   * <p>Indicates whether the distribution tenant should be enabled when created. If the distribution tenant is disabled, the distribution tenant won't serve traffic.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DomainStatus = {
+  Active: "active",
+  Inactive: "inactive",
+} as const;
+
+/**
+ * @public
+ */
+export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
+
+/**
+ * <p>The details about the domain result.</p>
+ * @public
+ */
+export interface DomainResult {
+  /**
+   * <p>The specified domain.</p>
+   * @public
+   */
+  Domain: string | undefined;
+
+  /**
+   * <p>Whether the domain is active or inactive.</p>
+   * @public
+   */
+  Status?: DomainStatus | undefined;
+}
+
+/**
+ * <p>The distribution tenant.</p>
+ * @public
+ */
+export interface DistributionTenant {
+  /**
+   * <p>The ID of the distribution tenant.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The ID of the multi-tenant distribution.</p>
+   * @public
+   */
+  DistributionId?: string | undefined;
+
+  /**
+   * <p>The name of the distribution tenant.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the distribution tenant.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The domains associated with the distribution tenant.</p>
+   * @public
+   */
+  Domains?: DomainResult[] | undefined;
+
+  /**
+   * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
+   * @public
+   */
+  Tags?: Tags | undefined;
+
+  /**
+   * <p>Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.</p>
+   * @public
+   */
+  Customizations?: Customizations | undefined;
+
+  /**
+   * <p>A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.</p>
+   * @public
+   */
+  Parameters?: Parameter[] | undefined;
+
+  /**
+   * <p>The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.</p>
+   * @public
+   */
+  ConnectionGroupId?: string | undefined;
+
+  /**
+   * <p>The date and time when the distribution tenant was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The date and time when the distribution tenant was updated.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The status of the distribution tenant.</p>
+   * @public
+   */
+  Status?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDistributionTenantResult {
+  /**
+   * <p>The distribution tenant that you created.</p>
+   * @public
+   */
+  DistributionTenant?: DistributionTenant | undefined;
+
+  /**
+   * <p>The current version of the distribution tenant.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * <p>The specified CloudFront resource can't be associated.</p>
+ * @public
+ */
+export class InvalidAssociation extends __BaseException {
+  readonly name: "InvalidAssociation" = "InvalidAssociation";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAssociation, __BaseException>) {
+    super({
+      name: "InvalidAssociation",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAssociation.prototype);
     this.Message = opts.Message;
   }
 }
@@ -7186,6 +7913,40 @@ export class TooManyInvalidationsInProgress extends __BaseException {
 }
 
 /**
+ * @public
+ */
+export interface CreateInvalidationForDistributionTenantRequest {
+  /**
+   * <p>The ID of the distribution tenant.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>An invalidation batch.</p>
+   * @public
+   */
+  InvalidationBatch: InvalidationBatch | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateInvalidationForDistributionTenantResult {
+  /**
+   * <p>The location for the invalidation.</p>
+   * @public
+   */
+  Location?: string | undefined;
+
+  /**
+   * <p>An invalidation.</p>
+   * @public
+   */
+  Invalidation?: Invalidation | undefined;
+}
+
+/**
  * <p>A key group configuration.</p>
  *          <p>A key group contains a list of public keys that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
  * @public
@@ -7763,846 +8524,6 @@ export class OriginAccessControlAlreadyExists extends __BaseException {
     Object.setPrototypeOf(this, OriginAccessControlAlreadyExists.prototype);
     this.Message = opts.Message;
   }
-}
-
-/**
- * <p>The number of origin access controls in your Amazon Web Services account exceeds the maximum
- * 			allowed.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
- * @public
- */
-export class TooManyOriginAccessControls extends __BaseException {
-  readonly name: "TooManyOriginAccessControls" = "TooManyOriginAccessControls";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyOriginAccessControls, __BaseException>) {
-    super({
-      name: "TooManyOriginAccessControls",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyOriginAccessControls.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const OriginRequestPolicyCookieBehavior = {
-  all: "all",
-  allExcept: "allExcept",
-  none: "none",
-  whitelist: "whitelist",
-} as const;
-
-/**
- * @public
- */
-export type OriginRequestPolicyCookieBehavior =
-  (typeof OriginRequestPolicyCookieBehavior)[keyof typeof OriginRequestPolicyCookieBehavior];
-
-/**
- * <p>An object that determines whether any cookies in viewer requests (and if so, which
- * 			cookies) are included in requests that CloudFront sends to the origin.</p>
- * @public
- */
-export interface OriginRequestPolicyCookiesConfig {
-  /**
-   * <p>Determines whether cookies in viewer requests are included in requests that CloudFront sends
-   * 			to the origin. Valid values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>none</code> – No cookies in viewer requests are included in requests that CloudFront sends
-   * 					to the origin. Even when this field is set to <code>none</code>, any cookies
-   * 					that are listed in a <code>CachePolicy</code>
-   *                   <i>are</i> included
-   * 					in origin requests.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>whitelist</code> – Only the cookies in viewer requests that are listed in the
-   * 					<code>CookieNames</code> type are included in requests that CloudFront sends to the
-   * 					origin.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>all</code> – All cookies in viewer requests are included in requests
-   * 					that CloudFront sends to the origin.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>allExcept</code> – All cookies in viewer requests are included in
-   * 					requests that CloudFront sends to the origin, <i>
-   *                      <b>except</b>
-   *                   </i> for those listed in the <code>CookieNames</code>
-   * 					type, which are not included.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  CookieBehavior: OriginRequestPolicyCookieBehavior | undefined;
-
-  /**
-   * <p>Contains a list of cookie names.</p>
-   * @public
-   */
-  Cookies?: CookieNames | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const OriginRequestPolicyHeaderBehavior = {
-  allExcept: "allExcept",
-  allViewer: "allViewer",
-  allViewerAndWhitelistCloudFront: "allViewerAndWhitelistCloudFront",
-  none: "none",
-  whitelist: "whitelist",
-} as const;
-
-/**
- * @public
- */
-export type OriginRequestPolicyHeaderBehavior =
-  (typeof OriginRequestPolicyHeaderBehavior)[keyof typeof OriginRequestPolicyHeaderBehavior];
-
-/**
- * <p>An object that determines whether any HTTP headers (and if so, which headers) are
- * 			included in requests that CloudFront sends to the origin.</p>
- * @public
- */
-export interface OriginRequestPolicyHeadersConfig {
-  /**
-   * <p>Determines whether any HTTP headers are included in requests that CloudFront sends to the
-   * 			origin. Valid values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>none</code> – No HTTP headers in viewer requests are included in requests that CloudFront
-   * 					sends to the origin. Even when this field is set to <code>none</code>, any
-   * 					headers that are listed in a <code>CachePolicy</code>
-   *                   <i>are</i>
-   * 					included in origin requests.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>whitelist</code> – Only the HTTP headers that are listed in the <code>Headers</code>
-   * 					type are included in requests that CloudFront sends to the origin.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>allViewer</code> – All HTTP headers in viewer requests are included in
-   * 					requests that CloudFront sends to the origin.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>allViewerAndWhitelistCloudFront</code> – All HTTP headers in viewer
-   * 					requests and the additional CloudFront headers that are listed in the
-   * 						<code>Headers</code> type are included in requests that CloudFront sends to the
-   * 					origin. The additional headers are added by CloudFront.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>allExcept</code> – All HTTP headers in viewer requests are included in
-   * 					requests that CloudFront sends to the origin, <i>
-   *                      <b>except</b>
-   *                   </i> for those listed in the <code>Headers</code> type,
-   * 					which are not included.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  HeaderBehavior: OriginRequestPolicyHeaderBehavior | undefined;
-
-  /**
-   * <p>Contains a list of HTTP header names.</p>
-   * @public
-   */
-  Headers?: Headers | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const OriginRequestPolicyQueryStringBehavior = {
-  all: "all",
-  allExcept: "allExcept",
-  none: "none",
-  whitelist: "whitelist",
-} as const;
-
-/**
- * @public
- */
-export type OriginRequestPolicyQueryStringBehavior =
-  (typeof OriginRequestPolicyQueryStringBehavior)[keyof typeof OriginRequestPolicyQueryStringBehavior];
-
-/**
- * <p>An object that determines whether any URL query strings in viewer requests (and if so,
- * 			which query strings) are included in requests that CloudFront sends to the origin.</p>
- * @public
- */
-export interface OriginRequestPolicyQueryStringsConfig {
-  /**
-   * <p>Determines whether any URL query strings in viewer requests are included in requests
-   * 			that CloudFront sends to the origin. Valid values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>none</code> – No query strings in viewer requests are included in requests that CloudFront
-   * 					sends to the origin. Even when this field is set to <code>none</code>, any query
-   * 					strings that are listed in a <code>CachePolicy</code>
-   *                   <i>are</i>
-   * 					included in origin requests.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>whitelist</code> – Only the query strings in viewer requests that are listed in the
-   * 					<code>QueryStringNames</code> type are included in requests that CloudFront sends to
-   * 					the origin.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>all</code> – All query strings in viewer requests are included in requests that CloudFront
-   * 					sends to the origin.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>allExcept</code> – All query strings in viewer requests are included in
-   * 					requests that CloudFront sends to the origin, <i>
-   *                      <b>except</b>
-   *                   </i> for those listed in the
-   * 					<code>QueryStringNames</code> type, which are not included.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  QueryStringBehavior: OriginRequestPolicyQueryStringBehavior | undefined;
-
-  /**
-   * <p>Contains the specific query strings in viewer requests that either <i>
-   *                <b>are</b>
-   *             </i> or <i>
-   *                <b>are
-   * 			not</b>
-   *             </i> included in requests that CloudFront sends to the origin. The
-   * 			behavior depends on whether the <code>QueryStringBehavior</code> field in the
-   * 			<code>OriginRequestPolicyQueryStringsConfig</code> type is set to <code>whitelist</code>
-   * 			(the listed query strings <i>
-   *                <b>are</b>
-   *             </i>
-   * 			included) or <code>allExcept</code> (the listed query strings <i>
-   *                <b>are not</b>
-   *             </i> included, but all other query strings
-   * 			are).</p>
-   * @public
-   */
-  QueryStrings?: QueryStringNames | undefined;
-}
-
-/**
- * <p>An origin request policy configuration.</p>
- *          <p>This configuration determines the values that CloudFront includes in requests that it sends
- * 			to the origin. Each request that CloudFront sends to the origin includes the following:</p>
- *          <ul>
- *             <li>
- *                <p>The request body and the URL path (without the domain name) from the viewer
- * 					request.</p>
- *             </li>
- *             <li>
- *                <p>The headers that CloudFront automatically includes in every origin request,
- * 					including <code>Host</code>, <code>User-Agent</code>, and
- * 						<code>X-Amz-Cf-Id</code>.</p>
- *             </li>
- *             <li>
- *                <p>All HTTP headers, cookies, and URL query strings that are specified in the
- * 					cache policy or the origin request policy. These can include items from the
- * 					viewer request and, in the case of headers, additional ones that are added by
- * 					CloudFront.</p>
- *             </li>
- *          </ul>
- *          <p>CloudFront sends a request when it can't find an object in its cache that matches the
- * 			request. If you want to send values to the origin and also include them in the cache
- * 			key, use <code>CachePolicy</code>.</p>
- * @public
- */
-export interface OriginRequestPolicyConfig {
-  /**
-   * <p>A comment to describe the origin request policy. The comment cannot be longer than 128
-   * 			characters.</p>
-   * @public
-   */
-  Comment?: string | undefined;
-
-  /**
-   * <p>A unique name to identify the origin request policy.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The HTTP headers to include in origin requests. These can include headers from viewer
-   * 			requests and additional headers added by CloudFront.</p>
-   * @public
-   */
-  HeadersConfig: OriginRequestPolicyHeadersConfig | undefined;
-
-  /**
-   * <p>The cookies from viewer requests to include in origin requests.</p>
-   * @public
-   */
-  CookiesConfig: OriginRequestPolicyCookiesConfig | undefined;
-
-  /**
-   * <p>The URL query strings from viewer requests to include in origin requests.</p>
-   * @public
-   */
-  QueryStringsConfig: OriginRequestPolicyQueryStringsConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateOriginRequestPolicyRequest {
-  /**
-   * <p>An origin request policy configuration.</p>
-   * @public
-   */
-  OriginRequestPolicyConfig: OriginRequestPolicyConfig | undefined;
-}
-
-/**
- * <p>An origin request policy.</p>
- *          <p>When it's attached to a cache behavior, the origin request policy determines the
- * 			values that CloudFront includes in requests that it sends to the origin. Each request that
- * 			CloudFront sends to the origin includes the following:</p>
- *          <ul>
- *             <li>
- *                <p>The request body and the URL path (without the domain name) from the viewer
- * 					request.</p>
- *             </li>
- *             <li>
- *                <p>The headers that CloudFront automatically includes in every origin request,
- * 					including <code>Host</code>, <code>User-Agent</code>, and
- * 						<code>X-Amz-Cf-Id</code>.</p>
- *             </li>
- *             <li>
- *                <p>All HTTP headers, cookies, and URL query strings that are specified in the
- * 					cache policy or the origin request policy. These can include items from the
- * 					viewer request and, in the case of headers, additional ones that are added by
- * 					CloudFront.</p>
- *             </li>
- *          </ul>
- *          <p>CloudFront sends a request when it can't find an object in its cache that matches the
- * 			request. If you want to send values to the origin and also include them in the cache
- * 			key, use <code>CachePolicy</code>.</p>
- * @public
- */
-export interface OriginRequestPolicy {
-  /**
-   * <p>The unique identifier for the origin request policy.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The date and time when the origin request policy was last modified.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The origin request policy configuration.</p>
-   * @public
-   */
-  OriginRequestPolicyConfig: OriginRequestPolicyConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateOriginRequestPolicyResult {
-  /**
-   * <p>An origin request policy.</p>
-   * @public
-   */
-  OriginRequestPolicy?: OriginRequestPolicy | undefined;
-
-  /**
-   * <p>The fully qualified URI of the origin request policy just created.</p>
-   * @public
-   */
-  Location?: string | undefined;
-
-  /**
-   * <p>The current version of the origin request policy.</p>
-   * @public
-   */
-  ETag?: string | undefined;
-}
-
-/**
- * <p>An origin request policy with this name already exists. You must provide a unique
- * 			name. To modify an existing origin request policy, use
- * 				<code>UpdateOriginRequestPolicy</code>.</p>
- * @public
- */
-export class OriginRequestPolicyAlreadyExists extends __BaseException {
-  readonly name: "OriginRequestPolicyAlreadyExists" = "OriginRequestPolicyAlreadyExists";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OriginRequestPolicyAlreadyExists, __BaseException>) {
-    super({
-      name: "OriginRequestPolicyAlreadyExists",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OriginRequestPolicyAlreadyExists.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The number of cookies in the origin request policy exceeds the maximum. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
- * @public
- */
-export class TooManyCookiesInOriginRequestPolicy extends __BaseException {
-  readonly name: "TooManyCookiesInOriginRequestPolicy" = "TooManyCookiesInOriginRequestPolicy";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyCookiesInOriginRequestPolicy, __BaseException>) {
-    super({
-      name: "TooManyCookiesInOriginRequestPolicy",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyCookiesInOriginRequestPolicy.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The number of headers in the origin request policy exceeds the maximum. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
- * @public
- */
-export class TooManyHeadersInOriginRequestPolicy extends __BaseException {
-  readonly name: "TooManyHeadersInOriginRequestPolicy" = "TooManyHeadersInOriginRequestPolicy";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyHeadersInOriginRequestPolicy, __BaseException>) {
-    super({
-      name: "TooManyHeadersInOriginRequestPolicy",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyHeadersInOriginRequestPolicy.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You have reached the maximum number of origin request policies for this Amazon Web Services account.
- * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
- * @public
- */
-export class TooManyOriginRequestPolicies extends __BaseException {
-  readonly name: "TooManyOriginRequestPolicies" = "TooManyOriginRequestPolicies";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyOriginRequestPolicies, __BaseException>) {
-    super({
-      name: "TooManyOriginRequestPolicies",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyOriginRequestPolicies.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The number of query strings in the origin request policy exceeds the maximum. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
- * @public
- */
-export class TooManyQueryStringsInOriginRequestPolicy extends __BaseException {
-  readonly name: "TooManyQueryStringsInOriginRequestPolicy" = "TooManyQueryStringsInOriginRequestPolicy";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyQueryStringsInOriginRequestPolicy, __BaseException>) {
-    super({
-      name: "TooManyQueryStringsInOriginRequestPolicy",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyQueryStringsInOriginRequestPolicy.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Configuration information about a public key that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
- * @public
- */
-export interface PublicKeyConfig {
-  /**
-   * <p>A string included in the request to help make sure that the request can't be
-   * 			replayed.</p>
-   * @public
-   */
-  CallerReference: string | undefined;
-
-  /**
-   * <p>A name to help identify the public key.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The public key that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
-   * @public
-   */
-  EncodedKey: string | undefined;
-
-  /**
-   * <p>A comment to describe the public key. The comment cannot be longer than 128
-   * 			characters.</p>
-   * @public
-   */
-  Comment?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreatePublicKeyRequest {
-  /**
-   * <p>A CloudFront public key configuration.</p>
-   * @public
-   */
-  PublicKeyConfig: PublicKeyConfig | undefined;
-}
-
-/**
- * <p>A public key that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
- * @public
- */
-export interface PublicKey {
-  /**
-   * <p>The identifier of the public key.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The date and time when the public key was uploaded.</p>
-   * @public
-   */
-  CreatedTime: Date | undefined;
-
-  /**
-   * <p>Configuration information about a public key that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
-   * @public
-   */
-  PublicKeyConfig: PublicKeyConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface CreatePublicKeyResult {
-  /**
-   * <p>The public key.</p>
-   * @public
-   */
-  PublicKey?: PublicKey | undefined;
-
-  /**
-   * <p>The URL of the public key.</p>
-   * @public
-   */
-  Location?: string | undefined;
-
-  /**
-   * <p>The identifier for this version of the public key.</p>
-   * @public
-   */
-  ETag?: string | undefined;
-}
-
-/**
- * <p>The specified public key already exists.</p>
- * @public
- */
-export class PublicKeyAlreadyExists extends __BaseException {
-  readonly name: "PublicKeyAlreadyExists" = "PublicKeyAlreadyExists";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PublicKeyAlreadyExists, __BaseException>) {
-    super({
-      name: "PublicKeyAlreadyExists",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PublicKeyAlreadyExists.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The maximum number of public keys for field-level encryption have been created. To
- * 			create a new public key, delete one of the existing keys.</p>
- * @public
- */
-export class TooManyPublicKeys extends __BaseException {
-  readonly name: "TooManyPublicKeys" = "TooManyPublicKeys";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyPublicKeys, __BaseException>) {
-    super({
-      name: "TooManyPublicKeys",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyPublicKeys.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Contains information about the Amazon Kinesis data stream where you are sending real-time
- * 			log data.</p>
- * @public
- */
-export interface KinesisStreamConfig {
-  /**
-   * <p>The Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that CloudFront can use to
-   * 			send real-time log data to your Kinesis data stream.</p>
-   *          <p>For more information the IAM role, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role">Real-time log configuration IAM role</a> in the
-   * 				<i>Amazon CloudFront Developer Guide</i>.</p>
-   * @public
-   */
-  RoleARN: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Kinesis data stream where you are sending
-   * 			real-time log data.</p>
-   * @public
-   */
-  StreamARN: string | undefined;
-}
-
-/**
- * <p>Contains information about the Amazon Kinesis data stream where you are sending real-time
- * 			log data in a real-time log configuration.</p>
- * @public
- */
-export interface EndPoint {
-  /**
-   * <p>The type of data stream where you are sending real-time log data. The only valid value
-   * 			is <code>Kinesis</code>.</p>
-   * @public
-   */
-  StreamType: string | undefined;
-
-  /**
-   * <p>Contains information about the Amazon Kinesis data stream where you are sending real-time
-   * 			log data.</p>
-   * @public
-   */
-  KinesisStreamConfig?: KinesisStreamConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateRealtimeLogConfigRequest {
-  /**
-   * <p>Contains information about the Amazon Kinesis data stream where you are sending real-time
-   * 			log data.</p>
-   * @public
-   */
-  EndPoints: EndPoint[] | undefined;
-
-  /**
-   * <p>A list of fields to include in each real-time log record.</p>
-   *          <p>For more information about fields, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields">Real-time log configuration fields</a> in the
-   * 				<i>Amazon CloudFront Developer Guide</i>.</p>
-   * @public
-   */
-  Fields: string[] | undefined;
-
-  /**
-   * <p>A unique name to identify this real-time log configuration.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The sampling rate for this real-time log configuration. You can specify a whole number between 1 and 100 (inclusive) to determine the percentage of viewer requests that are represented in the real-time log data.</p>
-   * @public
-   */
-  SamplingRate: number | undefined;
-}
-
-/**
- * <p>A real-time log configuration.</p>
- * @public
- */
-export interface RealtimeLogConfig {
-  /**
-   * <p>The Amazon Resource Name (ARN) of this real-time log configuration.</p>
-   * @public
-   */
-  ARN: string | undefined;
-
-  /**
-   * <p>The unique name of this real-time log configuration.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The sampling rate for this real-time log configuration. The sampling rate determines
-   * 			the percentage of viewer requests that are represented in the real-time log data. The
-   * 			sampling rate is an integer between 1 and 100, inclusive.</p>
-   * @public
-   */
-  SamplingRate: number | undefined;
-
-  /**
-   * <p>Contains information about the Amazon Kinesis data stream where you are sending real-time
-   * 			log data for this real-time log configuration.</p>
-   * @public
-   */
-  EndPoints: EndPoint[] | undefined;
-
-  /**
-   * <p>A list of fields that are included in each real-time log record. In an API response,
-   * 			the fields are provided in the same order in which they are sent to the Amazon Kinesis data
-   * 			stream.</p>
-   *          <p>For more information about fields, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields">Real-time log configuration fields</a> in the
-   * 				<i>Amazon CloudFront Developer Guide</i>.</p>
-   * @public
-   */
-  Fields: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateRealtimeLogConfigResult {
-  /**
-   * <p>A real-time log configuration.</p>
-   * @public
-   */
-  RealtimeLogConfig?: RealtimeLogConfig | undefined;
-}
-
-/**
- * <p>A real-time log configuration with this name already exists. You must provide a unique
- * 			name. To modify an existing real-time log configuration, use
- * 				<code>UpdateRealtimeLogConfig</code>.</p>
- * @public
- */
-export class RealtimeLogConfigAlreadyExists extends __BaseException {
-  readonly name: "RealtimeLogConfigAlreadyExists" = "RealtimeLogConfigAlreadyExists";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RealtimeLogConfigAlreadyExists, __BaseException>) {
-    super({
-      name: "RealtimeLogConfigAlreadyExists",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RealtimeLogConfigAlreadyExists.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You have reached the maximum number of real-time log configurations for this
- * 			Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
- * @public
- */
-export class TooManyRealtimeLogConfigs extends __BaseException {
-  readonly name: "TooManyRealtimeLogConfigs" = "TooManyRealtimeLogConfigs";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRealtimeLogConfigs, __BaseException>) {
-    super({
-      name: "TooManyRealtimeLogConfigs",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRealtimeLogConfigs.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>A list of HTTP header names that CloudFront includes as values for the
- * 				<code>Access-Control-Allow-Headers</code> HTTP response header.</p>
- *          <p>For more information about the <code>Access-Control-Allow-Headers</code> HTTP response
- * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers">Access-Control-Allow-Headers</a> in the MDN Web Docs.</p>
- * @public
- */
-export interface ResponseHeadersPolicyAccessControlAllowHeaders {
-  /**
-   * <p>The number of HTTP header names in the list.</p>
-   * @public
-   */
-  Quantity: number | undefined;
-
-  /**
-   * <p>The list of HTTP header names. You can specify <code>*</code> to allow all
-   * 			headers.</p>
-   * @public
-   */
-  Items: string[] | undefined;
 }
 
 /**
