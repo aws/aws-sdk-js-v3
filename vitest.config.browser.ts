@@ -11,6 +11,7 @@ export default defineConfig({
       "packages/middleware-websocket/src/get-event-signing-stream.spec.ts",
       "packages/middleware-websocket/src/EventStreamPayloadHandler.spec.ts",
       "packages/credential-provider-cognito-identity/src/localStorage.spec.ts",
+      "packages/signature-v4-multi-region/src/SignatureV4MultiRegion.browser.spec.ts",
     ],
     environment: "happy-dom",
   },

@@ -1,6 +1,8 @@
 # This is the public Makefile containing some build commands.
 # You can implement some additional personal commands such as login and sync in Makefile.private.mk (unversioned).
 
+.PHONY: bundles test-unit test-integration test-protocols test-e2e
+
 # fetch AWS testing credentials
 login:
 	make -f Makefile.private.mk login
@@ -12,7 +14,9 @@ login:
 sync:
 	make -f Makefile.private.mk sync
 
-test-unit: build-s3-browser-bundle
+bundles: build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle
+
+test-unit: bundles
 	yarn g:vitest run -c vitest.config.ts
 	yarn g:vitest run -c vitest.config.browser.ts
 	yarn g:vitest run -c vitest.config.clients.unit.ts
@@ -22,10 +26,10 @@ test-unit: build-s3-browser-bundle
 test-types:
 	npx tsc -p tsconfig.test.json
 
-test-protocols: build-s3-browser-bundle
+test-protocols: bundles
 	yarn g:vitest run -c vitest.config.protocols.integ.ts
 
-test-integration: build-s3-browser-bundle
+test-integration: bundles
 	rm -rf ./clients/client-sso/node_modules/\@smithy # todo(yarn) incompatible redundant nesting.
 	yarn g:vitest run -c vitest.config.integ.ts
 	npx jest -c jest.config.integ.js
@@ -36,12 +40,15 @@ test-integration: build-s3-browser-bundle
 test-endpoints:
 	npx jest -c ./tests/endpoints-2.0/jest.config.js --bail
 
-test-e2e: build-s3-browser-bundle
+test-e2e: bundles
 	yarn g:vitest run -c vitest.config.e2e.ts --retry=4
 	yarn g:vitest run -c vitest.config.browser.e2e.ts --retry=4
 
 build-s3-browser-bundle:
 	node ./clients/client-s3/test/browser-build/esbuild
+
+build-signature-v4-multi-region-browser-bundle:
+	node ./packages/signature-v4-multi-region/test-browser/browser-build/esbuild.js
 
 # removes nested node_modules folders
 clean-nested:

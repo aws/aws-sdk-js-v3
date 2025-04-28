@@ -372,7 +372,7 @@ esfuture,29`;
         });
         throw new Error("MRAP call in browser should throw");
       } catch (e) {
-        expect(e.message).toContain("only available in Node.js");
+        expect(e.message).toContain("JS SigV4a implementation is not available or not a valid constructor");
       }
     });
   });

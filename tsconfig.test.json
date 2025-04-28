@@ -10,6 +10,7 @@
     "vitest.*.ts",
     "clients/client-s3/test/e2e/S3.browser.e2e.spec.ts",
     "private/aws-restjson-server/**/*.spec.ts",
-    "private/aws-restjson-validation-server/**/*.spec.ts"
+    "private/aws-restjson-validation-server/**/*.spec.ts",
+    "packages/signature-v4-multi-region/src/SignatureV4MultiRegion.browser.spec.ts"
   ]
 }
