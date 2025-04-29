@@ -115,6 +115,7 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  * //       },
  * //       performedBy: { // UserUnion Union: only one key present
  * //         userArn: "STRING_VALUE",
+ * //         customEntity: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

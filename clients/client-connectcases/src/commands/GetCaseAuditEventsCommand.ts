@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetCaseAuditEventsRequest, GetCaseAuditEventsResponse } from "../models/models_0";
+import {
+  GetCaseAuditEventsRequest,
+  GetCaseAuditEventsResponse,
+  GetCaseAuditEventsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_GetCaseAuditEventsCommand, se_GetCaseAuditEventsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -73,6 +77,7 @@ export interface GetCaseAuditEventsCommandOutput extends GetCaseAuditEventsRespo
  * //       performedBy: { // AuditEventPerformedBy
  * //         user: { // UserUnion Union: only one key present
  * //           userArn: "STRING_VALUE",
+ * //           customEntity: "STRING_VALUE",
  * //         },
  * //         iamPrincipalArn: "STRING_VALUE", // required
  * //       },
@@ -128,7 +133,7 @@ export class GetCaseAuditEventsCommand extends $Command
   })
   .s("AmazonConnectCases", "GetCaseAuditEvents", {})
   .n("ConnectCasesClient", "GetCaseAuditEventsCommand")
-  .f(void 0, void 0)
+  .f(void 0, GetCaseAuditEventsResponseFilterSensitiveLog)
   .ser(se_GetCaseAuditEventsCommand)
   .de(de_GetCaseAuditEventsCommand)
   .build() {

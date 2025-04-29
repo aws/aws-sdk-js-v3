@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateCaseRequest, UpdateCaseResponse } from "../models/models_0";
+import { UpdateCaseRequest, UpdateCaseRequestFilterSensitiveLog, UpdateCaseResponse } from "../models/models_0";
 import { de_UpdateCaseCommand, se_UpdateCaseCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -58,6 +58,7 @@ export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataB
  *   ],
  *   performedBy: { // UserUnion Union: only one key present
  *     userArn: "STRING_VALUE",
+ *     customEntity: "STRING_VALUE",
  *   },
  * };
  * const command = new UpdateCaseCommand(input);
@@ -112,7 +113,7 @@ export class UpdateCaseCommand extends $Command
   })
   .s("AmazonConnectCases", "UpdateCase", {})
   .n("ConnectCasesClient", "UpdateCaseCommand")
-  .f(void 0, void 0)
+  .f(UpdateCaseRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateCaseCommand)
   .de(de_UpdateCaseCommand)
   .build() {

@@ -190,10 +190,10 @@ export interface FieldValue {
 }
 
 /**
- * <p>Represents the identity of the person who performed the action.</p>
+ * <p>Represents the entity that performed the action.</p>
  * @public
  */
-export type UserUnion = UserUnion.UserArnMember | UserUnion.$UnknownMember;
+export type UserUnion = UserUnion.CustomEntityMember | UserUnion.UserArnMember | UserUnion.$UnknownMember;
 
 /**
  * @public
@@ -205,6 +205,17 @@ export namespace UserUnion {
    */
   export interface UserArnMember {
     userArn: string;
+    customEntity?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Any provided entity.</p>
+   * @public
+   */
+  export interface CustomEntityMember {
+    userArn?: never;
+    customEntity: string;
     $unknown?: never;
   }
 
@@ -213,16 +224,19 @@ export namespace UserUnion {
    */
   export interface $UnknownMember {
     userArn?: never;
+    customEntity?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     userArn: (value: string) => T;
+    customEntity: (value: string) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: UserUnion, visitor: Visitor<T>): T => {
     if (value.userArn !== undefined) return visitor.userArn(value.userArn);
+    if (value.customEntity !== undefined) return visitor.customEntity(value.customEntity);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -260,7 +274,7 @@ export interface CreateCaseRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>Represents the identity of the person who performed the action.</p>
+   * <p>Represents the entity that performed the action.</p>
    * @public
    */
   performedBy?: UserUnion | undefined;
@@ -636,7 +650,7 @@ export interface AuditEventField {
  */
 export interface AuditEventPerformedBy {
   /**
-   * <p>Represents the identity of the person who performed the action.</p>
+   * <p>Represents the entity that performed the action.</p>
    * @public
    */
   user?: UserUnion | undefined;
@@ -1782,7 +1796,7 @@ export interface UpdateCaseRequest {
   fields: FieldValue[] | undefined;
 
   /**
-   * <p>Represents the identity of the person who performed the action.</p>
+   * <p>Represents the entity that performed the action.</p>
    * @public
    */
   performedBy?: UserUnion | undefined;
@@ -4137,6 +4151,49 @@ export interface SearchCasesRequest {
 /**
  * @internal
  */
+export const UserUnionFilterSensitiveLog = (obj: UserUnion): any => {
+  if (obj.userArn !== undefined) return { userArn: obj.userArn };
+  if (obj.customEntity !== undefined) return { customEntity: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateCaseRequestFilterSensitiveLog = (obj: CreateCaseRequest): any => ({
+  ...obj,
+  ...(obj.fields && { fields: obj.fields.map((item) => item) }),
+  ...(obj.performedBy && { performedBy: UserUnionFilterSensitiveLog(obj.performedBy) }),
+});
+
+/**
+ * @internal
+ */
+export const AuditEventPerformedByFilterSensitiveLog = (obj: AuditEventPerformedBy): any => ({
+  ...obj,
+  ...(obj.user && { user: UserUnionFilterSensitiveLog(obj.user) }),
+});
+
+/**
+ * @internal
+ */
+export const AuditEventFilterSensitiveLog = (obj: AuditEvent): any => ({
+  ...obj,
+  ...(obj.fields && { fields: obj.fields.map((item) => item) }),
+  ...(obj.performedBy && { performedBy: AuditEventPerformedByFilterSensitiveLog(obj.performedBy) }),
+});
+
+/**
+ * @internal
+ */
+export const GetCaseAuditEventsResponseFilterSensitiveLog = (obj: GetCaseAuditEventsResponse): any => ({
+  ...obj,
+  ...(obj.auditEvents && { auditEvents: obj.auditEvents.map((item) => AuditEventFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const SlaInputConfigurationFilterSensitiveLog = (obj: SlaInputConfiguration): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
@@ -4169,7 +4226,7 @@ export const RelatedItemInputContentFilterSensitiveLog = (obj: RelatedItemInputC
 export const CreateRelatedItemRequestFilterSensitiveLog = (obj: CreateRelatedItemRequest): any => ({
   ...obj,
   ...(obj.content && { content: RelatedItemInputContentFilterSensitiveLog(obj.content) }),
-  ...(obj.performedBy && { performedBy: obj.performedBy }),
+  ...(obj.performedBy && { performedBy: UserUnionFilterSensitiveLog(obj.performedBy) }),
 });
 
 /**
@@ -4233,7 +4290,7 @@ export const RelatedItemContentFilterSensitiveLog = (obj: RelatedItemContent): a
 export const SearchRelatedItemsResponseItemFilterSensitiveLog = (obj: SearchRelatedItemsResponseItem): any => ({
   ...obj,
   ...(obj.content && { content: RelatedItemContentFilterSensitiveLog(obj.content) }),
-  ...(obj.performedBy && { performedBy: obj.performedBy }),
+  ...(obj.performedBy && { performedBy: UserUnionFilterSensitiveLog(obj.performedBy) }),
 });
 
 /**
@@ -4244,4 +4301,13 @@ export const SearchRelatedItemsResponseFilterSensitiveLog = (obj: SearchRelatedI
   ...(obj.relatedItems && {
     relatedItems: obj.relatedItems.map((item) => SearchRelatedItemsResponseItemFilterSensitiveLog(item)),
   }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateCaseRequestFilterSensitiveLog = (obj: UpdateCaseRequest): any => ({
+  ...obj,
+  ...(obj.fields && { fields: obj.fields.map((item) => item) }),
+  ...(obj.performedBy && { performedBy: UserUnionFilterSensitiveLog(obj.performedBy) }),
 });

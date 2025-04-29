@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateCaseRequest, CreateCaseResponse } from "../models/models_0";
+import { CreateCaseRequest, CreateCaseRequestFilterSensitiveLog, CreateCaseResponse } from "../models/models_0";
 import { de_CreateCaseCommand, se_CreateCaseCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -72,6 +72,7 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  *   clientToken: "STRING_VALUE",
  *   performedBy: { // UserUnion Union: only one key present
  *     userArn: "STRING_VALUE",
+ *     customEntity: "STRING_VALUE",
  *   },
  * };
  * const command = new CreateCaseCommand(input);
@@ -134,7 +135,7 @@ export class CreateCaseCommand extends $Command
   })
   .s("AmazonConnectCases", "CreateCase", {})
   .n("ConnectCasesClient", "CreateCaseCommand")
-  .f(void 0, void 0)
+  .f(CreateCaseRequestFilterSensitiveLog, void 0)
   .ser(se_CreateCaseCommand)
   .de(de_CreateCaseCommand)
   .build() {

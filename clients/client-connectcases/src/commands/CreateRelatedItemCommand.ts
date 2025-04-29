@@ -93,6 +93,7 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  *   },
  *   performedBy: { // UserUnion Union: only one key present
  *     userArn: "STRING_VALUE",
+ *     customEntity: "STRING_VALUE",
  *   },
  * };
  * const command = new CreateRelatedItemCommand(input);
