@@ -4720,7 +4720,7 @@ export interface DescribeProjectOutput {
    *             Catalog</a>.</p>
    * @public
    */
-  ServiceCatalogProvisioningDetails: ServiceCatalogProvisioningDetails | undefined;
+  ServiceCatalogProvisioningDetails?: ServiceCatalogProvisioningDetails | undefined;
 
   /**
    * <p>Information about a provisioned service catalog product.</p>

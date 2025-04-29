@@ -1942,7 +1942,7 @@ export interface CreateProjectInput {
    *                 Catalog</a>.</p>
    * @public
    */
-  ServiceCatalogProvisioningDetails: ServiceCatalogProvisioningDetails | undefined;
+  ServiceCatalogProvisioningDetails?: ServiceCatalogProvisioningDetails | undefined;
 
   /**
    * <p>An array of key-value pairs that you want to use to organize and track your Amazon Web Services
