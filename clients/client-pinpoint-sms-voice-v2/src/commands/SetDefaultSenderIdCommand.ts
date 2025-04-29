@@ -32,10 +32,7 @@ export interface SetDefaultSenderIdCommandInput extends SetDefaultSenderIdReques
 export interface SetDefaultSenderIdCommandOutput extends SetDefaultSenderIdResult, __MetadataBearer {}
 
 /**
- * <p>Sets default sender ID on a configuration set.</p>
- *          <p>When sending a text message to a destination country that supports sender IDs, the
- *             default sender ID on the configuration set specified will be used if no dedicated
- *             origination phone numbers or registered sender IDs are available in your account.</p>
+ * <p>Sets default sender ID on a configuration set.</p> <p>When sending a text message to a destination country that supports sender IDs, the default sender ID on the configuration set specified will be used if no dedicated origination phone numbers or registered sender IDs are available in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,19 +60,16 @@ export interface SetDefaultSenderIdCommandOutput extends SetDefaultSenderIdResul
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because you don't have sufficient permissions to access the
- *             resource.</p>
+ *  <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The API encountered an unexpected error and couldn't complete the request. You might
- *             be able to successfully issue the request again in the future.</p>
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A requested resource couldn't be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An error that occurred because too many requests were sent during a certain amount of
- *             time.</p>
+ *  <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>

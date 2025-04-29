@@ -32,13 +32,7 @@ export interface DescribeAccountAttributesCommandInput extends DescribeAccountAt
 export interface DescribeAccountAttributesCommandOutput extends DescribeAccountAttributesResult, __MetadataBearer {}
 
 /**
- * <p>Describes attributes of your Amazon Web Services account. The supported account
- *             attributes include account tier, which indicates whether your account is in the sandbox
- *             or production environment. When you're ready to move your account out of the sandbox,
- *             create an Amazon Web Services Support case for a service limit increase request.</p>
- *          <p>New accounts are placed into an SMS or voice sandbox. The sandbox
- *             protects both Amazon Web Services end recipients and SMS or voice recipients from fraud
- *             and abuse. </p>
+ * <p>Describes attributes of your Amazon Web Services account. The supported account attributes include account tier, which indicates whether your account is in the sandbox or production environment. When you're ready to move your account out of the sandbox, create an Amazon Web Services Support case for a service limit increase request.</p> <p>New accounts are placed into an SMS or voice sandbox. The sandbox protects both Amazon Web Services end recipients and SMS or voice recipients from fraud and abuse. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,16 +64,13 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because you don't have sufficient permissions to access the
- *             resource.</p>
+ *  <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The API encountered an unexpected error and couldn't complete the request. You might
- *             be able to successfully issue the request again in the future.</p>
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An error that occurred because too many requests were sent during a certain amount of
- *             time.</p>
+ *  <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
