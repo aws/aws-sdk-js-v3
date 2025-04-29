@@ -43464,6 +43464,12 @@
             }
           }
         },
+        "storagegateway": {
+          "endpoints": {
+            "us-iso-east-1": {},
+            "us-iso-west-1": {}
+          }
+        },
         "streams.dynamodb": {
           "defaults": {
             "credentialScope": {
@@ -43809,6 +43815,11 @@
                 }
               ]
             }
+          }
+        },
+        "datasync": {
+          "endpoints": {
+            "us-isob-east-1": {}
           }
         },
         "directconnect": {
