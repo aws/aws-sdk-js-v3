@@ -9,7 +9,7 @@ import {
   RegisterTargetWithMaintenanceWindowRequest,
   RegisterTargetWithMaintenanceWindowRequestFilterSensitiveLog,
   RegisterTargetWithMaintenanceWindowResult,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   de_RegisterTargetWithMaintenanceWindowCommand,
   se_RegisterTargetWithMaintenanceWindowCommand,

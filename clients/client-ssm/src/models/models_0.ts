@@ -4,6 +4,45 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
 
 /**
+ * <p>The requester doesn't have permissions to perform the requested operation.</p>
+ * @public
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AccessRequestStatus = {
+  APPROVED: "Approved",
+  EXPIRED: "Expired",
+  PENDING: "Pending",
+  REJECTED: "Rejected",
+  REVOKED: "Revoked",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessRequestStatus = (typeof AccessRequestStatus)[keyof typeof AccessRequestStatus];
+
+/**
  * <p>Information includes the Amazon Web Services account ID where the current document is shared and the
  *    version shared with that account.</p>
  * @public
@@ -2284,6 +2323,7 @@ export type DocumentFormat = (typeof DocumentFormat)[keyof typeof DocumentFormat
 export const DocumentType = {
   ApplicationConfiguration: "ApplicationConfiguration",
   ApplicationConfigurationSchema: "ApplicationConfigurationSchema",
+  AutoApprovalPolicy: "AutoApprovalPolicy",
   Automation: "Automation",
   ChangeCalendar: "ChangeCalendar",
   ChangeTemplate: "Automation.ChangeTemplate",
@@ -2291,6 +2331,7 @@ export const DocumentType = {
   Command: "Command",
   ConformancePackTemplate: "ConformancePackTemplate",
   DeploymentStrategy: "DeploymentStrategy",
+  ManualApprovalPolicy: "ManualApprovalPolicy",
   Package: "Package",
   Policy: "Policy",
   ProblemAnalysis: "ProblemAnalysis",
@@ -5904,6 +5945,7 @@ export type AutomationExecutionStatus = (typeof AutomationExecutionStatus)[keyof
  * @enum
  */
 export const AutomationSubtype = {
+  AccessRequest: "AccessRequest",
   ChangeRequest: "ChangeRequest",
 } as const;
 
@@ -9597,66 +9639,6 @@ export interface DescribeMaintenanceWindowsResult {
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
    *    return, the string is empty.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MaintenanceWindowResourceType = {
-  Instance: "INSTANCE",
-  ResourceGroup: "RESOURCE_GROUP",
-} as const;
-
-/**
- * @public
- */
-export type MaintenanceWindowResourceType =
-  (typeof MaintenanceWindowResourceType)[keyof typeof MaintenanceWindowResourceType];
-
-/**
- * @public
- */
-export interface DescribeMaintenanceWindowScheduleRequest {
-  /**
-   * <p>The ID of the maintenance window to retrieve information about.</p>
-   * @public
-   */
-  WindowId?: string | undefined;
-
-  /**
-   * <p>The managed node ID or key-value pair to retrieve information about.</p>
-   * @public
-   */
-  Targets?: Target[] | undefined;
-
-  /**
-   * <p>The type of resource you want to retrieve information about. For example,
-   *     <code>INSTANCE</code>.</p>
-   * @public
-   */
-  ResourceType?: MaintenanceWindowResourceType | undefined;
-
-  /**
-   * <p>Filters used to limit the range of results. For example, you can limit maintenance window
-   *    executions to only those scheduled before or after a certain date and time.</p>
-   * @public
-   */
-  Filters?: PatchOrchestratorFilter[] | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
    * @public
    */
   NextToken?: string | undefined;

@@ -9,7 +9,7 @@ import {
   RegisterTaskWithMaintenanceWindowRequest,
   RegisterTaskWithMaintenanceWindowRequestFilterSensitiveLog,
   RegisterTaskWithMaintenanceWindowResult,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   de_RegisterTaskWithMaintenanceWindowCommand,
   se_RegisterTaskWithMaintenanceWindowCommand,

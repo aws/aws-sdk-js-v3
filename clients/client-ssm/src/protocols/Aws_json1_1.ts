@@ -223,6 +223,7 @@ import {
   DisassociateOpsItemRelatedItemCommandInput,
   DisassociateOpsItemRelatedItemCommandOutput,
 } from "../commands/DisassociateOpsItemRelatedItemCommand";
+import { GetAccessTokenCommandInput, GetAccessTokenCommandOutput } from "../commands/GetAccessTokenCommand";
 import {
   GetAutomationExecutionCommandInput,
   GetAutomationExecutionCommandOutput,
@@ -387,6 +388,7 @@ import {
   SendAutomationSignalCommandOutput,
 } from "../commands/SendAutomationSignalCommand";
 import { SendCommandCommandInput, SendCommandCommandOutput } from "../commands/SendCommandCommand";
+import { StartAccessRequestCommandInput, StartAccessRequestCommandOutput } from "../commands/StartAccessRequestCommand";
 import {
   StartAssociationsOnceCommandInput,
   StartAssociationsOnceCommandOutput,
@@ -458,6 +460,7 @@ import {
   UpdateServiceSettingCommandOutput,
 } from "../commands/UpdateServiceSettingCommand";
 import {
+  AccessDeniedException,
   Activation,
   AddTagsToResourceRequest,
   Alarm,
@@ -551,7 +554,6 @@ import {
   DescribeMaintenanceWindowExecutionTaskInvocationsResult,
   DescribeMaintenanceWindowExecutionTasksRequest,
   DescribeMaintenanceWindowExecutionTasksResult,
-  DescribeMaintenanceWindowScheduleRequest,
   DescribeMaintenanceWindowsRequest,
   DocumentAlreadyExists,
   DocumentDescription,
@@ -681,7 +683,9 @@ import {
   ComplianceItemEntry,
   ComplianceStringFilter,
   ComplianceTypeCountLimitExceededException,
+  Credentials,
   CustomSchemaCountLimitExceededException,
+  DescribeMaintenanceWindowScheduleRequest,
   DescribeMaintenanceWindowsForTargetRequest,
   DescribeMaintenanceWindowTargetsRequest,
   DescribeMaintenanceWindowTasksRequest,
@@ -704,7 +708,8 @@ import {
   DocumentReviewCommentSource,
   DocumentReviewerResponseSource,
   DocumentVersionInfo,
-  FeatureNotAvailableException,
+  GetAccessTokenRequest,
+  GetAccessTokenResponse,
   GetAutomationExecutionRequest,
   GetAutomationExecutionResult,
   GetCalendarStateRequest,
@@ -839,9 +844,6 @@ import {
   PutResourcePolicyRequest,
   RegisterDefaultPatchBaselineRequest,
   RegisterPatchBaselineForPatchGroupRequest,
-  RegisterTargetWithMaintenanceWindowRequest,
-  RegisterTaskWithMaintenanceWindowRequest,
-  RemoveTagsFromResourceRequest,
   ResourceComplianceSummaryItem,
   ResourceDataSyncItem,
   ResourcePolicyLimitExceededException,
@@ -851,6 +853,7 @@ import {
   Session,
   SessionFilter,
   SubTypeCountLimitExceededException,
+  ThrottlingException,
   TotalSizeLimitExceededException,
   UnsupportedCalendarException,
   UnsupportedFeatureRequiredException,
@@ -858,6 +861,7 @@ import {
   UnsupportedInventorySchemaVersionException,
   UnsupportedOperationException,
   UnsupportedParameterType,
+  ValidationException,
 } from "../models/models_1";
 import {
   AssociationVersionLimitExceeded,
@@ -872,6 +876,7 @@ import {
   DuplicateDocumentContent,
   DuplicateDocumentVersionName,
   ExecutionInputs,
+  FeatureNotAvailableException,
   GetInventoryRequest,
   GetOpsSummaryRequest,
   InvalidAssociation,
@@ -887,6 +892,9 @@ import {
   NodeAggregator,
   OpsAggregator,
   OpsMetadataKeyLimitExceededException,
+  RegisterTargetWithMaintenanceWindowRequest,
+  RegisterTaskWithMaintenanceWindowRequest,
+  RemoveTagsFromResourceRequest,
   ResetServiceSettingRequest,
   ResetServiceSettingResult,
   ResourceDataSyncConflictException,
@@ -894,6 +902,8 @@ import {
   SendAutomationSignalRequest,
   SendCommandRequest,
   SendCommandResult,
+  ServiceQuotaExceededException,
+  StartAccessRequestRequest,
   StartAssociationsOnceRequest,
   StartAutomationExecutionRequest,
   StartChangeRequestExecutionRequest,
@@ -923,7 +933,6 @@ import {
   UpdatePatchBaselineResult,
   UpdateResourceDataSyncRequest,
   UpdateServiceSettingRequest,
-  ValidationException,
 } from "../models/models_2";
 import { SSMServiceException as __BaseException } from "../models/SSMServiceException";
 
@@ -1747,6 +1756,19 @@ export const se_DisassociateOpsItemRelatedItemCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetAccessTokenCommand
+ */
+export const se_GetAccessTokenCommand = async (
+  input: GetAccessTokenCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetAccessToken");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetAutomationExecutionCommand
  */
 export const se_GetAutomationExecutionCommand = async (
@@ -2508,6 +2530,19 @@ export const se_SendCommandCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SendCommand");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartAccessRequestCommand
+ */
+export const se_StartAccessRequestCommand = async (
+  input: StartAccessRequestCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartAccessRequest");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4060,6 +4095,26 @@ export const de_DisassociateOpsItemRelatedItemCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GetAccessTokenCommand
+ */
+export const de_GetAccessTokenCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessTokenCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetAccessTokenResponse(data, context);
+  const response: GetAccessTokenCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1GetAutomationExecutionCommand
  */
 export const de_GetAutomationExecutionCommand = async (
@@ -5240,6 +5295,26 @@ export const de_SendCommandCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1StartAccessRequestCommand
+ */
+export const de_StartAccessRequestCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAccessRequestCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartAccessRequestCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1StartAssociationsOnceCommand
  */
 export const de_StartAssociationsOnceCommand = async (
@@ -5911,6 +5986,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "OpsItemRelatedItemAssociationNotFoundException":
     case "com.amazonaws.ssm#OpsItemRelatedItemAssociationNotFoundException":
       throw await de_OpsItemRelatedItemAssociationNotFoundExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.ssm#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssm#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssm#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     case "InvalidDocumentType":
     case "com.amazonaws.ssm#InvalidDocumentType":
       throw await de_InvalidDocumentTypeRes(parsedOutput, context);
@@ -6043,6 +6127,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidRole":
     case "com.amazonaws.ssm#InvalidRole":
       throw await de_InvalidRoleRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.ssm#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "InvalidAssociation":
     case "com.amazonaws.ssm#InvalidAssociation":
       throw await de_InvalidAssociationRes(parsedOutput, context);
@@ -6061,9 +6148,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AutomationDefinitionNotApprovedException":
     case "com.amazonaws.ssm#AutomationDefinitionNotApprovedException":
       throw await de_AutomationDefinitionNotApprovedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
     case "TargetNotConnected":
     case "com.amazonaws.ssm#TargetNotConnected":
       throw await de_TargetNotConnectedRes(parsedOutput, context);
@@ -6102,6 +6186,22 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
         errorCode,
       }) as never;
   }
+};
+
+/**
+ * deserializeAws_json1_1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
 };
 
 /**
@@ -7909,6 +8009,22 @@ const de_ResourcePolicyNotFoundExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ServiceQuotaExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ServiceSettingNotFoundRes
  */
 const de_ServiceSettingNotFoundRes = async (
@@ -7976,6 +8092,19 @@ const de_TargetNotConnectedRes = async (parsedOutput: any, context: __SerdeConte
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new TargetNotConnected({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -8496,6 +8625,8 @@ const se_DeleteInventoryRequest = (input: DeleteInventoryRequest, context: __Ser
 // se_ExcludeAccounts omitted.
 
 // se_ExecutionInputs omitted.
+
+// se_GetAccessTokenRequest omitted.
 
 // se_GetAutomationExecutionRequest omitted.
 
@@ -9026,6 +9157,8 @@ const se_RegisterTaskWithMaintenanceWindowRequest = (
 
 // se_SessionManagerParameterValueList omitted.
 
+// se_StartAccessRequestRequest omitted.
+
 // se_StartAssociationsOnceRequest omitted.
 
 // se_StartAutomationExecutionRequest omitted.
@@ -9173,6 +9306,8 @@ const se_UpdateOpsItemRequest = (input: UpdateOpsItemRequest, context: __SerdeCo
 // se_UpdateResourceDataSyncRequest omitted.
 
 // se_UpdateServiceSettingRequest omitted.
+
+// de_AccessDeniedException omitted.
 
 // de_AccountIdList omitted.
 
@@ -9775,6 +9910,18 @@ const de_CreateDocumentResult = (output: any, context: __SerdeContext): CreateDo
 
 // de_CreateResourceDataSyncResult omitted.
 
+/**
+ * deserializeAws_json1_1Credentials
+ */
+const de_Credentials = (output: any, context: __SerdeContext): Credentials => {
+  return take(output, {
+    AccessKeyId: __expectString,
+    ExpirationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SecretAccessKey: __expectString,
+    SessionToken: __expectString,
+  }) as any;
+};
+
 // de_CustomSchemaCountLimitExceededException omitted.
 
 // de_DeleteActivationResult omitted.
@@ -10294,6 +10441,16 @@ const de_EffectivePatchList = (output: any, context: __SerdeContext): EffectiveP
 // de_FailureDetails omitted.
 
 // de_FeatureNotAvailableException omitted.
+
+/**
+ * deserializeAws_json1_1GetAccessTokenResponse
+ */
+const de_GetAccessTokenResponse = (output: any, context: __SerdeContext): GetAccessTokenResponse => {
+  return take(output, {
+    AccessRequestStatus: __expectString,
+    Credentials: (_: any) => de_Credentials(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1GetAutomationExecutionResult
@@ -11929,6 +12086,8 @@ const de_SendCommandResult = (output: any, context: __SerdeContext): SendCommand
   }) as any;
 };
 
+// de_ServiceQuotaExceededException omitted.
+
 /**
  * deserializeAws_json1_1ServiceSetting
  */
@@ -11979,6 +12138,8 @@ const de_SessionList = (output: any, context: __SerdeContext): Session[] => {
 // de_SessionManagerOutputUrl omitted.
 
 // de_SeveritySummary omitted.
+
+// de_StartAccessRequestResponse omitted.
 
 // de_StartAssociationsOnceResult omitted.
 
@@ -12073,6 +12234,8 @@ const de_StepExecutionList = (output: any, context: __SerdeContext): StepExecuti
 // de_TargetValues omitted.
 
 // de_TerminateSessionResponse omitted.
+
+// de_ThrottlingException omitted.
 
 // de_TooManyTagsError omitted.
 

@@ -5,8 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeMaintenanceWindowScheduleRequest } from "../models/models_0";
-import { DescribeMaintenanceWindowScheduleResult } from "../models/models_1";
+import { DescribeMaintenanceWindowScheduleRequest, DescribeMaintenanceWindowScheduleResult } from "../models/models_1";
 import {
   de_DescribeMaintenanceWindowScheduleCommand,
   se_DescribeMaintenanceWindowScheduleCommand,

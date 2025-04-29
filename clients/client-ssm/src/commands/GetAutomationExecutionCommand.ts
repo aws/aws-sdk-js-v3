@@ -216,7 +216,7 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * //       },
  * //     ],
  * //     TargetLocationsURL: "STRING_VALUE",
- * //     AutomationSubtype: "ChangeRequest",
+ * //     AutomationSubtype: "ChangeRequest" || "AccessRequest",
  * //     ScheduledTime: new Date("TIMESTAMP"),
  * //     Runbooks: [ // Runbooks
  * //       { // Runbook

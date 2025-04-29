@@ -38,7 +38,7 @@ export interface SendAutomationSignalCommandOutput extends SendAutomationSignalR
  * const client = new SSMClient(config);
  * const input = { // SendAutomationSignalRequest
  *   AutomationExecutionId: "STRING_VALUE", // required
- *   SignalType: "Approve" || "Reject" || "StartStep" || "StopStep" || "Resume", // required
+ *   SignalType: "Approve" || "Reject" || "StartStep" || "StopStep" || "Resume" || "Revoke", // required
  *   Payload: { // AutomationParameterMap
  *     "<keys>": [ // AutomationParameterValueList
  *       "STRING_VALUE",

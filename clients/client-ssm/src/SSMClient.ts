@@ -248,6 +248,7 @@ import {
   DisassociateOpsItemRelatedItemCommandInput,
   DisassociateOpsItemRelatedItemCommandOutput,
 } from "./commands/DisassociateOpsItemRelatedItemCommand";
+import { GetAccessTokenCommandInput, GetAccessTokenCommandOutput } from "./commands/GetAccessTokenCommand";
 import {
   GetAutomationExecutionCommandInput,
   GetAutomationExecutionCommandOutput,
@@ -412,6 +413,7 @@ import {
   SendAutomationSignalCommandOutput,
 } from "./commands/SendAutomationSignalCommand";
 import { SendCommandCommandInput, SendCommandCommandOutput } from "./commands/SendCommandCommand";
+import { StartAccessRequestCommandInput, StartAccessRequestCommandOutput } from "./commands/StartAccessRequestCommand";
 import {
   StartAssociationsOnceCommandInput,
   StartAssociationsOnceCommandOutput,
@@ -560,6 +562,7 @@ export type ServiceInputTypes =
   | DescribePatchPropertiesCommandInput
   | DescribeSessionsCommandInput
   | DisassociateOpsItemRelatedItemCommandInput
+  | GetAccessTokenCommandInput
   | GetAutomationExecutionCommandInput
   | GetCalendarStateCommandInput
   | GetCommandInvocationCommandInput
@@ -619,6 +622,7 @@ export type ServiceInputTypes =
   | ResumeSessionCommandInput
   | SendAutomationSignalCommandInput
   | SendCommandCommandInput
+  | StartAccessRequestCommandInput
   | StartAssociationsOnceCommandInput
   | StartAutomationExecutionCommandInput
   | StartChangeRequestExecutionCommandInput
@@ -709,6 +713,7 @@ export type ServiceOutputTypes =
   | DescribePatchPropertiesCommandOutput
   | DescribeSessionsCommandOutput
   | DisassociateOpsItemRelatedItemCommandOutput
+  | GetAccessTokenCommandOutput
   | GetAutomationExecutionCommandOutput
   | GetCalendarStateCommandOutput
   | GetCommandInvocationCommandOutput
@@ -768,6 +773,7 @@ export type ServiceOutputTypes =
   | ResumeSessionCommandOutput
   | SendAutomationSignalCommandOutput
   | SendCommandCommandOutput
+  | StartAccessRequestCommandOutput
   | StartAssociationsOnceCommandOutput
   | StartAutomationExecutionCommandOutput
   | StartChangeRequestExecutionCommandOutput

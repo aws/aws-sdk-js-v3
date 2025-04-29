@@ -62,7 +62,7 @@ export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __Met
  *       OpsItemId: "STRING_VALUE", // required
  *     },
  *   ],
- *   Status: "Open" || "InProgress" || "Resolved" || "Pending" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "CompletedWithSuccess" || "CompletedWithFailure" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "PendingApproval" || "Approved" || "Rejected" || "Closed",
+ *   Status: "Open" || "InProgress" || "Resolved" || "Pending" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "CompletedWithSuccess" || "CompletedWithFailure" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "PendingApproval" || "Approved" || "Revoked" || "Rejected" || "Closed",
  *   OpsItemId: "STRING_VALUE", // required
  *   Title: "STRING_VALUE",
  *   Category: "STRING_VALUE",

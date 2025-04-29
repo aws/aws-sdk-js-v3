@@ -68,7 +68,7 @@ export interface ListDocumentsCommandOutput extends ListDocumentsResult, __Metad
  * //         "Windows" || "Linux" || "MacOS",
  * //       ],
  * //       DocumentVersion: "STRING_VALUE",
- * //       DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup",
+ * //       DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup" || "ManualApprovalPolicy" || "AutoApprovalPolicy",
  * //       SchemaVersion: "STRING_VALUE",
  * //       DocumentFormat: "YAML" || "JSON" || "TEXT",
  * //       TargetType: "STRING_VALUE",

@@ -80,7 +80,7 @@ export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __Met
  * //     PlatformTypes: [ // PlatformTypeList
  * //       "Windows" || "Linux" || "MacOS",
  * //     ],
- * //     DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup",
+ * //     DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup" || "ManualApprovalPolicy" || "AutoApprovalPolicy",
  * //     SchemaVersion: "STRING_VALUE",
  * //     LatestVersion: "STRING_VALUE",
  * //     DefaultVersion: "STRING_VALUE",

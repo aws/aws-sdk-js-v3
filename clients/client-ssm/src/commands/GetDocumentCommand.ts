@@ -52,7 +52,7 @@ export interface GetDocumentCommandOutput extends GetDocumentResult, __MetadataB
  * //   Status: "Creating" || "Active" || "Updating" || "Deleting" || "Failed",
  * //   StatusInformation: "STRING_VALUE",
  * //   Content: "STRING_VALUE",
- * //   DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup",
+ * //   DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup" || "ManualApprovalPolicy" || "AutoApprovalPolicy",
  * //   DocumentFormat: "YAML" || "JSON" || "TEXT",
  * //   Requires: [ // DocumentRequiresList
  * //     { // DocumentRequires

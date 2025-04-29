@@ -14,6 +14,7 @@ import {
   DocumentHashType,
   ExecutionMode,
   InstanceAssociationOutputLocation,
+  MaintenanceWindowTaskType,
   MetadataValue,
   OperatingSystem,
   OpsItemDataValue,
@@ -27,6 +28,7 @@ import {
   PatchSourceFilterSensitiveLog,
   RelatedOpsItem,
   ResourceDataSyncSource,
+  ResourceTypeForTagging,
   Runbook,
   Tag,
   Target,
@@ -41,6 +43,7 @@ import {
   InventoryFilter,
   InventoryGroup,
   LoggingInfo,
+  MaintenanceWindowResourceType,
   MaintenanceWindowTaskCutoffBehavior,
   MaintenanceWindowTaskInvocationParameters,
   MaintenanceWindowTaskInvocationParametersFilterSensitiveLog,
@@ -58,6 +61,382 @@ import {
 } from "./models_1";
 
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+/**
+ * @public
+ */
+export interface RegisterTargetWithMaintenanceWindowRequest {
+  /**
+   * <p>The ID of the maintenance window the target should be registered with.</p>
+   * @public
+   */
+  WindowId: string | undefined;
+
+  /**
+   * <p>The type of target being registered with the maintenance window.</p>
+   * @public
+   */
+  ResourceType: MaintenanceWindowResourceType | undefined;
+
+  /**
+   * <p>The targets to register with the maintenance window. In other words, the managed nodes to
+   *    run commands on when the maintenance window runs.</p>
+   *          <note>
+   *             <p>If a single maintenance window task is registered with multiple targets, its task
+   *     invocations occur sequentially and not in parallel. If your task must run on multiple targets at
+   *     the same time, register a task for each target individually and assign each task the same
+   *     priority level.</p>
+   *          </note>
+   *          <p>You can specify targets using managed node IDs, resource group names, or tags that have been
+   *    applied to managed nodes.</p>
+   *          <p>
+   *             <b>Example 1</b>: Specify managed node IDs</p>
+   *          <p>
+   *             <code>Key=InstanceIds,Values=<instance-id-1>,<instance-id-2>,<instance-id-3></code>
+   *          </p>
+   *          <p>
+   *             <b>Example 2</b>: Use tag key-pairs applied to managed
+   *    nodes</p>
+   *          <p>
+   *             <code>Key=tag:<my-tag-key>,Values=<my-tag-value-1>,<my-tag-value-2></code>
+   *          </p>
+   *          <p>
+   *             <b>Example 3</b>: Use tag-keys applied to managed nodes</p>
+   *          <p>
+   *             <code>Key=tag-key,Values=<my-tag-key-1>,<my-tag-key-2></code>
+   *          </p>
+   *          <p>
+   *             <b>Example 4</b>: Use resource group names</p>
+   *          <p>
+   *             <code>Key=resource-groups:Name,Values=<resource-group-name></code>
+   *          </p>
+   *          <p>
+   *             <b>Example 5</b>: Use filters for resource group types</p>
+   *          <p>
+   *             <code>Key=resource-groups:ResourceTypeFilters,Values=<resource-type-1>,<resource-type-2></code>
+   *          </p>
+   *          <note>
+   *             <p>For <code>Key=resource-groups:ResourceTypeFilters</code>, specify resource types in the
+   *     following format</p>
+   *             <p>
+   *                <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code>
+   *             </p>
+   *          </note>
+   *          <p>For more information about these examples formats, including the best use case for each one,
+   *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html">Examples: Register
+   *     targets with a maintenance window</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   * @public
+   */
+  Targets: Target[] | undefined;
+
+  /**
+   * <p>User-provided value that will be included in any Amazon CloudWatch Events events raised while
+   *    running tasks for these targets in this maintenance window.</p>
+   * @public
+   */
+  OwnerInformation?: string | undefined;
+
+  /**
+   * <p>An optional name for the target.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>An optional description for the target.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>User-provided idempotency token.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterTargetWithMaintenanceWindowResult {
+  /**
+   * <p>The ID of the target definition in this maintenance window.</p>
+   * @public
+   */
+  WindowTargetId?: string | undefined;
+}
+
+/**
+ * <p>You attempted to register a <code>LAMBDA</code> or <code>STEP_FUNCTIONS</code> task in a
+ *    region where the corresponding service isn't available. </p>
+ * @public
+ */
+export class FeatureNotAvailableException extends __BaseException {
+  readonly name: "FeatureNotAvailableException" = "FeatureNotAvailableException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FeatureNotAvailableException, __BaseException>) {
+    super({
+      name: "FeatureNotAvailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FeatureNotAvailableException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface RegisterTaskWithMaintenanceWindowRequest {
+  /**
+   * <p>The ID of the maintenance window the task should be added to.</p>
+   * @public
+   */
+  WindowId: string | undefined;
+
+  /**
+   * <p>The targets (either managed nodes or maintenance window targets).</p>
+   *          <note>
+   *             <p>One or more targets must be specified for maintenance window Run Command-type tasks.
+   *     Depending on the task, targets are optional for other maintenance window task types (Automation,
+   *      Lambda, and Step Functions). For more information about running tasks
+   *     that don't specify targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">Registering
+   *      maintenance window tasks without targets</a> in the
+   *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *          </note>
+   *          <p>Specify managed nodes using the following format: </p>
+   *          <p>
+   *             <code>Key=InstanceIds,Values=<instance-id-1>,<instance-id-2></code>
+   *          </p>
+   *          <p>Specify maintenance window targets using the following format:</p>
+   *          <p>
+   *             <code>Key=WindowTargetIds,Values=<window-target-id-1>,<window-target-id-2></code>
+   *          </p>
+   * @public
+   */
+  Targets?: Target[] | undefined;
+
+  /**
+   * <p>The ARN of the task to run.</p>
+   * @public
+   */
+  TaskArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role for
+   *                 Amazon Web Services Systems Manager to assume when running a maintenance window task. If you do not specify a
+   *                 service role ARN, Systems Manager uses a service-linked role in your account. If no
+   *                 appropriate service-linked role for Systems Manager exists in your account, it is created when
+   *                 you run <code>RegisterTaskWithMaintenanceWindow</code>.</p>
+   *          <p>However, for an improved security posture, we strongly recommend creating a custom
+   *                 policy and custom service role for running your maintenance window tasks. The policy
+   *                 can be crafted to provide only the permissions needed for your particular
+   *                 maintenance window tasks. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html">Setting up Maintenance Windows</a> in the in the
+   *                     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   * @public
+   */
+  ServiceRoleArn?: string | undefined;
+
+  /**
+   * <p>The type of task being registered.</p>
+   * @public
+   */
+  TaskType: MaintenanceWindowTaskType | undefined;
+
+  /**
+   * <p>The parameters that should be passed to the task when it is run.</p>
+   *          <note>
+   *             <p>
+   *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
+   *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
+   *       about how Systems Manager handles these options for the supported maintenance window task
+   *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
+   *          </note>
+   * @public
+   */
+  TaskParameters?: Record<string, MaintenanceWindowTaskParameterValueExpression> | undefined;
+
+  /**
+   * <p>The parameters that the task should use during execution. Populate only the fields that
+   *    match the task type. All other fields should be empty. </p>
+   * @public
+   */
+  TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters | undefined;
+
+  /**
+   * <p>The priority of the task in the maintenance window, the lower the number the higher the
+   *    priority. Tasks in a maintenance window are scheduled in priority order with tasks that have the
+   *    same priority scheduled in parallel.</p>
+   * @public
+   */
+  Priority?: number | undefined;
+
+  /**
+   * <p>The maximum number of targets this task can be run for, in parallel.</p>
+   *          <note>
+   *             <p>Although this element is listed as "Required: No", a value can be omitted only when you are
+   *     registering or updating a <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">targetless
+   *      task</a> You must provide a value in all other cases.</p>
+   *             <p>For maintenance window tasks without a target specified, you can't supply a value for this
+   *     option. Instead, the system inserts a placeholder value of <code>1</code>. This value doesn't
+   *     affect the running of your task.</p>
+   *          </note>
+   * @public
+   */
+  MaxConcurrency?: string | undefined;
+
+  /**
+   * <p>The maximum number of errors allowed before this task stops being scheduled.</p>
+   *          <note>
+   *             <p>Although this element is listed as "Required: No", a value can be omitted only when you are
+   *     registering or updating a <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">targetless
+   *      task</a> You must provide a value in all other cases.</p>
+   *             <p>For maintenance window tasks without a target specified, you can't supply a value for this
+   *     option. Instead, the system inserts a placeholder value of <code>1</code>. This value doesn't
+   *     affect the running of your task.</p>
+   *          </note>
+   * @public
+   */
+  MaxErrors?: string | undefined;
+
+  /**
+   * <p>A structure containing information about an Amazon Simple Storage Service (Amazon S3) bucket
+   *    to write managed node-level logs to. </p>
+   *          <note>
+   *             <p>
+   *                <code>LoggingInfo</code> has been deprecated. To specify an Amazon Simple Storage Service (Amazon S3) bucket to contain logs, instead use the
+   *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
+   *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
+   *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
+   *          </note>
+   * @public
+   */
+  LoggingInfo?: LoggingInfo | undefined;
+
+  /**
+   * <p>An optional name for the task.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>An optional description for the task.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>User-provided idempotency token.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Indicates whether tasks should continue to run after the cutoff time specified in the
+   *    maintenance windows is reached. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CONTINUE_TASK</code>: When the cutoff time is reached, any tasks that are running
+   *      continue. The default value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANCEL_TASK</code>:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>For Automation, Lambda, Step Functions tasks: When the cutoff
+   *        time is reached, any task invocations that are already running continue, but no new task
+   *        invocations are started.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>For Run Command tasks: When the cutoff time is reached, the system sends a <a>CancelCommand</a> operation that attempts to cancel the command associated with the
+   *        task. However, there is no guarantee that the command will be terminated and the underlying
+   *        process stopped.</p>
+   *                   </li>
+   *                </ul>
+   *                <p>The status for tasks that are not completed is <code>TIMED_OUT</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | undefined;
+
+  /**
+   * <p>The CloudWatch alarm you want to apply to your maintenance window task.</p>
+   * @public
+   */
+  AlarmConfiguration?: AlarmConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterTaskWithMaintenanceWindowResult {
+  /**
+   * <p>The ID of the task in the maintenance window.</p>
+   * @public
+   */
+  WindowTaskId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveTagsFromResourceRequest {
+  /**
+   * <p>The type of resource from which you want to remove a tag.</p>
+   *          <note>
+   *             <p>The <code>ManagedInstance</code> type for this API operation is only for on-premises
+   *     managed nodes. Specify the name of the managed node in the following format:
+   *       <code>mi-<i>ID_number</i>
+   *                </code>. For example,
+   *     <code>mi-1a2b3c4d5e6f</code>.</p>
+   *          </note>
+   * @public
+   */
+  ResourceType: ResourceTypeForTagging | undefined;
+
+  /**
+   * <p>The ID of the resource from which you want to remove tags. For example:</p>
+   *          <p>ManagedInstance: mi-012345abcde</p>
+   *          <p>MaintenanceWindow: mw-012345abcde</p>
+   *          <p>
+   *             <code>Automation</code>: <code>example-c160-4567-8519-012345abcde</code>
+   *          </p>
+   *          <p>PatchBaseline: pb-012345abcde</p>
+   *          <p>OpsMetadata object: <code>ResourceID</code> for tagging is created from the Amazon Resource
+   *    Name (ARN) for the object. Specifically, <code>ResourceID</code> is created from the strings that
+   *    come after the word <code>opsmetadata</code> in the ARN. For example, an OpsMetadata object with
+   *    an ARN of <code>arn:aws:ssm:us-east-2:1234567890:opsmetadata/aws/ssm/MyGroup/appmanager</code>
+   *    has a <code>ResourceID</code> of either <code>aws/ssm/MyGroup/appmanager</code> or
+   *     <code>/aws/ssm/MyGroup/appmanager</code>.</p>
+   *          <p>For the Document and Parameter values, use the name of the resource.</p>
+   *          <note>
+   *             <p>The <code>ManagedInstance</code> type for this API operation is only for on-premises
+   *     managed nodes. Specify the name of the managed node in the following format: mi-ID_number. For
+   *     example, mi-1a2b3c4d5e6f.</p>
+   *          </note>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>Tag keys that you want to remove from the specified resource.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveTagsFromResourceResult {}
 
 /**
  * <p>The request body of the ResetServiceSetting API operation.</p>
@@ -232,6 +611,7 @@ export const SignalType = {
   APPROVE: "Approve",
   REJECT: "Reject",
   RESUME: "Resume",
+  REVOKE: "Revoke",
   START_STEP: "StartStep",
   STOP_STEP: "StopStep",
 } as const;
@@ -525,6 +905,89 @@ export interface SendCommandResult {
    * @public
    */
   Command?: Command | undefined;
+}
+
+/**
+ * <p>The request exceeds the service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  Message: string | undefined;
+  /**
+   * <p>The unique ID of the resource referenced in the failed request.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The resource type of the resource referenced in the failed request.</p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
+   * @public
+   */
+  QuotaCode: string | undefined;
+
+  /**
+   * <p>The code for the Amazon Web Services service that owns the quota.</p>
+   * @public
+   */
+  ServiceCode: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+    this.ResourceId = opts.ResourceId;
+    this.ResourceType = opts.ResourceType;
+    this.QuotaCode = opts.QuotaCode;
+    this.ServiceCode = opts.ServiceCode;
+  }
+}
+
+/**
+ * @public
+ */
+export interface StartAccessRequestRequest {
+  /**
+   * <p>A brief description explaining why you are requesting access to the node.</p>
+   * @public
+   */
+  Reason: string | undefined;
+
+  /**
+   * <p>The node you are requesting access to.</p>
+   * @public
+   */
+  Targets: Target[] | undefined;
+
+  /**
+   * <p>Key-value pairs of metadata you want to assign to the access request.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAccessRequestResponse {
+  /**
+   * <p>The ID of the access request.</p>
+   * @public
+   */
+  AccessRequestId?: string | undefined;
 }
 
 /**
@@ -1083,35 +1546,6 @@ export interface StartExecutionPreviewResponse {
    * @public
    */
   ExecutionPreviewId?: string | undefined;
-}
-
-/**
- * <p>The request isn't valid. Verify that you entered valid contents for the command and try
- *    again.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The reason code for the invalid request.</p>
-   * @public
-   */
-  ReasonCode?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-    this.ReasonCode = opts.ReasonCode;
-  }
 }
 
 /**
@@ -3387,6 +3821,31 @@ export interface ListNodesSummaryRequest {
    */
   MaxResults?: number | undefined;
 }
+
+/**
+ * @internal
+ */
+export const RegisterTargetWithMaintenanceWindowRequestFilterSensitiveLog = (
+  obj: RegisterTargetWithMaintenanceWindowRequest
+): any => ({
+  ...obj,
+  ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RegisterTaskWithMaintenanceWindowRequestFilterSensitiveLog = (
+  obj: RegisterTaskWithMaintenanceWindowRequest
+): any => ({
+  ...obj,
+  ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
+  ...(obj.TaskInvocationParameters && {
+    TaskInvocationParameters: MaintenanceWindowTaskInvocationParametersFilterSensitiveLog(obj.TaskInvocationParameters),
+  }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

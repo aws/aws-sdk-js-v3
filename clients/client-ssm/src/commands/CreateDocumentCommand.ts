@@ -60,7 +60,7 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  *   Name: "STRING_VALUE", // required
  *   DisplayName: "STRING_VALUE",
  *   VersionName: "STRING_VALUE",
- *   DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup",
+ *   DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup" || "ManualApprovalPolicy" || "AutoApprovalPolicy",
  *   DocumentFormat: "YAML" || "JSON" || "TEXT",
  *   TargetType: "STRING_VALUE",
  *   Tags: [ // TagList
@@ -97,7 +97,7 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  * //     PlatformTypes: [ // PlatformTypeList
  * //       "Windows" || "Linux" || "MacOS",
  * //     ],
- * //     DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup",
+ * //     DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup" || "ManualApprovalPolicy" || "AutoApprovalPolicy",
  * //     SchemaVersion: "STRING_VALUE",
  * //     LatestVersion: "STRING_VALUE",
  * //     DefaultVersion: "STRING_VALUE",

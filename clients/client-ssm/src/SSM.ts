@@ -318,6 +318,11 @@ import {
   DisassociateOpsItemRelatedItemCommandOutput,
 } from "./commands/DisassociateOpsItemRelatedItemCommand";
 import {
+  GetAccessTokenCommand,
+  GetAccessTokenCommandInput,
+  GetAccessTokenCommandOutput,
+} from "./commands/GetAccessTokenCommand";
+import {
   GetAutomationExecutionCommand,
   GetAutomationExecutionCommandInput,
   GetAutomationExecutionCommandOutput,
@@ -597,6 +602,11 @@ import {
 } from "./commands/SendAutomationSignalCommand";
 import { SendCommandCommand, SendCommandCommandInput, SendCommandCommandOutput } from "./commands/SendCommandCommand";
 import {
+  StartAccessRequestCommand,
+  StartAccessRequestCommandInput,
+  StartAccessRequestCommandOutput,
+} from "./commands/StartAccessRequestCommand";
+import {
   StartAssociationsOnceCommand,
   StartAssociationsOnceCommandInput,
   StartAssociationsOnceCommandOutput,
@@ -772,6 +782,7 @@ const commands = {
   DescribePatchPropertiesCommand,
   DescribeSessionsCommand,
   DisassociateOpsItemRelatedItemCommand,
+  GetAccessTokenCommand,
   GetAutomationExecutionCommand,
   GetCalendarStateCommand,
   GetCommandInvocationCommand,
@@ -831,6 +842,7 @@ const commands = {
   ResumeSessionCommand,
   SendAutomationSignalCommand,
   SendCommandCommand,
+  StartAccessRequestCommand,
   StartAssociationsOnceCommand,
   StartAutomationExecutionCommand,
   StartChangeRequestExecutionCommand,
@@ -1912,6 +1924,20 @@ export interface SSM {
   ): void;
 
   /**
+   * @see {@link GetAccessTokenCommand}
+   */
+  getAccessToken(
+    args: GetAccessTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccessTokenCommandOutput>;
+  getAccessToken(args: GetAccessTokenCommandInput, cb: (err: any, data?: GetAccessTokenCommandOutput) => void): void;
+  getAccessToken(
+    args: GetAccessTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccessTokenCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAutomationExecutionCommand}
    */
   getAutomationExecution(
@@ -2844,6 +2870,23 @@ export interface SSM {
     args: SendCommandCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SendCommandCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartAccessRequestCommand}
+   */
+  startAccessRequest(
+    args: StartAccessRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAccessRequestCommandOutput>;
+  startAccessRequest(
+    args: StartAccessRequestCommandInput,
+    cb: (err: any, data?: StartAccessRequestCommandOutput) => void
+  ): void;
+  startAccessRequest(
+    args: StartAccessRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAccessRequestCommandOutput) => void
   ): void;
 
   /**
