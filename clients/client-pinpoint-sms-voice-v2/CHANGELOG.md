@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.799.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.798.0...v3.799.0) (2025-04-29)
+
+
+### Features
+
+* **client-pinpoint-sms-voice-v2:** AWS End User Messaging has added MONITOR and FILTER functionality to SMS Protect. ([73c2247](https://github.com/aws/aws-sdk-js-v3/commit/73c2247ee6fa8f45f4ae610ba81f22c9558bb4dd))
+
+
+
+
+
 # [3.798.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.797.0...v3.798.0) (2025-04-28)
 
 **Note:** Version bump only for package @aws-sdk/client-pinpoint-sms-voice-v2

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.799.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.798.0...v3.799.0) (2025-04-29)
+
+
+### Features
+
+* **client-sagemaker:** Introduced support for P5en instance types on SageMaker Studio for JupyterLab and CodeEditor applications. ([219315a](https://github.com/aws/aws-sdk-js-v3/commit/219315ab1529dc1c61a280446f63ec9f3a526d0b))
+
+
+
+
+
 # [3.798.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.797.0...v3.798.0) (2025-04-28)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

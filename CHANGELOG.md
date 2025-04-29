@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.799.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.798.0...v3.799.0) (2025-04-29)
+
+
+### Features
+
+* **client-connectcases:** Introduces CustomEntity as part of the UserUnion data type. This field is used to indicate the entity who is performing the API action. ([9ee87df](https://github.com/aws/aws-sdk-js-v3/commit/9ee87df4a6214237012068e9b2ed8609ec827c6e))
+* **client-kinesis:** Amazon KDS now supports tagging and attribute-based access control (ABAC) for enhanced fan-out consumers. ([942b693](https://github.com/aws/aws-sdk-js-v3/commit/942b693219158c4ddd80be2a88424630220e5a34))
+* **client-pinpoint-sms-voice-v2:** AWS End User Messaging has added MONITOR and FILTER functionality to SMS Protect. ([73c2247](https://github.com/aws/aws-sdk-js-v3/commit/73c2247ee6fa8f45f4ae610ba81f22c9558bb4dd))
+* **client-qbusiness:** Add support for anonymous user access for Q Business applications ([6197c7b](https://github.com/aws/aws-sdk-js-v3/commit/6197c7b94988d400bf4ed873eefd900423a7a027))
+* **client-sagemaker-metrics:** SageMaker Metrics Service now supports FIPS endpoint in all US and Canada Commercial regions. ([08cb9ed](https://github.com/aws/aws-sdk-js-v3/commit/08cb9ed346c543d029d03438302ae065684fba67))
+* **client-sagemaker:** Introduced support for P5en instance types on SageMaker Studio for JupyterLab and CodeEditor applications. ([219315a](https://github.com/aws/aws-sdk-js-v3/commit/219315ab1529dc1c61a280446f63ec9f3a526d0b))
+* **client-ssm-guiconnect:** This release adds API support for the connection recording GUI Connect feature of AWS Systems Manager ([e581067](https://github.com/aws/aws-sdk-js-v3/commit/e58106703f3e3a025a41e73bb2b17993ef49cf42))
+* **client-ssm:** This release adds support for just-In-time node access in AWS Systems Manager. Just-in-time node access enables customers to move towards zero standing privileges by requiring operators to request access and obtain approval before remotely connecting to nodes managed by the SSM Agent. ([ac4a855](https://github.com/aws/aws-sdk-js-v3/commit/ac4a855e23375ecd87ae8d9e1cafb6c168e526ed))
+* **clients:** update client endpoints as of 2025-04-29 ([b8fecfa](https://github.com/aws/aws-sdk-js-v3/commit/b8fecfa99e62002047067369baff725f8ab13f39))
+
+
+
+
+
 # [3.798.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.797.0...v3.798.0) (2025-04-28)
 
 
