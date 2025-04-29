@@ -105,6 +105,10 @@ import {
   ListStreamConsumersCommandOutput,
 } from "./commands/ListStreamConsumersCommand";
 import { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { ListTagsForStreamCommandInput, ListTagsForStreamCommandOutput } from "./commands/ListTagsForStreamCommand";
 import { MergeShardsCommandInput, MergeShardsCommandOutput } from "./commands/MergeShardsCommand";
 import { PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
@@ -128,6 +132,8 @@ import {
   StopStreamEncryptionCommandOutput,
 } from "./commands/StopStreamEncryptionCommand";
 import { SubscribeToShardCommandInput, SubscribeToShardCommandOutput } from "./commands/SubscribeToShardCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateShardCountCommandInput, UpdateShardCountCommandOutput } from "./commands/UpdateShardCountCommand";
 import { UpdateStreamModeCommandInput, UpdateStreamModeCommandOutput } from "./commands/UpdateStreamModeCommand";
 import {
@@ -164,6 +170,7 @@ export type ServiceInputTypes =
   | ListShardsCommandInput
   | ListStreamConsumersCommandInput
   | ListStreamsCommandInput
+  | ListTagsForResourceCommandInput
   | ListTagsForStreamCommandInput
   | MergeShardsCommandInput
   | PutRecordCommandInput
@@ -175,6 +182,8 @@ export type ServiceInputTypes =
   | StartStreamEncryptionCommandInput
   | StopStreamEncryptionCommandInput
   | SubscribeToShardCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateShardCountCommandInput
   | UpdateStreamModeCommandInput;
 
@@ -201,6 +210,7 @@ export type ServiceOutputTypes =
   | ListShardsCommandOutput
   | ListStreamConsumersCommandOutput
   | ListStreamsCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListTagsForStreamCommandOutput
   | MergeShardsCommandOutput
   | PutRecordCommandOutput
@@ -212,6 +222,8 @@ export type ServiceOutputTypes =
   | StartStreamEncryptionCommandOutput
   | StopStreamEncryptionCommandOutput
   | SubscribeToShardCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateShardCountCommandOutput
   | UpdateStreamModeCommandOutput;
 

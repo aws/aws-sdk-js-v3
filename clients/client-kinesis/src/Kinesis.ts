@@ -86,6 +86,11 @@ import {
 } from "./commands/ListStreamConsumersCommand";
 import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ListTagsForStreamCommand,
   ListTagsForStreamCommandInput,
   ListTagsForStreamCommandOutput,
@@ -124,6 +129,12 @@ import {
   SubscribeToShardCommandInput,
   SubscribeToShardCommandOutput,
 } from "./commands/SubscribeToShardCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateShardCountCommand,
   UpdateShardCountCommandInput,
@@ -156,6 +167,7 @@ const commands = {
   ListShardsCommand,
   ListStreamConsumersCommand,
   ListStreamsCommand,
+  ListTagsForResourceCommand,
   ListTagsForStreamCommand,
   MergeShardsCommand,
   PutRecordCommand,
@@ -167,6 +179,8 @@ const commands = {
   StartStreamEncryptionCommand,
   StopStreamEncryptionCommand,
   SubscribeToShardCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
   UpdateShardCountCommand,
   UpdateStreamModeCommand,
 };
@@ -465,6 +479,24 @@ export interface Kinesis {
   ): void;
 
   /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForStreamCommand}
    */
   listTagsForStream(): Promise<ListTagsForStreamCommandOutput>;
@@ -626,6 +658,28 @@ export interface Kinesis {
     args: SubscribeToShardCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SubscribeToShardCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
   /**

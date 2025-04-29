@@ -36,7 +36,7 @@ export interface AddTagsToStreamInput {
   StreamName?: string | undefined;
 
   /**
-   * <p>A set of up to 10 key-value pairs to use to create the tags.</p>
+   * <p>A set of up to 50 key-value pairs to use to create the tags. A tag consists of a required key and an optional value. You can add up to 50 tags per resource.</p>
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -332,7 +332,7 @@ export interface CreateStreamInput {
   StreamModeDetails?: StreamModeDetails | undefined;
 
   /**
-   * <p>A set of up to 10 key-value pairs to use to create the tags.</p>
+   * <p>A set of up to 50 key-value pairs to use to create the tags. A tag consists of a required key and an optional value.</p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1359,6 +1359,27 @@ export interface GetRecordsOutput {
 }
 
 /**
+ * <p>The processing of the request failed because of an unknown error, exception, or
+ *             failure.</p>
+ * @public
+ */
+export class InternalFailureException extends __BaseException {
+  readonly name: "InternalFailureException" = "InternalFailureException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+  }
+}
+
+/**
  * <p>The ciphertext references a key that doesn't exist or that you don't have access
  *             to.</p>
  * @public
@@ -1662,27 +1683,6 @@ export interface IncreaseStreamRetentionPeriodInput {
    * @public
    */
   StreamARN?: string | undefined;
-}
-
-/**
- * <p>The processing of the request failed because of an unknown error, exception, or
- *             failure.</p>
- * @public
- */
-export class InternalFailureException extends __BaseException {
-  readonly name: "InternalFailureException" = "InternalFailureException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
-    super({
-      name: "InternalFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalFailureException.prototype);
-  }
 }
 
 /**
@@ -2091,6 +2091,49 @@ export interface ListStreamsOutput {
 }
 
 /**
+ * @public
+ */
+export interface ListTagsForResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Kinesis resource for which to list tags.</p>
+   * @public
+   */
+  ResourceARN?: string | undefined;
+}
+
+/**
+ * <p>Metadata assigned to the stream or consumer, consisting of a key-value pair.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>A unique identifier for the tag. Maximum length: 128 characters. Valid characters:
+   *             Unicode letters, digits, white space, _ . / = + - % @</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>An optional string, typically used to describe or define the tag. Maximum length: 256
+   *             characters. Valid characters: Unicode letters, digits, white space, _ . / = + - %
+   *             @</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceOutput {
+  /**
+   * <p>An array of tags associated with the specified Kinesis resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
  * <p>Represents the input for <code>ListTagsForStream</code>.</p>
  * @public
  */
@@ -2123,27 +2166,6 @@ export interface ListTagsForStreamInput {
    * @public
    */
   StreamARN?: string | undefined;
-}
-
-/**
- * <p>Metadata assigned to the stream, consisting of a key-value pair.</p>
- * @public
- */
-export interface Tag {
-  /**
-   * <p>A unique identifier for the tag. Maximum length: 128 characters. Valid characters:
-   *             Unicode letters, digits, white space, _ . / = + - % @</p>
-   * @public
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>An optional string, typically used to describe or define the tag. Maximum length: 256
-   *             characters. Valid characters: Unicode letters, digits, white space, _ . / = + - %
-   *             @</p>
-   * @public
-   */
-  Value?: string | undefined;
 }
 
 /**
@@ -2486,6 +2508,12 @@ export interface RegisterStreamConsumerInput {
    * @public
    */
   ConsumerName: string | undefined;
+
+  /**
+   * <p>A set of up to 50 key-value pairs. A tag consists of a required key and an optional value.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3061,6 +3089,41 @@ export interface SubscribeToShardOutput {
    * @public
    */
   EventStream: AsyncIterable<SubscribeToShardEventStream> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceInput {
+  /**
+   * <p>An array of tags to be added to the Kinesis resource. A tag consists of a required key and an optional value. You can add up to 50 tags per resource.</p>
+   *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: _ . : / = + - @.</p>
+   * @public
+   */
+  Tags: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Kinesis resource to which to add tags.</p>
+   * @public
+   */
+  ResourceARN?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceInput {
+  /**
+   * <p>A list of tag key-value pairs. Existing tags of the resource whose keys are members of this list will be removed from the Kinesis resource.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Kinesis resource from which to remove tags.</p>
+   * @public
+   */
+  ResourceARN?: string | undefined;
 }
 
 /**

@@ -135,6 +135,10 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * @throws {@link ExpiredIteratorException} (client fault)
  *  <p>The provided iterator exceeds the maximum age allowed.</p>
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>The processing of the request failed because of an unknown error, exception, or
+ *             failure.</p>
+ *
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
  *             For more information, see the returned message.</p>
