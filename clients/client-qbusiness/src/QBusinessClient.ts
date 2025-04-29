@@ -81,6 +81,10 @@ import {
   CheckDocumentAccessCommandInput,
   CheckDocumentAccessCommandOutput,
 } from "./commands/CheckDocumentAccessCommand";
+import {
+  CreateAnonymousWebExperienceUrlCommandInput,
+  CreateAnonymousWebExperienceUrlCommandOutput,
+} from "./commands/CreateAnonymousWebExperienceUrlCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import { CreateDataAccessorCommandInput, CreateDataAccessorCommandOutput } from "./commands/CreateDataAccessorCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
@@ -214,6 +218,7 @@ export type ServiceInputTypes =
   | ChatCommandInput
   | ChatSyncCommandInput
   | CheckDocumentAccessCommandInput
+  | CreateAnonymousWebExperienceUrlCommandInput
   | CreateApplicationCommandInput
   | CreateDataAccessorCommandInput
   | CreateDataSourceCommandInput
@@ -295,6 +300,7 @@ export type ServiceOutputTypes =
   | ChatCommandOutput
   | ChatSyncCommandOutput
   | CheckDocumentAccessCommandOutput
+  | CreateAnonymousWebExperienceUrlCommandOutput
   | CreateApplicationCommandOutput
   | CreateDataAccessorCommandOutput
   | CreateDataSourceCommandOutput

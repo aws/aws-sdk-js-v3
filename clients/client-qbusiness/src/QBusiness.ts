@@ -30,6 +30,11 @@ import {
   CheckDocumentAccessCommandOutput,
 } from "./commands/CheckDocumentAccessCommand";
 import {
+  CreateAnonymousWebExperienceUrlCommand,
+  CreateAnonymousWebExperienceUrlCommandInput,
+  CreateAnonymousWebExperienceUrlCommandOutput,
+} from "./commands/CreateAnonymousWebExperienceUrlCommand";
+import {
   CreateApplicationCommand,
   CreateApplicationCommandInput,
   CreateApplicationCommandOutput,
@@ -308,6 +313,7 @@ const commands = {
   ChatCommand,
   ChatSyncCommand,
   CheckDocumentAccessCommand,
+  CreateAnonymousWebExperienceUrlCommand,
   CreateApplicationCommand,
   CreateDataAccessorCommand,
   CreateDataSourceCommand,
@@ -481,6 +487,23 @@ export interface QBusiness {
     args: CheckDocumentAccessCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CheckDocumentAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAnonymousWebExperienceUrlCommand}
+   */
+  createAnonymousWebExperienceUrl(
+    args: CreateAnonymousWebExperienceUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAnonymousWebExperienceUrlCommandOutput>;
+  createAnonymousWebExperienceUrl(
+    args: CreateAnonymousWebExperienceUrlCommandInput,
+    cb: (err: any, data?: CreateAnonymousWebExperienceUrlCommandOutput) => void
+  ): void;
+  createAnonymousWebExperienceUrl(
+    args: CreateAnonymousWebExperienceUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAnonymousWebExperienceUrlCommandOutput) => void
   ): void;
 
   /**

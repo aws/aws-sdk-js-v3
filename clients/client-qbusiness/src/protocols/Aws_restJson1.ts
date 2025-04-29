@@ -53,6 +53,10 @@ import {
   CheckDocumentAccessCommandInput,
   CheckDocumentAccessCommandOutput,
 } from "../commands/CheckDocumentAccessCommand";
+import {
+  CreateAnonymousWebExperienceUrlCommandInput,
+  CreateAnonymousWebExperienceUrlCommandOutput,
+} from "../commands/CreateAnonymousWebExperienceUrlCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
 import { CreateDataAccessorCommandInput, CreateDataAccessorCommandOutput } from "../commands/CreateDataAccessorCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "../commands/CreateDataSourceCommand";
@@ -471,6 +475,30 @@ export const se_CheckDocumentAccessCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateAnonymousWebExperienceUrlCommand
+ */
+export const se_CreateAnonymousWebExperienceUrlCommand = async (
+  input: CreateAnonymousWebExperienceUrlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/applications/{applicationId}/experiences/{webExperienceId}/anonymous-url");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("webExperienceId", () => input.webExperienceId!, "{webExperienceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      sessionDurationInMinutes: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -2147,6 +2175,27 @@ export const de_CheckDocumentAccessCommand = async (
     hasAccess: __expectBoolean,
     userAliases: _json,
     userGroups: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateAnonymousWebExperienceUrlCommand
+ */
+export const de_CreateAnonymousWebExperienceUrlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAnonymousWebExperienceUrlCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    anonymousUrl: __expectString,
   });
   Object.assign(contents, doc);
   return contents;

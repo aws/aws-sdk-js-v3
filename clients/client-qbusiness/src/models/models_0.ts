@@ -691,6 +691,7 @@ export type APISchemaType = (typeof APISchemaType)[keyof typeof APISchemaType];
  * @enum
  */
 export const IdentityType = {
+  ANONYMOUS: "ANONYMOUS",
   AWS_IAM_IDC: "AWS_IAM_IDC",
   AWS_IAM_IDP_OIDC: "AWS_IAM_IDP_OIDC",
   AWS_IAM_IDP_SAML: "AWS_IAM_IDP_SAML",
@@ -6392,6 +6393,40 @@ export interface Conversation {
 }
 
 /**
+ * @public
+ */
+export interface CreateAnonymousWebExperienceUrlRequest {
+  /**
+   * <p>The identifier of the Amazon Q Business application environment attached to the web experience.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The identifier of the web experience.</p>
+   * @public
+   */
+  webExperienceId: string | undefined;
+
+  /**
+   * <p>The duration of the session associated with the unique URL for the web experience.</p>
+   * @public
+   */
+  sessionDurationInMinutes?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAnonymousWebExperienceUrlResponse {
+  /**
+   * <p>The unique URL for accessing the web experience.</p> <important> <p>This URL can only be used once and must be used within 5 minutes after it's generated.</p> </important>
+   * @public
+   */
+  anonymousUrl?: string | undefined;
+}
+
+/**
  * <p>A user or group in the IAM Identity Center instance connected to the Amazon Q Business application.</p>
  * @public
  */
@@ -6928,7 +6963,7 @@ export type HallucinationReductionControl =
   (typeof HallucinationReductionControl)[keyof typeof HallucinationReductionControl];
 
 /**
- * <p>Configuration information required to setup hallucination reduction. For more information, see <a href="amazonq/latest/qbusiness-ug/hallucination-reduction.html">hallucination reduction</a>.</p> <note> <p>The hallucination reduction feature won't work if chat orchestration controls are enabled for your application.</p> </note>
+ * <p>Configuration information required to setup hallucination reduction. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/hallucination-reduction.html"> hallucination reduction</a>.</p> <note> <p>The hallucination reduction feature won't work if chat orchestration controls are enabled for your application.</p> </note>
  * @public
  */
 export interface HallucinationReductionConfiguration {
@@ -7499,58 +7534,6 @@ export interface ListDataSourceSyncJobsRequest {
    * @public
    */
   statusFilter?: DataSourceSyncJobStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDataSourceSyncJobsResponse {
-  /**
-   * <p>A history of synchronization jobs for the data source connector.</p>
-   * @public
-   */
-  history?: DataSourceSyncJob[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon Q Business returns this token. You can use this token in any subsequent request to retrieve the next set of jobs.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDocumentsRequest {
-  /**
-   * <p>The identifier of the application id the documents are attached to.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>The identifier of the index the documents are attached to.</p>
-   * @public
-   */
-  indexId: string | undefined;
-
-  /**
-   * <p>The identifier of the data sources the documents are attached to.</p>
-   * @public
-   */
-  dataSourceIds?: string[] | undefined;
-
-  /**
-   * <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of documents.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of documents to return.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
 }
 
 /**

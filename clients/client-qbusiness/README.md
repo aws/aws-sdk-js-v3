@@ -261,6 +261,14 @@ CheckDocumentAccess
 </details>
 <details>
 <summary>
+CreateAnonymousWebExperienceUrl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/CreateAnonymousWebExperienceUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/CreateAnonymousWebExperienceUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/CreateAnonymousWebExperienceUrlCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateApplication
 </summary>
 

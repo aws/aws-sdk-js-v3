@@ -48,7 +48,7 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //   displayName: "STRING_VALUE",
  * //   applicationId: "STRING_VALUE",
  * //   applicationArn: "STRING_VALUE",
- * //   identityType: "AWS_IAM_IDP_SAML" || "AWS_IAM_IDP_OIDC" || "AWS_IAM_IDC" || "AWS_QUICKSIGHT_IDP",
+ * //   identityType: "AWS_IAM_IDP_SAML" || "AWS_IAM_IDP_OIDC" || "AWS_IAM_IDC" || "AWS_QUICKSIGHT_IDP" || "ANONYMOUS",
  * //   iamIdentityProviderArn: "STRING_VALUE",
  * //   identityCenterApplicationArn: "STRING_VALUE",
  * //   roleArn: "STRING_VALUE",

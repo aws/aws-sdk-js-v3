@@ -5,8 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDocumentsRequest, ListDocumentsResponse } from "../models/models_1";
-import { de_ListDocumentsCommand, se_ListDocumentsCommand } from "../protocols/Aws_restJson1";
+import { CreateAnonymousWebExperienceUrlRequest, CreateAnonymousWebExperienceUrlResponse } from "../models/models_0";
+import {
+  de_CreateAnonymousWebExperienceUrlCommand,
+  se_CreateAnonymousWebExperienceUrlCommand,
+} from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 
 /**
@@ -17,57 +20,43 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListDocumentsCommand}.
+ * The input for {@link CreateAnonymousWebExperienceUrlCommand}.
  */
-export interface ListDocumentsCommandInput extends ListDocumentsRequest {}
+export interface CreateAnonymousWebExperienceUrlCommandInput extends CreateAnonymousWebExperienceUrlRequest {}
 /**
  * @public
  *
- * The output of {@link ListDocumentsCommand}.
+ * The output of {@link CreateAnonymousWebExperienceUrlCommand}.
  */
-export interface ListDocumentsCommandOutput extends ListDocumentsResponse, __MetadataBearer {}
+export interface CreateAnonymousWebExperienceUrlCommandOutput
+  extends CreateAnonymousWebExperienceUrlResponse,
+    __MetadataBearer {}
 
 /**
- * <p>A list of documents attached to an index.</p>
+ * <p>Creates a unique URL for anonymous Amazon Q Business web experience. This URL can only be used once and must be used within 5 minutes after it's generated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QBusinessClient, ListDocumentsCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
- * // const { QBusinessClient, ListDocumentsCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * import { QBusinessClient, CreateAnonymousWebExperienceUrlCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
+ * // const { QBusinessClient, CreateAnonymousWebExperienceUrlCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
  * const client = new QBusinessClient(config);
- * const input = { // ListDocumentsRequest
+ * const input = { // CreateAnonymousWebExperienceUrlRequest
  *   applicationId: "STRING_VALUE", // required
- *   indexId: "STRING_VALUE", // required
- *   dataSourceIds: [ // DataSourceIds
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   webExperienceId: "STRING_VALUE", // required
+ *   sessionDurationInMinutes: Number("int"),
  * };
- * const command = new ListDocumentsCommand(input);
+ * const command = new CreateAnonymousWebExperienceUrlCommand(input);
  * const response = await client.send(command);
- * // { // ListDocumentsResponse
- * //   documentDetailList: [ // DocumentDetailList
- * //     { // DocumentDetails
- * //       documentId: "STRING_VALUE",
- * //       status: "RECEIVED" || "PROCESSING" || "INDEXED" || "UPDATED" || "FAILED" || "DELETING" || "DELETED" || "DOCUMENT_FAILED_TO_INDEX",
- * //       error: { // ErrorDetail
- * //         errorMessage: "STRING_VALUE",
- * //         errorCode: "InternalError" || "InvalidRequest" || "ResourceInactive" || "ResourceNotFound",
- * //       },
- * //       createdAt: new Date("TIMESTAMP"),
- * //       updatedAt: new Date("TIMESTAMP"),
- * //     },
- * //   ],
- * //   nextToken: "STRING_VALUE",
+ * // { // CreateAnonymousWebExperienceUrlResponse
+ * //   anonymousUrl: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListDocumentsCommandInput - {@link ListDocumentsCommandInput}
- * @returns {@link ListDocumentsCommandOutput}
- * @see {@link ListDocumentsCommandInput} for command's `input` shape.
- * @see {@link ListDocumentsCommandOutput} for command's `response` shape.
+ * @param CreateAnonymousWebExperienceUrlCommandInput - {@link CreateAnonymousWebExperienceUrlCommandInput}
+ * @returns {@link CreateAnonymousWebExperienceUrlCommandOutput}
+ * @see {@link CreateAnonymousWebExperienceUrlCommandInput} for command's `input` shape.
+ * @see {@link CreateAnonymousWebExperienceUrlCommandOutput} for command's `response` shape.
  * @see {@link QBusinessClientResolvedConfig | config} for QBusinessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -78,6 +67,9 @@ export interface ListDocumentsCommandOutput extends ListDocumentsResponse, __Met
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have exceeded the set limits for your Amazon Q Business service. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
@@ -91,10 +83,10 @@ export interface ListDocumentsCommandOutput extends ListDocumentsResponse, __Met
  *
  * @public
  */
-export class ListDocumentsCommand extends $Command
+export class CreateAnonymousWebExperienceUrlCommand extends $Command
   .classBuilder<
-    ListDocumentsCommandInput,
-    ListDocumentsCommandOutput,
+    CreateAnonymousWebExperienceUrlCommandInput,
+    CreateAnonymousWebExperienceUrlCommandOutput,
     QBusinessClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -106,21 +98,21 @@ export class ListDocumentsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ExpertQ", "ListDocuments", {})
-  .n("QBusinessClient", "ListDocumentsCommand")
+  .s("ExpertQ", "CreateAnonymousWebExperienceUrl", {})
+  .n("QBusinessClient", "CreateAnonymousWebExperienceUrlCommand")
   .f(void 0, void 0)
-  .ser(se_ListDocumentsCommand)
-  .de(de_ListDocumentsCommand)
+  .ser(se_CreateAnonymousWebExperienceUrlCommand)
+  .de(de_CreateAnonymousWebExperienceUrlCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListDocumentsRequest;
-      output: ListDocumentsResponse;
+      input: CreateAnonymousWebExperienceUrlRequest;
+      output: CreateAnonymousWebExperienceUrlResponse;
     };
     sdk: {
-      input: ListDocumentsCommandInput;
-      output: ListDocumentsCommandOutput;
+      input: CreateAnonymousWebExperienceUrlCommandInput;
+      output: CreateAnonymousWebExperienceUrlCommandOutput;
     };
   };
 }

@@ -6,6 +6,7 @@ export * from "./CancelSubscriptionCommand";
 export * from "./ChatCommand";
 export * from "./ChatSyncCommand";
 export * from "./CheckDocumentAccessCommand";
+export * from "./CreateAnonymousWebExperienceUrlCommand";
 export * from "./CreateApplicationCommand";
 export * from "./CreateDataAccessorCommand";
 export * from "./CreateDataSourceCommand";

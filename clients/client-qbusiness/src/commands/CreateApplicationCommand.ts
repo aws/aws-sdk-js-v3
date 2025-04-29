@@ -42,7 +42,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * const input = { // CreateApplicationRequest
  *   displayName: "STRING_VALUE", // required
  *   roleArn: "STRING_VALUE",
- *   identityType: "AWS_IAM_IDP_SAML" || "AWS_IAM_IDP_OIDC" || "AWS_IAM_IDC" || "AWS_QUICKSIGHT_IDP",
+ *   identityType: "AWS_IAM_IDP_SAML" || "AWS_IAM_IDP_OIDC" || "AWS_IAM_IDC" || "AWS_QUICKSIGHT_IDP" || "ANONYMOUS",
  *   iamIdentityProviderArn: "STRING_VALUE",
  *   identityCenterInstanceArn: "STRING_VALUE",
  *   clientIdsForOIDC: [ // ClientIdsForOIDC

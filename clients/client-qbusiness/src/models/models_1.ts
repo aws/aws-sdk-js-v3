@@ -16,6 +16,7 @@ import {
   ChatModeConfiguration,
   ContentSource,
   CreatorModeConfiguration,
+  DataSourceSyncJob,
   DocumentAttribute,
   DocumentDetails,
   EndOfInputEvent,
@@ -34,6 +35,58 @@ import {
   TopicConfiguration,
   UserAlias,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListDataSourceSyncJobsResponse {
+  /**
+   * <p>A history of synchronization jobs for the data source connector.</p>
+   * @public
+   */
+  history?: DataSourceSyncJob[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon Q Business returns this token. You can use this token in any subsequent request to retrieve the next set of jobs.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDocumentsRequest {
+  /**
+   * <p>The identifier of the application id the documents are attached to.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The identifier of the index the documents are attached to.</p>
+   * @public
+   */
+  indexId: string | undefined;
+
+  /**
+   * <p>The identifier of the data sources the documents are attached to.</p>
+   * @public
+   */
+  dataSourceIds?: string[] | undefined;
+
+  /**
+   * <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of documents.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of documents to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
 
 /**
  * @public
