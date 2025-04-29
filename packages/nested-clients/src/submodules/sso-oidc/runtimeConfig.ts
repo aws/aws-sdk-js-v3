@@ -2,7 +2,7 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../../../package.json"; // eslint-disable-line
 
-import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
+import { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
 import { NODE_APP_ID_CONFIG_OPTIONS, createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-node";
 import {
   NODE_REGION_CONFIG_FILE_OPTIONS,
@@ -37,6 +37,8 @@ export const getRuntimeConfig = (config: SSOOIDCClientConfig) => {
     ...config,
     runtime: "node",
     defaultsMode,
+    authSchemePreference:
+      config?.authSchemePreference ?? loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, profileConfig),
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ??

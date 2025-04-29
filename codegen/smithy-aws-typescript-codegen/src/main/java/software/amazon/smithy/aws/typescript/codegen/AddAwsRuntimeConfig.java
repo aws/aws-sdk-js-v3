@@ -185,7 +185,8 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         writer.write("invalidProvider(\"Region is missing\")");
                     });
                 case NODE:
-                    return MapUtils.of("region", writer -> {
+                    Map<String, Consumer<TypeScriptWriter>> nodeConfig = new HashMap<>();
+                    nodeConfig.put("region", writer -> {
                         writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
                         writer.addImport("loadConfig", "loadNodeConfig",
                             TypeScriptDependency.NODE_CONFIG_PROVIDER);
@@ -203,6 +204,16 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                             """
                         );
                     });
+                    if (!settings.useLegacyAuth()) {
+                        nodeConfig.put("authSchemePreference", writer -> {
+                            writer.addImport("loadConfig", "loadNodeConfig",
+                                   TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                            writer.addImport("NODE_AUTH_SCHEME_PREFERENCE_OPTIONS", null,
+                                    AwsDependency.AWS_SDK_CORE);
+                            writer.write("loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, profileConfig)");
+                          });
+                    }
+                    return nodeConfig;
                 default:
                     return Collections.emptyMap();
             }

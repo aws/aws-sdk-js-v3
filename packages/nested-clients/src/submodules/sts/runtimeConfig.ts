@@ -2,7 +2,11 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../../../package.json"; // eslint-disable-line
 
-import { AwsSdkSigV4Signer, emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
+import {
+  AwsSdkSigV4Signer,
+  NODE_AUTH_SCHEME_PREFERENCE_OPTIONS,
+  emitWarningIfUnsupportedVersion as awsCheckVersion,
+} from "@aws-sdk/core";
 
 import { NODE_APP_ID_CONFIG_OPTIONS, createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-node";
 import {
@@ -40,6 +44,8 @@ export const getRuntimeConfig = (config: STSClientConfig) => {
     ...config,
     runtime: "node",
     defaultsMode,
+    authSchemePreference:
+      config?.authSchemePreference ?? loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, profileConfig),
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
 
     defaultUserAgentProvider:
