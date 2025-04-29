@@ -135,7 +135,7 @@ describe("EventBridge Client with SignatureV4a", () => {
     secondaryEbClient?.destroy();
     route53Client?.destroy();
     globalEbClient?.destroy();
-  });
+  }, LONG_TIMEOUT);
 
   it("should add SigV4a headers when signing an EventBridge request (mocked)", async () => {
     expect(signer).toBeDefined();
