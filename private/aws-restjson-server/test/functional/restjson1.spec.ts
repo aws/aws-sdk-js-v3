@@ -12,6 +12,7 @@ import { Encoder as __Encoder } from "@smithy/types";
 import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 import { toUtf8 as __utf8Encoder } from "@smithy/util-utf8";
 import { Readable } from "stream";
+import { expect, test as it } from "vitest";
 
 import { ComplexError, InvalidGreeting } from "../../src/models/models_0";
 import { serializeFrameworkException } from "../../src/protocols/Aws_restJson1";
@@ -543,7 +544,10 @@ it("RestJsonAllQueryStringTypes:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -591,7 +595,10 @@ it("RestJsonQueryStringMap:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -638,7 +645,10 @@ it("RestJsonQueryStringEscaping:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -688,7 +698,10 @@ it("RestJsonSupportsNaNFloatQueryValues:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -738,7 +751,10 @@ it("RestJsonSupportsInfinityFloatQueryValues:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -788,7 +804,10 @@ it("RestJsonSupportsNegativeInfinityFloatQueryValues:ServerRequest", async () =>
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -838,7 +857,10 @@ it("RestJsonZeroAndFalseQueryValues:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -883,7 +905,10 @@ it("RestJsonConstantAndVariableQueryStringMissingOneValue:ServerRequest", async 
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -930,7 +955,10 @@ it("RestJsonConstantAndVariableQueryStringAllValues:ServerRequest", async () => 
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -975,7 +1003,10 @@ it("RestJsonConstantQueryString:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1019,7 +1050,10 @@ it.skip("RestJsonMustSupportParametersInContentType:ServerRequest", async () => 
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1066,7 +1100,10 @@ it("DocumentTypeInputWithObject:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1111,7 +1148,10 @@ it("DocumentInputWithString:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1156,7 +1196,10 @@ it("DocumentInputWithNumber:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1201,7 +1244,10 @@ it("DocumentInputWithBoolean:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1257,7 +1303,10 @@ it("DocumentInputWithList:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1311,10 +1360,9 @@ it("DocumentOutput:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
         \"stringValue\": \"string\",
@@ -1373,10 +1421,9 @@ it("DocumentOutputString:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
           \"stringValue\": \"string\",
@@ -1433,10 +1480,9 @@ it("DocumentOutputNumber:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
             \"stringValue\": \"string\",
@@ -1493,10 +1539,9 @@ it("DocumentOutputBoolean:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
               \"stringValue\": \"string\",
@@ -1553,10 +1598,9 @@ it("DocumentOutputArray:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                 \"stringValue\": \"string\",
@@ -1617,7 +1661,10 @@ it("DocumentTypeAsMapValueInput:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1675,10 +1722,9 @@ it("DocumentTypeAsMapValueOutput:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                   \"docValuedMap\": {
@@ -1732,7 +1778,10 @@ it("DocumentTypeAsPayloadInput:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1776,7 +1825,10 @@ it("DocumentTypeAsPayloadInputString:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1829,10 +1881,9 @@ it("DocumentTypeAsPayloadOutput:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                     \"foo\": \"bar\"
@@ -1887,10 +1938,9 @@ it("DocumentTypeAsPayloadOutputString:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `\"hello\"`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -2012,10 +2062,9 @@ it("RestJsonEmptyInputAndEmptyOutput:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -2094,7 +2143,10 @@ it("RestJsonEndpointTraitWithHostLabel:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2149,10 +2201,9 @@ it("RestJsonGreetingWithErrors:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["x-greeting"]).toBeDefined();
   expect(r.headers["x-greeting"]).toBe("Hello");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -2215,14 +2266,11 @@ it("RestJsonComplexErrorWithNoMessage:ServerErrorResponse", async () => {
 
   expect(r.statusCode).toBe(403);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ComplexError");
-  expect(r.headers["x-header"]).toBeDefined();
   expect(r.headers["x-header"]).toBe("Header");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                             \"TopLevel\": \"Top level\",
@@ -2281,12 +2329,10 @@ it("RestJsonEmptyComplexErrorWithNoMessage:ServerErrorResponse", async () => {
 
   expect(r.statusCode).toBe(403);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ComplexError");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -2345,12 +2391,10 @@ it("RestJsonInvalidGreetingError:ServerErrorResponse", async () => {
 
   expect(r.statusCode).toBe(400);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("InvalidGreeting");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                 \"Message\": \"Hi\"
@@ -2399,7 +2443,10 @@ it("RestJsonHttpChecksumRequired:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2440,7 +2487,10 @@ it("RestJsonEnumPayloadRequest:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2488,10 +2538,9 @@ it("RestJsonEnumPayloadResponse:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("text/plain");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `enumvalue`;
   const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
@@ -2539,7 +2588,10 @@ it("RestJsonHttpPayloadTraitsWithBlob:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2583,7 +2635,10 @@ it("RestJsonHttpPayloadTraitsWithNoBlobBody:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2630,7 +2685,10 @@ it("RestJsonHttpPayloadTraitsWithBlobAcceptsAllContentTypes:ServerRequest", asyn
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2676,7 +2734,10 @@ it("RestJsonHttpPayloadTraitsWithBlobAcceptsNoContentType:ServerRequest", async 
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2723,7 +2784,10 @@ it("RestJsonHttpPayloadTraitsWithBlobAcceptsAllAccepts:ServerRequest", async () 
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2775,10 +2839,9 @@ it("RestJsonHttpPayloadTraitsWithBlob:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["x-foo"]).toBeDefined();
   expect(r.headers["x-foo"]).toBe("Foo");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `blobby blob blob`;
   const unequalParts: any = compareEquivalentOctetStreamBodies(utf8Encoder, bodyString, r.body);
@@ -2831,7 +2894,6 @@ it("RestJsonHttpPayloadTraitsWithNoBlobBody:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["x-foo"]).toBeDefined();
   expect(r.headers["x-foo"]).toBe("Foo");
 
   expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -2878,7 +2940,10 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2930,12 +2995,10 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:ServerResponse", async () => 
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("text/plain");
-  expect(r.headers["x-foo"]).toBeDefined();
   expect(r.headers["x-foo"]).toBe("Foo");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `blobby blob blob`;
   const unequalParts: any = compareEquivalentOctetStreamBodies(utf8Encoder, bodyString, r.body);
@@ -2984,7 +3047,10 @@ it("RestJsonHttpPayloadWithStructure:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3038,10 +3104,9 @@ it("RestJsonHttpPayloadWithStructure:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                           \"greeting\": \"hello\",
@@ -3092,7 +3157,10 @@ it("RestJsonHttpPayloadWithUnion:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3177,10 +3245,9 @@ it("RestJsonHttpPayloadWithUnion:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                             \"greeting\": \"hello\"
@@ -3233,7 +3300,6 @@ it.skip("RestJsonHttpPayloadWithUnsetUnion:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-length"]).toBeDefined();
   expect(r.headers["content-length"]).toBe("0");
 
   expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -3284,7 +3350,10 @@ it("RestJsonHttpPrefixHeadersArePresent:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3339,11 +3408,8 @@ it("RestJsonHttpPrefixHeadersArePresent:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["x-foo"]).toBeDefined();
   expect(r.headers["x-foo"]).toBe("Foo");
-  expect(r.headers["x-foo-abc"]).toBeDefined();
   expect(r.headers["x-foo-abc"]).toBe("Abc value");
-  expect(r.headers["x-foo-def"]).toBeDefined();
   expect(r.headers["x-foo-def"]).toBe("Def value");
 });
 
@@ -3396,9 +3462,7 @@ it("HttpPrefixHeadersResponse:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["hello"]).toBeDefined();
   expect(r.headers["hello"]).toBe("Hello");
-  expect(r.headers["x-foo"]).toBeDefined();
   expect(r.headers["x-foo"]).toBe("Foo");
 });
 
@@ -3440,7 +3504,10 @@ it("RestJsonSupportsNaNFloatLabels:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3483,7 +3550,10 @@ it("RestJsonSupportsInfinityFloatLabels:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3526,7 +3596,10 @@ it("RestJsonSupportsNegativeInfinityFloatLabels:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3569,7 +3642,10 @@ it("RestJsonHttpRequestWithGreedyLabelInPath:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3618,7 +3694,10 @@ it("RestJsonInputWithHeadersAndAllParams:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3667,7 +3746,10 @@ it("RestJsonHttpRequestLabelEscaping:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3715,7 +3797,10 @@ it("RestJsonHttpRequestWithLabelsAndTimestampFormat:ServerRequest", async () => 
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3757,7 +3842,10 @@ it("RestJsonToleratesRegexCharsInSegments:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3812,10 +3900,9 @@ it("RestJsonHttpResponseCode:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(201);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -3869,10 +3956,9 @@ it("RestJsonHttpResponseCodeDefaultsToModeledCode:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -3915,7 +4001,10 @@ it("RestJsonStringPayloadRequest:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3963,10 +4052,9 @@ it("RestJsonStringPayloadResponse:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("text/plain");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `rawstring`;
   const unequalParts: any = compareEquivalentTextBodies(bodyString, r.body);
@@ -4005,7 +4093,6 @@ it.skip("RestJsonStringPayloadNoContentType:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(415);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("UnsupportedMediaTypeException");
 });
 
@@ -4043,7 +4130,6 @@ it("RestJsonStringPayloadWrongContentType:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(415);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("UnsupportedMediaTypeException");
 });
 
@@ -4082,7 +4168,6 @@ it("RestJsonStringPayloadUnsatisfiableAccept:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(406);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("NotAcceptableException");
 });
 
@@ -4133,10 +4218,9 @@ it("RestJsonIgnoreQueryParamsInResponse:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -4186,7 +4270,10 @@ it("RestJsonInputAndOutputWithStringHeaders:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4230,7 +4317,10 @@ it("RestJsonInputAndOutputWithQuotedStringHeaders:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4286,7 +4376,10 @@ it("RestJsonInputAndOutputWithNumericHeaders:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4334,7 +4427,10 @@ it("RestJsonInputAndOutputWithBooleanHeaders:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4378,7 +4474,10 @@ it("RestJsonInputAndOutputWithTimestampHeaders:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4424,7 +4523,10 @@ it("RestJsonInputAndOutputWithEnumHeaders:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4470,7 +4572,10 @@ it("RestJsonInputAndOutputWithIntEnumHeaders:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4516,7 +4621,10 @@ it("RestJsonSupportsNaNFloatHeaderInputs:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4562,7 +4670,10 @@ it("RestJsonSupportsInfinityFloatHeaderInputs:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4608,7 +4719,10 @@ it("RestJsonSupportsNegativeInfinityFloatHeaderInputs:ServerRequest", async () =
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4661,11 +4775,8 @@ it("RestJsonInputAndOutputWithStringHeaders:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["x-string"]).toBeDefined();
   expect(r.headers["x-string"]).toBe("Hello");
-  expect(r.headers["x-stringlist"]).toBeDefined();
   expect(r.headers["x-stringlist"]).toBe("a, b, c");
-  expect(r.headers["x-stringset"]).toBeDefined();
   expect(r.headers["x-stringset"]).toBe("a, b, c");
 });
 
@@ -4715,7 +4826,6 @@ it("RestJsonInputAndOutputWithQuotedStringHeaders:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["x-stringlist"]).toBeDefined();
   expect(r.headers["x-stringlist"]).toBe('"b,c", "\\"def\\"", a');
 });
 
@@ -4771,19 +4881,12 @@ it("RestJsonInputAndOutputWithNumericHeaders:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["x-byte"]).toBeDefined();
   expect(r.headers["x-byte"]).toBe("1");
-  expect(r.headers["x-double"]).toBeDefined();
   expect(r.headers["x-double"]).toBe("1.1");
-  expect(r.headers["x-float"]).toBeDefined();
   expect(r.headers["x-float"]).toBe("1.1");
-  expect(r.headers["x-integer"]).toBeDefined();
   expect(r.headers["x-integer"]).toBe("123");
-  expect(r.headers["x-integerlist"]).toBeDefined();
   expect(r.headers["x-integerlist"]).toBe("1, 2, 3");
-  expect(r.headers["x-long"]).toBeDefined();
   expect(r.headers["x-long"]).toBe("123");
-  expect(r.headers["x-short"]).toBeDefined();
   expect(r.headers["x-short"]).toBe("123");
 });
 
@@ -4835,11 +4938,8 @@ it("RestJsonInputAndOutputWithBooleanHeaders:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["x-boolean1"]).toBeDefined();
   expect(r.headers["x-boolean1"]).toBe("true");
-  expect(r.headers["x-boolean2"]).toBeDefined();
   expect(r.headers["x-boolean2"]).toBe("false");
-  expect(r.headers["x-booleanlist"]).toBeDefined();
   expect(r.headers["x-booleanlist"]).toBe("true, false, true");
 });
 
@@ -4889,7 +4989,6 @@ it("RestJsonInputAndOutputWithTimestampHeaders:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["x-timestamplist"]).toBeDefined();
   expect(r.headers["x-timestamplist"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT");
 });
 
@@ -4940,9 +5039,7 @@ it("RestJsonInputAndOutputWithEnumHeaders:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["x-enum"]).toBeDefined();
   expect(r.headers["x-enum"]).toBe("Foo");
-  expect(r.headers["x-enumlist"]).toBeDefined();
   expect(r.headers["x-enumlist"]).toBe("Foo, Bar, Baz");
 });
 
@@ -4993,9 +5090,7 @@ it("RestJsonInputAndOutputWithIntEnumHeaders:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["x-integerenum"]).toBeDefined();
   expect(r.headers["x-integerenum"]).toBe("1");
-  expect(r.headers["x-integerenumlist"]).toBeDefined();
   expect(r.headers["x-integerenumlist"]).toBe("1, 2, 3");
 });
 
@@ -5046,9 +5141,7 @@ it("RestJsonSupportsNaNFloatHeaderOutputs:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["x-double"]).toBeDefined();
   expect(r.headers["x-double"]).toBe("NaN");
-  expect(r.headers["x-float"]).toBeDefined();
   expect(r.headers["x-float"]).toBe("NaN");
 });
 
@@ -5099,9 +5192,7 @@ it("RestJsonSupportsInfinityFloatHeaderOutputs:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["x-double"]).toBeDefined();
   expect(r.headers["x-double"]).toBe("Infinity");
-  expect(r.headers["x-float"]).toBeDefined();
   expect(r.headers["x-float"]).toBe("Infinity");
 });
 
@@ -5152,9 +5243,7 @@ it("RestJsonSupportsNegativeInfinityFloatHeaderOutputs:ServerResponse", async ()
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["x-double"]).toBeDefined();
   expect(r.headers["x-double"]).toBe("-Infinity");
-  expect(r.headers["x-float"]).toBeDefined();
   expect(r.headers["x-float"]).toBe("-Infinity");
 });
 
@@ -5197,7 +5286,10 @@ it("RestJsonJsonBlobs:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -5248,10 +5340,9 @@ it("RestJsonJsonBlobs:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                 \"data\": \"dmFsdWU=\"
@@ -5309,7 +5400,10 @@ it("RestJsonJsonEnums:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -5368,10 +5462,9 @@ it("RestJsonJsonEnums:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                   \"fooEnum1\": \"Foo\",
@@ -5443,7 +5536,10 @@ it("RestJsonJsonIntEnums:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -5502,10 +5598,9 @@ it("RestJsonJsonIntEnums:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                     \"integerEnum1\": 1,
@@ -5590,7 +5685,10 @@ it("RestJsonLists:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -5634,7 +5732,10 @@ it("RestJsonListsEmpty:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -5705,10 +5806,9 @@ it("RestJsonLists:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                       \"stringList\": [
@@ -5810,10 +5910,9 @@ it("RestJsonListsEmpty:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                         \"stringList\": []
@@ -5870,7 +5969,10 @@ it("RestJsonJsonMaps:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -5921,7 +6023,10 @@ it("RestJsonSerializesZeroValuesInMaps:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -5968,7 +6073,10 @@ it("RestJsonSerializesDenseSetMap:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6026,10 +6134,9 @@ it("RestJsonJsonMaps:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                           \"denseStructMap\": {
@@ -6096,10 +6203,9 @@ it("RestJsonDeserializesZeroValuesInMaps:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                             \"denseNumberMap\": {
@@ -6162,10 +6268,9 @@ it("RestJsonDeserializesDenseSetMap:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                               \"denseSetMap\": {
@@ -6216,7 +6321,10 @@ it("RestJsonJsonTimestamps:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6260,7 +6368,10 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6304,7 +6415,10 @@ it("RestJsonJsonTimestampsWithDateTimeOnTargetFormat:ServerRequest", async () =>
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6348,7 +6462,10 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6392,7 +6509,10 @@ it("RestJsonJsonTimestampsWithEpochSecondsOnTargetFormat:ServerRequest", async (
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6436,7 +6556,10 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6480,7 +6603,10 @@ it("RestJsonJsonTimestampsWithHttpDateOnTargetFormat:ServerRequest", async () =>
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6531,10 +6657,9 @@ it("RestJsonJsonTimestamps:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                 \"normal\": 1398796238
@@ -6589,10 +6714,9 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                   \"dateTime\": \"2014-04-29T18:30:38Z\"
@@ -6647,10 +6771,9 @@ it("RestJsonJsonTimestampsWithDateTimeOnTargetFormat:ServerResponse", async () =
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                     \"dateTimeOnTarget\": \"2014-04-29T18:30:38Z\"
@@ -6705,10 +6828,9 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                       \"epochSeconds\": 1398796238
@@ -6763,10 +6885,9 @@ it("RestJsonJsonTimestampsWithEpochSecondsOnTargetFormat:ServerResponse", async 
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                         \"epochSecondsOnTarget\": 1398796238
@@ -6821,10 +6942,9 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                           \"httpDate\": \"Tue, 29 Apr 2014 18:30:38 GMT\"
@@ -6879,10 +6999,9 @@ it("RestJsonJsonTimestampsWithHttpDateOnTargetFormat:ServerResponse", async () =
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                             \"httpDateOnTarget\": \"Tue, 29 Apr 2014 18:30:38 GMT\"
@@ -6932,7 +7051,10 @@ it("RestJsonSerializeStringUnionValue:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6978,7 +7100,10 @@ it("RestJsonSerializeBooleanUnionValue:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -7024,7 +7149,10 @@ it("RestJsonSerializeNumberUnionValue:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -7070,7 +7198,10 @@ it("RestJsonSerializeBlobUnionValue:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -7116,7 +7247,10 @@ it("RestJsonSerializeTimestampUnionValue:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -7162,7 +7296,10 @@ it("RestJsonSerializeEnumUnionValue:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -7208,7 +7345,10 @@ it("RestJsonSerializeListUnionValue:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -7259,7 +7399,10 @@ it("RestJsonSerializeMapUnionValue:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -7309,7 +7452,10 @@ it("RestJsonSerializeStructureUnionValue:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -7359,7 +7505,10 @@ it("RestJsonSerializeRenamedStructureUnionValue:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -7412,10 +7561,9 @@ it("RestJsonDeserializeStringUnionValue:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                               \"contents\": {
@@ -7474,10 +7622,9 @@ it("RestJsonDeserializeBooleanUnionValue:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                 \"contents\": {
@@ -7536,10 +7683,9 @@ it("RestJsonDeserializeNumberUnionValue:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                   \"contents\": {
@@ -7598,10 +7744,9 @@ it("RestJsonDeserializeBlobUnionValue:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                     \"contents\": {
@@ -7660,10 +7805,9 @@ it("RestJsonDeserializeTimestampUnionValue:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                       \"contents\": {
@@ -7722,10 +7866,9 @@ it("RestJsonDeserializeEnumUnionValue:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                         \"contents\": {
@@ -7784,10 +7927,9 @@ it("RestJsonDeserializeListUnionValue:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                           \"contents\": {
@@ -7849,10 +7991,9 @@ it("RestJsonDeserializeMapUnionValue:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                             \"contents\": {
@@ -7916,10 +8057,9 @@ it("RestJsonDeserializeStructureUnionValue:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                               \"contents\": {
@@ -7965,7 +8105,6 @@ it("RestJsonWithBodyExpectsApplicationJsonAccept:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(406);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("NotAcceptableException");
 });
 
@@ -8003,7 +8142,6 @@ it("RestJsonWithPayloadExpectsImpliedAccept:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(406);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("NotAcceptableException");
 });
 
@@ -8040,7 +8178,6 @@ it("RestJsonWithPayloadExpectsModeledAccept:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(406);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("NotAcceptableException");
 });
 
@@ -8079,7 +8216,6 @@ it("RestJsonBodyMalformedBlobInvalidBase64_case0:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8118,7 +8254,6 @@ it("RestJsonBodyMalformedBlobInvalidBase64_case1:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8157,7 +8292,6 @@ it("RestJsonBodyMalformedBlobInvalidBase64_case2:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8196,7 +8330,6 @@ it("RestJsonBodyMalformedBlobInvalidBase64_case3:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8235,7 +8368,6 @@ it("RestJsonBodyMalformedBlobInvalidBase64_case4:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8274,7 +8406,6 @@ it("RestJsonBodyMalformedBlobInvalidBase64_case5:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8313,7 +8444,6 @@ it("RestJsonBodyMalformedBlobInvalidBase64_case6:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8352,7 +8482,6 @@ it("RestJsonBodyMalformedBlobInvalidBase64_case7:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8391,7 +8520,6 @@ it("RestJsonBodyMalformedBlobInvalidBase64_case8:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8429,7 +8557,6 @@ it.skip("RestJsonBodyBooleanStringCoercion_case0:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8467,7 +8594,6 @@ it.skip("RestJsonBodyBooleanStringCoercion_case1:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8505,7 +8631,6 @@ it.skip("RestJsonBodyBooleanStringCoercion_case2:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8543,7 +8668,6 @@ it("RestJsonBodyBooleanStringCoercion_case3:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8581,7 +8705,6 @@ it("RestJsonBodyBooleanStringCoercion_case4:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8619,7 +8742,6 @@ it("RestJsonBodyBooleanStringCoercion_case5:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8657,7 +8779,6 @@ it("RestJsonBodyBooleanStringCoercion_case6:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8695,7 +8816,6 @@ it("RestJsonBodyBooleanStringCoercion_case7:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8733,7 +8853,6 @@ it("RestJsonBodyBooleanStringCoercion_case8:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8771,7 +8890,6 @@ it("RestJsonBodyBooleanStringCoercion_case9:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8809,7 +8927,6 @@ it("RestJsonBodyBooleanStringCoercion_case10:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8847,7 +8964,6 @@ it("RestJsonBodyBooleanStringCoercion_case11:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8885,7 +9001,6 @@ it.skip("RestJsonBodyBooleanStringCoercion_case12:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8923,7 +9038,6 @@ it.skip("RestJsonBodyBooleanStringCoercion_case13:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8961,7 +9075,6 @@ it.skip("RestJsonBodyBooleanStringCoercion_case14:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -8999,7 +9112,6 @@ it("RestJsonBodyBooleanStringCoercion_case15:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9037,7 +9149,6 @@ it("RestJsonBodyBooleanStringCoercion_case16:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9075,7 +9186,6 @@ it("RestJsonBodyBooleanStringCoercion_case17:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9113,7 +9223,6 @@ it("RestJsonBodyBooleanStringCoercion_case18:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9151,7 +9260,6 @@ it("RestJsonBodyBooleanStringCoercion_case19:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9189,7 +9297,6 @@ it("RestJsonBodyBooleanStringCoercion_case20:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9227,7 +9334,6 @@ it("RestJsonBodyBooleanStringCoercion_case21:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9265,7 +9371,6 @@ it("RestJsonBodyBooleanStringCoercion_case22:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9303,7 +9408,6 @@ it("RestJsonBodyBooleanStringCoercion_case23:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9341,7 +9445,6 @@ it("RestJsonBodyBooleanBadLiteral_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9379,7 +9482,6 @@ it("RestJsonBodyBooleanBadLiteral_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9417,7 +9519,6 @@ it("RestJsonBodyBooleanBadLiteral_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9455,7 +9556,6 @@ it("RestJsonBodyBooleanBadLiteral_case3:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9493,7 +9593,6 @@ it("RestJsonBodyBooleanBadLiteral_case4:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9531,7 +9630,6 @@ it("RestJsonBodyBooleanBadLiteral_case5:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9569,7 +9667,6 @@ it("RestJsonBodyBooleanBadLiteral_case6:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9607,7 +9704,6 @@ it.skip("RestJsonBodyBooleanBadLiteral_case7:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9645,7 +9741,6 @@ it("RestJsonBodyBooleanBadLiteral_case8:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9683,7 +9778,6 @@ it("RestJsonBodyBooleanBadLiteral_case9:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9721,7 +9815,6 @@ it("RestJsonBodyBooleanBadLiteral_case10:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9759,7 +9852,6 @@ it("RestJsonBodyBooleanBadLiteral_case11:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9797,7 +9889,6 @@ it("RestJsonBodyBooleanBadLiteral_case12:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9835,7 +9926,6 @@ it("RestJsonBodyBooleanBadLiteral_case13:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9873,7 +9963,6 @@ it("RestJsonBodyBooleanBadLiteral_case14:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9911,7 +10000,6 @@ it("RestJsonBodyBooleanBadLiteral_case15:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9949,7 +10037,6 @@ it("RestJsonBodyBooleanBadLiteral_case16:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -9987,7 +10074,6 @@ it("RestJsonBodyBooleanBadLiteral_case17:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10025,7 +10111,6 @@ it.skip("RestJsonBodyBooleanBadLiteral_case18:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10063,7 +10148,6 @@ it("RestJsonBodyBooleanBadLiteral_case19:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10101,7 +10185,6 @@ it("RestJsonBodyBooleanBadLiteral_case20:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10139,7 +10222,6 @@ it("RestJsonBodyBooleanBadLiteral_case21:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10174,7 +10256,6 @@ it("RestJsonPathBooleanStringCoercion_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10209,7 +10290,6 @@ it("RestJsonPathBooleanStringCoercion_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10244,7 +10324,6 @@ it("RestJsonPathBooleanStringCoercion_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10279,7 +10358,6 @@ it("RestJsonPathBooleanStringCoercion_case3:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10314,7 +10392,6 @@ it("RestJsonPathBooleanStringCoercion_case4:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10349,7 +10426,6 @@ it("RestJsonPathBooleanStringCoercion_case5:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10384,7 +10460,6 @@ it("RestJsonPathBooleanStringCoercion_case6:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10419,7 +10494,6 @@ it("RestJsonPathBooleanStringCoercion_case7:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10454,7 +10528,6 @@ it("RestJsonPathBooleanStringCoercion_case8:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10489,7 +10562,6 @@ it("RestJsonPathBooleanStringCoercion_case9:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10524,7 +10596,6 @@ it("RestJsonPathBooleanStringCoercion_case10:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10559,7 +10630,6 @@ it("RestJsonPathBooleanStringCoercion_case11:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10594,7 +10664,6 @@ it("RestJsonPathBooleanStringCoercion_case12:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10629,7 +10698,6 @@ it("RestJsonPathBooleanStringCoercion_case13:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10664,7 +10732,6 @@ it("RestJsonPathBooleanStringCoercion_case14:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10699,7 +10766,6 @@ it("RestJsonPathBooleanStringCoercion_case15:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10734,7 +10800,6 @@ it("RestJsonPathBooleanStringCoercion_case16:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10769,7 +10834,6 @@ it("RestJsonPathBooleanStringCoercion_case17:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10804,7 +10868,6 @@ it("RestJsonPathBooleanStringCoercion_case18:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10839,7 +10902,6 @@ it("RestJsonPathBooleanStringCoercion_case19:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10874,7 +10936,6 @@ it("RestJsonPathBooleanStringCoercion_case20:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10909,7 +10970,6 @@ it("RestJsonPathBooleanStringCoercion_case21:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10946,7 +11006,6 @@ it("RestJsonQueryBooleanStringCoercion_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -10983,7 +11042,6 @@ it("RestJsonQueryBooleanStringCoercion_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11020,7 +11078,6 @@ it("RestJsonQueryBooleanStringCoercion_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11057,7 +11114,6 @@ it("RestJsonQueryBooleanStringCoercion_case3:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11094,7 +11150,6 @@ it("RestJsonQueryBooleanStringCoercion_case4:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11131,7 +11186,6 @@ it("RestJsonQueryBooleanStringCoercion_case5:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11168,7 +11222,6 @@ it("RestJsonQueryBooleanStringCoercion_case6:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11205,7 +11258,6 @@ it("RestJsonQueryBooleanStringCoercion_case7:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11242,7 +11294,6 @@ it("RestJsonQueryBooleanStringCoercion_case8:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11279,7 +11330,6 @@ it("RestJsonQueryBooleanStringCoercion_case9:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11316,7 +11366,6 @@ it("RestJsonQueryBooleanStringCoercion_case10:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11353,7 +11402,6 @@ it("RestJsonQueryBooleanStringCoercion_case11:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11390,7 +11438,6 @@ it("RestJsonQueryBooleanStringCoercion_case12:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11427,7 +11474,6 @@ it("RestJsonQueryBooleanStringCoercion_case13:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11464,7 +11510,6 @@ it("RestJsonQueryBooleanStringCoercion_case14:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11501,7 +11546,6 @@ it("RestJsonQueryBooleanStringCoercion_case15:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11538,7 +11582,6 @@ it("RestJsonQueryBooleanStringCoercion_case16:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11575,7 +11618,6 @@ it("RestJsonQueryBooleanStringCoercion_case17:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11612,7 +11654,6 @@ it("RestJsonQueryBooleanStringCoercion_case18:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11649,7 +11690,6 @@ it("RestJsonQueryBooleanStringCoercion_case19:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11686,7 +11726,6 @@ it("RestJsonQueryBooleanStringCoercion_case20:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11723,7 +11762,6 @@ it("RestJsonQueryBooleanStringCoercion_case21:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11760,7 +11798,6 @@ it("RestJsonHeaderBooleanStringCoercion_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11797,7 +11834,6 @@ it("RestJsonHeaderBooleanStringCoercion_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11834,7 +11870,6 @@ it("RestJsonHeaderBooleanStringCoercion_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11871,7 +11906,6 @@ it("RestJsonHeaderBooleanStringCoercion_case3:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11908,7 +11942,6 @@ it("RestJsonHeaderBooleanStringCoercion_case4:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11945,7 +11978,6 @@ it("RestJsonHeaderBooleanStringCoercion_case5:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -11982,7 +12014,6 @@ it("RestJsonHeaderBooleanStringCoercion_case6:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12019,7 +12050,6 @@ it("RestJsonHeaderBooleanStringCoercion_case7:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12056,7 +12086,6 @@ it("RestJsonHeaderBooleanStringCoercion_case8:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12093,7 +12122,6 @@ it("RestJsonHeaderBooleanStringCoercion_case9:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12130,7 +12158,6 @@ it("RestJsonHeaderBooleanStringCoercion_case10:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12167,7 +12194,6 @@ it("RestJsonHeaderBooleanStringCoercion_case11:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12204,7 +12230,6 @@ it("RestJsonHeaderBooleanStringCoercion_case12:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12241,7 +12266,6 @@ it("RestJsonHeaderBooleanStringCoercion_case13:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12278,7 +12302,6 @@ it("RestJsonHeaderBooleanStringCoercion_case14:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12315,7 +12338,6 @@ it("RestJsonHeaderBooleanStringCoercion_case15:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12352,7 +12374,6 @@ it("RestJsonHeaderBooleanStringCoercion_case16:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12389,7 +12410,6 @@ it("RestJsonHeaderBooleanStringCoercion_case17:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12426,7 +12446,6 @@ it("RestJsonHeaderBooleanStringCoercion_case18:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12463,7 +12482,6 @@ it("RestJsonHeaderBooleanStringCoercion_case19:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12500,7 +12518,6 @@ it("RestJsonHeaderBooleanStringCoercion_case20:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12537,7 +12554,6 @@ it("RestJsonHeaderBooleanStringCoercion_case21:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12575,7 +12591,6 @@ it("RestJsonBodyByteUnderflowOverflow_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12613,7 +12628,6 @@ it("RestJsonBodyByteUnderflowOverflow_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12651,7 +12665,6 @@ it("RestJsonBodyByteUnderflowOverflow_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12689,7 +12702,6 @@ it("RestJsonBodyByteUnderflowOverflow_case3:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12727,7 +12739,6 @@ it("RestJsonBodyByteUnderflowOverflow_case4:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12762,7 +12773,6 @@ it("RestJsonPathByteUnderflowOverflow_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12797,7 +12807,6 @@ it("RestJsonPathByteUnderflowOverflow_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12832,7 +12841,6 @@ it("RestJsonPathByteUnderflowOverflow_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12867,7 +12875,6 @@ it("RestJsonPathByteUnderflowOverflow_case3:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12902,7 +12909,6 @@ it("RestJsonPathByteUnderflowOverflow_case4:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12939,7 +12945,6 @@ it("RestJsonQueryByteUnderflowOverflow_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -12976,7 +12981,6 @@ it("RestJsonQueryByteUnderflowOverflow_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13013,7 +13017,6 @@ it("RestJsonQueryByteUnderflowOverflow_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13050,7 +13053,6 @@ it("RestJsonQueryByteUnderflowOverflow_case3:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13087,7 +13089,6 @@ it("RestJsonQueryByteUnderflowOverflow_case4:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13124,7 +13125,6 @@ it("RestJsonHeaderByteUnderflowOverflow_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13161,7 +13161,6 @@ it("RestJsonHeaderByteUnderflowOverflow_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13198,7 +13197,6 @@ it("RestJsonHeaderByteUnderflowOverflow_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13235,7 +13233,6 @@ it("RestJsonHeaderByteUnderflowOverflow_case3:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13272,7 +13269,6 @@ it("RestJsonHeaderByteUnderflowOverflow_case4:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13310,7 +13306,6 @@ it("RestJsonBodyByteMalformedValueRejected_case0:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13348,7 +13343,6 @@ it("RestJsonBodyByteMalformedValueRejected_case1:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13386,7 +13380,6 @@ it("RestJsonBodyByteMalformedValueRejected_case2:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13424,7 +13417,6 @@ it("RestJsonBodyByteMalformedValueRejected_case3:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13462,7 +13454,6 @@ it("RestJsonBodyByteMalformedValueRejected_case4:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13500,7 +13491,6 @@ it("RestJsonBodyByteMalformedValueRejected_case5:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13538,7 +13528,6 @@ it("RestJsonBodyByteMalformedValueRejected_case6:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13576,7 +13565,6 @@ it("RestJsonBodyByteMalformedValueRejected_case7:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13614,7 +13602,6 @@ it("RestJsonBodyByteMalformedValueRejected_case8:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13652,7 +13639,6 @@ it("RestJsonBodyByteMalformedValueRejected_case9:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13690,7 +13676,6 @@ it("RestJsonBodyByteMalformedValueRejected_case10:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13725,7 +13710,6 @@ it("RestJsonPathByteMalformedValueRejected_case0:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13760,7 +13744,6 @@ it("RestJsonPathByteMalformedValueRejected_case1:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13795,7 +13778,6 @@ it("RestJsonPathByteMalformedValueRejected_case2:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13830,7 +13812,6 @@ it("RestJsonPathByteMalformedValueRejected_case3:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13865,7 +13846,6 @@ it("RestJsonPathByteMalformedValueRejected_case4:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13900,7 +13880,6 @@ it("RestJsonPathByteMalformedValueRejected_case5:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13935,7 +13914,6 @@ it("RestJsonPathByteMalformedValueRejected_case6:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -13972,7 +13950,6 @@ it("RestJsonQueryByteMalformedValueRejected_case0:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14009,7 +13986,6 @@ it("RestJsonQueryByteMalformedValueRejected_case1:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14046,7 +14022,6 @@ it("RestJsonQueryByteMalformedValueRejected_case2:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14083,7 +14058,6 @@ it("RestJsonQueryByteMalformedValueRejected_case3:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14120,7 +14094,6 @@ it("RestJsonQueryByteMalformedValueRejected_case4:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14157,7 +14130,6 @@ it("RestJsonQueryByteMalformedValueRejected_case5:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14194,7 +14166,6 @@ it("RestJsonQueryByteMalformedValueRejected_case6:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14231,7 +14202,6 @@ it("RestJsonHeaderByteMalformedValueRejected_case0:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14268,7 +14238,6 @@ it("RestJsonHeaderByteMalformedValueRejected_case1:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14305,7 +14274,6 @@ it("RestJsonHeaderByteMalformedValueRejected_case2:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14342,7 +14310,6 @@ it("RestJsonHeaderByteMalformedValueRejected_case3:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14379,7 +14346,6 @@ it("RestJsonHeaderByteMalformedValueRejected_case4:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14416,7 +14382,6 @@ it("RestJsonHeaderByteMalformedValueRejected_case5:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14453,7 +14418,6 @@ it("RestJsonHeaderByteMalformedValueRejected_case6:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14491,7 +14455,6 @@ it("RestJsonWithBodyExpectsApplicationJsonContentType:MalformedRequest", async (
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(415);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("UnsupportedMediaTypeException");
 });
 
@@ -14527,7 +14490,6 @@ it.skip("RestJsonWithBodyExpectsApplicationJsonContentTypeNoHeaders:MalformedReq
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(415);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("UnsupportedMediaTypeException");
 });
 
@@ -14565,7 +14527,6 @@ it("RestJsonWithoutBodyExpectsEmptyContentType:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(415);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("UnsupportedMediaTypeException");
 });
 
@@ -14603,7 +14564,6 @@ it.skip("RestJsonWithoutBodyEmptyInputExpectsEmptyContentType:MalformedRequest",
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(415);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("UnsupportedMediaTypeException");
 });
 
@@ -14641,7 +14601,6 @@ it("RestJsonWithPayloadExpectsModeledContentType:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(415);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("UnsupportedMediaTypeException");
 });
 
@@ -14680,7 +14639,6 @@ it("RestJsonWithPayloadExpectsImpliedContentType:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(415);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("UnsupportedMediaTypeException");
 });
 
@@ -14718,7 +14676,6 @@ it("RestJsonBodyDoubleMalformedValueRejected_case0:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14756,7 +14713,6 @@ it("RestJsonBodyDoubleMalformedValueRejected_case1:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14794,7 +14750,6 @@ it("RestJsonBodyDoubleMalformedValueRejected_case2:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14832,7 +14787,6 @@ it("RestJsonBodyDoubleMalformedValueRejected_case3:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14870,7 +14824,6 @@ it("RestJsonBodyDoubleMalformedValueRejected_case4:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14908,7 +14861,6 @@ it("RestJsonBodyDoubleMalformedValueRejected_case5:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14946,7 +14898,6 @@ it("RestJsonBodyDoubleMalformedValueRejected_case6:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -14981,7 +14932,6 @@ it("RestJsonPathDoubleMalformedValueRejected_case0:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15016,7 +14966,6 @@ it("RestJsonPathDoubleMalformedValueRejected_case1:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15051,7 +15000,6 @@ it("RestJsonPathDoubleMalformedValueRejected_case2:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15088,7 +15036,6 @@ it("RestJsonQueryDoubleMalformedValueRejected_case0:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15125,7 +15072,6 @@ it("RestJsonQueryDoubleMalformedValueRejected_case1:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15162,7 +15108,6 @@ it("RestJsonQueryDoubleMalformedValueRejected_case2:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15199,7 +15144,6 @@ it("RestJsonHeaderDoubleMalformedValueRejected_case0:MalformedRequest", async ()
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15236,7 +15180,6 @@ it("RestJsonHeaderDoubleMalformedValueRejected_case1:MalformedRequest", async ()
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15273,7 +15216,6 @@ it("RestJsonHeaderDoubleMalformedValueRejected_case2:MalformedRequest", async ()
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15311,7 +15253,6 @@ it("RestJsonBodyFloatMalformedValueRejected_case0:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15349,7 +15290,6 @@ it("RestJsonBodyFloatMalformedValueRejected_case1:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15387,7 +15327,6 @@ it("RestJsonBodyFloatMalformedValueRejected_case2:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15425,7 +15364,6 @@ it("RestJsonBodyFloatMalformedValueRejected_case3:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15463,7 +15401,6 @@ it("RestJsonBodyFloatMalformedValueRejected_case4:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15501,7 +15438,6 @@ it("RestJsonBodyFloatMalformedValueRejected_case5:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15539,7 +15475,6 @@ it("RestJsonBodyFloatMalformedValueRejected_case6:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15574,7 +15509,6 @@ it("RestJsonPathFloatMalformedValueRejected_case0:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15609,7 +15543,6 @@ it("RestJsonPathFloatMalformedValueRejected_case1:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15644,7 +15577,6 @@ it("RestJsonPathFloatMalformedValueRejected_case2:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15681,7 +15613,6 @@ it("RestJsonQueryFloatMalformedValueRejected_case0:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15718,7 +15649,6 @@ it("RestJsonQueryFloatMalformedValueRejected_case1:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15755,7 +15685,6 @@ it("RestJsonQueryFloatMalformedValueRejected_case2:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15792,7 +15721,6 @@ it("RestJsonHeaderFloatMalformedValueRejected_case0:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15829,7 +15757,6 @@ it("RestJsonHeaderFloatMalformedValueRejected_case1:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15866,7 +15793,6 @@ it("RestJsonHeaderFloatMalformedValueRejected_case2:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15904,7 +15830,6 @@ it("RestJsonBodyIntegerUnderflowOverflow_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15942,7 +15867,6 @@ it("RestJsonBodyIntegerUnderflowOverflow_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -15980,7 +15904,6 @@ it("RestJsonBodyIntegerUnderflowOverflow_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16015,7 +15938,6 @@ it("RestJsonPathIntegerUnderflowOverflow_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16050,7 +15972,6 @@ it("RestJsonPathIntegerUnderflowOverflow_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16085,7 +16006,6 @@ it("RestJsonPathIntegerUnderflowOverflow_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16122,7 +16042,6 @@ it("RestJsonQueryIntegerUnderflowOverflow_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16159,7 +16078,6 @@ it("RestJsonQueryIntegerUnderflowOverflow_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16196,7 +16114,6 @@ it("RestJsonQueryIntegerUnderflowOverflow_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16233,7 +16150,6 @@ it("RestJsonHeaderIntegerUnderflowOverflow_case0:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16270,7 +16186,6 @@ it("RestJsonHeaderIntegerUnderflowOverflow_case1:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16307,7 +16222,6 @@ it("RestJsonHeaderIntegerUnderflowOverflow_case2:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16345,7 +16259,6 @@ it("RestJsonBodyIntegerMalformedValueRejected_case0:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16383,7 +16296,6 @@ it("RestJsonBodyIntegerMalformedValueRejected_case1:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16421,7 +16333,6 @@ it("RestJsonBodyIntegerMalformedValueRejected_case2:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16459,7 +16370,6 @@ it("RestJsonBodyIntegerMalformedValueRejected_case3:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16497,7 +16407,6 @@ it("RestJsonBodyIntegerMalformedValueRejected_case4:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16535,7 +16444,6 @@ it("RestJsonBodyIntegerMalformedValueRejected_case5:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16573,7 +16481,6 @@ it("RestJsonBodyIntegerMalformedValueRejected_case6:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16611,7 +16518,6 @@ it("RestJsonBodyIntegerMalformedValueRejected_case7:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16649,7 +16555,6 @@ it("RestJsonBodyIntegerMalformedValueRejected_case8:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16687,7 +16592,6 @@ it("RestJsonBodyIntegerMalformedValueRejected_case9:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16725,7 +16629,6 @@ it("RestJsonBodyIntegerMalformedValueRejected_case10:MalformedRequest", async ()
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16760,7 +16663,6 @@ it("RestJsonPathIntegerMalformedValueRejected_case0:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16795,7 +16697,6 @@ it("RestJsonPathIntegerMalformedValueRejected_case1:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16830,7 +16731,6 @@ it("RestJsonPathIntegerMalformedValueRejected_case2:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16865,7 +16765,6 @@ it("RestJsonPathIntegerMalformedValueRejected_case3:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16900,7 +16799,6 @@ it("RestJsonPathIntegerMalformedValueRejected_case4:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16935,7 +16833,6 @@ it("RestJsonPathIntegerMalformedValueRejected_case5:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -16970,7 +16867,6 @@ it("RestJsonPathIntegerMalformedValueRejected_case6:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17007,7 +16903,6 @@ it("RestJsonQueryIntegerMalformedValueRejected_case0:MalformedRequest", async ()
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17044,7 +16939,6 @@ it("RestJsonQueryIntegerMalformedValueRejected_case1:MalformedRequest", async ()
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17081,7 +16975,6 @@ it("RestJsonQueryIntegerMalformedValueRejected_case2:MalformedRequest", async ()
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17118,7 +17011,6 @@ it("RestJsonQueryIntegerMalformedValueRejected_case3:MalformedRequest", async ()
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17155,7 +17047,6 @@ it("RestJsonQueryIntegerMalformedValueRejected_case4:MalformedRequest", async ()
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17192,7 +17083,6 @@ it("RestJsonQueryIntegerMalformedValueRejected_case5:MalformedRequest", async ()
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17229,7 +17119,6 @@ it("RestJsonQueryIntegerMalformedValueRejected_case6:MalformedRequest", async ()
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17266,7 +17155,6 @@ it("RestJsonHeaderIntegerMalformedValueRejected_case0:MalformedRequest", async (
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17303,7 +17191,6 @@ it("RestJsonHeaderIntegerMalformedValueRejected_case1:MalformedRequest", async (
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17340,7 +17227,6 @@ it("RestJsonHeaderIntegerMalformedValueRejected_case2:MalformedRequest", async (
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17377,7 +17263,6 @@ it("RestJsonHeaderIntegerMalformedValueRejected_case3:MalformedRequest", async (
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17414,7 +17299,6 @@ it("RestJsonHeaderIntegerMalformedValueRejected_case4:MalformedRequest", async (
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17451,7 +17335,6 @@ it("RestJsonHeaderIntegerMalformedValueRejected_case5:MalformedRequest", async (
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17488,7 +17371,6 @@ it("RestJsonHeaderIntegerMalformedValueRejected_case6:MalformedRequest", async (
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17527,7 +17409,6 @@ it("RestJsonBodyMalformedListNullItem:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17566,7 +17447,6 @@ it("RestJsonBodyMalformedListUnclosed:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17604,7 +17484,6 @@ it.skip("RestJsonBodyLongUnderflowOverflow_case0:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17642,7 +17521,6 @@ it.skip("RestJsonBodyLongUnderflowOverflow_case1:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17680,7 +17558,6 @@ it.skip("RestJsonBodyLongUnderflowOverflow_case2:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17715,7 +17592,6 @@ it.skip("RestJsonPathLongUnderflowOverflow_case0:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17750,7 +17626,6 @@ it.skip("RestJsonPathLongUnderflowOverflow_case1:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17785,7 +17660,6 @@ it.skip("RestJsonPathLongUnderflowOverflow_case2:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17822,7 +17696,6 @@ it.skip("RestJsonQueryLongUnderflowOverflow_case0:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17859,7 +17732,6 @@ it.skip("RestJsonQueryLongUnderflowOverflow_case1:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17896,7 +17768,6 @@ it.skip("RestJsonQueryLongUnderflowOverflow_case2:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17933,7 +17804,6 @@ it.skip("RestJsonHeaderLongUnderflowOverflow_case0:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -17970,7 +17840,6 @@ it.skip("RestJsonHeaderLongUnderflowOverflow_case1:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18007,7 +17876,6 @@ it.skip("RestJsonHeaderLongUnderflowOverflow_case2:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18045,7 +17913,6 @@ it("RestJsonBodyLongMalformedValueRejected_case0:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18083,7 +17950,6 @@ it("RestJsonBodyLongMalformedValueRejected_case1:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18121,7 +17987,6 @@ it("RestJsonBodyLongMalformedValueRejected_case2:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18159,7 +18024,6 @@ it("RestJsonBodyLongMalformedValueRejected_case3:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18197,7 +18061,6 @@ it("RestJsonBodyLongMalformedValueRejected_case4:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18235,7 +18098,6 @@ it("RestJsonBodyLongMalformedValueRejected_case5:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18273,7 +18135,6 @@ it("RestJsonBodyLongMalformedValueRejected_case6:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18311,7 +18172,6 @@ it("RestJsonBodyLongMalformedValueRejected_case7:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18349,7 +18209,6 @@ it("RestJsonBodyLongMalformedValueRejected_case8:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18387,7 +18246,6 @@ it("RestJsonBodyLongMalformedValueRejected_case9:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18425,7 +18283,6 @@ it("RestJsonBodyLongMalformedValueRejected_case10:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18460,7 +18317,6 @@ it("RestJsonPathLongMalformedValueRejected_case0:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18495,7 +18351,6 @@ it("RestJsonPathLongMalformedValueRejected_case1:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18530,7 +18385,6 @@ it("RestJsonPathLongMalformedValueRejected_case2:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18565,7 +18419,6 @@ it("RestJsonPathLongMalformedValueRejected_case3:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18600,7 +18453,6 @@ it("RestJsonPathLongMalformedValueRejected_case4:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18635,7 +18487,6 @@ it("RestJsonPathLongMalformedValueRejected_case5:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18670,7 +18521,6 @@ it("RestJsonPathLongMalformedValueRejected_case6:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18707,7 +18557,6 @@ it("RestJsonQueryLongMalformedValueRejected_case0:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18744,7 +18593,6 @@ it("RestJsonQueryLongMalformedValueRejected_case1:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18781,7 +18629,6 @@ it("RestJsonQueryLongMalformedValueRejected_case2:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18818,7 +18665,6 @@ it("RestJsonQueryLongMalformedValueRejected_case3:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18855,7 +18701,6 @@ it("RestJsonQueryLongMalformedValueRejected_case4:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18892,7 +18737,6 @@ it("RestJsonQueryLongMalformedValueRejected_case5:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18929,7 +18773,6 @@ it("RestJsonQueryLongMalformedValueRejected_case6:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -18966,7 +18809,6 @@ it("RestJsonHeaderLongMalformedValueRejected_case0:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19003,7 +18845,6 @@ it("RestJsonHeaderLongMalformedValueRejected_case1:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19040,7 +18881,6 @@ it("RestJsonHeaderLongMalformedValueRejected_case2:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19077,7 +18917,6 @@ it("RestJsonHeaderLongMalformedValueRejected_case3:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19114,7 +18953,6 @@ it("RestJsonHeaderLongMalformedValueRejected_case4:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19151,7 +18989,6 @@ it("RestJsonHeaderLongMalformedValueRejected_case5:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19188,7 +19025,6 @@ it("RestJsonHeaderLongMalformedValueRejected_case6:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19227,7 +19063,6 @@ it("RestJsonBodyMalformedMapNullKey:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19266,7 +19101,6 @@ it.skip("RestJsonBodyMalformedMapNullValue:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19305,7 +19139,6 @@ it("RestJsonInvalidJsonBody_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19344,7 +19177,6 @@ it("RestJsonInvalidJsonBody_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19383,7 +19215,6 @@ it("RestJsonInvalidJsonBody_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19422,7 +19253,6 @@ it("RestJsonInvalidJsonBody_case3:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19461,7 +19291,6 @@ it("RestJsonInvalidJsonBody_case4:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19500,7 +19329,6 @@ it("RestJsonInvalidJsonBody_case5:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19539,7 +19367,6 @@ it("RestJsonInvalidJsonBody_case6:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19578,7 +19405,6 @@ it("RestJsonInvalidJsonBody_case7:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19617,7 +19443,6 @@ it("RestJsonTechnicallyValidJsonBody_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19656,7 +19481,6 @@ it("RestJsonTechnicallyValidJsonBody_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19695,7 +19519,6 @@ it("RestJsonTechnicallyValidJsonBody_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19733,7 +19556,6 @@ it("RestJsonBodyShortUnderflowOverflow_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19771,7 +19593,6 @@ it("RestJsonBodyShortUnderflowOverflow_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19809,7 +19630,6 @@ it("RestJsonBodyShortUnderflowOverflow_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19847,7 +19667,6 @@ it("RestJsonBodyShortUnderflowOverflow_case3:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19885,7 +19704,6 @@ it("RestJsonBodyShortUnderflowOverflow_case4:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19920,7 +19738,6 @@ it("RestJsonPathShortUnderflowOverflow_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19955,7 +19772,6 @@ it("RestJsonPathShortUnderflowOverflow_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -19990,7 +19806,6 @@ it("RestJsonPathShortUnderflowOverflow_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20025,7 +19840,6 @@ it("RestJsonPathShortUnderflowOverflow_case3:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20060,7 +19874,6 @@ it("RestJsonPathShortUnderflowOverflow_case4:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20097,7 +19910,6 @@ it("RestJsonQueryShortUnderflowOverflow_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20134,7 +19946,6 @@ it("RestJsonQueryShortUnderflowOverflow_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20171,7 +19982,6 @@ it("RestJsonQueryShortUnderflowOverflow_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20208,7 +20018,6 @@ it("RestJsonQueryShortUnderflowOverflow_case3:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20245,7 +20054,6 @@ it("RestJsonQueryShortUnderflowOverflow_case4:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20282,7 +20090,6 @@ it("RestJsonHeaderShortUnderflowOverflow_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20319,7 +20126,6 @@ it("RestJsonHeaderShortUnderflowOverflow_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20356,7 +20162,6 @@ it("RestJsonHeaderShortUnderflowOverflow_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20393,7 +20198,6 @@ it("RestJsonHeaderShortUnderflowOverflow_case3:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20430,7 +20234,6 @@ it("RestJsonHeaderShortUnderflowOverflow_case4:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20468,7 +20271,6 @@ it("RestJsonBodyShortMalformedValueRejected_case0:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20506,7 +20308,6 @@ it("RestJsonBodyShortMalformedValueRejected_case1:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20544,7 +20345,6 @@ it("RestJsonBodyShortMalformedValueRejected_case2:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20582,7 +20382,6 @@ it("RestJsonBodyShortMalformedValueRejected_case3:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20620,7 +20419,6 @@ it("RestJsonBodyShortMalformedValueRejected_case4:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20658,7 +20456,6 @@ it("RestJsonBodyShortMalformedValueRejected_case5:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20696,7 +20493,6 @@ it("RestJsonBodyShortMalformedValueRejected_case6:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20734,7 +20530,6 @@ it("RestJsonBodyShortMalformedValueRejected_case7:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20772,7 +20567,6 @@ it("RestJsonBodyShortMalformedValueRejected_case8:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20810,7 +20604,6 @@ it("RestJsonBodyShortMalformedValueRejected_case9:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20848,7 +20641,6 @@ it("RestJsonBodyShortMalformedValueRejected_case10:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20883,7 +20675,6 @@ it("RestJsonPathShortMalformedValueRejected_case0:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20918,7 +20709,6 @@ it("RestJsonPathShortMalformedValueRejected_case1:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20953,7 +20743,6 @@ it("RestJsonPathShortMalformedValueRejected_case2:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -20988,7 +20777,6 @@ it("RestJsonPathShortMalformedValueRejected_case3:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21023,7 +20811,6 @@ it("RestJsonPathShortMalformedValueRejected_case4:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21058,7 +20845,6 @@ it("RestJsonPathShortMalformedValueRejected_case5:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21093,7 +20879,6 @@ it("RestJsonPathShortMalformedValueRejected_case6:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21130,7 +20915,6 @@ it("RestJsonQueryShortMalformedValueRejected_case0:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21167,7 +20951,6 @@ it("RestJsonQueryShortMalformedValueRejected_case1:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21204,7 +20987,6 @@ it("RestJsonQueryShortMalformedValueRejected_case2:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21241,7 +21023,6 @@ it("RestJsonQueryShortMalformedValueRejected_case3:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21278,7 +21059,6 @@ it("RestJsonQueryShortMalformedValueRejected_case4:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21315,7 +21095,6 @@ it("RestJsonQueryShortMalformedValueRejected_case5:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21352,7 +21131,6 @@ it("RestJsonQueryShortMalformedValueRejected_case6:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21389,7 +21167,6 @@ it("RestJsonHeaderShortMalformedValueRejected_case0:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21426,7 +21203,6 @@ it("RestJsonHeaderShortMalformedValueRejected_case1:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21463,7 +21239,6 @@ it("RestJsonHeaderShortMalformedValueRejected_case2:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21500,7 +21275,6 @@ it("RestJsonHeaderShortMalformedValueRejected_case3:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21537,7 +21311,6 @@ it("RestJsonHeaderShortMalformedValueRejected_case4:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21574,7 +21347,6 @@ it("RestJsonHeaderShortMalformedValueRejected_case5:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21611,7 +21383,6 @@ it("RestJsonHeaderShortMalformedValueRejected_case6:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21651,7 +21422,6 @@ it("RestJsonHeaderMalformedStringInvalidBase64MediaType_case0:MalformedRequest",
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21691,7 +21461,6 @@ it("RestJsonHeaderMalformedStringInvalidBase64MediaType_case1:MalformedRequest",
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21731,7 +21500,6 @@ it("RestJsonHeaderMalformedStringInvalidBase64MediaType_case2:MalformedRequest",
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21771,7 +21539,6 @@ it("RestJsonHeaderMalformedStringInvalidBase64MediaType_case3:MalformedRequest",
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21810,7 +21577,6 @@ it("RestJsonBodyTimestampDateTimeRejectsHttpDate_case0:MalformedRequest", async 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21849,7 +21615,6 @@ it("RestJsonBodyTimestampDateTimeRejectsEpochSeconds_case0:MalformedRequest", as
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21888,7 +21653,6 @@ it("RestJsonBodyTimestampDateTimeRejectsEpochSeconds_case1:MalformedRequest", as
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21927,7 +21691,6 @@ it("RestJsonBodyTimestampDateTimeRejectsUTCOffsets_case0:MalformedRequest", asyn
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -21966,7 +21729,6 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case0:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22005,7 +21767,6 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case1:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22044,7 +21805,6 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case2:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22083,7 +21843,6 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case3:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22122,7 +21881,6 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case4:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22161,7 +21919,6 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case5:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22200,7 +21957,6 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case6:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22239,7 +21995,6 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case7:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22278,7 +22033,6 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case8:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22317,7 +22071,6 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case9:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22356,7 +22109,6 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case10:MalformedReq
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22395,7 +22147,6 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case11:MalformedReq
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22434,7 +22185,6 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case12:MalformedReq
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22473,7 +22223,6 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case13:MalformedReq
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22512,7 +22261,6 @@ it("RestJsonBodyTimestampDateTimeRejectsDifferent8601Formats_case14:MalformedReq
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22551,7 +22299,6 @@ it.skip("RestJsonBodyTimestampDefaultRejectsDateTime_case0:MalformedRequest", as
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22590,7 +22337,6 @@ it.skip("RestJsonBodyTimestampDefaultRejectsDateTime_case1:MalformedRequest", as
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22629,7 +22375,6 @@ it.skip("RestJsonBodyTimestampDefaultRejectsDateTime_case2:MalformedRequest", as
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22668,7 +22413,6 @@ it.skip("RestJsonBodyTimestampDefaultRejectsStringifiedEpochSeconds_case0:Malfor
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22707,7 +22451,6 @@ it.skip("RestJsonBodyTimestampDefaultRejectsStringifiedEpochSeconds_case1:Malfor
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22745,7 +22488,6 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case0:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22783,7 +22525,6 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case1:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22821,7 +22562,6 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case2:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22859,7 +22599,6 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case3:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22897,7 +22636,6 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case4:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22935,7 +22673,6 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case5:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -22973,7 +22710,6 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case6:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23011,7 +22747,6 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case7:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23049,7 +22784,6 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case8:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23087,7 +22821,6 @@ it("RestJsonBodyTimestampDefaultRejectsMalformedEpochSeconds_case9:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23126,7 +22859,6 @@ it("RestJsonBodyTimestampDefaultRejectsHttpDate_case0:MalformedRequest", async (
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23165,7 +22897,6 @@ it("RestJsonBodyTimestampHttpDateRejectsDateTime_case0:MalformedRequest", async 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23204,7 +22935,6 @@ it("RestJsonBodyTimestampHttpDateRejectsDateTime_case1:MalformedRequest", async 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23243,7 +22973,6 @@ it("RestJsonBodyTimestampHttpDateRejectsDateTime_case2:MalformedRequest", async 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23282,7 +23011,6 @@ it("RestJsonBodyTimestampHttpDateRejectsEpoch_case0:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23321,7 +23049,6 @@ it("RestJsonBodyTimestampHttpDateRejectsEpoch_case1:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23359,7 +23086,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsHttpDate_case0:MalformedRequest", asyn
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23397,7 +23123,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsEpochSeconds_case0:MalformedRequest", 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23435,7 +23160,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsEpochSeconds_case1:MalformedRequest", 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23473,7 +23197,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case0:MalformedRe
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23511,7 +23234,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case1:MalformedRe
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23549,7 +23271,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case2:MalformedRe
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23587,7 +23308,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case3:MalformedRe
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23625,7 +23345,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case4:MalformedRe
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23663,7 +23382,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case5:MalformedRe
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23701,7 +23419,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case6:MalformedRe
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23739,7 +23456,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case7:MalformedRe
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23777,7 +23493,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case8:MalformedRe
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23815,7 +23530,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case9:MalformedRe
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23853,7 +23567,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case10:MalformedR
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23891,7 +23604,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case11:MalformedR
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23929,7 +23641,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case12:MalformedR
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -23967,7 +23678,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case13:MalformedR
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24005,7 +23715,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsDifferent8601Formats_case14:MalformedR
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24043,7 +23752,6 @@ it("RestJsonHeaderTimestampDefaultRejectsDateTime_case0:MalformedRequest", async
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24081,7 +23789,6 @@ it("RestJsonHeaderTimestampDefaultRejectsDateTime_case1:MalformedRequest", async
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24119,7 +23826,6 @@ it("RestJsonHeaderTimestampDefaultRejectsDateTime_case2:MalformedRequest", async
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24157,7 +23863,6 @@ it("RestJsonHeaderTimestampDefaultRejectsEpochSeconds_case0:MalformedRequest", a
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24195,7 +23900,6 @@ it("RestJsonHeaderTimestampDefaultRejectsEpochSeconds_case1:MalformedRequest", a
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24233,7 +23937,6 @@ it("RestJsonHeaderTimestampEpochRejectsDateTime_case0:MalformedRequest", async (
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24271,7 +23974,6 @@ it("RestJsonHeaderTimestampEpochRejectsDateTime_case1:MalformedRequest", async (
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24309,7 +24011,6 @@ it("RestJsonHeaderTimestampEpochRejectsDateTime_case2:MalformedRequest", async (
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24347,7 +24048,6 @@ it("RestJsonHeaderTimestampEpochRejectsHttpDate_case0:MalformedRequest", async (
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24384,7 +24084,6 @@ it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case0:MalformedRequest", 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24421,7 +24120,6 @@ it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case1:MalformedRequest", 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24458,7 +24156,6 @@ it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case2:MalformedRequest", 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24495,7 +24192,6 @@ it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case3:MalformedRequest", 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24532,7 +24228,6 @@ it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case4:MalformedRequest", 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24569,7 +24264,6 @@ it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case5:MalformedRequest", 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24606,7 +24300,6 @@ it("RestJsonHeaderTimestampEpochRejectsMalformedValues_case6:MalformedRequest", 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24642,7 +24335,6 @@ it("RestJsonPathTimestampDefaultRejectsHttpDate_case0:MalformedRequest", async (
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24678,7 +24370,6 @@ it("RestJsonPathTimestampDefaultRejectsHttpDate_case1:MalformedRequest", async (
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24714,7 +24405,6 @@ it("RestJsonPathTimestampDefaultRejectsEpochSeconds_case0:MalformedRequest", asy
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24750,7 +24440,6 @@ it("RestJsonPathTimestampDefaultRejectsEpochSeconds_case1:MalformedRequest", asy
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24786,7 +24475,6 @@ it("RestJsonPathTimestampDefaultRejectsUTCOffsets:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24822,7 +24510,6 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case0:MalformedReque
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24858,7 +24545,6 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case1:MalformedReque
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24894,7 +24580,6 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case2:MalformedReque
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24930,7 +24615,6 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case3:MalformedReque
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -24966,7 +24650,6 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case4:MalformedReque
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25002,7 +24685,6 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case5:MalformedReque
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25038,7 +24720,6 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case6:MalformedReque
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25074,7 +24755,6 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case7:MalformedReque
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25110,7 +24790,6 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case8:MalformedReque
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25146,7 +24825,6 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case9:MalformedReque
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25182,7 +24860,6 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case10:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25218,7 +24895,6 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case11:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25254,7 +24930,6 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case12:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25290,7 +24965,6 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case13:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25326,7 +25000,6 @@ it("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case14:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25362,7 +25035,6 @@ it("RestJsonPathTimestampEpochRejectsDateTime_case0:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25398,7 +25070,6 @@ it("RestJsonPathTimestampEpochRejectsDateTime_case1:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25434,7 +25105,6 @@ it("RestJsonPathTimestampEpochRejectsDateTime_case2:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25470,7 +25140,6 @@ it("RestJsonPathTimestampEpochRejectsHttpDate_case0:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25506,7 +25175,6 @@ it("RestJsonPathTimestampEpochRejectsHttpDate_case1:MalformedRequest", async () 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25541,7 +25209,6 @@ it("RestJsonPathTimestampEpochRejectsMalformedValues_case0:MalformedRequest", as
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25576,7 +25243,6 @@ it("RestJsonPathTimestampEpochRejectsMalformedValues_case1:MalformedRequest", as
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25611,7 +25277,6 @@ it("RestJsonPathTimestampEpochRejectsMalformedValues_case2:MalformedRequest", as
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25646,7 +25311,6 @@ it("RestJsonPathTimestampEpochRejectsMalformedValues_case3:MalformedRequest", as
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25681,7 +25345,6 @@ it("RestJsonPathTimestampEpochRejectsMalformedValues_case4:MalformedRequest", as
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25716,7 +25379,6 @@ it("RestJsonPathTimestampEpochRejectsMalformedValues_case5:MalformedRequest", as
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25751,7 +25413,6 @@ it("RestJsonPathTimestampEpochRejectsMalformedValues_case6:MalformedRequest", as
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25787,7 +25448,6 @@ it("RestJsonPathTimestampHttpDateRejectsDateTime_case0:MalformedRequest", async 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25823,7 +25483,6 @@ it("RestJsonPathTimestampHttpDateRejectsDateTime_case1:MalformedRequest", async 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25859,7 +25518,6 @@ it("RestJsonPathTimestampHttpDateRejectsDateTime_case2:MalformedRequest", async 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25895,7 +25553,6 @@ it("RestJsonPathTimestampHttpDateRejectsEpochSeconds_case0:MalformedRequest", as
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25931,7 +25588,6 @@ it("RestJsonPathTimestampHttpDateRejectsEpochSeconds_case1:MalformedRequest", as
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -25969,7 +25625,6 @@ it("RestJsonQueryTimestampDefaultRejectsHttpDate_case0:MalformedRequest", async 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26007,7 +25662,6 @@ it("RestJsonQueryTimestampDefaultRejectsHttpDate_case1:MalformedRequest", async 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26045,7 +25699,6 @@ it("RestJsonQueryTimestampDefaultRejectsEpochSeconds_case0:MalformedRequest", as
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26083,7 +25736,6 @@ it("RestJsonQueryTimestampDefaultRejectsEpochSeconds_case1:MalformedRequest", as
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26121,7 +25773,6 @@ it("RestJsonQueryTimestampDefaultRejectsUTCOffsets:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26159,7 +25810,6 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case0:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26197,7 +25847,6 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case1:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26235,7 +25884,6 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case2:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26273,7 +25921,6 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case3:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26311,7 +25958,6 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case4:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26349,7 +25995,6 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case5:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26387,7 +26032,6 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case6:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26425,7 +26069,6 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case7:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26463,7 +26106,6 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case8:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26501,7 +26143,6 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case9:MalformedRequ
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26539,7 +26180,6 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case10:MalformedReq
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26577,7 +26217,6 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case11:MalformedReq
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26615,7 +26254,6 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case12:MalformedReq
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26653,7 +26291,6 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case13:MalformedReq
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26691,7 +26328,6 @@ it("RestJsonQueryTimestampDefaultRejectsDifferent8601Formats_case14:MalformedReq
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26729,7 +26365,6 @@ it("RestJsonQueryTimestampEpochRejectsDateTime_case0:MalformedRequest", async ()
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26767,7 +26402,6 @@ it("RestJsonQueryTimestampEpochRejectsDateTime_case1:MalformedRequest", async ()
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26805,7 +26439,6 @@ it("RestJsonQueryTimestampEpochRejectsDateTime_case2:MalformedRequest", async ()
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26843,7 +26476,6 @@ it("RestJsonQueryTimestampEpochRejectsHttpDate_case0:MalformedRequest", async ()
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26881,7 +26513,6 @@ it("RestJsonQueryTimestampEpochRejectsHttpDate_case1:MalformedRequest", async ()
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26918,7 +26549,6 @@ it("RestJsonQueryTimestampEpochRejectsMalformedValues_case0:MalformedRequest", a
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26955,7 +26585,6 @@ it("RestJsonQueryTimestampEpochRejectsMalformedValues_case1:MalformedRequest", a
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -26992,7 +26621,6 @@ it("RestJsonQueryTimestampEpochRejectsMalformedValues_case2:MalformedRequest", a
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -27029,7 +26657,6 @@ it("RestJsonQueryTimestampEpochRejectsMalformedValues_case3:MalformedRequest", a
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -27066,7 +26693,6 @@ it("RestJsonQueryTimestampEpochRejectsMalformedValues_case4:MalformedRequest", a
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -27103,7 +26729,6 @@ it("RestJsonQueryTimestampEpochRejectsMalformedValues_case5:MalformedRequest", a
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -27140,7 +26765,6 @@ it("RestJsonQueryTimestampEpochRejectsMalformedValues_case6:MalformedRequest", a
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -27178,7 +26802,6 @@ it("RestJsonQueryTimestampHttpDateRejectsDateTime_case0:MalformedRequest", async
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -27216,7 +26839,6 @@ it("RestJsonQueryTimestampHttpDateRejectsDateTime_case1:MalformedRequest", async
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -27254,7 +26876,6 @@ it("RestJsonQueryTimestampHttpDateRejectsDateTime_case2:MalformedRequest", async
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -27292,7 +26913,6 @@ it("RestJsonQueryTimestampHttpDateRejectsEpochSeconds_case0:MalformedRequest", a
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -27330,7 +26950,6 @@ it("RestJsonQueryTimestampHttpDateRejectsEpochSeconds_case1:MalformedRequest", a
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -27369,7 +26988,6 @@ it("RestJsonMalformedUnionMultipleFieldsSet:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -27408,7 +27026,6 @@ it("RestJsonMalformedUnionKnownAndUnknownFieldsSet:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -27447,7 +27064,6 @@ it("RestJsonMalformedUnionNoFieldsSet:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -27486,7 +27102,6 @@ it("RestJsonMalformedUnionEmptyObjectNoFieldsSet:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -27525,7 +27140,6 @@ it("RestJsonMalformedUnionValueIsArray:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -27564,7 +27178,6 @@ it.skip("RestJsonMalformedUnionUnknownMember:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
 });
 
@@ -27607,7 +27220,10 @@ it("MediaTypeHeaderInputBase64:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -27658,7 +27274,6 @@ it("MediaTypeHeaderOutputBase64:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["x-json"]).toBeDefined();
   expect(r.headers["x-json"]).toBe("dHJ1ZQ==");
 });
 
@@ -27893,10 +27508,9 @@ it("RestJsonNoInputAndOutputWithJson:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -27951,11 +27565,12 @@ it.skip("RestJsonNullAndEmptyHeaders:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["x-a"]).toBeUndefined();
+  expect(
+    r.headers["x-a"],
+    `Header key "x-a" should have been undefined in ${JSON.stringify(r.headers)}`
+  ).toBeUndefined();
 
-  expect(r.headers["x-b"]).toBeDefined();
   expect(r.headers["x-b"]).toBe("");
-  expect(r.headers["x-c"]).toBeDefined();
   expect(r.headers["x-c"]).toBe("");
 });
 
@@ -27998,7 +27613,10 @@ it("RestJsonSerializesEmptyQueryValue:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -28042,7 +27660,10 @@ it("RestJsonServersAcceptStaticQueryParamAsEmptyString:ServerRequest", async () 
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -28116,7 +27737,10 @@ it.skip("RestJsonServerPopulatesDefaultsWhenMissingInRequestBody:ServerRequest",
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -28165,10 +27789,9 @@ it.skip("RestJsonServerPopulatesDefaultsInResponseWhenMissingInParams:ServerResp
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                                         \"defaultString\": \"hi\",
@@ -28285,7 +27908,10 @@ it.skip("RestJsonServerPopulatesNestedDefaultsWhenMissingInRequestBody:ServerReq
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -28364,10 +27990,9 @@ it.skip("RestJsonServerPopulatesNestedDefaultValuesWhenMissingInInResponseParams
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                                           \"dialog\": {
@@ -28456,7 +28081,10 @@ it("RestJsonInputUnionWithUnitMember:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -28509,10 +28137,9 @@ it("RestJsonOutputUnionWithUnitMember:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                                             \"action\": {
@@ -28564,7 +28191,10 @@ it("PostUnionWithJsonNameRequest1:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -28610,7 +28240,10 @@ it("PostUnionWithJsonNameRequest2:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -28656,7 +28289,10 @@ it("PostUnionWithJsonNameRequest3:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -28709,10 +28345,9 @@ it("PostUnionWithJsonNameResponse1:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                                               \"value\": {
@@ -28771,10 +28406,9 @@ it("PostUnionWithJsonNameResponse2:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                                                 \"value\": {
@@ -28833,10 +28467,9 @@ it("PostUnionWithJsonNameResponse3:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                                                   \"value\": {
@@ -28885,7 +28518,10 @@ it.skip("SDKAppliedContentEncoding_restJson1:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -28932,7 +28568,10 @@ it.skip("SDKAppendedGzipAfterProvidedEncoding_restJson1:ServerRequest", async ()
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -28981,7 +28620,10 @@ it("RestJsonServersQueryParamsStringListMap:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -29030,7 +28672,10 @@ it("RestJsonServersPutAllQueryParamsInMap:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -29087,7 +28732,10 @@ it("RestJsonRecursiveShapes:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -29149,10 +28797,9 @@ it("RestJsonRecursiveShapes:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                                                     \"nested\": {
@@ -29217,10 +28864,9 @@ it("RestJsonHttpResponseCodeNotSetFallsBackToHttpCode:ServerResponse", async () 
 
   expect(r.statusCode).toBe(201);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -29273,10 +28919,9 @@ it("RestJsonHttpResponseCodeRequired:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(201);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -29334,7 +28979,10 @@ it("RestJsonSimpleScalarProperties:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -29413,7 +29061,10 @@ it("RestJsonSupportsNaNFloatInputs:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -29458,7 +29109,10 @@ it("RestJsonSupportsInfinityFloatInputs:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -29503,7 +29157,10 @@ it("RestJsonSupportsNegativeInfinityFloatInputs:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -29563,12 +29220,10 @@ it("RestJsonSimpleScalarProperties:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
-  expect(r.headers["x-foo"]).toBeDefined();
   expect(r.headers["x-foo"]).toBe("Foo");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                                                           \"stringValue\": \"string\",
@@ -29631,10 +29286,9 @@ it("RestJsonServersDontSerializeNullStructureValues:ServerResponse", async () =>
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -29688,10 +29342,9 @@ it("RestJsonSupportsNaNFloatInputs:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                                                               \"floatValue\": \"NaN\",
@@ -29748,10 +29401,9 @@ it("RestJsonSupportsInfinityFloatInputs:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                                                                 \"floatValue\": \"Infinity\",
@@ -29808,10 +29460,9 @@ it("RestJsonSupportsNegativeInfinityFloatInputs:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                                                                   \"floatValue\": \"-Infinity\",
@@ -29863,7 +29514,10 @@ it("RestJsonSparseListsSerializeNull:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -29915,10 +29569,9 @@ it("RestJsonSparseListsSerializeNull:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                                                                     \"sparseStringList\": [
@@ -29982,7 +29635,10 @@ it("RestJsonSparseJsonMaps:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -30039,7 +29695,10 @@ it("RestJsonSerializesSparseNullMapValues:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -30090,7 +29749,10 @@ it("RestJsonSerializesZeroValuesInSparseMaps:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -30137,7 +29799,10 @@ it("RestJsonSerializesSparseSetMap:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -30187,7 +29852,10 @@ it("RestJsonSerializesSparseSetMapAndRetainsNull:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -30245,10 +29913,9 @@ it("RestJsonSparseJsonMaps:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                                                                       \"sparseStructMap\": {
@@ -30321,10 +29988,9 @@ it("RestJsonDeserializesSparseNullMapValues:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                                                                         \"sparseBooleanMap\": {
@@ -30395,10 +30061,9 @@ it("RestJsonDeserializesZeroValuesInSparseMaps:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                                                                           \"sparseNumberMap\": {
@@ -30461,10 +30126,9 @@ it("RestJsonDeserializesSparseSetMap:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                                                                             \"sparseSetMap\": {
@@ -30526,10 +30190,9 @@ it("RestJsonDeserializesSparseSetMapAndRetainsNull:ServerResponse", async () => 
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/json");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
                                                                                                                                                                               \"sparseSetMap\": {
@@ -30584,7 +30247,10 @@ it("RestJsonStreamingTraitsWithBlob:ServerRequest", async () => {
   ][0];
   const comparableBlob = await __streamCollector(r["blob"]);
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     if (param === "blob") {
       expect(equivalentContents(paramsToValidate[param], comparableBlob)).toBe(true);
     } else {
@@ -30633,7 +30299,10 @@ it("RestJsonStreamingTraitsWithNoBlobBody:ServerRequest", async () => {
   ][0];
   const comparableBlob = await __streamCollector(r["blob"]);
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     if (param === "blob") {
       expect(equivalentContents(paramsToValidate[param], comparableBlob)).toBe(true);
     } else {
@@ -30689,12 +30358,10 @@ it("RestJsonStreamingTraitsWithBlob:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("application/octet-stream");
-  expect(r.headers["x-foo"]).toBeDefined();
   expect(r.headers["x-foo"]).toBe("Foo");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `blobby blob blob`;
   const unequalParts: any = compareEquivalentOctetStreamBodies(utf8Encoder, bodyString, r.body);
@@ -30747,7 +30414,6 @@ it("RestJsonStreamingTraitsWithNoBlobBody:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["x-foo"]).toBeDefined();
   expect(r.headers["x-foo"]).toBe("Foo");
 
   expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -30795,7 +30461,10 @@ it("RestJsonStreamingTraitsRequireLengthWithBlob:ServerRequest", async () => {
   ][0];
   const comparableBlob = await __streamCollector(r["blob"]);
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     if (param === "blob") {
       expect(equivalentContents(paramsToValidate[param], comparableBlob)).toBe(true);
     } else {
@@ -30844,7 +30513,10 @@ it("RestJsonStreamingTraitsRequireLengthWithNoBlobBody:ServerRequest", async () 
   ][0];
   const comparableBlob = await __streamCollector(r["blob"]);
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     if (param === "blob") {
       expect(equivalentContents(paramsToValidate[param], comparableBlob)).toBe(true);
     } else {
@@ -30895,7 +30567,10 @@ it("RestJsonStreamingTraitsWithMediaTypeWithBlob:ServerRequest", async () => {
   ][0];
   const comparableBlob = await __streamCollector(r["blob"]);
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     if (param === "blob") {
       expect(equivalentContents(paramsToValidate[param], comparableBlob)).toBe(true);
     } else {
@@ -30951,12 +30626,10 @@ it("RestJsonStreamingTraitsWithMediaTypeWithBlob:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["content-type"]).toBeDefined();
   expect(r.headers["content-type"]).toBe("text/plain");
-  expect(r.headers["x-foo"]).toBeDefined();
   expect(r.headers["x-foo"]).toBe("Foo");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `blobby blob blob`;
   const unequalParts: any = compareEquivalentOctetStreamBodies(utf8Encoder, bodyString, r.body);
@@ -31004,7 +30677,10 @@ it("RestJsonTestBodyStructure:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -31146,7 +30822,10 @@ it("RestJsonHttpGetWithHeaderMemberNoModeledBody:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -31223,7 +30902,10 @@ it("RestJsonTestPayloadBlob:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -31303,7 +30985,10 @@ it("RestJsonTestPayloadStructure:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -31348,7 +31033,10 @@ it("RestJsonHttpWithHeadersButNoPayload:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -31456,7 +31144,10 @@ it("RestJsonHttpWithPostHeaderMemberNoModeledBody:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -31512,7 +31203,10 @@ it("RestJsonTimestampFormatHeaders:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -31569,19 +31263,12 @@ it("RestJsonTimestampFormatHeaders:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.headers["x-defaultformat"]).toBeDefined();
   expect(r.headers["x-defaultformat"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT");
-  expect(r.headers["x-memberdatetime"]).toBeDefined();
   expect(r.headers["x-memberdatetime"]).toBe("2019-12-16T23:48:18Z");
-  expect(r.headers["x-memberepochseconds"]).toBeDefined();
   expect(r.headers["x-memberepochseconds"]).toBe("1576540098");
-  expect(r.headers["x-memberhttpdate"]).toBeDefined();
   expect(r.headers["x-memberhttpdate"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT");
-  expect(r.headers["x-targetdatetime"]).toBeDefined();
   expect(r.headers["x-targetdatetime"]).toBe("2019-12-16T23:48:18Z");
-  expect(r.headers["x-targetepochseconds"]).toBeDefined();
   expect(r.headers["x-targetepochseconds"]).toBe("1576540098");
-  expect(r.headers["x-targethttpdate"]).toBeDefined();
   expect(r.headers["x-targethttpdate"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT");
 });
 

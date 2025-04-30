@@ -2,6 +2,7 @@
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 import { Readable } from "stream";
+import { expect, test as it } from "vitest";
 
 import { APIGatewayClient } from "../../src/APIGatewayClient";
 import { GetRestApisCommand } from "../../src/commands/GetRestApisCommand";
@@ -224,7 +225,6 @@ it("ApiGatewayAccept:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/restapis");
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/json");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
