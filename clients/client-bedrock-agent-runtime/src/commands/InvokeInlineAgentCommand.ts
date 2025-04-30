@@ -33,31 +33,7 @@ export interface InvokeInlineAgentCommandInput extends InvokeInlineAgentRequest 
 export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             Invokes an inline Amazon Bedrock agent using the configurations you provide with the request.
- *         </p>
- *          <ul>
- *             <li>
- *                <p>Specify the following fields for security purposes.</p>
- *                <ul>
- *                   <li>
- *                      <p>(Optional) <code>customerEncryptionKeyArn</code> – The Amazon Resource Name (ARN) of a KMS key to encrypt the creation of the agent.</p>
- *                   </li>
- *                   <li>
- *                      <p>(Optional) <code>idleSessionTTLinSeconds</code> – Specify the number of seconds for which the agent should maintain session information. After this time expires, the subsequent <code>InvokeInlineAgent</code> request begins a new session.</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>To override the default prompt behavior for agent orchestration and to use advanced prompts, include a <code>promptOverrideConfiguration</code> object.
- *                     For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p>
- *             </li>
- *             <li>
- *                <p>The agent instructions will not be honored if your agent has only one knowledge base, uses default prompts, has no action group, and user input is disabled.</p>
- *             </li>
- *          </ul>
- *          <note>
- *         </note>
+ * <p> Invokes an inline Amazon Bedrock agent using the configurations you provide with the request. </p> <ul> <li> <p>Specify the following fields for security purposes.</p> <ul> <li> <p>(Optional) <code>customerEncryptionKeyArn</code> – The Amazon Resource Name (ARN) of a KMS key to encrypt the creation of the agent.</p> </li> <li> <p>(Optional) <code>idleSessionTTLinSeconds</code> – Specify the number of seconds for which the agent should maintain session information. After this time expires, the subsequent <code>InvokeInlineAgent</code> request begins a new session.</p> </li> </ul> </li> <li> <p>To override the default prompt behavior for agent orchestration and to use advanced prompts, include a <code>promptOverrideConfiguration</code> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p> </li> <li> <p>The agent instructions will not be honored if your agent has only one knowledge base, uses default prompts, has no action group, and user input is disabled.</p> </li> </ul> <note> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -243,6 +219,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  *       relayConversationHistory: "TO_COLLABORATOR" || "DISABLED",
  *     },
  *   ],
+ *   agentName: "STRING_VALUE",
  *   sessionId: "STRING_VALUE", // required
  *   endSession: true || false,
  *   enableTrace: true || false,
@@ -469,6 +446,12 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  *   bedrockModelConfigurations: { // InlineBedrockModelConfigurations
  *     performanceConfig: { // PerformanceConfiguration
  *       latency: "standard" || "optimized",
+ *     },
+ *   },
+ *   orchestrationType: "DEFAULT" || "CUSTOM_ORCHESTRATION",
+ *   customOrchestration: { // CustomOrchestration
+ *     executor: { // OrchestrationExecutor Union: only one key present
+ *       lambda: "STRING_VALUE",
  *     },
  *   },
  * };
@@ -1258,6 +1241,13 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //           },
  * //         },
  * //       },
+ * //       callerChain: [ // CallerChain
+ * //         { // Caller Union: only one key present
+ * //           agentAliasArn: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       eventTime: new Date("TIMESTAMP"),
+ * //       collaboratorName: "STRING_VALUE",
  * //     },
  * //     returnControl: { // InlineAgentReturnControlPayload
  * //       invocationInputs: [

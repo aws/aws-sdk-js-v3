@@ -10,6 +10,7 @@ import {
   CollaboratorConfigurationFilterSensitiveLog,
   ConversationHistory,
   ConversationHistoryFilterSensitiveLog,
+  CustomOrchestration,
   ExternalSourcesRetrieveAndGenerateConfiguration,
   ExternalSourcesRetrieveAndGenerateConfigurationFilterSensitiveLog,
   FilterAttribute,
@@ -29,6 +30,7 @@ import {
   KnowledgeBaseQuery,
   OrchestrationConfiguration,
   OrchestrationConfigurationFilterSensitiveLog,
+  OrchestrationType,
   PromptOverrideConfiguration,
   RetrieveAndGenerateInput,
   RetrieveAndGenerateSessionConfiguration,
@@ -39,6 +41,76 @@ import {
   VectorSearchRerankingConfiguration,
   VectorSearchRerankingConfigurationFilterSensitiveLog,
 } from "./models_0";
+
+/**
+ * <p>Contains details about a session. For more information about sessions, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html">Store and retrieve conversation history and context with Amazon Bedrock sessions</a>.</p>
+ * @public
+ */
+export interface SessionSummary {
+  /**
+   * <p>The unique identifier for the session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the session.</p>
+   * @public
+   */
+  sessionArn: string | undefined;
+
+  /**
+   * <p>The current status of the session.</p>
+   * @public
+   */
+  sessionStatus: SessionStatus | undefined;
+
+  /**
+   * <p>The timestamp for when the session was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp for when the session was last modified.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSessionsResponse {
+  /**
+   * <p>A list of summaries for each session in your Amazon Web Services account.</p>
+   * @public
+   */
+  sessionSummaries: SessionSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSessionRequest {
+  /**
+   * <p>A map of key-value pairs containing attributes to be persisted across the session. For example the user's ID, their language preference, and the type of device they are using.</p>
+   * @public
+   */
+  sessionMetadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The unique identifier of the session to modify. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  sessionIdentifier: string | undefined;
+}
 
 /**
  * @public
@@ -142,18 +214,7 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * <p>Specifies the filters to use on the metadata attributes in the knowledge base data sources before returning results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>. See the examples below to see how to use these filters.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>filter</code> field</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>filter</code> field</p>
- *             </li>
- *          </ul>
+ * <p>Specifies the filters to use on the metadata attributes in the knowledge base data sources before returning results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>. See the examples below to see how to use these filters.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>filter</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>filter</code> field</p> </li> </ul>
  * @public
  */
 export type RetrievalFilter =
@@ -177,11 +238,7 @@ export type RetrievalFilter =
  */
 export namespace RetrievalFilter {
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value matches the <code>value</code> in this object.</p>
-   *          <p>The following example would return data sources with an <code>animal</code> attribute whose value is <code>cat</code>:</p>
-   *          <p>
-   *             <code>"equals": \{ "key": "animal", "value": "cat" \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value matches the <code>value</code> in this object.</p> <p>The following example would return data sources with an <code>animal</code> attribute whose value is <code>cat</code>:</p> <p> <code>"equals": \{ "key": "animal", "value": "cat" \}</code> </p>
    * @public
    */
   export interface EqualsMember {
@@ -202,20 +259,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned when:</p>
-   *          <ul>
-   *             <li>
-   *                <p>It contains a metadata attribute whose name matches the <code>key</code> and whose value doesn't match the <code>value</code>
-   *                     in this object.</p>
-   *             </li>
-   *             <li>
-   *                <p>The key is not present in the document.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The following example would return data sources that don't contain an <code>animal</code> attribute whose value is <code>cat</code>.</p>
-   *          <p>
-   *             <code>"notEquals": \{ "key": "animal", "value": "cat" \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned when:</p> <ul> <li> <p>It contains a metadata attribute whose name matches the <code>key</code> and whose value doesn't match the <code>value</code> in this object.</p> </li> <li> <p>The key is not present in the document.</p> </li> </ul> <p>The following example would return data sources that don't contain an <code>animal</code> attribute whose value is <code>cat</code>.</p> <p> <code>"notEquals": \{ "key": "animal", "value": "cat" \}</code> </p>
    * @public
    */
   export interface NotEqualsMember {
@@ -236,11 +280,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is greater than the <code>value</code> in this object.</p>
-   *          <p>The following example would return data sources with an <code>year</code> attribute whose value is greater than <code>1989</code>:</p>
-   *          <p>
-   *             <code>"greaterThan": \{ "key": "year", "value": 1989 \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is greater than the <code>value</code> in this object.</p> <p>The following example would return data sources with an <code>year</code> attribute whose value is greater than <code>1989</code>:</p> <p> <code>"greaterThan": \{ "key": "year", "value": 1989 \}</code> </p>
    * @public
    */
   export interface GreaterThanMember {
@@ -261,11 +301,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is greater than or equal to the <code>value</code> in this object.</p>
-   *          <p>The following example would return data sources with an <code>year</code> attribute whose value is greater than or equal to <code>1989</code>:</p>
-   *          <p>
-   *             <code>"greaterThanOrEquals": \{ "key": "year", "value": 1989 \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is greater than or equal to the <code>value</code> in this object.</p> <p>The following example would return data sources with an <code>year</code> attribute whose value is greater than or equal to <code>1989</code>:</p> <p> <code>"greaterThanOrEquals": \{ "key": "year", "value": 1989 \}</code> </p>
    * @public
    */
   export interface GreaterThanOrEqualsMember {
@@ -286,11 +322,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is less than the <code>value</code> in this object.</p>
-   *          <p>The following example would return data sources with an <code>year</code> attribute whose value is less than to <code>1989</code>.</p>
-   *          <p>
-   *             <code>"lessThan": \{ "key": "year", "value": 1989 \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is less than the <code>value</code> in this object.</p> <p>The following example would return data sources with an <code>year</code> attribute whose value is less than to <code>1989</code>.</p> <p> <code>"lessThan": \{ "key": "year", "value": 1989 \}</code> </p>
    * @public
    */
   export interface LessThanMember {
@@ -311,11 +343,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is less than or equal to the <code>value</code> in this object.</p>
-   *          <p>The following example would return data sources with an <code>year</code> attribute whose value is less than or equal to <code>1989</code>.</p>
-   *          <p>
-   *             <code>"lessThanOrEquals": \{ "key": "year", "value": 1989 \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is less than or equal to the <code>value</code> in this object.</p> <p>The following example would return data sources with an <code>year</code> attribute whose value is less than or equal to <code>1989</code>.</p> <p> <code>"lessThanOrEquals": \{ "key": "year", "value": 1989 \}</code> </p>
    * @public
    */
   export interface LessThanOrEqualsMember {
@@ -336,11 +364,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is in the list specified in the <code>value</code> in this object.</p>
-   *          <p>The following example would return data sources with an <code>animal</code> attribute that is either <code>cat</code> or <code>dog</code>:</p>
-   *          <p>
-   *             <code>"in": \{ "key": "animal", "value": ["cat", "dog"] \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is in the list specified in the <code>value</code> in this object.</p> <p>The following example would return data sources with an <code>animal</code> attribute that is either <code>cat</code> or <code>dog</code>:</p> <p> <code>"in": \{ "key": "animal", "value": ["cat", "dog"] \}</code> </p>
    * @public
    */
   export interface InMember {
@@ -361,11 +385,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value isn't in the list specified in the <code>value</code> in this object.</p>
-   *          <p>The following example would return data sources whose <code>animal</code> attribute is neither <code>cat</code> nor <code>dog</code>.</p>
-   *          <p>
-   *             <code>"notIn": \{ "key": "animal", "value": ["cat", "dog"] \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value isn't in the list specified in the <code>value</code> in this object.</p> <p>The following example would return data sources whose <code>animal</code> attribute is neither <code>cat</code> nor <code>dog</code>.</p> <p> <code>"notIn": \{ "key": "animal", "value": ["cat", "dog"] \}</code> </p>
    * @public
    */
   export interface NotInMember {
@@ -386,11 +406,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value starts with the <code>value</code> in this object. This filter is currently only supported for Amazon OpenSearch Serverless vector stores.</p>
-   *          <p>The following example would return data sources with an <code>animal</code> attribute starts with <code>ca</code> (for example, <code>cat</code> or <code>camel</code>).</p>
-   *          <p>
-   *             <code>"startsWith": \{ "key": "animal", "value": "ca" \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value starts with the <code>value</code> in this object. This filter is currently only supported for Amazon OpenSearch Serverless vector stores.</p> <p>The following example would return data sources with an <code>animal</code> attribute starts with <code>ca</code> (for example, <code>cat</code> or <code>camel</code>).</p> <p> <code>"startsWith": \{ "key": "animal", "value": "ca" \}</code> </p>
    * @public
    */
   export interface StartsWithMember {
@@ -411,11 +427,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is a list that contains the <code>value</code> as one of its members.</p>
-   *          <p>The following example would return data sources with an <code>animals</code> attribute that is a list containing a <code>cat</code> member (for example <code>["dog", "cat"]</code>).</p>
-   *          <p>
-   *             <code>"listContains": \{ "key": "animals", "value": "cat" \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is a list that contains the <code>value</code> as one of its members.</p> <p>The following example would return data sources with an <code>animals</code> attribute that is a list containing a <code>cat</code> member (for example <code>["dog", "cat"]</code>).</p> <p> <code>"listContains": \{ "key": "animals", "value": "cat" \}</code> </p>
    * @public
    */
   export interface ListContainsMember {
@@ -436,21 +448,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>A string that contains the <code>value</code> as a substring. The following example would return data sources with an <code>animal</code> attribute that contains the substring <code>at</code> (for example <code>cat</code>).</p>
-   *                <p>
-   *                   <code>"stringContains": \{ "key": "animal", "value": "at" \}</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>A list with a member that contains the <code>value</code> as a substring. The following example would return data sources with an <code>animals</code> attribute that is a list containing a member that contains the substring <code>at</code> (for example <code>["dog", "cat"]</code>).</p>
-   *                <p>
-   *                   <code>"stringContains": \{ "key": "animals", "value": "at" \}</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is one of the following:</p> <ul> <li> <p>A string that contains the <code>value</code> as a substring. The following example would return data sources with an <code>animal</code> attribute that contains the substring <code>at</code> (for example <code>cat</code>).</p> <p> <code>"stringContains": \{ "key": "animal", "value": "at" \}</code> </p> </li> <li> <p>A list with a member that contains the <code>value</code> as a substring. The following example would return data sources with an <code>animals</code> attribute that is a list containing a member that contains the substring <code>at</code> (for example <code>["dog", "cat"]</code>).</p> <p> <code>"stringContains": \{ "key": "animals", "value": "at" \}</code> </p> </li> </ul>
    * @public
    */
   export interface StringContainsMember {
@@ -568,18 +566,7 @@ export namespace RetrievalFilter {
 }
 
 /**
- * <p>Configurations for how to perform the search query and return results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>vectorSearchConfiguration</code> field</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>vectorSearchConfiguration</code> field</p>
- *             </li>
- *          </ul>
+ * <p>Configurations for how to perform the search query and return results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>vectorSearchConfiguration</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>vectorSearchConfiguration</code> field</p> </li> </ul>
  * @public
  */
 export interface KnowledgeBaseVectorSearchConfiguration {
@@ -615,18 +602,7 @@ export interface KnowledgeBaseVectorSearchConfiguration {
 }
 
 /**
- * <p>Contains configurations for knowledge base query. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>retrievalConfiguration</code> field</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>retrievalConfiguration</code> field</p>
- *             </li>
- *          </ul>
+ * <p>Contains configurations for knowledge base query. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>retrievalConfiguration</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>retrievalConfiguration</code> field</p> </li> </ul>
  * @public
  */
 export interface KnowledgeBaseRetrievalConfiguration {
@@ -638,32 +614,24 @@ export interface KnowledgeBaseRetrievalConfiguration {
 }
 
 /**
- * <p>
- *             Details of the knowledge base associated withe inline agent.
- *         </p>
+ * <p> Details of the knowledge base associated withe inline agent. </p>
  * @public
  */
 export interface KnowledgeBase {
   /**
-   * <p>
-   *             The unique identifier for a knowledge base associated with the inline agent.
-   *         </p>
+   * <p> The unique identifier for a knowledge base associated with the inline agent. </p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>
-   *             The description of the knowledge base associated with the inline agent.
-   *         </p>
+   * <p> The description of the knowledge base associated with the inline agent. </p>
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>
-   *             The configurations to apply to the knowledge base during query. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.
-   *         </p>
+   * <p> The configurations to apply to the knowledge base during query. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>. </p>
    * @public
    */
   retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration | undefined;
@@ -688,18 +656,7 @@ export interface KnowledgeBaseConfiguration {
 }
 
 /**
- * <p>Contains details about the resource being queried.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>knowledgeBaseConfiguration</code> field</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>knowledgeBaseConfiguration</code> field</p>
- *             </li>
- *          </ul>
+ * <p>Contains details about the resource being queried.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>knowledgeBaseConfiguration</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>knowledgeBaseConfiguration</code> field</p> </li> </ul>
  * @public
  */
 export interface KnowledgeBaseRetrieveAndGenerateConfiguration {
@@ -770,22 +727,12 @@ export interface RetrieveRequest {
 }
 
 /**
- * <p>Contains details about the resource being queried.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>retrieveAndGenerateConfiguration</code> field</p>
- *             </li>
- *          </ul>
+ * <p>Contains details about the resource being queried.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>retrieveAndGenerateConfiguration</code> field</p> </li> </ul>
  * @public
  */
 export interface RetrieveAndGenerateConfiguration {
   /**
-   * <p>The type of resource that contains your data for retrieving information and generating responses.</p>
-   *          <note>
-   *             <p>If you choose to use <code>EXTERNAL_SOURCES</code>, then currently only Anthropic Claude 3 Sonnet models for knowledge bases are supported.</p>
-   *          </note>
+   * <p>The type of resource that contains your data for retrieving information and generating responses.</p> <note> <p>If you choose to use <code>EXTERNAL_SOURCES</code>, then currently only Anthropic Claude 3 Sonnet models for knowledge bases are supported.</p> </note>
    * @public
    */
   type: RetrieveAndGenerateType | undefined;
@@ -804,97 +751,72 @@ export interface RetrieveAndGenerateConfiguration {
 }
 
 /**
- * <p>
- *            List of inline collaborators.
- *         </p>
+ * <p> List of inline collaborators. </p>
  * @public
  */
 export interface Collaborator {
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the AWS KMS key that encrypts the inline collaborator.
-   *         </p>
+   * <p> The Amazon Resource Name (ARN) of the AWS KMS key that encrypts the inline collaborator. </p>
    * @public
    */
   customerEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>
-   *             The foundation model used by the inline collaborator agent.
-   *         </p>
+   * <p> The foundation model used by the inline collaborator agent. </p>
    * @public
    */
   foundationModel: string | undefined;
 
   /**
-   * <p>
-   *             Instruction that tell the inline collaborator agent what it should do and how it should interact with users.
-   *         </p>
+   * <p> Instruction that tell the inline collaborator agent what it should do and how it should interact with users. </p>
    * @public
    */
   instruction: string | undefined;
 
   /**
-   * <p>
-   *             The number of seconds for which the Amazon Bedrock keeps information about the user's conversation with the inline collaborator agent.</p>
-   *          <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-   *         </p>
+   * <p> The number of seconds for which the Amazon Bedrock keeps information about the user's conversation with the inline collaborator agent.</p> <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout. </p>
    * @public
    */
   idleSessionTTLInSeconds?: number | undefined;
 
   /**
-   * <p>
-   *             List of action groups with each action group defining tasks the inline collaborator agent needs to carry out.
-   *         </p>
+   * <p> List of action groups with each action group defining tasks the inline collaborator agent needs to carry out. </p>
    * @public
    */
   actionGroups?: AgentActionGroup[] | undefined;
 
   /**
-   * <p>
-   *             Knowledge base associated with the inline collaborator agent.
-   *         </p>
+   * <p> Knowledge base associated with the inline collaborator agent. </p>
    * @public
    */
   knowledgeBases?: KnowledgeBase[] | undefined;
 
   /**
-   * <p>
-   *             Details of the guardwrail associated with the inline collaborator.
-   *         </p>
+   * <p> Details of the guardwrail associated with the inline collaborator. </p>
    * @public
    */
   guardrailConfiguration?: GuardrailConfigurationWithArn | undefined;
 
   /**
-   * <p>
-   *             Contains configurations to override prompt templates in different parts of an inline collaborator sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.
-   *         </p>
+   * <p> Contains configurations to override prompt templates in different parts of an inline collaborator sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>. </p>
    * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration | undefined;
 
   /**
-   * <p>
-   *             Defines how the inline supervisor agent handles information across multiple collaborator agents to coordinate a final response.
-   *         </p>
+   * <p> Defines how the inline supervisor agent handles information across multiple collaborator agents to coordinate a final response. </p>
    * @public
    */
   agentCollaboration?: AgentCollaboration | undefined;
 
   /**
-   * <p>
-   *             Settings of the collaborator agent.
-   *         </p>
+   * <p> Settings of the collaborator agent. </p>
    * @public
    */
   collaboratorConfigurations?: CollaboratorConfiguration[] | undefined;
 
   /**
-   * <p>
-   *             Name of the inline collaborator agent which must be the same name as specified for <code>collaboratorName</code>.
-   *         </p>
+   * <p> Name of the inline collaborator agent which must be the same name as specified for <code>collaboratorName</code>. </p>
    * @public
    */
   agentName?: string | undefined;
@@ -970,24 +892,13 @@ export interface SessionState {
   sessionAttributes?: Record<string, string> | undefined;
 
   /**
-   * <p>Contains attributes that persist across a prompt and the values of those attributes. </p>
-   *          <ul>
-   *             <li>
-   *                <p>In orchestration prompt template, these attributes replace the $prompt_session_attributes$ placeholder variable.  For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Prompt template placeholder variables</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>In <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html">multi-agent collaboration</a>, the <code>promptSessionAttributes</code> will only be used by supervisor agent when $prompt_session_attributes$ is present in prompt template. </p>
-   *             </li>
-   *          </ul>
+   * <p>Contains attributes that persist across a prompt and the values of those attributes. </p> <ul> <li> <p>In orchestration prompt template, these attributes replace the $prompt_session_attributes$ placeholder variable. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Prompt template placeholder variables</a>.</p> </li> <li> <p>In <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html">multi-agent collaboration</a>, the <code>promptSessionAttributes</code> will only be used by supervisor agent when $prompt_session_attributes$ is present in prompt template. </p> </li> </ul>
    * @public
    */
   promptSessionAttributes?: Record<string, string> | undefined;
 
   /**
-   * <p>Contains information about the results from the action group invocation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
-   *          <note>
-   *             <p>If you include this field, the <code>inputText</code> field will be ignored.</p>
-   *          </note>
+   * <p>Contains information about the results from the action group invocation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p> <note> <p>If you include this field, the <code>inputText</code> field will be ignored.</p> </note>
    * @public
    */
   returnControlInvocationResults?: InvocationResultMember[] | undefined;
@@ -1022,10 +933,7 @@ export interface SessionState {
  */
 export interface InvokeAgentRequest {
   /**
-   * <p>Contains parameters that specify various attributes of the session. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
-   *          <note>
-   *             <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
-   *          </note>
+   * <p>Contains parameters that specify various attributes of the session. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p> <note> <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p> </note>
    * @public
    */
   sessionState?: SessionState | undefined;
@@ -1061,10 +969,7 @@ export interface InvokeAgentRequest {
   enableTrace?: boolean | undefined;
 
   /**
-   * <p>The prompt text to send the agent.</p>
-   *          <note>
-   *             <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
-   *          </note>
+   * <p>The prompt text to send the agent.</p> <note> <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p> </note>
    * @public
    */
   inputText?: string | undefined;
@@ -1082,12 +987,7 @@ export interface InvokeAgentRequest {
   bedrockModelConfigurations?: BedrockModelConfigurations | undefined;
 
   /**
-   * <p>
-   *            Specifies the configurations for streaming.
-   *         </p>
-   *          <note>
-   *             <p>To use agent streaming, you need permissions to perform the <code>bedrock:InvokeModelWithResponseStream</code> action.</p>
-   *          </note>
+   * <p> Specifies the configurations for streaming. </p> <note> <p>To use agent streaming, you need permissions to perform the <code>bedrock:InvokeModelWithResponseStream</code> action.</p> </note>
    * @public
    */
   streamingConfigurations?: StreamingConfigurations | undefined;
@@ -1104,149 +1004,109 @@ export interface InvokeAgentRequest {
  */
 export interface InvokeInlineAgentRequest {
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the Amazon Web Services KMS key to use to encrypt your inline agent.
-   *         </p>
+   * <p> The Amazon Resource Name (ARN) of the Amazon Web Services KMS key to use to encrypt your inline agent. </p>
    * @public
    */
   customerEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>
-   *             The <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">model identifier (ID)</a> of the model to use for orchestration by the inline agent. For example, <code>meta.llama3-1-70b-instruct-v1:0</code>.
-   *         </p>
+   * <p> The <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">model identifier (ID)</a> of the model to use for orchestration by the inline agent. For example, <code>meta.llama3-1-70b-instruct-v1:0</code>. </p>
    * @public
    */
   foundationModel: string | undefined;
 
   /**
-   * <p>
-   *             The instructions that tell the inline agent what it should do and how it should interact with users.
-   *         </p>
+   * <p> The instructions that tell the inline agent what it should do and how it should interact with users. </p>
    * @public
    */
   instruction: string | undefined;
 
   /**
-   * <p>
-   *             The number of seconds for which the inline agent should maintain session information. After this time expires, the subsequent <code>InvokeInlineAgent</code> request begins a new session.
-   *         </p>
-   *          <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and the data provided before the timeout is deleted.</p>
+   * <p> The number of seconds for which the inline agent should maintain session information. After this time expires, the subsequent <code>InvokeInlineAgent</code> request begins a new session. </p> <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and the data provided before the timeout is deleted.</p>
    * @public
    */
   idleSessionTTLInSeconds?: number | undefined;
 
   /**
-   * <p>
-   *             A list of action groups with each action group defining the action the inline agent needs to carry out.
-   *         </p>
+   * <p> A list of action groups with each action group defining the action the inline agent needs to carry out. </p>
    * @public
    */
   actionGroups?: AgentActionGroup[] | undefined;
 
   /**
-   * <p>
-   *           Contains information of the knowledge bases to associate with.
-   *         </p>
+   * <p> Contains information of the knowledge bases to associate with. </p>
    * @public
    */
   knowledgeBases?: KnowledgeBase[] | undefined;
 
   /**
-   * <p>
-   *             The <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html">guardrails</a> to assign to the inline agent.
-   *         </p>
+   * <p> The <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html">guardrails</a> to assign to the inline agent. </p>
    * @public
    */
   guardrailConfiguration?: GuardrailConfigurationWithArn | undefined;
 
   /**
-   * <p>
-   *            Configurations for advanced prompts used to override the default prompts to enhance the accuracy of the inline agent.
-   *         </p>
+   * <p> Configurations for advanced prompts used to override the default prompts to enhance the accuracy of the inline agent. </p>
    * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration | undefined;
 
   /**
-   * <p>
-   *             Defines how the inline collaborator agent handles information across multiple collaborator agents to coordinate a final response. The inline collaborator agent can also be the supervisor.
-   *         </p>
+   * <p> Defines how the inline collaborator agent handles information across multiple collaborator agents to coordinate a final response. The inline collaborator agent can also be the supervisor. </p>
    * @public
    */
   agentCollaboration?: AgentCollaboration | undefined;
 
   /**
-   * <p>
-   *             Settings for an inline agent collaborator called with <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeInlineAgent.html">InvokeInlineAgent</a>.
-   *         </p>
+   * <p> Settings for an inline agent collaborator called with <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeInlineAgent.html">InvokeInlineAgent</a>. </p>
    * @public
    */
   collaboratorConfigurations?: CollaboratorConfiguration[] | undefined;
 
   /**
-   * <p>
-   *             The unique identifier of the session. Use the same value across requests to continue the same conversation.
-   *         </p>
+   * <p>The name for the agent.</p>
+   * @public
+   */
+  agentName?: string | undefined;
+
+  /**
+   * <p> The unique identifier of the session. Use the same value across requests to continue the same conversation. </p>
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>
-   *             Specifies whether to end the session with the inline agent or not.
-   *         </p>
+   * <p> Specifies whether to end the session with the inline agent or not. </p>
    * @public
    */
   endSession?: boolean | undefined;
 
   /**
-   * <p>
-   *             Specifies whether to turn on the trace or not to track the agent's reasoning process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">Using trace</a>.
-   *
-   *         </p>
+   * <p> Specifies whether to turn on the trace or not to track the agent's reasoning process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">Using trace</a>. </p>
    * @public
    */
   enableTrace?: boolean | undefined;
 
   /**
-   * <p>
-   *             The prompt text to send to the agent.
-   *         </p>
-   *          <note>
-   *             <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
-   *          </note>
+   * <p> The prompt text to send to the agent. </p> <note> <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p> </note>
    * @public
    */
   inputText?: string | undefined;
 
   /**
-   * <p>
-   *            Specifies the configurations for streaming.
-   *         </p>
-   *          <note>
-   *             <p>To use agent streaming, you need permissions to perform the <code>bedrock:InvokeModelWithResponseStream</code> action.</p>
-   *          </note>
+   * <p> Specifies the configurations for streaming. </p> <note> <p>To use agent streaming, you need permissions to perform the <code>bedrock:InvokeModelWithResponseStream</code> action.</p> </note>
    * @public
    */
   streamingConfigurations?: StreamingConfigurations | undefined;
 
   /**
-   * <p>
-   *             Parameters that specify the various attributes of a sessions. You can include attributes for the session or prompt or, if you configured an
-   *             action group to return control, results from invocation of the action group. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.
-   *         </p>
-   *          <note>
-   *             <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
-   *          </note>
+   * <p> Parameters that specify the various attributes of a sessions. You can include attributes for the session or prompt or, if you configured an action group to return control, results from invocation of the action group. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>. </p> <note> <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p> </note>
    * @public
    */
   inlineSessionState?: InlineSessionState | undefined;
 
   /**
-   * <p>
-   *             List of collaborator inline agents.
-   *         </p>
+   * <p> List of collaborator inline agents. </p>
    * @public
    */
   collaborators?: Collaborator[] | undefined;
@@ -1256,6 +1116,18 @@ export interface InvokeInlineAgentRequest {
    * @public
    */
   bedrockModelConfigurations?: InlineBedrockModelConfigurations | undefined;
+
+  /**
+   * <p>Specifies the type of orchestration strategy for the agent. This is set to DEFAULT orchestration type, by default. </p>
+   * @public
+   */
+  orchestrationType?: OrchestrationType | undefined;
+
+  /**
+   * <p>Contains details of the custom orchestration configured for the agent. </p>
+   * @public
+   */
+  customOrchestration?: CustomOrchestration | undefined;
 }
 
 /**
@@ -1464,7 +1336,9 @@ export const InvokeInlineAgentRequestFilterSensitiveLog = (obj: InvokeInlineAgen
       CollaboratorConfigurationFilterSensitiveLog(item)
     ),
   }),
+  ...(obj.agentName && { agentName: SENSITIVE_STRING }),
   ...(obj.inputText && { inputText: SENSITIVE_STRING }),
   ...(obj.inlineSessionState && { inlineSessionState: InlineSessionStateFilterSensitiveLog(obj.inlineSessionState) }),
   ...(obj.collaborators && { collaborators: obj.collaborators.map((item) => CollaboratorFilterSensitiveLog(item)) }),
+  ...(obj.customOrchestration && { customOrchestration: obj.customOrchestration }),
 });

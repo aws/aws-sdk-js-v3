@@ -98,6 +98,7 @@ import {
   ContentBlock,
   ContentBody,
   ConversationHistory,
+  CustomOrchestration,
   DependencyFailedException,
   ExternalSource,
   ExternalSourcesGenerationConfiguration,
@@ -169,6 +170,7 @@ import {
   OptimizedPromptEvent,
   OptimizedPromptStream,
   OrchestrationConfiguration,
+  OrchestrationExecutor,
   OrchestrationModelInvocationOutput,
   OrchestrationTrace,
   OutputFile,
@@ -207,7 +209,6 @@ import {
   S3ObjectDoc,
   S3ObjectFile,
   ServiceQuotaExceededException,
-  SessionSummary,
   StreamingConfigurations,
   TextInferenceConfig,
   TextPrompt,
@@ -232,6 +233,7 @@ import {
   RetrievalFilter,
   RetrieveAndGenerateConfiguration,
   SessionState,
+  SessionSummary,
 } from "../models/models_1";
 
 /**
@@ -498,9 +500,11 @@ export const se_InvokeInlineAgentCommand = async (
     take(input, {
       actionGroups: (_) => _json(_),
       agentCollaboration: [],
+      agentName: [],
       bedrockModelConfigurations: (_) => _json(_),
       collaboratorConfigurations: (_) => _json(_),
       collaborators: (_) => se_Collaborators(_, context),
+      customOrchestration: (_) => _json(_),
       customerEncryptionKeyArn: [],
       enableTrace: [],
       endSession: [],
@@ -511,6 +515,7 @@ export const se_InvokeInlineAgentCommand = async (
       inputText: [],
       instruction: [],
       knowledgeBases: (_) => se_KnowledgeBases(_, context),
+      orchestrationType: [],
       promptOverrideConfiguration: (_) => se_PromptOverrideConfiguration(_, context),
       streamingConfigurations: (_) => _json(_),
     })
@@ -2343,6 +2348,8 @@ const se_ContentBody = (input: ContentBody, context: __SerdeContext): any => {
 
 // se_ConversationHistory omitted.
 
+// se_CustomOrchestration omitted.
+
 /**
  * serializeAws_restJson1ExternalSource
  */
@@ -2747,6 +2754,8 @@ const se_OrchestrationConfiguration = (input: OrchestrationConfiguration, contex
     queryTransformationConfiguration: _json,
   });
 };
+
+// se_OrchestrationExecutor omitted.
 
 // se_ParameterDetail omitted.
 
@@ -3575,6 +3584,9 @@ const de_InlineAgentPayloadPart = (output: any, context: __SerdeContext): Inline
  */
 const de_InlineAgentTracePart = (output: any, context: __SerdeContext): InlineAgentTracePart => {
   return take(output, {
+    callerChain: _json,
+    collaboratorName: __expectString,
+    eventTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     sessionId: __expectString,
     trace: (_: any) => de_Trace(__expectUnion(_), context),
   }) as any;

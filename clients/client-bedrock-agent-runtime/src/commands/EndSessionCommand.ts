@@ -32,9 +32,7 @@ export interface EndSessionCommandInput extends EndSessionRequest {}
 export interface EndSessionCommandOutput extends EndSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Ends the session.
- *          After you end a session, you can still access its content but you can’t add to it. To delete the session and it's content, you use the DeleteSession API operation.
- *          For more information about sessions, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html">Store and retrieve conversation history and context with Amazon Bedrock sessions</a>.</p>
+ * <p>Ends the session. After you end a session, you can still access its content but you can’t add to it. To delete the session and it's content, you use the DeleteSession API operation. For more information about sessions, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html">Store and retrieve conversation history and context with Amazon Bedrock sessions</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

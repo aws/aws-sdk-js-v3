@@ -33,39 +33,7 @@ export interface InvokeAgentCommandInput extends InvokeAgentRequest {}
 export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __MetadataBearer {}
 
 /**
- * <note>
- *     </note>
- *          <p>Sends a prompt for the agent to process and respond to. Note the following fields for the request:</p>
- *          <ul>
- *             <li>
- *                <p>To continue the same conversation with an agent, use the same <code>sessionId</code> value in the request.</p>
- *             </li>
- *             <li>
- *                <p>To activate trace enablement, turn <code>enableTrace</code> to <code>true</code>. Trace enablement helps you follow the agent's reasoning process that led it to the information it processed, the actions it took, and the final result it yielded. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace enablement</a>.</p>
- *             </li>
- *             <li>
- *                <p>End a conversation by setting <code>endSession</code> to <code>true</code>.</p>
- *             </li>
- *             <li>
- *                <p>In the <code>sessionState</code> object, you can include attributes for the session or prompt or, if you configured an action group to return control, results from invocation of the action group.</p>
- *             </li>
- *          </ul>
- *          <p>The response contains both <b>chunk</b> and <b>trace</b> attributes.</p>
- *          <p>The final response is returned in the <code>bytes</code> field of the <code>chunk</code> object. The <code>InvokeAgent</code> returns one chunk for the entire interaction.</p>
- *          <ul>
- *             <li>
- *                <p>The <code>attribution</code> object contains citations for parts of the response.</p>
- *             </li>
- *             <li>
- *                <p>If you set <code>enableTrace</code> to <code>true</code> in the request, you can trace the agent's steps and reasoning process that led it to the response.</p>
- *             </li>
- *             <li>
- *                <p>If the action predicted was configured to return control, the response returns parameters for the action, elicited from the user, in the <code>returnControl</code> field.</p>
- *             </li>
- *             <li>
- *                <p>Errors are also surfaced in the response.</p>
- *             </li>
- *          </ul>
+ * <note> </note> <p>Sends a prompt for the agent to process and respond to. Note the following fields for the request:</p> <ul> <li> <p>To continue the same conversation with an agent, use the same <code>sessionId</code> value in the request.</p> </li> <li> <p>To activate trace enablement, turn <code>enableTrace</code> to <code>true</code>. Trace enablement helps you follow the agent's reasoning process that led it to the information it processed, the actions it took, and the final result it yielded. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace enablement</a>.</p> </li> <li> <p>End a conversation by setting <code>endSession</code> to <code>true</code>.</p> </li> <li> <p>In the <code>sessionState</code> object, you can include attributes for the session or prompt or, if you configured an action group to return control, results from invocation of the action group.</p> </li> </ul> <p>The response contains both <b>chunk</b> and <b>trace</b> attributes.</p> <p>The final response is returned in the <code>bytes</code> field of the <code>chunk</code> object. The <code>InvokeAgent</code> returns one chunk for the entire interaction.</p> <ul> <li> <p>The <code>attribution</code> object contains citations for parts of the response.</p> </li> <li> <p>If you set <code>enableTrace</code> to <code>true</code> in the request, you can trace the agent's steps and reasoning process that led it to the response.</p> </li> <li> <p>If the action predicted was configured to return control, the response returns parameters for the action, elicited from the user, in the <code>returnControl</code> field.</p> </li> <li> <p>Errors are also surfaced in the response.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -1060,9 +1028,6 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //           },
  * //         },
  * //       },
- * //       agentId: "STRING_VALUE",
- * //       agentAliasId: "STRING_VALUE",
- * //       agentVersion: "STRING_VALUE",
  * //       callerChain: [ // CallerChain
  * //         { // Caller Union: only one key present
  * //           agentAliasArn: "STRING_VALUE",
@@ -1070,6 +1035,9 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //       ],
  * //       eventTime: new Date("TIMESTAMP"),
  * //       collaboratorName: "STRING_VALUE",
+ * //       agentId: "STRING_VALUE",
+ * //       agentAliasId: "STRING_VALUE",
+ * //       agentVersion: "STRING_VALUE",
  * //     },
  * //     returnControl: {
  * //       invocationInputs: [
@@ -1188,12 +1156,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *  <p>An internal server error occurred. Retry your request.</p>
  *
  * @throws {@link ModelNotReadyException} (client fault)
- *  <p>
- *       The model specified in the request is not ready to serve inference requests. The AWS SDK
- *       will automatically retry the operation up to 5 times. For information about configuring
- *       automatic retries, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html">Retry behavior</a> in the <i>AWS SDKs and Tools</i>
- *       reference guide.
- *     </p>
+ *  <p> The model specified in the request is not ready to serve inference requests. The AWS SDK will automatically retry the operation up to 5 times. For information about configuring automatic retries, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html">Retry behavior</a> in the <i>AWS SDKs and Tools</i> reference guide. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
