@@ -33,8 +33,7 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a new analysis rule for a configured table. Currently, only one analysis rule
- *          can be created for a given configured table.</p>
+ * <p>Creates a new analysis rule for a configured table. Currently, only one analysis rule can be created for a given configured table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

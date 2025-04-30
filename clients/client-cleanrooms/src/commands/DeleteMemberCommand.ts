@@ -28,9 +28,7 @@ export interface DeleteMemberCommandInput extends DeleteMemberInput {}
 export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __MetadataBearer {}
 
 /**
- * <p>Removes the specified member from a collaboration. The removed member is placed in the
- *          Removed status and can't interact with the collaboration. The removed member's data is
- *          inaccessible to active members of the collaboration.</p>
+ * <p>Removes the specified member from a collaboration. The removed member is placed in the Removed status and can't interact with the collaboration. The removed member's data is inaccessible to active members of the collaboration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

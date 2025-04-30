@@ -28,8 +28,7 @@ export interface CreateMembershipCommandInput extends CreateMembershipInput {}
 export interface CreateMembershipCommandOutput extends CreateMembershipOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a membership for a specific collaboration identifier and joins the
- *          collaboration.</p>
+ * <p>Creates a membership for a specific collaboration identifier and joins the collaboration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

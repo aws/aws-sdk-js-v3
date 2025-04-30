@@ -425,6 +425,8 @@ import {
   ProtectedJobStatistics,
   ProtectedJobSummary,
   ProtectedQuery,
+  ProtectedQueryDistributeOutputConfiguration,
+  ProtectedQueryDistributeOutputConfigurationLocation,
   ProtectedQueryMemberOutputConfiguration,
   ProtectedQueryOutputConfiguration,
   ProtectedQueryResultConfiguration,
@@ -4355,6 +4357,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ProtectedJobS3OutputConfigurationInput omitted.
 
+// se_ProtectedQueryDistributeOutputConfiguration omitted.
+
+// se_ProtectedQueryDistributeOutputConfigurationLocation omitted.
+
+// se_ProtectedQueryDistributeOutputConfigurationLocations omitted.
+
 // se_ProtectedQueryMemberOutputConfiguration omitted.
 
 // se_ProtectedQueryOutputConfiguration omitted.
@@ -5662,6 +5670,14 @@ const de_ProtectedQuery = (output: any, context: __SerdeContext): ProtectedQuery
     status: __expectString,
   }) as any;
 };
+
+// de_ProtectedQueryDistributeOutput omitted.
+
+// de_ProtectedQueryDistributeOutputConfiguration omitted.
+
+// de_ProtectedQueryDistributeOutputConfigurationLocation omitted.
+
+// de_ProtectedQueryDistributeOutputConfigurationLocations omitted.
 
 // de_ProtectedQueryError omitted.
 

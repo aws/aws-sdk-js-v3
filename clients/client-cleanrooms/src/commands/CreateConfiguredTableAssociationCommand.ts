@@ -33,8 +33,7 @@ export interface CreateConfiguredTableAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a configured table association. A configured table association links a
- *          configured table with a collaboration.</p>
+ * <p>Creates a configured table association. A configured table association links a configured table with a collaboration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

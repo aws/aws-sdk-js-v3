@@ -71,6 +71,21 @@ export interface UpdateProtectedQueryCommandOutput extends UpdateProtectedQueryO
  * //         member: { // ProtectedQueryMemberOutputConfiguration
  * //           accountId: "STRING_VALUE", // required
  * //         },
+ * //         distribute: { // ProtectedQueryDistributeOutputConfiguration
+ * //           locations: [ // ProtectedQueryDistributeOutputConfigurationLocations // required
+ * //             { // ProtectedQueryDistributeOutputConfigurationLocation Union: only one key present
+ * //               s3: {
+ * //                 resultFormat: "STRING_VALUE", // required
+ * //                 bucket: "STRING_VALUE", // required
+ * //                 keyPrefix: "STRING_VALUE",
+ * //                 singleFileOutput: true || false,
+ * //               },
+ * //               member: {
+ * //                 accountId: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //     },
  * //     statistics: { // ProtectedQueryStatistics
@@ -89,6 +104,16 @@ export interface UpdateProtectedQueryCommandOutput extends UpdateProtectedQueryO
  * //             accountId: "STRING_VALUE", // required
  * //           },
  * //         ],
+ * //         distribute: { // ProtectedQueryDistributeOutput
+ * //           s3: {
+ * //             location: "STRING_VALUE", // required
+ * //           },
+ * //           memberList: [
+ * //             {
+ * //               accountId: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //     },
  * //     error: { // ProtectedQueryError

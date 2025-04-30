@@ -37,8 +37,7 @@ export interface ProtectedJobResultConfigurationOutput {
 }
 
 /**
- * <p> Information related to the utilization of resources that have been billed
- *    or charged for in a given context, such as a protected job.</p>
+ * <p> Information related to the utilization of resources that have been billed or charged for in a given context, such as a protected job.</p>
  * @public
  */
 export interface BilledJobResourceUtilization {
@@ -194,8 +193,7 @@ export const WorkerComputeType = {
 export type WorkerComputeType = (typeof WorkerComputeType)[keyof typeof WorkerComputeType];
 
 /**
- * <p> The configuration of the compute resources for workers running an analysis with the
- *             Clean Rooms SQL analytics engine.</p>
+ * <p> The configuration of the compute resources for workers running an analysis with the Clean Rooms SQL analytics engine.</p>
  * @public
  */
 export interface WorkerComputeConfiguration {
@@ -322,8 +320,7 @@ export interface ProtectedQueryError {
  */
 export interface ProtectedQuerySingleMemberOutput {
   /**
-   * <p>The Amazon Web Services account ID of the member in the collaboration who can receive results for the
-   *          query.</p>
+   * <p>The Amazon Web Services account ID of the member in the collaboration who can receive results for the query.</p>
    * @public
    */
   accountId: string | undefined;
@@ -342,10 +339,29 @@ export interface ProtectedQueryS3Output {
 }
 
 /**
+ * <p> Contains the output information for a protected query with a distribute output configuration.</p> <p> This output type allows query results to be distributed to multiple receivers, including S3 and collaboration members. It is only available for queries using the Spark analytics engine.</p>
+ * @public
+ */
+export interface ProtectedQueryDistributeOutput {
+  /**
+   * <p>Contains output information for protected queries with an S3 output type.</p>
+   * @public
+   */
+  s3?: ProtectedQueryS3Output | undefined;
+
+  /**
+   * <p> Contains the output results for each member location specified in the distribute output configuration. Each entry provides details about the result distribution to a specific collaboration member. </p>
+   * @public
+   */
+  memberList?: ProtectedQuerySingleMemberOutput[] | undefined;
+}
+
+/**
  * <p>Contains details about the protected query output.</p>
  * @public
  */
 export type ProtectedQueryOutput =
+  | ProtectedQueryOutput.DistributeMember
   | ProtectedQueryOutput.MemberListMember
   | ProtectedQueryOutput.S3Member
   | ProtectedQueryOutput.$UnknownMember;
@@ -355,12 +371,13 @@ export type ProtectedQueryOutput =
  */
 export namespace ProtectedQueryOutput {
   /**
-   * <p>If present, the output for a protected query with an `S3` output type.</p>
+   * <p>If present, the output for a protected query with an <code>S3</code> output type.</p>
    * @public
    */
   export interface S3Member {
     s3: ProtectedQueryS3Output;
     memberList?: never;
+    distribute?: never;
     $unknown?: never;
   }
 
@@ -371,6 +388,18 @@ export namespace ProtectedQueryOutput {
   export interface MemberListMember {
     s3?: never;
     memberList: ProtectedQuerySingleMemberOutput[];
+    distribute?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains output information for protected queries that use a <code>distribute</code> output type. This output type lets you send query results to multiple locations - either to S3 or to collaboration members. </p> <note> <p> You can only use the <code>distribute</code> output type with the Spark analytics engine. </p> </note>
+   * @public
+   */
+  export interface DistributeMember {
+    s3?: never;
+    memberList?: never;
+    distribute: ProtectedQueryDistributeOutput;
     $unknown?: never;
   }
 
@@ -380,18 +409,21 @@ export namespace ProtectedQueryOutput {
   export interface $UnknownMember {
     s3?: never;
     memberList?: never;
+    distribute?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     s3: (value: ProtectedQueryS3Output) => T;
     memberList: (value: ProtectedQuerySingleMemberOutput[]) => T;
+    distribute: (value: ProtectedQueryDistributeOutput) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ProtectedQueryOutput, visitor: Visitor<T>): T => {
     if (value.s3 !== undefined) return visitor.s3(value.s3);
     if (value.memberList !== undefined) return visitor.memberList(value.memberList);
+    if (value.distribute !== undefined) return visitor.distribute(value.distribute);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -421,20 +453,20 @@ export interface ProtectedQueryMemberOutputConfiguration {
 }
 
 /**
- * <p>Contains configuration details for protected query output.</p>
+ * <p> Specifies where you'll distribute the results of your protected query. You must configure either an S3 destination or a collaboration member destination.</p>
  * @public
  */
-export type ProtectedQueryOutputConfiguration =
-  | ProtectedQueryOutputConfiguration.MemberMember
-  | ProtectedQueryOutputConfiguration.S3Member
-  | ProtectedQueryOutputConfiguration.$UnknownMember;
+export type ProtectedQueryDistributeOutputConfigurationLocation =
+  | ProtectedQueryDistributeOutputConfigurationLocation.MemberMember
+  | ProtectedQueryDistributeOutputConfigurationLocation.S3Member
+  | ProtectedQueryDistributeOutputConfigurationLocation.$UnknownMember;
 
 /**
  * @public
  */
-export namespace ProtectedQueryOutputConfiguration {
+export namespace ProtectedQueryDistributeOutputConfigurationLocation {
   /**
-   * <p>Required configuration for a protected query with an <code>s3</code> output type.</p>
+   * <p>Contains the configuration to write the query results to S3.</p>
    * @public
    */
   export interface S3Member {
@@ -444,7 +476,7 @@ export namespace ProtectedQueryOutputConfiguration {
   }
 
   /**
-   * <p> Required configuration for a protected query with a <code>member</code> output type.</p>
+   * <p> Contains configuration details for the protected query member output.</p>
    * @public
    */
   export interface MemberMember {
@@ -468,9 +500,93 @@ export namespace ProtectedQueryOutputConfiguration {
     _: (name: string, value: any) => T;
   }
 
+  export const visit = <T>(value: ProtectedQueryDistributeOutputConfigurationLocation, visitor: Visitor<T>): T => {
+    if (value.s3 !== undefined) return visitor.s3(value.s3);
+    if (value.member !== undefined) return visitor.member(value.member);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p> Specifies the configuration for distributing protected query results to multiple receivers, including S3 and collaboration members.</p>
+ * @public
+ */
+export interface ProtectedQueryDistributeOutputConfiguration {
+  /**
+   * <p> A list of locations where you want to distribute the protected query results. Each location must specify either an S3 destination or a collaboration member destination.</p> <important> <p>You can't specify more than one S3 location.</p> <p>You can't specify the query runner's account as a member location.</p> <p>You must include either an S3 or member output configuration for each location, but not both.</p> </important>
+   * @public
+   */
+  locations: ProtectedQueryDistributeOutputConfigurationLocation[] | undefined;
+}
+
+/**
+ * <p>Contains configuration details for protected query output.</p>
+ * @public
+ */
+export type ProtectedQueryOutputConfiguration =
+  | ProtectedQueryOutputConfiguration.DistributeMember
+  | ProtectedQueryOutputConfiguration.MemberMember
+  | ProtectedQueryOutputConfiguration.S3Member
+  | ProtectedQueryOutputConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedQueryOutputConfiguration {
+  /**
+   * <p>Required configuration for a protected query with an <code>s3</code> output type.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedQueryS3OutputConfiguration;
+    member?: never;
+    distribute?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> Required configuration for a protected query with a <code>member</code> output type.</p>
+   * @public
+   */
+  export interface MemberMember {
+    s3?: never;
+    member: ProtectedQueryMemberOutputConfiguration;
+    distribute?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> Required configuration for a protected query with a <code>distribute</code> output type.</p>
+   * @public
+   */
+  export interface DistributeMember {
+    s3?: never;
+    member?: never;
+    distribute: ProtectedQueryDistributeOutputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    member?: never;
+    distribute?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3: (value: ProtectedQueryS3OutputConfiguration) => T;
+    member: (value: ProtectedQueryMemberOutputConfiguration) => T;
+    distribute: (value: ProtectedQueryDistributeOutputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
   export const visit = <T>(value: ProtectedQueryOutputConfiguration, visitor: Visitor<T>): T => {
     if (value.s3 !== undefined) return visitor.s3(value.s3);
     if (value.member !== undefined) return visitor.member(value.member);
+    if (value.distribute !== undefined) return visitor.distribute(value.distribute);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -499,8 +615,7 @@ export interface ProtectedQuerySQLParameters {
   queryString?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) associated with the analysis template within a
-   *          collaboration.</p>
+   * <p>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</p>
    * @public
    */
   analysisTemplateArn?: string | undefined;
@@ -661,8 +776,7 @@ export interface ListMembershipsInput {
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the
-   * `maxResults` value has not been met.</p>
+   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -704,8 +818,7 @@ export interface MembershipSummary {
   collaborationId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services principal that created the collaboration. Currently only
-   *          supports Amazon Web Services account ID.</p>
+   * <p>The identifier of the Amazon Web Services principal that created the collaboration. Currently only supports Amazon Web Services account ID.</p>
    * @public
    */
   collaborationCreatorAccountId: string | undefined;
@@ -799,8 +912,7 @@ export interface ListPrivacyBudgetsInput {
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the
-   * `maxResults` value has not been met.</p>
+   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -918,9 +1030,7 @@ export interface ListProtectedJobsInput {
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned for an API request call.
-   *          The service chooses a default number if you don't set one. The service might
-   *          return a `nextToken` even if the `maxResults` value has not been met. </p>
+   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met. </p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1092,8 +1202,7 @@ export interface ListProtectedQueriesInput {
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the
-   *          `maxResults` value has not been met. </p>
+   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met. </p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1471,8 +1580,7 @@ export interface StartProtectedJobInput {
   type: ProtectedJobType | undefined;
 
   /**
-   * <p>A unique identifier for the membership to run this job against.
-   *          Currently accepts a membership ID.</p>
+   * <p>A unique identifier for the membership to run this job against. Currently accepts a membership ID.</p>
    * @public
    */
   membershipIdentifier: string | undefined;
@@ -1525,8 +1633,7 @@ export interface StartProtectedQueryInput {
   type: ProtectedQueryType | undefined;
 
   /**
-   * <p>A unique identifier for the membership to run this query against. Currently accepts a
-   *          membership ID.</p>
+   * <p>A unique identifier for the membership to run this query against. Currently accepts a membership ID.</p>
    * @public
    */
   membershipIdentifier: string | undefined;
@@ -1572,28 +1679,19 @@ export interface UpdateMembershipInput {
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>An indicator as to whether query logging has been enabled or disabled for the
-   *          membership.</p>
-   *          <p>When <code>ENABLED</code>, Clean Rooms logs details about queries run within this
-   *          collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is
-   *          <code>DISABLED</code>.</p>
+   * <p>An indicator as to whether query logging has been enabled or disabled for the membership.</p> <p>When <code>ENABLED</code>, Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
    * @public
    */
   queryLogStatus?: MembershipQueryLogStatus | undefined;
 
   /**
-   * <p>An indicator as to whether job logging has been enabled or disabled
-   *          for the collaboration. </p>
-   *          <p>When <code>ENABLED</code>, Clean Rooms logs details about jobs run within this
-   *          collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is
-   *          <code>DISABLED</code>.</p>
+   * <p>An indicator as to whether job logging has been enabled or disabled for the collaboration. </p> <p>When <code>ENABLED</code>, Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
    * @public
    */
   jobLogStatus?: MembershipJobLogStatus | undefined;
 
   /**
-   * <p>The default protected query result configuration as specified by the member who can
-   *          receive results.</p>
+   * <p>The default protected query result configuration as specified by the member who can receive results.</p>
    * @public
    */
   defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration | undefined;
@@ -1646,8 +1744,7 @@ export interface UpdateProtectedJobInput {
   protectedJobIdentifier: string | undefined;
 
   /**
-   * <p>The target status of a protected job. Used to update the execution status
-   *          of a currently running job.</p>
+   * <p>The target status of a protected job. Used to update the execution status of a currently running job.</p>
    * @public
    */
   targetStatus: TargetProtectedJobStatus | undefined;
@@ -1694,8 +1791,7 @@ export interface UpdateProtectedQueryInput {
   protectedQueryIdentifier: string | undefined;
 
   /**
-   * <p>The target status of a query. Used to update the execution status of a currently running
-   *          query.</p>
+   * <p>The target status of a query. Used to update the execution status of a currently running query.</p>
    * @public
    */
   targetStatus: TargetProtectedQueryStatus | undefined;
@@ -1781,10 +1877,7 @@ export interface CreatePrivacyBudgetTemplateInput {
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>How often the privacy budget refreshes.</p>
-   *          <important>
-   *             <p>If you plan to regularly bring new data into the collaboration, you can use <code>CALENDAR_MONTH</code> to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queries across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.</p>
-   *          </important>
+   * <p>How often the privacy budget refreshes.</p> <important> <p>If you plan to regularly bring new data into the collaboration, you can use <code>CALENDAR_MONTH</code> to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queries across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.</p> </important>
    * @public
    */
   autoRefresh: PrivacyBudgetTemplateAutoRefresh | undefined;
@@ -1802,10 +1895,7 @@ export interface CreatePrivacyBudgetTemplateInput {
   parameters: PrivacyBudgetTemplateParametersInput | undefined;
 
   /**
-   * <p>An optional label that you can assign to a resource when you create it. Each tag
-   *          consists of a key and an optional value, both of which you define. When you use tagging,
-   *          you can also use tag-based access control in IAM policies to control access
-   *          to this resource.</p>
+   * <p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1871,10 +1961,7 @@ export interface PrivacyBudgetTemplate {
   privacyBudgetType: PrivacyBudgetType | undefined;
 
   /**
-   * <p>How often the privacy budget refreshes.</p>
-   *          <important>
-   *             <p>If you plan to regularly bring new data into the collaboration, use <code>CALENDAR_MONTH</code> to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.</p>
-   *          </important>
+   * <p>How often the privacy budget refreshes.</p> <important> <p>If you plan to regularly bring new data into the collaboration, use <code>CALENDAR_MONTH</code> to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.</p> </important>
    * @public
    */
   autoRefresh: PrivacyBudgetTemplateAutoRefresh | undefined;
@@ -1964,8 +2051,7 @@ export interface ListPrivacyBudgetTemplatesInput {
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the
-   * `maxResults` value has not been met.</p>
+   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -2173,8 +2259,7 @@ export interface TagResourceOutput {}
  */
 export interface UntagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) associated with the resource you want to remove the tag
-   *          from.</p>
+   * <p>The Amazon Resource Name (ARN) associated with the resource you want to remove the tag from.</p>
    * @public
    */
   resourceArn: string | undefined;
