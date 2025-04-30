@@ -66,6 +66,10 @@ export interface StartLiveTailCommandOutput extends StartLiveTailResponse, __Met
  *         object is returned when the session times out, after it has been kept open for three hours.</p>
  *             </li>
  *          </ul>
+ *          <note>
+ *             <p>The <code>StartLiveTail</code> API routes requests to <code>streaming-logs.<i>Region</i>.amazonaws.com</code> using SDK host prefix injection.
+ *       VPC endpoint support is not available for this API.</p>
+ *          </note>
  *          <important>
  *             <p>You can end a session before it times out by closing the session stream or by closing the client that is receiving the
  *   stream. The session also ends if the established connection between the client and the server breaks.</p>

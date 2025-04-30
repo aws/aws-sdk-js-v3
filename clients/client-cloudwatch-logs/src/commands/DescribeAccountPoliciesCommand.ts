@@ -36,7 +36,7 @@ export interface DescribeAccountPoliciesCommandOutput extends DescribeAccountPol
  *         <code>logs:DescribeAccountPolicies</code> permissions.</p>
  *             </li>
  *             <li>
- *                <p>To see subscription filter policies, you must have the <code>logs:DescrubeSubscriptionFilters</code> and
+ *                <p>To see subscription filter policies, you must have the <code>logs:DescribeSubscriptionFilters</code> and
  *         <code>logs:DescribeAccountPolicies</code> permissions.</p>
  *             </li>
  *             <li>

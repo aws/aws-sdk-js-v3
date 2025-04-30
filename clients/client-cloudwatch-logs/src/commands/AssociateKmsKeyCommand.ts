@@ -65,7 +65,7 @@ export interface AssociateKmsKeyCommandOutput extends __MetadataBearer {}
  *     will be unencryptable and unusable.</p>
  *          </important>
  *          <note>
- *             <p>CloudWatch Logs supports only symmetric KMS keys. Do not use an associate
+ *             <p>CloudWatch Logs supports only symmetric KMS keys. Do not associate
  *         an asymmetric KMS key with your log group or query results. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
  *           Symmetric and Asymmetric Keys</a>.</p>
  *          </note>

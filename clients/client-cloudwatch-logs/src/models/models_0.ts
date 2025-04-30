@@ -1238,6 +1238,7 @@ export interface CreateLogAnomalyDetectorResponse {
  * @enum
  */
 export const LogGroupClass = {
+  DELIVERY: "DELIVERY",
   INFREQUENT_ACCESS: "INFREQUENT_ACCESS",
   STANDARD: "STANDARD",
 } as const;
@@ -1279,7 +1280,7 @@ export interface CreateLogGroupRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Use this parameter to specify the log group class for this log group. There are two classes:</p>
+   * <p>Use this parameter to specify the log group class for this log group. There are three classes:</p>
    *          <ul>
    *             <li>
    *                <p>The <code>Standard</code> log class supports all CloudWatch Logs features.</p>
@@ -1287,6 +1288,11 @@ export interface CreateLogGroupRequest {
    *             <li>
    *                <p>The <code>Infrequent Access</code> log class supports a subset of CloudWatch Logs features
    *         and incurs lower costs.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the <code>Delivery</code> log class only for delivering Lambda logs to store in Amazon S3 or
+   *         Amazon Data Firehose. Log events in log groups in the Delivery class are kept in CloudWatch Logs for only one day. This log class doesn't offer rich CloudWatch Logs capabilities such as
+   *         CloudWatch Logs Insights queries.</p>
    *             </li>
    *          </ul>
    *          <p>If you omit this parameter, the default of <code>STANDARD</code> is used.</p>
@@ -2581,7 +2587,7 @@ export interface DescribeLogGroupsRequest {
   includeLinkedAccounts?: boolean | undefined;
 
   /**
-   * <p>Specifies the log group class for this log group. There are two classes:</p>
+   * <p>Specifies the log group class for this log group. There are three classes:</p>
    *          <ul>
    *             <li>
    *                <p>The <code>Standard</code> log class supports all CloudWatch Logs features.</p>
@@ -2589,6 +2595,11 @@ export interface DescribeLogGroupsRequest {
    *             <li>
    *                <p>The <code>Infrequent Access</code> log class supports a subset of CloudWatch Logs features
    *         and incurs lower costs.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the <code>Delivery</code> log class only for delivering Lambda logs to store in Amazon S3 or
+   *         Amazon Data Firehose. Log events in log groups in the Delivery class are kept in CloudWatch Logs for only one day. This log class doesn't offer rich CloudWatch Logs capabilities such as
+   *         CloudWatch Logs Insights queries.</p>
    *             </li>
    *          </ul>
    *          <p>For details about the features supported by each class, see
@@ -2681,7 +2692,7 @@ export interface LogGroup {
   inheritedProperties?: InheritedProperty[] | undefined;
 
   /**
-   * <p>This specifies the log group class for this log group. There are two classes:</p>
+   * <p>This specifies the log group class for this log group. There are three classes:</p>
    *          <ul>
    *             <li>
    *                <p>The <code>Standard</code> log class supports all CloudWatch Logs features.</p>
@@ -2690,8 +2701,13 @@ export interface LogGroup {
    *                <p>The <code>Infrequent Access</code> log class supports a subset of CloudWatch Logs features
    *         and incurs lower costs.</p>
    *             </li>
+   *             <li>
+   *                <p>Use the <code>Delivery</code> log class only for delivering Lambda logs to store in Amazon S3 or
+   *         Amazon Data Firehose. Log events in log groups in the Delivery class are kept in CloudWatch Logs for only one day. This log class doesn't offer rich CloudWatch Logs capabilities such as
+   *         CloudWatch Logs Insights queries.</p>
+   *             </li>
    *          </ul>
-   *          <p>For details about the features supported by each class, see
+   *          <p>For details about the features supported by the Standard and Infrequent Access classes, see
    *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log classes</a>
    *          </p>
    * @public
@@ -5545,7 +5561,7 @@ export interface InputLogEvent {
   timestamp: number | undefined;
 
   /**
-   * <p>The raw event message. Each log event can be no larger than 256 KB.</p>
+   * <p>The raw event message. Each log event can be no larger than 1 MB.</p>
    * @public
    */
   message: string | undefined;

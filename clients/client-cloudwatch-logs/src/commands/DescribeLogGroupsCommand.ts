@@ -55,7 +55,7 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  *   nextToken: "STRING_VALUE",
  *   limit: Number("int"),
  *   includeLinkedAccounts: true || false,
- *   logGroupClass: "STANDARD" || "INFREQUENT_ACCESS",
+ *   logGroupClass: "STANDARD" || "INFREQUENT_ACCESS" || "DELIVERY",
  * };
  * const command = new DescribeLogGroupsCommand(input);
  * const response = await client.send(command);
@@ -73,7 +73,7 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * //       inheritedProperties: [ // InheritedProperties
  * //         "ACCOUNT_DATA_PROTECTION",
  * //       ],
- * //       logGroupClass: "STANDARD" || "INFREQUENT_ACCESS",
+ * //       logGroupClass: "STANDARD" || "INFREQUENT_ACCESS" || "DELIVERY",
  * //       logGroupArn: "STRING_VALUE",
  * //     },
  * //   ],
