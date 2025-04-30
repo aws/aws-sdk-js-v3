@@ -75,6 +75,25 @@ import { AnalysisStatus, ManagedBy } from "./models_5";
 /**
  * @public
  */
+export interface DisableImageDeregistrationProtectionRequest {
+  /**
+   * <p>The ID of the AMI.</p>
+   * @public
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DisableImageDeregistrationProtectionResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -7973,34 +7992,6 @@ export interface ImportImageResult {
 }
 
 /**
- * <p>Describes a disk image.</p>
- * @public
- */
-export interface DiskImageDetail {
-  /**
-   * <p>The disk image format.</p>
-   * @public
-   */
-  Format: DiskImageFormat | undefined;
-
-  /**
-   * <p>The size of the disk image, in GiB.</p>
-   * @public
-   */
-  Bytes: number | undefined;
-
-  /**
-   * <p>A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL.
-   *    For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication
-   *    Alternative" section of the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">Authenticating REST Requests</a> topic in the <i>Amazon Simple Storage Service Developer
-   *     Guide</i>.</p>
-   *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
-   * @public
-   */
-  ImportManifestUrl: string | undefined;
-}
-
-/**
  * @internal
  */
 export const VerifiedAccessInstanceUserTrustProviderClientConfigurationFilterSensitiveLog = (
@@ -8086,12 +8077,4 @@ export const ImportImageResultFilterSensitiveLog = (obj: ImportImageResult): any
   ...(obj.SnapshotDetails && {
     SnapshotDetails: obj.SnapshotDetails.map((item) => SnapshotDetailFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const DiskImageDetailFilterSensitiveLog = (obj: DiskImageDetail): any => ({
-  ...obj,
-  ...(obj.ImportManifestUrl && { ImportManifestUrl: SENSITIVE_STRING }),
 });

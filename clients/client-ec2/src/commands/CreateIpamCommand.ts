@@ -62,6 +62,7 @@ export interface CreateIpamCommandOutput extends CreateIpamResult, __MetadataBea
  *   ClientToken: "STRING_VALUE",
  *   Tier: "free" || "advanced",
  *   EnablePrivateGua: true || false,
+ *   MeteredAccount: "ipam-owner" || "resource-owner",
  * };
  * const command = new CreateIpamCommand(input);
  * const response = await client.send(command);
@@ -93,6 +94,7 @@ export interface CreateIpamCommandOutput extends CreateIpamResult, __MetadataBea
  * //     StateMessage: "STRING_VALUE",
  * //     Tier: "free" || "advanced",
  * //     EnablePrivateGua: true || false,
+ * //     MeteredAccount: "ipam-owner" || "resource-owner",
  * //   },
  * // };
  *

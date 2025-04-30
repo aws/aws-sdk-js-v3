@@ -2563,15 +2563,20 @@ export interface ClientLoginBannerOptions {
 }
 
 /**
- * <p>Client route enforcement is a feature of the Client VPN service that helps enforce administrator defined routes on devices connected through the VPN. T
- * 		his feature helps improve your security posture by ensuring that network traffic originating from a connected client is not inadvertently sent outside the VPN tunnel.</p>
- *          <p>Client route enforcement works by monitoring the route table of a connected device for routing policy changes to the VPN connection. If the feature detects any VPN routing policy modifications, it will automatically force an update to the route table,
+ * <p>Client Route Enforcement is a feature of Client VPN that helps enforce administrator defined
+ * 			routes on devices connected through the VPN. This feature helps improve your security
+ * 			posture by ensuring that network traffic originating from a connected client is not
+ * 			inadvertently sent outside the VPN tunnel.</p>
+ *          <p>Client Route Enforcement works by monitoring the route table of a connected device for
+ * 			routing policy changes to the VPN connection. If the feature detects any VPN routing
+ * 			policy modifications, it will automatically force an update to the route table,
  * 			reverting it back to the expected route configurations.</p>
  * @public
  */
 export interface ClientRouteEnforcementOptions {
   /**
-   * <p>Enable or disable the client route enforcement feature.</p>
+   * <p>Enable or disable Client Route Enforcement. The state can either be <code>true</code>
+   * 			(enabled) or <code>false</code> (disabled). The default is <code>false</code>.</p>
    *          <p>Valid values: <code>true | false</code>
    *          </p>
    *          <p>Default value: <code>false</code>
@@ -2791,7 +2796,7 @@ export interface CreateClientVpnEndpointRequest {
 
   /**
    * <p>Indicates whether the client VPN session is disconnected after the maximum timeout specified in <code>SessionTimeoutHours</code> is reached. If <code>true</code>, users are prompted to reconnect client VPN. If <code>false</code>, client VPN attempts to reconnect automatically.
-   *                    The default value is <code>false</code>.</p>
+   *                    The default value is <code>true</code>.</p>
    * @public
    */
   DisconnectOnSessionTimeout?: boolean | undefined;
@@ -4085,10 +4090,10 @@ export interface FleetEbsBlockDeviceRequest {
    *          <p>In no case can you remove encryption from an encrypted volume.</p>
    *          <p>Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For
    *          more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances">Supported instance types</a>.</p>
-   *          <p>This parameter is not returned by .</p>
-   *          <p>For  and , whether
-   *          you can include this parameter, and the allowed values differ depending on the type of
-   *          block device mapping you are creating.</p>
+   *          <p>This parameter is not returned by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute">DescribeImageAttribute</a>.</p>
+   *          <p>For <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage">CreateImage</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RegisterImage">RegisterImage</a>, whether you
+   *          can include this parameter, and the allowed values differ depending on the type of block
+   *          device mapping you are creating.</p>
    *          <ul>
    *             <li>
    *                <p>If you are creating a block device mapping for a <b>new (empty)
@@ -4395,7 +4400,7 @@ export interface PerformanceFactorReferenceRequest {
    *          <p>If you enable performance protection by specifying a supported instance family, the
    *          returned instance types will exclude the above unsupported instance families.</p>
    *          <p>If you specify an unsupported instance family as a value for baseline performance, the
-   *          API returns an empty response for  and an exception for , , , and .</p>
+   *          API returns an empty response for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements">GetInstanceTypesFromInstanceRequirements</a> and an exception for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet">RequestSpotFleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyFleet">ModifyFleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifySpotFleetRequest">ModifySpotFleetRequest</a>.</p>
    * @public
    */
   InstanceFamily?: string | undefined;
@@ -4919,6 +4924,9 @@ export interface InstanceRequirementsRequest {
    *             </li>
    *             <li>
    *                <p>For instance types with GPU accelerators, specify <code>gpu</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Inference accelerators, specify <code>inference</code>.</p>
    *             </li>
    *          </ul>
    *          <p>Default: Any accelerator type</p>
@@ -6156,7 +6164,7 @@ export interface PerformanceFactorReference {
    *          <p>If you enable performance protection by specifying a supported instance family, the
    *          returned instance types will exclude the above unsupported instance families.</p>
    *          <p>If you specify an unsupported instance family as a value for baseline performance, the
-   *          API returns an empty response for  and an exception for , , , and .</p>
+   *          API returns an empty response for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements">GetInstanceTypesFromInstanceRequirements</a> and an exception for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet">RequestSpotFleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyFleet">ModifyFleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifySpotFleetRequest">ModifySpotFleetRequest</a>.</p>
    * @public
    */
   InstanceFamily?: string | undefined;
@@ -6609,6 +6617,9 @@ export interface InstanceRequirements {
    *             </li>
    *             <li>
    *                <p>For instance types with GPU accelerators, specify <code>gpu</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Inference accelerators, specify <code>inference</code>.</p>
    *             </li>
    *          </ul>
    *          <p>Default: Any accelerator type</p>
@@ -8347,6 +8358,20 @@ export interface CreateInternetGatewayResult {
  * @public
  * @enum
  */
+export const IpamMeteredAccount = {
+  ipam_owner: "ipam-owner",
+  resource_owner: "resource-owner",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamMeteredAccount = (typeof IpamMeteredAccount)[keyof typeof IpamMeteredAccount];
+
+/**
+ * @public
+ * @enum
+ */
 export const IpamTier = {
   advanced: "advanced",
   free: "free",
@@ -8407,6 +8432,23 @@ export interface CreateIpamRequest {
    * @public
    */
   EnablePrivateGua?: boolean | undefined;
+
+  /**
+   * <p>A metered account is an Amazon Web Services account that is charged for active IP addresses managed in IPAM. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/ipam-enable-cost-distro.html">Enable cost distribution</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   *          <p>Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ipam-owner</code> (default): The Amazon Web Services account which owns the IPAM is charged for all active IP addresses managed in IPAM.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-owner</code>: The Amazon Web Services account that owns the IP address is charged for the active IP address.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MeteredAccount?: IpamMeteredAccount | undefined;
 }
 
 /**
@@ -8555,6 +8597,23 @@ export interface Ipam {
    * @public
    */
   EnablePrivateGua?: boolean | undefined;
+
+  /**
+   * <p>A metered account is an Amazon Web Services account that is charged for active IP addresses managed in IPAM. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/ipam-enable-cost-distro.html">Enable cost distribution</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   *          <p>Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ipam-owner</code> (default): The Amazon Web Services account which owns the IPAM is charged for all active IP addresses managed in IPAM.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-owner</code>: The Amazon Web Services account that owns the IP address is charged for the active IP address.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MeteredAccount?: IpamMeteredAccount | undefined;
 }
 
 /**
@@ -12550,66 +12609,6 @@ export interface ResponseLaunchTemplateData {
 }
 
 /**
- * <p>Describes a launch template version.</p>
- * @public
- */
-export interface LaunchTemplateVersion {
-  /**
-   * <p>The ID of the launch template.</p>
-   * @public
-   */
-  LaunchTemplateId?: string | undefined;
-
-  /**
-   * <p>The name of the launch template.</p>
-   * @public
-   */
-  LaunchTemplateName?: string | undefined;
-
-  /**
-   * <p>The version number.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The description for the version.</p>
-   * @public
-   */
-  VersionDescription?: string | undefined;
-
-  /**
-   * <p>The time the version was created.</p>
-   * @public
-   */
-  CreateTime?: Date | undefined;
-
-  /**
-   * <p>The principal that created the version.</p>
-   * @public
-   */
-  CreatedBy?: string | undefined;
-
-  /**
-   * <p>Indicates whether the version is the default version.</p>
-   * @public
-   */
-  DefaultVersion?: boolean | undefined;
-
-  /**
-   * <p>Information about the launch template.</p>
-   * @public
-   */
-  LaunchTemplateData?: ResponseLaunchTemplateData | undefined;
-
-  /**
-   * <p>The entity that manages the launch template.</p>
-   * @public
-   */
-  Operator?: OperatorResponse | undefined;
-}
-
-/**
  * @internal
  */
 export const CopySnapshotRequestFilterSensitiveLog = (obj: CopySnapshotRequest): any => ({
@@ -12659,14 +12658,4 @@ export const CreateLaunchTemplateVersionRequestFilterSensitiveLog = (obj: Create
 export const ResponseLaunchTemplateDataFilterSensitiveLog = (obj: ResponseLaunchTemplateData): any => ({
   ...obj,
   ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateVersionFilterSensitiveLog = (obj: LaunchTemplateVersion): any => ({
-  ...obj,
-  ...(obj.LaunchTemplateData && {
-    LaunchTemplateData: ResponseLaunchTemplateDataFilterSensitiveLog(obj.LaunchTemplateData),
-  }),
 });

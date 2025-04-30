@@ -62,6 +62,7 @@ import {
   DnsNameState,
   GroupIdentifier,
   IpAddressType,
+  ManagedPrefixList,
   NatGateway,
   NetworkAcl,
   NetworkInsightsAccessScope,
@@ -124,6 +125,23 @@ import {
   PermissionGroup,
   ProductCode,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeManagedPrefixListsResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the prefix lists.</p>
+   * @public
+   */
+  PrefixLists?: ManagedPrefixList[] | undefined;
+}
 
 /**
  * @public
@@ -12094,25 +12112,6 @@ export interface DisableImageDeprecationResult {
    * @public
    */
   Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableImageDeregistrationProtectionRequest {
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**

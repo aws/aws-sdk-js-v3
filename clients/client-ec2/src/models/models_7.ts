@@ -49,6 +49,7 @@ import {
   ClientRouteEnforcementOptions,
   ConnectionLogOptions,
   ConnectionTrackingSpecificationRequest,
+  DiskImageFormat,
   EndDateType,
   FleetExcessCapacityTerminationPolicy,
   FleetLaunchTemplateConfigRequest,
@@ -58,6 +59,7 @@ import {
   InstanceInterruptionBehavior,
   InstanceMatchCriteria,
   Ipam,
+  IpamMeteredAccount,
   IpamPool,
   IpamResourceDiscovery,
   IpamScope,
@@ -172,14 +174,40 @@ import {
 
 import {
   ClientData,
-  DiskImageDetail,
-  DiskImageDetailFilterSensitiveLog,
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
   UnlimitedSupportedInstanceFamily,
   UserBucket,
 } from "./models_6";
+
+/**
+ * <p>Describes a disk image.</p>
+ * @public
+ */
+export interface DiskImageDetail {
+  /**
+   * <p>The disk image format.</p>
+   * @public
+   */
+  Format: DiskImageFormat | undefined;
+
+  /**
+   * <p>The size of the disk image, in GiB.</p>
+   * @public
+   */
+  Bytes: number | undefined;
+
+  /**
+   * <p>A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL.
+   *    For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication
+   *    Alternative" section of the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">Authenticating REST Requests</a> topic in the <i>Amazon Simple Storage Service Developer
+   *     Guide</i>.</p>
+   *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
+   * @public
+   */
+  ImportManifestUrl: string | undefined;
+}
 
 /**
  * <p>Describes an EBS volume.</p>
@@ -1373,7 +1401,7 @@ export interface ModifyClientVpnEndpointRequest {
   ClientRouteEnforcementOptions?: ClientRouteEnforcementOptions | undefined;
 
   /**
-   * <p>Indicates whether the client VPN session is disconnected after the maximum timeout specified in <code>sessionTimeoutHours</code> is reached. If <code>true</code>, users are prompted to reconnect client VPN. If <code>false</code>, client VPN attempts to reconnect automatically. The default value is <code>false</code>.</p>
+   * <p>Indicates whether the client VPN session is disconnected after the maximum timeout specified in <code>sessionTimeoutHours</code> is reached. If <code>true</code>, users are prompted to reconnect client VPN. If <code>false</code>, client VPN attempts to reconnect automatically. The default value is <code>true</code>.</p>
    * @public
    */
   DisconnectOnSessionTimeout?: boolean | undefined;
@@ -3023,6 +3051,23 @@ export interface ModifyIpamRequest {
    * @public
    */
   EnablePrivateGua?: boolean | undefined;
+
+  /**
+   * <p>A metered account is an Amazon Web Services account that is charged for active IP addresses managed in IPAM. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/ipam-enable-cost-distro.html">Enable cost distribution</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   *          <p>Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ipam-owner</code> (default): The Amazon Web Services account which owns the IPAM is charged for all active IP addresses managed in IPAM.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-owner</code>: The Amazon Web Services account that owns the IP address is charged for the active IP address.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MeteredAccount?: IpamMeteredAccount | undefined;
 }
 
 /**
@@ -9241,21 +9286,12 @@ export interface RestoreAddressToClassicRequest {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface RestoreAddressToClassicResult {
-  /**
-   * <p>The Elastic IP address.</p>
-   * @public
-   */
-  PublicIp?: string | undefined;
-
-  /**
-   * <p>The move status for the IP address.</p>
-   * @public
-   */
-  Status?: Status | undefined;
-}
+export const DiskImageDetailFilterSensitiveLog = (obj: DiskImageDetail): any => ({
+  ...obj,
+  ...(obj.ImportManifestUrl && { ImportManifestUrl: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

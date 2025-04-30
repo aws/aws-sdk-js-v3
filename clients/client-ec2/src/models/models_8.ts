@@ -48,7 +48,24 @@ import {
   RunInstancesMonitoringEnabled,
 } from "./models_5";
 
-import { CapacityReservationSpecification, InstanceMonitoring } from "./models_7";
+import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_7";
+
+/**
+ * @public
+ */
+export interface RestoreAddressToClassicResult {
+  /**
+   * <p>The Elastic IP address.</p>
+   * @public
+   */
+  PublicIp?: string | undefined;
+
+  /**
+   * <p>The move status for the IP address.</p>
+   * @public
+   */
+  Status?: Status | undefined;
+}
 
 /**
  * @public
@@ -2451,10 +2468,14 @@ export interface StopInstancesRequest {
   DryRun?: boolean | undefined;
 
   /**
-   * <p>Forces the instances to stop. The instances do not have an opportunity to flush file
-   *             system caches or file system metadata. If you use this option, you must perform file
-   *             system check and repair procedures. This option is not recommended for Windows
-   *             instances.</p>
+   * <p>Forces the instance to stop. The instance will first attempt a graceful shutdown,
+   *             which includes flushing file system caches and metadata. If the graceful shutdown fails
+   *             to complete within the timeout period, the instance shuts down forcibly without flushing
+   *             the file system caches and metadata.</p>
+   *          <p>After using this option, you must perform file system check and repair procedures.
+   *             This option is not recommended for Windows instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshoot
+   *                     Amazon EC2 instance stop issues</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    *          <p>Default: <code>false</code>
    *          </p>
    * @public

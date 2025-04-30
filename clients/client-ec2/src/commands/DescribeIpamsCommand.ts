@@ -85,6 +85,7 @@ export interface DescribeIpamsCommandOutput extends DescribeIpamsResult, __Metad
  * //       StateMessage: "STRING_VALUE",
  * //       Tier: "free" || "advanced",
  * //       EnablePrivateGua: true || false,
+ * //       MeteredAccount: "ipam-owner" || "resource-owner",
  * //     },
  * //   ],
  * // };

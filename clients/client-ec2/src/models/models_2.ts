@@ -40,17 +40,77 @@ import {
   InstanceIpv6Address,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
-  LaunchTemplateVersion,
-  LaunchTemplateVersionFilterSensitiveLog,
   OperatorRequest,
   OperatorResponse,
   PrivateIpAddressSpecification,
+  ResponseLaunchTemplateData,
+  ResponseLaunchTemplateDataFilterSensitiveLog,
   Subnet,
   Tenancy,
   ValidationWarning,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Describes a launch template version.</p>
+ * @public
+ */
+export interface LaunchTemplateVersion {
+  /**
+   * <p>The ID of the launch template.</p>
+   * @public
+   */
+  LaunchTemplateId?: string | undefined;
+
+  /**
+   * <p>The name of the launch template.</p>
+   * @public
+   */
+  LaunchTemplateName?: string | undefined;
+
+  /**
+   * <p>The version number.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The description for the version.</p>
+   * @public
+   */
+  VersionDescription?: string | undefined;
+
+  /**
+   * <p>The time the version was created.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <p>The principal that created the version.</p>
+   * @public
+   */
+  CreatedBy?: string | undefined;
+
+  /**
+   * <p>Indicates whether the version is the default version.</p>
+   * @public
+   */
+  DefaultVersion?: boolean | undefined;
+
+  /**
+   * <p>Information about the launch template.</p>
+   * @public
+   */
+  LaunchTemplateData?: ResponseLaunchTemplateData | undefined;
+
+  /**
+   * <p>The entity that manages the launch template.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
+}
 
 /**
  * @public
@@ -9407,8 +9467,6 @@ export interface CreateVpcEndpointRequest {
    *             <code>true</code>: <code>enableDnsHostnames</code> and
    *             <code>enableDnsSupport</code>. Use <a>ModifyVpcAttribute</a> to set the VPC
    *             attributes.</p>
-   *          <p>Default: <code>true</code>
-   *          </p>
    * @public
    */
   PrivateDnsEnabled?: boolean | undefined;
@@ -10297,32 +10355,14 @@ export interface IKEVersionsRequestListValue {
 }
 
 /**
- * <p>Options for sending VPN tunnel logs to CloudWatch.</p>
- * @public
+ * @internal
  */
-export interface CloudWatchLogOptionsSpecification {
-  /**
-   * <p>Enable or disable VPN tunnel logging feature. Default value is <code>False</code>.</p>
-   *          <p>Valid values: <code>True</code> | <code>False</code>
-   *          </p>
-   * @public
-   */
-  LogEnabled?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.</p>
-   * @public
-   */
-  LogGroupArn?: string | undefined;
-
-  /**
-   * <p>Set log format. Default format is <code>json</code>.</p>
-   *          <p>Valid values: <code>json</code> | <code>text</code>
-   *          </p>
-   * @public
-   */
-  LogOutputFormat?: string | undefined;
-}
+export const LaunchTemplateVersionFilterSensitiveLog = (obj: LaunchTemplateVersion): any => ({
+  ...obj,
+  ...(obj.LaunchTemplateData && {
+    LaunchTemplateData: ResponseLaunchTemplateDataFilterSensitiveLog(obj.LaunchTemplateData),
+  }),
+});
 
 /**
  * @internal

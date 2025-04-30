@@ -72,6 +72,7 @@ export interface DeleteIpamCommandOutput extends DeleteIpamResult, __MetadataBea
  * //     StateMessage: "STRING_VALUE",
  * //     Tier: "free" || "advanced",
  * //     EnablePrivateGua: true || false,
+ * //     MeteredAccount: "ipam-owner" || "resource-owner",
  * //   },
  * // };
  *

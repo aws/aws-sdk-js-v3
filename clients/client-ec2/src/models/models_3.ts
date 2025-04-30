@@ -50,7 +50,6 @@ import {
 } from "./models_1";
 
 import {
-  CloudWatchLogOptionsSpecification,
   GroupIdentifier,
   IKEVersionsRequestListValue,
   LocalGatewayRoute,
@@ -76,6 +75,34 @@ import {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * <p>Options for sending VPN tunnel logs to CloudWatch.</p>
+ * @public
+ */
+export interface CloudWatchLogOptionsSpecification {
+  /**
+   * <p>Enable or disable VPN tunnel logging feature. Default value is <code>False</code>.</p>
+   *          <p>Valid values: <code>True</code> | <code>False</code>
+   *          </p>
+   * @public
+   */
+  LogEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.</p>
+   * @public
+   */
+  LogGroupArn?: string | undefined;
+
+  /**
+   * <p>Set log format. Default format is <code>json</code>.</p>
+   *          <p>Valid values: <code>json</code> | <code>text</code>
+   *          </p>
+   * @public
+   */
+  LogOutputFormat?: string | undefined;
+}
 
 /**
  * <p>Options for logging VPN tunnel activity.</p>
@@ -5653,7 +5680,9 @@ export interface DescribeCapacityBlockOfferingsRequest {
   InstanceType?: string | undefined;
 
   /**
-   * <p>The number of instances for which to reserve capacity.</p>
+   * <p>The number of instances for which to reserve capacity. Each Capacity Block
+   * 			can have up to 64 instances, and you can have up to 256 instances across Capacity
+   * 			Blocks.</p>
    * @public
    */
   InstanceCount?: number | undefined;
@@ -5671,7 +5700,9 @@ export interface DescribeCapacityBlockOfferingsRequest {
   EndDateRange?: Date | undefined;
 
   /**
-   * <p>The number of hours for which to reserve Capacity Block.</p>
+   * <p>The reservation duration for the Capacity Block, in hours. You must specify
+   * 			the duration in 1-day increments up 14 days, and in 7-day increments up to
+   * 			182 days.</p>
    * @public
    */
   CapacityDurationHours: number | undefined;
@@ -7134,12 +7165,13 @@ export interface ClientLoginBannerResponseOptions {
 }
 
 /**
- * <p>The current status of client route enforcement. The state will either be <code>true</code> (enabled) or <code>false</code> (disabled).</p>
+ * <p>The current status of Client Route Enforcement. </p>
  * @public
  */
 export interface ClientRouteEnforcementResponseOptions {
   /**
-   * <p>Status of the client route enforcement feature.</p>
+   * <p>Status of the client route enforcement feature, indicating whether Client Route Enforcement
+   * 			is <code>true</code> (enabled) or <code>false</code> (disabled).</p>
    *          <p>Valid values: <code>true | false</code>
    *          </p>
    *          <p>Default value: <code>false</code>
@@ -7348,7 +7380,7 @@ export interface ClientVpnEndpoint {
   ClientRouteEnforcementOptions?: ClientRouteEnforcementResponseOptions | undefined;
 
   /**
-   * <p>Indicates whether the client VPN session is disconnected after the maximum <code>sessionTimeoutHours</code> is reached. If <code>true</code>, users are prompted to reconnect client VPN. If <code>false</code>, client VPN attempts to reconnect automatically. The default value is <code>false</code>.</p>
+   * <p>Indicates whether the client VPN session is disconnected after the maximum <code>sessionTimeoutHours</code> is reached. If <code>true</code>, users are prompted to reconnect client VPN. If <code>false</code>, client VPN attempts to reconnect automatically. The default value is <code>true</code>.</p>
    * @public
    */
   DisconnectOnSessionTimeout?: boolean | undefined;
@@ -7665,25 +7697,6 @@ export interface DescribeCoipPoolsResult {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeConversionTasksRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The conversion task IDs.</p>
-   * @public
-   */
-  ConversionTaskIds?: string[] | undefined;
 }
 
 /**

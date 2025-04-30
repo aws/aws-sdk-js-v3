@@ -2763,7 +2763,6 @@ import {
   LaunchTemplateSpotMarketOptionsRequest,
   LaunchTemplateTagSpecification,
   LaunchTemplateTagSpecificationRequest,
-  LaunchTemplateVersion,
   LocalStorageType,
   MemoryGiBPerVCpu,
   MemoryGiBPerVCpuRequest,
@@ -2805,7 +2804,6 @@ import {
 import {
   AttachmentEnaSrdSpecification,
   AttachmentEnaSrdUdpSpecification,
-  CloudWatchLogOptionsSpecification,
   ConnectionNotification,
   ConnectionTrackingConfiguration,
   CreateLaunchTemplateVersionResult,
@@ -2939,6 +2937,7 @@ import {
   InstanceSpecification,
   Ipv6PrefixSpecification,
   LastError,
+  LaunchTemplateVersion,
   LocalGatewayRoute,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
@@ -3053,6 +3052,7 @@ import {
   ClientVpnEndpointAttributeStatus,
   ClientVpnRoute,
   CloudWatchLogOptions,
+  CloudWatchLogOptionsSpecification,
   ConnectionLogResponseOptions,
   CreateVpnConnectionRequest,
   CreateVpnConnectionResult,
@@ -3268,7 +3268,6 @@ import {
   DescribeClientVpnTargetNetworksResult,
   DescribeCoipPoolsRequest,
   DescribeCoipPoolsResult,
-  DescribeConversionTasksRequest,
   DirectoryServiceAuthentication,
   FailedQueuedPurchaseDeletion,
   FederatedAuthentication,
@@ -3320,6 +3319,7 @@ import {
   ConversionTask,
   CpuOptions,
   DeclarativePoliciesReport,
+  DescribeConversionTasksRequest,
   DescribeConversionTasksResult,
   DescribeCustomerGatewaysRequest,
   DescribeCustomerGatewaysResult,
@@ -3436,7 +3436,6 @@ import {
   DescribeMacHostsRequest,
   DescribeMacHostsResult,
   DescribeManagedPrefixListsRequest,
-  DescribeManagedPrefixListsResult,
   DestinationOptionsResponse,
   DiskImageDescription,
   DiskImageVolumeDescription,
@@ -3563,6 +3562,7 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeManagedPrefixListsResult,
   DescribeMovingAddressesRequest,
   DescribeMovingAddressesResult,
   DescribeNatGatewaysRequest,
@@ -3757,7 +3757,6 @@ import {
   DisableImageBlockPublicAccessResult,
   DisableImageDeprecationRequest,
   DisableImageDeprecationResult,
-  DisableImageDeregistrationProtectionRequest,
   DisableImageRequest,
   DisableImageResult,
   HistoryRecord,
@@ -3842,6 +3841,7 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DisableImageDeregistrationProtectionRequest,
   DisableImageDeregistrationProtectionResult,
   DisableIpamOrganizationAdminAccountRequest,
   DisableIpamOrganizationAdminAccountResult,
@@ -3892,7 +3892,6 @@ import {
   DisassociateTrunkInterfaceResult,
   DisassociateVpcCidrBlockRequest,
   DisassociateVpcCidrBlockResult,
-  DiskImageDetail,
   EnableAddressTransferRequest,
   EnableAddressTransferResult,
   EnableAllowedImagesSettingsRequest,
@@ -4119,6 +4118,7 @@ import {
   CidrAuthorizationContext,
   CreateVolumePermissionModifications,
   DiskImage,
+  DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
   ImageCriterionRequest,
@@ -4380,7 +4380,6 @@ import {
   ResetNetworkInterfaceAttributeRequest,
   ResetSnapshotAttributeRequest,
   RestoreAddressToClassicRequest,
-  RestoreAddressToClassicResult,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
@@ -4412,6 +4411,7 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RestoreAddressToClassicResult,
   RestoreImageFromRecycleBinRequest,
   RestoreImageFromRecycleBinResult,
   RestoreManagedPrefixListVersionRequest,
@@ -32865,6 +32865,9 @@ const se_CreateIpamRequest = (input: CreateIpamRequest, context: __SerdeContext)
   if (input[_EPG] != null) {
     entries[_EPG] = input[_EPG];
   }
+  if (input[_MAe] != null) {
+    entries[_MAe] = input[_MAe];
+  }
   return entries;
 };
 
@@ -49858,6 +49861,9 @@ const se_ModifyIpamRequest = (input: ModifyIpamRequest, context: __SerdeContext)
   }
   if (input[_EPG] != null) {
     entries[_EPG] = input[_EPG];
+  }
+  if (input[_MAe] != null) {
+    entries[_MAe] = input[_MAe];
   }
   return entries;
 };
@@ -74680,6 +74686,9 @@ const de_Ipam = (output: any, context: __SerdeContext): Ipam => {
   if (output[_ePG] != null) {
     contents[_EPG] = __parseBoolean(output[_ePG]);
   }
+  if (output[_mAe] != null) {
+    contents[_MAe] = __expectString(output[_mAe]);
+  }
   return contents;
 };
 
@@ -90966,6 +90975,7 @@ const _MAS = "MovingAddressStatuses";
 const _MATV = "MoveAddressToVpc";
 const _MAZG = "ModifyAvailabilityZoneGroup";
 const _MAa = "MacAddress";
+const _MAe = "MeteredAccount";
 const _MB = "ManagedBy";
 const _MBCTI = "MoveByoipCidrToIpam";
 const _MBIM = "MaximumBandwidthInMbps";
@@ -93055,6 +93065,7 @@ const _mAI = "maxAggregationInterval";
 const _mAIe = "mediaAcceleratorInfo";
 const _mASS = "movingAddressStatusSet";
 const _mAa = "macAddress";
+const _mAe = "meteredAccount";
 const _mB = "managedBy";
 const _mBIM = "maximumBandwidthInMbps";
 const _mC = "missingComponent";

@@ -52,6 +52,7 @@ export interface ModifyIpamCommandOutput extends ModifyIpamResult, __MetadataBea
  *   ],
  *   Tier: "free" || "advanced",
  *   EnablePrivateGua: true || false,
+ *   MeteredAccount: "ipam-owner" || "resource-owner",
  * };
  * const command = new ModifyIpamCommand(input);
  * const response = await client.send(command);
@@ -83,6 +84,7 @@ export interface ModifyIpamCommandOutput extends ModifyIpamResult, __MetadataBea
  * //     StateMessage: "STRING_VALUE",
  * //     Tier: "free" || "advanced",
  * //     EnablePrivateGua: true || false,
+ * //     MeteredAccount: "ipam-owner" || "resource-owner",
  * //   },
  * // };
  *

@@ -52,8 +52,6 @@ import {
   KeyType,
   LaunchTemplate,
   LaunchTemplateAndOverridesResponse,
-  LaunchTemplateVersion,
-  LaunchTemplateVersionFilterSensitiveLog,
   LogDestinationType,
   OperatorResponse,
   Placement,
@@ -66,15 +64,35 @@ import {
 
 import {
   GroupIdentifier,
+  LaunchTemplateVersion,
+  LaunchTemplateVersionFilterSensitiveLog,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
-  ManagedPrefixList,
   NetworkInterfaceStatus,
   StateReason,
 } from "./models_2";
 
 import { Byoasn, Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeConversionTasksRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The conversion task IDs.</p>
+   * @public
+   */
+  ConversionTaskIds?: string[] | undefined;
+}
 
 /**
  * <p>Describes a disk image.</p>
@@ -12235,23 +12253,6 @@ export interface DescribeManagedPrefixListsRequest {
    * @public
    */
   PrefixListIds?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeManagedPrefixListsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the prefix lists.</p>
-   * @public
-   */
-  PrefixLists?: ManagedPrefixList[] | undefined;
 }
 
 /**
