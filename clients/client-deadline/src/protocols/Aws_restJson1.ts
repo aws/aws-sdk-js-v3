@@ -1174,6 +1174,7 @@ export const se_CreateWorkerCommand = async (
   body = JSON.stringify(
     take(input, {
       hostProperties: (_) => _json(_),
+      tags: (_) => _json(_),
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -6504,6 +6505,7 @@ const se_CustomerManagedFleetConfiguration = (
   return take(input, {
     mode: [],
     storageProfileId: [],
+    tagPropagationMode: [],
     workerCapabilities: (_) => se_CustomerManagedWorkerCapabilities(_, context),
   });
 };
@@ -6938,6 +6940,7 @@ const de_CustomerManagedFleetConfiguration = (
   return take(output, {
     mode: __expectString,
     storageProfileId: __expectString,
+    tagPropagationMode: __expectString,
     workerCapabilities: (_: any) => de_CustomerManagedWorkerCapabilities(_, context),
   }) as any;
 };

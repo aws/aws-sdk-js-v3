@@ -94,6 +94,7 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * //         ],
  * //       },
  * //       storageProfileId: "STRING_VALUE",
+ * //       tagPropagationMode: "NO_PROPAGATION" || "PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH",
  * //     },
  * //     serviceManagedEc2: { // ServiceManagedEc2FleetConfiguration
  * //       instanceCapabilities: { // ServiceManagedEc2InstanceCapabilities

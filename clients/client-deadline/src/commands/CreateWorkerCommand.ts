@@ -53,6 +53,9 @@ export interface CreateWorkerCommandOutput extends CreateWorkerResponse, __Metad
  *     hostName: "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateWorkerCommand(input);
  * const response = await client.send(command);

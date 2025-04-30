@@ -3058,6 +3058,20 @@ export interface CreateFarmResponse {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const TagPropagationMode = {
+  NO_PROPAGATION: "NO_PROPAGATION",
+  PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH: "PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH",
+} as const;
+
+/**
+ * @public
+ */
+export type TagPropagationMode = (typeof TagPropagationMode)[keyof typeof TagPropagationMode];
+
+/**
  * <p>The fleet amount and attribute capabilities.</p>
  * @public
  */
@@ -3233,6 +3247,19 @@ export interface CustomerManagedFleetConfiguration {
    * @public
    */
   storageProfileId?: string | undefined;
+
+  /**
+   * <p>Specifies whether tags associated with a fleet are attached to workers when the worker
+   *          is launched. </p>
+   *          <p>When the <code>tagPropagationMode</code> is set to
+   *             <code>PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH</code> any tag associated with a fleet is
+   *          attached to workers when they launch. If the tags for a fleet change, the tags associated
+   *          with running workers <b>do not</b> change.</p>
+   *          <p>If you don't specify <code>tagPropagationMode</code>, the default is
+   *             <code>NO_PROPAGATION</code>.</p>
+   * @public
+   */
+  tagPropagationMode?: TagPropagationMode | undefined;
 }
 
 /**
@@ -4205,6 +4232,12 @@ export interface CreateWorkerRequest {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -8855,23 +8888,6 @@ export interface TaskSummary {
 }
 
 /**
- * @public
- */
-export interface ListTasksResponse {
-  /**
-   * <p>Tasks for the job.</p>
-   * @public
-   */
-  tasks: TaskSummary[] | undefined;
-
-  /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const TaskParameterValueFilterSensitiveLog = (obj: TaskParameterValue): any => {
@@ -9344,12 +9360,4 @@ export const GetTaskResponseFilterSensitiveLog = (obj: GetTaskResponse): any => 
 export const TaskSummaryFilterSensitiveLog = (obj: TaskSummary): any => ({
   ...obj,
   ...(obj.parameters && { parameters: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListTasksResponseFilterSensitiveLog = (obj: ListTasksResponse): any => ({
-  ...obj,
-  ...(obj.tasks && { tasks: obj.tasks.map((item) => TaskSummaryFilterSensitiveLog(item)) }),
 });

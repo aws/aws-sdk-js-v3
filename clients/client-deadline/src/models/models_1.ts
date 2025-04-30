@@ -25,9 +25,28 @@ import {
   StorageProfileSummary,
   TaskParameterValue,
   TaskRunStatus,
+  TaskSummary,
+  TaskSummaryFilterSensitiveLog,
   TaskTargetRunStatus,
   WorkerStatus,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListTasksResponse {
+  /**
+   * <p>Tasks for the job.</p>
+   * @public
+   */
+  tasks: TaskSummary[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -2165,11 +2184,13 @@ export interface SearchTermFilterExpression {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>FUZZY_MATCH</code> - Matches if a portion of the search term is found in the result.</p>
+   *                   <code>FUZZY_MATCH</code> - Matches if a portion of the search term is found in the
+   *                result.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CONTAINS</code> - Matches if the exact search term is contained in the result.</p>
+   *                   <code>CONTAINS</code> - Matches if the exact search term is contained in the
+   *                result.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3490,6 +3511,14 @@ export interface SearchWorkersRequest {
    */
   pageSize?: number | undefined;
 }
+
+/**
+ * @internal
+ */
+export const ListTasksResponseFilterSensitiveLog = (obj: ListTasksResponse): any => ({
+  ...obj,
+  ...(obj.tasks && { tasks: obj.tasks.map((item) => TaskSummaryFilterSensitiveLog(item)) }),
+});
 
 /**
  * @internal
