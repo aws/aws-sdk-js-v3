@@ -214,6 +214,7 @@ import {
   CustomMetricDefinition,
   CustomMetricEvaluatorModelConfig,
   CustomModelSummary,
+  DataProcessingDetails,
   DistillationConfig,
   EndpointConfig,
   EvaluationBedrockModel,
@@ -302,14 +303,17 @@ import {
   SageMakerEndpoint,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
+  StatusDetails,
   Tag,
   TeacherModelConfig,
   TextInferenceConfig,
   ThrottlingException,
   TooManyTagsException,
   TrainingDataConfig,
+  TrainingDetails,
   TrainingMetrics,
   ValidationDataConfig,
+  ValidationDetails,
   ValidationException,
   Validator,
   ValidatorMetric,
@@ -2257,6 +2261,7 @@ export const de_GetModelCustomizationJobCommand = async (
     outputModelName: __expectString,
     roleArn: __expectString,
     status: __expectString,
+    statusDetails: (_) => de_StatusDetails(_, context),
     trainingDataConfig: _json,
     trainingMetrics: (_) => de_TrainingMetrics(_, context),
     validationDataConfig: _json,
@@ -3874,6 +3879,17 @@ const de_CustomModelSummaryList = (output: any, context: __SerdeContext): Custom
 
 // de_CustomModelUnits omitted.
 
+/**
+ * deserializeAws_restJson1DataProcessingDetails
+ */
+const de_DataProcessingDetails = (output: any, context: __SerdeContext): DataProcessingDetails => {
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    lastModifiedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    status: __expectString,
+  }) as any;
+};
+
 // de_DistillationConfig omitted.
 
 // de_EndpointConfig omitted.
@@ -4441,6 +4457,7 @@ const de_ModelCustomizationJobSummary = (output: any, context: __SerdeContext): 
     jobName: __expectString,
     lastModifiedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     status: __expectString,
+    statusDetails: (_: any) => de_StatusDetails(_, context),
   }) as any;
 };
 
@@ -4798,6 +4815,17 @@ const de_RoutingCriteria = (output: any, context: __SerdeContext): RoutingCriter
 
 // de_SecurityGroupIds omitted.
 
+/**
+ * deserializeAws_restJson1StatusDetails
+ */
+const de_StatusDetails = (output: any, context: __SerdeContext): StatusDetails => {
+  return take(output, {
+    dataProcessingDetails: (_: any) => de_DataProcessingDetails(_, context),
+    trainingDetails: (_: any) => de_TrainingDetails(_, context),
+    validationDetails: (_: any) => de_ValidationDetails(_, context),
+  }) as any;
+};
+
 // de_SubnetIds omitted.
 
 // de_Tag omitted.
@@ -4821,6 +4849,17 @@ const de_TextInferenceConfig = (output: any, context: __SerdeContext): TextInfer
 // de_TrainingDataConfig omitted.
 
 /**
+ * deserializeAws_restJson1TrainingDetails
+ */
+const de_TrainingDetails = (output: any, context: __SerdeContext): TrainingDetails => {
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    lastModifiedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    status: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1TrainingMetrics
  */
 const de_TrainingMetrics = (output: any, context: __SerdeContext): TrainingMetrics => {
@@ -4830,6 +4869,17 @@ const de_TrainingMetrics = (output: any, context: __SerdeContext): TrainingMetri
 };
 
 // de_ValidationDataConfig omitted.
+
+/**
+ * deserializeAws_restJson1ValidationDetails
+ */
+const de_ValidationDetails = (output: any, context: __SerdeContext): ValidationDetails => {
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    lastModifiedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    status: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1ValidationMetrics

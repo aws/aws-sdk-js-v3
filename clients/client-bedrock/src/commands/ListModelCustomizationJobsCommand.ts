@@ -58,6 +58,23 @@ export interface ListModelCustomizationJobsCommandOutput extends ListModelCustom
  * //       jobName: "STRING_VALUE", // required
  * //       status: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
  * //       lastModifiedTime: new Date("TIMESTAMP"),
+ * //       statusDetails: { // StatusDetails
+ * //         validationDetails: { // ValidationDetails
+ * //           status: "InProgress" || "Completed" || "Stopping" || "Stopped" || "Failed" || "NotStarted",
+ * //           creationTime: new Date("TIMESTAMP"),
+ * //           lastModifiedTime: new Date("TIMESTAMP"),
+ * //         },
+ * //         dataProcessingDetails: { // DataProcessingDetails
+ * //           status: "InProgress" || "Completed" || "Stopping" || "Stopped" || "Failed" || "NotStarted",
+ * //           creationTime: new Date("TIMESTAMP"),
+ * //           lastModifiedTime: new Date("TIMESTAMP"),
+ * //         },
+ * //         trainingDetails: { // TrainingDetails
+ * //           status: "InProgress" || "Completed" || "Stopping" || "Stopped" || "Failed" || "NotStarted",
+ * //           creationTime: new Date("TIMESTAMP"),
+ * //           lastModifiedTime: new Date("TIMESTAMP"),
+ * //         },
+ * //       },
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //       endTime: new Date("TIMESTAMP"),
  * //       customModelArn: "STRING_VALUE",

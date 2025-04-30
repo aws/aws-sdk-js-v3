@@ -6476,7 +6476,7 @@ export type CustomizationConfig = CustomizationConfig.DistillationConfigMember |
  */
 export namespace CustomizationConfig {
   /**
-   * <p>The distillation configuration for the custom model.</p>
+   * <p>The Distillation configuration for the custom model.</p>
    * @public
    */
   export interface DistillationConfigMember {
@@ -6588,8 +6588,8 @@ export interface RequestMetadataBaseFilters {
 
 /**
  * <p>Rules for filtering invocation logs. A filter can be a mapping of a metadata
- *     key to a value that it should or should not equal (a base filter), or a list of base filters
- *     that are all applied with <code>AND</code> or <code>OR</code> logical operators</p>
+ *       key to a value that it should or should not equal (a base filter), or a list of base filters
+ *       that are all applied with <code>AND</code> or <code>OR</code> logical operators</p>
  * @public
  */
 export type RequestMetadataFilters =
@@ -8185,6 +8185,140 @@ export type ModelCustomizationJobStatus =
 
 /**
  * @public
+ * @enum
+ */
+export const JobStatusDetails = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  NOT_STARTED: "NotStarted",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatusDetails = (typeof JobStatusDetails)[keyof typeof JobStatusDetails];
+
+/**
+ * <p>For a Distillation job, the status details for the data processing sub-task of the job.</p>
+ * @public
+ */
+export interface DataProcessingDetails {
+  /**
+   * <p>The status of the data processing sub-task of the job.</p>
+   * @public
+   */
+  status?: JobStatusDetails | undefined;
+
+  /**
+   * <p>The start time of the data processing sub-task of the job.</p>
+   * @public
+   */
+  creationTime?: Date | undefined;
+
+  /**
+   * <p>The latest update to the data processing sub-task of the job.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+}
+
+/**
+ * <p>For a Distillation job, the status details for the training sub-task of the job.</p>
+ * @public
+ */
+export interface TrainingDetails {
+  /**
+   * <p>The status of the training sub-task of the job.</p>
+   * @public
+   */
+  status?: JobStatusDetails | undefined;
+
+  /**
+   * <p>The start time of the training sub-task of the job.</p>
+   * @public
+   */
+  creationTime?: Date | undefined;
+
+  /**
+   * <p>The latest update to the training sub-task of the job.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+}
+
+/**
+ * <p>For a Distillation job, the status details for the validation sub-task of the job.</p>
+ * @public
+ */
+export interface ValidationDetails {
+  /**
+   * <p>The status of the validation sub-task of the job.</p>
+   * @public
+   */
+  status?: JobStatusDetails | undefined;
+
+  /**
+   * <p>The start time of the validation sub-task of the job.</p>
+   * @public
+   */
+  creationTime?: Date | undefined;
+
+  /**
+   * <p>The latest update to the validation sub-task of the job.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+}
+
+/**
+ * <p>For a Distillation job, the status details for sub-tasks of the job. Possible statuses for each sub-task include the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>NotStarted</p>
+ *             </li>
+ *             <li>
+ *                <p>InProgress</p>
+ *             </li>
+ *             <li>
+ *                <p>Completed</p>
+ *             </li>
+ *             <li>
+ *                <p>Stopping</p>
+ *             </li>
+ *             <li>
+ *                <p>Stopped</p>
+ *             </li>
+ *             <li>
+ *                <p>Failed</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface StatusDetails {
+  /**
+   * <p>The status details for the validation sub-task of the job.</p>
+   * @public
+   */
+  validationDetails?: ValidationDetails | undefined;
+
+  /**
+   * <p>The status details for the data processing sub-task of the job.</p>
+   * @public
+   */
+  dataProcessingDetails?: DataProcessingDetails | undefined;
+
+  /**
+   * <p>The status details for the training sub-task of the job.</p>
+   * @public
+   */
+  trainingDetails?: TrainingDetails | undefined;
+}
+
+/**
+ * @public
  */
 export interface GetModelCustomizationJobResponse {
   /**
@@ -8235,6 +8369,12 @@ export interface GetModelCustomizationJobResponse {
    * @public
    */
   failureMessage?: string | undefined;
+
+  /**
+   * <p>For a Distillation job, the details about the statuses of the sub-tasks of the customization job. </p>
+   * @public
+   */
+  statusDetails?: StatusDetails | undefined;
 
   /**
    * <p>Time that the resource was created.</p>
@@ -8425,6 +8565,12 @@ export interface ModelCustomizationJobSummary {
    * @public
    */
   lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Details about the status of the data processing sub-task of the job.</p>
+   * @public
+   */
+  statusDetails?: StatusDetails | undefined;
 
   /**
    * <p>Creation time of the custom model. </p>
