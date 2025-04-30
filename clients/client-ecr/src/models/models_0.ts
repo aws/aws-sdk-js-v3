@@ -836,7 +836,7 @@ export interface CreatePullThroughCacheRuleRequest {
    *          <ul>
    *             <li>
    *                <p>Amazon ECR (<code>ecr</code>) –
-   *                     <code><accountId>.dkr.ecr.<region>.amazonaws.com</code>
+   *                     <code>dkr.ecr.<region>.amazonaws.com</code>
    *                </p>
    *             </li>
    *             <li>
@@ -2308,7 +2308,7 @@ export interface ImageDetail {
    *             <p>Starting with Docker version 1.9, the Docker client compresses image layers before
    *                 pushing them to a V2 Docker registry. The output of the <code>docker images</code>
    *                 command shows the uncompressed image size. Therefore, Docker might return a larger
-   *                 image than the image shown in the Amazon Web Services Management Console.</p>
+   *                 image than the image sizes returned by <a>DescribeImages</a>.</p>
    *          </note>
    * @public
    */
@@ -3518,10 +3518,6 @@ export interface GetAuthorizationTokenResponse {
   /**
    * <p>A list of authorization token data objects that correspond to the
    *                 <code>registryIds</code> values in the request.</p>
-   *          <note>
-   *             <p>The size of the authorization token returned by Amazon ECR is not fixed. We recommend
-   *                 that you don't make assumptions about the maximum size.</p>
-   *          </note>
    * @public
    */
   authorizationData?: AuthorizationData[] | undefined;
