@@ -309,6 +309,7 @@ import {
   SearchSummary,
   SendAction,
   ServiceQuotaExceededException,
+  SnsAction,
   StartAddressListImportJobRequest,
   StartArchiveExportRequest,
   StartArchiveSearchRequest,
@@ -2817,6 +2818,8 @@ const se_Rules = (input: Rule[], context: __SerdeContext): any => {
 
 // se_SendAction omitted.
 
+// se_SnsAction omitted.
+
 // se_StartAddressListImportJobRequest omitted.
 
 /**
@@ -3814,6 +3817,8 @@ const de_SearchSummaryList = (output: any, context: __SerdeContext): SearchSumma
 // de_SendAction omitted.
 
 // de_ServiceQuotaExceededException omitted.
+
+// de_SnsAction omitted.
 
 // de_StartAddressListImportJobResponse omitted.
 

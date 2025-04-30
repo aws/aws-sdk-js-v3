@@ -28,8 +28,7 @@ export interface CreateRelayCommandInput extends CreateRelayRequest {}
 export interface CreateRelayCommandOutput extends CreateRelayResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a relay resource which can be used in rules to relay incoming emails to
- *             defined relay destinations. </p>
+ * <p>Creates a relay resource which can be used in rules to relay incoming emails to defined relay destinations. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

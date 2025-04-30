@@ -227,6 +227,13 @@ export interface GetRuleSetCommandOutput extends GetRuleSetResponse, __MetadataB
  * //             IndexId: "STRING_VALUE", // required
  * //             RoleArn: "STRING_VALUE", // required
  * //           },
+ * //           PublishToSns: { // SnsAction
+ * //             ActionFailurePolicy: "CONTINUE" || "DROP",
+ * //             TopicArn: "STRING_VALUE", // required
+ * //             RoleArn: "STRING_VALUE", // required
+ * //             Encoding: "UTF-8" || "BASE64",
+ * //             PayloadType: "HEADERS" || "CONTENT",
+ * //           },
  * //         },
  * //       ],
  * //     },

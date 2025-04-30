@@ -28,9 +28,7 @@ export interface CreateAddonInstanceCommandInput extends CreateAddonInstanceRequ
 export interface CreateAddonInstanceCommandOutput extends CreateAddonInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Add On instance for the subscription indicated in the request. The
- *             resulting Amazon Resource Name (ARN) can be used in a conditional statement for a rule set or traffic policy.
- *         </p>
+ * <p>Creates an Add On instance for the subscription indicated in the request. The resulting Amazon Resource Name (ARN) can be used in a conditional statement for a rule set or traffic policy. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

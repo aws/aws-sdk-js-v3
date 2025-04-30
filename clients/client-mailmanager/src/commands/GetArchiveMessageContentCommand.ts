@@ -28,9 +28,7 @@ export interface GetArchiveMessageContentCommandInput extends GetArchiveMessageC
 export interface GetArchiveMessageContentCommandOutput extends GetArchiveMessageContentResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the textual content of a specific email message stored in the archive. Attachments are not
- *             included.
- *         </p>
+ * <p>Returns the textual content of a specific email message stored in the archive. Attachments are not included. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

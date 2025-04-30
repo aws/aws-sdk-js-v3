@@ -28,9 +28,7 @@ export interface CreateAddonSubscriptionCommandInput extends CreateAddonSubscrip
 export interface CreateAddonSubscriptionCommandOutput extends CreateAddonSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a subscription for an Add On representing the acceptance of its terms of use
- *             and additional pricing. The subscription can then be used to create an instance for use
- *             in rule sets or traffic policies.</p>
+ * <p>Creates a subscription for an Add On representing the acceptance of its terms of use and additional pricing. The subscription can then be used to create an instance for use in rule sets or traffic policies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

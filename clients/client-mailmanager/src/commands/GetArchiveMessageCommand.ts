@@ -32,9 +32,7 @@ export interface GetArchiveMessageCommandInput extends GetArchiveMessageRequest 
 export interface GetArchiveMessageCommandOutput extends GetArchiveMessageResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a pre-signed URL that provides temporary download access to the specific email message stored in
- *             the archive.
- *         </p>
+ * <p>Returns a pre-signed URL that provides temporary download access to the specific email message stored in the archive. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

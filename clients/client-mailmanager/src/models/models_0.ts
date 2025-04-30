@@ -54,15 +54,12 @@ export const ActionFailurePolicy = {
 export type ActionFailurePolicy = (typeof ActionFailurePolicy)[keyof typeof ActionFailurePolicy];
 
 /**
- * <p>The action to add a header to a message. When executed, this action will add the given
- *             header to the message.</p>
+ * <p>The action to add a header to a message. When executed, this action will add the given header to the message.</p>
  * @public
  */
 export interface AddHeaderAction {
   /**
-   * <p>The name of the header to add to an email. The header must be prefixed with
-   *             "X-". Headers are added regardless of whether the header name pre-existed in
-   *             the email.</p>
+   * <p>The name of the header to add to an email. The header must be prefixed with "X-". Headers are added regardless of whether the header name pre-existed in the email.</p>
    * @public
    */
   HeaderName: string | undefined;
@@ -155,15 +152,13 @@ export interface Tag {
  */
 export interface CreateAddonInstanceRequest {
   /**
-   * <p>A unique token that Amazon SES uses to recognize subsequent retries of the same
-   *             request.</p>
+   * <p>A unique token that Amazon SES uses to recognize subsequent retries of the same request.</p>
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The unique ID of a previously created subscription that an Add On instance is created
-   *             for. You can only have one instance per subscription.</p>
+   * <p>The unique ID of a previously created subscription that an Add On instance is created for. You can only have one instance per subscription.</p>
    * @public
    */
   AddonSubscriptionId: string | undefined;
@@ -319,8 +314,7 @@ export interface ListAddonInstancesRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of ingress endpoint resources that are returned per call. You can
-   *             use NextToken to obtain further ingress endpoints. </p>
+   * <p>The maximum number of ingress endpoint resources that are returned per call. You can use NextToken to obtain further ingress endpoints. </p>
    * @public
    */
   PageSize?: number | undefined;
@@ -344,8 +338,7 @@ export interface ListAddonInstancesResponse {
 }
 
 /**
- * <p>A subscription for an Add On representing the acceptance of its terms of use and
- *             additional pricing.</p>
+ * <p>A subscription for an Add On representing the acceptance of its terms of use and additional pricing.</p>
  * @public
  */
 export interface AddonSubscription {
@@ -379,15 +372,13 @@ export interface AddonSubscription {
  */
 export interface CreateAddonSubscriptionRequest {
   /**
-   * <p>A unique token that Amazon SES uses to recognize subsequent retries of the same
-   *             request.</p>
+   * <p>A unique token that Amazon SES uses to recognize subsequent retries of the same request.</p>
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The name of the Add On to subscribe to. You can only have one subscription for each
-   *             Add On name.</p>
+   * <p>The name of the Add On to subscribe to. You can only have one subscription for each Add On name.</p>
    * @public
    */
   AddonName: string | undefined;
@@ -471,8 +462,7 @@ export interface ListAddonSubscriptionsRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of ingress endpoint resources that are returned per call. You can
-   *             use NextToken to obtain further ingress endpoints. </p>
+   * <p>The maximum number of ingress endpoint resources that are returned per call. You can use NextToken to obtain further ingress endpoints. </p>
    * @public
    */
   PageSize?: number | undefined;
@@ -548,8 +538,7 @@ export interface AddressList {
  */
 export interface CreateAddressListRequest {
   /**
-   * <p>A unique token that Amazon SES uses to recognize subsequent retries of the same
-   *             request.</p>
+   * <p>A unique token that Amazon SES uses to recognize subsequent retries of the same request.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -673,8 +662,7 @@ export interface ListAddressListsRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of address list resources that are returned per call. You can use
-   *             NextToken to retrieve the next page of address lists.</p>
+   * <p>The maximum number of address list resources that are returned per call. You can use NextToken to retrieve the next page of address lists.</p>
    * @public
    */
   PageSize?: number | undefined;
@@ -698,8 +686,7 @@ export interface ListAddressListsResponse {
 }
 
 /**
- * <p>The result of an analysis can be used in conditions to trigger actions. Analyses can
- *             inspect the email content and report a certain aspect of the email.</p>
+ * <p>The result of an analysis can be used in conditions to trigger actions. Analyses can inspect the email content and report a certain aspect of the email.</p>
  * @public
  */
 export interface Analysis {
@@ -748,19 +735,7 @@ export interface Archive {
   ArchiveName?: string | undefined;
 
   /**
-   * <p>The current state of the archive:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code> – The archive is ready and available for use. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING_DELETION</code> – The archive has been marked for deletion
-   *                     and will be permanently deleted in 30 days. No further modifications can be made
-   *                     in this state. </p>
-   *             </li>
-   *          </ul>
+   * <p>The current state of the archive:</p> <ul> <li> <p> <code>ACTIVE</code> – The archive is ready and available for use. </p> </li> <li> <p> <code>PENDING_DELETION</code> – The archive has been marked for deletion and will be permanently deleted in 30 days. No further modifications can be made in this state. </p> </li> </ul>
    * @public
    */
   ArchiveState?: ArchiveState | undefined;
@@ -778,8 +753,7 @@ export interface Archive {
  */
 export interface ArchiveAction {
   /**
-   * <p>A policy that states what to do in the case of failure. The action will fail if there
-   *             are configuration errors. For example, the specified archive has been deleted.</p>
+   * <p>A policy that states what to do in the case of failure. The action will fail if there are configuration errors. For example, the specified archive has been deleted.</p>
    * @public
    */
   ActionFailurePolicy?: ActionFailurePolicy | undefined;
@@ -1073,8 +1047,7 @@ export const RetentionPeriod = {
 export type RetentionPeriod = (typeof RetentionPeriod)[keyof typeof RetentionPeriod];
 
 /**
- * <p>The retention policy for an email archive that specifies how long emails are kept
- *             before being automatically deleted. </p>
+ * <p>The retention policy for an email archive that specifies how long emails are kept before being automatically deleted. </p>
  * @public
  */
 export type ArchiveRetention = ArchiveRetention.RetentionPeriodMember | ArchiveRetention.$UnknownMember;
@@ -1172,9 +1145,7 @@ export interface DeleteArchiveRequest {
 }
 
 /**
- * <p>The response indicating if the archive deletion was successfully initiated.</p>
- *          <p>On success, returns an HTTP 200 status code. On failure, returns an error
- *             message.</p>
+ * <p>The response indicating if the archive deletion was successfully initiated.</p> <p>On success, returns an HTTP 200 status code. On failure, returns an error message.</p>
  * @public
  */
 export interface DeleteArchiveResponse {}
@@ -1215,19 +1186,7 @@ export interface GetArchiveResponse {
   ArchiveArn: string | undefined;
 
   /**
-   * <p>The current state of the archive:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code> – The archive is ready and available for use. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING_DELETION</code> – The archive has been marked for deletion
-   *                     and will be permanently deleted in 30 days. No further modifications can be made
-   *                     in this state. </p>
-   *             </li>
-   *          </ul>
+   * <p>The current state of the archive:</p> <ul> <li> <p> <code>ACTIVE</code> – The archive is ready and available for use. </p> </li> <li> <p> <code>PENDING_DELETION</code> – The archive has been marked for deletion and will be permanently deleted in 30 days. No further modifications can be made in this state. </p> </li> </ul>
    * @public
    */
   ArchiveState: ArchiveState | undefined;
@@ -1263,16 +1222,13 @@ export interface GetArchiveResponse {
  */
 export interface ListArchivesRequest {
   /**
-   * <p>If NextToken is returned, there are more results available. The value of NextToken is
-   *             a unique pagination token for each page. Make the call again using the returned token to
-   *             retrieve the next page. </p>
+   * <p>If NextToken is returned, there are more results available. The value of NextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. </p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of archives that are returned per call. You can use NextToken to
-   *             obtain further pages of archives. </p>
+   * <p>The maximum number of archives that are returned per call. You can use NextToken to obtain further pages of archives. </p>
    * @public
    */
   PageSize?: number | undefined;
@@ -1321,9 +1277,7 @@ export interface UpdateArchiveRequest {
 }
 
 /**
- * <p>The response indicating if the archive update succeeded or failed.</p>
- *          <p>On success, returns an HTTP 200 status code. On failure, returns an error
- *             message.</p>
+ * <p>The response indicating if the archive update succeeded or failed.</p> <p>On success, returns an HTTP 200 status code. On failure, returns an error message.</p>
  * @public
  */
 export interface UpdateArchiveResponse {}
@@ -1343,8 +1297,7 @@ export const ImportDataType = {
 export type ImportDataType = (typeof ImportDataType)[keyof typeof ImportDataType];
 
 /**
- * <p>The import data format contains the specifications of the input file that would be passed to the address list
- *             import job.</p>
+ * <p>The import data format contains the specifications of the input file that would be passed to the address list import job.</p>
  * @public
  */
 export interface ImportDataFormat {
@@ -1360,8 +1313,7 @@ export interface ImportDataFormat {
  */
 export interface CreateAddressListImportJobRequest {
   /**
-   * <p>A unique token that Amazon SES uses to recognize subsequent retries of the same
-   *             request.</p>
+   * <p>A unique token that Amazon SES uses to recognize subsequent retries of the same request.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -1571,8 +1523,7 @@ export type IngressPointType = (typeof IngressPointType)[keyof typeof IngressPoi
  */
 export interface CreateIngressPointRequest {
   /**
-   * <p>A unique token that Amazon SES uses to recognize subsequent retries of the same
-   *             request.</p>
+   * <p>A unique token that Amazon SES uses to recognize subsequent retries of the same request.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -1590,30 +1541,25 @@ export interface CreateIngressPointRequest {
   Type: IngressPointType | undefined;
 
   /**
-   * <p>The identifier of an existing rule set that you attach to an ingress endpoint
-   *             resource.</p>
+   * <p>The identifier of an existing rule set that you attach to an ingress endpoint resource.</p>
    * @public
    */
   RuleSetId: string | undefined;
 
   /**
-   * <p>The identifier of an existing traffic policy that you attach to an ingress endpoint
-   *             resource.</p>
+   * <p>The identifier of an existing traffic policy that you attach to an ingress endpoint resource.</p>
    * @public
    */
   TrafficPolicyId: string | undefined;
 
   /**
-   * <p>If you choose an Authenticated ingress endpoint, you must configure either an SMTP password or a secret
-   *             ARN.</p>
+   * <p>If you choose an Authenticated ingress endpoint, you must configure either an SMTP password or a secret ARN.</p>
    * @public
    */
   IngressPointConfiguration?: IngressPointConfiguration | undefined;
 
   /**
-   * <p>Specifies the network configuration for the ingress point.
-   *             This allows you to create an IPv4-only, Dual-Stack, or PrivateLink type of ingress point. If not specified, the default network type is IPv4-only.
-   *         </p>
+   * <p>Specifies the network configuration for the ingress point. This allows you to create an IPv4-only, Dual-Stack, or PrivateLink type of ingress point. If not specified, the default network type is IPv4-only. </p>
    * @public
    */
   NetworkConfiguration?: NetworkConfiguration | undefined;
@@ -1643,8 +1589,7 @@ export interface CreateIngressPointResponse {
 export interface NoAuthentication {}
 
 /**
- * <p>Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored,
- *             or specify an empty NoAuthentication structure if the relay destination server does not require SMTP credential authentication.</p>
+ * <p>Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored, or specify an empty NoAuthentication structure if the relay destination server does not require SMTP credential authentication.</p>
  * @public
  */
 export type RelayAuthentication =
@@ -1703,8 +1648,7 @@ export namespace RelayAuthentication {
  */
 export interface CreateRelayRequest {
   /**
-   * <p>A unique token that Amazon SES uses to recognize subsequent retries of the same
-   *             request.</p>
+   * <p>A unique token that Amazon SES uses to recognize subsequent retries of the same request.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -1728,8 +1672,7 @@ export interface CreateRelayRequest {
   ServerPort: number | undefined;
 
   /**
-   * <p>Authentication for the relay destination server—specify the secretARN where
-   *             the SMTP credentials are stored.</p>
+   * <p>Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored.</p>
    * @public
    */
   Authentication: RelayAuthentication | undefined;
@@ -1758,8 +1701,7 @@ export interface CreateRelayResponse {
  */
 export interface DeliverToMailboxAction {
   /**
-   * <p>A policy that states what to do in the case of failure. The action will fail if there
-   *             are configuration errors. For example, the mailbox ARN is no longer valid.</p>
+   * <p>A policy that states what to do in the case of failure. The action will fail if there are configuration errors. For example, the mailbox ARN is no longer valid.</p>
    * @public
    */
   ActionFailurePolicy?: ActionFailurePolicy | undefined;
@@ -1771,8 +1713,7 @@ export interface DeliverToMailboxAction {
   MailboxArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role to use to execute this action. The role must have access to
-   *             the workmail:DeliverToMailbox API.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role to use to execute this action. The role must have access to the workmail:DeliverToMailbox API.</p>
    * @public
    */
   RoleArn: string | undefined;
@@ -1784,42 +1725,99 @@ export interface DeliverToMailboxAction {
  */
 export interface DeliverToQBusinessAction {
   /**
-   * <p>A policy that states what to do in the case of failure. The action will fail if there are
-   *             configuration errors. For example, the specified application has been deleted or the role lacks
-   *             necessary permissions to call the qbusiness:BatchPutDocument API.</p>
+   * <p>A policy that states what to do in the case of failure. The action will fail if there are configuration errors. For example, the specified application has been deleted or the role lacks necessary permissions to call the <code>qbusiness:BatchPutDocument</code> API.</p>
    * @public
    */
   ActionFailurePolicy?: ActionFailurePolicy | undefined;
 
   /**
-   * <p>The unique identifier of the Amazon Q Business application instance where the email
-   *             content will be delivered.</p>
+   * <p>The unique identifier of the Amazon Q Business application instance where the email content will be delivered.</p>
    * @public
    */
   ApplicationId: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base index within the Amazon Q Business application
-   *             where the email content will be stored and indexed.</p>
+   * <p>The identifier of the knowledge base index within the Amazon Q Business application where the email content will be stored and indexed.</p>
    * @public
    */
   IndexId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM Role to use while delivering to Amazon Q Business. This role must have access
-   *             to the qbusiness:BatchPutDocument API for the given application and index.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM Role to use while delivering to Amazon Q Business. This role must have access to the <code>qbusiness:BatchPutDocument</code> API for the given application and index.</p>
    * @public
    */
   RoleArn: string | undefined;
 }
 
 /**
- * <p>This action causes processing to stop and the email to be dropped. If the action
- *             applies only to certain recipients, only those recipients are dropped, and processing
- *             continues for other recipients.</p>
+ * <p>This action causes processing to stop and the email to be dropped. If the action applies only to certain recipients, only those recipients are dropped, and processing continues for other recipients.</p>
  * @public
  */
 export interface DropAction {}
+
+/**
+ * @public
+ * @enum
+ */
+export const SnsNotificationEncoding = {
+  BASE64: "BASE64",
+  UTF_8: "UTF-8",
+} as const;
+
+/**
+ * @public
+ */
+export type SnsNotificationEncoding = (typeof SnsNotificationEncoding)[keyof typeof SnsNotificationEncoding];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnsNotificationPayloadType = {
+  CONTENT: "CONTENT",
+  HEADERS: "HEADERS",
+} as const;
+
+/**
+ * @public
+ */
+export type SnsNotificationPayloadType = (typeof SnsNotificationPayloadType)[keyof typeof SnsNotificationPayloadType];
+
+/**
+ * <p>The action to publish the email content to an Amazon SNS topic. When executed, this action will send the email as a notification to the specified SNS topic.</p>
+ * @public
+ */
+export interface SnsAction {
+  /**
+   * <p>A policy that states what to do in the case of failure. The action will fail if there are configuration errors. For example, specified SNS topic has been deleted or the role lacks necessary permissions to call the <code>sns:Publish</code> API.</p>
+   * @public
+   */
+  ActionFailurePolicy?: ActionFailurePolicy | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon SNS Topic to which notification for the email received will be published.</p>
+   * @public
+   */
+  TopicArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Role to use while writing to Amazon SNS. This role must have access to the <code>sns:Publish</code> API for the given topic.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The encoding to use for the email within the Amazon SNS notification. The default value is <code>UTF-8</code>. Use <code>BASE64</code> if you need to preserve all special characters, especially when the original message uses a different encoding format.</p>
+   * @public
+   */
+  Encoding?: SnsNotificationEncoding | undefined;
+
+  /**
+   * <p>The expected payload type within the Amazon SNS notification. <code>CONTENT</code> attempts to publish the full email content with 20KB of headers content. <code>HEADERS</code> extracts up to 100KB of header content to include in the notification, email content will not be included to the notification. The default value is <code>CONTENT</code>.</p>
+   * @public
+   */
+  PayloadType?: SnsNotificationPayloadType | undefined;
+}
 
 /**
  * @public
@@ -1841,8 +1839,7 @@ export type MailFrom = (typeof MailFrom)[keyof typeof MailFrom];
  */
 export interface RelayAction {
   /**
-   * <p>A policy that states what to do in the case of failure. The action will fail if there
-   *             are configuration errors. For example, the specified relay has been deleted.</p>
+   * <p>A policy that states what to do in the case of failure. The action will fail if there are configuration errors. For example, the specified relay has been deleted.</p>
    * @public
    */
   ActionFailurePolicy?: ActionFailurePolicy | undefined;
@@ -1854,19 +1851,14 @@ export interface RelayAction {
   Relay: string | undefined;
 
   /**
-   * <p>This action specifies whether to preserve or replace original mail from address while
-   *             relaying received emails to a destination server.</p>
+   * <p>This action specifies whether to preserve or replace original mail from address while relaying received emails to a destination server.</p>
    * @public
    */
   MailFrom?: MailFrom | undefined;
 }
 
 /**
- * <p>This action replaces the email envelope recipients with the given list of recipients.
- *             If the condition of this action applies only to a subset of recipients, only those
- *             recipients are replaced with the recipients specified in the action. The message
- *             contents and headers are unaffected by this action, only the envelope recipients are
- *             updated.</p>
+ * <p>This action replaces the email envelope recipients with the given list of recipients. If the condition of this action applies only to a subset of recipients, only those recipients are replaced with the recipients specified in the action. The message contents and headers are unaffected by this action, only the envelope recipients are updated.</p>
  * @public
  */
 export interface ReplaceRecipientAction {
@@ -1883,16 +1875,13 @@ export interface ReplaceRecipientAction {
  */
 export interface SendAction {
   /**
-   * <p>A policy that states what to do in the case of failure. The action will fail if there
-   *             are configuration errors. For example, the caller does not have the permissions to call
-   *             the sendRawEmail API.</p>
+   * <p>A policy that states what to do in the case of failure. The action will fail if there are configuration errors. For example, the caller does not have the permissions to call the sendRawEmail API.</p>
    * @public
    */
   ActionFailurePolicy?: ActionFailurePolicy | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role to use for this action. This role must have access to the
-   *             ses:SendRawEmail API.</p>
+   * <p>The Amazon Resource Name (ARN) of the role to use for this action. This role must have access to the ses:SendRawEmail API.</p>
    * @public
    */
   RoleArn: string | undefined;
@@ -1904,15 +1893,13 @@ export interface SendAction {
  */
 export interface S3Action {
   /**
-   * <p>A policy that states what to do in the case of failure. The action will fail if there
-   *             are configuration errors. For example, the specified the bucket has been deleted.</p>
+   * <p>A policy that states what to do in the case of failure. The action will fail if there are configuration errors. For example, the specified the bucket has been deleted.</p>
    * @public
    */
   ActionFailurePolicy?: ActionFailurePolicy | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM Role to use while writing to S3. This role must have access to
-   *             the s3:PutObject, kms:Encrypt, and kms:GenerateDataKey APIs for the given bucket.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM Role to use while writing to S3. This role must have access to the s3:PutObject, kms:Encrypt, and kms:GenerateDataKey APIs for the given bucket.</p>
    * @public
    */
   RoleArn: string | undefined;
@@ -1946,6 +1933,7 @@ export type RuleAction =
   | RuleAction.DeliverToMailboxMember
   | RuleAction.DeliverToQBusinessMember
   | RuleAction.DropMember
+  | RuleAction.PublishToSnsMember
   | RuleAction.RelayMember
   | RuleAction.ReplaceRecipientMember
   | RuleAction.SendMember
@@ -1970,6 +1958,7 @@ export namespace RuleAction {
     ReplaceRecipient?: never;
     DeliverToMailbox?: never;
     DeliverToQBusiness?: never;
+    PublishToSns?: never;
     $unknown?: never;
   }
 
@@ -1987,12 +1976,12 @@ export namespace RuleAction {
     ReplaceRecipient?: never;
     DeliverToMailbox?: never;
     DeliverToQBusiness?: never;
+    PublishToSns?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>This action archives the email. This can be used to deliver an email to an
-   *             archive.</p>
+   * <p>This action archives the email. This can be used to deliver an email to an archive.</p>
    * @public
    */
   export interface ArchiveMember {
@@ -2005,6 +1994,7 @@ export namespace RuleAction {
     ReplaceRecipient?: never;
     DeliverToMailbox?: never;
     DeliverToQBusiness?: never;
+    PublishToSns?: never;
     $unknown?: never;
   }
 
@@ -2022,6 +2012,7 @@ export namespace RuleAction {
     ReplaceRecipient?: never;
     DeliverToMailbox?: never;
     DeliverToQBusiness?: never;
+    PublishToSns?: never;
     $unknown?: never;
   }
 
@@ -2039,6 +2030,7 @@ export namespace RuleAction {
     ReplaceRecipient?: never;
     DeliverToMailbox?: never;
     DeliverToQBusiness?: never;
+    PublishToSns?: never;
     $unknown?: never;
   }
 
@@ -2056,12 +2048,12 @@ export namespace RuleAction {
     ReplaceRecipient?: never;
     DeliverToMailbox?: never;
     DeliverToQBusiness?: never;
+    PublishToSns?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>The action replaces certain or all recipients with a different set of
-   *             recipients.</p>
+   * <p>The action replaces certain or all recipients with a different set of recipients.</p>
    * @public
    */
   export interface ReplaceRecipientMember {
@@ -2074,6 +2066,7 @@ export namespace RuleAction {
     ReplaceRecipient: ReplaceRecipientAction;
     DeliverToMailbox?: never;
     DeliverToQBusiness?: never;
+    PublishToSns?: never;
     $unknown?: never;
   }
 
@@ -2091,12 +2084,12 @@ export namespace RuleAction {
     ReplaceRecipient?: never;
     DeliverToMailbox: DeliverToMailboxAction;
     DeliverToQBusiness?: never;
+    PublishToSns?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>This action delivers an email to an Amazon Q Business application for ingestion into
-   *             its knowledge base.</p>
+   * <p>This action delivers an email to an Amazon Q Business application for ingestion into its knowledge base.</p>
    * @public
    */
   export interface DeliverToQBusinessMember {
@@ -2109,6 +2102,25 @@ export namespace RuleAction {
     ReplaceRecipient?: never;
     DeliverToMailbox?: never;
     DeliverToQBusiness: DeliverToQBusinessAction;
+    PublishToSns?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>This action publishes the email content to an Amazon SNS topic.</p>
+   * @public
+   */
+  export interface PublishToSnsMember {
+    Drop?: never;
+    Relay?: never;
+    Archive?: never;
+    WriteToS3?: never;
+    Send?: never;
+    AddHeader?: never;
+    ReplaceRecipient?: never;
+    DeliverToMailbox?: never;
+    DeliverToQBusiness?: never;
+    PublishToSns: SnsAction;
     $unknown?: never;
   }
 
@@ -2125,6 +2137,7 @@ export namespace RuleAction {
     ReplaceRecipient?: never;
     DeliverToMailbox?: never;
     DeliverToQBusiness?: never;
+    PublishToSns?: never;
     $unknown: [string, any];
   }
 
@@ -2138,6 +2151,7 @@ export namespace RuleAction {
     ReplaceRecipient: (value: ReplaceRecipientAction) => T;
     DeliverToMailbox: (value: DeliverToMailboxAction) => T;
     DeliverToQBusiness: (value: DeliverToQBusinessAction) => T;
+    PublishToSns: (value: SnsAction) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2151,6 +2165,7 @@ export namespace RuleAction {
     if (value.ReplaceRecipient !== undefined) return visitor.ReplaceRecipient(value.ReplaceRecipient);
     if (value.DeliverToMailbox !== undefined) return visitor.DeliverToMailbox(value.DeliverToMailbox);
     if (value.DeliverToQBusiness !== undefined) return visitor.DeliverToQBusiness(value.DeliverToQBusiness);
+    if (value.PublishToSns !== undefined) return visitor.PublishToSns(value.PublishToSns);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2208,8 +2223,7 @@ export interface RuleIsInAddressList {
 }
 
 /**
- * <p>The union type representing the allowed types of operands for a boolean
- *             condition.</p>
+ * <p>The union type representing the allowed types of operands for a boolean condition.</p>
  * @public
  */
 export type RuleBooleanToEvaluate =
@@ -2342,8 +2356,7 @@ export const RuleDmarcPolicy = {
 export type RuleDmarcPolicy = (typeof RuleDmarcPolicy)[keyof typeof RuleDmarcPolicy];
 
 /**
- * <p>A DMARC policy expression. The condition matches if the given DMARC policy matches
- *             that of the incoming email.</p>
+ * <p>A DMARC policy expression. The condition matches if the given DMARC policy matches that of the incoming email.</p>
  * @public
  */
 export interface RuleDmarcExpression {
@@ -2354,12 +2367,7 @@ export interface RuleDmarcExpression {
   Operator: RuleDmarcOperator | undefined;
 
   /**
-   * <p>The values to use for the given DMARC policy operator. For the operator EQUALS, if
-   *             multiple values are given, they are evaluated as an OR. That is, if any of the given
-   *             values match, the condition is deemed to match. For the operator NOT_EQUALS, if multiple
-   *             values are given, they are evaluated as an AND. That is, only if the email's DMARC
-   *             policy is not equal to any of the given values, then the condition is deemed to
-   *             match.</p>
+   * <p>The values to use for the given DMARC policy operator. For the operator EQUALS, if multiple values are given, they are evaluated as an OR. That is, if any of the given values match, the condition is deemed to match. For the operator NOT_EQUALS, if multiple values are given, they are evaluated as an AND. That is, only if the email's DMARC policy is not equal to any of the given values, then the condition is deemed to match.</p>
    * @public
    */
   Values: RuleDmarcPolicy[] | undefined;
@@ -2431,8 +2439,7 @@ export const RuleIpOperator = {
 export type RuleIpOperator = (typeof RuleIpOperator)[keyof typeof RuleIpOperator];
 
 /**
- * <p>An IP address expression matching certain IP addresses within a given range of IP
- *             addresses.</p>
+ * <p>An IP address expression matching certain IP addresses within a given range of IP addresses.</p>
  * @public
  */
 export interface RuleIpExpression {
@@ -2449,12 +2456,7 @@ export interface RuleIpExpression {
   Operator: RuleIpOperator | undefined;
 
   /**
-   * <p>The IP CIDR blocks in format "x.y.z.w/n" (eg 10.0.0.0/8) to match with the
-   *             email's IP address. For the operator CIDR_MATCHES, if multiple values are given, they
-   *             are evaluated as an OR. That is, if the IP address is contained within any of the given
-   *             CIDR ranges, the condition is deemed to match. For NOT_CIDR_MATCHES, if multiple CIDR
-   *             ranges are given, the condition is deemed to match if the IP address is not contained in
-   *             any of the given CIDR ranges.</p>
+   * <p>The IP CIDR blocks in format "x.y.z.w/n" (eg 10.0.0.0/8) to match with the email's IP address. For the operator CIDR_MATCHES, if multiple values are given, they are evaluated as an OR. That is, if the IP address is contained within any of the given CIDR ranges, the condition is deemed to match. For NOT_CIDR_MATCHES, if multiple CIDR ranges are given, the condition is deemed to match if the IP address is not contained in any of the given CIDR ranges.</p>
    * @public
    */
   Values: string[] | undefined;
@@ -2530,8 +2532,7 @@ export const RuleNumberOperator = {
 export type RuleNumberOperator = (typeof RuleNumberOperator)[keyof typeof RuleNumberOperator];
 
 /**
- * <p>A number expression to match numeric conditions with integers from the incoming
- *             email.</p>
+ * <p>A number expression to match numeric conditions with integers from the incoming email.</p>
  * @public
  */
 export interface RuleNumberExpression {
@@ -2681,11 +2682,7 @@ export interface RuleStringExpression {
   Operator: RuleStringOperator | undefined;
 
   /**
-   * <p>The string(s) to be evaluated in a string condition expression. For all operators,
-   *             except for NOT_EQUALS, if multiple values are given, the values are processed as an OR.
-   *             That is, if any of the values match the email's string using the given operator, the
-   *             condition is deemed to match. However, for NOT_EQUALS, the condition is only deemed to
-   *             match if none of the given strings match the email's string.</p>
+   * <p>The string(s) to be evaluated in a string condition expression. For all operators, except for NOT_EQUALS, if multiple values are given, the values are processed as an OR. That is, if any of the values match the email's string using the given operator, the condition is deemed to match. However, for NOT_EQUALS, the condition is only deemed to match if none of the given strings match the email's string.</p>
    * @public
    */
   Values: string[] | undefined;
@@ -2729,8 +2726,7 @@ export namespace RuleVerdictToEvaluate {
   }
 
   /**
-   * <p>The Add On ARN and its returned value to evaluate in a verdict condition
-   *             expression.</p>
+   * <p>The Add On ARN and its returned value to evaluate in a verdict condition expression.</p>
    * @public
    */
   export interface AnalysisMember {
@@ -2809,19 +2805,14 @@ export interface RuleVerdictExpression {
   Operator: RuleVerdictOperator | undefined;
 
   /**
-   * <p>The values to match with the email's verdict using the given operator. For the EQUALS
-   *             operator, if multiple values are given, the condition is deemed to match if any of the
-   *             given verdicts match that of the email. For the NOT_EQUALS operator, if multiple values
-   *             are given, the condition is deemed to match of none of the given verdicts match the
-   *             verdict of the email.</p>
+   * <p>The values to match with the email's verdict using the given operator. For the EQUALS operator, if multiple values are given, the condition is deemed to match if any of the given verdicts match that of the email. For the NOT_EQUALS operator, if multiple values are given, the condition is deemed to match of none of the given verdicts match the verdict of the email.</p>
    * @public
    */
   Values: RuleVerdict[] | undefined;
 }
 
 /**
- * <p>The conditional expression used to evaluate an email for determining if a rule action
- *             should be taken.</p>
+ * <p>The conditional expression used to evaluate an email for determining if a rule action should be taken.</p>
  * @public
  */
 export type RuleCondition =
@@ -2956,12 +2947,7 @@ export namespace RuleCondition {
 }
 
 /**
- * <p>A rule contains conditions, "unless conditions" and actions. For each
- *             envelope recipient of an email, if all conditions match and none of the "unless
- *             conditions" match, then all of the actions are executed sequentially. If no
- *             conditions are provided, the rule always applies and the actions are implicitly
- *             executed. If only "unless conditions" are provided, the rule applies if the
- *             email does not match the evaluation of the "unless conditions".</p>
+ * <p>A rule contains conditions, "unless conditions" and actions. For each envelope recipient of an email, if all conditions match and none of the "unless conditions" match, then all of the actions are executed sequentially. If no conditions are provided, the rule always applies and the actions are implicitly executed. If only "unless conditions" are provided, the rule applies if the email does not match the evaluation of the "unless conditions".</p>
  * @public
  */
 export interface Rule {
@@ -2972,24 +2958,19 @@ export interface Rule {
   Name?: string | undefined;
 
   /**
-   * <p>The conditions of this rule. All conditions must match the email for the actions to be
-   *             executed. An empty list of conditions means that all emails match, but are still subject
-   *             to any "unless conditions"</p>
+   * <p>The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"</p>
    * @public
    */
   Conditions?: RuleCondition[] | undefined;
 
   /**
-   * <p>The "unless conditions" of this rule. None of the conditions can match the
-   *             email for the actions to be executed. If any of these conditions do match the email,
-   *             then the actions are not executed.</p>
+   * <p>The "unless conditions" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.</p>
    * @public
    */
   Unless?: RuleCondition[] | undefined;
 
   /**
-   * <p>The list of actions to execute when the conditions match the incoming email, and none
-   *             of the "unless conditions" match.</p>
+   * <p>The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.</p>
    * @public
    */
   Actions: RuleAction[] | undefined;
@@ -3000,8 +2981,7 @@ export interface Rule {
  */
 export interface CreateRuleSetRequest {
   /**
-   * <p>A unique token that Amazon SES uses to recognize subsequent retries of the same
-   *             request.</p>
+   * <p>A unique token that Amazon SES uses to recognize subsequent retries of the same request.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -3037,8 +3017,7 @@ export interface CreateRuleSetResponse {
 }
 
 /**
- * <p>The Add On ARN and its returned value that is evaluated in a policy statement's
- *             conditional expression to either deny or block the incoming email.</p>
+ * <p>The Add On ARN and its returned value that is evaluated in a policy statement's conditional expression to either deny or block the incoming email.</p>
  * @public
  */
 export interface IngressAnalysis {
@@ -3070,8 +3049,7 @@ export type IngressAddressListEmailAttribute =
   (typeof IngressAddressListEmailAttribute)[keyof typeof IngressAddressListEmailAttribute];
 
 /**
- * <p>The address lists and the address list attribute value that is evaluated in a policy statement's
- *             conditional expression to either deny or block the incoming email.</p>
+ * <p>The address lists and the address list attribute value that is evaluated in a policy statement's conditional expression to either deny or block the incoming email.</p>
  * @public
  */
 export interface IngressIsInAddressList {
@@ -3089,8 +3067,7 @@ export interface IngressIsInAddressList {
 }
 
 /**
- * <p>The union type representing the allowed types of operands for a boolean
- *             condition.</p>
+ * <p>The union type representing the allowed types of operands for a boolean condition.</p>
  * @public
  */
 export type IngressBooleanToEvaluate =
@@ -3103,8 +3080,7 @@ export type IngressBooleanToEvaluate =
  */
 export namespace IngressBooleanToEvaluate {
   /**
-   * <p>The structure type for a boolean condition stating the Add On ARN and its returned
-   *             value.</p>
+   * <p>The structure type for a boolean condition stating the Add On ARN and its returned value.</p>
    * @public
    */
   export interface AnalysisMember {
@@ -3243,8 +3219,7 @@ export const IngressIpOperator = {
 export type IngressIpOperator = (typeof IngressIpOperator)[keyof typeof IngressIpOperator];
 
 /**
- * <p>The union type representing the allowed types for the left hand side of an IP
- *             condition.</p>
+ * <p>The union type representing the allowed types for the left hand side of an IP condition.</p>
  * @public
  */
 export interface IngressIpv4Expression {
@@ -3357,8 +3332,7 @@ export type IngressStringEmailAttribute =
   (typeof IngressStringEmailAttribute)[keyof typeof IngressStringEmailAttribute];
 
 /**
- * <p>The union type representing the allowed types for the left hand side of a string
- *             condition.</p>
+ * <p>The union type representing the allowed types for the left hand side of a string condition.</p>
  * @public
  */
 export type IngressStringToEvaluate =
@@ -3467,8 +3441,7 @@ export const IngressTlsAttribute = {
 export type IngressTlsAttribute = (typeof IngressTlsAttribute)[keyof typeof IngressTlsAttribute];
 
 /**
- * <p>The union type representing the allowed types for the left hand side of a TLS
- *             condition.</p>
+ * <p>The union type representing the allowed types for the left hand side of a TLS condition.</p>
  * @public
  */
 export type IngressTlsProtocolToEvaluate =
@@ -3561,8 +3534,7 @@ export interface IngressTlsProtocolExpression {
 }
 
 /**
- * <p>The email traffic filtering conditions which are contained in a traffic policy
- *             resource.</p>
+ * <p>The email traffic filtering conditions which are contained in a traffic policy resource.</p>
  * @public
  */
 export type PolicyCondition =
@@ -3578,9 +3550,7 @@ export type PolicyCondition =
  */
 export namespace PolicyCondition {
   /**
-   * <p>This represents a string based condition matching on the incoming mail. It performs
-   *             the string operation configured in 'Operator' and evaluates the 'Protocol' object
-   *             against the 'Value'.</p>
+   * <p>This represents a string based condition matching on the incoming mail. It performs the string operation configured in 'Operator' and evaluates the 'Protocol' object against the 'Value'.</p>
    * @public
    */
   export interface StringExpressionMember {
@@ -3593,9 +3563,7 @@ export namespace PolicyCondition {
   }
 
   /**
-   * <p>This represents an IP based condition matching on the incoming mail. It performs the
-   *             operation configured in 'Operator' and evaluates the 'Protocol' object against the
-   *             'Value'.</p>
+   * <p>This represents an IP based condition matching on the incoming mail. It performs the operation configured in 'Operator' and evaluates the 'Protocol' object against the 'Value'.</p>
    * @public
    */
   export interface IpExpressionMember {
@@ -3608,9 +3576,7 @@ export namespace PolicyCondition {
   }
 
   /**
-   * <p>This represents an IPv6 based condition matching on the incoming mail. It performs the
-   *             operation configured in 'Operator' and evaluates the 'Protocol' object against the
-   *             'Value'.</p>
+   * <p>This represents an IPv6 based condition matching on the incoming mail. It performs the operation configured in 'Operator' and evaluates the 'Protocol' object against the 'Value'.</p>
    * @public
    */
   export interface Ipv6ExpressionMember {
@@ -3623,9 +3589,7 @@ export namespace PolicyCondition {
   }
 
   /**
-   * <p>This represents a TLS based condition matching on the incoming mail. It performs the
-   *             operation configured in 'Operator' and evaluates the 'Protocol' object against the
-   *             'Value'.</p>
+   * <p>This represents a TLS based condition matching on the incoming mail. It performs the operation configured in 'Operator' and evaluates the 'Protocol' object against the 'Value'.</p>
    * @public
    */
   export interface TlsExpressionMember {
@@ -3638,9 +3602,7 @@ export namespace PolicyCondition {
   }
 
   /**
-   * <p>This represents a boolean type condition matching on the incoming mail. It performs
-   *             the boolean operation configured in 'Operator' and evaluates the 'Protocol' object
-   *             against the 'Value'.</p>
+   * <p>This represents a boolean type condition matching on the incoming mail. It performs the boolean operation configured in 'Operator' and evaluates the 'Protocol' object against the 'Value'.</p>
    * @public
    */
   export interface BooleanExpressionMember {
@@ -3689,15 +3651,13 @@ export namespace PolicyCondition {
  */
 export interface PolicyStatement {
   /**
-   * <p>The list of conditions to apply to incoming messages for filtering email
-   *             traffic.</p>
+   * <p>The list of conditions to apply to incoming messages for filtering email traffic.</p>
    * @public
    */
   Conditions: PolicyCondition[] | undefined;
 
   /**
-   * <p>The action that informs a traffic policy resource to either allow or block the email
-   *             if it matches a condition in the policy statement.</p>
+   * <p>The action that informs a traffic policy resource to either allow or block the email if it matches a condition in the policy statement.</p>
    * @public
    */
   Action: AcceptAction | undefined;
@@ -3708,8 +3668,7 @@ export interface PolicyStatement {
  */
 export interface CreateTrafficPolicyRequest {
   /**
-   * <p>A unique token that Amazon SES uses to recognize subsequent retries of the same
-   *             request.</p>
+   * <p>A unique token that Amazon SES uses to recognize subsequent retries of the same request.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -3733,8 +3692,7 @@ export interface CreateTrafficPolicyRequest {
   DefaultAction: AcceptAction | undefined;
 
   /**
-   * <p>The maximum message size in bytes of email which is allowed in by this traffic
-   *             policy—anything larger will be blocked.</p>
+   * <p>The maximum message size in bytes of email which is allowed in by this traffic policy—anything larger will be blocked.</p>
    * @public
    */
   MaxMessageSizeBytes?: number | undefined;
@@ -4222,29 +4180,25 @@ export interface Metadata {
   SendingMethod?: string | undefined;
 
   /**
-   * <p>The identity name used to authorize the sending action when sent through a configuration set with
-   *         archiving enabled.</p>
+   * <p>The identity name used to authorize the sending action when sent through a configuration set with archiving enabled.</p>
    * @public
    */
   SourceIdentity?: string | undefined;
 
   /**
-   * <p>The name of the dedicated IP pool used when sent through a configuration set with archiving
-   *         enabled.</p>
+   * <p>The name of the dedicated IP pool used when sent through a configuration set with archiving enabled.</p>
    * @public
    */
   SendingPool?: string | undefined;
 
   /**
-   * <p>The name of the configuration set used when sent through a configuration set with archiving
-   *         enabled.</p>
+   * <p>The name of the configuration set used when sent through a configuration set with archiving enabled.</p>
    * @public
    */
   ConfigurationSet?: string | undefined;
 
   /**
-   * <p>Specifies the archived email source, identified by either a Rule Set's ARN with an Archive action, or a
-   *         Configuration Set's Archive ARN.</p>
+   * <p>Specifies the archived email source, identified by either a Rule Set's ARN with an Archive action, or a Configuration Set's Archive ARN.</p>
    * @public
    */
   SourceArn?: string | undefined;
@@ -4537,16 +4491,7 @@ export interface Row {
   SenderHostname?: string | undefined;
 
   /**
-   * <ul>
-   *             <li>
-   *                <p>Mail archived with Mail Manager: The IP address of the client that connects to
-   *         the ingress endpoint.</p>
-   *             </li>
-   *             <li>
-   *                <p>Mail sent through a configuration set with the
-   *         archiving option enabled: The IP address of the client that makes the SendEmail API call.</p>
-   *             </li>
-   *          </ul>
+   * <ul> <li> <p>Mail archived with Mail Manager: The IP address of the client that connects to the ingress endpoint.</p> </li> <li> <p>Mail sent through a configuration set with the archiving option enabled: The IP address of the client that makes the SendEmail API call.</p> </li> </ul>
    * @public
    */
   SenderIpAddress?: string | undefined;
@@ -4558,8 +4503,7 @@ export interface Row {
   Envelope?: Envelope | undefined;
 
   /**
-   * <p>Specifies the archived email source, identified by either a Rule Set's ARN with an Archive action, or a
-   *         Configuration Set's Archive ARN.</p>
+   * <p>Specifies the archived email source, identified by either a Rule Set's ARN with an Archive action, or a Configuration Set's Archive ARN.</p>
    * @public
    */
   SourceArn?: string | undefined;
@@ -4624,8 +4568,7 @@ export interface IngressPointAuthConfiguration {
   IngressPointPasswordConfiguration?: IngressPointPasswordConfiguration | undefined;
 
   /**
-   * <p>The ingress endpoint SecretsManager::Secret ARN configuration for the ingress endpoint
-   *             resource.</p>
+   * <p>The ingress endpoint SecretsManager::Secret ARN configuration for the ingress endpoint resource.</p>
    * @public
    */
   SecretArn?: string | undefined;
@@ -4684,9 +4627,7 @@ export interface GetIngressPointResponse {
   Type?: IngressPointType | undefined;
 
   /**
-   * <p>
-   *             The DNS A Record that identifies your ingress endpoint. Configure your DNS Mail Exchange (MX) record with this value to route emails to Mail Manager.
-   *         </p>
+   * <p> The DNS A Record that identifies your ingress endpoint. Configure your DNS Mail Exchange (MX) record with this value to route emails to Mail Manager. </p>
    * @public
    */
   ARecord?: string | undefined;
@@ -4698,8 +4639,7 @@ export interface GetIngressPointResponse {
   RuleSetId?: string | undefined;
 
   /**
-   * <p>The identifier of the traffic policy resource associated with the ingress
-   *             endpoint.</p>
+   * <p>The identifier of the traffic policy resource associated with the ingress endpoint.</p>
    * @public
    */
   TrafficPolicyId?: string | undefined;
@@ -4809,8 +4749,7 @@ export interface GetRelayResponse {
   ServerPort?: number | undefined;
 
   /**
-   * <p>The authentication attribute—contains the secret ARN where the customer relay
-   *             server credentials are stored. </p>
+   * <p>The authentication attribute—contains the secret ARN where the customer relay server credentials are stored. </p>
    * @public
    */
   Authentication?: RelayAuthentication | undefined;
@@ -4920,8 +4859,7 @@ export interface GetTrafficPolicyResponse {
   PolicyStatements?: PolicyStatement[] | undefined;
 
   /**
-   * <p>The maximum message size in bytes of email which is allowed in by this traffic
-   *             policy—anything larger will be blocked.</p>
+   * <p>The maximum message size in bytes of email which is allowed in by this traffic policy—anything larger will be blocked.</p>
    * @public
    */
   MaxMessageSizeBytes?: number | undefined;
@@ -5053,9 +4991,7 @@ export interface IngressPoint {
   Type: IngressPointType | undefined;
 
   /**
-   * <p>
-   *             The DNS A Record that identifies your ingress endpoint. Configure your DNS Mail Exchange (MX) record with this value to route emails to Mail Manager.
-   *         </p>
+   * <p> The DNS A Record that identifies your ingress endpoint. Configure your DNS Mail Exchange (MX) record with this value to route emails to Mail Manager. </p>
    * @public
    */
   ARecord?: string | undefined;
@@ -5066,8 +5002,7 @@ export interface IngressPoint {
  */
 export interface ListIngressPointsRequest {
   /**
-   * <p>The maximum number of ingress endpoint resources that are returned per call. You can
-   *             use NextToken to obtain further ingress endpoints.</p>
+   * <p>The maximum number of ingress endpoint resources that are returned per call. You can use NextToken to obtain further ingress endpoints.</p>
    * @public
    */
   PageSize?: number | undefined;
@@ -5133,22 +5068,19 @@ export interface UpdateIngressPointRequest {
   StatusToUpdate?: IngressPointStatusToUpdate | undefined;
 
   /**
-   * <p>The identifier of an existing rule set that you attach to an ingress endpoint
-   *             resource.</p>
+   * <p>The identifier of an existing rule set that you attach to an ingress endpoint resource.</p>
    * @public
    */
   RuleSetId?: string | undefined;
 
   /**
-   * <p>The identifier of an existing traffic policy that you attach to an ingress endpoint
-   *             resource.</p>
+   * <p>The identifier of an existing traffic policy that you attach to an ingress endpoint resource.</p>
    * @public
    */
   TrafficPolicyId?: string | undefined;
 
   /**
-   * <p>If you choose an Authenticated ingress endpoint, you must configure either an SMTP password or a secret
-   *             ARN.</p>
+   * <p>If you choose an Authenticated ingress endpoint, you must configure either an SMTP password or a secret ARN.</p>
    * @public
    */
   IngressPointConfiguration?: IngressPointConfiguration | undefined;
@@ -5211,17 +5143,13 @@ export interface ListArchiveExportsRequest {
   ArchiveId: string | undefined;
 
   /**
-   * <p>If NextToken is returned, there are more results available. The value of NextToken is a unique pagination
-   *             token for each page. Make the call again using the returned token to retrieve the next page.
-   *         </p>
+   * <p>If NextToken is returned, there are more results available. The value of NextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. </p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of archive export jobs that are returned per call. You can use NextToken to obtain
-   *             further pages of archives.
-   *         </p>
+   * <p>The maximum number of archive export jobs that are returned per call. You can use NextToken to obtain further pages of archives. </p>
    * @public
    */
   PageSize?: number | undefined;
@@ -5257,17 +5185,13 @@ export interface ListArchiveSearchesRequest {
   ArchiveId: string | undefined;
 
   /**
-   * <p>If NextToken is returned, there are more results available. The value of NextToken is a unique pagination
-   *             token for each page. Make the call again using the returned token to retrieve the next page.
-   *         </p>
+   * <p>If NextToken is returned, there are more results available. The value of NextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. </p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of archive search jobs that are returned per call. You can use NextToken to obtain
-   *             further pages of archives.
-   *         </p>
+   * <p>The maximum number of archive search jobs that are returned per call. You can use NextToken to obtain further pages of archives. </p>
    * @public
    */
   PageSize?: number | undefined;
@@ -5332,8 +5256,7 @@ export interface ListMembersOfAddressListRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of address list members that are returned per call.
-   *             You can use NextToken to retrieve the next page of members.</p>
+   * <p>The maximum number of address list members that are returned per call. You can use NextToken to retrieve the next page of members.</p>
    * @public
    */
   PageSize?: number | undefined;
@@ -5392,8 +5315,7 @@ export interface ListRelaysRequest {
 }
 
 /**
- * <p>The relay resource that can be used as a rule to relay receiving emails to the destination
- *             relay server.</p>
+ * <p>The relay resource that can be used as a rule to relay receiving emails to the destination relay server.</p>
  * @public
  */
 export interface Relay {
@@ -5444,16 +5366,14 @@ export interface ListRuleSetsRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of rule set resources that are returned per call. You can use
-   *             NextToken to obtain further rule sets.</p>
+   * <p>The maximum number of rule set resources that are returned per call. You can use NextToken to obtain further rule sets.</p>
    * @public
    */
   PageSize?: number | undefined;
 }
 
 /**
- * <p>A rule set contains a list of rules that are evaluated in order. Each rule is
- *             evaluated sequentially for each email.</p>
+ * <p>A rule set contains a list of rules that are evaluated in order. Each rule is evaluated sequentially for each email.</p>
  * @public
  */
 export interface RuleSet {
@@ -5520,8 +5440,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTrafficPoliciesRequest {
   /**
-   * <p>The maximum number of traffic policy resources that are returned per call. You can use
-   *             NextToken to obtain further traffic policies.</p>
+   * <p>The maximum number of traffic policy resources that are returned per call. You can use NextToken to obtain further traffic policies.</p>
    * @public
    */
   PageSize?: number | undefined;
@@ -5534,8 +5453,7 @@ export interface ListTrafficPoliciesRequest {
 }
 
 /**
- * <p>The structure of a traffic policy resource which is a container for policy
- *             statements.</p>
+ * <p>The structure of a traffic policy resource which is a container for policy statements.</p>
  * @public
  */
 export interface TrafficPolicy {
@@ -5626,8 +5544,7 @@ export interface UpdateRelayRequest {
   ServerPort?: number | undefined;
 
   /**
-   * <p>Authentication for the relay destination server—specify the secretARN where
-   *             the SMTP credentials are stored.</p>
+   * <p>Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored.</p>
    * @public
    */
   Authentication?: RelayAuthentication | undefined;
@@ -5655,8 +5572,7 @@ export interface UpdateRuleSetRequest {
   RuleSetName?: string | undefined;
 
   /**
-   * <p>A new set of rules to replace the current rules of the rule set—these rules will
-   *             override all the rules of the rule set.</p>
+   * <p>A new set of rules to replace the current rules of the rule set—these rules will override all the rules of the rule set.</p>
    * @public
    */
   Rules?: Rule[] | undefined;
@@ -5820,8 +5736,7 @@ export interface StopArchiveExportRequest {
 }
 
 /**
- * <p>The response indicating if the request to stop the export job succeeded.</p>
- *          <p>On success, returns an HTTP 200 status code. On failure, returns an error message.</p>
+ * <p>The response indicating if the request to stop the export job succeeded.</p> <p>On success, returns an HTTP 200 status code. On failure, returns an error message.</p>
  * @public
  */
 export interface StopArchiveExportResponse {}
@@ -5839,8 +5754,7 @@ export interface StopArchiveSearchRequest {
 }
 
 /**
- * <p>The response indicating if the request to stop the search job succeeded.</p>
- *          <p>On success, returns an HTTP 200 status code. On failure, returns an error message.</p>
+ * <p>The response indicating if the request to stop the search job succeeded.</p> <p>On success, returns an HTTP 200 status code. On failure, returns an error message.</p>
  * @public
  */
 export interface StopArchiveSearchResponse {}
@@ -5896,8 +5810,7 @@ export interface UpdateTrafficPolicyRequest {
   DefaultAction?: AcceptAction | undefined;
 
   /**
-   * <p>The maximum message size in bytes of email which is allowed in by this traffic
-   *             policy—anything larger will be blocked.</p>
+   * <p>The maximum message size in bytes of email which is allowed in by this traffic policy—anything larger will be blocked.</p>
    * @public
    */
   MaxMessageSizeBytes?: number | undefined;
@@ -5919,8 +5832,7 @@ export interface UntagResourceRequest {
   ResourceArn: string | undefined;
 
   /**
-   * <p> The keys of the key-value pairs for the tag or tags you want to remove from the
-   *             specified resource. </p>
+   * <p> The keys of the key-value pairs for the tag or tags you want to remove from the specified resource. </p>
    * @public
    */
   TagKeys: string[] | undefined;
@@ -5989,6 +5901,7 @@ export const RuleActionFilterSensitiveLog = (obj: RuleAction): any => {
     return { ReplaceRecipient: ReplaceRecipientActionFilterSensitiveLog(obj.ReplaceRecipient) };
   if (obj.DeliverToMailbox !== undefined) return { DeliverToMailbox: obj.DeliverToMailbox };
   if (obj.DeliverToQBusiness !== undefined) return { DeliverToQBusiness: obj.DeliverToQBusiness };
+  if (obj.PublishToSns !== undefined) return { PublishToSns: obj.PublishToSns };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
