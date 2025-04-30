@@ -60,7 +60,7 @@ export interface CreateFlowVersionCommandOutput extends CreateFlowVersionRespons
  * //     nodes: [ // FlowNodes
  * //       { // FlowNode
  * //         name: "STRING_VALUE", // required
- * //         type: "Input" || "Output" || "KnowledgeBase" || "Condition" || "Lex" || "Prompt" || "LambdaFunction" || "Storage" || "Agent" || "Retrieval" || "Iterator" || "Collector", // required
+ * //         type: "Input" || "Output" || "KnowledgeBase" || "Condition" || "Lex" || "Prompt" || "LambdaFunction" || "Storage" || "Agent" || "Retrieval" || "Iterator" || "Collector" || "InlineCode", // required
  * //         configuration: { // FlowNodeConfiguration Union: only one key present
  * //           input: {},
  * //           output: {},
@@ -192,6 +192,10 @@ export interface CreateFlowVersionCommandOutput extends CreateFlowVersionRespons
  * //           },
  * //           iterator: {},
  * //           collector: {},
+ * //           inlineCode: { // InlineCodeFlowNodeConfiguration
+ * //             code: "STRING_VALUE", // required
+ * //             language: "Python_3", // required
+ * //           },
  * //         },
  * //         inputs: [ // FlowNodeInputs
  * //           { // FlowNodeInput

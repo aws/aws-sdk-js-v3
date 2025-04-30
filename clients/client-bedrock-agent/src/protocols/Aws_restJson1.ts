@@ -217,7 +217,6 @@ import {
   ContentBlock,
   ContextEnrichmentConfiguration,
   CrawlFilterConfiguration,
-  CustomDocumentIdentifier,
   CustomOrchestration,
   CustomTransformationConfiguration,
   DataSource,
@@ -249,6 +248,7 @@ import {
   IngestionJobFilter,
   IngestionJobSortBy,
   IngestionJobSummary,
+  InlineCodeFlowNodeConfiguration,
   InputFlowNodeConfiguration,
   IntermediateStorage,
   InternalServerException,
@@ -322,6 +322,7 @@ import {
   ByteContentDoc,
   CuratedQuery,
   CustomContent,
+  CustomDocumentIdentifier,
   CustomS3Location,
   DocumentContent,
   DocumentIdentifier,
@@ -3980,6 +3981,7 @@ const se_FlowNodeConfiguration = (input: FlowNodeConfiguration, context: __Serde
     agent: (value) => ({ agent: _json(value) }),
     collector: (value) => ({ collector: _json(value) }),
     condition: (value) => ({ condition: _json(value) }),
+    inlineCode: (value) => ({ inlineCode: _json(value) }),
     input: (value) => ({ input: _json(value) }),
     iterator: (value) => ({ iterator: _json(value) }),
     knowledgeBase: (value) => ({ knowledgeBase: _json(value) }),
@@ -4046,6 +4048,8 @@ const se_InferenceConfiguration = (input: InferenceConfiguration, context: __Ser
 // se_IngestionJobFilterValues omitted.
 
 // se_IngestionJobSortBy omitted.
+
+// se_InlineCodeFlowNodeConfiguration omitted.
 
 /**
  * serializeAws_restJson1InlineContent
@@ -5066,6 +5070,11 @@ const de_FlowNodeConfiguration = (output: any, context: __SerdeContext): FlowNod
       condition: _json(output.condition),
     };
   }
+  if (output.inlineCode != null) {
+    return {
+      inlineCode: _json(output.inlineCode),
+    };
+  }
   if (output.input != null) {
     return {
       input: _json(output.input),
@@ -5268,6 +5277,8 @@ const de_IngestionJobSummary = (output: any, context: __SerdeContext): Ingestion
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
+
+// de_InlineCodeFlowNodeConfiguration omitted.
 
 // de_InputFlowNodeConfiguration omitted.
 

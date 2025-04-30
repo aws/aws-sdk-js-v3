@@ -10,10 +10,10 @@ import {
   AgentVersion,
   AgentVersionFilterSensitiveLog,
   AgentVersionSummary,
-  CustomDocumentIdentifier,
   FlowDefinition,
   FlowValidation,
   FlowValidationFilterSensitiveLog,
+  IngestionJob,
   KnowledgeBaseState,
   PromptInferenceConfiguration,
   PromptTemplateConfiguration,
@@ -21,6 +21,29 @@ import {
   PromptTemplateType,
   S3Location,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface StopIngestionJobResponse {
+  /**
+   * <p>Contains information about the stopped data ingestion job.</p>
+   * @public
+   */
+  ingestionJob: IngestionJob | undefined;
+}
+
+/**
+ * <p>Contains information about the identifier of the document to ingest into a custom data source.</p>
+ * @public
+ */
+export interface CustomDocumentIdentifier {
+  /**
+   * <p>The identifier of the document to ingest into a custom data source.</p>
+   * @public
+   */
+  id: string | undefined;
+}
 
 /**
  * @public

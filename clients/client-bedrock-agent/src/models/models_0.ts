@@ -472,7 +472,7 @@ export interface CreateAgentActionGroupRequest {
    *             Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only.
    *             When operating computer use functionality, we recommend taking additional security precautions,
    *             such as executing computer actions in virtual environments with restricted data access and limited internet connectivity.
-   *              For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *              For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
    *           </p>
    *                </important>
    *                <ul>
@@ -500,7 +500,7 @@ export interface CreateAgentActionGroupRequest {
    * <p>The configuration settings for a computer use action.</p>
    *          <important>
    *             <p>
-   *         Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *         Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
    *       </p>
    *          </important>
    * @public
@@ -597,7 +597,7 @@ export interface AgentActionGroup {
    * <p>The configuration settings for a computer use action.</p>
    *          <important>
    *             <p>
-   *         Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *         Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
    *       </p>
    *          </important>
    * @public
@@ -967,7 +967,7 @@ export interface UpdateAgentActionGroupRequest {
    *             Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only.
    *             When operating computer use functionality, we recommend taking additional security precautions,
    *             such as executing computer actions in virtual environments with restricted data access and limited internet connectivity.
-   *              For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *              For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
    *           </p>
    *                </important>
    *                <ul>
@@ -996,7 +996,7 @@ export interface UpdateAgentActionGroupRequest {
    * <p>The configuration settings for a computer use action.</p>
    *          <important>
    *             <p>
-   *         Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *         Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
    *       </p>
    *          </important>
    * @public
@@ -1225,7 +1225,7 @@ export interface InferenceConfiguration {
   temperature?: number | undefined;
 
   /**
-   * <p>While generating a response, the model determines the probability of the following token at each point of generation. The value that you set for <code>Top P</code> determines the number of most-likely candidates from which the model chooses the next token in the sequence. For example, if you set <code>topP</code> to 80, the model only selects the next token from the top 80% of the probability distribution of next tokens.</p>
+   * <p>While generating a response, the model determines the probability of the following token at each point of generation. The value that you set for <code>Top P</code> determines the number of most-likely candidates from which the model chooses the next token in the sequence. For example, if you set <code>topP</code> to 0.8, the model only selects the next token from the top 80% of the probability distribution of next tokens.</p>
    * @public
    */
   topP?: number | undefined;
@@ -1316,7 +1316,7 @@ export interface PromptConfiguration {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PRE_PROCESSING</code> – <code>ENABLED</code>
+   *                   <code>PRE_PROCESSING</code> – <code>DISABLED</code>
    *                </p>
    *             </li>
    *             <li>
@@ -4739,6 +4739,39 @@ export interface ConditionFlowNodeConfiguration {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const SupportedLanguages = {
+  PYTHON_3: "Python_3",
+} as const;
+
+/**
+ * @public
+ */
+export type SupportedLanguages = (typeof SupportedLanguages)[keyof typeof SupportedLanguages];
+
+/**
+ * <p>Contains configurations for an inline code node in your flow. Inline code nodes let you write and execute code directly within your flow, enabling data transformations, custom logic, and integrations without needing an external Lambda function.</p>
+ * @public
+ */
+export interface InlineCodeFlowNodeConfiguration {
+  /**
+   * <p>The code that's executed in your inline code node. The code can access input data from previous nodes in the flow, perform operations on that data, and produce output that can be used by other nodes in your flow.</p>
+   *          <p>The code must be valid in the programming <code>language</code> that you specify.</p>
+   * @public
+   */
+  code: string | undefined;
+
+  /**
+   * <p>The programming language used by your inline code node.</p>
+   *          <p>The code must be valid in the programming <code>language</code> that you specify. Currently, only Python 3 (<code>Python_3</code>) is supported.</p>
+   * @public
+   */
+  language: SupportedLanguages | undefined;
+}
+
+/**
  * <p>Contains configurations for the input flow node for a flow. This node takes the input from flow invocation and passes it to the next node in the data type that you specify.</p>
  * @public
  */
@@ -5665,6 +5698,7 @@ export type FlowNodeConfiguration =
   | FlowNodeConfiguration.AgentMember
   | FlowNodeConfiguration.CollectorMember
   | FlowNodeConfiguration.ConditionMember
+  | FlowNodeConfiguration.InlineCodeMember
   | FlowNodeConfiguration.InputMember
   | FlowNodeConfiguration.IteratorMember
   | FlowNodeConfiguration.KnowledgeBaseMember
@@ -5697,6 +5731,7 @@ export namespace FlowNodeConfiguration {
     retrieval?: never;
     iterator?: never;
     collector?: never;
+    inlineCode?: never;
     $unknown?: never;
   }
 
@@ -5717,6 +5752,7 @@ export namespace FlowNodeConfiguration {
     retrieval?: never;
     iterator?: never;
     collector?: never;
+    inlineCode?: never;
     $unknown?: never;
   }
 
@@ -5737,11 +5773,12 @@ export namespace FlowNodeConfiguration {
     retrieval?: never;
     iterator?: never;
     collector?: never;
+    inlineCode?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow.</p>
+   * <p>Contains configurations for a condition node in your flow. Defines conditions that lead to different branches of the flow.</p>
    * @public
    */
   export interface ConditionMember {
@@ -5757,6 +5794,7 @@ export namespace FlowNodeConfiguration {
     retrieval?: never;
     iterator?: never;
     collector?: never;
+    inlineCode?: never;
     $unknown?: never;
   }
 
@@ -5777,6 +5815,7 @@ export namespace FlowNodeConfiguration {
     retrieval?: never;
     iterator?: never;
     collector?: never;
+    inlineCode?: never;
     $unknown?: never;
   }
 
@@ -5797,6 +5836,7 @@ export namespace FlowNodeConfiguration {
     retrieval?: never;
     iterator?: never;
     collector?: never;
+    inlineCode?: never;
     $unknown?: never;
   }
 
@@ -5817,11 +5857,12 @@ export namespace FlowNodeConfiguration {
     retrieval?: never;
     iterator?: never;
     collector?: never;
+    inlineCode?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location.</p>
+   * <p>Contains configurations for a storage node in your flow. Stores an input in an Amazon S3 location.</p>
    * @public
    */
   export interface StorageMember {
@@ -5837,6 +5878,7 @@ export namespace FlowNodeConfiguration {
     retrieval?: never;
     iterator?: never;
     collector?: never;
+    inlineCode?: never;
     $unknown?: never;
   }
 
@@ -5857,11 +5899,12 @@ export namespace FlowNodeConfiguration {
     retrieval?: never;
     iterator?: never;
     collector?: never;
+    inlineCode?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output.</p>
+   * <p>Contains configurations for a retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output.</p>
    * @public
    */
   export interface RetrievalMember {
@@ -5877,6 +5920,7 @@ export namespace FlowNodeConfiguration {
     retrieval: RetrievalFlowNodeConfiguration;
     iterator?: never;
     collector?: never;
+    inlineCode?: never;
     $unknown?: never;
   }
 
@@ -5898,6 +5942,7 @@ export namespace FlowNodeConfiguration {
     retrieval?: never;
     iterator: IteratorFlowNodeConfiguration;
     collector?: never;
+    inlineCode?: never;
     $unknown?: never;
   }
 
@@ -5918,6 +5963,28 @@ export namespace FlowNodeConfiguration {
     retrieval?: never;
     iterator?: never;
     collector: CollectorFlowNodeConfiguration;
+    inlineCode?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains configurations for an inline code node in your flow. Inline code nodes let you write and execute code directly within your flow, enabling data transformations, custom logic, and integrations without needing an external Lambda function.</p>
+   * @public
+   */
+  export interface InlineCodeMember {
+    input?: never;
+    output?: never;
+    knowledgeBase?: never;
+    condition?: never;
+    lex?: never;
+    prompt?: never;
+    lambdaFunction?: never;
+    storage?: never;
+    agent?: never;
+    retrieval?: never;
+    iterator?: never;
+    collector?: never;
+    inlineCode: InlineCodeFlowNodeConfiguration;
     $unknown?: never;
   }
 
@@ -5937,6 +6004,7 @@ export namespace FlowNodeConfiguration {
     retrieval?: never;
     iterator?: never;
     collector?: never;
+    inlineCode?: never;
     $unknown: [string, any];
   }
 
@@ -5953,6 +6021,7 @@ export namespace FlowNodeConfiguration {
     retrieval: (value: RetrievalFlowNodeConfiguration) => T;
     iterator: (value: IteratorFlowNodeConfiguration) => T;
     collector: (value: CollectorFlowNodeConfiguration) => T;
+    inlineCode: (value: InlineCodeFlowNodeConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -5969,6 +6038,7 @@ export namespace FlowNodeConfiguration {
     if (value.retrieval !== undefined) return visitor.retrieval(value.retrieval);
     if (value.iterator !== undefined) return visitor.iterator(value.iterator);
     if (value.collector !== undefined) return visitor.collector(value.collector);
+    if (value.inlineCode !== undefined) return visitor.inlineCode(value.inlineCode);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -6040,6 +6110,7 @@ export const FlowNodeType = {
   AGENT: "Agent",
   COLLECTOR: "Collector",
   CONDITION: "Condition",
+  INLINE_CODE: "InlineCode",
   INPUT: "Input",
   ITERATOR: "Iterator",
   KNOWLEDGE_BASE: "KnowledgeBase",
@@ -9362,29 +9433,6 @@ export interface StopIngestionJobRequest {
 }
 
 /**
- * @public
- */
-export interface StopIngestionJobResponse {
-  /**
-   * <p>Contains information about the stopped data ingestion job.</p>
-   * @public
-   */
-  ingestionJob: IngestionJob | undefined;
-}
-
-/**
- * <p>Contains information about the identifier of the document to ingest into a custom data source.</p>
- * @public
- */
-export interface CustomDocumentIdentifier {
-  /**
-   * <p>The identifier of the document to ingest into a custom data source.</p>
-   * @public
-   */
-  id: string | undefined;
-}
-
-/**
  * @internal
  */
 export const APISchemaFilterSensitiveLog = (obj: APISchema): any => {
@@ -9804,6 +9852,14 @@ export const ConditionFlowNodeConfigurationFilterSensitiveLog = (obj: ConditionF
 /**
  * @internal
  */
+export const InlineCodeFlowNodeConfigurationFilterSensitiveLog = (obj: InlineCodeFlowNodeConfiguration): any => ({
+  ...obj,
+  ...(obj.code && { code: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const ContentBlockFilterSensitiveLog = (obj: ContentBlock): any => {
   if (obj.text !== undefined) return { text: obj.text };
   if (obj.cachePoint !== undefined) return { cachePoint: obj.cachePoint };
@@ -9922,6 +9978,8 @@ export const FlowNodeConfigurationFilterSensitiveLog = (obj: FlowNodeConfigurati
   if (obj.retrieval !== undefined) return { retrieval: obj.retrieval };
   if (obj.iterator !== undefined) return { iterator: obj.iterator };
   if (obj.collector !== undefined) return { collector: obj.collector };
+  if (obj.inlineCode !== undefined)
+    return { inlineCode: InlineCodeFlowNodeConfigurationFilterSensitiveLog(obj.inlineCode) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
