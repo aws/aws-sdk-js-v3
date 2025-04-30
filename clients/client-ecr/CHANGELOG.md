@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.800.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.799.0...v3.800.0) (2025-04-30)
+
+
+### Features
+
+* **client-ecr:** Adds dualstack support for Amazon Elastic Container Registry (Amazon ECR). ([e2fb477](https://github.com/aws/aws-sdk-js-v3/commit/e2fb477edcac0a610ec741f5f886881890dee205))
+
+
+
+
+
 # [3.799.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.798.0...v3.799.0) (2025-04-29)
 
 **Note:** Version bump only for package @aws-sdk/client-ecr

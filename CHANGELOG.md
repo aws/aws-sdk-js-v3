@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.800.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.799.0...v3.800.0) (2025-04-30)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Support for Custom Orchestration within InlineAgents ([a4195f7](https://github.com/aws/aws-sdk-js-v3/commit/a4195f7a837360035ddc8389d1634951a233b708))
+* **client-bedrock-agent:** Features:    Add inline code node to prompt flow ([7bc9fde](https://github.com/aws/aws-sdk-js-v3/commit/7bc9fdefa6b8327ea38d2fce998bee3b84c6ee91))
+* **client-bedrock:** You can now specify a cross region inference profile as a teacher model for the CreateModelCustomizationJob API. Additionally, the GetModelCustomizationJob API has been enhanced to return the sub-task statuses of a customization job within the StatusDetails response field. ([1325ef0](https://github.com/aws/aws-sdk-js-v3/commit/1325ef07278285401380bb744b8f643b38310eaf))
+* **client-cleanrooms:** This release adds support for ProtectedQuery results to be delivered to more than one collaboration member via the new distribute output configuration in StartProtectedQuery. ([f6a809d](https://github.com/aws/aws-sdk-js-v3/commit/f6a809d8f995155aaa0856c641f2271ba1cb7639))
+* **client-cloudwatch-logs:** CloudWatch Logs supports "DELIVERY" log class. This log class is used only for delivering AWS Lambda logs to Amazon S3 or Amazon Data Firehose. ([e89084d](https://github.com/aws/aws-sdk-js-v3/commit/e89084d366224c0b8447fdabea015d204eca17a4))
+* **client-deadline:** Adds support for tag management on workers and tag inheritance from fleets to their associated workers. ([7283ff5](https://github.com/aws/aws-sdk-js-v3/commit/7283ff566df165946653a2c0cbcb88e5fa92db3e))
+* **client-ec2:** Launch of cost distribution feature for IPAM owners to distribute costs to internal teams. ([69fe645](https://github.com/aws/aws-sdk-js-v3/commit/69fe6453c8d2065494c38c2ee28ff117ec09c4bb))
+* **client-ecr-public:** Adds dualstack support for Amazon Elastic Container Registry Public (Amazon ECR Public). ([2a08ba6](https://github.com/aws/aws-sdk-js-v3/commit/2a08ba6a61ba0a9b45c75e99cd255a7a6cd9d230))
+* **client-ecr:** Adds dualstack support for Amazon Elastic Container Registry (Amazon ECR). ([e2fb477](https://github.com/aws/aws-sdk-js-v3/commit/e2fb477edcac0a610ec741f5f886881890dee205))
+* **client-mailmanager:** Introducing new RuleSet rule PublishToSns action, which allows customers to publish email notifications to an Amazon SNS topic. New PublishToSns action enables customers to easily integrate their email workflows via Amazon SNS, allowing them to notify other systems about important email events. ([7606fc0](https://github.com/aws/aws-sdk-js-v3/commit/7606fc038af81b96bcc98f0918c93c477936d36d))
+* **clients:** update client endpoints as of 2025-04-30 ([b45461a](https://github.com/aws/aws-sdk-js-v3/commit/b45461a539eb0cf5308c3a12ef4bf9ec90ef6c38))
+
+
+
+
+
 # [3.799.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.798.0...v3.799.0) (2025-04-29)
 
 
