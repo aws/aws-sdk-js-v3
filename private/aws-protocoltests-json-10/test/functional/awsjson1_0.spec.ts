@@ -3,6 +3,7 @@ import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Encoder as __Encoder } from "@smithy/types";
 import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 import { Readable } from "stream";
+import { expect, test as it } from "vitest";
 
 import { EmptyInputAndEmptyOutputCommand } from "../../src/commands/EmptyInputAndEmptyOutputCommand";
 import { EndpointOperationCommand } from "../../src/commands/EndpointOperationCommand";
@@ -238,12 +239,10 @@ it("AwsJson10EmptyInputAndEmptyOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
-    expect(r.headers["x-amz-target"]).toBeDefined();
     expect(r.headers["x-amz-target"]).toBe("JsonRpc10.EmptyInputAndEmptyOutput");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{}`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -305,10 +304,9 @@ it("AwsJson10EndpointTrait:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["host"]).toBeDefined();
     expect(r.headers["host"]).toBe("foo.example.com");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{}`;
     const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
@@ -344,10 +342,9 @@ it("AwsJson10EndpointTraitWithHostLabel:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["host"]).toBeDefined();
     expect(r.headers["host"]).toBe("foo.bar.example.com");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{\"label\": \"bar\"}`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -393,7 +390,10 @@ it("AwsJson10InvalidGreetingError:Error:GreetingWithErrors", async () => {
       },
     ][0];
     Object.keys(paramsToValidate).forEach((param) => {
-      expect(r[param]).toBeDefined();
+      expect(
+        r[param],
+        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      ).toBeDefined();
       expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     });
     return;
@@ -754,7 +754,10 @@ it("AwsJson10ComplexError:Error:GreetingWithErrors", async () => {
       },
     ][0];
     Object.keys(paramsToValidate).forEach((param) => {
-      expect(r[param]).toBeDefined();
+      expect(
+        r[param],
+        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      ).toBeDefined();
       expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     });
     return;
@@ -822,7 +825,7 @@ it("AwsJson10HostWithPath:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/custom/");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{}`;
     const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
@@ -857,12 +860,10 @@ it("AwsJson10SerializeStringUnionValue:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
-    expect(r.headers["x-amz-target"]).toBeDefined();
     expect(r.headers["x-amz-target"]).toBe("JsonRpc10.JsonUnions");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -901,12 +902,10 @@ it("AwsJson10SerializeBooleanUnionValue:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
-    expect(r.headers["x-amz-target"]).toBeDefined();
     expect(r.headers["x-amz-target"]).toBe("JsonRpc10.JsonUnions");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -945,12 +944,10 @@ it("AwsJson10SerializeNumberUnionValue:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
-    expect(r.headers["x-amz-target"]).toBeDefined();
     expect(r.headers["x-amz-target"]).toBe("JsonRpc10.JsonUnions");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -989,12 +986,10 @@ it("AwsJson10SerializeBlobUnionValue:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
-    expect(r.headers["x-amz-target"]).toBeDefined();
     expect(r.headers["x-amz-target"]).toBe("JsonRpc10.JsonUnions");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -1033,12 +1028,10 @@ it("AwsJson10SerializeTimestampUnionValue:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
-    expect(r.headers["x-amz-target"]).toBeDefined();
     expect(r.headers["x-amz-target"]).toBe("JsonRpc10.JsonUnions");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -1077,12 +1070,10 @@ it("AwsJson10SerializeEnumUnionValue:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
-    expect(r.headers["x-amz-target"]).toBeDefined();
     expect(r.headers["x-amz-target"]).toBe("JsonRpc10.JsonUnions");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -1121,12 +1112,10 @@ it("AwsJson10SerializeIntEnumUnionValue:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
-    expect(r.headers["x-amz-target"]).toBeDefined();
     expect(r.headers["x-amz-target"]).toBe("JsonRpc10.JsonUnions");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -1165,12 +1154,10 @@ it("AwsJson10SerializeListUnionValue:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
-    expect(r.headers["x-amz-target"]).toBeDefined();
     expect(r.headers["x-amz-target"]).toBe("JsonRpc10.JsonUnions");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -1212,12 +1199,10 @@ it("AwsJson10SerializeMapUnionValue:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
-    expect(r.headers["x-amz-target"]).toBeDefined();
     expect(r.headers["x-amz-target"]).toBe("JsonRpc10.JsonUnions");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -1261,12 +1246,10 @@ it("AwsJson10SerializeStructureUnionValue:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
-    expect(r.headers["x-amz-target"]).toBeDefined();
     expect(r.headers["x-amz-target"]).toBe("JsonRpc10.JsonUnions");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -1319,7 +1302,10 @@ it("AwsJson10DeserializeStringUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1363,7 +1349,10 @@ it("AwsJson10DeserializeBooleanUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1407,7 +1396,10 @@ it("AwsJson10DeserializeNumberUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1451,7 +1443,10 @@ it("AwsJson10DeserializeBlobUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1495,7 +1490,10 @@ it("AwsJson10DeserializeTimestampUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1539,7 +1537,10 @@ it("AwsJson10DeserializeEnumUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1583,7 +1584,10 @@ it("AwsJson10DeserializeIntEnumUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1627,7 +1631,10 @@ it("AwsJson10DeserializeListUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1677,7 +1684,10 @@ it("AwsJson10DeserializeMapUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1725,7 +1735,10 @@ it("AwsJson10DeserializeStructureUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1774,7 +1787,10 @@ it("AwsJson10DeserializeIgnoreType:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1831,7 +1847,10 @@ it("AwsJson10DeserializeAllowNulls:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1864,12 +1883,10 @@ it("AwsJson10MustAlwaysSendEmptyJsonPayload:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
-    expect(r.headers["x-amz-target"]).toBeDefined();
     expect(r.headers["x-amz-target"]).toBe("JsonRpc10.NoInputAndNoOutput");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{}`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -1999,12 +2016,10 @@ it("AwsJson10NoInputAndOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
-    expect(r.headers["x-amz-target"]).toBeDefined();
     expect(r.headers["x-amz-target"]).toBe("JsonRpc10.NoInputAndOutput");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{}`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -2066,10 +2081,9 @@ it.skip("AwsJson10ClientPopulatesDefaultValuesInInput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"defaults\": {
@@ -2130,10 +2144,9 @@ it.skip("AwsJson10ClientSkipsTopLevelDefaultValuesInInput:Request", async () => 
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
     }`;
@@ -2200,10 +2213,9 @@ it.skip("AwsJson10ClientUsesExplicitlyProvidedMemberValuesOverDefaults:Request",
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"defaults\": {
@@ -2268,10 +2280,9 @@ it.skip("AwsJson10ClientUsesExplicitlyProvidedValuesInTopLevel:Request", async (
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"topLevelDefault\": \"hi\",
@@ -2307,10 +2318,9 @@ it.skip("AwsJson10ClientIgnoresNonTopLevelDefaultsOnMembersWithClientOptional:Re
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"clientOptionalDefaults\": {}
@@ -2379,7 +2389,10 @@ it.skip("AwsJson10ClientPopulatesDefaultsValuesWhenMissingInResponse:Response", 
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2477,7 +2490,10 @@ it.skip("AwsJson10ClientIgnoresDefaultValuesIfMemberValuesArePresentInResponse:R
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2537,10 +2553,9 @@ it.skip("AwsJson10ClientPopulatesNestedDefaultValuesWhenMissing:Request", async 
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"topLevel\": {
@@ -2695,7 +2710,10 @@ it.skip("AwsJson10ClientPopulatesNestedDefaultsWhenMissingInResponseBody:Respons
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2744,7 +2762,10 @@ it.skip("AwsJson10ClientErrorCorrectsWhenServerFailsToSerializeRequiredValues:Re
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2795,7 +2816,10 @@ it.skip("AwsJson10ClientErrorCorrectsWithDefaultValuesWhenServerFailsToSerialize
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2825,7 +2849,6 @@ it("SDKAppliedContentEncoding_awsJson1_0:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-encoding"]).toBeDefined();
     expect(r.headers["content-encoding"]).toBe("gzip");
   }
 });
@@ -2859,7 +2882,6 @@ it("SDKAppendsGzipAndIgnoresHttpProvidedEncoding_awsJson1_0:Request", async () =
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-encoding"]).toBeDefined();
     expect(r.headers["content-encoding"]).toBe("gzip");
   }
 });
@@ -2890,12 +2912,10 @@ it("AwsJson10SupportsNaNFloatInputs:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
-    expect(r.headers["x-amz-target"]).toBeDefined();
     expect(r.headers["x-amz-target"]).toBe("JsonRpc10.SimpleScalarProperties");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"floatValue\": \"NaN\",
@@ -2932,12 +2952,10 @@ it("AwsJson10SupportsInfinityFloatInputs:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
-    expect(r.headers["x-amz-target"]).toBeDefined();
     expect(r.headers["x-amz-target"]).toBe("JsonRpc10.SimpleScalarProperties");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"floatValue\": \"Infinity\",
@@ -2974,12 +2992,10 @@ it("AwsJson10SupportsNegativeInfinityFloatInputs:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
-    expect(r.headers["x-amz-target"]).toBeDefined();
     expect(r.headers["x-amz-target"]).toBe("JsonRpc10.SimpleScalarProperties");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"floatValue\": \"-Infinity\",
@@ -3027,7 +3043,10 @@ it("AwsJson10SupportsNaNFloatInputs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3069,7 +3088,10 @@ it("AwsJson10SupportsInfinityFloatInputs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3111,7 +3133,10 @@ it("AwsJson10SupportsNegativeInfinityFloatInputs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });

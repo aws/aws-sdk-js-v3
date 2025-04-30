@@ -3,6 +3,7 @@ import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Encoder as __Encoder } from "@smithy/types";
 import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 import { Readable } from "stream";
+import { expect, test as it } from "vitest";
 
 import { DatetimeOffsetsCommand } from "../../src/commands/DatetimeOffsetsCommand";
 import { EmptyInputAndEmptyOutputCommand } from "../../src/commands/EmptyInputAndEmptyOutputCommand";
@@ -272,7 +273,10 @@ it("AwsQueryDateTimeWithNegativeOffset:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -315,7 +319,10 @@ it("AwsQueryDateTimeWithPositiveOffset:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -343,10 +350,9 @@ it("QueryEmptyInputAndEmptyOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=EmptyInputAndEmptyOutput&Version=2020-01-08`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -401,13 +407,11 @@ it("AwsQueryEndpointTrait:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.headers["host"]).toBeDefined();
     expect(r.headers["host"]).toBe("foo.example.com");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=EndpointOperation&Version=2020-01-08`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -443,13 +447,11 @@ it("AwsQueryEndpointTraitWithHostLabel:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.headers["host"]).toBeDefined();
     expect(r.headers["host"]).toBe("foo.bar.example.com");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=EndpointWithHostLabelOperation&Version=2020-01-08&label=bar`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -504,7 +506,10 @@ it("QueryQueryFlattenedXmlMap:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -556,7 +561,10 @@ it("QueryQueryFlattenedXmlMapWithXmlName:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -608,7 +616,10 @@ it("QueryQueryFlattenedXmlMapWithXmlNamespace:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -651,7 +662,10 @@ it("AwsQueryDateTimeWithFractionalSeconds:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -694,7 +708,10 @@ it("QueryGreetingWithErrors:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -742,7 +759,10 @@ it("QueryInvalidGreetingError:Error:GreetingWithErrors", async () => {
       },
     ][0];
     Object.keys(paramsToValidate).forEach((param) => {
-      expect(r[param]).toBeDefined();
+      expect(
+        r[param],
+        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      ).toBeDefined();
       expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     });
     return;
@@ -793,7 +813,10 @@ it("QueryCustomizedError:Error:GreetingWithErrors", async () => {
       },
     ][0];
     Object.keys(paramsToValidate).forEach((param) => {
-      expect(r[param]).toBeDefined();
+      expect(
+        r[param],
+        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      ).toBeDefined();
       expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     });
     return;
@@ -847,7 +870,10 @@ it("QueryComplexError:Error:GreetingWithErrors", async () => {
       },
     ][0];
     Object.keys(paramsToValidate).forEach((param) => {
-      expect(r[param]).toBeDefined();
+      expect(
+        r[param],
+        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      ).toBeDefined();
       expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     });
     return;
@@ -879,7 +905,7 @@ it("QueryHostWithPath:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/custom/");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=HostWithPathOperation&Version=2020-01-08`;
     const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
@@ -925,7 +951,10 @@ it("QueryIgnoresWrappingXmlName:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -960,12 +989,14 @@ it("NestedStructures:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=NestedStructures&Version=2020-01-08&Nested.StringArg=foo&Nested.OtherArg=true&Nested.RecursiveArg.StringArg=baz`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -996,10 +1027,9 @@ it("QueryNoInputAndNoOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=NoInputAndNoOutput&Version=2020-01-08`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1052,10 +1082,9 @@ it("QueryNoInputAndOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=NoInputAndOutput&Version=2020-01-08`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1110,7 +1139,6 @@ it("SDKAppliedContentEncoding_awsQuery:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-encoding"]).toBeDefined();
     expect(r.headers["content-encoding"]).toBe("gzip");
   }
 });
@@ -1144,7 +1172,6 @@ it("SDKAppendsGzipAndIgnoresHttpProvidedEncoding_awsQuery:Request", async () => 
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-encoding"]).toBeDefined();
     expect(r.headers["content-encoding"]).toBe("gzip");
   }
 });
@@ -1173,12 +1200,14 @@ it("QueryProtocolIdempotencyTokenAutoFill:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=QueryIdempotencyTokenAutoFill&Version=2020-01-08&token=00000000-0000-4000-8000-000000000000`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1210,12 +1239,14 @@ it("QueryProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=QueryIdempotencyTokenAutoFill&Version=2020-01-08&token=00000000-0000-4000-8000-000000000123`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1256,10 +1287,9 @@ it("QueryLists:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=QueryLists&Version=2020-01-08&ListArg.member.1=foo&ListArg.member.2=bar&ListArg.member.3=baz&ComplexListArg.member.1.hi=hello&ComplexListArg.member.2.hi=hola`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1292,10 +1322,9 @@ it("EmptyQueryLists:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=QueryLists&Version=2020-01-08&ListArg=`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1328,10 +1357,9 @@ it("FlattenedQueryLists:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=QueryLists&Version=2020-01-08&FlattenedListArg.1=A&FlattenedListArg.2=B`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1364,10 +1392,9 @@ it("QueryListArgWithXmlNameMember:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=QueryLists&Version=2020-01-08&ListArgWithXmlNameMember.item.1=A&ListArgWithXmlNameMember.item.2=B`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1400,10 +1427,9 @@ it("QueryFlattenedListArgWithXmlName:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=QueryLists&Version=2020-01-08&Hi.1=A&Hi.2=B`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1438,10 +1464,9 @@ it("QueryNestedStructWithList:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=QueryLists&Version=2020-01-08&NestedWithList.ListArg.member.1=A&NestedWithList.ListArg.member.2=B`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1477,10 +1502,9 @@ it("QuerySimpleQueryMaps:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=QueryMaps&Version=2020-01-08&MapArg.entry.1.key=bar&MapArg.entry.1.value=Bar&MapArg.entry.2.key=foo&MapArg.entry.2.value=Foo`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1515,10 +1539,9 @@ it("QuerySimpleQueryMapsWithXmlName:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=QueryMaps&Version=2020-01-08&Foo.entry.1.key=foo&Foo.entry.1.value=Foo`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1558,10 +1581,9 @@ it("QueryComplexQueryMaps:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=QueryMaps&Version=2020-01-08&ComplexMapArg.entry.1.key=bar&ComplexMapArg.entry.1.value.hi=Bar&ComplexMapArg.entry.2.key=foo&ComplexMapArg.entry.2.value.hi=Foo`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1594,10 +1616,9 @@ it("QueryEmptyQueryMaps:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=QueryMaps&Version=2020-01-08`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1633,10 +1654,9 @@ it("QueryQueryMapWithMemberXmlName:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=QueryMaps&Version=2020-01-08&MapWithXmlMemberName.entry.1.K=bar&MapWithXmlMemberName.entry.1.V=Bar&MapWithXmlMemberName.entry.2.K=foo&MapWithXmlMemberName.entry.2.V=Foo`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1672,10 +1692,9 @@ it("QueryFlattenedQueryMaps:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=QueryMaps&Version=2020-01-08&FlattenedMap.1.key=bar&FlattenedMap.1.value=Bar&FlattenedMap.2.key=foo&FlattenedMap.2.value=Foo`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1711,10 +1730,9 @@ it("QueryFlattenedQueryMapsWithXmlName:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=QueryMaps&Version=2020-01-08&Hi.1.K=bar&Hi.1.V=Bar&Hi.2.K=foo&Hi.2.V=Foo`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1750,10 +1768,9 @@ it("QueryQueryMapOfLists:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=QueryMaps&Version=2020-01-08&MapOfLists.entry.1.key=bar&MapOfLists.entry.1.value.member.1=C&MapOfLists.entry.1.value.member.2=D&MapOfLists.entry.2.key=foo&MapOfLists.entry.2.value.member.1=A&MapOfLists.entry.2.value.member.2=B`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1791,10 +1808,9 @@ it("QueryNestedStructWithMap:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=QueryMaps&Version=2020-01-08&NestedStructWithMap.MapArg.entry.1.key=bar&NestedStructWithMap.MapArg.entry.1.value=Bar&NestedStructWithMap.MapArg.entry.2.key=foo&NestedStructWithMap.MapArg.entry.2.value=Foo`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1828,12 +1844,14 @@ it("QueryTimestampsInput:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=QueryTimestamps&Version=2020-01-08&normalFormat=2015-01-25T08%3A00%3A00Z&epochMember=1422172800&epochTarget=1422172800`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1901,7 +1919,10 @@ it("QueryRecursiveShapes:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1931,12 +1952,14 @@ it("QuerySimpleInputParamsStrings:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=SimpleInputParams&Version=2020-01-08&Foo=val1&Bar=val2`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -1969,12 +1992,14 @@ it("QuerySimpleInputParamsStringAndBooleanTrue:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=SimpleInputParams&Version=2020-01-08&Foo=val1&Baz=true`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -2006,12 +2031,14 @@ it("QuerySimpleInputParamsStringsAndBooleanFalse:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=SimpleInputParams&Version=2020-01-08&Baz=false`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -2043,12 +2070,14 @@ it("QuerySimpleInputParamsInteger:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=SimpleInputParams&Version=2020-01-08&Bam=10`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -2080,12 +2109,14 @@ it("QuerySimpleInputParamsFloat:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=SimpleInputParams&Version=2020-01-08&Boo=10.8`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -2117,12 +2148,14 @@ it("QuerySimpleInputParamsBlob:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=SimpleInputParams&Version=2020-01-08&Qux=dmFsdWU%3D`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -2154,12 +2187,14 @@ it("QueryEnums:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=SimpleInputParams&Version=2020-01-08&FooEnum=Foo`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -2191,12 +2226,14 @@ it("QueryIntEnums:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=SimpleInputParams&Version=2020-01-08&IntegerEnum=1`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -2229,12 +2266,14 @@ it("AwsQuerySupportsNaNFloatInputs:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=SimpleInputParams&Version=2020-01-08&FloatValue=NaN&Boo=NaN`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -2267,12 +2306,14 @@ it("AwsQuerySupportsInfinityFloatInputs:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=SimpleInputParams&Version=2020-01-08&FloatValue=Infinity&Boo=Infinity`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -2305,12 +2346,14 @@ it("AwsQuerySupportsNegativeInfinityFloatInputs:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=SimpleInputParams&Version=2020-01-08&FloatValue=-Infinity&Boo=-Infinity`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
@@ -2374,7 +2417,10 @@ it("QuerySimpleScalarProperties:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2419,7 +2465,10 @@ it("AwsQuerySupportsNaNFloatOutputs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2464,7 +2513,10 @@ it("AwsQuerySupportsInfinityFloatOutputs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2509,7 +2561,10 @@ it("AwsQuerySupportsNegativeInfinityFloatOutputs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2552,7 +2607,10 @@ it("QueryXmlBlobs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2595,7 +2653,10 @@ it("QueryXmlEmptyBlobs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2638,7 +2699,10 @@ it("QueryXmlEmptySelfClosedBlobs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2683,7 +2747,10 @@ it("QueryXmlEmptyLists:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2727,7 +2794,10 @@ it("QueryXmlEmptyMaps:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2770,7 +2840,10 @@ it("QueryXmlEmptySelfClosedMaps:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2841,7 +2914,10 @@ it("QueryXmlEnums:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2912,7 +2988,10 @@ it("QueryXmlIntEnums:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3039,7 +3118,10 @@ it("QueryXmlLists:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3102,7 +3184,10 @@ it("QueryXmlMaps:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3165,7 +3250,10 @@ it("QueryQueryXmlMapsXmlName:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3217,7 +3305,10 @@ it("QueryXmlNamespaces:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3260,7 +3351,10 @@ it("QueryXmlTimestamps:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3303,7 +3397,10 @@ it("QueryXmlTimestampsWithDateTimeFormat:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3346,7 +3443,10 @@ it("QueryXmlTimestampsWithDateTimeOnTargetFormat:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3389,7 +3489,10 @@ it("QueryXmlTimestampsWithEpochSecondsFormat:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3432,7 +3535,10 @@ it("QueryXmlTimestampsWithEpochSecondsOnTargetFormat:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3475,7 +3581,10 @@ it("QueryXmlTimestampsWithHttpDateFormat:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3518,7 +3627,10 @@ it("QueryXmlTimestampsWithHttpDateOnTargetFormat:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });

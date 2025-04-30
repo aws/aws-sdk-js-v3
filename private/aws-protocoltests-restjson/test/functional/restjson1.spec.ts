@@ -4,6 +4,7 @@ import { buildQueryString } from "@smithy/querystring-builder";
 import { Encoder as __Encoder } from "@smithy/types";
 import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 import { Readable } from "stream";
+import { expect, test as it } from "vitest";
 
 import { AllQueryStringTypesCommand } from "../../src/commands/AllQueryStringTypesCommand";
 import { ConstantAndVariableQueryStringCommand } from "../../src/commands/ConstantAndVariableQueryStringCommand";
@@ -627,7 +628,10 @@ it("RestJsonConstantAndVariableQueryStringMissingOneValue:Request", async () => 
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/ConstantAndVariableQueryString");
 
-    expect(r.query["maybeSet"]).toBeUndefined();
+    expect(
+      r.query["maybeSet"],
+      `Query key "maybeSet" should have been undefined in ${JSON.stringify(r.query)}`
+    ).toBeUndefined();
 
     const queryString = buildQueryString(r.query);
     expect(queryString).toContain("foo=bar");
@@ -739,7 +743,10 @@ it("RestJsonDateTimeWithNegativeOffset:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -778,7 +785,10 @@ it("RestJsonDateTimeWithPositiveOffset:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -811,10 +821,9 @@ it("DocumentTypeInputWithObject:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/DocumentType");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"stringValue\": \"string\",
@@ -853,10 +862,9 @@ it("DocumentInputWithString:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/DocumentType");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"stringValue\": \"string\",
@@ -893,10 +901,9 @@ it("DocumentInputWithNumber:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/DocumentType");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"stringValue\": \"string\",
@@ -933,10 +940,9 @@ it("DocumentInputWithBoolean:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/DocumentType");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"stringValue\": \"string\",
@@ -982,10 +988,9 @@ it("DocumentInputWithList:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/DocumentType");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"stringValue\": \"string\",
@@ -1052,7 +1057,10 @@ it("DocumentOutput:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1094,7 +1102,10 @@ it("DocumentOutputString:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1136,7 +1147,10 @@ it("DocumentOutputNumber:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1178,7 +1192,10 @@ it("DocumentOutputBoolean:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1223,7 +1240,10 @@ it("DocumentOutputArray:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1260,10 +1280,9 @@ it("DocumentTypeAsMapValueInput:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/DocumentTypeAsMapValue");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"docValuedMap\": {
@@ -1323,7 +1342,10 @@ it("DocumentTypeAsMapValueOutput:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1355,10 +1377,9 @@ it("DocumentTypeAsPayloadInput:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/DocumentTypeAsPayload");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"foo\": \"bar\"
@@ -1393,10 +1414,9 @@ it("DocumentTypeAsPayloadInputString:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/DocumentTypeAsPayload");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `\"hello\"`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -1441,7 +1461,10 @@ it("DocumentTypeAsPayloadOutput:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1479,7 +1502,10 @@ it("DocumentTypeAsPayloadOutputString:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1592,7 +1618,6 @@ it("RestJsonEndpointTrait:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/EndpointOperation");
 
-    expect(r.headers["host"]).toBeDefined();
     expect(r.headers["host"]).toBe("foo.example.com");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -1627,10 +1652,9 @@ it("RestJsonEndpointTraitWithHostLabel:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/EndpointWithHostLabelOperation");
 
-    expect(r.headers["host"]).toBeDefined();
     expect(r.headers["host"]).toBe("foo.bar.example.com");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{\"label\": \"bar\"}`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -1672,7 +1696,10 @@ it("RestJsonDateTimeWithFractionalSeconds:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1714,7 +1741,10 @@ it("RestJsonGreetingWithErrors:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1754,7 +1784,10 @@ it("RestJsonGreetingWithErrorsNoPayload:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2114,7 +2147,10 @@ it("RestJsonComplexErrorWithNoMessage:Error:GreetingWithErrors", async () => {
       },
     ][0];
     Object.keys(paramsToValidate).forEach((param) => {
-      expect(r[param]).toBeDefined();
+      expect(
+        r[param],
+        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      ).toBeDefined();
       expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     });
     return;
@@ -2192,7 +2228,10 @@ it("RestJsonInvalidGreetingError:Error:GreetingWithErrors", async () => {
       },
     ][0];
     Object.keys(paramsToValidate).forEach((param) => {
-      expect(r[param]).toBeDefined();
+      expect(
+        r[param],
+        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      ).toBeDefined();
       expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     });
     return;
@@ -2253,12 +2292,10 @@ it("RestJsonHttpChecksumRequired:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/HttpChecksumRequired");
 
-    expect(r.headers["content-md5"]).toBeDefined();
     expect(r.headers["content-md5"]).toBe("iB0/3YSo7maijL0IGOgA9g==");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"foo\":\"base64 encoded md5 checksum\"
@@ -2291,10 +2328,9 @@ it("RestJsonEnumPayloadRequest:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/EnumPayload");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("text/plain");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `enumvalue`;
     const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
@@ -2332,7 +2368,10 @@ it("RestJsonEnumPayloadResponse:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2362,14 +2401,15 @@ it("RestJsonHttpPayloadTraitsWithBlob:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/HttpPayloadTraits");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/octet-stream");
-    expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `blobby blob blob`;
     const unequalParts: any = compareEquivalentOctetStreamBodies(utf8Encoder, bodyString, r.body);
@@ -2402,7 +2442,6 @@ it("RestJsonHttpPayloadTraitsWithNoBlobBody:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/HttpPayloadTraits");
 
-    expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -2443,7 +2482,10 @@ it("RestJsonHttpPayloadTraitsWithBlob:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2481,7 +2523,10 @@ it("RestJsonHttpPayloadTraitsWithNoBlobBody:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2511,14 +2556,15 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/HttpPayloadTraitsWithMediaType");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("text/plain");
-    expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `blobby blob blob`;
     const unequalParts: any = compareEquivalentOctetStreamBodies(utf8Encoder, bodyString, r.body);
@@ -2561,7 +2607,10 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2593,12 +2642,14 @@ it("RestJsonHttpPayloadWithStructure:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/HttpPayloadWithStructure");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"greeting\": \"hello\",
@@ -2648,7 +2699,10 @@ it("RestJsonHttpPayloadWithStructure:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2679,12 +2733,14 @@ it("RestJsonHttpPayloadWithUnion:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/HttpPayloadWithUnion");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"greeting\": \"hello\"
@@ -2758,7 +2814,10 @@ it("RestJsonHttpPayloadWithUnion:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2821,11 +2880,8 @@ it("RestJsonHttpPrefixHeadersArePresent:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/HttpPrefixHeaders");
 
-    expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
-    expect(r.headers["x-foo-abc"]).toBeDefined();
     expect(r.headers["x-foo-abc"]).toBe("Abc value");
-    expect(r.headers["x-foo-def"]).toBeDefined();
     expect(r.headers["x-foo-def"]).toBe("Def value");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -2858,7 +2914,6 @@ it("RestJsonHttpPrefixHeadersAreNotPresent:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/HttpPrefixHeaders");
 
-    expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -2892,7 +2947,6 @@ it("RestJsonHttpPrefixEmptyHeaders:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/HttpPrefixHeaders");
 
-    expect(r.headers["x-foo-abc"]).toBeDefined();
     expect(r.headers["x-foo-abc"]).toBe("");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -2933,7 +2987,10 @@ it("RestJsonHttpPrefixHeadersArePresent:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2970,7 +3027,10 @@ it("HttpPrefixHeadersResponse:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3272,7 +3332,10 @@ it("RestJsonHttpResponseCode:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3305,7 +3368,10 @@ it("RestJsonHttpResponseCodeWithNoPayload:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3331,12 +3397,14 @@ it("RestJsonStringPayloadRequest:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/StringPayload");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("text/plain");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `rawstring`;
     const unequalParts: any = compareEquivalentTextBodies(bodyString, r.body);
@@ -3374,7 +3442,10 @@ it("RestJsonStringPayloadResponse:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3462,11 +3533,8 @@ it("RestJsonInputAndOutputWithStringHeaders:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
-    expect(r.headers["x-string"]).toBeDefined();
     expect(r.headers["x-string"]).toBe("Hello");
-    expect(r.headers["x-stringlist"]).toBeDefined();
     expect(r.headers["x-stringlist"]).toBe("a, b, c");
-    expect(r.headers["x-stringset"]).toBeDefined();
     expect(r.headers["x-stringset"]).toBe("a, b, c");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -3498,7 +3566,6 @@ it("RestJsonInputAndOutputWithQuotedStringHeaders:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
-    expect(r.headers["x-stringlist"]).toBeDefined();
     expect(r.headers["x-stringlist"]).toBe('"b,c", "\\"def\\"", a');
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -3536,19 +3603,12 @@ it("RestJsonInputAndOutputWithNumericHeaders:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
-    expect(r.headers["x-byte"]).toBeDefined();
     expect(r.headers["x-byte"]).toBe("1");
-    expect(r.headers["x-double"]).toBeDefined();
     expect(r.headers["x-double"]).toBe("1.1");
-    expect(r.headers["x-float"]).toBeDefined();
     expect(r.headers["x-float"]).toBe("1.1");
-    expect(r.headers["x-integer"]).toBeDefined();
     expect(r.headers["x-integer"]).toBe("123");
-    expect(r.headers["x-integerlist"]).toBeDefined();
     expect(r.headers["x-integerlist"]).toBe("1, 2, 3");
-    expect(r.headers["x-long"]).toBeDefined();
     expect(r.headers["x-long"]).toBe("123");
-    expect(r.headers["x-short"]).toBeDefined();
     expect(r.headers["x-short"]).toBe("123");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -3582,11 +3642,8 @@ it("RestJsonInputAndOutputWithBooleanHeaders:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
-    expect(r.headers["x-boolean1"]).toBeDefined();
     expect(r.headers["x-boolean1"]).toBe("true");
-    expect(r.headers["x-boolean2"]).toBeDefined();
     expect(r.headers["x-boolean2"]).toBe("false");
-    expect(r.headers["x-booleanlist"]).toBeDefined();
     expect(r.headers["x-booleanlist"]).toBe("true, false, true");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -3618,7 +3675,6 @@ it("RestJsonInputAndOutputWithTimestampHeaders:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
-    expect(r.headers["x-timestamplist"]).toBeDefined();
     expect(r.headers["x-timestamplist"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -3651,9 +3707,7 @@ it("RestJsonInputAndOutputWithEnumHeaders:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
-    expect(r.headers["x-enum"]).toBeDefined();
     expect(r.headers["x-enum"]).toBe("Foo");
-    expect(r.headers["x-enumlist"]).toBeDefined();
     expect(r.headers["x-enumlist"]).toBe("Foo, Bar, Baz");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -3686,9 +3740,7 @@ it("RestJsonInputAndOutputWithIntEnumHeaders:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
-    expect(r.headers["x-integerenum"]).toBeDefined();
     expect(r.headers["x-integerenum"]).toBe("1");
-    expect(r.headers["x-integerenumlist"]).toBeDefined();
     expect(r.headers["x-integerenumlist"]).toBe("1, 2, 3");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -3721,9 +3773,7 @@ it("RestJsonSupportsNaNFloatHeaderInputs:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
-    expect(r.headers["x-double"]).toBeDefined();
     expect(r.headers["x-double"]).toBe("NaN");
-    expect(r.headers["x-float"]).toBeDefined();
     expect(r.headers["x-float"]).toBe("NaN");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -3756,9 +3806,7 @@ it("RestJsonSupportsInfinityFloatHeaderInputs:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
-    expect(r.headers["x-double"]).toBeDefined();
     expect(r.headers["x-double"]).toBe("Infinity");
-    expect(r.headers["x-float"]).toBeDefined();
     expect(r.headers["x-float"]).toBe("Infinity");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -3791,9 +3839,7 @@ it("RestJsonSupportsNegativeInfinityFloatHeaderInputs:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
-    expect(r.headers["x-double"]).toBeDefined();
     expect(r.headers["x-double"]).toBe("-Infinity");
-    expect(r.headers["x-float"]).toBeDefined();
     expect(r.headers["x-float"]).toBe("-Infinity");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -3832,7 +3878,10 @@ it("RestJsonInputAndOutputWithStringHeaders:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3865,7 +3914,10 @@ it("RestJsonInputAndOutputWithQuotedStringHeaders:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3910,7 +3962,10 @@ it("RestJsonInputAndOutputWithNumericHeaders:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3947,7 +4002,10 @@ it("RestJsonInputAndOutputWithBooleanHeaders:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3980,7 +4038,10 @@ it("RestJsonInputAndOutputWithTimestampHeaders:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4015,7 +4076,10 @@ it("RestJsonInputAndOutputWithEnumHeaders:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4050,7 +4114,10 @@ it("RestJsonInputAndOutputWithIntEnumHeaders:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4085,7 +4152,10 @@ it("RestJsonSupportsNaNFloatHeaderOutputs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4120,7 +4190,10 @@ it("RestJsonSupportsInfinityFloatHeaderOutputs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4155,7 +4228,10 @@ it("RestJsonSupportsNegativeInfinityFloatHeaderOutputs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4185,10 +4261,9 @@ it("RestJsonJsonBlobs:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/JsonBlobs");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"data\": \"dmFsdWU=\"
@@ -4233,7 +4308,10 @@ it("RestJsonJsonBlobs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4271,10 +4349,9 @@ it("RestJsonJsonEnums:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/JsonEnums");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"fooEnum1\": \"Foo\",
@@ -4355,7 +4432,10 @@ it("RestJsonJsonEnums:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4393,10 +4473,9 @@ it("RestJsonJsonIntEnums:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/JsonIntEnums");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"integerEnum1\": 1,
@@ -4479,7 +4558,10 @@ it("RestJsonJsonIntEnums:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4529,10 +4611,9 @@ it("RestJsonLists:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/JsonLists");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"stringList\": [
@@ -4614,10 +4695,9 @@ it("RestJsonListsEmpty:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/JsonLists");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"stringList\": []
@@ -4729,7 +4809,10 @@ it("RestJsonLists:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4769,7 +4852,10 @@ it("RestJsonListsEmpty:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4806,10 +4892,9 @@ it("RestJsonJsonMaps:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/JsonMaps");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"denseStructMap\": {
@@ -4856,10 +4941,9 @@ it("RestJsonSerializesZeroValuesInMaps:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/JsonMaps");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"denseNumberMap\": {
@@ -4902,10 +4986,9 @@ it("RestJsonSerializesDenseSetMap:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/JsonMaps");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"denseSetMap\": {
@@ -4967,7 +5050,10 @@ it("RestJsonJsonMaps:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -5017,7 +5103,10 @@ it("RestJsonDeserializesZeroValuesInMaps:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -5063,7 +5152,10 @@ it("RestJsonDeserializesDenseSetMap:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -5111,7 +5203,10 @@ it("RestJsonDeserializesDenseSetMapAndSkipsNull:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -5141,10 +5236,9 @@ it("RestJsonJsonTimestamps:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/JsonTimestamps");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"normal\": 1398796238
@@ -5179,10 +5273,9 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/JsonTimestamps");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"dateTime\": \"2014-04-29T18:30:38Z\"
@@ -5217,10 +5310,9 @@ it("RestJsonJsonTimestampsWithDateTimeOnTargetFormat:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/JsonTimestamps");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"dateTimeOnTarget\": \"2014-04-29T18:30:38Z\"
@@ -5255,10 +5347,9 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/JsonTimestamps");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"epochSeconds\": 1398796238
@@ -5293,10 +5384,9 @@ it("RestJsonJsonTimestampsWithEpochSecondsOnTargetFormat:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/JsonTimestamps");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"epochSecondsOnTarget\": 1398796238
@@ -5331,10 +5421,9 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/JsonTimestamps");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"httpDate\": \"Tue, 29 Apr 2014 18:30:38 GMT\"
@@ -5369,10 +5458,9 @@ it("RestJsonJsonTimestampsWithHttpDateOnTargetFormat:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/JsonTimestamps");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"httpDateOnTarget\": \"Tue, 29 Apr 2014 18:30:38 GMT\"
@@ -5417,7 +5505,10 @@ it("RestJsonJsonTimestamps:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -5457,7 +5548,10 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -5497,7 +5591,10 @@ it("RestJsonJsonTimestampsWithDateTimeOnTargetFormat:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -5537,7 +5634,10 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -5577,7 +5677,10 @@ it("RestJsonJsonTimestampsWithEpochSecondsOnTargetFormat:Response", async () => 
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -5617,7 +5720,10 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -5657,7 +5763,10 @@ it("RestJsonJsonTimestampsWithHttpDateOnTargetFormat:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -5689,10 +5798,9 @@ it("RestJsonSerializeStringUnionValue:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/JsonUnions");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -5731,10 +5839,9 @@ it("RestJsonSerializeBooleanUnionValue:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/JsonUnions");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -5773,10 +5880,9 @@ it("RestJsonSerializeNumberUnionValue:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/JsonUnions");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -5815,10 +5921,9 @@ it("RestJsonSerializeBlobUnionValue:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/JsonUnions");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -5857,10 +5962,9 @@ it("RestJsonSerializeTimestampUnionValue:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/JsonUnions");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -5899,10 +6003,9 @@ it("RestJsonSerializeEnumUnionValue:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/JsonUnions");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -5941,10 +6044,9 @@ it("RestJsonSerializeListUnionValue:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/JsonUnions");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -5986,10 +6088,9 @@ it("RestJsonSerializeMapUnionValue:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/JsonUnions");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -6033,10 +6134,9 @@ it("RestJsonSerializeStructureUnionValue:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/JsonUnions");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -6079,10 +6179,9 @@ it("RestJsonSerializeRenamedStructureUnionValue:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/JsonUnions");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
@@ -6135,7 +6234,10 @@ it("RestJsonDeserializeStringUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6179,7 +6281,10 @@ it("RestJsonDeserializeBooleanUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6223,7 +6328,10 @@ it("RestJsonDeserializeNumberUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6267,7 +6375,10 @@ it("RestJsonDeserializeBlobUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6311,7 +6422,10 @@ it("RestJsonDeserializeTimestampUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6355,7 +6469,10 @@ it("RestJsonDeserializeEnumUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6399,7 +6516,10 @@ it("RestJsonDeserializeListUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6449,7 +6569,10 @@ it("RestJsonDeserializeMapUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6497,7 +6620,10 @@ it("RestJsonDeserializeStructureUnionValue:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6546,7 +6672,10 @@ it("RestJsonDeserializeIgnoreType:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6576,7 +6705,6 @@ it("MediaTypeHeaderInputBase64:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/MediaTypeHeader");
 
-    expect(r.headers["x-json"]).toBeDefined();
     expect(r.headers["x-json"]).toBe("dHJ1ZQ==");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -6611,7 +6739,10 @@ it("MediaTypeHeaderOutputBase64:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -6779,11 +6910,12 @@ it.skip("RestJsonNullAndEmptyHeaders:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/NullAndEmptyHeadersClient");
 
-    expect(r.headers["x-a"]).toBeUndefined();
+    expect(
+      r.headers["x-a"],
+      `Header key "x-a" should have been undefined in ${JSON.stringify(r.headers)}`
+    ).toBeUndefined();
 
-    expect(r.headers["x-b"]).toBeDefined();
     expect(r.headers["x-b"]).toBe("");
-    expect(r.headers["x-c"]).toBeDefined();
     expect(r.headers["x-c"]).toBe("");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -6911,10 +7043,9 @@ it.skip("RestJsonClientPopulatesDefaultValuesInInput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/OperationWithDefaults");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"defaults\": {
@@ -6975,10 +7106,9 @@ it.skip("RestJsonClientSkipsTopLevelDefaultValuesInInput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/OperationWithDefaults");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
     }`;
@@ -7045,10 +7175,9 @@ it.skip("RestJsonClientUsesExplicitlyProvidedMemberValuesOverDefaults:Request", 
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/OperationWithDefaults");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"defaults\": {
@@ -7113,10 +7242,9 @@ it.skip("RestJsonClientUsesExplicitlyProvidedValuesInTopLevel:Request", async ()
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/OperationWithDefaults");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"topLevelDefault\": \"hi\",
@@ -7152,10 +7280,9 @@ it.skip("RestJsonClientIgnoresNonTopLevelDefaultsOnMembersWithClientOptional:Req
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/OperationWithDefaults");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"clientOptionalDefaults\": {}
@@ -7224,7 +7351,10 @@ it.skip("RestJsonClientPopulatesDefaultsValuesWhenMissingInResponse:Response", a
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -7322,7 +7452,10 @@ it.skip("RestJsonClientIgnoresDefaultValuesIfMemberValuesArePresentInResponse:Re
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -7382,10 +7515,9 @@ it.skip("RestJsonClientPopulatesNestedDefaultValuesWhenMissing:Request", async (
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/OperationWithNestedStructure");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"topLevel\": {
@@ -7540,7 +7672,10 @@ it.skip("RestJsonClientPopulatesNestedDefaultsWhenMissingInResponseBody:Response
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -7572,10 +7707,9 @@ it("RestJsonInputUnionWithUnitMember:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/PostPlayerAction");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"action\": {
@@ -7626,7 +7760,10 @@ it("RestJsonOutputUnionWithUnitMember:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -7658,10 +7795,9 @@ it("PostUnionWithJsonNameRequest1:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/PostUnionWithJsonName");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"value\": {
@@ -7700,10 +7836,9 @@ it("PostUnionWithJsonNameRequest2:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/PostUnionWithJsonName");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"value\": {
@@ -7742,10 +7877,9 @@ it("PostUnionWithJsonNameRequest3:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/PostUnionWithJsonName");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"value\": {
@@ -7796,7 +7930,10 @@ it("PostUnionWithJsonNameResponse1:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -7840,7 +7977,10 @@ it("PostUnionWithJsonNameResponse2:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -7884,7 +8024,10 @@ it("PostUnionWithJsonNameResponse3:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -7914,7 +8057,6 @@ it("SDKAppliedContentEncoding_restJson1:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/requestcompression/putcontentwithencoding");
 
-    expect(r.headers["content-encoding"]).toBeDefined();
     expect(r.headers["content-encoding"]).toBe("gzip");
   }
 });
@@ -7948,7 +8090,6 @@ it("SDKAppendedGzipAfterProvidedEncoding_restJson1:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/requestcompression/putcontentwithencoding");
 
-    expect(r.headers["content-encoding"]).toBeDefined();
     expect(r.headers["content-encoding"]).toBe("custom, gzip");
   }
 });
@@ -8127,10 +8268,9 @@ it("RestJsonRecursiveShapes:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/RecursiveShapes");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"nested\": {
@@ -8208,7 +8348,10 @@ it("RestJsonRecursiveShapes:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -8247,12 +8390,10 @@ it("RestJsonSimpleScalarProperties:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/SimpleScalarProperties");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
-    expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"stringValue\": \"string\",
@@ -8295,10 +8436,9 @@ it("RestJsonDoesntSerializeNullStructureValues:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/SimpleScalarProperties");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{}`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -8332,10 +8472,9 @@ it("RestJsonSupportsNaNFloatInputs:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/SimpleScalarProperties");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"floatValue\": \"NaN\",
@@ -8372,10 +8511,9 @@ it("RestJsonSupportsInfinityFloatInputs:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/SimpleScalarProperties");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"floatValue\": \"Infinity\",
@@ -8412,10 +8550,9 @@ it("RestJsonSupportsNegativeInfinityFloatInputs:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/SimpleScalarProperties");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"floatValue\": \"-Infinity\",
@@ -8479,7 +8616,10 @@ it("RestJsonSimpleScalarProperties:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -8552,7 +8692,10 @@ it("RestJsonSupportsNaNFloatInputs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -8594,7 +8737,10 @@ it("RestJsonSupportsInfinityFloatInputs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -8636,7 +8782,10 @@ it("RestJsonSupportsNegativeInfinityFloatInputs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -8667,10 +8816,9 @@ it("RestJsonSparseListsSerializeNull:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/SparseJsonLists");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"sparseStringList\": [
@@ -8730,7 +8878,10 @@ it("RestJsonSparseListsSerializeNull:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -8767,10 +8918,9 @@ it("RestJsonSparseJsonMaps:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/SparseJsonMaps");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"sparseStructMap\": {
@@ -8823,10 +8973,9 @@ it("RestJsonSerializesSparseNullMapValues:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/SparseJsonMaps");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"sparseBooleanMap\": {
@@ -8877,10 +9026,9 @@ it("RestJsonSerializesZeroValuesInSparseMaps:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/SparseJsonMaps");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"sparseNumberMap\": {
@@ -8923,10 +9071,9 @@ it("RestJsonSerializesSparseSetMap:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/SparseJsonMaps");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"sparseSetMap\": {
@@ -8968,10 +9115,9 @@ it("RestJsonSerializesSparseSetMapAndRetainsNull:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/SparseJsonMaps");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"sparseSetMap\": {
@@ -9034,7 +9180,10 @@ it("RestJsonSparseJsonMaps:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -9096,7 +9245,10 @@ it("RestJsonDeserializesSparseNullMapValues:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -9146,7 +9298,10 @@ it("RestJsonDeserializesZeroValuesInSparseMaps:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -9192,7 +9347,10 @@ it("RestJsonDeserializesSparseSetMap:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -9240,7 +9398,10 @@ it("RestJsonDeserializesSparseSetMapAndRetainsNull:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -9271,12 +9432,10 @@ it("RestJsonStreamingTraitsWithBlob:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/StreamingTraits");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/octet-stream");
-    expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `blobby blob blob`;
     const unequalParts: any = compareEquivalentOctetStreamBodies(utf8Encoder, bodyString, r.body);
@@ -9309,7 +9468,6 @@ it("RestJsonStreamingTraitsWithNoBlobBody:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/StreamingTraits");
 
-    expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -9352,7 +9510,10 @@ it("RestJsonStreamingTraitsWithBlob:Response", async () => {
   ][0];
   const comparableBlob = await client.config.streamCollector(r["blob"]);
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     if (param === "blob") {
       expect(equivalentContents(paramsToValidate[param], comparableBlob)).toBe(true);
     } else {
@@ -9395,7 +9556,10 @@ it("RestJsonStreamingTraitsWithNoBlobBody:Response", async () => {
   ][0];
   const comparableBlob = await client.config.streamCollector(r["blob"]);
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     if (param === "blob") {
       expect(equivalentContents(paramsToValidate[param], comparableBlob)).toBe(true);
     } else {
@@ -9429,14 +9593,15 @@ it("RestJsonStreamingTraitsRequireLengthWithBlob:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/StreamingTraitsRequireLength");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/octet-stream");
-    expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `blobby blob blob`;
     const unequalParts: any = compareEquivalentOctetStreamBodies(utf8Encoder, bodyString, r.body);
@@ -9469,7 +9634,6 @@ it("RestJsonStreamingTraitsRequireLengthWithNoBlobBody:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/StreamingTraitsRequireLength");
 
-    expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -9502,12 +9666,10 @@ it("RestJsonStreamingTraitsWithMediaTypeWithBlob:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/StreamingTraitsWithMediaType");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("text/plain");
-    expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `blobby blob blob`;
     const unequalParts: any = compareEquivalentOctetStreamBodies(utf8Encoder, bodyString, r.body);
@@ -9551,7 +9713,10 @@ it("RestJsonStreamingTraitsWithMediaTypeWithBlob:Response", async () => {
   ][0];
   const comparableBlob = await client.config.streamCollector(r["blob"]);
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     if (param === "blob") {
       expect(equivalentContents(paramsToValidate[param], comparableBlob)).toBe(true);
     } else {
@@ -9586,12 +9751,14 @@ it("RestJsonTestBodyStructure:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/body");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{\"testConfig\":
         {\"timeout\": 10}
@@ -9623,12 +9790,14 @@ it("RestJsonHttpWithEmptyBody:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/body");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{}`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -9659,8 +9828,14 @@ it("RestJsonHttpGetWithNoInput:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/no_input_no_payload");
 
-    expect(r.headers["content-type"]).toBeUndefined();
-    expect(r.headers["content-length"]).toBeUndefined();
+    expect(
+      r.headers["content-type"],
+      `Header key "content-type" should have been undefined in ${JSON.stringify(r.headers)}`
+    ).toBeUndefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been undefined in ${JSON.stringify(r.headers)}`
+    ).toBeUndefined();
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
   }
@@ -9689,8 +9864,14 @@ it("RestJsonHttpGetWithNoModeledBody:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/no_payload");
 
-    expect(r.headers["content-length"]).toBeUndefined();
-    expect(r.headers["content-type"]).toBeUndefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been undefined in ${JSON.stringify(r.headers)}`
+    ).toBeUndefined();
+    expect(
+      r.headers["content-type"],
+      `Header key "content-type" should have been undefined in ${JSON.stringify(r.headers)}`
+    ).toBeUndefined();
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
   }
@@ -9721,10 +9902,15 @@ it("RestJsonHttpGetWithHeaderMemberNoModeledBody:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/no_payload");
 
-    expect(r.headers["content-length"]).toBeUndefined();
-    expect(r.headers["content-type"]).toBeUndefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been undefined in ${JSON.stringify(r.headers)}`
+    ).toBeUndefined();
+    expect(
+      r.headers["content-type"],
+      `Header key "content-type" should have been undefined in ${JSON.stringify(r.headers)}`
+    ).toBeUndefined();
 
-    expect(r.headers["x-amz-test-id"]).toBeDefined();
     expect(r.headers["x-amz-test-id"]).toBe("t-12345");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -9783,12 +9969,14 @@ it("RestJsonTestPayloadBlob:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/blob_payload");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("image/jpg");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `1234`;
     const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
@@ -9818,12 +10006,14 @@ it("RestJsonHttpWithEmptyStructurePayload:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/payload");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{}`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -9857,12 +10047,14 @@ it("RestJsonTestPayloadStructure:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/payload");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{\"data\": 25
     }`;
@@ -9895,14 +10087,15 @@ it("RestJsonHttpWithHeadersButNoPayload:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/payload");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
-    expect(r.headers["x-amz-test-id"]).toBeDefined();
     expect(r.headers["x-amz-test-id"]).toBe("t-12345");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{}`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -9933,7 +10126,10 @@ it("RestJsonHttpPostWithNoInput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/no_input_no_payload");
 
-    expect(r.headers["content-type"]).toBeUndefined();
+    expect(
+      r.headers["content-type"],
+      `Header key "content-type" should have been undefined in ${JSON.stringify(r.headers)}`
+    ).toBeUndefined();
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
   }
@@ -9962,7 +10158,10 @@ it("RestJsonHttpPostWithNoModeledBody:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/no_payload");
 
-    expect(r.headers["content-type"]).toBeUndefined();
+    expect(
+      r.headers["content-type"],
+      `Header key "content-type" should have been undefined in ${JSON.stringify(r.headers)}`
+    ).toBeUndefined();
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
   }
@@ -9993,9 +10192,11 @@ it("RestJsonHttpWithPostHeaderMemberNoModeledBody:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/no_payload");
 
-    expect(r.headers["content-type"]).toBeUndefined();
+    expect(
+      r.headers["content-type"],
+      `Header key "content-type" should have been undefined in ${JSON.stringify(r.headers)}`
+    ).toBeUndefined();
 
-    expect(r.headers["x-amz-test-id"]).toBeDefined();
     expect(r.headers["x-amz-test-id"]).toBe("t-12345");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -10033,19 +10234,12 @@ it("RestJsonTimestampFormatHeaders:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/TimestampFormatHeaders");
 
-    expect(r.headers["x-defaultformat"]).toBeDefined();
     expect(r.headers["x-defaultformat"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT");
-    expect(r.headers["x-memberdatetime"]).toBeDefined();
     expect(r.headers["x-memberdatetime"]).toBe("2019-12-16T23:48:18Z");
-    expect(r.headers["x-memberepochseconds"]).toBeDefined();
     expect(r.headers["x-memberepochseconds"]).toBe("1576540098");
-    expect(r.headers["x-memberhttpdate"]).toBeDefined();
     expect(r.headers["x-memberhttpdate"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT");
-    expect(r.headers["x-targetdatetime"]).toBeDefined();
     expect(r.headers["x-targetdatetime"]).toBe("2019-12-16T23:48:18Z");
-    expect(r.headers["x-targetepochseconds"]).toBeDefined();
     expect(r.headers["x-targetepochseconds"]).toBe("1576540098");
-    expect(r.headers["x-targethttpdate"]).toBeDefined();
     expect(r.headers["x-targethttpdate"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -10092,7 +10286,10 @@ it("RestJsonTimestampFormatHeaders:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });

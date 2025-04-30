@@ -3,6 +3,7 @@ import { cbor } from "@smithy/core/cbor";
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 import { Readable } from "stream";
+import { expect, test as it } from "vitest";
 
 import { EmptyInputOutputCommand } from "../../src/commands/EmptyInputOutputCommand";
 import { Float16Command } from "../../src/commands/Float16Command";
@@ -236,18 +237,21 @@ it("empty_input:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/EmptyInputOutput");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["x-amz-target"]).toBeUndefined();
+    expect(
+      r.headers["x-amz-target"],
+      `Header key "x-amz-target" should have been undefined in ${JSON.stringify(r.headers)}`
+    ).toBeUndefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v/8=`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -348,7 +352,10 @@ it("RpcV2CborFloat16Inf:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -387,7 +394,10 @@ it("RpcV2CborFloat16NegInf:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -426,7 +436,10 @@ it("RpcV2CborFloat16LSBNaN:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -465,7 +478,10 @@ it("RpcV2CborFloat16MSBNaN:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -504,7 +520,10 @@ it("RpcV2CborFloat16Subnormal:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -543,7 +562,10 @@ it("RpcV2CborDateTimeWithFractionalSeconds:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -584,7 +606,10 @@ it("RpcV2CborInvalidGreetingError:Error:GreetingWithErrors", async () => {
       },
     ][0];
     Object.keys(paramsToValidate).forEach((param) => {
-      expect(r[param]).toBeDefined();
+      expect(
+        r[param],
+        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      ).toBeDefined();
       expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     });
     return;
@@ -631,7 +656,10 @@ it("RpcV2CborComplexError:Error:GreetingWithErrors", async () => {
       },
     ][0];
     Object.keys(paramsToValidate).forEach((param) => {
-      expect(r[param]).toBeDefined();
+      expect(
+        r[param],
+        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      ).toBeDefined();
       expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     });
     return;
@@ -694,12 +722,16 @@ it("no_input:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/NoInputOutput");
 
-    expect(r.headers["content-type"]).toBeUndefined();
-    expect(r.headers["x-amz-target"]).toBeUndefined();
+    expect(
+      r.headers["content-type"],
+      `Header key "content-type" should have been undefined in ${JSON.stringify(r.headers)}`
+    ).toBeUndefined();
+    expect(
+      r.headers["x-amz-target"],
+      `Header key "x-amz-target" should have been undefined in ${JSON.stringify(r.headers)}`
+    ).toBeUndefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -820,16 +852,16 @@ it.skip("RpcV2CborClientPopulatesDefaultValuesInInput:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/OperationWithDefaults");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v2hkZWZhdWx0c79tZGVmYXVsdFN0cmluZ2JoaW5kZWZhdWx0Qm9vbGVhbvVrZGVmYXVsdExpc3Sf/3BkZWZhdWx0VGltZXN0YW1wwQBrZGVmYXVsdEJsb2JDYWJja2RlZmF1bHRCeXRlAWxkZWZhdWx0U2hvcnQBbmRlZmF1bHRJbnRlZ2VyCmtkZWZhdWx0TG9uZxhkbGRlZmF1bHRGbG9hdPo/gAAAbWRlZmF1bHREb3VibGX6P4AAAGpkZWZhdWx0TWFwv/9rZGVmYXVsdEVudW1jRk9PbmRlZmF1bHRJbnRFbnVtAWtlbXB0eVN0cmluZ2BsZmFsc2VCb29sZWFu9GllbXB0eUJsb2JAaHplcm9CeXRlAGl6ZXJvU2hvcnQAa3plcm9JbnRlZ2VyAGh6ZXJvTG9uZwBpemVyb0Zsb2F0+gAAAABqemVyb0RvdWJsZfoAAAAA//8=`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -858,16 +890,16 @@ it.skip("RpcV2CborClientSkipsTopLevelDefaultValuesInInput:Request", async () => 
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/OperationWithDefaults");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v/8=`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -924,16 +956,16 @@ it.skip("RpcV2CborClientUsesExplicitlyProvidedMemberValuesOverDefaults:Request",
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/OperationWithDefaults");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v2hkZWZhdWx0c7dtZGVmYXVsdFN0cmluZ2NieWVuZGVmYXVsdEJvb2xlYW71a2RlZmF1bHRMaXN0gWFhcGRlZmF1bHRUaW1lc3RhbXDB+z/wAAAAAAAAa2RlZmF1bHRCbG9iQmhpa2RlZmF1bHRCeXRlAmxkZWZhdWx0U2hvcnQCbmRlZmF1bHRJbnRlZ2VyFGtkZWZhdWx0TG9uZxjIbGRlZmF1bHRGbG9hdPpAAAAAbWRlZmF1bHREb3VibGX7QAAAAAAAAABqZGVmYXVsdE1hcKFkbmFtZWRKYWNra2RlZmF1bHRFbnVtY0JBUm5kZWZhdWx0SW50RW51bQJrZW1wdHlTdHJpbmdjZm9vbGZhbHNlQm9vbGVhbvVpZW1wdHlCbG9iQmhpaHplcm9CeXRlAWl6ZXJvU2hvcnQBa3plcm9JbnRlZ2VyAWh6ZXJvTG9uZwFpemVyb0Zsb2F0+j+AAABqemVyb0RvdWJsZfs/8AAAAAAAAP8=`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -965,16 +997,16 @@ it.skip("RpcV2CborClientUsesExplicitlyProvidedValuesInTopLevel:Request", async (
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/OperationWithDefaults");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v290b3BMZXZlbERlZmF1bHRiaGl0b3RoZXJUb3BMZXZlbERlZmF1bHQA/w==`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -1005,16 +1037,16 @@ it.skip("RpcV2CborClientIgnoresNonTopLevelDefaultsOnMembersWithClientOptional:Re
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/OperationWithDefaults");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v3ZjbGllbnRPcHRpb25hbERlZmF1bHRzoP8=`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -1077,7 +1109,10 @@ it.skip("RpcV2CborClientPopulatesDefaultsValuesWhenMissingInResponse:Response", 
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1140,7 +1175,10 @@ it.skip("RpcV2CborClientIgnoresDefaultValuesIfMemberValuesArePresentInResponse:R
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1168,16 +1206,16 @@ it("optional_input:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/OptionalInputOutput");
 
-    expect(r.headers["x-amz-target"]).toBeUndefined();
+    expect(
+      r.headers["x-amz-target"],
+      `Header key "x-amz-target" should have been undefined in ${JSON.stringify(r.headers)}`
+    ).toBeUndefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v/8=`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -1249,16 +1287,16 @@ it("RpcV2CborRecursiveShapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RecursiveShapes");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v2ZuZXN0ZWS/Y2Zvb2RGb28xZm5lc3RlZL9jYmFyZEJhcjFvcmVjdXJzaXZlTWVtYmVyv2Nmb29kRm9vMmZuZXN0ZWS/Y2JhcmRCYXIy//////8=`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -1310,7 +1348,10 @@ it("RpcV2CborRecursiveShapes:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1360,7 +1401,10 @@ it("RpcV2CborRecursiveShapesUsingDefiniteLength:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1396,16 +1440,16 @@ it("RpcV2CborMaps:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborDenseMaps");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `oW5kZW5zZVN0cnVjdE1hcKJjZm9voWJoaWV0aGVyZWNiYXqhYmhpY2J5ZQ==`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -1441,16 +1485,16 @@ it("RpcV2CborSerializesZeroValuesInMaps:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborDenseMaps");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `om5kZW5zZU51bWJlck1hcKFheABvZGVuc2VCb29sZWFuTWFwoWF49A==`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -1484,16 +1528,16 @@ it("RpcV2CborSerializesDenseSetMap:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborDenseMaps");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `oWtkZW5zZVNldE1hcKJheIBheYJhYWFi`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -1541,7 +1585,10 @@ it("RpcV2CborMaps:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1585,7 +1632,10 @@ it("RpcV2CborDeserializesZeroValuesInMaps:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1627,7 +1677,10 @@ it("RpcV2CborDeserializesDenseSetMap:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1670,7 +1723,10 @@ it.skip("RpcV2CborDeserializesDenseSetMapAndSkipsNull:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1720,16 +1776,16 @@ it("RpcV2CborLists:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborLists");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v2pzdHJpbmdMaXN0gmNmb29jYmFyaXN0cmluZ1NldIJjZm9vY2JhcmtpbnRlZ2VyTGlzdIIBAmtib29sZWFuTGlzdIL19G10aW1lc3RhbXBMaXN0gsH7QdTX+/OAAADB+0HU1/vzgAAAaGVudW1MaXN0gmNGb29hMGtpbnRFbnVtTGlzdIIBAnBuZXN0ZWRTdHJpbmdMaXN0goJjZm9vY2JhcoJjYmF6Y3F1eG1zdHJ1Y3R1cmVMaXN0gqJhYWExYWJhMqJhYWEzYWJhNGhibG9iTGlzdIJDZm9vQ2Jhcv8=`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -1760,16 +1816,16 @@ it("RpcV2CborListsEmpty:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborLists");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v2pzdHJpbmdMaXN0n///`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -1800,16 +1856,16 @@ it("RpcV2CborListsEmptyUsingDefiniteLength:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborLists");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `oWpzdHJpbmdMaXN0gA==`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -1871,7 +1927,10 @@ it("RpcV2CborLists:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1910,7 +1969,10 @@ it("RpcV2CborListsEmpty:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1953,7 +2015,10 @@ it("RpcV2CborIndefiniteStringInsideIndefiniteListCanDeserialize:Response", async
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -1996,7 +2061,10 @@ it("RpcV2CborIndefiniteStringInsideDefiniteListCanDeserialize:Response", async (
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2032,16 +2100,16 @@ it("RpcV2CborSparseMaps:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborSparseMaps");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v29zcGFyc2VTdHJ1Y3RNYXC/Y2Zvb79iaGlldGhlcmX/Y2Jher9iaGljYnll////`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -2083,16 +2151,16 @@ it("RpcV2CborSerializesNullMapValues:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborSparseMaps");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v3BzcGFyc2VCb29sZWFuTWFwv2F49v9vc3BhcnNlTnVtYmVyTWFwv2F49v9vc3BhcnNlU3RyaW5nTWFwv2F49v9vc3BhcnNlU3RydWN0TWFwv2F49v//`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -2126,16 +2194,16 @@ it("RpcV2CborSerializesSparseSetMap:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborSparseMaps");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v2xzcGFyc2VTZXRNYXC/YXif/2F5n2FhYWL///8=`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -2170,16 +2238,16 @@ it("RpcV2CborSerializesSparseSetMapAndRetainsNull:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborSparseMaps");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v2xzcGFyc2VTZXRNYXC/YXif/2F5n2FhYWL/YXr2//8=`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -2215,16 +2283,16 @@ it("RpcV2CborSerializesZeroValuesInSparseMaps:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborSparseMaps");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v29zcGFyc2VOdW1iZXJNYXC/YXgA/3BzcGFyc2VCb29sZWFuTWFwv2F49P//`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -2272,7 +2340,10 @@ it("RpcV2CborSparseJsonMaps:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2322,7 +2393,10 @@ it("RpcV2CborDeserializesNullMapValues:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2364,7 +2438,10 @@ it("RpcV2CborDeserializesSparseSetMap:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2407,7 +2484,10 @@ it("RpcV2CborDeserializesSparseSetMapAndRetainsNull:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2451,7 +2531,10 @@ it("RpcV2CborDeserializesZeroValuesInSparseMaps:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2489,16 +2572,16 @@ it("RpcV2CborSimpleScalarProperties:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/SimpleScalarProperties");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v2lieXRlVmFsdWUFa2RvdWJsZVZhbHVl+z/+OVgQYk3TcWZhbHNlQm9vbGVhblZhbHVl9GpmbG9hdFZhbHVl+kD0AABsaW50ZWdlclZhbHVlGQEAaWxvbmdWYWx1ZRkmkWpzaG9ydFZhbHVlGSaqa3N0cmluZ1ZhbHVlZnNpbXBsZXB0cnVlQm9vbGVhblZhbHVl9WlibG9iVmFsdWVDZm9v/w==`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -2529,16 +2612,16 @@ it("RpcV2CborClientDoesntSerializeNullStructureValues:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/SimpleScalarProperties");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v/8=`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -2570,16 +2653,16 @@ it("RpcV2CborSupportsNaNFloatInputs:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/SimpleScalarProperties");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v2tkb3VibGVWYWx1Zft/+AAAAAAAAGpmbG9hdFZhbHVl+n/AAAD/`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -2611,16 +2694,16 @@ it("RpcV2CborSupportsInfinityFloatInputs:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/SimpleScalarProperties");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v2tkb3VibGVWYWx1Zft/8AAAAAAAAGpmbG9hdFZhbHVl+n+AAAD/`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -2652,16 +2735,16 @@ it("RpcV2CborSupportsNegativeInfinityFloatInputs:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/SimpleScalarProperties");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v2tkb3VibGVWYWx1Zfv/8AAAAAAAAGpmbG9hdFZhbHVl+v+AAAD/`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -2710,7 +2793,10 @@ it("RpcV2CborSimpleScalarProperties:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2757,7 +2843,10 @@ it("RpcV2CborSimpleScalarPropertiesUsingDefiniteLength:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2827,7 +2916,10 @@ it("RpcV2CborSupportsNaNFloatOutputs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2867,7 +2959,10 @@ it("RpcV2CborSupportsInfinityFloatOutputs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2907,7 +3002,10 @@ it("RpcV2CborSupportsNegativeInfinityFloatOutputs:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -2950,7 +3048,10 @@ it("RpcV2CborSupportsUpcastingDataOnDeserialize:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3000,7 +3101,10 @@ it("RpcV2CborExtraFieldsInTheBodyShouldBeSkippedByClients:Response", async () =>
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3031,16 +3135,16 @@ it("RpcV2CborSparseMapsSerializeNullValues:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/SparseNullsOperation");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v29zcGFyc2VTdHJpbmdNYXC/Y2Zvb/b//w==`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -3071,16 +3175,16 @@ it("RpcV2CborSparseListsSerializeNull:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/service/RpcV2Protocol/operation/SparseNullsOperation");
-    expect(r.headers["content-length"]).toBeDefined();
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
 
-    expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/cbor");
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
-    expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const bodyString = `v3BzcGFyc2VTdHJpbmdMaXN0n/b//w==`;
     const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
@@ -3123,7 +3227,10 @@ it("RpcV2CborSparseMapsDeserializeNullValues:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -3162,7 +3269,10 @@ it("RpcV2CborSparseListsDeserializeNull:Response", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });

@@ -3,6 +3,7 @@ import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Encoder as __Encoder } from "@smithy/types";
 import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 import { Readable } from "stream";
+import { expect, test as it } from "vitest";
 
 import { UploadArchiveCommand } from "../../src/commands/UploadArchiveCommand";
 import { UploadMultipartPartCommand } from "../../src/commands/UploadMultipartPartCommand";
@@ -229,7 +230,6 @@ it("GlacierVersionHeader:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/foo/vaults/bar/archives");
 
-    expect(r.headers["x-amz-glacier-version"]).toBeDefined();
     expect(r.headers["x-amz-glacier-version"]).toBe("2012-06-01");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -263,16 +263,13 @@ it("GlacierChecksums:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/foo/vaults/bar/archives");
 
-    expect(r.headers["x-amz-content-sha256"]).toBeDefined();
     expect(r.headers["x-amz-content-sha256"]).toBe("b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9");
-    expect(r.headers["x-amz-glacier-version"]).toBeDefined();
     expect(r.headers["x-amz-glacier-version"]).toBe("2012-06-01");
-    expect(r.headers["x-amz-sha256-tree-hash"]).toBeDefined();
     expect(r.headers["x-amz-sha256-tree-hash"]).toBe(
       "b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9"
     );
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `hello world`;
     const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
@@ -308,7 +305,6 @@ it.skip("GlacierAccountId:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/-/vaults/bar/archives");
 
-    expect(r.headers["x-amz-glacier-version"]).toBeDefined();
     expect(r.headers["x-amz-glacier-version"]).toBe("2012-06-01");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
@@ -343,16 +339,13 @@ it("GlacierMultipartChecksums:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/foo/vaults/bar/multipart-uploads/baz");
 
-    expect(r.headers["x-amz-content-sha256"]).toBeDefined();
     expect(r.headers["x-amz-content-sha256"]).toBe("b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9");
-    expect(r.headers["x-amz-glacier-version"]).toBeDefined();
     expect(r.headers["x-amz-glacier-version"]).toBe("2012-06-01");
-    expect(r.headers["x-amz-sha256-tree-hash"]).toBeDefined();
     expect(r.headers["x-amz-sha256-tree-hash"]).toBe(
       "b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9"
     );
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `hello world`;
     const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);

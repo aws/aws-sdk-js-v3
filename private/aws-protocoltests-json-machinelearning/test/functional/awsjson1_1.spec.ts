@@ -2,6 +2,7 @@
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 import { Readable } from "stream";
+import { expect, test as it } from "vitest";
 
 import { PredictCommand } from "../../src/commands/PredictCommand";
 import { MachineLearningClient } from "../../src/MachineLearningClient";
@@ -232,13 +233,11 @@ it("MachinelearningPredictEndpoint:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
-    expect(r.headers["host"]).toBeDefined();
     expect(r.headers["host"]).toBe("custom.example.com");
 
-    expect(r.body).toBeDefined();
+    expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{\"MLModelId\": \"foo\", \"Record\": {}, \"PredictEndpoint\": \"https://custom.example.com/\"}`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
