@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { IgnoresWrappingXmlNameOutput } from "../models/models_0";
-import { de_IgnoresWrappingXmlNameCommand, se_IgnoresWrappingXmlNameCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
+import { IgnoresWrappingXmlName } from "../schemas/schemas";
 
 /**
  * @public
@@ -66,13 +65,12 @@ export class IgnoresWrappingXmlNameCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: QueryProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("AwsQuery", "IgnoresWrappingXmlName", {})
   .n("QueryProtocolClient", "IgnoresWrappingXmlNameCommand")
   .f(void 0, void 0)
-  .ser(se_IgnoresWrappingXmlNameCommand)
-  .de(de_IgnoresWrappingXmlNameCommand)
+  .sc(IgnoresWrappingXmlName)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

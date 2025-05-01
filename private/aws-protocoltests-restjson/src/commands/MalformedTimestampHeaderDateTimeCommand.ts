@@ -1,14 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { MalformedTimestampHeaderDateTimeInput } from "../models/models_0";
-import {
-  de_MalformedTimestampHeaderDateTimeCommand,
-  se_MalformedTimestampHeaderDateTimeCommand,
-} from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { MalformedTimestampHeaderDateTime } from "../schemas/schemas";
 
 /**
  * @public
@@ -66,13 +62,12 @@ export class MalformedTimestampHeaderDateTimeCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestJson", "MalformedTimestampHeaderDateTime", {})
   .n("RestJsonProtocolClient", "MalformedTimestampHeaderDateTimeCommand")
   .f(void 0, void 0)
-  .ser(se_MalformedTimestampHeaderDateTimeCommand)
-  .de(de_MalformedTimestampHeaderDateTimeCommand)
+  .sc(MalformedTimestampHeaderDateTime)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

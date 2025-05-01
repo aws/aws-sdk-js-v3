@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { QueryTimestampsInput } from "../models/models_0";
-import { de_QueryTimestampsCommand, se_QueryTimestampsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
+import { QueryTimestamps } from "../schemas/schemas";
 
 /**
  * @public
@@ -69,13 +68,12 @@ export class QueryTimestampsCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: QueryProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("AwsQuery", "QueryTimestamps", {})
   .n("QueryProtocolClient", "QueryTimestampsCommand")
   .f(void 0, void 0)
-  .ser(se_QueryTimestampsCommand)
-  .de(de_QueryTimestampsCommand)
+  .sc(QueryTimestamps)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

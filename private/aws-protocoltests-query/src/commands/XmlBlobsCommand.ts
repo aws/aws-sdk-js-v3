@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { XmlBlobsOutput } from "../models/models_0";
-import { de_XmlBlobsCommand, se_XmlBlobsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
+import { XmlBlobs } from "../schemas/schemas";
 
 /**
  * @public
@@ -63,13 +62,12 @@ export class XmlBlobsCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: QueryProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("AwsQuery", "XmlBlobs", {})
   .n("QueryProtocolClient", "XmlBlobsCommand")
   .f(void 0, void 0)
-  .ser(se_XmlBlobsCommand)
-  .de(de_XmlBlobsCommand)
+  .sc(XmlBlobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

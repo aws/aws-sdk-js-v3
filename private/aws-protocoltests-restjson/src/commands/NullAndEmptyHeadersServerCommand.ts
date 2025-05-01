@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { NullAndEmptyHeadersIO } from "../models/models_0";
-import { de_NullAndEmptyHeadersServerCommand, se_NullAndEmptyHeadersServerCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { NullAndEmptyHeadersServer } from "../schemas/schemas";
 
 /**
  * @public
@@ -73,13 +72,12 @@ export class NullAndEmptyHeadersServerCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestJson", "NullAndEmptyHeadersServer", {})
   .n("RestJsonProtocolClient", "NullAndEmptyHeadersServerCommand")
   .f(void 0, void 0)
-  .ser(se_NullAndEmptyHeadersServerCommand)
-  .de(de_NullAndEmptyHeadersServerCommand)
+  .sc(NullAndEmptyHeadersServer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

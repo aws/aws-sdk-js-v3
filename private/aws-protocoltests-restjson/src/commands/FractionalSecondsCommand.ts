@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { FractionalSecondsOutput } from "../models/models_0";
-import { de_FractionalSecondsCommand, se_FractionalSecondsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { FractionalSeconds } from "../schemas/schemas";
 
 /**
  * @public
@@ -63,13 +62,12 @@ export class FractionalSecondsCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestJson", "FractionalSeconds", {})
   .n("RestJsonProtocolClient", "FractionalSecondsCommand")
   .f(void 0, void 0)
-  .ser(se_FractionalSecondsCommand)
-  .de(de_FractionalSecondsCommand)
+  .sc(FractionalSeconds)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

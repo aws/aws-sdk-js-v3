@@ -1,14 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { HttpPrefixHeadersInResponseInput, HttpPrefixHeadersInResponseOutput } from "../models/models_0";
-import {
-  de_HttpPrefixHeadersInResponseCommand,
-  se_HttpPrefixHeadersInResponseCommand,
-} from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { HttpPrefixHeadersInResponse } from "../schemas/schemas";
 
 /**
  * @public
@@ -68,13 +64,12 @@ export class HttpPrefixHeadersInResponseCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestJson", "HttpPrefixHeadersInResponse", {})
   .n("RestJsonProtocolClient", "HttpPrefixHeadersInResponseCommand")
   .f(void 0, void 0)
-  .ser(se_HttpPrefixHeadersInResponseCommand)
-  .de(de_HttpPrefixHeadersInResponseCommand)
+  .sc(HttpPrefixHeadersInResponse)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,5 +1,4 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import {
   MetadataBearer as __MetadataBearer,
@@ -8,8 +7,8 @@ import {
 } from "@smithy/types";
 
 import { StreamingTraitsInputOutput, StreamingTraitsInputOutputFilterSensitiveLog } from "../models/models_0";
-import { de_StreamingTraitsCommand, se_StreamingTraitsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { StreamingTraits } from "../schemas/schemas";
 
 /**
  * @public
@@ -84,13 +83,12 @@ export class StreamingTraitsCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestJson", "StreamingTraits", {})
   .n("RestJsonProtocolClient", "StreamingTraitsCommand")
   .f(StreamingTraitsInputOutputFilterSensitiveLog, StreamingTraitsInputOutputFilterSensitiveLog)
-  .ser(se_StreamingTraitsCommand)
-  .de(de_StreamingTraitsCommand)
+  .sc(StreamingTraits)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

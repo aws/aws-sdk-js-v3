@@ -1,14 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { MalformedTimestampPathDefaultInput } from "../models/models_0";
-import {
-  de_MalformedTimestampPathDefaultCommand,
-  se_MalformedTimestampPathDefaultCommand,
-} from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { MalformedTimestampPathDefault } from "../schemas/schemas";
 
 /**
  * @public
@@ -66,13 +62,12 @@ export class MalformedTimestampPathDefaultCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestJson", "MalformedTimestampPathDefault", {})
   .n("RestJsonProtocolClient", "MalformedTimestampPathDefaultCommand")
   .f(void 0, void 0)
-  .ser(se_MalformedTimestampPathDefaultCommand)
-  .de(de_MalformedTimestampPathDefaultCommand)
+  .sc(MalformedTimestampPathDefault)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

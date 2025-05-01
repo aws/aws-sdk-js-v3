@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { GreetingStruct } from "../models/models_0";
-import { de_MalformedAcceptWithBodyCommand, se_MalformedAcceptWithBodyCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { MalformedAcceptWithBody } from "../schemas/schemas";
 
 /**
  * @public
@@ -63,13 +62,12 @@ export class MalformedAcceptWithBodyCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestJson", "MalformedAcceptWithBody", {})
   .n("RestJsonProtocolClient", "MalformedAcceptWithBodyCommand")
   .f(void 0, void 0)
-  .ser(se_MalformedAcceptWithBodyCommand)
-  .de(de_MalformedAcceptWithBodyCommand)
+  .sc(MalformedAcceptWithBody)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

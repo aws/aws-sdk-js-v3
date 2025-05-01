@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { TimestampFormatHeadersIO } from "../models/models_0";
-import { de_TimestampFormatHeadersCommand, se_TimestampFormatHeadersCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { TimestampFormatHeaders } from "../schemas/schemas";
 
 /**
  * @public
@@ -77,13 +76,12 @@ export class TimestampFormatHeadersCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestJson", "TimestampFormatHeaders", {})
   .n("RestJsonProtocolClient", "TimestampFormatHeadersCommand")
   .f(void 0, void 0)
-  .ser(se_TimestampFormatHeadersCommand)
-  .de(de_TimestampFormatHeadersCommand)
+  .sc(TimestampFormatHeaders)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

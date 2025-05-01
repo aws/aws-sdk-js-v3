@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { StringPayloadInput } from "../models/models_0";
-import { de_HttpStringPayloadCommand, se_HttpStringPayloadCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
+import { HttpStringPayload } from "../schemas/schemas";
 
 /**
  * @public
@@ -65,13 +64,12 @@ export class HttpStringPayloadCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestXml", "HttpStringPayload", {})
   .n("RestXmlProtocolClient", "HttpStringPayloadCommand")
   .f(void 0, void 0)
-  .ser(se_HttpStringPayloadCommand)
-  .de(de_HttpStringPayloadCommand)
+  .sc(HttpStringPayload)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

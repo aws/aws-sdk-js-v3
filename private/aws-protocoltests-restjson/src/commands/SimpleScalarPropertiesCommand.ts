@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { SimpleScalarPropertiesInputOutput } from "../models/models_0";
-import { de_SimpleScalarPropertiesCommand, se_SimpleScalarPropertiesCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { SimpleScalarProperties } from "../schemas/schemas";
 
 /**
  * @public
@@ -83,13 +82,12 @@ export class SimpleScalarPropertiesCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestJson", "SimpleScalarProperties", {})
   .n("RestJsonProtocolClient", "SimpleScalarPropertiesCommand")
   .f(void 0, void 0)
-  .ser(se_SimpleScalarPropertiesCommand)
-  .de(de_SimpleScalarPropertiesCommand)
+  .sc(SimpleScalarProperties)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

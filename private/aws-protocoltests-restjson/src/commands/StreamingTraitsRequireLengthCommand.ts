@@ -1,5 +1,4 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
@@ -7,11 +6,8 @@ import {
   StreamingTraitsRequireLengthInput,
   StreamingTraitsRequireLengthInputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_StreamingTraitsRequireLengthCommand,
-  se_StreamingTraitsRequireLengthCommand,
-} from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { StreamingTraitsRequireLength } from "../schemas/schemas";
 
 /**
  * @public
@@ -77,13 +73,12 @@ export class StreamingTraitsRequireLengthCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestJson", "StreamingTraitsRequireLength", {})
   .n("RestJsonProtocolClient", "StreamingTraitsRequireLengthCommand")
   .f(StreamingTraitsRequireLengthInputFilterSensitiveLog, void 0)
-  .ser(se_StreamingTraitsRequireLengthCommand)
-  .de(de_StreamingTraitsRequireLengthCommand)
+  .sc(StreamingTraitsRequireLength)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

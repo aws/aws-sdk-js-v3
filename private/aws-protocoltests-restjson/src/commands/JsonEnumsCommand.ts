@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { JsonEnumsInputOutput } from "../models/models_0";
-import { de_JsonEnumsCommand, se_JsonEnumsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { JsonEnums } from "../schemas/schemas";
 
 /**
  * @public
@@ -87,13 +86,12 @@ export class JsonEnumsCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestJson", "JsonEnums", {})
   .n("RestJsonProtocolClient", "JsonEnumsCommand")
   .f(void 0, void 0)
-  .ser(se_JsonEnumsCommand)
-  .de(de_JsonEnumsCommand)
+  .sc(JsonEnums)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

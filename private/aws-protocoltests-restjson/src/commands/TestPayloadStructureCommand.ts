@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { TestPayloadStructureInputOutput } from "../models/models_0";
-import { de_TestPayloadStructureCommand, se_TestPayloadStructureCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { TestPayloadStructure } from "../schemas/schemas";
 
 /**
  * @public
@@ -75,13 +74,12 @@ export class TestPayloadStructureCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestJson", "TestPayloadStructure", {})
   .n("RestJsonProtocolClient", "TestPayloadStructureCommand")
   .f(void 0, void 0)
-  .ser(se_TestPayloadStructureCommand)
-  .de(de_TestPayloadStructureCommand)
+  .sc(TestPayloadStructure)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
