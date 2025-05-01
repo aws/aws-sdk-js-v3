@@ -35,8 +35,8 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  *             <ul>
  *                <li>
  *                   <p>
- *                      <code>CustomerEndpoint</code> and <code>SystemEndpoint</code> are only populated for
- *       EMAIL contacts. </p>
+ *                      <code>SystemEndpoint</code> is not populated for contacts with initiation method of
+ *       MONITOR, QUEUE_TRANSFER, or CALLBACK</p>
  *                </li>
  *                <li>
  *                   <p>Contact information remains available in Amazon Connect for 24 months from the
@@ -102,6 +102,17 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //         Video: "SEND",
  * //         ScreenShare: "SEND",
  * //       },
+ * //       AfterContactWorkDuration: Number("int"),
+ * //       AfterContactWorkStartTimestamp: new Date("TIMESTAMP"),
+ * //       AfterContactWorkEndTimestamp: new Date("TIMESTAMP"),
+ * //       AgentInitiatedHoldDuration: Number("int"),
+ * //       StateTransitions: [ // StateTransitions
+ * //         { // StateTransition
+ * //           State: "INITIAL" || "CONNECTED" || "DISCONNECTED" || "MISSED",
+ * //           StateStartTimestamp: new Date("TIMESTAMP"),
+ * //           StateEndTimestamp: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
  * //     },
  * //     InitiationTimestamp: new Date("TIMESTAMP"),
  * //     DisconnectTimestamp: new Date("TIMESTAMP"),
@@ -296,6 +307,39 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //         },
  * //         ValueInteger: Number("int"),
  * //       },
+ * //     },
+ * //     Recordings: [ // Recordings
+ * //       { // RecordingInfo
+ * //         StorageType: "S3" || "KINESIS_VIDEO_STREAM" || "KINESIS_STREAM" || "KINESIS_FIREHOSE",
+ * //         Location: "STRING_VALUE",
+ * //         MediaStreamType: "AUDIO" || "VIDEO",
+ * //         ParticipantType: "ALL" || "MANAGER" || "AGENT" || "CUSTOMER" || "THIRDPARTY",
+ * //         FragmentStartNumber: "STRING_VALUE",
+ * //         FragmentStopNumber: "STRING_VALUE",
+ * //         StartTimestamp: new Date("TIMESTAMP"),
+ * //         StopTimestamp: new Date("TIMESTAMP"),
+ * //         Status: "AVAILABLE" || "DELETED",
+ * //         DeletionReason: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     DisconnectReason: "STRING_VALUE",
+ * //     ContactEvaluations: { // ContactEvaluations
+ * //       "<keys>": { // ContactEvaluation
+ * //         FormId: "STRING_VALUE",
+ * //         EvaluationArn: "STRING_VALUE",
+ * //         Status: "COMPLETE" || "IN_PROGRESS" || "DELETED",
+ * //         StartTimestamp: new Date("TIMESTAMP"),
+ * //         EndTimestamp: new Date("TIMESTAMP"),
+ * //         DeleteTimestamp: new Date("TIMESTAMP"),
+ * //         ExportLocation: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     ContactDetails: { // ContactDetails
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //     Attributes: { // Attributes
+ * //       "<keys>": "STRING_VALUE",
  * //     },
  * //   },
  * // };

@@ -604,6 +604,46 @@ export interface HierarchyGroups {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ParticipantState = {
+  CONNECTED: "CONNECTED",
+  DISCONNECTED: "DISCONNECTED",
+  INITIAL: "INITIAL",
+  MISSED: "MISSED",
+} as const;
+
+/**
+ * @public
+ */
+export type ParticipantState = (typeof ParticipantState)[keyof typeof ParticipantState];
+
+/**
+ * <p>Information about the state transition of a supervisor.</p>
+ * @public
+ */
+export interface StateTransition {
+  /**
+   * <p>The state of the transition.</p>
+   * @public
+   */
+  State?: ParticipantState | undefined;
+
+  /**
+   * <p>The date and time when the state started in UTC time.</p>
+   * @public
+   */
+  StateStartTimestamp?: Date | undefined;
+
+  /**
+   * <p>The date and time when the state ended in UTC time.</p>
+   * @public
+   */
+  StateEndTimestamp?: Date | undefined;
+}
+
+/**
  * <p>Information about the agent who accepted the contact.</p>
  * @public
  */
@@ -645,6 +685,42 @@ export interface AgentInfo {
    * @public
    */
   Capabilities?: ParticipantCapabilities | undefined;
+
+  /**
+   * <p>The difference in time, in whole seconds, between
+   *     <code>AfterContactWorkStartTimestamp</code> and
+   *    <code>AfterContactWorkEndTimestamp</code>.</p>
+   * @public
+   */
+  AfterContactWorkDuration?: number | undefined;
+
+  /**
+   * <p>The date and time when the agent started doing After Contact Work for the contact, in UTC
+   *    time.</p>
+   * @public
+   */
+  AfterContactWorkStartTimestamp?: Date | undefined;
+
+  /**
+   * <p>The date and time when the agent ended After Contact Work for the contact, in UTC time. In
+   *    cases when agent finishes doing <code>AfterContactWork</code> for chat contacts and switches
+   *    their activity status to offline or equivalent without clearing the contact in CCP, discrepancies
+   *    may be noticed for <code>AfterContactWorkEndTimestamp</code>.</p>
+   * @public
+   */
+  AfterContactWorkEndTimestamp?: Date | undefined;
+
+  /**
+   * <p>The total hold duration in seconds initiated by the agent.</p>
+   * @public
+   */
+  AgentInitiatedHoldDuration?: number | undefined;
+
+  /**
+   * <p>List of <code>StateTransition</code> for a supervisor.</p>
+   * @public
+   */
+  StateTransitions?: StateTransition[] | undefined;
 }
 
 /**
@@ -5319,7 +5395,8 @@ export interface CaseSlaConfiguration {
 
   /**
    * <p>Represents a list of target field values for the fieldId specified in CaseSlaConfiguration.
-   *    The SLA is considered met if any one of these target field values matches the actual field value.</p>
+   *    The SLA is considered met if any one of these target field values matches the actual field
+   *    value.</p>
    * @public
    */
   TargetFieldValues?: FieldValueUnion[] | undefined;
@@ -7350,47 +7427,6 @@ export interface DeletePredefinedAttributeRequest {
    * @public
    */
   Name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePromptRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the prompt.</p>
-   * @public
-   */
-  PromptId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePushNotificationRegistrationRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the
-   *    Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the registration.</p>
-   * @public
-   */
-  RegistrationId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact within the Amazon Connect instance.</p>
-   * @public
-   */
-  ContactId: string | undefined;
 }
 
 /**

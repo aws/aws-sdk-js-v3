@@ -29,8 +29,8 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
 
 /**
  * <p>Gets historical metric data from the specified Amazon Connect instance.</p>
- *          <p>For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics
- *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *          <p>For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the
+ *      <i>Amazon Connect Administrator Guide</i>.</p>
  *          <note>
  *             <p>We recommend using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html">GetMetricDataV2</a> API. It
  *     provides more flexibility, features, and the ability to query longer time ranges than

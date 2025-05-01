@@ -18,7 +18,9 @@ import {
   EvaluationFormScoringStrategy,
   InitiateAs,
   MediaConcurrency,
+  OutboundCallerConfig,
   OutboundEmailConfig,
+  PredefinedAttributeValues,
   QuickConnectConfig,
   Reference,
   RoutingProfileQueueConfig,
@@ -44,6 +46,8 @@ import {
 import {
   AnsweringMachineDetectionStatus,
   AttributeCondition,
+  ContactDetails,
+  ContactEvaluation,
   ContactFlowModuleState,
   ContactFlowModuleStatus,
   ContactFlowState,
@@ -57,6 +61,7 @@ import {
   QualityMetrics,
   QueueInfo,
   QueueStatus,
+  RecordingInfo,
   RoutingCriteriaStepStatus,
   SignInConfig,
   TelephonyConfig,
@@ -92,6 +97,225 @@ import {
   UserHierarchyGroupSearchFilter,
   UserSearchFilter,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface UpdatePhoneNumberResponse {
+  /**
+   * <p>A unique identifier for the phone number.</p>
+   * @public
+   */
+  PhoneNumberId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the phone number.</p>
+   * @public
+   */
+  PhoneNumberArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePhoneNumberMetadataRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) or resource ID of the phone number.</p>
+   * @public
+   */
+  PhoneNumberId: string | undefined;
+
+  /**
+   * <p>The description of the phone number.</p>
+   * @public
+   */
+  PhoneNumberDescription?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePredefinedAttributeRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   *    Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the predefined attribute.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The values of the predefined attribute.</p>
+   * @public
+   */
+  Values?: PredefinedAttributeValues | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePromptRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the prompt.</p>
+   * @public
+   */
+  PromptId: string | undefined;
+
+  /**
+   * <p>The name of the prompt.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A description of the prompt.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The URI for the S3 bucket where the prompt is stored. You can provide S3 pre-signed URLs returned by the
+   * <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetPromptFile.html">GetPromptFile</a>
+   *  API instead of providing S3 URIs.</p>
+   * @public
+   */
+  S3Uri?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePromptResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the prompt.</p>
+   * @public
+   */
+  PromptARN?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the prompt.</p>
+   * @public
+   */
+  PromptId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQueueHoursOfOperationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   * @public
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQueueMaxContactsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   * @public
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The maximum number of contacts that can be in the queue before it is considered full.</p>
+   * @public
+   */
+  MaxContacts?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQueueNameRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   * @public
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The name of the queue.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the queue.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQueueOutboundCallerConfigRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   * @public
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The outbound caller ID name, number, and outbound whisper flow.</p>
+   * @public
+   */
+  OutboundCallerConfig: OutboundCallerConfig | undefined;
+}
 
 /**
  * @public
@@ -1203,8 +1427,8 @@ export interface CreateContactRequest {
   /**
    * <p>The channel for the contact</p>
    *          <important>
-   *             <p>CreateContact only supports the EMAIL and VOICE channels. The following information that states other
-   *     channels are supported is incorrect. We are working to update this topic.</p>
+   *             <p>CreateContact only supports the EMAIL and VOICE channels. The following information that
+   *     states other channels are supported is incorrect. We are working to update this topic.</p>
    *          </important>
    * @public
    */
@@ -1216,8 +1440,7 @@ export interface CreateContactRequest {
    *             <p>CreateContact only supports the following initiation methods: </p>
    *             <ul>
    *                <li>
-   *                   <p>For EMAIL: OUTBOUND, AGENT_REPLY, and
-   *      FLOW. </p>
+   *                   <p>For EMAIL: OUTBOUND, AGENT_REPLY, and FLOW. </p>
    *                </li>
    *                <li>
    *                   <p>For VOICE: TRANSFER and the subtype connect:ExternalAudio. </p>
@@ -1279,7 +1502,8 @@ export interface CreateContactRequest {
   /**
    * <p>The ID of the previous contact when creating a transfer contact. This value can be provided
    *    only for external audio contacts. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html">Integrate Amazon Connect Contact Lens
-   *     with external voice systems</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *     with external voice systems</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
    * @public
    */
   PreviousContactId?: string | undefined;
@@ -3446,6 +3670,38 @@ export interface Contact {
    * @public
    */
   SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
+
+  /**
+   * <p>If recording was enabled, this is information about the recordings.</p>
+   * @public
+   */
+  Recordings?: RecordingInfo[] | undefined;
+
+  /**
+   * <p>The disconnect reason for the contact.</p>
+   * @public
+   */
+  DisconnectReason?: string | undefined;
+
+  /**
+   * <p>Information about the contact evaluations where the key is the FormId, which is a unique
+   *    identifier for the form.</p>
+   * @public
+   */
+  ContactEvaluations?: Record<string, ContactEvaluation> | undefined;
+
+  /**
+   * <p>A map of string key/value pairs that contain user-defined attributes which are lightly typed
+   *    within the contact. This object is used only for task contacts.</p>
+   * @public
+   */
+  ContactDetails?: ContactDetails | undefined;
+
+  /**
+   * <p>The attributes of the contact.</p>
+   * @public
+   */
+  Attributes?: Record<string, string> | undefined;
 }
 
 /**

@@ -29,8 +29,8 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
 
 /**
  * <p>Gets the real-time metric data from the specified Amazon Connect instance.</p>
- *          <p>For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html">Real-time Metrics
- *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *          <p>For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the
+ *      <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

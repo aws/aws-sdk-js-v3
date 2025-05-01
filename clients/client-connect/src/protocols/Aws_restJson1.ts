@@ -936,6 +936,7 @@ import {
   SendNotificationActionDefinition,
   ServiceQuotaExceededException,
   SingleSelectQuestionRuleCategoryAutomation,
+  StateTransition,
   StringCondition,
   SubmitAutoEvaluationActionDefinition,
   TagCondition,
@@ -961,6 +962,7 @@ import {
   AttributeCondition,
   AuthenticationProfile,
   AuthenticationProfileSummary,
+  ContactEvaluation,
   ContactFilter,
   ContactFlow,
   ContactFlowNotPublishedException,
@@ -1006,14 +1008,13 @@ import {
   PhoneNumberCountryCode,
   PhoneNumberType,
   PredefinedAttribute,
-  PredefinedAttributeSummary,
   Prompt,
-  PromptSummary,
   QualityMetrics,
   Queue,
   QueueInfo,
   QuickConnect,
   Range,
+  RecordingInfo,
   RoutingProfile,
   Rule,
   SecurityProfile,
@@ -1073,7 +1074,9 @@ import {
   ParticipantTimerConfiguration,
   ParticipantTimerValue,
   PersistentChat,
+  PredefinedAttributeSummary,
   PromptSearchFilter,
+  PromptSummary,
   QueueInfoInput,
   QueueSearchFilter,
   QueueSummary,
@@ -15200,12 +15203,17 @@ const de_AgentContactReferenceList = (output: any, context: __SerdeContext): Age
  */
 const de_AgentInfo = (output: any, context: __SerdeContext): AgentInfo => {
   return take(output, {
+    AfterContactWorkDuration: __expectInt32,
+    AfterContactWorkEndTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AfterContactWorkStartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AgentInitiatedHoldDuration: __expectInt32,
     AgentPauseDurationInSeconds: __expectInt32,
     Capabilities: _json,
     ConnectedToAgentTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DeviceInfo: _json,
     HierarchyGroups: _json,
     Id: __expectString,
+    StateTransitions: (_: any) => de_StateTransitions(_, context),
   }) as any;
 };
 
@@ -15470,16 +15478,20 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
     AgentInfo: (_: any) => de_AgentInfo(_, context),
     AnsweringMachineDetectionStatus: __expectString,
     Arn: __expectString,
+    Attributes: _json,
     Campaign: _json,
     Channel: __expectString,
     ConnectedToSystemTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ContactAssociationId: __expectString,
+    ContactDetails: _json,
+    ContactEvaluations: (_: any) => de_ContactEvaluations(_, context),
     Customer: _json,
     CustomerEndpoint: _json,
     CustomerId: __expectString,
     CustomerVoiceActivity: (_: any) => de_CustomerVoiceActivity(_, context),
     Description: __expectString,
     DisconnectDetails: _json,
+    DisconnectReason: __expectString,
     DisconnectTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Id: __expectString,
     InitialContactId: __expectString,
@@ -15494,6 +15506,7 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
     QueueInfo: (_: any) => de_QueueInfo(_, context),
     QueuePriority: __expectLong,
     QueueTimeAdjustmentSeconds: __expectInt32,
+    Recordings: (_: any) => de_Recordings(_, context),
     RelatedContactId: __expectString,
     RoutingCriteria: (_: any) => de_RoutingCriteria(_, context),
     ScheduledTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -15504,6 +15517,36 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
     TotalPauseDurationInSeconds: __expectInt32,
     WisdomInfo: _json,
   }) as any;
+};
+
+// de_ContactDetails omitted.
+
+/**
+ * deserializeAws_restJson1ContactEvaluation
+ */
+const de_ContactEvaluation = (output: any, context: __SerdeContext): ContactEvaluation => {
+  return take(output, {
+    DeleteTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EvaluationArn: __expectString,
+    ExportLocation: __expectString,
+    FormId: __expectString,
+    StartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ContactEvaluations
+ */
+const de_ContactEvaluations = (output: any, context: __SerdeContext): Record<string, ContactEvaluation> => {
+  return Object.entries(output).reduce((acc: Record<string, ContactEvaluation>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_ContactEvaluation(value, context);
+    return acc;
+  }, {} as Record<string, ContactEvaluation>);
 };
 
 /**
@@ -16979,6 +17022,36 @@ const de_RealTimeContactAnalysisTimeData = (output: any, context: __SerdeContext
 
 // de_RealTimeContactAnalysisTranscriptItemWithContent omitted.
 
+/**
+ * deserializeAws_restJson1RecordingInfo
+ */
+const de_RecordingInfo = (output: any, context: __SerdeContext): RecordingInfo => {
+  return take(output, {
+    DeletionReason: __expectString,
+    FragmentStartNumber: __expectString,
+    FragmentStopNumber: __expectString,
+    Location: __expectString,
+    MediaStreamType: __expectString,
+    ParticipantType: __expectString,
+    StartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    StopTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StorageType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Recordings
+ */
+const de_Recordings = (output: any, context: __SerdeContext): RecordingInfo[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RecordingInfo(entry, context);
+    });
+  return retVal;
+};
+
 // de_Reference omitted.
 
 // de_ReferenceSummary omitted.
@@ -17286,6 +17359,29 @@ const de_SlaFieldValueUnionList = (output: any, context: __SerdeContext): FieldV
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_FieldValueUnion(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1StateTransition
+ */
+const de_StateTransition = (output: any, context: __SerdeContext): StateTransition => {
+  return take(output, {
+    State: __expectString,
+    StateEndTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StateStartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1StateTransitions
+ */
+const de_StateTransitions = (output: any, context: __SerdeContext): StateTransition[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_StateTransition(entry, context);
     });
   return retVal;
 };

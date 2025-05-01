@@ -30,8 +30,9 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
 
 /**
  * <important>
- *             <p>Only the EMAIL and VOICE channels are supported. The supported initiation methods for EMAIL are: OUTBOUND,
- *     AGENT_REPLY, and FLOW. For VOICE the supported initiation methods are TRANSFER and the subtype connect:ExternalAudio. </p>
+ *             <p>Only the EMAIL and VOICE channels are supported. The supported initiation methods for EMAIL
+ *     are: OUTBOUND, AGENT_REPLY, and FLOW. For VOICE the supported initiation methods are TRANSFER
+ *     and the subtype connect:ExternalAudio. </p>
  *          </important>
  *          <p>Creates a new EMAIL or VOICE contact. </p>
  * @example

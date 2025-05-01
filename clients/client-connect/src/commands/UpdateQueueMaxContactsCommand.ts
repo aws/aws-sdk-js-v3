@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateQueueMaxContactsRequest } from "../models/models_2";
+import { UpdateQueueMaxContactsRequest } from "../models/models_3";
 import { de_UpdateQueueMaxContactsCommand, se_UpdateQueueMaxContactsCommand } from "../protocols/Aws_restJson1";
 
 /**
