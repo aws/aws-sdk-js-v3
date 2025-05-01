@@ -55,10 +55,10 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * @throws {@link InvalidGreeting} (client fault)
  *  This error is thrown when an invalid greeting value is provided.
  *
- * @throws {@link CustomCodeError} (client fault)
- *
  * @throws {@link ComplexError} (client fault)
  *  This error is thrown when a request is invalid.
+ *
+ * @throws {@link CustomCodeError} (client fault)
  *
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>

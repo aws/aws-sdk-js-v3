@@ -20,6 +20,7 @@ import { FractionalSecondsCommand } from "../../src/commands/FractionalSecondsCo
 import { GreetingWithErrorsCommand } from "../../src/commands/GreetingWithErrorsCommand";
 import { HostWithPathOperationCommand } from "../../src/commands/HostWithPathOperationCommand";
 import { HttpChecksumRequiredCommand } from "../../src/commands/HttpChecksumRequiredCommand";
+import { HttpEmptyPrefixHeadersCommand } from "../../src/commands/HttpEmptyPrefixHeadersCommand";
 import { HttpEnumPayloadCommand } from "../../src/commands/HttpEnumPayloadCommand";
 import { HttpPayloadTraitsCommand } from "../../src/commands/HttpPayloadTraitsCommand";
 import { HttpPayloadTraitsWithMediaTypeCommand } from "../../src/commands/HttpPayloadTraitsWithMediaTypeCommand";
@@ -1793,6 +1794,144 @@ it("RestJsonGreetingWithErrorsNoPayload:Response", async () => {
 });
 
 /**
+ * Parses simple JSON errors
+ */
+it("RestJsonInvalidGreetingError:Error:GreetingWithErrors", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      400,
+      {
+        "x-amzn-errortype": "InvalidGreeting",
+        "content-type": "application/json",
+      },
+      `{
+          "Message": "Hi"
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "InvalidGreeting") {
+      console.log(err);
+      fail(`Expected a InvalidGreeting to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(400);
+    const paramsToValidate: any = [
+      {
+        message: "Hi",
+      },
+    ][0];
+    Object.keys(paramsToValidate).forEach((param) => {
+      expect(
+        r[param],
+        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      ).toBeDefined();
+      expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
+    });
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
+ * Serializes a complex error with no message member
+ */
+it("RestJsonComplexErrorWithNoMessage:Error:GreetingWithErrors", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      403,
+      {
+        "x-amzn-errortype": "ComplexError",
+        "x-header": "Header",
+        "content-type": "application/json",
+      },
+      `{
+          "TopLevel": "Top level",
+          "Nested": {
+              "Fooooo": "bar"
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "ComplexError") {
+      console.log(err);
+      fail(`Expected a ComplexError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(403);
+    const paramsToValidate: any = [
+      {
+        Header: "Header",
+        TopLevel: "Top level",
+        Nested: {
+          Foo: "bar",
+        },
+      },
+    ][0];
+    Object.keys(paramsToValidate).forEach((param) => {
+      expect(
+        r[param],
+        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      ).toBeDefined();
+      expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
+    });
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+it("RestJsonEmptyComplexErrorWithNoMessage:Error:GreetingWithErrors", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      403,
+      {
+        "x-amzn-errortype": "ComplexError",
+        "content-type": "application/json",
+      },
+      `{}`
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "ComplexError") {
+      console.log(err);
+      fail(`Expected a ComplexError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(403);
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
  * Serializes the X-Amzn-ErrorType header. For an example service, see Amazon EKS.
  */
 it("RestJsonFooErrorUsingXAmznErrorType:Error:GreetingWithErrors", async () => {
@@ -2102,144 +2241,6 @@ it("RestJsonFooErrorWithDunderTypeUriAndNamespace:Error:GreetingWithErrors", asy
 });
 
 /**
- * Serializes a complex error with no message member
- */
-it("RestJsonComplexErrorWithNoMessage:Error:GreetingWithErrors", async () => {
-  const client = new RestJsonProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      false,
-      403,
-      {
-        "x-amzn-errortype": "ComplexError",
-        "x-header": "Header",
-        "content-type": "application/json",
-      },
-      `{
-          "TopLevel": "Top level",
-          "Nested": {
-              "Fooooo": "bar"
-          }
-      }`
-    ),
-  });
-
-  const params: any = {};
-  const command = new GreetingWithErrorsCommand(params);
-
-  try {
-    await client.send(command);
-  } catch (err) {
-    if (err.name !== "ComplexError") {
-      console.log(err);
-      fail(`Expected a ComplexError to be thrown, got ${err.name} instead`);
-      return;
-    }
-    const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(403);
-    const paramsToValidate: any = [
-      {
-        Header: "Header",
-        TopLevel: "Top level",
-        Nested: {
-          Foo: "bar",
-        },
-      },
-    ][0];
-    Object.keys(paramsToValidate).forEach((param) => {
-      expect(
-        r[param],
-        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
-      ).toBeDefined();
-      expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
-    });
-    return;
-  }
-  fail("Expected an exception to be thrown from response");
-});
-
-it("RestJsonEmptyComplexErrorWithNoMessage:Error:GreetingWithErrors", async () => {
-  const client = new RestJsonProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      false,
-      403,
-      {
-        "x-amzn-errortype": "ComplexError",
-        "content-type": "application/json",
-      },
-      `{}`
-    ),
-  });
-
-  const params: any = {};
-  const command = new GreetingWithErrorsCommand(params);
-
-  try {
-    await client.send(command);
-  } catch (err) {
-    if (err.name !== "ComplexError") {
-      console.log(err);
-      fail(`Expected a ComplexError to be thrown, got ${err.name} instead`);
-      return;
-    }
-    const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(403);
-    return;
-  }
-  fail("Expected an exception to be thrown from response");
-});
-
-/**
- * Parses simple JSON errors
- */
-it("RestJsonInvalidGreetingError:Error:GreetingWithErrors", async () => {
-  const client = new RestJsonProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      false,
-      400,
-      {
-        "x-amzn-errortype": "InvalidGreeting",
-        "content-type": "application/json",
-      },
-      `{
-          "Message": "Hi"
-      }`
-    ),
-  });
-
-  const params: any = {};
-  const command = new GreetingWithErrorsCommand(params);
-
-  try {
-    await client.send(command);
-  } catch (err) {
-    if (err.name !== "InvalidGreeting") {
-      console.log(err);
-      fail(`Expected a InvalidGreeting to be thrown, got ${err.name} instead`);
-      return;
-    }
-    const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(400);
-    const paramsToValidate: any = [
-      {
-        message: "Hi",
-      },
-    ][0];
-    Object.keys(paramsToValidate).forEach((param) => {
-      expect(
-        r[param],
-        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
-      ).toBeDefined();
-      expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
-    });
-    return;
-  }
-  fail("Expected an exception to be thrown from response");
-});
-
-/**
  * Custom endpoints supplied by users can have paths
  */
 it("RestJsonHostWithPath:Request", async () => {
@@ -2304,6 +2305,83 @@ it("RestJsonHttpChecksumRequired:Request", async () => {
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
+});
+
+/**
+ * Serializes all request headers, using specific when present
+ */
+it("RestJsonHttpEmptyPrefixHeadersRequestClient:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpEmptyPrefixHeadersCommand({
+    prefixHeaders: {
+      "x-foo": "Foo",
+      hello: "Hello",
+    } as any,
+    specificHeader: "There",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/HttpEmptyPrefixHeaders");
+
+    expect(r.headers["hello"]).toBe("There");
+    expect(r.headers["x-foo"]).toBe("Foo");
+
+    expect(!r.body || r.body === `{}`).toBeTruthy();
+  }
+});
+
+/**
+ * Deserializes all response headers with the same for prefix and specific
+ */
+it("RestJsonHttpEmptyPrefixHeadersResponseClient:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, {
+      "x-foo": "Foo",
+      hello: "There",
+    }),
+  });
+
+  const params: any = {};
+  const command = new HttpEmptyPrefixHeadersCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      prefixHeaders: {
+        "x-foo": "Foo",
+        hello: "There",
+      },
+      specificHeader: "There",
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
+  });
 });
 
 it("RestJsonEnumPayloadRequest:Request", async () => {

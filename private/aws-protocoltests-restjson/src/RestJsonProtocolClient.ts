@@ -109,6 +109,10 @@ import {
   HttpChecksumRequiredCommandInput,
   HttpChecksumRequiredCommandOutput,
 } from "./commands/HttpChecksumRequiredCommand";
+import {
+  HttpEmptyPrefixHeadersCommandInput,
+  HttpEmptyPrefixHeadersCommandOutput,
+} from "./commands/HttpEmptyPrefixHeadersCommand";
 import { HttpEnumPayloadCommandInput, HttpEnumPayloadCommandOutput } from "./commands/HttpEnumPayloadCommand";
 import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "./commands/HttpPayloadTraitsCommand";
 import {
@@ -375,6 +379,7 @@ export type ServiceInputTypes =
   | GreetingWithErrorsCommandInput
   | HostWithPathOperationCommandInput
   | HttpChecksumRequiredCommandInput
+  | HttpEmptyPrefixHeadersCommandInput
   | HttpEnumPayloadCommandInput
   | HttpPayloadTraitsCommandInput
   | HttpPayloadTraitsWithMediaTypeCommandInput
@@ -484,6 +489,7 @@ export type ServiceOutputTypes =
   | GreetingWithErrorsCommandOutput
   | HostWithPathOperationCommandOutput
   | HttpChecksumRequiredCommandOutput
+  | HttpEmptyPrefixHeadersCommandOutput
   | HttpEnumPayloadCommandOutput
   | HttpPayloadTraitsCommandOutput
   | HttpPayloadTraitsWithMediaTypeCommandOutput

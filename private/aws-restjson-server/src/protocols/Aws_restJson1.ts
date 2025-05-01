@@ -130,6 +130,10 @@ import {
   HttpChecksumRequiredServerInput,
   HttpChecksumRequiredServerOutput,
 } from "../server/operations/HttpChecksumRequired";
+import {
+  HttpEmptyPrefixHeadersServerInput,
+  HttpEmptyPrefixHeadersServerOutput,
+} from "../server/operations/HttpEmptyPrefixHeaders";
 import { HttpEnumPayloadServerInput, HttpEnumPayloadServerOutput } from "../server/operations/HttpEnumPayload";
 import { HttpPayloadTraitsServerInput, HttpPayloadTraitsServerOutput } from "../server/operations/HttpPayloadTraits";
 import {
@@ -1014,6 +1018,42 @@ export const deserializeHttpChecksumRequiredRequest = async (
     foo: __expectString,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+export const deserializeHttpEmptyPrefixHeadersRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<HttpEmptyPrefixHeadersServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({
+    [_sH]: [, output.headers[_h]],
+    prefixHeaders: [
+      ,
+      Object.keys(output.headers)
+        .filter((header) => header.startsWith(""))
+        .reduce((acc, header) => {
+          acc[header.substring(0)] = output.headers[header];
+          return acc;
+        }, {} as any),
+    ],
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -2065,7 +2105,7 @@ export const deserializeMalformedContentTypeWithoutBodyEmptyInputRequest = async
     }
   }
   const contents: any = map({
-    [_h]: [, output.headers[_h]],
+    [_he]: [, output.headers[_he]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -4499,6 +4539,49 @@ export const serializeHttpChecksumRequiredResponse = async (
   });
 };
 
+export const serializeHttpEmptyPrefixHeadersResponse = async (
+  input: HttpEmptyPrefixHeadersServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    ...(input.prefixHeaders !== undefined &&
+      Object.keys(input.prefixHeaders).reduce((acc: any, suffix: string) => {
+        acc[`${suffix.toLowerCase()}`] = input.prefixHeaders![suffix];
+        return acc;
+      }, {})),
+    "content-type": "application/json",
+    [_h]: input[_sH]!,
+  });
+  let body: any;
+  body = "{}";
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
 export const serializeHttpEnumPayloadResponse = async (
   input: HttpEnumPayloadServerOutput,
   ctx: ServerSerdeContext
@@ -4719,13 +4802,13 @@ export const serializeHttpPrefixHeadersResponse = async (
   };
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": "application/json",
-    [_xf]: input[_f]!,
     ...(input.fooMap !== undefined &&
       Object.keys(input.fooMap).reduce((acc: any, suffix: string) => {
         acc[`x-foo-${suffix.toLowerCase()}`] = input.fooMap![suffix];
         return acc;
       }, {})),
+    "content-type": "application/json",
+    [_xf]: input[_f]!,
   });
   let body: any;
   body = "{}";
@@ -4762,12 +4845,12 @@ export const serializeHttpPrefixHeadersInResponseResponse = async (
   };
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": "application/json",
     ...(input.prefixHeaders !== undefined &&
       Object.keys(input.prefixHeaders).reduce((acc: any, suffix: string) => {
         acc[`${suffix.toLowerCase()}`] = input.prefixHeaders![suffix];
         return acc;
       }, {})),
+    "content-type": "application/json",
   });
   let body: any;
   body = "{}";
@@ -9369,7 +9452,7 @@ const _f = "foo";
 const _fIH = "floatInHeader";
 const _fl = "floatinheader";
 const _g = "greeting";
-const _h = "header";
+const _h = "hello";
 const _hB = "headerByte";
 const _hBL = "headerBooleanList";
 const _hD = "headerDouble";
@@ -9388,6 +9471,7 @@ const _hSS = "headerStringSet";
 const _hSe = "headerShort";
 const _hTB = "headerTrueBool";
 const _hTL = "headerTimestampList";
+const _he = "header";
 const _i = "integerinheader";
 const _iIH = "integerInHeader";
 const _j = "json";
@@ -9397,6 +9481,7 @@ const _mDT = "memberDateTime";
 const _mES = "memberEpochSeconds";
 const _mHD = "memberHttpDate";
 const _s = "shortinheader";
+const _sH = "specificHeader";
 const _sIH = "shortInHeader";
 const _t = "timestamp";
 const _tDT = "targetDateTime";

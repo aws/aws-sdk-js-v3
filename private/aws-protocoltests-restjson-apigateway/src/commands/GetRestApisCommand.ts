@@ -82,11 +82,11 @@ export interface GetRestApisCommandOutput extends RestApis, __MetadataBearer {}
  * @see {@link GetRestApisCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *
  * @throws {@link TooManyRequestsException} (client fault)
  *
  * @throws {@link UnauthorizedException} (client fault)
- *
- * @throws {@link BadRequestException} (client fault)
  *
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>

@@ -686,17 +686,17 @@ export const se_SendApiAssetCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
+    ...(input.RequestHeaders !== undefined &&
+      Object.keys(input.RequestHeaders).reduce((acc: any, suffix: string) => {
+        acc[`x-amzn-dataexchange-header-${suffix.toLowerCase()}`] = input.RequestHeaders![suffix];
+        return acc;
+      }, {})),
     "content-type": "text/plain",
     [_xadai]: input[_AI]!,
     [_xaddsi]: input[_DSI]!,
     [_xadhm]: input[_M]!,
     [_xadp]: input[_P]!,
     [_xadri]: input[_RI]!,
-    ...(input.RequestHeaders !== undefined &&
-      Object.keys(input.RequestHeaders).reduce((acc: any, suffix: string) => {
-        acc[`x-amzn-dataexchange-header-${suffix.toLowerCase()}`] = input.RequestHeaders![suffix];
-        return acc;
-      }, {})),
   });
   b.bp("/v1");
   const query: any = map({

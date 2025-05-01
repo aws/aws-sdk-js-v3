@@ -60,12 +60,12 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * @throws {@link InvalidGreeting} (client fault)
  *  This error is thrown when an invalid greeting value is provided.
  *
+ * @throws {@link ComplexError} (client fault)
+ *  This error is thrown when a request is invalid.
+ *
  * @throws {@link FooError} (server fault)
  *  This error has test cases that test some of the dark corners of Amazon service
  * framework history. It should only be implemented by clients.
- *
- * @throws {@link ComplexError} (client fault)
- *  This error is thrown when a request is invalid.
  *
  * @throws {@link JSONRPC10ServiceException}
  * <p>Base exception class for all service exceptions from JSONRPC10 service.</p>

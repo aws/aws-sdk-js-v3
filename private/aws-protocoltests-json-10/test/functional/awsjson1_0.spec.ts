@@ -402,6 +402,97 @@ it("AwsJson10InvalidGreetingError:Error:GreetingWithErrors", async () => {
 });
 
 /**
+ * Parses a complex error with no message member
+ */
+it("AwsJson10ComplexError:Error:GreetingWithErrors", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      400,
+      {
+        "content-type": "application/x-amz-json-1.0",
+      },
+      `{
+          "__type": "aws.protocoltests.json10#ComplexError",
+          "TopLevel": "Top level",
+          "Nested": {
+              "Foo": "bar"
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "ComplexError") {
+      console.log(err);
+      fail(`Expected a ComplexError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(400);
+    const paramsToValidate: any = [
+      {
+        TopLevel: "Top level",
+        Nested: {
+          Foo: "bar",
+        },
+      },
+    ][0];
+    Object.keys(paramsToValidate).forEach((param) => {
+      expect(
+        r[param],
+        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      ).toBeDefined();
+      expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
+    });
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
+ * Parses a complex error with an empty body
+ */
+it("AwsJson10EmptyComplexError:Error:GreetingWithErrors", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      400,
+      {
+        "content-type": "application/x-amz-json-1.0",
+      },
+      `{
+          "__type": "aws.protocoltests.json10#ComplexError"
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "ComplexError") {
+      console.log(err);
+      fail(`Expected a ComplexError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(400);
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
  * Serializes the X-Amzn-ErrorType header. For an example service, see Amazon EKS.
  */
 it("AwsJson10FooErrorUsingXAmznErrorType:Error:GreetingWithErrors", async () => {
@@ -705,97 +796,6 @@ it("AwsJson10FooErrorWithDunderTypeUriAndNamespace:Error:GreetingWithErrors", as
     }
     const r: any = err;
     expect(r["$metadata"].httpStatusCode).toBe(500);
-    return;
-  }
-  fail("Expected an exception to be thrown from response");
-});
-
-/**
- * Parses a complex error with no message member
- */
-it("AwsJson10ComplexError:Error:GreetingWithErrors", async () => {
-  const client = new JSONRPC10Client({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      false,
-      400,
-      {
-        "content-type": "application/x-amz-json-1.0",
-      },
-      `{
-          "__type": "aws.protocoltests.json10#ComplexError",
-          "TopLevel": "Top level",
-          "Nested": {
-              "Foo": "bar"
-          }
-      }`
-    ),
-  });
-
-  const params: any = {};
-  const command = new GreetingWithErrorsCommand(params);
-
-  try {
-    await client.send(command);
-  } catch (err) {
-    if (err.name !== "ComplexError") {
-      console.log(err);
-      fail(`Expected a ComplexError to be thrown, got ${err.name} instead`);
-      return;
-    }
-    const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(400);
-    const paramsToValidate: any = [
-      {
-        TopLevel: "Top level",
-        Nested: {
-          Foo: "bar",
-        },
-      },
-    ][0];
-    Object.keys(paramsToValidate).forEach((param) => {
-      expect(
-        r[param],
-        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
-      ).toBeDefined();
-      expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
-    });
-    return;
-  }
-  fail("Expected an exception to be thrown from response");
-});
-
-/**
- * Parses a complex error with an empty body
- */
-it("AwsJson10EmptyComplexError:Error:GreetingWithErrors", async () => {
-  const client = new JSONRPC10Client({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      false,
-      400,
-      {
-        "content-type": "application/x-amz-json-1.0",
-      },
-      `{
-          "__type": "aws.protocoltests.json10#ComplexError"
-      }`
-    ),
-  });
-
-  const params: any = {};
-  const command = new GreetingWithErrorsCommand(params);
-
-  try {
-    await client.send(command);
-  } catch (err) {
-    if (err.name !== "ComplexError") {
-      console.log(err);
-      fail(`Expected a ComplexError to be thrown, got ${err.name} instead`);
-      return;
-    }
-    const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(400);
     return;
   }
   fail("Expected an exception to be thrown from response");
