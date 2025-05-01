@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeletePolicyTemplateInput, DeletePolicyTemplateOutput } from "../models/models_0";
-import { de_DeletePolicyTemplateCommand, se_DeletePolicyTemplateCommand } from "../protocols/Aws_json1_0";
+import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/models_0";
+import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_json1_0";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -21,51 +21,51 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeletePolicyTemplateCommand}.
+ * The input for {@link ListTagsForResourceCommand}.
  */
-export interface DeletePolicyTemplateCommandInput extends DeletePolicyTemplateInput {}
+export interface ListTagsForResourceCommandInput extends ListTagsForResourceInput {}
 /**
  * @public
  *
- * The output of {@link DeletePolicyTemplateCommand}.
+ * The output of {@link ListTagsForResourceCommand}.
  */
-export interface DeletePolicyTemplateCommandOutput extends DeletePolicyTemplateOutput, __MetadataBearer {}
+export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified policy template from the policy store.</p> <important> <p>This operation also deletes any policies that were created from the specified policy template. Those policies are immediately removed from all future API responses, and are asynchronously deleted from the policy store.</p> </important>
+ * <p>Returns the tags associated with the specified Amazon Verified Permissions resource. In Verified Permissions, policy stores can be tagged.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VerifiedPermissionsClient, DeletePolicyTemplateCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
- * // const { VerifiedPermissionsClient, DeletePolicyTemplateCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * import { VerifiedPermissionsClient, ListTagsForResourceCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
+ * // const { VerifiedPermissionsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
  * const client = new VerifiedPermissionsClient(config);
- * const input = { // DeletePolicyTemplateInput
- *   policyStoreId: "STRING_VALUE", // required
- *   policyTemplateId: "STRING_VALUE", // required
+ * const input = { // ListTagsForResourceInput
+ *   resourceArn: "STRING_VALUE", // required
  * };
- * const command = new DeletePolicyTemplateCommand(input);
+ * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListTagsForResourceOutput
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *
- * @param DeletePolicyTemplateCommandInput - {@link DeletePolicyTemplateCommandInput}
- * @returns {@link DeletePolicyTemplateCommandOutput}
- * @see {@link DeletePolicyTemplateCommandInput} for command's `input` shape.
- * @see {@link DeletePolicyTemplateCommandOutput} for command's `response` shape.
+ * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
+ * @returns {@link ListTagsForResourceCommandOutput}
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link VerifiedPermissionsClientResolvedConfig | config} for VerifiedPermissionsClient's `config` shape.
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because another request to modify a resource occurred at the same.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request failed because it references a resource that doesn't exist.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request failed because of an internal error. Try your request again later</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request failed because it references a resource that doesn't exist.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request failed because it exceeded a throttling quota.</p>
@@ -77,26 +77,30 @@ export interface DeletePolicyTemplateCommandOutput extends DeletePolicyTemplateO
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  *
- * @example To delete a policy template
+ * @example ListTagsForResource
  * ```javascript
- * // The following example deletes a policy template. Before you can perform this operation, you must first delete any template-linked policies that were instantiated from this policy template. To delete them, use DeletePolicy.
+ * // The following example lists all the tags for the resource named in the API call.
  * const input = {
- *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
- *   policyTemplateId: "PTEXAMPLEabcdefg111111"
+ *   resourceArn: "C7v5xMplfFH3i3e4Jrzb1a"
  * };
- * const command = new DeletePolicyTemplateCommand(input);
+ * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * /* response is
- * { /* empty *\/ }
+ * {
+ *   tags: {
+ *     key1: "value1",
+ *     key2: "value2"
+ *   }
+ * }
  * *\/
  * ```
  *
  * @public
  */
-export class DeletePolicyTemplateCommand extends $Command
+export class ListTagsForResourceCommand extends $Command
   .classBuilder<
-    DeletePolicyTemplateCommandInput,
-    DeletePolicyTemplateCommandOutput,
+    ListTagsForResourceCommandInput,
+    ListTagsForResourceCommandOutput,
     VerifiedPermissionsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -108,21 +112,21 @@ export class DeletePolicyTemplateCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("VerifiedPermissions", "DeletePolicyTemplate", {})
-  .n("VerifiedPermissionsClient", "DeletePolicyTemplateCommand")
+  .s("VerifiedPermissions", "ListTagsForResource", {})
+  .n("VerifiedPermissionsClient", "ListTagsForResourceCommand")
   .f(void 0, void 0)
-  .ser(se_DeletePolicyTemplateCommand)
-  .de(de_DeletePolicyTemplateCommand)
+  .ser(se_ListTagsForResourceCommand)
+  .de(de_ListTagsForResourceCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeletePolicyTemplateInput;
-      output: {};
+      input: ListTagsForResourceInput;
+      output: ListTagsForResourceOutput;
     };
     sdk: {
-      input: DeletePolicyTemplateCommandInput;
-      output: DeletePolicyTemplateCommandOutput;
+      input: ListTagsForResourceCommandInput;
+      output: ListTagsForResourceCommandOutput;
     };
   };
 }

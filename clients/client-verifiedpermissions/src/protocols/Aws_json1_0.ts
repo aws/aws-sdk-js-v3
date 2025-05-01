@@ -72,7 +72,13 @@ import {
   ListPolicyTemplatesCommandInput,
   ListPolicyTemplatesCommandOutput,
 } from "../commands/ListPolicyTemplatesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
 import { PutSchemaCommandInput, PutSchemaCommandOutput } from "../commands/PutSchemaCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   UpdateIdentitySourceCommandInput,
   UpdateIdentitySourceCommandOutput,
@@ -144,6 +150,7 @@ import {
   ListPolicyStoresOutput,
   ListPolicyTemplatesInput,
   ListPolicyTemplatesOutput,
+  ListTagsForResourceInput,
   OpenIdConnectAccessTokenConfiguration,
   OpenIdConnectConfiguration,
   OpenIdConnectGroupConfiguration,
@@ -160,8 +167,11 @@ import {
   SchemaDefinition,
   ServiceQuotaExceededException,
   StaticPolicyDefinition,
+  TagResourceInput,
   TemplateLinkedPolicyDefinition,
   ThrottlingException,
+  TooManyTagsException,
+  UntagResourceInput,
   UpdateCognitoGroupConfiguration,
   UpdateCognitoUserPoolConfiguration,
   UpdateConfiguration,
@@ -472,6 +482,19 @@ export const se_ListPolicyTemplatesCommand = async (
 };
 
 /**
+ * serializeAws_json1_0ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0PutSchemaCommand
  */
 export const se_PutSchemaCommand = async (
@@ -479,6 +502,32 @@ export const se_PutSchemaCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutSchema");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("TagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -977,6 +1026,26 @@ export const de_ListPolicyTemplatesCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0PutSchemaCommand
  */
 export const de_PutSchemaCommand = async (
@@ -990,6 +1059,46 @@ export const de_PutSchemaCommand = async (
   let contents: any = {};
   contents = de_PutSchemaOutput(data, context);
   const response: PutSchemaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1110,6 +1219,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidStateException":
     case "com.amazonaws.verifiedpermissions#InvalidStateException":
       throw await de_InvalidStateExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.verifiedpermissions#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1220,6 +1332,22 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new ThrottlingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_0TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTagsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -1404,6 +1532,7 @@ const se_CreatePolicyStoreInput = (input: CreatePolicyStoreInput, context: __Ser
     clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     deletionProtection: [],
     description: [],
+    tags: _json,
     validationSettings: _json,
   });
 };
@@ -1529,6 +1658,8 @@ const se_IsAuthorizedWithTokenInput = (input: IsAuthorizedWithTokenInput, contex
 
 // se_ListPolicyTemplatesInput omitted.
 
+// se_ListTagsForResourceInput omitted.
+
 // se_OpenIdConnectAccessTokenConfiguration omitted.
 
 // se_OpenIdConnectConfiguration omitted.
@@ -1575,7 +1706,15 @@ const se_SetAttribute = (input: AttributeValue[], context: __SerdeContext): any 
 
 // se_StaticPolicyDefinition omitted.
 
+// se_TagKeyList omitted.
+
+// se_TagMap omitted.
+
+// se_TagResourceInput omitted.
+
 // se_TemplateLinkedPolicyDefinition omitted.
+
+// se_UntagResourceInput omitted.
 
 // se_UpdateCognitoGroupConfiguration omitted.
 
@@ -1948,11 +2087,13 @@ const de_GetPolicyOutput = (output: any, context: __SerdeContext): GetPolicyOutp
 const de_GetPolicyStoreOutput = (output: any, context: __SerdeContext): GetPolicyStoreOutput => {
   return take(output, {
     arn: __expectString,
+    cedarVersion: __expectString,
     createdDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     deletionProtection: __expectString,
     description: __expectString,
     lastUpdatedDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     policyStoreId: __expectString,
+    tags: _json,
     validationSettings: _json,
   }) as any;
 };
@@ -2062,6 +2203,8 @@ const de_ListPolicyTemplatesOutput = (output: any, context: __SerdeContext): Lis
     policyTemplates: (_: any) => de_PolicyTemplatesList(_, context),
   }) as any;
 };
+
+// de_ListTagsForResourceOutput omitted.
 
 // de_NamespaceList omitted.
 
@@ -2218,11 +2361,19 @@ const de_SetAttribute = (output: any, context: __SerdeContext): AttributeValue[]
 
 // de_StaticPolicyDefinitionItem omitted.
 
+// de_TagMap omitted.
+
+// de_TagResourceOutput omitted.
+
 // de_TemplateLinkedPolicyDefinitionDetail omitted.
 
 // de_TemplateLinkedPolicyDefinitionItem omitted.
 
 // de_ThrottlingException omitted.
+
+// de_TooManyTagsException omitted.
+
+// de_UntagResourceOutput omitted.
 
 /**
  * deserializeAws_json1_0UpdateIdentitySourceOutput

@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeletePolicyTemplateInput, DeletePolicyTemplateOutput } from "../models/models_0";
-import { de_DeletePolicyTemplateCommand, se_DeletePolicyTemplateCommand } from "../protocols/Aws_json1_0";
+import { TagResourceInput, TagResourceOutput } from "../models/models_0";
+import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_json1_0";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -21,45 +21,41 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeletePolicyTemplateCommand}.
+ * The input for {@link TagResourceCommand}.
  */
-export interface DeletePolicyTemplateCommandInput extends DeletePolicyTemplateInput {}
+export interface TagResourceCommandInput extends TagResourceInput {}
 /**
  * @public
  *
- * The output of {@link DeletePolicyTemplateCommand}.
+ * The output of {@link TagResourceCommand}.
  */
-export interface DeletePolicyTemplateCommandOutput extends DeletePolicyTemplateOutput, __MetadataBearer {}
+export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified policy template from the policy store.</p> <important> <p>This operation also deletes any policies that were created from the specified policy template. Those policies are immediately removed from all future API responses, and are asynchronously deleted from the policy store.</p> </important>
+ * <p>Assigns one or more tags (key-value pairs) to the specified Amazon Verified Permissions resource. Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values. In Verified Permissions, policy stores can be tagged.</p> <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p> <p>You can use the TagResource action with a resource that already has tags. If you specify a new tag key, this tag is appended to the list of tags associated with the resource. If you specify a tag key that is already associated with the resource, the new tag value that you specify replaces the previous value for that tag.</p> <p>You can associate as many as 50 tags with a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VerifiedPermissionsClient, DeletePolicyTemplateCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
- * // const { VerifiedPermissionsClient, DeletePolicyTemplateCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * import { VerifiedPermissionsClient, TagResourceCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
+ * // const { VerifiedPermissionsClient, TagResourceCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
  * const client = new VerifiedPermissionsClient(config);
- * const input = { // DeletePolicyTemplateInput
- *   policyStoreId: "STRING_VALUE", // required
- *   policyTemplateId: "STRING_VALUE", // required
+ * const input = { // TagResourceInput
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // TagMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
- * const command = new DeletePolicyTemplateCommand(input);
+ * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeletePolicyTemplateCommandInput - {@link DeletePolicyTemplateCommandInput}
- * @returns {@link DeletePolicyTemplateCommandOutput}
- * @see {@link DeletePolicyTemplateCommandInput} for command's `input` shape.
- * @see {@link DeletePolicyTemplateCommandOutput} for command's `response` shape.
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link VerifiedPermissionsClientResolvedConfig | config} for VerifiedPermissionsClient's `config` shape.
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because another request to modify a resource occurred at the same.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request failed because it references a resource that doesn't exist.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have sufficient access to perform this action.</p>
@@ -67,8 +63,14 @@ export interface DeletePolicyTemplateCommandOutput extends DeletePolicyTemplateO
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request failed because of an internal error. Try your request again later</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request failed because it references a resource that doesn't exist.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request failed because it exceeded a throttling quota.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>No more tags be added because the limit (50) has been reached. To add new tags, use <code>UntagResource</code> to remove existing tags.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because one or more input parameters don't satisfy their constraint requirements. The output is provided as a list of fields and a reason for each field that isn't valid.</p> <p>The possible reasons include the following:</p> <ul> <li> <p> <b>UnrecognizedEntityType</b> </p> <p>The policy includes an entity type that isn't found in the schema.</p> </li> <li> <p> <b>UnrecognizedActionId</b> </p> <p>The policy includes an action id that isn't found in the schema.</p> </li> <li> <p> <b>InvalidActionApplication</b> </p> <p>The policy includes an action that, according to the schema, doesn't support the specified principal and resource.</p> </li> <li> <p> <b>UnexpectedType</b> </p> <p>The policy included an operand that isn't a valid type for the specified operation.</p> </li> <li> <p> <b>IncompatibleTypes</b> </p> <p>The types of elements included in a <code>set</code>, or the types of expressions used in an <code>if...then...else</code> clause aren't compatible in this context.</p> </li> <li> <p> <b>MissingAttribute</b> </p> <p>The policy attempts to access a record or entity attribute that isn't specified in the schema. Test for the existence of the attribute first before attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the <i>Cedar Policy Language Guide</i>.</p> </li> <li> <p> <b>UnsafeOptionalAttributeAccess</b> </p> <p>The policy attempts to access a record or entity attribute that is optional and isn't guaranteed to be present. Test for the existence of the attribute first before attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the <i>Cedar Policy Language Guide</i>.</p> </li> <li> <p> <b>ImpossiblePolicy</b> </p> <p>Cedar has determined that a policy condition always evaluates to false. If the policy is always false, it can never apply to any query, and so it can never affect an authorization decision.</p> </li> <li> <p> <b>WrongNumberArguments</b> </p> <p>The policy references an extension type with the wrong number of arguments.</p> </li> <li> <p> <b>FunctionArgumentValidationError</b> </p> <p>Cedar couldn't parse the argument passed to an extension type. For example, a string that is to be parsed as an IPv4 address can contain only digits and the period character.</p> </li> </ul>
@@ -77,14 +79,17 @@ export interface DeletePolicyTemplateCommandOutput extends DeletePolicyTemplateO
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  *
- * @example To delete a policy template
+ * @example TagResource
  * ```javascript
- * // The following example deletes a policy template. Before you can perform this operation, you must first delete any template-linked policies that were instantiated from this policy template. To delete them, use DeletePolicy.
+ * // The following example tags the resource.
  * const input = {
- *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
- *   policyTemplateId: "PTEXAMPLEabcdefg111111"
+ *   resourceArn: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   tags: {
+ *     key1: "value1",
+ *     key2: "value2"
+ *   }
  * };
- * const command = new DeletePolicyTemplateCommand(input);
+ * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * /* response is
  * { /* empty *\/ }
@@ -93,10 +98,10 @@ export interface DeletePolicyTemplateCommandOutput extends DeletePolicyTemplateO
  *
  * @public
  */
-export class DeletePolicyTemplateCommand extends $Command
+export class TagResourceCommand extends $Command
   .classBuilder<
-    DeletePolicyTemplateCommandInput,
-    DeletePolicyTemplateCommandOutput,
+    TagResourceCommandInput,
+    TagResourceCommandOutput,
     VerifiedPermissionsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -108,21 +113,21 @@ export class DeletePolicyTemplateCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("VerifiedPermissions", "DeletePolicyTemplate", {})
-  .n("VerifiedPermissionsClient", "DeletePolicyTemplateCommand")
+  .s("VerifiedPermissions", "TagResource", {})
+  .n("VerifiedPermissionsClient", "TagResourceCommand")
   .f(void 0, void 0)
-  .ser(se_DeletePolicyTemplateCommand)
-  .de(de_DeletePolicyTemplateCommand)
+  .ser(se_TagResourceCommand)
+  .de(de_TagResourceCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeletePolicyTemplateInput;
+      input: TagResourceInput;
       output: {};
     };
     sdk: {
-      input: DeletePolicyTemplateCommandInput;
-      output: DeletePolicyTemplateCommandOutput;
+      input: TagResourceCommandInput;
+      output: TagResourceCommandOutput;
     };
   };
 }

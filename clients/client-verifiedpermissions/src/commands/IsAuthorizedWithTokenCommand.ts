@@ -37,20 +37,7 @@ export interface IsAuthorizedWithTokenCommandInput extends IsAuthorizedWithToken
 export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithTokenOutput, __MetadataBearer {}
 
 /**
- * <p>Makes an authorization decision about a service request described in the parameters.
- *             The principal in this request comes from an external identity source in the form of an identity
- *             token formatted as a <a href="https://wikipedia.org/wiki/JSON_Web_Token">JSON web
- *                 token (JWT)</a>. The information in the parameters can also define additional
- *             context that Verified Permissions can include in the evaluation. The request is evaluated against all
- *             matching policies in the specified policy store. The result of the decision is either
- *                 <code>Allow</code> or <code>Deny</code>, along with a list of the policies that
- *             resulted in the decision.</p>
- *          <p>Verified Permissions validates each token that is specified in a request by checking its expiration
- *             date and its signature.</p>
- *          <important>
- *             <p>Tokens from an identity source user continue to be usable until they expire.
- *     Token revocation and resource deletion have no effect on the validity of a token in your policy store</p>
- *          </important>
+ * <p>Makes an authorization decision about a service request described in the parameters. The principal in this request comes from an external identity source in the form of an identity token formatted as a <a href="https://wikipedia.org/wiki/JSON_Web_Token">JSON web token (JWT)</a>. The information in the parameters can also define additional context that Verified Permissions can include in the evaluation. The request is evaluated against all matching policies in the specified policy store. The result of the decision is either <code>Allow</code> or <code>Deny</code>, along with a list of the policies that resulted in the decision.</p> <p>Verified Permissions validates each token that is specified in a request by checking its expiration date and its signature.</p> <important> <p>Tokens from an identity source user continue to be usable until they expire. Token revocation and resource deletion have no effect on the validity of a token in your policy store</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -160,88 +147,7 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  *  <p>The request failed because it exceeded a throttling quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed because one or more input parameters don't satisfy their constraint
- *             requirements. The output is provided as a list of fields and a reason for each field that
- *             isn't valid.</p>
- *          <p>The possible reasons include the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>UnrecognizedEntityType</b>
- *                </p>
- *                <p>The policy includes an entity type that isn't found in the schema.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>UnrecognizedActionId</b>
- *                </p>
- *                <p>The policy includes an action id that isn't found in the schema.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>InvalidActionApplication</b>
- *                </p>
- *                <p>The policy includes an action that, according to the schema, doesn't support
- *                     the specified principal and resource.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>UnexpectedType</b>
- *                </p>
- *                <p>The policy included an operand that isn't a valid type for the specified
- *                     operation.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>IncompatibleTypes</b>
- *                </p>
- *                <p>The types of elements included in a <code>set</code>, or the types of
- *                     expressions used in an <code>if...then...else</code> clause aren't compatible in
- *                     this context.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>MissingAttribute</b>
- *                </p>
- *                <p>The policy attempts to access a record or entity attribute that isn't
- *                     specified in the schema. Test for the existence of the attribute first before
- *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
- *                         <i>Cedar Policy Language Guide</i>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>UnsafeOptionalAttributeAccess</b>
- *                </p>
- *                <p>The policy attempts to access a record or entity attribute that is optional
- *                     and isn't guaranteed to be present. Test for the existence of the attribute
- *                     first before attempting to access its value. For more information, see the
- *                         <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
- *                         <i>Cedar Policy Language Guide</i>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>ImpossiblePolicy</b>
- *                </p>
- *                <p>Cedar has determined that a policy condition always evaluates to false. If
- *                     the policy is always false, it can never apply to any query, and so it can never
- *                     affect an authorization decision.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>WrongNumberArguments</b>
- *                </p>
- *                <p>The policy references an extension type with the wrong number of
- *                     arguments.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>FunctionArgumentValidationError</b>
- *                </p>
- *                <p>Cedar couldn't parse the argument passed to an extension type. For example,
- *                     a string that is to be parsed as an IPv4 address can contain only digits and the
- *                     period character.</p>
- *             </li>
- *          </ul>
+ *  <p>The request failed because one or more input parameters don't satisfy their constraint requirements. The output is provided as a list of fields and a reason for each field that isn't valid.</p> <p>The possible reasons include the following:</p> <ul> <li> <p> <b>UnrecognizedEntityType</b> </p> <p>The policy includes an entity type that isn't found in the schema.</p> </li> <li> <p> <b>UnrecognizedActionId</b> </p> <p>The policy includes an action id that isn't found in the schema.</p> </li> <li> <p> <b>InvalidActionApplication</b> </p> <p>The policy includes an action that, according to the schema, doesn't support the specified principal and resource.</p> </li> <li> <p> <b>UnexpectedType</b> </p> <p>The policy included an operand that isn't a valid type for the specified operation.</p> </li> <li> <p> <b>IncompatibleTypes</b> </p> <p>The types of elements included in a <code>set</code>, or the types of expressions used in an <code>if...then...else</code> clause aren't compatible in this context.</p> </li> <li> <p> <b>MissingAttribute</b> </p> <p>The policy attempts to access a record or entity attribute that isn't specified in the schema. Test for the existence of the attribute first before attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the <i>Cedar Policy Language Guide</i>.</p> </li> <li> <p> <b>UnsafeOptionalAttributeAccess</b> </p> <p>The policy attempts to access a record or entity attribute that is optional and isn't guaranteed to be present. Test for the existence of the attribute first before attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the <i>Cedar Policy Language Guide</i>.</p> </li> <li> <p> <b>ImpossiblePolicy</b> </p> <p>Cedar has determined that a policy condition always evaluates to false. If the policy is always false, it can never apply to any query, and so it can never affect an authorization decision.</p> </li> <li> <p> <b>WrongNumberArguments</b> </p> <p>The policy references an extension type with the wrong number of arguments.</p> </li> <li> <p> <b>FunctionArgumentValidationError</b> </p> <p>Cedar couldn't parse the argument passed to an extension type. For example, a string that is to be parsed as an IPv4 address can contain only digits and the period character.</p> </li> </ul>
  *
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
