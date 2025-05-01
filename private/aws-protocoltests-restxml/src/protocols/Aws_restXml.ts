@@ -86,6 +86,10 @@ import {
 } from "../commands/FlattenedXmlMapWithXmlNamespaceCommand";
 import { FractionalSecondsCommandInput, FractionalSecondsCommandOutput } from "../commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "../commands/GreetingWithErrorsCommand";
+import {
+  HttpEmptyPrefixHeadersCommandInput,
+  HttpEmptyPrefixHeadersCommandOutput,
+} from "../commands/HttpEmptyPrefixHeadersCommand";
 import { HttpEnumPayloadCommandInput, HttpEnumPayloadCommandOutput } from "../commands/HttpEnumPayloadCommand";
 import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "../commands/HttpPayloadTraitsCommand";
 import {
@@ -582,6 +586,28 @@ export const se_GreetingWithErrorsCommand = async (
 };
 
 /**
+ * serializeAws_restXmlHttpEmptyPrefixHeadersCommand
+ */
+export const se_HttpEmptyPrefixHeadersCommand = async (
+  input: HttpEmptyPrefixHeadersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    ...(input.prefixHeaders !== undefined &&
+      Object.keys(input.prefixHeaders).reduce((acc: any, suffix: string) => {
+        acc[`${suffix.toLowerCase()}`] = input.prefixHeaders![suffix];
+        return acc;
+      }, {})),
+    [_h]: input[_sH]!,
+  });
+  b.bp("/HttpEmptyPrefixHeaders");
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlHttpEnumPayloadCommand
  */
 export const se_HttpEnumPayloadCommand = async (
@@ -799,12 +825,12 @@ export const se_HttpPrefixHeadersCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xf]: input[_f]!,
     ...(input.fooMap !== undefined &&
       Object.keys(input.fooMap).reduce((acc: any, suffix: string) => {
         acc[`x-foo-${suffix.toLowerCase()}`] = input.fooMap![suffix];
         return acc;
       }, {})),
+    [_xf]: input[_f]!,
   });
   b.bp("/HttpPrefixHeaders");
   let body: any;
@@ -2021,6 +2047,33 @@ export const de_GreetingWithErrorsCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
     [_g]: [, output.headers[_xg]],
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlHttpEmptyPrefixHeadersCommand
+ */
+export const de_HttpEmptyPrefixHeadersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpEmptyPrefixHeadersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_sH]: [, output.headers[_h]],
+    prefixHeaders: [
+      ,
+      Object.keys(output.headers)
+        .filter((header) => header.startsWith(""))
+        .reduce((acc, header) => {
+          acc[header.substring(0)] = output.headers[header];
+          return acc;
+        }, {} as any),
+    ],
   });
   await collectBody(output.body, context);
   return contents;
@@ -4668,6 +4721,7 @@ const _qTL = "queryTimestampList";
 const _r = "renamed";
 const _rLM = "renamedListMembers";
 const _rM = "recursiveMember";
+const _sH = "specificHeader";
 const _sL = "stringList";
 const _sLt = "structureList";
 const _sS = "stringSet";

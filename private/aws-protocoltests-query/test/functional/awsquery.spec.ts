@@ -770,60 +770,6 @@ it("QueryInvalidGreetingError:Error:GreetingWithErrors", async () => {
   fail("Expected an exception to be thrown from response");
 });
 
-/**
- * Parses customized XML errors
- */
-it("QueryCustomizedError:Error:GreetingWithErrors", async () => {
-  const client = new QueryProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      false,
-      402,
-      {
-        "content-type": "text/xml",
-      },
-      `<ErrorResponse>
-         <Error>
-            <Type>Sender</Type>
-            <Code>Customized</Code>
-            <Message>Hi</Message>
-         </Error>
-         <RequestId>foo-id</RequestId>
-      </ErrorResponse>
-      `
-    ),
-  });
-
-  const params: any = {};
-  const command = new GreetingWithErrorsCommand(params);
-
-  try {
-    await client.send(command);
-  } catch (err) {
-    if (err.name !== "CustomCodeError") {
-      console.log(err);
-      fail(`Expected a CustomCodeError to be thrown, got ${err.name} instead`);
-      return;
-    }
-    const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(402);
-    const paramsToValidate: any = [
-      {
-        message: "Hi",
-      },
-    ][0];
-    Object.keys(paramsToValidate).forEach((param) => {
-      expect(
-        r[param],
-        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
-      ).toBeDefined();
-      expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
-    });
-    return;
-  }
-  fail("Expected an exception to be thrown from response");
-});
-
 it("QueryComplexError:Error:GreetingWithErrors", async () => {
   const client = new QueryProtocolClient({
     ...clientParams,
@@ -867,6 +813,60 @@ it("QueryComplexError:Error:GreetingWithErrors", async () => {
         Nested: {
           Foo: "bar",
         },
+      },
+    ][0];
+    Object.keys(paramsToValidate).forEach((param) => {
+      expect(
+        r[param],
+        `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+      ).toBeDefined();
+      expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
+    });
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
+ * Parses customized XML errors
+ */
+it("QueryCustomizedError:Error:GreetingWithErrors", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      402,
+      {
+        "content-type": "text/xml",
+      },
+      `<ErrorResponse>
+         <Error>
+            <Type>Sender</Type>
+            <Code>Customized</Code>
+            <Message>Hi</Message>
+         </Error>
+         <RequestId>foo-id</RequestId>
+      </ErrorResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "CustomCodeError") {
+      console.log(err);
+      fail(`Expected a CustomCodeError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(402);
+    const paramsToValidate: any = [
+      {
+        message: "Hi",
       },
     ][0];
     Object.keys(paramsToValidate).forEach((param) => {

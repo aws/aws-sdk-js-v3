@@ -78,6 +78,11 @@ import {
   GreetingWithErrorsCommandOutput,
 } from "./commands/GreetingWithErrorsCommand";
 import {
+  HttpEmptyPrefixHeadersCommand,
+  HttpEmptyPrefixHeadersCommandInput,
+  HttpEmptyPrefixHeadersCommandOutput,
+} from "./commands/HttpEmptyPrefixHeadersCommand";
+import {
   HttpEnumPayloadCommand,
   HttpEnumPayloadCommandInput,
   HttpEnumPayloadCommandOutput,
@@ -311,6 +316,7 @@ const commands = {
   FlattenedXmlMapWithXmlNamespaceCommand,
   FractionalSecondsCommand,
   GreetingWithErrorsCommand,
+  HttpEmptyPrefixHeadersCommand,
   HttpEnumPayloadCommand,
   HttpPayloadTraitsCommand,
   HttpPayloadTraitsWithMediaTypeCommand,
@@ -618,6 +624,24 @@ export interface RestXmlProtocol {
     args: GreetingWithErrorsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GreetingWithErrorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link HttpEmptyPrefixHeadersCommand}
+   */
+  httpEmptyPrefixHeaders(): Promise<HttpEmptyPrefixHeadersCommandOutput>;
+  httpEmptyPrefixHeaders(
+    args: HttpEmptyPrefixHeadersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpEmptyPrefixHeadersCommandOutput>;
+  httpEmptyPrefixHeaders(
+    args: HttpEmptyPrefixHeadersCommandInput,
+    cb: (err: any, data?: HttpEmptyPrefixHeadersCommandOutput) => void
+  ): void;
+  httpEmptyPrefixHeaders(
+    args: HttpEmptyPrefixHeadersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpEmptyPrefixHeadersCommandOutput) => void
   ): void;
 
   /**

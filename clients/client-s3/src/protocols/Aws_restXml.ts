@@ -547,6 +547,11 @@ export const se_CopyObjectCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
+    ...(input.Metadata !== undefined &&
+      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
+        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
+        return acc;
+      }, {})),
     [_xaa]: input[_ACL]!,
     [_cc]: input[_CC]!,
     [_xaca]: input[_CA]!,
@@ -585,11 +590,6 @@ export const se_CopyObjectCommand = async (
     [_xaollh]: input[_OLLHS]!,
     [_xaebo]: input[_EBO]!,
     [_xasebo]: input[_ESBO]!,
-    ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
-        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
-        return acc;
-      }, {})),
   });
   b.bp("/{Key+}");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -675,6 +675,11 @@ export const se_CreateMultipartUploadCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
+    ...(input.Metadata !== undefined &&
+      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
+        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
+        return acc;
+      }, {})),
     [_xaa]: input[_ACL]!,
     [_cc]: input[_CC]!,
     [_cd]: input[_CD]!,
@@ -703,11 +708,6 @@ export const se_CreateMultipartUploadCommand = async (
     [_xaebo]: input[_EBO]!,
     [_xaca]: input[_CA]!,
     [_xact]: input[_CT]!,
-    ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
-        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
-        return acc;
-      }, {})),
   });
   b.bp("/{Key+}");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -2722,6 +2722,11 @@ export const se_PutObjectCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
+    ...(input.Metadata !== undefined &&
+      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
+        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
+        return acc;
+      }, {})),
     [_ct]: input[_CTo] || "application/octet-stream",
     [_xaa]: input[_ACL]!,
     [_cc]: input[_CC]!,
@@ -2759,11 +2764,6 @@ export const se_PutObjectCommand = async (
     [_xaolrud]: [() => isSerializableHeaderValue(input[_OLRUD]), () => __serializeDateTime(input[_OLRUD]!).toString()],
     [_xaollh]: input[_OLLHS]!,
     [_xaebo]: input[_EBO]!,
-    ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
-        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
-        return acc;
-      }, {})),
   });
   b.bp("/{Key+}");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -3158,6 +3158,11 @@ export const se_WriteGetObjectResponseCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
+    ...(input.Metadata !== undefined &&
+      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
+        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
+        return acc;
+      }, {})),
     "content-type": "application/octet-stream",
     [_xarr]: input[_RR]!,
     [_xart]: input[_RT]!,
@@ -3201,11 +3206,6 @@ export const se_WriteGetObjectResponseCommand = async (
     [_xafhxatc]: [() => isSerializableHeaderValue(input[_TC]), () => input[_TC]!.toString()],
     [_xafhxavi]: input[_VI]!,
     [_xafhxassebke]: [() => isSerializableHeaderValue(input[_BKE]), () => input[_BKE]!.toString()],
-    ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
-        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
-        return acc;
-      }, {})),
   });
   b.bp("/WriteGetObjectResponse");
   let body: any;

@@ -90,6 +90,11 @@ import {
   HttpChecksumRequiredSerializer,
   HttpChecksumRequiredServerInput,
 } from "./operations/HttpChecksumRequired";
+import {
+  HttpEmptyPrefixHeaders,
+  HttpEmptyPrefixHeadersSerializer,
+  HttpEmptyPrefixHeadersServerInput,
+} from "./operations/HttpEmptyPrefixHeaders";
 import { HttpEnumPayload, HttpEnumPayloadSerializer, HttpEnumPayloadServerInput } from "./operations/HttpEnumPayload";
 import {
   HttpPayloadTraits,
@@ -452,6 +457,7 @@ export type RestJsonServiceOperations =
   | "GreetingWithErrors"
   | "HostWithPathOperation"
   | "HttpChecksumRequired"
+  | "HttpEmptyPrefixHeaders"
   | "HttpEnumPayload"
   | "HttpPayloadTraits"
   | "HttpPayloadTraitsWithMediaType"
@@ -557,6 +563,7 @@ export interface RestJsonService<Context> {
   GreetingWithErrors: GreetingWithErrors<Context>;
   HostWithPathOperation: HostWithPathOperation<Context>;
   HttpChecksumRequired: HttpChecksumRequired<Context>;
+  HttpEmptyPrefixHeaders: HttpEmptyPrefixHeaders<Context>;
   HttpEnumPayload: HttpEnumPayload<Context>;
   HttpPayloadTraits: HttpPayloadTraits<Context>;
   HttpPayloadTraitsWithMediaType: HttpPayloadTraitsWithMediaType<Context>;
@@ -914,6 +921,18 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.service.HttpChecksumRequired,
           this.serializeFrameworkException,
           HttpChecksumRequiredServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "HttpEmptyPrefixHeaders": {
+        return handle(
+          request,
+          context,
+          "HttpEmptyPrefixHeaders",
+          this.serializerFactory("HttpEmptyPrefixHeaders"),
+          this.service.HttpEmptyPrefixHeaders,
+          this.serializeFrameworkException,
+          HttpEmptyPrefixHeadersServerInput.validate,
           this.validationCustomizer
         );
       }
@@ -2085,6 +2104,12 @@ export const getRestJsonServiceHandler = <Context>(
       [],
       { service: "RestJson", operation: "HttpChecksumRequired" }
     ),
+    new httpbinding.UriSpec<"RestJson", "HttpEmptyPrefixHeaders">(
+      "GET",
+      [{ type: "path_literal", value: "HttpEmptyPrefixHeaders" }],
+      [],
+      { service: "RestJson", operation: "HttpEmptyPrefixHeaders" }
+    ),
     new httpbinding.UriSpec<"RestJson", "HttpEnumPayload">(
       "POST",
       [{ type: "path_literal", value: "EnumPayload" }],
@@ -2666,6 +2691,8 @@ export const getRestJsonServiceHandler = <Context>(
         return new HostWithPathOperationSerializer();
       case "HttpChecksumRequired":
         return new HttpChecksumRequiredSerializer();
+      case "HttpEmptyPrefixHeaders":
+        return new HttpEmptyPrefixHeadersSerializer();
       case "HttpEnumPayload":
         return new HttpEnumPayloadSerializer();
       case "HttpPayloadTraits":

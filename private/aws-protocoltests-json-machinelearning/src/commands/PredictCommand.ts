@@ -65,15 +65,15 @@ export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
  * @see {@link PredictCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
- * @throws {@link ResourceNotFoundException} (client fault)
- *
  * @throws {@link InternalServerException} (server fault)
+ *
+ * @throws {@link InvalidInputException} (client fault)
  *
  * @throws {@link LimitExceededException} (client fault)
  *
  * @throws {@link PredictorNotMountedException} (client fault)
  *
- * @throws {@link InvalidInputException} (client fault)
+ * @throws {@link ResourceNotFoundException} (client fault)
  *
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
