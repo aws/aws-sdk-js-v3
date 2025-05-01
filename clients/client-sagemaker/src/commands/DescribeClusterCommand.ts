@@ -79,6 +79,27 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       ScheduledUpdateConfig: { // ScheduledUpdateConfig
+ * //         ScheduleExpression: "STRING_VALUE", // required
+ * //         DeploymentConfig: { // DeploymentConfiguration
+ * //           RollingUpdatePolicy: { // RollingDeploymentPolicy
+ * //             MaximumBatchSize: { // CapacitySizeConfig
+ * //               Type: "INSTANCE_COUNT" || "CAPACITY_PERCENTAGE", // required
+ * //               Value: Number("int"), // required
+ * //             },
+ * //             RollbackMaximumBatchSize: {
+ * //               Type: "INSTANCE_COUNT" || "CAPACITY_PERCENTAGE", // required
+ * //               Value: Number("int"), // required
+ * //             },
+ * //           },
+ * //           WaitIntervalInSeconds: Number("int"),
+ * //           AutoRollbackConfiguration: [ // AutoRollbackAlarms
+ * //             { // AlarmDetails
+ * //               AlarmName: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   VpcConfig: {

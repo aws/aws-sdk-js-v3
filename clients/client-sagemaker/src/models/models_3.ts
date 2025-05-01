@@ -40,9 +40,6 @@ import {
   CognitoConfig,
   CompilationJobStatus,
   CompilationJobSummary,
-  ComputeQuotaSummary,
-  ContainerDefinition,
-  ContextSummary,
   InferenceSpecification,
   ModelApprovalStatus,
   ModelPackageStatus,
@@ -64,6 +61,7 @@ import {
 
 import {
   _InstanceType,
+  ContainerDefinition,
   DockerSettings,
   DriftCheckBaselines,
   EdgeOutputConfig,
@@ -111,10 +109,7 @@ import {
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
-  MonitoringScheduleConfig,
   MonitoringStoppingCondition,
-  MonitoringType,
-  NetworkConfig,
   OfflineStoreConfig,
   OnlineStoreConfig,
   Processor,
@@ -150,8 +145,6 @@ import {
   FeatureGroupStatus,
   FeatureParameter,
   FlowDefinitionStatus,
-  HubContentStatus,
-  HubContentSupportStatus,
   HubContentType,
   HubStatus,
   InfraCheckConfig,
@@ -160,6 +153,9 @@ import {
   MemberDefinition,
   ModelArtifacts,
   ModelClientConfig,
+  MonitoringScheduleConfig,
+  MonitoringType,
+  NetworkConfig,
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
@@ -196,6 +192,222 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeHubContentRequest {
+  /**
+   * <p>The name of the hub that contains the content to describe.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The type of content in the hub.</p>
+   * @public
+   */
+  HubContentType: HubContentType | undefined;
+
+  /**
+   * <p>The name of the content to describe.</p>
+   * @public
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The version of the content to describe.</p>
+   * @public
+   */
+  HubContentVersion?: string | undefined;
+}
+
+/**
+ * <p>Any dependencies related to hub content, such as scripts, model artifacts, datasets, or notebooks.</p>
+ * @public
+ */
+export interface HubContentDependency {
+  /**
+   * <p>The hub content dependency origin path.</p>
+   * @public
+   */
+  DependencyOriginPath?: string | undefined;
+
+  /**
+   * <p>The hub content dependency copy path.</p>
+   * @public
+   */
+  DependencyCopyPath?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HubContentStatus = {
+  AVAILABLE: "Available",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  IMPORTING: "Importing",
+  IMPORT_FAILED: "ImportFailed",
+} as const;
+
+/**
+ * @public
+ */
+export type HubContentStatus = (typeof HubContentStatus)[keyof typeof HubContentStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const HubContentSupportStatus = {
+  DEPRECATED: "Deprecated",
+  RESTRICTED: "Restricted",
+  SUPPORTED: "Supported",
+} as const;
+
+/**
+ * @public
+ */
+export type HubContentSupportStatus = (typeof HubContentSupportStatus)[keyof typeof HubContentSupportStatus];
+
+/**
+ * @public
+ */
+export interface DescribeHubContentResponse {
+  /**
+   * <p>The name of the hub content.</p>
+   * @public
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub content.</p>
+   * @public
+   */
+  HubContentArn: string | undefined;
+
+  /**
+   * <p>The version of the hub content.</p>
+   * @public
+   */
+  HubContentVersion: string | undefined;
+
+  /**
+   * <p>The type of hub content.</p>
+   * @public
+   */
+  HubContentType: HubContentType | undefined;
+
+  /**
+   * <p>The document schema version for the hub content.</p>
+   * @public
+   */
+  DocumentSchemaVersion: string | undefined;
+
+  /**
+   * <p>The name of the hub that contains the content.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub that contains the content. </p>
+   * @public
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The display name of the hub content.</p>
+   * @public
+   */
+  HubContentDisplayName?: string | undefined;
+
+  /**
+   * <p>A description of the hub content.</p>
+   * @public
+   */
+  HubContentDescription?: string | undefined;
+
+  /**
+   * <p>A string that provides a description of the hub content. This string can include links, tables, and standard markdown formating.</p>
+   * @public
+   */
+  HubContentMarkdown?: string | undefined;
+
+  /**
+   * <p>The hub content document that describes information about the hub content such as type, associated containers, scripts, and more.</p>
+   * @public
+   */
+  HubContentDocument: string | undefined;
+
+  /**
+   * <p>The ARN of the public hub content.</p>
+   * @public
+   */
+  SageMakerPublicHubContentArn?: string | undefined;
+
+  /**
+   * <p>The minimum version of the hub content.</p>
+   * @public
+   */
+  ReferenceMinVersion?: string | undefined;
+
+  /**
+   * <p>The support status of the hub content.</p>
+   * @public
+   */
+  SupportStatus?: HubContentSupportStatus | undefined;
+
+  /**
+   * <p>The searchable keywords for the hub content.</p>
+   * @public
+   */
+  HubContentSearchKeywords?: string[] | undefined;
+
+  /**
+   * <p>The location of any dependencies that the hub content has, such as scripts, model artifacts, datasets, or notebooks.</p>
+   * @public
+   */
+  HubContentDependencies?: HubContentDependency[] | undefined;
+
+  /**
+   * <p>The status of the hub content.</p>
+   * @public
+   */
+  HubContentStatus: HubContentStatus | undefined;
+
+  /**
+   * <p>The failure reason if importing hub content failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The date and time that hub content was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The last modified time of the hub content.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeHumanTaskUiRequest {
+  /**
+   * <p>The name of the human task user interface
+   *       (worker task template) you want information about.</p>
+   * @public
+   */
+  HumanTaskUiName: string | undefined;
+}
 
 /**
  * @public
@@ -5822,6 +6034,13 @@ export interface DescribeTrainingJobResponse {
 
   /**
    * <p>The environment variables to set in the Docker container.</p>
+   *          <important>
+   *             <p>Do not include any security-sensitive information including account access IDs, secrets,
+   *                 or tokens in any environment fields. As part of the shared responsibility
+   *                 model, you are responsible for any potential exposure, unauthorized access, or compromise of
+   *                 your sensitive data if caused by security-sensitive information included in the
+   *                 request environment variable or plain text fields.</p>
+   *          </important>
    * @public
    */
   Environment?: Record<string, string> | undefined;
@@ -11776,189 +11995,6 @@ export const SortQuotaBy = {
  * @public
  */
 export type SortQuotaBy = (typeof SortQuotaBy)[keyof typeof SortQuotaBy];
-
-/**
- * @public
- */
-export interface ListComputeQuotasRequest {
-  /**
-   * <p>Filter for after this creation time. The input for this parameter is a Unix timestamp.
-   *          To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>Filter for before this creation time. The input for this parameter is a Unix timestamp.
-   *          To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>Filter for name containing this string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>Filter for status.</p>
-   * @public
-   */
-  Status?: SchedulerResourceStatus | undefined;
-
-  /**
-   * <p>Filter for ARN of the cluster.</p>
-   * @public
-   */
-  ClusterArn?: string | undefined;
-
-  /**
-   * <p>Filter for sorting the list by a given value. For example, sort by name, creation time,
-   *          or status.</p>
-   * @public
-   */
-  SortBy?: SortQuotaBy | undefined;
-
-  /**
-   * <p>The order of the list. By default, listed in <code>Descending</code> order according to
-   *          by <code>SortBy</code>. To change the list order, you can specify <code>SortOrder</code> to
-   *          be <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next
-   *          request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of compute allocation definitions to list.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListComputeQuotasResponse {
-  /**
-   * <p>Summaries of the compute allocation definitions.</p>
-   * @public
-   */
-  ComputeQuotaSummaries?: ComputeQuotaSummary[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next
-   *          request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SortContextsBy = {
-  CREATION_TIME: "CreationTime",
-  NAME: "Name",
-} as const;
-
-/**
- * @public
- */
-export type SortContextsBy = (typeof SortContextsBy)[keyof typeof SortContextsBy];
-
-/**
- * @public
- */
-export interface ListContextsRequest {
-  /**
-   * <p>A filter that returns only contexts with the specified source URI.</p>
-   * @public
-   */
-  SourceUri?: string | undefined;
-
-  /**
-   * <p>A filter that returns only contexts of the specified type.</p>
-   * @public
-   */
-  ContextType?: string | undefined;
-
-  /**
-   * <p>A filter that returns only contexts created on or after the specified time.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only contexts created on or before the specified time.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: SortContextsBy | undefined;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListContexts</code> didn't return the full set of contexts,
-   *         the call returns a token for getting the next set of contexts.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of contexts to return in the response. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContextsResponse {
-  /**
-   * <p>A list of contexts and their properties.</p>
-   * @public
-   */
-  ContextSummaries?: ContextSummary[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of contexts, if there are any.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MonitoringJobDefinitionSortKey = {
-  CREATION_TIME: "CreationTime",
-  NAME: "Name",
-} as const;
-
-/**
- * @public
- */
-export type MonitoringJobDefinitionSortKey =
-  (typeof MonitoringJobDefinitionSortKey)[keyof typeof MonitoringJobDefinitionSortKey];
 
 /**
  * @internal

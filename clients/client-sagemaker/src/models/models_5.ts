@@ -13,6 +13,7 @@ import {
   CodeEditorAppImageConfig,
   ComputeQuotaConfig,
   ComputeQuotaTarget,
+  DeploymentConfiguration,
   InferenceSpecification,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
@@ -36,7 +37,6 @@ import {
   ModelPackageModelCard,
   ModelPackageModelCardFilterSensitiveLog,
   ModelVariantConfig,
-  MonitoringScheduleConfig,
   Processor,
   SchedulerConfig,
   ShadowModeConfig,
@@ -50,10 +50,10 @@ import {
 import {
   CrossAccountFilterOption,
   FeatureParameter,
-  HubContentSupportStatus,
   HubContentType,
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
+  MonitoringScheduleConfig,
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
@@ -81,6 +81,7 @@ import {
   DomainSettingsForUpdate,
   Filter,
   GitConfigForUpdate,
+  HubContentSupportStatus,
   InferenceComponentDeploymentConfig,
   ResourceType,
   Workforce,
@@ -96,6 +97,72 @@ import {
   SearchSortOrder,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface StopInferenceRecommendationsJobRequest {
+  /**
+   * <p>The name of the job you want to stop.</p>
+   * @public
+   */
+  JobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopLabelingJobRequest {
+  /**
+   * <p>The name of the labeling job to stop.</p>
+   * @public
+   */
+  LabelingJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopMlflowTrackingServerRequest {
+  /**
+   * <p>The name of the tracking server to stop.</p>
+   * @public
+   */
+  TrackingServerName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopMlflowTrackingServerResponse {
+  /**
+   * <p>The ARN of the stopped tracking server.</p>
+   * @public
+   */
+  TrackingServerArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopMonitoringScheduleRequest {
+  /**
+   * <p>The name of the schedule to stop.</p>
+   * @public
+   */
+  MonitoringScheduleName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopNotebookInstanceInput {
+  /**
+   * <p>The name of the notebook instance to terminate.</p>
+   * @public
+   */
+  NotebookInstanceName: string | undefined;
+}
 
 /**
  * @public
@@ -384,6 +451,18 @@ export interface UpdateClusterSchedulerConfigResponse {
 }
 
 /**
+ * <p>The configuration that describes specifications of the instance groups to update.</p>
+ * @public
+ */
+export interface UpdateClusterSoftwareInstanceGroupSpecification {
+  /**
+   * <p>The name of the instance group to update.</p>
+   * @public
+   */
+  InstanceGroupName: string | undefined;
+}
+
+/**
  * @public
  */
 export interface UpdateClusterSoftwareRequest {
@@ -393,6 +472,18 @@ export interface UpdateClusterSoftwareRequest {
    * @public
    */
   ClusterName: string | undefined;
+
+  /**
+   * <p>The array of instance groups for which to update AMI versions.</p>
+   * @public
+   */
+  InstanceGroups?: UpdateClusterSoftwareInstanceGroupSpecification[] | undefined;
+
+  /**
+   * <p>The configuration to use when updating the AMI versions.</p>
+   * @public
+   */
+  DeploymentConfig?: DeploymentConfiguration | undefined;
 }
 
 /**

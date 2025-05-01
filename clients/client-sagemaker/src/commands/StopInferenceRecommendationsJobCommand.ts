@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopInferenceRecommendationsJobRequest } from "../models/models_4";
+import { StopInferenceRecommendationsJobRequest } from "../models/models_5";
 import {
   de_StopInferenceRecommendationsJobCommand,
   se_StopInferenceRecommendationsJobCommand,

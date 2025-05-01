@@ -15,14 +15,15 @@ import {
   Channel,
   CheckpointConfig,
   ClarifyCheckStepMetadata,
+  ComputeQuotaSummary,
   ConditionStepMetadata,
-  ContainerDefinition,
   InferenceSpecification,
   ModelApprovalStatus,
   ModelPackageStatus,
   OutputDataConfig,
   OutputParameter,
   ResourceConfig,
+  SchedulerResourceStatus,
   StoppingCondition,
   Tag,
   TransformInput,
@@ -34,6 +35,8 @@ import {
 
 import {
   _InstanceType,
+  ContainerDefinition,
+  ContextSummary,
   DriftCheckBaselines,
   InferenceExecutionConfig,
   InferenceExperimentType,
@@ -47,9 +50,6 @@ import {
   ModelPackageSecurityConfig,
   ModelPackageValidationSpecification,
   ModelVariantConfig,
-  MonitoringScheduleConfig,
-  MonitoringType,
-  NetworkConfig,
   RetryStrategy,
   SkipModelValidation,
   SourceAlgorithmSpecification,
@@ -71,6 +71,9 @@ import {
   HubContentType,
   ModelArtifacts,
   ModelClientConfig,
+  MonitoringScheduleConfig,
+  MonitoringType,
+  NetworkConfig,
   OfflineStoreStatusValue,
   OptimizationJobDeploymentInstanceType,
   ParallelismConfiguration,
@@ -155,7 +158,6 @@ import {
   ModelPackageGroupStatus,
   ModelPackageStatusDetails,
   MonitoringExecutionSummary,
-  MonitoringJobDefinitionSortKey,
   NotebookInstanceStatus,
   OptimizationJobStatus,
   PartnerAppStatus,
@@ -175,6 +177,7 @@ import {
   SelectiveExecutionConfig,
   ServiceCatalogProvisionedProductDetails,
   SortOrder,
+  SortQuotaBy,
   SpaceStatus,
   SubscribedWorkteam,
   TrackingServerStatus,
@@ -190,6 +193,189 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListComputeQuotasRequest {
+  /**
+   * <p>Filter for after this creation time. The input for this parameter is a Unix timestamp.
+   *          To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
+   * @public
+   */
+  CreatedAfter?: Date | undefined;
+
+  /**
+   * <p>Filter for before this creation time. The input for this parameter is a Unix timestamp.
+   *          To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
+   * @public
+   */
+  CreatedBefore?: Date | undefined;
+
+  /**
+   * <p>Filter for name containing this string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>Filter for status.</p>
+   * @public
+   */
+  Status?: SchedulerResourceStatus | undefined;
+
+  /**
+   * <p>Filter for ARN of the cluster.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>Filter for sorting the list by a given value. For example, sort by name, creation time,
+   *          or status.</p>
+   * @public
+   */
+  SortBy?: SortQuotaBy | undefined;
+
+  /**
+   * <p>The order of the list. By default, listed in <code>Descending</code> order according to
+   *          by <code>SortBy</code>. To change the list order, you can specify <code>SortOrder</code> to
+   *          be <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next
+   *          request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of compute allocation definitions to list.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListComputeQuotasResponse {
+  /**
+   * <p>Summaries of the compute allocation definitions.</p>
+   * @public
+   */
+  ComputeQuotaSummaries?: ComputeQuotaSummary[] | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next
+   *          request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SortContextsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type SortContextsBy = (typeof SortContextsBy)[keyof typeof SortContextsBy];
+
+/**
+ * @public
+ */
+export interface ListContextsRequest {
+  /**
+   * <p>A filter that returns only contexts with the specified source URI.</p>
+   * @public
+   */
+  SourceUri?: string | undefined;
+
+  /**
+   * <p>A filter that returns only contexts of the specified type.</p>
+   * @public
+   */
+  ContextType?: string | undefined;
+
+  /**
+   * <p>A filter that returns only contexts created on or after the specified time.</p>
+   * @public
+   */
+  CreatedAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only contexts created on or before the specified time.</p>
+   * @public
+   */
+  CreatedBefore?: Date | undefined;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: SortContextsBy | undefined;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>If the previous call to <code>ListContexts</code> didn't return the full set of contexts,
+   *         the call returns a token for getting the next set of contexts.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of contexts to return in the response. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContextsResponse {
+  /**
+   * <p>A list of contexts and their properties.</p>
+   * @public
+   */
+  ContextSummaries?: ContextSummary[] | undefined;
+
+  /**
+   * <p>A token for getting the next set of contexts, if there are any.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MonitoringJobDefinitionSortKey = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitoringJobDefinitionSortKey =
+  (typeof MonitoringJobDefinitionSortKey)[keyof typeof MonitoringJobDefinitionSortKey];
 
 /**
  * @public
@@ -11166,72 +11352,6 @@ export interface StopInferenceExperimentResponse {
    * @public
    */
   InferenceExperimentArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopInferenceRecommendationsJobRequest {
-  /**
-   * <p>The name of the job you want to stop.</p>
-   * @public
-   */
-  JobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopLabelingJobRequest {
-  /**
-   * <p>The name of the labeling job to stop.</p>
-   * @public
-   */
-  LabelingJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopMlflowTrackingServerRequest {
-  /**
-   * <p>The name of the tracking server to stop.</p>
-   * @public
-   */
-  TrackingServerName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopMlflowTrackingServerResponse {
-  /**
-   * <p>The ARN of the stopped tracking server.</p>
-   * @public
-   */
-  TrackingServerArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopMonitoringScheduleRequest {
-  /**
-   * <p>The name of the schedule to stop.</p>
-   * @public
-   */
-  MonitoringScheduleName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopNotebookInstanceInput {
-  /**
-   * <p>The name of the notebook instance to terminate.</p>
-   * @public
-   */
-  NotebookInstanceName: string | undefined;
 }
 
 /**

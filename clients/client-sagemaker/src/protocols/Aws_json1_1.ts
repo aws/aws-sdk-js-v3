@@ -973,6 +973,7 @@ import {
   AgentVersion,
   AggregationTransformationValue,
   Alarm,
+  AlarmDetails,
   AlgorithmSpecification,
   AlgorithmStatusDetails,
   AlgorithmStatusItem,
@@ -1046,6 +1047,7 @@ import {
   CandidateProperties,
   CanvasAppSettings,
   CapacitySize,
+  CapacitySizeConfig,
   CaptureContentTypeHeader,
   CaptureOption,
   CategoricalParameter,
@@ -1091,14 +1093,10 @@ import {
   ConditionStepMetadata,
   ConflictException,
   ContainerConfig,
-  ContainerDefinition,
-  ContentClassifier,
-  ContextSource,
-  ContextSummary,
-  ContinuousParameterRange,
   CustomImage,
   DataSource,
   DeepHealthCheckType,
+  DeploymentConfiguration,
   DirectDeploySettings,
   EmrServerlessComputeConfig,
   EmrServerlessSettings,
@@ -1144,8 +1142,10 @@ import {
   ResourceNotFound,
   ResourceSharingConfig,
   ResourceSpec,
+  RollingDeploymentPolicy,
   S3DataSource,
   S3ModelDataSource,
+  ScheduledUpdateConfig,
   ShuffleConfig,
   StoppingCondition,
   TabularJobConfig,
@@ -1177,6 +1177,11 @@ import {
   WorkspaceSettings,
 } from "../models/models_0";
 import {
+  ContainerDefinition,
+  ContentClassifier,
+  ContextSource,
+  ContextSummary,
+  ContinuousParameterRange,
   ContinuousParameterRangeSpecification,
   ConvergenceDetected,
   CreateActionRequest,
@@ -1262,7 +1267,6 @@ import {
   CreateModelPackageOutput,
   CreateModelQualityJobDefinitionRequest,
   CreateModelQualityJobDefinitionResponse,
-  CreateMonitoringScheduleRequest,
   CustomFileSystemConfig,
   CustomPosixUserConfig,
   DataCaptureConfig,
@@ -1369,17 +1373,14 @@ import {
   MonitoringConstraintsResource,
   MonitoringGroundTruthS3Input,
   MonitoringInput,
-  MonitoringJobDefinition,
   MonitoringNetworkConfig,
   MonitoringOutput,
   MonitoringOutputConfig,
   MonitoringResources,
   MonitoringS3Output,
-  MonitoringScheduleConfig,
   MonitoringStatisticsResource,
   MonitoringStoppingCondition,
   NeoVpcConfig,
-  NetworkConfig,
   OfflineStoreConfig,
   OnlineStoreConfig,
   OnlineStoreSecurityConfig,
@@ -1412,7 +1413,6 @@ import {
   RStudioServerProAppSettings,
   RStudioServerProDomainSettings,
   S3StorageConfig,
-  ScheduleConfig,
   SchedulerConfig,
   ShadowModeConfig,
   ShadowModelVariantConfig,
@@ -1434,6 +1434,7 @@ import {
   UserSettings,
 } from "../models/models_1";
 import {
+  CreateMonitoringScheduleRequest,
   CreateMonitoringScheduleResponse,
   CreateNotebookInstanceInput,
   CreateNotebookInstanceLifecycleConfigInput,
@@ -1616,11 +1617,8 @@ import {
   DescribeFeatureMetadataResponse,
   DescribeFlowDefinitionRequest,
   DescribeFlowDefinitionResponse,
-  DescribeHubContentRequest,
-  DescribeHubContentResponse,
   DescribeHubRequest,
   DescribeHubResponse,
-  DescribeHumanTaskUiRequest,
   EbsStorageSettings,
   EdgeDeploymentStatus,
   EdgeModel,
@@ -1630,7 +1628,6 @@ import {
   ExperimentSource,
   FeatureParameter,
   FSxLustreFileSystem,
-  HubContentDependency,
   IamPolicyConstraints,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
@@ -1643,6 +1640,9 @@ import {
   ModelDigests,
   ModelQuantizationConfig,
   ModelShardingConfig,
+  MonitoringJobDefinition,
+  MonitoringScheduleConfig,
+  NetworkConfig,
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
@@ -1682,6 +1682,7 @@ import {
   ResolvedAttributes,
   RetentionPolicy,
   S3Presign,
+  ScheduleConfig,
   ServiceCatalogProvisioningDetails,
   SessionChainingConfig,
   SourceIpConfig,
@@ -1701,6 +1702,9 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeHubContentRequest,
+  DescribeHubContentResponse,
+  DescribeHumanTaskUiRequest,
   DescribeHumanTaskUiResponse,
   DescribeHyperParameterTuningJobRequest,
   DescribeHyperParameterTuningJobResponse,
@@ -1831,6 +1835,7 @@ import {
   GetSearchSuggestionsRequest,
   GetSearchSuggestionsResponse,
   GitConfigForUpdate,
+  HubContentDependency,
   HubContentInfo,
   HubInfo,
   HumanTaskUiSummary,
@@ -1891,10 +1896,6 @@ import {
   ListCodeRepositoriesOutput,
   ListCompilationJobsRequest,
   ListCompilationJobsResponse,
-  ListComputeQuotasRequest,
-  ListComputeQuotasResponse,
-  ListContextsRequest,
-  ListContextsResponse,
   MetricData,
   MetricSpecification,
   ModelCardExportArtifacts,
@@ -1939,6 +1940,10 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListComputeQuotasRequest,
+  ListComputeQuotasResponse,
+  ListContextsRequest,
+  ListContextsResponse,
   ListDataQualityJobDefinitionsRequest,
   ListDataQualityJobDefinitionsResponse,
   ListDeviceFleetsRequest,
@@ -2161,12 +2166,6 @@ import {
   StopHyperParameterTuningJobRequest,
   StopInferenceExperimentRequest,
   StopInferenceExperimentResponse,
-  StopInferenceRecommendationsJobRequest,
-  StopLabelingJobRequest,
-  StopMlflowTrackingServerRequest,
-  StopMlflowTrackingServerResponse,
-  StopMonitoringScheduleRequest,
-  StopNotebookInstanceInput,
   StudioLifecycleConfigDetails,
   TotalHits,
   TrackingServerSummary,
@@ -2194,6 +2193,12 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  StopInferenceRecommendationsJobRequest,
+  StopLabelingJobRequest,
+  StopMlflowTrackingServerRequest,
+  StopMlflowTrackingServerResponse,
+  StopMonitoringScheduleRequest,
+  StopNotebookInstanceInput,
   StopOptimizationJobRequest,
   StopPipelineExecutionRequest,
   StopPipelineExecutionResponse,
@@ -2211,6 +2216,7 @@ import {
   UpdateClusterResponse,
   UpdateClusterSchedulerConfigRequest,
   UpdateClusterSchedulerConfigResponse,
+  UpdateClusterSoftwareInstanceGroupSpecification,
   UpdateClusterSoftwareRequest,
   UpdateClusterSoftwareResponse,
   UpdateCodeRepositoryInput,
@@ -14028,6 +14034,8 @@ const de_ResourceNotFoundRes = async (parsedOutput: any, context: __SerdeContext
 
 // se_Alarm omitted.
 
+// se_AlarmDetails omitted.
+
 // se_AlarmList omitted.
 
 // se_AlgorithmSpecification omitted.
@@ -14132,6 +14140,8 @@ const se_AutoMLJobConfig = (input: AutoMLJobConfig, context: __SerdeContext): an
 
 // se_AutoParameters omitted.
 
+// se_AutoRollbackAlarms omitted.
+
 // se_AutoRollbackConfig omitted.
 
 // se_Autotune omitted.
@@ -14173,6 +14183,8 @@ const se_BatchTransformInput = (input: BatchTransformInput, context: __SerdeCont
 // se_CanvasAppSettings omitted.
 
 // se_CapacitySize omitted.
+
+// se_CapacitySizeConfig omitted.
 
 // se_CaptureContentTypeHeader omitted.
 
@@ -14898,6 +14910,8 @@ const se_DeletePipelineRequest = (input: DeletePipelineRequest, context: __Serde
 // se_DeleteWorkteamRequest omitted.
 
 // se_DeploymentConfig omitted.
+
+// se_DeploymentConfiguration omitted.
 
 // se_DeploymentStage omitted.
 
@@ -17091,6 +17105,8 @@ const se_RetryPipelineExecutionRequest = (input: RetryPipelineExecutionRequest, 
 
 // se_RetryStrategy omitted.
 
+// se_RollingDeploymentPolicy omitted.
+
 // se_RollingUpdatePolicy omitted.
 
 // se_RSessionAppSettings omitted.
@@ -17118,6 +17134,8 @@ const se_RetryPipelineExecutionRequest = (input: RetryPipelineExecutionRequest, 
 // se_ScalingPolicyObjective omitted.
 
 // se_ScheduleConfig omitted.
+
+// se_ScheduledUpdateConfig omitted.
 
 // se_SchedulerConfig omitted.
 
@@ -17459,6 +17477,10 @@ const se_TuningJobCompletionCriteria = (input: TuningJobCompletionCriteria, cont
 // se_UpdateClusterRequest omitted.
 
 // se_UpdateClusterSchedulerConfigRequest omitted.
+
+// se_UpdateClusterSoftwareInstanceGroups omitted.
+
+// se_UpdateClusterSoftwareInstanceGroupSpecification omitted.
 
 // se_UpdateClusterSoftwareRequest omitted.
 
@@ -17820,6 +17842,15 @@ const de_AggregationTransformations = (
  * deserializeAws_json1_1Alarm
  */
 const de_Alarm = (output: any, context: __SerdeContext): Alarm => {
+  return take(output, {
+    AlarmName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1AlarmDetails
+ */
+const de_AlarmDetails = (output: any, context: __SerdeContext): AlarmDetails => {
   return take(output, {
     AlarmName: __expectString,
   }) as any;
@@ -18675,6 +18706,18 @@ const de_AutoParameters = (output: any, context: __SerdeContext): AutoParameter[
 };
 
 /**
+ * deserializeAws_json1_1AutoRollbackAlarms
+ */
+const de_AutoRollbackAlarms = (output: any, context: __SerdeContext): AlarmDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AlarmDetails(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_json1_1AutoRollbackConfig
  */
 const de_AutoRollbackConfig = (output: any, context: __SerdeContext): AutoRollbackConfig => {
@@ -18927,6 +18970,16 @@ const de_CanvasAppSettings = (output: any, context: __SerdeContext): CanvasAppSe
  * deserializeAws_json1_1CapacitySize
  */
 const de_CapacitySize = (output: any, context: __SerdeContext): CapacitySize => {
+  return take(output, {
+    Type: __expectString,
+    Value: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CapacitySizeConfig
+ */
+const de_CapacitySizeConfig = (output: any, context: __SerdeContext): CapacitySizeConfig => {
   return take(output, {
     Type: __expectString,
     Value: __expectInt32,
@@ -19233,6 +19286,7 @@ const de_ClusterInstanceGroupDetails = (output: any, context: __SerdeContext): C
     LifeCycleConfig: (_: any) => de_ClusterLifeCycleConfig(_, context),
     OnStartDeepHealthChecks: (_: any) => de_OnStartDeepHealthChecks(_, context),
     OverrideVpcConfig: (_: any) => de_VpcConfig(_, context),
+    ScheduledUpdateConfig: (_: any) => de_ScheduledUpdateConfig(_, context),
     Status: __expectString,
     TargetCount: __expectInt32,
     ThreadsPerCore: __expectInt32,
@@ -19317,6 +19371,7 @@ const de_ClusterNodeDetails = (output: any, context: __SerdeContext): ClusterNod
     InstanceStatus: (_: any) => de_ClusterInstanceStatusDetails(_, context),
     InstanceStorageConfigs: (_: any) => de_ClusterInstanceStorageConfigs(_, context),
     InstanceType: __expectString,
+    LastSoftwareUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LaunchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LifeCycleConfig: (_: any) => de_ClusterLifeCycleConfig(_, context),
     OverrideVpcConfig: (_: any) => de_VpcConfig(_, context),
@@ -19361,6 +19416,7 @@ const de_ClusterNodeSummary = (output: any, context: __SerdeContext): ClusterNod
     InstanceId: __expectString,
     InstanceStatus: (_: any) => de_ClusterInstanceStatusDetails(_, context),
     InstanceType: __expectString,
+    LastSoftwareUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LaunchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
@@ -21072,6 +21128,17 @@ const de_DeploymentConfig = (output: any, context: __SerdeContext): DeploymentCo
     AutoRollbackConfiguration: (_: any) => de_AutoRollbackConfig(_, context),
     BlueGreenUpdatePolicy: (_: any) => de_BlueGreenUpdatePolicy(_, context),
     RollingUpdatePolicy: (_: any) => de_RollingUpdatePolicy(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DeploymentConfiguration
+ */
+const de_DeploymentConfiguration = (output: any, context: __SerdeContext): DeploymentConfiguration => {
+  return take(output, {
+    AutoRollbackConfiguration: (_: any) => de_AutoRollbackAlarms(_, context),
+    RollingUpdatePolicy: (_: any) => de_RollingDeploymentPolicy(_, context),
+    WaitIntervalInSeconds: __expectInt32,
   }) as any;
 };
 
@@ -29811,6 +29878,16 @@ const de_RetryStrategy = (output: any, context: __SerdeContext): RetryStrategy =
 };
 
 /**
+ * deserializeAws_json1_1RollingDeploymentPolicy
+ */
+const de_RollingDeploymentPolicy = (output: any, context: __SerdeContext): RollingDeploymentPolicy => {
+  return take(output, {
+    MaximumBatchSize: (_: any) => de_CapacitySizeConfig(_, context),
+    RollbackMaximumBatchSize: (_: any) => de_CapacitySizeConfig(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1RollingUpdatePolicy
  */
 const de_RollingUpdatePolicy = (output: any, context: __SerdeContext): RollingUpdatePolicy => {
@@ -29993,6 +30070,16 @@ const de_ScheduleConfig = (output: any, context: __SerdeContext): ScheduleConfig
   return take(output, {
     DataAnalysisEndTime: __expectString,
     DataAnalysisStartTime: __expectString,
+    ScheduleExpression: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ScheduledUpdateConfig
+ */
+const de_ScheduledUpdateConfig = (output: any, context: __SerdeContext): ScheduledUpdateConfig => {
+  return take(output, {
+    DeploymentConfig: (_: any) => de_DeploymentConfiguration(_, context),
     ScheduleExpression: __expectString,
   }) as any;
 };

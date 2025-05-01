@@ -10,6 +10,7 @@ import {
   ActionStatus,
   ActivationState,
   AdditionalInferenceSpecificationDefinition,
+  AdditionalModelDataSource,
   AdditionalS3DataSource,
   AlgorithmValidationSpecification,
   AmazonQSettings,
@@ -62,14 +63,11 @@ import {
   CompleteOnConvergence,
   ComputeQuotaConfig,
   ComputeQuotaTarget,
-  ContainerDefinition,
-  ContentClassifier,
-  ContextSource,
-  ContinuousParameterRange,
+  ContainerMode,
   CustomImage,
   FeatureStatus,
   GitConfig,
-  HyperParameterScalingType,
+  ImageConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
@@ -77,6 +75,7 @@ import {
   MetricsSource,
   ModelApprovalStatus,
   ModelDataSource,
+  MultiModelConfig,
   OutputDataConfig,
   ProblemType,
   ProcessingS3DataDistributionType,
@@ -97,6 +96,297 @@ import {
 } from "./models_0";
 
 import { SageMakerServiceException as __BaseException } from "./SageMakerServiceException";
+
+/**
+ * <p>Describes the container, as part of model definition.</p>
+ * @public
+ */
+export interface ContainerDefinition {
+  /**
+   * <p>This parameter is ignored for models that contain only a
+   *             <code>PrimaryContainer</code>.</p>
+   *          <p>When a <code>ContainerDefinition</code> is part of an inference pipeline, the value of
+   *             the parameter uniquely identifies the container for the purposes of logging and metrics.
+   *             For information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-logs-metrics.html">Use Logs and Metrics
+   *                 to Monitor an Inference Pipeline</a>. If you don't specify a value for this
+   *             parameter for a <code>ContainerDefinition</code> that is part of an inference pipeline,
+   *             a unique name is automatically assigned based on the position of the
+   *                 <code>ContainerDefinition</code> in the pipeline. If you specify a value for the
+   *                 <code>ContainerHostName</code> for any <code>ContainerDefinition</code> that is part
+   *             of an inference pipeline, you must specify a value for the
+   *                 <code>ContainerHostName</code> parameter of every <code>ContainerDefinition</code>
+   *             in that pipeline.</p>
+   * @public
+   */
+  ContainerHostname?: string | undefined;
+
+  /**
+   * <p>The path where inference code is stored. This can be either in Amazon EC2 Container Registry or in a
+   *             Docker registry that is accessible from the same VPC that you configure for your
+   *             endpoint. If you are using your own custom algorithm instead of an algorithm provided by
+   *             SageMaker, the inference code must meet SageMaker requirements. SageMaker supports both
+   *                 <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
+   *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
+   *                 Amazon SageMaker</a>. </p>
+   *          <note>
+   *             <p>The model artifacts in an Amazon S3 bucket and the Docker image for inference container
+   *                 in Amazon EC2 Container Registry must be in the same region as the model or endpoint you are
+   *                 creating.</p>
+   *          </note>
+   * @public
+   */
+  Image?: string | undefined;
+
+  /**
+   * <p>Specifies whether the model container is in Amazon ECR or a private Docker registry
+   *             accessible from your Amazon Virtual Private Cloud (VPC). For information about storing containers in a
+   *             private Docker registry, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html">Use a
+   *                 Private Docker Registry for Real-Time Inference Containers</a>. </p>
+   *          <note>
+   *             <p>The model artifacts in an Amazon S3 bucket and the Docker image for inference container
+   *                 in Amazon EC2 Container Registry must be in the same region as the model or endpoint you are
+   *                 creating.</p>
+   *          </note>
+   * @public
+   */
+  ImageConfig?: ImageConfig | undefined;
+
+  /**
+   * <p>Whether the container hosts a single model or multiple models.</p>
+   * @public
+   */
+  Mode?: ContainerMode | undefined;
+
+  /**
+   * <p>The S3 path where the model artifacts, which result from model training, are stored.
+   *             This path must point to a single gzip compressed tar archive (.tar.gz suffix). The S3
+   *             path is required for SageMaker built-in algorithms, but not if you use your own algorithms.
+   *             For more information on built-in algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html">Common
+   *                 Parameters</a>. </p>
+   *          <note>
+   *             <p>The model artifacts must be in an S3 bucket that is in the same region as the
+   *                 model or endpoint you are creating.</p>
+   *          </note>
+   *          <p>If you provide a value for this parameter, SageMaker uses Amazon Web Services Security Token
+   *             Service to download model artifacts from the S3 path you provide. Amazon Web Services STS
+   *             is activated in your Amazon Web Services account by default. If you previously
+   *             deactivated Amazon Web Services STS for a region, you need to reactivate Amazon Web Services STS for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+   *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
+   *                     <i>Amazon Web Services Identity and Access Management User
+   *                 Guide</i>.</p>
+   *          <important>
+   *             <p>If you use a built-in algorithm to create a model, SageMaker requires that you provide
+   *                 a S3 path to the model artifacts in <code>ModelDataUrl</code>.</p>
+   *          </important>
+   * @public
+   */
+  ModelDataUrl?: string | undefined;
+
+  /**
+   * <p>Specifies the location of ML model data to deploy.</p>
+   *          <note>
+   *             <p>Currently you cannot use <code>ModelDataSource</code> in conjunction with SageMaker
+   *                 batch transform, SageMaker serverless endpoints, SageMaker multi-model endpoints, and SageMaker
+   *                 Marketplace.</p>
+   *          </note>
+   * @public
+   */
+  ModelDataSource?: ModelDataSource | undefined;
+
+  /**
+   * <p>Data sources that are available to your model in addition to the one that you specify for <code>ModelDataSource</code> when you use the <code>CreateModel</code> action.</p>
+   * @public
+   */
+  AdditionalModelDataSources?: AdditionalModelDataSource[] | undefined;
+
+  /**
+   * <p>The environment variables to set in the Docker container. Don't include any
+   *             sensitive data in your environment variables.</p>
+   *          <p>The maximum length of each key and value in the <code>Environment</code> map is
+   *             1024 bytes. The maximum length of all keys and values in the map, combined, is 32 KB. If
+   *             you pass multiple containers to a <code>CreateModel</code> request, then the maximum
+   *             length of all of their maps, combined, is also 32 KB.</p>
+   * @public
+   */
+  Environment?: Record<string, string> | undefined;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the model package to use to create the
+   *             model.</p>
+   * @public
+   */
+  ModelPackageName?: string | undefined;
+
+  /**
+   * <p>The inference specification name in the model package version.</p>
+   * @public
+   */
+  InferenceSpecificationName?: string | undefined;
+
+  /**
+   * <p>Specifies additional configuration for multi-model endpoints.</p>
+   * @public
+   */
+  MultiModelConfig?: MultiModelConfig | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ContentClassifier = {
+  FREE_OF_ADULT_CONTENT: "FreeOfAdultContent",
+  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION: "FreeOfPersonallyIdentifiableInformation",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentClassifier = (typeof ContentClassifier)[keyof typeof ContentClassifier];
+
+/**
+ * <p>A structure describing the source of a context.</p>
+ * @public
+ */
+export interface ContextSource {
+  /**
+   * <p>The URI of the source.</p>
+   * @public
+   */
+  SourceUri: string | undefined;
+
+  /**
+   * <p>The type of the source.</p>
+   * @public
+   */
+  SourceType?: string | undefined;
+
+  /**
+   * <p>The ID of the source.</p>
+   * @public
+   */
+  SourceId?: string | undefined;
+}
+
+/**
+ * <p>Lists a summary of the properties of a context. A context provides a logical grouping
+ *         of other entities.</p>
+ * @public
+ */
+export interface ContextSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the context.</p>
+   * @public
+   */
+  ContextArn?: string | undefined;
+
+  /**
+   * <p>The name of the context.</p>
+   * @public
+   */
+  ContextName?: string | undefined;
+
+  /**
+   * <p>The source of the context.</p>
+   * @public
+   */
+  Source?: ContextSource | undefined;
+
+  /**
+   * <p>The type of the context.</p>
+   * @public
+   */
+  ContextType?: string | undefined;
+
+  /**
+   * <p>When the context was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>When the context was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HyperParameterScalingType = {
+  AUTO: "Auto",
+  LINEAR: "Linear",
+  LOGARITHMIC: "Logarithmic",
+  REVERSE_LOGARITHMIC: "ReverseLogarithmic",
+} as const;
+
+/**
+ * @public
+ */
+export type HyperParameterScalingType = (typeof HyperParameterScalingType)[keyof typeof HyperParameterScalingType];
+
+/**
+ * <p>A list of continuous hyperparameters to tune.</p>
+ * @public
+ */
+export interface ContinuousParameterRange {
+  /**
+   * <p>The name of the continuous hyperparameter to tune.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The minimum value for the hyperparameter.
+   *             The
+   *             tuning job uses floating-point values between this value and <code>MaxValue</code>for
+   *             tuning.</p>
+   * @public
+   */
+  MinValue: string | undefined;
+
+  /**
+   * <p>The maximum value for the hyperparameter. The tuning job uses floating-point values
+   *             between <code>MinValue</code> value and this value for tuning.</p>
+   * @public
+   */
+  MaxValue: string | undefined;
+
+  /**
+   * <p>The scale that hyperparameter tuning uses to search the hyperparameter range. For
+   *             information about choosing a hyperparameter scale, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type">Hyperparameter Scaling</a>. One of the following values:</p>
+   *          <dl>
+   *             <dt>Auto</dt>
+   *             <dd>
+   *                <p>SageMaker hyperparameter tuning chooses the best scale for the
+   *                         hyperparameter.</p>
+   *             </dd>
+   *             <dt>Linear</dt>
+   *             <dd>
+   *                <p>Hyperparameter tuning searches the values in the hyperparameter range by
+   *                         using a linear scale.</p>
+   *             </dd>
+   *             <dt>Logarithmic</dt>
+   *             <dd>
+   *                <p>Hyperparameter tuning searches the values in the hyperparameter range by
+   *                         using a logarithmic scale.</p>
+   *                <p>Logarithmic scaling works only for ranges that have only values greater
+   *                         than 0.</p>
+   *             </dd>
+   *             <dt>ReverseLogarithmic</dt>
+   *             <dd>
+   *                <p>Hyperparameter tuning searches the values in the hyperparameter range by
+   *                         using a reverse logarithmic scale.</p>
+   *                <p>Reverse logarithmic scaling works only for ranges that are entirely within
+   *                         the range 0<=x<1.0.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  ScalingType?: HyperParameterScalingType | undefined;
+}
 
 /**
  * <p>Defines the possible values for a continuous hyperparameter.</p>
@@ -12877,278 +13167,6 @@ export interface MonitoringInput {
    * @public
    */
   BatchTransformInput?: BatchTransformInput | undefined;
-}
-
-/**
- * <p>Networking options for a job, such as network traffic encryption between containers,
- *          whether to allow inbound and outbound network calls to and from containers, and the VPC
- *          subnets and security groups to use for VPC-enabled jobs.</p>
- * @public
- */
-export interface NetworkConfig {
-  /**
-   * <p>Whether to encrypt all communications between distributed processing jobs. Choose
-   *                 <code>True</code> to encrypt communications. Encryption provides greater security
-   *             for distributed processing jobs, but the processing might take longer.</p>
-   * @public
-   */
-  EnableInterContainerTrafficEncryption?: boolean | undefined;
-
-  /**
-   * <p>Whether to allow inbound and outbound network calls to and from the containers used for
-   *          the processing job.</p>
-   * @public
-   */
-  EnableNetworkIsolation?: boolean | undefined;
-
-  /**
-   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
-   *             have access to. You can control access to and from your resources by configuring a VPC.
-   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to
-   *                 Resources in your Amazon VPC</a>. </p>
-   * @public
-   */
-  VpcConfig?: VpcConfig | undefined;
-}
-
-/**
- * <p>Defines the monitoring job.</p>
- * @public
- */
-export interface MonitoringJobDefinition {
-  /**
-   * <p>Baseline configuration used to validate that the data conforms to the specified
-   *          constraints and statistics</p>
-   * @public
-   */
-  BaselineConfig?: MonitoringBaselineConfig | undefined;
-
-  /**
-   * <p>The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker AI Endpoint.</p>
-   * @public
-   */
-  MonitoringInputs: MonitoringInput[] | undefined;
-
-  /**
-   * <p>The array of outputs from the monitoring job to be uploaded to Amazon S3.</p>
-   * @public
-   */
-  MonitoringOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a
-   *          monitoring job. In distributed processing, you specify more than one instance.</p>
-   * @public
-   */
-  MonitoringResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Configures the monitoring job to run a specified Docker container image.</p>
-   * @public
-   */
-  MonitoringAppSpecification: MonitoringAppSpecification | undefined;
-
-  /**
-   * <p>Specifies a time limit for how long the monitoring job is allowed to run.</p>
-   * @public
-   */
-  StoppingCondition?: MonitoringStoppingCondition | undefined;
-
-  /**
-   * <p>Sets the environment variables in the Docker container.</p>
-   * @public
-   */
-  Environment?: Record<string, string> | undefined;
-
-  /**
-   * <p>Specifies networking options for an monitoring job.</p>
-   * @public
-   */
-  NetworkConfig?: NetworkConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can
-   *    assume to perform tasks on your behalf.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MonitoringType = {
-  DATA_QUALITY: "DataQuality",
-  MODEL_BIAS: "ModelBias",
-  MODEL_EXPLAINABILITY: "ModelExplainability",
-  MODEL_QUALITY: "ModelQuality",
-} as const;
-
-/**
- * @public
- */
-export type MonitoringType = (typeof MonitoringType)[keyof typeof MonitoringType];
-
-/**
- * <p>Configuration details about the monitoring schedule.</p>
- * @public
- */
-export interface ScheduleConfig {
-  /**
-   * <p>A cron expression that describes details about the monitoring schedule.</p>
-   *          <p>The supported cron expressions are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you want to set the job to start every hour, use the following:</p>
-   *                <p>
-   *                   <code>Hourly: cron(0 * ? * * *)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>If you want to start the job daily:</p>
-   *                <p>
-   *                   <code>cron(0 [00-23] ? * * *)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>If you want to run the job one time, immediately, use the following
-   *                keyword:</p>
-   *                <p>
-   *                   <code>NOW</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>For example, the following are valid cron expressions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Daily at noon UTC: <code>cron(0 12 ? * * *)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Daily at midnight UTC: <code>cron(0 0 ? * * *)</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>To support running every 6, 12 hours, the following are also supported:</p>
-   *          <p>
-   *             <code>cron(0 [00-23]/[01-24] ? * * *)</code>
-   *          </p>
-   *          <p>For example, the following are valid cron expressions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Every 12 hours, starting at 5pm UTC: <code>cron(0 17/12 ? * * *)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Every two hours starting at midnight: <code>cron(0 0/2 ? * * *)</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <ul>
-   *                <li>
-   *                   <p>Even though the cron expression is set to start at 5PM UTC, note that there
-   *                   could be a delay of 0-20 minutes from the actual requested time to run the
-   *                   execution. </p>
-   *                </li>
-   *                <li>
-   *                   <p>We recommend that if you would like a daily schedule, you do not provide this
-   *                   parameter. Amazon SageMaker AI will pick a time for running every day.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
-   *          <p>You can also specify the keyword <code>NOW</code> to run the monitoring job immediately,
-   *          one time, without recurring.</p>
-   * @public
-   */
-  ScheduleExpression: string | undefined;
-
-  /**
-   * <p>Sets the start time for a monitoring job window. Express this time as an offset to the
-   *          times that you schedule your monitoring jobs to run. You schedule monitoring jobs with the
-   *             <code>ScheduleExpression</code> parameter. Specify this offset in ISO 8601 duration
-   *          format. For example, if you want to monitor the five hours of data in your dataset that
-   *          precede the start of each monitoring job, you would specify: <code>"-PT5H"</code>.</p>
-   *          <p>The start time that you specify must not precede the end time that you specify by more
-   *          than 24 hours. You specify the end time with the <code>DataAnalysisEndTime</code>
-   *          parameter.</p>
-   *          <p>If you set <code>ScheduleExpression</code> to <code>NOW</code>, this parameter is
-   *          required.</p>
-   * @public
-   */
-  DataAnalysisStartTime?: string | undefined;
-
-  /**
-   * <p>Sets the end time for a monitoring job window. Express this time as an offset to the
-   *          times that you schedule your monitoring jobs to run. You schedule monitoring jobs with the
-   *             <code>ScheduleExpression</code> parameter. Specify this offset in ISO 8601 duration
-   *          format. For example, if you want to end the window one hour before the start of each
-   *          monitoring job, you would specify: <code>"-PT1H"</code>.</p>
-   *          <p>The end time that you specify must not follow the start time that you specify by more
-   *          than 24 hours. You specify the start time with the <code>DataAnalysisStartTime</code>
-   *          parameter.</p>
-   *          <p>If you set <code>ScheduleExpression</code> to <code>NOW</code>, this parameter is
-   *          required.</p>
-   * @public
-   */
-  DataAnalysisEndTime?: string | undefined;
-}
-
-/**
- * <p>Configures the monitoring schedule and defines the monitoring job.</p>
- * @public
- */
-export interface MonitoringScheduleConfig {
-  /**
-   * <p>Configures the monitoring schedule.</p>
-   * @public
-   */
-  ScheduleConfig?: ScheduleConfig | undefined;
-
-  /**
-   * <p>Defines the monitoring job.</p>
-   * @public
-   */
-  MonitoringJobDefinition?: MonitoringJobDefinition | undefined;
-
-  /**
-   * <p>The name of the monitoring job definition to schedule.</p>
-   * @public
-   */
-  MonitoringJobDefinitionName?: string | undefined;
-
-  /**
-   * <p>The type of the monitoring job definition to schedule.</p>
-   * @public
-   */
-  MonitoringType?: MonitoringType | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMonitoringScheduleRequest {
-  /**
-   * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services
-   *    Region within an Amazon Web Services account.</p>
-   * @public
-   */
-  MonitoringScheduleName: string | undefined;
-
-  /**
-   * <p>The configuration object that specifies the monitoring schedule and defines the monitoring
-   *    job.</p>
-   * @public
-   */
-  MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
-
-  /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href=" https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost
-   *             Management User Guide</i>.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
 }
 
 /**

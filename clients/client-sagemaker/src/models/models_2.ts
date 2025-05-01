@@ -53,7 +53,6 @@ import {
   CompilationJobStatus,
   ComputeQuotaConfig,
   ComputeQuotaTarget,
-  ContextSource,
   GitConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
@@ -77,6 +76,7 @@ import {
 
 import {
   _InstanceType,
+  ContextSource,
   DataCaptureConfig,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
@@ -102,12 +102,14 @@ import {
   KernelGatewayAppSettings,
   MetadataProperties,
   ModelDeployConfig,
+  MonitoringAppSpecification,
+  MonitoringBaselineConfig,
+  MonitoringInput,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
   MonitoringStoppingCondition,
   NeoVpcConfig,
-  NetworkConfig,
   OfflineStoreConfig,
   OnlineStoreConfig,
   OutputConfig,
@@ -125,6 +127,278 @@ import {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>Networking options for a job, such as network traffic encryption between containers,
+ *          whether to allow inbound and outbound network calls to and from containers, and the VPC
+ *          subnets and security groups to use for VPC-enabled jobs.</p>
+ * @public
+ */
+export interface NetworkConfig {
+  /**
+   * <p>Whether to encrypt all communications between distributed processing jobs. Choose
+   *                 <code>True</code> to encrypt communications. Encryption provides greater security
+   *             for distributed processing jobs, but the processing might take longer.</p>
+   * @public
+   */
+  EnableInterContainerTrafficEncryption?: boolean | undefined;
+
+  /**
+   * <p>Whether to allow inbound and outbound network calls to and from the containers used for
+   *          the processing job.</p>
+   * @public
+   */
+  EnableNetworkIsolation?: boolean | undefined;
+
+  /**
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
+   *             have access to. You can control access to and from your resources by configuring a VPC.
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to
+   *                 Resources in your Amazon VPC</a>. </p>
+   * @public
+   */
+  VpcConfig?: VpcConfig | undefined;
+}
+
+/**
+ * <p>Defines the monitoring job.</p>
+ * @public
+ */
+export interface MonitoringJobDefinition {
+  /**
+   * <p>Baseline configuration used to validate that the data conforms to the specified
+   *          constraints and statistics</p>
+   * @public
+   */
+  BaselineConfig?: MonitoringBaselineConfig | undefined;
+
+  /**
+   * <p>The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker AI Endpoint.</p>
+   * @public
+   */
+  MonitoringInputs: MonitoringInput[] | undefined;
+
+  /**
+   * <p>The array of outputs from the monitoring job to be uploaded to Amazon S3.</p>
+   * @public
+   */
+  MonitoringOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a
+   *          monitoring job. In distributed processing, you specify more than one instance.</p>
+   * @public
+   */
+  MonitoringResources: MonitoringResources | undefined;
+
+  /**
+   * <p>Configures the monitoring job to run a specified Docker container image.</p>
+   * @public
+   */
+  MonitoringAppSpecification: MonitoringAppSpecification | undefined;
+
+  /**
+   * <p>Specifies a time limit for how long the monitoring job is allowed to run.</p>
+   * @public
+   */
+  StoppingCondition?: MonitoringStoppingCondition | undefined;
+
+  /**
+   * <p>Sets the environment variables in the Docker container.</p>
+   * @public
+   */
+  Environment?: Record<string, string> | undefined;
+
+  /**
+   * <p>Specifies networking options for an monitoring job.</p>
+   * @public
+   */
+  NetworkConfig?: NetworkConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can
+   *    assume to perform tasks on your behalf.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MonitoringType = {
+  DATA_QUALITY: "DataQuality",
+  MODEL_BIAS: "ModelBias",
+  MODEL_EXPLAINABILITY: "ModelExplainability",
+  MODEL_QUALITY: "ModelQuality",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitoringType = (typeof MonitoringType)[keyof typeof MonitoringType];
+
+/**
+ * <p>Configuration details about the monitoring schedule.</p>
+ * @public
+ */
+export interface ScheduleConfig {
+  /**
+   * <p>A cron expression that describes details about the monitoring schedule.</p>
+   *          <p>The supported cron expressions are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you want to set the job to start every hour, use the following:</p>
+   *                <p>
+   *                   <code>Hourly: cron(0 * ? * * *)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>If you want to start the job daily:</p>
+   *                <p>
+   *                   <code>cron(0 [00-23] ? * * *)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>If you want to run the job one time, immediately, use the following
+   *                keyword:</p>
+   *                <p>
+   *                   <code>NOW</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For example, the following are valid cron expressions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Daily at noon UTC: <code>cron(0 12 ? * * *)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Daily at midnight UTC: <code>cron(0 0 ? * * *)</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>To support running every 6, 12 hours, the following are also supported:</p>
+   *          <p>
+   *             <code>cron(0 [00-23]/[01-24] ? * * *)</code>
+   *          </p>
+   *          <p>For example, the following are valid cron expressions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Every 12 hours, starting at 5pm UTC: <code>cron(0 17/12 ? * * *)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Every two hours starting at midnight: <code>cron(0 0/2 ? * * *)</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>Even though the cron expression is set to start at 5PM UTC, note that there
+   *                   could be a delay of 0-20 minutes from the actual requested time to run the
+   *                   execution. </p>
+   *                </li>
+   *                <li>
+   *                   <p>We recommend that if you would like a daily schedule, you do not provide this
+   *                   parameter. Amazon SageMaker AI will pick a time for running every day.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   *          <p>You can also specify the keyword <code>NOW</code> to run the monitoring job immediately,
+   *          one time, without recurring.</p>
+   * @public
+   */
+  ScheduleExpression: string | undefined;
+
+  /**
+   * <p>Sets the start time for a monitoring job window. Express this time as an offset to the
+   *          times that you schedule your monitoring jobs to run. You schedule monitoring jobs with the
+   *             <code>ScheduleExpression</code> parameter. Specify this offset in ISO 8601 duration
+   *          format. For example, if you want to monitor the five hours of data in your dataset that
+   *          precede the start of each monitoring job, you would specify: <code>"-PT5H"</code>.</p>
+   *          <p>The start time that you specify must not precede the end time that you specify by more
+   *          than 24 hours. You specify the end time with the <code>DataAnalysisEndTime</code>
+   *          parameter.</p>
+   *          <p>If you set <code>ScheduleExpression</code> to <code>NOW</code>, this parameter is
+   *          required.</p>
+   * @public
+   */
+  DataAnalysisStartTime?: string | undefined;
+
+  /**
+   * <p>Sets the end time for a monitoring job window. Express this time as an offset to the
+   *          times that you schedule your monitoring jobs to run. You schedule monitoring jobs with the
+   *             <code>ScheduleExpression</code> parameter. Specify this offset in ISO 8601 duration
+   *          format. For example, if you want to end the window one hour before the start of each
+   *          monitoring job, you would specify: <code>"-PT1H"</code>.</p>
+   *          <p>The end time that you specify must not follow the start time that you specify by more
+   *          than 24 hours. You specify the start time with the <code>DataAnalysisStartTime</code>
+   *          parameter.</p>
+   *          <p>If you set <code>ScheduleExpression</code> to <code>NOW</code>, this parameter is
+   *          required.</p>
+   * @public
+   */
+  DataAnalysisEndTime?: string | undefined;
+}
+
+/**
+ * <p>Configures the monitoring schedule and defines the monitoring job.</p>
+ * @public
+ */
+export interface MonitoringScheduleConfig {
+  /**
+   * <p>Configures the monitoring schedule.</p>
+   * @public
+   */
+  ScheduleConfig?: ScheduleConfig | undefined;
+
+  /**
+   * <p>Defines the monitoring job.</p>
+   * @public
+   */
+  MonitoringJobDefinition?: MonitoringJobDefinition | undefined;
+
+  /**
+   * <p>The name of the monitoring job definition to schedule.</p>
+   * @public
+   */
+  MonitoringJobDefinitionName?: string | undefined;
+
+  /**
+   * <p>The type of the monitoring job definition to schedule.</p>
+   * @public
+   */
+  MonitoringType?: MonitoringType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMonitoringScheduleRequest {
+  /**
+   * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services
+   *    Region within an Amazon Web Services account.</p>
+   * @public
+   */
+  MonitoringScheduleName: string | undefined;
+
+  /**
+   * <p>The configuration object that specifies the monitoring schedule and defines the monitoring
+   *    job.</p>
+   * @public
+   */
+  MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
+
+  /**
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href=" https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost
+   *             Management User Guide</i>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
 
 /**
  * @public
@@ -1805,6 +2079,13 @@ export interface CreateProcessingJobRequest {
   /**
    * <p>The environment variables to set in the Docker container. Up to 100 key and values
    *             entries in the map are supported.</p>
+   *          <important>
+   *             <p>Do not include any security-sensitive information including account access IDs, secrets,
+   *                 or tokens in any environment fields. As part of the shared responsibility
+   *                 model, you are responsible for any potential exposure, unauthorized access, or compromise of
+   *                 your sensitive data if caused by security-sensitive information included in the
+   *                 request environment variable or plain text fields.</p>
+   *          </important>
    * @public
    */
   Environment?: Record<string, string> | undefined;
@@ -1827,6 +2108,13 @@ export interface CreateProcessingJobRequest {
   /**
    * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and
    *                 Cost Management User Guide</i>.</p>
+   *          <important>
+   *             <p>Do not include any security-sensitive information including account access IDs, secrets,
+   *                 or tokens in any tags. As part of the shared responsibility
+   *                 model, you are responsible for any potential exposure, unauthorized access, or compromise of
+   *                 your sensitive data if caused by security-sensitive information included in the
+   *                 request tag variable or plain text fields.</p>
+   *          </important>
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -2619,10 +2907,11 @@ export interface CreateTrainingJobRequest {
    *             key-value pair. Each key and value is limited to 256 characters, as specified by the
    *                 <code>Length Constraint</code>. </p>
    *          <important>
-   *             <p>Do not include any security-sensitive information including account access IDs,
-   *                 secrets or tokens in any hyperparameter field. If the use of security-sensitive
-   *                 credentials are detected, SageMaker will reject your training job request and return an
-   *                 exception error.</p>
+   *             <p>Do not include any security-sensitive information including account access IDs, secrets,
+   *                 or tokens in any hyperparameter fields. As part of the shared responsibility
+   *                 model, you are responsible for any potential exposure, unauthorized access, or compromise
+   *                 of your sensitive data if caused by any security-sensitive information included in the
+   *                 request hyperparameter variable or plain text fields.</p>
    *          </important>
    * @public
    */
@@ -2716,6 +3005,13 @@ export interface CreateTrainingJobRequest {
    * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
    *             resources in different ways, for example, by purpose, owner, or environment. For more
    *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   *          <important>
+   *             <p>Do not include any security-sensitive information including account access IDs, secrets,
+   *                 or tokens in any tags. As part of the shared responsibility model, you are
+   *                 responsible for any potential exposure, unauthorized access, or compromise
+   *                 of your sensitive data if caused by any security-sensitive information included in the
+   *                 request tag variable or plain text fields.</p>
+   *          </important>
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -2822,6 +3118,13 @@ export interface CreateTrainingJobRequest {
 
   /**
    * <p>The environment variables to set in the Docker container.</p>
+   *          <important>
+   *             <p>Do not include any security-sensitive information including account access IDs,
+   *                 secrets, or tokens in any environment fields. As part of the shared responsibility model,
+   *                 you are responsible for any potential exposure, unauthorized access, or compromise of your
+   *                 sensitive data if caused by security-sensitive information included in the request environment variable
+   *                 or plain text fields.</p>
+   *          </important>
    * @public
    */
   Environment?: Record<string, string> | undefined;
@@ -8582,222 +8885,6 @@ export interface DescribeHubResponse {
    * @public
    */
   LastModifiedTime: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHubContentRequest {
-  /**
-   * <p>The name of the hub that contains the content to describe.</p>
-   * @public
-   */
-  HubName: string | undefined;
-
-  /**
-   * <p>The type of content in the hub.</p>
-   * @public
-   */
-  HubContentType: HubContentType | undefined;
-
-  /**
-   * <p>The name of the content to describe.</p>
-   * @public
-   */
-  HubContentName: string | undefined;
-
-  /**
-   * <p>The version of the content to describe.</p>
-   * @public
-   */
-  HubContentVersion?: string | undefined;
-}
-
-/**
- * <p>Any dependencies related to hub content, such as scripts, model artifacts, datasets, or notebooks.</p>
- * @public
- */
-export interface HubContentDependency {
-  /**
-   * <p>The hub content dependency origin path.</p>
-   * @public
-   */
-  DependencyOriginPath?: string | undefined;
-
-  /**
-   * <p>The hub content dependency copy path.</p>
-   * @public
-   */
-  DependencyCopyPath?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const HubContentStatus = {
-  AVAILABLE: "Available",
-  DELETE_FAILED: "DeleteFailed",
-  DELETING: "Deleting",
-  IMPORTING: "Importing",
-  IMPORT_FAILED: "ImportFailed",
-} as const;
-
-/**
- * @public
- */
-export type HubContentStatus = (typeof HubContentStatus)[keyof typeof HubContentStatus];
-
-/**
- * @public
- * @enum
- */
-export const HubContentSupportStatus = {
-  DEPRECATED: "Deprecated",
-  RESTRICTED: "Restricted",
-  SUPPORTED: "Supported",
-} as const;
-
-/**
- * @public
- */
-export type HubContentSupportStatus = (typeof HubContentSupportStatus)[keyof typeof HubContentSupportStatus];
-
-/**
- * @public
- */
-export interface DescribeHubContentResponse {
-  /**
-   * <p>The name of the hub content.</p>
-   * @public
-   */
-  HubContentName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the hub content.</p>
-   * @public
-   */
-  HubContentArn: string | undefined;
-
-  /**
-   * <p>The version of the hub content.</p>
-   * @public
-   */
-  HubContentVersion: string | undefined;
-
-  /**
-   * <p>The type of hub content.</p>
-   * @public
-   */
-  HubContentType: HubContentType | undefined;
-
-  /**
-   * <p>The document schema version for the hub content.</p>
-   * @public
-   */
-  DocumentSchemaVersion: string | undefined;
-
-  /**
-   * <p>The name of the hub that contains the content.</p>
-   * @public
-   */
-  HubName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the hub that contains the content. </p>
-   * @public
-   */
-  HubArn: string | undefined;
-
-  /**
-   * <p>The display name of the hub content.</p>
-   * @public
-   */
-  HubContentDisplayName?: string | undefined;
-
-  /**
-   * <p>A description of the hub content.</p>
-   * @public
-   */
-  HubContentDescription?: string | undefined;
-
-  /**
-   * <p>A string that provides a description of the hub content. This string can include links, tables, and standard markdown formating.</p>
-   * @public
-   */
-  HubContentMarkdown?: string | undefined;
-
-  /**
-   * <p>The hub content document that describes information about the hub content such as type, associated containers, scripts, and more.</p>
-   * @public
-   */
-  HubContentDocument: string | undefined;
-
-  /**
-   * <p>The ARN of the public hub content.</p>
-   * @public
-   */
-  SageMakerPublicHubContentArn?: string | undefined;
-
-  /**
-   * <p>The minimum version of the hub content.</p>
-   * @public
-   */
-  ReferenceMinVersion?: string | undefined;
-
-  /**
-   * <p>The support status of the hub content.</p>
-   * @public
-   */
-  SupportStatus?: HubContentSupportStatus | undefined;
-
-  /**
-   * <p>The searchable keywords for the hub content.</p>
-   * @public
-   */
-  HubContentSearchKeywords?: string[] | undefined;
-
-  /**
-   * <p>The location of any dependencies that the hub content has, such as scripts, model artifacts, datasets, or notebooks.</p>
-   * @public
-   */
-  HubContentDependencies?: HubContentDependency[] | undefined;
-
-  /**
-   * <p>The status of the hub content.</p>
-   * @public
-   */
-  HubContentStatus: HubContentStatus | undefined;
-
-  /**
-   * <p>The failure reason if importing hub content failed.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>The date and time that hub content was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The last modified time of the hub content.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHumanTaskUiRequest {
-  /**
-   * <p>The name of the human task user interface
-   *       (worker task template) you want information about.</p>
-   * @public
-   */
-  HumanTaskUiName: string | undefined;
 }
 
 /**

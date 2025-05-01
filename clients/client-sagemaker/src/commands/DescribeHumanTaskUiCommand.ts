@@ -5,8 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeHumanTaskUiRequest } from "../models/models_2";
-import { DescribeHumanTaskUiResponse } from "../models/models_3";
+import { DescribeHumanTaskUiRequest, DescribeHumanTaskUiResponse } from "../models/models_3";
 import { de_DescribeHumanTaskUiCommand, se_DescribeHumanTaskUiCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

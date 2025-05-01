@@ -50,10 +50,11 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  *                     be tuned to optimize this learning process. For a list of hyperparameters for
  *                     each training algorithm provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. </p>
  *                <important>
- *                   <p>Do not include any security-sensitive information including account access
- *                         IDs, secrets or tokens in any hyperparameter field. If the use of
- *                         security-sensitive credentials are detected, SageMaker will reject your training
- *                         job request and return an exception error.</p>
+ *                   <p>Do not include any security-sensitive information including account access IDs, secrets,
+ *                         or tokens in any hyperparameter fields. As part of the shared responsibility
+ *                         model, you are responsible for any potential exposure, unauthorized access, or compromise of
+ *                         your sensitive data if caused by security-sensitive information included in the
+ *                         request hyperparameter variable or plain text fields.</p>
  *                </important>
  *             </li>
  *             <li>
@@ -98,6 +99,13 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  *                <p>
  *                   <code>Environment</code> - The environment variables to set in the Docker
  *                     container.</p>
+ *                <important>
+ *                   <p>Do not include any security-sensitive information including account access IDs, secrets,
+ *                         or tokens in any environment fields. As part of the shared responsibility model, you are
+ *                         responsible for any potential exposure, unauthorized access, or compromise of your sensitive
+ *                         data if caused by security-sensitive information included in the request environment variable
+ *                         or plain text fields.</p>
+ *                </important>
  *             </li>
  *             <li>
  *                <p>

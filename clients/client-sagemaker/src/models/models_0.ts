@@ -1145,6 +1145,18 @@ export interface Alarm {
 }
 
 /**
+ * <p>The details of the alarm to monitor during the AMI update.</p>
+ * @public
+ */
+export interface AlarmDetails {
+  /**
+   * <p>The name of the alarm.</p>
+   * @public
+   */
+  AlarmName: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -8824,6 +8836,40 @@ export interface CanvasAppSettings {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const NodeUnavailabilityType = {
+  CAPACITY_PERCENTAGE: "CAPACITY_PERCENTAGE",
+  INSTANCE_COUNT: "INSTANCE_COUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeUnavailabilityType = (typeof NodeUnavailabilityType)[keyof typeof NodeUnavailabilityType];
+
+/**
+ * <p>The configuration of the size measurements of the AMI update. Using this
+ *          configuration, you can specify whether SageMaker should update your instance group
+ *          by an amount or percentage of instances.</p>
+ * @public
+ */
+export interface CapacitySizeConfig {
+  /**
+   * <p>Specifies whether SageMaker should process the update by amount or percentage of instances.</p>
+   * @public
+   */
+  Type: NodeUnavailabilityType | undefined;
+
+  /**
+   * <p>Specifies the amount or percentage of instances SageMaker updates at a time.</p>
+   * @public
+   */
+  Value: number | undefined;
+}
+
+/**
  * <p>Configuration specifying how to treat different headers. If no headers are specified
  *             Amazon SageMaker AI will by default base64 encode when capturing the data.</p>
  * @public
@@ -9684,6 +9730,66 @@ export const DeepHealthCheckType = {
 export type DeepHealthCheckType = (typeof DeepHealthCheckType)[keyof typeof DeepHealthCheckType];
 
 /**
+ * <p>The configurations that SageMaker uses when updating the AMI versions.</p>
+ * @public
+ */
+export interface RollingDeploymentPolicy {
+  /**
+   * <p>The maximum amount of instances in the cluster that SageMaker can update at a time.</p>
+   * @public
+   */
+  MaximumBatchSize: CapacitySizeConfig | undefined;
+
+  /**
+   * <p>The maximum amount of instances in the cluster that SageMaker can roll back at a time.</p>
+   * @public
+   */
+  RollbackMaximumBatchSize?: CapacitySizeConfig | undefined;
+}
+
+/**
+ * <p>The configuration to use when updating the AMI versions.</p>
+ * @public
+ */
+export interface DeploymentConfiguration {
+  /**
+   * <p>The policy that SageMaker uses when updating the AMI versions of the cluster. </p>
+   * @public
+   */
+  RollingUpdatePolicy?: RollingDeploymentPolicy | undefined;
+
+  /**
+   * <p>The duration in seconds that SageMaker waits before updating more instances in the cluster.</p>
+   * @public
+   */
+  WaitIntervalInSeconds?: number | undefined;
+
+  /**
+   * <p>An array that contains the alarms that SageMaker monitors to know whether to roll back the AMI update.</p>
+   * @public
+   */
+  AutoRollbackConfiguration?: AlarmDetails[] | undefined;
+}
+
+/**
+ * <p>The configuration object of the schedule that SageMaker follows when updating the AMI.</p>
+ * @public
+ */
+export interface ScheduledUpdateConfig {
+  /**
+   * <p>A cron expression that specifies the schedule that SageMaker follows when updating the AMI.</p>
+   * @public
+   */
+  ScheduleExpression: string | undefined;
+
+  /**
+   * <p>The configuration to use when updating the AMI versions.</p>
+   * @public
+   */
+  DeploymentConfig?: DeploymentConfiguration | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -9827,6 +9933,12 @@ export interface ClusterInstanceGroupDetails {
    * @public
    */
   OverrideVpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>The configuration object of the schedule that SageMaker follows when updating the AMI.</p>
+   * @public
+   */
+  ScheduledUpdateConfig?: ScheduledUpdateConfig | undefined;
 }
 
 /**
@@ -9938,6 +10050,12 @@ export interface ClusterInstanceGroupSpecification {
    * @public
    */
   OverrideVpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>The configuration object of the schedule that SageMaker uses to update the AMI.</p>
+   * @public
+   */
+  ScheduledUpdateConfig?: ScheduledUpdateConfig | undefined;
 }
 
 /**
@@ -10031,6 +10149,12 @@ export interface ClusterNodeDetails {
    * @public
    */
   LaunchTime?: Date | undefined;
+
+  /**
+   * <p>The time of when the cluster was last updated.</p>
+   * @public
+   */
+  LastSoftwareUpdateTime?: Date | undefined;
 
   /**
    * <p>The LifeCycle configuration applied to the instance.</p>
@@ -10129,6 +10253,12 @@ export interface ClusterNodeSummary {
    * @public
    */
   LaunchTime: Date | undefined;
+
+  /**
+   * <p>The time of when SageMaker last updated the software of the instances in the cluster.</p>
+   * @public
+   */
+  LastSoftwareUpdateTime?: Date | undefined;
 
   /**
    * <p>The status of the instance.</p>
@@ -11218,295 +11348,4 @@ export interface MultiModelConfig {
    * @public
    */
   ModelCacheSetting?: ModelCacheSetting | undefined;
-}
-
-/**
- * <p>Describes the container, as part of model definition.</p>
- * @public
- */
-export interface ContainerDefinition {
-  /**
-   * <p>This parameter is ignored for models that contain only a
-   *             <code>PrimaryContainer</code>.</p>
-   *          <p>When a <code>ContainerDefinition</code> is part of an inference pipeline, the value of
-   *             the parameter uniquely identifies the container for the purposes of logging and metrics.
-   *             For information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-logs-metrics.html">Use Logs and Metrics
-   *                 to Monitor an Inference Pipeline</a>. If you don't specify a value for this
-   *             parameter for a <code>ContainerDefinition</code> that is part of an inference pipeline,
-   *             a unique name is automatically assigned based on the position of the
-   *                 <code>ContainerDefinition</code> in the pipeline. If you specify a value for the
-   *                 <code>ContainerHostName</code> for any <code>ContainerDefinition</code> that is part
-   *             of an inference pipeline, you must specify a value for the
-   *                 <code>ContainerHostName</code> parameter of every <code>ContainerDefinition</code>
-   *             in that pipeline.</p>
-   * @public
-   */
-  ContainerHostname?: string | undefined;
-
-  /**
-   * <p>The path where inference code is stored. This can be either in Amazon EC2 Container Registry or in a
-   *             Docker registry that is accessible from the same VPC that you configure for your
-   *             endpoint. If you are using your own custom algorithm instead of an algorithm provided by
-   *             SageMaker, the inference code must meet SageMaker requirements. SageMaker supports both
-   *                 <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
-   *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
-   *                 Amazon SageMaker</a>. </p>
-   *          <note>
-   *             <p>The model artifacts in an Amazon S3 bucket and the Docker image for inference container
-   *                 in Amazon EC2 Container Registry must be in the same region as the model or endpoint you are
-   *                 creating.</p>
-   *          </note>
-   * @public
-   */
-  Image?: string | undefined;
-
-  /**
-   * <p>Specifies whether the model container is in Amazon ECR or a private Docker registry
-   *             accessible from your Amazon Virtual Private Cloud (VPC). For information about storing containers in a
-   *             private Docker registry, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html">Use a
-   *                 Private Docker Registry for Real-Time Inference Containers</a>. </p>
-   *          <note>
-   *             <p>The model artifacts in an Amazon S3 bucket and the Docker image for inference container
-   *                 in Amazon EC2 Container Registry must be in the same region as the model or endpoint you are
-   *                 creating.</p>
-   *          </note>
-   * @public
-   */
-  ImageConfig?: ImageConfig | undefined;
-
-  /**
-   * <p>Whether the container hosts a single model or multiple models.</p>
-   * @public
-   */
-  Mode?: ContainerMode | undefined;
-
-  /**
-   * <p>The S3 path where the model artifacts, which result from model training, are stored.
-   *             This path must point to a single gzip compressed tar archive (.tar.gz suffix). The S3
-   *             path is required for SageMaker built-in algorithms, but not if you use your own algorithms.
-   *             For more information on built-in algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html">Common
-   *                 Parameters</a>. </p>
-   *          <note>
-   *             <p>The model artifacts must be in an S3 bucket that is in the same region as the
-   *                 model or endpoint you are creating.</p>
-   *          </note>
-   *          <p>If you provide a value for this parameter, SageMaker uses Amazon Web Services Security Token
-   *             Service to download model artifacts from the S3 path you provide. Amazon Web Services STS
-   *             is activated in your Amazon Web Services account by default. If you previously
-   *             deactivated Amazon Web Services STS for a region, you need to reactivate Amazon Web Services STS for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
-   *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
-   *                     <i>Amazon Web Services Identity and Access Management User
-   *                 Guide</i>.</p>
-   *          <important>
-   *             <p>If you use a built-in algorithm to create a model, SageMaker requires that you provide
-   *                 a S3 path to the model artifacts in <code>ModelDataUrl</code>.</p>
-   *          </important>
-   * @public
-   */
-  ModelDataUrl?: string | undefined;
-
-  /**
-   * <p>Specifies the location of ML model data to deploy.</p>
-   *          <note>
-   *             <p>Currently you cannot use <code>ModelDataSource</code> in conjunction with SageMaker
-   *                 batch transform, SageMaker serverless endpoints, SageMaker multi-model endpoints, and SageMaker
-   *                 Marketplace.</p>
-   *          </note>
-   * @public
-   */
-  ModelDataSource?: ModelDataSource | undefined;
-
-  /**
-   * <p>Data sources that are available to your model in addition to the one that you specify for <code>ModelDataSource</code> when you use the <code>CreateModel</code> action.</p>
-   * @public
-   */
-  AdditionalModelDataSources?: AdditionalModelDataSource[] | undefined;
-
-  /**
-   * <p>The environment variables to set in the Docker container. Don't include any
-   *             sensitive data in your environment variables.</p>
-   *          <p>The maximum length of each key and value in the <code>Environment</code> map is
-   *             1024 bytes. The maximum length of all keys and values in the map, combined, is 32 KB. If
-   *             you pass multiple containers to a <code>CreateModel</code> request, then the maximum
-   *             length of all of their maps, combined, is also 32 KB.</p>
-   * @public
-   */
-  Environment?: Record<string, string> | undefined;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the model package to use to create the
-   *             model.</p>
-   * @public
-   */
-  ModelPackageName?: string | undefined;
-
-  /**
-   * <p>The inference specification name in the model package version.</p>
-   * @public
-   */
-  InferenceSpecificationName?: string | undefined;
-
-  /**
-   * <p>Specifies additional configuration for multi-model endpoints.</p>
-   * @public
-   */
-  MultiModelConfig?: MultiModelConfig | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ContentClassifier = {
-  FREE_OF_ADULT_CONTENT: "FreeOfAdultContent",
-  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION: "FreeOfPersonallyIdentifiableInformation",
-} as const;
-
-/**
- * @public
- */
-export type ContentClassifier = (typeof ContentClassifier)[keyof typeof ContentClassifier];
-
-/**
- * <p>A structure describing the source of a context.</p>
- * @public
- */
-export interface ContextSource {
-  /**
-   * <p>The URI of the source.</p>
-   * @public
-   */
-  SourceUri: string | undefined;
-
-  /**
-   * <p>The type of the source.</p>
-   * @public
-   */
-  SourceType?: string | undefined;
-
-  /**
-   * <p>The ID of the source.</p>
-   * @public
-   */
-  SourceId?: string | undefined;
-}
-
-/**
- * <p>Lists a summary of the properties of a context. A context provides a logical grouping
- *         of other entities.</p>
- * @public
- */
-export interface ContextSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the context.</p>
-   * @public
-   */
-  ContextArn?: string | undefined;
-
-  /**
-   * <p>The name of the context.</p>
-   * @public
-   */
-  ContextName?: string | undefined;
-
-  /**
-   * <p>The source of the context.</p>
-   * @public
-   */
-  Source?: ContextSource | undefined;
-
-  /**
-   * <p>The type of the context.</p>
-   * @public
-   */
-  ContextType?: string | undefined;
-
-  /**
-   * <p>When the context was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>When the context was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const HyperParameterScalingType = {
-  AUTO: "Auto",
-  LINEAR: "Linear",
-  LOGARITHMIC: "Logarithmic",
-  REVERSE_LOGARITHMIC: "ReverseLogarithmic",
-} as const;
-
-/**
- * @public
- */
-export type HyperParameterScalingType = (typeof HyperParameterScalingType)[keyof typeof HyperParameterScalingType];
-
-/**
- * <p>A list of continuous hyperparameters to tune.</p>
- * @public
- */
-export interface ContinuousParameterRange {
-  /**
-   * <p>The name of the continuous hyperparameter to tune.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The minimum value for the hyperparameter.
-   *             The
-   *             tuning job uses floating-point values between this value and <code>MaxValue</code>for
-   *             tuning.</p>
-   * @public
-   */
-  MinValue: string | undefined;
-
-  /**
-   * <p>The maximum value for the hyperparameter. The tuning job uses floating-point values
-   *             between <code>MinValue</code> value and this value for tuning.</p>
-   * @public
-   */
-  MaxValue: string | undefined;
-
-  /**
-   * <p>The scale that hyperparameter tuning uses to search the hyperparameter range. For
-   *             information about choosing a hyperparameter scale, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type">Hyperparameter Scaling</a>. One of the following values:</p>
-   *          <dl>
-   *             <dt>Auto</dt>
-   *             <dd>
-   *                <p>SageMaker hyperparameter tuning chooses the best scale for the
-   *                         hyperparameter.</p>
-   *             </dd>
-   *             <dt>Linear</dt>
-   *             <dd>
-   *                <p>Hyperparameter tuning searches the values in the hyperparameter range by
-   *                         using a linear scale.</p>
-   *             </dd>
-   *             <dt>Logarithmic</dt>
-   *             <dd>
-   *                <p>Hyperparameter tuning searches the values in the hyperparameter range by
-   *                         using a logarithmic scale.</p>
-   *                <p>Logarithmic scaling works only for ranges that have only values greater
-   *                         than 0.</p>
-   *             </dd>
-   *             <dt>ReverseLogarithmic</dt>
-   *             <dd>
-   *                <p>Hyperparameter tuning searches the values in the hyperparameter range by
-   *                         using a reverse logarithmic scale.</p>
-   *                <p>Reverse logarithmic scaling works only for ranges that are entirely within
-   *                         the range 0<=x<1.0.</p>
-   *             </dd>
-   *          </dl>
-   * @public
-   */
-  ScalingType?: HyperParameterScalingType | undefined;
 }
