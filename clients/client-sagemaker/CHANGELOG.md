@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.801.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.800.0...v3.801.0) (2025-05-01)
+
+
+### Features
+
+* **client-sagemaker:** Feature - Adding support for Scheduled and Rolling Update Software in Sagemaker Hyperpod. ([81bec3e](https://github.com/aws/aws-sdk-js-v3/commit/81bec3e64d0cfe810cad96f486c1ebfae9ff46d1))
+
+
+
+
+
 # [3.799.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.798.0...v3.799.0) (2025-04-29)
 
 

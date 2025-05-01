@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.801.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.800.0...v3.801.0) (2025-05-01)
+
+
+### Features
+
+* **client-appconfig:** Adding waiter support for deployments and environments; documentation updates ([3d7a400](https://github.com/aws/aws-sdk-js-v3/commit/3d7a400913673972ba06772c9cde29018fb766f6))
+* **client-connect:** This release adds the following fields to DescribeContact: DisconnectReason, AgentInitiatedHoldDuration, AfterContactWorkStartTimestamp, AfterContactWorkEndTimestamp, AfterContactWorkDuration, StateTransitions, Recordings, ContactDetails, ContactEvaluations, Attributes ([135d22b](https://github.com/aws/aws-sdk-js-v3/commit/135d22bc51f3581d353dce210de7e4ad296c0a75))
+* **client-sagemaker:** Feature - Adding support for Scheduled and Rolling Update Software in Sagemaker Hyperpod. ([81bec3e](https://github.com/aws/aws-sdk-js-v3/commit/81bec3e64d0cfe810cad96f486c1ebfae9ff46d1))
+* **client-verifiedpermissions:** Amazon Verified Permissions / Features : Adds support for tagging policy stores. ([53d547c](https://github.com/aws/aws-sdk-js-v3/commit/53d547cb1666bc85b270739b27d8e844b212d652))
+* **clients:** update client endpoints as of 2025-05-01 ([db7d793](https://github.com/aws/aws-sdk-js-v3/commit/db7d793c0fb422d4a0f914e266059e7473a7da7d))
+
+
+
+
+
 # [3.800.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.799.0...v3.800.0) (2025-04-30)
 
 
