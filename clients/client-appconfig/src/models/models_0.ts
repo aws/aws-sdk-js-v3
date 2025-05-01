@@ -4,25 +4,13 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { AppConfigServiceException as __BaseException } from "./AppConfigServiceException";
 
 /**
- * <p>A parameter to configure deletion protection. If enabled, deletion protection prevents a
- *          user from deleting a configuration profile or an environment if AppConfig has
- *          called either <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> or  for the
+ * <p>A parameter to configure deletion protection. Deletion protection prevents a user from
+ *          deleting a configuration profile or an environment if AppConfig has called either
+ *             <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> or  for the
  *          configuration profile or from the environment during the specified interval.</p>
- *          <p>This setting uses the following default values:</p>
- *          <ul>
- *             <li>
- *                <p>Deletion protection is disabled by default. </p>
- *             </li>
- *             <li>
- *                <p>The default interval specified by <code>ProtectionPeriodInMinutes</code> is
- *                60.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DeletionProtectionCheck</code> skips configuration profiles and environments
- *                that were created in the past hour.</p>
- *             </li>
- *          </ul>
+ *          <p>The default interval specified by <code>ProtectionPeriodInMinutes</code> is 60.
+ *             <code>DeletionProtectionCheck</code> skips configuration profiles and environments that
+ *          were created in the past hour.</p>
  * @public
  */
 export interface DeletionProtectionSettings {
@@ -49,12 +37,11 @@ export interface DeletionProtectionSettings {
  */
 export interface AccountSettings {
   /**
-   * <p>A parameter to configure deletion protection. If enabled, deletion protection prevents a
-   *          user from deleting a configuration profile or an environment if AppConfig has
-   *          called either <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> or  for the
-   *          configuration profile or from the environment during the specified interval. Deletion
-   *          protection is disabled by default. The default interval for
-   *             <code>ProtectionPeriodInMinutes</code> is 60.</p>
+   * <p>A parameter to configure deletion protection. Deletion protection prevents a user from
+   *          deleting a configuration profile or an environment if AppConfig has called either
+   *             <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> or  for the
+   *          configuration profile or from the environment during the specified interval. The default
+   *          interval for <code>ProtectionPeriodInMinutes</code> is 60.</p>
    * @public
    */
   DeletionProtection?: DeletionProtectionSettings | undefined;
@@ -613,7 +600,7 @@ export interface CreateConfigurationProfileRequest {
    * <p>The ARN of an IAM role with permission to access the configuration at the specified
    *             <code>LocationUri</code>.</p>
    *          <important>
-   *             <p>A retrieval role ARN is not required for configurations stored in the AppConfig hosted configuration store. It is required for all other sources that
+   *             <p>A retrieval role ARN is not required for configurations stored in CodePipeline or the AppConfig hosted configuration store. It is required for all other sources that
    *             store your configuration. </p>
    *          </important>
    * @public
@@ -1403,8 +1390,8 @@ export interface DeleteConfigurationProfileRequest {
   ConfigurationProfileId: string | undefined;
 
   /**
-   * <p>A parameter to configure deletion protection. If enabled, deletion protection prevents a
-   *          user from deleting a configuration profile if your application has called either <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> or  for the
+   * <p>A parameter to configure deletion protection. Deletion protection prevents a user from
+   *          deleting a configuration profile if your application has called either <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> or  for the
    *          configuration profile during the specified interval. </p>
    *          <p>This parameter supports the following values:</p>
    *          <ul>
@@ -1412,7 +1399,7 @@ export interface DeleteConfigurationProfileRequest {
    *                <p>
    *                   <code>BYPASS</code>: Instructs AppConfig to bypass the deletion
    *                protection check and delete a configuration profile even if deletion protection would
-   *                have otherwise prevented it. </p>
+   *                have otherwise prevented it.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1460,8 +1447,8 @@ export interface DeleteEnvironmentRequest {
   ApplicationId: string | undefined;
 
   /**
-   * <p>A parameter to configure deletion protection. If enabled, deletion protection prevents a
-   *          user from deleting an environment if your application called either <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> or  in the
+   * <p>A parameter to configure deletion protection. Deletion protection prevents a user from
+   *          deleting an environment if your application called either <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> or  in the
    *          environment during the specified interval. </p>
    *          <p>This parameter supports the following values:</p>
    *          <ul>
@@ -1476,7 +1463,7 @@ export interface DeleteEnvironmentRequest {
    *                   <code>APPLY</code>: Instructs the deletion protection check to run, even if
    *                deletion protection is disabled at the account level. <code>APPLY</code> also forces
    *                the deletion protection check to run against resources created in the past hour,
-   *                which are normally excluded from deletion protection checks. </p>
+   *                which are normally excluded from deletion protection checks.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2825,12 +2812,11 @@ export interface UntagResourceRequest {
  */
 export interface UpdateAccountSettingsRequest {
   /**
-   * <p>A parameter to configure deletion protection. If enabled, deletion protection prevents a
-   *          user from deleting a configuration profile or an environment if AppConfig has
-   *          called either <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> or  for the
-   *          configuration profile or from the environment during the specified interval. Deletion
-   *          protection is disabled by default. The default interval for
-   *             <code>ProtectionPeriodInMinutes</code> is 60.</p>
+   * <p>A parameter to configure deletion protection. Deletion protection prevents a user from
+   *          deleting a configuration profile or an environment if AppConfig has called either
+   *             <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> or  for the
+   *          configuration profile or from the environment during the specified interval. The default
+   *          interval for <code>ProtectionPeriodInMinutes</code> is 60.</p>
    * @public
    */
   DeletionProtection?: DeletionProtectionSettings | undefined;
@@ -2890,6 +2876,10 @@ export interface UpdateConfigurationProfileRequest {
   /**
    * <p>The ARN of an IAM role with permission to access the configuration at the specified
    *             <code>LocationUri</code>.</p>
+   *          <important>
+   *             <p>A retrieval role ARN is not required for configurations stored in CodePipeline or the AppConfig hosted configuration store. It is required for all other sources that
+   *             store your configuration. </p>
+   *          </important>
    * @public
    */
   RetrievalRoleArn?: string | undefined;
@@ -3139,6 +3129,14 @@ export const HostedConfigurationVersionFilterSensitiveLog = (obj: HostedConfigur
 export const ConfigurationFilterSensitiveLog = (obj: Configuration): any => ({
   ...obj,
   ...(obj.Content && { Content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartDeploymentRequestFilterSensitiveLog = (obj: StartDeploymentRequest): any => ({
+  ...obj,
+  ...(obj.DynamicExtensionParameters && { DynamicExtensionParameters: SENSITIVE_STRING }),
 });
 
 /**

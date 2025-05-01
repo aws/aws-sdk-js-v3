@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { Deployment, StartDeploymentRequest } from "../models/models_0";
+import { Deployment, StartDeploymentRequest, StartDeploymentRequestFilterSensitiveLog } from "../models/models_0";
 import { de_StartDeploymentCommand, se_StartDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -148,7 +148,7 @@ export class StartDeploymentCommand extends $Command
   })
   .s("AmazonAppConfig", "StartDeployment", {})
   .n("AppConfigClient", "StartDeploymentCommand")
-  .f(void 0, void 0)
+  .f(StartDeploymentRequestFilterSensitiveLog, void 0)
   .ser(se_StartDeploymentCommand)
   .de(de_StartDeploymentCommand)
   .build() {
