@@ -3560,6 +3560,7 @@
                 }
               ]
             },
+            "ca-central-1": {},
             "eu-central-1": {
               "variants": [
                 {
@@ -24908,6 +24909,7 @@
             "ap-southeast-2": {},
             "ap-southeast-3": {},
             "ap-southeast-4": {},
+            "ap-southeast-5": {},
             "ap-southeast-7": {},
             "ca-central-1": {},
             "ca-west-1": {},
@@ -44026,6 +44028,11 @@
             "us-isob-east-1": {}
           }
         },
+        "guardduty": {
+          "endpoints": {
+            "us-isob-east-1": {}
+          }
+        },
         "health": {
           "endpoints": {
             "us-isob-east-1": {}
@@ -44151,6 +44158,11 @@
           "partitionEndpoint": "aws-iso-b-global"
         },
         "outposts": {
+          "endpoints": {
+            "us-isob-east-1": {}
+          }
+        },
+        "pi": {
           "endpoints": {
             "us-isob-east-1": {}
           }
