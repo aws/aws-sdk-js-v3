@@ -28,9 +28,7 @@ export interface UpdateDirectorySetupCommandInput extends UpdateDirectorySetupRe
 export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupResult, __MetadataBearer {}
 
 /**
- * <p>
- *       Updates the directory for a particular update type.
- *     </p>
+ * <p> Updates the directory for a particular update type. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,9 +65,7 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  *  <p>The specified directory does not exist in the system.</p>
  *
  * @throws {@link DirectoryInDesiredStateException} (client fault)
- *  <p>
- *       The directory is already updated to desired update type settings.
- *     </p>
+ *  <p> The directory is already updated to desired update type settings. </p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
  *  <p>The specified directory is unavailable.</p>

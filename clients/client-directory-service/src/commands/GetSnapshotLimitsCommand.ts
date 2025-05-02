@@ -69,6 +69,25 @@ export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult,
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To get snapshot limits
+ * ```javascript
+ * // The following example obtains the manual snapshot limits for a specified directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed"
+ * };
+ * const command = new GetSnapshotLimitsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   SnapshotLimits: {
+ *     ManualSnapshotsCurrentCount: 1,
+ *     ManualSnapshotsLimit: 5,
+ *     ManualSnapshotsLimitReached: false
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetSnapshotLimitsCommand extends $Command

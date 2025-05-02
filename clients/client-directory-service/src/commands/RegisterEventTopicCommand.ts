@@ -71,6 +71,20 @@ export interface RegisterEventTopicCommandOutput extends RegisterEventTopicResul
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To register an event topic
+ * ```javascript
+ * // The following example associates a directory with an SNS topic.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   TopicName: "snstopicexample"
+ * };
+ * const command = new RegisterEventTopicCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class RegisterEventTopicCommand extends $Command

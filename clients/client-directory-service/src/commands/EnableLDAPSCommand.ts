@@ -68,8 +68,8 @@ export interface EnableLDAPSCommandOutput extends EnableLDAPSResult, __MetadataB
  *  <p>One or more parameters are not valid.</p>
  *
  * @throws {@link NoAvailableCertificateException} (client fault)
- *  <p>Client authentication setup could not be completed because at least one valid certificate must be
- *       registered in the system.</p>
+ *  <p>Client authentication setup could not be completed because at least one valid certificate
+ *       must be registered in the system.</p>
  *
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>

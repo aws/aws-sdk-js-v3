@@ -74,6 +74,21 @@ export interface VerifyTrustCommandOutput extends VerifyTrustResult, __MetadataB
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To verify a trust
+ * ```javascript
+ * // The following example verifies a trust relationship between your Microsoft AD in the AWS cloud and an external domain.
+ * const input = {
+ *   TrustId: "t-9267353df0"
+ * };
+ * const command = new VerifyTrustCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   TrustId: "t-9267353df0"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class VerifyTrustCommand extends $Command

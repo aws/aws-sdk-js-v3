@@ -77,6 +77,23 @@ export interface UpdateConditionalForwarderCommandOutput extends UpdateCondition
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To update a conditional forwarder
+ * ```javascript
+ * // The following example updates a conditional forwarder for a specified directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   DnsIpAddrs: [
+ *     "172.168.101.11"
+ *   ],
+ *   RemoteDomainName: "sales.example.com"
+ * };
+ * const command = new UpdateConditionalForwarderCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateConditionalForwarderCommand extends $Command

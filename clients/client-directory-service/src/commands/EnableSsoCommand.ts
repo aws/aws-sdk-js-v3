@@ -73,6 +73,21 @@ export interface EnableSsoCommandOutput extends EnableSsoResult, __MetadataBeare
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To enable SSO
+ * ```javascript
+ * // To enable single sign-on for a specified directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   Password: "Str0ngP@ssw0rd",
+ *   UserName: "Admin"
+ * };
+ * const command = new EnableSsoCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class EnableSsoCommand extends $Command

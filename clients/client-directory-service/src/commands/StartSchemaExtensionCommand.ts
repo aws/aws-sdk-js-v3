@@ -79,6 +79,34 @@ export interface StartSchemaExtensionCommandOutput extends StartSchemaExtensionR
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To start a schema extension
+ * ```javascript
+ * // The following example applies a schema extension to a specified Microsoft AD directory.
+ * const input = {
+ *   CreateSnapshotBeforeSchemaExtension: true,
+ *   Description: "Adds maycontain attribute to user class. Precede each line as it would be formatted in an ldif file.",
+ *   DirectoryId: "d-92654abfed",
+ *   LdifContent: "dn: CN=User,CN=Schema,CN=Configuration,DC=sales,DC=example,DC=com
+ * changetype: modify
+ * add: mayContain
+ * mayContain: drink
+ * -
+ *
+ * DN:
+ * changetype: modify
+ * replace: schemaupdatenow
+ * schemaupdatenow: 1
+ * -"
+ * };
+ * const command = new StartSchemaExtensionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   SchemaExtensionId: "e-926731dc50"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class StartSchemaExtensionCommand extends $Command

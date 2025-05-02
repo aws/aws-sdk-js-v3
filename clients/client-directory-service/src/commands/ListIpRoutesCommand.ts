@@ -83,6 +83,30 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To list IP routes
+ * ```javascript
+ * // The following example lists the address blocks that have been added to a specified directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   Limit: 0
+ * };
+ * const command = new ListIpRoutesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   IpRoutesInfo: [
+ *     {
+ *       AddedDateTime: 1.48157763163E9,
+ *       CidrIp: "12.12.12.12/32",
+ *       Description: "example",
+ *       DirectoryId: "d-92654abfed",
+ *       IpRouteStatusMsg: "Added"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListIpRoutesCommand extends $Command

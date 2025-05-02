@@ -81,6 +81,32 @@ export interface ListSchemaExtensionsCommandOutput extends ListSchemaExtensionsR
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To list schema extensions
+ * ```javascript
+ * // The following example lists all schema extensions applied to a specified Microsoft AD Directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   Limit: 0
+ * };
+ * const command = new ListSchemaExtensionsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   SchemaExtensionsInfo: [
+ *     {
+ *       Description: "example text",
+ *       DirectoryId: "d-92654abfed",
+ *       EndDateTime: 1.481586088301E9,
+ *       SchemaExtensionId: "e-926731d2a0",
+ *       SchemaExtensionStatus: "Cancelled",
+ *       SchemaExtensionStatusReason: "Cancellation is complete. No schema updates were applied to your directory.",
+ *       StartDateTime: 1.481584463548E9
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListSchemaExtensionsCommand extends $Command

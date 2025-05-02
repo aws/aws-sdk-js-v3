@@ -71,6 +71,19 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To restore a snapshot
+ * ```javascript
+ * // The following example restores a directory using an existing directory snapshot.
+ * const input = {
+ *   SnapshotId: "s-9267f6da4e"
+ * };
+ * const command = new RestoreFromSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class RestoreFromSnapshotCommand extends $Command

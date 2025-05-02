@@ -68,6 +68,20 @@ export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensio
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To cancel a Microsoft AD schema extension that is in progress
+ * ```javascript
+ * // The following example cancels an in-progress schema extension to a Microsoft AD directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   SchemaExtensionId: "e-926731d2a0"
+ * };
+ * const command = new CancelSchemaExtensionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CancelSchemaExtensionCommand extends $Command

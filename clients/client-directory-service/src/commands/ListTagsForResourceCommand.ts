@@ -79,6 +79,27 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To list tags for a directory
+ * ```javascript
+ * // The following example lists all tags associated with a specified directory.
+ * const input = {
+ *   Limit: 0,
+ *   ResourceId: "d-92654abfed"
+ * };
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Tags: [
+ *     {
+ *       Key: "environment",
+ *       Value: "production"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

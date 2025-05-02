@@ -28,7 +28,8 @@ export interface ListCertificatesCommandInput extends ListCertificatesRequest {}
 export interface ListCertificatesCommandOutput extends ListCertificatesResult, __MetadataBearer {}
 
 /**
- * <p>For the specified directory, lists all the certificates registered for a secure LDAP or client certificate authentication.</p>
+ * <p>For the specified directory, lists all the certificates registered for a secure LDAP or
+ *       client certificate authentication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

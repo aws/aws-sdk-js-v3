@@ -28,7 +28,8 @@ export interface DeregisterCertificateCommandInput extends DeregisterCertificate
 export interface DeregisterCertificateCommandOutput extends DeregisterCertificateResult, __MetadataBearer {}
 
 /**
- * <p>Deletes from the system the certificate that was registered for secure LDAP or client certificate authentication.</p>
+ * <p>Deletes from the system the certificate that was registered for secure LDAP or client
+ *       certificate authentication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

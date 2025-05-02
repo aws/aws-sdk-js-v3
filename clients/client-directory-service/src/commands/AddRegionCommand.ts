@@ -64,8 +64,8 @@ export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBeare
  *  <p>A client exception has occurred.</p>
  *
  * @throws {@link DirectoryAlreadyInRegionException} (client fault)
- *  <p>The Region you specified is the same Region where the Managed Microsoft AD directory
- *       was created. Specify a different Region and try again.</p>
+ *  <p>The Region you specified is the same Region where the Managed Microsoft AD directory was created.
+ *       Specify a different Region and try again.</p>
  *
  * @throws {@link DirectoryDoesNotExistException} (client fault)
  *  <p>The specified directory does not exist in the system.</p>

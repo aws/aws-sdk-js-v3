@@ -77,6 +77,22 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To create a snapshot of a directory
+ * ```javascript
+ * // The following example creates a snapshot of a Simple AD or Microsoft AD directory in the AWS cloud.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   Name: "ad.example.com"
+ * };
+ * const command = new CreateSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   SnapshotId: "s-9267f8d3f0"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateSnapshotCommand extends $Command

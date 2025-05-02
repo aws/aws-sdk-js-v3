@@ -74,6 +74,20 @@ export interface DeleteConditionalForwarderCommandOutput extends DeleteCondition
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To delete a conditional forwarder
+ * ```javascript
+ * // The following example deletes a conditional forwarder.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   RemoteDomainName: "sales.example.com"
+ * };
+ * const command = new DeleteConditionalForwarderCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteConditionalForwarderCommand extends $Command

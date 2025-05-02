@@ -73,6 +73,29 @@ export interface GetDirectoryLimitsCommandOutput extends GetDirectoryLimitsResul
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To get directory limits
+ * ```javascript
+ * // The following example obtains directory limit information for the current region.
+ * const input = { /* empty *\/ };
+ * const command = new GetDirectoryLimitsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DirectoryLimits: {
+ *     CloudOnlyDirectoriesCurrentCount: 2,
+ *     CloudOnlyDirectoriesLimit: 10,
+ *     CloudOnlyDirectoriesLimitReached: false,
+ *     CloudOnlyMicrosoftADCurrentCount: 2,
+ *     CloudOnlyMicrosoftADLimit: 10,
+ *     CloudOnlyMicrosoftADLimitReached: false,
+ *     ConnectedDirectoriesCurrentCount: 1,
+ *     ConnectedDirectoriesLimit: 10,
+ *     ConnectedDirectoriesLimitReached: false
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetDirectoryLimitsCommand extends $Command

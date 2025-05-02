@@ -96,6 +96,38 @@ export interface DescribeTrustsCommandOutput extends DescribeTrustsResult, __Met
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To describe a trust
+ * ```javascript
+ * // The following example obtains information about the trust relationship for a specified directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   Limit: 0,
+ *   TrustIds: [
+ *     "t-9267353df0"
+ *   ]
+ * };
+ * const command = new DescribeTrustsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Trusts: [
+ *     {
+ *       CreatedDateTime: 1.481749250657E9,
+ *       DirectoryId: "d-92654abfed",
+ *       LastUpdatedDateTime: 1.481749260156E9,
+ *       RemoteDomainName: "sales.example.com",
+ *       StateLastUpdatedDateTime: 1.481749260156E9,
+ *       TrustDirection: "One-Way: Outgoing",
+ *       TrustId: "t-9267353df0",
+ *       TrustState: "Failed",
+ *       TrustStateReason: "The specified domain either does not exist or could not be contacted. Name: sales.example.com",
+ *       TrustType: "Forest"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DescribeTrustsCommand extends $Command

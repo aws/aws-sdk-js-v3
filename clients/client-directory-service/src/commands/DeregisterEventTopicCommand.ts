@@ -67,6 +67,20 @@ export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicR
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To remove an event topic
+ * ```javascript
+ * // The following example removes the specified directory as a publisher to the specified SNS topic.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   TopicName: "snstopicexample"
+ * };
+ * const command = new DeregisterEventTopicCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeregisterEventTopicCommand extends $Command

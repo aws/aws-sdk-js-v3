@@ -71,8 +71,8 @@ export interface SharedDirectory {
 
   /**
    * <p>The method used when sharing a directory to determine whether the directory should be
-   *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account by
-   *       sending a shared directory request (<code>HANDSHAKE</code>).</p>
+   *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account
+   *       by sending a shared directory request (<code>HANDSHAKE</code>).</p>
    * @public
    */
   ShareMethod?: ShareMethod | undefined;
@@ -557,8 +557,8 @@ export interface DirectoryVpcSettings {
 
   /**
    * <p>The identifiers of the subnets for the directory servers. The two subnets must be in
-   *       different Availability Zones. Directory Service creates a directory server and a DNS
-   *       server in each of these subnets.</p>
+   *       different Availability Zones. Directory Service creates a directory server and a DNS server in each of
+   *       these subnets.</p>
    * @public
    */
   SubnetIds: string[] | undefined;
@@ -594,8 +594,8 @@ export interface AddRegionRequest {
 export interface AddRegionResult {}
 
 /**
- * <p>The Region you specified is the same Region where the Managed Microsoft AD directory
- *       was created. Specify a different Region and try again.</p>
+ * <p>The Region you specified is the same Region where the Managed Microsoft AD directory was created.
+ *       Specify a different Region and try again.</p>
  * @public
  */
 export class DirectoryAlreadyInRegionException extends __BaseException {
@@ -879,12 +879,14 @@ export interface CancelSchemaExtensionRequest {
 export interface CancelSchemaExtensionResult {}
 
 /**
- * <p>Contains information about the client certificate authentication settings for the <code>RegisterCertificate</code> and <code>DescribeCertificate</code> operations. </p>
+ * <p>Contains information about the client certificate authentication settings for the
+ *         <code>RegisterCertificate</code> and <code>DescribeCertificate</code> operations. </p>
  * @public
  */
 export interface ClientCertAuthSettings {
   /**
-   * <p>Specifies the URL of the default OCSP server used to check for revocation status. A secondary value to any OCSP address found in the AIA extension of the user certificate.</p>
+   * <p>Specifies the URL of the default OCSP server used to check for revocation status. A
+   *       secondary value to any OCSP address found in the AIA extension of the user certificate.</p>
    * @public
    */
   OCSPUrl?: string | undefined;
@@ -964,13 +966,16 @@ export interface Certificate {
   ExpiryDateTime?: Date | undefined;
 
   /**
-   * <p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>
+   * <p>The function that the registered certificate performs. Valid values include
+   *         <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is
+   *         <code>ClientLDAPS</code>.</p>
    * @public
    */
   Type?: CertificateType | undefined;
 
   /**
-   * <p>A <code>ClientCertAuthSettings</code> object that contains client certificate authentication settings.</p>
+   * <p>A <code>ClientCertAuthSettings</code> object that contains client certificate
+   *       authentication settings.</p>
    * @public
    */
   ClientCertAuthSettings?: ClientCertAuthSettings | undefined;
@@ -1072,7 +1077,9 @@ export interface CertificateInfo {
   ExpiryDateTime?: Date | undefined;
 
   /**
-   * <p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>
+   * <p>The function that the registered certificate performs. Valid values include
+   *         <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is
+   *         <code>ClientLDAPS</code>.</p>
    * @public
    */
   Type?: CertificateType | undefined;
@@ -1179,19 +1186,23 @@ export type ClientAuthenticationType = (typeof ClientAuthenticationType)[keyof t
  */
 export interface ClientAuthenticationSettingInfo {
   /**
-   * <p>The type of client authentication for the specified directory. If no type is specified, a list of all client authentication types that are supported for the directory is retrieved. </p>
+   * <p>The type of client authentication for the specified directory. If no type is specified, a
+   *       list of all client authentication types that are supported for the directory is retrieved.
+   *     </p>
    * @public
    */
   Type?: ClientAuthenticationType | undefined;
 
   /**
-   * <p>Whether the client authentication type is enabled or disabled for the specified directory.</p>
+   * <p>Whether the client authentication type is enabled or disabled for the specified
+   *       directory.</p>
    * @public
    */
   Status?: ClientAuthenticationStatus | undefined;
 
   /**
-   * <p>The date and time when the status of the client authentication type was last updated.</p>
+   * <p>The date and time when the status of the client authentication type was last
+   *       updated.</p>
    * @public
    */
   LastUpdatedDateTime?: Date | undefined;
@@ -1284,8 +1295,8 @@ export interface DirectoryConnectSettings {
   SubnetIds: string[] | undefined;
 
   /**
-   * <p>A list of one or more IP addresses of DNS servers or domain controllers in your self-managed
-   *       directory.</p>
+   * <p>A list of one or more IP addresses of DNS servers or domain controllers in your
+   *       self-managed directory.</p>
    * @public
    */
   CustomerDnsIps: string[] | undefined;
@@ -2169,19 +2180,24 @@ export interface DescribeClientAuthenticationSettingsRequest {
   DirectoryId: string | undefined;
 
   /**
-   * <p>The type of client authentication for which to retrieve information. If no type is specified, a list of all client authentication types that are supported for the specified directory is retrieved.</p>
+   * <p>The type of client authentication for which to retrieve information. If no type is
+   *       specified, a list of all client authentication types that are supported for the specified
+   *       directory is retrieved.</p>
    * @public
    */
   Type?: ClientAuthenticationType | undefined;
 
   /**
-   * <p>The <i>DescribeClientAuthenticationSettingsResult.NextToken</i> value from a previous call to <a>DescribeClientAuthenticationSettings</a>. Pass null if this is the first call.</p>
+   * <p>The <i>DescribeClientAuthenticationSettingsResult.NextToken</i> value from a
+   *       previous call to <a>DescribeClientAuthenticationSettings</a>. Pass null if this is
+   *       the first call.</p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation. </p>
+   * <p>The maximum number of items to return. If this value is zero, the maximum number of items
+   *       is specified by the limitations of the operation. </p>
    * @public
    */
   Limit?: number | undefined;
@@ -2192,14 +2208,17 @@ export interface DescribeClientAuthenticationSettingsRequest {
  */
 export interface DescribeClientAuthenticationSettingsResult {
   /**
-   * <p>Information about the type of client authentication for the specified directory. The following information is retrieved: The date and time when the status of the client authentication type was last updated, whether the client authentication type is enabled or disabled, and the type of client authentication.</p>
+   * <p>Information about the type of client authentication for the specified directory. The
+   *       following information is retrieved: The date and time when the status of the client
+   *       authentication type was last updated, whether the client authentication type is enabled or
+   *       disabled, and the type of client authentication.</p>
    * @public
    */
   ClientAuthenticationSettingsInfo?: ClientAuthenticationSettingInfo[] | undefined;
 
   /**
-   * <p>The next token used to retrieve the client authentication settings if the number of setting types exceeds
-   *       page limit and there is another page.</p>
+   * <p>The next token used to retrieve the client authentication settings if the number of
+   *       setting types exceeds page limit and there is another page.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2448,8 +2467,7 @@ export interface DirectoryVpcSettingsDescription {
  */
 export interface OwnerDirectoryDescription {
   /**
-   * <p>Identifier of the Managed Microsoft AD directory in the directory owner
-   *       account.</p>
+   * <p>Identifier of the Managed Microsoft AD directory in the directory owner account.</p>
    * @public
    */
   DirectoryId?: string | undefined;
@@ -2605,9 +2623,9 @@ export interface DirectoryDescription {
 
   /**
    * <p>The IP addresses of the DNS servers for the directory. For a Simple AD or Microsoft AD
-   *       directory, these are the IP addresses of the Simple AD or Microsoft AD directory servers. For
-   *       an AD Connector directory, these are the IP addresses of the DNS servers or domain controllers
-   *       in your self-managed directory to which the AD Connector is connected.</p>
+   *       directory, these are the IP addresses of the Simple AD or Microsoft AD directory servers.
+   *       For an AD Connector directory, these are the IP addresses of the DNS servers or domain
+   *       controllers in your self-managed directory to which the AD Connector is connected.</p>
    * @public
    */
   DnsIpAddrs?: string[] | undefined;
@@ -2626,8 +2644,8 @@ export interface DirectoryDescription {
 
   /**
    * <p>The method used when sharing a directory to determine whether the directory should be
-   *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account by
-   *       sending a shared directory request (<code>HANDSHAKE</code>).</p>
+   *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account
+   *       by sending a shared directory request (<code>HANDSHAKE</code>).</p>
    * @public
    */
   ShareMethod?: ShareMethod | undefined;
@@ -2660,8 +2678,8 @@ export interface DirectoryDescription {
 
   /**
    * <p>A <a>DirectoryVpcSettingsDescription</a> object that contains additional
-   *       information about a directory. This member is only present if the directory is a Simple AD or
-   *       Managed Microsoft AD directory.</p>
+   *       information about a directory. This member is only present if the directory is a Simple AD
+   *       or Managed Microsoft AD directory.</p>
    * @public
    */
   VpcSettings?: DirectoryVpcSettingsDescription | undefined;
@@ -2731,7 +2749,7 @@ export interface DirectoryDescription {
  */
 export interface DescribeDirectoriesResult {
   /**
-   * <p>The list of <a>DirectoryDescription</a> objects that were retrieved.</p>
+   * <p>The list of available <a>DirectoryDescription</a> objects that were retrieved.</p>
    *          <p>It is possible that this list contains less than the number of items specified in the
    *         <code>Limit</code> member of the request. This occurs if there are less than the requested
    *       number of items left to retrieve, or if the limitations of the operation have been
@@ -3296,8 +3314,9 @@ export interface DescribeSettingsRequest {
  */
 export interface SettingEntry {
   /**
-   * <p>The type, or category, of a directory setting. Similar settings have the same type. For example, <code>Protocol</code>, <code>Cipher</code>,
-   *       or <code>Certificate-Based Authentication</code>.</p>
+   * <p>The type, or category, of a directory setting. Similar settings have the same type. For
+   *       example, <code>Protocol</code>, <code>Cipher</code>, or <code>Certificate-Based
+   *         Authentication</code>.</p>
    * @public
    */
   Type?: string | undefined;
@@ -3312,7 +3331,8 @@ export interface SettingEntry {
   Name?: string | undefined;
 
   /**
-   * <p>The valid range of values for the directory setting. These values depend on the <code>DataType</code> of your directory.</p>
+   * <p>The valid range of values for the directory setting. These values depend on the
+   *         <code>DataType</code> of your directory.</p>
    * @public
    */
   AllowedValues?: string | undefined;
@@ -3330,13 +3350,17 @@ export interface SettingEntry {
   RequestedValue?: string | undefined;
 
   /**
-   * <p>The overall status of the request to update the directory setting request. If the directory setting is deployed in more than one region, and the request fails in any region, the overall status is <code>Failed</code>.</p>
+   * <p>The overall status of the request to update the directory setting request. If the
+   *       directory setting is deployed in more than one region, and the request fails in any region,
+   *       the overall status is <code>Failed</code>.</p>
    * @public
    */
   RequestStatus?: DirectoryConfigurationStatus | undefined;
 
   /**
-   * <p>Details about the status of the request to update the directory setting. If the directory setting is deployed in more than one region, status is returned for the request in each region where the setting is deployed.</p>
+   * <p>Details about the status of the request to update the directory setting. If the directory
+   *       setting is deployed in more than one region, status is returned for the request in each region
+   *       where the setting is deployed.</p>
    * @public
    */
   RequestDetailedStatus?: Record<string, DirectoryConfigurationStatus> | undefined;
@@ -3354,14 +3378,16 @@ export interface SettingEntry {
   LastUpdatedDateTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the request to update a directory setting was last submitted.</p>
+   * <p>The date and time when the request to update a directory setting was last
+   *       submitted.</p>
    * @public
    */
   LastRequestedDateTime?: Date | undefined;
 
   /**
-   * <p>The data type of a directory setting. This is used to define the <code>AllowedValues</code> of a setting.
-   *       For example a data type can be <code>Boolean</code>, <code>DurationInSeconds</code>, or <code>Enum</code>.</p>
+   * <p>The data type of a directory setting. This is used to define the
+   *         <code>AllowedValues</code> of a setting. For example a data type can be
+   *       <code>Boolean</code>, <code>DurationInSeconds</code>, or <code>Enum</code>.</p>
    * @public
    */
   DataType?: string | undefined;
@@ -3380,7 +3406,7 @@ export interface DescribeSettingsResult {
   /**
    * <p>The list of <a>SettingEntry</a> objects that were retrieved.</p>
    *          <p>It is possible that this list contains less than the number of items specified in the
-   *       <code>Limit</code> member of the request. This occurs if there are less than the requested
+   *         <code>Limit</code> member of the request. This occurs if there are less than the requested
    *       number of items left to retrieve, or if the limitations of the operation have been
    *       exceeded.</p>
    * @public
@@ -3388,9 +3414,9 @@ export interface DescribeSettingsResult {
   SettingEntries?: SettingEntry[] | undefined;
 
   /**
-   * <p>If not null, token that indicates that more results are available.
-   *       Pass this value for the <code>NextToken</code> parameter in a subsequent
-   *       call to <code>DescribeSettings</code> to retrieve the next set of items. </p>
+   * <p>If not null, token that indicates that more results are available. Pass this value for the
+   *         <code>NextToken</code> parameter in a subsequent call to <code>DescribeSettings</code> to
+   *       retrieve the next set of items. </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3746,65 +3772,50 @@ export type UpdateType = (typeof UpdateType)[keyof typeof UpdateType];
  */
 export interface DescribeUpdateDirectoryRequest {
   /**
-   * <p>
-   *       The unique identifier of the directory.
-   *     </p>
+   * <p> The unique identifier of the directory. </p>
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>
-   *       The type of updates you want to describe for the directory.
-   *     </p>
+   * <p> The type of updates you want to describe for the directory. </p>
    * @public
    */
   UpdateType: UpdateType | undefined;
 
   /**
-   * <p>
-   *       The name of the Region.
-   *     </p>
+   * <p> The name of the Region. </p>
    * @public
    */
   RegionName?: string | undefined;
 
   /**
-   * <p>
-   *       The <code>DescribeUpdateDirectoryResult</code>. NextToken value from a previous call to <a>DescribeUpdateDirectory</a>. Pass null if this is the first call.
-   *     </p>
+   * <p> The <code>DescribeUpdateDirectoryResult</code>. NextToken value from a previous call to
+   *         <a>DescribeUpdateDirectory</a>. Pass null if this is the first call. </p>
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>
- *       OS version that the directory needs to be updated to.
- *     </p>
+ * <p> OS version that the directory needs to be updated to. </p>
  * @public
  */
 export interface OSUpdateSettings {
   /**
-   * <p>
-   *       OS version that the directory needs to be updated to.
-   *     </p>
+   * <p> OS version that the directory needs to be updated to. </p>
    * @public
    */
   OSVersion?: OSVersion | undefined;
 }
 
 /**
- * <p>
- *       The value for a given type of <code>UpdateSettings</code>.
- *     </p>
+ * <p> The value for a given type of <code>UpdateSettings</code>. </p>
  * @public
  */
 export interface UpdateValue {
   /**
-   * <p>
-   *       The OS update related settings.
-   *     </p>
+   * <p> The OS update related settings. </p>
    * @public
    */
   OSUpdateSettings?: OSUpdateSettings | undefined;
@@ -3826,72 +3837,55 @@ export const UpdateStatus = {
 export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
 
 /**
- * <p>
- *       An entry of update information related to a requested update type.
- *     </p>
+ * <p> An entry of update information related to a requested update type. </p>
  * @public
  */
 export interface UpdateInfoEntry {
   /**
-   * <p>
-   *       The name of the Region.
-   *     </p>
+   * <p> The name of the Region. </p>
    * @public
    */
   Region?: string | undefined;
 
   /**
-   * <p>
-   *       The status of the update performed on the directory.
-   *     </p>
+   * <p> The status of the update performed on the directory. </p>
    * @public
    */
   Status?: UpdateStatus | undefined;
 
   /**
-   * <p>
-   *       The reason for the current status of the update type activity.
-   *     </p>
+   * <p> The reason for the current status of the update type activity. </p>
    * @public
    */
   StatusReason?: string | undefined;
 
   /**
-   * <p>
-   *       This specifies if the update was initiated by the customer or by the service team.
+   * <p> This specifies if the update was initiated by the customer or by the service team.
    *     </p>
    * @public
    */
   InitiatedBy?: string | undefined;
 
   /**
-   * <p>
-   *       The new value of the target setting.
-   *     </p>
+   * <p> The new value of the target setting. </p>
    * @public
    */
   NewValue?: UpdateValue | undefined;
 
   /**
-   * <p>
-   *       The old value of the target setting.
-   *     </p>
+   * <p> The old value of the target setting. </p>
    * @public
    */
   PreviousValue?: UpdateValue | undefined;
 
   /**
-   * <p>
-   *       The start time of the <code>UpdateDirectorySetup</code> for the particular type.
-   *     </p>
+   * <p> The start time of the <code>UpdateDirectorySetup</code> for the particular type. </p>
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>
-   *       The last updated date and time of a particular directory setting.
-   *     </p>
+   * <p> The last updated date and time of a particular directory setting. </p>
    * @public
    */
   LastUpdatedDateTime?: Date | undefined;
@@ -3902,26 +3896,21 @@ export interface UpdateInfoEntry {
  */
 export interface DescribeUpdateDirectoryResult {
   /**
-   * <p>
-   *       The list of update activities on a directory for the requested update type.
-   *     </p>
+   * <p> The list of update activities on a directory for the requested update type. </p>
    * @public
    */
   UpdateActivities?: UpdateInfoEntry[] | undefined;
 
   /**
-   * <p>
-   *       If not null, more results are available. Pass this value for the <code>NextToken</code> parameter.
-   *     </p>
+   * <p> If not null, more results are available. Pass this value for the <code>NextToken</code>
+   *       parameter. </p>
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>
- *       The directory is already updated to desired update type settings.
- *     </p>
+ * <p> The directory is already updated to desired update type settings. </p>
  * @public
  */
 export class DirectoryInDesiredStateException extends __BaseException {
@@ -4057,7 +4046,8 @@ export interface DisableClientAuthenticationRequest {
   DirectoryId: string | undefined;
 
   /**
-   * <p>The type of client authentication to disable. Currently the only parameter <code>"SmartCard"</code> is supported.</p>
+   * <p>The type of client authentication to disable. Currently the only parameter
+   *         <code>"SmartCard"</code> is supported.</p>
    * @public
    */
   Type: ClientAuthenticationType | undefined;
@@ -4242,10 +4232,10 @@ export interface EnableClientAuthenticationRequest {
   DirectoryId: string | undefined;
 
   /**
-   * <p>The type of client authentication to enable. Currently only the value <code>SmartCard</code> is
-   *       supported. Smart card authentication in AD Connector requires that you enable Kerberos
-   *       Constrained Delegation for the Service User to the LDAP service in your self-managed AD.
-   *     </p>
+   * <p>The type of client authentication to enable. Currently only the value
+   *         <code>SmartCard</code> is supported. Smart card authentication in AD Connector requires
+   *       that you enable Kerberos Constrained Delegation for the Service User to the LDAP service in
+   *       your self-managed AD. </p>
    * @public
    */
   Type: ClientAuthenticationType | undefined;
@@ -4257,8 +4247,8 @@ export interface EnableClientAuthenticationRequest {
 export interface EnableClientAuthenticationResult {}
 
 /**
- * <p>Client authentication setup could not be completed because at least one valid certificate must be
- *       registered in the system.</p>
+ * <p>Client authentication setup could not be completed because at least one valid certificate
+ *       must be registered in the system.</p>
  * @public
  */
 export class NoAvailableCertificateException extends __BaseException {
@@ -4616,8 +4606,8 @@ export interface ListLogSubscriptionsRequest {
   /**
    * <p>If a <i>DirectoryID</i> is provided, lists only the log subscription
    *       associated with that directory. If no <i>DirectoryId</i> is provided, lists all
-   *       log subscriptions associated with your Amazon Web Services account. If there are no log subscriptions for the
-   *       Amazon Web Services account or the directory, an empty list will be returned.</p>
+   *       log subscriptions associated with your Amazon Web Services account. If there are no log subscriptions for
+   *       the Amazon Web Services account or the directory, an empty list will be returned.</p>
    * @public
    */
   DirectoryId?: string | undefined;
@@ -4666,7 +4656,8 @@ export interface LogSubscription {
  */
 export interface ListLogSubscriptionsResult {
   /**
-   * <p>A list of active <a>LogSubscription</a> objects for calling the Amazon Web Services account.</p>
+   * <p>A list of active <a>LogSubscription</a> objects for calling the
+   *       Amazon Web Services account.</p>
    * @public
    */
   LogSubscriptions?: LogSubscription[] | undefined;
@@ -4882,13 +4873,16 @@ export interface RegisterCertificateRequest {
   CertificateData: string | undefined;
 
   /**
-   * <p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>
+   * <p>The function that the registered certificate performs. Valid values include
+   *         <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is
+   *         <code>ClientLDAPS</code>.</p>
    * @public
    */
   Type?: CertificateType | undefined;
 
   /**
-   * <p>A <code>ClientCertAuthSettings</code> object that contains client certificate authentication settings.</p>
+   * <p>A <code>ClientCertAuthSettings</code> object that contains client certificate
+   *       authentication settings.</p>
    * @public
    */
   ClientCertAuthSettings?: ClientCertAuthSettings | undefined;
@@ -5053,8 +5047,7 @@ export class InvalidPasswordException extends __BaseException {
  */
 export interface ResetUserPasswordRequest {
   /**
-   * <p>Identifier of the Managed Microsoft AD or Simple AD directory in which the user
-   *       resides.</p>
+   * <p>Identifier of the Managed Microsoft AD or Simple AD directory in which the user resides.</p>
    * @public
    */
   DirectoryId: string | undefined;
@@ -5230,7 +5223,8 @@ export interface ShareTarget {
  */
 export interface ShareDirectoryRequest {
   /**
-   * <p>Identifier of the Managed Microsoft AD directory that you want to share with other Amazon Web Services accounts.</p>
+   * <p>Identifier of the Managed Microsoft AD directory that you want to share with other
+   *       Amazon Web Services accounts.</p>
    * @public
    */
   DirectoryId: string | undefined;
@@ -5252,8 +5246,8 @@ export interface ShareDirectoryRequest {
 
   /**
    * <p>The method used when sharing a directory to determine whether the directory should be
-   *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account by
-   *       sending a directory sharing request (<code>HANDSHAKE</code>).</p>
+   *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account
+   *       by sending a directory sharing request (<code>HANDSHAKE</code>).</p>
    * @public
    */
   ShareMethod: ShareMethod | undefined;
@@ -5373,8 +5367,7 @@ export interface UnshareTarget {
  */
 export interface UnshareDirectoryRequest {
   /**
-   * <p>The identifier of the Managed Microsoft AD directory that you want to stop
-   *       sharing.</p>
+   * <p>The identifier of the Managed Microsoft AD directory that you want to stop sharing.</p>
    * @public
    */
   DirectoryId: string | undefined;
@@ -5437,33 +5430,26 @@ export interface UpdateConditionalForwarderResult {}
  */
 export interface UpdateDirectorySetupRequest {
   /**
-   * <p>
-   *       The identifier of the directory on which you want to perform the update.
-   *     </p>
+   * <p> The identifier of the directory on which you want to perform the update. </p>
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>
-   *       The type of update that needs to be performed on the directory. For example, OS.
-   *     </p>
+   * <p> The type of update that needs to be performed on the directory. For example, OS. </p>
    * @public
    */
   UpdateType: UpdateType | undefined;
 
   /**
-   * <p>
-   *       The settings for the OS update that needs to be performed on the directory.
-   *     </p>
+   * <p> The settings for the OS update that needs to be performed on the directory. </p>
    * @public
    */
   OSUpdateSettings?: OSUpdateSettings | undefined;
 
   /**
-   * <p>
-   *       The boolean that specifies if a snapshot for the directory needs to be taken before updating the directory.
-   *     </p>
+   * <p> The boolean that specifies if a snapshot for the directory needs to be taken before
+   *       updating the directory. </p>
    * @public
    */
   CreateSnapshotBeforeUpdate?: boolean | undefined;
@@ -5638,7 +5624,9 @@ export interface Setting {
   Name: string | undefined;
 
   /**
-   * <p>The value of the directory setting for which to retrieve information. For example, for <code>TLS_1_0</code>, the valid values are: <code>Enable</code> and <code>Disable</code>.</p>
+   * <p>The value of the directory setting for which to retrieve information. For example, for
+   *         <code>TLS_1_0</code>, the valid values are: <code>Enable</code> and
+   *       <code>Disable</code>.</p>
    * @public
    */
   Value: string | undefined;

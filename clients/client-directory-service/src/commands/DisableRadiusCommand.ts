@@ -64,6 +64,19 @@ export interface DisableRadiusCommandOutput extends DisableRadiusResult, __Metad
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To disable radius
+ * ```javascript
+ * // The following example disables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed"
+ * };
+ * const command = new DisableRadiusCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DisableRadiusCommand extends $Command

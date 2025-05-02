@@ -69,6 +69,22 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To remove tags from a directory
+ * ```javascript
+ * // The following example removes a tag from a specified directory.
+ * const input = {
+ *   ResourceId: "d-92654abfed",
+ *   TagKeys: [
+ *     "environment"
+ *   ]
+ * };
+ * const command = new RemoveTagsFromResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class RemoveTagsFromResourceCommand extends $Command

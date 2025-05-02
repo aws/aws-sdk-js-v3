@@ -78,6 +78,23 @@ export interface CreateAliasCommandOutput extends CreateAliasResult, __MetadataB
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To create an alias for a directory
+ * ```javascript
+ * // The following example creates an alias for a directory.
+ * const input = {
+ *   Alias: "salesorg",
+ *   DirectoryId: "d-92654abfed"
+ * };
+ * const command = new CreateAliasCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Alias: "salesorg",
+ *   DirectoryId: "d-92654abfed"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateAliasCommand extends $Command

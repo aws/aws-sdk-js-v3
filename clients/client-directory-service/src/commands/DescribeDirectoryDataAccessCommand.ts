@@ -28,7 +28,8 @@ export interface DescribeDirectoryDataAccessCommandInput extends DescribeDirecto
 export interface DescribeDirectoryDataAccessCommandOutput extends DescribeDirectoryDataAccessResult, __MetadataBearer {}
 
 /**
- * <p>Obtains status of directory data access enablement through the Directory Service Data API for the specified directory.</p>
+ * <p>Obtains status of directory data access enablement through the Directory Service Data API for the
+ *       specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

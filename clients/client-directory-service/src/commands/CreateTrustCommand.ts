@@ -88,6 +88,28 @@ export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataB
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To create a trust
+ * ```javascript
+ * // The following example creates a trust between Microsoft AD in the AWS cloud and an external domain.
+ * const input = {
+ *   ConditionalForwarderIpAddrs: [
+ *     "172.30.21.228"
+ *   ],
+ *   DirectoryId: "d-92654abfed",
+ *   RemoteDomainName: "europe.example.com",
+ *   TrustDirection: "One-Way: Outgoing",
+ *   TrustPassword: "Str0ngP@ssw0rd",
+ *   TrustType: "Forest"
+ * };
+ * const command = new CreateTrustCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   TrustId: "t-9267353743"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateTrustCommand extends $Command

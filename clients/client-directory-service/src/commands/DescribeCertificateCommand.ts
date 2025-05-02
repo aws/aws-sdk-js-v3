@@ -28,7 +28,8 @@ export interface DescribeCertificateCommandInput extends DescribeCertificateRequ
 export interface DescribeCertificateCommandOutput extends DescribeCertificateResult, __MetadataBearer {}
 
 /**
- * <p>Displays information about the certificate registered for secure LDAP or client certificate authentication.</p>
+ * <p>Displays information about the certificate registered for secure LDAP or client
+ *       certificate authentication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -31,8 +31,7 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResult, __M
  * <p>Deletes an Directory Service directory.</p>
  *          <p>Before you call <code>DeleteDirectory</code>, ensure that all of the required permissions
  *       have been explicitly granted through a policy. For details about what permissions are required
- *       to run the <code>DeleteDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">Directory Service API Permissions: Actions, Resources, and Conditions
- *       Reference</a>.</p>
+ *       to run the <code>DeleteDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,6 +67,21 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResult, __M
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To delete a directory
+ * ```javascript
+ * // The following example deletes a directory from your AWS account.
+ * const input = {
+ *   DirectoryId: "d-92654abfed"
+ * };
+ * const command = new DeleteDirectoryCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DirectoryId: "d-92654abfed"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

@@ -81,6 +81,23 @@ export interface CreateConditionalForwarderCommandOutput extends CreateCondition
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To create a conditional forwarder
+ * ```javascript
+ * // The following example creates a conditional forwarder associated with your AWS directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   DnsIpAddrs: [
+ *     "172.30.21.228"
+ *   ],
+ *   RemoteDomainName: "sales.example.com"
+ * };
+ * const command = new CreateConditionalForwarderCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateConditionalForwarderCommand extends $Command

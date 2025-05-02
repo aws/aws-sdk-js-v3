@@ -92,6 +92,24 @@ export interface DescribeConditionalForwardersCommandOutput
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To describe conditional forwarders
+ * ```javascript
+ * // The following example obtains information about the conditional forwarders for a specified directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   RemoteDomainNames: [
+ *     "sales.example.com"
+ *   ]
+ * };
+ * const command = new DescribeConditionalForwardersCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ConditionalForwarders:   []
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DescribeConditionalForwardersCommand extends $Command

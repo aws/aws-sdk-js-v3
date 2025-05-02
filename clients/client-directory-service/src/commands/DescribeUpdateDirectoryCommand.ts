@@ -28,9 +28,7 @@ export interface DescribeUpdateDirectoryCommandInput extends DescribeUpdateDirec
 export interface DescribeUpdateDirectoryCommandOutput extends DescribeUpdateDirectoryResult, __MetadataBearer {}
 
 /**
- * <p>
- *       Describes the updates of a directory for a particular update type.
- *     </p>
+ * <p> Describes the updates of a directory for a particular update type. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

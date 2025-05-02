@@ -102,6 +102,43 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To create a computer account
+ * ```javascript
+ * // The following example creates a computer account in the specified directory, and joins the computer to the directory.
+ * const input = {
+ *   ComputerAttributes: [
+ *     {
+ *       Name: "ip",
+ *       Value: "192.168.101.100"
+ *     }
+ *   ],
+ *   ComputerName: "labcomputer",
+ *   DirectoryId: "d-92654abfed",
+ *   OrganizationalUnitDistinguishedName: "OU=Computers,OU=example,DC=corp,DC=example,DC=com",
+ *   Password: "Str0ngP@ssw0rd"
+ * };
+ * const command = new CreateComputerCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Computer: {
+ *     ComputerAttributes: [
+ *       {
+ *         Name: "DistinguishedName",
+ *         Value: "CN=labcomputer,OU=Computers,OU=nickcorp,DC=seattle,DC=nickcorp,DC=com"
+ *       },
+ *       {
+ *         Name: "WindowsSamName",
+ *         Value: "labcomputer$"
+ *       }
+ *     ],
+ *     ComputerId: "S-1-5-21-1932691875-1648176379-1176097576-1124",
+ *     ComputerName: "labcomputer"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateComputerCommand extends $Command

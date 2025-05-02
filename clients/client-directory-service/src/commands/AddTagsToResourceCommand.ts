@@ -77,6 +77,25 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To add tags to a directory
+ * ```javascript
+ * // The following example adds or overwrites one or more tags for the specified directory.
+ * const input = {
+ *   ResourceId: "d-92654abfed",
+ *   Tags: [
+ *     {
+ *       Key: "environment",
+ *       Value: "production"
+ *     }
+ *   ]
+ * };
+ * const command = new AddTagsToResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class AddTagsToResourceCommand extends $Command

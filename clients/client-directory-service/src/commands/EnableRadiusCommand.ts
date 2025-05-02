@@ -82,6 +82,31 @@ export interface EnableRadiusCommandOutput extends EnableRadiusResult, __Metadat
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To enable radius
+ * ```javascript
+ * // The following example enables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   RadiusSettings: {
+ *     AuthenticationProtocol: "PAP",
+ *     DisplayLabel: "MyRadius",
+ *     RadiusPort: 1200,
+ *     RadiusRetries: 2,
+ *     RadiusServers: [
+ *       "172.168.111.12"
+ *     ],
+ *     RadiusTimeout: 1,
+ *     SharedSecret: "123456789",
+ *     UseSameUsername: true
+ *   }
+ * };
+ * const command = new EnableRadiusCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class EnableRadiusCommand extends $Command

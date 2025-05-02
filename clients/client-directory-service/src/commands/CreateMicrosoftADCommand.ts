@@ -96,6 +96,31 @@ export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult,
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To create a Microsoft AD directory
+ * ```javascript
+ * // The following example creates a Microsoft AD directory in the AWS cloud.
+ * const input = {
+ *   Description: "Corporate AD directory",
+ *   Name: "ad.example.com",
+ *   Password: "Str0ngP@ssw0rd",
+ *   ShortName: "ad",
+ *   VpcSettings: {
+ *     SubnetIds: [
+ *       "subnet-ba0146de",
+ *       "subnet-bef46bc8"
+ *     ],
+ *     VpcId: "vpc-45025421"
+ *   }
+ * };
+ * const command = new CreateMicrosoftADCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DirectoryId: "d-92654abfed"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateMicrosoftADCommand extends $Command

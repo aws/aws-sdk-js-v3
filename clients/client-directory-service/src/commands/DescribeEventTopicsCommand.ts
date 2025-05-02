@@ -82,6 +82,31 @@ export interface DescribeEventTopicsCommandOutput extends DescribeEventTopicsRes
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To describe event topics
+ * ```javascript
+ * // The following example obtains information about which SNS topics receive status messages from the specified directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   TopicNames: [
+ *     "snstopicexample"
+ *   ]
+ * };
+ * const command = new DescribeEventTopicsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   EventTopics: [
+ *     {
+ *       DirectoryId: "d-92654abfed",
+ *       Status: "Registered",
+ *       TopicArn: "arn:aws:sns:us-east-2:123456789012:snstopicexample",
+ *       TopicName: "snstopicexample"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DescribeEventTopicsCommand extends $Command

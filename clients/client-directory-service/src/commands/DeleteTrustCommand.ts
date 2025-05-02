@@ -73,6 +73,22 @@ export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataB
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To delete a trust
+ * ```javascript
+ * // The following example deletes an existing trust between your Microsoft AD in the AWS cloud and an external domain.
+ * const input = {
+ *   DeleteAssociatedConditionalForwarder: true,
+ *   TrustId: "t-9267353743"
+ * };
+ * const command = new DeleteTrustCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   TrustId: "t-9267353743"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteTrustCommand extends $Command

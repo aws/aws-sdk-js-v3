@@ -68,6 +68,21 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To delete a snapshot
+ * ```javascript
+ * // The following example deletes a directory snapshot.
+ * const input = {
+ *   SnapshotId: "s-9267f8d3f0"
+ * };
+ * const command = new DeleteSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   SnapshotId: "s-9267f8d3f0"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteSnapshotCommand extends $Command

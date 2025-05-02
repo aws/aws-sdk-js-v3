@@ -72,6 +72,22 @@ export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __Met
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To remove IP routes
+ * ```javascript
+ * // The following example removes IP address blocks from a specified directory.
+ * const input = {
+ *   CidrIps: [
+ *     "12.12.12.12/32"
+ *   ],
+ *   DirectoryId: "d-92654abfed"
+ * };
+ * const command = new RemoveIpRoutesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class RemoveIpRoutesCommand extends $Command

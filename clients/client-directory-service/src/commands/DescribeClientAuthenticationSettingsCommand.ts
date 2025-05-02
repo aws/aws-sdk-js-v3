@@ -36,8 +36,10 @@ export interface DescribeClientAuthenticationSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the type of client authentication for the specified directory, if the type is specified. If no type is specified, information about all client authentication types that are supported for the specified directory is retrieved. Currently, only <code>SmartCard</code> is supported.
- *     </p>
+ * <p>Retrieves information about the type of client authentication for the specified directory,
+ *       if the type is specified. If no type is specified, information about all client authentication
+ *       types that are supported for the specified directory is retrieved. Currently, only
+ *         <code>SmartCard</code> is supported. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

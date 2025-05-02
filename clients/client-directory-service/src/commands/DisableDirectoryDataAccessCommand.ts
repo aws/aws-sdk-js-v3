@@ -28,7 +28,9 @@ export interface DisableDirectoryDataAccessCommandInput extends DisableDirectory
 export interface DisableDirectoryDataAccessCommandOutput extends DisableDirectoryDataAccessResult, __MetadataBearer {}
 
 /**
- * <p>Deactivates access to directory data via the Directory Service Data API for the specified directory.</p>
+ * <p>Deactivates access to directory data via the Directory Service Data API for the specified
+ *       directory. For
+ *       more information, see <a href="https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html">Directory Service Data API Reference</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,9 +62,7 @@ export interface DisableDirectoryDataAccessCommandOutput extends DisableDirector
  *  <p>The specified directory does not exist in the system.</p>
  *
  * @throws {@link DirectoryInDesiredStateException} (client fault)
- *  <p>
- *       The directory is already updated to desired update type settings.
- *     </p>
+ *  <p> The directory is already updated to desired update type settings. </p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
  *  <p>The specified directory is unavailable.</p>

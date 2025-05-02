@@ -90,6 +90,25 @@ export interface AddIpRoutesCommandOutput extends AddIpRoutesResult, __MetadataB
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  *
+ * @example To add a CIDR address block that routes traffic for Microsoft AD
+ * ```javascript
+ * // The following example adds a CIDR address block to correctly route traffic to and from your Microsoft AD on AWS.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   IpRoutes: [
+ *     {
+ *       CidrIp: "12.12.12.12/32",
+ *       Description: "my IpRoute"
+ *     }
+ *   ]
+ * };
+ * const command = new AddIpRoutesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class AddIpRoutesCommand extends $Command
