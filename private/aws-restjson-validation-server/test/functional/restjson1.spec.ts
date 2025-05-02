@@ -1739,9 +1739,7 @@ it("RestJsonMalformedLengthQueryStringNoValue:MalformedRequest", async () => {
     query: {
       string: [""],
     },
-    headers: {
-      "content-type": "application/json",
-    },
+    headers: {},
     body: Readable.from(["{}"]),
   });
   const r = await handler.handle(request, {});
