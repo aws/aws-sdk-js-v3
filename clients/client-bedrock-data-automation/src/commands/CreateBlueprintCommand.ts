@@ -46,7 +46,7 @@ export interface CreateBlueprintCommandOutput extends CreateBlueprintResponse, _
  * const client = new BedrockDataAutomationClient(config);
  * const input = { // CreateBlueprintRequest
  *   blueprintName: "STRING_VALUE", // required
- *   type: "DOCUMENT" || "IMAGE", // required
+ *   type: "DOCUMENT" || "IMAGE" || "AUDIO", // required
  *   blueprintStage: "DEVELOPMENT" || "LIVE",
  *   schema: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
@@ -69,7 +69,7 @@ export interface CreateBlueprintCommandOutput extends CreateBlueprintResponse, _
  * //   blueprint: { // Blueprint
  * //     blueprintArn: "STRING_VALUE", // required
  * //     schema: "STRING_VALUE", // required
- * //     type: "DOCUMENT" || "IMAGE", // required
+ * //     type: "DOCUMENT" || "IMAGE" || "AUDIO", // required
  * //     creationTime: new Date("TIMESTAMP"), // required
  * //     lastModifiedTime: new Date("TIMESTAMP"), // required
  * //     blueprintName: "STRING_VALUE", // required

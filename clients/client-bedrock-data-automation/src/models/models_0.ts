@@ -98,6 +98,7 @@ export interface Tag {
  * @enum
  */
 export const Type = {
+  AUDIO: "AUDIO",
   DOCUMENT: "DOCUMENT",
   IMAGE: "IMAGE",
 } as const;
