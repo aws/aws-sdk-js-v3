@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.802.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.801.0...v3.802.0) (2025-05-02)
+
+
+### Features
+
+* **client-kinesis:** Marking ResourceARN as required for Amazon Kinesis Data Streams APIs TagResource, UntagResource, and ListTagsForResource. ([9edf14f](https://github.com/aws/aws-sdk-js-v3/commit/9edf14f4b774588d9685f204866f05f3c9d1f8b7))
+
+
+
+
+
 # [3.799.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.798.0...v3.799.0) (2025-04-29)
 
 

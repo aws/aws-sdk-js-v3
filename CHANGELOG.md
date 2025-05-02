@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.802.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.801.0...v3.802.0) (2025-05-02)
+
+
+### Features
+
+* **client-bedrock-data-automation:** Added support for Custom output and blueprints for AUDIO data types. ([2591cbd](https://github.com/aws/aws-sdk-js-v3/commit/2591cbd2f4f129d42a823a8a50498c29a652b690))
+* **client-kinesis:** Marking ResourceARN as required for Amazon Kinesis Data Streams APIs TagResource, UntagResource, and ListTagsForResource. ([9edf14f](https://github.com/aws/aws-sdk-js-v3/commit/9edf14f4b774588d9685f204866f05f3c9d1f8b7))
+* **clients:** update client endpoints as of 2025-05-02 ([bdc8944](https://github.com/aws/aws-sdk-js-v3/commit/bdc8944d3b7ee967ff943a7876f2016e15b6b44f))
+
+
+
+
+
 # [3.801.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.800.0...v3.801.0) (2025-05-01)
 
 

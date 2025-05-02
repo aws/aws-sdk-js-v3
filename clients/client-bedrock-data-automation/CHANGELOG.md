@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.802.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.801.0...v3.802.0) (2025-05-02)
+
+
+### Features
+
+* **client-bedrock-data-automation:** Added support for Custom output and blueprints for AUDIO data types. ([2591cbd](https://github.com/aws/aws-sdk-js-v3/commit/2591cbd2f4f129d42a823a8a50498c29a652b690))
+
+
+
+
+
 # [3.799.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.798.0...v3.799.0) (2025-04-29)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-data-automation
