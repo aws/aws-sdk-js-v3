@@ -37,7 +37,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * // const { KinesisClient, ListTagsForResourceCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // ListTagsForResourceInput
- *   ResourceARN: "STRING_VALUE",
+ *   ResourceARN: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

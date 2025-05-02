@@ -39,7 +39,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
- *   ResourceARN: "STRING_VALUE",
+ *   ResourceARN: "STRING_VALUE", // required
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);

@@ -481,7 +481,6 @@ export interface Kinesis {
   /**
    * @see {@link ListTagsForResourceCommand}
    */
-  listTagsForResource(): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options?: __HttpHandlerOptions

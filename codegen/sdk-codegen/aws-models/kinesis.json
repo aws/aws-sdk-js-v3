@@ -6231,6 +6231,7 @@
           "target": "com.amazonaws.kinesis#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Kinesis resource for which to list tags.</p>",
+            "smithy.api#required": {},
             "smithy.rules#contextParam": {
               "name": "ResourceARN"
             }
@@ -8237,6 +8238,7 @@
           "target": "com.amazonaws.kinesis#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Kinesis resource to which to add tags.</p>",
+            "smithy.api#required": {},
             "smithy.rules#contextParam": {
               "name": "ResourceARN"
             }
@@ -8307,6 +8309,7 @@
           "target": "com.amazonaws.kinesis#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Kinesis resource from which to remove tags.</p>",
+            "smithy.api#required": {},
             "smithy.rules#contextParam": {
               "name": "ResourceARN"
             }

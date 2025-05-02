@@ -2098,7 +2098,7 @@ export interface ListTagsForResourceInput {
    * <p>The Amazon Resource Name (ARN) of the Kinesis resource for which to list tags.</p>
    * @public
    */
-  ResourceARN?: string | undefined;
+  ResourceARN: string | undefined;
 }
 
 /**
@@ -3106,7 +3106,7 @@ export interface TagResourceInput {
    * <p>The Amazon Resource Name (ARN) of the Kinesis resource to which to add tags.</p>
    * @public
    */
-  ResourceARN?: string | undefined;
+  ResourceARN: string | undefined;
 }
 
 /**
@@ -3123,7 +3123,7 @@ export interface UntagResourceInput {
    * <p>The Amazon Resource Name (ARN) of the Kinesis resource from which to remove tags.</p>
    * @public
    */
-  ResourceARN?: string | undefined;
+  ResourceARN: string | undefined;
 }
 
 /**

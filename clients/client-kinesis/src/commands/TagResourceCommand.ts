@@ -39,7 +39,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *   Tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
- *   ResourceARN: "STRING_VALUE",
+ *   ResourceARN: "STRING_VALUE", // required
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
