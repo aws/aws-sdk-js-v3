@@ -1,15 +1,20 @@
 import "@aws-sdk/signature-v4a";
 
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { CloudFrontClient, CreateKeyValueStoreCommand, DeleteKeyValueStoreCommand } from "@aws-sdk/client-cloudfront";
-import { CloudFrontKeyValueStoreClient, DescribeKeyValueStoreCommand } from "@aws-sdk/client-cloudfront-keyvaluestore";
-import { GetCallerIdentityCommand, STSClient } from "@aws-sdk/client-sts";
+import { CloudFrontClient, CreateKeyValueStoreCommand, DescribeKeyValueStoreCommand } from "@aws-sdk/client-cloudfront";
+import {
+  CloudFrontKeyValueStoreClient,
+  DescribeKeyValueStoreCommand as KVSDescribeCommand,
+} from "@aws-sdk/client-cloudfront-keyvaluestore";
 import { defaultProvider } from "@aws-sdk/credential-provider-node";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { HttpRequest } from "@smithy/protocol-http";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 
 const LONG_TIMEOUT = 300000;
+
+// Long-lived resource name
+const KEY_VALUE_STORE_NAME = "jsv3-e2e-cfkvs-sigv4a";
 
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -23,13 +28,9 @@ async function waitForKeyValueStoreReady(
   const startTime = Date.now();
   while (Date.now() - startTime < timeoutMs) {
     try {
-      const response = await client.send(new DescribeKeyValueStoreCommand({ KvsARN: arn }));
+      const response = await client.send(new KVSDescribeCommand({ KvsARN: arn }));
       // if describe doesn't throw ResourceNotFound, it's ready enough for the test
       if (response.KvsARN === arn) {
-        // Optionally wait for 'Deployed' status if needed, but findable is often enough
-        // if (response.Status === "Deployed") {
-        //   return;
-        // }
         return;
       }
     } catch (error: any) {
@@ -49,18 +50,12 @@ async function waitForKeyValueStoreReady(
 describe("CloudFront KeyValue Store with SignatureV4a (JS Implementation)", () => {
   let cfClient: CloudFrontClient;
   let kvsClient: CloudFrontKeyValueStoreClient;
-  let keyValueStoreName: string;
   let keyValueStoreARN: string;
-  let keyValueStoreETag: string;
   let signer: SignatureV4MultiRegion;
+  let keyValueStoreETag: string;
 
   beforeAll(async () => {
     vi.setConfig({ testTimeout: LONG_TIMEOUT, hookTimeout: LONG_TIMEOUT });
-
-    const stsClient = new STSClient({ region: "us-west-2" });
-    const { Account } = await stsClient.send(new GetCallerIdentityCommand({}));
-    const timestamp = Date.now();
-    keyValueStoreName = `test-store-${Account}-${timestamp}`;
 
     signer = new SignatureV4MultiRegion({
       service: "cloudfront-keyvaluestore",
@@ -80,30 +75,43 @@ describe("CloudFront KeyValue Store with SignatureV4a (JS Implementation)", () =
       disableHostPrefix: true,
     });
 
-    const createResponse = await cfClient.send(
-      new CreateKeyValueStoreCommand({
-        Name: keyValueStoreName,
-      })
-    );
-    keyValueStoreARN = createResponse.KeyValueStore!.ARN!;
-    keyValueStoreETag = createResponse.ETag!;
+    // Try to get the existing key value store
+    try {
+      const describeResponse = await cfClient.send(
+        new DescribeKeyValueStoreCommand({
+          Name: KEY_VALUE_STORE_NAME,
+        })
+      );
+      keyValueStoreARN = describeResponse.KeyValueStore!.ARN!;
+      keyValueStoreETag = describeResponse.ETag!;
+      console.log(`Using existing KeyValueStore: ${keyValueStoreARN}`);
+    } catch (error: any) {
+      if (error.name === "EntityNotFound") {
+        console.log(`KeyValueStore ${KEY_VALUE_STORE_NAME} does not exist. Creating it now...`);
+        // Create the key value store if it doesn't exist
+        const createResponse = await cfClient.send(
+          new CreateKeyValueStoreCommand({
+            Name: KEY_VALUE_STORE_NAME,
+          })
+        );
+        keyValueStoreARN = createResponse.KeyValueStore!.ARN!;
+        keyValueStoreETag = createResponse.ETag!;
+        console.log(`Created new KeyValueStore: ${keyValueStoreARN}`);
+      } else {
+        throw error;
+      }
+    }
 
+    // Make sure the key-value store is ready
     await waitForKeyValueStoreReady(kvsClient, keyValueStoreARN);
   }, LONG_TIMEOUT);
 
   afterAll(async () => {
     vi.setConfig({ testTimeout: LONG_TIMEOUT });
 
-    try {
-      await cfClient.send(
-        new DeleteKeyValueStoreCommand({
-          Name: keyValueStoreName,
-          IfMatch: keyValueStoreETag,
-        })
-      );
-    } catch (error) {
-      console.error("Failed to delete key-value store:", error);
-    }
+    // key-value store is a long-lived resource, so we don't delete it
+    cfClient?.destroy?.();
+    kvsClient?.destroy?.();
   });
 
   it("should use SignatureV4a JS implementation for CFKVS (mocked)", async () => {
@@ -129,7 +137,7 @@ describe("CloudFront KeyValue Store with SignatureV4a (JS Implementation)", () =
   });
 
   it("should describe the key-value store using SignatureV4a", async () => {
-    const response = await kvsClient.send(new DescribeKeyValueStoreCommand({ KvsARN: keyValueStoreARN }));
+    const response = await kvsClient.send(new KVSDescribeCommand({ KvsARN: keyValueStoreARN }));
     expect(response.KvsARN).toBe(keyValueStoreARN);
     expect(["READY", "Deployed"]).toContain(response.Status);
   });
