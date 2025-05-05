@@ -45,16 +45,6 @@ export type AgentUpdateStatus = (typeof AgentUpdateStatus)[keyof typeof AgentUpd
  * <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
- *          <p>The following list includes additional causes for the error:</p>
- *          <ul>
- *             <li>
- *                <p>The <code>RunTask</code> could not be processed because you use managed
- * 					scaling and there is a capacity error because the quota of tasks in the
- * 						<code>PROVISIONING</code> per cluster has been reached. For information
- * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
- * 						service quotas</a>.</p>
- *             </li>
- *          </ul>
  * @public
  */
 export class ClientException extends __BaseException {
@@ -4335,10 +4325,11 @@ export interface DeleteAccountSettingRequest {
   name: SettingName | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the principal. It can be an user, role, or the
+   * <p>The Amazon Resource Name (ARN) of the principal. It can be a user, role, or the
    * 			root user. If you specify the root user, it disables the account setting for all users, roles,
    * 			and the root user of the account unless a user or role explicitly overrides these settings.
    * 			If this field is omitted, the setting is changed only for the authenticated user.</p>
+   *          <p>In order to use this parameter, you must be the root user, or the principal.</p>
    * @public
    */
   principalArn?: string | undefined;
@@ -10243,6 +10234,7 @@ export interface ListAccountSettingsRequest {
   /**
    * <p>The ARN of the principal, which can be a user, role, or the root user. If this field is
    * 			omitted, the account settings are listed only for the authenticated user.</p>
+   *          <p>In order to use this parameter, you must be the root user, or the principal.</p>
    *          <note>
    *             <p>Federated users assume the account setting of the root user and can't have explicit
    * 				account settings set for them.</p>
@@ -11368,6 +11360,7 @@ export interface PutAccountSettingRequest {
    * 			the root user, it modifies the account setting for all users, roles, and the root user of the
    * 			account unless a user or role explicitly overrides these settings. If this field is
    * 			omitted, the setting is changed only for the authenticated user.</p>
+   *          <p>In order to use this parameter, you must be the root user, or the principal.</p>
    *          <note>
    *             <p>You must use the root user when you set the Fargate wait time
    * 					(<code>fargateTaskRetirementWaitPeriod</code>). </p>
@@ -12885,7 +12878,7 @@ export interface StopServiceDeploymentRequest {
 
   /**
    * <p>How you want Amazon ECS to stop the service. </p>
-   *          <p>The ROLLBACK and ABORT stopType aren't supported.</p>
+   *          <p>The valid values are <code>ROLLBACK</code>.</p>
    * @public
    */
   stopType?: StopServiceDeploymentStopType | undefined;
