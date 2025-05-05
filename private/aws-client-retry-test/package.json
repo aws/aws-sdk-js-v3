@@ -21,7 +21,7 @@
     "@aws-sdk/client-s3": "*",
     "@smithy/protocol-http": "^5.1.0",
     "@smithy/types": "^4.2.0",
-    "@smithy/util-retry": "^4.0.2",
+    "@smithy/util-retry": "^4.0.3",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
