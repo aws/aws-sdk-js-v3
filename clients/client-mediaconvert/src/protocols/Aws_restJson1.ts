@@ -123,6 +123,7 @@ import {
   FileSourceSettings,
   FlacSettings,
   ForceIncludeRenditionSize,
+  FrameMetricType,
   Hdr10Metadata,
   HlsAdditionalManifest,
   HlsAdMarkers,
@@ -211,7 +212,6 @@ import {
   H265Settings,
   Hdr10Plus,
   HlsSettings,
-  Job,
   JobSettings,
   M2tsScte35Esam,
   M2tsSettings,
@@ -262,6 +262,7 @@ import {
   ForbiddenException,
   FrameRate,
   InternalServerErrorException,
+  Job,
   JobEngineVersion,
   JobTemplate,
   JobTemplateSettings,
@@ -1829,6 +1830,8 @@ const se___listOfForceIncludeRenditionSize = (input: ForceIncludeRenditionSize[]
     });
 };
 
+// se___listOfFrameMetricType omitted.
+
 /**
  * serializeAws_restJson1__listOfHlsAdditionalManifest
  */
@@ -2303,6 +2306,7 @@ const se_Av1Settings = (input: Av1Settings, context: __SerdeContext): any => {
     gopSize: [, __serializeFloat, `GopSize`],
     maxBitrate: [, , `MaxBitrate`],
     numberBFramesBetweenReferenceFrames: [, , `NumberBFramesBetweenReferenceFrames`],
+    perFrameMetrics: [, _json, `PerFrameMetrics`],
     qvbrSettings: [, (_) => se_Av1QvbrSettings(_, context), `QvbrSettings`],
     rateControlMode: [, , `RateControlMode`],
     slices: [, , `Slices`],
@@ -2331,6 +2335,7 @@ const se_AvcIntraSettings = (input: AvcIntraSettings, context: __SerdeContext): 
     framerateDenominator: [, , `FramerateDenominator`],
     framerateNumerator: [, , `FramerateNumerator`],
     interlaceMode: [, , `InterlaceMode`],
+    perFrameMetrics: [, _json, `PerFrameMetrics`],
     scanTypeConversionMode: [, , `ScanTypeConversionMode`],
     slowPal: [, , `SlowPal`],
     telecine: [, , `Telecine`],
@@ -3106,6 +3111,7 @@ const se_H264Settings = (input: H264Settings, context: __SerdeContext): any => {
     parControl: [, , `ParControl`],
     parDenominator: [, , `ParDenominator`],
     parNumerator: [, , `ParNumerator`],
+    perFrameMetrics: [, _json, `PerFrameMetrics`],
     qualityTuningLevel: [, , `QualityTuningLevel`],
     qvbrSettings: [, (_) => se_H264QvbrSettings(_, context), `QvbrSettings`],
     rateControlMode: [, , `RateControlMode`],
@@ -3170,6 +3176,7 @@ const se_H265Settings = (input: H265Settings, context: __SerdeContext): any => {
     parControl: [, , `ParControl`],
     parDenominator: [, , `ParDenominator`],
     parNumerator: [, , `ParNumerator`],
+    perFrameMetrics: [, _json, `PerFrameMetrics`],
     qualityTuningLevel: [, , `QualityTuningLevel`],
     qvbrSettings: [, (_) => se_H265QvbrSettings(_, context), `QvbrSettings`],
     rateControlMode: [, , `RateControlMode`],
@@ -3813,6 +3820,7 @@ const se_Mpeg2Settings = (input: Mpeg2Settings, context: __SerdeContext): any =>
     parControl: [, , `ParControl`],
     parDenominator: [, , `ParDenominator`],
     parNumerator: [, , `ParNumerator`],
+    perFrameMetrics: [, _json, `PerFrameMetrics`],
     qualityTuningLevel: [, , `QualityTuningLevel`],
     rateControlMode: [, , `RateControlMode`],
     scanTypeConversionMode: [, , `ScanTypeConversionMode`],
@@ -4037,6 +4045,7 @@ const se_OutputGroupSettings = (input: OutputGroupSettings, context: __SerdeCont
     fileGroupSettings: [, (_) => se_FileGroupSettings(_, context), `FileGroupSettings`],
     hlsGroupSettings: [, (_) => se_HlsGroupSettings(_, context), `HlsGroupSettings`],
     msSmoothGroupSettings: [, (_) => se_MsSmoothGroupSettings(_, context), `MsSmoothGroupSettings`],
+    perFrameMetrics: [, _json, `PerFrameMetrics`],
     type: [, , `Type`],
   });
 };
@@ -4106,6 +4115,7 @@ const se_ProresSettings = (input: ProresSettings, context: __SerdeContext): any 
     parControl: [, , `ParControl`],
     parDenominator: [, , `ParDenominator`],
     parNumerator: [, , `ParNumerator`],
+    perFrameMetrics: [, _json, `PerFrameMetrics`],
     scanTypeConversionMode: [, , `ScanTypeConversionMode`],
     slowPal: [, , `SlowPal`],
     telecine: [, , `Telecine`],
@@ -4646,6 +4656,7 @@ const se_XavcSettings = (input: XavcSettings, context: __SerdeContext): any => {
     framerateConversionAlgorithm: [, , `FramerateConversionAlgorithm`],
     framerateDenominator: [, , `FramerateDenominator`],
     framerateNumerator: [, , `FramerateNumerator`],
+    perFrameMetrics: [, _json, `PerFrameMetrics`],
     profile: [, , `Profile`],
     slowPal: [, , `SlowPal`],
     softness: [, , `Softness`],
@@ -4825,6 +4836,8 @@ const de___listOfForceIncludeRenditionSize = (output: any, context: __SerdeConte
     });
   return retVal;
 };
+
+// de___listOfFrameMetricType omitted.
 
 /**
  * deserializeAws_restJson1__listOfHlsAdditionalManifest
@@ -5381,7 +5394,7 @@ const de_AudioNormalizationSettings = (output: any, context: __SerdeContext): Au
 const de_AudioProperties = (output: any, context: __SerdeContext): AudioProperties => {
   return take(output, {
     BitDepth: [, __expectInt32, `bitDepth`],
-    BitRate: [, __expectInt32, `bitRate`],
+    BitRate: [, __expectLong, `bitRate`],
     Channels: [, __expectInt32, `channels`],
     FrameRate: [, (_: any) => de_FrameRate(_, context), `frameRate`],
     LanguageCode: [, __expectString, `languageCode`],
@@ -5478,6 +5491,7 @@ const de_Av1Settings = (output: any, context: __SerdeContext): Av1Settings => {
     GopSize: [, __limitedParseDouble, `gopSize`],
     MaxBitrate: [, __expectInt32, `maxBitrate`],
     NumberBFramesBetweenReferenceFrames: [, __expectInt32, `numberBFramesBetweenReferenceFrames`],
+    PerFrameMetrics: [, _json, `perFrameMetrics`],
     QvbrSettings: [, (_: any) => de_Av1QvbrSettings(_, context), `qvbrSettings`],
     RateControlMode: [, __expectString, `rateControlMode`],
     Slices: [, __expectInt32, `slices`],
@@ -5506,6 +5520,7 @@ const de_AvcIntraSettings = (output: any, context: __SerdeContext): AvcIntraSett
     FramerateDenominator: [, __expectInt32, `framerateDenominator`],
     FramerateNumerator: [, __expectInt32, `framerateNumerator`],
     InterlaceMode: [, __expectString, `interlaceMode`],
+    PerFrameMetrics: [, _json, `perFrameMetrics`],
     ScanTypeConversionMode: [, __expectString, `scanTypeConversionMode`],
     SlowPal: [, __expectString, `slowPal`],
     Telecine: [, __expectString, `telecine`],
@@ -6331,6 +6346,7 @@ const de_H264Settings = (output: any, context: __SerdeContext): H264Settings => 
     ParControl: [, __expectString, `parControl`],
     ParDenominator: [, __expectInt32, `parDenominator`],
     ParNumerator: [, __expectInt32, `parNumerator`],
+    PerFrameMetrics: [, _json, `perFrameMetrics`],
     QualityTuningLevel: [, __expectString, `qualityTuningLevel`],
     QvbrSettings: [, (_: any) => de_H264QvbrSettings(_, context), `qvbrSettings`],
     RateControlMode: [, __expectString, `rateControlMode`],
@@ -6395,6 +6411,7 @@ const de_H265Settings = (output: any, context: __SerdeContext): H265Settings => 
     ParControl: [, __expectString, `parControl`],
     ParDenominator: [, __expectInt32, `parDenominator`],
     ParNumerator: [, __expectInt32, `parNumerator`],
+    PerFrameMetrics: [, _json, `perFrameMetrics`],
     QualityTuningLevel: [, __expectString, `qualityTuningLevel`],
     QvbrSettings: [, (_: any) => de_H265QvbrSettings(_, context), `qvbrSettings`],
     RateControlMode: [, __expectString, `rateControlMode`],
@@ -7148,6 +7165,7 @@ const de_Mpeg2Settings = (output: any, context: __SerdeContext): Mpeg2Settings =
     ParControl: [, __expectString, `parControl`],
     ParDenominator: [, __expectInt32, `parDenominator`],
     ParNumerator: [, __expectInt32, `parNumerator`],
+    PerFrameMetrics: [, _json, `perFrameMetrics`],
     QualityTuningLevel: [, __expectString, `qualityTuningLevel`],
     RateControlMode: [, __expectString, `rateControlMode`],
     ScanTypeConversionMode: [, __expectString, `scanTypeConversionMode`],
@@ -7391,6 +7409,7 @@ const de_OutputGroupSettings = (output: any, context: __SerdeContext): OutputGro
     FileGroupSettings: [, (_: any) => de_FileGroupSettings(_, context), `fileGroupSettings`],
     HlsGroupSettings: [, (_: any) => de_HlsGroupSettings(_, context), `hlsGroupSettings`],
     MsSmoothGroupSettings: [, (_: any) => de_MsSmoothGroupSettings(_, context), `msSmoothGroupSettings`],
+    PerFrameMetrics: [, _json, `perFrameMetrics`],
     Type: [, __expectString, `type`],
   }) as any;
 };
@@ -7478,6 +7497,7 @@ const de_ProresSettings = (output: any, context: __SerdeContext): ProresSettings
     ParControl: [, __expectString, `parControl`],
     ParDenominator: [, __expectInt32, `parDenominator`],
     ParNumerator: [, __expectInt32, `parNumerator`],
+    PerFrameMetrics: [, _json, `perFrameMetrics`],
     ScanTypeConversionMode: [, __expectString, `scanTypeConversionMode`],
     SlowPal: [, __expectString, `slowPal`],
     Telecine: [, __expectString, `telecine`],
@@ -7952,7 +7972,7 @@ const de_VideoPreprocessor = (output: any, context: __SerdeContext): VideoPrepro
 const de_VideoProperties = (output: any, context: __SerdeContext): VideoProperties => {
   return take(output, {
     BitDepth: [, __expectInt32, `bitDepth`],
-    BitRate: [, __expectInt32, `bitRate`],
+    BitRate: [, __expectLong, `bitRate`],
     ColorPrimaries: [, __expectString, `colorPrimaries`],
     FrameRate: [, (_: any) => de_FrameRate(_, context), `frameRate`],
     Height: [, __expectInt32, `height`],
@@ -8148,6 +8168,7 @@ const de_XavcSettings = (output: any, context: __SerdeContext): XavcSettings => 
     FramerateConversionAlgorithm: [, __expectString, `framerateConversionAlgorithm`],
     FramerateDenominator: [, __expectInt32, `framerateDenominator`],
     FramerateNumerator: [, __expectInt32, `framerateNumerator`],
+    PerFrameMetrics: [, _json, `perFrameMetrics`],
     Profile: [, __expectString, `profile`],
     SlowPal: [, __expectString, `slowPal`],
     Softness: [, __expectInt32, `softness`],

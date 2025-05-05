@@ -450,6 +450,9 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *           GopSize: Number("double"),
  *           MaxBitrate: Number("int"),
  *           NumberBFramesBetweenReferenceFrames: Number("int"),
+ *           PerFrameMetrics: [ // __listOfFrameMetricType
+ *             "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ *           ],
  *           QvbrSettings: { // Av1QvbrSettings
  *             QvbrQualityLevel: Number("int"),
  *             QvbrQualityLevelFineTune: Number("double"),
@@ -468,6 +471,9 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *           FramerateDenominator: Number("int"),
  *           FramerateNumerator: Number("int"),
  *           InterlaceMode: "PROGRESSIVE" || "TOP_FIELD" || "BOTTOM_FIELD" || "FOLLOW_TOP_FIELD" || "FOLLOW_BOTTOM_FIELD",
+ *           PerFrameMetrics: [
+ *             "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ *           ],
  *           ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
  *           SlowPal: "DISABLED" || "ENABLED",
  *           Telecine: "NONE" || "HARD",
@@ -518,6 +524,9 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *           ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  *           ParDenominator: Number("int"),
  *           ParNumerator: Number("int"),
+ *           PerFrameMetrics: [
+ *             "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ *           ],
  *           QualityTuningLevel: "SINGLE_PASS" || "SINGLE_PASS_HQ" || "MULTI_PASS_HQ",
  *           QvbrSettings: { // H264QvbrSettings
  *             MaxAverageBitrate: Number("int"),
@@ -572,6 +581,9 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *           ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  *           ParDenominator: Number("int"),
  *           ParNumerator: Number("int"),
+ *           PerFrameMetrics: [
+ *             "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ *           ],
  *           QualityTuningLevel: "SINGLE_PASS" || "SINGLE_PASS_HQ" || "MULTI_PASS_HQ",
  *           QvbrSettings: { // H265QvbrSettings
  *             MaxAverageBitrate: Number("int"),
@@ -616,6 +628,9 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *           ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  *           ParDenominator: Number("int"),
  *           ParNumerator: Number("int"),
+ *           PerFrameMetrics: [
+ *             "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ *           ],
  *           QualityTuningLevel: "SINGLE_PASS" || "MULTI_PASS",
  *           RateControlMode: "VBR" || "CBR",
  *           ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
@@ -638,6 +653,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *           ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  *           ParDenominator: Number("int"),
  *           ParNumerator: Number("int"),
+ *           PerFrameMetrics: "<__listOfFrameMetricType>",
  *           ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
  *           SlowPal: "DISABLED" || "ENABLED",
  *           Telecine: "NONE" || "HARD",
@@ -701,6 +717,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *           FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER" || "MAINTAIN_FRAME_COUNT",
  *           FramerateDenominator: Number("int"),
  *           FramerateNumerator: Number("int"),
+ *           PerFrameMetrics: "<__listOfFrameMetricType>",
  *           Profile: "XAVC_HD_INTRA_CBG" || "XAVC_4K_INTRA_CBG" || "XAVC_4K_INTRA_VBR" || "XAVC_HD" || "XAVC_4K",
  *           SlowPal: "DISABLED" || "ENABLED",
  *           Softness: Number("int"),
@@ -1287,6 +1304,9 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //             GopSize: Number("double"),
  * //             MaxBitrate: Number("int"),
  * //             NumberBFramesBetweenReferenceFrames: Number("int"),
+ * //             PerFrameMetrics: [ // __listOfFrameMetricType
+ * //               "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //             ],
  * //             QvbrSettings: { // Av1QvbrSettings
  * //               QvbrQualityLevel: Number("int"),
  * //               QvbrQualityLevelFineTune: Number("double"),
@@ -1305,6 +1325,9 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //             FramerateDenominator: Number("int"),
  * //             FramerateNumerator: Number("int"),
  * //             InterlaceMode: "PROGRESSIVE" || "TOP_FIELD" || "BOTTOM_FIELD" || "FOLLOW_TOP_FIELD" || "FOLLOW_BOTTOM_FIELD",
+ * //             PerFrameMetrics: [
+ * //               "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //             ],
  * //             ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
  * //             SlowPal: "DISABLED" || "ENABLED",
  * //             Telecine: "NONE" || "HARD",
@@ -1355,6 +1378,9 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //             ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //             ParDenominator: Number("int"),
  * //             ParNumerator: Number("int"),
+ * //             PerFrameMetrics: [
+ * //               "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //             ],
  * //             QualityTuningLevel: "SINGLE_PASS" || "SINGLE_PASS_HQ" || "MULTI_PASS_HQ",
  * //             QvbrSettings: { // H264QvbrSettings
  * //               MaxAverageBitrate: Number("int"),
@@ -1409,6 +1435,9 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //             ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //             ParDenominator: Number("int"),
  * //             ParNumerator: Number("int"),
+ * //             PerFrameMetrics: [
+ * //               "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //             ],
  * //             QualityTuningLevel: "SINGLE_PASS" || "SINGLE_PASS_HQ" || "MULTI_PASS_HQ",
  * //             QvbrSettings: { // H265QvbrSettings
  * //               MaxAverageBitrate: Number("int"),
@@ -1453,6 +1482,9 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //             ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //             ParDenominator: Number("int"),
  * //             ParNumerator: Number("int"),
+ * //             PerFrameMetrics: [
+ * //               "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //             ],
  * //             QualityTuningLevel: "SINGLE_PASS" || "MULTI_PASS",
  * //             RateControlMode: "VBR" || "CBR",
  * //             ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
@@ -1475,6 +1507,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //             ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //             ParDenominator: Number("int"),
  * //             ParNumerator: Number("int"),
+ * //             PerFrameMetrics: "<__listOfFrameMetricType>",
  * //             ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
  * //             SlowPal: "DISABLED" || "ENABLED",
  * //             Telecine: "NONE" || "HARD",
@@ -1538,6 +1571,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //             FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER" || "MAINTAIN_FRAME_COUNT",
  * //             FramerateDenominator: Number("int"),
  * //             FramerateNumerator: Number("int"),
+ * //             PerFrameMetrics: "<__listOfFrameMetricType>",
  * //             Profile: "XAVC_HD_INTRA_CBG" || "XAVC_4K_INTRA_CBG" || "XAVC_4K_INTRA_VBR" || "XAVC_HD" || "XAVC_4K",
  * //             SlowPal: "DISABLED" || "ENABLED",
  * //             Softness: Number("int"),

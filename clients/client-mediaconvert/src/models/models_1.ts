@@ -1,11 +1,8 @@
 // smithy-typescript generated code
 import {
-  AccelerationSettings,
-  AccelerationStatus,
   AudioDescription,
   AutomatedEncodingSettings,
   AvailBlanking,
-  BillingTagsSource,
   CaptionDescription,
   CmafGroupSettings,
   ColorConversion3DLUTSetting,
@@ -14,26 +11,36 @@ import {
   EsamSettings,
   ExtendedDataServices,
   FileGroupSettings,
+  FrameMetricType,
   Hdr10Metadata,
   HlsGroupSettings,
-  HopDestination,
   Id3Insertion,
   ImageInserter,
   Input,
-  JobMessages,
-  JobPhase,
   KantarWatermarkSettings,
   MotionImageInserter,
   MsSmoothAdditionalManifest,
   MsSmoothAudioDeduplication,
   MsSmoothEncryptionSettings,
-  MsSmoothFragmentLengthControl,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
-  OutputGroupDetail,
-  QueueTransition,
   Rectangle,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const MsSmoothFragmentLengthControl = {
+  EXACT: "EXACT",
+  GOP_MULTIPLE: "GOP_MULTIPLE",
+} as const;
+
+/**
+ * @public
+ */
+export type MsSmoothFragmentLengthControl =
+  (typeof MsSmoothFragmentLengthControl)[keyof typeof MsSmoothFragmentLengthControl];
 
 /**
  * @public
@@ -154,6 +161,12 @@ export interface OutputGroupSettings {
    * @public
    */
   MsSmoothGroupSettings?: MsSmoothGroupSettings | undefined;
+
+  /**
+   * Optionally choose one or more per frame metric reports to generate along with your output. You can use these metrics to analyze your video output according to one or more commonly used image quality metrics. You can specify per frame metrics for output groups or for individual outputs. When you do, MediaConvert writes a CSV (Comma-Separated Values) file to your S3 output destination, named after the video, video codec, and metric type. For example: video_h264_PSNR.csv Jobs that generate per frame metrics will take longer to complete, depending on the resolution and complexity of your output. For example, some 4K jobs might take up to twice as long to complete. Note that when analyzing the video quality of your output, or when comparing the video quality of multiple different outputs, we generally also recommend a detailed visual review in a controlled environment. You can choose from the following per frame metrics: * PSNR: Peak Signal-to-Noise Ratio * SSIM: Structural Similarity Index Measure * MS_SSIM: Multi-Scale Similarity Index Measure * PSNR_HVS: Peak Signal-to-Noise Ratio, Human Visual System * VMAF: Video Multi-Method Assessment Fusion * QVBR: Quality-Defined Variable Bitrate. This option is only available when your output uses the QVBR rate control mode.
+   * @public
+   */
+  PerFrameMetrics?: FrameMetricType[] | undefined;
 
   /**
    * Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth Streaming, CMAF)
@@ -2167,6 +2180,12 @@ export interface Av1Settings {
   NumberBFramesBetweenReferenceFrames?: number | undefined;
 
   /**
+   * Optionally choose one or more per frame metric reports to generate along with your output. You can use these metrics to analyze your video output according to one or more commonly used image quality metrics. You can specify per frame metrics for output groups or for individual outputs. When you do, MediaConvert writes a CSV (Comma-Separated Values) file to your S3 output destination, named after the video, video codec, and metric type. For example: video_h264_PSNR.csv Jobs that generate per frame metrics will take longer to complete, depending on the resolution and complexity of your output. For example, some 4K jobs might take up to twice as long to complete. Note that when analyzing the video quality of your output, or when comparing the video quality of multiple different outputs, we generally also recommend a detailed visual review in a controlled environment. You can choose from the following per frame metrics: * PSNR: Peak Signal-to-Noise Ratio * SSIM: Structural Similarity Index Measure * MS_SSIM: Multi-Scale Similarity Index Measure * PSNR_HVS: Peak Signal-to-Noise Ratio, Human Visual System * VMAF: Video Multi-Method Assessment Fusion * QVBR: Quality-Defined Variable Bitrate. This option is only available when your output uses the QVBR rate control mode.
+   * @public
+   */
+  PerFrameMetrics?: FrameMetricType[] | undefined;
+
+  /**
    * Settings for quality-defined variable bitrate encoding with the H.265 codec. Use these settings only when you set QVBR for Rate control mode.
    * @public
    */
@@ -2371,6 +2390,12 @@ export interface AvcIntraSettings {
    * @public
    */
   InterlaceMode?: AvcIntraInterlaceMode | undefined;
+
+  /**
+   * Optionally choose one or more per frame metric reports to generate along with your output. You can use these metrics to analyze your video output according to one or more commonly used image quality metrics. You can specify per frame metrics for output groups or for individual outputs. When you do, MediaConvert writes a CSV (Comma-Separated Values) file to your S3 output destination, named after the video, video codec, and metric type. For example: video_h264_PSNR.csv Jobs that generate per frame metrics will take longer to complete, depending on the resolution and complexity of your output. For example, some 4K jobs might take up to twice as long to complete. Note that when analyzing the video quality of your output, or when comparing the video quality of multiple different outputs, we generally also recommend a detailed visual review in a controlled environment. You can choose from the following per frame metrics: * PSNR: Peak Signal-to-Noise Ratio * SSIM: Structural Similarity Index Measure * MS_SSIM: Multi-Scale Similarity Index Measure * PSNR_HVS: Peak Signal-to-Noise Ratio, Human Visual System * VMAF: Video Multi-Method Assessment Fusion * QVBR: Quality-Defined Variable Bitrate. This option is only available when your output uses the QVBR rate control mode.
+   * @public
+   */
+  PerFrameMetrics?: FrameMetricType[] | undefined;
 
   /**
    * Use this setting for interlaced outputs, when your output frame rate is half of your input frame rate. In this situation, choose Optimized interlacing to create a better quality interlaced output. In this case, each progressive frame from the input corresponds to an interlaced field in the output. Keep the default value, Basic interlacing, for all other output frame rates. With basic interlacing, MediaConvert performs any frame rate conversion first and then interlaces the frames. When you choose Optimized interlacing and you set your output frame rate to a value that isn't suitable for optimized interlacing, MediaConvert automatically falls back to basic interlacing. Required settings: To use optimized interlacing, you must set Telecine to None or Soft. You can't use optimized interlacing for hard telecine outputs. You must also set Interlace mode to a value other than Progressive.
@@ -3181,6 +3206,12 @@ export interface H264Settings {
   ParNumerator?: number | undefined;
 
   /**
+   * Optionally choose one or more per frame metric reports to generate along with your output. You can use these metrics to analyze your video output according to one or more commonly used image quality metrics. You can specify per frame metrics for output groups or for individual outputs. When you do, MediaConvert writes a CSV (Comma-Separated Values) file to your S3 output destination, named after the video, video codec, and metric type. For example: video_h264_PSNR.csv Jobs that generate per frame metrics will take longer to complete, depending on the resolution and complexity of your output. For example, some 4K jobs might take up to twice as long to complete. Note that when analyzing the video quality of your output, or when comparing the video quality of multiple different outputs, we generally also recommend a detailed visual review in a controlled environment. You can choose from the following per frame metrics: * PSNR: Peak Signal-to-Noise Ratio * SSIM: Structural Similarity Index Measure * MS_SSIM: Multi-Scale Similarity Index Measure * PSNR_HVS: Peak Signal-to-Noise Ratio, Human Visual System * VMAF: Video Multi-Method Assessment Fusion * QVBR: Quality-Defined Variable Bitrate. This option is only available when your output uses the QVBR rate control mode.
+   * @public
+   */
+  PerFrameMetrics?: FrameMetricType[] | undefined;
+
+  /**
    * The Quality tuning level you choose represents a trade-off between the encoding speed of your job and the output video quality. For the fastest encoding speed at the cost of video quality: Choose Single pass. For a good balance between encoding speed and video quality: Leave blank or keep the default value Single pass HQ. For the best video quality, at the cost of encoding speed: Choose Multi pass HQ. MediaConvert performs an analysis pass on your input followed by an encoding pass. Outputs that use this feature incur pro-tier pricing.
    * @public
    */
@@ -3900,6 +3931,12 @@ export interface H265Settings {
   ParNumerator?: number | undefined;
 
   /**
+   * Optionally choose one or more per frame metric reports to generate along with your output. You can use these metrics to analyze your video output according to one or more commonly used image quality metrics. You can specify per frame metrics for output groups or for individual outputs. When you do, MediaConvert writes a CSV (Comma-Separated Values) file to your S3 output destination, named after the video, video codec, and metric type. For example: video_h264_PSNR.csv Jobs that generate per frame metrics will take longer to complete, depending on the resolution and complexity of your output. For example, some 4K jobs might take up to twice as long to complete. Note that when analyzing the video quality of your output, or when comparing the video quality of multiple different outputs, we generally also recommend a detailed visual review in a controlled environment. You can choose from the following per frame metrics: * PSNR: Peak Signal-to-Noise Ratio * SSIM: Structural Similarity Index Measure * MS_SSIM: Multi-Scale Similarity Index Measure * PSNR_HVS: Peak Signal-to-Noise Ratio, Human Visual System * VMAF: Video Multi-Method Assessment Fusion * QVBR: Quality-Defined Variable Bitrate. This option is only available when your output uses the QVBR rate control mode.
+   * @public
+   */
+  PerFrameMetrics?: FrameMetricType[] | undefined;
+
+  /**
    * Optional. Use Quality tuning level to choose how you want to trade off encoding speed for output video quality. The default behavior is faster, lower quality, single-pass encoding.
    * @public
    */
@@ -4418,6 +4455,12 @@ export interface Mpeg2Settings {
   ParNumerator?: number | undefined;
 
   /**
+   * Optionally choose one or more per frame metric reports to generate along with your output. You can use these metrics to analyze your video output according to one or more commonly used image quality metrics. You can specify per frame metrics for output groups or for individual outputs. When you do, MediaConvert writes a CSV (Comma-Separated Values) file to your S3 output destination, named after the video, video codec, and metric type. For example: video_h264_PSNR.csv Jobs that generate per frame metrics will take longer to complete, depending on the resolution and complexity of your output. For example, some 4K jobs might take up to twice as long to complete. Note that when analyzing the video quality of your output, or when comparing the video quality of multiple different outputs, we generally also recommend a detailed visual review in a controlled environment. You can choose from the following per frame metrics: * PSNR: Peak Signal-to-Noise Ratio * SSIM: Structural Similarity Index Measure * MS_SSIM: Multi-Scale Similarity Index Measure * PSNR_HVS: Peak Signal-to-Noise Ratio, Human Visual System * VMAF: Video Multi-Method Assessment Fusion * QVBR: Quality-Defined Variable Bitrate. This option is only available when your output uses the QVBR rate control mode.
+   * @public
+   */
+  PerFrameMetrics?: FrameMetricType[] | undefined;
+
+  /**
    * Optional. Use Quality tuning level to choose how you want to trade off encoding speed for output video quality. The default behavior is faster, lower quality, single-pass encoding.
    * @public
    */
@@ -4679,6 +4722,12 @@ export interface ProresSettings {
    * @public
    */
   ParNumerator?: number | undefined;
+
+  /**
+   * Optionally choose one or more per frame metric reports to generate along with your output. You can use these metrics to analyze your video output according to one or more commonly used image quality metrics. You can specify per frame metrics for output groups or for individual outputs. When you do, MediaConvert writes a CSV (Comma-Separated Values) file to your S3 output destination, named after the video, video codec, and metric type. For example: video_h264_PSNR.csv Jobs that generate per frame metrics will take longer to complete, depending on the resolution and complexity of your output. For example, some 4K jobs might take up to twice as long to complete. Note that when analyzing the video quality of your output, or when comparing the video quality of multiple different outputs, we generally also recommend a detailed visual review in a controlled environment. You can choose from the following per frame metrics: * PSNR: Peak Signal-to-Noise Ratio * SSIM: Structural Similarity Index Measure * MS_SSIM: Multi-Scale Similarity Index Measure * PSNR_HVS: Peak Signal-to-Noise Ratio, Human Visual System * VMAF: Video Multi-Method Assessment Fusion * QVBR: Quality-Defined Variable Bitrate. This option is only available when your output uses the QVBR rate control mode.
+   * @public
+   */
+  PerFrameMetrics?: FrameMetricType[] | undefined;
 
   /**
    * Use this setting for interlaced outputs, when your output frame rate is half of your input frame rate. In this situation, choose Optimized interlacing to create a better quality interlaced output. In this case, each progressive frame from the input corresponds to an interlaced field in the output. Keep the default value, Basic interlacing, for all other output frame rates. With basic interlacing, MediaConvert performs any frame rate conversion first and then interlaces the frames. When you choose Optimized interlacing and you set your output frame rate to a value that isn't suitable for optimized interlacing, MediaConvert automatically falls back to basic interlacing. Required settings: To use optimized interlacing, you must set Telecine to None or Soft. You can't use optimized interlacing for hard telecine outputs. You must also set Interlace mode to a value other than Progressive.
@@ -5834,6 +5883,12 @@ export interface XavcSettings {
    * @public
    */
   FramerateNumerator?: number | undefined;
+
+  /**
+   * Optionally choose one or more per frame metric reports to generate along with your output. You can use these metrics to analyze your video output according to one or more commonly used image quality metrics. You can specify per frame metrics for output groups or for individual outputs. When you do, MediaConvert writes a CSV (Comma-Separated Values) file to your S3 output destination, named after the video, video codec, and metric type. For example: video_h264_PSNR.csv Jobs that generate per frame metrics will take longer to complete, depending on the resolution and complexity of your output. For example, some 4K jobs might take up to twice as long to complete. Note that when analyzing the video quality of your output, or when comparing the video quality of multiple different outputs, we generally also recommend a detailed visual review in a controlled environment. You can choose from the following per frame metrics: * PSNR: Peak Signal-to-Noise Ratio * SSIM: Structural Similarity Index Measure * MS_SSIM: Multi-Scale Similarity Index Measure * PSNR_HVS: Peak Signal-to-Noise Ratio, Human Visual System * VMAF: Video Multi-Method Assessment Fusion * QVBR: Quality-Defined Variable Bitrate. This option is only available when your output uses the QVBR rate control mode.
+   * @public
+   */
+  PerFrameMetrics?: FrameMetricType[] | undefined;
 
   /**
    * Specify the XAVC profile for this output. For more information, see the Sony documentation at https://www.xavc-info.org/. Note that MediaConvert doesn't support the interlaced video XAVC operating points for XAVC_HD_INTRA_CBG. To create an interlaced XAVC output, choose the profile XAVC_HD.
@@ -7015,7 +7070,7 @@ export interface JobSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -7167,184 +7222,4 @@ export interface WarningGroup {
    * @public
    */
   Count: number | undefined;
-}
-
-/**
- * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
- * @public
- */
-export interface Job {
-  /**
-   * Accelerated transcoding can significantly speed up jobs with long, visually complex content.
-   * @public
-   */
-  AccelerationSettings?: AccelerationSettings | undefined;
-
-  /**
-   * Describes whether the current job is running with accelerated transcoding. For jobs that have Acceleration (AccelerationMode) set to DISABLED, AccelerationStatus is always NOT_APPLICABLE. For jobs that have Acceleration (AccelerationMode) set to ENABLED or PREFERRED, AccelerationStatus is one of the other states. AccelerationStatus is IN_PROGRESS initially, while the service determines whether the input files and job settings are compatible with accelerated transcoding. If they are, AcclerationStatus is ACCELERATED. If your input files and job settings aren't compatible with accelerated transcoding, the service either fails your job or runs it without accelerated transcoding, depending on how you set Acceleration (AccelerationMode). When the service runs your job without accelerated transcoding, AccelerationStatus is NOT_ACCELERATED.
-   * @public
-   */
-  AccelerationStatus?: AccelerationStatus | undefined;
-
-  /**
-   * An identifier for this resource that is unique within all of AWS.
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * The tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up.
-   * @public
-   */
-  BillingTagsSource?: BillingTagsSource | undefined;
-
-  /**
-   * Prevent duplicate jobs from being created and ensure idempotency for your requests. A client request token can be any string that includes up to 64 ASCII characters. If you reuse a client request token within one minute of a successful request, the API returns the job details of the original request instead. For more information see https://docs.aws.amazon.com/mediaconvert/latest/apireference/idempotency.html.
-   * @public
-   */
-  ClientRequestToken?: string | undefined;
-
-  /**
-   * The time, in Unix epoch format in seconds, when the job got created.
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * A job's phase can be PROBING, TRANSCODING OR UPLOADING
-   * @public
-   */
-  CurrentPhase?: JobPhase | undefined;
-
-  /**
-   * Error code for the job
-   * @public
-   */
-  ErrorCode?: number | undefined;
-
-  /**
-   * Error message of Job
-   * @public
-   */
-  ErrorMessage?: string | undefined;
-
-  /**
-   * Optional list of hop destinations.
-   * @public
-   */
-  HopDestinations?: HopDestination[] | undefined;
-
-  /**
-   * A portion of the job's ARN, unique within your AWS Elemental MediaConvert resources
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * The Job engine version that you requested for your job. Valid versions are in a YYYY-MM-DD format.
-   * @public
-   */
-  JobEngineVersionRequested?: string | undefined;
-
-  /**
-   * The Job engine version that your job used. Job engine versions are in a YYYY-MM-DD format. When you request an expired version, the response for this property will be empty. Requests to create jobs with an expired version result in a regular job, as if no specific Job engine version was requested. When you request an invalid version, the response for this property will be empty. Requests to create jobs with an invalid version result in a 400 error message, and no job is created.
-   * @public
-   */
-  JobEngineVersionUsed?: string | undefined;
-
-  /**
-   * An estimate of how far your job has progressed. This estimate is shown as a percentage of the total time from when your job leaves its queue to when your output files appear in your output Amazon S3 bucket. AWS Elemental MediaConvert provides jobPercentComplete in CloudWatch STATUS_UPDATE events and in the response to GetJob and ListJobs requests. The jobPercentComplete estimate is reliable for the following input containers: Quicktime, Transport Stream, MP4, and MXF. For some jobs, the service can't provide information about job progress. In those cases, jobPercentComplete returns a null value.
-   * @public
-   */
-  JobPercentComplete?: number | undefined;
-
-  /**
-   * The job template that the job is created from, if it is created from a job template.
-   * @public
-   */
-  JobTemplate?: string | undefined;
-
-  /**
-   * Provides messages from the service about jobs that you have already successfully submitted.
-   * @public
-   */
-  Messages?: JobMessages | undefined;
-
-  /**
-   * List of output group details
-   * @public
-   */
-  OutputGroupDetails?: OutputGroupDetail[] | undefined;
-
-  /**
-   * Relative priority on the job.
-   * @public
-   */
-  Priority?: number | undefined;
-
-  /**
-   * When you create a job, you can specify a queue to send it to. If you don't specify, the job will go to the default queue. For more about queues, see the User Guide topic at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
-   * @public
-   */
-  Queue?: string | undefined;
-
-  /**
-   * The job's queue hopping history.
-   * @public
-   */
-  QueueTransitions?: QueueTransition[] | undefined;
-
-  /**
-   * The number of times that the service automatically attempted to process your job after encountering an error.
-   * @public
-   */
-  RetryCount?: number | undefined;
-
-  /**
-   * The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html
-   * @public
-   */
-  Role: string | undefined;
-
-  /**
-   * JobSettings contains all the transcode settings for a job.
-   * @public
-   */
-  Settings: JobSettings | undefined;
-
-  /**
-   * Enable this setting when you run a test job to estimate how many reserved transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your job from an on-demand queue with similar performance to what you will see with one RTS in a reserved queue. This setting is disabled by default.
-   * @public
-   */
-  SimulateReservedQueue?: SimulateReservedQueue | undefined;
-
-  /**
-   * A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
-   * @public
-   */
-  Status?: JobStatus | undefined;
-
-  /**
-   * Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
-   * @public
-   */
-  StatusUpdateInterval?: StatusUpdateInterval | undefined;
-
-  /**
-   * Information about when jobs are submitted, started, and finished is specified in Unix epoch format in seconds.
-   * @public
-   */
-  Timing?: Timing | undefined;
-
-  /**
-   * User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.
-   * @public
-   */
-  UserMetadata?: Record<string, string> | undefined;
-
-  /**
-   * Contains any warning messages for the job. Use to help identify potential issues with your input, output, or job. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/warning_codes.html
-   * @public
-   */
-  Warnings?: WarningGroup[] | undefined;
 }

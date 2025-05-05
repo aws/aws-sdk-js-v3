@@ -54,7 +54,7 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  * //           { // Track
  * //             AudioProperties: { // AudioProperties
  * //               BitDepth: Number("int"),
- * //               BitRate: Number("int"),
+ * //               BitRate: Number("long"),
  * //               Channels: Number("int"),
  * //               FrameRate: { // FrameRate
  * //                 Denominator: Number("int"),
@@ -72,7 +72,7 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  * //             TrackType: "video" || "audio" || "data",
  * //             VideoProperties: { // VideoProperties
  * //               BitDepth: Number("int"),
- * //               BitRate: Number("int"),
+ * //               BitRate: Number("long"),
  * //               ColorPrimaries: "ITU_709" || "UNSPECIFIED" || "RESERVED" || "ITU_470M" || "ITU_470BG" || "SMPTE_170M" || "SMPTE_240M" || "GENERIC_FILM" || "ITU_2020" || "SMPTE_428_1" || "SMPTE_431_2" || "SMPTE_EG_432_1" || "IPT" || "SMPTE_2067XYZ" || "EBU_3213_E" || "LAST",
  * //               FrameRate: {
  * //                 Denominator: Number("int"),

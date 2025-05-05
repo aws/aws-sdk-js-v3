@@ -180,7 +180,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                   ChannelsIn: Number("int"),
  * //                   ChannelsOut: Number("int"),
  * //                 },
- * //                 SelectorType: "PID" || "TRACK" || "LANGUAGE_CODE" || "HLS_RENDITION_GROUP",
+ * //                 SelectorType: "PID" || "TRACK" || "LANGUAGE_CODE" || "HLS_RENDITION_GROUP" || "ALL_PCM",
  * //                 Tracks: [
  * //                   Number("int"),
  * //                 ],
@@ -752,6 +752,9 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                 FragmentLengthControl: "EXACT" || "GOP_MULTIPLE",
  * //                 ManifestEncoding: "UTF8" || "UTF16",
  * //               },
+ * //               PerFrameMetrics: [ // __listOfFrameMetricType
+ * //                 "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //               ],
  * //               Type: "HLS_GROUP_SETTINGS" || "DASH_ISO_GROUP_SETTINGS" || "FILE_GROUP_SETTINGS" || "MS_SMOOTH_GROUP_SETTINGS" || "CMAF_GROUP_SETTINGS",
  * //             },
  * //             Outputs: [ // __listOfOutput
@@ -1181,6 +1184,9 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                       GopSize: Number("double"),
  * //                       MaxBitrate: Number("int"),
  * //                       NumberBFramesBetweenReferenceFrames: Number("int"),
+ * //                       PerFrameMetrics: [
+ * //                         "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //                       ],
  * //                       QvbrSettings: { // Av1QvbrSettings
  * //                         QvbrQualityLevel: Number("int"),
  * //                         QvbrQualityLevelFineTune: Number("double"),
@@ -1199,6 +1205,9 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                       FramerateDenominator: Number("int"),
  * //                       FramerateNumerator: Number("int"),
  * //                       InterlaceMode: "PROGRESSIVE" || "TOP_FIELD" || "BOTTOM_FIELD" || "FOLLOW_TOP_FIELD" || "FOLLOW_BOTTOM_FIELD",
+ * //                       PerFrameMetrics: [
+ * //                         "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //                       ],
  * //                       ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
  * //                       SlowPal: "DISABLED" || "ENABLED",
  * //                       Telecine: "NONE" || "HARD",
@@ -1249,6 +1258,9 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                       ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //                       ParDenominator: Number("int"),
  * //                       ParNumerator: Number("int"),
+ * //                       PerFrameMetrics: [
+ * //                         "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //                       ],
  * //                       QualityTuningLevel: "SINGLE_PASS" || "SINGLE_PASS_HQ" || "MULTI_PASS_HQ",
  * //                       QvbrSettings: { // H264QvbrSettings
  * //                         MaxAverageBitrate: Number("int"),
@@ -1303,6 +1315,9 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                       ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //                       ParDenominator: Number("int"),
  * //                       ParNumerator: Number("int"),
+ * //                       PerFrameMetrics: [
+ * //                         "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //                       ],
  * //                       QualityTuningLevel: "SINGLE_PASS" || "SINGLE_PASS_HQ" || "MULTI_PASS_HQ",
  * //                       QvbrSettings: { // H265QvbrSettings
  * //                         MaxAverageBitrate: Number("int"),
@@ -1347,6 +1362,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                       ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //                       ParDenominator: Number("int"),
  * //                       ParNumerator: Number("int"),
+ * //                       PerFrameMetrics: "<__listOfFrameMetricType>",
  * //                       QualityTuningLevel: "SINGLE_PASS" || "MULTI_PASS",
  * //                       RateControlMode: "VBR" || "CBR",
  * //                       ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
@@ -1369,6 +1385,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                       ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //                       ParDenominator: Number("int"),
  * //                       ParNumerator: Number("int"),
+ * //                       PerFrameMetrics: "<__listOfFrameMetricType>",
  * //                       ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
  * //                       SlowPal: "DISABLED" || "ENABLED",
  * //                       Telecine: "NONE" || "HARD",
@@ -1432,6 +1449,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                       FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER" || "MAINTAIN_FRAME_COUNT",
  * //                       FramerateDenominator: Number("int"),
  * //                       FramerateNumerator: Number("int"),
+ * //                       PerFrameMetrics: "<__listOfFrameMetricType>",
  * //                       Profile: "XAVC_HD_INTRA_CBG" || "XAVC_4K_INTRA_CBG" || "XAVC_4K_INTRA_VBR" || "XAVC_HD" || "XAVC_4K",
  * //                       SlowPal: "DISABLED" || "ENABLED",
  * //                       Softness: Number("int"),

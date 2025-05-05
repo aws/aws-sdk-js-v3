@@ -3164,6 +3164,24 @@ export interface Endpoint {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const FrameMetricType = {
+  MS_SSIM: "MS_SSIM",
+  PSNR: "PSNR",
+  PSNR_HVS: "PSNR_HVS",
+  QVBR: "QVBR",
+  SSIM: "SSIM",
+  VMAF: "VMAF",
+} as const;
+
+/**
+ * @public
+ */
+export type FrameMetricType = (typeof FrameMetricType)[keyof typeof FrameMetricType];
+
+/**
  * Specify the details for each additional HLS manifest that you want the service to generate for this output group. Each manifest can reference a different subset of outputs in the group.
  * @public
  */
@@ -3401,6 +3419,7 @@ export interface HlsRenditionGroupSettings {
  * @enum
  */
 export const AudioSelectorType = {
+  ALL_PCM: "ALL_PCM",
   HLS_RENDITION_GROUP: "HLS_RENDITION_GROUP",
   LANGUAGE_CODE: "LANGUAGE_CODE",
   PID: "PID",
@@ -4007,7 +4026,7 @@ export const DynamicAudioSelectorType = {
 export type DynamicAudioSelectorType = (typeof DynamicAudioSelectorType)[keyof typeof DynamicAudioSelectorType];
 
 /**
- * Use Dynamic audio selectors when you do not know the track layout of your source when you submit your job, but want to select multiple audio tracks. When you include an audio track in your output and specify this Dynamic audio selector as the Audio source, MediaConvert creates an output audio track for each dynamically selected track. Note that when you include a Dynamic audio selector for two or more inputs, each input must have the same number of audio tracks and audio channels.
+ * Use Dynamic audio selectors when you do not know the track layout of your source when you submit your job, but want to select multiple audio tracks. When you include an audio track in your output and specify this Dynamic audio selector as the Audio source, MediaConvert creates an audio track within that output for each dynamically selected track. Note that when you include a Dynamic audio selector for two or more inputs, each input must have the same number of audio tracks and audio channels.
  * @public
  */
 export interface DynamicAudioSelector {
@@ -5582,7 +5601,7 @@ export interface AutomatedAbrSettings {
   MaxAbrBitrate?: number | undefined;
 
   /**
-   * Optional. Specify the QVBR quality level to use for all renditions in your automated ABR stack. To have MediaConvert automatically determine the quality level: Leave blank. To manually specify a quality level: Enter an integer from 1 to 10. MediaConvert will use a quality level up to the value that you specify, depending on your source. For more information about QVBR quality levels, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/qvbr-guidelines.html
+   * Optional. Specify the QVBR quality level to use for all renditions in your automated ABR stack. To have MediaConvert automatically determine the quality level: Leave blank. To manually specify a quality level: Enter a value from 1 to 10. MediaConvert will use a quality level up to the value that you specify, depending on your source. For more information about QVBR quality levels, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/qvbr-guidelines.html
    * @public
    */
   MaxQualityLevel?: number | undefined;
@@ -7508,18 +7527,3 @@ export interface MsSmoothEncryptionSettings {
    */
   SpekeKeyProvider?: SpekeKeyProvider | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MsSmoothFragmentLengthControl = {
-  EXACT: "EXACT",
-  GOP_MULTIPLE: "GOP_MULTIPLE",
-} as const;
-
-/**
- * @public
- */
-export type MsSmoothFragmentLengthControl =
-  (typeof MsSmoothFragmentLengthControl)[keyof typeof MsSmoothFragmentLengthControl];
