@@ -1112,6 +1112,18 @@ export interface OverrideProjectOwnersPolicyGrantDetail {
 }
 
 /**
+ * <p>Specifies the domain unit(s) whose projects can use this asset type while creating asset or asset revisions.</p>
+ * @public
+ */
+export interface UseAssetTypePolicyGrantDetail {
+  /**
+   * <p>The ID of the domain unit.</p>
+   * @public
+   */
+  domainUnitId?: string | undefined;
+}
+
+/**
  * <p>The details of the policy grant.</p>
  * @public
  */
@@ -1129,6 +1141,7 @@ export type PolicyGrantDetail =
   | PolicyGrantDetail.DelegateCreateEnvironmentProfileMember
   | PolicyGrantDetail.OverrideDomainUnitOwnersMember
   | PolicyGrantDetail.OverrideProjectOwnersMember
+  | PolicyGrantDetail.UseAssetTypeMember
   | PolicyGrantDetail.$UnknownMember;
 
 /**
@@ -1153,6 +1166,7 @@ export namespace PolicyGrantDetail {
     createEnvironment?: never;
     createEnvironmentFromBlueprint?: never;
     createProjectFromProjectProfile?: never;
+    useAssetType?: never;
     $unknown?: never;
   }
 
@@ -1174,6 +1188,7 @@ export namespace PolicyGrantDetail {
     createEnvironment?: never;
     createEnvironmentFromBlueprint?: never;
     createProjectFromProjectProfile?: never;
+    useAssetType?: never;
     $unknown?: never;
   }
 
@@ -1195,6 +1210,7 @@ export namespace PolicyGrantDetail {
     createEnvironment?: never;
     createEnvironmentFromBlueprint?: never;
     createProjectFromProjectProfile?: never;
+    useAssetType?: never;
     $unknown?: never;
   }
 
@@ -1216,6 +1232,7 @@ export namespace PolicyGrantDetail {
     createEnvironment?: never;
     createEnvironmentFromBlueprint?: never;
     createProjectFromProjectProfile?: never;
+    useAssetType?: never;
     $unknown?: never;
   }
 
@@ -1237,6 +1254,7 @@ export namespace PolicyGrantDetail {
     createEnvironment?: never;
     createEnvironmentFromBlueprint?: never;
     createProjectFromProjectProfile?: never;
+    useAssetType?: never;
     $unknown?: never;
   }
 
@@ -1258,6 +1276,7 @@ export namespace PolicyGrantDetail {
     createEnvironment?: never;
     createEnvironmentFromBlueprint?: never;
     createProjectFromProjectProfile?: never;
+    useAssetType?: never;
     $unknown?: never;
   }
 
@@ -1279,6 +1298,7 @@ export namespace PolicyGrantDetail {
     createEnvironment?: never;
     createEnvironmentFromBlueprint?: never;
     createProjectFromProjectProfile?: never;
+    useAssetType?: never;
     $unknown?: never;
   }
 
@@ -1300,6 +1320,7 @@ export namespace PolicyGrantDetail {
     createEnvironment?: never;
     createEnvironmentFromBlueprint?: never;
     createProjectFromProjectProfile?: never;
+    useAssetType?: never;
     $unknown?: never;
   }
 
@@ -1321,6 +1342,7 @@ export namespace PolicyGrantDetail {
     createEnvironment?: never;
     createEnvironmentFromBlueprint?: never;
     createProjectFromProjectProfile?: never;
+    useAssetType?: never;
     $unknown?: never;
   }
 
@@ -1342,6 +1364,7 @@ export namespace PolicyGrantDetail {
     createEnvironment?: never;
     createEnvironmentFromBlueprint?: never;
     createProjectFromProjectProfile?: never;
+    useAssetType?: never;
     $unknown?: never;
   }
 
@@ -1363,6 +1386,7 @@ export namespace PolicyGrantDetail {
     createEnvironment: Unit;
     createEnvironmentFromBlueprint?: never;
     createProjectFromProjectProfile?: never;
+    useAssetType?: never;
     $unknown?: never;
   }
 
@@ -1384,6 +1408,7 @@ export namespace PolicyGrantDetail {
     createEnvironment?: never;
     createEnvironmentFromBlueprint: Unit;
     createProjectFromProjectProfile?: never;
+    useAssetType?: never;
     $unknown?: never;
   }
 
@@ -1405,6 +1430,29 @@ export namespace PolicyGrantDetail {
     createEnvironment?: never;
     createEnvironmentFromBlueprint?: never;
     createProjectFromProjectProfile: CreateProjectFromProjectProfilePolicyGrantDetail;
+    useAssetType?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> Specifies the domain unit(s) whose projects can use this asset type while creating asset or asset revisions.</p>
+   * @public
+   */
+  export interface UseAssetTypeMember {
+    createDomainUnit?: never;
+    overrideDomainUnitOwners?: never;
+    addToProjectMemberPool?: never;
+    overrideProjectOwners?: never;
+    createGlossary?: never;
+    createFormType?: never;
+    createAssetType?: never;
+    createProject?: never;
+    createEnvironmentProfile?: never;
+    delegateCreateEnvironmentProfile?: never;
+    createEnvironment?: never;
+    createEnvironmentFromBlueprint?: never;
+    createProjectFromProjectProfile?: never;
+    useAssetType: UseAssetTypePolicyGrantDetail;
     $unknown?: never;
   }
 
@@ -1425,6 +1473,7 @@ export namespace PolicyGrantDetail {
     createEnvironment?: never;
     createEnvironmentFromBlueprint?: never;
     createProjectFromProjectProfile?: never;
+    useAssetType?: never;
     $unknown: [string, any];
   }
 
@@ -1442,6 +1491,7 @@ export namespace PolicyGrantDetail {
     createEnvironment: (value: Unit) => T;
     createEnvironmentFromBlueprint: (value: Unit) => T;
     createProjectFromProjectProfile: (value: CreateProjectFromProjectProfilePolicyGrantDetail) => T;
+    useAssetType: (value: UseAssetTypePolicyGrantDetail) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1464,6 +1514,7 @@ export namespace PolicyGrantDetail {
       return visitor.createEnvironmentFromBlueprint(value.createEnvironmentFromBlueprint);
     if (value.createProjectFromProjectProfile !== undefined)
       return visitor.createProjectFromProjectProfile(value.createProjectFromProjectProfile);
+    if (value.useAssetType !== undefined) return visitor.useAssetType(value.useAssetType);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1473,6 +1524,7 @@ export namespace PolicyGrantDetail {
  * @enum
  */
 export const TargetEntityType = {
+  ASSET_TYPE: "ASSET_TYPE",
   DOMAIN_UNIT: "DOMAIN_UNIT",
   ENVIRONMENT_BLUEPRINT_CONFIGURATION: "ENVIRONMENT_BLUEPRINT_CONFIGURATION",
   ENVIRONMENT_PROFILE: "ENVIRONMENT_PROFILE",
@@ -1501,6 +1553,7 @@ export const ManagedPolicyType = {
   DELEGATE_CREATE_ENVIRONMENT_PROFILE: "DELEGATE_CREATE_ENVIRONMENT_PROFILE",
   OVERRIDE_DOMAIN_UNIT_OWNERS: "OVERRIDE_DOMAIN_UNIT_OWNERS",
   OVERRIDE_PROJECT_OWNERS: "OVERRIDE_PROJECT_OWNERS",
+  USE_ASSET_TYPE: "USE_ASSET_TYPE",
 } as const;
 
 /**
@@ -10548,18 +10601,6 @@ export interface SubscribedListingInput {
    * @public
    */
   identifier: string | undefined;
-}
-
-/**
- * <p>The project that is to be given a subscription grant.</p>
- * @public
- */
-export interface SubscribedProjectInput {
-  /**
-   * <p>The identifier of the project that is to be given a subscription grant.</p>
-   * @public
-   */
-  identifier?: string | undefined;
 }
 
 /**

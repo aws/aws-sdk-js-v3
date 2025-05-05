@@ -64,7 +64,6 @@ import {
   DataProductListingItemFilterSensitiveLog,
   DataProductResultItem,
   DataProductResultItemFilterSensitiveLog,
-  Filter,
   Import,
   ImportFilterSensitiveLog,
   SearchOutputAdditionalAttribute,
@@ -75,6 +74,24 @@ import {
   UserProfileStatus,
   UserProfileType,
 } from "./models_1";
+
+/**
+ * <p>A search filter in Amazon DataZone.</p>
+ * @public
+ */
+export interface Filter {
+  /**
+   * <p>A search filter attribute in Amazon DataZone.</p>
+   * @public
+   */
+  attribute: string | undefined;
+
+  /**
+   * <p>A search filter value in Amazon DataZone.</p>
+   * @public
+   */
+  value: string | undefined;
+}
 
 /**
  * <p>The details of the search.</p>
@@ -2134,7 +2151,8 @@ export interface UpdateSubscriptionTargetOutput {
 
   /**
    * <p>The authorized principals to be updated as part of the
-   *             <code>UpdateSubscriptionTarget</code> action.</p>
+   *             <code>UpdateSubscriptionTarget</code> action. Updates are supported in batches of 5 at a
+   *          time.</p>
    * @public
    */
   authorizedPrincipals: string[] | undefined;

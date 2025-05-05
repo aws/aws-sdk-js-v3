@@ -77,7 +77,6 @@ import {
   SubscribedListingInput,
   SubscribedPrincipal,
   SubscribedPrincipalFilterSensitiveLog,
-  SubscribedProjectInput,
   SubscriptionGrantOverallStatus,
   SubscriptionRequestStatus,
   SubscriptionStatus,
@@ -86,6 +85,18 @@ import {
   TimeSeriesDataPointSummaryFormOutput,
   UserDesignation,
 } from "./models_0";
+
+/**
+ * <p>The project that is to be given a subscription grant.</p>
+ * @public
+ */
+export interface SubscribedProjectInput {
+  /**
+   * <p>The identifier of the project that is to be given a subscription grant.</p>
+   * @public
+   */
+  identifier?: string | undefined;
+}
 
 /**
  * <p>The principal that is to be given a subscriptiong grant.</p>
@@ -11205,24 +11216,6 @@ export const SearchOutputAdditionalAttribute = {
  */
 export type SearchOutputAdditionalAttribute =
   (typeof SearchOutputAdditionalAttribute)[keyof typeof SearchOutputAdditionalAttribute];
-
-/**
- * <p>A search filter in Amazon DataZone.</p>
- * @public
- */
-export interface Filter {
-  /**
-   * <p>A search filter attribute in Amazon DataZone.</p>
-   * @public
-   */
-  attribute: string | undefined;
-
-  /**
-   * <p>A search filter value in Amazon DataZone.</p>
-   * @public
-   */
-  value: string | undefined;
-}
 
 /**
  * @internal

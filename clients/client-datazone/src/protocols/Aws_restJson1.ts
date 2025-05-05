@@ -514,12 +514,12 @@ import {
   SparkGluePropertiesInput,
   SubscribedAsset,
   SubscribedListingInput,
-  SubscribedProjectInput,
   TermRelations,
   ThrottlingException,
   TimeSeriesDataPointSummaryFormOutput,
   UnauthorizedException,
   Unit,
+  UseAssetTypePolicyGrantDetail,
   UsernamePassword,
   UserPolicyGrantPrincipal,
   ValidationException,
@@ -537,7 +537,6 @@ import {
   EnvironmentBlueprintSummary,
   EnvironmentProfileSummary,
   EnvironmentSummary,
-  Filter,
   JobRunDetails,
   JobRunSummary,
   LakeFormationConfiguration,
@@ -559,6 +558,7 @@ import {
   RuleSummary,
   SearchOutputAdditionalAttribute,
   SubscribedPrincipalInput,
+  SubscribedProjectInput,
   SubscriptionGrantSummary,
   SubscriptionRequestSummary,
   SubscriptionSummary,
@@ -569,6 +569,7 @@ import {
 } from "../models/models_1";
 import {
   AssetFilterConfiguration,
+  Filter,
   FilterClause,
   FormTypeData,
   GlossaryItem,
@@ -9005,6 +9006,8 @@ const se_TimeSeriesDataPointFormInputList = (input: TimeSeriesDataPointFormInput
 
 // se_Unit omitted.
 
+// se_UseAssetTypePolicyGrantDetail omitted.
+
 // se_UsernamePassword omitted.
 
 // se_UserPolicyGrantPrincipal omitted.
@@ -10880,6 +10883,8 @@ const de_TimeSeriesDataPointSummaryFormOutputList = (
 // de_TrackingAssets omitted.
 
 // de_Unit omitted.
+
+// de_UseAssetTypePolicyGrantDetail omitted.
 
 // de_UserDetails omitted.
 
