@@ -3217,6 +3217,7 @@ const se_GetDevicePoolCompatibilityRequest = (
     appArn: [],
     configuration: (_) => se_ScheduleRunConfiguration(_, context),
     devicePoolArn: [],
+    projectArn: [],
     test: _json,
     testType: [],
   });

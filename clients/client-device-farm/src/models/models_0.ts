@@ -3244,6 +3244,13 @@ export interface GetDevicePoolCompatibilityRequest {
    * @public
    */
   configuration?: ScheduleRunConfiguration | undefined;
+
+  /**
+   * <p>The ARN of the project for which you want to check
+   *             device pool compatibility.</p>
+   * @public
+   */
+  projectArn?: string | undefined;
 }
 
 /**

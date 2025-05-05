@@ -85,6 +85,7 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  *     ],
  *     billingMethod: "METERED" || "UNMETERED",
  *   },
+ *   projectArn: "STRING_VALUE",
  * };
  * const command = new GetDevicePoolCompatibilityCommand(input);
  * const response = await client.send(command);
