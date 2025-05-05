@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.803.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.802.0...v3.803.0) (2025-05-05)
+
+
+### Features
+
+* **client-datazone:** This release adds a new authorization policy to control the usage of custom AssetType when creating an Asset. Customer can now add new grant(s) of policyType USE_ASSET_TYPE for custom AssetTypes to apply authorization policy to projects members and domain unit owners. ([c23b2fb](https://github.com/aws/aws-sdk-js-v3/commit/c23b2fb7061d6bf1ce534609acb02beafc3604b3))
+* **client-device-farm:** Add an optional parameter to the GetDevicePoolCompatibility API to pass in project information to check device pool compatibility. ([4c93f9a](https://github.com/aws/aws-sdk-js-v3/commit/4c93f9a6bcac773e6322450666f08a0336b4063a))
+* **client-ec2:** This update introduces API operations to manage and create local gateway VIF and VIF groups. It also includes API operations to describe Outpost LAGs and service link VIFs. ([0332513](https://github.com/aws/aws-sdk-js-v3/commit/0332513e4095ec8615fd6a755efee4c3d8d48ce3))
+* **client-mediaconvert:** This release adds an optional sidecar per-frame video quality metrics report and an ALL_PCM option for audio selectors. It also changes the data type for Probe API response fields related to video and audio bitrate from integer to double. ([c8dc773](https://github.com/aws/aws-sdk-js-v3/commit/c8dc773132403141f0a5368e7a90cefb85179f1b))
+* **clients:** update client endpoints as of 2025-05-05 ([ba7c2bf](https://github.com/aws/aws-sdk-js-v3/commit/ba7c2bf2c4c059c4a05ce8d09354739cb63fcede))
+
+
+
+
+
 # [3.802.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.801.0...v3.802.0) (2025-05-02)
 
 
