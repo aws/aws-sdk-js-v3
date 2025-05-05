@@ -121,7 +121,7 @@ __metadata:
     "@smithy/eventstream-serde-node": "npm:^4.0.2"
     "@smithy/hash-node": "npm:^4.0.2"
     "@smithy/hash-stream-node": "npm:^4.0.2"
-    "@smithy/middleware-retry": "npm:^4.1.1"
+    "@smithy/middleware-retry": "npm:^4.1.2"
     "@smithy/node-config-provider": "npm:^4.0.2"
     "@smithy/node-http-handler": "npm:^4.0.4"
     "@smithy/smithy-client": "npm:^4.2.1"
@@ -130,7 +130,7 @@ __metadata:
     "@smithy/util-base64": "npm:^4.0.0"
     "@smithy/util-body-length-node": "npm:^4.0.0"
     "@smithy/util-defaults-mode-node": "npm:^4.0.9"
-    "@smithy/util-retry": "npm:^4.0.2"
+    "@smithy/util-retry": "npm:^4.0.3"
     "@smithy/util-stream": "npm:^4.2.0"
     "@smithy/util-utf8": "npm:^4.0.0"
     "@tsconfig/node18": "npm:18.2.4"
@@ -149,7 +149,7 @@ __metadata:
     "@aws-sdk/client-s3": "npm:*"
     "@smithy/protocol-http": "npm:^5.1.0"
     "@smithy/types": "npm:^4.2.0"
-    "@smithy/util-retry": "npm:^4.0.2"
+    "@smithy/util-retry": "npm:^4.0.3"
     "@tsconfig/node18": "npm:18.2.4"
     "@types/node": "npm:^18.19.69"
     concurrently: "npm:7.0.0"
@@ -23405,7 +23405,7 @@ __metadata:
     "@smithy/invalid-dependency": "npm:^4.0.2"
     "@smithy/middleware-content-length": "npm:^4.0.2"
     "@smithy/middleware-endpoint": "npm:^4.1.1"
-    "@smithy/middleware-retry": "npm:^4.1.1"
+    "@smithy/middleware-retry": "npm:^4.1.2"
     "@smithy/middleware-serde": "npm:^4.0.3"
     "@smithy/middleware-stack": "npm:^4.0.2"
     "@smithy/node-config-provider": "npm:^4.0.2"
@@ -23421,7 +23421,7 @@ __metadata:
     "@smithy/util-defaults-mode-node": "npm:^4.0.9"
     "@smithy/util-endpoints": "npm:^3.0.2"
     "@smithy/util-middleware": "npm:^4.0.2"
-    "@smithy/util-retry": "npm:^4.0.2"
+    "@smithy/util-retry": "npm:^4.0.3"
     "@smithy/util-utf8": "npm:^4.0.0"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
@@ -28000,23 +28000,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/middleware-retry@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "@smithy/middleware-retry@npm:4.1.1"
-  dependencies:
-    "@smithy/node-config-provider": "npm:^4.0.2"
-    "@smithy/protocol-http": "npm:^5.1.0"
-    "@smithy/service-error-classification": "npm:^4.0.2"
-    "@smithy/smithy-client": "npm:^4.2.1"
-    "@smithy/types": "npm:^4.2.0"
-    "@smithy/util-middleware": "npm:^4.0.2"
-    "@smithy/util-retry": "npm:^4.0.2"
-    tslib: "npm:^2.6.2"
-    uuid: "npm:^9.0.1"
-  checksum: 10c0/fd29504ced2ace83aed694915163679ad5356f3c0a8a450a0cb378411c1bf1ae796dcd67c2bcf61842d9d73422a8b97c016754aafc41dfda17a3b9d98ce75c1a
-  languageName: node
-  linkType: hard
-
 "@smithy/middleware-retry@npm:^4.1.2":
   version: 4.1.2
   resolution: "@smithy/middleware-retry@npm:4.1.2"
@@ -28117,15 +28100,6 @@ __metadata:
     "@smithy/types": "npm:^4.2.0"
     tslib: "npm:^2.6.2"
   checksum: 10c0/e6115fce0a07b1509f407cd3eca371cce1d9c09c7e3bd9156e35506b8ab1100f9864fb8779d4dbe0169501af23f062ebc2176afc012e9132e917781cd11a2f82
-  languageName: node
-  linkType: hard
-
-"@smithy/service-error-classification@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "@smithy/service-error-classification@npm:4.0.2"
-  dependencies:
-    "@smithy/types": "npm:^4.2.0"
-  checksum: 10c0/a1f16a891cf96fad624e928d2e55d8b438b2acbb57098d615486bf01488a22f949223127a15e93b273e099a227cbe2ce7be3a3f538d1a4619fb2554dcf33d3dd
   languageName: node
   linkType: hard
 
@@ -28334,17 +28308,6 @@ __metadata:
     "@smithy/types": "npm:^4.2.0"
     tslib: "npm:^2.6.2"
   checksum: 10c0/18c3882c94f1b1bbb3825c30d1e41ae77a8da3dcd93ebbf1c486f34d5db9e06431789aef54d1b1fbb0424b115fc1e1ae17d27efe4af4277173d901a76147fef8
-  languageName: node
-  linkType: hard
-
-"@smithy/util-retry@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "@smithy/util-retry@npm:4.0.2"
-  dependencies:
-    "@smithy/service-error-classification": "npm:^4.0.2"
-    "@smithy/types": "npm:^4.2.0"
-    tslib: "npm:^2.6.2"
-  checksum: 10c0/c2b98faa4171f620aa17a0f0a91dff9215a4729242a040ad25aee4c716752a64944cc58031ae71bcf3fc320b3e84cb3da4648e5bbccd782126a721e588d98b87
   languageName: node
   linkType: hard
 
