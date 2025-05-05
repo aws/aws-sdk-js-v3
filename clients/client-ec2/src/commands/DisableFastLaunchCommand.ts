@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisableFastLaunchRequest, DisableFastLaunchResult } from "../models/models_5";
+import { DisableFastLaunchRequest, DisableFastLaunchResult } from "../models/models_6";
 import { de_DisableFastLaunchCommand, se_DisableFastLaunchCommand } from "../protocols/Aws_ec2";
 
 /**

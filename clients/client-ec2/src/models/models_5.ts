@@ -62,6 +62,7 @@ import {
   DnsNameState,
   GroupIdentifier,
   IpAddressType,
+  LocalGatewayVirtualInterface,
   ManagedPrefixList,
   NatGateway,
   NetworkAcl,
@@ -77,8 +78,6 @@ import {
   RouteServerEndpoint,
   RouteServerPeer,
   RouteTable,
-  ServiceConfiguration,
-  ServiceConnectivityType,
   ServiceTypeDetail,
   Snapshot,
   SnapshotState,
@@ -108,23 +107,412 @@ import {
   Filter,
   IdFormat,
   MetricType,
+  ServiceConfiguration,
+  ServiceConnectivityType,
   StatisticType,
   VpnConnection,
   VpnConnectionFilterSensitiveLog,
   VpnGateway,
 } from "./models_3";
 
-import {
-  AttributeBooleanValue,
-  EventInformation,
-  FastLaunchLaunchTemplateSpecificationResponse,
-  FastLaunchResourceType,
-  FastLaunchSnapshotConfigurationResponse,
-  FastLaunchStateCode,
-  FastSnapshotRestoreStateCode,
-  PermissionGroup,
-  ProductCode,
-} from "./models_4";
+import { AttributeBooleanValue, EventInformation, PermissionGroup, ProductCode } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeLocalGatewayVirtualInterfacesRequest {
+  /**
+   * <p>The IDs of the virtual interfaces.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceIds?: string[] | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>local-address</code> - The local address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-bgp-asn</code> - The Border Gateway Protocol (BGP) Autonomous System Number (ASN)
+   *                of the local gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-id</code> - The ID of the local gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-virtual-interface-id</code> - The ID of the virtual interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway virtual interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>peer-address</code> - The peer address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>peer-bgp-asn</code> - The peer BGP ASN.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vlan</code> - The ID of the VLAN.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeLocalGatewayVirtualInterfacesResult {
+  /**
+   * <p>Information about the virtual interfaces.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaces?: LocalGatewayVirtualInterface[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeLockedSnapshotsRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>lock-state</code> - The state of the snapshot lock (<code>compliance-cooloff</code> |
+   *           <code>governance</code> | <code>compliance</code> | <code>expired</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The IDs of the snapshots for which to view the lock status.</p>
+   * @public
+   */
+  SnapshotIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LockState = {
+  compliance: "compliance",
+  compliance_cooloff: "compliance-cooloff",
+  expired: "expired",
+  governance: "governance",
+} as const;
+
+/**
+ * @public
+ */
+export type LockState = (typeof LockState)[keyof typeof LockState];
+
+/**
+ * <p>Information about a locked snapshot.</p>
+ * @public
+ */
+export interface LockedSnapshotsInfo {
+  /**
+   * <p>The account ID of the Amazon Web Services account that owns the snapshot.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The ID of the snapshot.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The state of the snapshot lock. Valid states include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>compliance-cooloff</code> - The snapshot has been locked in
+   *           compliance mode but it is still within the cooling-off period. The snapshot can't be
+   *           deleted, but it can be unlocked and the lock settings can be modified by users with
+   *           appropriate permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>governance</code> - The snapshot is locked in governance mode. The
+   *           snapshot can't be deleted, but it can be unlocked and the lock settings can be
+   *           modified by users with appropriate permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>compliance</code> - The snapshot is locked in compliance mode and the
+   *           cooling-off period has expired. The snapshot can't be unlocked or deleted. The lock
+   *           duration can only be increased by users with appropriate permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>expired</code> - The snapshot was locked in compliance or governance
+   *           mode but the lock duration has expired. The snapshot is not locked and can be deleted.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  LockState?: LockState | undefined;
+
+  /**
+   * <p>The period of time for which the snapshot is locked, in days.</p>
+   * @public
+   */
+  LockDuration?: number | undefined;
+
+  /**
+   * <p>The compliance mode cooling-off period, in hours.</p>
+   * @public
+   */
+  CoolOffPeriod?: number | undefined;
+
+  /**
+   * <p>The date and time at which the compliance mode cooling-off period expires, in the UTC time zone
+   *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   * @public
+   */
+  CoolOffPeriodExpiresOn?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the snapshot was locked, in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   * @public
+   */
+  LockCreatedOn?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the lock duration started, in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   *          <p>If you lock a snapshot that is in the <code>pending</code> state, the lock duration
+   *       starts only once the snapshot enters the <code>completed</code> state.</p>
+   * @public
+   */
+  LockDurationStartTime?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the lock will expire, in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   * @public
+   */
+  LockExpiresOn?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeLockedSnapshotsResult {
+  /**
+   * <p>Information about the snapshots.</p>
+   * @public
+   */
+  Snapshots?: LockedSnapshotsInfo[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeMacHostsRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone of the EC2 Mac Dedicated Host.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type size that the EC2 Mac Dedicated Host is
+   *                         configured to support.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>
+   *             The IDs of the EC2 Mac Dedicated Hosts.
+   *         </p>
+   * @public
+   */
+  HostIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>
+ *             Information about the EC2 Mac Dedicated Host.
+ *         </p>
+ * @public
+ */
+export interface MacHost {
+  /**
+   * <p>
+   *             The EC2 Mac Dedicated Host ID.
+   *         </p>
+   * @public
+   */
+  HostId?: string | undefined;
+
+  /**
+   * <p>
+   *             The latest macOS versions that the EC2 Mac Dedicated Host can launch without being upgraded.
+   *         </p>
+   * @public
+   */
+  MacOSLatestSupportedVersions?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeMacHostsResult {
+  /**
+   * <p>
+   *             Information about the EC2 Mac Dedicated Hosts.
+   *         </p>
+   * @public
+   */
+  MacHosts?: MacHost[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeManagedPrefixListsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the prefix list owner.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>prefix-list-id</code> - The ID of the prefix list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>prefix-list-name</code> - The name of the prefix list.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>One or more prefix list IDs.</p>
+   * @public
+   */
+  PrefixListIds?: string[] | undefined;
+}
 
 /**
  * @public
@@ -1359,6 +1747,156 @@ export interface DescribeNetworkInterfacesResult {
   /**
    * <p>The token to include in another request to get the next page of items.
    * 		    This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeOutpostLagsRequest {
+  /**
+   * <p>The IDs of the Outpost LAGs.</p>
+   * @public
+   */
+  OutpostLagIds?: string[] | undefined;
+
+  /**
+   * <p>The filters to use for narrowing down the request. The following filters are
+   *          supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>service-link-virtual-interface-id</code> - The ID of the service link virtual interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>service-link-virtual-interface-arn</code> - The ARN of the service link virtual interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>outpost-id</code> - The Outpost ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>outpost-arn</code> - The Outpost ARN.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the service link virtual interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vlan</code> - The ID of the address pool.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-address</code> - The local address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>peer-address</code> - The peer address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>peer-bgp-asn</code> - The peer BGP ASN.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>outpost-lag-id</code> - The Outpost LAG ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>configuration-state</code> - The configuration state of the service link virtual interface.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes an Outpost link aggregation group (LAG).</p>
+ * @public
+ */
+export interface OutpostLag {
+  /**
+   * <p>The Amazon Resource Number (ARN) of the Outpost LAG.</p>
+   * @public
+   */
+  OutpostArn?: string | undefined;
+
+  /**
+   * <p>The ID of the Outpost LAG owner.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The current state of the Outpost LAG.</p>
+   * @public
+   */
+  State?: string | undefined;
+
+  /**
+   * <p>The ID of the Outpost LAG.</p>
+   * @public
+   */
+  OutpostLagId?: string | undefined;
+
+  /**
+   * <p>The IDs of the local gateway virtual interfaces associated with the Outpost LAG.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceIds?: string[] | undefined;
+
+  /**
+   * <p>The service link virtual interface IDs associated with the Outpost LAG.</p>
+   * @public
+   */
+  ServiceLinkVirtualInterfaceIds?: string[] | undefined;
+
+  /**
+   * <p>The tags associated with the Outpost LAG.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeOutpostLagsResult {
+  /**
+   * <p>The Outpost LAGs.</p>
+   * @public
+   */
+  OutpostLags?: OutpostLag[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -4120,6 +4658,187 @@ export interface DescribeSecurityGroupVpcAssociationsResult {
 
   /**
    * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeServiceLinkVirtualInterfacesRequest {
+  /**
+   * <p>The IDs of the service link virtual interfaces.</p>
+   * @public
+   */
+  ServiceLinkVirtualInterfaceIds?: string[] | undefined;
+
+  /**
+   * <p>The filters to use for narrowing down the request. The following filters are
+   *          supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>outpost-lag-id</code> - The ID of the Outpost LAG.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>outpost-arn</code> - The Outpost ARN.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the service link virtual interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The  state of the Outpost LAG.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vlan</code> - The ID of the address pool.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>service-link-virtual-interface-id</code> - The ID of the service link virtual interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-virtual-interface-id</code> - The ID of the local gateway virtual interface.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceLinkVirtualInterfaceConfigurationState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceLinkVirtualInterfaceConfigurationState =
+  (typeof ServiceLinkVirtualInterfaceConfigurationState)[keyof typeof ServiceLinkVirtualInterfaceConfigurationState];
+
+/**
+ * <p>Describes the service link virtual interfaces that establish connectivity between Amazon Web Services Outpost and on-premises networks.</p>
+ * @public
+ */
+export interface ServiceLinkVirtualInterface {
+  /**
+   * <p>The ID of the service link virtual interface.</p>
+   * @public
+   */
+  ServiceLinkVirtualInterfaceId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) for the service link virtual interface. </p>
+   * @public
+   */
+  ServiceLinkVirtualInterfaceArn?: string | undefined;
+
+  /**
+   * <p>The Outpost ID for the service link virtual interface.</p>
+   * @public
+   */
+  OutpostId?: string | undefined;
+
+  /**
+   * <p>The Outpost Amazon Resource Number (ARN) for the service link virtual interface.</p>
+   * @public
+   */
+  OutpostArn?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the service link virtual interface..</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The IPv4 address assigned to the local gateway virtual interface on the Outpost side.</p>
+   * @public
+   */
+  LocalAddress?: string | undefined;
+
+  /**
+   * <p>The IPv4 peer address for the service link virtual interface.</p>
+   * @public
+   */
+  PeerAddress?: string | undefined;
+
+  /**
+   * <p>The ASN for the Border Gateway Protocol (BGP) associated with the service link virtual interface.</p>
+   * @public
+   */
+  PeerBgpAsn?: number | undefined;
+
+  /**
+   * <p>The virtual local area network for the service link virtual interface.</p>
+   * @public
+   */
+  Vlan?: number | undefined;
+
+  /**
+   * <p>The link aggregation group (LAG) ID for the service link virtual interface.</p>
+   * @public
+   */
+  OutpostLagId?: string | undefined;
+
+  /**
+   * <p>The tags associated with the service link virtual interface.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The current state of the service link virtual interface.</p>
+   * @public
+   */
+  ConfigurationState?: ServiceLinkVirtualInterfaceConfigurationState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeServiceLinkVirtualInterfacesResult {
+  /**
+   * <p>Describes the service link virtual interfaces.</p>
+   * @public
+   */
+  ServiceLinkVirtualInterfaces?: ServiceLinkVirtualInterface[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -11719,399 +12438,6 @@ export interface DisableAwsNetworkPerformanceMetricSubscriptionResult {
    * @public
    */
   Output?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableEbsEncryptionByDefaultRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableEbsEncryptionByDefaultResult {
-  /**
-   * <p>The updated status of encryption by default.</p>
-   * @public
-   */
-  EbsEncryptionByDefault?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableFastLaunchRequest {
-  /**
-   * <p>Specify the ID of the image for which to disable Windows fast launch.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>Forces the image settings to turn off Windows fast launch for your Windows AMI. This
-   *       parameter overrides any errors that are encountered while cleaning up resources in your
-   *       account.</p>
-   * @public
-   */
-  Force?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableFastLaunchResult {
-  /**
-   * <p>The ID of the image for which Windows fast launch was disabled.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The pre-provisioning resource type that must be cleaned after turning off Windows fast
-   *       launch for the Windows AMI. Supported values include: <code>snapshot</code>.</p>
-   * @public
-   */
-  ResourceType?: FastLaunchResourceType | undefined;
-
-  /**
-   * <p>Parameters that were used for Windows fast launch for the Windows AMI before Windows fast
-   *       launch was disabled. This informs the clean-up process.</p>
-   * @public
-   */
-  SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse | undefined;
-
-  /**
-   * <p>The launch template that was used to launch Windows instances from pre-provisioned
-   *       snapshots.</p>
-   * @public
-   */
-  LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse | undefined;
-
-  /**
-   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
-   *       pre-provisioned snapshots for Windows fast launch.</p>
-   * @public
-   */
-  MaxParallelLaunches?: number | undefined;
-
-  /**
-   * <p>The owner of the Windows AMI for which Windows fast launch was disabled.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The current state of Windows fast launch for the specified Windows AMI.</p>
-   * @public
-   */
-  State?: FastLaunchStateCode | undefined;
-
-  /**
-   * <p>The reason that the state changed for Windows fast launch for the Windows AMI.</p>
-   * @public
-   */
-  StateTransitionReason?: string | undefined;
-
-  /**
-   * <p>The time that the state changed for Windows fast launch for the Windows AMI.</p>
-   * @public
-   */
-  StateTransitionTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableFastSnapshotRestoresRequest {
-  /**
-   * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
-   * @public
-   */
-  AvailabilityZones: string[] | undefined;
-
-  /**
-   * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>.</p>
-   * @public
-   */
-  SourceSnapshotIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes fast snapshot restores that were successfully disabled.</p>
- * @public
- */
-export interface DisableFastSnapshotRestoreSuccessItem {
-  /**
-   * <p>The ID of the snapshot.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-
-  /**
-   * <p>The Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The state of fast snapshot restores for the snapshot.</p>
-   * @public
-   */
-  State?: FastSnapshotRestoreStateCode | undefined;
-
-  /**
-   * <p>The reason for the state transition. The possible values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Client.UserInitiated</code> - The state successfully transitioned to <code>enabling</code> or
-   *           <code>disabling</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.UserInitiated - Lifecycle state transition</code> - The state successfully transitioned
-   *           to <code>optimizing</code>, <code>enabled</code>, or <code>disabled</code>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  StateTransitionReason?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that enabled fast snapshot restores on the snapshot.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.</p>
-   * @public
-   */
-  OwnerAlias?: string | undefined;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>enabling</code> state.</p>
-   * @public
-   */
-  EnablingTime?: Date | undefined;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>optimizing</code> state.</p>
-   * @public
-   */
-  OptimizingTime?: Date | undefined;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>enabled</code> state.</p>
-   * @public
-   */
-  EnabledTime?: Date | undefined;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>disabling</code> state.</p>
-   * @public
-   */
-  DisablingTime?: Date | undefined;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>disabled</code> state.</p>
-   * @public
-   */
-  DisabledTime?: Date | undefined;
-}
-
-/**
- * <p>Describes an error that occurred when disabling fast snapshot restores.</p>
- * @public
- */
-export interface DisableFastSnapshotRestoreStateError {
-  /**
-   * <p>The error code.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>The error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>Contains information about an error that occurred when disabling fast snapshot restores.</p>
- * @public
- */
-export interface DisableFastSnapshotRestoreStateErrorItem {
-  /**
-   * <p>The Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The error.</p>
-   * @public
-   */
-  Error?: DisableFastSnapshotRestoreStateError | undefined;
-}
-
-/**
- * <p>Contains information about the errors that occurred when disabling fast snapshot restores.</p>
- * @public
- */
-export interface DisableFastSnapshotRestoreErrorItem {
-  /**
-   * <p>The ID of the snapshot.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-
-  /**
-   * <p>The errors.</p>
-   * @public
-   */
-  FastSnapshotRestoreStateErrors?: DisableFastSnapshotRestoreStateErrorItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableFastSnapshotRestoresResult {
-  /**
-   * <p>Information about the snapshots for which fast snapshot restores were successfully disabled.</p>
-   * @public
-   */
-  Successful?: DisableFastSnapshotRestoreSuccessItem[] | undefined;
-
-  /**
-   * <p>Information about the snapshots for which fast snapshot restores could not be disabled.</p>
-   * @public
-   */
-  Unsuccessful?: DisableFastSnapshotRestoreErrorItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableImageRequest {
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableImageResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableImageBlockPublicAccessRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ImageBlockPublicAccessDisabledState = {
-  unblocked: "unblocked",
-} as const;
-
-/**
- * @public
- */
-export type ImageBlockPublicAccessDisabledState =
-  (typeof ImageBlockPublicAccessDisabledState)[keyof typeof ImageBlockPublicAccessDisabledState];
-
-/**
- * @public
- */
-export interface DisableImageBlockPublicAccessResult {
-  /**
-   * <p>Returns <code>unblocked</code> if the request succeeds; otherwise, it returns an
-   *       error.</p>
-   * @public
-   */
-  ImageBlockPublicAccessState?: ImageBlockPublicAccessDisabledState | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableImageDeprecationRequest {
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableImageDeprecationResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
 }
 
 /**

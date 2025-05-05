@@ -322,6 +322,14 @@ import {
   CreateLocalGatewayRouteTableVpcAssociationCommandOutput,
 } from "../commands/CreateLocalGatewayRouteTableVpcAssociationCommand";
 import {
+  CreateLocalGatewayVirtualInterfaceCommandInput,
+  CreateLocalGatewayVirtualInterfaceCommandOutput,
+} from "../commands/CreateLocalGatewayVirtualInterfaceCommand";
+import {
+  CreateLocalGatewayVirtualInterfaceGroupCommandInput,
+  CreateLocalGatewayVirtualInterfaceGroupCommandOutput,
+} from "../commands/CreateLocalGatewayVirtualInterfaceGroupCommand";
+import {
   CreateManagedPrefixListCommandInput,
   CreateManagedPrefixListCommandOutput,
 } from "../commands/CreateManagedPrefixListCommand";
@@ -576,6 +584,14 @@ import {
   DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
   DeleteLocalGatewayRouteTableVpcAssociationCommandOutput,
 } from "../commands/DeleteLocalGatewayRouteTableVpcAssociationCommand";
+import {
+  DeleteLocalGatewayVirtualInterfaceCommandInput,
+  DeleteLocalGatewayVirtualInterfaceCommandOutput,
+} from "../commands/DeleteLocalGatewayVirtualInterfaceCommand";
+import {
+  DeleteLocalGatewayVirtualInterfaceGroupCommandInput,
+  DeleteLocalGatewayVirtualInterfaceGroupCommandOutput,
+} from "../commands/DeleteLocalGatewayVirtualInterfaceGroupCommand";
 import {
   DeleteManagedPrefixListCommandInput,
   DeleteManagedPrefixListCommandOutput,
@@ -1095,6 +1111,10 @@ import {
   DescribeNetworkInterfacesCommandOutput,
 } from "../commands/DescribeNetworkInterfacesCommand";
 import {
+  DescribeOutpostLagsCommandInput,
+  DescribeOutpostLagsCommandOutput,
+} from "../commands/DescribeOutpostLagsCommand";
+import {
   DescribePlacementGroupsCommandInput,
   DescribePlacementGroupsCommandOutput,
 } from "../commands/DescribePlacementGroupsCommand";
@@ -1171,6 +1191,10 @@ import {
   DescribeSecurityGroupVpcAssociationsCommandInput,
   DescribeSecurityGroupVpcAssociationsCommandOutput,
 } from "../commands/DescribeSecurityGroupVpcAssociationsCommand";
+import {
+  DescribeServiceLinkVirtualInterfacesCommandInput,
+  DescribeServiceLinkVirtualInterfacesCommandOutput,
+} from "../commands/DescribeServiceLinkVirtualInterfacesCommand";
 import {
   DescribeSnapshotAttributeCommandInput,
   DescribeSnapshotAttributeCommandOutput,
@@ -2815,6 +2839,10 @@ import {
   CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
   CreateLocalGatewayRouteTableVpcAssociationRequest,
   CreateLocalGatewayRouteTableVpcAssociationResult,
+  CreateLocalGatewayVirtualInterfaceGroupRequest,
+  CreateLocalGatewayVirtualInterfaceGroupResult,
+  CreateLocalGatewayVirtualInterfaceRequest,
+  CreateLocalGatewayVirtualInterfaceResult,
   CreateManagedPrefixListRequest,
   CreateManagedPrefixListResult,
   CreateNatGatewayRequest,
@@ -2922,9 +2950,6 @@ import {
   CreateVpcEndpointRequest,
   CreateVpcEndpointResult,
   CreateVpcEndpointServiceConfigurationRequest,
-  CreateVpcEndpointServiceConfigurationResult,
-  CreateVpcPeeringConnectionRequest,
-  CreateVpcPeeringConnectionResult,
   CreateVpcRequest,
   CreateVpcResult,
   DnsEntry,
@@ -2933,7 +2958,6 @@ import {
   FilterPortRange,
   GroupIdentifier,
   IcmpTypeCode,
-  IKEVersionsRequestListValue,
   InstanceSpecification,
   Ipv6PrefixSpecification,
   LastError,
@@ -2942,6 +2966,8 @@ import {
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
+  LocalGatewayVirtualInterface,
+  LocalGatewayVirtualInterfaceGroup,
   ManagedPrefixList,
   NatGateway,
   NetworkAcl,
@@ -2978,8 +3004,6 @@ import {
   RouteTableAssociation,
   S3ObjectTag,
   SecurityGroupIdentifier,
-  ServiceConfiguration,
-  ServiceConnectivityType,
   ServiceTypeDetail,
   Snapshot,
   SnapshotInfo,
@@ -2989,7 +3013,6 @@ import {
   SubnetCidrReservation,
   SubnetConfiguration,
   SubnetIpPrefixes,
-  SupportedRegionDetail,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
   TrafficMirrorNetworkService,
@@ -3048,12 +3071,12 @@ import {
   ClientVpnAuthentication,
   ClientVpnConnection,
   ClientVpnConnectionStatus,
-  ClientVpnEndpoint,
   ClientVpnEndpointAttributeStatus,
-  ClientVpnRoute,
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
-  ConnectionLogResponseOptions,
+  CreateVpcEndpointServiceConfigurationResult,
+  CreateVpcPeeringConnectionRequest,
+  CreateVpcPeeringConnectionResult,
   CreateVpnConnectionRequest,
   CreateVpnConnectionResult,
   CreateVpnConnectionRouteRequest,
@@ -3113,6 +3136,10 @@ import {
   DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
   DeleteLocalGatewayRouteTableVpcAssociationRequest,
   DeleteLocalGatewayRouteTableVpcAssociationResult,
+  DeleteLocalGatewayVirtualInterfaceGroupRequest,
+  DeleteLocalGatewayVirtualInterfaceGroupResult,
+  DeleteLocalGatewayVirtualInterfaceRequest,
+  DeleteLocalGatewayVirtualInterfaceResult,
   DeleteManagedPrefixListRequest,
   DeleteManagedPrefixListResult,
   DeleteNatGatewayRequest,
@@ -3261,19 +3288,13 @@ import {
   DescribeClientVpnConnectionsRequest,
   DescribeClientVpnConnectionsResult,
   DescribeClientVpnEndpointsRequest,
-  DescribeClientVpnEndpointsResult,
-  DescribeClientVpnRoutesRequest,
-  DescribeClientVpnRoutesResult,
-  DescribeClientVpnTargetNetworksRequest,
-  DescribeClientVpnTargetNetworksResult,
-  DescribeCoipPoolsRequest,
-  DescribeCoipPoolsResult,
   DirectoryServiceAuthentication,
   FailedQueuedPurchaseDeletion,
   FederatedAuthentication,
   Filter,
   IdFormat,
   IKEVersionsListValue,
+  IKEVersionsRequestListValue,
   InstanceEventWindowStateChange,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
@@ -3291,9 +3312,11 @@ import {
   Phase2IntegrityAlgorithmsListValue,
   Phase2IntegrityAlgorithmsRequestListValue,
   ResponseError,
+  ServiceConfiguration,
+  ServiceConnectivityType,
   Subscription,
   SuccessfulQueuedPurchaseDeletion,
-  TargetNetwork,
+  SupportedRegionDetail,
   TransitGatewayMulticastDeregisteredGroupMembers,
   TransitGatewayMulticastDeregisteredGroupSources,
   TunnelOption,
@@ -3315,10 +3338,20 @@ import {
   BootModeType,
   CapacityReservationOptions,
   CapacityReservationSpecificationResponse,
+  ClientVpnEndpoint,
+  ClientVpnRoute,
+  ConnectionLogResponseOptions,
   ConnectionTrackingSpecificationResponse,
   ConversionTask,
   CpuOptions,
   DeclarativePoliciesReport,
+  DescribeClientVpnEndpointsResult,
+  DescribeClientVpnRoutesRequest,
+  DescribeClientVpnRoutesResult,
+  DescribeClientVpnTargetNetworksRequest,
+  DescribeClientVpnTargetNetworksResult,
+  DescribeCoipPoolsRequest,
+  DescribeCoipPoolsResult,
   DescribeConversionTasksRequest,
   DescribeConversionTasksResult,
   DescribeCustomerGatewaysRequest,
@@ -3429,13 +3462,6 @@ import {
   DescribeLocalGatewaysResult,
   DescribeLocalGatewayVirtualInterfaceGroupsRequest,
   DescribeLocalGatewayVirtualInterfaceGroupsResult,
-  DescribeLocalGatewayVirtualInterfacesRequest,
-  DescribeLocalGatewayVirtualInterfacesResult,
-  DescribeLockedSnapshotsRequest,
-  DescribeLockedSnapshotsResult,
-  DescribeMacHostsRequest,
-  DescribeMacHostsResult,
-  DescribeManagedPrefixListsRequest,
   DestinationOptionsResponse,
   DiskImageDescription,
   DiskImageVolumeDescription,
@@ -3521,10 +3547,6 @@ import {
   LicenseConfiguration,
   LoadPermission,
   LocalGateway,
-  LocalGatewayVirtualInterface,
-  LocalGatewayVirtualInterfaceGroup,
-  LockedSnapshotsInfo,
-  MacHost,
   MediaAcceleratorInfo,
   MediaDeviceInfo,
   MediaDeviceMemoryInfo,
@@ -3552,6 +3574,7 @@ import {
   SpotOptions,
   SupportedAdditionalProcessorFeature,
   TargetCapacitySpecification,
+  TargetNetwork,
   UsageClassType,
   UserBucketDetails,
   VCpuInfo,
@@ -3562,6 +3585,13 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeLocalGatewayVirtualInterfacesRequest,
+  DescribeLocalGatewayVirtualInterfacesResult,
+  DescribeLockedSnapshotsRequest,
+  DescribeLockedSnapshotsResult,
+  DescribeMacHostsRequest,
+  DescribeMacHostsResult,
+  DescribeManagedPrefixListsRequest,
   DescribeManagedPrefixListsResult,
   DescribeMovingAddressesRequest,
   DescribeMovingAddressesResult,
@@ -3583,6 +3613,8 @@ import {
   DescribeNetworkInterfacePermissionsResult,
   DescribeNetworkInterfacesRequest,
   DescribeNetworkInterfacesResult,
+  DescribeOutpostLagsRequest,
+  DescribeOutpostLagsResult,
   DescribePlacementGroupsRequest,
   DescribePlacementGroupsResult,
   DescribePrefixListsRequest,
@@ -3623,6 +3655,8 @@ import {
   DescribeSecurityGroupsResult,
   DescribeSecurityGroupVpcAssociationsRequest,
   DescribeSecurityGroupVpcAssociationsResult,
+  DescribeServiceLinkVirtualInterfacesRequest,
+  DescribeServiceLinkVirtualInterfacesResult,
   DescribeSnapshotAttributeRequest,
   DescribeSnapshotAttributeResult,
   DescribeSnapshotsRequest,
@@ -3743,31 +3777,18 @@ import {
   DisableAllowedImagesSettingsResult,
   DisableAwsNetworkPerformanceMetricSubscriptionRequest,
   DisableAwsNetworkPerformanceMetricSubscriptionResult,
-  DisableEbsEncryptionByDefaultRequest,
-  DisableEbsEncryptionByDefaultResult,
-  DisableFastLaunchRequest,
-  DisableFastLaunchResult,
-  DisableFastSnapshotRestoreErrorItem,
-  DisableFastSnapshotRestoresRequest,
-  DisableFastSnapshotRestoresResult,
-  DisableFastSnapshotRestoreStateError,
-  DisableFastSnapshotRestoreStateErrorItem,
-  DisableFastSnapshotRestoreSuccessItem,
-  DisableImageBlockPublicAccessRequest,
-  DisableImageBlockPublicAccessResult,
-  DisableImageDeprecationRequest,
-  DisableImageDeprecationResult,
-  DisableImageRequest,
-  DisableImageResult,
   HistoryRecord,
   InstanceNetworkInterfaceSpecification,
   LaunchSpecification,
   LaunchTemplateConfig,
   LaunchTemplateOverrides,
   LoadBalancersConfig,
+  LockedSnapshotsInfo,
+  MacHost,
   MovingAddressStatus,
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
+  OutpostLag,
   PrefixList,
   PricingDetail,
   PrincipalIdFormat,
@@ -3791,6 +3812,7 @@ import {
   SecurityGroupReference,
   SecurityGroupVpcAssociation,
   ServiceDetail,
+  ServiceLinkVirtualInterface,
   SlotDateTimeRangeRequest,
   SlotStartTimeRangeRequest,
   SnapshotTierStatus,
@@ -3837,12 +3859,27 @@ import {
   AttributeSummary,
   CapacityReservationGroup,
   ClientCertificateRevocationListStatus,
-  ClientData,
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DisableEbsEncryptionByDefaultRequest,
+  DisableEbsEncryptionByDefaultResult,
+  DisableFastLaunchRequest,
+  DisableFastLaunchResult,
+  DisableFastSnapshotRestoreErrorItem,
+  DisableFastSnapshotRestoresRequest,
+  DisableFastSnapshotRestoresResult,
+  DisableFastSnapshotRestoreStateError,
+  DisableFastSnapshotRestoreStateErrorItem,
+  DisableFastSnapshotRestoreSuccessItem,
+  DisableImageBlockPublicAccessRequest,
+  DisableImageBlockPublicAccessResult,
+  DisableImageDeprecationRequest,
+  DisableImageDeprecationResult,
   DisableImageDeregistrationProtectionRequest,
   DisableImageDeregistrationProtectionResult,
+  DisableImageRequest,
+  DisableImageResult,
   DisableIpamOrganizationAdminAccountRequest,
   DisableIpamOrganizationAdminAccountResult,
   DisableRouteServerPropagationRequest,
@@ -4050,20 +4087,7 @@ import {
   GetVerifiedAccessEndpointTargetsRequest,
   GetVerifiedAccessEndpointTargetsResult,
   GetVerifiedAccessGroupPolicyRequest,
-  GetVerifiedAccessGroupPolicyResult,
-  GetVpnConnectionDeviceSampleConfigurationRequest,
-  GetVpnConnectionDeviceSampleConfigurationResult,
-  GetVpnConnectionDeviceTypesRequest,
-  GetVpnConnectionDeviceTypesResult,
-  GetVpnTunnelReplacementStatusRequest,
-  GetVpnTunnelReplacementStatusResult,
   ImageCriterion,
-  ImageDiskContainer,
-  ImportClientVpnClientCertificateRevocationListRequest,
-  ImportClientVpnClientCertificateRevocationListResult,
-  ImportImageLicenseConfigurationRequest,
-  ImportImageRequest,
-  ImportImageResult,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceMetadataDefaultsResponse,
@@ -4081,7 +4105,6 @@ import {
   IpamPublicAddressTags,
   IpamResourceCidr,
   Ipv6CidrAssociation,
-  MaintenanceDetails,
   MetricPoint,
   PrefixListAssociation,
   PrefixListEntry,
@@ -4104,25 +4127,37 @@ import {
   TransitGatewayPropagation,
   TransitGatewayRouteTableAssociation,
   TransitGatewayRouteTablePropagation,
-  UserBucket,
   VerifiedAccessEndpointTarget,
   VerifiedAccessInstanceOpenVpnClientConfiguration,
   VerifiedAccessInstanceOpenVpnClientConfigurationRoute,
   VerifiedAccessInstanceUserTrustProviderClientConfiguration,
-  VpnConnectionDeviceType,
 } from "../models/models_6";
 import {
   AsnAuthorizationContext,
   BlobAttributeValue,
   CapacityReservationSpecification,
   CidrAuthorizationContext,
+  ClientData,
   CreateVolumePermissionModifications,
   DiskImage,
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetVerifiedAccessGroupPolicyResult,
+  GetVpnConnectionDeviceSampleConfigurationRequest,
+  GetVpnConnectionDeviceSampleConfigurationResult,
+  GetVpnConnectionDeviceTypesRequest,
+  GetVpnConnectionDeviceTypesResult,
+  GetVpnTunnelReplacementStatusRequest,
+  GetVpnTunnelReplacementStatusResult,
   ImageCriterionRequest,
+  ImageDiskContainer,
   ImageRecycleBinInfo,
+  ImportClientVpnClientCertificateRevocationListRequest,
+  ImportClientVpnClientCertificateRevocationListResult,
+  ImportImageLicenseConfigurationRequest,
+  ImportImageRequest,
+  ImportImageResult,
   ImportInstanceLaunchSpecification,
   ImportInstanceRequest,
   ImportInstanceResult,
@@ -4145,6 +4180,7 @@ import {
   LoadPermissionRequest,
   LockSnapshotRequest,
   LockSnapshotResult,
+  MaintenanceDetails,
   ModifyAddressAttributeRequest,
   ModifyAddressAttributeResult,
   ModifyAvailabilityZoneGroupRequest,
@@ -4364,22 +4400,7 @@ import {
   ReportInstanceReasonCodes,
   ReportInstanceStatusRequest,
   RequestSpotFleetRequest,
-  RequestSpotFleetResponse,
-  RequestSpotInstancesRequest,
-  RequestSpotInstancesResult,
-  RequestSpotLaunchSpecification,
   ReservedInstanceLimitPrice,
-  ResetAddressAttributeRequest,
-  ResetAddressAttributeResult,
-  ResetEbsDefaultKmsKeyIdRequest,
-  ResetEbsDefaultKmsKeyIdResult,
-  ResetFpgaImageAttributeRequest,
-  ResetFpgaImageAttributeResult,
-  ResetImageAttributeRequest,
-  ResetInstanceAttributeRequest,
-  ResetNetworkInterfaceAttributeRequest,
-  ResetSnapshotAttributeRequest,
-  RestoreAddressToClassicRequest,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
@@ -4391,12 +4412,14 @@ import {
   TransitGatewayMulticastRegisteredGroupSources,
   UnsuccessfulInstanceCreditSpecificationItem,
   UnsuccessfulInstanceCreditSpecificationItemError,
+  UserBucket,
   UserData,
   VerifiedAccessLogCloudWatchLogsDestinationOptions,
   VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
   VerifiedAccessLogOptions,
   VerifiedAccessLogS3DestinationOptions,
   VolumeDetail,
+  VpnConnectionDeviceType,
 } from "../models/models_7";
 import {
   CpuOptionsRequest,
@@ -4411,6 +4434,21 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RequestSpotFleetResponse,
+  RequestSpotInstancesRequest,
+  RequestSpotInstancesResult,
+  RequestSpotLaunchSpecification,
+  ResetAddressAttributeRequest,
+  ResetAddressAttributeResult,
+  ResetEbsDefaultKmsKeyIdRequest,
+  ResetEbsDefaultKmsKeyIdResult,
+  ResetFpgaImageAttributeRequest,
+  ResetFpgaImageAttributeResult,
+  ResetImageAttributeRequest,
+  ResetInstanceAttributeRequest,
+  ResetNetworkInterfaceAttributeRequest,
+  ResetSnapshotAttributeRequest,
+  RestoreAddressToClassicRequest,
   RestoreAddressToClassicResult,
   RestoreImageFromRecycleBinRequest,
   RestoreImageFromRecycleBinResult,
@@ -6065,6 +6103,40 @@ export const se_CreateLocalGatewayRouteTableVpcAssociationCommand = async (
 };
 
 /**
+ * serializeAws_ec2CreateLocalGatewayVirtualInterfaceCommand
+ */
+export const se_CreateLocalGatewayVirtualInterfaceCommand = async (
+  input: CreateLocalGatewayVirtualInterfaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateLocalGatewayVirtualInterfaceRequest(input, context),
+    [_A]: _CLGVI,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2CreateLocalGatewayVirtualInterfaceGroupCommand
+ */
+export const se_CreateLocalGatewayVirtualInterfaceGroupCommand = async (
+  input: CreateLocalGatewayVirtualInterfaceGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateLocalGatewayVirtualInterfaceGroupRequest(input, context),
+    [_A]: _CLGVIG,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2CreateManagedPrefixListCommand
  */
 export const se_CreateManagedPrefixListCommand = async (
@@ -7436,6 +7508,40 @@ export const se_DeleteLocalGatewayRouteTableVpcAssociationCommand = async (
   body = buildFormUrlencodedString({
     ...se_DeleteLocalGatewayRouteTableVpcAssociationRequest(input, context),
     [_A]: _DLGRTVA,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DeleteLocalGatewayVirtualInterfaceCommand
+ */
+export const se_DeleteLocalGatewayVirtualInterfaceCommand = async (
+  input: DeleteLocalGatewayVirtualInterfaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteLocalGatewayVirtualInterfaceRequest(input, context),
+    [_A]: _DLGVI,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DeleteLocalGatewayVirtualInterfaceGroupCommand
+ */
+export const se_DeleteLocalGatewayVirtualInterfaceGroupCommand = async (
+  input: DeleteLocalGatewayVirtualInterfaceGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteLocalGatewayVirtualInterfaceGroupRequest(input, context),
+    [_A]: _DLGVIG,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -9781,7 +9887,7 @@ export const se_DescribeLocalGatewayVirtualInterfaceGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeLocalGatewayVirtualInterfaceGroupsRequest(input, context),
-    [_A]: _DLGVIG,
+    [_A]: _DLGVIGe,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -9798,7 +9904,7 @@ export const se_DescribeLocalGatewayVirtualInterfacesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeLocalGatewayVirtualInterfacesRequest(input, context),
-    [_A]: _DLGVI,
+    [_A]: _DLGVIe,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -10020,6 +10126,23 @@ export const se_DescribeNetworkInterfacesCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeNetworkInterfacesRequest(input, context),
     [_A]: _DNIe,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeOutpostLagsCommand
+ */
+export const se_DescribeOutpostLagsCommand = async (
+  input: DescribeOutpostLagsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeOutpostLagsRequest(input, context),
+    [_A]: _DOL,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -10360,6 +10483,23 @@ export const se_DescribeSecurityGroupVpcAssociationsCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeSecurityGroupVpcAssociationsRequest(input, context),
     [_A]: _DSGVA,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeServiceLinkVirtualInterfacesCommand
+ */
+export const se_DescribeServiceLinkVirtualInterfacesCommand = async (
+  input: DescribeServiceLinkVirtualInterfacesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeServiceLinkVirtualInterfacesRequest(input, context),
+    [_A]: _DSLVI,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -17807,6 +17947,46 @@ export const de_CreateLocalGatewayRouteTableVpcAssociationCommand = async (
 };
 
 /**
+ * deserializeAws_ec2CreateLocalGatewayVirtualInterfaceCommand
+ */
+export const de_CreateLocalGatewayVirtualInterfaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocalGatewayVirtualInterfaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateLocalGatewayVirtualInterfaceResult(data, context);
+  const response: CreateLocalGatewayVirtualInterfaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2CreateLocalGatewayVirtualInterfaceGroupCommand
+ */
+export const de_CreateLocalGatewayVirtualInterfaceGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocalGatewayVirtualInterfaceGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateLocalGatewayVirtualInterfaceGroupResult(data, context);
+  const response: CreateLocalGatewayVirtualInterfaceGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2CreateManagedPrefixListCommand
  */
 export const de_CreateManagedPrefixListCommand = async (
@@ -19402,6 +19582,46 @@ export const de_DeleteLocalGatewayRouteTableVpcAssociationCommand = async (
   let contents: any = {};
   contents = de_DeleteLocalGatewayRouteTableVpcAssociationResult(data, context);
   const response: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DeleteLocalGatewayVirtualInterfaceCommand
+ */
+export const de_DeleteLocalGatewayVirtualInterfaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLocalGatewayVirtualInterfaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteLocalGatewayVirtualInterfaceResult(data, context);
+  const response: DeleteLocalGatewayVirtualInterfaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DeleteLocalGatewayVirtualInterfaceGroupCommand
+ */
+export const de_DeleteLocalGatewayVirtualInterfaceGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLocalGatewayVirtualInterfaceGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteLocalGatewayVirtualInterfaceGroupResult(data, context);
+  const response: DeleteLocalGatewayVirtualInterfaceGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -22404,6 +22624,26 @@ export const de_DescribeNetworkInterfacesCommand = async (
 };
 
 /**
+ * deserializeAws_ec2DescribeOutpostLagsCommand
+ */
+export const de_DescribeOutpostLagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOutpostLagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeOutpostLagsResult(data, context);
+  const response: DescribeOutpostLagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2DescribePlacementGroupsCommand
  */
 export const de_DescribePlacementGroupsCommand = async (
@@ -22797,6 +23037,26 @@ export const de_DescribeSecurityGroupVpcAssociationsCommand = async (
   let contents: any = {};
   contents = de_DescribeSecurityGroupVpcAssociationsResult(data, context);
   const response: DescribeSecurityGroupVpcAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeServiceLinkVirtualInterfacesCommand
+ */
+export const de_DescribeServiceLinkVirtualInterfacesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeServiceLinkVirtualInterfacesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeServiceLinkVirtualInterfacesResult(data, context);
+  const response: DescribeServiceLinkVirtualInterfacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -33159,6 +33419,78 @@ const se_CreateLocalGatewayRouteTableVpcAssociationRequest = (
 };
 
 /**
+ * serializeAws_ec2CreateLocalGatewayVirtualInterfaceGroupRequest
+ */
+const se_CreateLocalGatewayVirtualInterfaceGroupRequest = (
+  input: CreateLocalGatewayVirtualInterfaceGroupRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_LGI] != null) {
+    entries[_LGI] = input[_LGI];
+  }
+  if (input[_LBA] != null) {
+    entries[_LBA] = input[_LBA];
+  }
+  if (input[_LBAE] != null) {
+    entries[_LBAE] = input[_LBAE];
+  }
+  if (input[_TS] != null) {
+    const memberEntries = se_TagSpecificationList(input[_TS], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2CreateLocalGatewayVirtualInterfaceRequest
+ */
+const se_CreateLocalGatewayVirtualInterfaceRequest = (
+  input: CreateLocalGatewayVirtualInterfaceRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_LGVIGI] != null) {
+    entries[_LGVIGI] = input[_LGVIGI];
+  }
+  if (input[_OLI] != null) {
+    entries[_OLI] = input[_OLI];
+  }
+  if (input[_Vl] != null) {
+    entries[_Vl] = input[_Vl];
+  }
+  if (input[_LA] != null) {
+    entries[_LA] = input[_LA];
+  }
+  if (input[_PAe] != null) {
+    entries[_PAe] = input[_PAe];
+  }
+  if (input[_PBA] != null) {
+    entries[_PBA] = input[_PBA];
+  }
+  if (input[_TS] != null) {
+    const memberEntries = se_TagSpecificationList(input[_TS], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_PBAE] != null) {
+    entries[_PBAE] = input[_PBAE];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2CreateManagedPrefixListRequest
  */
 const se_CreateManagedPrefixListRequest = (input: CreateManagedPrefixListRequest, context: __SerdeContext): any => {
@@ -34776,8 +35108,8 @@ const se_CreateVerifiedAccessEndpointLoadBalancerOptions = (
   if (input[_Po] != null) {
     entries[_Po] = input[_Po];
   }
-  if (input[_LBA] != null) {
-    entries[_LBA] = input[_LBA];
+  if (input[_LBAo] != null) {
+    entries[_LBAo] = input[_LBAo];
   }
   if (input[_SIu] != null) {
     const memberEntries = se_CreateVerifiedAccessEndpointSubnetIdList(input[_SIu], context);
@@ -36212,6 +36544,40 @@ const se_DeleteLocalGatewayRouteTableVpcAssociationRequest = (
   const entries: any = {};
   if (input[_LGRTVAI] != null) {
     entries[_LGRTVAI] = input[_LGRTVAI];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DeleteLocalGatewayVirtualInterfaceGroupRequest
+ */
+const se_DeleteLocalGatewayVirtualInterfaceGroupRequest = (
+  input: DeleteLocalGatewayVirtualInterfaceGroupRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_LGVIGI] != null) {
+    entries[_LGVIGI] = input[_LGVIGI];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DeleteLocalGatewayVirtualInterfaceRequest
+ */
+const se_DeleteLocalGatewayVirtualInterfaceRequest = (
+  input: DeleteLocalGatewayVirtualInterfaceRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_LGVII] != null) {
+    entries[_LGVII] = input[_LGVII];
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
@@ -39643,8 +40009,8 @@ const se_DescribeLocalGatewayVirtualInterfacesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input[_LGVII] != null) {
-    const memberEntries = se_LocalGatewayVirtualInterfaceIdSet(input[_LGVII], context);
+  if (input[_LGVIIo] != null) {
+    const memberEntries = se_LocalGatewayVirtualInterfaceIdSet(input[_LGVIIo], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LocalGatewayVirtualInterfaceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40087,6 +40453,37 @@ const se_DescribeNetworkInterfacesRequest = (input: DescribeNetworkInterfacesReq
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeOutpostLagsRequest
+ */
+const se_DescribeOutpostLagsRequest = (input: DescribeOutpostLagsRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_OLIu] != null) {
+    const memberEntries = se_OutpostLagIdSet(input[_OLIu], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `OutpostLagId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
   }
   return entries;
 };
@@ -40743,6 +41140,40 @@ const se_DescribeSecurityGroupVpcAssociationsRequest = (
   }
   if (input[_MR] != null) {
     entries[_MR] = input[_MR];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeServiceLinkVirtualInterfacesRequest
+ */
+const se_DescribeServiceLinkVirtualInterfacesRequest = (
+  input: DescribeServiceLinkVirtualInterfacesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_SLVII] != null) {
+    const memberEntries = se_ServiceLinkVirtualInterfaceIdSet(input[_SLVII], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ServiceLinkVirtualInterfaceId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
@@ -52181,6 +52612,22 @@ const se_OrganizationArnStringList = (input: string[], context: __SerdeContext):
 };
 
 /**
+ * serializeAws_ec2OutpostLagIdSet
+ */
+const se_OutpostLagIdSet = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2OwnerStringList
  */
 const se_OwnerStringList = (input: string[], context: __SerdeContext): any => {
@@ -56154,6 +56601,22 @@ const se_SendDiagnosticInterruptRequest = (input: SendDiagnosticInterruptRequest
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ServiceLinkVirtualInterfaceIdSet
+ */
+const se_ServiceLinkVirtualInterfaceIdSet = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
   }
   return entries;
 };
@@ -62658,6 +63121,34 @@ const de_CreateLocalGatewayRouteTableVpcAssociationResult = (
 };
 
 /**
+ * deserializeAws_ec2CreateLocalGatewayVirtualInterfaceGroupResult
+ */
+const de_CreateLocalGatewayVirtualInterfaceGroupResult = (
+  output: any,
+  context: __SerdeContext
+): CreateLocalGatewayVirtualInterfaceGroupResult => {
+  const contents: any = {};
+  if (output[_lGVIG] != null) {
+    contents[_LGVIG] = de_LocalGatewayVirtualInterfaceGroup(output[_lGVIG], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2CreateLocalGatewayVirtualInterfaceResult
+ */
+const de_CreateLocalGatewayVirtualInterfaceResult = (
+  output: any,
+  context: __SerdeContext
+): CreateLocalGatewayVirtualInterfaceResult => {
+  const contents: any = {};
+  if (output[_lGVI] != null) {
+    contents[_LGVI] = de_LocalGatewayVirtualInterface(output[_lGVI], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2CreateManagedPrefixListResult
  */
 const de_CreateManagedPrefixListResult = (output: any, context: __SerdeContext): CreateManagedPrefixListResult => {
@@ -63945,6 +64436,34 @@ const de_DeleteLocalGatewayRouteTableVpcAssociationResult = (
   const contents: any = {};
   if (output[_lGRTVA] != null) {
     contents[_LGRTVA] = de_LocalGatewayRouteTableVpcAssociation(output[_lGRTVA], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DeleteLocalGatewayVirtualInterfaceGroupResult
+ */
+const de_DeleteLocalGatewayVirtualInterfaceGroupResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteLocalGatewayVirtualInterfaceGroupResult => {
+  const contents: any = {};
+  if (output[_lGVIG] != null) {
+    contents[_LGVIG] = de_LocalGatewayVirtualInterfaceGroup(output[_lGVIG], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DeleteLocalGatewayVirtualInterfaceResult
+ */
+const de_DeleteLocalGatewayVirtualInterfaceResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteLocalGatewayVirtualInterfaceResult => {
+  const contents: any = {};
+  if (output[_lGVI] != null) {
+    contents[_LGVI] = de_LocalGatewayVirtualInterface(output[_lGVI], context);
   }
   return contents;
 };
@@ -66049,9 +66568,9 @@ const de_DescribeLocalGatewayVirtualInterfaceGroupsResult = (
 ): DescribeLocalGatewayVirtualInterfaceGroupsResult => {
   const contents: any = {};
   if (output.localGatewayVirtualInterfaceGroupSet === "") {
-    contents[_LGVIG] = [];
+    contents[_LGVIGo] = [];
   } else if (output[_lGVIGS] != null && output[_lGVIGS][_i] != null) {
-    contents[_LGVIG] = de_LocalGatewayVirtualInterfaceGroupSet(__getArrayIfSingleItem(output[_lGVIGS][_i]), context);
+    contents[_LGVIGo] = de_LocalGatewayVirtualInterfaceGroupSet(__getArrayIfSingleItem(output[_lGVIGS][_i]), context);
   }
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
@@ -66068,9 +66587,9 @@ const de_DescribeLocalGatewayVirtualInterfacesResult = (
 ): DescribeLocalGatewayVirtualInterfacesResult => {
   const contents: any = {};
   if (output.localGatewayVirtualInterfaceSet === "") {
-    contents[_LGVI] = [];
+    contents[_LGVIo] = [];
   } else if (output[_lGVIS] != null && output[_lGVIS][_i] != null) {
-    contents[_LGVI] = de_LocalGatewayVirtualInterfaceSet(__getArrayIfSingleItem(output[_lGVIS][_i]), context);
+    contents[_LGVIo] = de_LocalGatewayVirtualInterfaceSet(__getArrayIfSingleItem(output[_lGVIS][_i]), context);
   }
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
@@ -66312,6 +66831,22 @@ const de_DescribeNetworkInterfacesResult = (output: any, context: __SerdeContext
     contents[_NI] = [];
   } else if (output[_nIS] != null && output[_nIS][_i] != null) {
     contents[_NI] = de_NetworkInterfaceList(__getArrayIfSingleItem(output[_nIS][_i]), context);
+  }
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DescribeOutpostLagsResult
+ */
+const de_DescribeOutpostLagsResult = (output: any, context: __SerdeContext): DescribeOutpostLagsResult => {
+  const contents: any = {};
+  if (output.outpostLagSet === "") {
+    contents[_OL] = [];
+  } else if (output[_oLS] != null && output[_oLS][_i] != null) {
+    contents[_OL] = de_OutpostLagSet(__getArrayIfSingleItem(output[_oLS][_i]), context);
   }
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
@@ -66647,6 +67182,25 @@ const de_DescribeSecurityGroupVpcAssociationsResult = (
     contents[_SGVA] = [];
   } else if (output[_sGVAS] != null && output[_sGVAS][_i] != null) {
     contents[_SGVA] = de_SecurityGroupVpcAssociationList(__getArrayIfSingleItem(output[_sGVAS][_i]), context);
+  }
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DescribeServiceLinkVirtualInterfacesResult
+ */
+const de_DescribeServiceLinkVirtualInterfacesResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeServiceLinkVirtualInterfacesResult => {
+  const contents: any = {};
+  if (output.serviceLinkVirtualInterfaceSet === "") {
+    contents[_SLVI] = [];
+  } else if (output[_sLVIS] != null && output[_sLVIS][_i] != null) {
+    contents[_SLVI] = de_ServiceLinkVirtualInterfaceSet(__getArrayIfSingleItem(output[_sLVIS][_i]), context);
   }
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
@@ -69493,7 +70047,7 @@ const de_Explanation = (output: any, context: __SerdeContext): Explanation => {
     contents[_IGn] = de_AnalysisComponent(output[_iG], context);
   }
   if (output[_lBA] != null) {
-    contents[_LBA] = __expectString(output[_lBA]);
+    contents[_LBAo] = __expectString(output[_lBA]);
   }
   if (output[_cLBL] != null) {
     contents[_CLBL] = de_AnalysisLoadBalancerListener(output[_cLBL], context);
@@ -77151,10 +77705,19 @@ const de_LocalGatewaySet = (output: any, context: __SerdeContext): LocalGateway[
 const de_LocalGatewayVirtualInterface = (output: any, context: __SerdeContext): LocalGatewayVirtualInterface => {
   const contents: any = {};
   if (output[_lGVII] != null) {
-    contents[_LGVIIo] = __expectString(output[_lGVII]);
+    contents[_LGVII] = __expectString(output[_lGVII]);
   }
   if (output[_lGI] != null) {
     contents[_LGI] = __expectString(output[_lGI]);
+  }
+  if (output[_lGVIGI] != null) {
+    contents[_LGVIGI] = __expectString(output[_lGVIGI]);
+  }
+  if (output[_lGVIA] != null) {
+    contents[_LGVIA] = __expectString(output[_lGVIA]);
+  }
+  if (output[_oLI] != null) {
+    contents[_OLI] = __expectString(output[_oLI]);
   }
   if (output[_vl] != null) {
     contents[_Vl] = __strictParseInt32(output[_vl]) as number;
@@ -77166,10 +77729,13 @@ const de_LocalGatewayVirtualInterface = (output: any, context: __SerdeContext): 
     contents[_PAe] = __expectString(output[_pAe]);
   }
   if (output[_lBAo] != null) {
-    contents[_LBAo] = __strictParseInt32(output[_lBAo]) as number;
+    contents[_LBA] = __strictParseInt32(output[_lBAo]) as number;
   }
   if (output[_pBA] != null) {
     contents[_PBA] = __strictParseInt32(output[_pBA]) as number;
+  }
+  if (output[_pBAE] != null) {
+    contents[_PBAE] = __strictParseLong(output[_pBAE]) as number;
   }
   if (output[_oI] != null) {
     contents[_OIwn] = __expectString(output[_oI]);
@@ -77178,6 +77744,9 @@ const de_LocalGatewayVirtualInterface = (output: any, context: __SerdeContext): 
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  if (output[_cSon] != null) {
+    contents[_CSon] = __expectString(output[_cSon]);
   }
   return contents;
 };
@@ -77194,9 +77763,9 @@ const de_LocalGatewayVirtualInterfaceGroup = (
     contents[_LGVIGI] = __expectString(output[_lGVIGI]);
   }
   if (output.localGatewayVirtualInterfaceIdSet === "") {
-    contents[_LGVII] = [];
+    contents[_LGVIIo] = [];
   } else if (output[_lGVIIS] != null && output[_lGVIIS][_i] != null) {
-    contents[_LGVII] = de_LocalGatewayVirtualInterfaceIdSet(__getArrayIfSingleItem(output[_lGVIIS][_i]), context);
+    contents[_LGVIIo] = de_LocalGatewayVirtualInterfaceIdSet(__getArrayIfSingleItem(output[_lGVIIS][_i]), context);
   }
   if (output[_lGI] != null) {
     contents[_LGI] = __expectString(output[_lGI]);
@@ -77204,10 +77773,22 @@ const de_LocalGatewayVirtualInterfaceGroup = (
   if (output[_oI] != null) {
     contents[_OIwn] = __expectString(output[_oI]);
   }
+  if (output[_lBAo] != null) {
+    contents[_LBA] = __strictParseInt32(output[_lBAo]) as number;
+  }
+  if (output[_lBAE] != null) {
+    contents[_LBAE] = __strictParseLong(output[_lBAE]) as number;
+  }
+  if (output[_lGVIGA] != null) {
+    contents[_LGVIGA] = __expectString(output[_lGVIGA]);
+  }
   if (output.tagSet === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  if (output[_cSon] != null) {
+    contents[_CSon] = __expectString(output[_cSon]);
   }
   return contents;
 };
@@ -79605,6 +80186,52 @@ const de_OperatorResponse = (output: any, context: __SerdeContext): OperatorResp
     contents[_Prin] = __expectString(output[_p]);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_ec2OutpostLag
+ */
+const de_OutpostLag = (output: any, context: __SerdeContext): OutpostLag => {
+  const contents: any = {};
+  if (output[_oA] != null) {
+    contents[_OA] = __expectString(output[_oA]);
+  }
+  if (output[_oI] != null) {
+    contents[_OIwn] = __expectString(output[_oI]);
+  }
+  if (output[_st] != null) {
+    contents[_Stat] = __expectString(output[_st]);
+  }
+  if (output[_oLI] != null) {
+    contents[_OLI] = __expectString(output[_oLI]);
+  }
+  if (output.localGatewayVirtualInterfaceIdSet === "") {
+    contents[_LGVIIo] = [];
+  } else if (output[_lGVIIS] != null && output[_lGVIIS][_i] != null) {
+    contents[_LGVIIo] = de_LocalGatewayVirtualInterfaceIdSet(__getArrayIfSingleItem(output[_lGVIIS][_i]), context);
+  }
+  if (output.serviceLinkVirtualInterfaceIdSet === "") {
+    contents[_SLVII] = [];
+  } else if (output[_sLVIIS] != null && output[_sLVIIS][_i] != null) {
+    contents[_SLVII] = de_ServiceLinkVirtualInterfaceIdSet(__getArrayIfSingleItem(output[_sLVIIS][_i]), context);
+  }
+  if (output.tagSet === "") {
+    contents[_Ta] = [];
+  } else if (output[_tS] != null && output[_tS][_i] != null) {
+    contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2OutpostLagSet
+ */
+const de_OutpostLagSet = (output: any, context: __SerdeContext): OutpostLag[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_OutpostLag(entry, context);
+    });
 };
 
 /**
@@ -83415,6 +84042,74 @@ const de_ServiceDetailSet = (output: any, context: __SerdeContext): ServiceDetai
 };
 
 /**
+ * deserializeAws_ec2ServiceLinkVirtualInterface
+ */
+const de_ServiceLinkVirtualInterface = (output: any, context: __SerdeContext): ServiceLinkVirtualInterface => {
+  const contents: any = {};
+  if (output[_sLVII] != null) {
+    contents[_SLVIIe] = __expectString(output[_sLVII]);
+  }
+  if (output[_sLVIA] != null) {
+    contents[_SLVIA] = __expectString(output[_sLVIA]);
+  }
+  if (output[_oIu] != null) {
+    contents[_OIu] = __expectString(output[_oIu]);
+  }
+  if (output[_oA] != null) {
+    contents[_OA] = __expectString(output[_oA]);
+  }
+  if (output[_oI] != null) {
+    contents[_OIwn] = __expectString(output[_oI]);
+  }
+  if (output[_lA] != null) {
+    contents[_LA] = __expectString(output[_lA]);
+  }
+  if (output[_pAe] != null) {
+    contents[_PAe] = __expectString(output[_pAe]);
+  }
+  if (output[_pBA] != null) {
+    contents[_PBA] = __strictParseLong(output[_pBA]) as number;
+  }
+  if (output[_vl] != null) {
+    contents[_Vl] = __strictParseInt32(output[_vl]) as number;
+  }
+  if (output[_oLI] != null) {
+    contents[_OLI] = __expectString(output[_oLI]);
+  }
+  if (output.tagSet === "") {
+    contents[_Ta] = [];
+  } else if (output[_tS] != null && output[_tS][_i] != null) {
+    contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  if (output[_cSon] != null) {
+    contents[_CSon] = __expectString(output[_cSon]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2ServiceLinkVirtualInterfaceIdSet
+ */
+const de_ServiceLinkVirtualInterfaceIdSet = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
+ * deserializeAws_ec2ServiceLinkVirtualInterfaceSet
+ */
+const de_ServiceLinkVirtualInterfaceSet = (output: any, context: __SerdeContext): ServiceLinkVirtualInterface[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ServiceLinkVirtualInterface(entry, context);
+    });
+};
+
+/**
  * deserializeAws_ec2ServiceTypeDetail
  */
 const de_ServiceTypeDetail = (output: any, context: __SerdeContext): ServiceTypeDetail => {
@@ -85127,9 +85822,9 @@ const de_TerminateClientVpnConnectionsResult = (
     contents[_Us] = __expectString(output[_us]);
   }
   if (output.connectionStatuses === "") {
-    contents[_CSon] = [];
-  } else if (output[_cSon] != null && output[_cSon][_i] != null) {
-    contents[_CSon] = de_TerminateConnectionStatusSet(__getArrayIfSingleItem(output[_cSon][_i]), context);
+    contents[_CSonn] = [];
+  } else if (output[_cSonn] != null && output[_cSonn][_i] != null) {
+    contents[_CSonn] = de_TerminateConnectionStatusSet(__getArrayIfSingleItem(output[_cSonn][_i]), context);
   }
   return contents;
 };
@@ -87398,7 +88093,7 @@ const de_VerifiedAccessEndpointLoadBalancerOptions = (
     contents[_Po] = __strictParseInt32(output[_po]) as number;
   }
   if (output[_lBA] != null) {
-    contents[_LBA] = __expectString(output[_lBA]);
+    contents[_LBAo] = __expectString(output[_lBA]);
   }
   if (output.subnetIdSet === "") {
     contents[_SIu] = [];
@@ -89759,6 +90454,8 @@ const _CLGR = "CreateLocalGatewayRoute";
 const _CLGRT = "CreateLocalGatewayRouteTable";
 const _CLGRTVA = "CreateLocalGatewayRouteTableVpcAssociation";
 const _CLGRTVIGA = "CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation";
+const _CLGVI = "CreateLocalGatewayVirtualInterface";
+const _CLGVIG = "CreateLocalGatewayVirtualInterfaceGroup";
 const _CLO = "ConnectionLogOptions";
 const _CLS = "CloudwatchLogStream";
 const _CLT = "CreateLaunchTemplate";
@@ -89843,7 +90540,8 @@ const _CSIT = "CreateStoreImageTask";
 const _CSOK = "CertificateS3ObjectKey";
 const _CSl = "ClientSecret";
 const _CSo = "ComplianceStatus";
-const _CSon = "ConnectionStatuses";
+const _CSon = "ConfigurationState";
+const _CSonn = "ConnectionStatuses";
 const _CSr = "CreateSnapshot";
 const _CSre = "CreateSnapshots";
 const _CSrea = "CreateSubnet";
@@ -90080,8 +90778,10 @@ const _DLGRTVAe = "DescribeLocalGatewayRouteTableVpcAssociations";
 const _DLGRTVIGA = "DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation";
 const _DLGRTVIGAe = "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations";
 const _DLGRTe = "DescribeLocalGatewayRouteTables";
-const _DLGVI = "DescribeLocalGatewayVirtualInterfaces";
-const _DLGVIG = "DescribeLocalGatewayVirtualInterfaceGroups";
+const _DLGVI = "DeleteLocalGatewayVirtualInterface";
+const _DLGVIG = "DeleteLocalGatewayVirtualInterfaceGroup";
+const _DLGVIGe = "DescribeLocalGatewayVirtualInterfaceGroups";
+const _DLGVIe = "DescribeLocalGatewayVirtualInterfaces";
 const _DLPA = "DeliverLogsPermissionArn";
 const _DLS = "DescribeLockedSnapshots";
 const _DLSe = "DeliverLogsStatus";
@@ -90124,6 +90824,7 @@ const _DO = "DestinationOptions";
 const _DOA = "DestinationOutpostArn";
 const _DOI = "DhcpOptionsId";
 const _DOIh = "DhcpOptionsIds";
+const _DOL = "DescribeOutpostLags";
 const _DOST = "DisconnectOnSessionTimeout";
 const _DOT = "DeleteOnTermination";
 const _DOe = "DeviceOptions";
@@ -90201,6 +90902,7 @@ const _DSI = "DescribeScheduledInstances";
 const _DSIA = "DescribeScheduledInstanceAvailability";
 const _DSIR = "DescribeSpotInstanceRequests";
 const _DSIT = "DescribeStoreImageTasks";
+const _DSLVI = "DescribeServiceLinkVirtualInterfaces";
 const _DSPH = "DescribeSpotPriceHistory";
 const _DSSG = "DescribeStaleSecurityGroups";
 const _DSTS = "DescribeSnapshotTierStatus";
@@ -90860,8 +91562,9 @@ const _LADT = "LastAttemptedDiscoveryTime";
 const _LAZ = "LaunchedAvailabilityZone";
 const _LAa = "LastAddress";
 const _LB = "LoadBalancers";
-const _LBA = "LoadBalancerArn";
-const _LBAo = "LocalBgpAsn";
+const _LBA = "LocalBgpAsn";
+const _LBAE = "LocalBgpAsnExtended";
+const _LBAo = "LoadBalancerArn";
 const _LBC = "LoadBalancersConfig";
 const _LBLP = "LoadBalancerListenerPort";
 const _LBO = "LoadBalancerOptions";
@@ -90902,12 +91605,16 @@ const _LGRTVIGAI = "LocalGatewayRouteTableVirtualInterfaceGroupAssociationId";
 const _LGRTVIGAIo = "LocalGatewayRouteTableVirtualInterfaceGroupAssociationIds";
 const _LGRTVIGAo = "LocalGatewayRouteTableVirtualInterfaceGroupAssociations";
 const _LGRTo = "LocalGatewayRouteTables";
-const _LGVI = "LocalGatewayVirtualInterfaces";
-const _LGVIG = "LocalGatewayVirtualInterfaceGroups";
+const _LGVI = "LocalGatewayVirtualInterface";
+const _LGVIA = "LocalGatewayVirtualInterfaceArn";
+const _LGVIG = "LocalGatewayVirtualInterfaceGroup";
+const _LGVIGA = "LocalGatewayVirtualInterfaceGroupArn";
 const _LGVIGI = "LocalGatewayVirtualInterfaceGroupId";
 const _LGVIGIo = "LocalGatewayVirtualInterfaceGroupIds";
-const _LGVII = "LocalGatewayVirtualInterfaceIds";
-const _LGVIIo = "LocalGatewayVirtualInterfaceId";
+const _LGVIGo = "LocalGatewayVirtualInterfaceGroups";
+const _LGVII = "LocalGatewayVirtualInterfaceId";
+const _LGVIIo = "LocalGatewayVirtualInterfaceIds";
+const _LGVIo = "LocalGatewayVirtualInterfaces";
 const _LGo = "LogGroup";
 const _LGoc = "LocalGateways";
 const _LIIRB = "ListImagesInRecycleBin";
@@ -91218,9 +91925,13 @@ const _OIA = "OutsideIpAddress";
 const _OIAT = "OutsideIpAddressType";
 const _OIS = "OptInStatus";
 const _OIr = "OriginalIops";
+const _OIu = "OutpostId";
 const _OIw = "OwnerIds";
 const _OIwn = "OwnerId";
 const _OK = "ObjectKey";
+const _OL = "OutpostLags";
+const _OLI = "OutpostLagId";
+const _OLIu = "OutpostLagIds";
 const _OMAE = "OriginalMultiAttachEnabled";
 const _OO = "OidcOptions";
 const _OR = "OperatingRegions";
@@ -91259,6 +91970,7 @@ const _PAo = "PoolArn";
 const _PAr = "PrincipalArn";
 const _PB = "ProvisionedBandwidth";
 const _PBA = "PeerBgpAsn";
+const _PBAE = "PeerBgpAsnExtended";
 const _PBC = "ProvisionByoipCidr";
 const _PBIG = "PeakBandwidthInGbps";
 const _PC = "ProductCode";
@@ -91732,6 +92444,10 @@ const _SK = "S3Key";
 const _SKo = "S3objectKey";
 const _SL = "SpreadLevel";
 const _SLGR = "SearchLocalGatewayRoutes";
+const _SLVI = "ServiceLinkVirtualInterfaces";
+const _SLVIA = "ServiceLinkVirtualInterfaceArn";
+const _SLVII = "ServiceLinkVirtualInterfaceIds";
+const _SLVIIe = "ServiceLinkVirtualInterfaceId";
 const _SLo = "S3Location";
 const _SM = "ServiceManaged";
 const _SMPPOLP = "SpotMaxPricePercentageOverLowestPrice";
@@ -92445,7 +93161,8 @@ const _cSFRS = "currentSpotFleetRequestState";
 const _cSOK = "certificateS3ObjectKey";
 const _cSl = "clientSecret";
 const _cSo = "complianceStatus";
-const _cSon = "connectionStatuses";
+const _cSon = "configurationState";
+const _cSonn = "connectionStatuses";
 const _cSr = "creditSpecification";
 const _cSu = "currentState";
 const _cSur = "currentStatus";
@@ -92971,6 +93688,7 @@ const _lADT = "lastAttemptedDiscoveryTime";
 const _lAZ = "launchedAvailabilityZone";
 const _lAa = "lastAddress";
 const _lBA = "loadBalancerArn";
+const _lBAE = "localBgpAsnExtended";
 const _lBAo = "localBgpAsn";
 const _lBC = "loadBalancersConfig";
 const _lBLP = "loadBalancerListenerPort";
@@ -93010,6 +93728,10 @@ const _lGRTVIGA = "localGatewayRouteTableVirtualInterfaceGroupAssociation";
 const _lGRTVIGAI = "localGatewayRouteTableVirtualInterfaceGroupAssociationId";
 const _lGRTVIGAS = "localGatewayRouteTableVirtualInterfaceGroupAssociationSet";
 const _lGS = "localGatewaySet";
+const _lGVI = "localGatewayVirtualInterface";
+const _lGVIA = "localGatewayVirtualInterfaceArn";
+const _lGVIG = "localGatewayVirtualInterfaceGroup";
+const _lGVIGA = "localGatewayVirtualInterfaceGroupArn";
 const _lGVIGI = "localGatewayVirtualInterfaceGroupId";
 const _lGVIGS = "localGatewayVirtualInterfaceGroupSet";
 const _lGVII = "localGatewayVirtualInterfaceId";
@@ -93217,7 +93939,10 @@ const _oIAT = "outsideIpAddressType";
 const _oIS = "optInStatus";
 const _oIf = "offeringId";
 const _oIr = "originalIops";
+const _oIu = "outpostId";
 const _oK = "objectKey";
+const _oLI = "outpostLagId";
+const _oLS = "outpostLagSet";
 const _oMAE = "originalMultiAttachEnabled";
 const _oO = "oidcOptions";
 const _oRIWEA = "outputReservedInstancesWillExpireAt";
@@ -93251,6 +93976,7 @@ const _pAee = "peerAsn";
 const _pAu = "publiclyAdvertisable";
 const _pB = "provisionedBandwidth";
 const _pBA = "peerBgpAsn";
+const _pBAE = "peerBgpAsnExtended";
 const _pBIG = "peakBandwidthInGbps";
 const _pC = "productCodes";
 const _pCB = "poolCidrBlock";
@@ -93593,6 +94319,10 @@ const _sIub = "subnetIds";
 const _sK = "s3Key";
 const _sKo = "s3objectKey";
 const _sL = "s3Location";
+const _sLVIA = "serviceLinkVirtualInterfaceArn";
+const _sLVII = "serviceLinkVirtualInterfaceId";
+const _sLVIIS = "serviceLinkVirtualInterfaceIdSet";
+const _sLVIS = "serviceLinkVirtualInterfaceSet";
 const _sLp = "spreadLevel";
 const _sM = "serviceManaged";
 const _sMPPOLP = "spotMaxPricePercentageOverLowestPrice";

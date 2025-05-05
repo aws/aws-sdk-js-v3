@@ -2796,7 +2796,7 @@ export interface CreateClientVpnEndpointRequest {
 
   /**
    * <p>Indicates whether the client VPN session is disconnected after the maximum timeout specified in <code>SessionTimeoutHours</code> is reached. If <code>true</code>, users are prompted to reconnect client VPN. If <code>false</code>, client VPN attempts to reconnect automatically.
-   *                    The default value is <code>true</code>.</p>
+   *                    The default value is <code>false</code>.</p>
    * @public
    */
   DisconnectOnSessionTimeout?: boolean | undefined;

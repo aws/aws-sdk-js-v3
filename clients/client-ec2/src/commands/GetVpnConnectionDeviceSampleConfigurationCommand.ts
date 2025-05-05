@@ -10,7 +10,7 @@ import {
   GetVpnConnectionDeviceSampleConfigurationRequest,
   GetVpnConnectionDeviceSampleConfigurationResult,
   GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   de_GetVpnConnectionDeviceSampleConfigurationCommand,
   se_GetVpnConnectionDeviceSampleConfigurationCommand,

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeCoipPoolsRequest, DescribeCoipPoolsResult } from "../models/models_3";
+import { DescribeCoipPoolsRequest, DescribeCoipPoolsResult } from "../models/models_4";
 import { de_DescribeCoipPoolsCommand, se_DescribeCoipPoolsCommand } from "../protocols/Aws_ec2";
 
 /**

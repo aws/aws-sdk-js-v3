@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeLocalGatewayVirtualInterfacesRequest,
   DescribeLocalGatewayVirtualInterfacesResult,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   de_DescribeLocalGatewayVirtualInterfacesCommand,
   se_DescribeLocalGatewayVirtualInterfacesCommand,
@@ -67,11 +67,15 @@ export interface DescribeLocalGatewayVirtualInterfacesCommandOutput
  * //     { // LocalGatewayVirtualInterface
  * //       LocalGatewayVirtualInterfaceId: "STRING_VALUE",
  * //       LocalGatewayId: "STRING_VALUE",
+ * //       LocalGatewayVirtualInterfaceGroupId: "STRING_VALUE",
+ * //       LocalGatewayVirtualInterfaceArn: "STRING_VALUE",
+ * //       OutpostLagId: "STRING_VALUE",
  * //       Vlan: Number("int"),
  * //       LocalAddress: "STRING_VALUE",
  * //       PeerAddress: "STRING_VALUE",
  * //       LocalBgpAsn: Number("int"),
  * //       PeerBgpAsn: Number("int"),
+ * //       PeerBgpAsnExtended: Number("long"),
  * //       OwnerId: "STRING_VALUE",
  * //       Tags: [ // TagList
  * //         { // Tag
@@ -79,6 +83,7 @@ export interface DescribeLocalGatewayVirtualInterfacesCommandOutput
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       ConfigurationState: "pending" || "available" || "deleting" || "deleted",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

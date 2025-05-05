@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RestoreAddressToClassicRequest } from "../models/models_7";
-import { RestoreAddressToClassicResult } from "../models/models_8";
+import { RestoreAddressToClassicRequest, RestoreAddressToClassicResult } from "../models/models_8";
 import { de_RestoreAddressToClassicCommand, se_RestoreAddressToClassicCommand } from "../protocols/Aws_ec2";
 
 /**

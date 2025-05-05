@@ -7,7 +7,6 @@ import {
   AddIpamOrganizationalUnitExclusion,
   AddPrefixListEntry,
   AddressAttribute,
-  AddressAttributeName,
   Affinity,
   ApplianceModeSupportValue,
   AutoPlacement,
@@ -56,7 +55,6 @@ import {
   HostnameType,
   InstanceBandwidthWeighting,
   InstanceEventWindowTimeRangeRequest,
-  InstanceInterruptionBehavior,
   InstanceMatchCriteria,
   Ipam,
   IpamMeteredAccount,
@@ -70,7 +68,6 @@ import {
   RequestIpamResourceTag,
   SelfServicePortal,
   ShutdownBehavior,
-  SpotInstanceType,
   TargetCapacitySpecificationRequest,
   VolumeType,
 } from "./models_1";
@@ -81,7 +78,6 @@ import {
   DefaultRouteTablePropagationValue,
   DnsOptionsSpecification,
   IcmpTypeCode,
-  IKEVersionsRequestListValue,
   InternetGatewayExclusionMode,
   IpAddressType,
   LocalGatewayRoute,
@@ -112,6 +108,7 @@ import {
 import {
   Byoasn,
   CapacityBlockExtension,
+  IKEVersionsRequestListValue,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
   Phase1DHGroupNumbersRequestListValue,
@@ -135,6 +132,7 @@ import {
   FpgaImageAttributeName,
   HttpTokensState,
   ImdsSupportValues,
+  ImportImageLicenseConfigurationResponse,
   InstanceAttributeName,
   InstanceAutoRecoveryState,
   InstanceMetadataEndpointState,
@@ -143,9 +141,10 @@ import {
   InstanceMetadataTagsState,
   InstanceStatusEvent,
   LaunchPermission,
-  LockState,
   Monitoring,
   PermissionGroup,
+  SnapshotDetail,
+  SnapshotDetailFilterSensitiveLog,
   SnapshotTaskDetail,
   SnapshotTaskDetailFilterSensitiveLog,
   TpmSupportValues,
@@ -154,32 +153,658 @@ import {
 import {
   CreateVolumePermission,
   ExcessCapacityTerminationPolicy,
-  InstanceNetworkInterfaceSpecification,
   InternetGatewayBlockMode,
   LaunchTemplateConfig,
+  LockState,
   PublicIpv4PoolRange,
   ReservedInstancesConfiguration,
-  RunInstancesMonitoringEnabled,
   ScheduledInstance,
   SnapshotAttributeName,
   SpotFleetRequestConfigData,
   SpotFleetRequestConfigDataFilterSensitiveLog,
-  SpotInstanceRequest,
-  SpotInstanceRequestFilterSensitiveLog,
-  SpotPlacement,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
   VpcBlockPublicAccessOptions,
 } from "./models_5";
 
 import {
-  ClientData,
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
   UnlimitedSupportedInstanceFamily,
-  UserBucket,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface GetVerifiedAccessGroupPolicyResult {
+  /**
+   * <p>The status of the Verified Access policy.</p>
+   * @public
+   */
+  PolicyEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Verified Access policy document.</p>
+   * @public
+   */
+  PolicyDocument?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpnConnectionDeviceSampleConfigurationRequest {
+  /**
+   * <p>The <code>VpnConnectionId</code> specifies the Site-to-Site VPN connection used for the sample
+   *             configuration.</p>
+   * @public
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
+   * <p>Device identifier provided by the <code>GetVpnConnectionDeviceTypes</code> API.</p>
+   * @public
+   */
+  VpnConnectionDeviceTypeId: string | undefined;
+
+  /**
+   * <p>The IKE version to be used in the sample configuration file for your customer gateway
+   *             device. You can specify one of the following versions: <code>ikev1</code> or
+   *                 <code>ikev2</code>.</p>
+   * @public
+   */
+  InternetKeyExchangeVersion?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpnConnectionDeviceSampleConfigurationResult {
+  /**
+   * <p>Sample configuration file for the specified customer gateway device.</p>
+   * @public
+   */
+  VpnConnectionDeviceSampleConfiguration?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpnConnectionDeviceTypesRequest {
+  /**
+   * <p>The maximum number of results returned by <code>GetVpnConnectionDeviceTypes</code> in
+   *             paginated output. When this parameter is used, <code>GetVpnConnectionDeviceTypes</code>
+   *             only returns <code>MaxResults</code> results in a single page along with a
+   *                 <code>NextToken</code> response element. The remaining results of the initial
+   *             request can be seen by sending another <code>GetVpnConnectionDeviceTypes</code> request
+   *             with the returned <code>NextToken</code> value. This value can be between 200 and 1000.
+   *             If this parameter is not used, then <code>GetVpnConnectionDeviceTypes</code> returns all
+   *             results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The <code>NextToken</code> value returned from a previous paginated
+   *                 <code>GetVpnConnectionDeviceTypes</code> request where <code>MaxResults</code> was
+   *             used and the results exceeded the value of that parameter. Pagination continues from the
+   *             end of the previous results that returned the <code>NextToken</code> value. This value
+   *             is null when there are no more results to return. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>List of customer gateway devices that have a sample configuration file available for
+ *             use. You can also see the list of device types with sample configuration files available
+ *             under <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html">Your customer
+ *                 gateway device</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
+ * @public
+ */
+export interface VpnConnectionDeviceType {
+  /**
+   * <p>Customer gateway device identifier.</p>
+   * @public
+   */
+  VpnConnectionDeviceTypeId?: string | undefined;
+
+  /**
+   * <p>Customer gateway device vendor.</p>
+   * @public
+   */
+  Vendor?: string | undefined;
+
+  /**
+   * <p>Customer gateway device platform.</p>
+   * @public
+   */
+  Platform?: string | undefined;
+
+  /**
+   * <p>Customer gateway device software version.</p>
+   * @public
+   */
+  Software?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpnConnectionDeviceTypesResult {
+  /**
+   * <p>List of customer gateway devices that have a sample configuration file available for
+   *             use.</p>
+   * @public
+   */
+  VpnConnectionDeviceTypes?: VpnConnectionDeviceType[] | undefined;
+
+  /**
+   * <p>The <code>NextToken</code> value to include in a future
+   *                 <code>GetVpnConnectionDeviceTypes</code> request. When the results of a
+   *                 <code>GetVpnConnectionDeviceTypes</code> request exceed <code>MaxResults</code>,
+   *             this value can be used to retrieve the next page of results. This value is null when
+   *             there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpnTunnelReplacementStatusRequest {
+  /**
+   * <p>The ID of the Site-to-Site VPN connection. </p>
+   * @public
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
+   * <p>The external IP address of the VPN tunnel.</p>
+   * @public
+   */
+  VpnTunnelOutsideIpAddress: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Details for Site-to-Site VPN tunnel endpoint maintenance events.</p>
+ * @public
+ */
+export interface MaintenanceDetails {
+  /**
+   * <p>Verify existence of a pending maintenance.</p>
+   * @public
+   */
+  PendingMaintenance?: string | undefined;
+
+  /**
+   * <p>The timestamp after which Amazon Web Services will automatically apply maintenance.</p>
+   * @public
+   */
+  MaintenanceAutoAppliedAfter?: Date | undefined;
+
+  /**
+   * <p>Timestamp of last applied maintenance.</p>
+   * @public
+   */
+  LastMaintenanceApplied?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpnTunnelReplacementStatusResult {
+  /**
+   * <p>The ID of the Site-to-Site VPN connection. </p>
+   * @public
+   */
+  VpnConnectionId?: string | undefined;
+
+  /**
+   * <p>The ID of the transit gateway associated with the VPN connection.</p>
+   * @public
+   */
+  TransitGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the customer gateway.</p>
+   * @public
+   */
+  CustomerGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the virtual private gateway.</p>
+   * @public
+   */
+  VpnGatewayId?: string | undefined;
+
+  /**
+   * <p>The external IP address of the VPN tunnel.</p>
+   * @public
+   */
+  VpnTunnelOutsideIpAddress?: string | undefined;
+
+  /**
+   * <p>Get details of pending tunnel endpoint maintenance.</p>
+   * @public
+   */
+  MaintenanceDetails?: MaintenanceDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportClientVpnClientCertificateRevocationListRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint to which the client certificate revocation list applies.</p>
+   * @public
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>The client certificate revocation list file. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate">Generate a Client Certificate Revocation List</a> in the
+   * 				<i>Client VPN Administrator Guide</i>.</p>
+   * @public
+   */
+  CertificateRevocationList: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportClientVpnClientCertificateRevocationListResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the client-specific data.</p>
+ * @public
+ */
+export interface ClientData {
+  /**
+   * <p>A user-defined comment about the disk upload.</p>
+   * @public
+   */
+  Comment?: string | undefined;
+
+  /**
+   * <p>The time that the disk upload ends.</p>
+   * @public
+   */
+  UploadEnd?: Date | undefined;
+
+  /**
+   * <p>The size of the uploaded disk image, in GiB.</p>
+   * @public
+   */
+  UploadSize?: number | undefined;
+
+  /**
+   * <p>The time that the disk upload starts.</p>
+   * @public
+   */
+  UploadStart?: Date | undefined;
+}
+
+/**
+ * <p>Describes the Amazon S3 bucket for the disk image.</p>
+ * @public
+ */
+export interface UserBucket {
+  /**
+   * <p>The name of the Amazon S3 bucket where the disk image is located.</p>
+   * @public
+   */
+  S3Bucket?: string | undefined;
+
+  /**
+   * <p>The file name of the disk image.</p>
+   * @public
+   */
+  S3Key?: string | undefined;
+}
+
+/**
+ * <p>Describes the disk container object for an import image task.</p>
+ * @public
+ */
+export interface ImageDiskContainer {
+  /**
+   * <p>The description of the disk image.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The block device mapping for the disk.</p>
+   * @public
+   */
+  DeviceName?: string | undefined;
+
+  /**
+   * <p>The format of the disk image being imported.</p>
+   *          <p>Valid values: <code>OVA</code> | <code>VHD</code> | <code>VHDX</code> | <code>VMDK</code> | <code>RAW</code>
+   *          </p>
+   * @public
+   */
+  Format?: string | undefined;
+
+  /**
+   * <p>The ID of the EBS snapshot to be used for importing the snapshot.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The URL to the Amazon S3-based disk image being imported. The URL can either be a https URL (https://..) or an
+   *    Amazon S3 URL (s3://..)</p>
+   * @public
+   */
+  Url?: string | undefined;
+
+  /**
+   * <p>The S3 bucket for the disk image.</p>
+   * @public
+   */
+  UserBucket?: UserBucket | undefined;
+}
+
+/**
+ * <p>The request information of license configurations.</p>
+ * @public
+ */
+export interface ImportImageLicenseConfigurationRequest {
+  /**
+   * <p>The ARN of a license configuration.</p>
+   * @public
+   */
+  LicenseConfigurationArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportImageRequest {
+  /**
+   * <p>The architecture of the virtual machine.</p>
+   *          <p>Valid values: <code>i386</code> | <code>x86_64</code>
+   *          </p>
+   * @public
+   */
+  Architecture?: string | undefined;
+
+  /**
+   * <p>The client-specific data.</p>
+   * @public
+   */
+  ClientData?: ClientData | undefined;
+
+  /**
+   * <p>The token to enable idempotency for VM import requests.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>A description string for the import image task.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Information about the disk containers.</p>
+   * @public
+   */
+  DiskContainers?: ImageDiskContainer[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether the destination AMI of the imported image should be encrypted. The default KMS key for EBS is used
+   *    unless you specify a non-default KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
+   *     <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * @public
+   */
+  Encrypted?: boolean | undefined;
+
+  /**
+   * <p>The target hypervisor platform.</p>
+   *          <p>Valid values: <code>xen</code>
+   *          </p>
+   * @public
+   */
+  Hypervisor?: string | undefined;
+
+  /**
+   * <p>An identifier for the symmetric KMS key to use when creating the
+   *    encrypted AMI. This parameter is only required if you want to use a non-default KMS key; if this
+   *    parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code> is
+   *    specified, the <code>Encrypted</code> flag must also be set. </p>
+   *          <p>The KMS key identifier may be provided in any of the following formats: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID</p>
+   *             </li>
+   *             <li>
+   *                <p>Key alias</p>
+   *             </li>
+   *             <li>
+   *                <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
+   *             </li>
+   *          </ul>
+   *          <p>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even
+   *    though you provided an invalid identifier. This action will eventually report failure. </p>
+   *          <p>The specified KMS key must exist in the Region that the AMI is being copied to.</p>
+   *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>The license type to be used for the Amazon Machine Image (AMI) after importing.</p>
+   *          <p>Specify <code>AWS</code> to replace the source-system license with an Amazon Web Services
+   *    license or <code>BYOL</code> to retain the source-system license. Leaving this parameter
+   *    undefined is the same as choosing <code>AWS</code> when importing a Windows Server operating
+   *    system, and the same as choosing <code>BYOL</code> when importing a Windows client operating
+   *    system (such as Windows 10) or a Linux operating system.</p>
+   *          <p>To use <code>BYOL</code>, you must have existing licenses with rights to use these licenses in a third party
+   *    cloud, such as Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a> in the
+   *    VM Import/Export User Guide.</p>
+   * @public
+   */
+  LicenseType?: string | undefined;
+
+  /**
+   * <p>The operating system of the virtual machine. If you import a VM that is compatible with
+   *    Unified Extensible Firmware Interface (UEFI) using an EBS snapshot, you must specify a value for
+   *    the platform.</p>
+   *          <p>Valid values: <code>Windows</code> | <code>Linux</code>
+   *          </p>
+   * @public
+   */
+  Platform?: string | undefined;
+
+  /**
+   * <p>The name of the role to use when not using the default role, 'vmimport'.</p>
+   * @public
+   */
+  RoleName?: string | undefined;
+
+  /**
+   * <p>The ARNs of the license configurations.</p>
+   * @public
+   */
+  LicenseSpecifications?: ImportImageLicenseConfigurationRequest[] | undefined;
+
+  /**
+   * <p>The tags to apply to the import image task during creation.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>The usage operation value. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#prerequisites">Licensing options</a> in the <i>VM Import/Export User Guide</i>.</p>
+   * @public
+   */
+  UsageOperation?: string | undefined;
+
+  /**
+   * <p>The boot mode of the virtual machine.</p>
+   *          <note>
+   *             <p>The <code>uefi-preferred</code> boot mode isn't supported for importing images. For more
+   *     information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/prerequisites.html#vmimport-boot-modes">Boot modes</a> in
+   *     the <i>VM Import/Export User Guide</i>.</p>
+   *          </note>
+   * @public
+   */
+  BootMode?: BootModeValues | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportImageResult {
+  /**
+   * <p>The architecture of the virtual machine.</p>
+   * @public
+   */
+  Architecture?: string | undefined;
+
+  /**
+   * <p>A description of the import task.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Indicates whether the AMI is encrypted.</p>
+   * @public
+   */
+  Encrypted?: boolean | undefined;
+
+  /**
+   * <p>The target hypervisor of the import task.</p>
+   * @public
+   */
+  Hypervisor?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Machine Image (AMI) created by the import task.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>The task ID of the import image task.</p>
+   * @public
+   */
+  ImportTaskId?: string | undefined;
+
+  /**
+   * <p>The identifier for the symmetric KMS key that was used to create the encrypted AMI.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>The license type of the virtual machine.</p>
+   * @public
+   */
+  LicenseType?: string | undefined;
+
+  /**
+   * <p>The operating system of the virtual machine.</p>
+   * @public
+   */
+  Platform?: string | undefined;
+
+  /**
+   * <p>The progress of the task.</p>
+   * @public
+   */
+  Progress?: string | undefined;
+
+  /**
+   * <p>Information about the snapshots.</p>
+   * @public
+   */
+  SnapshotDetails?: SnapshotDetail[] | undefined;
+
+  /**
+   * <p>A brief status of the task.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>A detailed status message of the import task.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The ARNs of the license configurations.</p>
+   * @public
+   */
+  LicenseSpecifications?: ImportImageLicenseConfigurationResponse[] | undefined;
+
+  /**
+   * <p>Any tags assigned to the import image task.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The usage operation value.</p>
+   * @public
+   */
+  UsageOperation?: string | undefined;
+}
 
 /**
  * <p>Describes a disk image.</p>
@@ -1401,7 +2026,7 @@ export interface ModifyClientVpnEndpointRequest {
   ClientRouteEnforcementOptions?: ClientRouteEnforcementOptions | undefined;
 
   /**
-   * <p>Indicates whether the client VPN session is disconnected after the maximum timeout specified in <code>sessionTimeoutHours</code> is reached. If <code>true</code>, users are prompted to reconnect client VPN. If <code>false</code>, client VPN attempts to reconnect automatically. The default value is <code>true</code>.</p>
+   * <p>Indicates whether the client VPN session is disconnected after the maximum timeout specified in <code>sessionTimeoutHours</code> is reached. If <code>true</code>, users are prompted to reconnect client VPN. If <code>false</code>, client VPN attempts to reconnect automatically. The default value is <code>false</code>.</p>
    * @public
    */
   DisconnectOnSessionTimeout?: boolean | undefined;
@@ -8770,520 +9395,42 @@ export interface RequestSpotFleetRequest {
 }
 
 /**
- * <p>Contains the output of RequestSpotFleet.</p>
- * @public
+ * @internal
  */
-export interface RequestSpotFleetResponse {
-  /**
-   * <p>The ID of the Spot Fleet request.</p>
-   * @public
-   */
-  SpotFleetRequestId?: string | undefined;
-}
+export const GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog = (
+  obj: GetVpnConnectionDeviceSampleConfigurationResult
+): any => ({
+  ...obj,
+  ...(obj.VpnConnectionDeviceSampleConfiguration && { VpnConnectionDeviceSampleConfiguration: SENSITIVE_STRING }),
+});
 
 /**
- * <p>Describes the launch specification for an instance.</p>
- * @public
+ * @internal
  */
-export interface RequestSpotLaunchSpecification {
-  /**
-   * <p>The IDs of the security groups.</p>
-   * @public
-   */
-  SecurityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>Not supported.</p>
-   * @public
-   */
-  SecurityGroups?: string[] | undefined;
-
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  AddressingType?: string | undefined;
-
-  /**
-   * <p>The block device mapping entries. You can't specify both a snapshot ID and an encryption value.
-   *            This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume,
-   *            it is not blank and its encryption status is used for the volume encryption status.</p>
-   * @public
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[] | undefined;
-
-  /**
-   * <p>Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  EbsOptimized?: boolean | undefined;
-
-  /**
-   * <p>The IAM instance profile.</p>
-   * @public
-   */
-  IamInstanceProfile?: IamInstanceProfileSpecification | undefined;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The instance type. Only one instance type can be specified.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>The ID of the kernel.</p>
-   * @public
-   */
-  KernelId?: string | undefined;
-
-  /**
-   * <p>The name of the key pair.</p>
-   * @public
-   */
-  KeyName?: string | undefined;
-
-  /**
-   * <p>Indicates whether basic or detailed monitoring is enabled for the instance.</p>
-   *          <p>Default: Disabled</p>
-   * @public
-   */
-  Monitoring?: RunInstancesMonitoringEnabled | undefined;
-
-  /**
-   * <p>The network interfaces. If you specify a network interface, you must specify
-   *            subnet IDs and security group IDs using the network interface.</p>
-   * @public
-   */
-  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[] | undefined;
-
-  /**
-   * <p>The placement information for the instance.</p>
-   * @public
-   */
-  Placement?: SpotPlacement | undefined;
-
-  /**
-   * <p>The ID of the RAM disk.</p>
-   * @public
-   */
-  RamdiskId?: string | undefined;
-
-  /**
-   * <p>The ID of the subnet in which to launch the instance.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.</p>
-   * @public
-   */
-  UserData?: string | undefined;
-}
+export const ImageDiskContainerFilterSensitiveLog = (obj: ImageDiskContainer): any => ({
+  ...obj,
+  ...(obj.Url && { Url: SENSITIVE_STRING }),
+});
 
 /**
- * <p>Contains the parameters for RequestSpotInstances.</p>
- * @public
+ * @internal
  */
-export interface RequestSpotInstancesRequest {
-  /**
-   * <p>The launch specification.</p>
-   * @public
-   */
-  LaunchSpecification?: RequestSpotLaunchSpecification | undefined;
-
-  /**
-   * <p>The key-value pair for tagging the Spot Instance request on creation. The value for
-   *             <code>ResourceType</code> must be <code>spot-instances-request</code>, otherwise the
-   *             Spot Instance request fails. To tag the Spot Instance request after it has been created,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>. </p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
-   * @public
-   */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
-   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
-   *          <important>
-   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
-   *          </important>
-   * @public
-   */
-  SpotPrice?: string | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring idempotency in
-   *                 Amazon EC2 API requests</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of Spot Instances to launch.</p>
-   *          <p>Default: 1</p>
-   * @public
-   */
-  InstanceCount?: number | undefined;
-
-  /**
-   * <p>The Spot Instance request type.</p>
-   *          <p>Default: <code>one-time</code>
-   *          </p>
-   * @public
-   */
-  Type?: SpotInstanceType | undefined;
-
-  /**
-   * <p>The start date of the request. If this is a one-time request, the request becomes
-   *             active at this date and time and remains active until all instances launch, the request
-   *             expires, or the request is canceled. If the request is persistent, the request becomes
-   *             active at this date and time and remains active until it expires or is canceled.</p>
-   *          <p>The specified start date and time cannot be equal to the current date and time. You
-   *             must specify a start date and time that occurs after the current date and time.</p>
-   * @public
-   */
-  ValidFrom?: Date | undefined;
-
-  /**
-   * <p>The end date of the request, in UTC format
-   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   *          <ul>
-   *             <li>
-   *                <p>For a persistent request, the request remains active until the
-   *                         <code>ValidUntil</code> date and time is reached. Otherwise, the request
-   *                     remains active until you cancel it. </p>
-   *             </li>
-   *             <li>
-   *                <p>For a one-time request, the request remains active until all instances launch,
-   *                     the request is canceled, or the <code>ValidUntil</code> date and time is
-   *                     reached. By default, the request is valid for 7 days from the date the request
-   *                     was created.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ValidUntil?: Date | undefined;
-
-  /**
-   * <p>The instance launch group. Launch groups are Spot Instances that launch together and
-   *             terminate together.</p>
-   *          <p>Default: Instances are launched and terminated individually</p>
-   * @public
-   */
-  LaunchGroup?: string | undefined;
-
-  /**
-   * <p>The user-specified name for a logical grouping of requests.</p>
-   *          <p>When you specify an Availability Zone group in a Spot Instance request, all Spot
-   *             Instances in the request are launched in the same Availability Zone. Instance proximity
-   *             is maintained with this parameter, but the choice of Availability Zone is not. The group
-   *             applies only to requests for Spot Instances of the same instance type. Any additional
-   *             Spot Instance requests that are specified with the same Availability Zone group name are
-   *             launched in that same Availability Zone, as long as at least one instance from the group
-   *             is still active.</p>
-   *          <p>If there is no active instance running in the Availability Zone group that you specify
-   *             for a new Spot Instance request (all instances are terminated, the request is expired,
-   *             or the maximum price you specified falls below current Spot price), then Amazon EC2 launches
-   *             the instance in any Availability Zone where the constraint can be met. Consequently, the
-   *             subsequent set of Spot Instances could be placed in a different zone from the original
-   *             request, even if you specified the same Availability Zone group.</p>
-   *          <p>Default: Instances are launched in any available Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZoneGroup?: string | undefined;
-
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  BlockDurationMinutes?: number | undefined;
-}
+export const ImportImageRequestFilterSensitiveLog = (obj: ImportImageRequest): any => ({
+  ...obj,
+  ...(obj.DiskContainers && {
+    DiskContainers: obj.DiskContainers.map((item) => ImageDiskContainerFilterSensitiveLog(item)),
+  }),
+});
 
 /**
- * <p>Contains the output of RequestSpotInstances.</p>
- * @public
+ * @internal
  */
-export interface RequestSpotInstancesResult {
-  /**
-   * <p>The Spot Instance requests.</p>
-   * @public
-   */
-  SpotInstanceRequests?: SpotInstanceRequest[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetAddressAttributeRequest {
-  /**
-   * <p>[EC2-VPC] The allocation ID.</p>
-   * @public
-   */
-  AllocationId: string | undefined;
-
-  /**
-   * <p>The attribute of the IP address.</p>
-   * @public
-   */
-  Attribute: AddressAttributeName | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetAddressAttributeResult {
-  /**
-   * <p>Information about the IP address.</p>
-   * @public
-   */
-  Address?: AddressAttribute | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetEbsDefaultKmsKeyIdRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetEbsDefaultKmsKeyIdResult {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the default KMS key for EBS encryption by default.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ResetFpgaImageAttributeName = {
-  loadPermission: "loadPermission",
-} as const;
-
-/**
- * @public
- */
-export type ResetFpgaImageAttributeName =
-  (typeof ResetFpgaImageAttributeName)[keyof typeof ResetFpgaImageAttributeName];
-
-/**
- * @public
- */
-export interface ResetFpgaImageAttributeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the AFI.</p>
-   * @public
-   */
-  FpgaImageId: string | undefined;
-
-  /**
-   * <p>The attribute.</p>
-   * @public
-   */
-  Attribute?: ResetFpgaImageAttributeName | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetFpgaImageAttributeResult {
-  /**
-   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ResetImageAttributeName = {
-  launchPermission: "launchPermission",
-} as const;
-
-/**
- * @public
- */
-export type ResetImageAttributeName = (typeof ResetImageAttributeName)[keyof typeof ResetImageAttributeName];
-
-/**
- * <p>Contains the parameters for ResetImageAttribute.</p>
- * @public
- */
-export interface ResetImageAttributeRequest {
-  /**
-   * <p>The attribute to reset (currently you can only reset the launch permission
-   *       attribute).</p>
-   * @public
-   */
-  Attribute: ResetImageAttributeName | undefined;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetInstanceAttributeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The attribute to reset.</p>
-   *          <important>
-   *             <p>You can only reset the following attributes: <code>kernel</code> |
-   *                     <code>ramdisk</code> | <code>sourceDestCheck</code>.</p>
-   *          </important>
-   * @public
-   */
-  Attribute: InstanceAttributeName | undefined;
-}
-
-/**
- * <p>Contains the parameters for ResetNetworkInterfaceAttribute.</p>
- * @public
- */
-export interface ResetNetworkInterfaceAttributeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   * @public
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   * <p>The source/destination checking attribute. Resets the value to <code>true</code>.</p>
-   * @public
-   */
-  SourceDestCheck?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetSnapshotAttributeRequest {
-  /**
-   * <p>The attribute to reset. Currently, only the attribute for permission to create volumes can
-   *       be reset.</p>
-   * @public
-   */
-  Attribute: SnapshotAttributeName | undefined;
-
-  /**
-   * <p>The ID of the snapshot.</p>
-   * @public
-   */
-  SnapshotId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreAddressToClassicRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The Elastic IP address.</p>
-   * @public
-   */
-  PublicIp: string | undefined;
-}
+export const ImportImageResultFilterSensitiveLog = (obj: ImportImageResult): any => ({
+  ...obj,
+  ...(obj.SnapshotDetails && {
+    SnapshotDetails: obj.SnapshotDetails.map((item) => SnapshotDetailFilterSensitiveLog(item)),
+  }),
+});
 
 /**
  * @internal
@@ -9489,33 +9636,5 @@ export const RequestSpotFleetRequestFilterSensitiveLog = (obj: RequestSpotFleetR
   ...obj,
   ...(obj.SpotFleetRequestConfig && {
     SpotFleetRequestConfig: SpotFleetRequestConfigDataFilterSensitiveLog(obj.SpotFleetRequestConfig),
-  }),
-});
-
-/**
- * @internal
- */
-export const RequestSpotLaunchSpecificationFilterSensitiveLog = (obj: RequestSpotLaunchSpecification): any => ({
-  ...obj,
-  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RequestSpotInstancesRequestFilterSensitiveLog = (obj: RequestSpotInstancesRequest): any => ({
-  ...obj,
-  ...(obj.LaunchSpecification && {
-    LaunchSpecification: RequestSpotLaunchSpecificationFilterSensitiveLog(obj.LaunchSpecification),
-  }),
-});
-
-/**
- * @internal
- */
-export const RequestSpotInstancesResultFilterSensitiveLog = (obj: RequestSpotInstancesResult): any => ({
-  ...obj,
-  ...(obj.SpotInstanceRequests && {
-    SpotInstanceRequests: obj.SpotInstanceRequests.map((item) => SpotInstanceRequestFilterSensitiveLog(item)),
   }),
 });

@@ -8,7 +8,6 @@ import {
   AddressAttribute,
   AddressAttributeName,
   AddressTransfer,
-  AssociationStatus,
   BundleTask,
   BundleTaskFilterSensitiveLog,
   ByoipCidr,
@@ -24,6 +23,7 @@ import {
   VerifiedAccessTrustProvider,
   VerifiedAccessTrustProviderFilterSensitiveLog,
   VpcAttachment,
+  VpcPeeringConnection,
 } from "./models_0";
 
 import {
@@ -46,20 +46,24 @@ import {
   IpamResourceDiscovery,
   IpamScope,
   LaunchTemplate,
-  TransportProtocol,
 } from "./models_1";
 
 import {
   GroupIdentifier,
-  IKEVersionsRequestListValue,
   LocalGatewayRoute,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
+  LocalGatewayVirtualInterface,
+  LocalGatewayVirtualInterfaceGroup,
   ManagedPrefixList,
+  PayerResponsibility,
+  PrivateDnsNameConfiguration,
   RouteServer,
   RouteServerEndpoint,
   RouteServerPeer,
+  ServiceState,
+  ServiceTypeDetail,
   SubnetCidrReservation,
   TransitGateway,
   TransitGatewayConnect,
@@ -70,11 +74,256 @@ import {
   TransitGatewayRoute,
   TransitGatewayRouteTable,
   TransitGatewayRouteTableAnnouncement,
-  TunnelInsideIpVersion,
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceConnectivityType = {
+  ipv4: "ipv4",
+  ipv6: "ipv6",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceConnectivityType = (typeof ServiceConnectivityType)[keyof typeof ServiceConnectivityType];
+
+/**
+ * <p>Describes a supported Region.</p>
+ * @public
+ */
+export interface SupportedRegionDetail {
+  /**
+   * <p>The Region code.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The service state. The possible values are <code>Pending</code>, <code>Available</code>,
+   *             <code>Deleting</code>, <code>Deleted</code>, <code>Failed</code>, and <code>Closed</code>.</p>
+   * @public
+   */
+  ServiceState?: string | undefined;
+}
+
+/**
+ * <p>Describes a service configuration for a VPC endpoint service.</p>
+ * @public
+ */
+export interface ServiceConfiguration {
+  /**
+   * <p>The type of service.</p>
+   * @public
+   */
+  ServiceType?: ServiceTypeDetail[] | undefined;
+
+  /**
+   * <p>The ID of the service.</p>
+   * @public
+   */
+  ServiceId?: string | undefined;
+
+  /**
+   * <p>The name of the service.</p>
+   * @public
+   */
+  ServiceName?: string | undefined;
+
+  /**
+   * <p>The service state.</p>
+   * @public
+   */
+  ServiceState?: ServiceState | undefined;
+
+  /**
+   * <p>The Availability Zones in which the service is available.</p>
+   * @public
+   */
+  AvailabilityZones?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether requests from other Amazon Web Services accounts to create an endpoint to the service must first be accepted.</p>
+   * @public
+   */
+  AcceptanceRequired?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the service manages its VPC endpoints. Management of the service VPC
+   *             endpoints using the VPC endpoint API is restricted.</p>
+   * @public
+   */
+  ManagesVpcEndpoints?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the Network Load Balancers for the service.</p>
+   * @public
+   */
+  NetworkLoadBalancerArns?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>
+   * @public
+   */
+  GatewayLoadBalancerArns?: string[] | undefined;
+
+  /**
+   * <p>The supported IP address types.</p>
+   * @public
+   */
+  SupportedIpAddressTypes?: ServiceConnectivityType[] | undefined;
+
+  /**
+   * <p>The DNS names for the service.</p>
+   * @public
+   */
+  BaseEndpointDnsNames?: string[] | undefined;
+
+  /**
+   * <p>The private DNS name for the service.</p>
+   * @public
+   */
+  PrivateDnsName?: string | undefined;
+
+  /**
+   * <p>Information about the endpoint service private DNS name configuration.</p>
+   * @public
+   */
+  PrivateDnsNameConfiguration?: PrivateDnsNameConfiguration | undefined;
+
+  /**
+   * <p>The payer responsibility.</p>
+   * @public
+   */
+  PayerResponsibility?: PayerResponsibility | undefined;
+
+  /**
+   * <p>The tags assigned to the service.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The supported Regions.</p>
+   * @public
+   */
+  SupportedRegions?: SupportedRegionDetail[] | undefined;
+
+  /**
+   * <p>Indicates whether consumers can access the service from a Region other than the
+   *             Region where the service is hosted.</p>
+   * @public
+   */
+  RemoteAccessEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcEndpointServiceConfigurationResult {
+  /**
+   * <p>Information about the service configuration.</p>
+   * @public
+   */
+  ServiceConfiguration?: ServiceConfiguration | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcPeeringConnectionRequest {
+  /**
+   * <p>The Region code for the accepter VPC, if the accepter VPC is located in a Region
+   *             other than the Region in which you make the request.</p>
+   *          <p>Default: The Region in which you make the request.</p>
+   * @public
+   */
+  PeerRegion?: string | undefined;
+
+  /**
+   * <p>The tags to assign to the peering connection.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the requester VPC. You must specify this parameter in the
+   * 			request.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The ID of the VPC with which you are creating the VPC peering connection. You must
+   * 			specify this parameter in the request.</p>
+   * @public
+   */
+  PeerVpcId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the owner of the accepter VPC.</p>
+   *          <p>Default: Your Amazon Web Services account ID</p>
+   * @public
+   */
+  PeerOwnerId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcPeeringConnectionResult {
+  /**
+   * <p>Information about the VPC peering connection.</p>
+   * @public
+   */
+  VpcPeeringConnection?: VpcPeeringConnection | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TunnelInsideIpVersion = {
+  ipv4: "ipv4",
+  ipv6: "ipv6",
+} as const;
+
+/**
+ * @public
+ */
+export type TunnelInsideIpVersion = (typeof TunnelInsideIpVersion)[keyof typeof TunnelInsideIpVersion];
+
+/**
+ * <p>The IKE version that is permitted for the VPN tunnel.</p>
+ * @public
+ */
+export interface IKEVersionsRequestListValue {
+  /**
+   * <p>The IKE version.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
 
 /**
  * <p>Options for sending VPN tunnel logs to CloudWatch.</p>
@@ -2369,6 +2618,66 @@ export interface DeleteLocalGatewayRouteTableVpcAssociationResult {
    * @public
    */
   LocalGatewayRouteTableVpcAssociation?: LocalGatewayRouteTableVpcAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayVirtualInterfaceRequest {
+  /**
+   * <p>The ID of the local virtual interface to delete.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayVirtualInterfaceResult {
+  /**
+   * <p>Information about the deleted local gateway virtual interface.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterface?: LocalGatewayVirtualInterface | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayVirtualInterfaceGroupRequest {
+  /**
+   * <p>The ID of the local gateway virtual interface group to delete.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceGroupId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayVirtualInterfaceGroupResult {
+  /**
+   * <p>Information about the deleted local gateway virtual interface group.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceGroup?: LocalGatewayVirtualInterfaceGroup | undefined;
 }
 
 /**
@@ -7179,524 +7488,6 @@ export interface ClientRouteEnforcementResponseOptions {
    * @public
    */
   Enforced?: boolean | undefined;
-}
-
-/**
- * <p>Information about the client connection logging options for a Client VPN endpoint.</p>
- * @public
- */
-export interface ConnectionLogResponseOptions {
-  /**
-   * <p>Indicates whether client connection logging is enabled for the Client VPN endpoint.</p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-
-  /**
-   * <p>The name of the Amazon CloudWatch Logs log group to which connection logging data is published.</p>
-   * @public
-   */
-  CloudwatchLogGroup?: string | undefined;
-
-  /**
-   * <p>The name of the Amazon CloudWatch Logs log stream to which connection logging data is published.</p>
-   * @public
-   */
-  CloudwatchLogStream?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const VpnProtocol = {
-  openvpn: "openvpn",
-} as const;
-
-/**
- * @public
- */
-export type VpnProtocol = (typeof VpnProtocol)[keyof typeof VpnProtocol];
-
-/**
- * <p>Describes a Client VPN endpoint.</p>
- * @public
- */
-export interface ClientVpnEndpoint {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   * @public
-   */
-  ClientVpnEndpointId?: string | undefined;
-
-  /**
-   * <p>A brief description of the endpoint.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The current state of the Client VPN endpoint.</p>
-   * @public
-   */
-  Status?: ClientVpnEndpointStatus | undefined;
-
-  /**
-   * <p>The date and time the Client VPN endpoint was created.</p>
-   * @public
-   */
-  CreationTime?: string | undefined;
-
-  /**
-   * <p>The date and time the Client VPN endpoint was deleted, if applicable.</p>
-   * @public
-   */
-  DeletionTime?: string | undefined;
-
-  /**
-   * <p>The DNS name to be used by clients when connecting to the Client VPN endpoint.</p>
-   * @public
-   */
-  DnsName?: string | undefined;
-
-  /**
-   * <p>The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.</p>
-   * @public
-   */
-  ClientCidrBlock?: string | undefined;
-
-  /**
-   * <p>Information about the DNS servers to be used for DNS resolution. </p>
-   * @public
-   */
-  DnsServers?: string[] | undefined;
-
-  /**
-   * <p>Indicates whether split-tunnel is enabled in the Client VPN endpoint.</p>
-   *          <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-Tunnel Client VPN endpoint</a>
-   * 			in the <i>Client VPN Administrator Guide</i>.</p>
-   * @public
-   */
-  SplitTunnel?: boolean | undefined;
-
-  /**
-   * <p>The protocol used by the VPN session.</p>
-   * @public
-   */
-  VpnProtocol?: VpnProtocol | undefined;
-
-  /**
-   * <p>The transport protocol used by the Client VPN endpoint.</p>
-   * @public
-   */
-  TransportProtocol?: TransportProtocol | undefined;
-
-  /**
-   * <p>The port number for the  Client VPN endpoint.</p>
-   * @public
-   */
-  VpnPort?: number | undefined;
-
-  /**
-   * <p>Information about the associated target networks. A target network is a subnet in a VPC.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  AssociatedTargetNetworks?: AssociatedTargetNetwork[] | undefined;
-
-  /**
-   * <p>The ARN of the server certificate.</p>
-   * @public
-   */
-  ServerCertificateArn?: string | undefined;
-
-  /**
-   * <p>Information about the authentication method used by the Client VPN endpoint.</p>
-   * @public
-   */
-  AuthenticationOptions?: ClientVpnAuthentication[] | undefined;
-
-  /**
-   * <p>Information about the client connection logging options for the Client VPN endpoint.</p>
-   * @public
-   */
-  ConnectionLogOptions?: ConnectionLogResponseOptions | undefined;
-
-  /**
-   * <p>Any tags assigned to the Client VPN endpoint.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The IDs of the security groups for the target network.</p>
-   * @public
-   */
-  SecurityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The URL of the self-service portal.</p>
-   * @public
-   */
-  SelfServicePortalUrl?: string | undefined;
-
-  /**
-   * <p>The options for managing connection authorization for new client connections.</p>
-   * @public
-   */
-  ClientConnectOptions?: ClientConnectResponseOptions | undefined;
-
-  /**
-   * <p>The maximum VPN session duration time in hours.</p>
-   *          <p>Valid values: <code>8 | 10 | 12 | 24</code>
-   *          </p>
-   *          <p>Default value: <code>24</code>
-   *          </p>
-   * @public
-   */
-  SessionTimeoutHours?: number | undefined;
-
-  /**
-   * <p>Options for enabling a customizable text banner that will be displayed on Amazon Web Services provided clients when a VPN session is
-   * 			established.</p>
-   * @public
-   */
-  ClientLoginBannerOptions?: ClientLoginBannerResponseOptions | undefined;
-
-  /**
-   * <p>Client route enforcement is a feature of the Client VPN service that helps enforce administrator defined routes on devices connected through the VPN. T
-   * 		his feature helps improve your security posture by ensuring that network traffic originating from a connected client is not inadvertently sent outside the VPN tunnel.</p>
-   *          <p>Client route enforcement works by monitoring the route table of a connected device for routing policy changes to the VPN connection. If the feature detects any VPN routing policy modifications, it will automatically force an update to the route table,
-   * 			reverting it back to the expected route configurations.</p>
-   * @public
-   */
-  ClientRouteEnforcementOptions?: ClientRouteEnforcementResponseOptions | undefined;
-
-  /**
-   * <p>Indicates whether the client VPN session is disconnected after the maximum <code>sessionTimeoutHours</code> is reached. If <code>true</code>, users are prompted to reconnect client VPN. If <code>false</code>, client VPN attempts to reconnect automatically. The default value is <code>true</code>.</p>
-   * @public
-   */
-  DisconnectOnSessionTimeout?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClientVpnEndpointsResult {
-  /**
-   * <p>Information about the Client VPN endpoints.</p>
-   * @public
-   */
-  ClientVpnEndpoints?: ClientVpnEndpoint[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClientVpnRoutesRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   * @public
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>destination-cidr</code> - The CIDR of the route destination.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>origin</code> - How the route was associated with the Client VPN endpoint (<code>associate</code> | <code>add-route</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target-subnet</code> - The ID of the subnet through which traffic is routed.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Information about a Client VPN endpoint route.</p>
- * @public
- */
-export interface ClientVpnRoute {
-  /**
-   * <p>The ID of the Client VPN endpoint with which the route is associated.</p>
-   * @public
-   */
-  ClientVpnEndpointId?: string | undefined;
-
-  /**
-   * <p>The IPv4 address range, in CIDR notation, of the route destination.</p>
-   * @public
-   */
-  DestinationCidr?: string | undefined;
-
-  /**
-   * <p>The ID of the subnet through which traffic is routed.</p>
-   * @public
-   */
-  TargetSubnet?: string | undefined;
-
-  /**
-   * <p>The route type.</p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p>Indicates how the route was associated with the Client VPN endpoint.
-   * 			<code>associate</code> indicates that the route was automatically added when the target network
-   * 			was associated with the Client VPN endpoint. <code>add-route</code> indicates that the route
-   * 			was manually added using the <b>CreateClientVpnRoute</b> action.</p>
-   * @public
-   */
-  Origin?: string | undefined;
-
-  /**
-   * <p>The current state of the route.</p>
-   * @public
-   */
-  Status?: ClientVpnRouteStatus | undefined;
-
-  /**
-   * <p>A brief description of the route.</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClientVpnRoutesResult {
-  /**
-   * <p>Information about the Client VPN endpoint routes.</p>
-   * @public
-   */
-  Routes?: ClientVpnRoute[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClientVpnTargetNetworksRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   * @public
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>The IDs of the target network associations.</p>
-   * @public
-   */
-  AssociationIds?: string[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>association-id</code> - The ID of the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target-network-id</code> - The ID of the subnet specified as the target network.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC in which the target network is located.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes a target network associated with a Client VPN endpoint.</p>
- * @public
- */
-export interface TargetNetwork {
-  /**
-   * <p>The ID of the association.</p>
-   * @public
-   */
-  AssociationId?: string | undefined;
-
-  /**
-   * <p>The ID of the VPC in which the target network (subnet) is located.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The ID of the subnet specified as the target network.</p>
-   * @public
-   */
-  TargetNetworkId?: string | undefined;
-
-  /**
-   * <p>The ID of the Client VPN endpoint with which the target network is associated.</p>
-   * @public
-   */
-  ClientVpnEndpointId?: string | undefined;
-
-  /**
-   * <p>The current state of the target network association.</p>
-   * @public
-   */
-  Status?: AssociationStatus | undefined;
-
-  /**
-   * <p>The IDs of the security groups applied to the target network association.</p>
-   * @public
-   */
-  SecurityGroups?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClientVpnTargetNetworksResult {
-  /**
-   * <p>Information about the associated target networks.</p>
-   * @public
-   */
-  ClientVpnTargetNetworks?: TargetNetwork[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCoipPoolsRequest {
-  /**
-   * <p>The IDs of the address pools.</p>
-   * @public
-   */
-  PoolIds?: string[] | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>coip-pool.local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>coip-pool.pool-id</code> - The ID of the address pool.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCoipPoolsResult {
-  /**
-   * <p>Information about the address pools.</p>
-   * @public
-   */
-  CoipPools?: CoipPool[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }
 
 /**

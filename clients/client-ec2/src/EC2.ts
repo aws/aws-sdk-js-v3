@@ -452,6 +452,16 @@ import {
   CreateLocalGatewayRouteTableVpcAssociationCommandOutput,
 } from "./commands/CreateLocalGatewayRouteTableVpcAssociationCommand";
 import {
+  CreateLocalGatewayVirtualInterfaceCommand,
+  CreateLocalGatewayVirtualInterfaceCommandInput,
+  CreateLocalGatewayVirtualInterfaceCommandOutput,
+} from "./commands/CreateLocalGatewayVirtualInterfaceCommand";
+import {
+  CreateLocalGatewayVirtualInterfaceGroupCommand,
+  CreateLocalGatewayVirtualInterfaceGroupCommandInput,
+  CreateLocalGatewayVirtualInterfaceGroupCommandOutput,
+} from "./commands/CreateLocalGatewayVirtualInterfaceGroupCommand";
+import {
   CreateManagedPrefixListCommand,
   CreateManagedPrefixListCommandInput,
   CreateManagedPrefixListCommandOutput,
@@ -840,6 +850,16 @@ import {
   DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
   DeleteLocalGatewayRouteTableVpcAssociationCommandOutput,
 } from "./commands/DeleteLocalGatewayRouteTableVpcAssociationCommand";
+import {
+  DeleteLocalGatewayVirtualInterfaceCommand,
+  DeleteLocalGatewayVirtualInterfaceCommandInput,
+  DeleteLocalGatewayVirtualInterfaceCommandOutput,
+} from "./commands/DeleteLocalGatewayVirtualInterfaceCommand";
+import {
+  DeleteLocalGatewayVirtualInterfaceGroupCommand,
+  DeleteLocalGatewayVirtualInterfaceGroupCommandInput,
+  DeleteLocalGatewayVirtualInterfaceGroupCommandOutput,
+} from "./commands/DeleteLocalGatewayVirtualInterfaceGroupCommand";
 import {
   DeleteManagedPrefixListCommand,
   DeleteManagedPrefixListCommandInput,
@@ -1589,6 +1609,11 @@ import {
   DescribeNetworkInterfacesCommandOutput,
 } from "./commands/DescribeNetworkInterfacesCommand";
 import {
+  DescribeOutpostLagsCommand,
+  DescribeOutpostLagsCommandInput,
+  DescribeOutpostLagsCommandOutput,
+} from "./commands/DescribeOutpostLagsCommand";
+import {
   DescribePlacementGroupsCommand,
   DescribePlacementGroupsCommandInput,
   DescribePlacementGroupsCommandOutput,
@@ -1688,6 +1713,11 @@ import {
   DescribeSecurityGroupVpcAssociationsCommandInput,
   DescribeSecurityGroupVpcAssociationsCommandOutput,
 } from "./commands/DescribeSecurityGroupVpcAssociationsCommand";
+import {
+  DescribeServiceLinkVirtualInterfacesCommand,
+  DescribeServiceLinkVirtualInterfacesCommandInput,
+  DescribeServiceLinkVirtualInterfacesCommandOutput,
+} from "./commands/DescribeServiceLinkVirtualInterfacesCommand";
 import {
   DescribeSnapshotAttributeCommand,
   DescribeSnapshotAttributeCommandInput,
@@ -3405,6 +3435,8 @@ const commands = {
   CreateLocalGatewayRouteTableCommand,
   CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
   CreateLocalGatewayRouteTableVpcAssociationCommand,
+  CreateLocalGatewayVirtualInterfaceCommand,
+  CreateLocalGatewayVirtualInterfaceGroupCommand,
   CreateManagedPrefixListCommand,
   CreateNatGatewayCommand,
   CreateNetworkAclCommand,
@@ -3486,6 +3518,8 @@ const commands = {
   DeleteLocalGatewayRouteTableCommand,
   DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
   DeleteLocalGatewayRouteTableVpcAssociationCommand,
+  DeleteLocalGatewayVirtualInterfaceCommand,
+  DeleteLocalGatewayVirtualInterfaceGroupCommand,
   DeleteManagedPrefixListCommand,
   DeleteNatGatewayCommand,
   DeleteNetworkAclCommand,
@@ -3638,6 +3672,7 @@ const commands = {
   DescribeNetworkInterfaceAttributeCommand,
   DescribeNetworkInterfacePermissionsCommand,
   DescribeNetworkInterfacesCommand,
+  DescribeOutpostLagsCommand,
   DescribePlacementGroupsCommand,
   DescribePrefixListsCommand,
   DescribePrincipalIdFormatCommand,
@@ -3658,6 +3693,7 @@ const commands = {
   DescribeSecurityGroupRulesCommand,
   DescribeSecurityGroupsCommand,
   DescribeSecurityGroupVpcAssociationsCommand,
+  DescribeServiceLinkVirtualInterfacesCommand,
   DescribeSnapshotAttributeCommand,
   DescribeSnapshotsCommand,
   DescribeSnapshotTierStatusCommand,
@@ -5504,6 +5540,40 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link CreateLocalGatewayVirtualInterfaceCommand}
+   */
+  createLocalGatewayVirtualInterface(
+    args: CreateLocalGatewayVirtualInterfaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocalGatewayVirtualInterfaceCommandOutput>;
+  createLocalGatewayVirtualInterface(
+    args: CreateLocalGatewayVirtualInterfaceCommandInput,
+    cb: (err: any, data?: CreateLocalGatewayVirtualInterfaceCommandOutput) => void
+  ): void;
+  createLocalGatewayVirtualInterface(
+    args: CreateLocalGatewayVirtualInterfaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocalGatewayVirtualInterfaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLocalGatewayVirtualInterfaceGroupCommand}
+   */
+  createLocalGatewayVirtualInterfaceGroup(
+    args: CreateLocalGatewayVirtualInterfaceGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocalGatewayVirtualInterfaceGroupCommandOutput>;
+  createLocalGatewayVirtualInterfaceGroup(
+    args: CreateLocalGatewayVirtualInterfaceGroupCommandInput,
+    cb: (err: any, data?: CreateLocalGatewayVirtualInterfaceGroupCommandOutput) => void
+  ): void;
+  createLocalGatewayVirtualInterfaceGroup(
+    args: CreateLocalGatewayVirtualInterfaceGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocalGatewayVirtualInterfaceGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateManagedPrefixListCommand}
    */
   createManagedPrefixList(
@@ -6816,6 +6886,40 @@ export interface EC2 {
     args: DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLocalGatewayVirtualInterfaceCommand}
+   */
+  deleteLocalGatewayVirtualInterface(
+    args: DeleteLocalGatewayVirtualInterfaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLocalGatewayVirtualInterfaceCommandOutput>;
+  deleteLocalGatewayVirtualInterface(
+    args: DeleteLocalGatewayVirtualInterfaceCommandInput,
+    cb: (err: any, data?: DeleteLocalGatewayVirtualInterfaceCommandOutput) => void
+  ): void;
+  deleteLocalGatewayVirtualInterface(
+    args: DeleteLocalGatewayVirtualInterfaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLocalGatewayVirtualInterfaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLocalGatewayVirtualInterfaceGroupCommand}
+   */
+  deleteLocalGatewayVirtualInterfaceGroup(
+    args: DeleteLocalGatewayVirtualInterfaceGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLocalGatewayVirtualInterfaceGroupCommandOutput>;
+  deleteLocalGatewayVirtualInterfaceGroup(
+    args: DeleteLocalGatewayVirtualInterfaceGroupCommandInput,
+    cb: (err: any, data?: DeleteLocalGatewayVirtualInterfaceGroupCommandOutput) => void
+  ): void;
+  deleteLocalGatewayVirtualInterfaceGroup(
+    args: DeleteLocalGatewayVirtualInterfaceGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLocalGatewayVirtualInterfaceGroupCommandOutput) => void
   ): void;
 
   /**
@@ -9429,6 +9533,24 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DescribeOutpostLagsCommand}
+   */
+  describeOutpostLags(): Promise<DescribeOutpostLagsCommandOutput>;
+  describeOutpostLags(
+    args: DescribeOutpostLagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeOutpostLagsCommandOutput>;
+  describeOutpostLags(
+    args: DescribeOutpostLagsCommandInput,
+    cb: (err: any, data?: DescribeOutpostLagsCommandOutput) => void
+  ): void;
+  describeOutpostLags(
+    args: DescribeOutpostLagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeOutpostLagsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribePlacementGroupsCommand}
    */
   describePlacementGroups(): Promise<DescribePlacementGroupsCommandOutput>;
@@ -9781,6 +9903,24 @@ export interface EC2 {
     args: DescribeSecurityGroupVpcAssociationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeSecurityGroupVpcAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeServiceLinkVirtualInterfacesCommand}
+   */
+  describeServiceLinkVirtualInterfaces(): Promise<DescribeServiceLinkVirtualInterfacesCommandOutput>;
+  describeServiceLinkVirtualInterfaces(
+    args: DescribeServiceLinkVirtualInterfacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeServiceLinkVirtualInterfacesCommandOutput>;
+  describeServiceLinkVirtualInterfaces(
+    args: DescribeServiceLinkVirtualInterfacesCommandInput,
+    cb: (err: any, data?: DescribeServiceLinkVirtualInterfacesCommandOutput) => void
+  ): void;
+  describeServiceLinkVirtualInterfaces(
+    args: DescribeServiceLinkVirtualInterfacesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeServiceLinkVirtualInterfacesCommandOutput) => void
   ): void;
 
   /**

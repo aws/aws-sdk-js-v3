@@ -71,12 +71,16 @@ export interface DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
  * //       ],
  * //       LocalGatewayId: "STRING_VALUE",
  * //       OwnerId: "STRING_VALUE",
+ * //       LocalBgpAsn: Number("int"),
+ * //       LocalBgpAsnExtended: Number("long"),
+ * //       LocalGatewayVirtualInterfaceGroupArn: "STRING_VALUE",
  * //       Tags: [ // TagList
  * //         { // Tag
  * //           Key: "STRING_VALUE",
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       ConfigurationState: "pending" || "incomplete" || "available" || "deleting" || "deleted",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

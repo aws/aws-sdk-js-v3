@@ -351,6 +351,14 @@ import {
   CreateLocalGatewayRouteTableVpcAssociationCommandOutput,
 } from "./commands/CreateLocalGatewayRouteTableVpcAssociationCommand";
 import {
+  CreateLocalGatewayVirtualInterfaceCommandInput,
+  CreateLocalGatewayVirtualInterfaceCommandOutput,
+} from "./commands/CreateLocalGatewayVirtualInterfaceCommand";
+import {
+  CreateLocalGatewayVirtualInterfaceGroupCommandInput,
+  CreateLocalGatewayVirtualInterfaceGroupCommandOutput,
+} from "./commands/CreateLocalGatewayVirtualInterfaceGroupCommand";
+import {
   CreateManagedPrefixListCommandInput,
   CreateManagedPrefixListCommandOutput,
 } from "./commands/CreateManagedPrefixListCommand";
@@ -605,6 +613,14 @@ import {
   DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
   DeleteLocalGatewayRouteTableVpcAssociationCommandOutput,
 } from "./commands/DeleteLocalGatewayRouteTableVpcAssociationCommand";
+import {
+  DeleteLocalGatewayVirtualInterfaceCommandInput,
+  DeleteLocalGatewayVirtualInterfaceCommandOutput,
+} from "./commands/DeleteLocalGatewayVirtualInterfaceCommand";
+import {
+  DeleteLocalGatewayVirtualInterfaceGroupCommandInput,
+  DeleteLocalGatewayVirtualInterfaceGroupCommandOutput,
+} from "./commands/DeleteLocalGatewayVirtualInterfaceGroupCommand";
 import {
   DeleteManagedPrefixListCommandInput,
   DeleteManagedPrefixListCommandOutput,
@@ -1124,6 +1140,10 @@ import {
   DescribeNetworkInterfacesCommandOutput,
 } from "./commands/DescribeNetworkInterfacesCommand";
 import {
+  DescribeOutpostLagsCommandInput,
+  DescribeOutpostLagsCommandOutput,
+} from "./commands/DescribeOutpostLagsCommand";
+import {
   DescribePlacementGroupsCommandInput,
   DescribePlacementGroupsCommandOutput,
 } from "./commands/DescribePlacementGroupsCommand";
@@ -1200,6 +1220,10 @@ import {
   DescribeSecurityGroupVpcAssociationsCommandInput,
   DescribeSecurityGroupVpcAssociationsCommandOutput,
 } from "./commands/DescribeSecurityGroupVpcAssociationsCommand";
+import {
+  DescribeServiceLinkVirtualInterfacesCommandInput,
+  DescribeServiceLinkVirtualInterfacesCommandOutput,
+} from "./commands/DescribeServiceLinkVirtualInterfacesCommand";
 import {
   DescribeSnapshotAttributeCommandInput,
   DescribeSnapshotAttributeCommandOutput,
@@ -2468,6 +2492,8 @@ export type ServiceInputTypes =
   | CreateLocalGatewayRouteTableCommandInput
   | CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput
   | CreateLocalGatewayRouteTableVpcAssociationCommandInput
+  | CreateLocalGatewayVirtualInterfaceCommandInput
+  | CreateLocalGatewayVirtualInterfaceGroupCommandInput
   | CreateManagedPrefixListCommandInput
   | CreateNatGatewayCommandInput
   | CreateNetworkAclCommandInput
@@ -2549,6 +2575,8 @@ export type ServiceInputTypes =
   | DeleteLocalGatewayRouteTableCommandInput
   | DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput
   | DeleteLocalGatewayRouteTableVpcAssociationCommandInput
+  | DeleteLocalGatewayVirtualInterfaceCommandInput
+  | DeleteLocalGatewayVirtualInterfaceGroupCommandInput
   | DeleteManagedPrefixListCommandInput
   | DeleteNatGatewayCommandInput
   | DeleteNetworkAclCommandInput
@@ -2701,6 +2729,7 @@ export type ServiceInputTypes =
   | DescribeNetworkInterfaceAttributeCommandInput
   | DescribeNetworkInterfacePermissionsCommandInput
   | DescribeNetworkInterfacesCommandInput
+  | DescribeOutpostLagsCommandInput
   | DescribePlacementGroupsCommandInput
   | DescribePrefixListsCommandInput
   | DescribePrincipalIdFormatCommandInput
@@ -2721,6 +2750,7 @@ export type ServiceInputTypes =
   | DescribeSecurityGroupRulesCommandInput
   | DescribeSecurityGroupVpcAssociationsCommandInput
   | DescribeSecurityGroupsCommandInput
+  | DescribeServiceLinkVirtualInterfacesCommandInput
   | DescribeSnapshotAttributeCommandInput
   | DescribeSnapshotTierStatusCommandInput
   | DescribeSnapshotsCommandInput
@@ -3148,6 +3178,8 @@ export type ServiceOutputTypes =
   | CreateLocalGatewayRouteTableCommandOutput
   | CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput
   | CreateLocalGatewayRouteTableVpcAssociationCommandOutput
+  | CreateLocalGatewayVirtualInterfaceCommandOutput
+  | CreateLocalGatewayVirtualInterfaceGroupCommandOutput
   | CreateManagedPrefixListCommandOutput
   | CreateNatGatewayCommandOutput
   | CreateNetworkAclCommandOutput
@@ -3229,6 +3261,8 @@ export type ServiceOutputTypes =
   | DeleteLocalGatewayRouteTableCommandOutput
   | DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput
   | DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
+  | DeleteLocalGatewayVirtualInterfaceCommandOutput
+  | DeleteLocalGatewayVirtualInterfaceGroupCommandOutput
   | DeleteManagedPrefixListCommandOutput
   | DeleteNatGatewayCommandOutput
   | DeleteNetworkAclCommandOutput
@@ -3381,6 +3415,7 @@ export type ServiceOutputTypes =
   | DescribeNetworkInterfaceAttributeCommandOutput
   | DescribeNetworkInterfacePermissionsCommandOutput
   | DescribeNetworkInterfacesCommandOutput
+  | DescribeOutpostLagsCommandOutput
   | DescribePlacementGroupsCommandOutput
   | DescribePrefixListsCommandOutput
   | DescribePrincipalIdFormatCommandOutput
@@ -3401,6 +3436,7 @@ export type ServiceOutputTypes =
   | DescribeSecurityGroupRulesCommandOutput
   | DescribeSecurityGroupVpcAssociationsCommandOutput
   | DescribeSecurityGroupsCommandOutput
+  | DescribeServiceLinkVirtualInterfacesCommandOutput
   | DescribeSnapshotAttributeCommandOutput
   | DescribeSnapshotTierStatusCommandOutput
   | DescribeSnapshotsCommandOutput

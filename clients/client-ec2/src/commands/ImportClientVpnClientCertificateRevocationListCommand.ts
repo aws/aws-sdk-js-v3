@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ImportClientVpnClientCertificateRevocationListRequest,
   ImportClientVpnClientCertificateRevocationListResult,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   de_ImportClientVpnClientCertificateRevocationListCommand,
   se_ImportClientVpnClientCertificateRevocationListCommand,

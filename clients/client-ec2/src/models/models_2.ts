@@ -32,7 +32,6 @@ import {
   VerifiedAccessTrustProvider,
   VerifiedAccessTrustProviderFilterSensitiveLog,
   VolumeAttachment,
-  VpcPeeringConnection,
 } from "./models_0";
 
 import {
@@ -699,6 +698,313 @@ export interface CreateLocalGatewayRouteTableVpcAssociationResult {
    * @public
    */
   LocalGatewayRouteTableVpcAssociation?: LocalGatewayRouteTableVpcAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLocalGatewayVirtualInterfaceRequest {
+  /**
+   * <p>The ID of the local gateway virtual interface group.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceGroupId: string | undefined;
+
+  /**
+   * <p>References the Link Aggregation Group (LAG) that connects the Outpost to on-premises network devices.</p>
+   * @public
+   */
+  OutpostLagId: string | undefined;
+
+  /**
+   * <p>The virtual local area network (VLAN) used for the local gateway virtual interface.</p>
+   * @public
+   */
+  Vlan: number | undefined;
+
+  /**
+   * <p>The IP address assigned to the local gateway virtual interface on the Outpost side. Only IPv4 is supported.</p>
+   * @public
+   */
+  LocalAddress: string | undefined;
+
+  /**
+   * <p>The peer IP address for the local gateway virtual interface. Only IPv4 is
+   *          supported.</p>
+   * @public
+   */
+  PeerAddress: string | undefined;
+
+  /**
+   * <p>The Autonomous System Number (ASN) of the Border Gateway Protocol (BGP) peer.</p>
+   * @public
+   */
+  PeerBgpAsn?: number | undefined;
+
+  /**
+   * <p>The tags to apply to a resource when the local gateway virtual interface is being created. </p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The extended 32-bit ASN of the BGP peer for use with larger ASN values.</p>
+   * @public
+   */
+  PeerBgpAsnExtended?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LocalGatewayVirtualInterfaceConfigurationState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type LocalGatewayVirtualInterfaceConfigurationState =
+  (typeof LocalGatewayVirtualInterfaceConfigurationState)[keyof typeof LocalGatewayVirtualInterfaceConfigurationState];
+
+/**
+ * <p>Describes a local gateway virtual interface.</p>
+ * @public
+ */
+export interface LocalGatewayVirtualInterface {
+  /**
+   * <p>The ID of the virtual interface.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceId?: string | undefined;
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   * @public
+   */
+  LocalGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the local gateway virtual interface group.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceGroupId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the local gateway virtual interface.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceArn?: string | undefined;
+
+  /**
+   * <p>The Outpost LAG ID.</p>
+   * @public
+   */
+  OutpostLagId?: string | undefined;
+
+  /**
+   * <p>The ID of the VLAN.</p>
+   * @public
+   */
+  Vlan?: number | undefined;
+
+  /**
+   * <p>The local address.</p>
+   * @public
+   */
+  LocalAddress?: string | undefined;
+
+  /**
+   * <p>The peer address.</p>
+   * @public
+   */
+  PeerAddress?: string | undefined;
+
+  /**
+   * <p>The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the local gateway.</p>
+   * @public
+   */
+  LocalBgpAsn?: number | undefined;
+
+  /**
+   * <p>The peer BGP ASN.</p>
+   * @public
+   */
+  PeerBgpAsn?: number | undefined;
+
+  /**
+   * <p>The extended 32-bit ASN of the BGP peer for use with larger ASN values.</p>
+   * @public
+   */
+  PeerBgpAsnExtended?: number | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the local gateway virtual interface.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The tags assigned to the virtual interface.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The current state of the local gateway virtual interface.</p>
+   * @public
+   */
+  ConfigurationState?: LocalGatewayVirtualInterfaceConfigurationState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLocalGatewayVirtualInterfaceResult {
+  /**
+   * <p>Information about the local gateway virtual interface.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterface?: LocalGatewayVirtualInterface | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLocalGatewayVirtualInterfaceGroupRequest {
+  /**
+   * <p>The ID of the local gateway.</p>
+   * @public
+   */
+  LocalGatewayId: string | undefined;
+
+  /**
+   * <p>The Autonomous System Number(ASN) for the local Border Gateway Protocol (BGP).</p>
+   * @public
+   */
+  LocalBgpAsn?: number | undefined;
+
+  /**
+   * <p>The extended 32-bit ASN for the local BGP configuration.</p>
+   * @public
+   */
+  LocalBgpAsnExtended?: number | undefined;
+
+  /**
+   * <p>The tags to apply to the local gateway virtual interface group when the resource is
+   *          being created.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LocalGatewayVirtualInterfaceGroupConfigurationState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  incomplete: "incomplete",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type LocalGatewayVirtualInterfaceGroupConfigurationState =
+  (typeof LocalGatewayVirtualInterfaceGroupConfigurationState)[keyof typeof LocalGatewayVirtualInterfaceGroupConfigurationState];
+
+/**
+ * <p>Describes a local gateway virtual interface group.</p>
+ * @public
+ */
+export interface LocalGatewayVirtualInterfaceGroup {
+  /**
+   * <p>The ID of the virtual interface group.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceGroupId?: string | undefined;
+
+  /**
+   * <p>The IDs of the virtual interfaces.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceIds?: string[] | undefined;
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   * @public
+   */
+  LocalGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the local gateway virtual interface group.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The Autonomous System Number(ASN) for the local Border Gateway Protocol (BGP).</p>
+   * @public
+   */
+  LocalBgpAsn?: number | undefined;
+
+  /**
+   * <p>The extended 32-bit ASN for the local BGP configuration.</p>
+   * @public
+   */
+  LocalBgpAsnExtended?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the local gateway virtual interface group.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceGroupArn?: string | undefined;
+
+  /**
+   * <p>The tags assigned to the virtual interface group.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The current state of the local gateway virtual interface group.</p>
+   * @public
+   */
+  ConfigurationState?: LocalGatewayVirtualInterfaceGroupConfigurationState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLocalGatewayVirtualInterfaceGroupResult {
+  /**
+   * <p>Information about the created local gateway virtual interface group.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceGroup?: LocalGatewayVirtualInterfaceGroup | undefined;
 }
 
 /**
@@ -10106,252 +10412,6 @@ export interface ServiceTypeDetail {
    * @public
    */
   ServiceType?: ServiceType | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ServiceConnectivityType = {
-  ipv4: "ipv4",
-  ipv6: "ipv6",
-} as const;
-
-/**
- * @public
- */
-export type ServiceConnectivityType = (typeof ServiceConnectivityType)[keyof typeof ServiceConnectivityType];
-
-/**
- * <p>Describes a supported Region.</p>
- * @public
- */
-export interface SupportedRegionDetail {
-  /**
-   * <p>The Region code.</p>
-   * @public
-   */
-  Region?: string | undefined;
-
-  /**
-   * <p>The service state. The possible values are <code>Pending</code>, <code>Available</code>,
-   *             <code>Deleting</code>, <code>Deleted</code>, <code>Failed</code>, and <code>Closed</code>.</p>
-   * @public
-   */
-  ServiceState?: string | undefined;
-}
-
-/**
- * <p>Describes a service configuration for a VPC endpoint service.</p>
- * @public
- */
-export interface ServiceConfiguration {
-  /**
-   * <p>The type of service.</p>
-   * @public
-   */
-  ServiceType?: ServiceTypeDetail[] | undefined;
-
-  /**
-   * <p>The ID of the service.</p>
-   * @public
-   */
-  ServiceId?: string | undefined;
-
-  /**
-   * <p>The name of the service.</p>
-   * @public
-   */
-  ServiceName?: string | undefined;
-
-  /**
-   * <p>The service state.</p>
-   * @public
-   */
-  ServiceState?: ServiceState | undefined;
-
-  /**
-   * <p>The Availability Zones in which the service is available.</p>
-   * @public
-   */
-  AvailabilityZones?: string[] | undefined;
-
-  /**
-   * <p>Indicates whether requests from other Amazon Web Services accounts to create an endpoint to the service must first be accepted.</p>
-   * @public
-   */
-  AcceptanceRequired?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether the service manages its VPC endpoints. Management of the service VPC
-   *             endpoints using the VPC endpoint API is restricted.</p>
-   * @public
-   */
-  ManagesVpcEndpoints?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the Network Load Balancers for the service.</p>
-   * @public
-   */
-  NetworkLoadBalancerArns?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>
-   * @public
-   */
-  GatewayLoadBalancerArns?: string[] | undefined;
-
-  /**
-   * <p>The supported IP address types.</p>
-   * @public
-   */
-  SupportedIpAddressTypes?: ServiceConnectivityType[] | undefined;
-
-  /**
-   * <p>The DNS names for the service.</p>
-   * @public
-   */
-  BaseEndpointDnsNames?: string[] | undefined;
-
-  /**
-   * <p>The private DNS name for the service.</p>
-   * @public
-   */
-  PrivateDnsName?: string | undefined;
-
-  /**
-   * <p>Information about the endpoint service private DNS name configuration.</p>
-   * @public
-   */
-  PrivateDnsNameConfiguration?: PrivateDnsNameConfiguration | undefined;
-
-  /**
-   * <p>The payer responsibility.</p>
-   * @public
-   */
-  PayerResponsibility?: PayerResponsibility | undefined;
-
-  /**
-   * <p>The tags assigned to the service.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The supported Regions.</p>
-   * @public
-   */
-  SupportedRegions?: SupportedRegionDetail[] | undefined;
-
-  /**
-   * <p>Indicates whether consumers can access the service from a Region other than the
-   *             Region where the service is hosted.</p>
-   * @public
-   */
-  RemoteAccessEnabled?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVpcEndpointServiceConfigurationResult {
-  /**
-   * <p>Information about the service configuration.</p>
-   * @public
-   */
-  ServiceConfiguration?: ServiceConfiguration | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVpcPeeringConnectionRequest {
-  /**
-   * <p>The Region code for the accepter VPC, if the accepter VPC is located in a Region
-   *             other than the Region in which you make the request.</p>
-   *          <p>Default: The Region in which you make the request.</p>
-   * @public
-   */
-  PeerRegion?: string | undefined;
-
-  /**
-   * <p>The tags to assign to the peering connection.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the requester VPC. You must specify this parameter in the
-   * 			request.</p>
-   * @public
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>The ID of the VPC with which you are creating the VPC peering connection. You must
-   * 			specify this parameter in the request.</p>
-   * @public
-   */
-  PeerVpcId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID of the owner of the accepter VPC.</p>
-   *          <p>Default: Your Amazon Web Services account ID</p>
-   * @public
-   */
-  PeerOwnerId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVpcPeeringConnectionResult {
-  /**
-   * <p>Information about the VPC peering connection.</p>
-   * @public
-   */
-  VpcPeeringConnection?: VpcPeeringConnection | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const TunnelInsideIpVersion = {
-  ipv4: "ipv4",
-  ipv6: "ipv6",
-} as const;
-
-/**
- * @public
- */
-export type TunnelInsideIpVersion = (typeof TunnelInsideIpVersion)[keyof typeof TunnelInsideIpVersion];
-
-/**
- * <p>The IKE version that is permitted for the VPN tunnel.</p>
- * @public
- */
-export interface IKEVersionsRequestListValue {
-  /**
-   * <p>The IKE version.</p>
-   * @public
-   */
-  Value?: string | undefined;
 }
 
 /**
