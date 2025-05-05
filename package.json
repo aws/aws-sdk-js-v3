@@ -67,7 +67,7 @@
     "@cucumber/cucumber": "8.5.3",
     "@cucumber/pretty-formatter": "^1.0.0",
     "@fastify/formbody": "^7.4.0",
-    "@microsoft/api-extractor": "7.34.4",
+    "@microsoft/api-extractor": "7.52.7",
     "@mixer/parallel-prettier": "2.0.3",
     "@tsconfig/recommended": "1.0.1",
     "@types/fs-extra": "^8.0.1",
@@ -106,7 +106,7 @@
     "ts-loader": "9.4.2",
     "tsx": "4.19.2",
     "turbo": "2.3.3",
-    "typescript": "~5.2.2",
+    "typescript": "~5.8.3",
     "verdaccio": "5.25.0",
     "vitest": "2.1.9",
     "webpack": "5.76.0",
@@ -114,10 +114,10 @@
     "yargs": "17.5.1"
   },
   "overrides": {
-    "typescript": "~5.2.2"
+    "typescript": "~5.8.3"
   },
   "resolutions": {
-    "typescript": "~5.2.2"
+    "typescript": "~5.8.3"
   },
   "workspaces": {
     "packages": [
