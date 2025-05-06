@@ -22841,6 +22841,29 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/lib-dynamodb-data-mapper@workspace:lib/lib-dynamodb-data-mapper":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/lib-dynamodb-data-mapper@workspace:lib/lib-dynamodb-data-mapper"
+  dependencies:
+    "@aws-sdk/client-dynamodb": "npm:*"
+    "@aws-sdk/core": "npm:*"
+    "@aws-sdk/util-dynamodb": "npm:*"
+    "@smithy/core": "npm:^3.2.0"
+    "@smithy/smithy-client": "npm:^4.2.0"
+    "@smithy/types": "npm:^4.2.0"
+    "@tsconfig/recommended": "npm:1.0.1"
+    "@types/node": "npm:^18.19.69"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    reflect-metadata: "npm:^0.1.13"
+    rimraf: "npm:3.0.2"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~5.2.2"
+  peerDependencies:
+    "@aws-sdk/client-dynamodb": "*"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/lib-dynamodb@workspace:lib/lib-dynamodb":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/lib-dynamodb@workspace:lib/lib-dynamodb"
@@ -27756,6 +27779,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@smithy/core@npm:^3.2.0, @smithy/core@npm:^3.3.1":
+  version: 3.3.1
+  resolution: "@smithy/core@npm:3.3.1"
+  dependencies:
+    "@smithy/middleware-serde": "npm:^4.0.3"
+    "@smithy/protocol-http": "npm:^5.1.0"
+    "@smithy/types": "npm:^4.2.0"
+    "@smithy/util-body-length-browser": "npm:^4.0.0"
+    "@smithy/util-middleware": "npm:^4.0.2"
+    "@smithy/util-stream": "npm:^4.2.0"
+    "@smithy/util-utf8": "npm:^4.0.0"
+    tslib: "npm:^2.6.2"
+  checksum: 10c0/c11f914ac9b798a6c7da2e1e8d164264118f4547b1a4eedc9c0e8ad329050f25ffa68af7658bcbbe3a852cd9c0055b891856a659bc380c87eca755efff0a548f
+  languageName: node
+  linkType: hard
+
 "@smithy/core@npm:^3.3.0":
   version: 3.3.0
   resolution: "@smithy/core@npm:3.3.0"
@@ -28000,6 +28039,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@smithy/middleware-endpoint@npm:^4.1.2":
+  version: 4.1.2
+  resolution: "@smithy/middleware-endpoint@npm:4.1.2"
+  dependencies:
+    "@smithy/core": "npm:^3.3.1"
+    "@smithy/middleware-serde": "npm:^4.0.3"
+    "@smithy/node-config-provider": "npm:^4.0.2"
+    "@smithy/shared-ini-file-loader": "npm:^4.0.2"
+    "@smithy/types": "npm:^4.2.0"
+    "@smithy/url-parser": "npm:^4.0.2"
+    "@smithy/util-middleware": "npm:^4.0.2"
+    tslib: "npm:^2.6.2"
+  checksum: 10c0/d37ccbe77a319e7456f0adc3af0b07ddb73b73e84349cb6f25a89fb1104caf045b44e6f4327a3e9187175431c3336785d83967c9591bc75bee1af6d7fceb04b9
+  languageName: node
+  linkType: hard
+
 "@smithy/middleware-retry@npm:^4.1.1":
   version: 4.1.1
   resolution: "@smithy/middleware-retry@npm:4.1.1"
@@ -28148,6 +28203,21 @@ __metadata:
     "@smithy/util-utf8": "npm:^4.0.0"
     tslib: "npm:^2.6.2"
   checksum: 10c0/57a9f6c845ec6c49fa0b1b352153fffc52a71227d94a6e5dd28b5a100db5243b146d121cb496640f6aaa3e709cea0b7bc1360306d51a6046fe176c9693836d08
+  languageName: node
+  linkType: hard
+
+"@smithy/smithy-client@npm:^4.2.0":
+  version: 4.2.2
+  resolution: "@smithy/smithy-client@npm:4.2.2"
+  dependencies:
+    "@smithy/core": "npm:^3.3.1"
+    "@smithy/middleware-endpoint": "npm:^4.1.2"
+    "@smithy/middleware-stack": "npm:^4.0.2"
+    "@smithy/protocol-http": "npm:^5.1.0"
+    "@smithy/types": "npm:^4.2.0"
+    "@smithy/util-stream": "npm:^4.2.0"
+    tslib: "npm:^2.6.2"
+  checksum: 10c0/78c3f90f042b8dfe82318dba554a1032ac01f289842d614ad4e462cb033fb85c2360fe26398aaa6c5b1f093717753a7039c745942f5f5333dbbc2400b8c76a42
   languageName: node
   linkType: hard
 
@@ -38589,6 +38659,13 @@ __metadata:
   version: 0.1.13
   resolution: "reflect-metadata@npm:0.1.13"
   checksum: 10c0/728bff0b376b05639fd11ed80c648b61f7fe653c5b506d7ca118e58b6752b9b00810fe0c86227ecf02bd88da6251ab3eb19fd403aaf2e9ff5ef36a2fda643026
+  languageName: node
+  linkType: hard
+
+"reflect-metadata@npm:^0.1.13":
+  version: 0.1.14
+  resolution: "reflect-metadata@npm:0.1.14"
+  checksum: 10c0/3a6190c7f6cb224f26a012d11f9e329360c01c1945e2cbefea23976a8bacf9db6b794aeb5bf18adcb673c448a234fbc06fc41853c00a6c206b30f0777ecf019e
   languageName: node
   linkType: hard
 
