@@ -52,6 +52,9 @@ export interface DeleteServiceActionCommandOutput extends DeleteServiceActionOut
  * @see {@link DeleteServiceActionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
  *
