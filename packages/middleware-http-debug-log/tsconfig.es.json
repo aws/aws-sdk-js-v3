@@ -4,7 +4,8 @@
     "lib": [],
     "outDir": "dist-es",
     "rootDir": "src",
-    "strict": false
+    "strict": false,
+    "noCheck": true
   },
   "extends": "../../tsconfig.es.json",
   "include": ["src/"]
