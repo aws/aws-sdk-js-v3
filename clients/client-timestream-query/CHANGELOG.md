@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.804.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.803.0...v3.804.0) (2025-05-06)
+
+
+### Features
+
+* **client-timestream-query:** Add dualstack endpoints support and correct us-gov-west-1 FIPS endpoint. ([9ff8904](https://github.com/aws/aws-sdk-js-v3/commit/9ff8904c644701a85816bf1a7f5da3b5955dff8d))
+
+
+
+
+
 # [3.803.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.802.0...v3.803.0) (2025-05-05)
 
 **Note:** Version bump only for package @aws-sdk/client-timestream-query

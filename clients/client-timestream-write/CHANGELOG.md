@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.804.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.803.0...v3.804.0) (2025-05-06)
+
+
+### Features
+
+* **client-timestream-write:** Add dualstack endpoints support. ([22b258a](https://github.com/aws/aws-sdk-js-v3/commit/22b258a0201cff30088590d3fee7c5a8bc98f60d))
+
+
+
+
+
 # [3.803.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.802.0...v3.803.0) (2025-05-05)
 
 **Note:** Version bump only for package @aws-sdk/client-timestream-write
