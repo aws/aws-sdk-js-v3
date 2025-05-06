@@ -27,6 +27,13 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 public class AddProtocols implements TypeScriptIntegration {
 
+    @Override
+    public List<String> runAfter() {
+        return List.of(
+            software.amazon.smithy.typescript.codegen.protocols.AddProtocols.class.getCanonicalName()
+        );
+    }
+
     /**
      * This order differs from the base protocol selection specification
      * in that for JavaScript runtimes, JSON-based protocols have higher default priority than CBOR-based.
