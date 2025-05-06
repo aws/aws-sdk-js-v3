@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "noEmit": true
+    "noEmit": true,
+    "noCheck": false
   },
   "extends": "./tsconfig.cjs.json",
   "include": ["packages/**/*.spec.ts", "lib/**/*.spec.ts", "clients/**/*.spec.ts", "private/**/*.spec.ts"],

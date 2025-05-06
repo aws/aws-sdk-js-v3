@@ -4,6 +4,7 @@
     "lib": ["dom"],
     "module": "esnext",
     "moduleResolution": "bundler",
-    "resolveJsonModule": false
+    "resolveJsonModule": false,
+    "noCheck": true
   }
 }

@@ -8,7 +8,8 @@
       "@aws-sdk/core/httpAuthSchemes": ["./src/submodules/httpAuthSchemes/index.ts"],
       "@aws-sdk/core/protocols": ["./src/submodules/protocols/index.ts"],
       "@aws-sdk/core/account-id-endpoint": ["./src/submodules/account-id-endpoint/index.ts"]
-    }
+    },
+    "noCheck": true
   },
   "extends": "../../tsconfig.cjs.json",
   "include": ["src/"]

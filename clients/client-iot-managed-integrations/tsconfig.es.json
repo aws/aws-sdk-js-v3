@@ -4,6 +4,7 @@
     "lib": ["dom"],
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "outDir": "dist-es"
+    "outDir": "dist-es",
+    "noCheck": true
   }
 }

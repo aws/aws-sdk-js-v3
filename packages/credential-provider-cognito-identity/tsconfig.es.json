@@ -4,7 +4,8 @@
     "lib": ["dom"],
     "noUnusedLocals": true,
     "outDir": "dist-es",
-    "rootDir": "src"
+    "rootDir": "src",
+    "noCheck": true
   },
   "extends": "../../tsconfig.es.json",
   "include": ["src/"]

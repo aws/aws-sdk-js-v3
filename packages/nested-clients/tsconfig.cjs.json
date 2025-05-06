@@ -6,7 +6,8 @@
     "paths": {
       "@aws-sdk/nested-clients/sso-oidc": ["./src/submodules/sso-oidc/index.ts"],
       "@aws-sdk/nested-clients/sts": ["./src/submodules/sts/index.ts"]
-    }
+    },
+    "noCheck": true
   },
   "extends": "../../tsconfig.cjs.json",
   "include": ["src/"]

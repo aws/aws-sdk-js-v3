@@ -6,7 +6,8 @@
     "outDir": "dist-cjs",
     "rootDir": "src",
     "strict": false,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "noCheck": true
   },
   "extends": "../../tsconfig.cjs.json",
   "include": ["src/"]
