@@ -33966,6 +33966,9 @@ const se_CreateReplaceRootVolumeTaskRequest = (
   if (input[_DRRV] != null) {
     entries[_DRRV] = input[_DRRV];
   }
+  if (input[_VIR] != null) {
+    entries[_VIR] = input[_VIR];
+  }
   return entries;
 };
 
@@ -35647,6 +35650,9 @@ const se_CreateVolumeRequest = (input: CreateVolumeRequest, context: __SerdeCont
   }
   if (input[_CTl] != null) {
     entries[_CTl] = input[_CTl];
+  }
+  if (input[_VIR] != null) {
+    entries[_VIR] = input[_VIR];
   }
   if (input[_O] != null) {
     const memberEntries = se_OperatorRequest(input[_O], context);
@@ -43747,6 +43753,9 @@ const se_EbsBlockDevice = (input: EbsBlockDevice, context: __SerdeContext): any 
   if (input[_Enc] != null) {
     entries[_Enc] = input[_Enc];
   }
+  if (input[_VIR] != null) {
+    entries[_VIR] = input[_VIR];
+  }
   return entries;
 };
 
@@ -48503,6 +48512,9 @@ const se_LaunchTemplateEbsBlockDeviceRequest = (
   }
   if (input[_Th] != null) {
     entries[_Th] = input[_Th];
+  }
+  if (input[_VIR] != null) {
+    entries[_VIR] = input[_VIR];
   }
   return entries;
 };
@@ -69098,6 +69110,9 @@ const de_EbsBlockDevice = (output: any, context: __SerdeContext): EbsBlockDevice
   if (output[_enc] != null) {
     contents[_Enc] = __parseBoolean(output[_enc]);
   }
+  if (output[_VIR] != null) {
+    contents[_VIR] = __strictParseInt32(output[_VIR]) as number;
+  }
   return contents;
 };
 
@@ -76844,6 +76859,9 @@ const de_LaunchTemplateEbsBlockDevice = (output: any, context: __SerdeContext): 
   }
   if (output[_th] != null) {
     contents[_Th] = __strictParseInt32(output[_th]) as number;
+  }
+  if (output[_vIR] != null) {
+    contents[_VIR] = __strictParseInt32(output[_vIR]) as number;
   }
   return contents;
 };
@@ -88775,6 +88793,9 @@ const de_Volume = (output: any, context: __SerdeContext): Volume => {
   if (output[_op] != null) {
     contents[_O] = de_OperatorResponse(output[_op], context);
   }
+  if (output[_vIR] != null) {
+    contents[_VIR] = __strictParseInt32(output[_vIR]) as number;
+  }
   if (output[_vIo] != null) {
     contents[_VIo] = __expectString(output[_vIo]);
   }
@@ -92813,6 +92834,7 @@ const _VGI = "VpnGatewayId";
 const _VGIp = "VpnGatewayIds";
 const _VGp = "VpnGateways";
 const _VI = "VpcId";
+const _VIR = "VolumeInitializationRate";
 const _VIe = "VendorId";
 const _VIl = "VlanId";
 const _VIo = "VolumeId";
@@ -94627,6 +94649,7 @@ const _vG = "vpnGateway";
 const _vGI = "vpnGatewayId";
 const _vGS = "vpnGatewaySet";
 const _vI = "vpcId";
+const _vIR = "volumeInitializationRate";
 const _vIl = "vlanId";
 const _vIo = "volumeId";
 const _vM = "volumeModification";

@@ -100,6 +100,7 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
  * //               VolumeSize: Number("int"),
  * //               VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
  * //               Throughput: Number("int"),
+ * //               VolumeInitializationRate: Number("int"),
  * //             },
  * //             NoDevice: "STRING_VALUE",
  * //           },

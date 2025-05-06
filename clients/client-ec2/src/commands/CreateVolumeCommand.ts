@@ -68,6 +68,7 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  *   MultiAttachEnabled: true || false,
  *   Throughput: Number("int"),
  *   ClientToken: "STRING_VALUE",
+ *   VolumeInitializationRate: Number("int"),
  *   Operator: { // OperatorRequest
  *     Principal: "STRING_VALUE",
  *   },
@@ -93,6 +94,7 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  * //     Managed: true || false,
  * //     Principal: "STRING_VALUE",
  * //   },
+ * //   VolumeInitializationRate: Number("int"),
  * //   VolumeId: "STRING_VALUE",
  * //   Size: Number("int"),
  * //   SnapshotId: "STRING_VALUE",

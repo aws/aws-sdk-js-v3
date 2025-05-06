@@ -100,6 +100,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //             Throughput: Number("int"),
  * //             OutpostArn: "STRING_VALUE",
  * //             Encrypted: true || false,
+ * //             VolumeInitializationRate: Number("int"),
  * //           },
  * //           NoDevice: "STRING_VALUE",
  * //           DeviceName: "STRING_VALUE",

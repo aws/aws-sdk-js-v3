@@ -57,6 +57,7 @@ export interface CreateReplaceRootVolumeTaskCommandOutput extends CreateReplaceR
  *   ],
  *   ImageId: "STRING_VALUE",
  *   DeleteReplacedRootVolume: true || false,
+ *   VolumeInitializationRate: Number("long"),
  * };
  * const command = new CreateReplaceRootVolumeTaskCommand(input);
  * const response = await client.send(command);

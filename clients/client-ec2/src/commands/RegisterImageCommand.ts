@@ -116,6 +116,7 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  *         Throughput: Number("int"),
  *         OutpostArn: "STRING_VALUE",
  *         Encrypted: true || false,
+ *         VolumeInitializationRate: Number("int"),
  *       },
  *       NoDevice: "STRING_VALUE",
  *       DeviceName: "STRING_VALUE",
