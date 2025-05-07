@@ -1,6 +1,7 @@
-import { PutCommand } from '@aws-sdk/lib-dynamodb';
 import type { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
-import { getTableName } from '../utils/getTableName';
+import { PutCommand } from '@aws-sdk/lib-dynamodb';
+
+import { getTableName } from '../baseCommands/getTableName';
 
 interface PutCommandInput<T> {
   client: DynamoDBDocumentClient;

@@ -9,7 +9,7 @@ interface GetCommandInput<T> {
   model: new () => T;
 }
 
-export async function runGetCommand<T>({
+export async function runGetCommand<T extends object>({
   client,
   key,
   model
