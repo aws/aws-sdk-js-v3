@@ -1,3 +1,4 @@
+import { FinalizeRequestMiddleware } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { S3 } from "@aws-sdk/client-s3";
@@ -9,20 +10,16 @@ describe("authSchemePreference", () => {
   const Key = "key";
   const Body = "body";
 
-  const SIGNATURE_PREFIX = {
+  const SIGNATURE_PREFIX: Record<string, string> = {
     sigv4: "AWS4-HMAC-SHA256",
     sigv4a: "AWS4-ECDSA-P256-SHA256",
   };
 
-  const interceptorMiddleware = (next, context) => (args) => {
+  const interceptorMiddleware: FinalizeRequestMiddleware<any, any> = (next, context) => (args) => {
     // middleware intercept the request and return it early
     const request = args.request;
     return Promise.resolve({
-      output: {
-        $metadata: { attempts: 0, httpStatusCode: 200 },
-        request,
-        context,
-      },
+      output: { $metadata: { attempts: 0, httpStatusCode: 200 }, request, context },
       response: {},
     });
   };
