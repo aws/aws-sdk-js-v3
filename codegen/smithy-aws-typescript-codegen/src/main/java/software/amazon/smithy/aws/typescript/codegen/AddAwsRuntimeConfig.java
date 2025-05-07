@@ -166,7 +166,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             writer.write("awsCheckVersion(process.version);");
         }
         if (target.equals(LanguageTarget.NODE)) {
-            writer.write("const loaderConfig = { profile: config?.profile };");
+            writer.write("const loaderConfig = { profile: config?.profile, logger: clientSharedValues.logger };");
         }
     }
 
