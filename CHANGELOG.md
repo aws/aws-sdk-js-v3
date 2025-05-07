@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.805.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.804.0...v3.805.0) (2025-05-07)
+
+
+### Bug Fixes
+
+* **codegen:** run aws protocols after smithy protocols ([#7058](https://github.com/aws/aws-sdk-js-v3/issues/7058)) ([bce84d8](https://github.com/aws/aws-sdk-js-v3/commit/bce84d8eaa1d66a372354631d573460130a348a3))
+
+
+### Features
+
+* **client-ec2:** This release adds API support for Path Component Exclusion (Filter Out ARN) for Reachability Analyzer ([5690387](https://github.com/aws/aws-sdk-js-v3/commit/5690387b145d3ff891195681b912235afe2d7cda))
+* **client-medialive:** Enables Updating Anywhere Settings on a MediaLive Anywhere Channel. ([9b00708](https://github.com/aws/aws-sdk-js-v3/commit/9b00708e65ad343ffc4507ec4b9234c0c059594c))
+* **client-sagemaker:** SageMaker AI Studio users can now migrate to SageMaker Unified Studio, which offers a unified web-based development experience that integrates AWS data, analytics, artificial intelligence (AI), and machine learning (ML) services, as well as additional tools and resource ([b527f8c](https://github.com/aws/aws-sdk-js-v3/commit/b527f8cc4c5cb9fd86171e251711756e5e6c8ecf))
+* **client-synthetics:** Add support to test a canary update by invoking a dry run of a canary. This behavior can be used via the new StartCanaryDryRun API along with new fields in UpdateCanary to apply dry run changes. Also includes changes in GetCanary and GetCanaryRuns to support retrieving dry run configurations. ([338d401](https://github.com/aws/aws-sdk-js-v3/commit/338d4016bf3d7a3545d68fcacee60fad7b9ab67c))
+* **clients:** update client endpoints as of 2025-05-07 ([05cb76c](https://github.com/aws/aws-sdk-js-v3/commit/05cb76cd20943b819347998da80194c2594637e1))
+
+
+
+
+
 # [3.804.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.803.0...v3.804.0) (2025-05-06)
 
 
