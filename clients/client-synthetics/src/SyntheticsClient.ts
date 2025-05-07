@@ -85,6 +85,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { StartCanaryCommandInput, StartCanaryCommandOutput } from "./commands/StartCanaryCommand";
+import { StartCanaryDryRunCommandInput, StartCanaryDryRunCommandOutput } from "./commands/StartCanaryDryRunCommand";
 import { StopCanaryCommandInput, StopCanaryCommandOutput } from "./commands/StopCanaryCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -121,6 +122,7 @@ export type ServiceInputTypes =
   | ListGroupsCommandInput
   | ListTagsForResourceCommandInput
   | StartCanaryCommandInput
+  | StartCanaryDryRunCommandInput
   | StopCanaryCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -147,6 +149,7 @@ export type ServiceOutputTypes =
   | ListGroupsCommandOutput
   | ListTagsForResourceCommandOutput
   | StartCanaryCommandOutput
+  | StartCanaryDryRunCommandOutput
   | StopCanaryCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

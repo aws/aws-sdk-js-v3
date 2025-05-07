@@ -69,6 +69,9 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  * //           Completed: new Date("TIMESTAMP"),
  * //         },
  * //         ArtifactS3Location: "STRING_VALUE",
+ * //         DryRunConfig: { // CanaryDryRunConfigOutput
+ * //           DryRunId: "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //   ],

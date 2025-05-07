@@ -39,6 +39,7 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * const client = new SyntheticsClient(config);
  * const input = { // GetCanaryRequest
  *   Name: "STRING_VALUE", // required
+ *   DryRunId: "STRING_VALUE",
  * };
  * const command = new GetCanaryCommand(input);
  * const response = await client.send(command);
@@ -106,6 +107,10 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * //         EncryptionMode: "SSE_S3" || "SSE_KMS",
  * //         KmsKeyArn: "STRING_VALUE",
  * //       },
+ * //     },
+ * //     DryRunConfig: { // DryRunConfigOutput
+ * //       DryRunId: "STRING_VALUE",
+ * //       LastDryRunExecutionStatus: "STRING_VALUE",
  * //     },
  * //   },
  * // };

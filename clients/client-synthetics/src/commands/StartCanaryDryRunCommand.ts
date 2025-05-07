@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateCanaryRequest, UpdateCanaryResponse } from "../models/models_0";
-import { de_UpdateCanaryCommand, se_UpdateCanaryCommand } from "../protocols/Aws_restJson1";
+import { StartCanaryDryRunRequest, StartCanaryDryRunResponse } from "../models/models_0";
+import { de_StartCanaryDryRunCommand, se_StartCanaryDryRunCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
@@ -17,32 +17,25 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateCanaryCommand}.
+ * The input for {@link StartCanaryDryRunCommand}.
  */
-export interface UpdateCanaryCommandInput extends UpdateCanaryRequest {}
+export interface StartCanaryDryRunCommandInput extends StartCanaryDryRunRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateCanaryCommand}.
+ * The output of {@link StartCanaryDryRunCommand}.
  */
-export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __MetadataBearer {}
+export interface StartCanaryDryRunCommandOutput extends StartCanaryDryRunResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of a canary that has
- *          already been created.</p>
- *          <p>You can't use this operation to update the tags of an existing canary. To
- *          change the tags of an existing canary, use
- *          <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_TagResource.html">TagResource</a>.</p>
- *          <note>
- *             <p>When you use the <code>dryRunId</code> field when updating a canary, the only other field you can provide is the <code>Schedule</code>. Adding any other field will thrown an exception.</p>
- *          </note>
+ * <p>Use this operation to start a dry run for a canary that has already been created</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SyntheticsClient, UpdateCanaryCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
- * // const { SyntheticsClient, UpdateCanaryCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * import { SyntheticsClient, StartCanaryDryRunCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
+ * // const { SyntheticsClient, StartCanaryDryRunCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
- * const input = { // UpdateCanaryRequest
+ * const input = { // StartCanaryDryRunRequest
  *   Name: "STRING_VALUE", // required
  *   Code: { // CanaryCodeInput
  *     S3Bucket: "STRING_VALUE",
@@ -51,12 +44,7 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *     ZipFile: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     Handler: "STRING_VALUE", // required
  *   },
- *   ExecutionRoleArn: "STRING_VALUE",
  *   RuntimeVersion: "STRING_VALUE",
- *   Schedule: { // CanaryScheduleInput
- *     Expression: "STRING_VALUE", // required
- *     DurationInSeconds: Number("long"),
- *   },
  *   RunConfig: { // CanaryRunConfigInput
  *     TimeoutInSeconds: Number("int"),
  *     MemoryInMB: Number("int"),
@@ -65,8 +53,6 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
- *   SuccessRetentionPeriodInDays: Number("int"),
- *   FailureRetentionPeriodInDays: Number("int"),
  *   VpcConfig: { // VpcConfigInput
  *     SubnetIds: [ // SubnetIds
  *       "STRING_VALUE",
@@ -76,6 +62,9 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *     ],
  *     Ipv6AllowedForDualStack: true || false,
  *   },
+ *   ExecutionRoleArn: "STRING_VALUE",
+ *   SuccessRetentionPeriodInDays: Number("int"),
+ *   FailureRetentionPeriodInDays: Number("int"),
  *   VisualReference: { // VisualReferenceInput
  *     BaseScreenshots: [ // BaseScreenshots
  *       { // BaseScreenshot
@@ -95,18 +84,22 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *     },
  *   },
  *   ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
- *   DryRunId: "STRING_VALUE",
  * };
- * const command = new UpdateCanaryCommand(input);
+ * const command = new StartCanaryDryRunCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // StartCanaryDryRunResponse
+ * //   DryRunConfig: { // DryRunConfigOutput
+ * //     DryRunId: "STRING_VALUE",
+ * //     LastDryRunExecutionStatus: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *
- * @param UpdateCanaryCommandInput - {@link UpdateCanaryCommandInput}
- * @returns {@link UpdateCanaryCommandOutput}
- * @see {@link UpdateCanaryCommandInput} for command's `input` shape.
- * @see {@link UpdateCanaryCommandOutput} for command's `response` shape.
+ * @param StartCanaryDryRunCommandInput - {@link StartCanaryDryRunCommandInput}
+ * @returns {@link StartCanaryDryRunCommandOutput}
+ * @see {@link StartCanaryDryRunCommandInput} for command's `input` shape.
+ * @see {@link StartCanaryDryRunCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -117,9 +110,6 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unknown internal error occurred.</p>
- *
- * @throws {@link RequestEntityTooLargeException} (client fault)
- *  <p>One of the input resources is larger than is allowed.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One of the specified resources was not found.</p>
@@ -133,10 +123,10 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *
  * @public
  */
-export class UpdateCanaryCommand extends $Command
+export class StartCanaryDryRunCommand extends $Command
   .classBuilder<
-    UpdateCanaryCommandInput,
-    UpdateCanaryCommandOutput,
+    StartCanaryDryRunCommandInput,
+    StartCanaryDryRunCommandOutput,
     SyntheticsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -148,21 +138,21 @@ export class UpdateCanaryCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Synthetics", "UpdateCanary", {})
-  .n("SyntheticsClient", "UpdateCanaryCommand")
+  .s("Synthetics", "StartCanaryDryRun", {})
+  .n("SyntheticsClient", "StartCanaryDryRunCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateCanaryCommand)
-  .de(de_UpdateCanaryCommand)
+  .ser(se_StartCanaryDryRunCommand)
+  .de(de_StartCanaryDryRunCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateCanaryRequest;
-      output: {};
+      input: StartCanaryDryRunRequest;
+      output: StartCanaryDryRunResponse;
     };
     sdk: {
-      input: UpdateCanaryCommandInput;
-      output: UpdateCanaryCommandOutput;
+      input: StartCanaryDryRunCommandInput;
+      output: StartCanaryDryRunCommandOutput;
     };
   };
 }

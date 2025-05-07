@@ -164,6 +164,10 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * //         KmsKeyArn: "STRING_VALUE",
  * //       },
  * //     },
+ * //     DryRunConfig: { // DryRunConfigOutput
+ * //       DryRunId: "STRING_VALUE",
+ * //       LastDryRunExecutionStatus: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

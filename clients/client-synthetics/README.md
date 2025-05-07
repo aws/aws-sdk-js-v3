@@ -356,6 +356,14 @@ StartCanary
 </details>
 <details>
 <summary>
+StartCanaryDryRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/StartCanaryDryRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/StartCanaryDryRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/StartCanaryDryRunCommandOutput/)
+
+</details>
+<details>
+<summary>
 StopCanary
 </summary>
 

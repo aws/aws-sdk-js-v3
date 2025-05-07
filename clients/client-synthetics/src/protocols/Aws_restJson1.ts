@@ -56,11 +56,13 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { StartCanaryCommandInput, StartCanaryCommandOutput } from "../commands/StartCanaryCommand";
+import { StartCanaryDryRunCommandInput, StartCanaryDryRunCommandOutput } from "../commands/StartCanaryDryRunCommand";
 import { StopCanaryCommandInput, StopCanaryCommandOutput } from "../commands/StopCanaryCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateCanaryCommandInput, UpdateCanaryCommandOutput } from "../commands/UpdateCanaryCommand";
 import {
+  AccessDeniedException,
   ArtifactConfigInput,
   BadRequestException,
   BaseScreenshot,
@@ -311,8 +313,11 @@ export const se_GetCanaryCommand = async (
   const headers: any = {};
   b.bp("/canary/{Name}");
   b.p("Name", () => input.Name!, "{Name}", false);
+  const query: any = map({
+    [_dRI]: [, input[_DRI]!],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -332,8 +337,10 @@ export const se_GetCanaryRunsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      DryRunId: [],
       MaxResults: [],
       NextToken: [],
+      RunType: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -460,6 +467,39 @@ export const se_StartCanaryCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartCanaryDryRunCommand
+ */
+export const se_StartCanaryDryRunCommand = async (
+  input: StartCanaryDryRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/canary/{Name}/dry-run/start");
+  b.p("Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ArtifactConfig: (_) => _json(_),
+      ArtifactS3Location: [],
+      Code: (_) => se_CanaryCodeInput(_, context),
+      ExecutionRoleArn: [],
+      FailureRetentionPeriodInDays: [],
+      ProvisionedResourceCleanup: [],
+      RunConfig: (_) => _json(_),
+      RuntimeVersion: [],
+      SuccessRetentionPeriodInDays: [],
+      VisualReference: (_) => _json(_),
+      VpcConfig: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StopCanaryCommand
  */
 export const se_StopCanaryCommand = async (
@@ -536,6 +576,7 @@ export const se_UpdateCanaryCommand = async (
       ArtifactConfig: (_) => _json(_),
       ArtifactS3Location: [],
       Code: (_) => se_CanaryCodeInput(_, context),
+      DryRunId: [],
       ExecutionRoleArn: [],
       FailureRetentionPeriodInDays: [],
       ProvisionedResourceCleanup: [],
@@ -896,6 +937,27 @@ export const de_StartCanaryCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StartCanaryDryRunCommand
+ */
+export const de_StartCanaryDryRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartCanaryDryRunCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DryRunConfig: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StopCanaryCommand
  */
 export const de_StopCanaryCommand = async (
@@ -1003,6 +1065,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TooManyRequestsException":
     case "com.amazonaws.synthetics#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.synthetics#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1014,6 +1079,26 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
 };
 
 const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
@@ -1287,6 +1372,7 @@ const de_Canary = (output: any, context: __SerdeContext): Canary => {
     ArtifactConfig: _json,
     ArtifactS3Location: __expectString,
     Code: _json,
+    DryRunConfig: _json,
     EngineArn: __expectString,
     ExecutionRoleArn: __expectString,
     FailureRetentionPeriodInDays: __expectInt32,
@@ -1307,6 +1393,8 @@ const de_Canary = (output: any, context: __SerdeContext): Canary => {
 
 // de_CanaryCodeOutput omitted.
 
+// de_CanaryDryRunConfigOutput omitted.
+
 /**
  * deserializeAws_restJson1CanaryLastRun
  */
@@ -1323,6 +1411,7 @@ const de_CanaryLastRun = (output: any, context: __SerdeContext): CanaryLastRun =
 const de_CanaryRun = (output: any, context: __SerdeContext): CanaryRun => {
   return take(output, {
     ArtifactS3Location: __expectString,
+    DryRunConfig: _json,
     Id: __expectString,
     Name: __expectString,
     Status: _json,
@@ -1371,6 +1460,8 @@ const de_CanaryTimeline = (output: any, context: __SerdeContext): CanaryTimeline
     LastStopped: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_DryRunConfigOutput omitted.
 
 /**
  * deserializeAws_restJson1Group
@@ -1441,6 +1532,8 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const _DL = "DeleteLambda";
+const _DRI = "DryRunId";
 const _TK = "TagKeys";
 const _dL = "deleteLambda";
+const _dRI = "dryRunId";
 const _tK = "tagKeys";

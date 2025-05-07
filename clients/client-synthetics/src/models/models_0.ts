@@ -4,6 +4,28 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { SyntheticsServiceException as __BaseException } from "./SyntheticsServiceException";
 
 /**
+ * <p>You don't have permission to perform this operation on this resource.</p>
+ * @public
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * @public
  * @enum
  */
@@ -273,6 +295,24 @@ export interface CanaryCodeOutput {
    * @public
    */
   Handler?: string | undefined;
+}
+
+/**
+ * <p>Returns the dry run configurations set for a canary.</p>
+ * @public
+ */
+export interface DryRunConfigOutput {
+  /**
+   * <p>The DryRunId associated with an existing canary’s dry run. You can use this DryRunId to retrieve information about the dry run.</p>
+   * @public
+   */
+  DryRunId?: string | undefined;
+
+  /**
+   * <p>Returns the last execution status for a canary's dry run.</p>
+   * @public
+   */
+  LastDryRunExecutionStatus?: string | undefined;
 }
 
 /**
@@ -548,12 +588,18 @@ export interface Canary {
 
   /**
    * <p>The number of days to retain data about successful runs of this canary.</p>
+   *          <p>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>, as well as
+   *          the range of information displayed in the Synthetics console.
+   *       </p>
    * @public
    */
   SuccessRetentionPeriodInDays?: number | undefined;
 
   /**
    * <p>The number of days to retain data about failed runs of this canary.</p>
+   *          <p>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>, as well as
+   *          the range of information displayed in the Synthetics console.
+   *       </p>
    * @public
    */
   FailureRetentionPeriodInDays?: number | undefined;
@@ -632,6 +678,24 @@ export interface Canary {
    * @public
    */
   ArtifactConfig?: ArtifactConfigOutput | undefined;
+
+  /**
+   * <p>Returns the dry run configurations for a canary.</p>
+   * @public
+   */
+  DryRunConfig?: DryRunConfigOutput | undefined;
+}
+
+/**
+ * <p>Returns the dry run configurations set for a canary.</p>
+ * @public
+ */
+export interface CanaryDryRunConfigOutput {
+  /**
+   * <p>The DryRunId associated with an existing canary’s dry run. You can use this DryRunId to retrieve information about the dry run.</p>
+   * @public
+   */
+  DryRunId?: string | undefined;
 }
 
 /**
@@ -742,6 +806,12 @@ export interface CanaryRun {
    * @public
    */
   ArtifactS3Location?: string | undefined;
+
+  /**
+   * <p>Returns the dry run configurations for a canary.</p>
+   * @public
+   */
+  DryRunConfig?: CanaryDryRunConfigOutput | undefined;
 }
 
 /**
@@ -778,7 +848,7 @@ export interface CanaryLastRun {
  *                </p>
  *             </li>
  *             <li>
- *                <p>For Python canaries, the folder structure must be <code>python/<i>myCanaryFilename.p</i>
+ *                <p>For Python canaries, the folder structure must be <code>python/<i>myCanaryFilename.py</i>
  *                   </code> or <code>python/<i>myFolder/myCanaryFilename.py</i>
  *                   </code>
  *             For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_WritingCanary_Python.html#CloudWatch_Synthetics_Canaries_WritingCanary_Python_package">Packaging your Python canary files</a>
@@ -879,8 +949,9 @@ export interface CanaryRunConfigInput {
    *          more information about reserved keys, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime">
    *             Runtime environment variables</a>.</p>
    *          <important>
-   *             <p>The environment variables keys and values are not encrypted. Do not store sensitive information
-   *          in this field.</p>
+   *             <p>Environment variable keys and values are encrypted at rest using Amazon Web Services owned KMS keys. However, the environment variables
+   *          are not encrypted on the client side. Do not store sensitive information
+   *          in them.</p>
    *          </important>
    * @public
    */
@@ -1050,8 +1121,9 @@ export interface CreateCanaryRequest {
    * <p>A structure that contains the configuration for individual canary runs,
    *          such as timeout value and environment variables.</p>
    *          <important>
-   *             <p>The environment variables keys and values are not encrypted. Do not store sensitive information
-   *       in this field.</p>
+   *             <p>Environment variable keys and values are encrypted at rest using Amazon Web Services owned KMS keys. However, the environment variables
+   *          are not encrypted on the client side. Do not store sensitive information
+   *          in them.</p>
    *          </important>
    * @public
    */
@@ -1060,6 +1132,9 @@ export interface CreateCanaryRequest {
   /**
    * <p>The number of days to retain data about successful runs of this canary. If you omit
    *          this field, the default of 31 days is used. The valid range is 1 to 455 days.</p>
+   *          <p>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>, as well as
+   *          the range of information displayed in the Synthetics console.
+   *       </p>
    * @public
    */
   SuccessRetentionPeriodInDays?: number | undefined;
@@ -1067,6 +1142,9 @@ export interface CreateCanaryRequest {
   /**
    * <p>The number of days to retain data about failed runs of this canary. If you omit
    *          this field, the default of 31 days is used. The valid range is 1 to 455 days.</p>
+   *          <p>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>, as well as
+   *          the range of information displayed in the Synthetics console.
+   *       </p>
    * @public
    */
   FailureRetentionPeriodInDays?: number | undefined;
@@ -1497,6 +1575,12 @@ export interface GetCanaryRequest {
    * @public
    */
   Name: string | undefined;
+
+  /**
+   * <p>The DryRunId associated with an existing canary’s dry run. You can use this DryRunId to retrieve information about the dry run.</p>
+   * @public
+   */
+  DryRunId?: string | undefined;
 }
 
 /**
@@ -1509,6 +1593,20 @@ export interface GetCanaryResponse {
    */
   Canary?: Canary | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const RunType = {
+  CANARY_RUN: "CANARY_RUN",
+  DRY_RUN: "DRY_RUN",
+} as const;
+
+/**
+ * @public
+ */
+export type RunType = (typeof RunType)[keyof typeof RunType];
 
 /**
  * @public
@@ -1534,6 +1632,35 @@ export interface GetCanaryRunsRequest {
    * @public
    */
   MaxResults?: number | undefined;
+
+  /**
+   * <p>The DryRunId associated with an existing canary’s dry run. You can use this DryRunId to retrieve information about the dry run.</p>
+   * @public
+   */
+  DryRunId?: string | undefined;
+
+  /**
+   * <ul>
+   *             <li>
+   *                <p>When you provide <code>RunType=CANARY_RUN</code> and <code>dryRunId</code>, you will get an exception
+   *
+   *
+   *            </p>
+   *             </li>
+   *             <li>
+   *                <p>When a value is not provided for <code>RunType</code>, the default value is <code>CANARY_RUN</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>When <code>CANARY_RUN</code> is provided, all canary runs excluding dry runs are returned</p>
+   *             </li>
+   *             <li>
+   *                <p>When <code>DRY_RUN</code> is provided, all dry runs excluding canary runs are returned</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  RunType?: RunType | undefined;
 }
 
 /**
@@ -1847,6 +1974,173 @@ export interface StartCanaryRequest {
 export interface StartCanaryResponse {}
 
 /**
+ * <p>An object that specifies what screenshots to use as a baseline for visual monitoring by this canary. It can
+ *          optionally also specify parts of the screenshots to ignore during the visual monitoring comparison.</p>
+ *          <p>Visual monitoring is supported only on canaries running the <b>syn-puppeteer-node-3.2</b>
+ *          runtime or later. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Library_SyntheticsLogger_VisualTesting.html">
+ *             Visual monitoring</a> and <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Blueprints_VisualTesting.html">
+ *                Visual monitoring blueprint</a>
+ *          </p>
+ * @public
+ */
+export interface VisualReferenceInput {
+  /**
+   * <p>An array of screenshots that will be used as the baseline for visual monitoring in future runs of this canary. If there is a screenshot that you don't want to be used for
+   *       visual monitoring, remove it from this array.</p>
+   * @public
+   */
+  BaseScreenshots?: BaseScreenshot[] | undefined;
+
+  /**
+   * <p>Specifies which canary run to use the screenshots from as the baseline for future visual monitoring with this canary. Valid values are
+   *          <code>nextrun</code> to use the screenshots from the next run after this update is made, <code>lastrun</code> to use the screenshots from the most recent run
+   *          before this update was made, or the value of <code>Id</code> in the <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CanaryRun.html">
+   *             CanaryRun</a> from a run of this a canary in the past 31 days. If you specify the <code>Id</code> of a canary run older than 31 days,
+   *          the operation returns a 400 validation exception error..</p>
+   * @public
+   */
+  BaseCanaryRunId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartCanaryDryRunRequest {
+  /**
+   * <p>The name of the canary that you want to dry run. To find
+   *          canary names, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Use this structure to input your script code for the canary. This structure contains the
+   *          Lambda handler with the location where the canary should start running the script. If the
+   *          script is stored in an S3 bucket, the bucket name, key, and version are also included. If
+   *          the script was passed into the canary directly, the script code is contained in the value
+   *          of <code>Zipfile</code>. </p>
+   *          <p>If you are uploading your canary scripts with an Amazon S3 bucket, your zip file should include your
+   *       script in a certain folder structure.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For Node.js canaries, the folder structure must be <code>nodejs/node_modules/<i>myCanaryFilename.js</i>
+   *                   </code>
+   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_WritingCanary_Nodejs.html#CloudWatch_Synthetics_Canaries_package">Packaging your Node.js canary files</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>For Python canaries, the folder structure must be <code>python/<i>myCanaryFilename.py</i>
+   *                   </code> or <code>python/<i>myFolder/myCanaryFilename.py</i>
+   *                   </code>
+   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_WritingCanary_Python.html#CloudWatch_Synthetics_Canaries_WritingCanary_Python_package">Packaging your Python canary files</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Code?: CanaryCodeInput | undefined;
+
+  /**
+   * <p>Specifies the runtime version to use for the canary.
+   *          For a list of valid runtime versions and for more information about
+   *          runtime versions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html">
+   *             Canary Runtime Versions</a>.</p>
+   * @public
+   */
+  RuntimeVersion?: string | undefined;
+
+  /**
+   * <p>A structure that contains input information for a canary run.</p>
+   * @public
+   */
+  RunConfig?: CanaryRunConfigInput | undefined;
+
+  /**
+   * <p>If this canary is to test an endpoint in a VPC, this structure contains
+   *          information about the subnets and security groups of the VPC endpoint.
+   *          For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html">
+   *             Running a Canary in a VPC</a>.</p>
+   * @public
+   */
+  VpcConfig?: VpcConfigInput | undefined;
+
+  /**
+   * <p>The ARN of the IAM role to be used to run the canary. This role must already exist,
+   *          and must include <code>lambda.amazonaws.com</code> as a principal in the trust
+   *          policy. The role must also have the following permissions:</p>
+   * @public
+   */
+  ExecutionRoleArn?: string | undefined;
+
+  /**
+   * <p>The number of days to retain data on the failed runs for this canary. The valid range is 1 to 455 days.</p>
+   *          <p>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>, as well as
+   *          the range of information displayed in the Synthetics console.
+   *       </p>
+   * @public
+   */
+  SuccessRetentionPeriodInDays?: number | undefined;
+
+  /**
+   * <p>The number of days to retain data on the failed runs for this canary. The valid range is 1 to 455 days.</p>
+   *          <p>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>, as well as
+   *          the range of information displayed in the Synthetics console.
+   *       </p>
+   * @public
+   */
+  FailureRetentionPeriodInDays?: number | undefined;
+
+  /**
+   * <p>An object that specifies what screenshots to use as a baseline for visual monitoring by this canary. It can
+   *          optionally also specify parts of the screenshots to ignore during the visual monitoring comparison.</p>
+   *          <p>Visual monitoring is supported only on canaries running the <b>syn-puppeteer-node-3.2</b>
+   *          runtime or later. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Library_SyntheticsLogger_VisualTesting.html">
+   *             Visual monitoring</a> and <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Blueprints_VisualTesting.html">
+   *                Visual monitoring blueprint</a>
+   *          </p>
+   * @public
+   */
+  VisualReference?: VisualReferenceInput | undefined;
+
+  /**
+   * <p>The location in Amazon S3 where Synthetics stores artifacts from the test runs of this
+   *          canary. Artifacts include the log file, screenshots, and HAR files.  The name of the
+   *          Amazon S3 bucket can't include a period (.).</p>
+   * @public
+   */
+  ArtifactS3Location?: string | undefined;
+
+  /**
+   * <p>A structure that contains the configuration for canary artifacts, including the
+   *          encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.</p>
+   * @public
+   */
+  ArtifactConfig?: ArtifactConfigInput | undefined;
+
+  /**
+   * <p>Specifies whether to also delete the Lambda functions and layers used by this canary
+   *          when the canary is deleted. If the value of this parameter is <code>AUTOMATIC</code>, it means
+   *          that the Lambda functions and layers will be deleted when the canary is deleted.</p>
+   *          <p>If the value of this parameter is <code>OFF</code>, then the value of the <code>DeleteLambda</code> parameter
+   *          of the <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html">DeleteCanary</a> operation
+   *          determines whether the Lambda functions and layers will be deleted.</p>
+   * @public
+   */
+  ProvisionedResourceCleanup?: ProvisionedResourceCleanupSetting | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartCanaryDryRunResponse {
+  /**
+   * <p>Returns the dry run configurations for a canary.</p>
+   * @public
+   */
+  DryRunConfig?: DryRunConfigOutput | undefined;
+}
+
+/**
  * @public
  */
 export interface StopCanaryRequest {
@@ -1920,35 +2214,6 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * <p>An object that specifies what screenshots to use as a baseline for visual monitoring by this canary. It can
- *          optionally also specify parts of the screenshots to ignore during the visual monitoring comparison.</p>
- *          <p>Visual monitoring is supported only on canaries running the <b>syn-puppeteer-node-3.2</b>
- *          runtime or later. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Library_SyntheticsLogger_VisualTesting.html">
- *             Visual monitoring</a> and <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Blueprints_VisualTesting.html">
- *                Visual monitoring blueprint</a>
- *          </p>
- * @public
- */
-export interface VisualReferenceInput {
-  /**
-   * <p>An array of screenshots that will be used as the baseline for visual monitoring in future runs of this canary. If there is a screenshot that you don't want to be used for
-   *       visual monitoring, remove it from this array.</p>
-   * @public
-   */
-  BaseScreenshots?: BaseScreenshot[] | undefined;
-
-  /**
-   * <p>Specifies which canary run to use the screenshots from as the baseline for future visual monitoring with this canary. Valid values are
-   *          <code>nextrun</code> to use the screenshots from the next run after this update is made, <code>lastrun</code> to use the screenshots from the most recent run
-   *          before this update was made, or the value of <code>Id</code> in the <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CanaryRun.html">
-   *             CanaryRun</a> from a run of this a canary in the past 31 days. If you specify the <code>Id</code> of a canary run older than 31 days,
-   *          the operation returns a 400 validation exception error..</p>
-   * @public
-   */
-  BaseCanaryRunId: string | undefined;
-}
 
 /**
  * @public
@@ -2036,8 +2301,9 @@ export interface UpdateCanaryRequest {
    * <p>A structure that contains the timeout value that is used for each individual run of the
    *          canary.</p>
    *          <important>
-   *             <p>The environment variables keys and values are not encrypted. Do not store sensitive information
-   *          in this field.</p>
+   *             <p>Environment variable keys and values are encrypted at rest using Amazon Web Services owned KMS keys. However, the environment variables
+   *          are not encrypted on the client side. Do not store sensitive information
+   *          in them.</p>
    *          </important>
    * @public
    */
@@ -2045,12 +2311,18 @@ export interface UpdateCanaryRequest {
 
   /**
    * <p>The number of days to retain data about successful runs of this canary.</p>
+   *          <p>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>, as well as
+   *          the range of information displayed in the Synthetics console.
+   *       </p>
    * @public
    */
   SuccessRetentionPeriodInDays?: number | undefined;
 
   /**
    * <p>The number of days to retain data about failed runs of this canary.</p>
+   *          <p>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>, as well as
+   *          the range of information displayed in the Synthetics console.
+   *       </p>
    * @public
    */
   FailureRetentionPeriodInDays?: number | undefined;
@@ -2101,6 +2373,15 @@ export interface UpdateCanaryRequest {
    * @public
    */
   ProvisionedResourceCleanup?: ProvisionedResourceCleanupSetting | undefined;
+
+  /**
+   * <p>Update the existing canary using the updated configurations from the DryRun associated with the DryRunId.</p>
+   *          <note>
+   *             <p>When you use the <code>dryRunId</code> field when updating a canary, the only other field you can provide is the <code>Schedule</code>. Adding any other field will thrown an exception.</p>
+   *          </note>
+   * @public
+   */
+  DryRunId?: string | undefined;
 }
 
 /**
