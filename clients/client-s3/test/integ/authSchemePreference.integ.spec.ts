@@ -1,7 +1,7 @@
 import { describe, expect, test as it } from "vitest";
 
-import { S3 } from "../../src/S3";
-import "../../../../packages/signature-v4-crt/src/index";
+import { S3 } from "@aws-sdk/client-s3";
+import "@aws-sdk/signature-v4-crt";
 
 describe("authSchemePreference", () => {
   const credentials = { accessKeyId: "key", secretAccessKey: "secret" };
