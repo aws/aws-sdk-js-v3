@@ -25,7 +25,7 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
   const defaultsMode = resolveDefaultsModeConfig(config);
   const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
   const clientSharedValues = getSharedRuntimeConfig(config);
-  const profileConfig = { profile: config?.profile };
+  const loaderConfig = { profile: config?.profile, logger: clientSharedValues.logger };
   return {
     ...clientSharedValues,
     ...config,
@@ -38,7 +38,7 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
     region:
       config?.region ??
-      loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, { ...NODE_REGION_CONFIG_FILE_OPTIONS, ...profileConfig }),
+      loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, { ...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig }),
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
     retryMode:
       config?.retryMode ??
@@ -51,6 +51,6 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
       ),
     sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     streamCollector: config?.streamCollector ?? streamCollector,
-    userAgentAppId: config?.userAgentAppId ?? loadNodeConfig(NODE_APP_ID_CONFIG_OPTIONS, profileConfig),
+    userAgentAppId: config?.userAgentAppId ?? loadNodeConfig(NODE_APP_ID_CONFIG_OPTIONS, loaderConfig),
   };
 };

@@ -23,7 +23,7 @@ export const getRuntimeConfig = (config: EchoServiceClientConfig) => {
   const defaultsMode = resolveDefaultsModeConfig(config);
   const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
   const clientSharedValues = getSharedRuntimeConfig(config);
-  const profileConfig = { profile: config?.profile };
+  const loaderConfig = { profile: config?.profile, logger: clientSharedValues.logger };
   return {
     ...clientSharedValues,
     ...config,
@@ -45,6 +45,6 @@ export const getRuntimeConfig = (config: EchoServiceClientConfig) => {
       ),
     sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     streamCollector: config?.streamCollector ?? streamCollector,
-    userAgentAppId: config?.userAgentAppId ?? loadNodeConfig(NODE_APP_ID_CONFIG_OPTIONS, profileConfig),
+    userAgentAppId: config?.userAgentAppId ?? loadNodeConfig(NODE_APP_ID_CONFIG_OPTIONS, loaderConfig),
   };
 };
