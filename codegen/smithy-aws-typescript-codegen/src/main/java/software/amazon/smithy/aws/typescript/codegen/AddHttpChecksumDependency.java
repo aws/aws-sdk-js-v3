@@ -141,7 +141,7 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                                     TypeScriptDependency.NODE_CONFIG_PROVIDER);
                         writer.addImport("NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS", null,
                                     AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE);
-                        writer.write("loadNodeConfig(NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS, profileConfig)");
+                        writer.write("loadNodeConfig(NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS, loaderConfig)");
                     },
                     "responseChecksumValidation", writer -> {
                         writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
@@ -149,7 +149,7 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                                     TypeScriptDependency.NODE_CONFIG_PROVIDER);
                         writer.addImport("NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS", null,
                                     AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE);
-                        writer.write("loadNodeConfig(NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS, profileConfig)");
+                        writer.write("loadNodeConfig(NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS, loaderConfig)");
                     }
                 );
             case BROWSER:
