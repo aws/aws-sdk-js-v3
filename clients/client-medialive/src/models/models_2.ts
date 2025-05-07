@@ -7884,6 +7884,12 @@ export interface UpdateChannelRequest {
    * @public
    */
   DryRun?: boolean | undefined;
+
+  /**
+   * The Elemental Anywhere settings for this channel.
+   * @public
+   */
+  AnywhereSettings?: AnywhereSettings | undefined;
 }
 
 /**

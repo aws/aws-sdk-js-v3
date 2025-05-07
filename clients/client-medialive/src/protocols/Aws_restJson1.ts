@@ -2718,6 +2718,7 @@ export const se_UpdateChannelCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      anywhereSettings: [, (_) => se_AnywhereSettings(_, context), `AnywhereSettings`],
       cdiInputSpecification: [, (_) => se_CdiInputSpecification(_, context), `CdiInputSpecification`],
       channelEngineVersion: [, (_) => se_ChannelEngineVersionRequest(_, context), `ChannelEngineVersion`],
       destinations: [, (_) => se___listOfOutputDestination(_, context), `Destinations`],

@@ -1224,6 +1224,10 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *     Version: "STRING_VALUE",
  *   },
  *   DryRun: true || false,
+ *   AnywhereSettings: { // AnywhereSettings
+ *     ChannelPlacementGroupId: "STRING_VALUE",
+ *     ClusterId: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
