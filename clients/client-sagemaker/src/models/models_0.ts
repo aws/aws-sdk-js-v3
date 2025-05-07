@@ -10151,7 +10151,7 @@ export interface ClusterNodeDetails {
   LaunchTime?: Date | undefined;
 
   /**
-   * <p>The time of when the cluster was last updated.</p>
+   * <p>The time when the cluster was last updated.</p>
    * @public
    */
   LastSoftwareUpdateTime?: Date | undefined;
@@ -10255,7 +10255,7 @@ export interface ClusterNodeSummary {
   LaunchTime: Date | undefined;
 
   /**
-   * <p>The time of when SageMaker last updated the software of the instances in the cluster.</p>
+   * <p>The time when SageMaker last updated the software of the instances in the cluster.</p>
    * @public
    */
   LastSoftwareUpdateTime?: Date | undefined;

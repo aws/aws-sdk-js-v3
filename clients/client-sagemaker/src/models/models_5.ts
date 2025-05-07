@@ -101,6 +101,17 @@ import {
 /**
  * @public
  */
+export interface StopInferenceExperimentResponse {
+  /**
+   * <p>The ARN of the stopped inference experiment.</p>
+   * @public
+   */
+  InferenceExperimentArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StopInferenceRecommendationsJobRequest {
   /**
    * <p>The name of the job you want to stop.</p>

@@ -37,6 +37,7 @@ import {
   AutoMLSecurityConfig,
   BatchDataCaptureConfig,
   BatchStrategy,
+  BatchTransformInput,
   CaptureStatus,
   Channel,
   CheckpointConfig,
@@ -53,6 +54,7 @@ import {
   CompilationJobStatus,
   ComputeQuotaConfig,
   ComputeQuotaTarget,
+  FeatureStatus,
   GitConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
@@ -89,11 +91,11 @@ import {
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EdgePresetDeploymentType,
+  EndpointInput,
   ExplainerConfig,
   FeatureDefinition,
   FeatureType,
   FlowDefinitionOutputConfig,
-  HubS3StorageConfig,
   HumanLoopActivationConfig,
   HumanLoopConfig,
   HumanLoopRequestSource,
@@ -104,7 +106,6 @@ import {
   ModelDeployConfig,
   MonitoringAppSpecification,
   MonitoringBaselineConfig,
-  MonitoringInput,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
@@ -127,6 +128,24 @@ import {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>The inputs for a monitoring job.</p>
+ * @public
+ */
+export interface MonitoringInput {
+  /**
+   * <p>The endpoint for a monitoring job.</p>
+   * @public
+   */
+  EndpointInput?: EndpointInput | undefined;
+
+  /**
+   * <p>Input object for the batch transform job.</p>
+   * @public
+   */
+  BatchTransformInput?: BatchTransformInput | undefined;
+}
 
 /**
  * <p>Networking options for a job, such as network traffic encryption between containers,
@@ -2496,6 +2515,21 @@ export interface SpaceSettings {
    * @public
    */
   SpaceStorageSettings?: SpaceStorageSettings | undefined;
+
+  /**
+   * <p>If you enable this option, SageMaker AI creates the following resources on your
+   *       behalf when you create the space:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The user profile that possesses the space.</p>
+   *             </li>
+   *             <li>
+   *                <p>The app that the space contains.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SpaceManagedResources?: FeatureStatus | undefined;
 
   /**
    * <p>A file system, created by you, that you assign to a space for an Amazon SageMaker AI
@@ -5739,9 +5773,7 @@ export interface DescribeAppResponse {
   Status?: AppStatus | undefined;
 
   /**
-   * <p>
-   *       Indicates whether the application is launched in recovery mode.
-   *     </p>
+   * <p> Indicates whether the application is launched in recovery mode. </p>
    * @public
    */
   RecoveryMode?: boolean | undefined;
@@ -8821,71 +8853,6 @@ export const HubStatus = {
  * @public
  */
 export type HubStatus = (typeof HubStatus)[keyof typeof HubStatus];
-
-/**
- * @public
- */
-export interface DescribeHubResponse {
-  /**
-   * <p>The name of the hub.</p>
-   * @public
-   */
-  HubName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the hub.</p>
-   * @public
-   */
-  HubArn: string | undefined;
-
-  /**
-   * <p>The display name of the hub.</p>
-   * @public
-   */
-  HubDisplayName?: string | undefined;
-
-  /**
-   * <p>A description of the hub.</p>
-   * @public
-   */
-  HubDescription?: string | undefined;
-
-  /**
-   * <p>The searchable keywords for the hub.</p>
-   * @public
-   */
-  HubSearchKeywords?: string[] | undefined;
-
-  /**
-   * <p>The Amazon S3 storage configuration for the hub.</p>
-   * @public
-   */
-  S3StorageConfig?: HubS3StorageConfig | undefined;
-
-  /**
-   * <p>The status of the hub.</p>
-   * @public
-   */
-  HubStatus: HubStatus | undefined;
-
-  /**
-   * <p>The failure reason if importing hub content failed.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>The date and time that the hub was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the hub was last modified.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-}
 
 /**
  * @internal

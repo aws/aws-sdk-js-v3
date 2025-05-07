@@ -898,9 +898,7 @@ export interface CreateAppRequest {
   ResourceSpec?: ResourceSpec | undefined;
 
   /**
-   * <p>
-   *       Indicates whether the application is launched in recovery mode.
-   *     </p>
+   * <p> Indicates whether the application is launched in recovery mode. </p>
    * @public
    */
   RecoveryMode?: boolean | undefined;
@@ -4041,6 +4039,75 @@ export interface RStudioServerProDomainSettings {
 }
 
 /**
+ * <p>The settings that apply to an Amazon SageMaker AI domain when you use it in Amazon
+ *       SageMaker Unified Studio.</p>
+ * @public
+ */
+export interface UnifiedStudioSettings {
+  /**
+   * <p>Sets whether you can access the domain in Amazon SageMaker Studio:</p>
+   *          <dl>
+   *             <dt>ENABLED</dt>
+   *             <dd>
+   *                <p>You can access the domain in Amazon SageMaker Studio. If you migrate the domain to
+   *             Amazon SageMaker Unified Studio, you can access it in both studio interfaces.</p>
+   *             </dd>
+   *             <dt>DISABLED</dt>
+   *             <dd>
+   *                <p>You can't access the domain in Amazon SageMaker Studio. If you migrate the domain to
+   *             Amazon SageMaker Unified Studio, you can access it only in that studio interface.</p>
+   *             </dd>
+   *          </dl>
+   *          <p>To migrate a domain to Amazon SageMaker Unified Studio, you specify the
+   *       UnifiedStudioSettings data type when you use the UpdateDomain action.</p>
+   * @public
+   */
+  StudioWebPortalAccess?: FeatureStatus | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that has the Amazon SageMaker Unified Studio
+   *       domain. The default value, if you don't specify an ID, is the ID of the account that has the
+   *         Amazon SageMaker AI domain.</p>
+   * @public
+   */
+  DomainAccountId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the domain is located in Amazon SageMaker Unified
+   *       Studio. The default value, if you don't specify a Region, is the Region where the Amazon SageMaker AI domain is located.</p>
+   * @public
+   */
+  DomainRegion?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon SageMaker Unified Studio domain associated with this domain.</p>
+   * @public
+   */
+  DomainId?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon SageMaker Unified Studio project that corresponds to the
+   *       domain.</p>
+   * @public
+   */
+  ProjectId?: string | undefined;
+
+  /**
+   * <p>The ID of the environment that Amazon SageMaker Unified Studio associates with the
+   *       domain.</p>
+   * @public
+   */
+  EnvironmentId?: string | undefined;
+
+  /**
+   * <p>The location where Amazon S3 stores temporary execution data and other artifacts
+   *       for the project that corresponds to the domain.</p>
+   * @public
+   */
+  ProjectS3Path?: string | undefined;
+}
+
+/**
  * <p>A collection of settings that apply to the <code>SageMaker Domain</code>. These settings
  *       are specified through the <code>CreateDomain</code> API call.</p>
  * @public
@@ -4079,6 +4146,13 @@ export interface DomainSettings {
    * @public
    */
   AmazonQSettings?: AmazonQSettings | undefined;
+
+  /**
+   * <p>The settings that apply to an SageMaker AI domain when you use it in Amazon SageMaker
+   *       Unified Studio.</p>
+   * @public
+   */
+  UnifiedStudioSettings?: UnifiedStudioSettings | undefined;
 }
 
 /**
@@ -13149,24 +13223,6 @@ export interface MonitoringAppSpecification {
    * @public
    */
   PostAnalyticsProcessorSourceUri?: string | undefined;
-}
-
-/**
- * <p>The inputs for a monitoring job.</p>
- * @public
- */
-export interface MonitoringInput {
-  /**
-   * <p>The endpoint for a monitoring job.</p>
-   * @public
-   */
-  EndpointInput?: EndpointInput | undefined;
-
-  /**
-   * <p>Input object for the batch transform job.</p>
-   * @public
-   */
-  BatchTransformInput?: BatchTransformInput | undefined;
 }
 
 /**

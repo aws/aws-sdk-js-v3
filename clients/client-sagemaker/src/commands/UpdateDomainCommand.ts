@@ -275,6 +275,15 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *       Status: "ENABLED" || "DISABLED",
  *       QProfileArn: "STRING_VALUE",
  *     },
+ *     UnifiedStudioSettings: { // UnifiedStudioSettings
+ *       StudioWebPortalAccess: "ENABLED" || "DISABLED",
+ *       DomainAccountId: "STRING_VALUE",
+ *       DomainRegion: "STRING_VALUE",
+ *       DomainId: "STRING_VALUE",
+ *       ProjectId: "STRING_VALUE",
+ *       EnvironmentId: "STRING_VALUE",
+ *       ProjectS3Path: "STRING_VALUE",
+ *     },
  *   },
  *   AppSecurityGroupManagement: "Service" || "Customer",
  *   DefaultSpaceSettings: { // DefaultSpaceSettings

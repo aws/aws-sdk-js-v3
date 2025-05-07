@@ -117,6 +117,7 @@ export interface UpdateSpaceCommandOutput extends UpdateSpaceResponse, __Metadat
  *         EbsVolumeSizeInGb: Number("int"), // required
  *       },
  *     },
+ *     SpaceManagedResources: "ENABLED" || "DISABLED",
  *     CustomFileSystems: [ // CustomFileSystems
  *       { // CustomFileSystem Union: only one key present
  *         EFSFileSystem: { // EFSFileSystem

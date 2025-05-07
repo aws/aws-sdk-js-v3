@@ -52,8 +52,8 @@ export interface SearchTrainingPlanOfferingsCommandOutput
  * // const { SageMakerClient, SearchTrainingPlanOfferingsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // SearchTrainingPlanOfferingsRequest
- *   InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge", // required
- *   InstanceCount: Number("int"), // required
+ *   InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge",
+ *   InstanceCount: Number("int"),
  *   StartTimeAfter: new Date("TIMESTAMP"),
  *   EndTimeBefore: new Date("TIMESTAMP"),
  *   DurationHours: Number("long"), // required

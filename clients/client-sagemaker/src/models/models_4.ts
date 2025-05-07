@@ -177,7 +177,6 @@ import {
   SelectiveExecutionConfig,
   ServiceCatalogProvisionedProductDetails,
   SortOrder,
-  SortQuotaBy,
   SpaceStatus,
   SubscribedWorkteam,
   TrackingServerStatus,
@@ -193,6 +192,22 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ * @enum
+ */
+export const SortQuotaBy = {
+  CLUSTER_ARN: "ClusterArn",
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type SortQuotaBy = (typeof SortQuotaBy)[keyof typeof SortQuotaBy];
 
 /**
  * @public
@@ -10861,7 +10876,7 @@ export interface SearchTrainingPlanOfferingsRequest {
    *          your computational needs.</p>
    * @public
    */
-  InstanceType: ReservedCapacityInstanceType | undefined;
+  InstanceType?: ReservedCapacityInstanceType | undefined;
 
   /**
    * <p>The number of instances you want to reserve in the training plan offerings. This allows
@@ -10870,7 +10885,7 @@ export interface SearchTrainingPlanOfferingsRequest {
    *          requirements.</p>
    * @public
    */
-  InstanceCount: number | undefined;
+  InstanceCount?: number | undefined;
 
   /**
    * <p>A filter to search for training plan offerings with a start time after a specified
@@ -11341,17 +11356,6 @@ export interface StopInferenceExperimentRequest {
    * @public
    */
   Reason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopInferenceExperimentResponse {
-  /**
-   * <p>The ARN of the stopped inference experiment.</p>
-   * @public
-   */
-  InferenceExperimentArn: string | undefined;
 }
 
 /**

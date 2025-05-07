@@ -1372,7 +1372,6 @@ import {
   MonitoringClusterConfig,
   MonitoringConstraintsResource,
   MonitoringGroundTruthS3Input,
-  MonitoringInput,
   MonitoringNetworkConfig,
   MonitoringOutput,
   MonitoringOutputConfig,
@@ -1430,6 +1429,7 @@ import {
   TuningJobCompletionCriteria,
   UiConfig,
   UiTemplate,
+  UnifiedStudioSettings,
   USD,
   UserSettings,
 } from "../models/models_1";
@@ -1618,7 +1618,6 @@ import {
   DescribeFlowDefinitionRequest,
   DescribeFlowDefinitionResponse,
   DescribeHubRequest,
-  DescribeHubResponse,
   EbsStorageSettings,
   EdgeDeploymentStatus,
   EdgeModel,
@@ -1640,6 +1639,7 @@ import {
   ModelDigests,
   ModelQuantizationConfig,
   ModelShardingConfig,
+  MonitoringInput,
   MonitoringJobDefinition,
   MonitoringScheduleConfig,
   NetworkConfig,
@@ -1704,6 +1704,7 @@ import {
 import {
   DescribeHubContentRequest,
   DescribeHubContentResponse,
+  DescribeHubResponse,
   DescribeHumanTaskUiRequest,
   DescribeHumanTaskUiResponse,
   DescribeHyperParameterTuningJobRequest,
@@ -2165,7 +2166,6 @@ import {
   StopEdgePackagingJobRequest,
   StopHyperParameterTuningJobRequest,
   StopInferenceExperimentRequest,
-  StopInferenceExperimentResponse,
   StudioLifecycleConfigDetails,
   TotalHits,
   TrackingServerSummary,
@@ -2193,6 +2193,7 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  StopInferenceExperimentResponse,
   StopInferenceRecommendationsJobRequest,
   StopLabelingJobRequest,
   StopMlflowTrackingServerRequest,
@@ -17468,6 +17469,8 @@ const se_TuningJobCompletionCriteria = (input: TuningJobCompletionCriteria, cont
 
 // se_UiTemplate omitted.
 
+// se_UnifiedStudioSettings omitted.
+
 // se_UpdateActionRequest omitted.
 
 // se_UpdateAppImageConfigRequest omitted.
@@ -22841,6 +22844,7 @@ const de_DomainSettings = (output: any, context: __SerdeContext): DomainSettings
     ExecutionRoleIdentityConfig: __expectString,
     RStudioServerProDomainSettings: (_: any) => de_RStudioServerProDomainSettings(_, context),
     SecurityGroupIds: (_: any) => de_DomainSecurityGroupIds(_, context),
+    UnifiedStudioSettings: (_: any) => de_UnifiedStudioSettings(_, context),
   }) as any;
 };
 
@@ -30453,6 +30457,7 @@ const de_SpaceSettings = (output: any, context: __SerdeContext): SpaceSettings =
     JupyterLabAppSettings: (_: any) => de_SpaceJupyterLabAppSettings(_, context),
     JupyterServerAppSettings: (_: any) => de_JupyterServerAppSettings(_, context),
     KernelGatewayAppSettings: (_: any) => de_KernelGatewayAppSettings(_, context),
+    SpaceManagedResources: __expectString,
     SpaceStorageSettings: (_: any) => de_SpaceStorageSettings(_, context),
   }) as any;
 };
@@ -31672,6 +31677,21 @@ const de_UiTemplateInfo = (output: any, context: __SerdeContext): UiTemplateInfo
   return take(output, {
     ContentSha256: __expectString,
     Url: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UnifiedStudioSettings
+ */
+const de_UnifiedStudioSettings = (output: any, context: __SerdeContext): UnifiedStudioSettings => {
+  return take(output, {
+    DomainAccountId: __expectString,
+    DomainId: __expectString,
+    DomainRegion: __expectString,
+    EnvironmentId: __expectString,
+    ProjectId: __expectString,
+    ProjectS3Path: __expectString,
+    StudioWebPortalAccess: __expectString,
   }) as any;
 };
 

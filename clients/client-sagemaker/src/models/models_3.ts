@@ -69,6 +69,7 @@ import {
   ExecutionRoleIdentityConfig,
   FeatureDefinition,
   FeatureType,
+  HubS3StorageConfig,
   HumanTaskConfig,
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningJobConfig,
@@ -123,6 +124,7 @@ import {
   SkipModelValidation,
   SourceAlgorithmSpecification,
   TrackingServerSize,
+  UnifiedStudioSettings,
   UserSettings,
   VendorGuidance,
 } from "./models_1";
@@ -192,6 +194,71 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeHubResponse {
+  /**
+   * <p>The name of the hub.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub.</p>
+   * @public
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The display name of the hub.</p>
+   * @public
+   */
+  HubDisplayName?: string | undefined;
+
+  /**
+   * <p>A description of the hub.</p>
+   * @public
+   */
+  HubDescription?: string | undefined;
+
+  /**
+   * <p>The searchable keywords for the hub.</p>
+   * @public
+   */
+  HubSearchKeywords?: string[] | undefined;
+
+  /**
+   * <p>The Amazon S3 storage configuration for the hub.</p>
+   * @public
+   */
+  S3StorageConfig?: HubS3StorageConfig | undefined;
+
+  /**
+   * <p>The status of the hub.</p>
+   * @public
+   */
+  HubStatus: HubStatus | undefined;
+
+  /**
+   * <p>The failure reason if importing hub content failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The date and time that the hub was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the hub was last modified.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+}
 
 /**
  * @public
@@ -7748,6 +7815,13 @@ export interface DomainSettingsForUpdate {
    * @public
    */
   AmazonQSettings?: AmazonQSettings | undefined;
+
+  /**
+   * <p>The settings that apply to an SageMaker AI domain when you use it in Amazon SageMaker
+   *       Unified Studio.</p>
+   * @public
+   */
+  UnifiedStudioSettings?: UnifiedStudioSettings | undefined;
 }
 
 /**
@@ -11979,22 +12053,6 @@ export interface ListCompilationJobsResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SortQuotaBy = {
-  CLUSTER_ARN: "ClusterArn",
-  CREATION_TIME: "CreationTime",
-  NAME: "Name",
-  STATUS: "Status",
-} as const;
-
-/**
- * @public
- */
-export type SortQuotaBy = (typeof SortQuotaBy)[keyof typeof SortQuotaBy];
 
 /**
  * @internal
