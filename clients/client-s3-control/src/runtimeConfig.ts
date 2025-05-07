@@ -33,14 +33,14 @@ export const getRuntimeConfig = (config: S3ControlClientConfig) => {
   const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
   const clientSharedValues = getSharedRuntimeConfig(config);
   awsCheckVersion(process.version);
-  const profileConfig = { profile: config?.profile };
+  const loaderConfig = { profile: config?.profile, logger: clientSharedValues.logger };
   return {
     ...clientSharedValues,
     ...config,
     runtime: "node",
     defaultsMode,
     authSchemePreference:
-      config?.authSchemePreference ?? loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, profileConfig),
+      config?.authSchemePreference ?? loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, loaderConfig),
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
     defaultUserAgentProvider:
@@ -50,7 +50,7 @@ export const getRuntimeConfig = (config: S3ControlClientConfig) => {
     md5: config?.md5 ?? Hash.bind(null, "md5"),
     region:
       config?.region ??
-      loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, { ...NODE_REGION_CONFIG_FILE_OPTIONS, ...profileConfig }),
+      loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, { ...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig }),
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
     retryMode:
       config?.retryMode ??
@@ -65,8 +65,8 @@ export const getRuntimeConfig = (config: S3ControlClientConfig) => {
     streamCollector: config?.streamCollector ?? streamCollector,
     streamHasher: config?.streamHasher ?? streamHasher,
     useDualstackEndpoint:
-      config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, profileConfig),
-    useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, profileConfig),
-    userAgentAppId: config?.userAgentAppId ?? loadNodeConfig(NODE_APP_ID_CONFIG_OPTIONS, profileConfig),
+      config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
+    useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
+    userAgentAppId: config?.userAgentAppId ?? loadNodeConfig(NODE_APP_ID_CONFIG_OPTIONS, loaderConfig),
   };
 };

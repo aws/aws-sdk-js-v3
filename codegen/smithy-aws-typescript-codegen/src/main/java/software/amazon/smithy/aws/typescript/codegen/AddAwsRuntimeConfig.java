@@ -166,7 +166,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             writer.write("awsCheckVersion(process.version);");
         }
         if (target.equals(LanguageTarget.NODE)) {
-            writer.write("const profileConfig = { profile: config?.profile };");
+            writer.write("const loaderConfig = { profile: config?.profile, logger: clientSharedValues.logger };");
         }
     }
 
@@ -199,7 +199,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                             """
                             loadNodeConfig(
                                 NODE_REGION_CONFIG_OPTIONS,
-                                {...NODE_REGION_CONFIG_FILE_OPTIONS, ...profileConfig}
+                                {...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig}
                             )
                             """
                         );
@@ -210,7 +210,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                                    TypeScriptDependency.NODE_CONFIG_PROVIDER);
                             writer.addImport("NODE_AUTH_SCHEME_PREFERENCE_OPTIONS", null,
                                     AwsDependency.AWS_SDK_CORE);
-                            writer.write("loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, profileConfig)");
+                            writer.write("loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, loaderConfig)");
                           });
                     }
                     return nodeConfig;
@@ -255,7 +255,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                             writer.addImport("NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS",
                                     "NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS",
                                     TypeScriptDependency.CONFIG_RESOLVER);
-                            writer.write("loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, profileConfig)");
+                            writer.write("loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig)");
                         },
                         "useFipsEndpoint", writer -> {
                             writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
@@ -265,7 +265,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                             writer.addImport("NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS",
                                     "NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS",
                                     TypeScriptDependency.CONFIG_RESOLVER);
-                            writer.write("loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, profileConfig)");
+                            writer.write("loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, loaderConfig)");
                         }
                 );
             default:
