@@ -1182,6 +1182,12 @@ export interface NetworkInsightsAnalysis {
   FilterInArns?: string[] | undefined;
 
   /**
+   * <p>The Amazon Resource Names (ARN) of the resources that the path must ignore.</p>
+   * @public
+   */
+  FilterOutArns?: string[] | undefined;
+
+  /**
    * <p>The time the analysis started.</p>
    * @public
    */

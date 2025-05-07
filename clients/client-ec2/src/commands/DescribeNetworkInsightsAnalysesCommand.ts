@@ -73,6 +73,9 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * //       FilterInArns: [ // ArnList
  * //         "STRING_VALUE",
  * //       ],
+ * //       FilterOutArns: [
+ * //         "STRING_VALUE",
+ * //       ],
  * //       StartDate: new Date("TIMESTAMP"),
  * //       Status: "running" || "succeeded" || "failed",
  * //       StatusMessage: "STRING_VALUE",

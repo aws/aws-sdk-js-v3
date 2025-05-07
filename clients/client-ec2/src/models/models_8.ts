@@ -2899,6 +2899,12 @@ export interface StartNetworkInsightsAnalysisRequest {
   FilterInArns?: string[] | undefined;
 
   /**
+   * <p>The Amazon Resource Names (ARN) of the resources that the path will ignore.</p>
+   * @public
+   */
+  FilterOutArns?: string[] | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>

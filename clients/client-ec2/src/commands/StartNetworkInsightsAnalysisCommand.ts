@@ -46,6 +46,9 @@ export interface StartNetworkInsightsAnalysisCommandOutput
  *   FilterInArns: [ // ArnList
  *     "STRING_VALUE",
  *   ],
+ *   FilterOutArns: [
+ *     "STRING_VALUE",
+ *   ],
  *   DryRun: true || false,
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
@@ -71,6 +74,9 @@ export interface StartNetworkInsightsAnalysisCommandOutput
  * //       "STRING_VALUE",
  * //     ],
  * //     FilterInArns: [ // ArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     FilterOutArns: [
  * //       "STRING_VALUE",
  * //     ],
  * //     StartDate: new Date("TIMESTAMP"),

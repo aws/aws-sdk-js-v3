@@ -57195,6 +57195,13 @@ const se_StartNetworkInsightsAnalysisRequest = (
       entries[loc] = value;
     });
   }
+  if (input[_FOA] != null) {
+    const memberEntries = se_ArnList(input[_FOA], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `FilterOutArn.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -79580,6 +79587,11 @@ const de_NetworkInsightsAnalysis = (output: any, context: __SerdeContext): Netwo
   } else if (output[_fIAS] != null && output[_fIAS][_i] != null) {
     contents[_FIA] = de_ArnList(__getArrayIfSingleItem(output[_fIAS][_i]), context);
   }
+  if (output.filterOutArnSet === "") {
+    contents[_FOA] = [];
+  } else if (output[_fOAS] != null && output[_fOAS][_i] != null) {
+    contents[_FOA] = de_ArnList(__getArrayIfSingleItem(output[_fOAS][_i]), context);
+  }
   if (output[_sD] != null) {
     contents[_SD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_sD]));
   }
@@ -91220,6 +91232,7 @@ const _FLIa = "FastLaunchImages";
 const _FLIl = "FlowLogId";
 const _FLS = "FlowLogStatus";
 const _FM = "FailureMessage";
+const _FOA = "FilterOutArns";
 const _FODC = "FulfilledOnDemandCapacity";
 const _FP = "FromPort";
 const _FPC = "ForwardPathComponents";
@@ -93442,6 +93455,7 @@ const _fLISa = "fastLaunchImageSet";
 const _fLS = "flowLogSet";
 const _fLSl = "flowLogStatus";
 const _fM = "failureMessage";
+const _fOAS = "filterOutArnSet";
 const _fODC = "fulfilledOnDemandCapacity";
 const _fP = "fromPort";
 const _fPCS = "forwardPathComponentSet";
