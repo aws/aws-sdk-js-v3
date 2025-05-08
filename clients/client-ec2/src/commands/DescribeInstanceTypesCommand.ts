@@ -133,6 +133,9 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  * //             MaximumNetworkInterfaces: Number("int"),
  * //             BaselineBandwidthInGbps: Number("double"),
  * //             PeakBandwidthInGbps: Number("double"),
+ * //             DefaultEnaQueueCountPerInterface: Number("int"),
+ * //             MaximumEnaQueueCount: Number("int"),
+ * //             MaximumEnaQueueCountPerInterface: Number("int"),
  * //           },
  * //         ],
  * //         Ipv4AddressesPerInterface: Number("int"),
@@ -148,6 +151,7 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  * //         BandwidthWeightings: [ // BandwidthWeightingTypeList
  * //           "default" || "vpc-1" || "ebs-1",
  * //         ],
+ * //         FlexibleEnaQueuesSupport: "unsupported" || "supported",
  * //       },
  * //       GpuInfo: { // GpuInfo
  * //         Gpus: [ // GpuDeviceInfoList

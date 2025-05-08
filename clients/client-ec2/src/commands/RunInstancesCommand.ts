@@ -287,6 +287,7 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  *         UdpStreamTimeout: Number("int"),
  *         UdpTimeout: Number("int"),
  *       },
+ *       EnaQueueCount: Number("int"),
  *     },
  *   ],
  *   IamInstanceProfile: { // IamInstanceProfileSpecification
@@ -374,6 +375,7 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * //                 EnaSrdUdpEnabled: true || false,
  * //               },
  * //             },
+ * //             EnaQueueCount: Number("int"),
  * //           },
  * //           Description: "STRING_VALUE",
  * //           Groups: [

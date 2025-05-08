@@ -50,12 +50,35 @@ import {
   NetworkInsightsAnalysis,
   RunInstancesMonitoringEnabled,
   SnapshotAttributeName,
+  SpotFleetRequestConfigData,
+  SpotFleetRequestConfigDataFilterSensitiveLog,
   SpotInstanceRequest,
   SpotInstanceRequestFilterSensitiveLog,
   SpotPlacement,
 } from "./models_5";
 
 import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_7";
+
+/**
+ * <p>Contains the parameters for RequestSpotFleet.</p>
+ * @public
+ */
+export interface RequestSpotFleetRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The configuration for the Spot Fleet request.</p>
+   * @public
+   */
+  SpotFleetRequestConfig: SpotFleetRequestConfigData | undefined;
+}
 
 /**
  * <p>Contains the output of RequestSpotFleet.</p>
@@ -508,9 +531,10 @@ export interface ResetInstanceAttributeRequest {
  */
 export interface ResetNetworkInterfaceAttributeRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;
@@ -522,7 +546,8 @@ export interface ResetNetworkInterfaceAttributeRequest {
   NetworkInterfaceId: string | undefined;
 
   /**
-   * <p>The source/destination checking attribute. Resets the value to <code>true</code>.</p>
+   * <p>The source/destination checking attribute. Resets the value to
+   *             <code>true</code>.</p>
    * @public
    */
   SourceDestCheck?: string | undefined;
@@ -3196,8 +3221,8 @@ export interface UnassignPrivateIpAddressesRequest {
   NetworkInterfaceId: string | undefined;
 
   /**
-   * <p>The secondary private IP addresses to unassign from the network interface. You can specify this
-   *         	option multiple times to unassign more than one IP address.</p>
+   * <p>The secondary private IP addresses to unassign from the network interface. You can
+   *             specify this option multiple times to unassign more than one IP address.</p>
    * @public
    */
   PrivateIpAddresses?: string[] | undefined;
@@ -3466,6 +3491,16 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr | undefined;
 }
+
+/**
+ * @internal
+ */
+export const RequestSpotFleetRequestFilterSensitiveLog = (obj: RequestSpotFleetRequest): any => ({
+  ...obj,
+  ...(obj.SpotFleetRequestConfig && {
+    SpotFleetRequestConfig: SpotFleetRequestConfigDataFilterSensitiveLog(obj.SpotFleetRequestConfig),
+  }),
+});
 
 /**
  * @internal

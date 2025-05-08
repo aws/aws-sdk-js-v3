@@ -36,9 +36,10 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  *             create a launch template. </p>
  *          <p>This action calls on other describe actions to get instance information. Depending on
  *             your instance configuration, you may need to allow the following actions in your IAM
- *             policy: <code>DescribeSpotInstanceRequests</code>, <code>DescribeInstanceCreditSpecifications</code>,
- *             <code>DescribeVolumes</code>, and <code>DescribeInstanceAttribute</code>. Or,
- *             you can allow <code>describe*</code> depending on your instance requirements.</p>
+ *             policy: <code>DescribeSpotInstanceRequests</code>,
+ *                 <code>DescribeInstanceCreditSpecifications</code>, <code>DescribeVolumes</code>, and
+ *                 <code>DescribeInstanceAttribute</code>.
+ *             Or, you can allow <code>describe*</code> depending on your instance requirements.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -130,6 +131,7 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * //           UdpTimeout: Number("int"),
  * //           UdpStreamTimeout: Number("int"),
  * //         },
+ * //         EnaQueueCount: Number("int"),
  * //       },
  * //     ],
  * //     ImageId: "STRING_VALUE",

@@ -3461,7 +3461,6 @@ import {
   DescribeLocalGatewaysRequest,
   DescribeLocalGatewaysResult,
   DescribeLocalGatewayVirtualInterfaceGroupsRequest,
-  DescribeLocalGatewayVirtualInterfaceGroupsResult,
   DestinationOptionsResponse,
   DiskImageDescription,
   DiskImageVolumeDescription,
@@ -3585,6 +3584,7 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeLocalGatewayVirtualInterfaceGroupsResult,
   DescribeLocalGatewayVirtualInterfacesRequest,
   DescribeLocalGatewayVirtualInterfacesResult,
   DescribeLockedSnapshotsRequest,
@@ -3776,7 +3776,6 @@ import {
   DisableAllowedImagesSettingsRequest,
   DisableAllowedImagesSettingsResult,
   DisableAwsNetworkPerformanceMetricSubscriptionRequest,
-  DisableAwsNetworkPerformanceMetricSubscriptionResult,
   HistoryRecord,
   InstanceNetworkInterfaceSpecification,
   LaunchSpecification,
@@ -3862,6 +3861,7 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DisableAwsNetworkPerformanceMetricSubscriptionResult,
   DisableEbsEncryptionByDefaultRequest,
   DisableEbsEncryptionByDefaultResult,
   DisableFastLaunchRequest,
@@ -4086,7 +4086,6 @@ import {
   GetVerifiedAccessEndpointPolicyResult,
   GetVerifiedAccessEndpointTargetsRequest,
   GetVerifiedAccessEndpointTargetsResult,
-  GetVerifiedAccessGroupPolicyRequest,
   ImageCriterion,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
@@ -4143,6 +4142,7 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetVerifiedAccessGroupPolicyRequest,
   GetVerifiedAccessGroupPolicyResult,
   GetVpnConnectionDeviceSampleConfigurationRequest,
   GetVpnConnectionDeviceSampleConfigurationResult,
@@ -4399,7 +4399,6 @@ import {
   ReplaceVpnTunnelResult,
   ReportInstanceReasonCodes,
   ReportInstanceStatusRequest,
-  RequestSpotFleetRequest,
   ReservedInstanceLimitPrice,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
@@ -4434,6 +4433,7 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RequestSpotFleetRequest,
   RequestSpotFleetResponse,
   RequestSpotInstancesRequest,
   RequestSpotInstancesResult,
@@ -30948,6 +30948,9 @@ const se_AttachNetworkInterfaceRequest = (input: AttachNetworkInterfaceRequest, 
       entries[loc] = value;
     });
   }
+  if (input[_EQC] != null) {
+    entries[_EQC] = input[_EQC];
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -47440,6 +47443,9 @@ const se_InstanceNetworkInterfaceSpecification = (
       entries[loc] = value;
     });
   }
+  if (input[_EQC] != null) {
+    entries[_EQC] = input[_EQC];
+  }
   return entries;
 };
 
@@ -48781,6 +48787,9 @@ const se_LaunchTemplateInstanceNetworkInterfaceSpecificationRequest = (
       const loc = `ConnectionTrackingSpecification.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input[_EQC] != null) {
+    entries[_EQC] = input[_EQC];
   }
   return entries;
 };
@@ -52428,6 +52437,12 @@ const se_NetworkInterfaceAttachmentChanges = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input[_DEQC] != null) {
+    entries[_DEQC] = input[_DEQC];
+  }
+  if (input[_EQC] != null) {
+    entries[_EQC] = input[_EQC];
+  }
   if (input[_AIt] != null) {
     entries[_AIt] = input[_AIt];
   }
@@ -74401,6 +74416,9 @@ const de_InstanceNetworkInterfaceAttachment = (
   if (output[_eSS] != null) {
     contents[_ESS] = de_InstanceAttachmentEnaSrdSpecification(output[_eSS], context);
   }
+  if (output[_eQC] != null) {
+    contents[_EQC] = __strictParseInt32(output[_eQC]) as number;
+  }
   return contents;
 };
 
@@ -74498,6 +74516,9 @@ const de_InstanceNetworkInterfaceSpecification = (
   }
   if (output[_CTS] != null) {
     contents[_CTS] = de_ConnectionTrackingSpecificationRequest(output[_CTS], context);
+  }
+  if (output[_EQC] != null) {
+    contents[_EQC] = __strictParseInt32(output[_EQC]) as number;
   }
   return contents;
 };
@@ -77121,6 +77142,9 @@ const de_LaunchTemplateInstanceNetworkInterfaceSpecification = (
   if (output[_cTS] != null) {
     contents[_CTS] = de_ConnectionTrackingSpecification(output[_cTS], context);
   }
+  if (output[_eQC] != null) {
+    contents[_EQC] = __strictParseInt32(output[_eQC]) as number;
+  }
   return contents;
 };
 
@@ -79375,6 +79399,15 @@ const de_NetworkCardInfo = (output: any, context: __SerdeContext): NetworkCardIn
   if (output[_pBIG] != null) {
     contents[_PBIG] = __strictParseFloat(output[_pBIG]) as number;
   }
+  if (output[_dEQCPI] != null) {
+    contents[_DEQCPI] = __strictParseInt32(output[_dEQCPI]) as number;
+  }
+  if (output[_mEQC] != null) {
+    contents[_MEQC] = __strictParseInt32(output[_mEQC]) as number;
+  }
+  if (output[_mEQCPI] != null) {
+    contents[_MEQCPI] = __strictParseInt32(output[_mEQCPI]) as number;
+  }
   return contents;
 };
 
@@ -79439,6 +79472,9 @@ const de_NetworkInfo = (output: any, context: __SerdeContext): NetworkInfo => {
     contents[_BWa] = [];
   } else if (output[_bWa] != null && output[_bWa][_i] != null) {
     contents[_BWa] = de_BandwidthWeightingTypeList(__getArrayIfSingleItem(output[_bWa][_i]), context);
+  }
+  if (output[_fEQS] != null) {
+    contents[_FEQS] = __expectString(output[_fEQS]);
   }
   return contents;
 };
@@ -79878,6 +79914,9 @@ const de_NetworkInterfaceAttachment = (output: any, context: __SerdeContext): Ne
   }
   if (output[_eSS] != null) {
     contents[_ESS] = de_AttachmentEnaSrdSpecification(output[_eSS], context);
+  }
+  if (output[_eQC] != null) {
+    contents[_EQC] = __strictParseInt32(output[_eQC]) as number;
   }
   return contents;
 };
@@ -90720,6 +90759,8 @@ const _DEIT = "DescribeExportImageTasks";
 const _DEKI = "DataEncryptionKeyId";
 const _DEOIG = "DeleteEgressOnlyInternetGateway";
 const _DEOIGe = "DescribeEgressOnlyInternetGateways";
+const _DEQC = "DefaultEnaQueueCount";
+const _DEQCPI = "DefaultEnaQueueCountPerInterface";
 const _DET = "DescribeExportTasks";
 const _DEn = "DnsEntry";
 const _DF = "DeleteFleets";
@@ -91147,6 +91188,7 @@ const _EP = "ExcludePaths";
 const _EPG = "EnablePrivateGua";
 const _EPI = "EnablePrimaryIpv6";
 const _EPg = "EgressPackets";
+const _EQC = "EnaQueueCount";
 const _ERAOS = "EnableReachabilityAnalyzerOrganizationSharing";
 const _ERNDAAAAR = "EnableResourceNameDnsAAAARecord";
 const _ERNDAAAAROL = "EnableResourceNameDnsAAAARecordOnLaunch";
@@ -91212,6 +91254,7 @@ const _FCi = "FindingComponents";
 const _FD = "ForceDelete";
 const _FDN = "FipsDnsName";
 const _FE = "FipsEnabled";
+const _FEQS = "FlexibleEnaQueuesSupport";
 const _FF = "FileFormat";
 const _FFC = "FailedFleetCancellations";
 const _FFi = "FindingsFound";
@@ -91741,6 +91784,8 @@ const _ME = "MaxEntries";
 const _MEDKKI = "ModifyEbsDefaultKmsKeyId";
 const _MEI = "MaximumEfaInterfaces";
 const _MEM = "ManagedExceptionMessage";
+const _MEQC = "MaximumEnaQueueCount";
+const _MEQCPI = "MaximumEnaQueueCountPerInterface";
 const _MF = "ModifyFleet";
 const _MFIA = "ModifyFpgaImageAttribute";
 const _MFV = "MostFrequentValue";
@@ -93248,6 +93293,7 @@ const _dCS = "dhcpConfigurationSet";
 const _dCe = "defaultCores";
 const _dE = "dnsEntry";
 const _dEKI = "dataEncryptionKeyId";
+const _dEQCPI = "defaultEnaQueueCountPerInterface";
 const _dES = "dnsEntrySet";
 const _dFA = "defaultForAz";
 const _dHIS = "dedicatedHostIdSet";
@@ -93390,6 +93436,7 @@ const _eOn = "enclaveOptions";
 const _eP = "egressPackets";
 const _ePG = "enablePrivateGua";
 const _ePS = "excludePathSet";
+const _eQC = "enaQueueCount";
 const _eRNDAAAAR = "enableResourceNameDnsAAAARecord";
 const _eRNDAR = "enableResourceNameDnsARecord";
 const _eS = "ephemeralStorage";
@@ -93437,6 +93484,7 @@ const _fCS = "findingComponentSet";
 const _fCa = "failureCode";
 const _fDN = "fipsDnsName";
 const _fE = "fipsEnabled";
+const _fEQS = "flexibleEnaQueuesSupport";
 const _fF = "fileFormat";
 const _fFCS = "failedFleetCancellationSet";
 const _fFi = "findingsFound";
@@ -93836,6 +93884,8 @@ const _mDe = "metaData";
 const _mE = "maxEntries";
 const _mEI = "maximumEfaInterfaces";
 const _mEM = "managedExceptionMessage";
+const _mEQC = "maximumEnaQueueCount";
+const _mEQCPI = "maximumEnaQueueCountPerInterface";
 const _mFV = "mostFrequentValue";
 const _mG = "multicastGroups";
 const _mGBPVC = "memoryGiBPerVCpu";

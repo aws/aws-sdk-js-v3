@@ -160,8 +160,6 @@ import {
   ReservedInstancesConfiguration,
   ScheduledInstance,
   SnapshotAttributeName,
-  SpotFleetRequestConfigData,
-  SpotFleetRequestConfigDataFilterSensitiveLog,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
   VpcBlockPublicAccessOptions,
@@ -173,6 +171,25 @@ import {
   Purchase,
   UnlimitedSupportedInstanceFamily,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface GetVerifiedAccessGroupPolicyRequest {
+  /**
+   * <p>The ID of the Verified Access group.</p>
+   * @public
+   */
+  VerifiedAccessGroupId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -4018,7 +4035,8 @@ export interface ModifyLaunchTemplateRequest {
 
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
-   *             request. If a client token isn't specified, a randomly generated token is used in the request to ensure idempotency.</p>
+   *             request. If a client token isn't specified, a randomly generated token is used in the
+   *             request to ensure idempotency.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
    *                 idempotency</a>.</p>
    *          <p>Constraint: Maximum 128 ASCII characters.</p>
@@ -4028,16 +4046,16 @@ export interface ModifyLaunchTemplateRequest {
 
   /**
    * <p>The ID of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the
-   *             launch template name, but not both.</p>
+   *          <p>You must specify either the launch template ID or the launch template name, but not
+   *             both.</p>
    * @public
    */
   LaunchTemplateId?: string | undefined;
 
   /**
    * <p>The name of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the
-   *             launch template name, but not both.</p>
+   *          <p>You must specify either the launch template ID or the launch template name, but not
+   *             both.</p>
    * @public
    */
   LaunchTemplateName?: string | undefined;
@@ -4201,13 +4219,26 @@ export interface ModifyManagedPrefixListResult {
  */
 export interface NetworkInterfaceAttachmentChanges {
   /**
+   * <p>The default number of the ENA queues.</p>
+   * @public
+   */
+  DefaultEnaQueueCount?: boolean | undefined;
+
+  /**
+   * <p>The number of ENA queues to be created with the instance.</p>
+   * @public
+   */
+  EnaQueueCount?: number | undefined;
+
+  /**
    * <p>The ID of the network interface attachment.</p>
    * @public
    */
   AttachmentId?: string | undefined;
 
   /**
-   * <p>Indicates whether the network interface is deleted when the instance is terminated.</p>
+   * <p>Indicates whether the network interface is deleted when the instance is
+   *             terminated.</p>
    * @public
    */
   DeleteOnTermination?: boolean | undefined;
@@ -4220,7 +4251,7 @@ export interface NetworkInterfaceAttachmentChanges {
 export interface ModifyNetworkInterfaceAttributeRequest {
   /**
    * <p>Updates the ENA Express configuration for the network interface that’s attached to the
-   * 			instance.</p>
+   *             instance.</p>
    * @public
    */
   EnaSrdSpecification?: EnaSrdSpecification | undefined;
@@ -4249,16 +4280,18 @@ export interface ModifyNetworkInterfaceAttributeRequest {
   ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest | undefined;
 
   /**
-   * <p>Indicates whether to assign a public IPv4 address to a network interface.
-   *             This option can be enabled for any network interface but will only apply to the primary network interface (eth0).</p>
+   * <p>Indicates whether to assign a public IPv4 address to a network interface. This option
+   *             can be enabled for any network interface but will only apply to the primary network
+   *             interface (eth0).</p>
    * @public
    */
   AssociatePublicIpAddress?: boolean | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;
@@ -4276,26 +4309,29 @@ export interface ModifyNetworkInterfaceAttributeRequest {
   Description?: AttributeValue | undefined;
 
   /**
-   * <p>Enable or disable source/destination checks, which ensure that the instance
-   *             is either the source or the destination of any traffic that it receives.
-   *             If the value is <code>true</code>, source/destination checks are enabled;
-   *             otherwise, they are disabled. The default value is <code>true</code>.
-   *             You must disable source/destination checks if the instance runs services
-   *             such as network address translation, routing, or firewalls.</p>
+   * <p>Enable or disable source/destination checks, which ensure that the instance is either
+   *             the source or the destination of any traffic that it receives. If the value is
+   *                 <code>true</code>, source/destination checks are enabled; otherwise, they are
+   *             disabled. The default value is <code>true</code>. You must disable source/destination
+   *             checks if the instance runs services such as network address translation, routing, or
+   *             firewalls.</p>
    * @public
    */
   SourceDestCheck?: AttributeBooleanValue | undefined;
 
   /**
-   * <p>Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.</p>
+   * <p>Changes the security groups for the network interface. The new set of groups you
+   *             specify replaces the current set. You must specify at least one group, even if it's just
+   *             the default security group in the VPC. You must specify the ID of the security group,
+   *             not the name.</p>
    * @public
    */
   Groups?: string[] | undefined;
 
   /**
    * <p>Information about the interface attachment. If modifying the <code>delete on
-   * 				termination</code> attribute, you must specify the ID of the interface
-   * 			attachment.</p>
+   *                 termination</code> attribute, you must specify the ID of the interface
+   *             attachment.</p>
    * @public
    */
   Attachment?: NetworkInterfaceAttachmentChanges | undefined;
@@ -4368,8 +4404,9 @@ export interface ModifyReservedInstancesRequest {
   ReservedInstancesIds: string[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive token you provide to ensure idempotency of your modification request. For more information, see
-   *    		<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * <p>A unique, case-sensitive token you provide to ensure idempotency of your modification
+   *       request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *       Idempotency</a>.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -7993,14 +8030,15 @@ export interface PurchaseHostReservationResult {
  */
 export interface ReservedInstanceLimitPrice {
   /**
-   * <p>Used for Reserved Instance Marketplace offerings. Specifies the limit price on the total order (instanceCount * price).</p>
+   * <p>Used for Reserved Instance Marketplace offerings. Specifies the limit price on the total
+   *       order (instanceCount * price).</p>
    * @public
    */
   Amount?: number | undefined;
 
   /**
-   * <p>The currency in which the <code>limitPrice</code> amount is specified.
-   * 				At this time, the only supported currency is <code>USD</code>.</p>
+   * <p>The currency in which the <code>limitPrice</code> amount is specified. At this time, the
+   *       only supported currency is <code>USD</code>.</p>
    * @public
    */
   CurrencyCode?: CurrencyCodeValues | undefined;
@@ -8024,21 +8062,24 @@ export interface PurchaseReservedInstancesOfferingRequest {
   ReservedInstancesOfferingId: string | undefined;
 
   /**
-   * <p>The time at which to purchase the Reserved Instance, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * <p>The time at which to purchase the Reserved Instance, in UTC format (for example,
+   *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
    * @public
    */
   PurchaseTime?: Date | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making
+   *       the request, and provides an error response. If you have the required permissions, the error
+   *       response is <code>DryRunOperation</code>. Otherwise, it is
+   *       <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;
 
   /**
-   * <p>Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.</p>
+   * <p>Specified for Reserved Instance Marketplace offerings to limit the total order and ensure
+   *       that the Reserved Instances are not purchased at unexpected prices.</p>
    * @public
    */
   LimitPrice?: ReservedInstanceLimitPrice | undefined;
@@ -8051,8 +8092,7 @@ export interface PurchaseReservedInstancesOfferingRequest {
 export interface PurchaseReservedInstancesOfferingResult {
   /**
    * <p>The IDs of the purchased Reserved Instances. If your purchase crosses into a discounted
-   *       pricing tier, the final Reserved Instances IDs might change. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-reserved-instances-application.html#crossing-pricing-tiers">Crossing
-   *         pricing tiers</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *       pricing tier, the final Reserved Instances IDs might change. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-reserved-instances-application.html#crossing-pricing-tiers">Crossing pricing tiers</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ReservedInstancesId?: string | undefined;
@@ -9374,27 +9414,6 @@ export interface ReportInstanceStatusRequest {
 }
 
 /**
- * <p>Contains the parameters for RequestSpotFleet.</p>
- * @public
- */
-export interface RequestSpotFleetRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The configuration for the Spot Fleet request.</p>
-   * @public
-   */
-  SpotFleetRequestConfig: SpotFleetRequestConfigData | undefined;
-}
-
-/**
  * @internal
  */
 export const GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog = (
@@ -9627,14 +9646,4 @@ export const ModifyVpnTunnelOptionsResultFilterSensitiveLog = (obj: ModifyVpnTun
 export const ReportInstanceStatusRequestFilterSensitiveLog = (obj: ReportInstanceStatusRequest): any => ({
   ...obj,
   ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RequestSpotFleetRequestFilterSensitiveLog = (obj: RequestSpotFleetRequest): any => ({
-  ...obj,
-  ...(obj.SpotFleetRequestConfig && {
-    SpotFleetRequestConfig: SpotFleetRequestConfigDataFilterSensitiveLog(obj.SpotFleetRequestConfig),
-  }),
 });

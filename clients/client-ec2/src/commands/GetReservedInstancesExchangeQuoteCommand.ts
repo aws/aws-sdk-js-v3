@@ -33,9 +33,9 @@ export interface GetReservedInstancesExchangeQuoteCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a quote and exchange information for exchanging one or more specified
- *             Convertible Reserved Instances for a new Convertible Reserved Instance. If the exchange
- *             cannot be performed, the reason is returned in the response. Use <a>AcceptReservedInstancesExchangeQuote</a> to perform the exchange.</p>
+ * <p>Returns a quote and exchange information for exchanging one or more specified Convertible
+ *       Reserved Instances for a new Convertible Reserved Instance. If the exchange cannot be
+ *       performed, the reason is returned in the response. Use <a>AcceptReservedInstancesExchangeQuote</a> to perform the exchange.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

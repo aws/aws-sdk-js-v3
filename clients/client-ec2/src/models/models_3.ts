@@ -2308,16 +2308,16 @@ export interface DeleteLaunchTemplateRequest {
 
   /**
    * <p>The ID of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the
-   *             launch template name, but not both.</p>
+   *          <p>You must specify either the launch template ID or the launch template name, but not
+   *             both.</p>
    * @public
    */
   LaunchTemplateId?: string | undefined;
 
   /**
    * <p>The name of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the
-   *             launch template name, but not both.</p>
+   *          <p>You must specify either the launch template ID or the launch template name, but not
+   *             both.</p>
    * @public
    */
   LaunchTemplateName?: string | undefined;
@@ -2349,16 +2349,16 @@ export interface DeleteLaunchTemplateVersionsRequest {
 
   /**
    * <p>The ID of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the
-   *             launch template name, but not both.</p>
+   *          <p>You must specify either the launch template ID or the launch template name, but not
+   *             both.</p>
    * @public
    */
   LaunchTemplateId?: string | undefined;
 
   /**
    * <p>The name of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the
-   *             launch template name, but not both.</p>
+   *          <p>You must specify either the launch template ID or the launch template name, but not
+   *             both.</p>
    * @public
    */
   LaunchTemplateName?: string | undefined;
@@ -2916,9 +2916,10 @@ export interface DeleteNetworkInsightsPathResult {
  */
 export interface DeleteNetworkInterfaceRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;
@@ -2943,15 +2944,16 @@ export interface DeleteNetworkInterfacePermissionRequest {
 
   /**
    * <p>Specify <code>true</code> to remove the permission even if the network interface is
-   * 			attached to an instance.</p>
+   *             attached to an instance.</p>
    * @public
    */
   Force?: boolean | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   * 			Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;
@@ -3029,9 +3031,10 @@ export interface DeletePublicIpv4PoolResult {
  */
 export interface DeleteQueuedReservedInstancesRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making
+   *       the request, and provides an error response. If you have the required permissions, the error
+   *       response is <code>DryRunOperation</code>. Otherwise, it is
+   *       <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;
@@ -3060,7 +3063,8 @@ export type DeleteQueuedReservedInstancesErrorCode =
   (typeof DeleteQueuedReservedInstancesErrorCode)[keyof typeof DeleteQueuedReservedInstancesErrorCode];
 
 /**
- * <p>Describes the error for a Reserved Instance whose queued purchase could not be deleted.</p>
+ * <p>Describes the error for a Reserved Instance whose queued purchase could not be
+ *       deleted.</p>
  * @public
  */
 export interface DeleteQueuedReservedInstancesError {

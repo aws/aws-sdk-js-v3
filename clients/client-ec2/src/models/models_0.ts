@@ -425,8 +425,8 @@ export interface AcceptCapacityReservationBillingOwnershipResult {
  */
 export interface TargetConfigurationRequest {
   /**
-   * <p>The number of instances the Convertible Reserved Instance offering can be applied to. This parameter is reserved and cannot
-   *       be specified in a request</p>
+   * <p>The number of instances the Convertible Reserved Instance offering can be applied to. This
+   *       parameter is reserved and cannot be specified in a request</p>
    * @public
    */
   InstanceCount?: number | undefined;
@@ -444,23 +444,24 @@ export interface TargetConfigurationRequest {
  */
 export interface AcceptReservedInstancesExchangeQuoteRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making
+   *       the request, and provides an error response. If you have the required permissions, the error
+   *       response is <code>DryRunOperation</code>. Otherwise, it is
+   *       <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;
 
   /**
-   * <p>The IDs of the Convertible Reserved Instances to exchange for another Convertible
-   *             Reserved Instance of the same or higher value.</p>
+   * <p>The IDs of the Convertible Reserved Instances to exchange for another Convertible Reserved
+   *       Instance of the same or higher value.</p>
    * @public
    */
   ReservedInstanceIds: string[] | undefined;
 
   /**
-   * <p>The configuration of the target Convertible Reserved Instance to exchange for your
-   *             current Convertible Reserved Instances.</p>
+   * <p>The configuration of the target Convertible Reserved Instance to exchange for your current
+   *       Convertible Reserved Instances.</p>
    * @public
    */
   TargetConfigurations?: TargetConfigurationRequest[] | undefined;
@@ -3944,17 +3945,18 @@ export interface AssignIpv6AddressesRequest {
   NetworkInterfaceId: string | undefined;
 
   /**
-   * <p>The IPv6 addresses to be assigned to the network interface. You can't use this option if you're specifying a number of IPv6 addresses.</p>
+   * <p>The IPv6 addresses to be assigned to the network interface. You can't use this option
+   *             if you're specifying a number of IPv6 addresses.</p>
    * @public
    */
   Ipv6Addresses?: string[] | undefined;
 
   /**
-   * <p>The number of additional IPv6 addresses to assign to the network interface.
-   *     		The specified number of IPv6 addresses are assigned in addition to the
-   *     		existing IPv6 addresses that are already assigned to the network interface.
-   *     		Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You
-   *     		can't use this option if specifying specific IPv6 addresses.</p>
+   * <p>The number of additional IPv6 addresses to assign to the network interface. The
+   *             specified number of IPv6 addresses are assigned in addition to the existing IPv6
+   *             addresses that are already assigned to the network interface. Amazon EC2 automatically
+   *             selects the IPv6 addresses from the subnet range. You can't use this option if
+   *             specifying specific IPv6 addresses.</p>
    * @public
    */
   Ipv6AddressCount?: number | undefined;
@@ -3965,8 +3967,8 @@ export interface AssignIpv6AddressesRequest {
  */
 export interface AssignIpv6AddressesResult {
   /**
-   * <p>The new IPv6 addresses assigned to the network interface. Existing IPv6 addresses
-   *         	that were assigned to the network interface before the request are not included.</p>
+   * <p>The new IPv6 addresses assigned to the network interface. Existing IPv6 addresses that
+   *             were assigned to the network interface before the request are not included.</p>
    * @public
    */
   AssignedIpv6Addresses?: string[] | undefined;
@@ -4008,20 +4010,25 @@ export interface AssignPrivateIpAddressesRequest {
   NetworkInterfaceId: string | undefined;
 
   /**
-   * <p>The IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses.</p>
-   *          <p>If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.</p>
+   * <p>The IP addresses to be assigned as a secondary private IP address to the network
+   *             interface. You can't specify this parameter when also specifying a number of secondary
+   *             IP addresses.</p>
+   *          <p>If you don't specify an IP address, Amazon EC2 automatically selects an IP address within
+   *             the subnet range.</p>
    * @public
    */
   PrivateIpAddresses?: string[] | undefined;
 
   /**
-   * <p>The number of secondary IP addresses to assign to the network interface. You can't specify this parameter when also specifying private IP addresses.</p>
+   * <p>The number of secondary IP addresses to assign to the network interface. You can't
+   *             specify this parameter when also specifying private IP addresses.</p>
    * @public
    */
   SecondaryPrivateIpAddressCount?: number | undefined;
 
   /**
-   * <p>Indicates whether to allow an IP address that is already assigned to another network interface or instance to be reassigned to the specified network interface.</p>
+   * <p>Indicates whether to allow an IP address that is already assigned to another network
+   *             interface or instance to be reassigned to the specified network interface.</p>
    * @public
    */
   AllowReassignment?: boolean | undefined;
@@ -6076,23 +6083,31 @@ export interface EnaSrdSpecification {
  */
 export interface AttachNetworkInterfaceRequest {
   /**
-   * <p>The index of the network card. Some instance types support multiple network cards.
-   *             The primary network interface must be assigned to network card index 0.
-   *             The default is network card index 0.</p>
+   * <p>The index of the network card. Some instance types support multiple network cards. The
+   *             primary network interface must be assigned to network card index 0. The default is
+   *             network card index 0.</p>
    * @public
    */
   NetworkCardIndex?: number | undefined;
 
   /**
-   * <p>Configures ENA Express for the network interface that this action attaches to the instance.</p>
+   * <p>Configures ENA Express for the network interface that this action attaches to the
+   *             instance.</p>
    * @public
    */
   EnaSrdSpecification?: EnaSrdSpecification | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The number of ENA queues to be created with the instance.</p>
+   * @public
+   */
+  EnaQueueCount?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;
@@ -7902,7 +7917,8 @@ export type ListingState = (typeof ListingState)[keyof typeof ListingState];
  */
 export interface InstanceCount {
   /**
-   * <p>The number of listed Reserved Instances in the state specified by the <code>state</code>.</p>
+   * <p>The number of listed Reserved Instances in the state specified by the
+   *       <code>state</code>.</p>
    * @public
    */
   InstanceCount?: number | undefined;
@@ -7933,15 +7949,21 @@ export type CurrencyCodeValues = (typeof CurrencyCodeValues)[keyof typeof Curren
  */
 export interface PriceSchedule {
   /**
-   * <p>The current price schedule, as determined by the term remaining for the Reserved Instance in the listing.</p>
-   *          <p>A specific price schedule is always in effect, but only one price schedule can be active at any time. Take, for example, a Reserved Instance listing that has five months remaining in its term. When you specify price schedules for five months and two months, this means that schedule 1, covering the first three months of the remaining term, will be active during months 5, 4, and 3. Then schedule 2, covering the last two months of the term, will be active for months 2 and 1.</p>
+   * <p>The current price schedule, as determined by the term remaining for the Reserved Instance
+   *       in the listing.</p>
+   *          <p>A specific price schedule is always in effect, but only one price schedule can be active
+   *       at any time. Take, for example, a Reserved Instance listing that has five months remaining in
+   *       its term. When you specify price schedules for five months and two months, this means that
+   *       schedule 1, covering the first three months of the remaining term, will be active during
+   *       months 5, 4, and 3. Then schedule 2, covering the last two months of the term, will be active
+   *       for months 2 and 1.</p>
    * @public
    */
   Active?: boolean | undefined;
 
   /**
-   * <p>The currency for transacting the Reserved Instance resale.
-   * 				At this time, the only supported currency is <code>USD</code>.</p>
+   * <p>The currency for transacting the Reserved Instance resale. At this time, the only
+   *       supported currency is <code>USD</code>.</p>
    * @public
    */
   CurrencyCode?: CurrencyCodeValues | undefined;
@@ -7953,7 +7975,8 @@ export interface PriceSchedule {
   Price?: number | undefined;
 
   /**
-   * <p>The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.</p>
+   * <p>The number of months remaining in the reservation. For example, 2 is the second to the
+   *       last month before the capacity reservation expires.</p>
    * @public
    */
   Term?: number | undefined;
@@ -7982,7 +8005,8 @@ export type ListingStatus = (typeof ListingStatus)[keyof typeof ListingStatus];
 export interface ReservedInstancesListing {
   /**
    * <p>A unique, case-sensitive key supplied by the client to ensure that the request is
-   * 			idempotent. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *       idempotent. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *       Idempotency</a>.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -8024,7 +8048,8 @@ export interface ReservedInstancesListing {
   Status?: ListingStatus | undefined;
 
   /**
-   * <p>The reason for the current status of the Reserved Instance listing. The response can be blank.</p>
+   * <p>The reason for the current status of the Reserved Instance listing. The response can be
+   *       blank.</p>
    * @public
    */
   StatusMessage?: string | undefined;

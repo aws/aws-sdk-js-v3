@@ -43,6 +43,7 @@ export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterf
  *       EnaSrdUdpEnabled: true || false,
  *     },
  *   },
+ *   EnaQueueCount: Number("int"),
  *   DryRun: true || false,
  *   NetworkInterfaceId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required

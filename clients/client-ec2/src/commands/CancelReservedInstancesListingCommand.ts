@@ -33,7 +33,8 @@ export interface CancelReservedInstancesListingCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.</p>
+ * <p>Cancels the specified Reserved Instance listing in the Reserved Instance
+ *       Marketplace.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Sell in the Reserved Instance
  *         Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example

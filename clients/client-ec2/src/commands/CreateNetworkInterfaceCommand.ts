@@ -31,8 +31,8 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  * <p>Creates a network interface in the specified subnet.</p>
  *          <p>The number of IP addresses you can assign to a network interface varies by instance
  *             type.</p>
- *          <p>For more information about network interfaces, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic network interfaces</a>
- *             in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information about network interfaces, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic network interfaces</a> in the
+ *                 <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -124,6 +124,7 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  * //           EnaSrdUdpEnabled: true || false,
  * //         },
  * //       },
+ * //       EnaQueueCount: Number("int"),
  * //     },
  * //     AvailabilityZone: "STRING_VALUE",
  * //     ConnectionTrackingConfiguration: { // ConnectionTrackingConfiguration

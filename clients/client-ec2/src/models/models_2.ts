@@ -2150,14 +2150,16 @@ export type NetworkInterfaceCreationType =
 export interface CreateNetworkInterfaceRequest {
   /**
    * <p>The IPv4 prefixes assigned to the network interface.</p>
-   *          <p>You can't specify IPv4 prefixes if you've specified one of the following:
-   *             a count of IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.</p>
+   *          <p>You can't specify IPv4 prefixes if you've specified one of the following: a count of
+   *             IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4
+   *             addresses.</p>
    * @public
    */
   Ipv4Prefixes?: Ipv4PrefixSpecificationRequest[] | undefined;
 
   /**
-   * <p>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the network interface.</p>
+   * <p>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the
+   *             network interface.</p>
    *          <p>You can't specify a count of IPv4 prefixes if you've specified one of the following:
    *             specific IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4
    *             addresses.</p>
@@ -2167,14 +2169,15 @@ export interface CreateNetworkInterfaceRequest {
 
   /**
    * <p>The IPv6 prefixes assigned to the network interface.</p>
-   *          <p>You can't specify IPv6 prefixes if you've specified one of the following:
-   *             a count of IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.</p>
+   *          <p>You can't specify IPv6 prefixes if you've specified one of the following: a count of
+   *             IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.</p>
    * @public
    */
   Ipv6Prefixes?: Ipv6PrefixSpecificationRequest[] | undefined;
 
   /**
-   * <p>The number of IPv6 prefixes that Amazon Web Services automatically assigns to the network interface.</p>
+   * <p>The number of IPv6 prefixes that Amazon Web Services automatically assigns to the
+   *             network interface.</p>
    *          <p>You can't specify a count of IPv6 prefixes if you've specified one of the following:
    *             specific IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.</p>
    * @public
@@ -2185,7 +2188,8 @@ export interface CreateNetworkInterfaceRequest {
    * <p>The type of network interface. The default is <code>interface</code>.</p>
    *          <p>If you specify <code>efa-only</code>, do not assign any IP addresses to the network
    *             interface. EFA-only network interfaces do not support IP addresses.</p>
-   *          <p>The only supported values are <code>interface</code>, <code>efa</code>, <code>efa-only</code>, and <code>trunk</code>.</p>
+   *          <p>The only supported values are <code>interface</code>, <code>efa</code>,
+   *                 <code>efa-only</code>, and <code>trunk</code>.</p>
    * @public
    */
   InterfaceType?: NetworkInterfaceCreationType | undefined;
@@ -2205,16 +2209,16 @@ export interface CreateNetworkInterfaceRequest {
   /**
    * <p>If you’re creating a network interface in a dual-stack or IPv6-only subnet, you have
    *             the option to assign a primary IPv6 IP address. A primary IPv6 address is an IPv6 GUA
-   *             address associated with an ENI that you have enabled to use a primary IPv6 address. Use this option if the instance that
-   *             this ENI will be attached to relies on its IPv6 address not changing. Amazon Web Services
-   *             will automatically assign an IPv6 address associated with the ENI attached to your
-   *             instance to be the primary IPv6 address. Once you enable an IPv6 GUA address to be a
-   *             primary IPv6, you cannot disable it. When you enable an IPv6 GUA address to be a primary
-   *             IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is
-   *             terminated or the network interface is detached. If you have multiple IPv6 addresses
-   *             associated with an ENI attached to your instance and you enable a primary IPv6 address,
-   *             the first IPv6 GUA address associated with the ENI becomes the primary IPv6
-   *             address.</p>
+   *             address associated with an ENI that you have enabled to use a primary IPv6 address. Use
+   *             this option if the instance that this ENI will be attached to relies on its IPv6 address
+   *             not changing. Amazon Web Services will automatically assign an IPv6 address associated
+   *             with the ENI attached to your instance to be the primary IPv6 address. Once you enable
+   *             an IPv6 GUA address to be a primary IPv6, you cannot disable it. When you enable an IPv6
+   *             GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6
+   *             address until the instance is terminated or the network interface is detached. If you
+   *             have multiple IPv6 addresses associated with an ENI attached to your instance and you
+   *             enable a primary IPv6 address, the first IPv6 GUA address associated with the ENI
+   *             becomes the primary IPv6 address.</p>
    * @public
    */
   EnablePrimaryIpv6?: boolean | undefined;
@@ -2247,7 +2251,7 @@ export interface CreateNetworkInterfaceRequest {
    * <p>The primary private IPv4 address of the network interface. If you don't specify an
    *             IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If you
    *             specify an IP address, you cannot indicate any IP addresses specified in
-   *             <code>privateIpAddresses</code> as primary (only one IP address can be designated as
+   *                 <code>privateIpAddresses</code> as primary (only one IP address can be designated as
    *             primary).</p>
    * @public
    */
@@ -2261,8 +2265,9 @@ export interface CreateNetworkInterfaceRequest {
 
   /**
    * <p>The private IPv4 addresses.</p>
-   *          <p>You can't specify private IPv4 addresses if you've specified one of the following:
-   *             a count of private IPv4 addresses, specific IPv4 prefixes, or a count of IPv4 prefixes.</p>
+   *          <p>You can't specify private IPv4 addresses if you've specified one of the following: a
+   *             count of private IPv4 addresses, specific IPv4 prefixes, or a count of IPv4
+   *             prefixes.</p>
    * @public
    */
   PrivateIpAddresses?: PrivateIpAddressSpecification[] | undefined;
@@ -2272,8 +2277,9 @@ export interface CreateNetworkInterfaceRequest {
    *             you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses
    *             within the subnet's IPv4 CIDR range. You can't specify this option and specify more than
    *             one private IP address using <code>privateIpAddresses</code>.</p>
-   *          <p>You can't specify a count of private IPv4 addresses if you've specified one of the following:
-   *             specific private IPv4 addresses, specific IPv4 prefixes, or a count of IPv4 prefixes.</p>
+   *          <p>You can't specify a count of private IPv4 addresses if you've specified one of the
+   *             following: specific private IPv4 addresses, specific IPv4 prefixes, or a count of IPv4
+   *             prefixes.</p>
    * @public
    */
   SecondaryPrivateIpAddressCount?: number | undefined;
@@ -2281,7 +2287,8 @@ export interface CreateNetworkInterfaceRequest {
   /**
    * <p>The IPv6 addresses from the IPv6 CIDR block range of your subnet.</p>
    *          <p>You can't specify IPv6 addresses using this parameter if you've specified one of the
-   *             following: a count of IPv6 addresses, specific IPv6 prefixes, or a count of IPv6 prefixes.</p>
+   *             following: a count of IPv6 addresses, specific IPv6 prefixes, or a count of IPv6
+   *             prefixes.</p>
    * @public
    */
   Ipv6Addresses?: InstanceIpv6Address[] | undefined;
@@ -2290,7 +2297,8 @@ export interface CreateNetworkInterfaceRequest {
    * <p>The number of IPv6 addresses to assign to a network interface. Amazon EC2
    *             automatically selects the IPv6 addresses from the subnet range.</p>
    *          <p>You can't specify a count of IPv6 addresses using this parameter if you've specified
-   *             one of the following: specific IPv6 addresses, specific IPv6 prefixes, or a count of IPv6 prefixes.</p>
+   *             one of the following: specific IPv6 addresses, specific IPv6 prefixes, or a count of
+   *             IPv6 prefixes.</p>
    *          <p>If your subnet has the <code>AssignIpv6AddressOnCreation</code> attribute set, you can
    *             override that setting by specifying 0 as the IPv6 address count.</p>
    * @public
@@ -2298,9 +2306,10 @@ export interface CreateNetworkInterfaceRequest {
   Ipv6AddressCount?: number | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;
@@ -2338,8 +2347,7 @@ export interface NetworkInterfaceAssociation {
   PublicDnsName?: string | undefined;
 
   /**
-   * <p>The address of the Elastic IP address bound to the network
-   *             interface.</p>
+   * <p>The address of the Elastic IP address bound to the network interface.</p>
    * @public
    */
   PublicIp?: string | undefined;
@@ -2352,7 +2360,8 @@ export interface NetworkInterfaceAssociation {
 
   /**
    * <p>The carrier IP address associated with the network interface.</p>
-   *          <p>This option is only available when the network interface is in a subnet which is associated with a Wavelength Zone.</p>
+   *          <p>This option is only available when the network interface is in a subnet which is
+   *             associated with a Wavelength Zone.</p>
    * @public
    */
   CarrierIp?: string | undefined;
@@ -2418,7 +2427,8 @@ export interface NetworkInterfaceAttachment {
   AttachmentId?: string | undefined;
 
   /**
-   * <p>Indicates whether the network interface is deleted when the instance is terminated.</p>
+   * <p>Indicates whether the network interface is deleted when the instance is
+   *             terminated.</p>
    * @public
    */
   DeleteOnTermination?: boolean | undefined;
@@ -2454,14 +2464,24 @@ export interface NetworkInterfaceAttachment {
   Status?: AttachmentStatus | undefined;
 
   /**
-   * <p>Configures ENA Express for the network interface that this action attaches to the instance.</p>
+   * <p>Configures ENA Express for the network interface that this action attaches to the
+   *             instance.</p>
    * @public
    */
   EnaSrdSpecification?: AttachmentEnaSrdSpecification | undefined;
+
+  /**
+   * <p>The number of ENA queues created with the instance.</p>
+   * @public
+   */
+  EnaQueueCount?: number | undefined;
 }
 
 /**
- * <p>A security group connection tracking configuration that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * <p>A security group connection tracking configuration that enables you to set the idle
+ *             timeout for connection tracking on an Elastic network interface. For more information,
+ *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the
+ *             <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface ConnectionTrackingConfiguration {
@@ -2551,8 +2571,10 @@ export interface NetworkInterfaceIpv6Address {
   Ipv6Address?: string | undefined;
 
   /**
-   * <p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyNetworkInterfaceAttribute.html">ModifyNetworkInterfaceAttribute</a>.</p>
+   * <p>Determines if an IPv6 address associated with a network interface is the primary IPv6
+   *             address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA
+   *             will be made the primary IPv6 address until the instance is terminated or the network
+   *             interface is detached. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyNetworkInterfaceAttribute.html">ModifyNetworkInterfaceAttribute</a>.</p>
    * @public
    */
   IsPrimaryIpv6?: boolean | undefined;
@@ -2576,13 +2598,15 @@ export interface Ipv6PrefixSpecification {
  */
 export interface NetworkInterfacePrivateIpAddress {
   /**
-   * <p>The association information for an Elastic IP address (IPv4) associated with the network interface.</p>
+   * <p>The association information for an Elastic IP address (IPv4) associated with the
+   *             network interface.</p>
    * @public
    */
   Association?: NetworkInterfaceAssociation | undefined;
 
   /**
-   * <p>Indicates whether this IPv4 address is the primary private IPv4 address of the network interface.</p>
+   * <p>Indicates whether this IPv4 address is the primary private IPv4 address of the network
+   *             interface.</p>
    * @public
    */
   Primary?: boolean | undefined;
@@ -2623,7 +2647,8 @@ export type NetworkInterfaceStatus = (typeof NetworkInterfaceStatus)[keyof typeo
  */
 export interface NetworkInterface {
   /**
-   * <p>The association information for an Elastic IP address (IPv4) associated with the network interface.</p>
+   * <p>The association information for an Elastic IP address (IPv4) associated with the
+   *             network interface.</p>
    * @public
    */
   Association?: NetworkInterfaceAssociation | undefined;
@@ -2641,7 +2666,10 @@ export interface NetworkInterface {
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>A security group connection tracking configuration that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>A security group connection tracking configuration that enables you to set the timeout
+   *             for connection tracking on an Elastic network interface. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ConnectionTrackingConfiguration?: ConnectionTrackingConfiguration | undefined;
@@ -2725,7 +2753,8 @@ export interface NetworkInterface {
   Ipv6Prefixes?: Ipv6PrefixSpecification[] | undefined;
 
   /**
-   * <p>The alias or Amazon Web Services account ID of the principal or service that created the network interface.</p>
+   * <p>The alias or Amazon Web Services account ID of the principal or service that created
+   *             the network interface.</p>
    * @public
    */
   RequesterId?: string | undefined;
@@ -2768,8 +2797,8 @@ export interface NetworkInterface {
 
   /**
    * <p>Indicates whether a network interface with an IPv6 address is unreachable from the
-   *             public internet. If the value is <code>true</code>, inbound traffic from the internet
-   *             is dropped and you cannot assign an elastic IP address to the network interface. The
+   *             public internet. If the value is <code>true</code>, inbound traffic from the internet is
+   *             dropped and you cannot assign an elastic IP address to the network interface. The
    *             network interface is reachable from peered VPCs and resources connected through a
    *             transit gateway, including on-premises networks.</p>
    * @public
@@ -2856,9 +2885,10 @@ export interface CreateNetworkInterfacePermissionRequest {
   Permission: InterfacePermissionType | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   * 			Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;
@@ -3378,7 +3408,8 @@ export interface CreateReplaceRootVolumeTaskResult {
  */
 export interface PriceScheduleSpecification {
   /**
-   * <p>The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.</p>
+   * <p>The number of months remaining in the reservation. For example, 2 is the second to the
+   *       last month before the capacity reservation expires.</p>
    * @public
    */
   Term?: number | undefined;
@@ -3390,8 +3421,8 @@ export interface PriceScheduleSpecification {
   Price?: number | undefined;
 
   /**
-   * <p>The currency for transacting the Reserved Instance resale.
-   * 				At this time, the only supported currency is <code>USD</code>.</p>
+   * <p>The currency for transacting the Reserved Instance resale. At this time, the only
+   *       supported currency is <code>USD</code>.</p>
    * @public
    */
   CurrencyCode?: CurrencyCodeValues | undefined;
@@ -3409,21 +3440,24 @@ export interface CreateReservedInstancesListingRequest {
   ReservedInstancesId: string | undefined;
 
   /**
-   * <p>The number of instances that are a part of a Reserved Instance account to be listed in the Reserved Instance Marketplace. This number should be less than or equal to the instance count associated with the Reserved Instance ID specified in this call.</p>
+   * <p>The number of instances that are a part of a Reserved Instance account to be listed in the
+   *       Reserved Instance Marketplace. This number should be less than or equal to the instance count
+   *       associated with the Reserved Instance ID specified in this call.</p>
    * @public
    */
   InstanceCount: number | undefined;
 
   /**
-   * <p>A list specifying the price of the Standard Reserved Instance for each month remaining in the Reserved Instance term.</p>
+   * <p>A list specifying the price of the Standard Reserved Instance for each month remaining in
+   *       the Reserved Instance term.</p>
    * @public
    */
   PriceSchedules: PriceScheduleSpecification[] | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure idempotency of your
-   * 				listings. This helps avoid duplicate listings. For more information, see
-   * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier you provide to ensure idempotency of your listings. This
+   *       helps avoid duplicate listings. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *       Idempotency</a>.</p>
    * @public
    */
   ClientToken: string | undefined;

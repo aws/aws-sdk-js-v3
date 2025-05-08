@@ -6,10 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DisableAwsNetworkPerformanceMetricSubscriptionRequest,
-  DisableAwsNetworkPerformanceMetricSubscriptionResult,
-} from "../models/models_5";
+import { DisableAwsNetworkPerformanceMetricSubscriptionRequest } from "../models/models_5";
+import { DisableAwsNetworkPerformanceMetricSubscriptionResult } from "../models/models_6";
 import {
   de_DisableAwsNetworkPerformanceMetricSubscriptionCommand,
   se_DisableAwsNetworkPerformanceMetricSubscriptionCommand,

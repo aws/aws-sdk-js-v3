@@ -6,8 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RequestSpotFleetRequest, RequestSpotFleetRequestFilterSensitiveLog } from "../models/models_7";
-import { RequestSpotFleetResponse } from "../models/models_8";
+import {
+  RequestSpotFleetRequest,
+  RequestSpotFleetRequestFilterSensitiveLog,
+  RequestSpotFleetResponse,
+} from "../models/models_8";
 import { de_RequestSpotFleetCommand, se_RequestSpotFleetCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -165,6 +168,7 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  *               UdpStreamTimeout: Number("int"),
  *               UdpTimeout: Number("int"),
  *             },
+ *             EnaQueueCount: Number("int"),
  *           },
  *         ],
  *         Placement: { // SpotPlacement

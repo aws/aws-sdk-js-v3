@@ -158,6 +158,7 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
  * //               UdpTimeout: Number("int"),
  * //               UdpStreamTimeout: Number("int"),
  * //             },
+ * //             EnaQueueCount: Number("int"),
  * //           },
  * //         ],
  * //         ImageId: "STRING_VALUE",

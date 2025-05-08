@@ -158,6 +158,7 @@ export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFlee
  * //                   UdpStreamTimeout: Number("int"),
  * //                   UdpTimeout: Number("int"),
  * //                 },
+ * //                 EnaQueueCount: Number("int"),
  * //               },
  * //             ],
  * //             Placement: { // SpotPlacement

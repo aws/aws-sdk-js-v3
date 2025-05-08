@@ -29,15 +29,15 @@ export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesRes
 
 /**
  * <p>Assigns the specified IPv6 addresses to the specified network interface. You can
- *             specify specific IPv6 addresses, or you can specify the number of IPv6
- *             addresses to be automatically assigned from the subnet's IPv6 CIDR block range.
- *             You can assign as many IPv6 addresses to a network interface as you can assign private
- *             IPv4 addresses, and the limit varies by instance type.</p>
+ *             specify specific IPv6 addresses, or you can specify the number of IPv6 addresses to be
+ *             automatically assigned from the subnet's IPv6 CIDR block range. You can assign as many
+ *             IPv6 addresses to a network interface as you can assign private IPv4 addresses, and the
+ *             limit varies by instance type.</p>
  *          <p>You must specify either the IPv6 addresses or the IPv6 address count in the request. </p>
  *          <p>You can optionally use Prefix Delegation on the network interface. You must specify
  *             either the IPV6 Prefix Delegation prefixes, or the IPv6 Prefix Delegation count. For
- *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">
- *                 Assigning prefixes to network interfaces</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html"> Assigning prefixes to network
+ *                 interfaces</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

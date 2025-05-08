@@ -142,6 +142,7 @@ export interface RequestSpotInstancesCommandOutput extends RequestSpotInstancesR
  *           UdpStreamTimeout: Number("int"),
  *           UdpTimeout: Number("int"),
  *         },
+ *         EnaQueueCount: Number("int"),
  *       },
  *     ],
  *     Placement: { // SpotPlacement
@@ -275,6 +276,7 @@ export interface RequestSpotInstancesCommandOutput extends RequestSpotInstancesR
  * //               UdpStreamTimeout: Number("int"),
  * //               UdpTimeout: Number("int"),
  * //             },
+ * //             EnaQueueCount: Number("int"),
  * //           },
  * //         ],
  * //         Placement: { // SpotPlacement

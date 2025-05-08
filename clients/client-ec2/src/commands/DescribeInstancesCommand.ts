@@ -157,6 +157,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * //                     EnaSrdUdpEnabled: true || false,
  * //                   },
  * //                 },
+ * //                 EnaQueueCount: Number("int"),
  * //               },
  * //               Description: "STRING_VALUE",
  * //               Groups: [

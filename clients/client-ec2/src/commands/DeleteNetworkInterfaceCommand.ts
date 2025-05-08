@@ -28,7 +28,8 @@ export interface DeleteNetworkInterfaceCommandInput extends DeleteNetworkInterfa
 export interface DeleteNetworkInterfaceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified network interface. You must detach the network interface before you can delete it.</p>
+ * <p>Deletes the specified network interface. You must detach the network interface before
+ *             you can delete it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

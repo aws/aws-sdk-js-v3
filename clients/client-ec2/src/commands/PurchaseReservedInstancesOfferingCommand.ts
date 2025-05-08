@@ -33,13 +33,13 @@ export interface PurchaseReservedInstancesOfferingCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower
- *        hourly rate compared to On-Demand instance pricing.</p>
- *          <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings
- * 			that match your specifications. After you've purchased a Reserved Instance, you can check for your
- * 			new Reserved Instance with <a>DescribeReservedInstances</a>.</p>
- *          <p>To queue a purchase for a future date and time, specify a purchase time. If you do not specify a
- *       purchase time, the default is the current time.</p>
+ * <p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay
+ *       a lower hourly rate compared to On-Demand instance pricing.</p>
+ *          <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved
+ *       Instance offerings that match your specifications. After you've purchased a Reserved Instance,
+ *       you can check for your new Reserved Instance with <a>DescribeReservedInstances</a>.</p>
+ *          <p>To queue a purchase for a future date and time, specify a purchase time. If you do not
+ *       specify a purchase time, the default is the current time.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
  *         Instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Sell in the Reserved Instance
  *         Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>

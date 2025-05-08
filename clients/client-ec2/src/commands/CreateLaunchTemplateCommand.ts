@@ -130,6 +130,7 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  *           UdpStreamTimeout: Number("int"),
  *           UdpTimeout: Number("int"),
  *         },
+ *         EnaQueueCount: Number("int"),
  *       },
  *     ],
  *     ImageId: "STRING_VALUE",

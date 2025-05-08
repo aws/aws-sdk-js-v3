@@ -63,6 +63,7 @@ import {
   GroupIdentifier,
   IpAddressType,
   LocalGatewayVirtualInterface,
+  LocalGatewayVirtualInterfaceGroup,
   ManagedPrefixList,
   NatGateway,
   NetworkAcl,
@@ -116,6 +117,23 @@ import {
 } from "./models_3";
 
 import { AttributeBooleanValue, EventInformation, PermissionGroup, ProductCode } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeLocalGatewayVirtualInterfaceGroupsResult {
+  /**
+   * <p>The virtual interface groups.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceGroups?: LocalGatewayVirtualInterfaceGroup[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -1384,9 +1402,10 @@ export type NetworkInterfaceAttribute = (typeof NetworkInterfaceAttribute)[keyof
  */
 export interface DescribeNetworkInterfaceAttributeRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;
@@ -1440,8 +1459,9 @@ export interface DescribeNetworkInterfaceAttributeResult {
   SourceDestCheck?: AttributeBooleanValue | undefined;
 
   /**
-   * <p>Indicates whether to assign a public IPv4 address to a network interface.
-   *             This option can be enabled for any network interface but will only apply to the primary network interface (eth0).</p>
+   * <p>Indicates whether to assign a public IPv4 address to a network interface. This option
+   *             can be enabled for any network interface but will only apply to the primary network
+   *             interface (eth0).</p>
    * @public
    */
   AssociatePublicIpAddress?: boolean | undefined;
@@ -1463,13 +1483,13 @@ export interface DescribeNetworkInterfacePermissionsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>network-interface-permission.network-interface-permission-id</code> - The ID of the
-   * 				permission.</p>
+   *                   <code>network-interface-permission.network-interface-permission-id</code> -
+   *                     The ID of the permission.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-interface-permission.network-interface-id</code> - The ID of
-   * 					the network interface.</p>
+   *                   <code>network-interface-permission.network-interface-id</code> - The ID of the
+   *                     network interface.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1477,13 +1497,13 @@ export interface DescribeNetworkInterfacePermissionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-interface-permission.aws-service</code> - The Amazon Web Services service.</p>
+   *                   <code>network-interface-permission.aws-service</code> - The Amazon Web Services
+   *                     service.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-interface-permission.permission</code> - The type of
-   * 					permission (<code>INSTANCE-ATTACH</code> |
-   * 					<code>EIP-ASSOCIATE</code>).</p>
+   *                   <code>network-interface-permission.permission</code> - The type of permission
+   *                         (<code>INSTANCE-ATTACH</code> | <code>EIP-ASSOCIATE</code>).</p>
    *             </li>
    *          </ul>
    * @public
@@ -1491,17 +1511,16 @@ export interface DescribeNetworkInterfacePermissionsRequest {
   Filters?: Filter[] | undefined;
 
   /**
-   * <p>The token returned from a previous paginated request.
-   * 		    Pagination continues from the end of the items returned by the previous request.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the
+   *             end of the items returned by the previous request.</p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return for this request. To get the next page of items,
-   * 			make another request with the token returned in the output. If this parameter is not specified,
-   * 			up to 50 results are returned by default. For more information, see
-   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   *             make another request with the token returned in the output. If this parameter is not
+   *             specified, up to 50 results are returned by default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -1519,8 +1538,8 @@ export interface DescribeNetworkInterfacePermissionsResult {
   NetworkInterfacePermissions?: NetworkInterfacePermission[] | undefined;
 
   /**
-   * <p>The token to include in another request to get the next page of items.
-   * 		  This value is <code>null</code> when there are no more items to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is
+   *                 <code>null</code> when there are no more items to return.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1532,25 +1551,26 @@ export interface DescribeNetworkInterfacePermissionsResult {
  */
 export interface DescribeNetworkInterfacesRequest {
   /**
-   * <p>The token returned from a previous paginated request.
-   * 		    Pagination continues from the end of the items returned by the previous request.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the
+   *             end of the items returned by the previous request.</p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return for this request. To get the next page of items,
-   * 		    make another request with the token returned in the output. You cannot specify this
-   * 		    parameter and the network interface IDs parameter in the same request. For more information,
-   * 		    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   *             make another request with the token returned in the output. You cannot specify this
+   *             parameter and the network interface IDs parameter in the same request. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;
@@ -1568,32 +1588,33 @@ export interface DescribeNetworkInterfacesRequest {
    *             <li>
    *                <p>
    *                   <code>association.allocation-id</code> - The allocation ID returned when you
-   * 		                allocated the Elastic IP address (IPv4) for your network interface.</p>
+   *                     allocated the Elastic IP address (IPv4) for your network interface.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>association.association-id</code> - The association ID returned when the
-   * 		                network interface was associated with an IPv4 address.</p>
+   *                     network interface was associated with an IPv4 address.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>addresses.association.owner-id</code> - The owner ID of the addresses associated with the network interface.</p>
+   *                   <code>addresses.association.owner-id</code> - The owner ID of the addresses
+   *                     associated with the network interface.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>addresses.association.public-ip</code> - The association ID returned when
-   * 		                the network interface was associated with the Elastic IP address
-   * 		                (IPv4).</p>
+   *                   <code>addresses.association.public-ip</code> - The association ID returned
+   *                     when the network interface was associated with the Elastic IP address
+   *                     (IPv4).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>addresses.primary</code> - Whether the private IPv4 address is the primary
-   *                     IP address associated with the network interface. </p>
+   *                   <code>addresses.primary</code> - Whether the private IPv4 address is the
+   *                     primary IP address associated with the network interface. </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>addresses.private-ip-address</code> - The private IPv4 addresses
-   * 		                associated with the network interface.</p>
+   *                     associated with the network interface.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1612,35 +1633,44 @@ export interface DescribeNetworkInterfacesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>attachment.attach-time</code> - The time that the network interface was attached to an instance.</p>
+   *                   <code>attachment.attach-time</code> - The time that the network interface was
+   *                     attached to an instance.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>attachment.attachment-id</code> - The ID of the interface attachment.</p>
+   *                   <code>attachment.attachment-id</code> - The ID of the interface
+   *                     attachment.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>attachment.delete-on-termination</code> - Indicates whether the attachment is deleted when an instance is terminated.</p>
+   *                   <code>attachment.delete-on-termination</code> - Indicates whether the
+   *                     attachment is deleted when an instance is terminated.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>attachment.device-index</code> - The device index to which the network interface is attached.</p>
+   *                   <code>attachment.device-index</code> - The device index to which the network
+   *                     interface is attached.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>attachment.instance-id</code> - The ID of the instance to which the network interface is attached.</p>
+   *                   <code>attachment.instance-id</code> - The ID of the instance to which the
+   *                     network interface is attached.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>attachment.instance-owner-id</code> - The owner ID of the instance to which the network interface is attached.</p>
+   *                   <code>attachment.instance-owner-id</code> - The owner ID of the instance to
+   *                     which the network interface is attached.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>attachment.status</code> - The status of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p>
+   *                   <code>attachment.status</code> - The status of the attachment
+   *                         (<code>attaching</code> | <code>attached</code> | <code>detaching</code> |
+   *                         <code>detached</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the network interface.</p>
+   *                   <code>availability-zone</code> - The Availability Zone of the network
+   *                     interface.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1648,22 +1678,29 @@ export interface DescribeNetworkInterfacesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>group-id</code> - The ID of a security group associated with the network interface.</p>
+   *                   <code>group-id</code> - The ID of a security group associated with the network
+   *                     interface.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ipv6-addresses.ipv6-address</code> - An IPv6 address associated with
-   *                     the network interface.</p>
+   *                   <code>ipv6-addresses.ipv6-address</code> - An IPv6 address associated with the
+   *                     network interface.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>interface-type</code> - The type of network interface (<code>api_gateway_managed</code> |
-   * 		               <code>aws_codestar_connections_managed</code> | <code>branch</code> | <code>ec2_instance_connect_endpoint</code> |
-   * 		               <code>efa</code> | <code>efa-only</code> | <code>efs</code> | <code>gateway_load_balancer</code> |
-   * 		               <code>gateway_load_balancer_endpoint</code> | <code>global_accelerator_managed</code> |  <code>interface</code> |
-   * 		               <code>iot_rules_managed</code> | <code>lambda</code> | <code>load_balancer</code> | <code>nat_gateway</code> |
-   * 		               <code>network_load_balancer</code> | <code>quicksight</code> |  <code>transit_gateway</code> | <code>trunk</code> |
-   * 		               <code>vpc_endpoint</code>).</p>
+   *                   <code>interface-type</code> - The type of network interface
+   *                         (<code>api_gateway_managed</code> |
+   *                         <code>aws_codestar_connections_managed</code> | <code>branch</code> |
+   *                         <code>ec2_instance_connect_endpoint</code> | <code>efa</code> |
+   *                         <code>efa-only</code> | <code>efs</code> |
+   *                         <code>gateway_load_balancer</code> |
+   *                         <code>gateway_load_balancer_endpoint</code> |
+   *                         <code>global_accelerator_managed</code> | <code>interface</code> |
+   *                         <code>iot_rules_managed</code> | <code>lambda</code> |
+   *                         <code>load_balancer</code> | <code>nat_gateway</code> |
+   *                         <code>network_load_balancer</code> | <code>quicksight</code> |
+   *                         <code>transit_gateway</code> | <code>trunk</code> |
+   *                         <code>vpc_endpoint</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1686,11 +1723,13 @@ export interface DescribeNetworkInterfacesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>owner-id</code> - The Amazon Web Services account ID of the network interface owner.</p>
+   *                   <code>owner-id</code> - The Amazon Web Services account ID of the network
+   *                     interface owner.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>private-dns-name</code> - The private DNS name of the network interface (IPv4).</p>
+   *                   <code>private-dns-name</code> - The private DNS name of the network interface
+   *                     (IPv4).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1699,27 +1738,33 @@ export interface DescribeNetworkInterfacesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>requester-id</code> - The alias or Amazon Web Services account ID of the principal or service that created the network interface.</p>
+   *                   <code>requester-id</code> - The alias or Amazon Web Services account ID of the
+   *                     principal or service that created the network interface.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>requester-managed</code> - Indicates whether the network interface is being managed by an Amazon Web Services
-   * 		               service (for example, Amazon Web Services Management Console, Auto Scaling, and so on).</p>
+   *                   <code>requester-managed</code> - Indicates whether the network interface is
+   *                     being managed by an Amazon Web Services service (for example, Amazon Web Services Management Console, Auto Scaling, and so on).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>source-dest-check</code> - Indicates whether the network interface performs source/destination checking.
-   * 		            A value of <code>true</code> means checking is enabled, and <code>false</code> means checking is disabled.
-   * 		            The value must be <code>false</code> for the network interface to perform network address translation (NAT) in your VPC. </p>
+   *                   <code>source-dest-check</code> - Indicates whether the network interface
+   *                     performs source/destination checking. A value of <code>true</code> means
+   *                     checking is enabled, and <code>false</code> means checking is disabled. The
+   *                     value must be <code>false</code> for the network interface to perform network
+   *                     address translation (NAT) in your VPC. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>status</code> - The status of the network interface. If the network interface is not attached to an instance, the status is <code>available</code>;
-   * 		            if a network interface is attached to an instance the status is <code>in-use</code>.</p>
+   *                   <code>status</code> - The status of the network interface. If the network
+   *                     interface is not attached to an instance, the status is <code>available</code>;
+   *                     if a network interface is attached to an instance the status is
+   *                         <code>in-use</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>subnet-id</code> - The ID of the subnet for the network interface.</p>
+   *                   <code>subnet-id</code> - The ID of the subnet for the network
+   *                     interface.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1751,8 +1796,8 @@ export interface DescribeNetworkInterfacesResult {
   NetworkInterfaces?: NetworkInterface[] | undefined;
 
   /**
-   * <p>The token to include in another request to get the next page of items.
-   * 		    This value is <code>null</code> when there are no more items to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is
+   *                 <code>null</code> when there are no more items to return.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2503,9 +2548,10 @@ export interface DescribeReservedInstancesRequest {
   ReservedInstancesIds?: string[] | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making
+   *       the request, and provides an error response. If you have the required permissions, the error
+   *       response is <code>DryRunOperation</code>. Otherwise, it is
+   *       <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;
@@ -2515,37 +2561,43 @@ export interface DescribeReservedInstancesRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone where the Reserved Instance can be used.</p>
+   *                   <code>availability-zone</code> - The Availability Zone where the Reserved Instance can
+   *           be used.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>duration</code> - The duration of the Reserved Instance (one year or three years), in seconds (<code>31536000</code> | <code>94608000</code>).</p>
+   *                   <code>duration</code> - The duration of the Reserved Instance (one year or three
+   *           years), in seconds (<code>31536000</code> | <code>94608000</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>end</code> - The time when the Reserved Instance expires (for example, 2015-08-07T11:54:42.000Z).</p>
+   *                   <code>end</code> - The time when the Reserved Instance expires (for example,
+   *           2015-08-07T11:54:42.000Z).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>fixed-price</code> - The purchase price of the Reserved Instance (for example, 9800.0).</p>
+   *                   <code>fixed-price</code> - The purchase price of the Reserved Instance (for example,
+   *           9800.0).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-type</code> - The instance type that is covered by the reservation.</p>
+   *                   <code>instance-type</code> - The instance type that is covered by the
+   *           reservation.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>scope</code> - The scope of the Reserved Instance (<code>Region</code> or <code>Availability Zone</code>).</p>
+   *                   <code>scope</code> - The scope of the Reserved Instance (<code>Region</code> or
+   *             <code>Availability Zone</code>).</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>product-description</code> - The Reserved Instance product platform description
-   *              (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> |
-   *               <code>Linux with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> |
-   *               <code>SUSE Linux</code> |
-   *               <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> |
-   *               <code>Windows</code> | <code>Windows with SQL Server Standard</code> |
-   *               <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Enterprise</code>).</p>
+   *             (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> | <code>Linux
+   *             with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> | <code>SUSE
+   *             Linux</code> | <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux
+   *             with HA</code> | <code>Windows</code> | <code>Windows with SQL Server Standard</code> |
+   *             <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server
+   *             Enterprise</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2553,11 +2605,13 @@ export interface DescribeReservedInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>start</code> - The time at which the Reserved Instance purchase request was placed (for example, 2014-08-07T11:54:42.000Z).</p>
+   *                   <code>start</code> - The time at which the Reserved Instance purchase request was
+   *           placed (for example, 2014-08-07T11:54:42.000Z).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>state</code> - The state of the Reserved Instance (<code>payment-pending</code> | <code>active</code> | <code>payment-failed</code> | <code>retired</code>).</p>
+   *                   <code>state</code> - The state of the Reserved Instance (<code>payment-pending</code>
+   *           | <code>active</code> | <code>payment-failed</code> | <code>retired</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2570,7 +2624,8 @@ export interface DescribeReservedInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>usage-price</code> - The usage price of the Reserved Instance, per hour (for example, 0.84).</p>
+   *                   <code>usage-price</code> - The usage price of the Reserved Instance, per hour (for
+   *           example, 0.84).</p>
    *             </li>
    *          </ul>
    * @public
@@ -2578,9 +2633,9 @@ export interface DescribeReservedInstancesRequest {
   Filters?: Filter[] | undefined;
 
   /**
-   * <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API
-   * 			version, you only have access to the <code>Medium Utilization</code> Reserved Instance
-   * 			offering type.</p>
+   * <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01
+   *       API version, you only have access to the <code>Medium Utilization</code> Reserved Instance
+   *       offering type.</p>
    * @public
    */
   OfferingType?: OfferingTypeValues | undefined;
@@ -2671,8 +2726,8 @@ export type ReservedInstanceState = (typeof ReservedInstanceState)[keyof typeof 
  */
 export interface ReservedInstances {
   /**
-   * <p>The currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes.
-   * 				At this time, the only supported currency is <code>USD</code>.</p>
+   * <p>The currency of the Reserved Instance. It's specified using ISO 4217 standard currency
+   *       codes. At this time, the only supported currency is <code>USD</code>.</p>
    * @public
    */
   CurrencyCode?: CurrencyCodeValues | undefined;
@@ -2818,12 +2873,13 @@ export interface DescribeReservedInstancesListingsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</p>
+   *                   <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances
+   *           listing.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> | <code>active</code> |
-   *            <code>cancelled</code> | <code>closed</code>).</p>
+   *                   <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> |
+   *             <code>active</code> | <code>cancelled</code> | <code>closed</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2881,19 +2937,24 @@ export interface DescribeReservedInstancesModificationsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>modification-result.reserved-instances-id</code> - The ID for the Reserved Instances created as part of the modification request. This ID is only available when the status of the modification is <code>fulfilled</code>.</p>
+   *                   <code>modification-result.reserved-instances-id</code> - The ID for the Reserved Instances
+   *           created as part of the modification request. This ID is only available when the status of
+   *           the modification is <code>fulfilled</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>modification-result.target-configuration.availability-zone</code> - The Availability Zone for the new Reserved Instances.</p>
+   *                   <code>modification-result.target-configuration.availability-zone</code> - The Availability
+   *           Zone for the new Reserved Instances.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>modification-result.target-configuration.instance-count </code> - The number of new Reserved Instances.</p>
+   *                   <code>modification-result.target-configuration.instance-count </code> - The number of new
+   *           Reserved Instances.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>modification-result.target-configuration.instance-type</code> - The instance type of the new Reserved Instances.</p>
+   *                   <code>modification-result.target-configuration.instance-type</code> - The instance type of
+   *           the new Reserved Instances.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2901,12 +2962,13 @@ export interface DescribeReservedInstancesModificationsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>reserved-instances-modification-id</code> - The ID of the modification request.</p>
+   *                   <code>reserved-instances-modification-id</code> - The ID of the modification
+   *           request.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>status</code> - The status of the Reserved Instances modification request
-   *            (<code>processing</code> | <code>fulfilled</code> | <code>failed</code>).</p>
+   *             (<code>processing</code> | <code>fulfilled</code> | <code>failed</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2955,7 +3017,8 @@ export interface ReservedInstancesConfiguration {
   Platform?: string | undefined;
 
   /**
-   * <p>Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.</p>
+   * <p>Whether the Reserved Instance is applied to instances in a Region or instances in a
+   *       specific Availability Zone.</p>
    * @public
    */
   Scope?: Scope | undefined;
@@ -2967,13 +3030,15 @@ export interface ReservedInstancesConfiguration {
  */
 export interface ReservedInstancesModificationResult {
   /**
-   * <p>The ID for the Reserved Instances that were created as part of the modification request. This field is only available when the modification is fulfilled.</p>
+   * <p>The ID for the Reserved Instances that were created as part of the modification request.
+   *       This field is only available when the modification is fulfilled.</p>
    * @public
    */
   ReservedInstancesId?: string | undefined;
 
   /**
-   * <p>The target Reserved Instances configurations supplied as part of the modification request.</p>
+   * <p>The target Reserved Instances configurations supplied as part of the modification
+   *       request.</p>
    * @public
    */
   TargetConfiguration?: ReservedInstancesConfiguration | undefined;
@@ -2997,9 +3062,9 @@ export interface ReservedInstancesId {
  */
 export interface ReservedInstancesModification {
   /**
-   * <p>A unique, case-sensitive key supplied by the client to ensure that the request is idempotent.
-   * 			For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   * 				Idempotency</a>.</p>
+   * <p>A unique, case-sensitive key supplied by the client to ensure that the request is
+   *       idempotent. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *       Idempotency</a>.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -3017,7 +3082,8 @@ export interface ReservedInstancesModification {
   EffectiveDate?: Date | undefined;
 
   /**
-   * <p>Contains target configurations along with their corresponding new Reserved Instance IDs.</p>
+   * <p>Contains target configurations along with their corresponding new Reserved Instance
+   *       IDs.</p>
    * @public
    */
   ModificationResults?: ReservedInstancesModificationResult[] | undefined;
@@ -3059,8 +3125,8 @@ export interface ReservedInstancesModification {
  */
 export interface DescribeReservedInstancesModificationsResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when
-   * 			there are no more results to return.</p>
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
+   *       when there are no more results to return.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3119,7 +3185,8 @@ export interface DescribeReservedInstancesOfferingsRequest {
   MinDuration?: number | undefined;
 
   /**
-   * <p>The offering class of the Reserved Instance. Can be <code>standard</code> or <code>convertible</code>.</p>
+   * <p>The offering class of the Reserved Instance. Can be <code>standard</code> or
+   *         <code>convertible</code>.</p>
    * @public
    */
   OfferingClass?: OfferingClassType | undefined;
@@ -3138,9 +3205,10 @@ export interface DescribeReservedInstancesOfferingsRequest {
   ReservedInstancesOfferingIds?: string[] | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making
+   *       the request, and provides an error response. If you have the required permissions, the error
+   *       response is <code>DryRunOperation</code>. Otherwise, it is
+   *       <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;
@@ -3165,8 +3233,7 @@ export interface DescribeReservedInstancesOfferingsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-type</code> - The instance type that is covered by the
-   *           reservation.</p>
+   *                   <code>instance-type</code> - The instance type that is covered by the reservation.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3177,17 +3244,16 @@ export interface DescribeReservedInstancesOfferingsRequest {
    *             <li>
    *                <p>
    *                   <code>product-description</code> - The Reserved Instance product platform description
-   *           (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> |
-   *           <code>Linux with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> |
-   *           <code>SUSE Linux</code> |
-   *           <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> |
-   *           <code>Windows</code> | <code>Windows with SQL Server Standard</code> |
-   *           <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Enterprise</code>).</p>
+   *             (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> | <code>Linux
+   *             with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> | <code>SUSE
+   *             Linux</code> | <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux
+   *             with HA</code> | <code>Windows</code> | <code>Windows with SQL Server Standard</code> |
+   *             <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server
+   *             Enterprise</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>reserved-instances-offering-id</code> - The Reserved Instances offering
-   *           ID.</p>
+   *                   <code>reserved-instances-offering-id</code> - The Reserved Instances offering ID.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3205,11 +3271,12 @@ export interface DescribeReservedInstancesOfferingsRequest {
   Filters?: Filter[] | undefined;
 
   /**
-   * <p>The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy
-   *       of <code>dedicated</code> is applied to instances that run in a VPC on single-tenant hardware
-   *       (i.e., Dedicated Instances).</p>
+   * <p>The tenancy of the instances covered by the reservation. A Reserved Instance with a
+   *       tenancy of <code>dedicated</code> is applied to instances that run in a VPC on single-tenant
+   *       hardware (i.e., Dedicated Instances).</p>
    *          <p>
-   *             <b>Important:</b> The <code>host</code> value cannot be used with this parameter. Use the <code>default</code> or <code>dedicated</code> values only.</p>
+   *             <b>Important:</b> The <code>host</code> value cannot be used with
+   *       this parameter. Use the <code>default</code> or <code>dedicated</code> values only.</p>
    *          <p>Default: <code>default</code>
    *          </p>
    * @public
@@ -3217,9 +3284,9 @@ export interface DescribeReservedInstancesOfferingsRequest {
   InstanceTenancy?: Tenancy | undefined;
 
   /**
-   * <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API
-   * 			version, you only have access to the <code>Medium Utilization</code> Reserved Instance
-   * 			offering type. </p>
+   * <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01
+   *       API version, you only have access to the <code>Medium Utilization</code> Reserved Instance
+   *       offering type. </p>
    * @public
    */
   OfferingType?: OfferingTypeValues | undefined;
@@ -3232,8 +3299,8 @@ export interface DescribeReservedInstancesOfferingsRequest {
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining
-   * 			results of the initial request can be seen by sending another request with the returned
-   * 				<code>NextToken</code> value. The maximum is 100.</p>
+   *       results of the initial request can be seen by sending another request with the returned
+   *         <code>NextToken</code> value. The maximum is 100.</p>
    *          <p>Default: 100</p>
    * @public
    */
@@ -3264,9 +3331,9 @@ export interface PricingDetail {
  */
 export interface ReservedInstancesOffering {
   /**
-   * <p>The currency of the Reserved Instance offering you are purchasing. It's
-   * 				specified using ISO 4217 standard currency codes. At this time,
-   * 				the only supported currency is <code>USD</code>.</p>
+   * <p>The currency of the Reserved Instance offering you are purchasing. It's specified using
+   *       ISO 4217 standard currency codes. At this time, the only supported currency is
+   *         <code>USD</code>.</p>
    * @public
    */
   CurrencyCode?: CurrencyCodeValues | undefined;
@@ -3278,15 +3345,16 @@ export interface ReservedInstancesOffering {
   InstanceTenancy?: Tenancy | undefined;
 
   /**
-   * <p>Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or Amazon Web Services.
-   *         If it's a Reserved Instance Marketplace offering, this is <code>true</code>.</p>
+   * <p>Indicates whether the offering is available through the Reserved Instance Marketplace
+   *       (resale) or Amazon Web Services. If it's a Reserved Instance Marketplace offering, this is
+   *       <code>true</code>.</p>
    * @public
    */
   Marketplace?: boolean | undefined;
 
   /**
-   * <p>If <code>convertible</code> it can be exchanged for Reserved Instances of
-   *       the same or higher monetary value, with different configurations. If <code>standard</code>, it is not
+   * <p>If <code>convertible</code> it can be exchanged for Reserved Instances of the same or
+   *       higher monetary value, with different configurations. If <code>standard</code>, it is not
    *       possible to perform an exchange.</p>
    * @public
    */
@@ -3311,14 +3379,15 @@ export interface ReservedInstancesOffering {
   RecurringCharges?: RecurringCharge[] | undefined;
 
   /**
-   * <p>Whether the Reserved Instance is applied to instances in a Region or an Availability Zone.</p>
+   * <p>Whether the Reserved Instance is applied to instances in a Region or an Availability
+   *       Zone.</p>
    * @public
    */
   Scope?: Scope | undefined;
 
   /**
-   * <p>The ID of the Reserved Instance offering. This is the offering ID used in <a>GetReservedInstancesExchangeQuote</a>
-   *      to confirm that an exchange can be made.</p>
+   * <p>The ID of the Reserved Instance offering. This is the offering ID used in <a>GetReservedInstancesExchangeQuote</a> to confirm that an exchange can be
+   *       made.</p>
    * @public
    */
   ReservedInstancesOfferingId?: string | undefined;
@@ -3366,8 +3435,8 @@ export interface ReservedInstancesOffering {
  */
 export interface DescribeReservedInstancesOfferingsResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when
-   * 			there are no more results to return.</p>
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
+   *       when there are no more results to return.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -5553,11 +5622,11 @@ export interface SpotFleetMonitoring {
  */
 export interface InstanceNetworkInterfaceSpecification {
   /**
-   * <p>Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The
-   *             public IP address can only be assigned to a network interface for eth0, and can only be
-   *             assigned to a new network interface, not an existing one. You cannot specify more than one
-   *             network interface in the request. If launching into a default subnet, the default value is
-   *             <code>true</code>.</p>
+   * <p>Indicates whether to assign a public IPv4 address to an instance you launch in a VPC.
+   *             The public IP address can only be assigned to a network interface for eth0, and can only
+   *             be assigned to a new network interface, not an existing one. You cannot specify more
+   *             than one network interface in the request. If launching into a default subnet, the
+   *             default value is <code>true</code>.</p>
    *          <p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses
    * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
    * @public
@@ -5565,37 +5634,39 @@ export interface InstanceNetworkInterfaceSpecification {
   AssociatePublicIpAddress?: boolean | undefined;
 
   /**
-   * <p>If set to <code>true</code>, the interface is deleted when the instance is terminated. You can
-   *             specify <code>true</code> only if creating a new network interface when launching an
-   *             instance.</p>
+   * <p>If set to <code>true</code>, the interface is deleted when the instance is terminated.
+   *             You can specify <code>true</code> only if creating a new network interface when
+   *             launching an instance.</p>
    * @public
    */
   DeleteOnTermination?: boolean | undefined;
 
   /**
-   * <p>The description of the network interface. Applies only if creating a network interface when launching an instance.</p>
+   * <p>The description of the network interface. Applies only if creating a network interface
+   *             when launching an instance.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The position of the network interface in the attachment order.
-   *           A primary network interface has a device index of 0.</p>
-   *          <p>If you specify a network interface when launching an instance,
-   *           you must specify the device index.</p>
+   * <p>The position of the network interface in the attachment order. A primary network
+   *             interface has a device index of 0.</p>
+   *          <p>If you specify a network interface when launching an instance, you must specify the
+   *             device index.</p>
    * @public
    */
   DeviceIndex?: number | undefined;
 
   /**
-   * <p>The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.</p>
+   * <p>The IDs of the security groups for the network interface. Applies only if creating a
+   *             network interface when launching an instance.</p>
    * @public
    */
   Groups?: string[] | undefined;
 
   /**
-   * <p>A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses
-   *             the IPv6 addresses from the range of the subnet. You cannot specify this option and the
+   * <p>A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the
+   *             IPv6 addresses from the range of the subnet. You cannot specify this option and the
    *             option to assign specific IPv6 addresses in the same request. You can specify this
    *             option if you've specified a minimum number of instances to launch.</p>
    * @public
@@ -5603,31 +5674,35 @@ export interface InstanceNetworkInterfaceSpecification {
   Ipv6AddressCount?: number | undefined;
 
   /**
-   * <p>The IPv6 addresses to assign to the network interface. You cannot specify
-   *             this option and the option to assign a number of IPv6 addresses in the same request. You
-   *             cannot specify this option if you've specified a minimum number of instances to
-   *             launch.</p>
+   * <p>The IPv6 addresses to assign to the network interface. You cannot specify this option
+   *             and the option to assign a number of IPv6 addresses in the same request. You cannot
+   *             specify this option if you've specified a minimum number of instances to launch.</p>
    * @public
    */
   Ipv6Addresses?: InstanceIpv6Address[] | undefined;
 
   /**
    * <p>The ID of the network interface.</p>
-   *          <p>If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.</p>
+   *          <p>If you are creating a Spot Fleet, omit this parameter because you can’t specify a
+   *             network interface ID in a launch specification.</p>
    * @public
    */
   NetworkInterfaceId?: string | undefined;
 
   /**
-   * <p>The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching
-   *         	more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> request.</p>
+   * <p>The private IPv4 address of the network interface. Applies only if creating a network
+   *             interface when launching an instance. You cannot specify this option if you're launching
+   *             more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
+   *             request.</p>
    * @public
    */
   PrivateIpAddress?: string | undefined;
 
   /**
-   * <p>The private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're
-   *         	launching more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> request.</p>
+   * <p>The private IPv4 addresses to assign to the network interface. Only one private IPv4
+   *             address can be designated as primary. You cannot specify this option if you're launching
+   *             more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
+   *             request.</p>
    * @public
    */
   PrivateIpAddresses?: PrivateIpAddressSpecification[] | undefined;
@@ -5641,7 +5716,8 @@ export interface InstanceNetworkInterfaceSpecification {
   SecondaryPrivateIpAddressCount?: number | undefined;
 
   /**
-   * <p>The ID of the subnet associated with the network interface. Applies only if creating a network interface when launching an instance.</p>
+   * <p>The ID of the subnet associated with the network interface. Applies only if creating a
+   *             network interface when launching an instance.</p>
    * @public
    */
   SubnetId?: string | undefined;
@@ -5658,7 +5734,7 @@ export interface InstanceNetworkInterfaceSpecification {
   /**
    * <p>The type of network interface.</p>
    *          <p>If you specify <code>efa-only</code>, do not assign any IP addresses to the network
-   * 	        interface. EFA-only network interfaces do not support IP addresses.</p>
+   *             interface. EFA-only network interfaces do not support IP addresses.</p>
    *          <p>Valid values: <code>interface</code> | <code>efa</code> | <code>efa-only</code>
    *          </p>
    * @public
@@ -5666,9 +5742,9 @@ export interface InstanceNetworkInterfaceSpecification {
   InterfaceType?: string | undefined;
 
   /**
-   * <p>The index of the network card. Some instance types support multiple network cards.
-   *             The primary network interface must be assigned to network card index 0.
-   *             The default is network card index 0.</p>
+   * <p>The index of the network card. Some instance types support multiple network cards. The
+   *             primary network interface must be assigned to network card index 0. The default is
+   *             network card index 0.</p>
    *          <p>If you are using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances</a> to create Spot Instances, omit this parameter because
    *             you can’t specify the network card index when using this API. To specify the network
    *             card index, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
@@ -5677,29 +5753,31 @@ export interface InstanceNetworkInterfaceSpecification {
   NetworkCardIndex?: number | undefined;
 
   /**
-   * <p>The IPv4 delegated prefixes to be assigned to the network interface. You cannot
-   *             use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
+   * <p>The IPv4 delegated prefixes to be assigned to the network interface. You cannot use
+   *             this option if you use the <code>Ipv4PrefixCount</code> option.</p>
    * @public
    */
   Ipv4Prefixes?: Ipv4PrefixSpecificationRequest[] | undefined;
 
   /**
-   * <p>The number of IPv4 delegated prefixes to be automatically assigned to the network interface.
-   *             You cannot use this option if you use the <code>Ipv4Prefix</code> option.</p>
+   * <p>The number of IPv4 delegated prefixes to be automatically assigned to the network
+   *             interface. You cannot use this option if you use the <code>Ipv4Prefix</code>
+   *             option.</p>
    * @public
    */
   Ipv4PrefixCount?: number | undefined;
 
   /**
-   * <p>The IPv6 delegated prefixes to be assigned to the network interface. You cannot
-   *             use this option if you use the <code>Ipv6PrefixCount</code> option.</p>
+   * <p>The IPv6 delegated prefixes to be assigned to the network interface. You cannot use
+   *             this option if you use the <code>Ipv6PrefixCount</code> option.</p>
    * @public
    */
   Ipv6Prefixes?: Ipv6PrefixSpecificationRequest[] | undefined;
 
   /**
-   * <p>The number of IPv6 delegated prefixes to be automatically assigned to the network interface.
-   *             You cannot use this option if you use the <code>Ipv6Prefix</code> option.</p>
+   * <p>The number of IPv6 delegated prefixes to be automatically assigned to the network
+   *             interface. You cannot use this option if you use the <code>Ipv6Prefix</code>
+   *             option.</p>
    * @public
    */
   Ipv6PrefixCount?: number | undefined;
@@ -5712,16 +5790,25 @@ export interface InstanceNetworkInterfaceSpecification {
 
   /**
    * <p>Specifies the ENA Express settings for the network interface that's attached to
-   * 			the instance.</p>
+   *             the instance.</p>
    * @public
    */
   EnaSrdSpecification?: EnaSrdSpecificationRequest | undefined;
 
   /**
-   * <p>A security group connection tracking specification that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>A security group connection tracking specification that enables you to set the timeout
+   *             for connection tracking on an Elastic network interface. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest | undefined;
+
+  /**
+   * <p>The number of ENA queues to be created with the instance.</p>
+   * @public
+   */
+  EnaQueueCount?: number | undefined;
 }
 
 /**
@@ -12188,9 +12275,10 @@ export interface DetachInternetGatewayRequest {
  */
 export interface DetachNetworkInterfaceRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;
@@ -12206,15 +12294,19 @@ export interface DetachNetworkInterfaceRequest {
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>Use the <code>Force</code> parameter only as a last resort to detach a network interface from a failed instance. </p>
+   *                   <p>Use the <code>Force</code> parameter only as a last resort to detach a
+   *                         network interface from a failed instance. </p>
    *                </li>
    *                <li>
-   *                   <p>If you use the <code>Force</code> parameter to detach a network interface, you might not be able to attach a different network interface to the same index on the instance without first stopping and starting the instance.</p>
+   *                   <p>If you use the <code>Force</code> parameter to detach a network interface,
+   *                         you might not be able to attach a different network interface to the same
+   *                         index on the instance without first stopping and starting the
+   *                         instance.</p>
    *                </li>
    *                <li>
-   *                   <p>If you force the detachment of a network interface, the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">instance metadata</a>
-   *                         might not get updated. This means that the attributes associated
-   *                         with the detached network interface might still be visible. The
+   *                   <p>If you force the detachment of a network interface, the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">instance
+   *                             metadata</a> might not get updated. This means that the attributes
+   *                         associated with the detached network interface might still be visible. The
    *                         instance metadata will get updated when you stop and start the
    *                         instance.</p>
    *                </li>
@@ -12433,17 +12525,6 @@ export interface DisableAwsNetworkPerformanceMetricSubscriptionRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisableAwsNetworkPerformanceMetricSubscriptionResult {
-  /**
-   * <p>Indicates whether the unsubscribe action was successful.</p>
-   * @public
-   */
-  Output?: boolean | undefined;
 }
 
 /**

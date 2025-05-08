@@ -71,6 +71,17 @@ import { AnalysisStatus, ManagedBy } from "./models_5";
 /**
  * @public
  */
+export interface DisableAwsNetworkPerformanceMetricSubscriptionResult {
+  /**
+   * <p>Indicates whether the unsubscribe action was successful.</p>
+   * @public
+   */
+  Output?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DisableEbsEncryptionByDefaultRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -6078,9 +6089,10 @@ export interface GetPasswordDataResult {
  */
 export interface GetReservedInstancesExchangeQuoteRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making
+   *       the request, and provides an error response. If you have the required permissions, the error
+   *       response is <code>DryRunOperation</code>. Otherwise, it is
+   *       <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;
@@ -6092,8 +6104,8 @@ export interface GetReservedInstancesExchangeQuoteRequest {
   ReservedInstanceIds: string[] | undefined;
 
   /**
-   * <p>The configuration of the target Convertible Reserved Instance to exchange for your
-   *             current Convertible Reserved Instances.</p>
+   * <p>The configuration of the target Convertible Reserved Instance to exchange for your current
+   *       Convertible Reserved Instances.</p>
    * @public
    */
   TargetConfigurations?: TargetConfigurationRequest[] | undefined;
@@ -6111,7 +6123,8 @@ export interface ReservationValue {
   HourlyPrice?: string | undefined;
 
   /**
-   * <p>The balance of the total value (the sum of remainingUpfrontValue + hourlyPrice * number of hours remaining).</p>
+   * <p>The balance of the total value (the sum of remainingUpfrontValue + hourlyPrice * number of
+   *       hours remaining).</p>
    * @public
    */
   RemainingTotalValue?: string | undefined;
@@ -6147,8 +6160,8 @@ export interface ReservedInstanceReservationValue {
  */
 export interface TargetConfiguration {
   /**
-   * <p>The number of instances the Convertible Reserved Instance offering can be applied to. This parameter is
-   *       reserved and cannot be specified in a request</p>
+   * <p>The number of instances the Convertible Reserved Instance offering can be applied to. This
+   *       parameter is reserved and cannot be specified in a request</p>
    * @public
    */
   InstanceCount?: number | undefined;
@@ -6166,8 +6179,9 @@ export interface TargetConfiguration {
  */
 export interface TargetReservationValue {
   /**
-   * <p>The total value of the Convertible Reserved Instances that make up the exchange. This is the sum of
-   *       the list value, remaining upfront price, and additional upfront cost of the exchange.</p>
+   * <p>The total value of the Convertible Reserved Instances that make up the exchange. This is
+   *       the sum of the list value, remaining upfront price, and additional upfront cost of the
+   *       exchange.</p>
    * @public
    */
   ReservationValue?: ReservationValue | undefined;
@@ -6191,7 +6205,8 @@ export interface GetReservedInstancesExchangeQuoteResult {
   CurrencyCode?: string | undefined;
 
   /**
-   * <p>If <code>true</code>, the exchange is valid. If <code>false</code>, the exchange cannot be completed.</p>
+   * <p>If <code>true</code>, the exchange is valid. If <code>false</code>, the exchange cannot be
+   *       completed.</p>
    * @public
    */
   IsValidExchange?: boolean | undefined;
@@ -7727,25 +7742,6 @@ export interface GetVerifiedAccessEndpointTargetsResult {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetVerifiedAccessGroupPolicyRequest {
-  /**
-   * <p>The ID of the Verified Access group.</p>
-   * @public
-   */
-  VerifiedAccessGroupId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**

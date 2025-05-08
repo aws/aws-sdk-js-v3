@@ -34,9 +34,9 @@ export interface DeleteNetworkInterfacePermissionCommandOutput
 
 /**
  * <p>Deletes a permission for a network interface. By default, you cannot delete the
- * 			permission if the account for which you're removing the permission has attached the
- * 			network interface to an instance. However, you can force delete the permission,
- * 			regardless of any attachment.</p>
+ *             permission if the account for which you're removing the permission has attached the
+ *             network interface to an instance. However, you can force delete the permission,
+ *             regardless of any attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

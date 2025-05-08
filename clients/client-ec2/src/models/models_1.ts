@@ -9800,8 +9800,7 @@ export interface LaunchTemplateEbsBlockDeviceRequest {
   Iops?: number | undefined;
 
   /**
-   * <p>Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key
-   *             to use for EBS encryption.</p>
+   * <p>Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.</p>
    * @public
    */
   KmsKeyId?: string | undefined;
@@ -10392,17 +10391,17 @@ export interface LaunchTemplateInstanceMetadataOptionsRequest {
    *             <li>
    *                <p>
    *                   <code>optional</code> - IMDSv2 is optional. You can choose whether to send a
-   *                     session token in your instance metadata retrieval requests. If you retrieve
-   *                     IAM role credentials without a session token, you receive the IMDSv1 role
+   *                     session token in your instance metadata retrieval requests. If you retrieve IAM
+   *                     role credentials without a session token, you receive the IMDSv1 role
    *                     credentials. If you retrieve IAM role credentials using a valid session token,
    *                     you receive the IMDSv2 role credentials.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>required</code> - IMDSv2 is required. You must send a session token
-   *                     in your instance metadata retrieval requests. With this option, retrieving the
-   *                     IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are
-   *                     not available.</p>
+   *                   <code>required</code> - IMDSv2 is required. You must send a session token in
+   *                     your instance metadata retrieval requests. With this option, retrieving the IAM
+   *                     role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not
+   *                     available.</p>
    *             </li>
    *          </ul>
    *          <p>Default: If the value of <code>ImdsSupport</code> for the Amazon Machine Image (AMI)
@@ -10466,7 +10465,10 @@ export interface LaunchTemplatesMonitoringRequest {
 }
 
 /**
- * <p>A security group connection tracking specification request that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * <p>A security group connection tracking specification request that enables you to set the
+ *             idle timeout for connection tracking on an Elastic network interface. For more
+ *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the
+ *             <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface ConnectionTrackingSpecificationRequest {
@@ -10502,30 +10504,29 @@ export interface ConnectionTrackingSpecificationRequest {
  */
 export interface EnaSrdUdpSpecificationRequest {
   /**
-   * <p>Indicates whether UDP traffic uses ENA Express for your instance. To ensure that
-   * 			UDP traffic can use ENA Express when you launch an instance, you must also set
-   * 			<b>EnaSrdEnabled</b> in the <b>EnaSrdSpecificationRequest</b> to <code>true</code>.</p>
+   * <p>Indicates whether UDP traffic uses ENA Express for your instance. To ensure that UDP
+   *             traffic can use ENA Express when you launch an instance, you must also set <b>EnaSrdEnabled</b> in the <b>EnaSrdSpecificationRequest</b> to <code>true</code>.</p>
    * @public
    */
   EnaSrdUdpEnabled?: boolean | undefined;
 }
 
 /**
- * <p>Launch instances with ENA Express settings configured
- * 			from your launch template.</p>
+ * <p>Launch instances with ENA Express settings configured from your launch
+ *             template.</p>
  * @public
  */
 export interface EnaSrdSpecificationRequest {
   /**
-   * <p>Specifies whether ENA Express is enabled for the network interface when you
-   * 			launch an instance.</p>
+   * <p>Specifies whether ENA Express is enabled for the network interface when you launch an
+   *             instance.</p>
    * @public
    */
   EnaSrdEnabled?: boolean | undefined;
 
   /**
    * <p>Contains ENA Express settings for UDP network traffic for the network interface
-   * 	        attached to the instance.</p>
+   *             attached to the instance.</p>
    * @public
    */
   EnaSrdUdpSpecification?: EnaSrdUdpSpecificationRequest | undefined;
@@ -10628,8 +10629,9 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
    * <p>The device index for the network interface attachment. The primary network interface
    *             has a device index of 0. Each network interface is of type <code>interface</code>, you
    *             must specify a device index. If you create a launch template that includes secondary
-   *             network interfaces  but not a primary network interface, then you must add a primary
-   *             network interface as a launch parameter when you launch an instance from the template.</p>
+   *             network interfaces but not a primary network interface, then you must add a primary
+   *             network interface as a launch parameter when you launch an instance from the
+   *             template.</p>
    * @public
    */
   DeviceIndex?: number | undefined;
@@ -10738,7 +10740,10 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
   Ipv6PrefixCount?: number | undefined;
 
   /**
-   * <p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
+   * <p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address
+   *             to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the
+   *             instance is terminated or the network interface is detached. For more information about
+   *             primary IPv6 addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
    * @public
    */
   PrimaryIpv6?: boolean | undefined;
@@ -10752,11 +10757,17 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
   /**
    * <p>A security group connection tracking specification that enables you to set the timeout
    *             for connection tracking on an Elastic network interface. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Idle connection tracking timeout</a> in the
-   *             <i>Amazon EC2 User Guide</i>.</p>
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Idle connection tracking timeout</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest | undefined;
+
+  /**
+   * <p>The number of ENA queues to be created with the instance.</p>
+   * @public
+   */
+  EnaQueueCount?: number | undefined;
 }
 
 /**
@@ -10776,27 +10787,29 @@ export type InstanceBandwidthWeighting = (typeof InstanceBandwidthWeighting)[key
 
 /**
  * <p>When you configure network performance options in your launch template, your instance
- *     		is geared for performance improvements based on the workload that it runs as soon as it's
- *     		available.</p>
+ *             is geared for performance improvements based on the workload that it runs as soon as
+ *             it's available.</p>
  * @public
  */
 export interface LaunchTemplateNetworkPerformanceOptionsRequest {
   /**
-   * <p>Specify the bandwidth weighting option to boost the associated type of baseline bandwidth, as follows:</p>
+   * <p>Specify the bandwidth weighting option to boost the associated type of baseline
+   *             bandwidth, as follows:</p>
    *          <dl>
    *             <dt>default</dt>
    *             <dd>
-   *                <p>This option uses the standard bandwidth configuration for your instance type.</p>
+   *                <p>This option uses the standard bandwidth configuration for your instance
+   *                         type.</p>
    *             </dd>
    *             <dt>vpc-1</dt>
    *             <dd>
    *                <p>This option boosts your networking baseline bandwidth and reduces your EBS
-   *     					baseline bandwidth.</p>
+   *                         baseline bandwidth.</p>
    *             </dd>
    *             <dt>ebs-1</dt>
    *             <dd>
    *                <p>This option boosts your EBS baseline bandwidth and reduces your networking
-   *     					baseline bandwidth.</p>
+   *                         baseline bandwidth.</p>
    *             </dd>
    *          </dl>
    * @public
@@ -10846,8 +10859,8 @@ export interface LaunchTemplatePlacementRequest {
   HostId?: string | undefined;
 
   /**
-   * <p>The tenancy of the instance. An instance with a
-   *             tenancy of dedicated runs on single-tenant hardware.</p>
+   * <p>The tenancy of the instance. An instance with a tenancy of dedicated runs on
+   *             single-tenant hardware.</p>
    * @public
    */
   Tenancy?: Tenancy | undefined;
@@ -10918,12 +10931,12 @@ export interface LaunchTemplatePrivateDnsNameOptionsRequest {
 export interface LaunchTemplateTagSpecificationRequest {
   /**
    * <p>The type of resource to tag.</p>
-   *          <p>Valid Values lists all resource types for Amazon EC2 that can be tagged. When
-   *             you create a launch template, you can specify tags for the following resource types
-   *             only: <code>instance</code> | <code>volume</code> |
-   *                 <code>network-interface</code> | <code>spot-instances-request</code>.
-   *             If the instance does not include the resource type that you specify, the instance
-   *             launch fails. For example, not all instance types include a volume.</p>
+   *          <p>Valid Values lists all resource types for Amazon EC2 that can be tagged. When you
+   *             create a launch template, you can specify tags for the following resource types only:
+   *                 <code>instance</code> | <code>volume</code> |
+   *             <code>network-interface</code> | <code>spot-instances-request</code>. If the instance
+   *             does not include the resource type that you specify, the instance launch fails. For
+   *             example, not all instance types include a volume.</p>
    *          <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    * @public
    */
@@ -11038,7 +11051,8 @@ export interface RequestLaunchTemplateData {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    *          <note>
    *             <p>If the launch template will be used for an EC2 Fleet or Spot Fleet, note the
    *                 following:</p>
@@ -11101,11 +11115,11 @@ export interface RequestLaunchTemplateData {
   RamDiskId?: string | undefined;
 
   /**
-   * <p>Indicates whether termination protection is enabled for the instance. The default
-   *             is <code>false</code>, which means that you can terminate the instance using
-   *             the Amazon EC2 console, command line tools, or API. You can enable termination protection
-   *             when you launch an instance, while the instance is running, or while the instance
-   *             is stopped.</p>
+   * <p>Indicates whether termination protection is enabled for the instance. The default is
+   *                 <code>false</code>, which means that you can terminate the instance using the Amazon EC2
+   *             console, command line tools, or API. You can enable termination protection when you
+   *             launch an instance, while the instance is running, or while the instance is
+   *             stopped.</p>
    * @public
    */
   DisableApiTermination?: boolean | undefined;
@@ -11125,14 +11139,15 @@ export interface RequestLaunchTemplateData {
    *                 instance with user data input</a> in the
    *             <i>Amazon EC2 User Guide</i>.</p>
    *          <p>If you are creating the launch template for use with Batch, the user
-   *             data must be provided in the <a href="https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive">MIME multi-part archive format</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html#lt-user-data">Amazon EC2 user data in launch templates</a> in the <i>Batch User Guide</i>.</p>
+   *             data must be provided in the <a href="https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive">MIME multi-part archive format</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html#lt-user-data">Amazon EC2 user data in launch templates</a> in the
+   *                     <i>Batch User Guide</i>.</p>
    * @public
    */
   UserData?: string | undefined;
 
   /**
-   * <p>The tags to apply to the resources that are created during instance launch. These
-   *           tags are not applied to the launch template.</p>
+   * <p>The tags to apply to the resources that are created during instance launch. These tags
+   *             are not applied to the launch template.</p>
    * @public
    */
   TagSpecifications?: LaunchTemplateTagSpecificationRequest[] | undefined;
@@ -11220,7 +11235,8 @@ export interface RequestLaunchTemplateData {
   HibernationOptions?: LaunchTemplateHibernationOptionsRequest | undefined;
 
   /**
-   * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure the Instance Metadata Service options</a> in the
+   * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure
+   *                 the Instance Metadata Service options</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
@@ -11301,7 +11317,7 @@ export interface RequestLaunchTemplateData {
 
   /**
    * <p>Contains launch template settings to boost network performance for the type of
-   *         	workload that runs on your instance.</p>
+   *             workload that runs on your instance.</p>
    * @public
    */
   NetworkPerformanceOptions?: LaunchTemplateNetworkPerformanceOptionsRequest | undefined;
@@ -11322,7 +11338,8 @@ export interface CreateLaunchTemplateRequest {
 
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
-   *             request. If a client token isn't specified, a randomly generated token is used in the request to ensure idempotency.</p>
+   *             request. If a client token isn't specified, a randomly generated token is used in the
+   *             request to ensure idempotency.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
    *                 idempotency</a>.</p>
    *          <p>Constraint: Maximum 128 ASCII characters.</p>
@@ -11357,8 +11374,9 @@ export interface CreateLaunchTemplateRequest {
   /**
    * <p>The tags to apply to the launch template on creation. To tag the launch template, the
    *             resource type must be <code>launch-template</code>.</p>
-   *          <p>To specify the tags for the resources that are created when an instance is
-   *             launched, you must use the <code>TagSpecifications</code> parameter in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html">launch template data</a> structure.</p>
+   *          <p>To specify the tags for the resources that are created when an instance is launched,
+   *             you must use the <code>TagSpecifications</code> parameter in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html">launch template
+   *                 data</a> structure.</p>
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
@@ -11508,7 +11526,8 @@ export interface CreateLaunchTemplateVersionRequest {
 
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
-   *             request. If a client token isn't specified, a randomly generated token is used in the request to ensure idempotency.</p>
+   *             request. If a client token isn't specified, a randomly generated token is used in the
+   *             request to ensure idempotency.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
    *                 idempotency</a>.</p>
    *          <p>Constraint: Maximum 128 ASCII characters.</p>
@@ -11518,29 +11537,29 @@ export interface CreateLaunchTemplateVersionRequest {
 
   /**
    * <p>The ID of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the
-   *             launch template name, but not both.</p>
+   *          <p>You must specify either the launch template ID or the launch template name, but not
+   *             both.</p>
    * @public
    */
   LaunchTemplateId?: string | undefined;
 
   /**
    * <p>The name of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the
-   *             launch template name, but not both.</p>
+   *          <p>You must specify either the launch template ID or the launch template name, but not
+   *             both.</p>
    * @public
    */
   LaunchTemplateName?: string | undefined;
 
   /**
-   * <p>The version of the launch template on which to base the new version.
-   *             Snapshots applied to the block device mapping are ignored when creating a new version
-   *             unless they are explicitly included.</p>
+   * <p>The version of the launch template on which to base the new version. Snapshots applied
+   *             to the block device mapping are ignored when creating a new version unless they are
+   *             explicitly included.</p>
    *          <p>If you specify this parameter, the new version inherits the launch parameters from the
    *             source version. If you specify additional launch parameters for the new version, they
    *             overwrite any corresponding launch parameters inherited from the source version.</p>
-   *          <p>If you omit this parameter, the new version contains only the launch parameters
-   *             that you specify for the new version.</p>
+   *          <p>If you omit this parameter, the new version contains only the launch parameters that
+   *             you specify for the new version.</p>
    * @public
    */
   SourceVersion?: string | undefined;
@@ -11593,8 +11612,7 @@ export interface LaunchTemplateEbsBlockDevice {
   Iops?: number | undefined;
 
   /**
-   * <p>Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key
-   *             to use for EBS encryption.</p>
+   * <p>Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.</p>
    * @public
    */
   KmsKeyId?: string | undefined;
@@ -11965,17 +11983,17 @@ export interface LaunchTemplateInstanceMetadataOptions {
    *             <li>
    *                <p>
    *                   <code>optional</code> - IMDSv2 is optional. You can choose whether to send a
-   *                     session token in your instance metadata retrieval requests. If you retrieve
-   *                     IAM role credentials without a session token, you receive the IMDSv1 role
+   *                     session token in your instance metadata retrieval requests. If you retrieve IAM
+   *                     role credentials without a session token, you receive the IMDSv1 role
    *                     credentials. If you retrieve IAM role credentials using a valid session token,
    *                     you receive the IMDSv2 role credentials.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>required</code> - IMDSv2 is required. You must send a session token
-   *                     in your instance metadata retrieval requests. With this option, retrieving the
-   *                     IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are
-   *                     not available.</p>
+   *                   <code>required</code> - IMDSv2 is required. You must send a session token in
+   *                     your instance metadata retrieval requests. With this option, retrieving the IAM
+   *                     role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not
+   *                     available.</p>
    *             </li>
    *          </ul>
    * @public
@@ -12036,7 +12054,10 @@ export interface LaunchTemplatesMonitoring {
 }
 
 /**
- * <p>A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * <p>A security group connection tracking specification that enables you to set the idle
+ *             timeout for connection tracking on an Elastic network interface. For more information,
+ *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the
+ *             <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface ConnectionTrackingSpecification {
@@ -12109,8 +12130,7 @@ export interface LaunchTemplateEnaSrdSpecification {
 }
 
 /**
- * <p>Information about the IPv4 delegated prefixes assigned
- *             to a network interface.</p>
+ * <p>Information about the IPv4 delegated prefixes assigned to a network interface.</p>
  * @public
  */
 export interface Ipv4PrefixSpecificationResponse {
@@ -12141,8 +12161,7 @@ export interface InstanceIpv6Address {
 }
 
 /**
- * <p>Information about the IPv6 delegated prefixes assigned
- *             to a network interface.</p>
+ * <p>Information about the IPv6 delegated prefixes assigned to a network interface.</p>
  * @public
  */
 export interface Ipv6PrefixSpecificationResponse {
@@ -12284,13 +12303,17 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
   Ipv6PrefixCount?: number | undefined;
 
   /**
-   * <p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
+   * <p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address
+   *             to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the
+   *             instance is terminated or the network interface is detached. For more information about
+   *             primary IPv6 addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
    * @public
    */
   PrimaryIpv6?: boolean | undefined;
 
   /**
-   * <p>Contains the ENA Express settings for instances launched from your launch template.</p>
+   * <p>Contains the ENA Express settings for instances launched from your launch
+   *             template.</p>
    * @public
    */
   EnaSrdSpecification?: LaunchTemplateEnaSrdSpecification | undefined;
@@ -12298,23 +12321,30 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
   /**
    * <p>A security group connection tracking specification that enables you to set the timeout
    *             for connection tracking on an Elastic network interface. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Idle connection tracking timeout</a> in the
-   *             <i>Amazon EC2 User Guide</i>.</p>
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Idle connection tracking timeout</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ConnectionTrackingSpecification?: ConnectionTrackingSpecification | undefined;
+
+  /**
+   * <p>The number of ENA queues created with the instance.</p>
+   * @public
+   */
+  EnaQueueCount?: number | undefined;
 }
 
 /**
  * <p>With network performance options, you can adjust your bandwidth preferences to meet
- *     		the needs of the workload that runs on your instance at launch.</p>
+ *             the needs of the workload that runs on your instance at launch.</p>
  * @public
  */
 export interface LaunchTemplateNetworkPerformanceOptions {
   /**
-   * <p>When you configure network bandwidth weighting, you can boost baseline bandwidth for either networking
-   *     		or EBS by up to 25%. The total available baseline bandwidth for your instance remains
-   *             the same. The default option uses the standard bandwidth configuration for your instance type.</p>
+   * <p>When you configure network bandwidth weighting, you can boost baseline bandwidth for
+   *             either networking or EBS by up to 25%. The total available baseline bandwidth for your
+   *             instance remains the same. The default option uses the standard bandwidth configuration
+   *             for your instance type.</p>
    * @public
    */
   BandwidthWeighting?: InstanceBandwidthWeighting | undefined;
@@ -12350,8 +12380,8 @@ export interface LaunchTemplatePlacement {
   HostId?: string | undefined;
 
   /**
-   * <p>The tenancy of the instance. An instance with a
-   *             tenancy of <code>dedicated</code> runs on single-tenant hardware. </p>
+   * <p>The tenancy of the instance. An instance with a tenancy of <code>dedicated</code> runs
+   *             on single-tenant hardware. </p>
    * @public
    */
   Tenancy?: Tenancy | undefined;
@@ -12465,19 +12495,21 @@ export interface ResponseLaunchTemplateData {
   /**
    * <p>The ID of the AMI or a Systems Manager parameter. The Systems Manager parameter will
    *             resolve to the ID of the AMI at instance launch.</p>
-   *          <p>The value depends on what you specified in the request. The possible values are:</p>
+   *          <p>The value depends on what you specified in the request. The possible values
+   *             are:</p>
    *          <ul>
    *             <li>
    *                <p>If an AMI ID was specified in the request, then this is the AMI ID.</p>
    *             </li>
    *             <li>
    *                <p>If a Systems Manager parameter was specified in the request, and
-   *                     <code>ResolveAlias</code> was configured as <code>true</code>, then this is
+   *                         <code>ResolveAlias</code> was configured as <code>true</code>, then this is
    *                     the AMI ID that the parameter is mapped to in the Parameter Store.</p>
    *             </li>
    *             <li>
-   *                <p>If a Systems Manager parameter was specified in the request, and <code>ResolveAlias</code> was configured
-   *                     as <code>false</code>, then this is the parameter value.</p>
+   *                <p>If a Systems Manager parameter was specified in the request, and
+   *                         <code>ResolveAlias</code> was configured as <code>false</code>, then this is
+   *                     the parameter value.</p>
    *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the
@@ -12617,7 +12649,8 @@ export interface ResponseLaunchTemplateData {
   HibernationOptions?: LaunchTemplateHibernationOptions | undefined;
 
   /**
-   * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure the Instance Metadata Service options</a> in the
+   * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure
+   *                 the Instance Metadata Service options</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
@@ -12665,8 +12698,8 @@ export interface ResponseLaunchTemplateData {
   Operator?: OperatorResponse | undefined;
 
   /**
-   * <p>Contains the launch template settings for network performance options for
-   *         	your instance.</p>
+   * <p>Contains the launch template settings for network performance options for your
+   *             instance.</p>
    * @public
    */
   NetworkPerformanceOptions?: LaunchTemplateNetworkPerformanceOptions | undefined;

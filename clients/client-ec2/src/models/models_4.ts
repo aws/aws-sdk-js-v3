@@ -74,7 +74,6 @@ import {
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
-  LocalGatewayVirtualInterfaceGroup,
   NetworkInterfaceStatus,
   StateReason,
 } from "./models_2";
@@ -7927,7 +7926,8 @@ export interface InstanceNetworkInterfaceAttachment {
   AttachmentId?: string | undefined;
 
   /**
-   * <p>Indicates whether the network interface is deleted when the instance is terminated.</p>
+   * <p>Indicates whether the network interface is deleted when the instance is
+   *             terminated.</p>
    * @public
    */
   DeleteOnTermination?: boolean | undefined;
@@ -7951,15 +7951,24 @@ export interface InstanceNetworkInterfaceAttachment {
   NetworkCardIndex?: number | undefined;
 
   /**
-   * <p>Contains the ENA Express settings for the network interface that's attached
-   * 			to the instance.</p>
+   * <p>Contains the ENA Express settings for the network interface that's attached to
+   *             the instance.</p>
    * @public
    */
   EnaSrdSpecification?: InstanceAttachmentEnaSrdSpecification | undefined;
+
+  /**
+   * <p>The number of ENA queues created with the instance.</p>
+   * @public
+   */
+  EnaQueueCount?: number | undefined;
 }
 
 /**
- * <p>A security group connection tracking specification response that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * <p>A security group connection tracking specification response that enables you to set
+ *             the idle timeout for connection tracking on an Elastic network interface. For more
+ *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the
+ *             <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface ConnectionTrackingSpecificationResponse {
@@ -8019,13 +8028,15 @@ export interface InstanceIpv6Prefix {
  */
 export interface InstancePrivateIpAddress {
   /**
-   * <p>The association information for an Elastic IP address for the network interface.</p>
+   * <p>The association information for an Elastic IP address for the network
+   *             interface.</p>
    * @public
    */
   Association?: InstanceNetworkInterfaceAssociation | undefined;
 
   /**
-   * <p>Indicates whether this IPv4 address is the primary private IP address of the network interface.</p>
+   * <p>Indicates whether this IPv4 address is the primary private IP address of the network
+   *             interface.</p>
    * @public
    */
   Primary?: boolean | undefined;
@@ -8141,7 +8152,8 @@ export interface InstanceNetworkInterface {
 
   /**
    * <p>The type of network interface.</p>
-   *          <p>Valid values: <code>interface</code> | <code>efa</code> | <code>efa-only</code> | <code>trunk</code>
+   *          <p>Valid values: <code>interface</code> | <code>efa</code> | <code>efa-only</code> |
+   *                 <code>trunk</code>
    *          </p>
    * @public
    */
@@ -8160,7 +8172,10 @@ export interface InstanceNetworkInterface {
   Ipv6Prefixes?: InstanceIpv6Prefix[] | undefined;
 
   /**
-   * <p>A security group connection tracking configuration that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>A security group connection tracking configuration that enables you to set the timeout
+   *             for connection tracking on an Elastic network interface. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ConnectionTrackingConfiguration?: ConnectionTrackingSpecificationResponse | undefined;
@@ -9515,7 +9530,8 @@ export interface DescribeInstanceTypesRequest {
    *             <li>
    *                <p>
    *                   <code>network-info.bandwidth-weightings</code> - For instances that support bandwidth
-   *      weighting to boost performance (<code>default</code>, <code>vpc-1</code>, <code>ebs-1</code>).</p>
+   *      weighting to boost performance (<code>default</code>, <code>vpc-1</code>,
+   *      <code>ebs-1</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9532,6 +9548,11 @@ export interface DescribeInstanceTypesRequest {
    *                   <code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is
    *      supported or required (<code>required</code> | <code>supported</code> |
    *       <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.flexible-ena-queues-support</code> - Indicates whether an instance supports
+   *      flexible ENA queues (<code>supported</code> | <code>unsupported</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9610,8 +9631,8 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>supported-usage-class</code> - The usage class (<code>on-demand</code> | <code>spot</code> |
-   *      <code>capacity-block</code>).</p>
+   *                   <code>supported-usage-class</code> - The usage class (<code>on-demand</code> |
+   *       <code>spot</code> | <code>capacity-block</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9758,7 +9779,7 @@ export type EbsNvmeSupport = (typeof EbsNvmeSupport)[keyof typeof EbsNvmeSupport
 export interface EbsInfo {
   /**
    * <p>Indicates whether the instance type is Amazon EBS-optimized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-optimized
-   *    instances</a> in <i>Amazon EC2 User Guide</i>.</p>
+   *     instances</a> in <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   EbsOptimizedSupport?: EbsOptimizedSupport | undefined;
@@ -10200,6 +10221,20 @@ export const EnaSupport = {
 export type EnaSupport = (typeof EnaSupport)[keyof typeof EnaSupport];
 
 /**
+ * @public
+ * @enum
+ */
+export const FlexibleEnaQueuesSupport = {
+  SUPPORTED: "supported",
+  UNSUPPORTED: "unsupported",
+} as const;
+
+/**
+ * @public
+ */
+export type FlexibleEnaQueuesSupport = (typeof FlexibleEnaQueuesSupport)[keyof typeof FlexibleEnaQueuesSupport];
+
+/**
  * <p>Describes the network card support of the instance type.</p>
  * @public
  */
@@ -10233,6 +10268,24 @@ export interface NetworkCardInfo {
    * @public
    */
   PeakBandwidthInGbps?: number | undefined;
+
+  /**
+   * <p>The default number of the ENA queues for each interface.</p>
+   * @public
+   */
+  DefaultEnaQueueCountPerInterface?: number | undefined;
+
+  /**
+   * <p>The maximum number of the ENA queues.</p>
+   * @public
+   */
+  MaximumEnaQueueCount?: number | undefined;
+
+  /**
+   * <p>The maximum number of the ENA queues for each interface.</p>
+   * @public
+   */
+  MaximumEnaQueueCountPerInterface?: number | undefined;
 }
 
 /**
@@ -10321,11 +10374,17 @@ export interface NetworkInfo {
   EnaSrdSupported?: boolean | undefined;
 
   /**
-   * <p>A list of valid settings for configurable bandwidth weighting for the instance
-   *   	type, if supported.</p>
+   * <p>A list of valid settings for configurable bandwidth weighting for the instance type, if
+   *    supported.</p>
    * @public
    */
   BandwidthWeightings?: BandwidthWeightingType[] | undefined;
+
+  /**
+   * <p>Indicates whether changing the number of ENA queues is supported.</p>
+   * @public
+   */
+  FlexibleEnaQueuesSupport?: FlexibleEnaQueuesSupport | undefined;
 }
 
 /**
@@ -10656,7 +10715,8 @@ export interface InstanceTypeInfo {
   FreeTierEligible?: boolean | undefined;
 
   /**
-   * <p>Indicates whether the instance type is offered for spot, On-Demand, or Capacity Blocks.</p>
+   * <p>Indicates whether the instance type is offered for spot, On-Demand, or Capacity
+   *    Blocks.</p>
    * @public
    */
   SupportedUsageClasses?: UsageClassType[] | undefined;
@@ -11826,10 +11886,12 @@ export interface DescribeLaunchTemplateVersionsRequest {
   Filters?: Filter[] | undefined;
 
   /**
-   * <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>,
-   *             the AMI ID is displayed in the response for <code>imageId</code>.</p>
-   *          <p>If <code>false</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>,
-   *             the parameter is displayed in the response for <code>imageId</code>.</p>
+   * <p>If <code>true</code>, and if a Systems Manager parameter is specified for
+   *                 <code>ImageId</code>, the AMI ID is displayed in the response for
+   *                 <code>imageId</code>.</p>
+   *          <p>If <code>false</code>, and if a Systems Manager parameter is specified for
+   *                 <code>ImageId</code>, the parameter is displayed in the response for
+   *                 <code>imageId</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
    *          <p>Default: <code>false</code>
@@ -12278,23 +12340,6 @@ export interface DescribeLocalGatewayVirtualInterfaceGroupsRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeLocalGatewayVirtualInterfaceGroupsResult {
-  /**
-   * <p>The virtual interface groups.</p>
-   * @public
-   */
-  LocalGatewayVirtualInterfaceGroups?: LocalGatewayVirtualInterfaceGroup[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }
 
 /**

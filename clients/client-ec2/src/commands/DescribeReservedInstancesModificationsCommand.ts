@@ -37,13 +37,15 @@ export interface DescribeReservedInstancesModificationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p>
+ * <p>Describes the modifications made to your Reserved Instances. If no parameter is specified,
+ *       information about all your Reserved Instances modification requests is returned. If a
+ *       modification ID is specified, only information about the specific modification is
+ *       returned.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modify Reserved Instances</a> in the
  *         <i>Amazon EC2 User Guide</i>.</p>
  *          <note>
- *             <p>The order of the elements in the response, including those within nested
- *          structures, might vary. Applications should not assume the elements appear in a
- *          particular order.</p>
+ *             <p>The order of the elements in the response, including those within nested structures,
+ *         might vary. Applications should not assume the elements appear in a particular order.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -33,7 +33,8 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes a network interface attribute. You can specify only one attribute at a time.</p>
+ * <p>Describes a network interface attribute. You can specify only one attribute at a
+ *             time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,6 +64,7 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput
  * //         EnaSrdUdpEnabled: true || false,
  * //       },
  * //     },
+ * //     EnaQueueCount: Number("int"),
  * //   },
  * //   Description: { // AttributeValue
  * //     Value: "STRING_VALUE",
