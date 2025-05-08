@@ -24,7 +24,7 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-arn-parser": "*",
-    "@smithy/node-config-provider": "^4.0.2",
+    "@smithy/node-config-provider": "^4.1.0",
     "@smithy/protocol-http": "^5.1.0",
     "@smithy/types": "^4.2.0",
     "@smithy/util-config-provider": "^4.0.0",
