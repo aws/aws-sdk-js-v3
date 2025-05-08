@@ -1,5 +1,14 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.30.0 (2025-05-08)
+
+## Features
+- Upgraded to smithy 1.57.1 and smithy-typescript 0.30.0.
+
+## Bug Fixes
+- Allowed the `AwsSmithyRpcV2Cbor` generator to take priority over the base `SmithyRpcV2Cbor` generator. The
+AWS extension enables AwsQueryCompatibility handling. ([#7058](https://github.com/aws/aws-sdk-js-v3/pull/7058))
+
 ## 0.29.1 (2025-04-24)
 
 ## Features
