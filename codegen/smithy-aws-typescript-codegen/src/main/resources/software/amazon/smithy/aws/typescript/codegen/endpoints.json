@@ -3234,6 +3234,7 @@
             "eu-central-1": {},
             "eu-west-1": {},
             "eu-west-2": {},
+            "eu-west-3": {},
             "fips": {
               "credentialScope": {
                 "region": "us-west-2"
@@ -14512,6 +14513,7 @@
             "il-central-1": {},
             "me-central-1": {},
             "me-south-1": {},
+            "mx-central-1": {},
             "sa-east-1": {},
             "us-east-1": {
               "variants": [
@@ -28156,6 +28158,7 @@
                 }
               ]
             },
+            "mx-central-1": {},
             "sa-east-1": {
               "variants": [
                 {
@@ -33716,6 +33719,7 @@
             "eu-central-1": {},
             "eu-west-1": {},
             "eu-west-2": {},
+            "eu-west-3": {},
             "fips-us-east-1": {
               "credentialScope": {
                 "region": "us-east-1"
