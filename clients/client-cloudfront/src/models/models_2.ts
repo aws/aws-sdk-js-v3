@@ -64,9 +64,7 @@ export interface StreamingDistributionList {
   Marker: string | undefined;
 
   /**
-   * <p>If <code>IsTruncated</code> is <code>true</code>, this element is present and contains
-   * 			the value you can use for the <code>Marker</code> request parameter to continue listing
-   * 			your RTMP distributions where they left off.</p>
+   * <p>If <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value you can use for the <code>Marker</code> request parameter to continue listing your RTMP distributions where they left off.</p>
    * @public
    */
   NextMarker?: string | undefined;
@@ -78,24 +76,19 @@ export interface StreamingDistributionList {
   MaxItems: number | undefined;
 
   /**
-   * <p>A flag that indicates whether more streaming distributions remain to be listed. If
-   * 			your results were truncated, you can make a follow-up pagination request using the
-   * 				<code>Marker</code> request parameter to retrieve more distributions in the list.
-   * 		</p>
+   * <p>A flag that indicates whether more streaming distributions remain to be listed. If your results were truncated, you can make a follow-up pagination request using the <code>Marker</code> request parameter to retrieve more distributions in the list. </p>
    * @public
    */
   IsTruncated: boolean | undefined;
 
   /**
-   * <p>The number of streaming distributions that were created by the current Amazon Web Services account.
-   * 		</p>
+   * <p>The number of streaming distributions that were created by the current Amazon Web Services account. </p>
    * @public
    */
   Quantity: number | undefined;
 
   /**
-   * <p>A complex type that contains one <code>StreamingDistributionSummary</code> element for
-   * 			each distribution that was created by the current Amazon Web Services account.</p>
+   * <p>A complex type that contains one <code>StreamingDistributionSummary</code> element for each distribution that was created by the current Amazon Web Services account.</p>
    * @public
    */
   Items?: StreamingDistributionSummary[] | undefined;
@@ -226,10 +219,7 @@ export interface VpcOriginList {
   MaxItems: number | undefined;
 
   /**
-   * <p>A flag that indicates whether more VPC origins remain to be listed. If
-   * 			your results were truncated, you can make a follow-up pagination request using the
-   * 			<code>Marker</code> request parameter to retrieve more VPC origins in the
-   * 			list.</p>
+   * <p>A flag that indicates whether more VPC origins remain to be listed. If your results were truncated, you can make a follow-up pagination request using the <code>Marker</code> request parameter to retrieve more VPC origins in the list.</p>
    * @public
    */
   IsTruncated: boolean | undefined;
@@ -269,8 +259,7 @@ export interface PublishFunctionRequest {
   Name: string | undefined;
 
   /**
-   * <p>The current version (<code>ETag</code> value) of the function that you are publishing,
-   * 			which you can get using <code>DescribeFunction</code>.</p>
+   * <p>The current version (<code>ETag</code> value) of the function that you are publishing, which you can get using <code>DescribeFunction</code>.</p>
    * @public
    */
   IfMatch: string | undefined;
@@ -338,22 +327,19 @@ export interface TestFunctionRequest {
   Name: string | undefined;
 
   /**
-   * <p>The current version (<code>ETag</code> value) of the function that you are testing,
-   * 			which you can get using <code>DescribeFunction</code>.</p>
+   * <p>The current version (<code>ETag</code> value) of the function that you are testing, which you can get using <code>DescribeFunction</code>.</p>
    * @public
    */
   IfMatch: string | undefined;
 
   /**
-   * <p>The stage of the function that you are testing, either <code>DEVELOPMENT</code> or
-   * 				<code>LIVE</code>.</p>
+   * <p>The stage of the function that you are testing, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
    * @public
    */
   Stage?: FunctionStage | undefined;
 
   /**
-   * <p>The event object to test the function with. For more information about the structure
-   * 			of the event object, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managing-functions.html#test-function">Testing functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * <p>The event object to test the function with. For more information about the structure of the event object, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managing-functions.html#test-function">Testing functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
   EventObject: Uint8Array | undefined;
@@ -365,16 +351,13 @@ export interface TestFunctionRequest {
  */
 export interface TestResult {
   /**
-   * <p>Contains configuration information and metadata about the CloudFront function that was
-   * 			tested.</p>
+   * <p>Contains configuration information and metadata about the CloudFront function that was tested.</p>
    * @public
    */
   FunctionSummary?: FunctionSummary | undefined;
 
   /**
-   * <p>The amount of time that the function took to run as a percentage of the maximum
-   * 			allowed time. For example, a compute utilization of 35 means that the function completed
-   * 			in 35% of the maximum allowed time.</p>
+   * <p>The amount of time that the function took to run as a percentage of the maximum allowed time. For example, a compute utilization of 35 means that the function completed in 35% of the maximum allowed time.</p>
    * @public
    */
   ComputeUtilization?: string | undefined;
@@ -386,16 +369,13 @@ export interface TestResult {
   FunctionExecutionLogs?: string[] | undefined;
 
   /**
-   * <p>If the result of testing the function was an error, this field contains the error
-   * 			message.</p>
+   * <p>If the result of testing the function was an error, this field contains the error message.</p>
    * @public
    */
   FunctionErrorMessage?: string | undefined;
 
   /**
-   * <p>The event object returned by the function. For more information about the structure of
-   * 			the event object, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html">Event
-   * 				object structure</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * <p>The event object returned by the function. For more information about the structure of the event object, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html">Event object structure</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
   FunctionOutput?: string | undefined;
@@ -406,8 +386,7 @@ export interface TestResult {
  */
 export interface TestFunctionResult {
   /**
-   * <p>An object that represents the result of running the function with the provided event
-   * 			object.</p>
+   * <p>An object that represents the result of running the function with the provided event object.</p>
    * @public
    */
   TestResult?: TestResult | undefined;
@@ -454,17 +433,13 @@ export interface UpdateCachePolicyRequest {
   CachePolicyConfig: CachePolicyConfig | undefined;
 
   /**
-   * <p>The unique identifier for the cache policy that you are updating. The identifier is
-   * 			returned in a cache behavior's <code>CachePolicyId</code> field in the response to
-   * 				<code>GetDistributionConfig</code>.</p>
+   * <p>The unique identifier for the cache policy that you are updating. The identifier is returned in a cache behavior's <code>CachePolicyId</code> field in the response to <code>GetDistributionConfig</code>.</p>
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The version of the cache policy that you are updating. The version is returned in the
-   * 			cache policy's <code>ETag</code> field in the response to
-   * 				<code>GetCachePolicyConfig</code>.</p>
+   * <p>The version of the cache policy that you are updating. The version is returned in the cache policy's <code>ETag</code> field in the response to <code>GetCachePolicyConfig</code>.</p>
    * @public
    */
   IfMatch?: string | undefined;
@@ -505,8 +480,7 @@ export interface UpdateCloudFrontOriginAccessIdentityRequest {
   Id: string | undefined;
 
   /**
-   * <p>The value of the <code>ETag</code> header that you received when retrieving the
-   * 			identity's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   * <p>The value of the <code>ETag</code> header that you received when retrieving the identity's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
   IfMatch?: string | undefined;
@@ -524,8 +498,7 @@ export interface UpdateCloudFrontOriginAccessIdentityResult {
   CloudFrontOriginAccessIdentity?: CloudFrontOriginAccessIdentity | undefined;
 
   /**
-   * <p>The current version of the configuration. For example:
-   * 			<code>E2QWRUHAPOMQZL</code>.</p>
+   * <p>The current version of the configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
   ETag?: string | undefined;
@@ -542,8 +515,7 @@ export interface UpdateConnectionGroupRequest {
   Id: string | undefined;
 
   /**
-   * <p>Enable IPv6 for the connection group. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesEnableIPv6">Enable IPv6</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * <p>Enable IPv6 for the connection group. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesEnableIPv6">Enable IPv6</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
   Ipv6Enabled?: boolean | undefined;
@@ -601,8 +573,7 @@ export interface UpdateContinuousDeploymentPolicyRequest {
   Id: string | undefined;
 
   /**
-   * <p>The current version (<code>ETag</code> value) of the continuous deployment policy that
-   * 			you are updating.</p>
+   * <p>The current version (<code>ETag</code> value) of the continuous deployment policy that you are updating.</p>
    * @public
    */
   IfMatch?: string | undefined;
@@ -619,8 +590,7 @@ export interface UpdateContinuousDeploymentPolicyResult {
   ContinuousDeploymentPolicy?: ContinuousDeploymentPolicy | undefined;
 
   /**
-   * <p>The version identifier for the current version of the continuous deployment
-   * 			policy.</p>
+   * <p>The version identifier for the current version of the continuous deployment policy.</p>
    * @public
    */
   ETag?: string | undefined;
@@ -644,8 +614,7 @@ export interface UpdateDistributionRequest {
   Id: string | undefined;
 
   /**
-   * <p>The value of the <code>ETag</code> header that you received when retrieving the
-   * 			distribution's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   * <p>The value of the <code>ETag</code> header that you received when retrieving the distribution's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
   IfMatch?: string | undefined;
@@ -663,8 +632,7 @@ export interface UpdateDistributionResult {
   Distribution?: Distribution | undefined;
 
   /**
-   * <p>The current version of the configuration. For example:
-   * 			<code>E2QWRUHAPOMQZL</code>.</p>
+   * <p>The current version of the configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
   ETag?: string | undefined;
@@ -711,7 +679,7 @@ export interface UpdateDistributionTenantRequest {
   ConnectionGroupId?: string | undefined;
 
   /**
-   * <p>The value of the <code>ETag</code> header that you received when retrieving the distribution tenant to update.  This value is returned in the response of the <code>GetDistributionTenant</code> API operation.</p>
+   * <p>The value of the <code>ETag</code> header that you received when retrieving the distribution tenant to update. This value is returned in the response of the <code>GetDistributionTenant</code> API operation.</p>
    * @public
    */
   IfMatch: string | undefined;
@@ -751,8 +719,7 @@ export interface UpdateDistributionTenantResult {
  */
 export interface UpdateDistributionWithStagingConfigRequest {
   /**
-   * <p>The identifier of the primary distribution to which you are copying a staging distribution's
-   * 			configuration.</p>
+   * <p>The identifier of the primary distribution to which you are copying a staging distribution's configuration.</p>
    * @public
    */
   Id: string | undefined;
@@ -764,11 +731,7 @@ export interface UpdateDistributionWithStagingConfigRequest {
   StagingDistributionId?: string | undefined;
 
   /**
-   * <p>The current versions (<code>ETag</code> values) of both primary and staging distributions.
-   * 			Provide these in the following format:</p>
-   *          <p>
-   *             <code>&lt;primary ETag&gt;, &lt;staging ETag&gt;</code>
-   *          </p>
+   * <p>The current versions (<code>ETag</code> values) of both primary and staging distributions. Provide these in the following format:</p> <p> <code>&lt;primary ETag&gt;, &lt;staging ETag&gt;</code> </p>
    * @public
    */
   IfMatch?: string | undefined;
@@ -779,8 +742,7 @@ export interface UpdateDistributionWithStagingConfigRequest {
  */
 export interface UpdateDistributionWithStagingConfigResult {
   /**
-   * <p>A distribution tells CloudFront where you want content to be delivered from, and the details
-   * 			about how to track and manage content delivery.</p>
+   * <p>A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.</p>
    * @public
    */
   Distribution?: Distribution | undefined;
@@ -855,8 +817,7 @@ export interface UpdateFieldLevelEncryptionConfigRequest {
   Id: string | undefined;
 
   /**
-   * <p>The value of the <code>ETag</code> header that you received when retrieving the
-   * 			configuration identity to update. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   * <p>The value of the <code>ETag</code> header that you received when retrieving the configuration identity to update. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
   IfMatch?: string | undefined;
@@ -873,8 +834,7 @@ export interface UpdateFieldLevelEncryptionConfigResult {
   FieldLevelEncryption?: FieldLevelEncryption | undefined;
 
   /**
-   * <p>The value of the <code>ETag</code> header that you received when updating the
-   * 			configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   * <p>The value of the <code>ETag</code> header that you received when updating the configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
   ETag?: string | undefined;
@@ -897,8 +857,7 @@ export interface UpdateFieldLevelEncryptionProfileRequest {
   Id: string | undefined;
 
   /**
-   * <p>The value of the <code>ETag</code> header that you received when retrieving the
-   * 			profile identity to update. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   * <p>The value of the <code>ETag</code> header that you received when retrieving the profile identity to update. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
   IfMatch?: string | undefined;
@@ -932,8 +891,7 @@ export interface UpdateFunctionRequest {
   Name: string | undefined;
 
   /**
-   * <p>The current version (<code>ETag</code> value) of the function that you are updating,
-   * 			which you can get using <code>DescribeFunction</code>.</p>
+   * <p>The current version (<code>ETag</code> value) of the function that you are updating, which you can get using <code>DescribeFunction</code>.</p>
    * @public
    */
   IfMatch: string | undefined;
@@ -945,9 +903,7 @@ export interface UpdateFunctionRequest {
   FunctionConfig: FunctionConfig | undefined;
 
   /**
-   * <p>The function code. For more information about writing a CloudFront function, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html">Writing
-   * 				function code for CloudFront Functions</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * <p>The function code. For more information about writing a CloudFront function, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html">Writing function code for CloudFront Functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
   FunctionCode: Uint8Array | undefined;
@@ -987,8 +943,7 @@ export interface UpdateKeyGroupRequest {
   Id: string | undefined;
 
   /**
-   * <p>The version of the key group that you are updating. The version is the key group's
-   * 				<code>ETag</code> value.</p>
+   * <p>The version of the key group that you are updating. The version is the key group's <code>ETag</code> value.</p>
    * @public
    */
   IfMatch?: string | undefined;
@@ -1068,8 +1023,7 @@ export interface UpdateOriginAccessControlRequest {
   Id: string | undefined;
 
   /**
-   * <p>The current version (<code>ETag</code> value) of the origin access control that you
-   * 			are updating.</p>
+   * <p>The current version (<code>ETag</code> value) of the origin access control that you are updating.</p>
    * @public
    */
   IfMatch?: string | undefined;
@@ -1103,17 +1057,13 @@ export interface UpdateOriginRequestPolicyRequest {
   OriginRequestPolicyConfig: OriginRequestPolicyConfig | undefined;
 
   /**
-   * <p>The unique identifier for the origin request policy that you are updating. The
-   * 			identifier is returned in a cache behavior's <code>OriginRequestPolicyId</code> field in
-   * 			the response to <code>GetDistributionConfig</code>.</p>
+   * <p>The unique identifier for the origin request policy that you are updating. The identifier is returned in a cache behavior's <code>OriginRequestPolicyId</code> field in the response to <code>GetDistributionConfig</code>.</p>
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The version of the origin request policy that you are updating. The version is
-   * 			returned in the origin request policy's <code>ETag</code> field in the response to
-   * 				<code>GetOriginRequestPolicyConfig</code>.</p>
+   * <p>The version of the origin request policy that you are updating. The version is returned in the origin request policy's <code>ETag</code> field in the response to <code>GetOriginRequestPolicyConfig</code>.</p>
    * @public
    */
   IfMatch?: string | undefined;
@@ -1153,8 +1103,7 @@ export interface UpdatePublicKeyRequest {
   Id: string | undefined;
 
   /**
-   * <p>The value of the <code>ETag</code> header that you received when retrieving the public
-   * 			key to update. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   * <p>The value of the <code>ETag</code> header that you received when retrieving the public key to update. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
   IfMatch?: string | undefined;
@@ -1182,16 +1131,13 @@ export interface UpdatePublicKeyResult {
  */
 export interface UpdateRealtimeLogConfigRequest {
   /**
-   * <p>Contains information about the Amazon Kinesis data stream where you are sending real-time
-   * 			log data.</p>
+   * <p>Contains information about the Amazon Kinesis data stream where you are sending real-time log data.</p>
    * @public
    */
   EndPoints?: EndPoint[] | undefined;
 
   /**
-   * <p>A list of fields to include in each real-time log record.</p>
-   *          <p>For more information about fields, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields">Real-time log configuration fields</a> in the
-   * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+   * <p>A list of fields to include in each real-time log record.</p> <p>For more information about fields, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields">Real-time log configuration fields</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
   Fields?: string[] | undefined;
@@ -1209,9 +1155,7 @@ export interface UpdateRealtimeLogConfigRequest {
   ARN?: string | undefined;
 
   /**
-   * <p>The sampling rate for this real-time log configuration. The sampling rate determines
-   * 			the percentage of viewer requests that are represented in the real-time log data. You
-   * 			must provide an integer between 1 and 100, inclusive.</p>
+   * <p>The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. You must provide an integer between 1 and 100, inclusive.</p>
    * @public
    */
   SamplingRate?: number | undefined;
@@ -1245,9 +1189,7 @@ export interface UpdateResponseHeadersPolicyRequest {
   Id: string | undefined;
 
   /**
-   * <p>The version of the response headers policy that you are updating.</p>
-   *          <p>The version is returned in the cache policy's <code>ETag</code> field in the response
-   * 			to <code>GetResponseHeadersPolicyConfig</code>.</p>
+   * <p>The version of the response headers policy that you are updating.</p> <p>The version is returned in the cache policy's <code>ETag</code> field in the response to <code>GetResponseHeadersPolicyConfig</code>.</p>
    * @public
    */
   IfMatch?: string | undefined;
@@ -1288,8 +1230,7 @@ export interface UpdateStreamingDistributionRequest {
   Id: string | undefined;
 
   /**
-   * <p>The value of the <code>ETag</code> header that you received when retrieving the
-   * 			streaming distribution's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   * <p>The value of the <code>ETag</code> header that you received when retrieving the streaming distribution's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
   IfMatch?: string | undefined;
@@ -1307,8 +1248,7 @@ export interface UpdateStreamingDistributionResult {
   StreamingDistribution?: StreamingDistribution | undefined;
 
   /**
-   * <p>The current version of the configuration. For example:
-   * 			<code>E2QWRUHAPOMQZL</code>.</p>
+   * <p>The current version of the configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    * @public
    */
   ETag?: string | undefined;
@@ -1365,7 +1305,7 @@ export interface VerifyDnsConfigurationRequest {
   Domain?: string | undefined;
 
   /**
-   * <p>The ID of the distribution tenant.</p>
+   * <p>The identifier of the distribution tenant. You can specify the ARN, ID, or name of the distribution tenant.</p>
    * @public
    */
   Identifier: string | undefined;
@@ -1398,21 +1338,7 @@ export interface DnsConfiguration {
   Domain: string | undefined;
 
   /**
-   * <p>The status of your domain name.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>valid-configuration</code>: The domain name is correctly configured and points to the correct routing endpoint of the connection group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>invalid-configuration</code>: There is either a missing DNS record or the DNS record exists but it's using an incorrect routing endpoint. Update the DNS record to point to the correct routing endpoint.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unknown-configuration</code>: CloudFront can't validate your DNS configuration. This status can appear if CloudFront can't verify the DNS record, or the DNS lookup request failed or timed out.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of your domain name.</p> <ul> <li> <p> <code>valid-configuration</code>: The domain name is correctly configured and points to the correct routing endpoint of the connection group.</p> </li> <li> <p> <code>invalid-configuration</code>: There is either a missing DNS record or the DNS record exists but it's using an incorrect routing endpoint. Update the DNS record to point to the correct routing endpoint.</p> </li> <li> <p> <code>unknown-configuration</code>: CloudFront can't validate your DNS configuration. This status can appear if CloudFront can't verify the DNS record, or the DNS lookup request failed or timed out.</p> </li> </ul>
    * @public
    */
   Status: DnsConfigurationStatus | undefined;

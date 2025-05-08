@@ -28,10 +28,7 @@ export interface DeleteOriginAccessControlCommandInput extends DeleteOriginAcces
 export interface DeleteOriginAccessControlCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a CloudFront origin access control.</p>
- *          <p>You cannot delete an origin access control if it's in use. First, update all
- * 			distributions to remove the origin access control from all origins, then delete the
- * 			origin access control.</p>
+ * <p>Deletes a CloudFront origin access control.</p> <p>You cannot delete an origin access control if it's in use. First, update all distributions to remove the origin access control from all origins, then delete the origin access control.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,12 +61,10 @@ export interface DeleteOriginAccessControlCommandOutput extends __MetadataBearer
  *  <p>The origin access control does not exist.</p>
  *
  * @throws {@link OriginAccessControlInUse} (client fault)
- *  <p>Cannot delete the origin access control because it's in use by one or more
- * 			distributions.</p>
+ *  <p>Cannot delete the origin access control because it's in use by one or more distributions.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>

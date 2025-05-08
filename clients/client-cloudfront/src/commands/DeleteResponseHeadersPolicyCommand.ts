@@ -28,13 +28,7 @@ export interface DeleteResponseHeadersPolicyCommandInput extends DeleteResponseH
 export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a response headers policy.</p>
- *          <p>You cannot delete a response headers policy if it's attached to a cache behavior.
- * 			First update your distributions to remove the response headers policy from all cache
- * 			behaviors, then delete the response headers policy.</p>
- *          <p>To delete a response headers policy, you must provide the policy's identifier and
- * 			version. To get these values, you can use <code>ListResponseHeadersPolicies</code> or
- * 				<code>GetResponseHeadersPolicy</code>.</p>
+ * <p>Deletes a response headers policy.</p> <p>You cannot delete a response headers policy if it's attached to a cache behavior. First update your distributions to remove the response headers policy from all cache behaviors, then delete the response headers policy.</p> <p>To delete a response headers policy, you must provide the policy's identifier and version. To get these values, you can use <code>ListResponseHeadersPolicies</code> or <code>GetResponseHeadersPolicy</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,12 +64,10 @@ export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBear
  *  <p>The response headers policy does not exist.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link ResponseHeadersPolicyInUse} (client fault)
- *  <p>Cannot delete the response headers policy because it is attached to one or more cache
- * 			behaviors in a CloudFront distribution.</p>
+ *  <p>Cannot delete the response headers policy because it is attached to one or more cache behaviors in a CloudFront distribution.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>

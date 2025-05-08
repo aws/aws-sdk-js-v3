@@ -28,13 +28,7 @@ export interface DeleteCachePolicyCommandInput extends DeleteCachePolicyRequest 
 export interface DeleteCachePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a cache policy.</p>
- *          <p>You cannot delete a cache policy if it's attached to a cache behavior. First update
- * 			your distributions to remove the cache policy from all cache behaviors, then delete the
- * 			cache policy.</p>
- *          <p>To delete a cache policy, you must provide the policy's identifier and version. To get
- * 			these values, you can use <code>ListCachePolicies</code> or
- * 			<code>GetCachePolicy</code>.</p>
+ * <p>Deletes a cache policy.</p> <p>You cannot delete a cache policy if it's attached to a cache behavior. First update your distributions to remove the cache policy from all cache behaviors, then delete the cache policy.</p> <p>To delete a cache policy, you must provide the policy's identifier and version. To get these values, you can use <code>ListCachePolicies</code> or <code>GetCachePolicy</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +55,7 @@ export interface DeleteCachePolicyCommandOutput extends __MetadataBearer {}
  *  <p>Access denied.</p>
  *
  * @throws {@link CachePolicyInUse} (client fault)
- *  <p>Cannot delete the cache policy because it is attached to one or more cache
- * 			behaviors.</p>
+ *  <p>Cannot delete the cache policy because it is attached to one or more cache behaviors.</p>
  *
  * @throws {@link IllegalDelete} (client fault)
  *  <p>Deletion is not allowed for this entity.</p>
@@ -74,8 +67,7 @@ export interface DeleteCachePolicyCommandOutput extends __MetadataBearer {}
  *  <p>The cache policy does not exist.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>

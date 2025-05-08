@@ -64,8 +64,7 @@ export interface DeleteConnectionGroupCommandOutput extends __MetadataBearer {}
  *  <p>The <code>If-Match</code> version is missing or not valid.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link ResourceNotDisabled} (client fault)
  *  <p>The specified CloudFront resource hasn't been disabled yet.</p>

@@ -33,28 +33,7 @@ export interface UpdateContinuousDeploymentPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates a continuous deployment policy. You can update a continuous deployment policy
- * 			to enable or disable it, to change the percentage of traffic that it sends to the
- * 			staging distribution, or to change the staging distribution that it sends traffic
- * 			to.</p>
- *          <p>When you update a continuous deployment policy configuration, all the fields are
- * 			updated with the values that are provided in the request. You cannot update some fields
- * 			independent of others. To update a continuous deployment policy configuration:</p>
- *          <ol>
- *             <li>
- *                <p>Use <code>GetContinuousDeploymentPolicyConfig</code> to get the current
- * 					configuration.</p>
- *             </li>
- *             <li>
- *                <p>Locally modify the fields in the continuous deployment policy configuration
- * 					that you want to update.</p>
- *             </li>
- *             <li>
- *                <p>Use <code>UpdateContinuousDeploymentPolicy</code>, providing the entire
- * 					continuous deployment policy configuration, including the fields that you
- * 					modified and those that you didn't.</p>
- *             </li>
- *          </ol>
+ * <p>Updates a continuous deployment policy. You can update a continuous deployment policy to enable or disable it, to change the percentage of traffic that it sends to the staging distribution, or to change the staging distribution that it sends traffic to.</p> <p>When you update a continuous deployment policy configuration, all the fields are updated with the values that are provided in the request. You cannot update some fields independent of others. To update a continuous deployment policy configuration:</p> <ol> <li> <p>Use <code>GetContinuousDeploymentPolicyConfig</code> to get the current configuration.</p> </li> <li> <p>Locally modify the fields in the continuous deployment policy configuration that you want to update.</p> </li> <li> <p>Use <code>UpdateContinuousDeploymentPolicy</code>, providing the entire continuous deployment policy configuration, including the fields that you modified and those that you didn't.</p> </li> </ol>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -133,8 +112,7 @@ export interface UpdateContinuousDeploymentPolicyCommandOutput
  *  <p>Access denied.</p>
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
- * 			match.</p>
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
@@ -146,8 +124,7 @@ export interface UpdateContinuousDeploymentPolicyCommandOutput
  *  <p>The continuous deployment policy doesn't exist.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link StagingDistributionInUse} (client fault)
  *  <p>A continuous deployment policy for this staging distribution already exists.</p>

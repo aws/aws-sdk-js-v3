@@ -28,13 +28,7 @@ export interface GetKeyGroupCommandInput extends GetKeyGroupRequest {}
 export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataBearer {}
 
 /**
- * <p>Gets a key group, including the date and time when the key group was last
- * 			modified.</p>
- *          <p>To get a key group, you must provide the key group's identifier. If the key group is
- * 			referenced in a distribution's cache behavior, you can get the key group's identifier
- * 			using <code>ListDistributions</code> or <code>GetDistribution</code>. If the key group
- * 			is not referenced in a cache behavior, you can get the identifier using
- * 				<code>ListKeyGroups</code>.</p>
+ * <p>Gets a key group, including the date and time when the key group was last modified.</p> <p>To get a key group, you must provide the key group's identifier. If the key group is referenced in a distribution's cache behavior, you can get the key group's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the key group is not referenced in a cache behavior, you can get the identifier using <code>ListKeyGroups</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

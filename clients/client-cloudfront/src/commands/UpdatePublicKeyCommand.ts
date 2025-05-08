@@ -28,8 +28,7 @@ export interface UpdatePublicKeyCommandInput extends UpdatePublicKeyRequest {}
 export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __MetadataBearer {}
 
 /**
- * <p>Update public key information. Note that the only value you can change is the
- * 			comment.</p>
+ * <p>Update public key information. Note that the only value you can change is the comment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,8 +88,7 @@ export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __M
  *  <p>The specified public key doesn't exist.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>

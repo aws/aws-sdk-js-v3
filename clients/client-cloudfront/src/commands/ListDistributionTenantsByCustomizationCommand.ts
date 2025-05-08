@@ -37,8 +37,7 @@ export interface ListDistributionTenantsByCustomizationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists distribution tenants by the customization that you specify.</p>
- *          <p>You must specify either the <code>CertificateArn</code> parameter or <code>WebACLArn</code> parameter, but not both in the same request.</p>
+ * <p>Lists distribution tenants by the customization that you specify.</p> <p>You must specify either the <code>CertificateArn</code> parameter or <code>WebACLArn</code> parameter, but not both in the same request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

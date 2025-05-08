@@ -61,8 +61,7 @@ export interface DeletePublicKeyCommandOutput extends __MetadataBearer {}
  *  <p>The specified public key doesn't exist.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link PublicKeyInUse} (client fault)
  *  <p>The specified public key is in use.</p>

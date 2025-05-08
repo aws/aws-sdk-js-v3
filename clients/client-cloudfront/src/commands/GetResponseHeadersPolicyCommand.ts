@@ -28,14 +28,7 @@ export interface GetResponseHeadersPolicyCommandInput extends GetResponseHeaders
 export interface GetResponseHeadersPolicyCommandOutput extends GetResponseHeadersPolicyResult, __MetadataBearer {}
 
 /**
- * <p>Gets a response headers policy, including metadata (the policy's identifier and the
- * 			date and time when the policy was last modified).</p>
- *          <p>To get a response headers policy, you must provide the policy's identifier. If the
- * 			response headers policy is attached to a distribution's cache behavior, you can get the
- * 			policy's identifier using <code>ListDistributions</code> or
- * 			<code>GetDistribution</code>. If the response headers policy is not attached to a cache
- * 			behavior, you can get the identifier using
- * 			<code>ListResponseHeadersPolicies</code>.</p>
+ * <p>Gets a response headers policy, including metadata (the policy's identifier and the date and time when the policy was last modified).</p> <p>To get a response headers policy, you must provide the policy's identifier. If the response headers policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the response headers policy is not attached to a cache behavior, you can get the identifier using <code>ListResponseHeadersPolicies</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

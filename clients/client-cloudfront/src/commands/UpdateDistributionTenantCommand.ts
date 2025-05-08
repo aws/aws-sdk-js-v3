@@ -140,8 +140,7 @@ export interface UpdateDistributionTenantCommandOutput extends UpdateDistributio
  *  <p>The CNAME specified is already defined for CloudFront.</p>
  *
  * @throws {@link EntityAlreadyExists} (client fault)
- *  <p>The entity already exists. You must provide a unique
- * 			entity.</p>
+ *  <p>The entity already exists. You must provide a unique entity.</p>
  *
  * @throws {@link EntityLimitExceeded} (client fault)
  *  <p>The entity limit has been exceeded.</p>
@@ -159,8 +158,7 @@ export interface UpdateDistributionTenantCommandOutput extends UpdateDistributio
  *  <p>The <code>If-Match</code> version is missing or not valid.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>

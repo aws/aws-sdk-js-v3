@@ -28,13 +28,7 @@ export interface DeleteOriginRequestPolicyCommandInput extends DeleteOriginReque
 export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an origin request policy.</p>
- *          <p>You cannot delete an origin request policy if it's attached to any cache behaviors.
- * 			First update your distributions to remove the origin request policy from all cache
- * 			behaviors, then delete the origin request policy.</p>
- *          <p>To delete an origin request policy, you must provide the policy's identifier and
- * 			version. To get the identifier, you can use <code>ListOriginRequestPolicies</code> or
- * 				<code>GetOriginRequestPolicy</code>.</p>
+ * <p>Deletes an origin request policy.</p> <p>You cannot delete an origin request policy if it's attached to any cache behaviors. First update your distributions to remove the origin request policy from all cache behaviors, then delete the origin request policy.</p> <p>To delete an origin request policy, you must provide the policy's identifier and version. To get the identifier, you can use <code>ListOriginRequestPolicies</code> or <code>GetOriginRequestPolicy</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,12 +64,10 @@ export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer
  *  <p>The origin request policy does not exist.</p>
  *
  * @throws {@link OriginRequestPolicyInUse} (client fault)
- *  <p>Cannot delete the origin request policy because it is attached to one or more cache
- * 			behaviors.</p>
+ *  <p>Cannot delete the origin request policy because it is attached to one or more cache behaviors.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>

@@ -123,8 +123,7 @@ export interface CreateFieldLevelEncryptionConfigCommandOutput
  *  <p>The specified configuration for field-level encryption already exists.</p>
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
- * 			match.</p>
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
@@ -136,16 +135,13 @@ export interface CreateFieldLevelEncryptionConfigCommandOutput
  *  <p>No profile specified for the field-level encryption query argument.</p>
  *
  * @throws {@link TooManyFieldLevelEncryptionConfigs} (client fault)
- *  <p>The maximum number of configurations for field-level encryption have been
- * 			created.</p>
+ *  <p>The maximum number of configurations for field-level encryption have been created.</p>
  *
  * @throws {@link TooManyFieldLevelEncryptionContentTypeProfiles} (client fault)
- *  <p>The maximum number of content type profiles for field-level encryption have been
- * 			created.</p>
+ *  <p>The maximum number of content type profiles for field-level encryption have been created.</p>
  *
  * @throws {@link TooManyFieldLevelEncryptionQueryArgProfiles} (client fault)
- *  <p>The maximum number of query arg profiles for field-level encryption have been
- * 			created.</p>
+ *  <p>The maximum number of query arg profiles for field-level encryption have been created.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>

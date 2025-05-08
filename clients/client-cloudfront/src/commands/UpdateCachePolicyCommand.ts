@@ -28,24 +28,7 @@ export interface UpdateCachePolicyCommandInput extends UpdateCachePolicyRequest 
 export interface UpdateCachePolicyCommandOutput extends UpdateCachePolicyResult, __MetadataBearer {}
 
 /**
- * <p>Updates a cache policy configuration.</p>
- *          <p>When you update a cache policy configuration, all the fields are updated with the
- * 			values provided in the request. You cannot update some fields independent of others. To
- * 			update a cache policy configuration:</p>
- *          <ol>
- *             <li>
- *                <p>Use <code>GetCachePolicyConfig</code> to get the current configuration.</p>
- *             </li>
- *             <li>
- *                <p>Locally modify the fields in the cache policy configuration that you want to
- * 					update.</p>
- *             </li>
- *             <li>
- *                <p>Call <code>UpdateCachePolicy</code> by providing the entire cache policy
- * 					configuration, including the fields that you modified and those that you
- * 					didn't.</p>
- *             </li>
- *          </ol>
+ * <p>Updates a cache policy configuration.</p> <p>When you update a cache policy configuration, all the fields are updated with the values provided in the request. You cannot update some fields independent of others. To update a cache policy configuration:</p> <ol> <li> <p>Use <code>GetCachePolicyConfig</code> to get the current configuration.</p> </li> <li> <p>Locally modify the fields in the cache policy configuration that you want to update.</p> </li> <li> <p>Call <code>UpdateCachePolicy</code> by providing the entire cache policy configuration, including the fields that you modified and those that you didn't.</p> </li> </ol>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -154,15 +137,13 @@ export interface UpdateCachePolicyCommandOutput extends UpdateCachePolicyResult,
  *  <p>Access denied.</p>
  *
  * @throws {@link CachePolicyAlreadyExists} (client fault)
- *  <p>A cache policy with this name already exists. You must provide a unique name. To
- * 			modify an existing cache policy, use <code>UpdateCachePolicy</code>.</p>
+ *  <p>A cache policy with this name already exists. You must provide a unique name. To modify an existing cache policy, use <code>UpdateCachePolicy</code>.</p>
  *
  * @throws {@link IllegalUpdate} (client fault)
  *  <p>The update contains modifications that are not allowed.</p>
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
- * 			match.</p>
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
@@ -174,23 +155,16 @@ export interface UpdateCachePolicyCommandOutput extends UpdateCachePolicyResult,
  *  <p>The cache policy does not exist.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link TooManyCookiesInCachePolicy} (client fault)
- *  <p>The number of cookies in the cache policy exceeds the maximum. For more information,
- * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The number of cookies in the cache policy exceeds the maximum. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyHeadersInCachePolicy} (client fault)
- *  <p>The number of headers in the cache policy exceeds the maximum. For more information,
- * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The number of headers in the cache policy exceeds the maximum. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyQueryStringsInCachePolicy} (client fault)
- *  <p>The number of query strings in the cache policy exceeds the maximum. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The number of query strings in the cache policy exceeds the maximum. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>

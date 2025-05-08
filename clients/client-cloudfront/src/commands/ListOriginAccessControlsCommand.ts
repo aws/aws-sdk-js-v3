@@ -28,17 +28,7 @@ export interface ListOriginAccessControlsCommandInput extends ListOriginAccessCo
 export interface ListOriginAccessControlsCommandOutput extends ListOriginAccessControlsResult, __MetadataBearer {}
 
 /**
- * <p>Gets the list of CloudFront origin access controls (OACs) in this Amazon Web Services account.</p>
- *          <p>You can optionally specify the maximum number of items to receive in the response. If
- * 			the total number of items in the list exceeds the maximum that you specify, or the
- * 			default maximum, the response is paginated. To get the next page of items, send another
- * 			request that specifies the <code>NextMarker</code> value from the current response as
- * 			the <code>Marker</code> value in the next request.</p>
- *          <note>
- *             <p>If you're not using origin access controls for your Amazon Web Services account, the
- * 					<code>ListOriginAccessControls</code> operation doesn't return the
- * 					<code>Items</code> element in the response.</p>
- *          </note>
+ * <p>Gets the list of CloudFront origin access controls (OACs) in this Amazon Web Services account.</p> <p>You can optionally specify the maximum number of items to receive in the response. If the total number of items in the list exceeds the maximum that you specify, or the default maximum, the response is paginated. To get the next page of items, send another request that specifies the <code>NextMarker</code> value from the current response as the <code>Marker</code> value in the next request.</p> <note> <p>If you're not using origin access controls for your Amazon Web Services account, the <code>ListOriginAccessControls</code> operation doesn't return the <code>Items</code> element in the response.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,33 +28,7 @@ export interface CreateOriginRequestPolicyCommandInput extends CreateOriginReque
 export interface CreateOriginRequestPolicyCommandOutput extends CreateOriginRequestPolicyResult, __MetadataBearer {}
 
 /**
- * <p>Creates an origin request policy.</p>
- *          <p>After you create an origin request policy, you can attach it to one or more cache
- * 			behaviors. When it's attached to a cache behavior, the origin request policy determines
- * 			the values that CloudFront includes in requests that it sends to the origin. Each request that
- * 			CloudFront sends to the origin includes the following:</p>
- *          <ul>
- *             <li>
- *                <p>The request body and the URL path (without the domain name) from the viewer
- * 					request.</p>
- *             </li>
- *             <li>
- *                <p>The headers that CloudFront automatically includes in every origin request,
- * 					including <code>Host</code>, <code>User-Agent</code>, and
- * 						<code>X-Amz-Cf-Id</code>.</p>
- *             </li>
- *             <li>
- *                <p>All HTTP headers, cookies, and URL query strings that are specified in the
- * 					cache policy or the origin request policy. These can include items from the
- * 					viewer request and, in the case of headers, additional ones that are added by
- * 					CloudFront.</p>
- *             </li>
- *          </ul>
- *          <p>CloudFront sends a request when it can't find a valid object in its cache that matches the
- * 			request. If you want to send values to the origin and also include them in the cache
- * 			key, use <code>CachePolicy</code>.</p>
- *          <p>For more information about origin request policies, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html">Controlling origin requests</a> in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ * <p>Creates an origin request policy.</p> <p>After you create an origin request policy, you can attach it to one or more cache behaviors. When it's attached to a cache behavior, the origin request policy determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:</p> <ul> <li> <p>The request body and the URL path (without the domain name) from the viewer request.</p> </li> <li> <p>The headers that CloudFront automatically includes in every origin request, including <code>Host</code>, <code>User-Agent</code>, and <code>X-Amz-Cf-Id</code>.</p> </li> <li> <p>All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.</p> </li> </ul> <p>CloudFront sends a request when it can't find a valid object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use <code>CachePolicy</code>.</p> <p>For more information about origin request policies, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html">Controlling origin requests</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -148,36 +122,25 @@ export interface CreateOriginRequestPolicyCommandOutput extends CreateOriginRequ
  *  <p>Access denied.</p>
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
- * 			match.</p>
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
  *
  * @throws {@link OriginRequestPolicyAlreadyExists} (client fault)
- *  <p>An origin request policy with this name already exists. You must provide a unique
- * 			name. To modify an existing origin request policy, use
- * 				<code>UpdateOriginRequestPolicy</code>.</p>
+ *  <p>An origin request policy with this name already exists. You must provide a unique name. To modify an existing origin request policy, use <code>UpdateOriginRequestPolicy</code>.</p>
  *
  * @throws {@link TooManyCookiesInOriginRequestPolicy} (client fault)
- *  <p>The number of cookies in the origin request policy exceeds the maximum. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The number of cookies in the origin request policy exceeds the maximum. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyHeadersInOriginRequestPolicy} (client fault)
- *  <p>The number of headers in the origin request policy exceeds the maximum. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The number of headers in the origin request policy exceeds the maximum. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyOriginRequestPolicies} (client fault)
- *  <p>You have reached the maximum number of origin request policies for this Amazon Web Services account.
- * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>You have reached the maximum number of origin request policies for this Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyQueryStringsInOriginRequestPolicy} (client fault)
- *  <p>The number of query strings in the origin request policy exceeds the maximum. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The number of query strings in the origin request policy exceeds the maximum. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>

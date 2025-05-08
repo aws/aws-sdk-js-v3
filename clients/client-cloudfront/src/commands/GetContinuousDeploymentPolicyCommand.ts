@@ -33,8 +33,7 @@ export interface GetContinuousDeploymentPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets a continuous deployment policy, including metadata (the policy's identifier and
- * 			the date and time when the policy was last modified).</p>
+ * <p>Gets a continuous deployment policy, including metadata (the policy's identifier and the date and time when the policy was last modified).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

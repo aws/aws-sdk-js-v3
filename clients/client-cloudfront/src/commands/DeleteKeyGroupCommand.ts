@@ -28,13 +28,7 @@ export interface DeleteKeyGroupCommandInput extends DeleteKeyGroupRequest {}
 export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a key group.</p>
- *          <p>You cannot delete a key group that is referenced in a cache behavior. First update
- * 			your distributions to remove the key group from all cache behaviors, then delete the key
- * 			group.</p>
- *          <p>To delete a key group, you must provide the key group's identifier and version. To get
- * 			these values, use <code>ListKeyGroups</code> followed by <code>GetKeyGroup</code> or
- * 				<code>GetKeyGroupConfig</code>.</p>
+ * <p>Deletes a key group.</p> <p>You cannot delete a key group that is referenced in a cache behavior. First update your distributions to remove the key group from all cache behaviors, then delete the key group.</p> <p>To delete a key group, you must provide the key group's identifier and version. To get these values, use <code>ListKeyGroups</code> followed by <code>GetKeyGroup</code> or <code>GetKeyGroupConfig</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +58,7 @@ export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
  *  <p>A resource that was specified is not valid.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link ResourceInUse} (client fault)
  *  <p>Cannot delete this resource because it is in use.</p>

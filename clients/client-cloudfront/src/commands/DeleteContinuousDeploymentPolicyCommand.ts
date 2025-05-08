@@ -31,10 +31,7 @@ export interface DeleteContinuousDeploymentPolicyCommandInput extends DeleteCont
 export interface DeleteContinuousDeploymentPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a continuous deployment policy.</p>
- *          <p>You cannot delete a continuous deployment policy that's attached to a primary
- * 			distribution. First update your distribution to remove the continuous deployment policy,
- * 			then you can delete the policy.</p>
+ * <p>Deletes a continuous deployment policy.</p> <p>You cannot delete a continuous deployment policy that's attached to a primary distribution. First update your distribution to remove the continuous deployment policy, then you can delete the policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +58,7 @@ export interface DeleteContinuousDeploymentPolicyCommandOutput extends __Metadat
  *  <p>Access denied.</p>
  *
  * @throws {@link ContinuousDeploymentPolicyInUse} (client fault)
- *  <p>You cannot delete a continuous deployment policy that is associated with a primary
- * 			distribution.</p>
+ *  <p>You cannot delete a continuous deployment policy that is associated with a primary distribution.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
@@ -74,8 +70,7 @@ export interface DeleteContinuousDeploymentPolicyCommandOutput extends __Metadat
  *  <p>The continuous deployment policy doesn't exist.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>

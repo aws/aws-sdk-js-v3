@@ -94,19 +94,16 @@ export interface CreateInvalidationForDistributionTenantCommandOutput
  *  <p>The entity was not found.</p>
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
- * 			match.</p>
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
  *
  * @throws {@link MissingBody} (client fault)
- *  <p>This operation requires a body. Ensure that the body is present and the
- * 				<code>Content-Type</code> header is set.</p>
+ *  <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
  *
  * @throws {@link TooManyInvalidationsInProgress} (client fault)
- *  <p>You have exceeded the maximum number of allowable InProgress invalidation batch
- * 			requests, or invalidation objects.</p>
+ *  <p>You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>

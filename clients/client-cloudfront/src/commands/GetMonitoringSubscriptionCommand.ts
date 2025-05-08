@@ -28,8 +28,7 @@ export interface GetMonitoringSubscriptionCommandInput extends GetMonitoringSubs
 export interface GetMonitoringSubscriptionCommandOutput extends GetMonitoringSubscriptionResult, __MetadataBearer {}
 
 /**
- * <p>Gets information about whether additional CloudWatch metrics are enabled for the
- * 			specified CloudFront distribution.</p>
+ * <p>Gets information about whether additional CloudWatch metrics are enabled for the specified CloudFront distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

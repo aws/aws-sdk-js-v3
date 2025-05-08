@@ -75,8 +75,7 @@ export interface CreatePublicKeyCommandOutput extends CreatePublicKeyResult, __M
  *  <p>The specified public key already exists.</p>
  *
  * @throws {@link TooManyPublicKeys} (client fault)
- *  <p>The maximum number of public keys for field-level encryption have been created. To
- * 			create a new public key, delete one of the existing keys.</p>
+ *  <p>The maximum number of public keys for field-level encryption have been created. To create a new public key, delete one of the existing keys.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>

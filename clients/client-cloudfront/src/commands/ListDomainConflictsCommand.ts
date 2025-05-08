@@ -28,8 +28,7 @@ export interface ListDomainConflictsCommandInput extends ListDomainConflictsRequ
 export interface ListDomainConflictsCommandOutput extends ListDomainConflictsResult, __MetadataBearer {}
 
 /**
- * <p>Lists existing domain associations that conflict with the domain that you specify.</p>
- *          <p>You can use this API operation when transferring domains to identify potential domain conflicts. Domain conflicts must be resolved first before they can be moved.</p>
+ * <p>Lists existing domain associations that conflict with the domain that you specify.</p> <p>You can use this API operation when transferring domains to identify potential domain conflicts. Domain conflicts must be resolved first before they can be moved.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

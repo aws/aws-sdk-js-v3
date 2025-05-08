@@ -97,15 +97,13 @@ export interface CreateVpcOriginCommandOutput extends CreateVpcOriginResult, __M
  *  <p>Access denied.</p>
  *
  * @throws {@link EntityAlreadyExists} (client fault)
- *  <p>The entity already exists. You must provide a unique
- * 			entity.</p>
+ *  <p>The entity already exists. You must provide a unique entity.</p>
  *
  * @throws {@link EntityLimitExceeded} (client fault)
  *  <p>The entity limit has been exceeded.</p>
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
- * 			match.</p>
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>

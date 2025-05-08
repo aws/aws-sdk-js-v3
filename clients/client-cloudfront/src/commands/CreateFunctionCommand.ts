@@ -32,17 +32,7 @@ export interface CreateFunctionCommandInput extends CreateFunctionRequest {}
 export interface CreateFunctionCommandOutput extends CreateFunctionResult, __MetadataBearer {}
 
 /**
- * <p>Creates a CloudFront function.</p>
- *          <p>To create a function, you provide the function code and some configuration information
- * 			about the function. The response contains an Amazon Resource Name (ARN) that uniquely
- * 			identifies the function.</p>
- *          <p>When you create a function, it's in the <code>DEVELOPMENT</code> stage. In this stage,
- * 			you can test the function with <code>TestFunction</code>, and update it with
- * 				<code>UpdateFunction</code>.</p>
- *          <p>When you're ready to use your function with a CloudFront distribution, use
- * 				<code>PublishFunction</code> to copy the function from the <code>DEVELOPMENT</code>
- * 			stage to <code>LIVE</code>. When it's live, you can attach the function to a
- * 			distribution's cache behavior, using the function's ARN.</p>
+ * <p>Creates a CloudFront function.</p> <p>To create a function, you provide the function code and some configuration information about the function. The response contains an Amazon Resource Name (ARN) that uniquely identifies the function.</p> <p>When you create a function, it's in the <code>DEVELOPMENT</code> stage. In this stage, you can test the function with <code>TestFunction</code>, and update it with <code>UpdateFunction</code>.</p> <p>When you're ready to use your function with a CloudFront distribution, use <code>PublishFunction</code> to copy the function from the <code>DEVELOPMENT</code> stage to <code>LIVE</code>. When it's live, you can attach the function to a distribution's cache behavior, using the function's ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,21 +93,16 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link FunctionAlreadyExists} (client fault)
- *  <p>A function with the same name already exists in this Amazon Web Services account. To create a
- * 			function, you must provide a unique name. To update an existing function, use
- * 				<code>UpdateFunction</code>.</p>
+ *  <p>A function with the same name already exists in this Amazon Web Services account. To create a function, you must provide a unique name. To update an existing function, use <code>UpdateFunction</code>.</p>
  *
  * @throws {@link FunctionSizeLimitExceeded} (client fault)
- *  <p>The function is too large. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The function is too large. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
  *
  * @throws {@link TooManyFunctions} (client fault)
- *  <p>You have reached the maximum number of CloudFront functions for this Amazon Web Services account. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>You have reached the maximum number of CloudFront functions for this Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>This operation is not supported in this Amazon Web Services Region.</p>

@@ -33,8 +33,7 @@ export interface ListFieldLevelEncryptionConfigsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>List all field-level encryption configurations that have been created in CloudFront for this
- * 			account.</p>
+ * <p>List all field-level encryption configurations that have been created in CloudFront for this account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

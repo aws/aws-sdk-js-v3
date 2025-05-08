@@ -80,8 +80,7 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
  *  <p>The update contains modifications that are not allowed.</p>
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
- * 			match.</p>
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
@@ -90,15 +89,13 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
  *  <p>The <code>If-Match</code> version is missing or not valid.</p>
  *
  * @throws {@link MissingBody} (client fault)
- *  <p>This operation requires a body. Ensure that the body is present and the
- * 				<code>Content-Type</code> header is set.</p>
+ *  <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
  *
  * @throws {@link NoSuchCloudFrontOriginAccessIdentity} (client fault)
  *  <p>The specified origin access identity does not exist.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
