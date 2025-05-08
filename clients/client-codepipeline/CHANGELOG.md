@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.806.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.805.0...v3.806.0) (2025-05-08)
+
+
+### Features
+
+* **client-codepipeline:** Add support for Secrets Manager and Plaintext environment variable types in Commands action ([753bf4e](https://github.com/aws/aws-sdk-js-v3/commit/753bf4e0350ad8ac18d4c10fffe3983e77642411))
+
+
+
+
+
 # [3.804.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.803.0...v3.804.0) (2025-05-06)
 
 **Note:** Version bump only for package @aws-sdk/client-codepipeline

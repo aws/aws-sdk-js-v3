@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.806.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.805.0...v3.806.0) (2025-05-08)
+
+
+### Features
+
+* **client-sso-admin:** Update PutPermissionBoundaryToPermissionSet API's managedPolicyArn pattern to allow valid ARN only. Update ApplicationName to allow white spaces. ([bc0de81](https://github.com/aws/aws-sdk-js-v3/commit/bc0de81a84677c2146a7ffe4f3650bdb80005792))
+
+
+
+
+
 # [3.804.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.803.0...v3.804.0) (2025-05-06)
 
 **Note:** Version bump only for package @aws-sdk/client-sso-admin

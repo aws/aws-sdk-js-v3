@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.806.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.805.0...v3.806.0) (2025-05-08)
+
+
+### Bug Fixes
+
+* **codegen:** allow overwriting protocol priority order ([#7066](https://github.com/aws/aws-sdk-js-v3/issues/7066)) ([dc4edaa](https://github.com/aws/aws-sdk-js-v3/commit/dc4edaa00e876722bb78ac5d660fb2bc78763be4))
+
+
+### Features
+
+* **client-codepipeline:** Add support for Secrets Manager and Plaintext environment variable types in Commands action ([753bf4e](https://github.com/aws/aws-sdk-js-v3/commit/753bf4e0350ad8ac18d4c10fffe3983e77642411))
+* **client-ec2:** Launching the feature to support ENA queues offering flexibility to support multiple queues per Enhanced Network Interface (ENI) ([b9b5b6c](https://github.com/aws/aws-sdk-js-v3/commit/b9b5b6ce947372911eb64e9f7ba043ac0d7f398b))
+* **client-glue:** This new release supports customizable RefreshInterval for all Saas ZETL integrations from 15 minutes to 6 days. ([d6e0049](https://github.com/aws/aws-sdk-js-v3/commit/d6e004919f766b24dc594b622fd440cfe7680379))
+* **client-sso-admin:** Update PutPermissionBoundaryToPermissionSet API's managedPolicyArn pattern to allow valid ARN only. Update ApplicationName to allow white spaces. ([bc0de81](https://github.com/aws/aws-sdk-js-v3/commit/bc0de81a84677c2146a7ffe4f3650bdb80005792))
+* **clients:** update client endpoints as of 2025-05-08 ([ece09fe](https://github.com/aws/aws-sdk-js-v3/commit/ece09fe806a3223b5ded498a8890f0df9336d227))
+
+
+
+
+
 # [3.805.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.804.0...v3.805.0) (2025-05-07)
 
 

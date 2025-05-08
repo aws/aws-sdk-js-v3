@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.806.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.805.0...v3.806.0) (2025-05-08)
+
+
+### Features
+
+* **client-ec2:** Launching the feature to support ENA queues offering flexibility to support multiple queues per Enhanced Network Interface (ENI) ([b9b5b6c](https://github.com/aws/aws-sdk-js-v3/commit/b9b5b6ce947372911eb64e9f7ba043ac0d7f398b))
+
+
+
+
+
 # [3.805.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.804.0...v3.805.0) (2025-05-07)
 
 

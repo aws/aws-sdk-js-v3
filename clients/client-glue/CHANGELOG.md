@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.806.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.805.0...v3.806.0) (2025-05-08)
+
+
+### Features
+
+* **client-glue:** This new release supports customizable RefreshInterval for all Saas ZETL integrations from 15 minutes to 6 days. ([d6e0049](https://github.com/aws/aws-sdk-js-v3/commit/d6e004919f766b24dc594b622fd440cfe7680379))
+
+
+
+
+
 # [3.804.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.803.0...v3.804.0) (2025-05-06)
 
 **Note:** Version bump only for package @aws-sdk/client-glue
