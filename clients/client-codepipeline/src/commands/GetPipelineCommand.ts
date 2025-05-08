@@ -114,6 +114,7 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  * //               { // EnvironmentVariable
  * //                 name: "STRING_VALUE", // required
  * //                 value: "STRING_VALUE", // required
+ * //                 type: "PLAINTEXT" || "SECRETS_MANAGER",
  * //               },
  * //             ],
  * //           },
