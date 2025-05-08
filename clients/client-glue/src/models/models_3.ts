@@ -131,7 +131,6 @@ import {
 
 import {
   ColumnRowFilter,
-  Comparator,
   DataQualityEvaluationRunAdditionalRunOptions,
   FederatedTable,
   ResourceAction,
@@ -141,6 +140,23 @@ import {
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const Comparator = {
+  EQUALS: "EQUALS",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_EQUALS: "GREATER_THAN_EQUALS",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_EQUALS: "LESS_THAN_EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type Comparator = (typeof Comparator)[keyof typeof Comparator];
 
 /**
  * <p>Defines a property predicate.</p>

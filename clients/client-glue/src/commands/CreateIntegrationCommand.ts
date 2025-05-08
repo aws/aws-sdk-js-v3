@@ -51,6 +51,9 @@ export interface CreateIntegrationCommandOutput extends CreateIntegrationRespons
  *       value: "STRING_VALUE",
  *     },
  *   ],
+ *   IntegrationConfig: { // IntegrationConfig
+ *     RefreshInterval: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateIntegrationCommand(input);
  * const response = await client.send(command);
@@ -79,6 +82,9 @@ export interface CreateIntegrationCommandOutput extends CreateIntegrationRespons
  * //     },
  * //   ],
  * //   DataFilter: "STRING_VALUE",
+ * //   IntegrationConfig: { // IntegrationConfig
+ * //     RefreshInterval: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

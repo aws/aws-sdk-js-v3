@@ -973,6 +973,7 @@ import {
   IllegalSessionStateException,
   InboundIntegration,
   Integration,
+  IntegrationConfig,
   IntegrationConflictOperationFault,
   IntegrationFilter,
   IntegrationNotFoundFault,
@@ -11814,6 +11815,8 @@ const se_GetUnfilteredTableMetadataRequest = (
 
 // se_IntegrationAdditionalEncryptionContextMap omitted.
 
+// se_IntegrationConfig omitted.
+
 // se_IntegrationFilter omitted.
 
 // se_IntegrationFilterList omitted.
@@ -13869,6 +13872,7 @@ const de_CreateIntegrationResponse = (output: any, context: __SerdeContext): Cre
     Description: __expectString,
     Errors: _json,
     IntegrationArn: __expectString,
+    IntegrationConfig: _json,
     IntegrationName: __expectString,
     KmsKeyId: __expectString,
     SourceArn: __expectString,
@@ -15536,6 +15540,7 @@ const de_InboundIntegration = (output: any, context: __SerdeContext): InboundInt
     CreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Errors: _json,
     IntegrationArn: __expectString,
+    IntegrationConfig: _json,
     SourceArn: __expectString,
     Status: __expectString,
     TargetArn: __expectString,
@@ -15565,6 +15570,7 @@ const de_Integration = (output: any, context: __SerdeContext): Integration => {
     Description: __expectString,
     Errors: _json,
     IntegrationArn: __expectString,
+    IntegrationConfig: _json,
     IntegrationName: __expectString,
     KmsKeyId: __expectString,
     SourceArn: __expectString,
@@ -15575,6 +15581,8 @@ const de_Integration = (output: any, context: __SerdeContext): Integration => {
 };
 
 // de_IntegrationAdditionalEncryptionContextMap omitted.
+
+// de_IntegrationConfig omitted.
 
 // de_IntegrationConflictOperationFault omitted.
 

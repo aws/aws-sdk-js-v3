@@ -51,7 +51,6 @@ import {
   DataFormat,
   DataQualityTargetTable,
   EncryptionConfiguration,
-  ExecutionStatus,
   FederatedDatabase,
   IntegrationError,
   IntegrationStatus,
@@ -78,6 +77,20 @@ import {
   TransformType,
   ViewDialect,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionStatus = {
+  FAILED: "FAILED",
+  STARTED: "STARTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
 
 /**
  * <p>A run attempt for a column statistics task run.</p>
@@ -8574,23 +8587,6 @@ export interface RunStatementResponse {
    */
   Id?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Comparator = {
-  EQUALS: "EQUALS",
-  GREATER_THAN: "GREATER_THAN",
-  GREATER_THAN_EQUALS: "GREATER_THAN_EQUALS",
-  LESS_THAN: "LESS_THAN",
-  LESS_THAN_EQUALS: "LESS_THAN_EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type Comparator = (typeof Comparator)[keyof typeof Comparator];
 
 /**
  * @internal

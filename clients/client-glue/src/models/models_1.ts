@@ -2133,6 +2133,20 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * <p>Properties associated with the integration.</p>
+ * @public
+ */
+export interface IntegrationConfig {
+  /**
+   * <p>Specifies the frequency at which CDC (Change Data Capture) pulls or incremental loads should occur. This parameter provides flexibility to align
+   *       the refresh rate with your specific data update patterns, system load considerations, and performance optimization goals. Time increment can be set from
+   *     15 minutes to 8640 minutes (six days). Currently supports creation of <code>RefreshInterval</code> only.</p>
+   * @public
+   */
+  RefreshInterval?: string | undefined;
+}
+
+/**
  * <p>The <code>Tag</code> object represents a label that you can assign to an Amazon Web Services resource. Each tag consists of a key and an optional value, both of which you define.</p>
  *          <p>For more information about tags, and controlling access to resources in Glue, see
  *                 <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> and <a href="https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html">Specifying Glue Resource
@@ -2204,6 +2218,12 @@ export interface CreateIntegrationRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The configuration settings.</p>
+   * @public
+   */
+  IntegrationConfig?: IntegrationConfig | undefined;
 }
 
 /**
@@ -2342,6 +2362,12 @@ export interface CreateIntegrationResponse {
    * @public
    */
   DataFilter?: string | undefined;
+
+  /**
+   * <p>The configuration settings.</p>
+   * @public
+   */
+  IntegrationConfig?: IntegrationConfig | undefined;
 }
 
 /**
@@ -2568,25 +2594,26 @@ export interface CreateIntegrationResourcePropertyResponse {
  */
 export interface SourceTableConfig {
   /**
-   * <p>A list of fields used for column-level filtering.</p>
+   * <p>A list of fields used for column-level filtering. Currently unsupported.</p>
    * @public
    */
   Fields?: string[] | undefined;
 
   /**
-   * <p>A condition clause used for row-level filtering.</p>
+   * <p>A condition clause used for row-level filtering. Currently unsupported.</p>
    * @public
    */
   FilterPredicate?: string | undefined;
 
   /**
-   * <p>Unique identifier of a record.</p>
+   * <p>Provide the primary key set for this table. Currently supported specifically for SAP <code>EntityOf</code> entities upon request. Contact
+   *       Amazon Web Services Support to make this feature available.</p>
    * @public
    */
   PrimaryKey?: string[] | undefined;
 
   /**
-   * <p>Incremental pull timestamp-based field.</p>
+   * <p>Incremental pull timestamp-based field. Currently unsupported.</p>
    * @public
    */
   RecordUpdateField?: string | undefined;
@@ -2598,13 +2625,17 @@ export interface SourceTableConfig {
  */
 export interface IntegrationPartition {
   /**
-   * <p>The field name used to partition data on the target.</p>
+   * <p>The field name used to partition data on the target. Avoid using columns that have unique values for each row (for example, `LastModifiedTimestamp`,
+   *       `SystemModTimeStamp`) as the partition column. These columns are not suitable for partitioning because they create a large number of small partitions,
+   *       which can lead to performance issues.</p>
    * @public
    */
   FieldName?: string | undefined;
 
   /**
-   * <p>Specifies a function used to partition data on the target.</p>
+   * <p>Specifies the function used to partition data on the target. The only accepted value for this parameter is `'identity'` (string).
+   *       The `'identity'` function ensures that the data partitioning on the target follows the same scheme as the source. In other words, the partitioning
+   *       structure of the source data is preserved in the target destination.</p>
    * @public
    */
   FunctionSpec?: string | undefined;
@@ -2666,7 +2697,7 @@ export interface CreateIntegrationTablePropertiesRequest {
   TableName: string | undefined;
 
   /**
-   * <p>A structure for the source table configuration.</p>
+   * <p>A structure for the source table configuration. See the <code>SourceTableConfig</code> structure to see list of supported source properties.</p>
    * @public
    */
   SourceTableConfig?: SourceTableConfig | undefined;
@@ -6240,6 +6271,12 @@ export interface InboundIntegration {
   CreateTime: Date | undefined;
 
   /**
+   * <p>Properties associated with the integration.</p>
+   * @public
+   */
+  IntegrationConfig?: IntegrationConfig | undefined;
+
+  /**
    * <p>A list of errors associated with the integration.</p>
    * @public
    */
@@ -6423,6 +6460,12 @@ export interface Integration {
    * @public
    */
   CreateTime: Date | undefined;
+
+  /**
+   * <p>Properties associated with the integration.</p>
+   * @public
+   */
+  IntegrationConfig?: IntegrationConfig | undefined;
 
   /**
    * <p>A list of errors associated with the integration.</p>
@@ -7923,20 +7966,6 @@ export interface GetColumnStatisticsTaskSettingsRequest {
    */
   TableName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExecutionStatus = {
-  FAILED: "FAILED",
-  STARTED: "STARTED",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
 
 /**
  * @internal
