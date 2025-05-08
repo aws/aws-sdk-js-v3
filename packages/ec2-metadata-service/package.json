@@ -24,7 +24,7 @@
   "types": "./dist-types/index.d.ts",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/node-config-provider": "^4.0.2",
+    "@smithy/node-config-provider": "^4.1.0",
     "@smithy/node-http-handler": "^4.0.4",
     "@smithy/protocol-http": "^5.1.0",
     "@smithy/types": "^4.2.0",

@@ -39,7 +39,7 @@
     "@aws-sdk/core": "*",
     "@aws-sdk/types": "*",
     "@smithy/is-array-buffer": "^4.0.0",
-    "@smithy/node-config-provider": "^4.0.2",
+    "@smithy/node-config-provider": "^4.1.0",
     "@smithy/protocol-http": "^5.1.0",
     "@smithy/types": "^4.2.0",
     "@smithy/util-middleware": "^4.0.2",
