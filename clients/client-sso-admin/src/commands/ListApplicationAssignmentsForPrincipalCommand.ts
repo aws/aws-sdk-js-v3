@@ -37,7 +37,11 @@ export interface ListApplicationAssignmentsForPrincipalCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the applications to which a specified principal is assigned.</p>
+ * <p>Lists the applications to which a specified principal is assigned. You must provide a
+ *             filter when calling this action from a member account against your organization instance
+ *             of IAM Identity Center. A filter is not required when called from the management account against an
+ *             organization instance of IAM Identity Center, or from a member account against an account instance of
+ *             IAM Identity Center in the same account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

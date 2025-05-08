@@ -986,12 +986,18 @@ export interface GetApplicationGrantRequest {
 }
 
 /**
- * <p>A structure that defines configuration settings for an application that supports the OAuth 2.0 Authorization Code Grant.</p>
+ * <p>A structure that defines configuration settings for an application that supports the
+ *             OAuth 2.0 Authorization Code Grant.</p>
  * @public
  */
 export interface AuthorizationCodeGrant {
   /**
-   * <p>A list of URIs that are valid locations to redirect a user's browser after the user is authorized.</p>
+   * <p>A list of URIs that are valid locations to redirect a user's browser after the user is
+   *             authorized.</p>
+   *          <note>
+   *             <p>RedirectUris is required when the grant type is
+   *                 <code>authorization_code</code>.</p>
+   *          </note>
    * @public
    */
   RedirectUris?: string[] | undefined;
@@ -1018,31 +1024,44 @@ export interface AuthorizedTokenIssuer {
 }
 
 /**
- * <p>A structure that defines configuration settings for an application that supports the JWT Bearer Token Authorization Grant.</p>
+ * <p>A structure that defines configuration settings for an application that supports the
+ *             JWT Bearer Token Authorization Grant. The <code>AuthorizedAudience</code> field is the
+ *             aud claim. For more information, see <a href="https://datatracker.ietf.org/doc/html/rfc7523">RFC 7523</a>.</p>
  * @public
  */
 export interface JwtBearerGrant {
   /**
-   * <p>A list of allowed token issuers trusted by the Identity Center instances for this application.</p>
+   * <p>A list of allowed token issuers trusted by the Identity Center instances for this
+   *             application.</p>
+   *          <note>
+   *             <p>
+   *                <code>AuthorizedTokenIssuers</code> is required when the grant type is
+   *                     <code>JwtBearerGrant</code>.</p>
+   *          </note>
    * @public
    */
   AuthorizedTokenIssuers?: AuthorizedTokenIssuer[] | undefined;
 }
 
 /**
- * <p>A structure that defines configuration settings for an application that supports the OAuth 2.0 Refresh Token Grant.</p>
+ * <p>A structure that defines configuration settings for an application that supports the
+ *             OAuth 2.0 Refresh Token Grant. For more, see <a href="https://datatracker.ietf.org/doc/html/rfc6749#section-1.5">RFC
+ *             6749</a>.</p>
  * @public
  */
 export interface RefreshTokenGrant {}
 
 /**
- * <p>A structure that defines configuration settings for an application that supports the OAuth 2.0 Token Exchange Grant.</p>
+ * <p>A structure that defines configuration settings for an application that supports the
+ *             OAuth 2.0 Token Exchange Grant. For more information, see <a href="https://datatracker.ietf.org/doc/html/rfc8693">RFC 8693</a>.</p>
  * @public
  */
 export interface TokenExchangeGrant {}
 
 /**
- * <p>The Grant union represents the set of possible configuration options for the selected grant type. Exactly one member of the union must be specified, and must match the grant type selected.</p>
+ * <p>The Grant union represents the set of possible configuration options for the selected
+ *             grant type. Exactly one member of the union must be specified, and must match the grant
+ *             type selected.</p>
  * @public
  */
 export type Grant =
@@ -1069,7 +1088,8 @@ export namespace Grant {
   }
 
   /**
-   * <p>Configuration options for the <code>urn:ietf:params:oauth:grant-type:jwt-bearer</code> grant type.</p>
+   * <p>Configuration options for the <code>urn:ietf:params:oauth:grant-type:jwt-bearer</code>
+   *             grant type.</p>
    * @public
    */
   export interface JwtBearerMember {
@@ -1093,7 +1113,8 @@ export namespace Grant {
   }
 
   /**
-   * <p>Configuration options for the <code>urn:ietf:params:oauth:grant-type:token-exchange</code> grant type.</p>
+   * <p>Configuration options for the
+   *                 <code>urn:ietf:params:oauth:grant-type:token-exchange</code> grant type.</p>
    * @public
    */
   export interface TokenExchangeMember {
@@ -1297,7 +1318,8 @@ export interface ResourceServerConfig {
 }
 
 /**
- * <p>A structure that describes a provider that can be used to connect an Amazon Web Services managed application or customer managed application to IAM Identity Center.</p>
+ * <p>A structure that describes a provider that can be used to connect an Amazon Web Services managed
+ *             application or customer managed application to IAM Identity Center.</p>
  * @public
  */
 export interface ApplicationProvider {
@@ -1401,7 +1423,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>A structure that stores the details of the Amazon Web Services managed policy.</p>
+ * <p>A structure that stores a list of managed policy ARNs that describe the associated Amazon Web Services managed policy.</p>
  * @public
  */
 export interface AttachedManagedPolicy {
@@ -1530,8 +1552,7 @@ export interface Tag {
  */
 export interface CreateApplicationRequest {
   /**
-   * <p>The ARN of the instance of IAM Identity Center under which the operation will run.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * <p>The ARN of the instance of IAM Identity Center under which the operation will run. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
    * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
@@ -1607,13 +1628,13 @@ export interface CreateApplicationResponse {
  */
 export interface CreateApplicationAssignmentRequest {
   /**
-   * <p>The ARN of the application provider under which the operation will run.</p>
+   * <p>The ARN of the application for which the assignment is created.</p>
    * @public
    */
   ApplicationArn: string | undefined;
 
   /**
-   * <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">IAM Identity Center Identity Store API Reference</a>.</p>
+   * <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html">IAM Identity Center Identity Store API Reference</a>.</p>
    * @public
    */
   PrincipalId: string | undefined;
@@ -1837,21 +1858,26 @@ export type JwksRetrievalOption = (typeof JwksRetrievalOption)[keyof typeof Jwks
  */
 export interface OidcJwtConfiguration {
   /**
-   * <p>The URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.</p>
+   * <p>The URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain
+   *             the information required to verify the tokens that the trusted token issuer generates.</p>
    * @public
    */
   IssuerUrl: string | undefined;
 
   /**
-   * <p>The path of the source attribute in the JWT from the trusted token issuer. The attribute mapped by this JMESPath expression is compared against the attribute mapped by <code>IdentityStoreAttributePath</code> when a trusted token issuer token is exchanged for
-   *             an IAM Identity Center token.</p>
+   * <p>The path of the source attribute in the JWT from the trusted token issuer. The attribute mapped by
+   *             this JMESPath expression is compared against the attribute mapped by
+   *                 <code>IdentityStoreAttributePath</code> when a trusted token issuer token is exchanged for an
+   *             IAM Identity Center token.</p>
    * @public
    */
   ClaimAttributePath: string | undefined;
 
   /**
-   * <p>The path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by <code>ClaimAttributePath</code> when a trusted token issuer token is exchanged for
-   *             an IAM Identity Center token. </p>
+   * <p>The path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by
+   *             this JMESPath expression is compared against the attribute mapped by
+   *                 <code>ClaimAttributePath</code> when a trusted token issuer token is exchanged for an IAM Identity Center
+   *             token. </p>
    * @public
    */
   IdentityStoreAttributePath: string | undefined;
@@ -2065,7 +2091,7 @@ export interface DeleteApplicationAssignmentRequest {
   ApplicationArn: string | undefined;
 
   /**
-   * <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">IAM Identity Center Identity Store API Reference</a>.</p>
+   * <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html">IAM Identity Center Identity Store API Reference</a>.</p>
    * @public
    */
   PrincipalId: string | undefined;
@@ -2338,15 +2364,14 @@ export interface DescribeApplicationResponse {
  */
 export interface DescribeApplicationAssignmentRequest {
   /**
-   * <p>Specifies the ARN of the application.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * <p>Specifies the ARN of the application. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
    * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   ApplicationArn: string | undefined;
 
   /**
-   * <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">IAM Identity Center Identity Store API Reference</a>.</p>
+   * <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html">IAM Identity Center Identity Store API Reference</a>.</p>
    * @public
    */
   PrincipalId: string | undefined;
@@ -2369,7 +2394,7 @@ export interface DescribeApplicationAssignmentResponse {
   PrincipalType?: PrincipalType | undefined;
 
   /**
-   * <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">IAM Identity Center Identity Store API Reference</a>.</p>
+   * <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html">IAM Identity Center Identity Store API Reference</a>.</p>
    * @public
    */
   PrincipalId?: string | undefined;
@@ -2765,8 +2790,9 @@ export interface GetApplicationAssignmentConfigurationRequest {
  */
 export interface GetApplicationAssignmentConfigurationResponse {
   /**
-   * <p>If <code>AssignmentsRequired</code> is <code>true</code> (default value), users don’t have access to the application unless an assignment is created using the
-   *             <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html">CreateApplicationAssignment API</a>. If <code>false</code>, all users have access to the application. </p>
+   * <p>If <code>AssignmentsRequired</code> is <code>true</code> (default value), users don’t
+   *             have access to the application unless an assignment is created using the <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html">CreateApplicationAssignment API</a>. If <code>false</code>, all users have
+   *             access to the application. </p>
    * @public
    */
   AssignmentRequired: boolean | undefined;
@@ -3444,8 +3470,7 @@ export interface ListApplicationsFilter {
  */
 export interface ListApplicationsRequest {
   /**
-   * <p>The ARN of the IAM Identity Center application under which the operation will run.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * <p>The ARN of the IAM Identity Center application under which the operation will run. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
    * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
@@ -3932,15 +3957,19 @@ export interface ListTrustedTokenIssuersResponse {
  */
 export interface OidcJwtUpdateConfiguration {
   /**
-   * <p>The path of the source attribute in the JWT from the trusted token issuer. The attribute mapped by this JMESPath expression is compared against the attribute mapped by <code>IdentityStoreAttributePath</code> when a trusted token issuer token is exchanged for
-   *             an IAM Identity Center token.</p>
+   * <p>The path of the source attribute in the JWT from the trusted token issuer. The attribute mapped by
+   *             this JMESPath expression is compared against the attribute mapped by
+   *                 <code>IdentityStoreAttributePath</code> when a trusted token issuer token is exchanged for an
+   *             IAM Identity Center token.</p>
    * @public
    */
   ClaimAttributePath?: string | undefined;
 
   /**
-   * <p>The path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by <code>ClaimAttributePath</code> when a trusted token issuer token is exchanged for
-   *             an IAM Identity Center token.</p>
+   * <p>The path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by
+   *             this JMESPath expression is compared against the attribute mapped by
+   *                 <code>ClaimAttributePath</code> when a trusted token issuer token is exchanged for an IAM Identity Center
+   *             token.</p>
    * @public
    */
   IdentityStoreAttributePath?: string | undefined;
@@ -4021,8 +4050,9 @@ export interface PutApplicationAssignmentConfigurationRequest {
   ApplicationArn: string | undefined;
 
   /**
-   * <p>If <code>AssignmentsRequired</code> is <code>true</code> (default value), users don’t have access to the application unless an assignment is created using the
-   *             <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html">CreateApplicationAssignment API</a>. If <code>false</code>, all users have access to the application. </p>
+   * <p>If <code>AssignmentsRequired</code> is <code>true</code> (default value), users don’t
+   *             have access to the application unless an assignment is created using the <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html">CreateApplicationAssignment API</a>. If <code>false</code>, all users have
+   *             access to the application. </p>
    * @public
    */
   AssignmentRequired: boolean | undefined;
@@ -4153,7 +4183,8 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * <p>A structure that describes the options for the access portal associated with an application that can be updated.</p>
+ * <p>A structure that describes the options for the access portal associated with an
+ *             application that can be updated.</p>
  * @public
  */
 export interface UpdateApplicationPortalOptions {

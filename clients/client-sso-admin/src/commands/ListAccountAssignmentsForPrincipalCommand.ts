@@ -37,7 +37,8 @@ export interface ListAccountAssignmentsForPrincipalCommandOutput
 
 /**
  * <p>Retrieves a list of the IAM Identity Center associated Amazon Web Services accounts that the principal has access
- *             to.</p>
+ *             to. This action must be called from the management account containing your organization
+ *             instance of IAM Identity Center. This action is not valid for account instances of IAM Identity Center.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

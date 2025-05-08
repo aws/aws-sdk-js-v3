@@ -30,7 +30,8 @@ export interface DeleteTrustedTokenIssuerCommandOutput extends DeleteTrustedToke
 /**
  * <p>Deletes a trusted token issuer configuration from an instance of IAM Identity Center.</p>
  *          <note>
- *             <p>Deleting this trusted token issuer configuration will cause users to lose access to any applications that are configured to use the trusted token issuer.</p>
+ *             <p>Deleting this trusted token issuer configuration will cause users to lose access to any
+ *                 applications that are configured to use the trusted token issuer.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

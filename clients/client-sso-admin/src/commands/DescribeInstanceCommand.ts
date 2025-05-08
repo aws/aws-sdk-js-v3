@@ -28,19 +28,22 @@ export interface DescribeInstanceCommandInput extends DescribeInstanceRequest {}
 export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the details of an instance of IAM Identity Center. The status can be one of the following:</p>
+ * <p>Returns the details of an instance of IAM Identity Center. The status can be one of the
+ *             following:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>CREATE_IN_PROGRESS</code> - The instance is in the process of being created. When the
- *                 instance is ready for use, DescribeInstance returns the status of
- *                 <code>ACTIVE</code>. While the instance is in the
- *                 <code>CREATE_IN_PROGRESS</code> state, you can call only DescribeInstance
- *                 and DeleteInstance operations.</p>
+ *                   <code>CREATE_IN_PROGRESS</code> - The instance is in the process of being
+ *                     created. When the instance is ready for use, DescribeInstance returns the status
+ *                     of <code>ACTIVE</code>. While the instance is in the
+ *                         <code>CREATE_IN_PROGRESS</code> state, you can call only DescribeInstance
+ *                     and DeleteInstance operations.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>DELETE_IN_PROGRESS</code> - The instance is being deleted. Returns <code>AccessDeniedException</code> after the delete operation completes. </p>
+ *                   <code>DELETE_IN_PROGRESS</code> - The instance is being deleted. Returns
+ *                         <code>AccessDeniedException</code> after the delete operation completes.
+ *                 </p>
  *             </li>
  *             <li>
  *                <p>

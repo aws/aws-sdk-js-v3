@@ -37,9 +37,11 @@ export interface PutApplicationAssignmentConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Configure how users gain access to an application. If <code>AssignmentsRequired</code> is <code>true</code> (default value), users don’t have access to the application unless an assignment is created using the
- *             <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html">CreateApplicationAssignment API</a>. If <code>false</code>, all users have access to the application.
- *             If an assignment is created using <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html">CreateApplicationAssignment</a>., the user retains access if <code>AssignmentsRequired</code> is set to <code>true</code>. </p>
+ * <p>Configure how users gain access to an application. If <code>AssignmentsRequired</code>
+ *             is <code>true</code> (default value), users don’t have access to the application unless
+ *             an assignment is created using the <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html">CreateApplicationAssignment API</a>. If <code>false</code>, all users have
+ *             access to the application. If an assignment is created using <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html">CreateApplicationAssignment</a>., the user retains access if
+ *                 <code>AssignmentsRequired</code> is set to <code>true</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

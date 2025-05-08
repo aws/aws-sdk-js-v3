@@ -28,9 +28,11 @@ export interface UpdateTrustedTokenIssuerCommandInput extends UpdateTrustedToken
 export interface UpdateTrustedTokenIssuerCommandOutput extends UpdateTrustedTokenIssuerResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the name of the trusted token issuer, or the path of a source attribute or destination attribute for a trusted token issuer configuration.</p>
+ * <p>Updates the name of the trusted token issuer, or the path of a source attribute or destination
+ *             attribute for a trusted token issuer configuration.</p>
  *          <note>
- *             <p>Updating this trusted token issuer configuration might cause users to lose access to any applications that are configured to use the trusted token issuer.</p>
+ *             <p>Updating this trusted token issuer configuration might cause users to lose access to any
+ *                 applications that are configured to use the trusted token issuer.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
