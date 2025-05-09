@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.807.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.806.0...v3.807.0) (2025-05-09)
+
+
+### Features
+
+* **client-workspaces:** Remove parameter EnableWorkDocs from WorkSpacesServiceModel due to end of support of Amazon WorkDocs service. ([4017e73](https://github.com/aws/aws-sdk-js-v3/commit/4017e73ecdcd537a9b8d3b8f5a85395f04dfb3cb))
+
+
+
+
+
 # [3.806.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.805.0...v3.806.0) (2025-05-08)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces

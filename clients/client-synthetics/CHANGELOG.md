@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.807.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.806.0...v3.807.0) (2025-05-09)
+
+
+### Features
+
+* **client-synthetics:** Add support to retry a canary automatically after schedule run failures. Users can enable this feature by configuring the RetryConfig field when calling the CreateCanary or UpdateCanary API. Also includes changes in GetCanary and GetCanaryRuns to support retrieving retry configurations. ([cb11bbf](https://github.com/aws/aws-sdk-js-v3/commit/cb11bbf899fad068725639db2e4b2d84c262530c))
+
+
+
+
+
 # [3.806.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.805.0...v3.806.0) (2025-05-08)
 
 **Note:** Version bump only for package @aws-sdk/client-synthetics

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.807.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.806.0...v3.807.0) (2025-05-09)
+
+
+### Features
+
+* **client-cloudwatch-logs:** We are pleased to announce limit increases to our grok processor logs transformation feature. Now you can define 20 Grok patterns in their configurations, with an expanded total pattern matching limit of 512 characters. ([a1b3464](https://github.com/aws/aws-sdk-js-v3/commit/a1b34642f7ac9f3f6ddf174ee437f27eb36aedae))
+
+
+
+
+
 # [3.806.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.805.0...v3.806.0) (2025-05-08)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch-logs

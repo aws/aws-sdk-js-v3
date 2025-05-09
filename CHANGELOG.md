@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.807.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.806.0...v3.807.0) (2025-05-09)
+
+
+### Features
+
+* **client-cloudwatch-logs:** We are pleased to announce limit increases to our grok processor logs transformation feature. Now you can define 20 Grok patterns in their configurations, with an expanded total pattern matching limit of 512 characters. ([a1b3464](https://github.com/aws/aws-sdk-js-v3/commit/a1b34642f7ac9f3f6ddf174ee437f27eb36aedae))
+* **client-synthetics:** Add support to retry a canary automatically after schedule run failures. Users can enable this feature by configuring the RetryConfig field when calling the CreateCanary or UpdateCanary API. Also includes changes in GetCanary and GetCanaryRuns to support retrieving retry configurations. ([cb11bbf](https://github.com/aws/aws-sdk-js-v3/commit/cb11bbf899fad068725639db2e4b2d84c262530c))
+* **client-workspaces:** Remove parameter EnableWorkDocs from WorkSpacesServiceModel due to end of support of Amazon WorkDocs service. ([4017e73](https://github.com/aws/aws-sdk-js-v3/commit/4017e73ecdcd537a9b8d3b8f5a85395f04dfb3cb))
+* **clients:** update client endpoints as of 2025-05-09 ([04d0076](https://github.com/aws/aws-sdk-js-v3/commit/04d00761ae56e599f98fc9708d2416f06416cfc2))
+
+
+
+
+
 # [3.806.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.805.0...v3.806.0) (2025-05-08)
 
 
