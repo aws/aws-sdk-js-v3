@@ -768,8 +768,8 @@ export interface QueryExecution {
    * <p>The type of query statement that was run. <code>DDL</code> indicates DDL query
    *             statements. <code>DML</code> indicates DML (Data Manipulation Language) query
    *             statements, such as <code>CREATE TABLE AS SELECT</code>. <code>UTILITY</code> indicates
-   *             query statements other than DDL and DML, such as <code>SHOW CREATE TABLE</code>, or
-   *                 <code>DESCRIBE TABLE</code>.</p>
+   *             query statements other than DDL and DML, such as <code>SHOW CREATE TABLE</code>,
+   *                 <code>EXPLAIN</code>, <code>DESCRIBE</code>, or <code>SHOW TABLES</code>.</p>
    * @public
    */
   StatementType?: StatementType | undefined;
@@ -1014,6 +1014,7 @@ export interface CreateDataCatalogInput {
    *             external Apache Hive metastore. <code>FEDERATED</code> is a federated catalog for which
    *                 Athena creates the connection and the Lambda function for
    *             you based on the parameters that you pass.</p>
+   *          <p>For <code>FEDERATED</code> type, we do not support IAM identity center.</p>
    * @public
    */
   Type: DataCatalogType | undefined;
