@@ -1,6 +1,7 @@
-import { LoadedConfigSelectors } from "@smithy/node-config-provider";
+import { EnvOptions, LoadedConfigSelectors } from "@smithy/node-config-provider";
 
 import { getArrayForCommaSeparatedString } from "../utils/getArrayForCommaSeparatedString";
+import { getBearerTokenEnvKey } from "../utils/getBearerTokenEnvKey";
 
 const NODE_AUTH_SCHEME_PREFERENCE_ENV_KEY = "AWS_AUTH_SCHEME_PREFERENCE";
 const NODE_AUTH_SCHEME_PREFERENCE_CONFIG_KEY = "auth_scheme_preference";
@@ -14,7 +15,11 @@ export const NODE_AUTH_SCHEME_PREFERENCE_OPTIONS: LoadedConfigSelectors<string[]
    * @param env - Node process environment object
    * @returns Array of auth scheme strings if preference is set, undefined otherwise
    */
-  environmentVariableSelector: (env: NodeJS.ProcessEnv) => {
+  environmentVariableSelector: (env: NodeJS.ProcessEnv, options?: EnvOptions) => {
+    if (options?.signingName) {
+      const bearerTokenKey = getBearerTokenEnvKey(options.signingName);
+      if (bearerTokenKey in env) return ["httpBearerAuth"];
+    }
     if (!(NODE_AUTH_SCHEME_PREFERENCE_ENV_KEY in env)) return undefined;
     return getArrayForCommaSeparatedString(env[NODE_AUTH_SCHEME_PREFERENCE_ENV_KEY] as string);
   },
