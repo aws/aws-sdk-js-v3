@@ -3306,12 +3306,6 @@ export interface DefaultImportClientBrandingAttributes {
  */
 export interface DefaultWorkspaceCreationProperties {
   /**
-   * <p>Specifies whether the directory is enabled for Amazon WorkDocs.</p>
-   * @public
-   */
-  EnableWorkDocs?: boolean | undefined;
-
-  /**
    * <p>Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in
    *          this directory by default. If enabled, the Elastic public IP address allows outbound
    *          internet access from your WorkSpaces when you’re using an internet gateway in the Amazon
@@ -6689,24 +6683,6 @@ export interface ModifyWorkspaceAccessPropertiesResult {}
  * @public
  */
 export interface WorkspaceCreationProperties {
-  /**
-   * <p>Indicates whether Amazon WorkDocs is enabled for your WorkSpaces.</p>
-   *          <note>
-   *             <p>If WorkDocs is already enabled for a WorkSpaces directory and you disable it, new
-   *             WorkSpaces launched in the directory will not have WorkDocs enabled. However, WorkDocs
-   *             remains enabled for any existing WorkSpaces, unless you either disable users' access to
-   *             WorkDocs or you delete the WorkDocs site. To disable users' access to WorkDocs, see
-   *                <a href="https://docs.aws.amazon.com/workdocs/latest/adminguide/inactive-user.html">Disabling Users</a> in the <i>Amazon WorkDocs Administration
-   *                Guide</i>. To delete a WorkDocs site, see <a href="https://docs.aws.amazon.com/workdocs/latest/adminguide/manage-sites.html">Deleting a Site</a> in the
-   *                <i>Amazon WorkDocs Administration Guide</i>.</p>
-   *             <p>If you enable WorkDocs on a directory that already has existing WorkSpaces, the
-   *             existing WorkSpaces and any new WorkSpaces that are launched in the directory will have
-   *             WorkDocs enabled.</p>
-   *          </note>
-   * @public
-   */
-  EnableWorkDocs?: boolean | undefined;
-
   /**
    * <p>Indicates whether internet access is enabled for your WorkSpaces.</p>
    * @public

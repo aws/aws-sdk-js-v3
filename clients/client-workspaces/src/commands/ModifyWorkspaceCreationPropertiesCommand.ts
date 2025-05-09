@@ -43,7 +43,6 @@ export interface ModifyWorkspaceCreationPropertiesCommandOutput
  * const input = { // ModifyWorkspaceCreationPropertiesRequest
  *   ResourceId: "STRING_VALUE", // required
  *   WorkspaceCreationProperties: { // WorkspaceCreationProperties
- *     EnableWorkDocs: true || false,
  *     EnableInternetAccess: true || false,
  *     DefaultOu: "STRING_VALUE",
  *     CustomSecurityGroupId: "STRING_VALUE",

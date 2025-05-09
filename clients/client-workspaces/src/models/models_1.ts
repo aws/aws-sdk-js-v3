@@ -80,15 +80,6 @@ export interface RegisterWorkspaceDirectoryRequest {
   SubnetIds?: string[] | undefined;
 
   /**
-   * <p>Indicates whether Amazon WorkDocs is enabled or disabled. If you have enabled this
-   *          parameter and WorkDocs is not available in the Region, you will receive an
-   *          OperationNotSupportedException error. Set <code>EnableWorkDocs</code> to disabled, and try
-   *          again.</p>
-   * @public
-   */
-  EnableWorkDocs?: boolean | undefined;
-
-  /**
    * <p>Indicates whether self-service capabilities are enabled or disabled.</p>
    * @public
    */

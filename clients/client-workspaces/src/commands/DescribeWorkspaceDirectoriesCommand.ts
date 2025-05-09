@@ -79,7 +79,6 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * //       WorkspaceSecurityGroupId: "STRING_VALUE",
  * //       State: "REGISTERING" || "REGISTERED" || "DEREGISTERING" || "DEREGISTERED" || "ERROR",
  * //       WorkspaceCreationProperties: { // DefaultWorkspaceCreationProperties
- * //         EnableWorkDocs: true || false,
  * //         EnableInternetAccess: true || false,
  * //         DefaultOu: "STRING_VALUE",
  * //         CustomSecurityGroupId: "STRING_VALUE",

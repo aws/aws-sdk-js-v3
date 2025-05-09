@@ -44,7 +44,6 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  *   SubnetIds: [ // SubnetIds
  *     "STRING_VALUE",
  *   ],
- *   EnableWorkDocs: true || false,
  *   EnableSelfService: true || false,
  *   Tenancy: "DEDICATED" || "SHARED",
  *   Tags: [ // TagList
