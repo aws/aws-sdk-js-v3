@@ -4867,7 +4867,7 @@ export interface Grok {
 
   /**
    * <p>The grok pattern to match against the log event. For a list of
-   *        supported grok patterns, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#Grok-Patterns">Supported grok patterns</a>.</p>
+   *        supported grok patterns, see <a href="https://docs.aws.amazon.com/mazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#Grok-Patterns">Supported grok patterns</a>.</p>
    * @public
    */
   match: string | undefined;
@@ -4875,7 +4875,7 @@ export interface Grok {
 
 /**
  * <p>This processor takes a list of objects that contain key fields, and converts them into a map of target keys.</p>
- *          <p>For more information about this processor including examples, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-listToMap">
+ *          <p>For more information about this processor including examples, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-listToMap">
  *       listToMap</a> in the <i>CloudWatch Logs User Guide</i>.</p>
  * @public
  */

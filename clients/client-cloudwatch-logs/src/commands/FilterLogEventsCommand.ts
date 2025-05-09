@@ -51,11 +51,7 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  *          <p>Partially full or empty pages
  *       don't necessarily mean that pagination is finished. If the results include a <code>nextToken</code>, there might be more log events available. You can return these additional log events by providing the nextToken in a subsequent
  *       <code>FilterLogEvents</code> operation. If the results don't include a <code>nextToken</code>, then pagination is finished. </p>
- *          <note>
- *             <p>If you set <code>startFromHead</code> to <code>true</code> and you don’t include <code>endTime</code> in your request, you can end up in a situation where the pagination doesn't terminate.
- *       This can happen when the new log events are being added to the target log streams
- *       faster than they are being read. This situation is a good use case for the CloudWatch Logs <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs_LiveTail.html">Live Tail</a> feature.</p>
- *          </note>
+ *          <p>Specifying the <code>limit</code> parameter only guarantees that a single page doesn't return more log events than the specified limit, but it might return fewer events than the limit. This is the expected API behavior.</p>
  *          <p>The returned log events are sorted by event timestamp, the timestamp when the event was ingested
  *     by CloudWatch Logs, and the ID of the <code>PutLogEvents</code> request.</p>
  *          <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and
