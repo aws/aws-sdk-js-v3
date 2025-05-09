@@ -1,6 +1,4 @@
-// ToDo: replace with EnvOptions once exported from node-config-provider
-import { LoadedConfigSelectors } from "@smithy/node-config-provider";
-import { EnvOptions } from "@smithy/node-config-provider/dist-types/fromEnv";
+import { EnvOptions, LoadedConfigSelectors } from "@smithy/node-config-provider";
 
 import { getArrayForCommaSeparatedString } from "../utils/getArrayForCommaSeparatedString";
 import { getBearerTokenEnvKey } from "../utils/getBearerTokenEnvKey";
