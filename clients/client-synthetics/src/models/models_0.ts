@@ -356,6 +356,18 @@ export interface CanaryRunConfigOutput {
 }
 
 /**
+ * <p>This structure contains information about the canary's retry configuration.</p>
+ * @public
+ */
+export interface RetryConfigOutput {
+  /**
+   * <p>The maximum number of retries. The value must be less than or equal to 2.</p>
+   * @public
+   */
+  MaxRetries?: number | undefined;
+}
+
+/**
  * <p>How long, in seconds, for the canary to continue making regular runs according to the schedule in the
  *          <code>Expression</code> value.</p>
  * @public
@@ -387,6 +399,12 @@ export interface CanaryScheduleOutput {
    * @public
    */
   DurationInSeconds?: number | undefined;
+
+  /**
+   * <p>A structure that contains the retry configuration for a canary</p>
+   * @public
+   */
+  RetryConfig?: RetryConfigOutput | undefined;
 }
 
 /**
@@ -446,13 +464,13 @@ export interface CanaryStatus {
   State?: CanaryState | undefined;
 
   /**
-   * <p>If the canary has insufficient permissions to run, this field provides more details.</p>
+   * <p>If the canary creation or update failed, this field provides details on the failure.</p>
    * @public
    */
   StateReason?: string | undefined;
 
   /**
-   * <p>If the canary cannot run or has failed, this field displays the reason.</p>
+   * <p>If the canary creation or update failed, this field displays the reason code.</p>
    * @public
    */
   StateReasonCode?: CanaryStateReasonCode | undefined;
@@ -769,6 +787,12 @@ export interface CanaryRunTimeline {
    * @public
    */
   Completed?: Date | undefined;
+
+  /**
+   * <p>The time at which the metrics will be generated for this run or retries.</p>
+   * @public
+   */
+  MetricTimestampForRunAndRetries?: Date | undefined;
 }
 
 /**
@@ -781,6 +805,18 @@ export interface CanaryRun {
    * @public
    */
   Id?: string | undefined;
+
+  /**
+   * <p>The ID of the scheduled canary run.</p>
+   * @public
+   */
+  ScheduledRunId?: string | undefined;
+
+  /**
+   * <p>The count in number of the retry attempt.</p>
+   * @public
+   */
+  RetryAttempt?: number | undefined;
 
   /**
    * <p>The name of the canary.</p>
@@ -959,6 +995,25 @@ export interface CanaryRunConfigInput {
 }
 
 /**
+ * <p>This structure contains information about the canary's retry configuration.</p>
+ *          <note>
+ *             <p>The default account level concurrent execution limit from Lambda is 1000. When you have more than 1000 canaries, it's possible there are more than 1000 Lambda invocations due to retries and the console might hang. For more information on the Lambda execution limit,
+ *             see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-concurrency.html#:~:text=As%20your%20functions%20receive%20more,functions%20in%20an%20AWS%20Region">Understanding Lambda function scaling</a>.</p>
+ *          </note>
+ *          <note>
+ *             <p>For canary with <code>MaxRetries = 2</code>, you need to set the <code>CanaryRunConfigInput.TimeoutInSeconds</code> to less than 600 seconds to avoid validation errors.</p>
+ *          </note>
+ * @public
+ */
+export interface RetryConfigInput {
+  /**
+   * <p>The maximum number of retries. The value must be less than or equal to 2.</p>
+   * @public
+   */
+  MaxRetries: number | undefined;
+}
+
+/**
  * <p>This structure specifies how often a canary is to make runs and the date and time
  *          when it should stop making runs.</p>
  * @public
@@ -990,6 +1045,12 @@ export interface CanaryScheduleInput {
    * @public
    */
   DurationInSeconds?: number | undefined;
+
+  /**
+   * <p>A structure that contains the retry configuration for a canary</p>
+   * @public
+   */
+  RetryConfig?: RetryConfigInput | undefined;
 }
 
 /**
@@ -1622,6 +1683,9 @@ export interface GetCanaryRunsRequest {
    * <p>A token that indicates that there is more data
    *          available. You can use this token in a subsequent <code>GetCanaryRuns</code> operation to retrieve the next
    *          set of results.</p>
+   *          <note>
+   *             <p>When auto retry is enabled for the canary, the first subsequent retry is suffixed with *1 indicating its the first retry and the next subsequent try is suffixed with *2.</p>
+   *          </note>
    * @public
    */
   NextToken?: string | undefined;

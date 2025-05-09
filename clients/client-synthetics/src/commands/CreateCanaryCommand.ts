@@ -62,6 +62,9 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  *   Schedule: { // CanaryScheduleInput
  *     Expression: "STRING_VALUE", // required
  *     DurationInSeconds: Number("long"),
+ *     RetryConfig: { // RetryConfigInput
+ *       MaxRetries: Number("int"), // required
+ *     },
  *   },
  *   RunConfig: { // CanaryRunConfigInput
  *     TimeoutInSeconds: Number("int"),
@@ -111,6 +114,9 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * //     Schedule: { // CanaryScheduleOutput
  * //       Expression: "STRING_VALUE",
  * //       DurationInSeconds: Number("long"),
+ * //       RetryConfig: { // RetryConfigOutput
+ * //         MaxRetries: Number("int"),
+ * //       },
  * //     },
  * //     RunConfig: { // CanaryRunConfigOutput
  * //       TimeoutInSeconds: Number("int"),

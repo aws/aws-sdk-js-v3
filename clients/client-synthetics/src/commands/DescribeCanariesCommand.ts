@@ -66,6 +66,9 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * //       Schedule: { // CanaryScheduleOutput
  * //         Expression: "STRING_VALUE",
  * //         DurationInSeconds: Number("long"),
+ * //         RetryConfig: { // RetryConfigOutput
+ * //           MaxRetries: Number("int"),
+ * //         },
  * //       },
  * //       RunConfig: { // CanaryRunConfigOutput
  * //         TimeoutInSeconds: Number("int"),

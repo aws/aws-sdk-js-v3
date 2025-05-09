@@ -48,6 +48,8 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  * //   CanaryRuns: [ // CanaryRuns
  * //     { // CanaryRun
  * //       Id: "STRING_VALUE",
+ * //       ScheduledRunId: "STRING_VALUE",
+ * //       RetryAttempt: Number("int"),
  * //       Name: "STRING_VALUE",
  * //       Status: { // CanaryRunStatus
  * //         State: "RUNNING" || "PASSED" || "FAILED",
@@ -57,6 +59,7 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  * //       Timeline: { // CanaryRunTimeline
  * //         Started: new Date("TIMESTAMP"),
  * //         Completed: new Date("TIMESTAMP"),
+ * //         MetricTimestampForRunAndRetries: new Date("TIMESTAMP"),
  * //       },
  * //       ArtifactS3Location: "STRING_VALUE",
  * //       DryRunConfig: { // CanaryDryRunConfigOutput

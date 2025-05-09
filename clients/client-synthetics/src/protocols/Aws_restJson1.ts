@@ -82,6 +82,7 @@ import {
   RequestEntityTooLargeException,
   ResourceNotFoundException,
   ResourceToTag,
+  RetryConfigInput,
   RuntimeVersion,
   S3EncryptionConfig,
   ServiceQuotaExceededException,
@@ -1320,6 +1321,8 @@ const se_CanaryCodeInput = (input: CanaryCodeInput, context: __SerdeContext): an
 
 // se_ResourceList omitted.
 
+// se_RetryConfigInput omitted.
+
 // se_S3EncryptionConfig omitted.
 
 // se_SecurityGroupIds omitted.
@@ -1414,6 +1417,8 @@ const de_CanaryRun = (output: any, context: __SerdeContext): CanaryRun => {
     DryRunConfig: _json,
     Id: __expectString,
     Name: __expectString,
+    RetryAttempt: __expectInt32,
+    ScheduledRunId: __expectString,
     Status: _json,
     Timeline: (_: any) => de_CanaryRunTimeline(_, context),
   }) as any;
@@ -1441,6 +1446,7 @@ const de_CanaryRuns = (output: any, context: __SerdeContext): CanaryRun[] => {
 const de_CanaryRunTimeline = (output: any, context: __SerdeContext): CanaryRunTimeline => {
   return take(output, {
     Completed: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MetricTimestampForRunAndRetries: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Started: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
@@ -1480,6 +1486,8 @@ const de_Group = (output: any, context: __SerdeContext): Group => {
 // de_GroupSummary omitted.
 
 // de_GroupSummaryList omitted.
+
+// de_RetryConfigOutput omitted.
 
 /**
  * deserializeAws_restJson1RuntimeVersion
