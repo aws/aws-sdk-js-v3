@@ -28,8 +28,7 @@ export interface ListClusterNodesCommandInput extends ListClusterNodesRequest {}
 export interface ListClusterNodesCommandOutput extends ListClusterNodesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the list of instances (also called <i>nodes</i> interchangeably)
- *          in a SageMaker HyperPod cluster.</p>
+ * <p>Retrieves the list of instances (also called <i>nodes</i> interchangeably) in a SageMaker HyperPod cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

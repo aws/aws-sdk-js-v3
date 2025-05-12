@@ -28,8 +28,7 @@ export interface DescribeEndpointConfigCommandInput extends DescribeEndpointConf
 export interface DescribeEndpointConfigCommandOutput extends DescribeEndpointConfigOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the description of an endpoint configuration created using the
- *                 <code>CreateEndpointConfig</code> API.</p>
+ * <p>Returns the description of an endpoint configuration created using the <code>CreateEndpointConfig</code> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

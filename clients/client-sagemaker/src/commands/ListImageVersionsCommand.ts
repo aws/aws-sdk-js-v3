@@ -28,8 +28,7 @@ export interface ListImageVersionsCommandInput extends ListImageVersionsRequest 
 export interface ListImageVersionsCommandOutput extends ListImageVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the versions of a specified image and their properties. The list can be filtered
- *         by creation time or modified time.</p>
+ * <p>Lists the versions of a specified image and their properties. The list can be filtered by creation time or modified time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

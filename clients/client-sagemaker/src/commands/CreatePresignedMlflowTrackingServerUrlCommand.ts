@@ -37,8 +37,7 @@ export interface CreatePresignedMlflowTrackingServerUrlCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a presigned URL that you can use to connect to the MLflow UI attached to your
- *       tracking server. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-launch-ui.html">Launch the MLflow UI using a presigned URL</a>.</p>
+ * <p>Returns a presigned URL that you can use to connect to the MLflow UI attached to your tracking server. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-launch-ui.html">Launch the MLflow UI using a presigned URL</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

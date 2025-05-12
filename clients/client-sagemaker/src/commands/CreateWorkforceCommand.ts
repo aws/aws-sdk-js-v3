@@ -32,24 +32,7 @@ export interface CreateWorkforceCommandInput extends CreateWorkforceRequest {}
 export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, __MetadataBearer {}
 
 /**
- * <p>Use this operation to create a workforce. This operation will return an error
- *           if a workforce already exists in the Amazon Web Services Region that you specify. You can only
- *           create one workforce in each Amazon Web Services Region per Amazon Web Services account.</p>
- *          <p>If you want to create a new workforce in an Amazon Web Services Region where
- *             a workforce already exists, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkforce.html">DeleteWorkforce</a> API
- *       operation to delete the existing workforce and then use <code>CreateWorkforce</code>
- *       to create a new workforce.</p>
- *          <p>To create a private workforce using Amazon Cognito, you must specify a Cognito user pool
- *     in <code>CognitoConfig</code>.
- *     You can also create an Amazon Cognito workforce using the Amazon SageMaker console.
- *     For more information, see
- *       <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">
- *       Create a Private Workforce (Amazon Cognito)</a>.</p>
- *          <p>To create a private workforce using your own OIDC Identity Provider (IdP), specify your IdP
- *       configuration in <code>OidcConfig</code>. Your OIDC IdP must support <i>groups</i>
- *       because groups are used by Ground Truth and Amazon A2I to create work teams.
- *       For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private-oidc.html">
- *       Create a Private Workforce (OIDC IdP)</a>.</p>
+ * <p>Use this operation to create a workforce. This operation will return an error if a workforce already exists in the Amazon Web Services Region that you specify. You can only create one workforce in each Amazon Web Services Region per Amazon Web Services account.</p> <p>If you want to create a new workforce in an Amazon Web Services Region where a workforce already exists, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkforce.html">DeleteWorkforce</a> API operation to delete the existing workforce and then use <code>CreateWorkforce</code> to create a new workforce.</p> <p>To create a private workforce using Amazon Cognito, you must specify a Cognito user pool in <code>CognitoConfig</code>. You can also create an Amazon Cognito workforce using the Amazon SageMaker console. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html"> Create a Private Workforce (Amazon Cognito)</a>.</p> <p>To create a private workforce using your own OIDC Identity Provider (IdP), specify your IdP configuration in <code>OidcConfig</code>. Your OIDC IdP must support <i>groups</i> because groups are used by Ground Truth and Amazon A2I to create work teams. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private-oidc.html"> Create a Private Workforce (OIDC IdP)</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

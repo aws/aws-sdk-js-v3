@@ -28,13 +28,7 @@ export interface CreateUserProfileCommandInput extends CreateUserProfileRequest 
 export interface CreateUserProfileCommandOutput extends CreateUserProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a user profile. A user profile represents a single user within a domain, and is
- *       the main way to reference a "person" for the purposes of sharing, reporting, and other
- *       user-oriented features. This entity is created when a user onboards to a domain. If an
- *       administrator invites a person by email or imports them from IAM Identity Center, a user
- *       profile is automatically created. A user profile is the primary holder of settings for an
- *       individual user and has a reference to the user's private Amazon Elastic File System home
- *       directory. </p>
+ * <p>Creates a user profile. A user profile represents a single user within a domain, and is the main way to reference a "person" for the purposes of sharing, reporting, and other user-oriented features. This entity is created when a user onboards to a domain. If an administrator invites a person by email or imports them from IAM Identity Center, a user profile is automatically created. A user profile is the primary holder of settings for an individual user and has a reference to the user's private Amazon Elastic File System home directory. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -288,8 +282,7 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileRespons
  *  <p>Resource being accessed is in use.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>

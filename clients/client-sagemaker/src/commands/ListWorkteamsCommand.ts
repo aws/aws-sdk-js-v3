@@ -28,9 +28,7 @@ export interface ListWorkteamsCommandInput extends ListWorkteamsRequest {}
 export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of private work teams that you have defined in a region. The list may be empty if
- *             no work team satisfies the filter specified in the <code>NameContains</code>
- *             parameter.</p>
+ * <p>Gets a list of private work teams that you have defined in a region. The list may be empty if no work team satisfies the filter specified in the <code>NameContains</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,12 +28,7 @@ export interface StopTransformJobCommandInput extends StopTransformJobRequest {}
 export interface StopTransformJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Stops a batch transform job.</p>
- *          <p>When Amazon SageMaker receives a <code>StopTransformJob</code> request, the status of the job
- *             changes to <code>Stopping</code>. After Amazon SageMaker
- *             stops
- *             the job, the status is set to <code>Stopped</code>. When you stop a batch transform job before
- *             it is completed, Amazon SageMaker doesn't store the job's output in Amazon S3.</p>
+ * <p>Stops a batch transform job.</p> <p>When Amazon SageMaker receives a <code>StopTransformJob</code> request, the status of the job changes to <code>Stopping</code>. After Amazon SageMaker stops the job, the status is set to <code>Stopped</code>. When you stop a batch transform job before it is completed, Amazon SageMaker doesn't store the job's output in Amazon S3.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

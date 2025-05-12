@@ -28,28 +28,7 @@ export interface ListTrainingJobsCommandInput extends ListTrainingJobsRequest {}
 export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists training jobs.</p>
- *          <note>
- *             <p>When <code>StatusEquals</code> and <code>MaxResults</code> are set at the same
- *                 time, the <code>MaxResults</code> number of training jobs are first retrieved
- *                 ignoring the <code>StatusEquals</code> parameter and then they are filtered by the
- *                     <code>StatusEquals</code> parameter, which is returned as a response.</p>
- *             <p>For example, if <code>ListTrainingJobs</code> is invoked with the following
- *                 parameters:</p>
- *             <p>
- *                <code>\{ ... MaxResults: 100, StatusEquals: InProgress ... \}</code>
- *             </p>
- *             <p>First, 100 trainings jobs with any status, including those other than
- *                     <code>InProgress</code>, are selected (sorted according to the creation time,
- *                 from the most current to the oldest). Next, those with a status of
- *                     <code>InProgress</code> are returned.</p>
- *             <p>You can quickly test the API using the following Amazon Web Services CLI
- *                 code.</p>
- *             <p>
- *                <code>aws sagemaker list-training-jobs --max-results 100 --status-equals
- *                     InProgress</code>
- *             </p>
- *          </note>
+ * <p>Lists training jobs.</p> <note> <p>When <code>StatusEquals</code> and <code>MaxResults</code> are set at the same time, the <code>MaxResults</code> number of training jobs are first retrieved ignoring the <code>StatusEquals</code> parameter and then they are filtered by the <code>StatusEquals</code> parameter, which is returned as a response.</p> <p>For example, if <code>ListTrainingJobs</code> is invoked with the following parameters:</p> <p> <code>\{ ... MaxResults: 100, StatusEquals: InProgress ... \}</code> </p> <p>First, 100 trainings jobs with any status, including those other than <code>InProgress</code>, are selected (sorted according to the creation time, from the most current to the oldest). Next, those with a status of <code>InProgress</code> are returned.</p> <p>You can quickly test the API using the following Amazon Web Services CLI code.</p> <p> <code>aws sagemaker list-training-jobs --max-results 100 --status-equals InProgress</code> </p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -36,8 +36,7 @@ export interface DescribeInferenceRecommendationsJobCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Provides the results of the Inference Recommender job.
- *           One or more recommendation jobs are returned.</p>
+ * <p>Provides the results of the Inference Recommender job. One or more recommendation jobs are returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

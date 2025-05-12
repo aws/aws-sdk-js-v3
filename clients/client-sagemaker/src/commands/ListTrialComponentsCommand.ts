@@ -28,26 +28,7 @@ export interface ListTrialComponentsCommandInput extends ListTrialComponentsRequ
 export interface ListTrialComponentsCommandOutput extends ListTrialComponentsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the trial components in your account. You can sort the list by trial component name
- *       or creation time. You can filter the list to show only components that were created in a
- *       specific time range. You can also filter on one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>ExperimentName</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>SourceArn</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>TrialName</code>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Lists the trial components in your account. You can sort the list by trial component name or creation time. You can filter the list to show only components that were created in a specific time range. You can also filter on one of the following:</p> <ul> <li> <p> <code>ExperimentName</code> </p> </li> <li> <p> <code>SourceArn</code> </p> </li> <li> <p> <code>TrialName</code> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

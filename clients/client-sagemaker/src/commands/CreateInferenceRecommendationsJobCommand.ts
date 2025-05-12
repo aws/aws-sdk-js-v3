@@ -36,8 +36,7 @@ export interface CreateInferenceRecommendationsJobCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Starts a recommendation job. You can create either an instance
- *           recommendation or load test job.</p>
+ * <p>Starts a recommendation job. You can create either an instance recommendation or load test job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -170,8 +169,7 @@ export interface CreateInferenceRecommendationsJobCommandOutput
  *  <p>Resource being accessed is in use.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>

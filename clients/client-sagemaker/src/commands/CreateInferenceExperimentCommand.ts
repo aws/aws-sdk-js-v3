@@ -28,21 +28,7 @@ export interface CreateInferenceExperimentCommandInput extends CreateInferenceEx
 export interface CreateInferenceExperimentCommandOutput extends CreateInferenceExperimentResponse, __MetadataBearer {}
 
 /**
- * <p>
- *            Creates an inference experiment using the configurations specified in the request.
- *        </p>
- *          <p>
- *            Use this API to setup and schedule an experiment to compare model variants on a Amazon SageMaker inference endpoint. For
- *            more information about inference experiments, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html">Shadow tests</a>.
- *        </p>
- *          <p>
- *            Amazon SageMaker begins your experiment at the scheduled time and routes traffic to your endpoint's model variants based
- *            on your specified configuration.
- *        </p>
- *          <p>
- *            While the experiment is in progress or after it has concluded, you can view metrics that compare your model
- *            variants. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests-view-monitor-edit.html">View, monitor, and edit shadow tests</a>.
- *        </p>
+ * <p> Creates an inference experiment using the configurations specified in the request. </p> <p> Use this API to setup and schedule an experiment to compare model variants on a Amazon SageMaker inference endpoint. For more information about inference experiments, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html">Shadow tests</a>. </p> <p> Amazon SageMaker begins your experiment at the scheduled time and routes traffic to your endpoint's model variants based on your specified configuration. </p> <p> While the experiment is in progress or after it has concluded, you can view metrics that compare your model variants. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests-view-monitor-edit.html">View, monitor, and edit shadow tests</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -119,8 +105,7 @@ export interface CreateInferenceExperimentCommandOutput extends CreateInferenceE
  *  <p>Resource being accessed is in use.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>

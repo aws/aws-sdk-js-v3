@@ -28,9 +28,7 @@ export interface ListExperimentsCommandInput extends ListExperimentsRequest {}
 export interface ListExperimentsCommandOutput extends ListExperimentsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the experiments in your account. The list can be filtered to show only
- *       experiments that were created in a specific time range. The list can be sorted by experiment
- *       name or creation time.</p>
+ * <p>Lists all the experiments in your account. The list can be filtered to show only experiments that were created in a specific time range. The list can be sorted by experiment name or creation time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -37,8 +37,7 @@ export interface EnableSagemakerServicecatalogPortfolioCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Enables using Service Catalog in SageMaker. Service Catalog is used to create
- *             SageMaker projects.</p>
+ * <p>Enables using Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

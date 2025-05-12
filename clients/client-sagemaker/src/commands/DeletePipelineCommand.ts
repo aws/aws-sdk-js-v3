@@ -28,10 +28,7 @@ export interface DeletePipelineCommandInput extends DeletePipelineRequest {}
 export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a pipeline if there are no running instances of the pipeline. To delete a
- *         pipeline, you must stop all running instances of the pipeline using the
- *         <code>StopPipelineExecution</code> API. When you delete a pipeline, all instances of the
- *         pipeline are deleted.</p>
+ * <p>Deletes a pipeline if there are no running instances of the pipeline. To delete a pipeline, you must stop all running instances of the pipeline using the <code>StopPipelineExecution</code> API. When you delete a pipeline, all instances of the pipeline are deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,8 +54,7 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
- *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
  *
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>

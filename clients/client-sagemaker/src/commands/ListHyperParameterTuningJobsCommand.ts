@@ -33,9 +33,7 @@ export interface ListHyperParameterTuningJobsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets a list of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobSummary.html">HyperParameterTuningJobSummary</a> objects that
- *             describe
- *             the hyperparameter tuning jobs launched in your account.</p>
+ * <p>Gets a list of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobSummary.html">HyperParameterTuningJobSummary</a> objects that describe the hyperparameter tuning jobs launched in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

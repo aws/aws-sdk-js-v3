@@ -28,8 +28,7 @@ export interface UpdateTrainingJobCommandInput extends UpdateTrainingJobRequest 
 export interface UpdateTrainingJobCommandOutput extends UpdateTrainingJobResponse, __MetadataBearer {}
 
 /**
- * <p>Update a model training job to request a new Debugger profiling configuration or to
- *             change warm pool retention length.</p>
+ * <p>Update a model training job to request a new Debugger profiling configuration or to change warm pool retention length.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,8 +80,7 @@ export interface UpdateTrainingJobCommandOutput extends UpdateTrainingJobRespons
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>

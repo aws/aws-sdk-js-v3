@@ -28,8 +28,7 @@ export interface ListWorkforcesCommandInput extends ListWorkforcesRequest {}
 export interface ListWorkforcesCommandOutput extends ListWorkforcesResponse, __MetadataBearer {}
 
 /**
- * <p>Use this operation to list all private and vendor workforces in an Amazon Web Services Region. Note that you can only
- *            have one private workforce per Amazon Web Services Region.</p>
+ * <p>Use this operation to list all private and vendor workforces in an Amazon Web Services Region. Note that you can only have one private workforce per Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

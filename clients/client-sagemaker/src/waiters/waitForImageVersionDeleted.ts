@@ -36,7 +36,7 @@ export const waitForImageVersionDeleted = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeImageVersionCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 60, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 60, maxDelay: 3600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
 /**
@@ -48,7 +48,7 @@ export const waitUntilImageVersionDeleted = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeImageVersionCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 60, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 60, maxDelay: 3600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
   return checkExceptions(result);
 };

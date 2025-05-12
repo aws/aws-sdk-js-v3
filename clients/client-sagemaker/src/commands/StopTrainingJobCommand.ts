@@ -28,13 +28,7 @@ export interface StopTrainingJobCommandInput extends StopTrainingJobRequest {}
 export interface StopTrainingJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Stops a training job. To stop a job, SageMaker sends the algorithm the
- *                 <code>SIGTERM</code> signal, which delays job termination for 120 seconds.
- *             Algorithms might use this 120-second window to save the model artifacts, so the results
- *             of the training is not lost. </p>
- *          <p>When it receives a <code>StopTrainingJob</code> request, SageMaker changes the status of
- *             the job to <code>Stopping</code>. After SageMaker stops the job, it sets the status to
- *                 <code>Stopped</code>.</p>
+ * <p>Stops a training job. To stop a job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays job termination for 120 seconds. Algorithms might use this 120-second window to save the model artifacts, so the results of the training is not lost. </p> <p>When it receives a <code>StopTrainingJob</code> request, SageMaker changes the status of the job to <code>Stopping</code>. After SageMaker stops the job, it sets the status to <code>Stopped</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,11 +28,7 @@ export interface AddAssociationCommandInput extends AddAssociationRequest {}
 export interface AddAssociationCommandOutput extends AddAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an <i>association</i> between the source and the destination. A
- *         source can be associated with multiple destinations, and a destination can be associated
- *         with multiple sources. An association is a lineage tracking entity. For more information, see
- *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html">Amazon SageMaker
- *           ML Lineage Tracking</a>.</p>
+ * <p>Creates an <i>association</i> between the source and the destination. A source can be associated with multiple destinations, and a destination can be associated with multiple sources. An association is a lineage tracking entity. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html">Amazon SageMaker ML Lineage Tracking</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,8 +56,7 @@ export interface AddAssociationCommandOutput extends AddAssociationResponse, __M
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>

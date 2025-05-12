@@ -28,8 +28,7 @@ export interface DescribeModelCommandInput extends DescribeModelInput {}
 export interface DescribeModelCommandOutput extends DescribeModelOutput, __MetadataBearer {}
 
 /**
- * <p>Describes a model that you created using the <code>CreateModel</code>
- *             API.</p>
+ * <p>Describes a model that you created using the <code>CreateModel</code> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

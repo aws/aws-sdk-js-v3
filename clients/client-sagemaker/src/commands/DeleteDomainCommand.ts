@@ -28,10 +28,7 @@ export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
 export interface DeleteDomainCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Used to delete a domain. If you onboarded with IAM mode, you will need to delete your
- *       domain to onboard again using IAM Identity Center. Use with caution. All of the members of the
- *       domain will lose access to their EFS volume, including data, notebooks, and other artifacts.
- *     </p>
+ * <p>Used to delete a domain. If you onboarded with IAM mode, you will need to delete your domain to onboard again using IAM Identity Center. Use with caution. All of the members of the domain will lose access to their EFS volume, including data, notebooks, and other artifacts. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

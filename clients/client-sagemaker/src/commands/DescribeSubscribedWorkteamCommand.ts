@@ -28,8 +28,7 @@ export interface DescribeSubscribedWorkteamCommandInput extends DescribeSubscrib
 export interface DescribeSubscribedWorkteamCommandOutput extends DescribeSubscribedWorkteamResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a work team provided by a vendor. It returns details about the
- *             subscription with a vendor in the Amazon Web Services Marketplace.</p>
+ * <p>Gets information about a work team provided by a vendor. It returns details about the subscription with a vendor in the Amazon Web Services Marketplace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

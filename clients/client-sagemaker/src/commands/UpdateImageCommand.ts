@@ -28,8 +28,7 @@ export interface UpdateImageCommandInput extends UpdateImageRequest {}
 export interface UpdateImageCommandOutput extends UpdateImageResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the properties of a SageMaker AI image. To change the image's tags, use the
- *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html">AddTags</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteTags.html">DeleteTags</a> APIs.</p>
+ * <p>Updates the properties of a SageMaker AI image. To change the image's tags, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html">AddTags</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteTags.html">DeleteTags</a> APIs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

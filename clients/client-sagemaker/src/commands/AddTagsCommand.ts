@@ -28,32 +28,7 @@ export interface AddTagsCommandInput extends AddTagsInput {}
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
- * <p>Adds or overwrites one or more tags for the specified SageMaker resource. You can add
- *             tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform
- *             jobs, models, labeling jobs, work teams, endpoint configurations, and
- *             endpoints.</p>
- *          <p>Each tag consists of a key and an optional value. Tag keys must be unique per
- *             resource. For more information about tags, see For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">Amazon Web Services Tagging Strategies</a>.</p>
- *          <note>
- *             <p>Tags that you add to a hyperparameter tuning job by calling this API are also
- *                 added to any training jobs that the hyperparameter tuning job launches after you
- *                 call this API, but not to training jobs that the hyperparameter tuning job launched
- *                 before you called this API. To make sure that the tags associated with a
- *                 hyperparameter tuning job are also added to all training jobs that the
- *                 hyperparameter tuning job launches, add the tags when you first create the tuning
- *                 job by specifying them in the <code>Tags</code> parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
- *             </p>
- *          </note>
- *          <note>
- *             <p>Tags that you add to a SageMaker Domain or User Profile by calling this API are
- *                 also added to any Apps that the Domain or User Profile launches after you call this
- *                 API, but not to Apps that the Domain or User Profile launched before you called this
- *                 API. To make sure that the tags associated with a Domain or User Profile are also
- *                 added to all Apps that the Domain or User Profile launches, add the tags when you
- *                 first create the Domain or User Profile by specifying them in the <code>Tags</code>
- *                 parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateDomain.html">CreateDomain</a>
- *                 or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateUserProfile.html">CreateUserProfile</a>.</p>
- *          </note>
+ * <p>Adds or overwrites one or more tags for the specified SageMaker resource. You can add tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and endpoints.</p> <p>Each tag consists of a key and an optional value. Tag keys must be unique per resource. For more information about tags, see For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">Amazon Web Services Tagging Strategies</a>.</p> <note> <p>Tags that you add to a hyperparameter tuning job by calling this API are also added to any training jobs that the hyperparameter tuning job launches after you call this API, but not to training jobs that the hyperparameter tuning job launched before you called this API. To make sure that the tags associated with a hyperparameter tuning job are also added to all training jobs that the hyperparameter tuning job launches, add the tags when you first create the tuning job by specifying them in the <code>Tags</code> parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a> </p> </note> <note> <p>Tags that you add to a SageMaker Domain or User Profile by calling this API are also added to any Apps that the Domain or User Profile launches after you call this API, but not to Apps that the Domain or User Profile launched before you called this API. To make sure that the tags associated with a Domain or User Profile are also added to all Apps that the Domain or User Profile launches, add the tags when you first create the Domain or User Profile by specifying them in the <code>Tags</code> parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateDomain.html">CreateDomain</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateUserProfile.html">CreateUserProfile</a>.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

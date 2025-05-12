@@ -37,9 +37,7 @@ export interface DescribeNotebookInstanceLifecycleConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a description of a notebook instance lifecycle configuration.</p>
- *          <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
- *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
+ * <p>Returns a description of a notebook instance lifecycle configuration.</p> <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional) Customize a Notebook Instance</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

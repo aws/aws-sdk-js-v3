@@ -28,9 +28,7 @@ export interface ListAppImageConfigsCommandInput extends ListAppImageConfigsRequ
 export interface ListAppImageConfigsCommandOutput extends ListAppImageConfigsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the AppImageConfigs in your account and their properties. The list can be
- *          filtered by creation time or modified time, and whether the AppImageConfig name contains
- *          a specified string.</p>
+ * <p>Lists the AppImageConfigs in your account and their properties. The list can be filtered by creation time or modified time, and whether the AppImageConfig name contains a specified string.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

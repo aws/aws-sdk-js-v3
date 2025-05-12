@@ -28,12 +28,7 @@ export interface DeleteNotebookInstanceCommandInput extends DeleteNotebookInstan
 export interface DeleteNotebookInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p> Deletes an SageMaker AI notebook instance. Before you can delete a notebook
- *             instance, you must call the <code>StopNotebookInstance</code> API. </p>
- *          <important>
- *             <p>When you delete a notebook instance, you lose all of your data. SageMaker AI removes the ML compute instance, and deletes the ML storage volume and the
- *                 network interface associated with the notebook instance. </p>
- *          </important>
+ * <p> Deletes an SageMaker AI notebook instance. Before you can delete a notebook instance, you must call the <code>StopNotebookInstance</code> API. </p> <important> <p>When you delete a notebook instance, you lose all of your data. SageMaker AI removes the ML compute instance, and deletes the ML storage volume and the network interface associated with the notebook instance. </p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

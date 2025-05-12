@@ -28,8 +28,7 @@ export interface ListModelMetadataCommandInput extends ListModelMetadataRequest 
 export interface ListModelMetadataCommandOutput extends ListModelMetadataResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the domain, framework, task, and model name of standard
- *           machine learning models found in common model zoos.</p>
+ * <p>Lists the domain, framework, task, and model name of standard machine learning models found in common model zoos.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

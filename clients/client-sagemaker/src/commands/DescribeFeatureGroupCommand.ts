@@ -28,9 +28,7 @@ export interface DescribeFeatureGroupCommandInput extends DescribeFeatureGroupRe
 export interface DescribeFeatureGroupCommandOutput extends DescribeFeatureGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Use this operation to describe a <code>FeatureGroup</code>. The response includes
- *          information on the creation time, <code>FeatureGroup</code> name, the unique identifier for
- *          each <code>FeatureGroup</code>, and more.</p>
+ * <p>Use this operation to describe a <code>FeatureGroup</code>. The response includes information on the creation time, <code>FeatureGroup</code> name, the unique identifier for each <code>FeatureGroup</code>, and more.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

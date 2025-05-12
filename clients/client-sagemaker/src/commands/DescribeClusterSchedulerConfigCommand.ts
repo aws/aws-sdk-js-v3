@@ -33,9 +33,7 @@ export interface DescribeClusterSchedulerConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Description of the cluster policy. This policy is used for task prioritization and
- *          fair-share allocation. This helps prioritize critical workloads and distributes
- *          idle compute across entities.</p>
+ * <p>Description of the cluster policy. This policy is used for task prioritization and fair-share allocation. This helps prioritize critical workloads and distributes idle compute across entities.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,13 +28,7 @@ export interface StopHyperParameterTuningJobCommandInput extends StopHyperParame
 export interface StopHyperParameterTuningJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Stops a running hyperparameter tuning job and all running training jobs that the
- *             tuning job launched.</p>
- *          <p>All model artifacts output from the training jobs are stored in Amazon Simple Storage Service (Amazon S3). All
- *             data that the training jobs write to Amazon CloudWatch Logs are still available in CloudWatch. After the
- *             tuning job moves to the <code>Stopped</code> state, it releases all
- *             reserved
- *             resources for the tuning job.</p>
+ * <p>Stops a running hyperparameter tuning job and all running training jobs that the tuning job launched.</p> <p>All model artifacts output from the training jobs are stored in Amazon Simple Storage Service (Amazon S3). All data that the training jobs write to Amazon CloudWatch Logs are still available in CloudWatch. After the tuning job moves to the <code>Stopped</code> state, it releases all reserved resources for the tuning job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

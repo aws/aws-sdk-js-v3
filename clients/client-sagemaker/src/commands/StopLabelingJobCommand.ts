@@ -28,8 +28,7 @@ export interface StopLabelingJobCommandInput extends StopLabelingJobRequest {}
 export interface StopLabelingJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Stops a running labeling job. A job that is stopped cannot be restarted. Any results
- *             obtained before the job is stopped are placed in the Amazon S3 output bucket.</p>
+ * <p>Stops a running labeling job. A job that is stopped cannot be restarted. Any results obtained before the job is stopped are placed in the Amazon S3 output bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

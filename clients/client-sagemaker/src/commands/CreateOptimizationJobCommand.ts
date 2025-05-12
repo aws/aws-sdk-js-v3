@@ -28,12 +28,7 @@ export interface CreateOptimizationJobCommandInput extends CreateOptimizationJob
 export interface CreateOptimizationJobCommandOutput extends CreateOptimizationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a job that optimizes a model for inference performance. To create the job, you
- *          provide the location of a source model, and you provide the settings for the optimization
- *          techniques that you want the job to apply. When the job completes successfully, SageMaker
- *          uploads the new optimized model to the output destination that you specify.</p>
- *          <p>For more information about how to use this action, and about the supported optimization
- *          techniques, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-optimize.html">Optimize model inference with Amazon SageMaker</a>.</p>
+ * <p>Creates a job that optimizes a model for inference performance. To create the job, you provide the location of a source model, and you provide the settings for the optimization techniques that you want the job to apply. When the job completes successfully, SageMaker uploads the new optimized model to the output destination that you specify.</p> <p>For more information about how to use this action, and about the supported optimization techniques, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-optimize.html">Optimize model inference with Amazon SageMaker</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -119,8 +114,7 @@ export interface CreateOptimizationJobCommandOutput extends CreateOptimizationJo
  *  <p>Resource being accessed is in use.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>

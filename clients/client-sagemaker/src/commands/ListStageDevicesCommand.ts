@@ -28,8 +28,7 @@ export interface ListStageDevicesCommandInput extends ListStageDevicesRequest {}
 export interface ListStageDevicesCommandOutput extends ListStageDevicesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists devices allocated to the stage, containing detailed device information and
- *             deployment status.</p>
+ * <p>Lists devices allocated to the stage, containing detailed device information and deployment status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

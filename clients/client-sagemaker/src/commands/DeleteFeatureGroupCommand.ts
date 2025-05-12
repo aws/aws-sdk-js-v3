@@ -28,14 +28,7 @@ export interface DeleteFeatureGroupCommandInput extends DeleteFeatureGroupReques
 export interface DeleteFeatureGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete the <code>FeatureGroup</code> and any data that was written to the
- *             <code>OnlineStore</code> of the <code>FeatureGroup</code>. Data cannot be accessed from
- *          the <code>OnlineStore</code> immediately after <code>DeleteFeatureGroup</code> is called. </p>
- *          <p>Data written into the <code>OfflineStore</code> will not be deleted. The Amazon Web Services Glue database and tables that are automatically created for your
- *             <code>OfflineStore</code> are not deleted. </p>
- *          <p>Note that it can take approximately 10-15 minutes to delete an <code>OnlineStore</code>
- *             <code>FeatureGroup</code> with the <code>InMemory</code>
- *             <code>StorageType</code>.</p>
+ * <p>Delete the <code>FeatureGroup</code> and any data that was written to the <code>OnlineStore</code> of the <code>FeatureGroup</code>. Data cannot be accessed from the <code>OnlineStore</code> immediately after <code>DeleteFeatureGroup</code> is called. </p> <p>Data written into the <code>OfflineStore</code> will not be deleted. The Amazon Web Services Glue database and tables that are automatically created for your <code>OfflineStore</code> are not deleted. </p> <p>Note that it can take approximately 10-15 minutes to delete an <code>OnlineStore</code> <code>FeatureGroup</code> with the <code>InMemory</code> <code>StorageType</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

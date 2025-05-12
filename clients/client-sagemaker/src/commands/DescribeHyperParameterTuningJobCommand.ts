@@ -33,9 +33,7 @@ export interface DescribeHyperParameterTuningJobCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a description of a hyperparameter tuning job, depending on the fields
- *             selected. These fields can include the name, Amazon Resource Name (ARN), job status of
- *             your tuning job and more.</p>
+ * <p>Returns a description of a hyperparameter tuning job, depending on the fields selected. These fields can include the name, Amazon Resource Name (ARN), job status of your tuning job and more.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

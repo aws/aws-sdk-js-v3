@@ -28,9 +28,7 @@ export interface QueryLineageCommandInput extends QueryLineageRequest {}
 export interface QueryLineageCommandOutput extends QueryLineageResponse, __MetadataBearer {}
 
 /**
- * <p>Use this action to inspect your lineage and discover relationships between entities.
- *          For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/querying-lineage-entities.html">
- *             Querying Lineage Entities</a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
+ * <p>Use this action to inspect your lineage and discover relationships between entities. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/querying-lineage-entities.html"> Querying Lineage Entities</a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

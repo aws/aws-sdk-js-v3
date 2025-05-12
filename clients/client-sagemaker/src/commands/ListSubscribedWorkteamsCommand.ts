@@ -28,9 +28,7 @@ export interface ListSubscribedWorkteamsCommandInput extends ListSubscribedWorkt
 export interface ListSubscribedWorkteamsCommandOutput extends ListSubscribedWorkteamsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of the work teams that you are subscribed to in the Amazon Web Services Marketplace. The
- *             list may be empty if no work team satisfies the filter specified in the
- *                 <code>NameContains</code> parameter.</p>
+ * <p>Gets a list of the work teams that you are subscribed to in the Amazon Web Services Marketplace. The list may be empty if no work team satisfies the filter specified in the <code>NameContains</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

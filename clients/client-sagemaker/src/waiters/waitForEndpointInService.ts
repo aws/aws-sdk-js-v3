@@ -41,7 +41,7 @@ export const waitForEndpointInService = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeEndpointCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 30, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 30, maxDelay: 3600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
 /**
@@ -53,7 +53,7 @@ export const waitUntilEndpointInService = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeEndpointCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 30, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 30, maxDelay: 3600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
   return checkExceptions(result);
 };

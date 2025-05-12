@@ -28,11 +28,7 @@ export interface DeleteHumanTaskUiCommandInput extends DeleteHumanTaskUiRequest 
 export interface DeleteHumanTaskUiCommandOutput extends DeleteHumanTaskUiResponse, __MetadataBearer {}
 
 /**
- * <p>Use this operation to delete a human task user interface (worker task template).</p>
- *          <p>
- *       To see a list of human task user interfaces
- *       (work task templates) in your account, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListHumanTaskUis.html">ListHumanTaskUis</a>.
- *       When you delete a worker task template, it no longer appears when you call <code>ListHumanTaskUis</code>.</p>
+ * <p>Use this operation to delete a human task user interface (worker task template).</p> <p> To see a list of human task user interfaces (work task templates) in your account, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListHumanTaskUis.html">ListHumanTaskUis</a>. When you delete a worker task template, it no longer appears when you call <code>ListHumanTaskUis</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

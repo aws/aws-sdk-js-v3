@@ -31,10 +31,7 @@ export interface DeleteHyperParameterTuningJobCommandInput extends DeleteHyperPa
 export interface DeleteHyperParameterTuningJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a hyperparameter tuning job. The <code>DeleteHyperParameterTuningJob</code>
- *             API deletes only the tuning job entry that was created in SageMaker when you called the
- *                 <code>CreateHyperParameterTuningJob</code> API. It does not delete training jobs,
- *             artifacts, or the IAM role that you specified when creating the model.</p>
+ * <p>Deletes a hyperparameter tuning job. The <code>DeleteHyperParameterTuningJob</code> API deletes only the tuning job entry that was created in SageMaker when you called the <code>CreateHyperParameterTuningJob</code> API. It does not delete training jobs, artifacts, or the IAM role that you specified when creating the model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,8 +28,7 @@ export interface CreateProjectCommandInput extends CreateProjectInput {}
 export interface CreateProjectCommandOutput extends CreateProjectOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a machine learning (ML) project that can contain one or more templates that set
- *             up an ML pipeline from training to deploying an approved model.</p>
+ * <p>Creates a machine learning (ML) project that can contain one or more templates that set up an ML pipeline from training to deploying an approved model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,8 +72,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>

@@ -28,41 +28,7 @@ export interface CreateTransformJobCommandInput extends CreateTransformJobReques
 export interface CreateTransformJobCommandOutput extends CreateTransformJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a transform job. A transform job uses a trained model to get inferences on a
- *             dataset and saves these results to an Amazon S3 location that you specify.</p>
- *          <p>To perform batch transformations, you create a transform job and use the data that you
- *             have readily available.</p>
- *          <p>In the request body, you provide the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>TransformJobName</code> - Identifies the transform job. The name must be
- *                     unique within an Amazon Web Services Region in an Amazon Web Services account.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ModelName</code> - Identifies the model to use. <code>ModelName</code>
- *                     must be the name of an existing Amazon SageMaker model in the same Amazon Web Services Region and Amazon Web Services
- * 		    account. For information on creating a model, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html">CreateModel</a>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>TransformInput</code> - Describes the dataset to be transformed and the
- *                     Amazon S3 location where it is stored.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>TransformOutput</code> - Identifies the Amazon S3 location where you want
- *                     Amazon SageMaker to save the results from the transform job.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>TransformResources</code> - Identifies the ML compute instances and AMI
- *                     image versions for the transform job.</p>
- *             </li>
- *          </ul>
- *          <p>For more information about how batch transformation works, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">Batch
- *                 Transform</a>.</p>
+ * <p>Starts a transform job. A transform job uses a trained model to get inferences on a dataset and saves these results to an Amazon S3 location that you specify.</p> <p>To perform batch transformations, you create a transform job and use the data that you have readily available.</p> <p>In the request body, you provide the following:</p> <ul> <li> <p> <code>TransformJobName</code> - Identifies the transform job. The name must be unique within an Amazon Web Services Region in an Amazon Web Services account.</p> </li> <li> <p> <code>ModelName</code> - Identifies the model to use. <code>ModelName</code> must be the name of an existing Amazon SageMaker model in the same Amazon Web Services Region and Amazon Web Services account. For information on creating a model, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html">CreateModel</a>.</p> </li> <li> <p> <code>TransformInput</code> - Describes the dataset to be transformed and the Amazon S3 location where it is stored.</p> </li> <li> <p> <code>TransformOutput</code> - Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.</p> </li> <li> <p> <code>TransformResources</code> - Identifies the ML compute instances and AMI image versions for the transform job.</p> </li> </ul> <p>For more information about how batch transformation works, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">Batch Transform</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -146,8 +112,7 @@ export interface CreateTransformJobCommandOutput extends CreateTransformJobRespo
  *  <p>Resource being accessed is in use.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>

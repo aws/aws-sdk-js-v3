@@ -28,11 +28,7 @@ export interface CreateArtifactCommandInput extends CreateArtifactRequest {}
 export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an <i>artifact</i>. An artifact is a lineage tracking entity that
- *         represents a URI addressable object or data. Some examples are the S3 URI of a dataset and
- *         the ECR registry path of an image. For more information, see
- *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html">Amazon SageMaker
- *           ML Lineage Tracking</a>.</p>
+ * <p>Creates an <i>artifact</i>. An artifact is a lineage tracking entity that represents a URI addressable object or data. Some examples are the S3 URI of a dataset and the ECR registry path of an image. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html">Amazon SageMaker ML Lineage Tracking</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,8 +78,7 @@ export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __M
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>

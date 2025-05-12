@@ -28,14 +28,7 @@ export interface DeleteCompilationJobCommandInput extends DeleteCompilationJobRe
 export interface DeleteCompilationJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified compilation job. This action deletes only the compilation job
- *             resource in Amazon SageMaker AI. It doesn't delete other resources that are related to
- *             that job, such as the model artifacts that the job creates, the compilation logs in
- *                 CloudWatch, the compiled model, or the IAM role.</p>
- *          <p>You can delete a compilation job only if its current status is <code>COMPLETED</code>,
- *                 <code>FAILED</code>, or <code>STOPPED</code>. If the job status is
- *                 <code>STARTING</code> or <code>INPROGRESS</code>, stop the job, and then delete it
- *             after its status becomes <code>STOPPED</code>.</p>
+ * <p>Deletes the specified compilation job. This action deletes only the compilation job resource in Amazon SageMaker AI. It doesn't delete other resources that are related to that job, such as the model artifacts that the job creates, the compilation logs in CloudWatch, the compiled model, or the IAM role.</p> <p>You can delete a compilation job only if its current status is <code>COMPLETED</code>, <code>FAILED</code>, or <code>STOPPED</code>. If the job status is <code>STARTING</code> or <code>INPROGRESS</code>, stop the job, and then delete it after its status becomes <code>STOPPED</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

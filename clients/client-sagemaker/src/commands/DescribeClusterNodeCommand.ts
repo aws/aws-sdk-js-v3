@@ -28,8 +28,7 @@ export interface DescribeClusterNodeCommandInput extends DescribeClusterNodeRequ
 export interface DescribeClusterNodeCommandOutput extends DescribeClusterNodeResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information of a node (also called a <i>instance</i>
- *          interchangeably) of a SageMaker HyperPod cluster.</p>
+ * <p>Retrieves information of a node (also called a <i>instance</i> interchangeably) of a SageMaker HyperPod cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

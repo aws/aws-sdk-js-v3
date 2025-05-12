@@ -28,8 +28,7 @@ export interface CreateMonitoringScheduleCommandInput extends CreateMonitoringSc
 export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringScheduleResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a schedule that regularly starts Amazon SageMaker AI Processing Jobs to
- *          monitor the data captured for an Amazon SageMaker AI Endpoint.</p>
+ * <p>Creates a schedule that regularly starts Amazon SageMaker AI Processing Jobs to monitor the data captured for an Amazon SageMaker AI Endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -172,8 +171,7 @@ export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringS
  *  <p>Resource being accessed is in use.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>

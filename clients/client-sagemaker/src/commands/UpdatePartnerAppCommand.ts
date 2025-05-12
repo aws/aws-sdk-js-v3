@@ -28,7 +28,7 @@ export interface UpdatePartnerAppCommandInput extends UpdatePartnerAppRequest {}
 export interface UpdatePartnerAppCommandOutput extends UpdatePartnerAppResponse, __MetadataBearer {}
 
 /**
- * <p>Updates  all of the SageMaker Partner AI Apps in an account.</p>
+ * <p>Updates all of the SageMaker Partner AI Apps in an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,8 +73,7 @@ export interface UpdatePartnerAppCommandOutput extends UpdatePartnerAppResponse,
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
- *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
  *
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>

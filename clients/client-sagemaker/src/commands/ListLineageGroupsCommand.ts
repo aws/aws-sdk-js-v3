@@ -28,9 +28,7 @@ export interface ListLineageGroupsCommandInput extends ListLineageGroupsRequest 
 export interface ListLineageGroupsCommandOutput extends ListLineageGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>A list of lineage groups shared with your Amazon Web Services account.
- *          For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/xaccount-lineage-tracking.html">
- *             Cross-Account Lineage Tracking </a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
+ * <p>A list of lineage groups shared with your Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/xaccount-lineage-tracking.html"> Cross-Account Lineage Tracking </a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

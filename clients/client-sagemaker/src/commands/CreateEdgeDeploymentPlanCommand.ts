@@ -28,8 +28,7 @@ export interface CreateEdgeDeploymentPlanCommandInput extends CreateEdgeDeployme
 export interface CreateEdgeDeploymentPlanCommandOutput extends CreateEdgeDeploymentPlanResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an edge deployment plan, consisting of multiple stages. Each stage may have a
- *             different deployment configuration and devices.</p>
+ * <p>Creates an edge deployment plan, consisting of multiple stages. Each stage may have a different deployment configuration and devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,8 +82,7 @@ export interface CreateEdgeDeploymentPlanCommandOutput extends CreateEdgeDeploym
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>

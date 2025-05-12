@@ -28,14 +28,7 @@ export interface CreateInferenceComponentCommandInput extends CreateInferenceCom
 export interface CreateInferenceComponentCommandOutput extends CreateInferenceComponentOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an inference component, which is a SageMaker AI hosting object that you can
- *          use to deploy a model to an endpoint. In the inference component settings, you specify the
- *          model, the endpoint, and how the model utilizes the resources that the endpoint hosts. You
- *          can optimize resource utilization by tailoring how the required CPU cores, accelerators,
- *          and memory are allocated. You can deploy multiple inference components to an endpoint,
- *          where each inference component contains one model and the resource utilization needs for
- *          that individual model. After you deploy an inference component, you can directly invoke the
- *          associated model when you use the InvokeEndpoint API action.</p>
+ * <p>Creates an inference component, which is a SageMaker AI hosting object that you can use to deploy a model to an endpoint. In the inference component settings, you specify the model, the endpoint, and how the model utilizes the resources that the endpoint hosts. You can optimize resource utilization by tailoring how the required CPU cores, accelerators, and memory are allocated. You can deploy multiple inference components to an endpoint, where each inference component contains one model and the resource utilization needs for that individual model. After you deploy an inference component, you can directly invoke the associated model when you use the InvokeEndpoint API action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,8 +85,7 @@ export interface CreateInferenceComponentCommandOutput extends CreateInferenceCo
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>

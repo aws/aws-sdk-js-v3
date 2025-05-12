@@ -32,26 +32,7 @@ export interface CreateModelPackageCommandInput extends CreateModelPackageInput 
 export interface CreateModelPackageCommandOutput extends CreateModelPackageOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a model package that you can use to create SageMaker models or list on Amazon Web Services Marketplace, or a versioned model that is part of a model group. Buyers
- *             can subscribe to model packages listed on Amazon Web Services Marketplace to create
- *             models in SageMaker.</p>
- *          <p>To create a model package by specifying a Docker container that contains your
- *             inference code and the Amazon S3 location of your model artifacts, provide values for
- *                 <code>InferenceSpecification</code>. To create a model from an algorithm resource
- *             that you created or subscribed to in Amazon Web Services Marketplace, provide a value for
- *                 <code>SourceAlgorithmSpecification</code>.</p>
- *          <note>
- *             <p>There are two types of model packages:</p>
- *             <ul>
- *                <li>
- *                   <p>Versioned - a model that is part of a model group in the model
- *                         registry.</p>
- *                </li>
- *                <li>
- *                   <p>Unversioned - a model package that is not part of a model group.</p>
- *                </li>
- *             </ul>
- *          </note>
+ * <p>Creates a model package that you can use to create SageMaker models or list on Amazon Web Services Marketplace, or a versioned model that is part of a model group. Buyers can subscribe to model packages listed on Amazon Web Services Marketplace to create models in SageMaker.</p> <p>To create a model package by specifying a Docker container that contains your inference code and the Amazon S3 location of your model artifacts, provide values for <code>InferenceSpecification</code>. To create a model from an algorithm resource that you created or subscribed to in Amazon Web Services Marketplace, provide a value for <code>SourceAlgorithmSpecification</code>.</p> <note> <p>There are two types of model packages:</p> <ul> <li> <p>Versioned - a model that is part of a model group in the model registry.</p> </li> <li> <p>Unversioned - a model package that is not part of a model group.</p> </li> </ul> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -356,12 +337,10 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
- *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>

@@ -49,7 +49,7 @@ export const waitForTrainingJobCompletedOrStopped = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeTrainingJobCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 120, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 120, maxDelay: 21600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
 /**
@@ -61,7 +61,7 @@ export const waitUntilTrainingJobCompletedOrStopped = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeTrainingJobCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 120, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 120, maxDelay: 21600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
   return checkExceptions(result);
 };

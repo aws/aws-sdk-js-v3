@@ -28,13 +28,7 @@ export interface StopCompilationJobCommandInput extends StopCompilationJobReques
 export interface StopCompilationJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Stops a model compilation job.</p>
- *          <p> To stop a job, Amazon SageMaker AI sends the algorithm the SIGTERM signal. This gracefully shuts the
- *             job down. If the job hasn't stopped, it sends the SIGKILL signal.</p>
- *          <p>When it receives a <code>StopCompilationJob</code> request, Amazon SageMaker AI changes the
- *                 <code>CompilationJobStatus</code> of the job to <code>Stopping</code>. After Amazon
- *             SageMaker stops the job, it sets the <code>CompilationJobStatus</code> to
- *                 <code>Stopped</code>. </p>
+ * <p>Stops a model compilation job.</p> <p> To stop a job, Amazon SageMaker AI sends the algorithm the SIGTERM signal. This gracefully shuts the job down. If the job hasn't stopped, it sends the SIGKILL signal.</p> <p>When it receives a <code>StopCompilationJob</code> request, Amazon SageMaker AI changes the <code>CompilationJobStatus</code> of the job to <code>Stopping</code>. After Amazon SageMaker stops the job, it sets the <code>CompilationJobStatus</code> to <code>Stopped</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

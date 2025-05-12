@@ -28,8 +28,7 @@ export interface ListStudioLifecycleConfigsCommandInput extends ListStudioLifecy
 export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifecycleConfigsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the Amazon SageMaker AI Studio Lifecycle Configurations in your Amazon Web Services
- *       Account.</p>
+ * <p>Lists the Amazon SageMaker AI Studio Lifecycle Configurations in your Amazon Web Services Account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -36,8 +36,7 @@ export interface ListInferenceRecommendationsJobStepsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a list of the subtasks for an Inference Recommender job.</p>
- *          <p>The supported subtasks are benchmarks, which evaluate the performance of your model on different instance types.</p>
+ * <p>Returns a list of the subtasks for an Inference Recommender job.</p> <p>The supported subtasks are benchmarks, which evaluate the performance of your model on different instance types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,9 +28,7 @@ export interface DeleteTrialComponentCommandInput extends DeleteTrialComponentRe
 export interface DeleteTrialComponentCommandOutput extends DeleteTrialComponentResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified trial component. A trial component must be disassociated from all
- *       trials before the trial component can be deleted. To disassociate a trial component from a
- *       trial, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html">DisassociateTrialComponent</a> API.</p>
+ * <p>Deletes the specified trial component. A trial component must be disassociated from all trials before the trial component can be deleted. To disassociate a trial component from a trial, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html">DisassociateTrialComponent</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

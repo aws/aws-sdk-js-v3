@@ -37,8 +37,7 @@ export interface GetScalingConfigurationRecommendationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Starts an Amazon SageMaker Inference Recommender autoscaling recommendation job. Returns recommendations for autoscaling policies
- *          that you can apply to your SageMaker endpoint.</p>
+ * <p>Starts an Amazon SageMaker Inference Recommender autoscaling recommendation job. Returns recommendations for autoscaling policies that you can apply to your SageMaker endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

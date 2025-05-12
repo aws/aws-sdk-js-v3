@@ -28,29 +28,7 @@ export interface StopPipelineExecutionCommandInput extends StopPipelineExecution
 export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a pipeline execution.</p>
- *          <p>
- *             <b>Callback Step</b>
- *          </p>
- *          <p>A pipeline execution won't stop while a callback step is running.
- *         When you call <code>StopPipelineExecution</code>
- *         on a pipeline execution with a running callback step, SageMaker Pipelines sends an
- *         additional Amazon SQS message to the specified SQS queue. The body of the SQS message
- *         contains a "Status" field which is set to "Stopping".</p>
- *          <p>You should add logic to your Amazon SQS message consumer to take any needed action (for
- *         example, resource cleanup) upon receipt of the message followed by a call to
- *         <code>SendPipelineExecutionStepSuccess</code> or
- *         <code>SendPipelineExecutionStepFailure</code>.</p>
- *          <p>Only when SageMaker Pipelines receives one of these calls will it stop the pipeline execution.</p>
- *          <p>
- *             <b>Lambda Step</b>
- *          </p>
- *          <p>A pipeline execution can't be stopped while a lambda step is running because the Lambda
- *         function invoked by the lambda step can't be stopped. If you attempt to stop the execution
- *         while the Lambda function is running, the pipeline waits for the Lambda function to finish
- *         or until the timeout is hit, whichever occurs first, and then stops. If the Lambda function
- *         finishes, the pipeline execution status is <code>Stopped</code>. If the timeout is hit
- *         the pipeline execution status is <code>Failed</code>.</p>
+ * <p>Stops a pipeline execution.</p> <p> <b>Callback Step</b> </p> <p>A pipeline execution won't stop while a callback step is running. When you call <code>StopPipelineExecution</code> on a pipeline execution with a running callback step, SageMaker Pipelines sends an additional Amazon SQS message to the specified SQS queue. The body of the SQS message contains a "Status" field which is set to "Stopping".</p> <p>You should add logic to your Amazon SQS message consumer to take any needed action (for example, resource cleanup) upon receipt of the message followed by a call to <code>SendPipelineExecutionStepSuccess</code> or <code>SendPipelineExecutionStepFailure</code>.</p> <p>Only when SageMaker Pipelines receives one of these calls will it stop the pipeline execution.</p> <p> <b>Lambda Step</b> </p> <p>A pipeline execution can't be stopped while a lambda step is running because the Lambda function invoked by the lambda step can't be stopped. If you attempt to stop the execution while the Lambda function is running, the pipeline waits for the Lambda function to finish or until the timeout is hit, whichever occurs first, and then stops. If the Lambda function finishes, the pipeline execution status is <code>Stopped</code>. If the timeout is hit the pipeline execution status is <code>Failed</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,8 +54,7 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
- *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
  *
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>

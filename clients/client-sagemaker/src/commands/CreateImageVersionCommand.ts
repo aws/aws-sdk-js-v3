@@ -28,8 +28,7 @@ export interface CreateImageVersionCommandInput extends CreateImageVersionReques
 export interface CreateImageVersionCommandOutput extends CreateImageVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a version of the SageMaker AI image specified by <code>ImageName</code>. The version
- *         represents the Amazon ECR container image specified by <code>BaseImage</code>.</p>
+ * <p>Creates a version of the SageMaker AI image specified by <code>ImageName</code>. The version represents the Amazon ECR container image specified by <code>BaseImage</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,8 +68,7 @@ export interface CreateImageVersionCommandOutput extends CreateImageVersionRespo
  *  <p>Resource being accessed is in use.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>

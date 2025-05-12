@@ -28,9 +28,7 @@ export interface UpdateNotebookInstanceCommandInput extends UpdateNotebookInstan
 export interface UpdateNotebookInstanceCommandOutput extends UpdateNotebookInstanceOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a notebook instance. NotebookInstance updates include upgrading or
- *             downgrading the ML compute instance used for your notebook instance to accommodate
- *             changes in your workload requirements.</p>
+ * <p>Updates a notebook instance. NotebookInstance updates include upgrading or downgrading the ML compute instance used for your notebook instance to accommodate changes in your workload requirements.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,8 +70,7 @@ export interface UpdateNotebookInstanceCommandOutput extends UpdateNotebookInsta
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>

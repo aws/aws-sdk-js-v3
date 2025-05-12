@@ -28,8 +28,7 @@ export interface ListResourceCatalogsCommandInput extends ListResourceCatalogsRe
 export interface ListResourceCatalogsCommandOutput extends ListResourceCatalogsResponse, __MetadataBearer {}
 
 /**
- * <p> Lists Amazon SageMaker Catalogs based on given filters and orders. The maximum number of
- *                 <code>ResourceCatalog</code>s viewable is 1000. </p>
+ * <p> Lists Amazon SageMaker Catalogs based on given filters and orders. The maximum number of <code>ResourceCatalog</code>s viewable is 1000. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

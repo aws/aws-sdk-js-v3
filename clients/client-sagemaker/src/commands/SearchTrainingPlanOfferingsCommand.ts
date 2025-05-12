@@ -30,21 +30,7 @@ export interface SearchTrainingPlanOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Searches for available training plan offerings based on specified criteria. </p>
- *          <ul>
- *             <li>
- *                <p>Users search for available plan offerings based on their requirements (e.g.,
- *                instance type, count, start time, duration). </p>
- *             </li>
- *             <li>
- *                <p>And then, they create a plan that best matches their needs using the ID of the
- *                plan offering they want to use. </p>
- *             </li>
- *          </ul>
- *          <p>For more information about how to reserve GPU capacity for your SageMaker training jobs or
- *          SageMaker HyperPod clusters using Amazon SageMaker Training Plan , see <code>
- *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a>
- *             </code>.</p>
+ * <p>Searches for available training plan offerings based on specified criteria. </p> <ul> <li> <p>Users search for available plan offerings based on their requirements (e.g., instance type, count, start time, duration). </p> </li> <li> <p>And then, they create a plan that best matches their needs using the ID of the plan offering they want to use. </p> </li> </ul> <p>For more information about how to reserve GPU capacity for your SageMaker training jobs or SageMaker HyperPod clusters using Amazon SageMaker Training Plan , see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,8 +86,7 @@ export interface SearchTrainingPlanOfferingsCommandOutput
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>

@@ -28,9 +28,7 @@ export interface CreateMlflowTrackingServerCommandInput extends CreateMlflowTrac
 export interface CreateMlflowTrackingServerCommandOutput extends CreateMlflowTrackingServerResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an MLflow Tracking Server using a general purpose Amazon S3 bucket as the artifact
- *       store. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server.html">Create an MLflow Tracking
- *         Server</a>.</p>
+ * <p>Creates an MLflow Tracking Server using a general purpose Amazon S3 bucket as the artifact store. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server.html">Create an MLflow Tracking Server</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,8 +65,7 @@ export interface CreateMlflowTrackingServerCommandOutput extends CreateMlflowTra
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>

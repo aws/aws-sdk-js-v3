@@ -28,8 +28,7 @@ export interface DeleteImageVersionCommandInput extends DeleteImageVersionReques
 export interface DeleteImageVersionCommandOutput extends DeleteImageVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a version of a SageMaker AI image. The container image the version represents isn't
- *         deleted.</p>
+ * <p>Deletes a version of a SageMaker AI image. The container image the version represents isn't deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

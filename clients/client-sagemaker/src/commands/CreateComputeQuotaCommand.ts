@@ -28,9 +28,7 @@ export interface CreateComputeQuotaCommandInput extends CreateComputeQuotaReques
 export interface CreateComputeQuotaCommandOutput extends CreateComputeQuotaResponse, __MetadataBearer {}
 
 /**
- * <p>Create compute allocation definition. This defines how compute is allocated, shared, and
- *          borrowed for specified entities. Specifically, how to lend and borrow idle compute and
- *          assign a fair-share weight to the specified entities.</p>
+ * <p>Create compute allocation definition. This defines how compute is allocated, shared, and borrowed for specified entities. Specifically, how to lend and borrow idle compute and assign a fair-share weight to the specified entities.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,12 +80,10 @@ export interface CreateComputeQuotaCommandOutput extends CreateComputeQuotaRespo
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
- *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>

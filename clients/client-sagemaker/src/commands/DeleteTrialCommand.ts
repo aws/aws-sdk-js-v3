@@ -28,9 +28,7 @@ export interface DeleteTrialCommandInput extends DeleteTrialRequest {}
 export interface DeleteTrialCommandOutput extends DeleteTrialResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified trial. All trial components that make up the trial must be deleted
- *       first. Use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrialComponent.html">DescribeTrialComponent</a> API to get the list of trial
- *       components.</p>
+ * <p>Deletes the specified trial. All trial components that make up the trial must be deleted first. Use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrialComponent.html">DescribeTrialComponent</a> API to get the list of trial components.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

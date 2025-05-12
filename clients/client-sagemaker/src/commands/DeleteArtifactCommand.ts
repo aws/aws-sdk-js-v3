@@ -28,8 +28,7 @@ export interface DeleteArtifactCommandInput extends DeleteArtifactRequest {}
 export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an artifact. Either <code>ArtifactArn</code> or <code>Source</code> must be
- *         specified.</p>
+ * <p>Deletes an artifact. Either <code>ArtifactArn</code> or <code>Source</code> must be specified.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

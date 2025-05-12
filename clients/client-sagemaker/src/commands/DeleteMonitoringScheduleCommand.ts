@@ -28,8 +28,7 @@ export interface DeleteMonitoringScheduleCommandInput extends DeleteMonitoringSc
 export interface DeleteMonitoringScheduleCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a monitoring schedule. Also stops the schedule had not already been stopped.
- *          This does not delete the job execution history of the monitoring schedule. </p>
+ * <p>Deletes a monitoring schedule. Also stops the schedule had not already been stopped. This does not delete the job execution history of the monitoring schedule. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

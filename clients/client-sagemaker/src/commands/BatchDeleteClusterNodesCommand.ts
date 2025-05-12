@@ -28,23 +28,7 @@ export interface BatchDeleteClusterNodesCommandInput extends BatchDeleteClusterN
 export interface BatchDeleteClusterNodesCommandOutput extends BatchDeleteClusterNodesResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes specific nodes within a SageMaker HyperPod cluster. <code>BatchDeleteClusterNodes</code>
- *          accepts a cluster name and a list of node IDs.</p>
- *          <important>
- *             <ul>
- *                <li>
- *                   <p>To safeguard your work, back up your data to Amazon S3 or an FSx for
- *                   Lustre file system before invoking the API on a worker node group. This will help
- *                   prevent any potential data loss from the instance root volume. For more
- *                   information about backup, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-operate-cli-command.html#sagemaker-hyperpod-operate-cli-command-update-cluster-software-backup">Use the backup script provided by SageMaker HyperPod</a>. </p>
- *                </li>
- *                <li>
- *                   <p>If you want to invoke this API on an existing cluster, you'll first need to
- *                   patch the cluster by running the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateClusterSoftware.html">UpdateClusterSoftware API</a>. For more information about patching a
- *                   cluster, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-operate-cli-command.html#sagemaker-hyperpod-operate-cli-command-update-cluster-software">Update the SageMaker HyperPod platform software of a cluster</a>.</p>
- *                </li>
- *             </ul>
- *          </important>
+ * <p>Deletes specific nodes within a SageMaker HyperPod cluster. <code>BatchDeleteClusterNodes</code> accepts a cluster name and a list of node IDs.</p> <important> <ul> <li> <p>To safeguard your work, back up your data to Amazon S3 or an FSx for Lustre file system before invoking the API on a worker node group. This will help prevent any potential data loss from the instance root volume. For more information about backup, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-operate-cli-command.html#sagemaker-hyperpod-operate-cli-command-update-cluster-software-backup">Use the backup script provided by SageMaker HyperPod</a>. </p> </li> <li> <p>If you want to invoke this API on an existing cluster, you'll first need to patch the cluster by running the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateClusterSoftware.html">UpdateClusterSoftware API</a>. For more information about patching a cluster, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-operate-cli-command.html#sagemaker-hyperpod-operate-cli-command-update-cluster-software">Update the SageMaker HyperPod platform software of a cluster</a>.</p> </li> </ul> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
