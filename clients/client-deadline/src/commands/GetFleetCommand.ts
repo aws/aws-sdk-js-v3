@@ -152,6 +152,10 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * //       },
  * //     },
  * //   },
+ * //   hostConfiguration: { // HostConfiguration
+ * //     scriptBody: "STRING_VALUE", // required
+ * //     scriptTimeoutSeconds: Number("int"),
+ * //   },
  * //   capabilities: { // FleetCapabilities
  * //     amounts: [ // FleetAmountCapabilities
  * //       {
@@ -197,8 +201,7 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

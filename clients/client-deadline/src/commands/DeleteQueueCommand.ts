@@ -28,11 +28,7 @@ export interface DeleteQueueCommandInput extends DeleteQueueRequest {}
 export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a queue.</p>
- *          <important>
- *             <p>You can't recover the jobs in a queue if you delete the queue. Deleting the queue
- *             also deletes the jobs in that queue.</p>
- *          </important>
+ * <p>Deletes a queue.</p> <important> <p>You can't recover the jobs in a queue if you delete the queue. Deleting the queue also deletes the jobs in that queue.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +55,7 @@ export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __Metadat
  *  <p>You don't have permission to perform the action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *          than one operation on the same resource at the same time.</p>
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>Deadline Cloud can't process your request right now. Try again later.</p>
@@ -72,8 +67,7 @@ export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __Metadat
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

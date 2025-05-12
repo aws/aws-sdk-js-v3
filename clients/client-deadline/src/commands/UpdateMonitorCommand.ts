@@ -28,8 +28,7 @@ export interface UpdateMonitorCommandInput extends UpdateMonitorRequest {}
 export interface UpdateMonitorCommandOutput extends UpdateMonitorResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the settings for a Deadline Cloud monitor. You can modify one or all of the settings
- *          when you call <code>UpdateMonitor</code>.</p>
+ * <p>Modifies the settings for a Deadline Cloud monitor. You can modify one or all of the settings when you call <code>UpdateMonitor</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,8 +66,7 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorResponse, __Met
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

@@ -28,11 +28,7 @@ export interface CreateLimitCommandInput extends CreateLimitRequest {}
 export interface CreateLimitCommandOutput extends CreateLimitResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a limit that manages the distribution of shared resources, such as floating
- *          licenses. A limit can throttle work assignments, help manage workloads, and track current
- *          usage. Before you use a limit, you must associate the limit with one or more queues. </p>
- *          <p>You must add the <code>amountRequirementName</code> to a step in a job template to
- *          declare the limit requirement.</p>
+ * <p>Creates a limit that manages the distribution of shared resources, such as floating licenses. A limit can throttle work assignments, help manage workloads, and track current usage. Before you use a limit, you must associate the limit with one or more queues. </p> <p>You must add the <code>amountRequirementName</code> to a step in a job template to declare the limit requirement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,15 +67,13 @@ export interface CreateLimitCommandOutput extends CreateLimitResponse, __Metadat
  *  <p>The requested resource can't be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
- *          maximum number of service resources or operations for your Amazon Web Services account.</p>
+ *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

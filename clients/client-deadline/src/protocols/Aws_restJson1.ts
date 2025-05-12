@@ -324,6 +324,7 @@ import {
   FleetCapabilities,
   FleetConfiguration,
   FleetSummary,
+  HostConfiguration,
   HostPropertiesRequest,
   InternalServerErrorException,
   IpAddresses,
@@ -353,7 +354,6 @@ import {
   StepDetailsIdentifiers,
   StepRequiredCapabilities,
   StepSummary,
-  TaskSummary,
   ThrottlingException,
   UpdatedSessionActionInfo,
   UsageTrackingResource,
@@ -385,6 +385,7 @@ import {
   StepSearchSummary,
   StringFilterExpression,
   TaskSearchSummary,
+  TaskSummary,
   UsageGroupByField,
   UsageStatistic,
   UserJobsFirst,
@@ -818,6 +819,7 @@ export const se_CreateFleetCommand = async (
       configuration: (_) => se_FleetConfiguration(_, context),
       description: [],
       displayName: [],
+      hostConfiguration: (_) => _json(_),
       maxWorkerCount: [],
       minWorkerCount: [],
       roleArn: [],
@@ -3308,6 +3310,7 @@ export const se_UpdateFleetCommand = async (
       configuration: (_) => se_FleetConfiguration(_, context),
       description: [],
       displayName: [],
+      hostConfiguration: (_) => _json(_),
       maxWorkerCount: [],
       minWorkerCount: [],
       roleArn: [],
@@ -4642,6 +4645,7 @@ export const de_GetFleetCommand = async (
     displayName: __expectString,
     farmId: __expectString,
     fleetId: __expectString,
+    hostConfiguration: _json,
     maxWorkerCount: __expectInt32,
     minWorkerCount: __expectInt32,
     roleArn: __expectString,
@@ -6197,6 +6201,7 @@ export const de_UpdateWorkerCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    hostConfiguration: _json,
     log: _json,
   });
   Object.assign(contents, doc);
@@ -6599,6 +6604,8 @@ const se_FleetConfiguration = (input: FleetConfiguration, context: __SerdeContex
 };
 
 // se_FleetIds omitted.
+
+// se_HostConfiguration omitted.
 
 // se_HostPropertiesRequest omitted.
 
@@ -7154,6 +7161,8 @@ const de_FleetSummary = (output: any, context: __SerdeContext): FleetSummary => 
 };
 
 // de_GetJobEntityError omitted.
+
+// de_HostConfiguration omitted.
 
 // de_HostPropertiesResponse omitted.
 

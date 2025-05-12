@@ -33,9 +33,7 @@ export interface UpdateQueueLimitAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates the status of the queue. If you set the status to one of the
- *             <code>STOP_LIMIT_USAGE*</code> values, there will be a delay before the status
- *          transitions to the <code>STOPPED</code> state. </p>
+ * <p>Updates the status of the queue. If you set the status to one of the <code>STOP_LIMIT_USAGE*</code> values, there will be a delay before the status transitions to the <code>STOPPED</code> state. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,8 +71,7 @@ export interface UpdateQueueLimitAssociationCommandOutput
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

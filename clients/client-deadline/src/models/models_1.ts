@@ -25,11 +25,87 @@ import {
   StorageProfileSummary,
   TaskParameterValue,
   TaskRunStatus,
-  TaskSummary,
-  TaskSummaryFilterSensitiveLog,
   TaskTargetRunStatus,
   WorkerStatus,
 } from "./models_0";
+
+/**
+ * <p>The details of a task.</p>
+ * @public
+ */
+export interface TaskSummary {
+  /**
+   * <p>The task ID.</p>
+   * @public
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>The date and time the resource was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The user or system that created this resource.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The run status of the task.</p>
+   * @public
+   */
+  runStatus: TaskRunStatus | undefined;
+
+  /**
+   * <p>The run status on which the started.</p>
+   * @public
+   */
+  targetRunStatus?: TaskTargetRunStatus | undefined;
+
+  /**
+   * <p>The number of times that the task failed and was retried.</p>
+   * @public
+   */
+  failureRetryCount?: number | undefined;
+
+  /**
+   * <p>The task parameters.</p>
+   * @public
+   */
+  parameters?: Record<string, TaskParameterValue> | undefined;
+
+  /**
+   * <p>The date and time the resource started running.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the resource ended running.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the resource was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The user or system that updated this resource.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The latest session action for the task.</p>
+   * @public
+   */
+  latestSessionActionId?: string | undefined;
+}
 
 /**
  * @public
@@ -96,24 +172,13 @@ export interface UpdateJobRequest {
   maxRetriesPerTask?: number | undefined;
 
   /**
-   * <p>The status of a job in its lifecycle. When you change the status of the job to
-   *             <code>ARCHIVED</code>, the job can't be scheduled or archived.</p>
-   *          <important>
-   *             <p>An archived jobs and its steps and tasks are deleted after 120 days. The job can't be
-   *             recovered.</p>
-   *          </important>
+   * <p>The status of a job in its lifecycle. When you change the status of the job to <code>ARCHIVED</code>, the job can't be scheduled or archived.</p> <important> <p>An archived jobs and its steps and tasks are deleted after 120 days. The job can't be recovered.</p> </important>
    * @public
    */
   lifecycleStatus?: UpdateJobLifecycleStatus | undefined;
 
   /**
-   * <p>The maximum number of worker hosts that can concurrently process a job. When the
-   *             <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the
-   *          job, even if the fleets assigned to the job's queue has available workers.</p>
-   *          <p>You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no
-   *          maximum number of workers.</p>
-   *          <p>If you don't specify the <code>maxWorkerCount</code>, the default is -1.</p>
-   *          <p>The maximum number of workers that can process tasks in the job.</p>
+   * <p>The maximum number of worker hosts that can concurrently process a job. When the <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.</p> <p>You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no maximum number of workers.</p> <p>If you don't specify the <code>maxWorkerCount</code>, the default is -1.</p> <p>The maximum number of workers that can process tasks in the job.</p>
    * @public
    */
   maxWorkerCount?: number | undefined;
@@ -461,22 +526,7 @@ export interface ListQueuesRequest {
   principalId?: string | undefined;
 
   /**
-   * <p>The status of the queues listed.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code>–The queues are active.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SCHEDULING</code>–The queues are scheduling.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SCHEDULING_BLOCKED</code>–The queue scheduling is blocked for these
-   *                queues.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the queues listed.</p> <ul> <li> <p> <code>ACTIVE</code>–The queues are active.</p> </li> <li> <p> <code>SCHEDULING</code>–The queues are scheduling.</p> </li> <li> <p> <code>SCHEDULING_BLOCKED</code>–The queue scheduling is blocked for these queues.</p> </li> </ul>
    * @public
    */
   status?: QueueStatus | undefined;
@@ -512,10 +562,7 @@ export interface QueueSummary {
   queueId: string | undefined;
 
   /**
-   * <p>The display name of the queue summary to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the queue summary to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
@@ -649,19 +696,13 @@ export interface UpdateQueueRequest {
   queueId: string | undefined;
 
   /**
-   * <p>The display name of the queue to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the queue to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The description of the queue to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The description of the queue to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
@@ -673,8 +714,7 @@ export interface UpdateQueueRequest {
   defaultBudgetAction?: DefaultQueueBudgetAction | undefined;
 
   /**
-   * <p>The job attachment settings to update for the
-   *          queue.</p>
+   * <p>The job attachment settings to update for the queue.</p>
    * @public
    */
   jobAttachmentSettings?: JobAttachmentSettings | undefined;
@@ -784,19 +824,13 @@ export interface UpdateFarmRequest {
   farmId: string | undefined;
 
   /**
-   * <p>The display name of the farm to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the farm to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The description of the farm to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The description of the farm to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
@@ -824,32 +858,19 @@ export interface UpdateLimitRequest {
   limitId: string | undefined;
 
   /**
-   * <p>The new display name of the limit.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The new display name of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The new description of the limit.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The new description of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The maximum number of resources constrained by this limit. When all of the resources are
-   *          in use, steps that require the limit won't be scheduled until the resource is
-   *          available.</p>
-   *          <p>If more than the new maximum number is currently in use, running jobs finish but no new
-   *          jobs are started until the number of resources in use is below the new maximum
-   *          number.</p>
-   *          <p>The <code>maxCount</code> must not be 0. If the value is -1, there is no restriction on
-   *          the number of resources that can be acquired for this limit.</p>
+   * <p>The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.</p> <p>If more than the new maximum number is currently in use, running jobs finish but no new jobs are started until the number of resources in use is below the new maximum number.</p> <p>The <code>maxCount</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.</p>
    * @public
    */
   maxCount?: number | undefined;
@@ -883,10 +904,7 @@ export interface UpdateStorageProfileRequest {
   storageProfileId: string | undefined;
 
   /**
-   * <p>The display name of the storage profile to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the storage profile to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName?: string | undefined;
@@ -1094,16 +1112,13 @@ export interface GetQueueLimitAssociationResponse {
  */
 export interface GetSessionsStatisticsAggregationRequest {
   /**
-   * <p>The identifier of the farm to include in the statistics. This should be the same as the
-   *          farm ID used in the call to the <code>StartSessionsStatisticsAggregation</code>
-   *          operation.</p>
+   * <p>The identifier of the farm to include in the statistics. This should be the same as the farm ID used in the call to the <code>StartSessionsStatisticsAggregation</code> operation.</p>
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The identifier returned by the <code>StartSessionsStatisticsAggregation</code> operation
-   *          that identifies the aggregated statistics.</p>
+   * <p>The identifier returned by the <code>StartSessionsStatisticsAggregation</code> operation that identifies the aggregated statistics.</p>
    * @public
    */
   aggregationId: string | undefined;
@@ -1225,8 +1240,7 @@ export interface Statistics {
   count: number | undefined;
 
   /**
-   * <p>How the statistics should appear in USD. Options include: minimum, maximum, average or
-   *          sum.</p>
+   * <p>How the statistics should appear in USD. Options include: minimum, maximum, average or sum.</p>
    * @public
    */
   costInUsd: Stats | undefined;
@@ -1284,14 +1298,7 @@ export interface GetSessionsStatisticsAggregationResponse {
   nextToken?: string | undefined;
 
   /**
-   * <p>The status of the aggregated results. An aggregation may fail or time out if the results
-   *          are too large. If this happens, you can call the
-   *             <code>StartSessionsStatisticsAggregation</code> operation after you reduce the
-   *          aggregation time frame, reduce the number of queues or fleets in the aggregation, or
-   *          increase the period length.</p>
-   *          <p>If you call the <code>StartSessionsStatisticsAggregation </code> operation when the
-   *          status is <code>IN_PROGRESS</code>, you will receive a
-   *          <code>ThrottlingException</code>.</p>
+   * <p>The status of the aggregated results. An aggregation may fail or time out if the results are too large. If this happens, you can call the <code>StartSessionsStatisticsAggregation</code> operation after you reduce the aggregation time frame, reduce the number of queues or fleets in the aggregation, or increase the period length.</p> <p>If you call the <code>StartSessionsStatisticsAggregation </code> operation when the status is <code>IN_PROGRESS</code>, you will receive a <code>ThrottlingException</code>.</p>
    * @public
    */
   status: SessionsStatisticsAggregationStatus | undefined;
@@ -1658,27 +1665,7 @@ export interface QueueFleetAssociationSummary {
   fleetId: string | undefined;
 
   /**
-   * <p>The status of task scheduling in the queue-fleet association.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code>–Association is active.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOP_SCHEDULING_AND_COMPLETE_TASKS</code>–Association has stopped
-   *                scheduling new tasks and is completing current tasks.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOP_SCHEDULING_AND_CANCEL_TASKS</code>–Association has stopped
-   *                scheduling new tasks and is canceling current tasks.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOPPED</code>–Association has been stopped.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of task scheduling in the queue-fleet association.</p> <ul> <li> <p> <code>ACTIVE</code>–Association is active.</p> </li> <li> <p> <code>STOP_SCHEDULING_AND_COMPLETE_TASKS</code>–Association has stopped scheduling new tasks and is completing current tasks.</p> </li> <li> <p> <code>STOP_SCHEDULING_AND_CANCEL_TASKS</code>–Association has stopped scheduling new tasks and is canceling current tasks.</p> </li> <li> <p> <code>STOPPED</code>–Association has been stopped.</p> </li> </ul>
    * @public
    */
   status: QueueFleetAssociationStatus | undefined;
@@ -1736,17 +1723,13 @@ export interface ListQueueLimitAssociationsRequest {
   farmId: string | undefined;
 
   /**
-   * <p>Specifies that the operation should return only the queue limit associations for the
-   *          specified queue. If you specify both the <code>queueId</code> and the <code>limitId</code>,
-   *          only the specified limit is returned if it exists.</p>
+   * <p>Specifies that the operation should return only the queue limit associations for the specified queue. If you specify both the <code>queueId</code> and the <code>limitId</code>, only the specified limit is returned if it exists.</p>
    * @public
    */
   queueId?: string | undefined;
 
   /**
-   * <p>Specifies that the operation should return only the queue limit associations for the
-   *          specified limit. If you specify both the <code>queueId</code> and the <code>limitId</code>,
-   *          only the specified limit is returned if it exists.</p>
+   * <p>Specifies that the operation should return only the queue limit associations for the specified limit. If you specify both the <code>queueId</code> and the <code>limitId</code>, only the specified limit is returned if it exists.</p>
    * @public
    */
   limitId?: string | undefined;
@@ -1806,27 +1789,7 @@ export interface QueueLimitAssociationSummary {
   limitId: string | undefined;
 
   /**
-   * <p>The status of task scheduling in the queue-limit association.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code> - Association is active.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOP_LIMIT_USAGE_AND_COMPLETE_TASKS</code> - Association has stopped
-   *                scheduling new tasks and is completing current tasks.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOP_LIMIT_USAGE_AND_CANCEL_TASKS</code> - Association has stopped
-   *                scheduling new tasks and is canceling current tasks.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOPPED</code> - Association has been stopped.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of task scheduling in the queue-limit association.</p> <ul> <li> <p> <code>ACTIVE</code> - Association is active.</p> </li> <li> <p> <code>STOP_LIMIT_USAGE_AND_COMPLETE_TASKS</code> - Association has stopped scheduling new tasks and is completing current tasks.</p> </li> <li> <p> <code>STOP_LIMIT_USAGE_AND_CANCEL_TASKS</code> - Association has stopped scheduling new tasks and is canceling current tasks.</p> </li> <li> <p> <code>STOPPED</code> - Association has been stopped.</p> </li> </ul>
    * @public
    */
   status: QueueLimitAssociationStatus | undefined;
@@ -1837,8 +1800,7 @@ export interface QueueLimitAssociationSummary {
  */
 export interface ListQueueLimitAssociationsResponse {
   /**
-   * <p>A list of associations between limits and queues in the farm specified in the
-   *          request.</p>
+   * <p>A list of associations between limits and queues in the farm specified in the request.</p>
    * @public
    */
   queueLimitAssociations: QueueLimitAssociationSummary[] | undefined;
@@ -1877,9 +1839,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface DeleteMonitorRequest {
   /**
-   * <p>The unique identifier of the monitor to delete. This ID is returned by the
-   *             <code>CreateMonitor</code> operation, and is included in the response to the
-   *             <code>GetMonitor</code> operation.</p>
+   * <p>The unique identifier of the monitor to delete. This ID is returned by the <code>CreateMonitor</code> operation, and is included in the response to the <code>GetMonitor</code> operation.</p>
    * @public
    */
   monitorId: string | undefined;
@@ -1895,8 +1855,7 @@ export interface DeleteMonitorResponse {}
  */
 export interface GetMonitorRequest {
   /**
-   * <p>The unique identifier for the monitor. This ID is returned by the
-   *             <code>CreateMonitor</code> operation.</p>
+   * <p>The unique identifier for the monitor. This ID is returned by the <code>CreateMonitor</code> operation.</p>
    * @public
    */
   monitorId: string | undefined;
@@ -1913,31 +1872,25 @@ export interface GetMonitorResponse {
   monitorId: string | undefined;
 
   /**
-   * <p>The name used to identify the monitor on the Deadline Cloud console.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The name used to identify the monitor on the Deadline Cloud console.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The subdomain used for the monitor URL. The full URL of the monitor is
-   *          subdomain.Region.deadlinecloud.amazonaws.com.</p>
+   * <p>The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.</p>
    * @public
    */
   subdomain: string | undefined;
 
   /**
-   * <p>The complete URL of the monitor. The full URL of the monitor is
-   *          subdomain.Region.deadlinecloud.amazonaws.com.</p>
+   * <p>The complete URL of the monitor. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.</p>
    * @public
    */
   url: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to
-   *          access Deadline Cloud resources.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.</p>
    * @public
    */
   roleArn: string | undefined;
@@ -2008,31 +1961,25 @@ export interface MonitorSummary {
   monitorId: string | undefined;
 
   /**
-   * <p>The name of the monitor that displays on the Deadline Cloud console.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The name of the monitor that displays on the Deadline Cloud console.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The subdomain used for the monitor URL. The full URL of the monitor is
-   *          subdomain.Region.deadlinecloud.amazonaws.com.</p>
+   * <p>The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.</p>
    * @public
    */
   subdomain: string | undefined;
 
   /**
-   * <p>The complete URL of the monitor. The full URL of the monitor is
-   *          subdomain.Region.deadlinecloud.amazonaws.com.</p>
+   * <p>The complete URL of the monitor. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.</p>
    * @public
    */
   url: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to
-   *          access Deadline Cloud resources.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.</p>
    * @public
    */
   roleArn: string | undefined;
@@ -2085,8 +2032,7 @@ export interface ListMonitorsResponse {
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of <code>MonitorSummary</code> objects that describe your monitors in the
-   *          Deadline Cloud.</p>
+   * <p>A list of <code>MonitorSummary</code> objects that describe your monitors in the Deadline Cloud.</p>
    * @public
    */
   monitors: MonitorSummary[] | undefined;
@@ -2109,10 +2055,7 @@ export interface UpdateMonitorRequest {
   subdomain?: string | undefined;
 
   /**
-   * <p>The new value to use for the monitor's display name.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The new value to use for the monitor's display name.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName?: string | undefined;
@@ -2179,20 +2122,7 @@ export interface SearchTermFilterExpression {
   searchTerm: string | undefined;
 
   /**
-   * <p>Specifies how Deadline Cloud matches your search term in the results. If you don't
-   *          specify a <code>matchType</code> the default is <code>FUZZY_MATCH</code>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>FUZZY_MATCH</code> - Matches if a portion of the search term is found in the
-   *                result.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CONTAINS</code> - Matches if the exact search term is contained in the
-   *                result.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies how Deadline Cloud matches your search term in the results. If you don't specify a <code>matchType</code> the default is <code>FUZZY_MATCH</code>.</p> <ul> <li> <p> <code>FUZZY_MATCH</code> - Matches if a portion of the search term is found in the result.</p> </li> <li> <p> <code>CONTAINS</code> - Matches if the exact search term is contained in the result.</p> </li> </ul>
    * @public
    */
   matchType?: SearchTermMatchingType | undefined;
@@ -2406,49 +2336,7 @@ export interface JobSearchSummary {
   lifecycleStatusMessage?: string | undefined;
 
   /**
-   * <p>The task run status for the job.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code>–pending and waiting for resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>READY</code>–ready to be processed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ASSIGNED</code>–assigned and will run next on a worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SCHEDULED</code>–scheduled to be run on a worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INTERRUPTING</code>–being interrupted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RUNNING</code>–running on a worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUSPENDED</code>–the task is suspended.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CANCELED</code>–the task has been canceled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>–the task has failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCEEDED</code>–the task has succeeded.</p>
-   *             </li>
-   *          </ul>
+   * <p>The task run status for the job.</p> <ul> <li> <p> <code>PENDING</code>–pending and waiting for resources.</p> </li> <li> <p> <code>READY</code>–ready to be processed.</p> </li> <li> <p> <code>ASSIGNED</code>–assigned and will run next on a worker.</p> </li> <li> <p> <code>SCHEDULED</code>–scheduled to be run on a worker.</p> </li> <li> <p> <code>INTERRUPTING</code>–being interrupted.</p> </li> <li> <p> <code>RUNNING</code>–running on a worker.</p> </li> <li> <p> <code>SUSPENDED</code>–the task is suspended.</p> </li> <li> <p> <code>CANCELED</code>–the task has been canceled.</p> </li> <li> <p> <code>FAILED</code>–the task has failed.</p> </li> <li> <p> <code>SUCCEEDED</code>–the task has succeeded.</p> </li> </ul>
    * @public
    */
   taskRunStatus?: TaskRunStatus | undefined;
@@ -2514,12 +2402,7 @@ export interface JobSearchSummary {
   jobParameters?: Record<string, JobParameter> | undefined;
 
   /**
-   * <p>The maximum number of worker hosts that can concurrently process a job. When the
-   *             <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the
-   *          job, even if the fleets assigned to the job's queue has available workers.</p>
-   *          <p>You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no
-   *          maximum number of workers.</p>
-   *          <p>If you don't specify the <code>maxWorkerCount</code>, the default is -1.</p>
+   * <p>The maximum number of worker hosts that can concurrently process a job. When the <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.</p> <p>You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no maximum number of workers.</p> <p>If you don't specify the <code>maxWorkerCount</code>, the default is -1.</p>
    * @public
    */
   maxWorkerCount?: number | undefined;
@@ -2596,49 +2479,7 @@ export interface StepSearchSummary {
   lifecycleStatusMessage?: string | undefined;
 
   /**
-   * <p>The task run status for the job.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code>–pending and waiting for resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>READY</code>–ready to be processed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ASSIGNED</code>–assigned and will run next on a worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SCHEDULED</code>–scheduled to be run on a worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INTERRUPTING</code>–being interrupted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RUNNING</code>–running on a worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUSPENDED</code>–the task is suspended.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CANCELED</code>–the task has been canceled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>–the task has failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCEEDED</code>–the task has succeeded.</p>
-   *             </li>
-   *          </ul>
+   * <p>The task run status for the job.</p> <ul> <li> <p> <code>PENDING</code>–pending and waiting for resources.</p> </li> <li> <p> <code>READY</code>–ready to be processed.</p> </li> <li> <p> <code>ASSIGNED</code>–assigned and will run next on a worker.</p> </li> <li> <p> <code>SCHEDULED</code>–scheduled to be run on a worker.</p> </li> <li> <p> <code>INTERRUPTING</code>–being interrupted.</p> </li> <li> <p> <code>RUNNING</code>–running on a worker.</p> </li> <li> <p> <code>SUSPENDED</code>–the task is suspended.</p> </li> <li> <p> <code>CANCELED</code>–the task has been canceled.</p> </li> <li> <p> <code>FAILED</code>–the task has failed.</p> </li> <li> <p> <code>SUCCEEDED</code>–the task has succeeded.</p> </li> </ul>
    * @public
    */
   taskRunStatus?: TaskRunStatus | undefined;
@@ -2905,8 +2746,7 @@ export const Period = {
 export type Period = (typeof Period)[keyof typeof Period];
 
 /**
- * <p>Specifies the fleet IDs or queue IDs to return statistics. You can specify only fleet
- *          IDs or queue IDS, not both.</p>
+ * <p>Specifies the fleet IDs or queue IDs to return statistics. You can specify only fleet IDs or queue IDS, not both.</p>
  * @public
  */
 export type SessionsStatisticsResources =
@@ -2919,8 +2759,7 @@ export type SessionsStatisticsResources =
  */
 export namespace SessionsStatisticsResources {
   /**
-   * <p>One to 10 queue IDs that specify the queues to return statistics for. If you specify the
-   *             <code>queueIds</code> field, you can't specify the <code>fleetIds</code> field.</p>
+   * <p>One to 10 queue IDs that specify the queues to return statistics for. If you specify the <code>queueIds</code> field, you can't specify the <code>fleetIds</code> field.</p>
    * @public
    */
   export interface QueueIdsMember {
@@ -2930,8 +2769,7 @@ export namespace SessionsStatisticsResources {
   }
 
   /**
-   * <p>One to 10 fleet IDs that specify the fleets to return statistics for. If you specify the
-   *             <code>fleetIds</code> field, you can't specify the <code>queueIds</code> field.</p>
+   * <p>One to 10 fleet IDs that specify the fleets to return statistics for. If you specify the <code>fleetIds</code> field, you can't specify the <code>queueIds</code> field.</p>
    * @public
    */
   export interface FleetIdsMember {
@@ -2983,8 +2821,7 @@ export type UsageStatistic = (typeof UsageStatistic)[keyof typeof UsageStatistic
  */
 export interface StartSessionsStatisticsAggregationRequest {
   /**
-   * <p>The identifier of the farm that contains queues or fleets to return statistics
-   *          for.</p>
+   * <p>The identifier of the farm that contains queues or fleets to return statistics for.</p>
    * @public
    */
   farmId: string | undefined;
@@ -3037,9 +2874,7 @@ export interface StartSessionsStatisticsAggregationRequest {
  */
 export interface StartSessionsStatisticsAggregationResponse {
   /**
-   * <p>A unique identifier for the aggregated statistics. Use this identifier with the
-   *             <code>GetAggregatedStatisticsForSessions</code> operation to return the
-   *          statistics.</p>
+   * <p>A unique identifier for the aggregated statistics. Use this identifier with the <code>GetAggregatedStatisticsForSessions</code> operation to return the statistics.</p>
    * @public
    */
   aggregationId: string | undefined;
@@ -3178,9 +3013,7 @@ export interface UpdateQueueLimitAssociationRequest {
   limitId: string | undefined;
 
   /**
-   * <p>Sets the status of the limit. You can mark the limit active, or you can stop usage of
-   *          the limit and either complete existing tasks or cancel any existing tasks immediately.
-   *       </p>
+   * <p>Sets the status of the limit. You can mark the limit active, or you can stop usage of the limit and either complete existing tasks or cancel any existing tasks immediately. </p>
    * @public
    */
   status: UpdateQueueLimitAssociationStatus | undefined;
@@ -3304,10 +3137,7 @@ export namespace SearchFilterExpression {
 }
 
 /**
- * <p>The filter expression, <code>AND</code> or <code>OR</code>, to use
- * when searching among a group of search strings in a resource.
- *
- * You can use two groupings per search each within parenthesis <code>()</code>.</p>
+ * <p>The filter expression, <code>AND</code> or <code>OR</code>, to use when searching among a group of search strings in a resource. You can use two groupings per search each within parenthesis <code>()</code>.</p>
  * @public
  */
 export interface SearchGroupedFilterExpressions {
@@ -3341,10 +3171,7 @@ export interface SearchJobsRequest {
   queueIds: string[] | undefined;
 
   /**
-   * <p>The filter expression, <code>AND</code> or <code>OR</code>, to use
-   * when searching among a group of search strings in a resource.
-   *
-   * You can use two groupings per search each within parenthesis <code>()</code>.</p>
+   * <p>The filter expression, <code>AND</code> or <code>OR</code>, to use when searching among a group of search strings in a resource. You can use two groupings per search each within parenthesis <code>()</code>.</p>
    * @public
    */
   filterExpressions?: SearchGroupedFilterExpressions | undefined;
@@ -3391,10 +3218,7 @@ export interface SearchStepsRequest {
   jobId?: string | undefined;
 
   /**
-   * <p>The filter expression, <code>AND</code> or <code>OR</code>, to use
-   * when searching among a group of search strings in a resource.
-   *
-   * You can use two groupings per search each within parenthesis <code>()</code>.</p>
+   * <p>The filter expression, <code>AND</code> or <code>OR</code>, to use when searching among a group of search strings in a resource. You can use two groupings per search each within parenthesis <code>()</code>.</p>
    * @public
    */
   filterExpressions?: SearchGroupedFilterExpressions | undefined;
@@ -3441,10 +3265,7 @@ export interface SearchTasksRequest {
   jobId?: string | undefined;
 
   /**
-   * <p>The filter expression, <code>AND</code> or <code>OR</code>, to use
-   * when searching among a group of search strings in a resource.
-   *
-   * You can use two groupings per search each within parenthesis <code>()</code>.</p>
+   * <p>The filter expression, <code>AND</code> or <code>OR</code>, to use when searching among a group of search strings in a resource. You can use two groupings per search each within parenthesis <code>()</code>.</p>
    * @public
    */
   filterExpressions?: SearchGroupedFilterExpressions | undefined;
@@ -3485,10 +3306,7 @@ export interface SearchWorkersRequest {
   fleetIds: string[] | undefined;
 
   /**
-   * <p>The filter expression, <code>AND</code> or <code>OR</code>, to use
-   * when searching among a group of search strings in a resource.
-   *
-   * You can use two groupings per search each within parenthesis <code>()</code>.</p>
+   * <p>The filter expression, <code>AND</code> or <code>OR</code>, to use when searching among a group of search strings in a resource. You can use two groupings per search each within parenthesis <code>()</code>.</p>
    * @public
    */
   filterExpressions?: SearchGroupedFilterExpressions | undefined;
@@ -3511,6 +3329,14 @@ export interface SearchWorkersRequest {
    */
   pageSize?: number | undefined;
 }
+
+/**
+ * @internal
+ */
+export const TaskSummaryFilterSensitiveLog = (obj: TaskSummary): any => ({
+  ...obj,
+  ...(obj.parameters && { parameters: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

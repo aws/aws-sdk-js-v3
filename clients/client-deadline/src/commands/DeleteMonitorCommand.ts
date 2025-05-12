@@ -28,8 +28,7 @@ export interface DeleteMonitorCommandInput extends DeleteMonitorRequest {}
 export interface DeleteMonitorCommandOutput extends DeleteMonitorResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a Deadline Cloud monitor. After you delete a monitor, you can create a new one and
- *          attach farms to the monitor.</p>
+ * <p>Removes a Deadline Cloud monitor. After you delete a monitor, you can create a new one and attach farms to the monitor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +63,7 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorResponse, __Met
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

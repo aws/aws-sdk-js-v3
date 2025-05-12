@@ -28,9 +28,7 @@ export interface CreateMonitorCommandInput extends CreateMonitorRequest {}
 export interface CreateMonitorCommandOutput extends CreateMonitorResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Web Services Deadline Cloud monitor that you can use to view your farms, queues, and
- *          fleets. After you submit a job, you can track the progress of the tasks and steps that make
- *          up the job, and then download the job's results. </p>
+ * <p>Creates an Amazon Web Services Deadline Cloud monitor that you can use to view your farms, queues, and fleets. After you submit a job, you can track the progress of the tasks and steps that make up the job, and then download the job's results. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,15 +64,13 @@ export interface CreateMonitorCommandOutput extends CreateMonitorResponse, __Met
  *  <p>Deadline Cloud can't process your request right now. Try again later.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
- *          maximum number of service resources or operations for your Amazon Web Services account.</p>
+ *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

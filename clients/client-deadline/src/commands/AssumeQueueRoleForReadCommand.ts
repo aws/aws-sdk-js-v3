@@ -32,8 +32,7 @@ export interface AssumeQueueRoleForReadCommandInput extends AssumeQueueRoleForRe
 export interface AssumeQueueRoleForReadCommandOutput extends AssumeQueueRoleForReadResponse, __MetadataBearer {}
 
 /**
- * <p>Gets Amazon Web Services credentials from the queue role. The IAM permissions of the credentials are
- *          scoped down to have read-only access.</p>
+ * <p>Gets Amazon Web Services credentials from the queue role. The IAM permissions of the credentials are scoped down to have read-only access.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,8 +75,7 @@ export interface AssumeQueueRoleForReadCommandOutput extends AssumeQueueRoleForR
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

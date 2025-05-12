@@ -33,12 +33,7 @@ export interface DeleteQueueLimitAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Removes the association between a queue and a limit. You must use the
- *             <code>UpdateQueueLimitAssociation</code> operation to set the status to
- *             <code>STOP_LIMIT_USAGE_AND_COMPLETE_TASKS</code> or
- *             <code>STOP_LIMIT_USAGE_AND_CANCEL_TASKS</code>. The status does not change immediately.
- *          Use the <code>GetQueueLimitAssociation</code> operation to see if the status changed to
- *             <code>STOPPED</code> before deleting the association.</p>
+ * <p>Removes the association between a queue and a limit. You must use the <code>UpdateQueueLimitAssociation</code> operation to set the status to <code>STOP_LIMIT_USAGE_AND_COMPLETE_TASKS</code> or <code>STOP_LIMIT_USAGE_AND_CANCEL_TASKS</code>. The status does not change immediately. Use the <code>GetQueueLimitAssociation</code> operation to see if the status changed to <code>STOPPED</code> before deleting the association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +61,7 @@ export interface DeleteQueueLimitAssociationCommandOutput
  *  <p>You don't have permission to perform the action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *          than one operation on the same resource at the same time.</p>
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>Deadline Cloud can't process your request right now. Try again later.</p>
@@ -79,8 +73,7 @@ export interface DeleteQueueLimitAssociationCommandOutput
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
