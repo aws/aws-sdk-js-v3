@@ -152,10 +152,7 @@ export interface SpliceInsertMessage {
 }
 
 /**
- * <p>The <code>segmentation_descriptor</code> message can contain advanced metadata fields, like content identifiers, to convey a wide range of information about the ad break. MediaTailor writes the ad metadata in the egress manifest as part of the <code>EXT-X-DATERANGE</code> or <code>EventStream</code> ad marker's SCTE-35 data.</p>
- *          <p>
- *             <code>segmentation_descriptor</code> messages must be sent with the <code>time_signal</code> message type.</p>
- *          <p>See the <code>segmentation_descriptor()</code> table of the 2022 SCTE-35 specification for more information.</p>
+ * <p>The <code>segmentation_descriptor</code> message can contain advanced metadata fields, like content identifiers, to convey a wide range of information about the ad break. MediaTailor writes the ad metadata in the egress manifest as part of the <code>EXT-X-DATERANGE</code> or <code>EventStream</code> ad marker's SCTE-35 data.</p> <p> <code>segmentation_descriptor</code> messages must be sent with the <code>time_signal</code> message type.</p> <p>See the <code>segmentation_descriptor()</code> table of the 2022 SCTE-35 specification for more information.</p>
  * @public
  */
 export interface SegmentationDescriptor {
@@ -209,9 +206,7 @@ export interface SegmentationDescriptor {
 }
 
 /**
- * <p>The SCTE-35 <code>time_signal</code> message can be sent with one or more <code>segmentation_descriptor</code> messages. A <code>time_signal</code> message can be sent only if a single <code>segmentation_descriptor</code> message is sent.</p>
- *          <p>The <code>time_signal</code> message contains only the <code>splice_time</code> field which is constructed using a given presentation timestamp. When sending a <code>time_signal</code> message, the <code>splice_command_type</code> field in the <code>splice_info_section</code> message is set to 6 (0x06).</p>
- *          <p>See the <code>time_signal()</code> table of the 2022 SCTE-35 specification for more information.</p>
+ * <p>The SCTE-35 <code>time_signal</code> message can be sent with one or more <code>segmentation_descriptor</code> messages. A <code>time_signal</code> message can be sent only if a single <code>segmentation_descriptor</code> message is sent.</p> <p>The <code>time_signal</code> message contains only the <code>splice_time</code> field which is constructed using a given presentation timestamp. When sending a <code>time_signal</code> message, the <code>splice_command_type</code> field in the <code>splice_info_section</code> message is set to 6 (0x06).</p> <p>See the <code>time_signal()</code> table of the 2022 SCTE-35 specification for more information.</p>
  * @public
  */
 export interface TimeSignalMessage {
@@ -252,9 +247,7 @@ export interface AdBreak {
   SpliceInsertMessage?: SpliceInsertMessage | undefined;
 
   /**
-   * <p>Defines the SCTE-35 <code>time_signal</code> message inserted around the ad.</p>
-   *          <p>Programs on a channel's schedule can be configured with one or more ad breaks. You can attach a <code>splice_insert</code> SCTE-35 message to the ad break. This message provides basic metadata about the ad break.</p>
-   *          <p>See section 9.7.4 of the 2022 SCTE-35 specification for more information.</p>
+   * <p>Defines the SCTE-35 <code>time_signal</code> message inserted around the ad.</p> <p>Programs on a channel's schedule can be configured with one or more ad breaks. You can attach a <code>splice_insert</code> SCTE-35 message to the ad break. This message provides basic metadata about the ad break.</p> <p>See section 9.7.4 of the 2022 SCTE-35 specification for more information.</p>
    * @public
    */
   TimeSignalMessage?: TimeSignalMessage | undefined;
@@ -421,15 +414,12 @@ export const Operator = {
 export type Operator = (typeof Operator)[keyof typeof Operator];
 
 /**
- * <p>MediaTailor only places (consumes) prefetched ads if the ad break meets the criteria defined by the dynamic variables. This gives you granular control over which ad break to place the prefetched ads into.</p>
- *          <p>As an example, let's say that you set <code>DynamicVariable</code> to <code>scte.event_id</code> and <code>Operator</code> to <code>EQUALS</code>, and your playback configuration has an ADS URL of <code>https://my.ads.server.com/path?&amp;podId=[scte.avail_num]&amp;event=[scte.event_id]&amp;duration=[session.avail_duration_secs]</code>. And the prefetch request to the ADS contains these values <code>https://my.ads.server.com/path?&amp;podId=3&amp;event=my-awesome-event&amp;duration=30</code>. MediaTailor will only insert the prefetched ads into the ad break if has a SCTE marker with an event id of <code>my-awesome-event</code>, since it must match the event id that MediaTailor uses to query the ADS.</p>
- *          <p>You can specify up to five <code>AvailMatchingCriteria</code>. If you specify multiple <code>AvailMatchingCriteria</code>, MediaTailor combines them to match using a logical <code>AND</code>. You can model logical <code>OR</code> combinations by creating multiple prefetch schedules.</p>
+ * <p>MediaTailor only places (consumes) prefetched ads if the ad break meets the criteria defined by the dynamic variables. This gives you granular control over which ad break to place the prefetched ads into.</p> <p>As an example, let's say that you set <code>DynamicVariable</code> to <code>scte.event_id</code> and <code>Operator</code> to <code>EQUALS</code>, and your playback configuration has an ADS URL of <code>https://my.ads.server.com/path?&amp;podId=[scte.avail_num]&amp;event=[scte.event_id]&amp;duration=[session.avail_duration_secs]</code>. And the prefetch request to the ADS contains these values <code>https://my.ads.server.com/path?&amp;podId=3&amp;event=my-awesome-event&amp;duration=30</code>. MediaTailor will only insert the prefetched ads into the ad break if has a SCTE marker with an event id of <code>my-awesome-event</code>, since it must match the event id that MediaTailor uses to query the ADS.</p> <p>You can specify up to five <code>AvailMatchingCriteria</code>. If you specify multiple <code>AvailMatchingCriteria</code>, MediaTailor combines them to match using a logical <code>AND</code>. You can model logical <code>OR</code> combinations by creating multiple prefetch schedules.</p>
  * @public
  */
 export interface AvailMatchingCriteria {
   /**
-   * <p>The dynamic variable(s) that MediaTailor should use as avail matching criteria. MediaTailor only places the prefetched ads into the avail if the avail matches the criteria defined by the dynamic variable. For information about dynamic variables, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html">Using dynamic ad variables</a> in the <i>MediaTailor User Guide</i>.</p>
-   *          <p>You can include up to 100 dynamic variables.</p>
+   * <p>The dynamic variable(s) that MediaTailor should use as avail matching criteria. MediaTailor only places the prefetched ads into the avail if the avail matches the criteria defined by the dynamic variable. For information about dynamic variables, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html">Using dynamic ad variables</a> in the <i>MediaTailor User Guide</i>.</p> <p>You can include up to 100 dynamic variables.</p>
    * @public
    */
   DynamicVariable: string | undefined;
@@ -594,9 +584,7 @@ export interface Channel {
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the <code>LINEAR</code>
-   *             <code>PlaybackMode</code>. MediaTailor doesn't support filler slate for channels using the <code>LOOP</code>
-   *             <code>PlaybackMode</code>.</p>
+   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the <code>LINEAR</code> <code>PlaybackMode</code>. MediaTailor doesn't support filler slate for channels using the <code>LOOP</code> <code>PlaybackMode</code>.</p>
    * @public
    */
   FillerSlate?: SlateSource | undefined;
@@ -614,11 +602,7 @@ export interface Channel {
   Outputs: ResponseOutputItem[] | undefined;
 
   /**
-   * <p>The type of playback mode for this channel.</p>
-   *          <p>
-   *             <code>LINEAR</code> - Programs play back-to-back only once.</p>
-   *          <p>
-   *             <code>LOOP</code> - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.</p>
+   * <p>The type of playback mode for this channel.</p> <p> <code>LINEAR</code> - Programs play back-to-back only once.</p> <p> <code>LOOP</code> - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.</p>
    * @public
    */
   PlaybackMode: string | undefined;
@@ -769,10 +753,7 @@ export type StreamingMediaFileConditioning =
  */
 export interface AdConditioningConfiguration {
   /**
-   * <p>For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS.
-   *             <code>TRANSCODE</code> indicates that MediaTailor must transcode the ads.
-   *             <code>NONE</code> indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow.
-   *             For more information about ad conditioning see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html">Using preconditioned ads</a> in the Elemental MediaTailor user guide.</p>
+   * <p>For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS. <code>TRANSCODE</code> indicates that MediaTailor must transcode the ads. <code>NONE</code> indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html">Using preconditioned ads</a> in the Elemental MediaTailor user guide.</p>
    * @public
    */
   StreamingMediaFileConditioning: StreamingMediaFileConditioning | undefined;
@@ -950,9 +931,7 @@ export interface LivePreRollConfiguration {
 }
 
 /**
- * <p>Settings for customizing what events are included in logs for interactions with the ad decision server (ADS).</p>
- *          <p>For more information about ADS logs, inlcuding descriptions of the event types, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ads-log-format.html">MediaTailor ADS logs description and event types</a>
- *             in Elemental MediaTailor User Guide.</p>
+ * <p>Settings for customizing what events are included in logs for interactions with the ad decision server (ADS).</p> <p>For more information about ADS logs, inlcuding descriptions of the event types, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ads-log-format.html">MediaTailor ADS logs description and event types</a> in Elemental MediaTailor User Guide.</p>
  * @public
  */
 export interface AdsInteractionLog {
@@ -1015,9 +994,7 @@ export type ManifestServiceExcludeEventType =
   (typeof ManifestServiceExcludeEventType)[keyof typeof ManifestServiceExcludeEventType];
 
 /**
- * <p>Settings for customizing what events are included in logs for interactions with the origin server.</p>
- *          <p>For more information about manifest service logs, including descriptions of the event types, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/log-types.html">MediaTailor manifest logs description and event types</a>
- *             in Elemental MediaTailor User Guide.</p>
+ * <p>Settings for customizing what events are included in logs for interactions with the origin server.</p> <p>For more information about manifest service logs, including descriptions of the event types, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/log-types.html">MediaTailor manifest logs description and event types</a> in Elemental MediaTailor User Guide.</p>
  * @public
  */
 export interface ManifestServiceInteractionLog {
@@ -1034,9 +1011,7 @@ export interface ManifestServiceInteractionLog {
  */
 export interface LogConfiguration {
   /**
-   * <p>The percentage of session logs that MediaTailor sends to your configured log destination. For example, if your playback configuration has 1000 sessions and <code>percentEnabled</code> is set to <code>60</code>, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html">debug log mode</a>.</p>
-   *          <p>Valid values: <code>0</code> - <code>100</code>
-   *          </p>
+   * <p>The percentage of session logs that MediaTailor sends to your configured log destination. For example, if your playback configuration has 1000 sessions and <code>percentEnabled</code> is set to <code>60</code>, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html">debug log mode</a>.</p> <p>Valid values: <code>0</code> - <code>100</code> </p>
    * @public
    */
   PercentEnabled: number | undefined;
@@ -1045,7 +1020,7 @@ export interface LogConfiguration {
    * <p>The method used for collecting logs from AWS Elemental MediaTailor. <code>LEGACY_CLOUDWATCH</code> indicates that MediaTailor is sending logs directly to Amazon CloudWatch Logs. <code>VENDED_LOGS</code> indicates that MediaTailor is sending logs to CloudWatch, which then vends the logs to your destination of choice. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream. </p>
    * @public
    */
-  EnabledLoggingStrategies?: LoggingStrategy[] | undefined;
+  EnabledLoggingStrategies: LoggingStrategy[] | undefined;
 
   /**
    * <p>Settings for customizing what events are included in logs for interactions with the ad decision server (ADS).</p>
@@ -1061,8 +1036,7 @@ export interface LogConfiguration {
 }
 
 /**
- * <p>For HLS, when set to <code>true</code>, MediaTailor passes through <code>EXT-X-CUE-IN</code>, <code>EXT-X-CUE-OUT</code>, and <code>EXT-X-SPLICEPOINT-SCTE35</code> ad markers from the origin manifest to the MediaTailor personalized manifest.</p>
- *          <p>No logic is applied to these ad markers. For example, if <code>EXT-X-CUE-OUT</code> has a value of <code>60</code>, but no ads are filled for that ad break, MediaTailor will not set the value to <code>0</code>.</p>
+ * <p>For HLS, when set to <code>true</code>, MediaTailor passes through <code>EXT-X-CUE-IN</code>, <code>EXT-X-CUE-OUT</code>, and <code>EXT-X-SPLICEPOINT-SCTE35</code> ad markers from the origin manifest to the MediaTailor personalized manifest.</p> <p>No logic is applied to these ad markers. For example, if <code>EXT-X-CUE-OUT</code> has a value of <code>60</code>, but no ads are filled for that ad break, MediaTailor will not set the value to <code>0</code>.</p>
  * @public
  */
 export interface AdMarkerPassthrough {
@@ -1079,8 +1053,7 @@ export interface AdMarkerPassthrough {
  */
 export interface ManifestProcessingRules {
   /**
-   * <p>For HLS, when set to <code>true</code>, MediaTailor passes through <code>EXT-X-CUE-IN</code>, <code>EXT-X-CUE-OUT</code>, and <code>EXT-X-SPLICEPOINT-SCTE35</code> ad markers from the origin manifest to the MediaTailor personalized manifest.</p>
-   *          <p>No logic is applied to these ad markers. For example, if <code>EXT-X-CUE-OUT</code> has a value of <code>60</code>, but no ads are filled for that ad break, MediaTailor will not set the value to <code>0</code>.</p>
+   * <p>For HLS, when set to <code>true</code>, MediaTailor passes through <code>EXT-X-CUE-IN</code>, <code>EXT-X-CUE-OUT</code>, and <code>EXT-X-SPLICEPOINT-SCTE35</code> ad markers from the origin manifest to the MediaTailor personalized manifest.</p> <p>No logic is applied to these ad markers. For example, if <code>EXT-X-CUE-OUT</code> has a value of <code>60</code>, but no ads are filled for that ad break, MediaTailor will not set the value to <code>0</code>.</p>
    * @public
    */
   AdMarkerPassthrough?: AdMarkerPassthrough | undefined;
@@ -1286,8 +1259,7 @@ export const TrafficShapingType = {
 export type TrafficShapingType = (typeof TrafficShapingType)[keyof typeof TrafficShapingType];
 
 /**
- * <p>With recurring prefetch, MediaTailor automatically prefetches ads for every avail that occurs during the retrieval window. The following
- *         configurations describe the MediaTailor behavior when prefetching ads for a live event.</p>
+ * <p>With recurring prefetch, MediaTailor automatically prefetches ads for every avail that occurs during the retrieval window. The following configurations describe the MediaTailor behavior when prefetching ads for a live event.</p>
  * @public
  */
 export interface RecurringRetrieval {
@@ -1352,8 +1324,7 @@ export interface RecurringPrefetchConfiguration {
  */
 export interface PrefetchRetrieval {
   /**
-   * <p>The dynamic variables to use for substitution during prefetch requests to the ad decision server (ADS).</p>
-   *          <p>You initially configure <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html">dynamic variables</a> for the ADS URL when you set up your playback configuration. When you specify <code>DynamicVariables</code> for prefetch retrieval, MediaTailor includes the dynamic variables in the request to the ADS.</p>
+   * <p>The dynamic variables to use for substitution during prefetch requests to the ad decision server (ADS).</p> <p>You initially configure <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html">dynamic variables</a> for the ADS URL when you set up your playback configuration. When you specify <code>DynamicVariables</code> for prefetch retrieval, MediaTailor includes the dynamic variables in the request to the ADS.</p>
    * @public
    */
   DynamicVariables?: Record<string, string> | undefined;
@@ -1433,9 +1404,7 @@ export interface PrefetchSchedule {
   Retrieval?: PrefetchRetrieval | undefined;
 
   /**
-   * <p>The frequency that MediaTailor creates prefetch schedules. <code>SINGLE</code> indicates that this schedule applies to one ad break. <code>RECURRING</code> indicates that MediaTailor automatically creates a schedule for each ad avail in a live event.</p>
-   *          <p>For more information about the prefetch types and when you might use each, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Prefetching ads in Elemental MediaTailor.</a>
-   *          </p>
+   * <p>The frequency that MediaTailor creates prefetch schedules. <code>SINGLE</code> indicates that this schedule applies to one ad break. <code>RECURRING</code> indicates that MediaTailor automatically creates a schedule for each ad avail in a live event.</p> <p>For more information about the prefetch types and when you might use each, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Prefetching ads in Elemental MediaTailor.</a> </p>
    * @public
    */
   ScheduleType?: PrefetchScheduleType | undefined;
@@ -1633,23 +1602,7 @@ export interface SecretsManagerAccessTokenConfiguration {
  */
 export interface AccessConfiguration {
   /**
-   * <p>The type of authentication used to access content from <code>HttpConfiguration::BaseUrl</code> on your source location.</p>
-   *          <p>
-   *             <code>S3_SIGV4</code> - AWS Signature Version 4 authentication for Amazon S3 hosted virtual-style access. If your source location base URL is an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the bucket where your source content is stored. Your MediaTailor source location baseURL must follow the S3 virtual hosted-style request URL format. For example, https://bucket-name.s3.Region.amazonaws.com/key-name.</p>
-   *          <p>Before you can use <code>S3_SIGV4</code>, you must meet these requirements:</p>
-   *          <p>• You must allow MediaTailor to access your S3 bucket by granting mediatailor.amazonaws.com principal access in IAM. For information about configuring access in IAM, see Access management in the IAM User Guide.</p>
-   *          <p>• The mediatailor.amazonaws.com service principal must have permissions to read all top level manifests referenced by the VodSource packaging configurations.</p>
-   *          <p>• The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.</p>
-   *          <p>
-   *             <code>AUTODETECT_SIGV4</code> - AWS Signature Version 4 authentication for a set of supported services: MediaPackage Version 2 and Amazon S3 hosted virtual-style access. If your source location base URL is a MediaPackage Version 2 endpoint or an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the resource where your source content is stored.</p>
-   *          <p>Before you can use <code>AUTODETECT_SIGV4</code> with a MediaPackage Version 2 endpoint, you must meet these requirements:</p>
-   *          <p>• You must grant MediaTailor access to your MediaPackage endpoint by granting <code>mediatailor.amazonaws.com</code> principal access in an Origin Access policy on the endpoint.</p>
-   *          <p>• Your MediaTailor source location base URL must be a MediaPackage V2 endpoint.</p>
-   *          <p>• The caller of the API must have <code>mediapackagev2:GetObject</code> IAM permissions to read all top level manifests referenced by the MediaTailor source packaging configurations.</p>
-   *          <p>Before you can use <code>AUTODETECT_SIGV4</code> with an Amazon S3 bucket, you must meet these requirements:</p>
-   *          <p>• You must grant MediaTailor access to your S3 bucket by granting <code>mediatailor.amazonaws.com</code> principal access in IAM. For more information about configuring access in IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management</a> in the <i>IAM User Guide.</i>.</p>
-   *          <p>• The <code>mediatailor.amazonaws.com</code> service principal must have permissions to read all top-level manifests referenced by the <code>VodSource</code> packaging configurations.</p>
-   *          <p>• The caller of the API must have <code>s3:GetObject</code> IAM permissions to read all top level manifests referenced by your MediaTailor <code>VodSource</code> packaging configurations.</p>
+   * <p>The type of authentication used to access content from <code>HttpConfiguration::BaseUrl</code> on your source location.</p> <p> <code>S3_SIGV4</code> - AWS Signature Version 4 authentication for Amazon S3 hosted virtual-style access. If your source location base URL is an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the bucket where your source content is stored. Your MediaTailor source location baseURL must follow the S3 virtual hosted-style request URL format. For example, https://bucket-name.s3.Region.amazonaws.com/key-name.</p> <p>Before you can use <code>S3_SIGV4</code>, you must meet these requirements:</p> <p>• You must allow MediaTailor to access your S3 bucket by granting mediatailor.amazonaws.com principal access in IAM. For information about configuring access in IAM, see Access management in the IAM User Guide.</p> <p>• The mediatailor.amazonaws.com service principal must have permissions to read all top level manifests referenced by the VodSource packaging configurations.</p> <p>• The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.</p> <p> <code>AUTODETECT_SIGV4</code> - AWS Signature Version 4 authentication for a set of supported services: MediaPackage Version 2 and Amazon S3 hosted virtual-style access. If your source location base URL is a MediaPackage Version 2 endpoint or an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the resource where your source content is stored.</p> <p>Before you can use <code>AUTODETECT_SIGV4</code> with a MediaPackage Version 2 endpoint, you must meet these requirements:</p> <p>• You must grant MediaTailor access to your MediaPackage endpoint by granting <code>mediatailor.amazonaws.com</code> principal access in an Origin Access policy on the endpoint.</p> <p>• Your MediaTailor source location base URL must be a MediaPackage V2 endpoint.</p> <p>• The caller of the API must have <code>mediapackagev2:GetObject</code> IAM permissions to read all top level manifests referenced by the MediaTailor source packaging configurations.</p> <p>Before you can use <code>AUTODETECT_SIGV4</code> with an Amazon S3 bucket, you must meet these requirements:</p> <p>• You must grant MediaTailor access to your S3 bucket by granting <code>mediatailor.amazonaws.com</code> principal access in IAM. For more information about configuring access in IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management</a> in the <i>IAM User Guide.</i>.</p> <p>• The <code>mediatailor.amazonaws.com</code> service principal must have permissions to read all top-level manifests referenced by the <code>VodSource</code> packaging configurations.</p> <p>• The caller of the API must have <code>s3:GetObject</code> IAM permissions to read all top level manifests referenced by your MediaTailor <code>VodSource</code> packaging configurations.</p>
    * @public
    */
   AccessType?: AccessType | undefined;
@@ -1980,17 +1933,12 @@ export const Tier = {
 export type Tier = (typeof Tier)[keyof typeof Tier];
 
 /**
- * <p>
- *             The configuration for time-shifted viewing.
- *         </p>
+ * <p> The configuration for time-shifted viewing. </p>
  * @public
  */
 export interface TimeShiftConfiguration {
   /**
-   * <p>
-   *             The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds,
-   *             and the maximum allowed maximum time delay is 21600 seconds (6 hours).
-   *         </p>
+   * <p> The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours). </p>
    * @public
    */
   MaxTimeDelaySeconds: number | undefined;
@@ -2007,9 +1955,7 @@ export interface CreateChannelRequest {
   ChannelName: string | undefined;
 
   /**
-   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the <code>LINEAR</code>
-   *             <code>PlaybackMode</code>. MediaTailor doesn't support filler slate for channels using the <code>LOOP</code>
-   *             <code>PlaybackMode</code>.</p>
+   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the <code>LINEAR</code> <code>PlaybackMode</code>. MediaTailor doesn't support filler slate for channels using the <code>LOOP</code> <code>PlaybackMode</code>.</p>
    * @public
    */
   FillerSlate?: SlateSource | undefined;
@@ -2021,11 +1967,7 @@ export interface CreateChannelRequest {
   Outputs: RequestOutputItem[] | undefined;
 
   /**
-   * <p>The type of playback mode to use for this channel.</p>
-   *          <p>
-   *             <code>LINEAR</code> - The programs in the schedule play once back-to-back in the schedule.</p>
-   *          <p>
-   *             <code>LOOP</code> - The programs in the schedule play back-to-back in an endless loop. When the last program in the schedule stops playing, playback loops back to the first program in the schedule.</p>
+   * <p>The type of playback mode to use for this channel.</p> <p> <code>LINEAR</code> - The programs in the schedule play once back-to-back in the schedule.</p> <p> <code>LOOP</code> - The programs in the schedule play back-to-back in an endless loop. When the last program in the schedule stops playing, playback loops back to the first program in the schedule.</p>
    * @public
    */
   PlaybackMode: PlaybackMode | undefined;
@@ -2043,9 +1985,7 @@ export interface CreateChannelRequest {
   Tier?: Tier | undefined;
 
   /**
-   * <p>
-   *             The time-shifted viewing configuration you want to associate to the channel.
-   *         </p>
+   * <p> The time-shifted viewing configuration you want to associate to the channel. </p>
    * @public
    */
   TimeShiftConfiguration?: TimeShiftConfiguration | undefined;
@@ -2136,9 +2076,7 @@ export interface CreateChannelResponse {
   Tier?: string | undefined;
 
   /**
-   * <p>
-   *             The time-shifted viewing configuration assigned to the channel.
-   *         </p>
+   * <p> The time-shifted viewing configuration assigned to the channel. </p>
    * @public
    */
   TimeShiftConfiguration?: TimeShiftConfiguration | undefined;
@@ -2248,9 +2186,7 @@ export interface DescribeChannelResponse {
   LogConfiguration: LogConfigurationForChannel | undefined;
 
   /**
-   * <p>
-   *             The time-shifted viewing configuration for the channel.
-   *         </p>
+   * <p> The time-shifted viewing configuration for the channel. </p>
    * @public
    */
   TimeShiftConfiguration?: TimeShiftConfiguration | undefined;
@@ -2285,10 +2221,7 @@ export interface GetChannelScheduleRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>(Optional) If the playback configuration has more than <code>MaxResults</code> channel schedules, use <code>NextToken</code> to get the second and subsequent pages of results.</p>
-   *          <p>For the first <code>GetChannelScheduleRequest</code> request, omit this value.</p>
-   *          <p>For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request.</p>
-   *          <p>If the previous response didn't include a <code>NextToken</code> element, there are no more channel schedules to get.</p>
+   * <p>(Optional) If the playback configuration has more than <code>MaxResults</code> channel schedules, use <code>NextToken</code> to get the second and subsequent pages of results.</p> <p>For the first <code>GetChannelScheduleRequest</code> request, omit this value.</p> <p>For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request.</p> <p>If the previous response didn't include a <code>NextToken</code> element, there are no more channel schedules to get.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2395,15 +2328,7 @@ export interface Transition {
   ScheduledStartTimeMillis?: number | undefined;
 
   /**
-   * <p>Defines when the program plays in the schedule. You can set the value to <code>ABSOLUTE</code> or <code>RELATIVE</code>.</p>
-   *          <p>
-   *             <code>ABSOLUTE</code> - The program plays at a specific wall clock time. This setting can only be used for channels using the <code>LINEAR</code>
-   *             <code>PlaybackMode</code>.</p>
-   *          <p>Note the following considerations when using <code>ABSOLUTE</code> transitions:</p>
-   *          <p>If the preceding program in the schedule has a duration that extends past the wall clock time, MediaTailor truncates the preceding program on a common segment boundary.</p>
-   *          <p>If there are gaps in playback, MediaTailor plays the <code>FillerSlate</code> you configured for your linear channel.</p>
-   *          <p>
-   *             <code>RELATIVE</code> - The program is inserted into the schedule either before or after a program that you specify via <code>RelativePosition</code>.</p>
+   * <p>Defines when the program plays in the schedule. You can set the value to <code>ABSOLUTE</code> or <code>RELATIVE</code>.</p> <p> <code>ABSOLUTE</code> - The program plays at a specific wall clock time. This setting can only be used for channels using the <code>LINEAR</code> <code>PlaybackMode</code>.</p> <p>Note the following considerations when using <code>ABSOLUTE</code> transitions:</p> <p>If the preceding program in the schedule has a duration that extends past the wall clock time, MediaTailor truncates the preceding program on a common segment boundary.</p> <p>If there are gaps in playback, MediaTailor plays the <code>FillerSlate</code> you configured for your linear channel.</p> <p> <code>RELATIVE</code> - The program is inserted into the schedule either before or after a program that you specify via <code>RelativePosition</code>.</p>
    * @public
    */
   Type: string | undefined;
@@ -2864,9 +2789,7 @@ export interface UpdateChannelRequest {
   ChannelName: string | undefined;
 
   /**
-   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the <code>LINEAR</code>
-   *             <code>PlaybackMode</code>. MediaTailor doesn't support filler slate for channels using the <code>LOOP</code>
-   *             <code>PlaybackMode</code>.</p>
+   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the <code>LINEAR</code> <code>PlaybackMode</code>. MediaTailor doesn't support filler slate for channels using the <code>LOOP</code> <code>PlaybackMode</code>.</p>
    * @public
    */
   FillerSlate?: SlateSource | undefined;
@@ -2878,9 +2801,7 @@ export interface UpdateChannelRequest {
   Outputs: RequestOutputItem[] | undefined;
 
   /**
-   * <p>
-   *             The time-shifted viewing configuration you want to associate to the channel.
-   *         </p>
+   * <p> The time-shifted viewing configuration you want to associate to the channel. </p>
    * @public
    */
   TimeShiftConfiguration?: TimeShiftConfiguration | undefined;
@@ -2921,9 +2842,7 @@ export interface UpdateChannelResponse {
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the <code>LINEAR</code>
-   *             <code>PlaybackMode</code>. MediaTailor doesn't support filler slate for channels using the <code>LOOP</code>
-   *             <code>PlaybackMode</code>.</p>
+   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the <code>LINEAR</code> <code>PlaybackMode</code>. MediaTailor doesn't support filler slate for channels using the <code>LOOP</code> <code>PlaybackMode</code>.</p>
    * @public
    */
   FillerSlate?: SlateSource | undefined;
@@ -2941,11 +2860,7 @@ export interface UpdateChannelResponse {
   Outputs?: ResponseOutputItem[] | undefined;
 
   /**
-   * <p>The type of playback mode for this channel.</p>
-   *          <p>
-   *             <code>LINEAR</code> - Programs play back-to-back only once.</p>
-   *          <p>
-   *             <code>LOOP</code> - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.</p>
+   * <p>The type of playback mode for this channel.</p> <p> <code>LINEAR</code> - Programs play back-to-back only once.</p> <p> <code>LOOP</code> - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.</p>
    * @public
    */
   PlaybackMode?: string | undefined;
@@ -2963,9 +2878,7 @@ export interface UpdateChannelResponse {
   Tier?: string | undefined;
 
   /**
-   * <p>
-   *             The time-shifted viewing configuration for the channel.
-   *         </p>
+   * <p> The time-shifted viewing configuration for the channel. </p>
    * @public
    */
   TimeShiftConfiguration?: TimeShiftConfiguration | undefined;
@@ -2983,9 +2896,7 @@ export interface UpdateChannelResponse {
  */
 export interface ConfigureLogsForPlaybackConfigurationRequest {
   /**
-   * <p>The percentage of session logs that MediaTailor sends to your CloudWatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to <code>60</code>, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html">debug log mode</a>.</p>
-   *          <p>Valid values: <code>0</code> - <code>100</code>
-   *          </p>
+   * <p>The percentage of session logs that MediaTailor sends to your CloudWatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to <code>60</code>, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html">debug log mode</a>.</p> <p>Valid values: <code>0</code> - <code>100</code> </p>
    * @public
    */
   PercentEnabled: number | undefined;
@@ -2997,9 +2908,7 @@ export interface ConfigureLogsForPlaybackConfigurationRequest {
   PlaybackConfigurationName: string | undefined;
 
   /**
-   * <p>The method used for collecting logs from AWS Elemental MediaTailor. To configure MediaTailor to send logs directly to Amazon CloudWatch Logs, choose <code>LEGACY_CLOUDWATCH</code>. To configure MediaTailor to
-   *             send logs to CloudWatch, which then vends the logs to your destination of choice, choose <code>VENDED_LOGS</code>. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream.</p>
-   *          <p>To use vended logs, you must configure the delivery destination in Amazon CloudWatch, as described in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions-V2">Enable logging from AWS services, Logging that requires additional permissions [V2]</a>.</p>
+   * <p>The method used for collecting logs from AWS Elemental MediaTailor. To configure MediaTailor to send logs directly to Amazon CloudWatch Logs, choose <code>LEGACY_CLOUDWATCH</code>. To configure MediaTailor to send logs to CloudWatch, which then vends the logs to your destination of choice, choose <code>VENDED_LOGS</code>. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream.</p> <p>To use vended logs, you must configure the delivery destination in Amazon CloudWatch, as described in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions-V2">Enable logging from AWS services, Logging that requires additional permissions [V2]</a>.</p>
    * @public
    */
   EnabledLoggingStrategies?: LoggingStrategy[] | undefined;
@@ -3163,9 +3072,7 @@ export interface CreatePrefetchScheduleRequest {
   RecurringPrefetchConfiguration?: RecurringPrefetchConfiguration | undefined;
 
   /**
-   * <p>The frequency that MediaTailor creates prefetch schedules. <code>SINGLE</code> indicates that this schedule applies to one ad break. <code>RECURRING</code> indicates that MediaTailor automatically creates a schedule for each ad avail in a live event.</p>
-   *          <p>For more information about the prefetch types and when you might use each, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Prefetching ads in Elemental MediaTailor.</a>
-   *          </p>
+   * <p>The frequency that MediaTailor creates prefetch schedules. <code>SINGLE</code> indicates that this schedule applies to one ad break. <code>RECURRING</code> indicates that MediaTailor automatically creates a schedule for each ad avail in a live event.</p> <p>For more information about the prefetch types and when you might use each, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Prefetching ads in Elemental MediaTailor.</a> </p>
    * @public
    */
   ScheduleType?: PrefetchScheduleType | undefined;
@@ -4078,10 +3985,7 @@ export interface ListPrefetchSchedulesRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>(Optional) If the playback configuration has more than <code>MaxResults</code> prefetch schedules, use <code>NextToken</code> to get the second and subsequent pages of results.</p>
-   *          <p> For the first <code>ListPrefetchSchedulesRequest</code> request, omit this value.</p>
-   *          <p> For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request.</p>
-   *          <p> If the previous response didn't include a <code>NextToken</code> element, there are no more prefetch schedules to get.</p>
+   * <p>(Optional) If the playback configuration has more than <code>MaxResults</code> prefetch schedules, use <code>NextToken</code> to get the second and subsequent pages of results.</p> <p> For the first <code>ListPrefetchSchedulesRequest</code> request, omit this value.</p> <p> For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request.</p> <p> If the previous response didn't include a <code>NextToken</code> element, there are no more prefetch schedules to get.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -4093,8 +3997,7 @@ export interface ListPrefetchSchedulesRequest {
   PlaybackConfigurationName: string | undefined;
 
   /**
-   * <p>The type of prefetch schedules that you want to list. <code>SINGLE</code> indicates that you want to list the configured single prefetch schedules. <code>RECURRING</code>
-   *             indicates that you want to list the configured recurring prefetch schedules. <code>ALL</code> indicates that you want to list all configured prefetch schedules.</p>
+   * <p>The type of prefetch schedules that you want to list. <code>SINGLE</code> indicates that you want to list the configured single prefetch schedules. <code>RECURRING</code> indicates that you want to list the configured recurring prefetch schedules. <code>ALL</code> indicates that you want to list all configured prefetch schedules.</p>
    * @public
    */
   ScheduleType?: ListPrefetchScheduleType | undefined;

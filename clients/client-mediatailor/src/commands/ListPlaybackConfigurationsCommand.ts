@@ -78,7 +78,7 @@ export interface ListPlaybackConfigurationsCommandOutput extends ListPlaybackCon
  * //       },
  * //       LogConfiguration: { // LogConfiguration
  * //         PercentEnabled: Number("int"), // required
- * //         EnabledLoggingStrategies: [ // __listOfLoggingStrategies
+ * //         EnabledLoggingStrategies: [ // __listOfLoggingStrategies // required
  * //           "VENDED_LOGS" || "LEGACY_CLOUDWATCH",
  * //         ],
  * //         AdsInteractionLog: { // AdsInteractionLog
