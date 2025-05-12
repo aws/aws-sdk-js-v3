@@ -130,6 +130,7 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * //           InstanceId: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       AvailabilityZoneId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

@@ -30098,6 +30098,9 @@ const se_AllocateHostsRequest = (input: AllocateHostsRequest, context: __SerdeCo
       entries[loc] = value;
     });
   }
+  if (input[_AZI] != null) {
+    entries[_AZI] = input[_AZI];
+  }
   if (input[_AP] != null) {
     entries[_AP] = input[_AP];
   }
@@ -40764,6 +40767,9 @@ const se_DescribeReservedInstancesOfferingsRequest = (
       const loc = `ReservedInstancesOfferingId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  if (input[_AZI] != null) {
+    entries[_AZI] = input[_AZI];
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
@@ -55086,6 +55092,9 @@ const se_ReservedInstancesConfiguration = (input: ReservedInstancesConfiguration
   if (input[_Sc] != null) {
     entries[_Sc] = input[_Sc];
   }
+  if (input[_AZI] != null) {
+    entries[_AZI] = input[_AZI];
+  }
   return entries;
 };
 
@@ -59707,6 +59716,9 @@ const de_AnalysisLoadBalancerTarget = (output: any, context: __SerdeContext): An
   if (output[_aZ] != null) {
     contents[_AZ] = __expectString(output[_aZ]);
   }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
+  }
   if (output[_in] != null) {
     contents[_Ins] = de_AnalysisComponent(output[_in], context);
   }
@@ -61647,6 +61659,9 @@ const de_CapacityReservationInfo = (output: any, context: __SerdeContext): Capac
   }
   if (output[_t] != null) {
     contents[_Te] = __expectString(output[_t]);
+  }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
   }
   return contents;
 };
@@ -70053,6 +70068,11 @@ const de_Explanation = (output: any, context: __SerdeContext): Explanation => {
     contents[_AZv] = [];
   } else if (output[_aZS] != null && output[_aZS][_i] != null) {
     contents[_AZv] = de_ValueStringList(__getArrayIfSingleItem(output[_aZS][_i]), context);
+  }
+  if (output.availabilityZoneIdSet === "") {
+    contents[_AZIv] = [];
+  } else if (output[_aZIS] != null && output[_aZIS][_i] != null) {
+    contents[_AZIv] = de_ValueStringList(__getArrayIfSingleItem(output[_aZIS][_i]), context);
   }
   if (output.cidrSet === "") {
     contents[_Ci] = [];
@@ -82117,6 +82137,9 @@ const de_ReservedInstances = (output: any, context: __SerdeContext): ReservedIns
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
   }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
+  }
   if (output[_rII] != null) {
     contents[_RIIe] = __expectString(output[_rII]);
   }
@@ -82172,6 +82195,9 @@ const de_ReservedInstancesConfiguration = (output: any, context: __SerdeContext)
   }
   if (output[_sc] != null) {
     contents[_Sc] = __expectString(output[_sc]);
+  }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
   }
   return contents;
 };
@@ -82369,6 +82395,9 @@ const de_ReservedInstancesOffering = (output: any, context: __SerdeContext): Res
   }
   if (output[_sc] != null) {
     contents[_Sc] = __expectString(output[_sc]);
+  }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
   }
   if (output[_rIOI] != null) {
     contents[_RIOIe] = __expectString(output[_rIOI]);
@@ -89166,6 +89195,9 @@ const de_VolumeStatusItem = (output: any, context: __SerdeContext): VolumeStatus
   } else if (output[_aStt] != null && output[_aStt][_i] != null) {
     contents[_AStt] = de_VolumeStatusAttachmentStatusList(__getArrayIfSingleItem(output[_aStt][_i]), context);
   }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
+  }
   return contents;
 };
 
@@ -90341,6 +90373,7 @@ const _AWSAKI = "AWSAccessKeyId";
 const _AZ = "AvailabilityZone";
 const _AZG = "AvailabilityZoneGroup";
 const _AZI = "AvailabilityZoneId";
+const _AZIv = "AvailabilityZoneIds";
 const _AZv = "AvailabilityZones";
 const _Ac = "Accept";
 const _Acc = "Accelerators";
@@ -93069,6 +93102,7 @@ const _aVS = "attributeValueSet";
 const _aZ = "availabilityZone";
 const _aZG = "availabilityZoneGroup";
 const _aZI = "availabilityZoneId";
+const _aZIS = "availabilityZoneIdSet";
 const _aZIv = "availabilityZoneInfo";
 const _aZS = "availabilityZoneSet";
 const _ac = "acl";

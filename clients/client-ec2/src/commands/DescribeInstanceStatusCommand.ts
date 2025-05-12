@@ -57,6 +57,12 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  *                         lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *             </li>
  *          </ul>
+ *          <p>The Amazon EC2 API follows an eventual consistency model. This means that the result of an
+ *             API command you run that creates or modifies resources might not be immediately
+ *             available to all subsequent commands you run. For guidance on how to manage eventual
+ *             consistency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html">Eventual consistency in the
+ *                 Amazon EC2 API</a> in the <i>Amazon EC2 Developer
+ *             Guide</i>.</p>
  *          <note>
  *             <p>The order of the elements in the response, including those within nested
  *                 structures, might vary. Applications should not assume the elements appear in a

@@ -254,6 +254,9 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * //               AvailabilityZones: [
  * //                 "STRING_VALUE",
  * //               ],
+ * //               AvailabilityZoneIds: [
+ * //                 "STRING_VALUE",
+ * //               ],
  * //               Cidrs: [
  * //                 "STRING_VALUE",
  * //               ],
@@ -274,6 +277,7 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * //               LoadBalancerTarget: { // AnalysisLoadBalancerTarget
  * //                 Address: "STRING_VALUE",
  * //                 AvailabilityZone: "STRING_VALUE",
+ * //                 AvailabilityZoneId: "STRING_VALUE",
  * //                 Instance: "<AnalysisComponent>",
  * //                 Port: Number("int"),
  * //               },
@@ -509,6 +513,7 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * //               Addresses: "<IpAddressList>",
  * //               AttachedTo: "<AnalysisComponent>",
  * //               AvailabilityZones: "<ValueStringList>",
+ * //               AvailabilityZoneIds: "<ValueStringList>",
  * //               Cidrs: "<ValueStringList>",
  * //               Component: "<AnalysisComponent>",
  * //               CustomerGateway: "<AnalysisComponent>",
@@ -527,6 +532,7 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * //               LoadBalancerTarget: {
  * //                 Address: "STRING_VALUE",
  * //                 AvailabilityZone: "STRING_VALUE",
+ * //                 AvailabilityZoneId: "STRING_VALUE",
  * //                 Instance: "<AnalysisComponent>",
  * //                 Port: Number("int"),
  * //               },
@@ -659,6 +665,7 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * //           Addresses: "<IpAddressList>",
  * //           AttachedTo: "<AnalysisComponent>",
  * //           AvailabilityZones: "<ValueStringList>",
+ * //           AvailabilityZoneIds: "<ValueStringList>",
  * //           Cidrs: "<ValueStringList>",
  * //           Component: "<AnalysisComponent>",
  * //           CustomerGateway: "<AnalysisComponent>",
@@ -677,6 +684,7 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * //           LoadBalancerTarget: {
  * //             Address: "STRING_VALUE",
  * //             AvailabilityZone: "STRING_VALUE",
+ * //             AvailabilityZoneId: "STRING_VALUE",
  * //             Instance: "<AnalysisComponent>",
  * //             Port: Number("int"),
  * //           },

@@ -233,6 +233,9 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
  * //               AvailabilityZones: [ // ValueStringList
  * //                 "STRING_VALUE",
  * //               ],
+ * //               AvailabilityZoneIds: [
+ * //                 "STRING_VALUE",
+ * //               ],
  * //               Cidrs: [
  * //                 "STRING_VALUE",
  * //               ],
@@ -253,6 +256,7 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
  * //               LoadBalancerTarget: { // AnalysisLoadBalancerTarget
  * //                 Address: "STRING_VALUE",
  * //                 AvailabilityZone: "STRING_VALUE",
+ * //                 AvailabilityZoneId: "STRING_VALUE",
  * //                 Instance: "<AnalysisComponent>",
  * //                 Port: Number("int"),
  * //               },
@@ -342,9 +346,7 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
  * //               },
  * //               FirewallStatefulRule: { // FirewallStatefulRule
  * //                 RuleGroupArn: "STRING_VALUE",
- * //                 Sources: [
- * //                   "STRING_VALUE",
- * //                 ],
+ * //                 Sources: "<ValueStringList>",
  * //                 Destinations: "<ValueStringList>",
  * //                 SourcePorts: "<PortRangeList>",
  * //                 DestinationPorts: "<PortRangeList>",

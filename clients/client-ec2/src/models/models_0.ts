@@ -1610,6 +1610,12 @@ export interface AnalysisLoadBalancerTarget {
   AvailabilityZone?: string | undefined;
 
   /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
    * <p>Information about the instance.</p>
    * @public
    */
@@ -1877,6 +1883,12 @@ export interface Explanation {
    * @public
    */
   AvailabilityZones?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the Availability Zones.</p>
+   * @public
+   */
+  AvailabilityZoneIds?: string[] | undefined;
 
   /**
    * <p>The CIDR ranges.</p>
@@ -3516,6 +3528,12 @@ export interface AllocateHostsRequest {
   AssetIds?: string[] | undefined;
 
   /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
    * <p>Indicates whether the host accepts any untargeted instance launches that match its
    *             instance type configuration, or if it only accepts Host tenancy instance launches that
    *             specify its unique host ID. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding"> Understanding auto-placement and affinity</a> in the
@@ -3558,7 +3576,7 @@ export interface AllocateHostsRequest {
    * <p>The Availability Zone in which to allocate the Dedicated Host.</p>
    * @public
    */
-  AvailabilityZone: string | undefined;
+  AvailabilityZone?: string | undefined;
 }
 
 /**

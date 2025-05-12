@@ -2566,6 +2566,11 @@ export interface DescribeReservedInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>availability-zone-id</code> - The ID of the Availability Zone where the Reserved
+   *           Instance can be used.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>duration</code> - The duration of the Reserved Instance (one year or three
    *           years), in seconds (<code>31536000</code> | <code>94608000</code>).</p>
    *             </li>
@@ -2769,6 +2774,12 @@ export interface ReservedInstances {
   Tags?: Tag[] | undefined;
 
   /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
    * <p>The ID of the Reserved Instance.</p>
    * @public
    */
@@ -2948,6 +2959,11 @@ export interface DescribeReservedInstancesModificationsRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>modification-result.target-configuration.availability-zone-id</code> - The ID of the
+   *           Availability Zone for the new Reserved Instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>modification-result.target-configuration.instance-count </code> - The number of new
    *           Reserved Instances.</p>
    *             </li>
@@ -3022,6 +3038,12 @@ export interface ReservedInstancesConfiguration {
    * @public
    */
   Scope?: Scope | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 }
 
 /**
@@ -3145,6 +3167,8 @@ export interface DescribeReservedInstancesModificationsResult {
 export interface DescribeReservedInstancesOfferingsRequest {
   /**
    * <p>The Availability Zone in which the Reserved Instance can be used.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified,
+   *       but not both.</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
@@ -3205,6 +3229,14 @@ export interface DescribeReservedInstancesOfferingsRequest {
   ReservedInstancesOfferingIds?: string[] | undefined;
 
   /**
+   * <p>The ID of the Availability Zone.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified,
+   *       but not both.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making
    *       the request, and provides an error response. If you have the required permissions, the error
    *       response is <code>DryRunOperation</code>. Otherwise, it is
@@ -3220,6 +3252,11 @@ export interface DescribeReservedInstancesOfferingsRequest {
    *                <p>
    *                   <code>availability-zone</code> - The Availability Zone where the Reserved Instance can be
    *           used.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone-id</code> - The ID of the Availability Zone where the Reserved
+   *           Instance can be used.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3384,6 +3421,12 @@ export interface ReservedInstancesOffering {
    * @public
    */
   Scope?: Scope | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The ID of the Reserved Instance offering. This is the offering ID used in <a>GetReservedInstancesExchangeQuote</a> to confirm that an exchange can be
@@ -10402,6 +10445,12 @@ export interface VolumeStatusItem {
    * @public
    */
   AttachmentStatuses?: VolumeStatusAttachmentStatus[] | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 }
 
 /**

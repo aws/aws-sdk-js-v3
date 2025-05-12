@@ -4198,6 +4198,7 @@ export interface EC2 {
   /**
    * @see {@link AllocateHostsCommand}
    */
+  allocateHosts(): Promise<AllocateHostsCommandOutput>;
   allocateHosts(args: AllocateHostsCommandInput, options?: __HttpHandlerOptions): Promise<AllocateHostsCommandOutput>;
   allocateHosts(args: AllocateHostsCommandInput, cb: (err: any, data?: AllocateHostsCommandOutput) => void): void;
   allocateHosts(

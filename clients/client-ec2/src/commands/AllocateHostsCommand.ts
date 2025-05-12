@@ -56,11 +56,12 @@ export interface AllocateHostsCommandOutput extends AllocateHostsResult, __Metad
  *   AssetIds: [ // AssetIdList
  *     "STRING_VALUE",
  *   ],
+ *   AvailabilityZoneId: "STRING_VALUE",
  *   AutoPlacement: "on" || "off",
  *   ClientToken: "STRING_VALUE",
  *   InstanceType: "STRING_VALUE",
  *   Quantity: Number("int"),
- *   AvailabilityZone: "STRING_VALUE", // required
+ *   AvailabilityZone: "STRING_VALUE",
  * };
  * const command = new AllocateHostsCommand(input);
  * const response = await client.send(command);

@@ -6241,6 +6241,12 @@ export interface CapacityReservationInfo {
    * @public
    */
   Tenancy?: CapacityReservationTenancy | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 }
 
 /**

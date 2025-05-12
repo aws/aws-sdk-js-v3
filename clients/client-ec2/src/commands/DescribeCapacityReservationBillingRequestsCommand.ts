@@ -79,6 +79,7 @@ export interface DescribeCapacityReservationBillingRequestsCommandOutput
  * //         InstanceType: "STRING_VALUE",
  * //         AvailabilityZone: "STRING_VALUE",
  * //         Tenancy: "default" || "dedicated",
+ * //         AvailabilityZoneId: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],
