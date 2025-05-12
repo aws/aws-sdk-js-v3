@@ -53,12 +53,27 @@ export interface GetDataLakeDatasetCommandOutput extends GetDataLakeDatasetRespo
  * //       fields: [ // DataLakeDatasetSchemaFieldList // required
  * //         { // DataLakeDatasetSchemaField
  * //           name: "STRING_VALUE", // required
- * //           type: "INT" || "DOUBLE" || "STRING" || "TIMESTAMP", // required
+ * //           type: "INT" || "DOUBLE" || "STRING" || "TIMESTAMP" || "LONG", // required
  * //           isRequired: true || false, // required
+ * //         },
+ * //       ],
+ * //       primaryKeys: [ // DataLakeDatasetPrimaryKeyFieldList
+ * //         { // DataLakeDatasetPrimaryKeyField
+ * //           name: "STRING_VALUE", // required
  * //         },
  * //       ],
  * //     },
  * //     description: "STRING_VALUE",
+ * //     partitionSpec: { // DataLakeDatasetPartitionSpec
+ * //       fields: [ // DataLakeDatasetPartitionFieldList // required
+ * //         { // DataLakeDatasetPartitionField
+ * //           name: "STRING_VALUE", // required
+ * //           transform: { // DataLakeDatasetPartitionFieldTransform
+ * //             type: "YEAR" || "MONTH" || "DAY" || "HOUR" || "IDENTITY", // required
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
  * //     createdTime: new Date("TIMESTAMP"), // required
  * //     lastModifiedTime: new Date("TIMESTAMP"), // required
  * //   },
@@ -297,6 +312,22 @@ export interface GetDataLakeDatasetCommandOutput extends GetDataLakeDatasetRespo
  *     lastModifiedTime: 1.727116807751E9,
  *     name: "my_dataset",
  *     namespace: "default",
+ *     partitionSpec: {
+ *       fields: [
+ *         {
+ *           name: "creation_time",
+ *           transform: {
+ *             type: "DAY"
+ *           }
+ *         },
+ *         {
+ *           name: "description",
+ *           transform: {
+ *             type: "IDENTITY"
+ *           }
+ *         }
+ *       ]
+ *     },
  *     schema: {
  *       fields: [
  *         {
@@ -318,9 +349,19 @@ export interface GetDataLakeDatasetCommandOutput extends GetDataLakeDatasetRespo
  *           isRequired: false,
  *           name: "creation_time",
  *           type: "TIMESTAMP"
+ *         },
+ *         {
+ *           isRequired: false,
+ *           name: "quantity",
+ *           type: "LONG"
  *         }
  *       ],
- *       name: "MyDataset"
+ *       name: "MyDataset",
+ *       primaryKeys: [
+ *         {
+ *           name: "id"
+ *         }
+ *       ]
  *     }
  *   }
  * }

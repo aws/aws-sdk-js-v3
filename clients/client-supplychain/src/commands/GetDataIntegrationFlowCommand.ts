@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetDataIntegrationFlowRequest, GetDataIntegrationFlowResponse } from "../models/models_0";
+import {
+  GetDataIntegrationFlowRequest,
+  GetDataIntegrationFlowResponse,
+  GetDataIntegrationFlowResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_GetDataIntegrationFlowCommand, se_GetDataIntegrationFlowCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
@@ -61,6 +65,17 @@ export interface GetDataIntegrationFlowCommandOutput extends GetDataIntegrationF
  * //           options: { // DataIntegrationFlowDatasetOptions
  * //             loadType: "INCREMENTAL" || "REPLACE",
  * //             dedupeRecords: true || false,
+ * //             dedupeStrategy: { // DataIntegrationFlowDedupeStrategy
+ * //               type: "FIELD_PRIORITY", // required
+ * //               fieldPriority: { // DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration
+ * //                 fields: [ // DataIntegrationFlowFieldPriorityDedupeFieldList // required
+ * //                   { // DataIntegrationFlowFieldPriorityDedupeField
+ * //                     name: "STRING_VALUE", // required
+ * //                     sortOrder: "ASC" || "DESC", // required
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             },
  * //           },
  * //         },
  * //       },
@@ -85,6 +100,17 @@ export interface GetDataIntegrationFlowCommandOutput extends GetDataIntegrationF
  * //         options: {
  * //           loadType: "INCREMENTAL" || "REPLACE",
  * //           dedupeRecords: true || false,
+ * //           dedupeStrategy: {
+ * //             type: "FIELD_PRIORITY", // required
+ * //             fieldPriority: {
+ * //               fields: [ // required
+ * //                 {
+ * //                   name: "STRING_VALUE", // required
+ * //                   sortOrder: "ASC" || "DESC", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
  * //         },
  * //       },
  * //     },
@@ -188,7 +214,7 @@ export class GetDataIntegrationFlowCommand extends $Command
   })
   .s("GalaxyPublicAPIGateway", "GetDataIntegrationFlow", {})
   .n("SupplyChainClient", "GetDataIntegrationFlowCommand")
-  .f(void 0, void 0)
+  .f(void 0, GetDataIntegrationFlowResponseFilterSensitiveLog)
   .ser(se_GetDataIntegrationFlowCommand)
   .de(de_GetDataIntegrationFlowCommand)
   .build() {

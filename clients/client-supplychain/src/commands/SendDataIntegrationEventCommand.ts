@@ -32,7 +32,7 @@ export interface SendDataIntegrationEventCommandInput extends SendDataIntegratio
 export interface SendDataIntegrationEventCommandOutput extends SendDataIntegrationEventResponse, __MetadataBearer {}
 
 /**
- * <p>Send the transactional data payload for the event with real-time data for analysis or monitoring. The real-time data events are stored in an Amazon Web Services service before being processed and stored in data lake. New data events are synced with data lake at 5 PM GMT everyday. The updated transactional data is available in data lake after ingestion.</p>
+ * <p>Send the data payload for the event with real-time data for analysis or monitoring. The real-time data events are stored in an Amazon Web Services service before being processed and stored in data lake.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -41,11 +41,15 @@ export interface SendDataIntegrationEventCommandOutput extends SendDataIntegrati
  * const client = new SupplyChainClient(config);
  * const input = { // SendDataIntegrationEventRequest
  *   instanceId: "STRING_VALUE", // required
- *   eventType: "scn.data.forecast" || "scn.data.inventorylevel" || "scn.data.inboundorder" || "scn.data.inboundorderline" || "scn.data.inboundorderlineschedule" || "scn.data.outboundorderline" || "scn.data.outboundshipment" || "scn.data.processheader" || "scn.data.processoperation" || "scn.data.processproduct" || "scn.data.reservation" || "scn.data.shipment" || "scn.data.shipmentstop" || "scn.data.shipmentstoporder" || "scn.data.supplyplan", // required
+ *   eventType: "scn.data.forecast" || "scn.data.inventorylevel" || "scn.data.inboundorder" || "scn.data.inboundorderline" || "scn.data.inboundorderlineschedule" || "scn.data.outboundorderline" || "scn.data.outboundshipment" || "scn.data.processheader" || "scn.data.processoperation" || "scn.data.processproduct" || "scn.data.reservation" || "scn.data.shipment" || "scn.data.shipmentstop" || "scn.data.shipmentstoporder" || "scn.data.supplyplan" || "scn.data.dataset", // required
  *   data: "STRING_VALUE", // required
  *   eventGroupId: "STRING_VALUE", // required
  *   eventTimestamp: new Date("TIMESTAMP"),
  *   clientToken: "STRING_VALUE",
+ *   datasetTarget: { // DataIntegrationEventDatasetTargetConfiguration
+ *     datasetIdentifier: "STRING_VALUE", // required
+ *     operationType: "APPEND" || "UPSERT" || "DELETE", // required
+ *   },
  * };
  * const command = new SendDataIntegrationEventCommand(input);
  * const response = await client.send(command);
@@ -367,6 +371,29 @@ export interface SendDataIntegrationEventCommandOutput extends SendDataIntegrati
  * /* response is
  * {
  *   eventId: "9abaee56-5dc4-4c31-8250-3206a651d8a1"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Successful SendDataIntegrationEvent for dataset event type
+ * ```javascript
+ * //
+ * const input = {
+ *   data: `{"dataset_id": "datset-id-test-123" }`,
+ *   datasetTarget: {
+ *     datasetIdentifier: "arn:aws:scn:us-west-2:135808960812:instance/8928ae12-15e5-4441-825d-ec2184f0a43a/namespaces/asc/datasets/product",
+ *     operationType: "APPEND"
+ *   },
+ *   eventGroupId: "datasetId",
+ *   eventTimestamp: 1.515531081123E9,
+ *   eventType: "scn.data.dataset",
+ *   instanceId: "8928ae12-15e5-4441-825d-ec2184f0a43a"
+ * };
+ * const command = new SendDataIntegrationEventCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   eventId: "19739c8e-cd2e-4cbc-a2f7-0dc43239f042"
  * }
  * *\/
  * ```

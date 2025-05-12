@@ -65,6 +65,10 @@ import {
   CreateDataLakeDatasetCommandInput,
   CreateDataLakeDatasetCommandOutput,
 } from "./commands/CreateDataLakeDatasetCommand";
+import {
+  CreateDataLakeNamespaceCommandInput,
+  CreateDataLakeNamespaceCommandOutput,
+} from "./commands/CreateDataLakeNamespaceCommand";
 import { CreateInstanceCommandInput, CreateInstanceCommandOutput } from "./commands/CreateInstanceCommand";
 import {
   DeleteDataIntegrationFlowCommandInput,
@@ -74,17 +78,41 @@ import {
   DeleteDataLakeDatasetCommandInput,
   DeleteDataLakeDatasetCommandOutput,
 } from "./commands/DeleteDataLakeDatasetCommand";
+import {
+  DeleteDataLakeNamespaceCommandInput,
+  DeleteDataLakeNamespaceCommandOutput,
+} from "./commands/DeleteDataLakeNamespaceCommand";
 import { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "./commands/DeleteInstanceCommand";
 import {
   GetBillOfMaterialsImportJobCommandInput,
   GetBillOfMaterialsImportJobCommandOutput,
 } from "./commands/GetBillOfMaterialsImportJobCommand";
 import {
+  GetDataIntegrationEventCommandInput,
+  GetDataIntegrationEventCommandOutput,
+} from "./commands/GetDataIntegrationEventCommand";
+import {
   GetDataIntegrationFlowCommandInput,
   GetDataIntegrationFlowCommandOutput,
 } from "./commands/GetDataIntegrationFlowCommand";
+import {
+  GetDataIntegrationFlowExecutionCommandInput,
+  GetDataIntegrationFlowExecutionCommandOutput,
+} from "./commands/GetDataIntegrationFlowExecutionCommand";
 import { GetDataLakeDatasetCommandInput, GetDataLakeDatasetCommandOutput } from "./commands/GetDataLakeDatasetCommand";
+import {
+  GetDataLakeNamespaceCommandInput,
+  GetDataLakeNamespaceCommandOutput,
+} from "./commands/GetDataLakeNamespaceCommand";
 import { GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand";
+import {
+  ListDataIntegrationEventsCommandInput,
+  ListDataIntegrationEventsCommandOutput,
+} from "./commands/ListDataIntegrationEventsCommand";
+import {
+  ListDataIntegrationFlowExecutionsCommandInput,
+  ListDataIntegrationFlowExecutionsCommandOutput,
+} from "./commands/ListDataIntegrationFlowExecutionsCommand";
 import {
   ListDataIntegrationFlowsCommandInput,
   ListDataIntegrationFlowsCommandOutput,
@@ -93,6 +121,10 @@ import {
   ListDataLakeDatasetsCommandInput,
   ListDataLakeDatasetsCommandOutput,
 } from "./commands/ListDataLakeDatasetsCommand";
+import {
+  ListDataLakeNamespacesCommandInput,
+  ListDataLakeNamespacesCommandOutput,
+} from "./commands/ListDataLakeNamespacesCommand";
 import { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -112,6 +144,10 @@ import {
   UpdateDataLakeDatasetCommandInput,
   UpdateDataLakeDatasetCommandOutput,
 } from "./commands/UpdateDataLakeDatasetCommand";
+import {
+  UpdateDataLakeNamespaceCommandInput,
+  UpdateDataLakeNamespaceCommandOutput,
+} from "./commands/UpdateDataLakeNamespaceCommand";
 import { UpdateInstanceCommandInput, UpdateInstanceCommandOutput } from "./commands/UpdateInstanceCommand";
 import {
   ClientInputEndpointParameters,
@@ -131,16 +167,24 @@ export type ServiceInputTypes =
   | CreateBillOfMaterialsImportJobCommandInput
   | CreateDataIntegrationFlowCommandInput
   | CreateDataLakeDatasetCommandInput
+  | CreateDataLakeNamespaceCommandInput
   | CreateInstanceCommandInput
   | DeleteDataIntegrationFlowCommandInput
   | DeleteDataLakeDatasetCommandInput
+  | DeleteDataLakeNamespaceCommandInput
   | DeleteInstanceCommandInput
   | GetBillOfMaterialsImportJobCommandInput
+  | GetDataIntegrationEventCommandInput
   | GetDataIntegrationFlowCommandInput
+  | GetDataIntegrationFlowExecutionCommandInput
   | GetDataLakeDatasetCommandInput
+  | GetDataLakeNamespaceCommandInput
   | GetInstanceCommandInput
+  | ListDataIntegrationEventsCommandInput
+  | ListDataIntegrationFlowExecutionsCommandInput
   | ListDataIntegrationFlowsCommandInput
   | ListDataLakeDatasetsCommandInput
+  | ListDataLakeNamespacesCommandInput
   | ListInstancesCommandInput
   | ListTagsForResourceCommandInput
   | SendDataIntegrationEventCommandInput
@@ -148,6 +192,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateDataIntegrationFlowCommandInput
   | UpdateDataLakeDatasetCommandInput
+  | UpdateDataLakeNamespaceCommandInput
   | UpdateInstanceCommandInput;
 
 /**
@@ -157,16 +202,24 @@ export type ServiceOutputTypes =
   | CreateBillOfMaterialsImportJobCommandOutput
   | CreateDataIntegrationFlowCommandOutput
   | CreateDataLakeDatasetCommandOutput
+  | CreateDataLakeNamespaceCommandOutput
   | CreateInstanceCommandOutput
   | DeleteDataIntegrationFlowCommandOutput
   | DeleteDataLakeDatasetCommandOutput
+  | DeleteDataLakeNamespaceCommandOutput
   | DeleteInstanceCommandOutput
   | GetBillOfMaterialsImportJobCommandOutput
+  | GetDataIntegrationEventCommandOutput
   | GetDataIntegrationFlowCommandOutput
+  | GetDataIntegrationFlowExecutionCommandOutput
   | GetDataLakeDatasetCommandOutput
+  | GetDataLakeNamespaceCommandOutput
   | GetInstanceCommandOutput
+  | ListDataIntegrationEventsCommandOutput
+  | ListDataIntegrationFlowExecutionsCommandOutput
   | ListDataIntegrationFlowsCommandOutput
   | ListDataLakeDatasetsCommandOutput
+  | ListDataLakeNamespacesCommandOutput
   | ListInstancesCommandOutput
   | ListTagsForResourceCommandOutput
   | SendDataIntegrationEventCommandOutput
@@ -174,6 +227,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateDataIntegrationFlowCommandOutput
   | UpdateDataLakeDatasetCommandOutput
+  | UpdateDataLakeNamespaceCommandOutput
   | UpdateInstanceCommandOutput;
 
 /**

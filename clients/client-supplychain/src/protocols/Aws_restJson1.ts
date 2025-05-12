@@ -37,6 +37,10 @@ import {
   CreateDataLakeDatasetCommandInput,
   CreateDataLakeDatasetCommandOutput,
 } from "../commands/CreateDataLakeDatasetCommand";
+import {
+  CreateDataLakeNamespaceCommandInput,
+  CreateDataLakeNamespaceCommandOutput,
+} from "../commands/CreateDataLakeNamespaceCommand";
 import { CreateInstanceCommandInput, CreateInstanceCommandOutput } from "../commands/CreateInstanceCommand";
 import {
   DeleteDataIntegrationFlowCommandInput,
@@ -46,17 +50,41 @@ import {
   DeleteDataLakeDatasetCommandInput,
   DeleteDataLakeDatasetCommandOutput,
 } from "../commands/DeleteDataLakeDatasetCommand";
+import {
+  DeleteDataLakeNamespaceCommandInput,
+  DeleteDataLakeNamespaceCommandOutput,
+} from "../commands/DeleteDataLakeNamespaceCommand";
 import { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "../commands/DeleteInstanceCommand";
 import {
   GetBillOfMaterialsImportJobCommandInput,
   GetBillOfMaterialsImportJobCommandOutput,
 } from "../commands/GetBillOfMaterialsImportJobCommand";
 import {
+  GetDataIntegrationEventCommandInput,
+  GetDataIntegrationEventCommandOutput,
+} from "../commands/GetDataIntegrationEventCommand";
+import {
   GetDataIntegrationFlowCommandInput,
   GetDataIntegrationFlowCommandOutput,
 } from "../commands/GetDataIntegrationFlowCommand";
+import {
+  GetDataIntegrationFlowExecutionCommandInput,
+  GetDataIntegrationFlowExecutionCommandOutput,
+} from "../commands/GetDataIntegrationFlowExecutionCommand";
 import { GetDataLakeDatasetCommandInput, GetDataLakeDatasetCommandOutput } from "../commands/GetDataLakeDatasetCommand";
+import {
+  GetDataLakeNamespaceCommandInput,
+  GetDataLakeNamespaceCommandOutput,
+} from "../commands/GetDataLakeNamespaceCommand";
 import { GetInstanceCommandInput, GetInstanceCommandOutput } from "../commands/GetInstanceCommand";
+import {
+  ListDataIntegrationEventsCommandInput,
+  ListDataIntegrationEventsCommandOutput,
+} from "../commands/ListDataIntegrationEventsCommand";
+import {
+  ListDataIntegrationFlowExecutionsCommandInput,
+  ListDataIntegrationFlowExecutionsCommandOutput,
+} from "../commands/ListDataIntegrationFlowExecutionsCommand";
 import {
   ListDataIntegrationFlowsCommandInput,
   ListDataIntegrationFlowsCommandOutput,
@@ -65,6 +93,10 @@ import {
   ListDataLakeDatasetsCommandInput,
   ListDataLakeDatasetsCommandOutput,
 } from "../commands/ListDataLakeDatasetsCommand";
+import {
+  ListDataLakeNamespacesCommandInput,
+  ListDataLakeNamespacesCommandOutput,
+} from "../commands/ListDataLakeNamespacesCommand";
 import { ListInstancesCommandInput, ListInstancesCommandOutput } from "../commands/ListInstancesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -84,14 +116,24 @@ import {
   UpdateDataLakeDatasetCommandInput,
   UpdateDataLakeDatasetCommandOutput,
 } from "../commands/UpdateDataLakeDatasetCommand";
+import {
+  UpdateDataLakeNamespaceCommandInput,
+  UpdateDataLakeNamespaceCommandOutput,
+} from "../commands/UpdateDataLakeNamespaceCommand";
 import { UpdateInstanceCommandInput, UpdateInstanceCommandOutput } from "../commands/UpdateInstanceCommand";
 import {
   AccessDeniedException,
   ConflictException,
+  DataIntegrationEvent,
+  DataIntegrationEventDatasetTargetConfiguration,
   DataIntegrationFlow,
   DataIntegrationFlowDatasetOptions,
   DataIntegrationFlowDatasetSourceConfiguration,
   DataIntegrationFlowDatasetTargetConfiguration,
+  DataIntegrationFlowDedupeStrategy,
+  DataIntegrationFlowExecution,
+  DataIntegrationFlowFieldPriorityDedupeField,
+  DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration,
   DataIntegrationFlowS3Options,
   DataIntegrationFlowS3SourceConfiguration,
   DataIntegrationFlowS3TargetConfiguration,
@@ -100,8 +142,13 @@ import {
   DataIntegrationFlowTarget,
   DataIntegrationFlowTransformation,
   DataLakeDataset,
+  DataLakeDatasetPartitionField,
+  DataLakeDatasetPartitionFieldTransform,
+  DataLakeDatasetPartitionSpec,
+  DataLakeDatasetPrimaryKeyField,
   DataLakeDatasetSchema,
   DataLakeDatasetSchemaField,
+  DataLakeNamespace,
   Instance,
   InternalServerException,
   ResourceNotFoundException,
@@ -181,7 +228,33 @@ export const se_CreateDataLakeDatasetCommand = async (
   body = JSON.stringify(
     take(input, {
       description: [],
+      partitionSpec: (_) => _json(_),
       schema: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateDataLakeNamespaceCommand
+ */
+export const se_CreateDataLakeNamespaceCommand = async (
+  input: CreateDataLakeNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/api/datalake/instance/{instanceId}/namespaces/{name}");
+  b.p("instanceId", () => input.instanceId!, "{instanceId}", false);
+  b.p("name", () => input.name!, "{name}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
       tags: (_) => _json(_),
     })
   );
@@ -252,6 +325,23 @@ export const se_DeleteDataLakeDatasetCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteDataLakeNamespaceCommand
+ */
+export const se_DeleteDataLakeNamespaceCommand = async (
+  input: DeleteDataLakeNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/api/datalake/instance/{instanceId}/namespaces/{name}");
+  b.p("instanceId", () => input.instanceId!, "{instanceId}", false);
+  b.p("name", () => input.name!, "{name}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteInstanceCommand
  */
 export const se_DeleteInstanceCommand = async (
@@ -285,6 +375,23 @@ export const se_GetBillOfMaterialsImportJobCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetDataIntegrationEventCommand
+ */
+export const se_GetDataIntegrationEventCommand = async (
+  input: GetDataIntegrationEventCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/api-data/data-integration/instance/{instanceId}/data-integration-events/{eventId}");
+  b.p("instanceId", () => input.instanceId!, "{instanceId}", false);
+  b.p("eventId", () => input.eventId!, "{eventId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetDataIntegrationFlowCommand
  */
 export const se_GetDataIntegrationFlowCommand = async (
@@ -296,6 +403,24 @@ export const se_GetDataIntegrationFlowCommand = async (
   b.bp("/api/data-integration/instance/{instanceId}/data-integration-flows/{name}");
   b.p("instanceId", () => input.instanceId!, "{instanceId}", false);
   b.p("name", () => input.name!, "{name}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetDataIntegrationFlowExecutionCommand
+ */
+export const se_GetDataIntegrationFlowExecutionCommand = async (
+  input: GetDataIntegrationFlowExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/api-data/data-integration/instance/{instanceId}/data-integration-flows/{flowName}/executions/{executionId}");
+  b.p("instanceId", () => input.instanceId!, "{instanceId}", false);
+  b.p("flowName", () => input.flowName!, "{flowName}", false);
+  b.p("executionId", () => input.executionId!, "{executionId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -320,6 +445,23 @@ export const se_GetDataLakeDatasetCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetDataLakeNamespaceCommand
+ */
+export const se_GetDataLakeNamespaceCommand = async (
+  input: GetDataLakeNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/api/datalake/instance/{instanceId}/namespaces/{name}");
+  b.p("instanceId", () => input.instanceId!, "{instanceId}", false);
+  b.p("name", () => input.name!, "{name}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetInstanceCommand
  */
 export const se_GetInstanceCommand = async (
@@ -332,6 +474,48 @@ export const se_GetInstanceCommand = async (
   b.p("instanceId", () => input.instanceId!, "{instanceId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListDataIntegrationEventsCommand
+ */
+export const se_ListDataIntegrationEventsCommand = async (
+  input: ListDataIntegrationEventsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/api-data/data-integration/instance/{instanceId}/data-integration-events");
+  b.p("instanceId", () => input.instanceId!, "{instanceId}", false);
+  const query: any = map({
+    [_eT]: [, input[_eT]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListDataIntegrationFlowExecutionsCommand
+ */
+export const se_ListDataIntegrationFlowExecutionsCommand = async (
+  input: ListDataIntegrationFlowExecutionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/api-data/data-integration/instance/{instanceId}/data-integration-flows/{flowName}/executions");
+  b.p("instanceId", () => input.instanceId!, "{instanceId}", false);
+  b.p("flowName", () => input.flowName!, "{flowName}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -367,6 +551,26 @@ export const se_ListDataLakeDatasetsCommand = async (
   b.bp("/api/datalake/instance/{instanceId}/namespaces/{namespace}/datasets");
   b.p("instanceId", () => input.instanceId!, "{instanceId}", false);
   b.p("namespace", () => input.namespace!, "{namespace}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListDataLakeNamespacesCommand
+ */
+export const se_ListDataLakeNamespacesCommand = async (
+  input: ListDataLakeNamespacesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/api/datalake/instance/{instanceId}/namespaces");
+  b.p("instanceId", () => input.instanceId!, "{instanceId}", false);
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
@@ -431,6 +635,7 @@ export const se_SendDataIntegrationEventCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       data: [],
+      datasetTarget: (_) => _json(_),
       eventGroupId: [],
       eventTimestamp: (_) => _.getTime() / 1_000,
       eventType: [],
@@ -534,6 +739,30 @@ export const se_UpdateDataLakeDatasetCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateDataLakeNamespaceCommand
+ */
+export const se_UpdateDataLakeNamespaceCommand = async (
+  input: UpdateDataLakeNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/api/datalake/instance/{instanceId}/namespaces/{name}");
+  b.p("instanceId", () => input.instanceId!, "{instanceId}", false);
+  b.p("name", () => input.name!, "{name}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateInstanceCommand
  */
 export const se_UpdateInstanceCommand = async (
@@ -622,6 +851,27 @@ export const de_CreateDataLakeDatasetCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateDataLakeNamespaceCommand
+ */
+export const de_CreateDataLakeNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataLakeNamespaceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    namespace: (_) => de_DataLakeNamespace(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateInstanceCommand
  */
 export const de_CreateInstanceCommand = async (
@@ -688,6 +938,28 @@ export const de_DeleteDataLakeDatasetCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteDataLakeNamespaceCommand
+ */
+export const de_DeleteDataLakeNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataLakeNamespaceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    instanceId: __expectString,
+    name: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteInstanceCommand
  */
 export const de_DeleteInstanceCommand = async (
@@ -730,6 +1002,27 @@ export const de_GetBillOfMaterialsImportJobCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetDataIntegrationEventCommand
+ */
+export const de_GetDataIntegrationEventCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataIntegrationEventCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    event: (_) => de_DataIntegrationEvent(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetDataIntegrationFlowCommand
  */
 export const de_GetDataIntegrationFlowCommand = async (
@@ -745,6 +1038,27 @@ export const de_GetDataIntegrationFlowCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     flow: (_) => de_DataIntegrationFlow(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetDataIntegrationFlowExecutionCommand
+ */
+export const de_GetDataIntegrationFlowExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataIntegrationFlowExecutionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    flowExecution: (_) => de_DataIntegrationFlowExecution(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -772,6 +1086,27 @@ export const de_GetDataLakeDatasetCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetDataLakeNamespaceCommand
+ */
+export const de_GetDataLakeNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataLakeNamespaceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    namespace: (_) => de_DataLakeNamespace(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetInstanceCommand
  */
 export const de_GetInstanceCommand = async (
@@ -787,6 +1122,50 @@ export const de_GetInstanceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     instance: (_) => de_Instance(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDataIntegrationEventsCommand
+ */
+export const de_ListDataIntegrationEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDataIntegrationEventsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    events: (_) => de_DataIntegrationEventList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDataIntegrationFlowExecutionsCommand
+ */
+export const de_ListDataIntegrationFlowExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDataIntegrationFlowExecutionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    flowExecutions: (_) => de_DataIntegrationFlowExecutionList(_, context),
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -830,6 +1209,28 @@ export const de_ListDataLakeDatasetsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     datasets: (_) => de_DataLakeDatasetList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDataLakeNamespacesCommand
+ */
+export const de_ListDataLakeNamespacesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDataLakeNamespacesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    namespaces: (_) => de_DataLakeNamespaceList(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -971,6 +1372,27 @@ export const de_UpdateDataLakeDatasetCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     dataset: (_) => de_DataLakeDataset(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateDataLakeNamespaceCommand
+ */
+export const de_UpdateDataLakeNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDataLakeNamespaceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    namespace: (_) => de_DataLakeNamespace(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1170,11 +1592,21 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_DataIntegrationEventDatasetTargetConfiguration omitted.
+
 // se_DataIntegrationFlowDatasetOptions omitted.
 
 // se_DataIntegrationFlowDatasetSourceConfiguration omitted.
 
 // se_DataIntegrationFlowDatasetTargetConfiguration omitted.
+
+// se_DataIntegrationFlowDedupeStrategy omitted.
+
+// se_DataIntegrationFlowFieldPriorityDedupeField omitted.
+
+// se_DataIntegrationFlowFieldPriorityDedupeFieldList omitted.
+
+// se_DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration omitted.
 
 // se_DataIntegrationFlowS3Options omitted.
 
@@ -1192,6 +1624,18 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DataIntegrationFlowTransformation omitted.
 
+// se_DataLakeDatasetPartitionField omitted.
+
+// se_DataLakeDatasetPartitionFieldList omitted.
+
+// se_DataLakeDatasetPartitionFieldTransform omitted.
+
+// se_DataLakeDatasetPartitionSpec omitted.
+
+// se_DataLakeDatasetPrimaryKeyField omitted.
+
+// se_DataLakeDatasetPrimaryKeyFieldList omitted.
+
 // se_DataLakeDatasetSchema omitted.
 
 // se_DataLakeDatasetSchemaField omitted.
@@ -1201,6 +1645,36 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_TagMap omitted.
 
 // de_BillOfMaterialsImportJob omitted.
+
+/**
+ * deserializeAws_restJson1DataIntegrationEvent
+ */
+const de_DataIntegrationEvent = (output: any, context: __SerdeContext): DataIntegrationEvent => {
+  return take(output, {
+    datasetTargetDetails: _json,
+    eventGroupId: __expectString,
+    eventId: __expectString,
+    eventTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    eventType: __expectString,
+    instanceId: __expectString,
+  }) as any;
+};
+
+// de_DataIntegrationEventDatasetLoadExecutionDetails omitted.
+
+// de_DataIntegrationEventDatasetTargetDetails omitted.
+
+/**
+ * deserializeAws_restJson1DataIntegrationEventList
+ */
+const de_DataIntegrationEventList = (output: any, context: __SerdeContext): DataIntegrationEvent[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DataIntegrationEvent(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1DataIntegrationFlow
@@ -1219,9 +1693,52 @@ const de_DataIntegrationFlow = (output: any, context: __SerdeContext): DataInteg
 
 // de_DataIntegrationFlowDatasetOptions omitted.
 
+// de_DataIntegrationFlowDatasetSource omitted.
+
 // de_DataIntegrationFlowDatasetSourceConfiguration omitted.
 
 // de_DataIntegrationFlowDatasetTargetConfiguration omitted.
+
+// de_DataIntegrationFlowDedupeStrategy omitted.
+
+/**
+ * deserializeAws_restJson1DataIntegrationFlowExecution
+ */
+const de_DataIntegrationFlowExecution = (output: any, context: __SerdeContext): DataIntegrationFlowExecution => {
+  return take(output, {
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    executionId: __expectString,
+    flowName: __expectString,
+    instanceId: __expectString,
+    message: __expectString,
+    outputMetadata: _json,
+    sourceInfo: _json,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataIntegrationFlowExecutionList
+ */
+const de_DataIntegrationFlowExecutionList = (output: any, context: __SerdeContext): DataIntegrationFlowExecution[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DataIntegrationFlowExecution(entry, context);
+    });
+  return retVal;
+};
+
+// de_DataIntegrationFlowExecutionOutputMetadata omitted.
+
+// de_DataIntegrationFlowExecutionSourceInfo omitted.
+
+// de_DataIntegrationFlowFieldPriorityDedupeField omitted.
+
+// de_DataIntegrationFlowFieldPriorityDedupeFieldList omitted.
+
+// de_DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration omitted.
 
 /**
  * deserializeAws_restJson1DataIntegrationFlowList
@@ -1236,6 +1753,8 @@ const de_DataIntegrationFlowList = (output: any, context: __SerdeContext): DataI
 };
 
 // de_DataIntegrationFlowS3Options omitted.
+
+// de_DataIntegrationFlowS3Source omitted.
 
 // de_DataIntegrationFlowS3SourceConfiguration omitted.
 
@@ -1263,6 +1782,7 @@ const de_DataLakeDataset = (output: any, context: __SerdeContext): DataLakeDatas
     lastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
     namespace: __expectString,
+    partitionSpec: _json,
     schema: _json,
   }) as any;
 };
@@ -1279,11 +1799,49 @@ const de_DataLakeDatasetList = (output: any, context: __SerdeContext): DataLakeD
   return retVal;
 };
 
+// de_DataLakeDatasetPartitionField omitted.
+
+// de_DataLakeDatasetPartitionFieldList omitted.
+
+// de_DataLakeDatasetPartitionFieldTransform omitted.
+
+// de_DataLakeDatasetPartitionSpec omitted.
+
+// de_DataLakeDatasetPrimaryKeyField omitted.
+
+// de_DataLakeDatasetPrimaryKeyFieldList omitted.
+
 // de_DataLakeDatasetSchema omitted.
 
 // de_DataLakeDatasetSchemaField omitted.
 
 // de_DataLakeDatasetSchemaFieldList omitted.
+
+/**
+ * deserializeAws_restJson1DataLakeNamespace
+ */
+const de_DataLakeNamespace = (output: any, context: __SerdeContext): DataLakeNamespace => {
+  return take(output, {
+    arn: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    instanceId: __expectString,
+    lastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataLakeNamespaceList
+ */
+const de_DataLakeNamespaceList = (output: any, context: __SerdeContext): DataLakeNamespace[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DataLakeNamespace(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1Instance
@@ -1330,6 +1888,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const _eT = "eventType";
 const _iNF = "instanceNameFilter";
 const _iSF = "instanceStateFilter";
 const _mR = "maxResults";

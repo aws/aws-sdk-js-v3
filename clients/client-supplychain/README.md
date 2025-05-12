@@ -235,6 +235,14 @@ CreateDataLakeDataset
 </details>
 <details>
 <summary>
+CreateDataLakeNamespace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/CreateDataLakeNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/CreateDataLakeNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/CreateDataLakeNamespaceCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateInstance
 </summary>
 
@@ -259,6 +267,14 @@ DeleteDataLakeDataset
 </details>
 <details>
 <summary>
+DeleteDataLakeNamespace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/DeleteDataLakeNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/DeleteDataLakeNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/DeleteDataLakeNamespaceCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteInstance
 </summary>
 
@@ -275,10 +291,26 @@ GetBillOfMaterialsImportJob
 </details>
 <details>
 <summary>
+GetDataIntegrationEvent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/GetDataIntegrationEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetDataIntegrationEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetDataIntegrationEventCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetDataIntegrationFlow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/GetDataIntegrationFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetDataIntegrationFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetDataIntegrationFlowCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetDataIntegrationFlowExecution
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/GetDataIntegrationFlowExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetDataIntegrationFlowExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetDataIntegrationFlowExecutionCommandOutput/)
 
 </details>
 <details>
@@ -291,10 +323,34 @@ GetDataLakeDataset
 </details>
 <details>
 <summary>
+GetDataLakeNamespace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/GetDataLakeNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetDataLakeNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetDataLakeNamespaceCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetInstance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/GetInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetInstanceCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDataIntegrationEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/ListDataIntegrationEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataIntegrationEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataIntegrationEventsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDataIntegrationFlowExecutions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/ListDataIntegrationFlowExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataIntegrationFlowExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataIntegrationFlowExecutionsCommandOutput/)
 
 </details>
 <details>
@@ -311,6 +367,14 @@ ListDataLakeDatasets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/ListDataLakeDatasetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataLakeDatasetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataLakeDatasetsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDataLakeNamespaces
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/ListDataLakeNamespacesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataLakeNamespacesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataLakeNamespacesCommandOutput/)
 
 </details>
 <details>
@@ -367,6 +431,14 @@ UpdateDataLakeDataset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/UpdateDataLakeDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/UpdateDataLakeDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/UpdateDataLakeDatasetCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateDataLakeNamespace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/UpdateDataLakeNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/UpdateDataLakeNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/UpdateDataLakeNamespaceCommandOutput/)
 
 </details>
 <details>

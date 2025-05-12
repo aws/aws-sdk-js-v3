@@ -18,6 +18,11 @@ import {
   CreateDataLakeDatasetCommandOutput,
 } from "./commands/CreateDataLakeDatasetCommand";
 import {
+  CreateDataLakeNamespaceCommand,
+  CreateDataLakeNamespaceCommandInput,
+  CreateDataLakeNamespaceCommandOutput,
+} from "./commands/CreateDataLakeNamespaceCommand";
+import {
   CreateInstanceCommand,
   CreateInstanceCommandInput,
   CreateInstanceCommandOutput,
@@ -33,6 +38,11 @@ import {
   DeleteDataLakeDatasetCommandOutput,
 } from "./commands/DeleteDataLakeDatasetCommand";
 import {
+  DeleteDataLakeNamespaceCommand,
+  DeleteDataLakeNamespaceCommandInput,
+  DeleteDataLakeNamespaceCommandOutput,
+} from "./commands/DeleteDataLakeNamespaceCommand";
+import {
   DeleteInstanceCommand,
   DeleteInstanceCommandInput,
   DeleteInstanceCommandOutput,
@@ -43,16 +53,41 @@ import {
   GetBillOfMaterialsImportJobCommandOutput,
 } from "./commands/GetBillOfMaterialsImportJobCommand";
 import {
+  GetDataIntegrationEventCommand,
+  GetDataIntegrationEventCommandInput,
+  GetDataIntegrationEventCommandOutput,
+} from "./commands/GetDataIntegrationEventCommand";
+import {
   GetDataIntegrationFlowCommand,
   GetDataIntegrationFlowCommandInput,
   GetDataIntegrationFlowCommandOutput,
 } from "./commands/GetDataIntegrationFlowCommand";
 import {
+  GetDataIntegrationFlowExecutionCommand,
+  GetDataIntegrationFlowExecutionCommandInput,
+  GetDataIntegrationFlowExecutionCommandOutput,
+} from "./commands/GetDataIntegrationFlowExecutionCommand";
+import {
   GetDataLakeDatasetCommand,
   GetDataLakeDatasetCommandInput,
   GetDataLakeDatasetCommandOutput,
 } from "./commands/GetDataLakeDatasetCommand";
+import {
+  GetDataLakeNamespaceCommand,
+  GetDataLakeNamespaceCommandInput,
+  GetDataLakeNamespaceCommandOutput,
+} from "./commands/GetDataLakeNamespaceCommand";
 import { GetInstanceCommand, GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand";
+import {
+  ListDataIntegrationEventsCommand,
+  ListDataIntegrationEventsCommandInput,
+  ListDataIntegrationEventsCommandOutput,
+} from "./commands/ListDataIntegrationEventsCommand";
+import {
+  ListDataIntegrationFlowExecutionsCommand,
+  ListDataIntegrationFlowExecutionsCommandInput,
+  ListDataIntegrationFlowExecutionsCommandOutput,
+} from "./commands/ListDataIntegrationFlowExecutionsCommand";
 import {
   ListDataIntegrationFlowsCommand,
   ListDataIntegrationFlowsCommandInput,
@@ -63,6 +98,11 @@ import {
   ListDataLakeDatasetsCommandInput,
   ListDataLakeDatasetsCommandOutput,
 } from "./commands/ListDataLakeDatasetsCommand";
+import {
+  ListDataLakeNamespacesCommand,
+  ListDataLakeNamespacesCommandInput,
+  ListDataLakeNamespacesCommandOutput,
+} from "./commands/ListDataLakeNamespacesCommand";
 import {
   ListInstancesCommand,
   ListInstancesCommandInput,
@@ -95,6 +135,11 @@ import {
   UpdateDataLakeDatasetCommandOutput,
 } from "./commands/UpdateDataLakeDatasetCommand";
 import {
+  UpdateDataLakeNamespaceCommand,
+  UpdateDataLakeNamespaceCommandInput,
+  UpdateDataLakeNamespaceCommandOutput,
+} from "./commands/UpdateDataLakeNamespaceCommand";
+import {
   UpdateInstanceCommand,
   UpdateInstanceCommandInput,
   UpdateInstanceCommandOutput,
@@ -105,16 +150,24 @@ const commands = {
   CreateBillOfMaterialsImportJobCommand,
   CreateDataIntegrationFlowCommand,
   CreateDataLakeDatasetCommand,
+  CreateDataLakeNamespaceCommand,
   CreateInstanceCommand,
   DeleteDataIntegrationFlowCommand,
   DeleteDataLakeDatasetCommand,
+  DeleteDataLakeNamespaceCommand,
   DeleteInstanceCommand,
   GetBillOfMaterialsImportJobCommand,
+  GetDataIntegrationEventCommand,
   GetDataIntegrationFlowCommand,
+  GetDataIntegrationFlowExecutionCommand,
   GetDataLakeDatasetCommand,
+  GetDataLakeNamespaceCommand,
   GetInstanceCommand,
+  ListDataIntegrationEventsCommand,
+  ListDataIntegrationFlowExecutionsCommand,
   ListDataIntegrationFlowsCommand,
   ListDataLakeDatasetsCommand,
+  ListDataLakeNamespacesCommand,
   ListInstancesCommand,
   ListTagsForResourceCommand,
   SendDataIntegrationEventCommand,
@@ -122,6 +175,7 @@ const commands = {
   UntagResourceCommand,
   UpdateDataIntegrationFlowCommand,
   UpdateDataLakeDatasetCommand,
+  UpdateDataLakeNamespaceCommand,
   UpdateInstanceCommand,
 };
 
@@ -178,6 +232,23 @@ export interface SupplyChain {
   ): void;
 
   /**
+   * @see {@link CreateDataLakeNamespaceCommand}
+   */
+  createDataLakeNamespace(
+    args: CreateDataLakeNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataLakeNamespaceCommandOutput>;
+  createDataLakeNamespace(
+    args: CreateDataLakeNamespaceCommandInput,
+    cb: (err: any, data?: CreateDataLakeNamespaceCommandOutput) => void
+  ): void;
+  createDataLakeNamespace(
+    args: CreateDataLakeNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataLakeNamespaceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateInstanceCommand}
    */
   createInstance(): Promise<CreateInstanceCommandOutput>;
@@ -227,6 +298,23 @@ export interface SupplyChain {
   ): void;
 
   /**
+   * @see {@link DeleteDataLakeNamespaceCommand}
+   */
+  deleteDataLakeNamespace(
+    args: DeleteDataLakeNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataLakeNamespaceCommandOutput>;
+  deleteDataLakeNamespace(
+    args: DeleteDataLakeNamespaceCommandInput,
+    cb: (err: any, data?: DeleteDataLakeNamespaceCommandOutput) => void
+  ): void;
+  deleteDataLakeNamespace(
+    args: DeleteDataLakeNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataLakeNamespaceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteInstanceCommand}
    */
   deleteInstance(
@@ -258,6 +346,23 @@ export interface SupplyChain {
   ): void;
 
   /**
+   * @see {@link GetDataIntegrationEventCommand}
+   */
+  getDataIntegrationEvent(
+    args: GetDataIntegrationEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataIntegrationEventCommandOutput>;
+  getDataIntegrationEvent(
+    args: GetDataIntegrationEventCommandInput,
+    cb: (err: any, data?: GetDataIntegrationEventCommandOutput) => void
+  ): void;
+  getDataIntegrationEvent(
+    args: GetDataIntegrationEventCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataIntegrationEventCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDataIntegrationFlowCommand}
    */
   getDataIntegrationFlow(
@@ -272,6 +377,23 @@ export interface SupplyChain {
     args: GetDataIntegrationFlowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDataIntegrationFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDataIntegrationFlowExecutionCommand}
+   */
+  getDataIntegrationFlowExecution(
+    args: GetDataIntegrationFlowExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataIntegrationFlowExecutionCommandOutput>;
+  getDataIntegrationFlowExecution(
+    args: GetDataIntegrationFlowExecutionCommandInput,
+    cb: (err: any, data?: GetDataIntegrationFlowExecutionCommandOutput) => void
+  ): void;
+  getDataIntegrationFlowExecution(
+    args: GetDataIntegrationFlowExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataIntegrationFlowExecutionCommandOutput) => void
   ): void;
 
   /**
@@ -292,6 +414,23 @@ export interface SupplyChain {
   ): void;
 
   /**
+   * @see {@link GetDataLakeNamespaceCommand}
+   */
+  getDataLakeNamespace(
+    args: GetDataLakeNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataLakeNamespaceCommandOutput>;
+  getDataLakeNamespace(
+    args: GetDataLakeNamespaceCommandInput,
+    cb: (err: any, data?: GetDataLakeNamespaceCommandOutput) => void
+  ): void;
+  getDataLakeNamespace(
+    args: GetDataLakeNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataLakeNamespaceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetInstanceCommand}
    */
   getInstance(args: GetInstanceCommandInput, options?: __HttpHandlerOptions): Promise<GetInstanceCommandOutput>;
@@ -300,6 +439,40 @@ export interface SupplyChain {
     args: GetInstanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataIntegrationEventsCommand}
+   */
+  listDataIntegrationEvents(
+    args: ListDataIntegrationEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataIntegrationEventsCommandOutput>;
+  listDataIntegrationEvents(
+    args: ListDataIntegrationEventsCommandInput,
+    cb: (err: any, data?: ListDataIntegrationEventsCommandOutput) => void
+  ): void;
+  listDataIntegrationEvents(
+    args: ListDataIntegrationEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataIntegrationEventsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataIntegrationFlowExecutionsCommand}
+   */
+  listDataIntegrationFlowExecutions(
+    args: ListDataIntegrationFlowExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataIntegrationFlowExecutionsCommandOutput>;
+  listDataIntegrationFlowExecutions(
+    args: ListDataIntegrationFlowExecutionsCommandInput,
+    cb: (err: any, data?: ListDataIntegrationFlowExecutionsCommandOutput) => void
+  ): void;
+  listDataIntegrationFlowExecutions(
+    args: ListDataIntegrationFlowExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataIntegrationFlowExecutionsCommandOutput) => void
   ): void;
 
   /**
@@ -334,6 +507,23 @@ export interface SupplyChain {
     args: ListDataLakeDatasetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDataLakeDatasetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataLakeNamespacesCommand}
+   */
+  listDataLakeNamespaces(
+    args: ListDataLakeNamespacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataLakeNamespacesCommandOutput>;
+  listDataLakeNamespaces(
+    args: ListDataLakeNamespacesCommandInput,
+    cb: (err: any, data?: ListDataLakeNamespacesCommandOutput) => void
+  ): void;
+  listDataLakeNamespaces(
+    args: ListDataLakeNamespacesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataLakeNamespacesCommandOutput) => void
   ): void;
 
   /**
@@ -436,6 +626,23 @@ export interface SupplyChain {
     args: UpdateDataLakeDatasetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDataLakeDatasetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDataLakeNamespaceCommand}
+   */
+  updateDataLakeNamespace(
+    args: UpdateDataLakeNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataLakeNamespaceCommandOutput>;
+  updateDataLakeNamespace(
+    args: UpdateDataLakeNamespaceCommandInput,
+    cb: (err: any, data?: UpdateDataLakeNamespaceCommandOutput) => void
+  ): void;
+  updateDataLakeNamespace(
+    args: UpdateDataLakeNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataLakeNamespaceCommandOutput) => void
   ): void;
 
   /**

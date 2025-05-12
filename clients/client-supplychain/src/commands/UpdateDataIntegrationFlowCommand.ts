@@ -5,7 +5,12 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateDataIntegrationFlowRequest, UpdateDataIntegrationFlowResponse } from "../models/models_0";
+import {
+  UpdateDataIntegrationFlowRequest,
+  UpdateDataIntegrationFlowRequestFilterSensitiveLog,
+  UpdateDataIntegrationFlowResponse,
+  UpdateDataIntegrationFlowResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_UpdateDataIntegrationFlowCommand, se_UpdateDataIntegrationFlowCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
@@ -54,6 +59,17 @@ export interface UpdateDataIntegrationFlowCommandOutput extends UpdateDataIntegr
  *         options: { // DataIntegrationFlowDatasetOptions
  *           loadType: "INCREMENTAL" || "REPLACE",
  *           dedupeRecords: true || false,
+ *           dedupeStrategy: { // DataIntegrationFlowDedupeStrategy
+ *             type: "FIELD_PRIORITY", // required
+ *             fieldPriority: { // DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration
+ *               fields: [ // DataIntegrationFlowFieldPriorityDedupeFieldList // required
+ *                 { // DataIntegrationFlowFieldPriorityDedupeField
+ *                   name: "STRING_VALUE", // required
+ *                   sortOrder: "ASC" || "DESC", // required
+ *                 },
+ *               ],
+ *             },
+ *           },
  *         },
  *       },
  *     },
@@ -78,6 +94,17 @@ export interface UpdateDataIntegrationFlowCommandOutput extends UpdateDataIntegr
  *       options: {
  *         loadType: "INCREMENTAL" || "REPLACE",
  *         dedupeRecords: true || false,
+ *         dedupeStrategy: {
+ *           type: "FIELD_PRIORITY", // required
+ *           fieldPriority: {
+ *             fields: [ // required
+ *               {
+ *                 name: "STRING_VALUE", // required
+ *                 sortOrder: "ASC" || "DESC", // required
+ *               },
+ *             ],
+ *           },
+ *         },
  *       },
  *     },
  *   },
@@ -104,6 +131,17 @@ export interface UpdateDataIntegrationFlowCommandOutput extends UpdateDataIntegr
  * //           options: { // DataIntegrationFlowDatasetOptions
  * //             loadType: "INCREMENTAL" || "REPLACE",
  * //             dedupeRecords: true || false,
+ * //             dedupeStrategy: { // DataIntegrationFlowDedupeStrategy
+ * //               type: "FIELD_PRIORITY", // required
+ * //               fieldPriority: { // DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration
+ * //                 fields: [ // DataIntegrationFlowFieldPriorityDedupeFieldList // required
+ * //                   { // DataIntegrationFlowFieldPriorityDedupeField
+ * //                     name: "STRING_VALUE", // required
+ * //                     sortOrder: "ASC" || "DESC", // required
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             },
  * //           },
  * //         },
  * //       },
@@ -128,6 +166,17 @@ export interface UpdateDataIntegrationFlowCommandOutput extends UpdateDataIntegr
  * //         options: {
  * //           loadType: "INCREMENTAL" || "REPLACE",
  * //           dedupeRecords: true || false,
+ * //           dedupeStrategy: {
+ * //             type: "FIELD_PRIORITY", // required
+ * //             fieldPriority: {
+ * //               fields: [ // required
+ * //                 {
+ * //                   name: "STRING_VALUE", // required
+ * //                   sortOrder: "ASC" || "DESC", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
  * //         },
  * //       },
  * //     },
@@ -258,7 +307,22 @@ export interface UpdateDataIntegrationFlowCommandOutput extends UpdateDataIntegr
  *   ],
  *   target: {
  *     datasetTarget: {
- *       datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/asc/datasets/trading_partner"
+ *       datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/asc/datasets/trading_partner",
+ *       options: {
+ *         dedupeRecords: true,
+ *         dedupeStrategy: {
+ *           fieldPriority: {
+ *             fields: [
+ *               {
+ *                 name: "eff_start_date",
+ *                 sortOrder: "ASC"
+ *               }
+ *             ]
+ *           },
+ *           type: "FIELD_PRIORITY"
+ *         },
+ *         loadType: "REPLACE"
+ *       }
  *     },
  *     targetType: "DATASET"
  *   },
@@ -296,7 +360,22 @@ export interface UpdateDataIntegrationFlowCommandOutput extends UpdateDataIntegr
  *     ],
  *     target: {
  *       datasetTarget: {
- *         datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/asc/datasets/trading_partner"
+ *         datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/asc/datasets/trading_partner",
+ *         options: {
+ *           dedupeRecords: true,
+ *           dedupeStrategy: {
+ *             fieldPriority: {
+ *               fields: [
+ *                 {
+ *                   name: "eff_start_date",
+ *                   sortOrder: "ASC"
+ *                 }
+ *               ]
+ *             },
+ *             type: "FIELD_PRIORITY"
+ *           },
+ *           loadType: "REPLACE"
+ *         }
  *       },
  *       targetType: "DATASET"
  *     },
@@ -330,7 +409,7 @@ export class UpdateDataIntegrationFlowCommand extends $Command
   })
   .s("GalaxyPublicAPIGateway", "UpdateDataIntegrationFlow", {})
   .n("SupplyChainClient", "UpdateDataIntegrationFlowCommand")
-  .f(void 0, void 0)
+  .f(UpdateDataIntegrationFlowRequestFilterSensitiveLog, UpdateDataIntegrationFlowResponseFilterSensitiveLog)
   .ser(se_UpdateDataIntegrationFlowCommand)
   .de(de_UpdateDataIntegrationFlowCommand)
   .build() {

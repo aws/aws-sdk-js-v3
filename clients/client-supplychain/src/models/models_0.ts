@@ -270,6 +270,89 @@ export interface GetBillOfMaterialsImportJobResponse {
  * @public
  * @enum
  */
+export const DataIntegrationFlowFieldPriorityDedupeSortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type DataIntegrationFlowFieldPriorityDedupeSortOrder =
+  (typeof DataIntegrationFlowFieldPriorityDedupeSortOrder)[keyof typeof DataIntegrationFlowFieldPriorityDedupeSortOrder];
+
+/**
+ * <p>The field used in the field priority deduplication strategy.</p>
+ * @public
+ */
+export interface DataIntegrationFlowFieldPriorityDedupeField {
+  /**
+   * <p>The name of the deduplication field. Must exist in the dataset and not be a primary key.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The sort order for the deduplication field.</p>
+   * @public
+   */
+  sortOrder: DataIntegrationFlowFieldPriorityDedupeSortOrder | undefined;
+}
+
+/**
+ * <p>The field priority deduplication strategy details.</p>
+ * @public
+ */
+export interface DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration {
+  /**
+   * <p>The list of field names and their sort order for deduplication, arranged in descending priority from highest to lowest.</p>
+   * @public
+   */
+  fields: DataIntegrationFlowFieldPriorityDedupeField[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataIntegrationFlowDedupeStrategyType = {
+  FIELD_PRIORITY: "FIELD_PRIORITY",
+} as const;
+
+/**
+ * @public
+ */
+export type DataIntegrationFlowDedupeStrategyType =
+  (typeof DataIntegrationFlowDedupeStrategyType)[keyof typeof DataIntegrationFlowDedupeStrategyType];
+
+/**
+ * <p>The deduplication strategy details.</p>
+ * @public
+ */
+export interface DataIntegrationFlowDedupeStrategy {
+  /**
+   * <p>The type of the deduplication strategy.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>FIELD_PRIORITY</b> - Field priority configuration for the deduplication strategy specifies an ordered list of fields used to tie-break the data records sharing the same primary key values. Fields earlier in the list have higher priority for evaluation. For each field, the sort order determines whether to retain data record with larger or smaller field value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  type: DataIntegrationFlowDedupeStrategyType | undefined;
+
+  /**
+   * <p>The field priority deduplication strategy.</p>
+   * @public
+   */
+  fieldPriority?: DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const DataIntegrationFlowLoadType = {
   INCREMENTAL: "INCREMENTAL",
   REPLACE: "REPLACE",
@@ -287,16 +370,33 @@ export type DataIntegrationFlowLoadType =
  */
 export interface DataIntegrationFlowDatasetOptions {
   /**
-   * <p>The dataset data load type in dataset options.</p>
+   * <p>The target dataset's data load type. This only affects how source S3 files are selected in the S3-to-dataset flow.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>REPLACE</b> - Target dataset will get replaced with the new file added under the source s3 prefix.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>INCREMENTAL</b> - Target dataset will get updated with the up-to-date content under S3 prefix incorporating any file additions or removals there.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   loadType?: DataIntegrationFlowLoadType | undefined;
 
   /**
-   * <p>The dataset load option to remove duplicates.</p>
+   * <p>The option to perform deduplication on data records sharing same primary key values. If disabled, transformed data with duplicate primary key values will ingest into dataset, for datasets within <b>asc</b> namespace, such duplicates will cause ingestion fail. If enabled without dedupeStrategy, deduplication is done by retaining a random data record among those sharing the same primary key values. If enabled with dedupeStragtegy, the deduplication is done following the strategy.</p>
+   *          <p>Note that target dataset may have partition configured, when dedupe is enabled, it only dedupe against primary keys and retain only one record out of those duplicates regardless of its partition status.</p>
    * @public
    */
   dedupeRecords?: boolean | undefined;
+
+  /**
+   * <p>The deduplication strategy to dedupe the data records sharing same primary key values of the target dataset. This strategy only applies to target dataset with primary keys and with dedupeRecords option enabled. If transformed data still got duplicates after the dedupeStrategy evaluation, a random data record is chosen to be retained.</p>
+   * @public
+   */
+  dedupeStrategy?: DataIntegrationFlowDedupeStrategy | undefined;
 }
 
 /**
@@ -357,7 +457,7 @@ export interface DataIntegrationFlowS3SourceConfiguration {
   bucketName: string | undefined;
 
   /**
-   * <p>The prefix of the S3 source objects.</p>
+   * <p>The prefix of the S3 source objects. To trigger data ingestion, S3 files need to be put under <code>s3://<i>bucketName</i>/<i>prefix</i>/</code>.</p>
    * @public
    */
   prefix: string | undefined;
@@ -489,7 +589,7 @@ export interface DataIntegrationFlowTarget {
   s3Target?: DataIntegrationFlowS3TargetConfiguration | undefined;
 
   /**
-   * <p>The dataset DataIntegrationFlow target.</p>
+   * <p>The dataset DataIntegrationFlow target. Note that for AWS Supply Chain dataset under <b>asc</b> namespace, it has a connection_id internal field that is not allowed to be provided by client directly, they will be auto populated.</p>
    * @public
    */
   datasetTarget?: DataIntegrationFlowDatasetTargetConfiguration | undefined;
@@ -604,9 +704,92 @@ export interface CreateDataIntegrationFlowResponse {
  * @public
  * @enum
  */
+export const DataLakeDatasetPartitionTransformType = {
+  DAY: "DAY",
+  HOUR: "HOUR",
+  IDENTITY: "IDENTITY",
+  MONTH: "MONTH",
+  YEAR: "YEAR",
+} as const;
+
+/**
+ * @public
+ */
+export type DataLakeDatasetPartitionTransformType =
+  (typeof DataLakeDatasetPartitionTransformType)[keyof typeof DataLakeDatasetPartitionTransformType];
+
+/**
+ * <p>The detail of the partition field transformation.</p>
+ * @public
+ */
+export interface DataLakeDatasetPartitionFieldTransform {
+  /**
+   * <p>The type of partitioning transformation for this field. The available options are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>IDENTITY</b> - Partitions data on a given field by its exact values.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>YEAR</b> - Partitions data on a timestamp field using year granularity.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>MONTH</b> - Partitions data on a timestamp field using month granularity.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>DAY</b> - Partitions data on a timestamp field using day granularity.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>HOUR</b> - Partitions data on a timestamp field using hour granularity.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  type: DataLakeDatasetPartitionTransformType | undefined;
+}
+
+/**
+ * <p>The detail of the partition field.</p>
+ * @public
+ */
+export interface DataLakeDatasetPartitionField {
+  /**
+   * <p>The name of the partition field.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The transformation of the partition field. A transformation specifies how to partition on a given field. For example, with timestamp you can specify that you'd like to partition fields by day, e.g. data record with value 2025-01-03T00:00:00Z in partition field is in 2025-01-03 partition. Also noted that data record without any value in optional partition field is in NULL partition.</p>
+   * @public
+   */
+  transform: DataLakeDatasetPartitionFieldTransform | undefined;
+}
+
+/**
+ * <p>The partition specification for a dataset.</p>
+ * @public
+ */
+export interface DataLakeDatasetPartitionSpec {
+  /**
+   * <p>The fields on which to partition a dataset. The partitions will be applied hierarchically based on the order of this list.</p>
+   * @public
+   */
+  fields: DataLakeDatasetPartitionField[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const DataLakeDatasetSchemaFieldType = {
   DOUBLE: "DOUBLE",
   INT: "INT",
+  LONG: "LONG",
   STRING: "STRING",
   TIMESTAMP: "TIMESTAMP",
 } as const;
@@ -642,7 +825,19 @@ export interface DataLakeDatasetSchemaField {
 }
 
 /**
- * <p>The schema details of the dataset.</p>
+ * <p>The detail of the primary key field.</p>
+ * @public
+ */
+export interface DataLakeDatasetPrimaryKeyField {
+  /**
+   * <p>The name of the primary key field.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * <p>The schema details of the dataset. Note that for AWS Supply Chain dataset under <b>asc</b> namespace, it may have internal fields like connection_id that will be auto populated by data ingestion methods.</p>
  * @public
  */
 export interface DataLakeDatasetSchema {
@@ -657,6 +852,13 @@ export interface DataLakeDatasetSchema {
    * @public
    */
   fields: DataLakeDatasetSchemaField[] | undefined;
+
+  /**
+   * <p>The list of primary key fields for the dataset. Primary keys defined can help data ingestion methods to ensure data uniqueness: CreateDataIntegrationFlow's dedupe strategy will leverage primary keys to perform records deduplication before write to dataset; SendDataIntegrationEvent's UPSERT and DELETE can only work with dataset with primary keys. For more details, refer to those data ingestion documentations.</p>
+   *          <p>Note that defining primary keys does not necessarily mean the dataset cannot have duplicate records, duplicate records can still be ingested if CreateDataIntegrationFlow's dedupe disabled or through SendDataIntegrationEvent's APPEND operation.</p>
+   * @public
+   */
+  primaryKeys?: DataLakeDatasetPrimaryKeyField[] | undefined;
 }
 
 /**
@@ -671,7 +873,7 @@ export interface CreateDataLakeDatasetRequest {
   instanceId: string | undefined;
 
   /**
-   * <p>The name space of the dataset.</p>
+   * <p>The namespace of the dataset, besides the custom defined namespace, every instance comes with below pre-defined namespaces:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -693,7 +895,7 @@ export interface CreateDataLakeDatasetRequest {
   name: string | undefined;
 
   /**
-   * <p>The custom schema of the data lake dataset and is only required when the name space is <b>default</b>.</p>
+   * <p>The custom schema of the data lake dataset and required for dataset in <b>default</b> and custom namespaces.</p>
    * @public
    */
   schema?: DataLakeDatasetSchema | undefined;
@@ -703,6 +905,12 @@ export interface CreateDataLakeDatasetRequest {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The partition specification of the dataset. Partitioning can effectively improve the dataset query performance by reducing the amount of data scanned during query execution. But partitioning or not will affect how data get ingested by data ingestion methods, such as SendDataIntegrationEvent's dataset UPSERT will upsert records within partition (instead of within whole dataset). For more details, refer to those data ingestion documentations.</p>
+   * @public
+   */
+  partitionSpec?: DataLakeDatasetPartitionSpec | undefined;
 
   /**
    * <p>The tags of the dataset.</p>
@@ -723,7 +931,7 @@ export interface DataLakeDataset {
   instanceId: string | undefined;
 
   /**
-   * <p>The name space of the dataset. The available values are:</p>
+   * <p>The namespace of the dataset, besides the custom defined namespace, every instance comes with below pre-defined namespaces:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -739,7 +947,7 @@ export interface DataLakeDataset {
   namespace: string | undefined;
 
   /**
-   * <p>The name of the dataset. For <b>asc</b> name space, the name must be one of the supported data entities under <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p>
+   * <p>The name of the dataset. For <b>asc</b> namespace, the name must be one of the supported data entities under <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p>
    * @public
    */
   name: string | undefined;
@@ -761,6 +969,12 @@ export interface DataLakeDataset {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The partition specification for a dataset.</p>
+   * @public
+   */
+  partitionSpec?: DataLakeDatasetPartitionSpec | undefined;
 
   /**
    * <p>The creation time of the dataset.</p>
@@ -785,6 +999,91 @@ export interface CreateDataLakeDatasetResponse {
    * @public
    */
   dataset: DataLakeDataset | undefined;
+}
+
+/**
+ * <p>The request parameters for CreateDataLakeNamespace.</p>
+ * @public
+ */
+export interface CreateDataLakeNamespaceRequest {
+  /**
+   * <p>The Amazon Web Services Supply Chain instance identifier.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The name of the namespace. Noted you cannot create namespace with name starting with <b>asc</b>, <b>default</b>, <b>scn</b>, <b>aws</b>, <b>amazon</b>, <b>amzn</b>
+   *          </p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the namespace.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The tags of the namespace.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The data lake namespace details.</p>
+ * @public
+ */
+export interface DataLakeNamespace {
+  /**
+   * <p>The Amazon Web Services Supply Chain instance identifier.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The name of the namespace.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The arn of the namespace.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The description of the namespace.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The creation time of the namespace.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The last modified time of the namespace.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+}
+
+/**
+ * <p>The response parameters of CreateDataLakeNamespace.</p>
+ * @public
+ */
+export interface CreateDataLakeNamespaceResponse {
+  /**
+   * <p>The detail of created namespace.</p>
+   * @public
+   */
+  namespace: DataLakeNamespace | undefined;
 }
 
 /**
@@ -935,7 +1234,96 @@ export interface CreateInstanceResponse {
  * @public
  * @enum
  */
+export const DataIntegrationEventDatasetLoadStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type DataIntegrationEventDatasetLoadStatus =
+  (typeof DataIntegrationEventDatasetLoadStatus)[keyof typeof DataIntegrationEventDatasetLoadStatus];
+
+/**
+ * <p>The target dataset load execution details.</p>
+ * @public
+ */
+export interface DataIntegrationEventDatasetLoadExecutionDetails {
+  /**
+   * <p>The event load execution status to target dataset.</p>
+   * @public
+   */
+  status: DataIntegrationEventDatasetLoadStatus | undefined;
+
+  /**
+   * <p>The failure message (if any) of failed event load execution to dataset.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataIntegrationEventDatasetOperationType = {
+  APPEND: "APPEND",
+  DELETE: "DELETE",
+  UPSERT: "UPSERT",
+} as const;
+
+/**
+ * @public
+ */
+export type DataIntegrationEventDatasetOperationType =
+  (typeof DataIntegrationEventDatasetOperationType)[keyof typeof DataIntegrationEventDatasetOperationType];
+
+/**
+ * <p>The target dataset details for a DATASET event type.</p>
+ * @public
+ */
+export interface DataIntegrationEventDatasetTargetDetails {
+  /**
+   * <p>The datalake dataset ARN identifier.</p>
+   * @public
+   */
+  datasetIdentifier: string | undefined;
+
+  /**
+   * <p>The target dataset load operation type. The available options are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>APPEND</b> - Add new records to the dataset. Noted that this operation type will just try to append records as-is without any primary key or partition constraints.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>UPSERT</b> - Modify existing records in the dataset with primary key configured, events for datasets without primary keys are not allowed. If event data contains primary keys that match records in the dataset within same partition, then those existing records (in that partition) will be updated. If primary keys do not match, new records will be added. Note that if dataset contain records with duplicate primary key values in the same partition, those duplicate records will be deduped into one updated record.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>DELETE</b> - Remove existing records in the dataset with primary key configured, events for datasets without primary keys are not allowed. If event data contains primary keys that match records in the dataset within same partition, then those existing records (in that partition) will be deleted. If primary keys do not match, no actions will be done. Note that if dataset contain records with duplicate primary key values in the same partition, all those duplicates will be removed.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  operationType: DataIntegrationEventDatasetOperationType | undefined;
+
+  /**
+   * <p>The target dataset load execution.</p>
+   * @public
+   */
+  datasetLoadExecution: DataIntegrationEventDatasetLoadExecutionDetails | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const DataIntegrationEventType = {
+  DATASET: "scn.data.dataset",
   FORECAST: "scn.data.forecast",
   INBOUND_ORDER: "scn.data.inboundorder",
   INBOUND_ORDER_LINE: "scn.data.inboundorderline",
@@ -959,15 +1347,21 @@ export const DataIntegrationEventType = {
 export type DataIntegrationEventType = (typeof DataIntegrationEventType)[keyof typeof DataIntegrationEventType];
 
 /**
- * <p>The request parameters for SendDataIntegrationEvent.</p>
+ * <p>The data integration event details.</p>
  * @public
  */
-export interface SendDataIntegrationEventRequest {
+export interface DataIntegrationEvent {
   /**
    * <p>The AWS Supply Chain instance identifier.</p>
    * @public
    */
   instanceId: string | undefined;
+
+  /**
+   * <p>The unique event identifier.</p>
+   * @public
+   */
+  eventId: string | undefined;
 
   /**
    * <p>The data event type.</p>
@@ -976,13 +1370,7 @@ export interface SendDataIntegrationEventRequest {
   eventType: DataIntegrationEventType | undefined;
 
   /**
-   * <p>The data payload of the event. For more information on the data schema to use, see <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">Data entities supported in AWS Supply Chain</a>.</p>
-   * @public
-   */
-  data: string | undefined;
-
-  /**
-   * <p>Event identifier (for example, orderId for InboundOrder) used for data sharing or partitioning.</p>
+   * <p>Event identifier (for example, orderId for InboundOrder) used for data sharding or partitioning.</p>
    * @public
    */
   eventGroupId: string | undefined;
@@ -991,25 +1379,31 @@ export interface SendDataIntegrationEventRequest {
    * <p>The event timestamp (in epoch seconds).</p>
    * @public
    */
-  eventTimestamp?: Date | undefined;
+  eventTimestamp: Date | undefined;
 
   /**
-   * <p>The idempotent client token.</p>
+   * <p>The target dataset details for a DATASET event type.</p>
    * @public
    */
-  clientToken?: string | undefined;
+  datasetTargetDetails?: DataIntegrationEventDatasetTargetDetails | undefined;
 }
 
 /**
- * <p>The response parameters for SendDataIntegrationEvent.</p>
+ * <p>The target dataset configuration for a DATASET event type.</p>
  * @public
  */
-export interface SendDataIntegrationEventResponse {
+export interface DataIntegrationEventDatasetTargetConfiguration {
   /**
-   * <p>The unique event identifier.</p>
+   * <p>The datalake dataset ARN identifier.</p>
    * @public
    */
-  eventId: string | undefined;
+  datasetIdentifier: string | undefined;
+
+  /**
+   * <p>The target dataset load operation type.</p>
+   * @public
+   */
+  operationType: DataIntegrationEventDatasetOperationType | undefined;
 }
 
 /**
@@ -1058,6 +1452,148 @@ export interface DataIntegrationFlow {
    * @public
    */
   lastModifiedTime: Date | undefined;
+}
+
+/**
+ * <p>The details of a flow execution with dataset source.</p>
+ * @public
+ */
+export interface DataIntegrationFlowDatasetSource {
+  /**
+   * <p>The ARN of the dataset source.</p>
+   * @public
+   */
+  datasetIdentifier: string | undefined;
+}
+
+/**
+ * <p>The output metadata of the flow execution.</p>
+ * @public
+ */
+export interface DataIntegrationFlowExecutionOutputMetadata {
+  /**
+   * <p>The S3 URI under which all diagnostic files (such as deduped records if any) are stored.</p>
+   * @public
+   */
+  diagnosticReportsRootS3URI?: string | undefined;
+}
+
+/**
+ * <p>The details of a flow execution with S3 source.</p>
+ * @public
+ */
+export interface DataIntegrationFlowS3Source {
+  /**
+   * <p>The S3 bucket name of the S3 source.</p>
+   * @public
+   */
+  bucketName: string | undefined;
+
+  /**
+   * <p>The S3 object key of the S3 source.</p>
+   * @public
+   */
+  key: string | undefined;
+}
+
+/**
+ * <p>The source information of a flow execution.</p>
+ * @public
+ */
+export interface DataIntegrationFlowExecutionSourceInfo {
+  /**
+   * <p>The data integration flow execution source type.</p>
+   * @public
+   */
+  sourceType: DataIntegrationFlowSourceType | undefined;
+
+  /**
+   * <p>The source details of a flow execution with S3 source.</p>
+   * @public
+   */
+  s3Source?: DataIntegrationFlowS3Source | undefined;
+
+  /**
+   * <p>The source details of a flow execution with dataset source.</p>
+   * @public
+   */
+  datasetSource?: DataIntegrationFlowDatasetSource | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataIntegrationFlowExecutionStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type DataIntegrationFlowExecutionStatus =
+  (typeof DataIntegrationFlowExecutionStatus)[keyof typeof DataIntegrationFlowExecutionStatus];
+
+/**
+ * <p>The flow execution details.</p>
+ * @public
+ */
+export interface DataIntegrationFlowExecution {
+  /**
+   * <p>The flow execution's instanceId.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The flow execution's flowName.</p>
+   * @public
+   */
+  flowName: string | undefined;
+
+  /**
+   * <p>The flow executionId.</p>
+   * @public
+   */
+  executionId: string | undefined;
+
+  /**
+   * <p>The status of flow execution.</p>
+   * @public
+   */
+  status?: DataIntegrationFlowExecutionStatus | undefined;
+
+  /**
+   * <p>The source information for a flow execution.</p>
+   * @public
+   */
+  sourceInfo?: DataIntegrationFlowExecutionSourceInfo | undefined;
+
+  /**
+   * <p>The failure message (if any) of failed flow execution.</p>
+   * @public
+   */
+  message?: string | undefined;
+
+  /**
+   * <p>The flow execution start timestamp.</p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p>The flow execution end timestamp.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>The flow execution output metadata.</p>
+   * @public
+   */
+  outputMetadata?: DataIntegrationFlowExecutionOutputMetadata | undefined;
 }
 
 /**
@@ -1228,7 +1764,7 @@ export interface DeleteDataLakeDatasetRequest {
   instanceId: string | undefined;
 
   /**
-   * <p>The name space of the dataset. The available values are:</p>
+   * <p>The namespace of the dataset, besides the custom defined namespace, every instance comes with below pre-defined namespaces:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1244,7 +1780,7 @@ export interface DeleteDataLakeDatasetRequest {
   namespace: string | undefined;
 
   /**
-   * <p>The name of the dataset. For <b>asc</b> name space, the name must be one of the supported data entities under <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p>
+   * <p>The name of the dataset. For <b>asc</b> namespace, the name must be one of the supported data entities under <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p>
    * @public
    */
   name: string | undefined;
@@ -1262,7 +1798,7 @@ export interface DeleteDataLakeDatasetResponse {
   instanceId: string | undefined;
 
   /**
-   * <p>The name space of deleted dataset.</p>
+   * <p>The namespace of deleted dataset.</p>
    * @public
    */
   namespace: string | undefined;
@@ -1286,7 +1822,7 @@ export interface GetDataLakeDatasetRequest {
   instanceId: string | undefined;
 
   /**
-   * <p>The name space of the dataset. The available values are:</p>
+   * <p>The namespace of the dataset, besides the custom defined namespace, every instance comes with below pre-defined namespaces:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1302,14 +1838,14 @@ export interface GetDataLakeDatasetRequest {
   namespace: string | undefined;
 
   /**
-   * <p>The name of the dataset. For <b>asc</b> name space, the name must be one of the supported data entities under <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p>
+   * <p>The name of the dataset. For <b>asc</b> namespace, the name must be one of the supported data entities under <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p>
    * @public
    */
   name: string | undefined;
 }
 
 /**
- * <p>The response parameters for UpdateDataLakeDataset.</p>
+ * <p>The response parameters for GetDataLakeDataset.</p>
  * @public
  */
 export interface GetDataLakeDatasetResponse {
@@ -1332,7 +1868,7 @@ export interface ListDataLakeDatasetsRequest {
   instanceId: string | undefined;
 
   /**
-   * <p>The name space of the dataset. The available values are:</p>
+   * <p>The namespace of the dataset, besides the custom defined namespace, every instance comes with below pre-defined namespaces:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1390,7 +1926,7 @@ export interface UpdateDataLakeDatasetRequest {
   instanceId: string | undefined;
 
   /**
-   * <p>The name space of the dataset. The available values are:</p>
+   * <p>The namespace of the dataset, besides the custom defined namespace, every instance comes with below pre-defined namespaces:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1406,7 +1942,7 @@ export interface UpdateDataLakeDatasetRequest {
   namespace: string | undefined;
 
   /**
-   * <p>The name of the dataset. For <b>asc</b> name space, the name must be one of the supported data entities under <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p>
+   * <p>The name of the dataset. For <b>asc</b> namespace, the name must be one of the supported data entities under <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p>
    * @public
    */
   name: string | undefined;
@@ -1431,6 +1967,161 @@ export interface UpdateDataLakeDatasetResponse {
 }
 
 /**
+ * <p>The request parameters of DeleteDataLakeNamespace.</p>
+ * @public
+ */
+export interface DeleteDataLakeNamespaceRequest {
+  /**
+   * <p>The AWS Supply Chain instance identifier.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The name of the namespace. Noted you cannot delete pre-defined namespace like <b>asc</b>, <b>default</b> which are only deleted through instance deletion.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * <p>The response parameters of DeleteDataLakeNamespace.</p>
+ * @public
+ */
+export interface DeleteDataLakeNamespaceResponse {
+  /**
+   * <p>The AWS Supply Chain instance identifier.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The name of deleted namespace.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * <p>The request parameters for GetDataLakeNamespace.</p>
+ * @public
+ */
+export interface GetDataLakeNamespaceRequest {
+  /**
+   * <p>The Amazon Web Services Supply Chain instance identifier.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The name of the namespace. Besides the namespaces user created, you can also specify the pre-defined namespaces:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>asc</b> - Pre-defined namespace containing Amazon Web Services Supply Chain supported datasets, see <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>default</b> - Pre-defined namespace containing datasets with custom user-defined schemas.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * <p>The response parameters for GetDataLakeNamespace.</p>
+ * @public
+ */
+export interface GetDataLakeNamespaceResponse {
+  /**
+   * <p>The fetched namespace details.</p>
+   * @public
+   */
+  namespace: DataLakeNamespace | undefined;
+}
+
+/**
+ * <p>The request parameters of ListDataLakeNamespaces.</p>
+ * @public
+ */
+export interface ListDataLakeNamespacesRequest {
+  /**
+   * <p>The Amazon Web Services Supply Chain instance identifier.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The pagination token to fetch next page of namespaces.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The max number of namespaces to fetch in this paginated request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The response parameters of ListDataLakeNamespaces.</p>
+ * @public
+ */
+export interface ListDataLakeNamespacesResponse {
+  /**
+   * <p>The list of fetched namespace details. Noted it only contains custom namespaces, pre-defined namespaces are not included.</p>
+   * @public
+   */
+  namespaces: DataLakeNamespace[] | undefined;
+
+  /**
+   * <p>The pagination token to fetch next page of namespaces.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The request parameters of UpdateDataLakeNamespace.</p>
+ * @public
+ */
+export interface UpdateDataLakeNamespaceRequest {
+  /**
+   * <p>The Amazon Web Services Chain instance identifier.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The name of the namespace. Noted you cannot update namespace with name starting with <b>asc</b>, <b>default</b>, <b>scn</b>, <b>aws</b>, <b>amazon</b>, <b>amzn</b>
+   *          </p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The updated description of the data lake namespace.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * <p>The response parameters of UpdateDataLakeNamespace.</p>
+ * @public
+ */
+export interface UpdateDataLakeNamespaceResponse {
+  /**
+   * <p>The updated namespace details.</p>
+   * @public
+   */
+  namespace: DataLakeNamespace | undefined;
+}
+
+/**
  * <p>The request parameters for DeleteInstance.</p>
  * @public
  */
@@ -1452,6 +2143,72 @@ export interface DeleteInstanceResponse {
    * @public
    */
   instance: Instance | undefined;
+}
+
+/**
+ * <p>The request parameters for GetDataIntegrationEvent.</p>
+ * @public
+ */
+export interface GetDataIntegrationEventRequest {
+  /**
+   * <p>The Amazon Web Services Supply Chain instance identifier.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The unique event identifier.</p>
+   * @public
+   */
+  eventId: string | undefined;
+}
+
+/**
+ * <p>The response parameters for GetDataIntegrationEvent.</p>
+ * @public
+ */
+export interface GetDataIntegrationEventResponse {
+  /**
+   * <p>The details of the DataIntegrationEvent returned.</p>
+   * @public
+   */
+  event: DataIntegrationEvent | undefined;
+}
+
+/**
+ * <p>The request parameters of GetFlowExecution.</p>
+ * @public
+ */
+export interface GetDataIntegrationFlowExecutionRequest {
+  /**
+   * <p>The AWS Supply Chain instance identifier.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The flow name.</p>
+   * @public
+   */
+  flowName: string | undefined;
+
+  /**
+   * <p>The flow execution identifier.</p>
+   * @public
+   */
+  executionId: string | undefined;
+}
+
+/**
+ * <p>The response parameters of GetFlowExecution.</p>
+ * @public
+ */
+export interface GetDataIntegrationFlowExecutionResponse {
+  /**
+   * <p>The flow execution details.</p>
+   * @public
+   */
+  flowExecution: DataIntegrationFlowExecution | undefined;
 }
 
 /**
@@ -1563,6 +2320,102 @@ export interface UpdateInstanceResponse {
 }
 
 /**
+ * <p>The request parameters for ListDataIntegrationEvents.</p>
+ * @public
+ */
+export interface ListDataIntegrationEventsRequest {
+  /**
+   * <p>The Amazon Web Services Supply Chain instance identifier.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>List data integration events for the specified eventType.</p>
+   * @public
+   */
+  eventType?: DataIntegrationEventType | undefined;
+
+  /**
+   * <p>The pagination token to fetch the next page of the data integration events.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Specify the maximum number of data integration events to fetch in one paginated request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The response parameters for ListDataIntegrationEvents.</p>
+ * @public
+ */
+export interface ListDataIntegrationEventsResponse {
+  /**
+   * <p>The list of data integration events.</p>
+   * @public
+   */
+  events: DataIntegrationEvent[] | undefined;
+
+  /**
+   * <p>The pagination token to fetch the next page of the ListDataIntegrationEvents.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The request parameters of ListFlowExecutions.</p>
+ * @public
+ */
+export interface ListDataIntegrationFlowExecutionsRequest {
+  /**
+   * <p>The AWS Supply Chain instance identifier.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The flow name.</p>
+   * @public
+   */
+  flowName: string | undefined;
+
+  /**
+   * <p>The pagination token to fetch next page of flow executions.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The number to specify the max number of flow executions to fetch in this paginated request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The response parameters of ListFlowExecutions.</p>
+ * @public
+ */
+export interface ListDataIntegrationFlowExecutionsResponse {
+  /**
+   * <p>The list of flow executions.</p>
+   * @public
+   */
+  flowExecutions: DataIntegrationFlowExecution[] | undefined;
+
+  /**
+   * <p>The pagination token to fetch next page of flow executions.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * <p>The request parameters of ListTagsForResource.</p>
  * @public
  */
@@ -1584,6 +2437,133 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   tags: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The request parameters for SendDataIntegrationEvent.</p>
+ * @public
+ */
+export interface SendDataIntegrationEventRequest {
+  /**
+   * <p>The AWS Supply Chain instance identifier.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The data event type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>scn.data.dataset</b> - Send data directly to any specified dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>scn.data.supplyplan</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/supply-plan-entity.html">supply_plan</a> dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>scn.data.shipmentstoporder</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/replenishment-shipment-stop-order-entity.html">shipment_stop_order</a> dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>scn.data.shipmentstop</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/replenishment-shipment-stop-entity.html">shipment_stop</a> dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>scn.data.shipment</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/replenishment-shipment-entity.html">shipment</a> dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>scn.data.reservation</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/planning-reservation-entity.html">reservation</a> dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>scn.data.processproduct</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/operation-process-product-entity.html">process_product</a> dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>scn.data.processoperation</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/operation-process-operation-entity.html">process_operation</a> dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>scn.data.processheader</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/operation-process-header-entity.html">process_header</a> dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>scn.data.forecast</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/forecast-forecast-entity.html">forecast</a> dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>scn.data.inventorylevel</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/inventory_mgmnt-inv-level-entity.html">inv_level</a> dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>scn.data.inboundorder</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/replenishment-inbound-order-entity.html">inbound_order</a> dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>scn.data.inboundorderline</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/replenishment-inbound-order-line-entity.html">inbound_order_line</a> dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>scn.data.inboundorderlineschedule</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/replenishment-inbound-order-line-schedule-entity.html">inbound_order_line_schedule</a> dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>scn.data.outboundorderline</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/outbound-fulfillment-order-line-entity.html">outbound_order_line</a> dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>scn.data.outboundshipment</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/outbound-fulfillment-shipment-entity.html">outbound_shipment</a> dataset.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  eventType: DataIntegrationEventType | undefined;
+
+  /**
+   * <p>The data payload of the event, should follow the data schema of the target dataset, or see <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">Data entities supported in AWS Supply Chain</a>. To send single data record, use JsonObject format; to send multiple data records, use JsonArray format.</p>
+   *          <p>Note that for AWS Supply Chain dataset under <b>asc</b> namespace, it has a connection_id internal field that is not allowed to be provided by client directly, they will be auto populated.</p>
+   * @public
+   */
+  data: string | undefined;
+
+  /**
+   * <p>Event identifier (for example, orderId for InboundOrder) used for data sharding or partitioning. Noted under one eventGroupId of same eventType and instanceId, events are processed sequentially in the order they are received by the server.</p>
+   * @public
+   */
+  eventGroupId: string | undefined;
+
+  /**
+   * <p>The timestamp (in epoch seconds) associated with the event. If not provided, it will be assigned with current timestamp.</p>
+   * @public
+   */
+  eventTimestamp?: Date | undefined;
+
+  /**
+   * <p>The idempotent client token. The token is active for 8 hours, and within its lifetime, it ensures the request completes only once upon retry with same client token. If omitted, the AWS SDK generates a unique value so that AWS SDK can safely retry the request upon network errors.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The target dataset configuration for <b>scn.data.dataset</b> event type.</p>
+   * @public
+   */
+  datasetTarget?: DataIntegrationEventDatasetTargetConfiguration | undefined;
+}
+
+/**
+ * <p>The response parameters for SendDataIntegrationEvent.</p>
+ * @public
+ */
+export interface SendDataIntegrationEventResponse {
+  /**
+   * <p>The unique event identifier.</p>
+   * @public
+   */
+  eventId: string | undefined;
 }
 
 /**
@@ -1633,6 +2613,80 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @internal
+ */
+export const DataIntegrationFlowSQLTransformationConfigurationFilterSensitiveLog = (
+  obj: DataIntegrationFlowSQLTransformationConfiguration
+): any => ({
+  ...obj,
+  ...(obj.query && { query: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DataIntegrationFlowTransformationFilterSensitiveLog = (obj: DataIntegrationFlowTransformation): any => ({
+  ...obj,
+  ...(obj.sqlTransformation && {
+    sqlTransformation: DataIntegrationFlowSQLTransformationConfigurationFilterSensitiveLog(obj.sqlTransformation),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDataIntegrationFlowRequestFilterSensitiveLog = (obj: CreateDataIntegrationFlowRequest): any => ({
+  ...obj,
+  ...(obj.transformation && {
+    transformation: DataIntegrationFlowTransformationFilterSensitiveLog(obj.transformation),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DataIntegrationFlowFilterSensitiveLog = (obj: DataIntegrationFlow): any => ({
+  ...obj,
+  ...(obj.transformation && {
+    transformation: DataIntegrationFlowTransformationFilterSensitiveLog(obj.transformation),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetDataIntegrationFlowResponseFilterSensitiveLog = (obj: GetDataIntegrationFlowResponse): any => ({
+  ...obj,
+  ...(obj.flow && { flow: DataIntegrationFlowFilterSensitiveLog(obj.flow) }),
+});
+
+/**
+ * @internal
+ */
+export const ListDataIntegrationFlowsResponseFilterSensitiveLog = (obj: ListDataIntegrationFlowsResponse): any => ({
+  ...obj,
+  ...(obj.flows && { flows: obj.flows.map((item) => DataIntegrationFlowFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataIntegrationFlowRequestFilterSensitiveLog = (obj: UpdateDataIntegrationFlowRequest): any => ({
+  ...obj,
+  ...(obj.transformation && {
+    transformation: DataIntegrationFlowTransformationFilterSensitiveLog(obj.transformation),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataIntegrationFlowResponseFilterSensitiveLog = (obj: UpdateDataIntegrationFlowResponse): any => ({
+  ...obj,
+  ...(obj.flow && { flow: DataIntegrationFlowFilterSensitiveLog(obj.flow) }),
+});
 
 /**
  * @internal

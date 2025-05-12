@@ -44,12 +44,27 @@ export interface CreateDataLakeDatasetCommandOutput extends CreateDataLakeDatase
  *     fields: [ // DataLakeDatasetSchemaFieldList // required
  *       { // DataLakeDatasetSchemaField
  *         name: "STRING_VALUE", // required
- *         type: "INT" || "DOUBLE" || "STRING" || "TIMESTAMP", // required
+ *         type: "INT" || "DOUBLE" || "STRING" || "TIMESTAMP" || "LONG", // required
  *         isRequired: true || false, // required
+ *       },
+ *     ],
+ *     primaryKeys: [ // DataLakeDatasetPrimaryKeyFieldList
+ *       { // DataLakeDatasetPrimaryKeyField
+ *         name: "STRING_VALUE", // required
  *       },
  *     ],
  *   },
  *   description: "STRING_VALUE",
+ *   partitionSpec: { // DataLakeDatasetPartitionSpec
+ *     fields: [ // DataLakeDatasetPartitionFieldList // required
+ *       { // DataLakeDatasetPartitionField
+ *         name: "STRING_VALUE", // required
+ *         transform: { // DataLakeDatasetPartitionFieldTransform
+ *           type: "YEAR" || "MONTH" || "DAY" || "HOUR" || "IDENTITY", // required
+ *         },
+ *       },
+ *     ],
+ *   },
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -67,12 +82,27 @@ export interface CreateDataLakeDatasetCommandOutput extends CreateDataLakeDatase
  * //       fields: [ // DataLakeDatasetSchemaFieldList // required
  * //         { // DataLakeDatasetSchemaField
  * //           name: "STRING_VALUE", // required
- * //           type: "INT" || "DOUBLE" || "STRING" || "TIMESTAMP", // required
+ * //           type: "INT" || "DOUBLE" || "STRING" || "TIMESTAMP" || "LONG", // required
  * //           isRequired: true || false, // required
+ * //         },
+ * //       ],
+ * //       primaryKeys: [ // DataLakeDatasetPrimaryKeyFieldList
+ * //         { // DataLakeDatasetPrimaryKeyField
+ * //           name: "STRING_VALUE", // required
  * //         },
  * //       ],
  * //     },
  * //     description: "STRING_VALUE",
+ * //     partitionSpec: { // DataLakeDatasetPartitionSpec
+ * //       fields: [ // DataLakeDatasetPartitionFieldList // required
+ * //         { // DataLakeDatasetPartitionField
+ * //           name: "STRING_VALUE", // required
+ * //           transform: { // DataLakeDatasetPartitionFieldTransform
+ * //             type: "YEAR" || "MONTH" || "DAY" || "HOUR" || "IDENTITY", // required
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
  * //     createdTime: new Date("TIMESTAMP"), // required
  * //     lastModifiedTime: new Date("TIMESTAMP"), // required
  * //   },
@@ -95,6 +125,9 @@ export interface CreateDataLakeDatasetCommandOutput extends CreateDataLakeDatase
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error during processing of request.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Request references a resource which does not exist.</p>
+ *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>Request would cause a service quota to be exceeded.</p>
  *
@@ -103,9 +136,6 @@ export interface CreateDataLakeDatasetCommandOutput extends CreateDataLakeDatase
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input does not satisfy the constraints specified by an AWS service.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
  *
  * @throws {@link SupplyChainServiceException}
  * <p>Base exception class for all service exceptions from SupplyChain service.</p>
@@ -304,6 +334,22 @@ export interface CreateDataLakeDatasetCommandOutput extends CreateDataLakeDatase
  *   instanceId: "1877dd20-dee9-4639-8e99-cb67acf21fe5",
  *   name: "my_dataset",
  *   namespace: "default",
+ *   partitionSpec: {
+ *     fields: [
+ *       {
+ *         name: "creation_time",
+ *         transform: {
+ *           type: "DAY"
+ *         }
+ *       },
+ *       {
+ *         name: "description",
+ *         transform: {
+ *           type: "IDENTITY"
+ *         }
+ *       }
+ *     ]
+ *   },
  *   schema: {
  *     fields: [
  *       {
@@ -325,9 +371,19 @@ export interface CreateDataLakeDatasetCommandOutput extends CreateDataLakeDatase
  *         isRequired: false,
  *         name: "creation_time",
  *         type: "TIMESTAMP"
+ *       },
+ *       {
+ *         isRequired: false,
+ *         name: "quantity",
+ *         type: "LONG"
  *       }
  *     ],
- *     name: "MyDataset"
+ *     name: "MyDataset",
+ *     primaryKeys: [
+ *       {
+ *         name: "id"
+ *       }
+ *     ]
  *   },
  *   tags: {
  *     tagKey1: "tagValue1",
@@ -346,6 +402,22 @@ export interface CreateDataLakeDatasetCommandOutput extends CreateDataLakeDatase
  *     lastModifiedTime: 1.727116807751E9,
  *     name: "my_dataset",
  *     namespace: "default",
+ *     partitionSpec: {
+ *       fields: [
+ *         {
+ *           name: "creation_time",
+ *           transform: {
+ *             type: "DAY"
+ *           }
+ *         },
+ *         {
+ *           name: "description",
+ *           transform: {
+ *             type: "IDENTITY"
+ *           }
+ *         }
+ *       ]
+ *     },
  *     schema: {
  *       fields: [
  *         {
@@ -367,9 +439,19 @@ export interface CreateDataLakeDatasetCommandOutput extends CreateDataLakeDatase
  *           isRequired: false,
  *           name: "creation_time",
  *           type: "TIMESTAMP"
+ *         },
+ *         {
+ *           isRequired: false,
+ *           name: "quantity",
+ *           type: "LONG"
  *         }
  *       ],
- *       name: "MyDataset"
+ *       name: "MyDataset",
+ *       primaryKeys: [
+ *         {
+ *           name: "id"
+ *         }
+ *       ]
  *     }
  *   }
  * }

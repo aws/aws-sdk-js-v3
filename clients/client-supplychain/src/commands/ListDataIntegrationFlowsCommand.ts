@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDataIntegrationFlowsRequest, ListDataIntegrationFlowsResponse } from "../models/models_0";
+import {
+  ListDataIntegrationFlowsRequest,
+  ListDataIntegrationFlowsResponse,
+  ListDataIntegrationFlowsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_ListDataIntegrationFlowsCommand, se_ListDataIntegrationFlowsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
@@ -63,6 +67,17 @@ export interface ListDataIntegrationFlowsCommandOutput extends ListDataIntegrati
  * //             options: { // DataIntegrationFlowDatasetOptions
  * //               loadType: "INCREMENTAL" || "REPLACE",
  * //               dedupeRecords: true || false,
+ * //               dedupeStrategy: { // DataIntegrationFlowDedupeStrategy
+ * //                 type: "FIELD_PRIORITY", // required
+ * //                 fieldPriority: { // DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration
+ * //                   fields: [ // DataIntegrationFlowFieldPriorityDedupeFieldList // required
+ * //                     { // DataIntegrationFlowFieldPriorityDedupeField
+ * //                       name: "STRING_VALUE", // required
+ * //                       sortOrder: "ASC" || "DESC", // required
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               },
  * //             },
  * //           },
  * //         },
@@ -87,6 +102,17 @@ export interface ListDataIntegrationFlowsCommandOutput extends ListDataIntegrati
  * //           options: {
  * //             loadType: "INCREMENTAL" || "REPLACE",
  * //             dedupeRecords: true || false,
+ * //             dedupeStrategy: {
+ * //               type: "FIELD_PRIORITY", // required
+ * //               fieldPriority: {
+ * //                 fields: [ // required
+ * //                   {
+ * //                     name: "STRING_VALUE", // required
+ * //                     sortOrder: "ASC" || "DESC", // required
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             },
  * //           },
  * //         },
  * //       },
@@ -192,7 +218,22 @@ export interface ListDataIntegrationFlowsCommandOutput extends ListDataIntegrati
  *       ],
  *       target: {
  *         datasetTarget: {
- *           datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/asc/datasets/trading_partner"
+ *           datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/asc/datasets/trading_partner",
+ *           options: {
+ *             dedupeRecords: true,
+ *             dedupeStrategy: {
+ *               fieldPriority: {
+ *                 fields: [
+ *                   {
+ *                     name: "eff_start_date",
+ *                     sortOrder: "DESC"
+ *                   }
+ *                 ]
+ *               },
+ *               type: "FIELD_PRIORITY"
+ *             },
+ *             loadType: "REPLACE"
+ *           }
  *         },
  *         targetType: "DATASET"
  *       },
@@ -227,7 +268,7 @@ export class ListDataIntegrationFlowsCommand extends $Command
   })
   .s("GalaxyPublicAPIGateway", "ListDataIntegrationFlows", {})
   .n("SupplyChainClient", "ListDataIntegrationFlowsCommand")
-  .f(void 0, void 0)
+  .f(void 0, ListDataIntegrationFlowsResponseFilterSensitiveLog)
   .ser(se_ListDataIntegrationFlowsCommand)
   .de(de_ListDataIntegrationFlowsCommand)
   .build() {
