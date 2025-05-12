@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.808.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.807.0...v3.808.0) (2025-05-12)
+
+
+### Features
+
+* **client-medialive:** Add support to the AV1 rate control mode ([f8e9f56](https://github.com/aws/aws-sdk-js-v3/commit/f8e9f56730fcac2a715e0180e58a9f690614b629))
+
+
+
+
+
 # [3.806.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.805.0...v3.806.0) (2025-05-08)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive

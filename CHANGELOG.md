@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.808.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.807.0...v3.808.0) (2025-05-12)
+
+
+### Features
+
+* **client-deadline:** AWS Deadline Cloud service-managed fleets now support configuration scripts. Configuration scripts make it easy to install additional software, like plugins and packages, onto a worker. ([1181966](https://github.com/aws/aws-sdk-js-v3/commit/118196678658e18ac1206d21b0bfc4fb8c5323e2))
+* **client-ec2:** EC2 - Adding support for AvailabilityZoneId ([c7ea904](https://github.com/aws/aws-sdk-js-v3/commit/c7ea90417645b33c4445840da7867bbdabf3fe84))
+* **client-iam:** Updating the endpoint list for the Identity and access management (IAM) service ([854b130](https://github.com/aws/aws-sdk-js-v3/commit/854b130d81b2970401f4793b0fef0204a26569af))
+* **client-medialive:** Add support to the AV1 rate control mode ([f8e9f56](https://github.com/aws/aws-sdk-js-v3/commit/f8e9f56730fcac2a715e0180e58a9f690614b629))
+* **client-mediatailor:** Documenting that EnabledLoggingStrategies is always present in responses of PlaybackConfiguration read operations. ([bf0301e](https://github.com/aws/aws-sdk-js-v3/commit/bf0301e75e18738a573388c5af1e99dacd106fab))
+* **client-s3-control:** Updates to support S3 Express zonal endpoints for directory buckets in AWS CLI ([db31822](https://github.com/aws/aws-sdk-js-v3/commit/db31822a3bb2d1a96674bb40de29726859a153b6))
+* **client-sagemaker:** No API changes from previous release. This release migrated the model to Smithy keeping all features unchanged. ([e06ca01](https://github.com/aws/aws-sdk-js-v3/commit/e06ca015c0b2ea13bdd2e7099160e64dad6eb745))
+* **client-supplychain:** Launch new AWS Supply Chain public APIs for DataIntegrationEvent, DataIntegrationFlowExecution and DatasetNamespace. Also add more capabilities to existing public APIs to support direct dataset event publish, data deduplication in DataIntegrationFlow, partition specification of custom datasets. ([d647fdf](https://github.com/aws/aws-sdk-js-v3/commit/d647fdf403885af4d2f472e4342329cc09df078f))
+* **clients:** update client endpoints as of 2025-05-12 ([a476498](https://github.com/aws/aws-sdk-js-v3/commit/a476498d05456945c8534897e53c5e1372a9917a))
+
+
+
+
+
 # [3.807.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.806.0...v3.807.0) (2025-05-09)
 
 
