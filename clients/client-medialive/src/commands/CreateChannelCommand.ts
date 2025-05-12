@@ -69,6 +69,9 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *           Url: "STRING_VALUE",
  *         },
  *       ],
+ *       LogicalInterfaceNames: [ // __listOf__string
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *   ],
  *   EncoderSettings: { // EncoderSettings
@@ -544,7 +547,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *         },
  *         Outputs: [ // __listOfOutput // required
  *           { // Output
- *             AudioDescriptionNames: [ // __listOf__string
+ *             AudioDescriptionNames: [
  *               "STRING_VALUE",
  *             ],
  *             CaptionDescriptionNames: [
@@ -1046,6 +1049,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *               Position: "BOTTOM_CENTER" || "BOTTOM_LEFT" || "BOTTOM_RIGHT" || "MIDDLE_CENTER" || "MIDDLE_LEFT" || "MIDDLE_RIGHT" || "TOP_CENTER" || "TOP_LEFT" || "TOP_RIGHT", // required
  *               Prefix: "STRING_VALUE",
  *             },
+ *             Bitrate: Number("int"),
+ *             RateControlMode: "CBR" || "QVBR",
  *           },
  *         },
  *         Height: Number("int"),
@@ -1275,6 +1280,9 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //             StreamId: "STRING_VALUE",
  * //             Url: "STRING_VALUE",
  * //           },
+ * //         ],
+ * //         LogicalInterfaceNames: [ // __listOf__string
+ * //           "STRING_VALUE",
  * //         ],
  * //       },
  * //     ],
@@ -1756,7 +1764,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //           },
  * //           Outputs: [ // __listOfOutput // required
  * //             { // Output
- * //               AudioDescriptionNames: [ // __listOf__string
+ * //               AudioDescriptionNames: [
  * //                 "STRING_VALUE",
  * //               ],
  * //               CaptionDescriptionNames: [
@@ -2258,6 +2266,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //                 Position: "BOTTOM_CENTER" || "BOTTOM_LEFT" || "BOTTOM_RIGHT" || "MIDDLE_CENTER" || "MIDDLE_LEFT" || "MIDDLE_RIGHT" || "TOP_CENTER" || "TOP_LEFT" || "TOP_RIGHT", // required
  * //                 Prefix: "STRING_VALUE",
  * //               },
+ * //               Bitrate: Number("int"),
+ * //               RateControlMode: "CBR" || "QVBR",
  * //             },
  * //           },
  * //           Height: Number("int"),

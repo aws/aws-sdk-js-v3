@@ -2892,6 +2892,12 @@ export interface OutputDestination {
    * @public
    */
   SrtSettings?: SrtOutputDestinationSettings[] | undefined;
+
+  /**
+   * Optional assignment of an output to a logical interface on the Node. Only applies to on premises channels.
+   * @public
+   */
+  LogicalInterfaceNames?: string[] | undefined;
 }
 
 /**

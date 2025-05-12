@@ -78,6 +78,9 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //               Url: "STRING_VALUE",
  * //             },
  * //           ],
+ * //           LogicalInterfaceNames: [ // __listOf__string
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       ],
  * //       EgressEndpoints: [ // __listOfChannelEgressEndpoint
@@ -219,7 +222,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //               },
  * //             },
  * //           },
- * //           LogicalInterfaceNames: [ // __listOf__string
+ * //           LogicalInterfaceNames: [
  * //             "STRING_VALUE",
  * //           ],
  * //         },
@@ -253,9 +256,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //         SecurityGroupIds: [
  * //           "STRING_VALUE",
  * //         ],
- * //         SubnetIds: [
- * //           "STRING_VALUE",
- * //         ],
+ * //         SubnetIds: "<__listOf__string>",
  * //       },
  * //       AnywhereSettings: { // DescribeAnywhereSettings
  * //         ChannelPlacementGroupId: "STRING_VALUE",

@@ -4776,6 +4776,20 @@ export type Av1LookAheadRateControl = (typeof Av1LookAheadRateControl)[keyof typ
  * @public
  * @enum
  */
+export const Av1RateControlMode = {
+  CBR: "CBR",
+  QVBR: "QVBR",
+} as const;
+
+/**
+ * @public
+ */
+export type Av1RateControlMode = (typeof Av1RateControlMode)[keyof typeof Av1RateControlMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const Av1SceneChangeDetect = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -4969,6 +4983,24 @@ export interface Av1Settings {
    * @public
    */
   TimecodeBurninSettings?: TimecodeBurninSettings | undefined;
+
+  /**
+   * Average bitrate in bits/second. Required when the rate control mode is CBR. Not used for QVBR.
+   * @public
+   */
+  Bitrate?: number | undefined;
+
+  /**
+   * Rate control mode.
+   *
+   * QVBR: Quality will match the specified quality level except when it is constrained by the
+   * maximum bitrate.  Recommended if you or your viewers pay for bandwidth.
+   *
+   * CBR: Quality varies, depending on the video complexity. Recommended only if you distribute
+   * your assets to devices that cannot handle variable bitrates.
+   * @public
+   */
+  RateControlMode?: Av1RateControlMode | undefined;
 }
 
 /**
@@ -7502,22 +7534,4 @@ export interface BatchUpdateScheduleRequest {
    * @public
    */
   Deletes?: BatchScheduleActionDeleteRequest | undefined;
-}
-
-/**
- * Placeholder documentation for BatchUpdateScheduleResponse
- * @public
- */
-export interface BatchUpdateScheduleResponse {
-  /**
-   * Schedule actions created in the schedule.
-   * @public
-   */
-  Creates?: BatchScheduleActionCreateResult | undefined;
-
-  /**
-   * Schedule actions deleted from the schedule.
-   * @public
-   */
-  Deletes?: BatchScheduleActionDeleteResult | undefined;
 }

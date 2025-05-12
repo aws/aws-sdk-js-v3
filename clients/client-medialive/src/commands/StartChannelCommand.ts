@@ -75,6 +75,9 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * //           Url: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       LogicalInterfaceNames: [ // __listOf__string
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   EgressEndpoints: [ // __listOfChannelEgressEndpoint
@@ -555,7 +558,7 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * //         },
  * //         Outputs: [ // __listOfOutput // required
  * //           { // Output
- * //             AudioDescriptionNames: [ // __listOf__string
+ * //             AudioDescriptionNames: [
  * //               "STRING_VALUE",
  * //             ],
  * //             CaptionDescriptionNames: [
@@ -1057,6 +1060,8 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * //               Position: "BOTTOM_CENTER" || "BOTTOM_LEFT" || "BOTTOM_RIGHT" || "MIDDLE_CENTER" || "MIDDLE_LEFT" || "MIDDLE_RIGHT" || "TOP_CENTER" || "TOP_LEFT" || "TOP_RIGHT", // required
  * //               Prefix: "STRING_VALUE",
  * //             },
+ * //             Bitrate: Number("int"),
+ * //             RateControlMode: "CBR" || "QVBR",
  * //           },
  * //         },
  * //         Height: Number("int"),

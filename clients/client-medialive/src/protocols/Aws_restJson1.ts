@@ -7311,6 +7311,7 @@ const se_Av1ColorSpaceSettings = (input: Av1ColorSpaceSettings, context: __Serde
 const se_Av1Settings = (input: Av1Settings, context: __SerdeContext): any => {
   return take(input, {
     afdSignaling: [, , `AfdSignaling`],
+    bitrate: [, , `Bitrate`],
     bufSize: [, , `BufSize`],
     colorSpaceSettings: [, (_) => se_Av1ColorSpaceSettings(_, context), `ColorSpaceSettings`],
     fixedAfd: [, , `FixedAfd`],
@@ -7325,6 +7326,7 @@ const se_Av1Settings = (input: Av1Settings, context: __SerdeContext): any => {
     parDenominator: [, , `ParDenominator`],
     parNumerator: [, , `ParNumerator`],
     qvbrQualityLevel: [, , `QvbrQualityLevel`],
+    rateControlMode: [, , `RateControlMode`],
     sceneChangeDetect: [, , `SceneChangeDetect`],
     timecodeBurninSettings: [, (_) => se_TimecodeBurninSettings(_, context), `TimecodeBurninSettings`],
   });
@@ -9193,6 +9195,7 @@ const se_Output = (input: Output, context: __SerdeContext): any => {
 const se_OutputDestination = (input: OutputDestination, context: __SerdeContext): any => {
   return take(input, {
     id: [, , `Id`],
+    logicalInterfaceNames: [, _json, `LogicalInterfaceNames`],
     mediaPackageSettings: [
       ,
       (_) => se___listOfMediaPackageOutputDestinationSettings(_, context),
@@ -11257,6 +11260,7 @@ const de_Av1ColorSpaceSettings = (output: any, context: __SerdeContext): Av1Colo
 const de_Av1Settings = (output: any, context: __SerdeContext): Av1Settings => {
   return take(output, {
     AfdSignaling: [, __expectString, `afdSignaling`],
+    Bitrate: [, __expectInt32, `bitrate`],
     BufSize: [, __expectInt32, `bufSize`],
     ColorSpaceSettings: [, (_: any) => de_Av1ColorSpaceSettings(_, context), `colorSpaceSettings`],
     FixedAfd: [, __expectString, `fixedAfd`],
@@ -11271,6 +11275,7 @@ const de_Av1Settings = (output: any, context: __SerdeContext): Av1Settings => {
     ParDenominator: [, __expectInt32, `parDenominator`],
     ParNumerator: [, __expectInt32, `parNumerator`],
     QvbrQualityLevel: [, __expectInt32, `qvbrQualityLevel`],
+    RateControlMode: [, __expectString, `rateControlMode`],
     SceneChangeDetect: [, __expectString, `sceneChangeDetect`],
     TimecodeBurninSettings: [, (_: any) => de_TimecodeBurninSettings(_, context), `timecodeBurninSettings`],
   }) as any;
@@ -13580,6 +13585,7 @@ const de_Output = (output: any, context: __SerdeContext): Output => {
 const de_OutputDestination = (output: any, context: __SerdeContext): OutputDestination => {
   return take(output, {
     Id: [, __expectString, `id`],
+    LogicalInterfaceNames: [, _json, `logicalInterfaceNames`],
     MediaPackageSettings: [
       ,
       (_: any) => de___listOfMediaPackageOutputDestinationSettings(_, context),

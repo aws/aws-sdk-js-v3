@@ -105,6 +105,8 @@ import {
   AnywhereSettings,
   AvailBlanking,
   AvailConfiguration,
+  BatchScheduleActionCreateResult,
+  BatchScheduleActionDeleteResult,
   OutputGroup,
   PipelineDetail,
   RenewalSettings,
@@ -125,6 +127,24 @@ import {
   TransferringInputDeviceSummary,
   VideoDescription,
 } from "./models_1";
+
+/**
+ * Placeholder documentation for BatchUpdateScheduleResponse
+ * @public
+ */
+export interface BatchUpdateScheduleResponse {
+  /**
+   * Schedule actions created in the schedule.
+   * @public
+   */
+  Creates?: BatchScheduleActionCreateResult | undefined;
+
+  /**
+   * Schedule actions deleted from the schedule.
+   * @public
+   */
+  Deletes?: BatchScheduleActionDeleteResult | undefined;
+}
 
 /**
  * @public

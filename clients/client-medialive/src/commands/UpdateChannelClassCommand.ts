@@ -67,6 +67,9 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  *           Url: "STRING_VALUE",
  *         },
  *       ],
+ *       LogicalInterfaceNames: [ // __listOf__string
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *   ],
  * };
@@ -107,6 +110,9 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //             StreamId: "STRING_VALUE",
  * //             Url: "STRING_VALUE",
  * //           },
+ * //         ],
+ * //         LogicalInterfaceNames: [ // __listOf__string
+ * //           "STRING_VALUE",
  * //         ],
  * //       },
  * //     ],
@@ -588,7 +594,7 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //           },
  * //           Outputs: [ // __listOfOutput // required
  * //             { // Output
- * //               AudioDescriptionNames: [ // __listOf__string
+ * //               AudioDescriptionNames: [
  * //                 "STRING_VALUE",
  * //               ],
  * //               CaptionDescriptionNames: [
@@ -1090,6 +1096,8 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //                 Position: "BOTTOM_CENTER" || "BOTTOM_LEFT" || "BOTTOM_RIGHT" || "MIDDLE_CENTER" || "MIDDLE_LEFT" || "MIDDLE_RIGHT" || "TOP_CENTER" || "TOP_LEFT" || "TOP_RIGHT", // required
  * //                 Prefix: "STRING_VALUE",
  * //               },
+ * //               Bitrate: Number("int"),
+ * //               RateControlMode: "CBR" || "QVBR",
  * //             },
  * //           },
  * //           Height: Number("int"),
