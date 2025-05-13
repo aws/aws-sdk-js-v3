@@ -78,11 +78,6 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * 					set of parameters</p>
  *             </li>
  *          </ul>
- *          <p>If you get a <code>ClientException</code>error, the <code>RunTask</code> could not be processed because you use managed
- * 					scaling and there is a capacity error because the quota of tasks in the
- * 					<code>PROVISIONING</code> per cluster has been reached. For information
- * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
- * 						service quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -191,6 +186,7 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *         volumeType: "STRING_VALUE",
  *         sizeInGiB: Number("int"),
  *         snapshotId: "STRING_VALUE",
+ *         volumeInitializationRate: Number("int"),
  *         iops: Number("int"),
  *         throughput: Number("int"),
  *         tagSpecifications: [ // EBSTagSpecifications
@@ -407,6 +403,16 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
  *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
@@ -417,7 +423,8 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  *
  * @throws {@link PlatformTaskDefinitionIncompatibilityException} (client fault)
  *  <p>The specified platform version doesn't satisfy the required capabilities of the task

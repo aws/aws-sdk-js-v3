@@ -45,6 +45,16 @@ export type AgentUpdateStatus = (typeof AgentUpdateStatus)[keyof typeof AgentUpd
  * <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export class ClientException extends __BaseException {
@@ -466,7 +476,8 @@ export interface CreateCapacityProviderResponse {
 /**
  * <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -662,14 +673,23 @@ export interface ExecuteCommandConfiguration {
  */
 export interface ManagedStorageConfiguration {
   /**
-   * <p>Specify a Key Management Service key ID to encrypt the managed storage.</p>
+   * <p>Specify a Key Management Service key ID to encrypt Amazon ECS managed storage.</p>
+   *          <p> When you specify a <code>kmsKeyId</code>, Amazon ECS uses the key to encrypt data volumes
+   * 			managed by Amazon ECS that are attached to tasks in the cluster. The following data volumes
+   * 			are managed by Amazon ECS: Amazon EBS. For more information about encryption of Amazon EBS volumes
+   * 			attached to Amazon ECS tasks, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-kms-encryption.html">Encrypt data stored in Amazon EBS volumes for Amazon ECS</a> in the
+   * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *          <p>The key must be a single Region key.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>Specify the Key Management Service key ID for the Fargate ephemeral storage.</p>
+   * <p>Specify the Key Management Service key ID for Fargate ephemeral storage.</p>
+   *          <p>When you specify a <code>fargateEphemeralStorageKmsKeyId</code>, Amazon Web Services Fargate uses
+   * 			the key to encrypt data at rest in ephemeral storage. For more information about
+   * 			Fargate ephemeral storage encryption, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-storage-encryption.html">Customer managed keys for Amazon Web Services Fargate ephemeral storage for
+   * 				Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *          <p>The key must be a single Region key.</p>
    * @public
    */
@@ -1068,7 +1088,7 @@ export interface Cluster {
   clusterName?: string | undefined;
 
   /**
-   * <p>The execute command configuration for the cluster.</p>
+   * <p>The execute command and managed storage configuration for the cluster.</p>
    * @public
    */
   configuration?: ClusterConfiguration | undefined;
@@ -2559,20 +2579,22 @@ export interface EBSTagSpecification {
  */
 export interface ServiceManagedEBSVolumeConfiguration {
   /**
-   * <p>Indicates whether the volume should be encrypted. If no value is specified, encryption
-   * 			is turned on by default. This parameter maps 1:1 with the <code>Encrypted</code>
-   * 			parameter of the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html">CreateVolume API</a> in
-   * 			the <i>Amazon EC2 API Reference</i>.</p>
+   * <p>Indicates whether the volume should be encrypted. If you turn on Region-level Amazon EBS
+   * 			encryption by default but set this value as <code>false</code>, the setting is
+   * 			overridden and the volume is encrypted with the KMS key specified for Amazon EBS encryption
+   * 			by default. This parameter maps 1:1 with the <code>Encrypted</code> parameter of the
+   * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html">CreateVolume API</a> in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   encrypted?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption. When
-   * 			encryption is turned on and no Amazon Web Services Key Management Service key is specified, the default Amazon Web Services managed key
-   * 			for Amazon EBS volumes is used. This parameter maps 1:1 with the <code>KmsKeyId</code>
-   * 			parameter of the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html">CreateVolume API</a> in
-   * 			the <i>Amazon EC2 API Reference</i>.</p>
+   * <p>The Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption. When a key
+   * 			is specified using this parameter, it overrides Amazon EBS default encryption or any KMS key
+   * 			that you specified for cluster-level managed storage encryption. This parameter maps 1:1
+   * 			with the <code>KmsKeyId</code> parameter of the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html">CreateVolume API</a> in
+   * 			the <i>Amazon EC2 API Reference</i>. For more information about encrypting
+   * 			Amazon EBS volumes attached to tasks, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-kms-encryption.html">Encrypt data stored in Amazon EBS volumes attached to Amazon ECS tasks</a>.</p>
    *          <important>
    *             <p>Amazon Web Services authenticates the Amazon Web Services Key Management Service key asynchronously. Therefore, if you specify an
    * 				ID, alias, or ARN that is invalid, the action can appear to complete, but
@@ -2646,13 +2668,24 @@ export interface ServiceManagedEBSVolumeConfiguration {
   sizeInGiB?: number | undefined;
 
   /**
-   * <p>The snapshot that Amazon ECS uses to create the volume. You must specify either a snapshot
-   * 			ID or a volume size. This parameter maps 1:1 with the <code>SnapshotId</code> parameter
-   * 			of the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html">CreateVolume API</a> in
+   * <p>The snapshot that Amazon ECS uses to create volumes for attachment to tasks maintained by
+   * 			the service. You must specify either <code>snapshotId</code> or <code>sizeInGiB</code>
+   * 			in your volume configuration. This parameter maps 1:1 with the <code>SnapshotId</code>
+   * 			parameter of the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html">CreateVolume API</a> in
    * 			the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   snapshotId?: string | undefined;
+
+  /**
+   * <p>The rate, in MiB/s, at which data is fetched from a snapshot of an existing EBS volume
+   * 			to create new volumes for attachment to the tasks maintained by the service. This
+   * 			property can be specified only if you specify a <code>snapshotId</code>. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">Initialize Amazon EBS volumes</a> in the <i>Amazon EBS User
+   * 				Guide</i>.</p>
+   * @public
+   */
+  volumeInitializationRate?: number | undefined;
 
   /**
    * <p>The number of I/O operations per second (IOPS). For <code>gp3</code>,
@@ -2715,7 +2748,7 @@ export interface ServiceManagedEBSVolumeConfiguration {
   /**
    * <p>The filesystem type for the volume. For volumes created from a snapshot, you must
    * 			specify the same filesystem type that the volume was using when the snapshot was
-   * 			created. If there is a filesystem type mismatch, the task will fail to start.</p>
+   * 			created. If there is a filesystem type mismatch, the tasks will fail to start.</p>
    *          <p>The available Linux filesystem types are  <code>ext3</code>, <code>ext4</code>, and
    * 				<code>xfs</code>. If no value is specified, the <code>xfs</code> filesystem type is
    * 			used by default.</p>
@@ -4325,11 +4358,10 @@ export interface DeleteAccountSettingRequest {
   name: SettingName | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the principal. It can be a user, role, or the
+   * <p>The Amazon Resource Name (ARN) of the principal. It can be an user, role, or the
    * 			root user. If you specify the root user, it disables the account setting for all users, roles,
    * 			and the root user of the account unless a user or role explicitly overrides these settings.
    * 			If this field is omitted, the setting is changed only for the authenticated user.</p>
-   *          <p>In order to use this parameter, you must be the root user, or the principal.</p>
    * @public
    */
   principalArn?: string | undefined;
@@ -5782,8 +5814,8 @@ export interface SystemControl {
    * 				<code>"fs.mqueue.*"</code>
    *          </p>
    *          <p>Valid network namespace values: <code>Sysctls</code> that start with
-   * 				<code>"net.*"</code>
-   *          </p>
+   * 				<code>"net.*"</code>. Only namespaced <code>Sysctls</code> that exist within the
+   * 			container starting with "net.* are accepted.</p>
    *          <p>All of these values are supported by Fargate.</p>
    * @public
    */
@@ -7433,8 +7465,35 @@ export interface TaskDefinition {
    *          <p>If you're using the EC2 launch type or the external launch type, this
    * 			field is optional. Supported values are between <code>128</code> CPU units
    * 				(<code>0.125</code> vCPUs) and <code>196608</code> CPU units (<code>192</code>
-   * 			vCPUs). </p>
-   *          <p>This field is required for Fargate. For information about the valid values, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_size">Task size</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			vCPUs). The CPU units cannot be less than 1 vCPU when you use Windows containers on
+   * 			Fargate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>256 (.25 vCPU) - Available <code>memory</code> values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)</p>
+   *             </li>
+   *             <li>
+   *                <p>512 (.5 vCPU) - Available <code>memory</code> values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)</p>
+   *             </li>
+   *             <li>
+   *                <p>1024 (1 vCPU) - Available <code>memory</code> values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)</p>
+   *             </li>
+   *             <li>
+   *                <p>2048 (2 vCPU) - Available <code>memory</code> values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)</p>
+   *             </li>
+   *             <li>
+   *                <p>4096 (4 vCPU) - Available <code>memory</code> values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)</p>
+   *             </li>
+   *             <li>
+   *                <p>8192 (8 vCPU)  - Available <code>memory</code> values: 16 GB and 60 GB in 4 GB increments</p>
+   *                <p>This option requires Linux platform <code>1.4.0</code> or
+   *                                         later.</p>
+   *             </li>
+   *             <li>
+   *                <p>16384 (16vCPU)  - Available <code>memory</code> values: 32GB and 120 GB in 8 GB increments</p>
+   *                <p>This option requires Linux platform <code>1.4.0</code> or
+   *                                         later.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   cpu?: string | undefined;
@@ -9572,11 +9631,42 @@ export interface Task {
    * 			expressed as a string using vCPUs (for example, <code>1 vCPU</code> or <code>1
    * 				vcpu</code>). String values are converted to an integer that indicates the CPU units
    * 			when the task definition is registered.</p>
-   *          <p>If you're using the EC2 launch type or the external launch type, this field is
-   * 			optional. Supported values are between <code>128</code> CPU units (<code>0.125</code>
-   * 			vCPUs) and <code>196608</code> CPU units (<code>192</code> vCPUs). If you do not specify
-   * 			a value, the parameter is ignored.</p>
-   *          <p>This field is required for Fargate. For information about the valid values, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_size">Task size</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   *          <p>If you're using the EC2 launch type or the external launch type, this
+   * 			field is optional. Supported values are between <code>128</code> CPU units
+   * 				(<code>0.125</code> vCPUs) and <code>196608</code> CPU units (<code>192</code>
+   * 			vCPUs). If you do not specify a value, the parameter is ignored.</p>
+   *          <p>If you're using the Fargate launch type, this field is required. You
+   * 			must use one of the following values. These values determine the range of supported
+   * 			values for the <code>memory</code> parameter:</p>
+   *          <p>The CPU units cannot be less than 1 vCPU when you use Windows containers on
+   * 			Fargate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>256 (.25 vCPU) - Available <code>memory</code> values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)</p>
+   *             </li>
+   *             <li>
+   *                <p>512 (.5 vCPU) - Available <code>memory</code> values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)</p>
+   *             </li>
+   *             <li>
+   *                <p>1024 (1 vCPU) - Available <code>memory</code> values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)</p>
+   *             </li>
+   *             <li>
+   *                <p>2048 (2 vCPU) - Available <code>memory</code> values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)</p>
+   *             </li>
+   *             <li>
+   *                <p>4096 (4 vCPU) - Available <code>memory</code> values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)</p>
+   *             </li>
+   *             <li>
+   *                <p>8192 (8 vCPU)  - Available <code>memory</code> values: 16 GB and 60 GB in 4 GB increments</p>
+   *                <p>This option requires Linux platform <code>1.4.0</code> or
+   *                                         later.</p>
+   *             </li>
+   *             <li>
+   *                <p>16384 (16vCPU)  - Available <code>memory</code> values: 32GB and 120 GB in 8 GB increments</p>
+   *                <p>This option requires Linux platform <code>1.4.0</code> or
+   *                                         later.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   cpu?: string | undefined;
@@ -10234,7 +10324,6 @@ export interface ListAccountSettingsRequest {
   /**
    * <p>The ARN of the principal, which can be a user, role, or the root user. If this field is
    * 			omitted, the account settings are listed only for the authenticated user.</p>
-   *          <p>In order to use this parameter, you must be the root user, or the principal.</p>
    *          <note>
    *             <p>Federated users assume the account setting of the root user and can't have explicit
    * 				account settings set for them.</p>
@@ -11360,7 +11449,6 @@ export interface PutAccountSettingRequest {
    * 			the root user, it modifies the account setting for all users, roles, and the root user of the
    * 			account unless a user or role explicitly overrides these settings. If this field is
    * 			omitted, the setting is changed only for the authenticated user.</p>
-   *          <p>In order to use this parameter, you must be the root user, or the principal.</p>
    *          <note>
    *             <p>You must use the root user when you set the Fargate wait time
    * 					(<code>fargateTaskRetirementWaitPeriod</code>). </p>
@@ -11922,7 +12010,38 @@ export interface RegisterTaskDefinitionRequest {
    * 			is optional. Supported values are between <code>128</code> CPU units (<code>0.125</code>
    * 			vCPUs) and <code>196608</code> CPU units (<code>192</code> vCPUs). If you do not specify
    * 			a value, the parameter is ignored.</p>
-   *          <p>This field is required for Fargate. For information about the valid values, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_size">Task size</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   *          <p>If you're using the Fargate launch type, this field is required and you
+   * 			must use one of the following values, which determines your range of supported values
+   * 			for the <code>memory</code> parameter:</p>
+   *          <p>The CPU units cannot be less than 1 vCPU when you use Windows containers on
+   * 			Fargate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>256 (.25 vCPU) - Available <code>memory</code> values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)</p>
+   *             </li>
+   *             <li>
+   *                <p>512 (.5 vCPU) - Available <code>memory</code> values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)</p>
+   *             </li>
+   *             <li>
+   *                <p>1024 (1 vCPU) - Available <code>memory</code> values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)</p>
+   *             </li>
+   *             <li>
+   *                <p>2048 (2 vCPU) - Available <code>memory</code> values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)</p>
+   *             </li>
+   *             <li>
+   *                <p>4096 (4 vCPU) - Available <code>memory</code> values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)</p>
+   *             </li>
+   *             <li>
+   *                <p>8192 (8 vCPU)  - Available <code>memory</code> values: 16 GB and 60 GB in 4 GB increments</p>
+   *                <p>This option requires Linux platform <code>1.4.0</code> or
+   *                                         later.</p>
+   *             </li>
+   *             <li>
+   *                <p>16384 (16vCPU)  - Available <code>memory</code> values: 32GB and 120 GB in 8 GB increments</p>
+   *                <p>This option requires Linux platform <code>1.4.0</code> or
+   *                                         later.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   cpu?: string | undefined;
@@ -12221,20 +12340,22 @@ export interface TaskManagedEBSVolumeTerminationPolicy {
  */
 export interface TaskManagedEBSVolumeConfiguration {
   /**
-   * <p>Indicates whether the volume should be encrypted. If no value is specified, encryption
-   * 			is turned on by default. This parameter maps 1:1 with the <code>Encrypted</code>
-   * 			parameter of the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html">CreateVolume API</a> in
-   * 			the <i>Amazon EC2 API Reference</i>.</p>
+   * <p>Indicates whether the volume should be encrypted. If you turn on Region-level Amazon EBS
+   * 			encryption by default but set this value as <code>false</code>, the setting is
+   * 			overridden and the volume is encrypted with the KMS key specified for Amazon EBS encryption
+   * 			by default. This parameter maps 1:1 with the <code>Encrypted</code> parameter of the
+   * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html">CreateVolume API</a> in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   encrypted?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption. When
-   * 			encryption is turned on and no Amazon Web Services Key Management Service key is specified, the default Amazon Web Services managed key
-   * 			for Amazon EBS volumes is used. This parameter maps 1:1 with the <code>KmsKeyId</code>
-   * 			parameter of the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html">CreateVolume API</a> in
-   * 			the <i>Amazon EC2 API Reference</i>.</p>
+   * <p>The Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption. When a key
+   * 			is specified using this parameter, it overrides Amazon EBS default encryption or any KMS key
+   * 			that you specified for cluster-level managed storage encryption. This parameter maps 1:1
+   * 			with the <code>KmsKeyId</code> parameter of the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html">CreateVolume API</a> in
+   * 			the <i>Amazon EC2 API Reference</i>. For more information about encrypting
+   * 			Amazon EBS volumes attached to a task, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-kms-encryption.html">Encrypt data stored in Amazon EBS volumes attached to Amazon ECS tasks</a>.</p>
    *          <important>
    *             <p>Amazon Web Services authenticates the Amazon Web Services Key Management Service key asynchronously. Therefore, if you specify an
    * 				ID, alias, or ARN that is invalid, the action can appear to complete, but
@@ -12315,6 +12436,15 @@ export interface TaskManagedEBSVolumeConfiguration {
    * @public
    */
   snapshotId?: string | undefined;
+
+  /**
+   * <p>The rate, in MiB/s, at which data is fetched from a snapshot of an existing Amazon EBS
+   * 			volume to create a new volume for attachment to the task. This property can be specified
+   * 			only if you specify a <code>snapshotId</code>. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">Initialize Amazon EBS volumes</a> in the <i>Amazon EBS User
+   * 				Guide</i>.</p>
+   * @public
+   */
+  volumeInitializationRate?: number | undefined;
 
   /**
    * <p>The number of I/O operations per second (IOPS). For <code>gp3</code>,
@@ -12878,7 +13008,7 @@ export interface StopServiceDeploymentRequest {
 
   /**
    * <p>How you want Amazon ECS to stop the service. </p>
-   *          <p>The valid values are <code>ROLLBACK</code>.</p>
+   *          <p>The ROLLBACK and ABORT stopType aren't supported.</p>
    * @public
    */
   stopType?: StopServiceDeploymentStopType | undefined;
