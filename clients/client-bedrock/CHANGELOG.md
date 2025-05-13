@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.809.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.808.0...v3.809.0) (2025-05-13)
+
+
+### Features
+
+* **client-bedrock:** Enable cross-Region inference for Amazon Bedrock Guardrails by using the crossRegionConfig parameter when calling the CreateGuardrail or UpdateGuardrail operation. ([568eb19](https://github.com/aws/aws-sdk-js-v3/commit/568eb19882b1d6cce89ba80cc000363bbf3a4915))
+
+
+
+
+
 # [3.808.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.807.0...v3.808.0) (2025-05-12)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock

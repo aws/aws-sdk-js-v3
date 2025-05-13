@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.809.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.808.0...v3.809.0) (2025-05-13)
+
+
+### Features
+
+* **client-dsql:** CreateMultiRegionClusters and DeleteMultiRegionClusters APIs marked as deprecated. Introduced new multi-Region clusters creation experience through multiRegionProperties parameter in CreateCluster API. ([99fb61c](https://github.com/aws/aws-sdk-js-v3/commit/99fb61c9e7a032ac58d99fcd402408f8cd69e514))
+
+
+
+
+
 # [3.808.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.807.0...v3.808.0) (2025-05-12)
 
 **Note:** Version bump only for package @aws-sdk/client-dsql

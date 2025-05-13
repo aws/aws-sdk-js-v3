@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.809.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.808.0...v3.809.0) (2025-05-13)
+
+
+### Bug Fixes
+
+* **tests:** improve CloudFormation changeset error handling and timeout ([#7073](https://github.com/aws/aws-sdk-js-v3/issues/7073)) ([cc97912](https://github.com/aws/aws-sdk-js-v3/commit/cc97912f81a9e7ffd7e3a0cf692cea1e0ee20291))
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Changes for enhanced metadata in trace ([909fadc](https://github.com/aws/aws-sdk-js-v3/commit/909fadcdab305e61cdb901f69bce4ac5097cafa7))
+* **client-bedrock:** Enable cross-Region inference for Amazon Bedrock Guardrails by using the crossRegionConfig parameter when calling the CreateGuardrail or UpdateGuardrail operation. ([568eb19](https://github.com/aws/aws-sdk-js-v3/commit/568eb19882b1d6cce89ba80cc000363bbf3a4915))
+* **client-controltower:** AWS Control Tower now reports the inheritance drift status for EnabledBaselines through the GetEnabledBaseline and ListEnabledBaselines APIs. You can now filter EnabledBaselines by their enablement and drift status using the ListEnabledBaselines API to view accounts and OUs that require attention. ([aa15d97](https://github.com/aws/aws-sdk-js-v3/commit/aa15d97948e66871a4e835c00fa4043c02f99cea))
+* **client-dsql:** CreateMultiRegionClusters and DeleteMultiRegionClusters APIs marked as deprecated. Introduced new multi-Region clusters creation experience through multiRegionProperties parameter in CreateCluster API. ([99fb61c](https://github.com/aws/aws-sdk-js-v3/commit/99fb61c9e7a032ac58d99fcd402408f8cd69e514))
+* **client-ecs:** This release extends functionality for Amazon EBS volumes attached to Amazon ECS tasks by adding support for the new EBS volumeInitializationRate parameter in ECS RunTask/StartTask/CreateService/UpdateService APIs. ([11300e3](https://github.com/aws/aws-sdk-js-v3/commit/11300e3143f649c57164e0ecfe2916e6f7f6c59c))
+* **client-license-manager:** Add Tagging feature to resources in the Managed Entitlements service. License and Grant resources can now be tagged. ([e066626](https://github.com/aws/aws-sdk-js-v3/commit/e0666269058ec05d8d03e49d39ef887b95eb5199))
+
+
+
+
+
 # [3.808.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.807.0...v3.808.0) (2025-05-12)
 
 

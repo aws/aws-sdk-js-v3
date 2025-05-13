@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.809.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.808.0...v3.809.0) (2025-05-13)
+
+
+### Features
+
+* **client-license-manager:** Add Tagging feature to resources in the Managed Entitlements service. License and Grant resources can now be tagged. ([e066626](https://github.com/aws/aws-sdk-js-v3/commit/e0666269058ec05d8d03e49d39ef887b95eb5199))
+
+
+
+
+
 # [3.808.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.807.0...v3.808.0) (2025-05-12)
 
 **Note:** Version bump only for package @aws-sdk/client-license-manager
