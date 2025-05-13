@@ -29,6 +29,8 @@ export interface DeleteMultiRegionClustersCommandOutput extends __MetadataBearer
 
 /**
  * <p>Deletes a multi-Region cluster in Amazon Aurora DSQL.</p>
+ *
+ * @deprecated The DeleteMultiRegionClusters API is deprecated. To delete a multi-Region cluster, use the DeleteCluster API instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +65,8 @@ export interface DeleteMultiRegionClustersCommandOutput extends __MetadataBearer
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error,
- *       exception or failure.</p>
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *          failure.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -81,8 +83,8 @@ export interface DeleteMultiRegionClustersCommandOutput extends __MetadataBearer
  * //
  * const input = {
  *   linkedClusterArns: [
- *     "arn:aws:dsql:us-east-1:111122223333:cluster/abcdefghijklmnopqrst12345",
- *     "arn:aws:dsql:us-east-2:111122223333:cluster/klmnopqrstuvwxyzabcd54321"
+ *     "arn:aws:dsql:us-east-1:111122223333:cluster/abcdefghijklmnopqrstu12345",
+ *     "arn:aws:dsql:us-east-2:111122223333:cluster/klmnopqrstuvwxyzabcde54321"
  *   ]
  * };
  * const command = new DeleteMultiRegionClustersCommand(input);

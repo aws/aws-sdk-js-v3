@@ -28,10 +28,12 @@ export interface CreateMultiRegionClustersCommandInput extends CreateMultiRegion
 export interface CreateMultiRegionClustersCommandOutput extends CreateMultiRegionClustersOutput, __MetadataBearer {}
 
 /**
- * <p>Creates multi-Region clusters in Amazon Aurora DSQL.
- *       Multi-Region clusters require a linked Region list, which is an array
- *       of the Regions in which you want to create linked clusters.
- *       Multi-Region clusters require a witness Region, which participates in quorum in failure scenarios.</p>
+ * <p>Creates multi-Region clusters in Amazon Aurora DSQL. Multi-Region clusters require a linked
+ *          Region list, which is an array of the Regions in which you want to create linked clusters.
+ *          Multi-Region clusters require a witness Region, which participates in quorum in failure
+ *          scenarios.</p>
+ *
+ * @deprecated The CreateMultiRegionClusters API is deprecated. Use the CreateCluster API with multi-Region properties to create a multi-Region cluster.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,8 +81,8 @@ export interface CreateMultiRegionClustersCommandOutput extends CreateMultiRegio
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error,
- *       exception or failure.</p>
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *          failure.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -107,8 +109,8 @@ export interface CreateMultiRegionClustersCommandOutput extends CreateMultiRegio
  * /* response is
  * {
  *   linkedClusterArns: [
- *     "arn:aws:dsql:us-east-1:111122223333:cluster/abcdefghijklmnopqrst12345",
- *     "arn:aws:dsql:us-east-2:111122223333:cluster/klmnopqrstuvwxyzabcd54321"
+ *     "arn:aws:dsql:us-east-1:111122223333:cluster/abcdefghijklmnopqrstu12345",
+ *     "arn:aws:dsql:us-east-2:111122223333:cluster/klmnopqrstuvwxyzabcde54321"
  *   ]
  * }
  * *\/

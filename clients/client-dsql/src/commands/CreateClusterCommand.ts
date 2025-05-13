@@ -28,7 +28,77 @@ export interface CreateClusterCommandInput extends CreateClusterInput {}
 export interface CreateClusterCommandOutput extends CreateClusterOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a cluster in Amazon Aurora DSQL.</p>
+ * <p>This operation creates a cluster in Amazon Aurora DSQL. You need the following permissions to
+ *          use this operation.</p>
+ *          <p>Permission to create a  cluster.</p>
+ *          <dl>
+ *             <dt>dsql:CreateCluster</dt>
+ *             <dd>
+ *                <p>Resources: arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/*</p>
+ *             </dd>
+ *          </dl>
+ *          <p> Permission to add tags to a  resource.</p>
+ *          <dl>
+ *             <dt>dsql:TagResource</dt>
+ *             <dd>
+ *                <p>Resources:
+ *                      arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/*</p>
+ *             </dd>
+ *          </dl>
+ *          <p>Permission to configure multi-region properties for
+ *          a cluster.</p>
+ *          <dl>
+ *             <dt>dsql:PutMultiRegionProperties</dt>
+ *             <dd>
+ *                <p>Resources:
+ *                      arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/*</p>
+ *             </dd>
+ *          </dl>
+ *          <p>When specifying multiRegionProperties.clusters.</p>
+ *          <dl>
+ *             <dt>dsql:AddPeerCluster</dt>
+ *             <dd>
+ *                <p>Permission to add peer clusters.</p>
+ *                <p>Resources:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>Local cluster: arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/*</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Each peer cluster: exact ARN of each specified peer cluster</p>
+ *                   </li>
+ *                </ul>
+ *             </dd>
+ *          </dl>
+ *          <p>When specifying multiRegionProperties.witnessRegion.</p>
+ *          <dl>
+ *             <dt>dsql:PutWitnessRegion</dt>
+ *             <dd>
+ *                <p>Permission to set a witness region.</p>
+ *                <p>Resources: arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/*</p>
+ *                <p>Condition Keys: <code>dsql:WitnessRegion</code> (matching the specified
+ *                      witness region)</p>
+ *                <note>
+ *                   <p>This permission is checked both in the cluster Region and in the witness
+ *                         Region.</p>
+ *                </note>
+ *             </dd>
+ *          </dl>
+ *          <important>
+ *             <p>
+ *                <b>Important Notes for Multi-Region Operations</b>
+ *             </p>
+ *             <ul>
+ *                <li>
+ *                   <p>The witness region specified in
+ *                   <code>multiRegionProperties.witnessRegion</code> cannot be the same as the
+ *                   cluster's Region.</p>
+ *                </li>
+ *                <li>
+ *                   <p>When updating clusters with peer relationships, permissions are checked for both adding and removing peers.</p>
+ *                </li>
+ *             </ul>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -41,14 +111,26 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  *     "<keys>": "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",
+ *   multiRegionProperties: { // MultiRegionProperties
+ *     witnessRegion: "STRING_VALUE",
+ *     clusters: [ // ClusterArnList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
  * // { // CreateClusterOutput
  * //   identifier: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
- * //   status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "DELETED" || "FAILED", // required
+ * //   status: "CREATING" || "ACTIVE" || "IDLE" || "INACTIVE" || "UPDATING" || "DELETING" || "DELETED" || "FAILED" || "PENDING_SETUP" || "PENDING_DELETE", // required
  * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   multiRegionProperties: { // MultiRegionProperties
+ * //     witnessRegion: "STRING_VALUE",
+ * //     clusters: [ // ClusterArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * //   deletionProtectionEnabled: true || false, // required
  * // };
  *
@@ -66,18 +148,18 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The service limit was exceeded.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error,
- *       exception or failure.</p>
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *          failure.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
- *
- * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link DSQLServiceException}
  * <p>Base exception class for all service exceptions from DSQL service.</p>

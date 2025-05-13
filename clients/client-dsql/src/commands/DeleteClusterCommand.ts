@@ -44,7 +44,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterOutput, __Metad
  * // { // DeleteClusterOutput
  * //   identifier: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
- * //   status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "DELETED" || "FAILED", // required
+ * //   status: "CREATING" || "ACTIVE" || "IDLE" || "INACTIVE" || "UPDATING" || "DELETING" || "DELETED" || "FAILED" || "PENDING_SETUP" || "PENDING_DELETE", // required
  * //   creationTime: new Date("TIMESTAMP"), // required
  * //   deletionProtectionEnabled: true || false, // required
  * // };
@@ -67,8 +67,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterOutput, __Metad
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error,
- *       exception or failure.</p>
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *          failure.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

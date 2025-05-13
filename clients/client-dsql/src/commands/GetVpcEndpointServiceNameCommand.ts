@@ -53,8 +53,8 @@ export interface GetVpcEndpointServiceNameCommandOutput extends GetVpcEndpointSe
  * @see {@link DSQLClientResolvedConfig | config} for DSQLClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error,
- *       exception or failure.</p>
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *          failure.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>

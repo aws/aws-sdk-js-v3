@@ -55,6 +55,7 @@ import {
   ConflictException,
   InternalServerException,
   LinkedClusterProperties,
+  MultiRegionProperties,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   ThrottlingException,
@@ -78,6 +79,7 @@ export const se_CreateClusterCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       deletionProtectionEnabled: [],
+      multiRegionProperties: (_) => _json(_),
       tags: (_) => _json(_),
     })
   );
@@ -275,6 +277,7 @@ export const se_UpdateClusterCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       deletionProtectionEnabled: [],
+      multiRegionProperties: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -300,6 +303,7 @@ export const de_CreateClusterCommand = async (
     creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     deletionProtectionEnabled: __expectBoolean,
     identifier: __expectString,
+    multiRegionProperties: _json,
     status: __expectString,
   });
   Object.assign(contents, doc);
@@ -389,7 +393,9 @@ export const de_GetClusterCommand = async (
     deletionProtectionEnabled: __expectBoolean,
     identifier: __expectString,
     linkedClusterArns: _json,
+    multiRegionProperties: _json,
     status: __expectString,
+    tags: _json,
     witnessRegion: __expectString,
   });
   Object.assign(contents, doc);
@@ -710,9 +716,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_ClusterArnList omitted.
+
 // se_ClusterPropertyMap omitted.
 
 // se_LinkedClusterProperties omitted.
+
+// se_MultiRegionProperties omitted.
 
 // se_RegionList omitted.
 
@@ -723,6 +733,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_ClusterList omitted.
 
 // de_ClusterSummary omitted.
+
+// de_MultiRegionProperties omitted.
 
 // de_TagMap omitted.
 

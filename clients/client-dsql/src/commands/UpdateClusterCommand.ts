@@ -29,6 +29,29 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
 
 /**
  * <p>Updates a cluster.</p>
+ *          <p>
+ *             <b>Example IAM Policy for Multi-Region Operations</b>
+ *          </p>
+ *          <p>The following IAM policy grants permissions for multi-Region operations.</p>
+ *          <p>The <code>dsql:RemovePeerCluster</code> permission uses a wildcard ARN pattern to simplify permission management during updates.</p>
+ *          <important>
+ *             <p>
+ *                <b>Important Notes for Multi-Region Operations</b>
+ *             </p>
+ *             <ul>
+ *                <li>
+ *                   <p>The witness region specified in
+ *                      <code>multiRegionProperties.witnessRegion</code> cannot be the same as the
+ *                   cluster's Region.</p>
+ *                </li>
+ *                <li>
+ *                   <p>When updating clusters with peer relationships, permissions are checked for both adding and removing peers.</p>
+ *                </li>
+ *                <li>
+ *                   <p>The <code>dsql:RemovePeerCluster</code> permission uses a wildcard ARN pattern to simplify permission management during updates.</p>
+ *                </li>
+ *             </ul>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -39,19 +62,25 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  *   identifier: "STRING_VALUE", // required
  *   deletionProtectionEnabled: true || false,
  *   clientToken: "STRING_VALUE",
+ *   multiRegionProperties: { // MultiRegionProperties
+ *     witnessRegion: "STRING_VALUE",
+ *     clusters: [ // ClusterArnList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);
  * // { // UpdateClusterOutput
  * //   identifier: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
- * //   status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "DELETED" || "FAILED", // required
+ * //   status: "CREATING" || "ACTIVE" || "IDLE" || "INACTIVE" || "UPDATING" || "DELETING" || "DELETED" || "FAILED" || "PENDING_SETUP" || "PENDING_DELETE", // required
  * //   creationTime: new Date("TIMESTAMP"), // required
- * //   deletionProtectionEnabled: true || false, // required
  * //   witnessRegion: "STRING_VALUE",
  * //   linkedClusterArns: [ // ClusterArnList
  * //     "STRING_VALUE",
  * //   ],
+ * //   deletionProtectionEnabled: true || false, // required
  * // };
  *
  * ```
@@ -68,18 +97,18 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error,
- *       exception or failure.</p>
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *          failure.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
- *
- * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link DSQLServiceException}
  * <p>Base exception class for all service exceptions from DSQL service.</p>

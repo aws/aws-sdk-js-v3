@@ -43,13 +43,22 @@ export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBea
  * // { // GetClusterOutput
  * //   identifier: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
- * //   status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "DELETED" || "FAILED", // required
+ * //   status: "CREATING" || "ACTIVE" || "IDLE" || "INACTIVE" || "UPDATING" || "DELETING" || "DELETED" || "FAILED" || "PENDING_SETUP" || "PENDING_DELETE", // required
  * //   creationTime: new Date("TIMESTAMP"), // required
- * //   deletionProtectionEnabled: true || false, // required
  * //   witnessRegion: "STRING_VALUE",
  * //   linkedClusterArns: [ // ClusterArnList
  * //     "STRING_VALUE",
  * //   ],
+ * //   deletionProtectionEnabled: true || false, // required
+ * //   multiRegionProperties: { // MultiRegionProperties
+ * //     witnessRegion: "STRING_VALUE",
+ * //     clusters: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
@@ -67,8 +76,8 @@ export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBea
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error,
- *       exception or failure.</p>
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *          failure.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
