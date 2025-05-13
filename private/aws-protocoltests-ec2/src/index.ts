@@ -7,6 +7,7 @@
  */
 export * from "./EC2ProtocolClient";
 export * from "./EC2Protocol";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { EC2ProtocolExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

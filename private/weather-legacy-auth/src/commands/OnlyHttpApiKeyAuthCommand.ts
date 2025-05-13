@@ -1,8 +1,10 @@
 // smithy-typescript generated code
 import { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { getHttpApiKeyAuthPlugin } from "../middleware/HttpApiKeyAuth";
 import { de_OnlyHttpApiKeyAuthCommand, se_OnlyHttpApiKeyAuthCommand } from "../protocols/Aws_restJson1";
 import { getSigV4AuthPlugin } from "@aws-sdk/middleware-signing";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
@@ -60,9 +62,11 @@ export class OnlyHttpApiKeyAuthCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getSigV4AuthPlugin(config),
       getHttpApiKeyAuthPlugin(config, {
         in: "header",

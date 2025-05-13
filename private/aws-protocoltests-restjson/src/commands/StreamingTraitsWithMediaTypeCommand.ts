@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import {
@@ -7,6 +8,7 @@ import {
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StreamingTraitsWithMediaTypeInputOutput,
   StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog,
@@ -92,8 +94,12 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("RestJson", "StreamingTraitsWithMediaType", {})
   .n("RestJsonProtocolClient", "StreamingTraitsWithMediaTypeCommand")

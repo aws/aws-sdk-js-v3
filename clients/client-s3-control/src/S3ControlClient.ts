@@ -758,8 +758,8 @@ export type S3ControlClientConfigType = Partial<__SmithyConfiguration<__HttpHand
   RetryInputConfig &
   RegionInputConfig &
   HostHeaderInputConfig &
-  EndpointInputConfig<EndpointParameters> &
   S3ControlInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -779,8 +779,8 @@ export type S3ControlClientResolvedConfigType = __SmithyResolvedConfiguration<__
   RetryResolvedConfig &
   RegionResolvedConfig &
   HostHeaderResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
   S3ControlResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -814,8 +814,8 @@ export class S3ControlClient extends __Client<
     const _config_3 = resolveRetryConfig(_config_2);
     const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveEndpointConfig(_config_5);
-    const _config_7 = resolveS3ControlConfig(_config_6);
+    const _config_6 = resolveS3ControlConfig(_config_5);
+    const _config_7 = resolveEndpointConfig(_config_6);
     const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
     const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
     this.config = _config_9;

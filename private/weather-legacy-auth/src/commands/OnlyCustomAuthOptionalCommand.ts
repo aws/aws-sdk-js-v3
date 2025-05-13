@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { de_OnlyCustomAuthOptionalCommand, se_OnlyCustomAuthOptionalCommand } from "../protocols/Aws_restJson1";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
@@ -58,8 +60,12 @@ export class OnlyCustomAuthOptionalCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("Weather", "OnlyCustomAuthOptional", {})
   .n("WeatherClient", "OnlyCustomAuthOptionalCommand")

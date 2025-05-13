@@ -34,6 +34,12 @@ import {
   OnlySigv4AuthOptionalCommandOutput,
 } from "./commands/OnlySigv4AuthOptionalCommand";
 import { SameAsServiceCommandInput, SameAsServiceCommandOutput } from "./commands/SameAsServiceCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import { RuntimeExtension, RuntimeExtensionsConfig, resolveRuntimeExtensions } from "./runtimeExtensions";
 import {
@@ -50,16 +56,14 @@ import {
   getUserAgentPlugin,
   resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
 import {
-  CustomEndpointsInputConfig,
-  CustomEndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveCustomEndpointsConfig,
-  resolveRegionConfig,
-} from "@smithy/config-resolver";
-import { DefaultIdentityProviderConfig, getHttpAuthSchemePlugin, getHttpSigningPlugin } from "@smithy/core";
+  DefaultIdentityProviderConfig,
+  getHttpAuthSchemeEndpointRuleSetPlugin,
+  getHttpSigningPlugin,
+} from "@smithy/core";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@smithy/middleware-retry";
 import { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
 import {
@@ -258,11 +262,12 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 export type WeatherClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   UserAgentInputConfig &
-  CustomEndpointsInputConfig &
   RetryInputConfig &
   RegionInputConfig &
   HostHeaderInputConfig &
-  HttpAuthSchemeInputConfig;
+  EndpointInputConfig<EndpointParameters> &
+  HttpAuthSchemeInputConfig &
+  ClientInputEndpointParameters;
 /**
  * @public
  *
@@ -277,11 +282,12 @@ export type WeatherClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
   UserAgentResolvedConfig &
-  CustomEndpointsResolvedConfig &
   RetryResolvedConfig &
   RegionResolvedConfig &
   HostHeaderResolvedConfig &
-  HttpAuthSchemeResolvedConfig;
+  EndpointResolvedConfig<EndpointParameters> &
+  HttpAuthSchemeResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * @public
  *
@@ -307,14 +313,15 @@ export class WeatherClient extends __Client<
     let _config_0 = __getRuntimeConfig(configuration || {});
     super(_config_0 as any);
     this.initConfig = _config_0;
-    let _config_1 = resolveUserAgentConfig(_config_0);
-    let _config_2 = resolveCustomEndpointsConfig(_config_1);
+    let _config_1 = resolveClientEndpointParameters(_config_0);
+    let _config_2 = resolveUserAgentConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);
     let _config_4 = resolveRegionConfig(_config_3);
     let _config_5 = resolveHostHeaderConfig(_config_4);
-    let _config_6 = resolveHttpAuthSchemeConfig(_config_5);
-    let _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
-    this.config = _config_7;
+    let _config_6 = resolveEndpointConfig(_config_5);
+    let _config_7 = resolveHttpAuthSchemeConfig(_config_6);
+    let _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    this.config = _config_8;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
@@ -322,7 +329,7 @@ export class WeatherClient extends __Client<
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(
-      getHttpAuthSchemePlugin(this.config, {
+      getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
         httpAuthSchemeParametersProvider: defaultWeatherHttpAuthSchemeParametersProvider,
         identityProviderConfigProvider: async (config: WeatherClientResolvedConfig) =>
           new DefaultIdentityProviderConfig({

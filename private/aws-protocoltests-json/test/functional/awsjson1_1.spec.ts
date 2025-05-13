@@ -173,9 +173,9 @@ const clientParams = {
   endpoint: () => {
     const url = new URL("https://localhost/");
     return Promise.resolve({
-      ...url,
+      hostname: url.hostname,
+      protocol: url.protocol,
       path: url.pathname,
-      ...(url.port ? { port: Number(url.port) } : {}),
     }) as Promise<Endpoint>;
   },
 };

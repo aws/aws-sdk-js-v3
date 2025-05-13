@@ -14,12 +14,12 @@ import {
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
 import {
-  CustomEndpointsInputConfig,
-  CustomEndpointsResolvedConfig,
-  resolveCustomEndpointsConfig,
-} from "@smithy/config-resolver";
-import { DefaultIdentityProviderConfig, getHttpAuthSchemePlugin, getHttpSigningPlugin } from "@smithy/core";
+  DefaultIdentityProviderConfig,
+  getHttpAuthSchemeEndpointRuleSetPlugin,
+  getHttpSigningPlugin,
+} from "@smithy/core";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
 import { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
 import {
@@ -78,6 +78,12 @@ import {
   SparseNullsOperationCommandInput,
   SparseNullsOperationCommandOutput,
 } from "./commands/SparseNullsOperationCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
 
@@ -248,10 +254,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 export type RpcV2ProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   UserAgentInputConfig &
-  CustomEndpointsInputConfig &
   RetryInputConfig &
   HostHeaderInputConfig &
-  HttpAuthSchemeInputConfig;
+  EndpointInputConfig<EndpointParameters> &
+  HttpAuthSchemeInputConfig &
+  ClientInputEndpointParameters;
 /**
  * @public
  *
@@ -266,10 +273,11 @@ export type RpcV2ProtocolClientResolvedConfigType = __SmithyResolvedConfiguratio
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
   UserAgentResolvedConfig &
-  CustomEndpointsResolvedConfig &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
-  HttpAuthSchemeResolvedConfig;
+  EndpointResolvedConfig<EndpointParameters> &
+  HttpAuthSchemeResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * @public
  *
@@ -295,13 +303,14 @@ export class RpcV2ProtocolClient extends __Client<
     const _config_0 = __getRuntimeConfig(configuration || {});
     super(_config_0 as any);
     this.initConfig = _config_0;
-    const _config_1 = resolveUserAgentConfig(_config_0);
-    const _config_2 = resolveCustomEndpointsConfig(_config_1);
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveUserAgentConfig(_config_1);
     const _config_3 = resolveRetryConfig(_config_2);
     const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveHttpAuthSchemeConfig(_config_4);
-    const _config_6 = resolveRuntimeExtensions(_config_5, configuration?.extensions || []);
-    this.config = _config_6;
+    const _config_5 = resolveEndpointConfig(_config_4);
+    const _config_6 = resolveHttpAuthSchemeConfig(_config_5);
+    const _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
+    this.config = _config_7;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
@@ -309,7 +318,7 @@ export class RpcV2ProtocolClient extends __Client<
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(
-      getHttpAuthSchemePlugin(this.config, {
+      getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
         httpAuthSchemeParametersProvider: defaultRpcV2ProtocolHttpAuthSchemeParametersProvider,
         identityProviderConfigProvider: async (config: RpcV2ProtocolClientResolvedConfig) =>
           new DefaultIdentityProviderConfig({}),

@@ -49,8 +49,7 @@ public class AddWebsocketPlugin implements TypeScriptIntegration {
     public List<String> runAfter() {
         return List.of(
             AddHttpAuthSchemePlugin.class.getCanonicalName(),
-            AddBuiltinPlugins.class.getCanonicalName(),
-            AddEndpointsPlugin.class.getCanonicalName()
+            AddBuiltinPlugins.class.getCanonicalName()
         );
     }
 

@@ -52,8 +52,7 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
     @Override
     public List<String> runAfter() {
         return List.of(
-            AddBuiltinPlugins.class.getCanonicalName(),
-            AddEndpointsPlugin.class.getCanonicalName()
+            AddBuiltinPlugins.class.getCanonicalName()
         );
     }
 

@@ -2,6 +2,7 @@
 /* eslint-disable */
 export * from "./MachineLearningClient";
 export * from "./MachineLearning";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MachineLearningExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

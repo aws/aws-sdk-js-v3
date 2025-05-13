@@ -99,8 +99,7 @@ public final class AddS3Config implements TypeScriptIntegration {
     public List<String> runAfter() {
         return List.of(
             new AddHttpSigningPlugin().name(),
-            AddBuiltinPlugins.class.getCanonicalName(),
-            AddEndpointsPlugin.class.getCanonicalName()
+            AddBuiltinPlugins.class.getCanonicalName()
         );
     }
 

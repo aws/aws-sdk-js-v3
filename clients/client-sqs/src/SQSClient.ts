@@ -335,8 +335,8 @@ export type SQSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpt
   RetryInputConfig &
   RegionInputConfig &
   HostHeaderInputConfig &
-  EndpointInputConfig<EndpointParameters> &
   QueueUrlInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -356,8 +356,8 @@ export type SQSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
   RetryResolvedConfig &
   RegionResolvedConfig &
   HostHeaderResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
   QueueUrlResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -462,8 +462,8 @@ export class SQSClient extends __Client<
     const _config_3 = resolveRetryConfig(_config_2);
     const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveEndpointConfig(_config_5);
-    const _config_7 = resolveQueueUrlConfig(_config_6);
+    const _config_6 = resolveQueueUrlConfig(_config_5);
+    const _config_7 = resolveEndpointConfig(_config_6);
     const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
     const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
     this.config = _config_9;
