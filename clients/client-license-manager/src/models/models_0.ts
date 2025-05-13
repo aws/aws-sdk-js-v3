@@ -718,6 +718,25 @@ export interface CheckoutLicenseResponse {
 }
 
 /**
+ * <p>Details about the tags for a resource. For more information about tagging support in
+ *          License Manager, see the <a href="https://docs.aws.amazon.com/license-manager/latest/APIReference/API_TagResource.html">TagResource</a> operation.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>The tag key.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The tag value.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateGrantRequest {
@@ -772,6 +791,13 @@ export interface CreateGrantRequest {
    * @public
    */
   AllowedOperations: AllowedOperation[] | undefined;
+
+  /**
+   * <p>Tags to add to the grant. For more information about tagging support in
+   *          License Manager, see the <a href="https://docs.aws.amazon.com/license-manager/latest/APIReference/API_TagResource.html">TagResource</a> operation.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1175,6 +1201,13 @@ export interface CreateLicenseRequest {
    * @public
    */
   ClientToken: string | undefined;
+
+  /**
+   * <p>Tags to add to the license. For more information about tagging support in
+   *          License Manager, see the <a href="https://docs.aws.amazon.com/license-manager/latest/APIReference/API_TagResource.html">TagResource</a> operation.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1328,7 +1361,8 @@ export interface ProductInformation {
    *                <p>
    *                   <code>Engine Edition</code> - The edition of the database engine.
    *                Logical operator is <code>EQUALS</code>.
-   *                Possible values are: <code>oracle-ee</code> | <code>oracle-se</code> | <code>oracle-se1</code> | <code>oracle-se2</code>.</p>
+   *                Possible values are: <code>oracle-ee</code> | <code>oracle-se</code> | <code>oracle-se1</code> | <code>oracle-se2</code>
+   *             	| <code>db2-se</code> | <code>db2-ae</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1344,24 +1378,6 @@ export interface ProductInformation {
    * @public
    */
   ProductInformationFilterList: ProductInformationFilter[] | undefined;
-}
-
-/**
- * <p>Details about a tag for a license configuration.</p>
- * @public
- */
-export interface Tag {
-  /**
-   * <p>Tag key.</p>
-   * @public
-   */
-  Key?: string | undefined;
-
-  /**
-   * <p>Tag value.</p>
-   * @public
-   */
-  Value?: string | undefined;
 }
 
 /**
@@ -1413,8 +1429,6 @@ export interface CreateLicenseConfigurationRequest {
    *             <li>
    *                <p>
    *                   <code>Instances</code> dimension: <code>allowedTenancy</code> |
-   *                <code>maximumCores</code> | <code>minimumCores</code> |
-   *                <code>maximumSockets</code> | <code>minimumSockets</code> |
    *                <code>maximumVcpus</code> | <code>minimumVcpus</code>
    *                </p>
    *             </li>
@@ -3084,18 +3098,15 @@ export interface ListLicenseConfigurationsRequest {
    *             <li>
    *                <p>
    *                   <code>licenseCountingType</code> - The dimension for which licenses are counted.
-   *                Possible values are <code>vCPU</code> | <code>Instance</code> | <code>Core</code> | <code>Socket</code>.
-   *                Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>
+   *                Possible values are <code>vCPU</code> | <code>Instance</code> | <code>Core</code> | <code>Socket</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>enforceLicenseCount</code> - A Boolean value that indicates whether hard license enforcement is used.
-   *                Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>
+   *                   <code>enforceLicenseCount</code> - A Boolean value that indicates whether hard license enforcement is used.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>usagelimitExceeded</code> - A Boolean value that indicates whether the available licenses have been exceeded.
-   *                Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>
+   *                   <code>usagelimitExceeded</code> - A Boolean value that indicates whether the available licenses have been exceeded.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4127,7 +4138,7 @@ export interface ListResourceInventoryResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>Amazon Resource Name (ARN) of the license configuration.</p>
+   * <p>Amazon Resource Name (ARN) of the resource.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -4273,18 +4284,16 @@ export interface ListUsageForLicenseConfigurationRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>resourceArn</code> - The ARN of the license configuration resource.
-   *                Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>
+   *                   <code>resourceArn</code> - The ARN of the license configuration resource.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>resourceType</code> - The resource type (<code>EC2_INSTANCE</code> | <code>EC2_HOST</code> | <code>EC2_AMI</code> | <code>SYSTEMS_MANAGER_MANAGED_INSTANCE</code>).
-   *                Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>
+   *                   <code>resourceType</code> - The resource type (<code>EC2_INSTANCE</code> |
+   *             	<code>EC2_HOST</code> | <code>EC2_AMI</code> | <code>SYSTEMS_MANAGER_MANAGED_INSTANCE</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>resourceAccount</code> - The ID of the account that owns the resource.
-   *                Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>
+   *                   <code>resourceAccount</code> - The ID of the account that owns the resource.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4390,7 +4399,30 @@ export interface RejectGrantResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>Amazon Resource Name (ARN) of the license configuration.</p>
+   * <p>Amazon Resource Name (ARN) of the resource. The following examples provide an example
+   *          ARN for each supported resource in License Manager:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Licenses -
+   *                   <code>arn:aws:license-manager::111122223333:license:l-EXAMPLE2da7646d6861033667f20e895</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Grants -
+   *                   <code>arn:aws:license-manager::111122223333:grant:g-EXAMPLE7b19f4a0ab73679b0beb52707</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>License configurations -
+   *                   <code>arn:aws:license-manager:us-east-1:111122223333:license-configuration:lic-EXAMPLE6a788d4c8acd4264ff0ecf2ed2d</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Report generators -
+   *                   <code>arn:aws:license-manager:us-east-1:111122223333:report-generator:r-EXAMPLE825b4a4f8fe5a3e0c88824e5fc6</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ResourceArn: string | undefined;
@@ -4412,7 +4444,7 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>Amazon Resource Name (ARN) of the license configuration.</p>
+   * <p>Amazon Resource Name (ARN) of the resource.</p>
    * @public
    */
   ResourceArn: string | undefined;

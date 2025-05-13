@@ -81,6 +81,9 @@ export interface UpdateLicenseSpecificationsForResourceCommandOutput
  *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
  *          policy associated with this account.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict processing the request. Try your request again.</p>
+ *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *

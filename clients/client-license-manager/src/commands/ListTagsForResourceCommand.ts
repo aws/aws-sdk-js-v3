@@ -28,7 +28,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags for the specified license configuration.</p>
+ * <p>Lists the tags for the specified resource. For more information about tagging support in
+ *          License Manager, see the <a href="https://docs.aws.amazon.com/license-manager/latest/APIReference/API_TagResource.html">TagResource</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

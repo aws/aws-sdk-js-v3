@@ -28,7 +28,22 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds the specified tags to the specified license configuration.</p>
+ * <p>Adds the specified tags to the specified resource. The following resources support
+ *          tagging in License Manager:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Licenses</p>
+ *             </li>
+ *             <li>
+ *                <p>Grants</p>
+ *             </li>
+ *             <li>
+ *                <p>License configurations</p>
+ *             </li>
+ *             <li>
+ *                <p>Report generators</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

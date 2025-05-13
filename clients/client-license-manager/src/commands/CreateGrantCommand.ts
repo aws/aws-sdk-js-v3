@@ -48,6 +48,12 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *   AllowedOperations: [ // AllowedOperationList // required
  *     "CreateGrant" || "CheckoutLicense" || "CheckoutBorrowLicense" || "CheckInLicense" || "ExtendConsumptionLicense" || "ListPurchasedLicenses" || "CreateToken",
  *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new CreateGrantCommand(input);
  * const response = await client.send(command);

@@ -76,6 +76,12 @@ export interface CreateLicenseCommandOutput extends CreateLicenseResponse, __Met
  *     },
  *   ],
  *   ClientToken: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new CreateLicenseCommand(input);
  * const response = await client.send(command);
