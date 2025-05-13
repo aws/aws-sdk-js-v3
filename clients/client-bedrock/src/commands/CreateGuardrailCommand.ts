@@ -162,6 +162,9 @@ export interface CreateGuardrailCommandOutput extends CreateGuardrailResponse, _
  *       },
  *     ],
  *   },
+ *   crossRegionConfig: { // GuardrailCrossRegionConfig
+ *     guardrailProfileIdentifier: "STRING_VALUE", // required
+ *   },
  *   blockedInputMessaging: "STRING_VALUE", // required
  *   blockedOutputsMessaging: "STRING_VALUE", // required
  *   kmsKeyId: "STRING_VALUE",

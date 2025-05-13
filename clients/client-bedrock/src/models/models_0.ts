@@ -2352,6 +2352,19 @@ export interface GuardrailContextualGroundingPolicyConfig {
 }
 
 /**
+ * <p>The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination Amazon Web Services Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.</p>
+ *          <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
+ * @public
+ */
+export interface GuardrailCrossRegionConfig {
+  /**
+   * <p>The ID or Amazon Resource Name (ARN) of the guardrail profile that your guardrail is using. Guardrail profile availability depends on your current Amazon Web Services Region. For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html">Amazon Bedrock User Guide</a>.</p>
+   * @public
+   */
+  guardrailProfileIdentifier: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -3244,6 +3257,13 @@ export interface CreateGuardrailRequest {
   contextualGroundingPolicyConfig?: GuardrailContextualGroundingPolicyConfig | undefined;
 
   /**
+   * <p>The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination Amazon Web Services Regions where guardrail inference requests can be automatically routed.</p>
+   *          <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
+   * @public
+   */
+  crossRegionConfig?: GuardrailCrossRegionConfig | undefined;
+
+  /**
    * <p>The message to return when the guardrail blocks a prompt.</p>
    * @public
    */
@@ -3616,6 +3636,26 @@ export interface GuardrailContextualGroundingPolicy {
    * @public
    */
   filters: GuardrailContextualGroundingFilter[] | undefined;
+}
+
+/**
+ * <p>Contains details about the system-defined guardrail profile that you're using with your guardrail for cross-Region inference.</p>
+ *          <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
+ * @public
+ */
+export interface GuardrailCrossRegionDetails {
+  /**
+   * <p>The ID of the guardrail profile that your guardrail is using. Profile availability
+   *          depends on your current Amazon Web Services Region. For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html">Amazon Bedrock User Guide</a>.</p>
+   * @public
+   */
+  guardrailProfileId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the guardrail profile that you're using with your guardrail.</p>
+   * @public
+   */
+  guardrailProfileArn?: string | undefined;
 }
 
 /**
@@ -4136,6 +4176,12 @@ export interface GetGuardrailResponse {
   contextualGroundingPolicy?: GuardrailContextualGroundingPolicy | undefined;
 
   /**
+   * <p>Details about the system-defined guardrail profile that you're using with your guardrail, including the guardrail profile ID and Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  crossRegionDetails?: GuardrailCrossRegionDetails | undefined;
+
+  /**
    * <p>The date and time at which the guardrail was created.</p>
    * @public
    */
@@ -4261,6 +4307,12 @@ export interface GuardrailSummary {
    * @public
    */
   updatedAt: Date | undefined;
+
+  /**
+   * <p>Details about the system-defined guardrail profile that you're using with your guardrail, including the guardrail profile ID and Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  crossRegionDetails?: GuardrailCrossRegionDetails | undefined;
 }
 
 /**
@@ -4331,6 +4383,13 @@ export interface UpdateGuardrailRequest {
    * @public
    */
   contextualGroundingPolicyConfig?: GuardrailContextualGroundingPolicyConfig | undefined;
+
+  /**
+   * <p>The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination Amazon Web Services Regions where guardrail inference requests can be automatically routed.</p>
+   *          <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
+   * @public
+   */
+  crossRegionConfig?: GuardrailCrossRegionConfig | undefined;
 
   /**
    * <p>The message to return when the guardrail blocks a prompt.</p>
@@ -9410,96 +9469,6 @@ export interface CreateEvaluationJobRequest {
 }
 
 /**
- * @public
- */
-export interface GetEvaluationJobResponse {
-  /**
-   * <p>The name for the evaluation job.</p>
-   * @public
-   */
-  jobName: string | undefined;
-
-  /**
-   * <p>The current status of the evaluation job.</p>
-   * @public
-   */
-  status: EvaluationJobStatus | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the evaluation job.</p>
-   * @public
-   */
-  jobArn: string | undefined;
-
-  /**
-   * <p>The description of the evaluation job.</p>
-   * @public
-   */
-  jobDescription?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM service role used in the evaluation job.</p>
-   * @public
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the customer managed encryption key specified when the evaluation job was created.</p>
-   * @public
-   */
-  customerEncryptionKeyId?: string | undefined;
-
-  /**
-   * <p>Specifies whether the evaluation job is automated or human-based.</p>
-   * @public
-   */
-  jobType: EvaluationJobType | undefined;
-
-  /**
-   * <p>Specifies whether the evaluation job is for evaluating a model or evaluating a knowledge base (retrieval and response generation).</p>
-   * @public
-   */
-  applicationType?: ApplicationType | undefined;
-
-  /**
-   * <p>Contains the configuration details of either an automated or human-based evaluation job.</p>
-   * @public
-   */
-  evaluationConfig: EvaluationConfig | undefined;
-
-  /**
-   * <p>Contains the configuration details of the inference model used for the evaluation job. </p>
-   * @public
-   */
-  inferenceConfig: EvaluationInferenceConfig | undefined;
-
-  /**
-   * <p>Contains the configuration details of the Amazon S3 bucket for
-   *          storing the results of the evaluation job.</p>
-   * @public
-   */
-  outputDataConfig: EvaluationOutputDataConfig | undefined;
-
-  /**
-   * <p>The time the evaluation job was created.</p>
-   * @public
-   */
-  creationTime: Date | undefined;
-
-  /**
-   * <p>The time the evaluation job was last modified.</p>
-   * @public
-   */
-  lastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>A list of strings that specify why the evaluation job failed to create.</p>
-   * @public
-   */
-  failureMessages?: string[] | undefined;
-}
-
-/**
  * @internal
  */
 export const BatchDeleteEvaluationJobRequestFilterSensitiveLog = (obj: BatchDeleteEvaluationJobRequest): any => ({
@@ -10297,16 +10266,6 @@ export const EvaluationInferenceConfigFilterSensitiveLog = (obj: EvaluationInfer
  * @internal
  */
 export const CreateEvaluationJobRequestFilterSensitiveLog = (obj: CreateEvaluationJobRequest): any => ({
-  ...obj,
-  ...(obj.jobDescription && { jobDescription: SENSITIVE_STRING }),
-  ...(obj.evaluationConfig && { evaluationConfig: EvaluationConfigFilterSensitiveLog(obj.evaluationConfig) }),
-  ...(obj.inferenceConfig && { inferenceConfig: EvaluationInferenceConfigFilterSensitiveLog(obj.inferenceConfig) }),
-});
-
-/**
- * @internal
- */
-export const GetEvaluationJobResponseFilterSensitiveLog = (obj: GetEvaluationJobResponse): any => ({
   ...obj,
   ...(obj.jobDescription && { jobDescription: SENSITIVE_STRING }),
   ...(obj.evaluationConfig && { evaluationConfig: EvaluationConfigFilterSensitiveLog(obj.evaluationConfig) }),

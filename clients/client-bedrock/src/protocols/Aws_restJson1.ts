@@ -243,6 +243,7 @@ import {
   GuardrailContextualGroundingFilterConfig,
   GuardrailContextualGroundingPolicy,
   GuardrailContextualGroundingPolicyConfig,
+  GuardrailCrossRegionConfig,
   GuardrailManagedWordsConfig,
   GuardrailModality,
   GuardrailPiiEntityConfig,
@@ -393,6 +394,7 @@ export const se_CreateGuardrailCommand = async (
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       contentPolicyConfig: (_) => _json(_),
       contextualGroundingPolicyConfig: (_) => se_GuardrailContextualGroundingPolicyConfig(_, context),
+      crossRegionConfig: (_) => _json(_),
       description: [],
       kmsKeyId: [],
       name: [],
@@ -1519,6 +1521,7 @@ export const se_UpdateGuardrailCommand = async (
       blockedOutputsMessaging: [],
       contentPolicyConfig: (_) => _json(_),
       contextualGroundingPolicyConfig: (_) => se_GuardrailContextualGroundingPolicyConfig(_, context),
+      crossRegionConfig: (_) => _json(_),
       description: [],
       kmsKeyId: [],
       name: [],
@@ -2100,6 +2103,7 @@ export const de_GetGuardrailCommand = async (
     contentPolicy: _json,
     contextualGroundingPolicy: (_) => de_GuardrailContextualGroundingPolicy(_, context),
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    crossRegionDetails: _json,
     description: __expectString,
     failureRecommendations: _json,
     guardrailArn: __expectString,
@@ -3427,6 +3431,8 @@ const se_GuardrailContextualGroundingPolicyConfig = (
   });
 };
 
+// se_GuardrailCrossRegionConfig omitted.
+
 // se_GuardrailManagedWordListsConfig omitted.
 
 // se_GuardrailManagedWordsConfig omitted.
@@ -4147,6 +4153,8 @@ const de_GuardrailContextualGroundingPolicy = (
   }) as any;
 };
 
+// de_GuardrailCrossRegionDetails omitted.
+
 // de_GuardrailFailureRecommendations omitted.
 
 // de_GuardrailManagedWordLists omitted.
@@ -4186,6 +4194,7 @@ const de_GuardrailSummary = (output: any, context: __SerdeContext): GuardrailSum
   return take(output, {
     arn: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    crossRegionDetails: _json,
     description: __expectString,
     id: __expectString,
     name: __expectString,

@@ -58,6 +58,10 @@ export interface ListGuardrailsCommandOutput extends ListGuardrailsResponse, __M
  * //       version: "STRING_VALUE", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //       crossRegionDetails: { // GuardrailCrossRegionDetails
+ * //         guardrailProfileId: "STRING_VALUE",
+ * //         guardrailProfileArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

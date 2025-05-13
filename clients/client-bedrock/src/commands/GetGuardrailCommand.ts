@@ -137,6 +137,10 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //       },
  * //     ],
  * //   },
+ * //   crossRegionDetails: { // GuardrailCrossRegionDetails
+ * //     guardrailProfileId: "STRING_VALUE",
+ * //     guardrailProfileArn: "STRING_VALUE",
+ * //   },
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * //   statusReasons: [ // GuardrailStatusReasons
