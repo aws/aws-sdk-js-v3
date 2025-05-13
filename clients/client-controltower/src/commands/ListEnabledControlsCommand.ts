@@ -28,10 +28,7 @@ export interface ListEnabledControlsCommandInput extends ListEnabledControlsInpu
 export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the controls enabled by Amazon Web Services Control Tower on the specified organizational unit and
- *          the accounts it contains. For usage examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html">
- *                <i>Controls Reference Guide</i>
- *             </a>.</p>
+ * <p>Lists the controls enabled by Amazon Web Services Control Tower on the specified organizational unit and the accounts it contains. For usage examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html"> <i>Controls Reference Guide</i> </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

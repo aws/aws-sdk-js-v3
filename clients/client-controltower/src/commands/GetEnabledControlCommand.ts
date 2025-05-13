@@ -28,9 +28,7 @@ export interface GetEnabledControlCommandInput extends GetEnabledControlInput {}
 export interface GetEnabledControlCommandOutput extends GetEnabledControlOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves details about an enabled control. For usage examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html">
- *                <i>Controls Reference Guide</i>
- *             </a>.</p>
+ * <p>Retrieves details about an enabled control. For usage examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html"> <i>Controls Reference Guide</i> </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

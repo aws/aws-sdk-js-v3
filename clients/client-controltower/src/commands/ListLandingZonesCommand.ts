@@ -28,9 +28,7 @@ export interface ListLandingZonesCommandInput extends ListLandingZonesInput {}
 export interface ListLandingZonesCommandOutput extends ListLandingZonesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the landing zone ARN for the landing zone deployed in your managed account. This API also
- *          creates an ARN for existing accounts that do not yet have a landing zone ARN. </p>
- *          <p>Returns one landing zone ARN.</p>
+ * <p>Returns the landing zone ARN for the landing zone deployed in your managed account. This API also creates an ARN for existing accounts that do not yet have a landing zone ARN. </p> <p>Returns one landing zone ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

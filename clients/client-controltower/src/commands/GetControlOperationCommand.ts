@@ -28,11 +28,7 @@ export interface GetControlOperationCommandInput extends GetControlOperationInpu
 export interface GetControlOperationCommandOutput extends GetControlOperationOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the status of a particular <code>EnableControl</code> or
- *          <code>DisableControl</code> operation. Displays a message in case of error. Details for an
- *          operation are available for 90 days. For usage examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html">
- *                <i>Controls Reference Guide</i>
- *             </a>.</p>
+ * <p>Returns the status of a particular <code>EnableControl</code> or <code>DisableControl</code> operation. Displays a message in case of error. Details for an operation are available for 90 days. For usage examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html"> <i>Controls Reference Guide</i> </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

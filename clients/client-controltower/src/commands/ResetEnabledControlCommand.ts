@@ -65,7 +65,7 @@ export interface ResetEnabledControlCommandOutput extends ResetEnabledControlOut
  *  <p>The request references a resource that does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded. The limit is 10 concurrent operations.</p>
+ *  <p>The request would cause a service quota to be exceeded. The limit is 100 concurrent operations.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

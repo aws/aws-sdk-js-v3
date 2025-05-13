@@ -45,6 +45,13 @@ export interface GetEnabledBaselineCommandOutput extends GetEnabledBaselineOutpu
  * //     arn: "STRING_VALUE", // required
  * //     baselineIdentifier: "STRING_VALUE", // required
  * //     baselineVersion: "STRING_VALUE",
+ * //     driftStatusSummary: { // EnabledBaselineDriftStatusSummary
+ * //       types: { // EnabledBaselineDriftTypes
+ * //         inheritance: { // EnabledBaselineInheritanceDrift
+ * //           status: "IN_SYNC" || "DRIFTED",
+ * //         },
+ * //       },
+ * //     },
  * //     targetIdentifier: "STRING_VALUE", // required
  * //     parentIdentifier: "STRING_VALUE",
  * //     statusSummary: { // EnablementStatusSummary

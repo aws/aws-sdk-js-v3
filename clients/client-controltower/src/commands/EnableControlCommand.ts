@@ -28,11 +28,7 @@ export interface EnableControlCommandInput extends EnableControlInput {}
 export interface EnableControlCommandOutput extends EnableControlOutput, __MetadataBearer {}
 
 /**
- * <p>This API call activates a control. It starts an asynchronous operation that creates Amazon Web Services
- *          resources on the specified organizational unit and the accounts it contains. The resources
- *          created will vary according to the control that you specify. For usage examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html">
- *                <i>Controls Reference Guide</i>
- *             </a>.</p>
+ * <p>This API call activates a control. It starts an asynchronous operation that creates Amazon Web Services resources on the specified organizational unit and the accounts it contains. The resources created will vary according to the control that you specify. For usage examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html"> <i>Controls Reference Guide</i> </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,7 +76,7 @@ export interface EnableControlCommandOutput extends EnableControlOutput, __Metad
  *  <p>The request references a resource that does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded. The limit is 10 concurrent operations.</p>
+ *  <p>The request would cause a service quota to be exceeded. The limit is 100 concurrent operations.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

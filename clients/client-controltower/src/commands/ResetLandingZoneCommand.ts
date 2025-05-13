@@ -28,11 +28,7 @@ export interface ResetLandingZoneCommandInput extends ResetLandingZoneInput {}
 export interface ResetLandingZoneCommandOutput extends ResetLandingZoneOutput, __MetadataBearer {}
 
 /**
- * <p>This API call resets a landing zone. It starts an asynchronous operation that resets the
- *          landing zone to the parameters specified in the original configuration, which you specified
- *          in the manifest file. Nothing in the manifest file's original landing zone configuration is changed
- *          during the reset process, by default. This API is not the same as a rollback of a landing
- *          zone version, which is not a supported operation.</p>
+ * <p>This API call resets a landing zone. It starts an asynchronous operation that resets the landing zone to the parameters specified in the original configuration, which you specified in the manifest file. Nothing in the manifest file's original landing zone configuration is changed during the reset process, by default. This API is not the same as a rollback of a landing zone version, which is not a supported operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,8 +28,7 @@ export interface GetLandingZoneOperationCommandInput extends GetLandingZoneOpera
 export interface GetLandingZoneOperationCommandOutput extends GetLandingZoneOperationOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the status of the specified landing zone operation. Details for an operation are available for
- *          90 days.</p>
+ * <p>Returns the status of the specified landing zone operation. Details for an operation are available for 90 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

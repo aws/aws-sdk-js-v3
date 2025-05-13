@@ -100,6 +100,7 @@ import {
   ControlOperationType,
   DriftStatus,
   EnabledBaselineDetails,
+  EnabledBaselineDriftStatus,
   EnabledBaselineFilter,
   EnabledBaselineParameter,
   EnabledBaselineParameterSummary,
@@ -1535,6 +1536,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_EnabledBaselineBaselineIdentifiers omitted.
 
+// se_EnabledBaselineDriftStatuses omitted.
+
+// se_EnabledBaselineEnablementStatuses omitted.
+
 // se_EnabledBaselineFilter omitted.
 
 /**
@@ -1694,12 +1699,19 @@ const de_EnabledBaselineDetails = (output: any, context: __SerdeContext): Enable
     arn: __expectString,
     baselineIdentifier: __expectString,
     baselineVersion: __expectString,
+    driftStatusSummary: _json,
     parameters: (_: any) => de_EnabledBaselineParameterSummaries(_, context),
     parentIdentifier: __expectString,
     statusSummary: _json,
     targetIdentifier: __expectString,
   }) as any;
 };
+
+// de_EnabledBaselineDriftStatusSummary omitted.
+
+// de_EnabledBaselineDriftTypes omitted.
+
+// de_EnabledBaselineInheritanceDrift omitted.
 
 /**
  * deserializeAws_restJson1EnabledBaselineParameterDocument

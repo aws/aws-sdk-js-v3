@@ -28,8 +28,7 @@ export interface CreateLandingZoneCommandInput extends CreateLandingZoneInput {}
 export interface CreateLandingZoneCommandOutput extends CreateLandingZoneOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new landing zone. This API call starts an asynchronous operation that creates and configures a landing zone,
- *          based on the parameters specified in the manifest JSON file.</p>
+ * <p>Creates a new landing zone. This API call starts an asynchronous operation that creates and configures a landing zone, based on the parameters specified in the manifest JSON file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

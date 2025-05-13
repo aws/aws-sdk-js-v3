@@ -305,7 +305,7 @@ export interface BaselineSummary {
  */
 export interface ListBaselinesOutput {
   /**
-   * <p>A  list of <code>Baseline</code> object details.</p>
+   * <p>A list of <code>Baseline</code> object details.</p>
    * @public
    */
   baselines: BaselineSummary[] | undefined;
@@ -322,8 +322,7 @@ export interface ListBaselinesOutput {
  */
 export interface GetControlOperationInput {
   /**
-   * <p>The ID of the asynchronous operation, which is used to track status. The operation is
-   *          available for 90 days.</p>
+   * <p>The ID of the asynchronous operation, which is used to track status. The operation is available for 90 days.</p>
    * @public
    */
   operationIdentifier: string | undefined;
@@ -390,8 +389,7 @@ export interface ControlOperation {
   status?: ControlOperationStatus | undefined;
 
   /**
-   * <p>If the operation result is <code>FAILED</code>, this string contains a message explaining
-   *          why the operation failed.</p>
+   * <p>If the operation result is <code>FAILED</code>, this string contains a message explaining why the operation failed.</p>
    * @public
    */
   statusMessage?: string | undefined;
@@ -593,9 +591,7 @@ export class ConflictException extends __BaseException {
  */
 export interface DisableControlInput {
   /**
-   * <p>The ARN of the control. Only <b>Strongly recommended</b> and
-   *          <b>Elective</b> controls are permitted, with the exception of the
-   *          <b>Region deny</b> control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   * <p>The ARN of the control. Only <b>Strongly recommended</b> and <b>Elective</b> controls are permitted, with the exception of the <b>Region deny</b> control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
    * @public
    */
   controlIdentifier: string | undefined;
@@ -612,15 +608,14 @@ export interface DisableControlInput {
  */
 export interface DisableControlOutput {
   /**
-   * <p>The ID of the asynchronous operation, which is used to track status. The operation is
-   *          available for 90 days.</p>
+   * <p>The ID of the asynchronous operation, which is used to track status. The operation is available for 90 days.</p>
    * @public
    */
   operationIdentifier: string | undefined;
 }
 
 /**
- * <p>The request would cause a service quota to be exceeded. The limit is 10 concurrent operations.</p>
+ * <p>The request would cause a service quota to be exceeded. The limit is 100 concurrent operations.</p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -743,6 +738,56 @@ export interface GetEnabledBaselineInput {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const EnabledBaselineDriftStatus = {
+  DRIFTED: "DRIFTED",
+  IN_SYNC: "IN_SYNC",
+} as const;
+
+/**
+ * @public
+ */
+export type EnabledBaselineDriftStatus = (typeof EnabledBaselineDriftStatus)[keyof typeof EnabledBaselineDriftStatus];
+
+/**
+ * <p>The inheritance drift summary for the enabled baseline. Inheritance drift occurs when any accounts in the target OU do not match the baseline configuration defined on that OU. </p>
+ * @public
+ */
+export interface EnabledBaselineInheritanceDrift {
+  /**
+   * <p>The inheritance drift status for enabled baselines.</p>
+   * @public
+   */
+  status?: EnabledBaselineDriftStatus | undefined;
+}
+
+/**
+ * <p>The types of drift that can be detected for an enabled baseline.</p> <ul> <li> <p> Amazon Web Services Control Tower detects inheritance drift on the enabled baselines that target OUs: <code>AWSControlTowerBaseline</code> and <code>BackupBaseline</code>. </p> </li> <li> <p>Amazon Web Services Control Tower does not detect drift on the baselines that apply to your landing zone: <code>IdentityCenterBaseline</code>, <code>AuditBaseline</code>, <code>LogArchiveBaseline</code>, <code>BackupCentralVaultBaseline</code>, or <code>BackupAdminBaseline</code>. For more information, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/types-of-baselines.html">Types of baselines</a>.</p> </li> </ul> <p>Baselines enabled on an OU are inherited by its member accounts as child <code>EnabledBaseline</code> resources. The baseline on the OU serves as the parent <code>EnabledBaseline</code>, which governs the configuration of each child <code>EnabledBaseline</code>.</p> <p>If the baseline configuration of a member account in an OU does not match the configuration of the parent OU, the parent and child baseline is in a state of inheritance drift. This drift could occur in the <code>AWSControlTowerBaseline</code> or the <code>BackupBaseline</code> related to that account.</p>
+ * @public
+ */
+export interface EnabledBaselineDriftTypes {
+  /**
+   * <p>One or more accounts within the target OU does not match the baseline configuration defined on that OU. An account is in inheritance drift when it does not match the configuration of a parent OU, possibly a new parent OU if the account is moved. </p>
+   * @public
+   */
+  inheritance?: EnabledBaselineInheritanceDrift | undefined;
+}
+
+/**
+ * <p>The drift summary of the enabled baseline. Amazon Web Services Control Tower reports inheritance drift when an enabled baseline configuration of a member account is different than the configuration that applies to the OU. Amazon Web Services Control Tower reports this type of drift for a parent or child enabled baseline. One way to repair this drift by resetting the parent enabled baseline, on the OU.</p> <p>For example, if an account is moved between OUs that share the same baseline but different versions or parameters, the entity from the previous OU is unlinked; that (previous) OU reports <i>inheritance drift</i>. Also, the parent enabled baseline on the destination OU reports <i>inheritance drift</i>; it is missing the newly moved account. The configurations do not match for either OU, so both are in a state of inheritance drift.</p>
+ * @public
+ */
+export interface EnabledBaselineDriftStatusSummary {
+  /**
+   * <p>The types of drift that can be detected for an enabled baseline. Amazon Web Services Control Tower detects inheritance drift on enabled baselines that apply at the OU level. </p>
+   * @public
+   */
+  types?: EnabledBaselineDriftTypes | undefined;
+}
+
+/**
  * <p>Summary of an applied parameter to an <code>EnabledBaseline</code> resource. </p>
  * @public
  */
@@ -781,22 +826,7 @@ export type EnablementStatus = (typeof EnablementStatus)[keyof typeof Enablement
  */
 export interface EnablementStatusSummary {
   /**
-   * <p> The deployment status of the enabled resource.</p>
-   *          <p>Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCEEDED</code>: The <code>EnabledControl</code> or <code>EnabledBaseline</code> configuration was deployed successfully.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNDER_CHANGE</code>: The <code>EnabledControl</code> or <code>EnabledBaseline</code> configuration is changing. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>: The <code>EnabledControl</code> or <code>EnabledBaseline</code> configuration failed to deploy.</p>
-   *             </li>
-   *          </ul>
+   * <p> The deployment status of the enabled resource.</p> <p>Valid values:</p> <ul> <li> <p> <code>SUCCEEDED</code>: The <code>EnabledControl</code> or <code>EnabledBaseline</code> configuration was deployed successfully.</p> </li> <li> <p> <code>UNDER_CHANGE</code>: The <code>EnabledControl</code> or <code>EnabledBaseline</code> configuration is changing. </p> </li> <li> <p> <code>FAILED</code>: The <code>EnabledControl</code> or <code>EnabledBaseline</code> configuration failed to deploy.</p> </li> </ul>
    * @public
    */
   status?: EnablementStatus | undefined;
@@ -830,6 +860,12 @@ export interface EnabledBaselineDetails {
    * @public
    */
   baselineVersion?: string | undefined;
+
+  /**
+   * <p>The drift status of the enabled baseline.</p>
+   * @public
+   */
+  driftStatusSummary?: EnabledBaselineDriftStatusSummary | undefined;
 
   /**
    * <p>The target on which to enable the <code>Baseline</code>.</p>
@@ -889,6 +925,18 @@ export interface EnabledBaselineFilter {
    * @public
    */
   parentIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>A list of <code>EnablementStatus</code> items.</p>
+   * @public
+   */
+  statuses?: EnablementStatus[] | undefined;
+
+  /**
+   * <p>A list of <code>EnabledBaselineDriftStatus</code> items for enabled baselines.</p>
+   * @public
+   */
+  inheritanceDriftStatuses?: EnabledBaselineDriftStatus[] | undefined;
 }
 
 /**
@@ -914,7 +962,7 @@ export interface ListEnabledBaselinesInput {
   maxResults?: number | undefined;
 
   /**
-   * <p>A value that can be  set to include the child enabled baselines in responses. The default value is false.</p>
+   * <p>A value that can be set to include the child enabled baselines in responses. The default value is false.</p>
    * @public
    */
   includeChildren?: boolean | undefined;
@@ -942,6 +990,12 @@ export interface EnabledBaselineSummary {
    * @public
    */
   baselineVersion?: string | undefined;
+
+  /**
+   * <p>The drift status of the enabled baseline.</p>
+   * @public
+   */
+  driftStatusSummary?: EnabledBaselineDriftStatusSummary | undefined;
 
   /**
    * <p>The target upon which the baseline is enabled.</p>
@@ -1058,9 +1112,7 @@ export interface EnabledControlParameter {
  */
 export interface EnableControlInput {
   /**
-   * <p>The ARN of the control. Only <b>Strongly recommended</b> and
-   *          <b>Elective</b> controls are permitted, with the exception of the
-   *          <b>Region deny</b> control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   * <p>The ARN of the control. Only <b>Strongly recommended</b> and <b>Elective</b> controls are permitted, with the exception of the <b>Region deny</b> control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
    * @public
    */
   controlIdentifier: string | undefined;
@@ -1089,8 +1141,7 @@ export interface EnableControlInput {
  */
 export interface EnableControlOutput {
   /**
-   * <p>The ID of the asynchronous operation, which is used to track status. The operation is
-   *          available for 90 days.</p>
+   * <p>The ID of the asynchronous operation, which is used to track status. The operation is available for 90 days.</p>
    * @public
    */
   operationIdentifier: string | undefined;
@@ -1130,38 +1181,12 @@ export const DriftStatus = {
 export type DriftStatus = (typeof DriftStatus)[keyof typeof DriftStatus];
 
 /**
- * <p>The drift summary of the enabled control.</p>
- *          <p>Amazon Web Services Control Tower expects the enabled control
- *          configuration to include all supported and governed Regions. If the enabled control differs
- *          from the expected configuration, it is defined to be in a state of drift. You can repair this drift by resetting the enabled control.</p>
+ * <p>The drift summary of the enabled control.</p> <p>Amazon Web Services Control Tower expects the enabled control configuration to include all supported and governed Regions. If the enabled control differs from the expected configuration, it is defined to be in a state of drift. You can repair this drift by resetting the enabled control.</p>
  * @public
  */
 export interface DriftStatusSummary {
   /**
-   * <p> The drift status of the enabled control.</p>
-   *          <p>Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DRIFTED</code>: The <code>enabledControl</code> deployed in this configuration
-   *                   doesn’t match the configuration that Amazon Web Services Control Tower expected. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_SYNC</code>: The <code>enabledControl</code> deployed in this configuration matches
-   *                   the configuration that Amazon Web Services Control Tower expected.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOT_CHECKING</code>: Amazon Web Services Control Tower does not check drift for this enabled
-   *                   control. Drift is not supported for the control type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNKNOWN</code>: Amazon Web Services Control Tower is not able to check the drift status for the
-   *                   enabled control. </p>
-   *             </li>
-   *          </ul>
+   * <p> The drift status of the enabled control.</p> <p>Valid values:</p> <ul> <li> <p> <code>DRIFTED</code>: The <code>enabledControl</code> deployed in this configuration doesn’t match the configuration that Amazon Web Services Control Tower expected. </p> </li> <li> <p> <code>IN_SYNC</code>: The <code>enabledControl</code> deployed in this configuration matches the configuration that Amazon Web Services Control Tower expected.</p> </li> <li> <p> <code>NOT_CHECKING</code>: Amazon Web Services Control Tower does not check drift for this enabled control. Drift is not supported for the control type.</p> </li> <li> <p> <code>UNKNOWN</code>: Amazon Web Services Control Tower is not able to check the drift status for the enabled control. </p> </li> </ul>
    * @public
    */
   driftStatus?: DriftStatus | undefined;
@@ -1186,10 +1211,7 @@ export interface EnabledControlParameterSummary {
 }
 
 /**
- * <p>An Amazon Web Services Region in which Amazon Web Services Control Tower expects to find the control deployed. </p>
- *          <p>The expected Regions are based on the Regions that are governed by the landing zone. In
- *             certain cases, a control is not actually enabled in the Region as expected, such as during
- *             drift, or <a href="https://docs.aws.amazon.com/controltower/latest/userguide/region-how.html#mixed-governance">mixed governance</a>.</p>
+ * <p>An Amazon Web Services Region in which Amazon Web Services Control Tower expects to find the control deployed. </p> <p>The expected Regions are based on the Regions that are governed by the landing zone. In certain cases, a control is not actually enabled in the Region as expected, such as during drift, or <a href="https://docs.aws.amazon.com/controltower/latest/userguide/region-how.html#mixed-governance">mixed governance</a>.</p>
  * @public
  */
 export interface Region {
@@ -1353,15 +1375,13 @@ export interface EnabledControlSummary {
  */
 export interface ListEnabledControlsOutput {
   /**
-   * <p>Lists the controls enabled by Amazon Web Services Control Tower on the specified organizational unit and
-   *          the accounts it contains.</p>
+   * <p>Lists the controls enabled by Amazon Web Services Control Tower on the specified organizational unit and the accounts it contains.</p>
    * @public
    */
   enabledControls: EnabledControlSummary[] | undefined;
 
   /**
-   * <p>Retrieves the next page of results. If the string is empty, the response is the
-   *          end of the results.</p>
+   * <p>Retrieves the next page of results. If the string is empty, the response is the end of the results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1400,9 +1420,7 @@ export interface UpdateEnabledControlInput {
   parameters: EnabledControlParameter[] | undefined;
 
   /**
-   * <p>
-   *          The ARN of the enabled control that will be updated.
-   *       </p>
+   * <p> The ARN of the enabled control that will be updated. </p>
    * @public
    */
   enabledControlIdentifier: string | undefined;
@@ -1413,9 +1431,7 @@ export interface UpdateEnabledControlInput {
  */
 export interface UpdateEnabledControlOutput {
   /**
-   * <p>
-   *          The operation identifier for this <code>UpdateEnabledControl</code> operation.
-   *       </p>
+   * <p> The operation identifier for this <code>UpdateEnabledControl</code> operation. </p>
    * @public
    */
   operationIdentifier: string | undefined;
@@ -1469,26 +1485,7 @@ export type LandingZoneOperationStatus = (typeof LandingZoneOperationStatus)[key
  */
 export interface LandingZoneOperationDetail {
   /**
-   * <p>The landing zone operation type. </p>
-   *          <p>Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE</code>: The <code>DeleteLandingZone</code> operation.  </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE</code>: The <code>CreateLandingZone</code> operation. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE</code>: The <code>UpdateLandingZone</code> operation. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESET</code>: The <code>ResetLandingZone</code> operation. </p>
-   *             </li>
-   *          </ul>
+   * <p>The landing zone operation type. </p> <p>Valid values:</p> <ul> <li> <p> <code>DELETE</code>: The <code>DeleteLandingZone</code> operation. </p> </li> <li> <p> <code>CREATE</code>: The <code>CreateLandingZone</code> operation. </p> </li> <li> <p> <code>UPDATE</code>: The <code>UpdateLandingZone</code> operation. </p> </li> <li> <p> <code>RESET</code>: The <code>ResetLandingZone</code> operation. </p> </li> </ul>
    * @public
    */
   operationType?: LandingZoneOperationType | undefined;
@@ -1500,21 +1497,7 @@ export interface LandingZoneOperationDetail {
   operationIdentifier?: string | undefined;
 
   /**
-   * <p>Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCEEDED</code>: The landing zone operation succeeded.  </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_PROGRESS</code>: The landing zone operation is in progress. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>: The landing zone operation failed. </p>
-   *             </li>
-   *          </ul>
+   * <p>Valid values:</p> <ul> <li> <p> <code>SUCCEEDED</code>: The landing zone operation succeeded. </p> </li> <li> <p> <code>IN_PROGRESS</code>: The landing zone operation is in progress. </p> </li> <li> <p> <code>FAILED</code>: The landing zone operation failed. </p> </li> </ul>
    * @public
    */
   status?: LandingZoneOperationStatus | undefined;
@@ -1642,8 +1625,7 @@ export interface CreateLandingZoneInput {
   version: string | undefined;
 
   /**
-   * <p>The manifest JSON file is a text file that describes your Amazon Web Services resources. For examples, review
-   *          <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch">Launch your landing zone</a>.  </p>
+   * <p>The manifest JSON file is a text file that describes your Amazon Web Services resources. For examples, review <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch">Launch your landing zone</a>. </p>
    * @public
    */
   manifest: __DocumentType | undefined;
@@ -1666,8 +1648,7 @@ export interface CreateLandingZoneOutput {
   arn: string | undefined;
 
   /**
-   * <p>A unique identifier assigned to a <code>CreateLandingZone</code> operation. You can use this
-   *          identifier as an input of <code>GetLandingZoneOperation</code> to check the operation's status.</p>
+   * <p>A unique identifier assigned to a <code>CreateLandingZone</code> operation. You can use this identifier as an input of <code>GetLandingZoneOperation</code> to check the operation's status.</p>
    * @public
    */
   operationIdentifier: string | undefined;
@@ -1689,8 +1670,7 @@ export interface DeleteLandingZoneInput {
  */
 export interface DeleteLandingZoneOutput {
   /**
-   * <p>&gt;A unique identifier assigned to a <code>DeleteLandingZone</code> operation. You can use this
-   *          identifier as an input parameter of <code>GetLandingZoneOperation</code> to check the operation's status.</p>
+   * <p>&gt;A unique identifier assigned to a <code>DeleteLandingZone</code> operation. You can use this identifier as an input parameter of <code>GetLandingZoneOperation</code> to check the operation's status.</p>
    * @public
    */
   operationIdentifier: string | undefined;
@@ -1722,27 +1702,12 @@ export const LandingZoneDriftStatus = {
 export type LandingZoneDriftStatus = (typeof LandingZoneDriftStatus)[keyof typeof LandingZoneDriftStatus];
 
 /**
- * <p>The drift status summary of the landing zone. </p>
- *          <p>If the landing zone differs from the expected configuration, it is defined to be in a state of
- *          drift. You can repair this drift by resetting the landing zone.</p>
+ * <p>The drift status summary of the landing zone. </p> <p>If the landing zone differs from the expected configuration, it is defined to be in a state of drift. You can repair this drift by resetting the landing zone.</p>
  * @public
  */
 export interface LandingZoneDriftStatusSummary {
   /**
-   * <p>The drift status of the landing zone. </p>
-   *          <p>Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DRIFTED</code>: The landing zone deployed in this configuration does not match the
-   *                   configuration that Amazon Web Services Control Tower expected. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_SYNC</code>: The landing zone deployed in this configuration matches the
-   *                   configuration that Amazon Web Services Control Tower expected. </p>
-   *             </li>
-   *          </ul>
+   * <p>The drift status of the landing zone. </p> <p>Valid values:</p> <ul> <li> <p> <code>DRIFTED</code>: The landing zone deployed in this configuration does not match the configuration that Amazon Web Services Control Tower expected. </p> </li> <li> <p> <code>IN_SYNC</code>: The landing zone deployed in this configuration matches the configuration that Amazon Web Services Control Tower expected. </p> </li> </ul>
    * @public
    */
   status?: LandingZoneDriftStatus | undefined;
@@ -1878,8 +1843,7 @@ export interface ResetLandingZoneInput {
  */
 export interface ResetLandingZoneOutput {
   /**
-   * <p>A unique identifier assigned to a <code>ResetLandingZone</code> operation. You can use this
-   *          identifier as an input parameter of <code>GetLandingZoneOperation</code> to check the operation's status.</p>
+   * <p>A unique identifier assigned to a <code>ResetLandingZone</code> operation. You can use this identifier as an input parameter of <code>GetLandingZoneOperation</code> to check the operation's status.</p>
    * @public
    */
   operationIdentifier: string | undefined;
@@ -1896,8 +1860,7 @@ export interface UpdateLandingZoneInput {
   version: string | undefined;
 
   /**
-   * <p>The manifest file (JSON) is a text file that describes your Amazon Web Services resources. For an example, review
-   *          <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch">Launch your landing zone</a>. The example manifest file contains each of the available parameters. The schema for the landing zone's JSON manifest file is not published, by design.</p>
+   * <p>The manifest file (JSON) is a text file that describes your Amazon Web Services resources. For an example, review <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch">Launch your landing zone</a>. The example manifest file contains each of the available parameters. The schema for the landing zone's JSON manifest file is not published, by design.</p>
    * @public
    */
   manifest: __DocumentType | undefined;
@@ -1914,8 +1877,7 @@ export interface UpdateLandingZoneInput {
  */
 export interface UpdateLandingZoneOutput {
   /**
-   * <p>A unique identifier assigned to a <code>UpdateLandingZone</code> operation. You can use this
-   *          identifier as an input of <code>GetLandingZoneOperation</code> to check the operation's status.</p>
+   * <p>A unique identifier assigned to a <code>UpdateLandingZone</code> operation. You can use this identifier as an input of <code>GetLandingZoneOperation</code> to check the operation's status.</p>
    * @public
    */
   operationIdentifier: string | undefined;
