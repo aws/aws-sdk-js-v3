@@ -1,0 +1,67 @@
+{
+  "name": "@aws-sdk/lib-dynamodb-data-mapper",
+  "version": "0.1.0",
+  "description": "Schema-based DataMapper for AWS SDK v3",
+  "main": "./dist/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+    "build:cjs": "node ../../scripts/compilation/inline lib-dynamodb",
+    "build:es": "tsc -p tsconfig.es.json",
+    "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "extract:docs": "api-extractor run --local",
+    "test": "yarn g:vitest run",
+    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.ts --mode development",
+    "test:watch": "yarn g:vitest watch",
+    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.ts"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@aws-sdk/core": "*",
+    "@aws-sdk/util-dynamodb": "*",
+    "@smithy/core": "^3.2.0",
+    "@smithy/smithy-client": "^4.2.0",
+    "@smithy/types": "^4.2.0",
+    "reflect-metadata": "^0.1.13",
+    "tslib": "^2.6.2"
+  },
+  "peerDependencies": {
+    "@aws-sdk/client-dynamodb": "*"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-dynamodb": "*",
+    "@tsconfig/recommended": "1.0.1",
+    "@types/node": "^18.19.69",
+    "concurrently": "7.0.0",
+    "downlevel-dts": "0.10.1",
+    "rimraf": "3.0.2",
+    "typescript": "~5.2.2"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-dynamodb",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "lib/lib-dynamodb-data-mapper"
+  }
+}

@@ -22841,6 +22841,29 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/lib-dynamodb-data-mapper@workspace:lib/lib-dynamodb-data-mapper":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/lib-dynamodb-data-mapper@workspace:lib/lib-dynamodb-data-mapper"
+  dependencies:
+    "@aws-sdk/client-dynamodb": "npm:*"
+    "@aws-sdk/core": "npm:*"
+    "@aws-sdk/util-dynamodb": "npm:*"
+    "@smithy/core": "npm:^3.2.0"
+    "@smithy/smithy-client": "npm:^4.2.0"
+    "@smithy/types": "npm:^4.2.0"
+    "@tsconfig/recommended": "npm:1.0.1"
+    "@types/node": "npm:^18.19.69"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    reflect-metadata: "npm:^0.1.13"
+    rimraf: "npm:3.0.2"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~5.2.2"
+  peerDependencies:
+    "@aws-sdk/client-dynamodb": "*"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/lib-dynamodb@workspace:lib/lib-dynamodb":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/lib-dynamodb@workspace:lib/lib-dynamodb"
@@ -27792,7 +27815,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/core@npm:^3.3.1":
+"@smithy/core@npm:^3.2.0, @smithy/core@npm:^3.3.1":
   version: 3.3.1
   resolution: "@smithy/core@npm:3.3.1"
   dependencies:
@@ -28187,7 +28210,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/smithy-client@npm:^4.2.2":
+"@smithy/smithy-client@npm:^4.2.0, @smithy/smithy-client@npm:^4.2.2":
   version: 4.2.2
   resolution: "@smithy/smithy-client@npm:4.2.2"
   dependencies:
@@ -38625,6 +38648,13 @@ __metadata:
   version: 0.1.13
   resolution: "reflect-metadata@npm:0.1.13"
   checksum: 10c0/728bff0b376b05639fd11ed80c648b61f7fe653c5b506d7ca118e58b6752b9b00810fe0c86227ecf02bd88da6251ab3eb19fd403aaf2e9ff5ef36a2fda643026
+  languageName: node
+  linkType: hard
+
+"reflect-metadata@npm:^0.1.13":
+  version: 0.1.14
+  resolution: "reflect-metadata@npm:0.1.14"
+  checksum: 10c0/3a6190c7f6cb224f26a012d11f9e329360c01c1945e2cbefea23976a8bacf9db6b794aeb5bf18adcb673c448a234fbc06fc41853c00a6c206b30f0777ecf019e
   languageName: node
   linkType: hard
 
