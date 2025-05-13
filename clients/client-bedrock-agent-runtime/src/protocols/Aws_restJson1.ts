@@ -11,7 +11,9 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
@@ -76,6 +78,7 @@ import { BedrockAgentRuntimeServiceException as __BaseException } from "../model
 import {
   AccessDeniedException,
   ActionGroupExecutor,
+  ActionGroupInvocationOutput,
   AgentActionGroup,
   AgentCollaboratorInputPayload,
   AgentCollaboratorInvocationInput,
@@ -93,6 +96,7 @@ import {
   ByteContentFile,
   Citation,
   CitationEvent,
+  CodeInterpreterInvocationOutput,
   CollaboratorConfiguration,
   ConflictException,
   ContentBlock,
@@ -103,10 +107,12 @@ import {
   ExternalSource,
   ExternalSourcesGenerationConfiguration,
   ExternalSourcesRetrieveAndGenerateConfiguration,
+  FailureTrace,
   FieldForReranking,
   FilePart,
   FileSource,
   FilterAttribute,
+  FinalResponse,
   FlowCompletionEvent,
   FlowInput,
   FlowInputContent,
@@ -132,6 +138,7 @@ import {
   GuardrailConfiguration,
   GuardrailConfigurationWithArn,
   GuardrailEvent,
+  GuardrailTrace,
   ImageBlock,
   ImageInput,
   ImageInputSource,
@@ -161,6 +168,7 @@ import {
   Memory,
   MemorySessionSummary,
   Message,
+  Metadata,
   MetadataAttributeSchema,
   MetadataConfigurationForReranking,
   ModelInvocationInput,
@@ -203,6 +211,7 @@ import {
   RetrievedReference,
   ReturnControlPayload,
   ReturnControlResults,
+  RoutingClassifierModelInvocationOutput,
   RoutingClassifierTrace,
   S3Identifier,
   S3Location,
@@ -3034,7 +3043,15 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 
 // de_ActionGroupInvocationInput omitted.
 
-// de_ActionGroupInvocationOutput omitted.
+/**
+ * deserializeAws_restJson1ActionGroupInvocationOutput
+ */
+const de_ActionGroupInvocationOutput = (output: any, context: __SerdeContext): ActionGroupInvocationOutput => {
+  return take(output, {
+    metadata: (_: any) => de_Metadata(_, context),
+    text: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1AgentCollaboratorInputPayload
@@ -3071,6 +3088,7 @@ const de_AgentCollaboratorInvocationOutput = (
   return take(output, {
     agentCollaboratorAliasArn: __expectString,
     agentCollaboratorName: __expectString,
+    metadata: (_: any) => de_Metadata(_, context),
     output: _json,
   }) as any;
 };
@@ -3180,7 +3198,18 @@ const de_Citations = (output: any, context: __SerdeContext): Citation[] => {
 
 // de_CodeInterpreterInvocationInput omitted.
 
-// de_CodeInterpreterInvocationOutput omitted.
+/**
+ * deserializeAws_restJson1CodeInterpreterInvocationOutput
+ */
+const de_CodeInterpreterInvocationOutput = (output: any, context: __SerdeContext): CodeInterpreterInvocationOutput => {
+  return take(output, {
+    executionError: __expectString,
+    executionOutput: __expectString,
+    executionTimeout: __expectBoolean,
+    files: _json,
+    metadata: (_: any) => de_Metadata(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1ContentBody
@@ -3198,7 +3227,17 @@ const de_ContentBody = (output: any, context: __SerdeContext): ContentBody => {
 
 // de_CustomOrchestrationTraceEvent omitted.
 
-// de_FailureTrace omitted.
+/**
+ * deserializeAws_restJson1FailureTrace
+ */
+const de_FailureTrace = (output: any, context: __SerdeContext): FailureTrace => {
+  return take(output, {
+    failureCode: __expectInt32,
+    failureReason: __expectString,
+    metadata: (_: any) => de_Metadata(_, context),
+    traceId: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1FilePart
@@ -3211,7 +3250,15 @@ const de_FilePart = (output: any, context: __SerdeContext): FilePart => {
 
 // de_Files omitted.
 
-// de_FinalResponse omitted.
+/**
+ * deserializeAws_restJson1FinalResponse
+ */
+const de_FinalResponse = (output: any, context: __SerdeContext): FinalResponse => {
+  return take(output, {
+    metadata: (_: any) => de_Metadata(_, context),
+    text: __expectString,
+  }) as any;
+};
 
 // de_FlowCompletionEvent omitted.
 
@@ -3480,7 +3527,18 @@ const de_FunctionResult = (output: any, context: __SerdeContext): FunctionResult
 
 // de_GuardrailTopicPolicyAssessment omitted.
 
-// de_GuardrailTrace omitted.
+/**
+ * deserializeAws_restJson1GuardrailTrace
+ */
+const de_GuardrailTrace = (output: any, context: __SerdeContext): GuardrailTrace => {
+  return take(output, {
+    action: __expectString,
+    inputAssessments: _json,
+    metadata: (_: any) => de_Metadata(_, context),
+    outputAssessments: _json,
+    traceId: __expectString,
+  }) as any;
+};
 
 // de_GuardrailWordPolicyAssessment omitted.
 
@@ -3706,6 +3764,7 @@ const de_InvocationSummary = (output: any, context: __SerdeContext): InvocationS
  */
 const de_KnowledgeBaseLookupOutput = (output: any, context: __SerdeContext): KnowledgeBaseLookupOutput => {
   return take(output, {
+    metadata: (_: any) => de_Metadata(_, context),
     retrievedReferences: (_: any) => de_RetrievedReferences(_, context),
   }) as any;
 };
@@ -3771,7 +3830,19 @@ const de_MemorySessionSummary = (output: any, context: __SerdeContext): MemorySe
   }) as any;
 };
 
-// de_Metadata omitted.
+/**
+ * deserializeAws_restJson1Metadata
+ */
+const de_Metadata = (output: any, context: __SerdeContext): Metadata => {
+  return take(output, {
+    clientRequestId: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    operationTotalTimeMs: __expectLong,
+    startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    totalTimeMs: __expectLong,
+    usage: _json,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1ModelInvocationInput
@@ -3794,10 +3865,10 @@ const de_ModelInvocationInput = (output: any, context: __SerdeContext): ModelInv
  */
 const de_Observation = (output: any, context: __SerdeContext): Observation => {
   return take(output, {
-    actionGroupInvocationOutput: _json,
+    actionGroupInvocationOutput: (_: any) => de_ActionGroupInvocationOutput(_, context),
     agentCollaboratorInvocationOutput: (_: any) => de_AgentCollaboratorInvocationOutput(_, context),
-    codeInterpreterInvocationOutput: _json,
-    finalResponse: _json,
+    codeInterpreterInvocationOutput: (_: any) => de_CodeInterpreterInvocationOutput(_, context),
+    finalResponse: (_: any) => de_FinalResponse(_, context),
     knowledgeBaseLookupOutput: (_: any) => de_KnowledgeBaseLookupOutput(_, context),
     repromptResponse: _json,
     traceId: __expectString,
@@ -3817,7 +3888,7 @@ const de_OrchestrationModelInvocationOutput = (
   context: __SerdeContext
 ): OrchestrationModelInvocationOutput => {
   return take(output, {
-    metadata: _json,
+    metadata: (_: any) => de_Metadata(_, context),
     rawResponse: _json,
     reasoningContent: (_: any) => de_ReasoningContentBlock(__expectUnion(_), context),
     traceId: __expectString,
@@ -3903,7 +3974,7 @@ const de_PostProcessingModelInvocationOutput = (
   context: __SerdeContext
 ): PostProcessingModelInvocationOutput => {
   return take(output, {
-    metadata: _json,
+    metadata: (_: any) => de_Metadata(_, context),
     parsedResponse: _json,
     rawResponse: _json,
     reasoningContent: (_: any) => de_ReasoningContentBlock(__expectUnion(_), context),
@@ -3938,7 +4009,7 @@ const de_PreProcessingModelInvocationOutput = (
   context: __SerdeContext
 ): PreProcessingModelInvocationOutput => {
   return take(output, {
-    metadata: _json,
+    metadata: (_: any) => de_Metadata(_, context),
     parsedResponse: _json,
     rawResponse: _json,
     reasoningContent: (_: any) => de_ReasoningContentBlock(__expectUnion(_), context),
@@ -4138,7 +4209,19 @@ const de_ReturnControlResults = (output: any, context: __SerdeContext): ReturnCo
   }) as any;
 };
 
-// de_RoutingClassifierModelInvocationOutput omitted.
+/**
+ * deserializeAws_restJson1RoutingClassifierModelInvocationOutput
+ */
+const de_RoutingClassifierModelInvocationOutput = (
+  output: any,
+  context: __SerdeContext
+): RoutingClassifierModelInvocationOutput => {
+  return take(output, {
+    metadata: (_: any) => de_Metadata(_, context),
+    rawResponse: _json,
+    traceId: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1RoutingClassifierTrace
@@ -4156,7 +4239,7 @@ const de_RoutingClassifierTrace = (output: any, context: __SerdeContext): Routin
   }
   if (output.modelInvocationOutput != null) {
     return {
-      modelInvocationOutput: _json(output.modelInvocationOutput),
+      modelInvocationOutput: de_RoutingClassifierModelInvocationOutput(output.modelInvocationOutput, context),
     };
   }
   if (output.observation != null) {
@@ -4217,12 +4300,12 @@ const de_Trace = (output: any, context: __SerdeContext): Trace => {
   }
   if (output.failureTrace != null) {
     return {
-      failureTrace: _json(output.failureTrace),
+      failureTrace: de_FailureTrace(output.failureTrace, context),
     };
   }
   if (output.guardrailTrace != null) {
     return {
-      guardrailTrace: _json(output.guardrailTrace),
+      guardrailTrace: de_GuardrailTrace(output.guardrailTrace, context),
     };
   }
   if (output.orchestrationTrace != null) {

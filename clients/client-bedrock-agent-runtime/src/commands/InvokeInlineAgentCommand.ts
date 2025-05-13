@@ -637,6 +637,17 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //               },
  * //             },
  * //           ],
+ * //           metadata: { // Metadata
+ * //             startTime: new Date("TIMESTAMP"),
+ * //             endTime: new Date("TIMESTAMP"),
+ * //             totalTimeMs: Number("long"),
+ * //             operationTotalTimeMs: Number("long"),
+ * //             clientRequestId: "STRING_VALUE",
+ * //             usage: { // Usage
+ * //               inputTokens: Number("int"),
+ * //               outputTokens: Number("int"),
+ * //             },
+ * //           },
  * //         },
  * //         preProcessingTrace: { // PreProcessingTrace Union: only one key present
  * //           modelInvocationInput: { // ModelInvocationInput
@@ -666,8 +677,13 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //             rawResponse: { // RawResponse
  * //               content: "STRING_VALUE",
  * //             },
- * //             metadata: { // Metadata
- * //               usage: { // Usage
+ * //             metadata: {
+ * //               startTime: new Date("TIMESTAMP"),
+ * //               endTime: new Date("TIMESTAMP"),
+ * //               totalTimeMs: Number("long"),
+ * //               operationTotalTimeMs: Number("long"),
+ * //               clientRequestId: "STRING_VALUE",
+ * //               usage: {
  * //                 inputTokens: Number("int"),
  * //                 outputTokens: Number("int"),
  * //               },
@@ -788,6 +804,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //             type: "ACTION_GROUP" || "AGENT_COLLABORATOR" || "KNOWLEDGE_BASE" || "FINISH" || "ASK_USER" || "REPROMPT",
  * //             actionGroupInvocationOutput: { // ActionGroupInvocationOutput
  * //               text: "STRING_VALUE",
+ * //               metadata: "<Metadata>",
  * //             },
  * //             agentCollaboratorInvocationOutput: { // AgentCollaboratorInvocationOutput
  * //               agentCollaboratorName: "STRING_VALUE",
@@ -841,6 +858,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //                   invocationId: "STRING_VALUE",
  * //                 },
  * //               },
+ * //               metadata: "<Metadata>",
  * //             },
  * //             knowledgeBaseLookupOutput: { // KnowledgeBaseLookupOutput
  * //               retrievedReferences: [
@@ -889,9 +907,11 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //                   },
  * //                 },
  * //               ],
+ * //               metadata: "<Metadata>",
  * //             },
  * //             finalResponse: { // FinalResponse
  * //               text: "STRING_VALUE",
+ * //               metadata: "<Metadata>",
  * //             },
  * //             repromptResponse: { // RepromptResponse
  * //               text: "STRING_VALUE",
@@ -904,6 +924,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //                 "STRING_VALUE",
  * //               ],
  * //               executionTimeout: true || false,
+ * //               metadata: "<Metadata>",
  * //             },
  * //           },
  * //           modelInvocationInput: {
@@ -929,12 +950,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //             rawResponse: {
  * //               content: "STRING_VALUE",
  * //             },
- * //             metadata: {
- * //               usage: {
- * //                 inputTokens: Number("int"),
- * //                 outputTokens: Number("int"),
- * //               },
- * //             },
+ * //             metadata: "<Metadata>",
  * //             reasoningContent: {//  Union: only one key present
  * //               reasoningText: {
  * //                 text: "STRING_VALUE", // required
@@ -971,12 +987,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //             rawResponse: {
  * //               content: "STRING_VALUE",
  * //             },
- * //             metadata: {
- * //               usage: {
- * //                 inputTokens: Number("int"),
- * //                 outputTokens: Number("int"),
- * //               },
- * //             },
+ * //             metadata: "<Metadata>",
  * //             reasoningContent: {//  Union: only one key present
  * //               reasoningText: {
  * //                 text: "STRING_VALUE", // required
@@ -1081,6 +1092,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //             type: "ACTION_GROUP" || "AGENT_COLLABORATOR" || "KNOWLEDGE_BASE" || "FINISH" || "ASK_USER" || "REPROMPT",
  * //             actionGroupInvocationOutput: {
  * //               text: "STRING_VALUE",
+ * //               metadata: "<Metadata>",
  * //             },
  * //             agentCollaboratorInvocationOutput: {
  * //               agentCollaboratorName: "STRING_VALUE",
@@ -1134,6 +1146,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //                   invocationId: "STRING_VALUE",
  * //                 },
  * //               },
+ * //               metadata: "<Metadata>",
  * //             },
  * //             knowledgeBaseLookupOutput: {
  * //               retrievedReferences: [
@@ -1182,9 +1195,11 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //                   },
  * //                 },
  * //               ],
+ * //               metadata: "<Metadata>",
  * //             },
  * //             finalResponse: {
  * //               text: "STRING_VALUE",
+ * //               metadata: "<Metadata>",
  * //             },
  * //             repromptResponse: {
  * //               text: "STRING_VALUE",
@@ -1197,6 +1212,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //                 "STRING_VALUE",
  * //               ],
  * //               executionTimeout: true || false,
+ * //               metadata: "<Metadata>",
  * //             },
  * //           },
  * //           modelInvocationInput: {
@@ -1222,17 +1238,14 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //             rawResponse: {
  * //               content: "STRING_VALUE",
  * //             },
- * //             metadata: {
- * //               usage: {
- * //                 inputTokens: Number("int"),
- * //                 outputTokens: Number("int"),
- * //               },
- * //             },
+ * //             metadata: "<Metadata>",
  * //           },
  * //         },
  * //         failureTrace: { // FailureTrace
  * //           traceId: "STRING_VALUE",
  * //           failureReason: "STRING_VALUE",
+ * //           failureCode: Number("int"),
+ * //           metadata: "<Metadata>",
  * //         },
  * //         customOrchestrationTrace: { // CustomOrchestrationTrace
  * //           traceId: "STRING_VALUE",

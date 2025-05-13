@@ -198,6 +198,66 @@ export interface ActionGroupInvocationInput {
 }
 
 /**
+ * <p>Contains information of the usage of the foundation model.</p>
+ * @public
+ */
+export interface Usage {
+  /**
+   * <p>Contains information about the input tokens from the foundation model usage.</p>
+   * @public
+   */
+  inputTokens?: number | undefined;
+
+  /**
+   * <p>Contains information about the output tokens from the foundation model usage.</p>
+   * @public
+   */
+  outputTokens?: number | undefined;
+}
+
+/**
+ * <p>Provides information about the execution process for different types of invocations, such as model invocation, knowledge base invocation, agent collaborator invocation, guardrail invocation, and code interpreter Invocation.</p>
+ * @public
+ */
+export interface Metadata {
+  /**
+   * <p>In the final response, <code>startTime</code> is the start time of the agent invocation operation.</p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p>In the final response, <code>endTime</code> is the end time time of the agent invocation operation.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p> The total execution time for the specific invocation being processed (model, knowledge base, guardrail, agent collaborator, or code interpreter). It represents how long the individual invocation took.</p>
+   * @public
+   */
+  totalTimeMs?: number | undefined;
+
+  /**
+   * <p>The total time it took for the agent to complete execution. This field is only set for the final response.</p>
+   * @public
+   */
+  operationTotalTimeMs?: number | undefined;
+
+  /**
+   * <p>A unique identifier associated with the downstream invocation. This ID can be used for tracing, debugging, and identifying specific invocations in customer logs or systems.</p>
+   * @public
+   */
+  clientRequestId?: string | undefined;
+
+  /**
+   * <p>Specific to model invocation and contains details about the usage of a foundation model.</p>
+   * @public
+   */
+  usage?: Usage | undefined;
+}
+
+/**
  * <p>Contains the JSON-formatted string returned by the API invoked by the action group.</p>
  * @public
  */
@@ -207,6 +267,12 @@ export interface ActionGroupInvocationOutput {
    * @public
    */
   text?: string | undefined;
+
+  /**
+   * <p>Contains information about the action group output.</p>
+   * @public
+   */
+  metadata?: Metadata | undefined;
 }
 
 /**
@@ -1134,6 +1200,12 @@ export interface AgentCollaboratorInvocationOutput {
    * @public
    */
   output?: AgentCollaboratorOutputPayload | undefined;
+
+  /**
+   * <p>Contains information about the output from the agent collaborator.</p>
+   * @public
+   */
+  metadata?: Metadata | undefined;
 }
 
 /**
@@ -3520,6 +3592,18 @@ export interface FailureTrace {
    * @public
    */
   failureReason?: string | undefined;
+
+  /**
+   * <p>The failure code for the trace.</p>
+   * @public
+   */
+  failureCode?: number | undefined;
+
+  /**
+   * <p>Information about the failure that occurred.</p>
+   * @public
+   */
+  metadata?: Metadata | undefined;
 }
 
 /**
@@ -3957,6 +4041,12 @@ export interface GuardrailTrace {
    * @public
    */
   outputAssessments?: GuardrailAssessment[] | undefined;
+
+  /**
+   * <p>Contains information about the Guardrail output.</p>
+   * @public
+   */
+  metadata?: Metadata | undefined;
 }
 
 /**
@@ -4176,36 +4266,6 @@ export interface ModelInvocationInput {
 }
 
 /**
- * <p>Contains information of the usage of the foundation model.</p>
- * @public
- */
-export interface Usage {
-  /**
-   * <p>Contains information about the input tokens from the foundation model usage.</p>
-   * @public
-   */
-  inputTokens?: number | undefined;
-
-  /**
-   * <p>Contains information about the output tokens from the foundation model usage.</p>
-   * @public
-   */
-  outputTokens?: number | undefined;
-}
-
-/**
- * <p>Provides details of the foundation model.</p>
- * @public
- */
-export interface Metadata {
-  /**
-   * <p>Contains details of the foundation model usage.</p>
-   * @public
-   */
-  usage?: Usage | undefined;
-}
-
-/**
  * <p>Contains the raw output from the foundation model.</p>
  * @public
  */
@@ -4348,6 +4408,12 @@ export interface CodeInterpreterInvocationOutput {
    * @public
    */
   executionTimeout?: boolean | undefined;
+
+  /**
+   * <p>Contains information about the output from the code interpreter.</p>
+   * @public
+   */
+  metadata?: Metadata | undefined;
 }
 
 /**
@@ -4360,6 +4426,12 @@ export interface FinalResponse {
    * @public
    */
   text?: string | undefined;
+
+  /**
+   * <p>Contains information about the invoke agent operation.</p>
+   * @public
+   */
+  metadata?: Metadata | undefined;
 }
 
 /**
@@ -4372,6 +4444,12 @@ export interface KnowledgeBaseLookupOutput {
    * @public
    */
   retrievedReferences?: RetrievedReference[] | undefined;
+
+  /**
+   * <p>Contains information about the knowledge base output.</p>
+   * @public
+   */
+  metadata?: Metadata | undefined;
 }
 
 /**
@@ -8607,9 +8685,25 @@ export const ActionGroupInvocationInputFilterSensitiveLog = (obj: ActionGroupInv
 /**
  * @internal
  */
+export const UsageFilterSensitiveLog = (obj: Usage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetadataFilterSensitiveLog = (obj: Metadata): any => ({
+  ...obj,
+  ...(obj.usage && { usage: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const ActionGroupInvocationOutputFilterSensitiveLog = (obj: ActionGroupInvocationOutput): any => ({
   ...obj,
   ...(obj.text && { text: SENSITIVE_STRING }),
+  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
 });
 
 /**
@@ -8757,6 +8851,7 @@ export const AgentCollaboratorOutputPayloadFilterSensitiveLog = (obj: AgentColla
 export const AgentCollaboratorInvocationOutputFilterSensitiveLog = (obj: AgentCollaboratorInvocationOutput): any => ({
   ...obj,
   ...(obj.output && { output: AgentCollaboratorOutputPayloadFilterSensitiveLog(obj.output) }),
+  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
 });
 
 /**
@@ -9170,6 +9265,7 @@ export const CustomOrchestrationTraceFilterSensitiveLog = (obj: CustomOrchestrat
 export const FailureTraceFilterSensitiveLog = (obj: FailureTrace): any => ({
   ...obj,
   ...(obj.failureReason && { failureReason: SENSITIVE_STRING }),
+  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
 });
 
 /**
@@ -9268,6 +9364,7 @@ export const GuardrailTraceFilterSensitiveLog = (obj: GuardrailTrace): any => ({
   ...obj,
   ...(obj.inputAssessments && { inputAssessments: SENSITIVE_STRING }),
   ...(obj.outputAssessments && { outputAssessments: SENSITIVE_STRING }),
+  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
 });
 
 /**
@@ -9308,21 +9405,6 @@ export const ModelInvocationInputFilterSensitiveLog = (obj: ModelInvocationInput
 /**
  * @internal
  */
-export const UsageFilterSensitiveLog = (obj: Usage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetadataFilterSensitiveLog = (obj: Metadata): any => ({
-  ...obj,
-  ...(obj.usage && { usage: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
 export const RawResponseFilterSensitiveLog = (obj: RawResponse): any => ({
   ...obj,
 });
@@ -9356,9 +9438,18 @@ export const OrchestrationModelInvocationOutputFilterSensitiveLog = (obj: Orches
 /**
  * @internal
  */
+export const CodeInterpreterInvocationOutputFilterSensitiveLog = (obj: CodeInterpreterInvocationOutput): any => ({
+  ...obj,
+  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const FinalResponseFilterSensitiveLog = (obj: FinalResponse): any => ({
   ...obj,
   ...(obj.text && { text: SENSITIVE_STRING }),
+  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
 });
 
 /**
@@ -9369,6 +9460,7 @@ export const KnowledgeBaseLookupOutputFilterSensitiveLog = (obj: KnowledgeBaseLo
   ...(obj.retrievedReferences && {
     retrievedReferences: obj.retrievedReferences.map((item) => RetrievedReferenceFilterSensitiveLog(item)),
   }),
+  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
 });
 
 /**
@@ -9397,6 +9489,11 @@ export const ObservationFilterSensitiveLog = (obj: Observation): any => ({
   }),
   ...(obj.finalResponse && { finalResponse: FinalResponseFilterSensitiveLog(obj.finalResponse) }),
   ...(obj.repromptResponse && { repromptResponse: SENSITIVE_STRING }),
+  ...(obj.codeInterpreterInvocationOutput && {
+    codeInterpreterInvocationOutput: CodeInterpreterInvocationOutputFilterSensitiveLog(
+      obj.codeInterpreterInvocationOutput
+    ),
+  }),
 });
 
 /**
