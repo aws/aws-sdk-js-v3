@@ -1,9 +1,22 @@
 // Build script to handle Turborepo build execution
 const { spawnProcess } = require("../utils/spawn-process");
-const path = require("path");
+const path = require("node:path");
 
 const runTurbo = async (task, args, { apiSecret, apiEndpoint, apiSignatureKey } = {}) => {
-  const command = ["turbo", "run", task, "--concurrency=100%", "--output-logs=errors-only"];
+  const devConfig = (() => {
+    try {
+      return require("../../turbo.dev.json");
+    } catch (e) {
+      return {};
+    }
+  })();
+  const execArguments = [
+    "turbo",
+    "run",
+    task,
+    `--concurrency=${devConfig.concurrency ?? "100%"}`,
+    `--output-logs=${devConfig.outputLogs ?? "errors-only"}`,
+  ];
 
   const cacheReadWriteKey = process.env.AWS_JSV3_TURBO_CACHE_BUILD_TYPE ?? "dev";
 
@@ -17,8 +30,8 @@ const runTurbo = async (task, args, { apiSecret, apiEndpoint, apiSignatureKey } 
     dev: "--cache=local:rw,remote:r",
   };
 
-  command.push(cacheReadWrite[cacheReadWriteKey]);
-  command.push(...args);
+  execArguments.push(cacheReadWrite[cacheReadWriteKey]);
+  execArguments.push(...args);
 
   const turboRoot = path.join(__dirname, "..", "..");
 
@@ -36,7 +49,8 @@ const runTurbo = async (task, args, { apiSecret, apiEndpoint, apiSignatureKey } 
   };
 
   try {
-    return await spawnProcess("yarn", command, {
+    console.log("RUNNING: yarn", execArguments.join(" "));
+    return await spawnProcess("yarn", execArguments, {
       stdio: "inherit",
       cwd: turboRoot,
       env: turboEnv,

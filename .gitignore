@@ -51,6 +51,7 @@ workspace
 ./scripts/compilation/tmp/*.mjs
 
 .turbo
+turbo.dev.json
 coverage
 dist
 dist-*
