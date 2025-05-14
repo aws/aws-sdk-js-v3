@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.810.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.809.0...v3.810.0) (2025-05-14)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Add exceptions to WebAuthn operations. ([d56b489](https://github.com/aws/aws-sdk-js-v3/commit/d56b48924640216eec7a60a55f8699648173d044))
+
+
+
+
+
 # [3.808.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.807.0...v3.808.0) (2025-05-12)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider

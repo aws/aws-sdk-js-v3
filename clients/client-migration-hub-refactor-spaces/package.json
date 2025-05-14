@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-migration-hub-refactor-spaces",
   "description": "AWS SDK for JavaScript Migration Hub Refactor Spaces Client for Node.js, Browser and React Native",
-  "version": "3.808.0",
+  "version": "3.810.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline client-migration-hub-refactor-spaces",

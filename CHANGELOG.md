@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.810.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.809.0...v3.810.0) (2025-05-14)
+
+
+### Features
+
+* **client-cloudwatch-logs:** This release adds a new API "ListLogGroups" and an improvement in API "DescribeLogGroups" ([9d801db](https://github.com/aws/aws-sdk-js-v3/commit/9d801db0715fa2564565d3559521611dc6ca32ef))
+* **client-cognito-identity-provider:** Add exceptions to WebAuthn operations. ([d56b489](https://github.com/aws/aws-sdk-js-v3/commit/d56b48924640216eec7a60a55f8699648173d044))
+* **client-firehose:** This release adds catalogARN support for s3 tables multi-catalog catalogARNs. ([7f8490a](https://github.com/aws/aws-sdk-js-v3/commit/7f8490a8ee58f703e7cfab3fa906cc5c99410f5b))
+* **client-mediaconvert:** This update enables cropping for video overlays and adds a new STL to Teletext upconversion toggle to preserve styling. ([e87d8b4](https://github.com/aws/aws-sdk-js-v3/commit/e87d8b481c847e2ae3fa20f4af49de4e77e503e2))
+
+
+
+
+
 # [3.809.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.808.0...v3.809.0) (2025-05-13)
 
 

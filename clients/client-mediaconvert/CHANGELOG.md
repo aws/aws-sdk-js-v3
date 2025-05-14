@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.810.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.809.0...v3.810.0) (2025-05-14)
+
+
+### Features
+
+* **client-mediaconvert:** This update enables cropping for video overlays and adds a new STL to Teletext upconversion toggle to preserve styling. ([e87d8b4](https://github.com/aws/aws-sdk-js-v3/commit/e87d8b481c847e2ae3fa20f4af49de4e77e503e2))
+
+
+
+
+
 # [3.808.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.807.0...v3.808.0) (2025-05-12)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert
