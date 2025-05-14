@@ -3,9 +3,9 @@ const { spawnProcess } = require("../utils/spawn-process");
 const path = require("node:path");
 
 const runTurbo = async (task, args, { apiSecret, apiEndpoint, apiSignatureKey } = {}) => {
-  const privateConfig = (() => {
+  const devConfig = (() => {
     try {
-      return require("../../turbo.private.json");
+      return require("../../turbo.dev.json");
     } catch (e) {
       return {};
     }
@@ -14,8 +14,8 @@ const runTurbo = async (task, args, { apiSecret, apiEndpoint, apiSignatureKey } 
     "turbo",
     "run",
     task,
-    `--concurrency=${privateConfig.concurrency ?? "100%"}`,
-    `--output-logs=${privateConfig.outputLogs ?? "errors-only"}`,
+    `--concurrency=${devConfig.concurrency ?? "100%"}`,
+    `--output-logs=${devConfig.outputLogs ?? "errors-only"}`,
   ];
 
   const cacheReadWriteKey = process.env.AWS_JSV3_TURBO_CACHE_BUILD_TYPE ?? "dev";
