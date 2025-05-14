@@ -78,12 +78,20 @@ export interface DeleteWebAuthnCredentialCommandOutput extends DeleteWebAuthnCre
  *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
  *             parameter.</p>
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
+ *             resource.</p>
+ *
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>This exception is thrown when a user isn't authorized.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
  *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
  *
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>

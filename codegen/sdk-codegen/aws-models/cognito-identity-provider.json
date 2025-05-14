@@ -8109,10 +8109,16 @@
           "target": "com.amazonaws.cognitoidentityprovider#InvalidParameterException"
         },
         {
+          "target": "com.amazonaws.cognitoidentityprovider#LimitExceededException"
+        },
+        {
           "target": "com.amazonaws.cognitoidentityprovider#NotAuthorizedException"
         },
         {
           "target": "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.cognitoidentityprovider#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -12492,7 +12498,13 @@
           "target": "com.amazonaws.cognitoidentityprovider#InvalidParameterException"
         },
         {
+          "target": "com.amazonaws.cognitoidentityprovider#LimitExceededException"
+        },
+        {
           "target": "com.amazonaws.cognitoidentityprovider#NotAuthorizedException"
+        },
+        {
+          "target": "com.amazonaws.cognitoidentityprovider#TooManyRequestsException"
         }
       ],
       "traits": {
