@@ -290,6 +290,11 @@ import {
   ListLogAnomalyDetectorsCommandOutput,
 } from "./commands/ListLogAnomalyDetectorsCommand";
 import {
+  ListLogGroupsCommand,
+  ListLogGroupsCommandInput,
+  ListLogGroupsCommandOutput,
+} from "./commands/ListLogGroupsCommand";
+import {
   ListLogGroupsForQueryCommand,
   ListLogGroupsForQueryCommandInput,
   ListLogGroupsForQueryCommandOutput,
@@ -488,6 +493,7 @@ const commands = {
   ListAnomaliesCommand,
   ListIntegrationsCommand,
   ListLogAnomalyDetectorsCommand,
+  ListLogGroupsCommand,
   ListLogGroupsForQueryCommand,
   ListTagsForResourceCommand,
   ListTagsLogGroupCommand,
@@ -1465,6 +1471,18 @@ export interface CloudWatchLogs {
     args: ListLogAnomalyDetectorsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListLogAnomalyDetectorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListLogGroupsCommand}
+   */
+  listLogGroups(): Promise<ListLogGroupsCommandOutput>;
+  listLogGroups(args: ListLogGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListLogGroupsCommandOutput>;
+  listLogGroups(args: ListLogGroupsCommandInput, cb: (err: any, data?: ListLogGroupsCommandOutput) => void): void;
+  listLogGroups(
+    args: ListLogGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLogGroupsCommandOutput) => void
   ): void;
 
   /**

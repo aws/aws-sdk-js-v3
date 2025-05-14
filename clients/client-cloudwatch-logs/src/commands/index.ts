@@ -57,6 +57,7 @@ export * from "./GetTransformerCommand";
 export * from "./ListAnomaliesCommand";
 export * from "./ListIntegrationsCommand";
 export * from "./ListLogAnomalyDetectorsCommand";
+export * from "./ListLogGroupsCommand";
 export * from "./ListLogGroupsForQueryCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ListTagsLogGroupCommand";

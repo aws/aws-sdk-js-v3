@@ -28,7 +28,7 @@ export interface DescribeLogGroupsCommandInput extends DescribeLogGroupsRequest 
 export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the specified log groups. You can list all your log groups or filter the results by prefix.
+ * <p>Returns information about log groups. You can return all your log groups or filter the results by prefix.
  *       The results are ASCII-sorted by log group name.</p>
  *          <p>CloudWatch Logs doesn't support IAM policies that control access to the <code>DescribeLogGroups</code> action by using the
  *       <code>aws:ResourceTag/<i>key-name</i>
@@ -56,6 +56,9 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  *   limit: Number("int"),
  *   includeLinkedAccounts: true || false,
  *   logGroupClass: "STANDARD" || "INFREQUENT_ACCESS" || "DELIVERY",
+ *   logGroupIdentifiers: [ // DescribeLogGroupsLogGroupIdentifiers
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new DescribeLogGroupsCommand(input);
  * const response = await client.send(command);

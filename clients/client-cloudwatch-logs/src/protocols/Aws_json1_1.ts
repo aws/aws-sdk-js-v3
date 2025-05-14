@@ -168,6 +168,7 @@ import {
   ListLogAnomalyDetectorsCommandInput,
   ListLogAnomalyDetectorsCommandOutput,
 } from "../commands/ListLogAnomalyDetectorsCommand";
+import { ListLogGroupsCommandInput, ListLogGroupsCommandOutput } from "../commands/ListLogGroupsCommand";
 import {
   ListLogGroupsForQueryCommandInput,
   ListLogGroupsForQueryCommandOutput,
@@ -308,6 +309,7 @@ import {
   ListIntegrationsRequest,
   ListLogAnomalyDetectorsRequest,
   ListLogGroupsForQueryRequest,
+  ListLogGroupsRequest,
   ListTagsForResourceRequest,
   ListTagsLogGroupRequest,
   ListToMap,
@@ -1133,6 +1135,19 @@ export const se_ListLogAnomalyDetectorsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListLogAnomalyDetectors");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListLogGroupsCommand
+ */
+export const se_ListLogGroupsCommand = async (
+  input: ListLogGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListLogGroups");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2649,6 +2664,26 @@ export const de_ListLogAnomalyDetectorsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListLogGroupsCommand
+ */
+export const de_ListLogGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLogGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListLogGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListLogGroupsForQueryCommand
  */
 export const de_ListLogGroupsForQueryCommand = async (
@@ -3767,6 +3802,8 @@ const de_SessionTimeoutExceptionRes = async (
 
 // se_DescribeIndexPoliciesRequest omitted.
 
+// se_DescribeLogGroupsLogGroupIdentifiers omitted.
+
 // se_DescribeLogGroupsRequest omitted.
 
 // se_DescribeLogStreamsRequest omitted.
@@ -3832,6 +3869,8 @@ const de_SessionTimeoutExceptionRes = async (
 // se_ListLogAnomalyDetectorsRequest omitted.
 
 // se_ListLogGroupsForQueryRequest omitted.
+
+// se_ListLogGroupsRequest omitted.
 
 // se_ListTagsForResourceRequest omitted.
 
@@ -4248,6 +4287,8 @@ const de_GetQueryResultsResponse = (output: any, context: __SerdeContext): GetQu
 
 // de_ListLogGroupsForQueryResponse omitted.
 
+// de_ListLogGroupsResponse omitted.
+
 // de_ListTagsForResourceResponse omitted.
 
 // de_ListTagsLogGroupResponse omitted.
@@ -4279,6 +4320,10 @@ const de_GetQueryResultsResponse = (output: any, context: __SerdeContext): GetQu
 // de_LogGroupNames omitted.
 
 // de_LogGroups omitted.
+
+// de_LogGroupSummaries omitted.
+
+// de_LogGroupSummary omitted.
 
 // de_LogRecord omitted.
 

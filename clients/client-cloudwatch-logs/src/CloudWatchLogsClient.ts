@@ -201,6 +201,7 @@ import {
   ListLogAnomalyDetectorsCommandInput,
   ListLogAnomalyDetectorsCommandOutput,
 } from "./commands/ListLogAnomalyDetectorsCommand";
+import { ListLogGroupsCommandInput, ListLogGroupsCommandOutput } from "./commands/ListLogGroupsCommand";
 import {
   ListLogGroupsForQueryCommandInput,
   ListLogGroupsForQueryCommandOutput,
@@ -332,6 +333,7 @@ export type ServiceInputTypes =
   | ListAnomaliesCommandInput
   | ListIntegrationsCommandInput
   | ListLogAnomalyDetectorsCommandInput
+  | ListLogGroupsCommandInput
   | ListLogGroupsForQueryCommandInput
   | ListTagsForResourceCommandInput
   | ListTagsLogGroupCommandInput
@@ -426,6 +428,7 @@ export type ServiceOutputTypes =
   | ListAnomaliesCommandOutput
   | ListIntegrationsCommandOutput
   | ListLogAnomalyDetectorsCommandOutput
+  | ListLogGroupsCommandOutput
   | ListLogGroupsForQueryCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTagsLogGroupCommandOutput

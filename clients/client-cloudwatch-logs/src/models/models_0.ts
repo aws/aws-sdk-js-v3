@@ -2524,7 +2524,7 @@ export interface DescribeIndexPoliciesResponse {
  */
 export interface DescribeLogGroupsRequest {
   /**
-   * <p>When <code>includeLinkedAccounts</code> is set to <code>True</code>, use this parameter to
+   * <p>When <code>includeLinkedAccounts</code> is set to <code>true</code>, use this parameter to
    *       specify the list of accounts to search. You can specify as many as 20 account IDs in the array.  </p>
    * @public
    */
@@ -2575,19 +2575,22 @@ export interface DescribeLogGroupsRequest {
   limit?: number | undefined;
 
   /**
-   * <p>If you are using a monitoring account, set this to <code>True</code> to have the operation
+   * <p>If you are using a monitoring account, set this to <code>true</code> to have the operation
    *       return log groups in
    *       the accounts listed in <code>accountIdentifiers</code>.</p>
    *          <p>If this parameter is set to <code>true</code> and <code>accountIdentifiers</code>
    *
    *       contains a null value, the operation returns all log groups in the monitoring account
    *       and all log groups in all source accounts that are linked to the monitoring account. </p>
+   *          <p>The default for this parameter is <code>false</code>.</p>
    * @public
    */
   includeLinkedAccounts?: boolean | undefined;
 
   /**
-   * <p>Specifies the log group class for this log group. There are three classes:</p>
+   * <p>Use this parameter to limit the results to only those log groups in the specified log group class. If you omit this parameter, log groups
+   *       of all classes can be returned.</p>
+   *          <p>Specifies the log group class for this log group. There are three classes:</p>
    *          <ul>
    *             <li>
    *                <p>The <code>Standard</code> log class supports all CloudWatch Logs features.</p>
@@ -2608,6 +2611,15 @@ export interface DescribeLogGroupsRequest {
    * @public
    */
   logGroupClass?: LogGroupClass | undefined;
+
+  /**
+   * <p>Use this array to filter the list of log groups returned. If you specify this parameter, the only other filter that you can choose to specify is <code>includeLinkedAccounts</code>.</p>
+   *          <p>If you are using this operation in a monitoring account, you can specify
+   *       the ARNs of log groups in source accounts and in the monitoring account itself. If you are using this operation in an account that is not a cross-account monitoring account, you can specify only
+   *       log group names in the same account as the operation.</p>
+   * @public
+   */
+  logGroupIdentifiers?: string[] | undefined;
 }
 
 /**
@@ -2739,9 +2751,7 @@ export interface LogGroup {
  */
 export interface DescribeLogGroupsResponse {
   /**
-   * <p>The log groups.</p>
-   *          <p>If the <code>retentionInDays</code> value is not included for a log group, then that log
-   *       group's events do not expire.</p>
+   * <p>An array of structures, where each structure contains the information about one log group.</p>
    * @public
    */
   logGroups?: LogGroup[] | undefined;
@@ -5754,6 +5764,114 @@ export interface ListLogAnomalyDetectorsResponse {
    * @public
    */
   anomalyDetectors?: AnomalyDetector[] | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListLogGroupsRequest {
+  /**
+   * <p>Use this parameter to limit the returned log groups to only those with names that match the pattern that you specify. This parameter
+   *     is a regular expression that can match prefixes and substrings, and supports wildcard matching and matching multiple patterns, as in the following examples. </p>
+   *          <ul>
+   *             <li>
+   *                <p>Use <code>^</code> to match log group names by prefix.</p>
+   *             </li>
+   *             <li>
+   *                <p>For a substring match, specify the string to match. All matches are case sensitive</p>
+   *             </li>
+   *             <li>
+   *                <p>To match multiple patterns, separate them with a <code>|</code> as in the example <code>^/aws/lambda|discovery</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>You can specify as many as five different regular expression patterns in this field, each of which must be between 3 and 24 characters. You can include the <code>^</code> symbol as many as five times,
+   *     and include the <code>|</code> symbol as many as four times.</p>
+   * @public
+   */
+  logGroupNamePattern?: string | undefined;
+
+  /**
+   * <p>Use this parameter to limit the results to only those log groups in the specified log group class. If you omit this parameter, log groups
+   *     of all classes can be returned.</p>
+   * @public
+   */
+  logGroupClass?: LogGroupClass | undefined;
+
+  /**
+   * <p>If you are using a monitoring account, set this to <code>true</code> to have the operation
+   *       return log groups in
+   *       the accounts listed in <code>accountIdentifiers</code>.</p>
+   *          <p>If this parameter is set to <code>true</code> and <code>accountIdentifiers</code>
+   *
+   *       contains a null value, the operation returns all log groups in the monitoring account
+   *       and all log groups in all source accounts that are linked to the monitoring account. </p>
+   *          <p>The default for this parameter is <code>false</code>.</p>
+   * @public
+   */
+  includeLinkedAccounts?: boolean | undefined;
+
+  /**
+   * <p>When <code>includeLinkedAccounts</code> is set to <code>true</code>, use this parameter to
+   *       specify the list of accounts to search. You can specify as many as 20 account IDs in the array.</p>
+   * @public
+   */
+  accountIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of log groups to return. If you omit this parameter, the default is up to 50 log groups.</p>
+   * @public
+   */
+  limit?: number | undefined;
+}
+
+/**
+ * <p>This structure contains information about one log group in your account.</p>
+ * @public
+ */
+export interface LogGroupSummary {
+  /**
+   * <p>The name of the log group.</p>
+   * @public
+   */
+  logGroupName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the log group.</p>
+   * @public
+   */
+  logGroupArn?: string | undefined;
+
+  /**
+   * <p>The log group class for this log group. For details about the features supported by each log group class, see
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log classes</a>
+   *          </p>
+   * @public
+   */
+  logGroupClass?: LogGroupClass | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListLogGroupsResponse {
+  /**
+   * <p>An array of structures, where each structure contains the information about one log group.</p>
+   * @public
+   */
+  logGroups?: LogGroupSummary[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
