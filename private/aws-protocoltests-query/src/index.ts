@@ -7,6 +7,7 @@
  */
 export * from "./QueryProtocolClient";
 export * from "./QueryProtocol";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { QueryProtocolExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

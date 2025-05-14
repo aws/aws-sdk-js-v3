@@ -1,8 +1,10 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import {
   UploadMultipartPartInput,
@@ -86,8 +88,12 @@ export class UploadMultipartPartCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("Glacier", "UploadMultipartPart", {})
   .n("GlacierClient", "UploadMultipartPartCommand")

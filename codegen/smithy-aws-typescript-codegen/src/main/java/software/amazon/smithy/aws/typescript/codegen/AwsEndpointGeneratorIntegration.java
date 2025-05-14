@@ -74,16 +74,6 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
                     }
                 );
         }
-
-        if (!settings.generateClient()
-            || !isAwsService(settings, model)
-            || settings.getService(model).hasTrait(EndpointRuleSetTrait.class)) {
-            return;
-        }
-
-        writerFactory.accept(Paths.get(CodegenUtils.SOURCE_FOLDER, "endpoints.ts").toString(), writer -> {
-            new EndpointGenerator(settings.getService(model), writer).run();
-        });
     }
 
     @Override
@@ -119,36 +109,5 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
                 + "@internal");
             writer.write("regionInfoProvider?: RegionInfoProvider;\n");
         }
-    }
-
-    @Override
-    public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            LanguageTarget target
-    ) {
-        if (!settings.generateClient() || !isAwsService(settings, model)) {
-            return Collections.emptyMap();
-        }
-
-        if (settings.getService(model).hasTrait(EndpointRuleSetTrait.class)) {
-            if (target == LanguageTarget.SHARED) {
-                return MapUtils.of("endpointProvider", writer -> {
-                    writer.addImport("defaultEndpointResolver", null,
-                        Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoint/endpointResolver").toString());
-                    writer.write("defaultEndpointResolver");
-                });
-            }
-        } else {
-            if (target == LanguageTarget.SHARED) {
-                return MapUtils.of("regionInfoProvider", writer -> {
-                    writer.addImport("defaultRegionInfoProvider", "defaultRegionInfoProvider",
-                        Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoints").toString());
-                    writer.write("defaultRegionInfoProvider");
-                });
-            }
-        }
-        return Collections.emptyMap();
     }
 }

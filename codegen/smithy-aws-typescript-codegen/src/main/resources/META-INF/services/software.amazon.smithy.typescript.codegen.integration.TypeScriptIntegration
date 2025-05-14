@@ -2,7 +2,6 @@ software.amazon.smithy.aws.typescript.codegen.AddEndpointsV2ParameterNameMap
 software.amazon.smithy.aws.typescript.codegen.AddAwsRuntimeConfig
 software.amazon.smithy.aws.typescript.codegen.AddAccountIdEndpointModeRuntimeConfig
 software.amazon.smithy.aws.typescript.codegen.AddBuiltinPlugins
-software.amazon.smithy.aws.typescript.codegen.AddEndpointsPlugin
 software.amazon.smithy.aws.typescript.codegen.AddServiceCustomizationPlugins
 software.amazon.smithy.aws.typescript.codegen.AddAwsAuthPlugin
 software.amazon.smithy.aws.typescript.codegen.AddTokenAuthPlugin

@@ -30,6 +30,7 @@ import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.endpointsV2.AddDefaultEndpointRuleSet;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
@@ -46,7 +47,7 @@ public class AddSqsDependency implements TypeScriptIntegration {
     public List<String> runAfter() {
         return List.of(
             AddBuiltinPlugins.class.getCanonicalName(),
-            AddEndpointsPlugin.class.getCanonicalName()
+            AddDefaultEndpointRuleSet.class.getCanonicalName()
         );
     }
 

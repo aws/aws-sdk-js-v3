@@ -7,6 +7,7 @@ import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultRpcV2ProtocolHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { RpcV2ProtocolClientConfig } from "./RpcV2ProtocolClient";
 
 /**
@@ -18,6 +19,7 @@ export const getRuntimeConfig = (config: RpcV2ProtocolClientConfig) => {
     base64Decoder: config?.base64Decoder ?? fromBase64,
     base64Encoder: config?.base64Encoder ?? toBase64,
     disableHostPrefix: config?.disableHostPrefix ?? false,
+    endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
     extensions: config?.extensions ?? [],
     httpAuthSchemeProvider: config?.httpAuthSchemeProvider ?? defaultRpcV2ProtocolHttpAuthSchemeProvider,
     httpAuthSchemes: config?.httpAuthSchemes ?? [

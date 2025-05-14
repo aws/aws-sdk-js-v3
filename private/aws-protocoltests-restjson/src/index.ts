@@ -7,6 +7,7 @@
  */
 export * from "./RestJsonProtocolClient";
 export * from "./RestJsonProtocol";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { RestJsonProtocolExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";

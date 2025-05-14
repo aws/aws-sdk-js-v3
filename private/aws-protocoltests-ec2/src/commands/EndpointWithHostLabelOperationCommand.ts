@@ -1,9 +1,11 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { HostLabelInput } from "../models/models_0";
 import {
   de_EndpointWithHostLabelOperationCommand,
@@ -65,8 +67,12 @@ export class EndpointWithHostLabelOperationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("AwsEc2", "EndpointWithHostLabelOperation", {})
   .n("EC2ProtocolClient", "EndpointWithHostLabelOperationCommand")

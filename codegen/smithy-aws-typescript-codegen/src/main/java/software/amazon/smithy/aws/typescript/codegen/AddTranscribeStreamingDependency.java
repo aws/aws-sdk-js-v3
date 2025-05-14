@@ -43,7 +43,6 @@ public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
     public List<String> runAfter() {
         return List.of(
             AddBuiltinPlugins.class.getCanonicalName(),
-            AddEndpointsPlugin.class.getCanonicalName(),
             AddEventStreamHandlingDependency.class.getCanonicalName()
         );
     }

@@ -39,7 +39,10 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 /**
  * Writes out a file that resolves endpoints using endpoints.json, but the
  * created resolver resolves endpoints for a single service.
+ *
+ * @deprecated unused as of endpoints 2.0 with default endpoint ruleset.
  */
+@Deprecated
 @SmithyInternalApi
 final class EndpointGenerator implements Runnable {
 

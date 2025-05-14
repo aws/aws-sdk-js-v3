@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import { EchoServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EchoServiceClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { EchoInput, EchoOutput } from "../models/models_0";
 import { de_EchoCommand, se_EchoCommand } from "../protocols/Aws_restJson1";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
@@ -66,8 +68,12 @@ export class EchoCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EchoServiceClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("EchoService", "Echo", {})
   .n("EchoServiceClient", "EchoCommand")

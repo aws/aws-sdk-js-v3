@@ -7,7 +7,7 @@ import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultQueryProtocolHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { QueryProtocolClientConfig } from "./QueryProtocolClient";
 
 /**
@@ -19,6 +19,7 @@ export const getRuntimeConfig = (config: QueryProtocolClientConfig) => {
     base64Decoder: config?.base64Decoder ?? fromBase64,
     base64Encoder: config?.base64Encoder ?? toBase64,
     disableHostPrefix: config?.disableHostPrefix ?? false,
+    endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
     extensions: config?.extensions ?? [],
     httpAuthSchemeProvider: config?.httpAuthSchemeProvider ?? defaultQueryProtocolHttpAuthSchemeProvider,
     httpAuthSchemes: config?.httpAuthSchemes ?? [
@@ -29,7 +30,6 @@ export const getRuntimeConfig = (config: QueryProtocolClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
     serviceId: config?.serviceId ?? "Query Protocol",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

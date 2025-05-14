@@ -13,21 +13,19 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
 import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@smithy/config-resolver";
-import { DefaultIdentityProviderConfig, getHttpAuthSchemePlugin, getHttpSigningPlugin } from "@smithy/core";
+  DefaultIdentityProviderConfig,
+  getHttpAuthSchemeEndpointRuleSetPlugin,
+  getHttpSigningPlugin,
+} from "@smithy/core";
 import {
   CompressionInputConfig,
   CompressionResolvedConfig,
   resolveCompressionConfig,
 } from "@smithy/middleware-compression";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
 import { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
 import {
@@ -43,12 +41,12 @@ import {
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
@@ -105,6 +103,12 @@ import {
   SparseNullsOperationCommandInput,
   SparseNullsOperationCommandOutput,
 } from "./commands/SparseNullsOperationCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
 
@@ -267,12 +271,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   profile?: string;
 
   /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -322,9 +320,10 @@ export type JsonProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpH
   RetryInputConfig &
   RegionInputConfig &
   HostHeaderInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
-  CompressionInputConfig;
+  CompressionInputConfig &
+  ClientInputEndpointParameters;
 /**
  * @public
  *
@@ -342,9 +341,10 @@ export type JsonProtocolClientResolvedConfigType = __SmithyResolvedConfiguration
   RetryResolvedConfig &
   RegionResolvedConfig &
   HostHeaderResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
-  CompressionResolvedConfig;
+  CompressionResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * @public
  *
@@ -370,15 +370,16 @@ export class JsonProtocolClient extends __Client<
     const _config_0 = __getRuntimeConfig(configuration || {});
     super(_config_0 as any);
     this.initConfig = _config_0;
-    const _config_1 = resolveUserAgentConfig(_config_0);
-    const _config_2 = resolveRetryConfig(_config_1);
-    const _config_3 = resolveRegionConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveEndpointsConfig(_config_4);
-    const _config_6 = resolveHttpAuthSchemeConfig(_config_5);
-    const _config_7 = resolveCompressionConfig(_config_6);
-    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    this.config = _config_8;
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveEndpointConfig(_config_5);
+    const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
+    const _config_8 = resolveCompressionConfig(_config_7);
+    const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
+    this.config = _config_9;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
@@ -386,7 +387,7 @@ export class JsonProtocolClient extends __Client<
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(
-      getHttpAuthSchemePlugin(this.config, {
+      getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
         httpAuthSchemeParametersProvider: defaultJsonProtocolHttpAuthSchemeParametersProvider,
         identityProviderConfigProvider: async (config: JsonProtocolClientResolvedConfig) =>
           new DefaultIdentityProviderConfig({

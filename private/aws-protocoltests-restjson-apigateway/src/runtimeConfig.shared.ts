@@ -8,7 +8,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { APIGatewayClientConfig } from "./APIGatewayClient";
 import { defaultAPIGatewayHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 
 /**
  * @internal
@@ -19,6 +19,7 @@ export const getRuntimeConfig = (config: APIGatewayClientConfig) => {
     base64Decoder: config?.base64Decoder ?? fromBase64,
     base64Encoder: config?.base64Encoder ?? toBase64,
     disableHostPrefix: config?.disableHostPrefix ?? false,
+    endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
     extensions: config?.extensions ?? [],
     httpAuthSchemeProvider: config?.httpAuthSchemeProvider ?? defaultAPIGatewayHttpAuthSchemeProvider,
     httpAuthSchemes: config?.httpAuthSchemes ?? [
@@ -29,7 +30,6 @@ export const getRuntimeConfig = (config: APIGatewayClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
     serviceId: config?.serviceId ?? "API Gateway",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

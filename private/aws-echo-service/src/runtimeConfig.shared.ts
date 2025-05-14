@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { defaultEchoServiceHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { NoAuthSigner } from "@smithy/core";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
@@ -17,6 +18,7 @@ export const getRuntimeConfig = (config: EchoServiceClientConfig) => {
     base64Decoder: config?.base64Decoder ?? fromBase64,
     base64Encoder: config?.base64Encoder ?? toBase64,
     disableHostPrefix: config?.disableHostPrefix ?? false,
+    endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
     extensions: config?.extensions ?? [],
     httpAuthSchemeProvider: config?.httpAuthSchemeProvider ?? defaultEchoServiceHttpAuthSchemeProvider,
     httpAuthSchemes: config?.httpAuthSchemes ?? [

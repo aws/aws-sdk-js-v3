@@ -1,8 +1,10 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { XmlTimestampsRequest, XmlTimestampsResponse } from "../models/models_0";
 import { de_XmlTimestampsCommand, se_XmlTimestampsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
@@ -78,8 +80,12 @@ export class XmlTimestampsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("RestXml", "XmlTimestamps", {})
   .n("RestXmlProtocolClient", "XmlTimestampsCommand")

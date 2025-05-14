@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
@@ -14,6 +15,7 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
     base64Decoder: config?.base64Decoder ?? fromBase64,
     base64Encoder: config?.base64Encoder ?? toBase64,
     disableHostPrefix: config?.disableHostPrefix ?? false,
+    endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
     extensions: config?.extensions ?? [],
     logger: config?.logger ?? new NoOpLogger(),
     signingName: config?.signingName ?? "weather",

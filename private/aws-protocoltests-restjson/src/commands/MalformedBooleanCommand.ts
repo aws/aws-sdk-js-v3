@@ -1,8 +1,10 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { MalformedBooleanInput } from "../models/models_0";
 import { de_MalformedBooleanCommand, se_MalformedBooleanCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
@@ -65,8 +67,12 @@ export class MalformedBooleanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("RestJson", "MalformedBoolean", {})
   .n("RestJsonProtocolClient", "MalformedBooleanCommand")

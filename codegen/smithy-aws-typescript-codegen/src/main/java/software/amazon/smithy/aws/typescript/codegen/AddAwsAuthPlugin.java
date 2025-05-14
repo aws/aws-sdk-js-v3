@@ -71,7 +71,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
     @Override
     public List<String> runAfter() {
         return List.of(
-            AddEndpointsPlugin.class.getCanonicalName()
+            AddBuiltinPlugins.class.getCanonicalName()
         );
     }
 
