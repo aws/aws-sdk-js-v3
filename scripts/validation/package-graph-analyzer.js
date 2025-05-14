@@ -7,21 +7,25 @@ const libs = path.join(root, "lib");
 const clients = path.join(root, "clients");
 
 /**
- * Throw and Error if any deprecated package is not marked private.
+ * Throw and Error if any reserved package is not marked private.
  */
 {
   const excluded = [];
 
-  const deprecatedPackages = path.join(root, "deprecated", "packages");
-  for (const folder of fs.readdirSync(deprecatedPackages)) {
-    const pkgJson = require(path.join(deprecatedPackages, folder, "package.json"));
+  const reservedPackages = path.join(root, "reserved", "packages");
+  for (const folder of fs.readdirSync(reservedPackages)) {
+    const pkgJsonPath = path.join(reservedPackages, folder, "package.json");
+    if (!fs.existsSync(pkgJsonPath)) {
+      continue;
+    }
+    const pkgJson = require(path.join(reservedPackages, folder, "package.json"));
 
     if (excluded.includes(pkgJson.name)) {
       continue;
     }
 
     if (pkgJson.private !== true) {
-      throw new Error("package in deprecated folder is not marked private:", folder);
+      throw new Error("package in reserved folder is not marked private:", folder);
     } else {
     }
   }
@@ -31,9 +35,19 @@ const clients = path.join(root, "clients");
  * Analyze package dependency graph.
  */
 {
-  const packagesData = fs.readdirSync(packages).map((pkg) => require(path.join(packages, pkg, "package.json")));
-  const libsData = fs.readdirSync(libs).map((pkg) => require(path.join(libs, pkg, "package.json")));
-  const clientsData = fs.readdirSync(clients).map((pkg) => require(path.join(clients, pkg, "package.json")));
+  const hasPkgJson = (subfolder, pkg) => fs.existsSync(path.join(subfolder, pkg, "package.json"));
+  const packagesData = fs
+    .readdirSync(packages)
+    .filter(hasPkgJson.bind(null, "packages"))
+    .map((pkg) => require(path.join(packages, pkg, "package.json")));
+  const libsData = fs
+    .readdirSync(libs)
+    .filter(hasPkgJson.bind(null, "libs"))
+    .map((pkg) => require(path.join(libs, pkg, "package.json")));
+  const clientsData = fs
+    .readdirSync(clients)
+    .filter(hasPkgJson.bind(null, "clients"))
+    .map((pkg) => require(path.join(clients, pkg, "package.json")));
 
   const allPackages = [...packagesData, ...libsData, ...clientsData];
 
