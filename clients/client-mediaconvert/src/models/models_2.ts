@@ -35,10 +35,50 @@ import {
   StatusUpdateInterval,
   TimecodeConfig,
   TimedMetadataInsertion,
-  Timing,
   VideoDescription,
-  WarningGroup,
 } from "./models_1";
+
+/**
+ * Information about when jobs are submitted, started, and finished is specified in Unix epoch format in seconds.
+ * @public
+ */
+export interface Timing {
+  /**
+   * The time, in Unix epoch format, that the transcoding job finished
+   * @public
+   */
+  FinishTime?: Date | undefined;
+
+  /**
+   * The time, in Unix epoch format, that transcoding for the job began.
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * The time, in Unix epoch format, that you submitted the job.
+   * @public
+   */
+  SubmitTime?: Date | undefined;
+}
+
+/**
+ * Contains any warning codes and their count for the job.
+ * @public
+ */
+export interface WarningGroup {
+  /**
+   * Warning code that identifies a specific warning in the job. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/warning_codes.html
+   * @public
+   */
+  Code: number | undefined;
+
+  /**
+   * The number of times this warning occurred in the job.
+   * @public
+   */
+  Count: number | undefined;
+}
 
 /**
  * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html

@@ -152,7 +152,6 @@ import {
   Mp2Settings,
   Mp3Settings,
   MsSmoothAdditionalManifest,
-  MsSmoothEncryptionSettings,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
   OpusSettings,
@@ -177,6 +176,7 @@ import {
   TtmlDestinationSettings,
   VideoDetail,
   VideoOverlay,
+  VideoOverlayCrop,
   VideoOverlayInput,
   VideoOverlayInputClipping,
   VideoOverlayPosition,
@@ -220,6 +220,7 @@ import {
   Mp4Settings,
   MpdSettings,
   Mpeg2Settings,
+  MsSmoothEncryptionSettings,
   MsSmoothGroupSettings,
   MxfSettings,
   MxfXavcProfileSettings,
@@ -237,7 +238,6 @@ import {
   TimecodeBurnin,
   TimecodeConfig,
   TimedMetadataInsertion,
-  Timing,
   UncompressedSettings,
   Vc3Settings,
   VideoCodecSettings,
@@ -245,7 +245,6 @@ import {
   VideoPreprocessor,
   Vp8Settings,
   Vp9Settings,
-  WarningGroup,
   Xavc4kIntraCbgProfileSettings,
   Xavc4kIntraVbrProfileSettings,
   Xavc4kProfileSettings,
@@ -278,10 +277,12 @@ import {
   ReservationPlanSettings,
   ResourceTags,
   ServiceOverride,
+  Timing,
   TooManyRequestsException,
   Track,
   TrackMapping,
   VideoProperties,
+  WarningGroup,
 } from "../models/models_2";
 
 /**
@@ -3018,6 +3019,7 @@ const se_FileSourceSettings = (input: FileSourceSettings, context: __SerdeContex
     sourceFile: [, , `SourceFile`],
     timeDelta: [, , `TimeDelta`],
     timeDeltaUnits: [, , `TimeDeltaUnits`],
+    upconvertSTLToTeletext: [, , `UpconvertSTLToTeletext`],
   });
 };
 
@@ -4409,12 +4411,26 @@ const se_VideoDescription = (input: VideoDescription, context: __SerdeContext): 
  */
 const se_VideoOverlay = (input: VideoOverlay, context: __SerdeContext): any => {
   return take(input, {
+    crop: [, (_) => se_VideoOverlayCrop(_, context), `Crop`],
     endTimecode: [, , `EndTimecode`],
     initialPosition: [, (_) => se_VideoOverlayPosition(_, context), `InitialPosition`],
     input: [, (_) => se_VideoOverlayInput(_, context), `Input`],
     playback: [, , `Playback`],
     startTimecode: [, , `StartTimecode`],
     transitions: [, (_) => se___listOfVideoOverlayTransition(_, context), `Transitions`],
+  });
+};
+
+/**
+ * serializeAws_restJson1VideoOverlayCrop
+ */
+const se_VideoOverlayCrop = (input: VideoOverlayCrop, context: __SerdeContext): any => {
+  return take(input, {
+    height: [, , `Height`],
+    unit: [, , `Unit`],
+    width: [, , `Width`],
+    x: [, , `X`],
+    y: [, , `Y`],
   });
 };
 
@@ -6243,6 +6259,7 @@ const de_FileSourceSettings = (output: any, context: __SerdeContext): FileSource
     SourceFile: [, __expectString, `sourceFile`],
     TimeDelta: [, __expectInt32, `timeDelta`],
     TimeDeltaUnits: [, __expectString, `timeDeltaUnits`],
+    UpconvertSTLToTeletext: [, __expectString, `upconvertSTLToTeletext`],
   }) as any;
 };
 
@@ -7895,12 +7912,26 @@ const de_VideoDetail = (output: any, context: __SerdeContext): VideoDetail => {
  */
 const de_VideoOverlay = (output: any, context: __SerdeContext): VideoOverlay => {
   return take(output, {
+    Crop: [, (_: any) => de_VideoOverlayCrop(_, context), `crop`],
     EndTimecode: [, __expectString, `endTimecode`],
     InitialPosition: [, (_: any) => de_VideoOverlayPosition(_, context), `initialPosition`],
     Input: [, (_: any) => de_VideoOverlayInput(_, context), `input`],
     Playback: [, __expectString, `playback`],
     StartTimecode: [, __expectString, `startTimecode`],
     Transitions: [, (_: any) => de___listOfVideoOverlayTransition(_, context), `transitions`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VideoOverlayCrop
+ */
+const de_VideoOverlayCrop = (output: any, context: __SerdeContext): VideoOverlayCrop => {
+  return take(output, {
+    Height: [, __expectInt32, `height`],
+    Unit: [, __expectString, `unit`],
+    Width: [, __expectInt32, `width`],
+    X: [, __expectInt32, `x`],
+    Y: [, __expectInt32, `y`],
   }) as any;
 };
 

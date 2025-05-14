@@ -3709,6 +3709,21 @@ export const FileSourceTimeDeltaUnits = {
 export type FileSourceTimeDeltaUnits = (typeof FileSourceTimeDeltaUnits)[keyof typeof FileSourceTimeDeltaUnits];
 
 /**
+ * @public
+ * @enum
+ */
+export const CaptionSourceUpconvertSTLToTeletext = {
+  DISABLED: "DISABLED",
+  UPCONVERT: "UPCONVERT",
+} as const;
+
+/**
+ * @public
+ */
+export type CaptionSourceUpconvertSTLToTeletext =
+  (typeof CaptionSourceUpconvertSTLToTeletext)[keyof typeof CaptionSourceUpconvertSTLToTeletext];
+
+/**
  * If your input captions are SCC, SMI, SRT, STL, TTML, WebVTT, or IMSC 1.1 in an xml file, specify the URI of the input caption source file. If your caption source is IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
  * @public
  */
@@ -3754,6 +3769,12 @@ export interface FileSourceSettings {
    * @public
    */
   TimeDeltaUnits?: FileSourceTimeDeltaUnits | undefined;
+
+  /**
+   * Specify whether this set of input captions appears in your outputs in both STL and Teletext format. If you choose Upconvert, MediaConvert includes the captions data in two ways: it passes the STL data through using the Teletext compatibility bytes fields of the Teletext wrapper, and it also translates the STL data into Teletext.
+   * @public
+   */
+  UpconvertSTLToTeletext?: CaptionSourceUpconvertSTLToTeletext | undefined;
 }
 
 /**
@@ -4282,6 +4303,42 @@ export const VideoOverlayUnit = {
 export type VideoOverlayUnit = (typeof VideoOverlayUnit)[keyof typeof VideoOverlayUnit];
 
 /**
+ * Specify a rectangle of content to crop and use from your video overlay's input video. When you do, MediaConvert uses the cropped dimensions that you specify under X offset, Y offset, Width, and Height.
+ * @public
+ */
+export interface VideoOverlayCrop {
+  /**
+   * Specify the height of the video overlay cropping rectangle. To use the same height as your overlay input video: Keep blank, or enter 0. To specify a different height for the cropping rectangle: Enter an integer representing the Unit type that you choose, either Pixels or Percentage. For example, when you enter 100 and choose Pixels, the cropping rectangle will 100 pixels high. When you enter 10, choose Percentage, and your overlay input video is 1920x1080, the cropping rectangle will be 108 pixels high.
+   * @public
+   */
+  Height?: number | undefined;
+
+  /**
+   * Specify the Unit type to use when you enter a value for X position, Y position, Width, or Height. You can choose Pixels or Percentage. Leave blank to use the default value, Pixels.
+   * @public
+   */
+  Unit?: VideoOverlayUnit | undefined;
+
+  /**
+   * Specify the width of the video overlay cropping rectangle. To use the same width as your overlay input video: Keep blank, or enter 0. To specify a different width for the cropping rectangle: Enter an integer representing the Unit type that you choose, either Pixels or Percentage. For example, when you enter 100 and choose Pixels, the cropping rectangle will 100 pixels wide. When you enter 10, choose Percentage, and your overlay input video is 1920x1080, the cropping rectangle will be 192 pixels wide.
+   * @public
+   */
+  Width?: number | undefined;
+
+  /**
+   * Specify the distance between the cropping rectangle and the left edge of your overlay video's frame. To position the cropping rectangle along the left edge: Keep blank, or enter 0. To position the cropping rectangle to the right, relative to the left edge of your overlay video's frame: Enter an integer representing the Unit type that you choose, either Pixels or Percentage. For example, when you enter 10 and choose Pixels, the cropping rectangle will be positioned 10 pixels from the left edge of the overlay video's frame. When you enter 10, choose Percentage, and your overlay input video is 1920x1080, the cropping rectangle will be positioned 192 pixels from the left edge of the overlay video's frame.
+   * @public
+   */
+  X?: number | undefined;
+
+  /**
+   * Specify the distance between the cropping rectangle and the top edge of your overlay video's frame. To position the cropping rectangle along the top edge: Keep blank, or enter 0. To position the cropping rectangle down, relative to the top edge of your overlay video's frame: Enter an integer representing the Unit type that you choose, either Pixels or Percentage. For example, when you enter 10 and choose Pixels, the cropping rectangle will be positioned 10 pixels from the top edge of the overlay video's frame. When you enter 10, choose Percentage, and your overlay input video is 1920x1080, the cropping rectangle will be positioned 108 pixels from the top edge of the overlay video's frame.
+   * @public
+   */
+  Y?: number | undefined;
+}
+
+/**
  * position of video overlay
  * @public
  */
@@ -4409,6 +4466,12 @@ export interface VideoOverlayTransition {
  * @public
  */
 export interface VideoOverlay {
+  /**
+   * Specify a rectangle of content to crop and use from your video overlay's input video. When you do, MediaConvert uses the cropped dimensions that you specify under X offset, Y offset, Width, and Height.
+   * @public
+   */
+  Crop?: VideoOverlayCrop | undefined;
+
   /**
    * Enter the end timecode in the base input video for this overlay. Your overlay will be active through this frame. To display your video overlay for the duration of the base input video: Leave blank. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the hour, MM is the minute, SS isthe second, and FF is the frame number. When entering this value, take into account your choice for the base input video's timecode source. For example, if you have embedded timecodes that start at 01:00:00:00 and you want your overlay to end ten minutes into the video, enter 01:10:00:00.
    * @public
@@ -7500,30 +7563,4 @@ export interface MsSmoothAdditionalManifest {
    * @public
    */
   SelectedOutputs?: string[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MsSmoothAudioDeduplication = {
-  COMBINE_DUPLICATE_STREAMS: "COMBINE_DUPLICATE_STREAMS",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type MsSmoothAudioDeduplication = (typeof MsSmoothAudioDeduplication)[keyof typeof MsSmoothAudioDeduplication];
-
-/**
- * If you are using DRM, set DRM System to specify the value SpekeKeyProvider.
- * @public
- */
-export interface MsSmoothEncryptionSettings {
-  /**
-   * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
-   * @public
-   */
-  SpekeKeyProvider?: SpekeKeyProvider | undefined;
 }

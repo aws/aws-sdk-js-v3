@@ -210,6 +210,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                   SourceFile: "STRING_VALUE",
  * //                   TimeDelta: Number("int"),
  * //                   TimeDeltaUnits: "SECONDS" || "MILLISECONDS",
+ * //                   UpconvertSTLToTeletext: "UPCONVERT" || "DISABLED",
  * //                 },
  * //                 SourceType: "ANCILLARY" || "DVB_SUB" || "EMBEDDED" || "SCTE20" || "SCC" || "TTML" || "STL" || "SRT" || "SMI" || "SMPTE_TT" || "TELETEXT" || "NULL_SOURCE" || "IMSC" || "WEBVTT",
  * //                 TeletextSourceSettings: { // TeletextSourceSettings
@@ -300,6 +301,13 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //           },
  * //           VideoOverlays: [ // __listOfVideoOverlay
  * //             { // VideoOverlay
+ * //               Crop: { // VideoOverlayCrop
+ * //                 Height: Number("int"),
+ * //                 Unit: "PIXELS" || "PERCENTAGE",
+ * //                 Width: Number("int"),
+ * //                 X: Number("int"),
+ * //                 Y: Number("int"),
+ * //               },
  * //               EndTimecode: "STRING_VALUE",
  * //               InitialPosition: { // VideoOverlayPosition
  * //                 Height: Number("int"),
