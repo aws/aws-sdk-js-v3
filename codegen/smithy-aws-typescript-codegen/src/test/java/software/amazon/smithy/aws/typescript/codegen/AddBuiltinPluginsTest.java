@@ -35,7 +35,7 @@ public class AddBuiltinPluginsTest {
 
         // Check the config resolution and middleware plugin
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("resolveRegionConfig"));
-        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("resolveEndpointsConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("resolveEndpointConfig"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("resolveRetryConfig"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("getRetryPlugin"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("getContentLengthPlugin"));
@@ -65,7 +65,7 @@ public class AddBuiltinPluginsTest {
 
         // Check the config resolution and middleware plugin
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("resolveRegionConfig"));
-        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("resolveCustomEndpointsConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("resolveEndpointConfig"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("resolveRetryConfig"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("getRetryPlugin"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("getContentLengthPlugin"));
@@ -95,7 +95,7 @@ public class AddBuiltinPluginsTest {
 
         // Check the config resolution and middleware plugin
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), not(containsString("resolveRegionConfig")));
-        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), containsString("resolveCustomEndpointsConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), containsString("resolveEndpointConfig"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), containsString("resolveRetryConfig"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), containsString("getRetryPlugin"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), containsString("getContentLengthPlugin"));
