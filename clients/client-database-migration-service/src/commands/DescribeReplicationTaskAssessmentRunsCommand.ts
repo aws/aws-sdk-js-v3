@@ -13,7 +13,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeReplicationTaskAssessmentRunsMessage,
   DescribeReplicationTaskAssessmentRunsResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_DescribeReplicationTaskAssessmentRunsCommand,
   se_DescribeReplicationTaskAssessmentRunsCommand,

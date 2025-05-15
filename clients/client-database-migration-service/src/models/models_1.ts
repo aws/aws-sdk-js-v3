@@ -72,6 +72,60 @@ import {
  * <p></p>
  * @public
  */
+export interface DescribeReplicationTaskAssessmentRunsMessage {
+  /**
+   * <p>Filters applied to the premigration assessment runs described in the form of key-value
+   *          pairs.</p>
+   *          <p>Valid filter names: <code>replication-task-assessment-run-arn</code>,
+   *             <code>replication-task-arn</code>, <code>replication-instance-arn</code>,
+   *             <code>status</code>
+   *          </p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the
+   *          specified <code>MaxRecords</code> value, a pagination token called a marker is included in
+   *          the response so that the remaining results can be retrieved.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationTaskAssessmentRunsResponse {
+  /**
+   * <p>A pagination token returned for you to pass to a subsequent request. If you pass this
+   *          token as the <code>Marker</code> value in a subsequent request, the response includes only
+   *          records beyond the marker, up to the value specified in the request by
+   *             <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>One or more premigration assessment runs as specified by <code>Filters</code>.</p>
+   * @public
+   */
+  ReplicationTaskAssessmentRuns?: ReplicationTaskAssessmentRun[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
 export interface DescribeReplicationTaskIndividualAssessmentsMessage {
   /**
    * <p>Filters applied to the individual assessments described in the form of key-value

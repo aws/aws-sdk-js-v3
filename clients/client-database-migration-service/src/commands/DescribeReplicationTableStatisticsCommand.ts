@@ -91,6 +91,11 @@ export interface DescribeReplicationTableStatisticsCommandOutput
  * //       ValidationSuspendedRecords: Number("long"),
  * //       ValidationState: "STRING_VALUE",
  * //       ValidationStateDetails: "STRING_VALUE",
+ * //       ResyncState: "STRING_VALUE",
+ * //       ResyncRowsAttempted: Number("long"),
+ * //       ResyncRowsSucceeded: Number("long"),
+ * //       ResyncRowsFailed: Number("long"),
+ * //       ResyncProgress: Number("double"),
  * //     },
  * //   ],
  * // };

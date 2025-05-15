@@ -3061,6 +3061,20 @@ export interface MongoDbSettings {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const MySQLAuthenticationMethod = {
+  IAM: "iam",
+  Password: "password",
+} as const;
+
+/**
+ * @public
+ */
+export type MySQLAuthenticationMethod = (typeof MySQLAuthenticationMethod)[keyof typeof MySQLAuthenticationMethod];
+
+/**
  * <p>Provides information that defines a MySQL endpoint.</p>
  * @public
  */
@@ -3203,6 +3217,18 @@ export interface MySQLSettings {
    * @public
    */
   ExecuteTimeout?: number | undefined;
+
+  /**
+   * <p>The IAM role you can use to authenticate when connecting to your endpoint. Ensure to include <code>iam:PassRole</code> and <code>rds-db:connect</code> actions in permission policy.</p>
+   * @public
+   */
+  ServiceAccessRoleArn?: string | undefined;
+
+  /**
+   * <p>This attribute allows you to specify the authentication method as "iam auth".</p>
+   * @public
+   */
+  AuthenticationMethod?: MySQLAuthenticationMethod | undefined;
 }
 
 /**
@@ -3732,6 +3758,21 @@ export interface OracleSettings {
  * @public
  * @enum
  */
+export const PostgreSQLAuthenticationMethod = {
+  IAM: "iam",
+  Password: "password",
+} as const;
+
+/**
+ * @public
+ */
+export type PostgreSQLAuthenticationMethod =
+  (typeof PostgreSQLAuthenticationMethod)[keyof typeof PostgreSQLAuthenticationMethod];
+
+/**
+ * @public
+ * @enum
+ */
 export const DatabaseMode = {
   BABELFISH: "babelfish",
   DEFAULT: "default",
@@ -3995,6 +4036,18 @@ export interface PostgreSQLSettings {
    * @public
    */
   DisableUnicodeSourceFilter?: boolean | undefined;
+
+  /**
+   * <p>The IAM role arn you can use to authenticate the connection to your endpoint. Ensure to include <code>iam:PassRole</code> and <code>rds-db:connect</code> actions in permission policy.</p>
+   * @public
+   */
+  ServiceAccessRoleArn?: string | undefined;
+
+  /**
+   * <p>This attribute allows you to specify the authentication method as "iam auth".</p>
+   * @public
+   */
+  AuthenticationMethod?: PostgreSQLAuthenticationMethod | undefined;
 }
 
 /**
@@ -9715,7 +9768,8 @@ export interface DescribeEventSubscriptionsMessage {
 
   /**
    * <p>Filters applied to event subscriptions.</p>
-   *          <p>Valid filter names: event-subscription-arn | event-subscription-id </p>
+   *          <p>Valid filter names: <code>event-subscription-arn</code> | <code>event-subscription-id</code>
+   *          </p>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -11361,6 +11415,8 @@ export interface DescribePendingMaintenanceActionsResponse {
 export interface DescribeRecommendationLimitationsRequest {
   /**
    * <p>Filters applied to the limitations described in the form of key-value pairs.</p>
+   *          <p>Valid filter names: <code>database-id</code> | <code>engine-name</code>
+   *          </p>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -11469,6 +11525,8 @@ export interface DescribeRecommendationsRequest {
   /**
    * <p>Filters applied to the target engine recommendations described in the form of
    *             key-value pairs.</p>
+   *          <p>Valid filter names: <code>database-id</code> | <code>engine-name</code>
+   *          </p>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -11998,6 +12056,8 @@ export interface DescribeReplicationInstanceTaskLogsResponse {
 export interface DescribeReplicationsMessage {
   /**
    * <p>Filters applied to the replications.</p>
+   *          <p> Valid filter names: <code>replication-config-arn</code> | <code>replication-config-id</code>
+   *          </p>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -12784,6 +12844,56 @@ export interface TableStatistics {
    * @public
    */
   ValidationStateDetails?: string | undefined;
+
+  /**
+   * <p>Records the current state of table resynchronization in the migration task.</p>
+   *          <p>This parameter can have the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Not enabled – Resync is not enabled for the table in the migration task.</p>
+   *             </li>
+   *             <li>
+   *                <p>Pending – The tables are waiting for resync.</p>
+   *             </li>
+   *             <li>
+   *                <p>In progress – Resync in progress for some records in the table.</p>
+   *             </li>
+   *             <li>
+   *                <p>No primary key – The table could not be resynced because it has no primary key.</p>
+   *             </li>
+   *             <li>
+   *                <p>Last resync at: <code>date/time</code> – Resync session is finished at time. Time provided in UTC format.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResyncState?: string | undefined;
+
+  /**
+   * <p>Records the total number of mismatched data rows where the system attempted to apply
+   *          fixes in the target database.</p>
+   * @public
+   */
+  ResyncRowsAttempted?: number | undefined;
+
+  /**
+   * <p>Records the total number of mismatched data rows where fixes were successfully applied in the target database.</p>
+   * @public
+   */
+  ResyncRowsSucceeded?: number | undefined;
+
+  /**
+   * <p>Records the total number of mismatched data rows where fix attempts failed in the target
+   *          database.</p>
+   * @public
+   */
+  ResyncRowsFailed?: number | undefined;
+
+  /**
+   * <p>Calculates the percentage of failed validations that were successfully resynced to the system.</p>
+   * @public
+   */
+  ResyncProgress?: number | undefined;
 }
 
 /**
@@ -12922,60 +13032,6 @@ export interface DescribeReplicationTaskAssessmentResultsResponse {
    * @public
    */
   ReplicationTaskAssessmentResults?: ReplicationTaskAssessmentResult[] | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeReplicationTaskAssessmentRunsMessage {
-  /**
-   * <p>Filters applied to the premigration assessment runs described in the form of key-value
-   *          pairs.</p>
-   *          <p>Valid filter names: <code>replication-task-assessment-run-arn</code>,
-   *             <code>replication-task-arn</code>, <code>replication-instance-arn</code>,
-   *             <code>status</code>
-   *          </p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of records to include in the response. If more records exist than the
-   *          specified <code>MaxRecords</code> value, a pagination token called a marker is included in
-   *          the response so that the remaining results can be retrieved.</p>
-   * @public
-   */
-  MaxRecords?: number | undefined;
-
-  /**
-   * <p>An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeReplicationTaskAssessmentRunsResponse {
-  /**
-   * <p>A pagination token returned for you to pass to a subsequent request. If you pass this
-   *          token as the <code>Marker</code> value in a subsequent request, the response includes only
-   *          records beyond the marker, up to the value specified in the request by
-   *             <code>MaxRecords</code>.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>One or more premigration assessment runs as specified by <code>Filters</code>.</p>
-   * @public
-   */
-  ReplicationTaskAssessmentRuns?: ReplicationTaskAssessmentRun[] | undefined;
 }
 
 /**

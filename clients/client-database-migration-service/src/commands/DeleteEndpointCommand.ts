@@ -251,6 +251,8 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * //       DatabaseMode: "default" || "babelfish",
  * //       BabelfishDatabaseName: "STRING_VALUE",
  * //       DisableUnicodeSourceFilter: true || false,
+ * //       ServiceAccessRoleArn: "STRING_VALUE",
+ * //       AuthenticationMethod: "password" || "iam",
  * //     },
  * //     MySQLSettings: { // MySQLSettings
  * //       AfterConnectScript: "STRING_VALUE",
@@ -268,6 +270,8 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * //       SecretsManagerAccessRoleArn: "STRING_VALUE",
  * //       SecretsManagerSecretId: "STRING_VALUE",
  * //       ExecuteTimeout: Number("int"),
+ * //       ServiceAccessRoleArn: "STRING_VALUE",
+ * //       AuthenticationMethod: "password" || "iam",
  * //     },
  * //     OracleSettings: { // OracleSettings
  * //       AddSupplementalLogging: true || false,
