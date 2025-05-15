@@ -59,8 +59,9 @@ export const loadRestJsonErrorCode = (output: HttpResponse, data: any): string |
     return sanitizeErrorCode(output.headers[headerKey]);
   }
 
-  if (data.code !== undefined) {
-    return sanitizeErrorCode(data.code);
+  const codeKey = findKey(data, "code");
+  if (codeKey && data[codeKey] !== undefined) {
+    return sanitizeErrorCode(data[codeKey]);
   }
 
   if (data["__type"] !== undefined) {
