@@ -199,6 +199,8 @@ import {
   DescribeCodeCoveragesOutput,
   DescribeTestCasesInput,
   DescribeTestCasesOutput,
+  DockerServer,
+  DockerServerStatus,
   EnvironmentVariable,
   Fleet,
   FleetProxyRule,
@@ -2467,6 +2469,10 @@ const se_DescribeCodeCoveragesInput = (input: DescribeCodeCoveragesInput, contex
 
 // se_DescribeTestCasesInput omitted.
 
+// se_DockerServer omitted.
+
+// se_DockerServerStatus omitted.
+
 // se_EnvironmentVariable omitted.
 
 // se_EnvironmentVariables omitted.
@@ -3151,6 +3157,10 @@ const de_DescribeTestCasesOutput = (output: any, context: __SerdeContext): Descr
     testCases: (_: any) => de_TestCases(_, context),
   }) as any;
 };
+
+// de_DockerServer omitted.
+
+// de_DockerServerStatus omitted.
 
 // de_EnvironmentImage omitted.
 

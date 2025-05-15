@@ -172,6 +172,16 @@ export interface RetryBuildCommandOutput extends RetryBuildOutput, __MetadataBea
  * //         credentialProvider: "SECRETS_MANAGER", // required
  * //       },
  * //       imagePullCredentialsType: "CODEBUILD" || "SERVICE_ROLE",
+ * //       dockerServer: { // DockerServer
+ * //         computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_XLARGE" || "BUILD_GENERAL1_2XLARGE" || "BUILD_LAMBDA_1GB" || "BUILD_LAMBDA_2GB" || "BUILD_LAMBDA_4GB" || "BUILD_LAMBDA_8GB" || "BUILD_LAMBDA_10GB" || "ATTRIBUTE_BASED_COMPUTE" || "CUSTOM_INSTANCE_TYPE", // required
+ * //         securityGroupIds: [ // SecurityGroupIds
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         status: { // DockerServerStatus
+ * //           status: "STRING_VALUE",
+ * //           message: "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //     serviceRole: "STRING_VALUE",
  * //     logs: { // LogsLocation
@@ -202,7 +212,7 @@ export interface RetryBuildCommandOutput extends RetryBuildOutput, __MetadataBea
  * //       subnets: [ // Subnets
  * //         "STRING_VALUE",
  * //       ],
- * //       securityGroupIds: [ // SecurityGroupIds
+ * //       securityGroupIds: [
  * //         "STRING_VALUE",
  * //       ],
  * //     },

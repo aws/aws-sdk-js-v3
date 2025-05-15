@@ -793,6 +793,79 @@ export const ComputeType = {
 export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
 
 /**
+ * <p>Contains information about the status of the docker server.</p>
+ * @public
+ */
+export interface DockerServerStatus {
+  /**
+   * <p>The status of the docker server.</p>
+   * @public
+   */
+  status?: string | undefined;
+
+  /**
+   * <p>A message associated with the status of a docker server.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * <p>Contains docker server information.</p>
+ * @public
+ */
+export interface DockerServer {
+  /**
+   * <p>Information about the compute resources the docker server uses. Available values
+   *             include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BUILD_GENERAL1_SMALL</code>: Use up to 4 GiB memory and 2 vCPUs for
+   *                     your docker server.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BUILD_GENERAL1_MEDIUM</code>: Use up to 8 GiB memory and 4 vCPUs for
+   *                     your docker server.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BUILD_GENERAL1_LARGE</code>: Use up to 16 GiB memory and 8 vCPUs for
+   *                     your docker server.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BUILD_GENERAL1_XLARGE</code>: Use up to 64 GiB memory and 32 vCPUs for
+   *                     your docker server.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BUILD_GENERAL1_2XLARGE</code>: Use up to 128 GiB memory and 64 vCPUs for
+   *                     your docker server.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  computeType: ComputeType | undefined;
+
+  /**
+   * <p>A list of one or more security groups IDs.</p>
+   *          <note>
+   *             <p>Security groups configured for Docker servers should allow ingress network traffic from the VPC configured in the project. They should allow ingress on port 9876.</p>
+   *          </note>
+   * @public
+   */
+  securityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>A DockerServerStatus object to use for this docker server.</p>
+   * @public
+   */
+  status?: DockerServerStatus | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1184,6 +1257,12 @@ export interface ProjectEnvironment {
    * @public
    */
   imagePullCredentialsType?: ImagePullCredentialsType | undefined;
+
+  /**
+   * <p>A DockerServer object to use for this build project.</p>
+   * @public
+   */
+  dockerServer?: DockerServer | undefined;
 }
 
 /**
@@ -3385,6 +3464,11 @@ export interface Fleet {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>CUSTOM_INSTANCE_TYPE</code>: Specify the instance type for your compute fleet. For a list of supported instance types, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types">Supported instance families
+   *                         </a> in the <i>CodeBuild User Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>BUILD_GENERAL1_SMALL</code>: Use up to 4 GiB memory and 2 vCPUs for
    *                     builds.</p>
    *             </li>
@@ -3473,7 +3557,7 @@ export interface Fleet {
   computeType?: ComputeType | undefined;
 
   /**
-   * <p>The compute configuration of the compute fleet. This is only required if <code>computeType</code> is set to <code>ATTRIBUTE_BASED_COMPUTE</code>.</p>
+   * <p>The compute configuration of the compute fleet. This is only required if <code>computeType</code> is set to <code>ATTRIBUTE_BASED_COMPUTE</code> or <code>CUSTOM_INSTANCE_TYPE</code>.</p>
    * @public
    */
   computeConfiguration?: ComputeConfiguration | undefined;
@@ -5441,6 +5525,11 @@ export interface CreateFleetInput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>CUSTOM_INSTANCE_TYPE</code>: Specify the instance type for your compute fleet. For a list of supported instance types, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types">Supported instance families
+   *                         </a> in the <i>CodeBuild User Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>BUILD_GENERAL1_SMALL</code>: Use up to 4 GiB memory and 2 vCPUs for
    *                     builds.</p>
    *             </li>
@@ -5529,7 +5618,7 @@ export interface CreateFleetInput {
   computeType: ComputeType | undefined;
 
   /**
-   * <p>The compute configuration of the compute fleet. This is only required if <code>computeType</code> is set to <code>ATTRIBUTE_BASED_COMPUTE</code>.</p>
+   * <p>The compute configuration of the compute fleet. This is only required if <code>computeType</code> is set to <code>ATTRIBUTE_BASED_COMPUTE</code> or <code>CUSTOM_INSTANCE_TYPE</code>.</p>
    * @public
    */
   computeConfiguration?: ComputeConfiguration | undefined;
@@ -9004,6 +9093,11 @@ export interface UpdateFleetInput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>CUSTOM_INSTANCE_TYPE</code>: Specify the instance type for your compute fleet. For a list of supported instance types, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types">Supported instance families
+   *                         </a> in the <i>CodeBuild User Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>BUILD_GENERAL1_SMALL</code>: Use up to 4 GiB memory and 2 vCPUs for
    *                     builds.</p>
    *             </li>
@@ -9092,7 +9186,7 @@ export interface UpdateFleetInput {
   computeType?: ComputeType | undefined;
 
   /**
-   * <p>The compute configuration of the compute fleet. This is only required if <code>computeType</code> is set to <code>ATTRIBUTE_BASED_COMPUTE</code>.</p>
+   * <p>The compute configuration of the compute fleet. This is only required if <code>computeType</code> is set to <code>ATTRIBUTE_BASED_COMPUTE</code> or <code>CUSTOM_INSTANCE_TYPE</code>.</p>
    * @public
    */
   computeConfiguration?: ComputeConfiguration | undefined;
