@@ -472,7 +472,7 @@ export interface CreateAgentActionGroupRequest {
    *             Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only.
    *             When operating computer use functionality, we recommend taking additional security precautions,
    *             such as executing computer actions in virtual environments with restricted data access and limited internet connectivity.
-   *              For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *              For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
    *           </p>
    *                </important>
    *                <ul>
@@ -500,7 +500,7 @@ export interface CreateAgentActionGroupRequest {
    * <p>The configuration settings for a computer use action.</p>
    *          <important>
    *             <p>
-   *         Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *         Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
    *       </p>
    *          </important>
    * @public
@@ -597,7 +597,7 @@ export interface AgentActionGroup {
    * <p>The configuration settings for a computer use action.</p>
    *          <important>
    *             <p>
-   *         Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *         Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
    *       </p>
    *          </important>
    * @public
@@ -967,7 +967,7 @@ export interface UpdateAgentActionGroupRequest {
    *             Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only.
    *             When operating computer use functionality, we recommend taking additional security precautions,
    *             such as executing computer actions in virtual environments with restricted data access and limited internet connectivity.
-   *              For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *              For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
    *           </p>
    *                </important>
    *                <ul>
@@ -996,7 +996,7 @@ export interface UpdateAgentActionGroupRequest {
    * <p>The configuration settings for a computer use action.</p>
    *          <important>
    *             <p>
-   *         Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *         Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
    *       </p>
    *          </important>
    * @public
@@ -1316,7 +1316,7 @@ export interface PromptConfiguration {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PRE_PROCESSING</code> – <code>DISABLED</code>
+   *                   <code>PRE_PROCESSING</code> – <code>ENABLED</code>
    *                </p>
    *             </li>
    *             <li>
@@ -2151,7 +2151,7 @@ export interface UpdateAgentCollaboratorResponse {
 }
 
 /**
- * <p>Defines an agent node in your flow. You specify the agent to invoke at this point in the flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html">Node types in Amazon Bedrock works</a> in the Amazon Bedrock User Guide.</p>
+ * <p>Defines an agent node in your flow. You specify the agent to invoke at this point in the flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html">Node types in a flow</a> in the Amazon Bedrock User Guide.</p>
  * @public
  */
 export interface AgentFlowNodeConfiguration {
@@ -4703,7 +4703,7 @@ export interface FlowConnection {
 }
 
 /**
- * <p>Defines a collector node in your flow. This node takes an iteration of inputs and consolidates them into an array in the output. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html">Node types in Amazon Bedrock works</a> in the Amazon Bedrock User Guide.</p>
+ * <p>Defines a collector node in your flow. This node takes an iteration of inputs and consolidates them into an array in the output. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html">Node types in a flow</a> in the Amazon Bedrock User Guide.</p>
  * @public
  */
 export interface CollectorFlowNodeConfiguration {}
@@ -4727,7 +4727,7 @@ export interface FlowCondition {
 }
 
 /**
- * <p>Defines a condition node in your flow. You can specify conditions that determine which node comes next in the flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html">Node types in Amazon Bedrock works</a> in the Amazon Bedrock User Guide.</p>
+ * <p>Defines a condition node in your flow. You can specify conditions that determine which node comes next in the flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html">Node types in a flow</a> in the Amazon Bedrock User Guide.</p>
  * @public
  */
 export interface ConditionFlowNodeConfiguration {
@@ -4783,66 +4783,6 @@ export interface InputFlowNodeConfiguration {}
  * @public
  */
 export interface IteratorFlowNodeConfiguration {}
-
-/**
- * <p>Contains configurations for a knowledge base node in a flow. This node takes a query as the input and returns, as the output, the retrieved responses directly (as an array) or a response generated based on the retrieved responses. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html">Node types in Amazon Bedrock works</a> in the Amazon Bedrock User Guide.</p>
- * @public
- */
-export interface KnowledgeBaseFlowNodeConfiguration {
-  /**
-   * <p>The unique identifier of the knowledge base to query.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.</p>
-   * @public
-   */
-  modelId?: string | undefined;
-
-  /**
-   * <p>Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration.</p>
-   * @public
-   */
-  guardrailConfiguration?: GuardrailConfiguration | undefined;
-}
-
-/**
- * <p>Contains configurations for a Lambda function node in the flow. You specify the Lambda function to invoke and the inputs into the function. The output is the response that is defined in the Lambda function. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html">Node types in Amazon Bedrock works</a> in the Amazon Bedrock User Guide.</p>
- * @public
- */
-export interface LambdaFunctionFlowNodeConfiguration {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function to invoke.</p>
-   * @public
-   */
-  lambdaArn: string | undefined;
-}
-
-/**
- * <p>Contains configurations for a Lex node in the flow. You specify a Amazon Lex bot to invoke. This node takes an utterance as the input and returns as the output the intent identified by the Amazon Lex bot. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html">Node types in Amazon Bedrock works</a> in the Amazon Bedrock User Guide.</p>
- * @public
- */
-export interface LexFlowNodeConfiguration {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.</p>
-   * @public
-   */
-  botAliasArn: string | undefined;
-
-  /**
-   * <p>The Region to invoke the Amazon Lex bot in.</p>
-   * @public
-   */
-  localeId: string | undefined;
-}
-
-/**
- * <p>Contains configurations for an output flow node in the flow. You specify the data type expected for the input into the node in the <code>type</code> field and how to return the final output in the <code>expression</code> field.</p>
- * @public
- */
-export interface OutputFlowNodeConfiguration {}
 
 /**
  * <p>Contains inference configurations related to model inference for a prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html">Inference parameters</a>.</p>
@@ -4913,6 +4853,364 @@ export namespace PromptInferenceConfiguration {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const PerformanceConfigLatency = {
+  OPTIMIZED: "optimized",
+  STANDARD: "standard",
+} as const;
+
+/**
+ * @public
+ */
+export type PerformanceConfigLatency = (typeof PerformanceConfigLatency)[keyof typeof PerformanceConfigLatency];
+
+/**
+ * <p>The performance-related configuration options for the knowledge base retrieval and generation process.</p>
+ * @public
+ */
+export interface PerformanceConfiguration {
+  /**
+   * <p>The latency optimization setting.</p>
+   * @public
+   */
+  latency?: PerformanceConfigLatency | undefined;
+}
+
+/**
+ * <p>Defines a custom prompt template for orchestrating the retrieval and generation process.</p>
+ * @public
+ */
+export interface KnowledgeBasePromptTemplate {
+  /**
+   * <p>The text of the prompt template.</p>
+   * @public
+   */
+  textPromptTemplate?: string | undefined;
+}
+
+/**
+ * <p>Configures how the knowledge base orchestrates the retrieval and generation process, allowing for customization of prompts, inference parameters, and performance settings.</p>
+ * @public
+ */
+export interface KnowledgeBaseOrchestrationConfiguration {
+  /**
+   * <p>A custom prompt template for orchestrating the retrieval and generation process.</p>
+   * @public
+   */
+  promptTemplate?: KnowledgeBasePromptTemplate | undefined;
+
+  /**
+   * <p>Contains inference configurations for the prompt.</p>
+   * @public
+   */
+  inferenceConfig?: PromptInferenceConfiguration | undefined;
+
+  /**
+   * <p>The additional model-specific request parameters as key-value pairs to be included in the request to the foundation model.</p>
+   * @public
+   */
+  additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
+
+  /**
+   * <p>The performance configuration options for the knowledge base retrieval and generation process.</p>
+   * @public
+   */
+  performanceConfig?: PerformanceConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RerankingMetadataSelectionMode = {
+  ALL: "ALL",
+  SELECTIVE: "SELECTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type RerankingMetadataSelectionMode =
+  (typeof RerankingMetadataSelectionMode)[keyof typeof RerankingMetadataSelectionMode];
+
+/**
+ * <p>Specifies a metadata field to include or exclude during the reranking process.</p>
+ * @public
+ */
+export interface FieldForReranking {
+  /**
+   * <p>The name of the metadata field to include or exclude during reranking.</p>
+   * @public
+   */
+  fieldName: string | undefined;
+}
+
+/**
+ * <p>Configures the metadata fields to include or exclude during the reranking process when using selective mode.</p>
+ * @public
+ */
+export type RerankingMetadataSelectiveModeConfiguration =
+  | RerankingMetadataSelectiveModeConfiguration.FieldsToExcludeMember
+  | RerankingMetadataSelectiveModeConfiguration.FieldsToIncludeMember
+  | RerankingMetadataSelectiveModeConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RerankingMetadataSelectiveModeConfiguration {
+  /**
+   * <p>Specifies the metadata fields to include in the reranking process.</p>
+   * @public
+   */
+  export interface FieldsToIncludeMember {
+    fieldsToInclude: FieldForReranking[];
+    fieldsToExclude?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Specifies the metadata fields to exclude from the reranking process.</p>
+   * @public
+   */
+  export interface FieldsToExcludeMember {
+    fieldsToInclude?: never;
+    fieldsToExclude: FieldForReranking[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    fieldsToInclude?: never;
+    fieldsToExclude?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    fieldsToInclude: (value: FieldForReranking[]) => T;
+    fieldsToExclude: (value: FieldForReranking[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RerankingMetadataSelectiveModeConfiguration, visitor: Visitor<T>): T => {
+    if (value.fieldsToInclude !== undefined) return visitor.fieldsToInclude(value.fieldsToInclude);
+    if (value.fieldsToExclude !== undefined) return visitor.fieldsToExclude(value.fieldsToExclude);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Specifies how metadata fields should be handled during the reranking process.</p>
+ * @public
+ */
+export interface MetadataConfigurationForReranking {
+  /**
+   * <p>The mode for selecting metadata fields for reranking.</p>
+   * @public
+   */
+  selectionMode: RerankingMetadataSelectionMode | undefined;
+
+  /**
+   * <p>The configuration for selective metadata field inclusion or exclusion during reranking.</p>
+   * @public
+   */
+  selectiveModeConfiguration?: RerankingMetadataSelectiveModeConfiguration | undefined;
+}
+
+/**
+ * <p>Configures the Amazon Bedrock model used for reranking retrieved results.</p>
+ * @public
+ */
+export interface VectorSearchBedrockRerankingModelConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Bedrock reranker model.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>Specifies additional model-specific request parameters as key-value pairs that are included in the request to the Amazon Bedrock reranker model.</p>
+   * @public
+   */
+  additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
+}
+
+/**
+ * <p>Configures the Amazon Bedrock reranker model to improve the relevance of retrieved results.</p>
+ * @public
+ */
+export interface VectorSearchBedrockRerankingConfiguration {
+  /**
+   * <p>Specifies the configuration for the Amazon Bedrock reranker model.</p>
+   * @public
+   */
+  modelConfiguration: VectorSearchBedrockRerankingModelConfiguration | undefined;
+
+  /**
+   * <p>Specifies the number of results to return after reranking.</p>
+   * @public
+   */
+  numberOfRerankedResults?: number | undefined;
+
+  /**
+   * <p>Specifies how metadata fields should be handled during the reranking process.</p>
+   * @public
+   */
+  metadataConfiguration?: MetadataConfigurationForReranking | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VectorSearchRerankingConfigurationType = {
+  BEDROCK_RERANKING_MODEL: "BEDROCK_RERANKING_MODEL",
+} as const;
+
+/**
+ * @public
+ */
+export type VectorSearchRerankingConfigurationType =
+  (typeof VectorSearchRerankingConfigurationType)[keyof typeof VectorSearchRerankingConfigurationType];
+
+/**
+ * <p>Specifies how retrieved results from a knowledge base are reranked to improve relevance.</p>
+ * @public
+ */
+export interface VectorSearchRerankingConfiguration {
+  /**
+   * <p>Specifies the type of reranking model to use. Currently, the only supported value is <code>BEDROCK_RERANKING_MODEL</code>.</p>
+   * @public
+   */
+  type: VectorSearchRerankingConfigurationType | undefined;
+
+  /**
+   * <p>Specifies the configuration for using an Amazon Bedrock reranker model to rerank retrieved results.</p>
+   * @public
+   */
+  bedrockRerankingConfiguration?: VectorSearchBedrockRerankingConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for a knowledge base node in a flow. This node takes a query as the input and returns, as the output, the retrieved responses directly (as an array) or a response generated based on the retrieved responses. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html">Node types in a flow</a> in the Amazon Bedrock User Guide.</p>
+ * @public
+ */
+export interface KnowledgeBaseFlowNodeConfiguration {
+  /**
+   * <p>The unique identifier of the knowledge base to query.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.</p>
+   * @public
+   */
+  modelId?: string | undefined;
+
+  /**
+   * <p>Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration | undefined;
+
+  /**
+   * <p>The number of results to retrieve from the knowledge base.</p>
+   * @public
+   */
+  numberOfResults?: number | undefined;
+
+  /**
+   * <p>A custom prompt template to use with the knowledge base for generating responses.</p>
+   * @public
+   */
+  promptTemplate?: KnowledgeBasePromptTemplate | undefined;
+
+  /**
+   * <p>Contains inference configurations for the prompt.</p>
+   * @public
+   */
+  inferenceConfiguration?: PromptInferenceConfiguration | undefined;
+
+  /**
+   * <p>The configuration for reranking the retrieved results from the knowledge base to improve relevance.</p>
+   * @public
+   */
+  rerankingConfiguration?: VectorSearchRerankingConfiguration | undefined;
+
+  /**
+   * <p>The configuration for orchestrating the retrieval and generation process in the knowledge base node.</p>
+   * @public
+   */
+  orchestrationConfiguration?: KnowledgeBaseOrchestrationConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for a Lambda function node in the flow. You specify the Lambda function to invoke and the inputs into the function. The output is the response that is defined in the Lambda function. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html">Node types in a flow</a> in the Amazon Bedrock User Guide.</p>
+ * @public
+ */
+export interface LambdaFunctionFlowNodeConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function to invoke.</p>
+   * @public
+   */
+  lambdaArn: string | undefined;
+}
+
+/**
+ * <p>Contains configurations for a Lex node in the flow. You specify a Amazon Lex bot to invoke. This node takes an utterance as the input and returns as the output the intent identified by the Amazon Lex bot. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html">Node types in a flow</a> in the Amazon Bedrock User Guide.</p>
+ * @public
+ */
+export interface LexFlowNodeConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.</p>
+   * @public
+   */
+  botAliasArn: string | undefined;
+
+  /**
+   * <p>The Region to invoke the Amazon Lex bot in.</p>
+   * @public
+   */
+  localeId: string | undefined;
+}
+
+/**
+ * <p>Contains configurations for the controller node of a DoWhile loop in the flow.</p>
+ * @public
+ */
+export interface LoopControllerFlowNodeConfiguration {
+  /**
+   * <p>Specifies the condition that determines when the flow exits the DoWhile loop. The loop
+   *             executes until this condition evaluates to true.</p>
+   * @public
+   */
+  continueCondition: FlowCondition | undefined;
+
+  /**
+   * <p>Specifies the maximum number of times the DoWhile loop can iterate before the flow
+   *             exits the loop.</p>
+   * @public
+   */
+  maxIterations?: number | undefined;
+}
+
+/**
+ * <p>Contains configurations for the input node of a DoWhile loop in the flow.</p>
+ * @public
+ */
+export interface LoopInputFlowNodeConfiguration {}
+
+/**
+ * <p>Contains configurations for an output flow node in the flow. You specify the data type expected for the input into the node in the <code>type</code> field and how to return the final output in the <code>expression</code> field.</p>
+ * @public
+ */
+export interface OutputFlowNodeConfiguration {}
 
 /**
  * <p>Contains information about a variable in the prompt.</p>
@@ -5545,7 +5843,7 @@ export namespace PromptFlowNodeSourceConfiguration {
 }
 
 /**
- * <p>Contains configurations for a prompt node in the flow. You can use a prompt from Prompt management or you can define one in this node. If the prompt contains variables, the inputs into this node will fill in the variables. The output from this node is the response generated by the model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html">Node types in Amazon Bedrock works</a> in the Amazon Bedrock User Guide.</p>
+ * <p>Contains configurations for a prompt node in the flow. You can use a prompt from Prompt management or you can define one in this node. If the prompt contains variables, the inputs into this node will fill in the variables. The output from this node is the response generated by the model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html">Node types in a flow</a> in the Amazon Bedrock User Guide.</p>
  * @public
  */
 export interface PromptFlowNodeConfiguration {
@@ -5691,357 +5989,19 @@ export interface StorageFlowNodeConfiguration {
 }
 
 /**
- * <p>Contains configurations for a node in your flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html">Node types in Amazon Bedrock works</a> in the Amazon Bedrock User Guide.</p>
  * @public
+ * @enum
  */
-export type FlowNodeConfiguration =
-  | FlowNodeConfiguration.AgentMember
-  | FlowNodeConfiguration.CollectorMember
-  | FlowNodeConfiguration.ConditionMember
-  | FlowNodeConfiguration.InlineCodeMember
-  | FlowNodeConfiguration.InputMember
-  | FlowNodeConfiguration.IteratorMember
-  | FlowNodeConfiguration.KnowledgeBaseMember
-  | FlowNodeConfiguration.LambdaFunctionMember
-  | FlowNodeConfiguration.LexMember
-  | FlowNodeConfiguration.OutputMember
-  | FlowNodeConfiguration.PromptMember
-  | FlowNodeConfiguration.RetrievalMember
-  | FlowNodeConfiguration.StorageMember
-  | FlowNodeConfiguration.$UnknownMember;
+export const FlowNodeInputCategory = {
+  EXIT_LOOP: "ExitLoop",
+  LOOP_CONDITION: "LoopCondition",
+  RETURN_VALUE_TO_LOOP_START: "ReturnValueToLoopStart",
+} as const;
 
 /**
  * @public
  */
-export namespace FlowNodeConfiguration {
-  /**
-   * <p>Contains configurations for an input flow node in your flow. The first node in the flow. <code>inputs</code> can't be specified for this node.</p>
-   * @public
-   */
-  export interface InputMember {
-    input: InputFlowNodeConfiguration;
-    output?: never;
-    knowledgeBase?: never;
-    condition?: never;
-    lex?: never;
-    prompt?: never;
-    lambdaFunction?: never;
-    storage?: never;
-    agent?: never;
-    retrieval?: never;
-    iterator?: never;
-    collector?: never;
-    inlineCode?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains configurations for an output flow node in your flow. The last node in the flow. <code>outputs</code> can't be specified for this node.</p>
-   * @public
-   */
-  export interface OutputMember {
-    input?: never;
-    output: OutputFlowNodeConfiguration;
-    knowledgeBase?: never;
-    condition?: never;
-    lex?: never;
-    prompt?: never;
-    lambdaFunction?: never;
-    storage?: never;
-    agent?: never;
-    retrieval?: never;
-    iterator?: never;
-    collector?: never;
-    inlineCode?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response.</p>
-   * @public
-   */
-  export interface KnowledgeBaseMember {
-    input?: never;
-    output?: never;
-    knowledgeBase: KnowledgeBaseFlowNodeConfiguration;
-    condition?: never;
-    lex?: never;
-    prompt?: never;
-    lambdaFunction?: never;
-    storage?: never;
-    agent?: never;
-    retrieval?: never;
-    iterator?: never;
-    collector?: never;
-    inlineCode?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains configurations for a condition node in your flow. Defines conditions that lead to different branches of the flow.</p>
-   * @public
-   */
-  export interface ConditionMember {
-    input?: never;
-    output?: never;
-    knowledgeBase?: never;
-    condition: ConditionFlowNodeConfiguration;
-    lex?: never;
-    prompt?: never;
-    lambdaFunction?: never;
-    storage?: never;
-    agent?: never;
-    retrieval?: never;
-    iterator?: never;
-    collector?: never;
-    inlineCode?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output.</p>
-   * @public
-   */
-  export interface LexMember {
-    input?: never;
-    output?: never;
-    knowledgeBase?: never;
-    condition?: never;
-    lex: LexFlowNodeConfiguration;
-    prompt?: never;
-    lambdaFunction?: never;
-    storage?: never;
-    agent?: never;
-    retrieval?: never;
-    iterator?: never;
-    collector?: never;
-    inlineCode?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node.</p>
-   * @public
-   */
-  export interface PromptMember {
-    input?: never;
-    output?: never;
-    knowledgeBase?: never;
-    condition?: never;
-    lex?: never;
-    prompt: PromptFlowNodeConfiguration;
-    lambdaFunction?: never;
-    storage?: never;
-    agent?: never;
-    retrieval?: never;
-    iterator?: never;
-    collector?: never;
-    inlineCode?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains configurations for a Lambda function node in your flow. Invokes an Lambda function.</p>
-   * @public
-   */
-  export interface LambdaFunctionMember {
-    input?: never;
-    output?: never;
-    knowledgeBase?: never;
-    condition?: never;
-    lex?: never;
-    prompt?: never;
-    lambdaFunction: LambdaFunctionFlowNodeConfiguration;
-    storage?: never;
-    agent?: never;
-    retrieval?: never;
-    iterator?: never;
-    collector?: never;
-    inlineCode?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains configurations for a storage node in your flow. Stores an input in an Amazon S3 location.</p>
-   * @public
-   */
-  export interface StorageMember {
-    input?: never;
-    output?: never;
-    knowledgeBase?: never;
-    condition?: never;
-    lex?: never;
-    prompt?: never;
-    lambdaFunction?: never;
-    storage: StorageFlowNodeConfiguration;
-    agent?: never;
-    retrieval?: never;
-    iterator?: never;
-    collector?: never;
-    inlineCode?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response.</p>
-   * @public
-   */
-  export interface AgentMember {
-    input?: never;
-    output?: never;
-    knowledgeBase?: never;
-    condition?: never;
-    lex?: never;
-    prompt?: never;
-    lambdaFunction?: never;
-    storage?: never;
-    agent: AgentFlowNodeConfiguration;
-    retrieval?: never;
-    iterator?: never;
-    collector?: never;
-    inlineCode?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains configurations for a retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output.</p>
-   * @public
-   */
-  export interface RetrievalMember {
-    input?: never;
-    output?: never;
-    knowledgeBase?: never;
-    condition?: never;
-    lex?: never;
-    prompt?: never;
-    lambdaFunction?: never;
-    storage?: never;
-    agent?: never;
-    retrieval: RetrievalFlowNodeConfiguration;
-    iterator?: never;
-    collector?: never;
-    inlineCode?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output.</p>
-   *          <p>The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node.</p>
-   * @public
-   */
-  export interface IteratorMember {
-    input?: never;
-    output?: never;
-    knowledgeBase?: never;
-    condition?: never;
-    lex?: never;
-    prompt?: never;
-    lambdaFunction?: never;
-    storage?: never;
-    agent?: never;
-    retrieval?: never;
-    iterator: IteratorFlowNodeConfiguration;
-    collector?: never;
-    inlineCode?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs.</p>
-   * @public
-   */
-  export interface CollectorMember {
-    input?: never;
-    output?: never;
-    knowledgeBase?: never;
-    condition?: never;
-    lex?: never;
-    prompt?: never;
-    lambdaFunction?: never;
-    storage?: never;
-    agent?: never;
-    retrieval?: never;
-    iterator?: never;
-    collector: CollectorFlowNodeConfiguration;
-    inlineCode?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains configurations for an inline code node in your flow. Inline code nodes let you write and execute code directly within your flow, enabling data transformations, custom logic, and integrations without needing an external Lambda function.</p>
-   * @public
-   */
-  export interface InlineCodeMember {
-    input?: never;
-    output?: never;
-    knowledgeBase?: never;
-    condition?: never;
-    lex?: never;
-    prompt?: never;
-    lambdaFunction?: never;
-    storage?: never;
-    agent?: never;
-    retrieval?: never;
-    iterator?: never;
-    collector?: never;
-    inlineCode: InlineCodeFlowNodeConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    input?: never;
-    output?: never;
-    knowledgeBase?: never;
-    condition?: never;
-    lex?: never;
-    prompt?: never;
-    lambdaFunction?: never;
-    storage?: never;
-    agent?: never;
-    retrieval?: never;
-    iterator?: never;
-    collector?: never;
-    inlineCode?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    input: (value: InputFlowNodeConfiguration) => T;
-    output: (value: OutputFlowNodeConfiguration) => T;
-    knowledgeBase: (value: KnowledgeBaseFlowNodeConfiguration) => T;
-    condition: (value: ConditionFlowNodeConfiguration) => T;
-    lex: (value: LexFlowNodeConfiguration) => T;
-    prompt: (value: PromptFlowNodeConfiguration) => T;
-    lambdaFunction: (value: LambdaFunctionFlowNodeConfiguration) => T;
-    storage: (value: StorageFlowNodeConfiguration) => T;
-    agent: (value: AgentFlowNodeConfiguration) => T;
-    retrieval: (value: RetrievalFlowNodeConfiguration) => T;
-    iterator: (value: IteratorFlowNodeConfiguration) => T;
-    collector: (value: CollectorFlowNodeConfiguration) => T;
-    inlineCode: (value: InlineCodeFlowNodeConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: FlowNodeConfiguration, visitor: Visitor<T>): T => {
-    if (value.input !== undefined) return visitor.input(value.input);
-    if (value.output !== undefined) return visitor.output(value.output);
-    if (value.knowledgeBase !== undefined) return visitor.knowledgeBase(value.knowledgeBase);
-    if (value.condition !== undefined) return visitor.condition(value.condition);
-    if (value.lex !== undefined) return visitor.lex(value.lex);
-    if (value.prompt !== undefined) return visitor.prompt(value.prompt);
-    if (value.lambdaFunction !== undefined) return visitor.lambdaFunction(value.lambdaFunction);
-    if (value.storage !== undefined) return visitor.storage(value.storage);
-    if (value.agent !== undefined) return visitor.agent(value.agent);
-    if (value.retrieval !== undefined) return visitor.retrieval(value.retrieval);
-    if (value.iterator !== undefined) return visitor.iterator(value.iterator);
-    if (value.collector !== undefined) return visitor.collector(value.collector);
-    if (value.inlineCode !== undefined) return visitor.inlineCode(value.inlineCode);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
+export type FlowNodeInputCategory = (typeof FlowNodeInputCategory)[keyof typeof FlowNodeInputCategory];
 
 /**
  * @public
@@ -6061,18 +6021,19 @@ export const FlowNodeIODataType = {
 export type FlowNodeIODataType = (typeof FlowNodeIODataType)[keyof typeof FlowNodeIODataType];
 
 /**
- * <p>Contains configurations for an input to a node.</p>
+ * <p>Contains configurations for an input in an Amazon Bedrock Flows node.</p>
  * @public
  */
 export interface FlowNodeInput {
   /**
-   * <p>A name for the input that you can reference.</p>
+   * <p>Specifies a name for the input that you can reference.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.</p>
+   * <p>Specifies the data type of the input. If the input doesn't match this type at runtime,
+   *             a validation error will be thrown.</p>
    * @public
    */
   type: FlowNodeIODataType | undefined;
@@ -6082,6 +6043,31 @@ export interface FlowNodeInput {
    * @public
    */
   expression: string | undefined;
+
+  /**
+   * <p>Specifies how input data flows between iterations in a DoWhile
+   *                 loop.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LoopCondition</code> - Controls whether the loop continues by evaluating condition expressions against the input data. Use this category to define
+   *                     the condition that determines if the loop should continue. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ReturnValueToLoopStart</code> - Defines data to pass back to the start
+   *                     of the loop's next iteration. Use this category for variables that you
+   *                     want to update for each loop iteration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ExitLoop</code> - Defines the value that's available once the loop ends.
+   *                     Use this category to expose loop results to nodes outside the loop.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  category?: FlowNodeInputCategory | undefined;
 }
 
 /**
@@ -6116,6 +6102,9 @@ export const FlowNodeType = {
   KNOWLEDGE_BASE: "KnowledgeBase",
   LAMBDA_FUNCTION: "LambdaFunction",
   LEX: "Lex",
+  LOOP: "Loop",
+  LOOP_CONTROLLER: "LoopController",
+  LOOP_INPUT: "LoopInput",
   OUTPUT: "Output",
   PROMPT: "Prompt",
   RETRIEVAL: "Retrieval",
@@ -6126,108 +6115,6 @@ export const FlowNodeType = {
  * @public
  */
 export type FlowNodeType = (typeof FlowNodeType)[keyof typeof FlowNodeType];
-
-/**
- * <p>Contains configurations about a node in the flow.</p>
- * @public
- */
-export interface FlowNode {
-  /**
-   * <p>A name for the node.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The type of node. This value must match the name of the key that you provide in the configuration you provide in the <code>FlowNodeConfiguration</code> field.</p>
-   * @public
-   */
-  type: FlowNodeType | undefined;
-
-  /**
-   * <p>Contains configurations for the node.</p>
-   * @public
-   */
-  configuration?: FlowNodeConfiguration | undefined;
-
-  /**
-   * <p>An array of objects, each of which contains information about an input into the node.</p>
-   * @public
-   */
-  inputs?: FlowNodeInput[] | undefined;
-
-  /**
-   * <p>A list of objects, each of which contains information about an output from the node.</p>
-   * @public
-   */
-  outputs?: FlowNodeOutput[] | undefined;
-}
-
-/**
- * <p>The definition of the nodes and connections between nodes in the flow.</p>
- * @public
- */
-export interface FlowDefinition {
-  /**
-   * <p>An array of node definitions in the flow.</p>
-   * @public
-   */
-  nodes?: FlowNode[] | undefined;
-
-  /**
-   * <p>An array of connection definitions in the flow.</p>
-   * @public
-   */
-  connections?: FlowConnection[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateFlowRequest {
-  /**
-   * <p>A name for the flow.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A description for the flow.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
-   * @public
-   */
-  executionRoleArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.</p>
-   * @public
-   */
-  customerEncryptionKeyArn?: string | undefined;
-
-  /**
-   * <p>A definition of the nodes and connections between nodes in the flow.</p>
-   * @public
-   */
-  definition?: FlowDefinition | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>Any tags that you want to attach to the flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging resources in Amazon Bedrock</a>.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
 
 /**
  * @public
@@ -6244,77 +6131,6 @@ export const FlowStatus = {
  * @public
  */
 export type FlowStatus = (typeof FlowStatus)[keyof typeof FlowStatus];
-
-/**
- * @public
- */
-export interface CreateFlowResponse {
-  /**
-   * <p>The name of the flow.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the flow.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
-   * @public
-   */
-  executionRoleArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key that you encrypted the flow with.</p>
-   * @public
-   */
-  customerEncryptionKeyArn?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the flow.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The status of the flow. When you submit this request, the status will be <code>NotPrepared</code>. If creation fails, the status becomes <code>Failed</code>.</p>
-   * @public
-   */
-  status: FlowStatus | undefined;
-
-  /**
-   * <p>The time at which the flow was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The time at which the flow was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The version of the flow. When you create a flow, the version created is the <code>DRAFT</code> version.</p>
-   * @public
-   */
-  version: string | undefined;
-
-  /**
-   * <p>A definition of the nodes and connections between nodes in the flow.</p>
-   * @public
-   */
-  definition?: FlowDefinition | undefined;
-}
 
 /**
  * @public
@@ -6342,6 +6158,48 @@ export interface DeleteFlowResponse {
    * @public
    */
   id: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConcurrencyType = {
+  AUTOMATIC: "Automatic",
+  MANUAL: "Manual",
+} as const;
+
+/**
+ * @public
+ */
+export type ConcurrencyType = (typeof ConcurrencyType)[keyof typeof ConcurrencyType];
+
+/**
+ * <p>Determines how multiple nodes in a flow can run in parallel. Running nodes concurrently can improve your flow's performance.</p>
+ * @public
+ */
+export interface FlowAliasConcurrencyConfiguration {
+  /**
+   * <p>The type of concurrency to use for parallel node execution. Specify one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Automatic</code> - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Manual</code> - You specify which nodes can be executed in parallel.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  type: ConcurrencyType | undefined;
+
+  /**
+   * <p>The maximum number of nodes that can be executed concurrently in the flow.</p>
+   * @public
+   */
+  maxConcurrency?: number | undefined;
 }
 
 /**
@@ -6377,6 +6235,12 @@ export interface CreateFlowAliasRequest {
    * @public
    */
   routingConfiguration: FlowAliasRoutingConfigurationListItem[] | undefined;
+
+  /**
+   * <p>The configuration that specifies how nodes in the flow are executed in parallel.</p>
+   * @public
+   */
+  concurrencyConfiguration?: FlowAliasConcurrencyConfiguration | undefined;
 
   /**
    * <p>The unique identifier of the flow for which to create an alias.</p>
@@ -6419,6 +6283,12 @@ export interface CreateFlowAliasResponse {
    * @public
    */
   routingConfiguration: FlowAliasRoutingConfigurationListItem[] | undefined;
+
+  /**
+   * <p>The configuration that specifies how nodes in the flow are executed in parallel.</p>
+   * @public
+   */
+  concurrencyConfiguration?: FlowAliasConcurrencyConfiguration | undefined;
 
   /**
    * <p>The unique identifier of the flow that the alias belongs to.</p>
@@ -6525,6 +6395,12 @@ export interface GetFlowAliasResponse {
   routingConfiguration: FlowAliasRoutingConfigurationListItem[] | undefined;
 
   /**
+   * <p>The configuration that specifies how nodes in the flow are executed in parallel.</p>
+   * @public
+   */
+  concurrencyConfiguration?: FlowAliasConcurrencyConfiguration | undefined;
+
+  /**
    * <p>The unique identifier of the flow that the alias belongs to.</p>
    * @public
    */
@@ -6610,6 +6486,12 @@ export interface FlowAliasSummary {
   routingConfiguration: FlowAliasRoutingConfigurationListItem[] | undefined;
 
   /**
+   * <p>The configuration that specifies how nodes in the flow are executed concurrently.</p>
+   * @public
+   */
+  concurrencyConfiguration?: FlowAliasConcurrencyConfiguration | undefined;
+
+  /**
    * <p>The unique identifier of the flow.</p>
    * @public
    */
@@ -6680,6 +6562,12 @@ export interface UpdateFlowAliasRequest {
   routingConfiguration: FlowAliasRoutingConfigurationListItem[] | undefined;
 
   /**
+   * <p>The configuration that specifies how nodes in the flow are executed in parallel.</p>
+   * @public
+   */
+  concurrencyConfiguration?: FlowAliasConcurrencyConfiguration | undefined;
+
+  /**
    * <p>The unique identifier of the flow.</p>
    * @public
    */
@@ -6713,6 +6601,12 @@ export interface UpdateFlowAliasResponse {
    * @public
    */
   routingConfiguration: FlowAliasRoutingConfigurationListItem[] | undefined;
+
+  /**
+   * <p>The configuration that specifies how nodes in the flow are executed in parallel.</p>
+   * @public
+   */
+  concurrencyConfiguration?: FlowAliasConcurrencyConfiguration | undefined;
 
   /**
    * <p>The unique identifier of the flow.</p>
@@ -6772,71 +6666,6 @@ export interface CreateFlowVersionRequest {
 /**
  * @public
  */
-export interface CreateFlowVersionResponse {
-  /**
-   * <p>The name of the version.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the version.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
-   * @public
-   */
-  executionRoleArn: string | undefined;
-
-  /**
-   * <p>The KMS key that the flow is encrypted with.</p>
-   * @public
-   */
-  customerEncryptionKeyArn?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the flow.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The status of the flow.</p>
-   * @public
-   */
-  status: FlowStatus | undefined;
-
-  /**
-   * <p>The time at which the flow was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The version of the flow that was created. Versions are numbered incrementally, starting from 1.</p>
-   * @public
-   */
-  version: string | undefined;
-
-  /**
-   * <p>A definition of the nodes and connections in the flow.</p>
-   * @public
-   */
-  definition?: FlowDefinition | undefined;
-}
-
-/**
- * @public
- */
 export interface DeleteFlowVersionRequest {
   /**
    * <p>The unique identifier of the flow whose version that you want to delete</p>
@@ -6889,71 +6718,6 @@ export interface GetFlowVersionRequest {
    * @public
    */
   flowVersion: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetFlowVersionResponse {
-  /**
-   * <p>The name of the version.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the flow.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
-   * @public
-   */
-  executionRoleArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key that the version of the flow is encrypted with.</p>
-   * @public
-   */
-  customerEncryptionKeyArn?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the flow.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The status of the flow.</p>
-   * @public
-   */
-  status: FlowStatus | undefined;
-
-  /**
-   * <p>The time at which the flow was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The version of the flow for which information was retrieved.</p>
-   * @public
-   */
-  version: string | undefined;
-
-  /**
-   * <p>The definition of the nodes and connections between nodes in the flow.</p>
-   * @public
-   */
-  definition?: FlowDefinition | undefined;
 }
 
 /**
@@ -7112,6 +6876,70 @@ export interface IncompatibleConnectionDataTypeFlowValidationDetails {
 }
 
 /**
+ * <p>Details about a flow that contains connections that violate loop boundary rules.</p>
+ * @public
+ */
+export interface InvalidLoopBoundaryFlowValidationDetails {
+  /**
+   * <p>The name of the connection that violates loop boundary rules.</p>
+   * @public
+   */
+  connection: string | undefined;
+
+  /**
+   * <p>The source node of the connection that violates DoWhile loop boundary rules.</p>
+   * @public
+   */
+  source: string | undefined;
+
+  /**
+   * <p>The target node of the connection that violates DoWhile loop boundary rules.</p>
+   * @public
+   */
+  target: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IncompatibleLoopNodeType = {
+  COLLECTOR: "Collector",
+  CONDITION: "Condition",
+  INPUT: "Input",
+  ITERATOR: "Iterator",
+} as const;
+
+/**
+ * @public
+ */
+export type IncompatibleLoopNodeType = (typeof IncompatibleLoopNodeType)[keyof typeof IncompatibleLoopNodeType];
+
+/**
+ * <p>Details about a flow that contains an incompatible node in a DoWhile loop.</p>
+ * @public
+ */
+export interface LoopIncompatibleNodeTypeFlowValidationDetails {
+  /**
+   * <p>The <code>Loop</code> container node that contains an incompatible node.</p>
+   * @public
+   */
+  node: string | undefined;
+
+  /**
+   * <p>The node type of the incompatible node in the DoWhile loop. Some node types, like a condition node, aren't allowed in a DoWhile loop.</p>
+   * @public
+   */
+  incompatibleNodeType: IncompatibleLoopNodeType | undefined;
+
+  /**
+   * <p>The node that's incompatible in the DoWhile loop.</p>
+   * @public
+   */
+  incompatibleNodeName: string | undefined;
+}
+
+/**
  * <p>Details about a malformed condition expression in a node.</p>
  * @public
  */
@@ -7238,12 +7066,36 @@ export interface MissingDefaultConditionFlowValidationDetails {
 export interface MissingEndingNodesFlowValidationDetails {}
 
 /**
- * <p>Details about a node missing required configuration.</p>
+ * <p>Details about a flow that's missing a required <code>LoopController</code> node in a DoWhile loop.</p>
+ * @public
+ */
+export interface MissingLoopControllerNodeFlowValidationDetails {
+  /**
+   * <p>The DoWhile loop in a flow that's missing a required <code>LoopController</code> node.</p>
+   * @public
+   */
+  loopNode: string | undefined;
+}
+
+/**
+ * <p>Details about a flow that's missing a required <code>LoopInput</code> node in a DoWhile loop.</p>
+ * @public
+ */
+export interface MissingLoopInputNodeFlowValidationDetails {
+  /**
+   * <p>The DoWhile loop in a flow that's missing a required <code>LoopInput</code> node.</p>
+   * @public
+   */
+  loopNode: string | undefined;
+}
+
+/**
+ * <p>Details about a node missing a required configuration.</p>
  * @public
  */
 export interface MissingNodeConfigurationFlowValidationDetails {
   /**
-   * <p>The name of the node missing configuration.</p>
+   * <p>The name of the node missing a required configuration.</p>
    * @public
    */
   node: string | undefined;
@@ -7290,6 +7142,30 @@ export interface MissingNodeOutputFlowValidationDetails {
  * @public
  */
 export interface MissingStartingNodesFlowValidationDetails {}
+
+/**
+ * <p>Details about a flow that contains multiple <code>LoopController</code> nodes in a DoWhile loop.</p>
+ * @public
+ */
+export interface MultipleLoopControllerNodesFlowValidationDetails {
+  /**
+   * <p>The DoWhile loop in a flow that contains multiple <code>LoopController</code> nodes.</p>
+   * @public
+   */
+  loopNode: string | undefined;
+}
+
+/**
+ * <p>Details about a flow that contains multiple <code>LoopInput</code> nodes in a DoWhile loop.</p>
+ * @public
+ */
+export interface MultipleLoopInputNodesFlowValidationDetails {
+  /**
+   * <p>The DoWhile loop in a flow that contains multiple <code>LoopInput</code> nodes.</p>
+   * @public
+   */
+  loopNode: string | undefined;
+}
 
 /**
  * <p>Details about multiple connections to a single node input.</p>
@@ -7462,6 +7338,8 @@ export type FlowValidationDetails =
   | FlowValidationDetails.DuplicateConditionExpressionMember
   | FlowValidationDetails.DuplicateConnectionsMember
   | FlowValidationDetails.IncompatibleConnectionDataTypeMember
+  | FlowValidationDetails.InvalidLoopBoundaryMember
+  | FlowValidationDetails.LoopIncompatibleNodeTypeMember
   | FlowValidationDetails.MalformedConditionExpressionMember
   | FlowValidationDetails.MalformedNodeInputExpressionMember
   | FlowValidationDetails.MismatchedNodeInputTypeMember
@@ -7469,10 +7347,14 @@ export type FlowValidationDetails =
   | FlowValidationDetails.MissingConnectionConfigurationMember
   | FlowValidationDetails.MissingDefaultConditionMember
   | FlowValidationDetails.MissingEndingNodesMember
+  | FlowValidationDetails.MissingLoopControllerNodeMember
+  | FlowValidationDetails.MissingLoopInputNodeMember
   | FlowValidationDetails.MissingNodeConfigurationMember
   | FlowValidationDetails.MissingNodeInputMember
   | FlowValidationDetails.MissingNodeOutputMember
   | FlowValidationDetails.MissingStartingNodesMember
+  | FlowValidationDetails.MultipleLoopControllerNodesMember
+  | FlowValidationDetails.MultipleLoopInputNodesMember
   | FlowValidationDetails.MultipleNodeInputConnectionsMember
   | FlowValidationDetails.UnfulfilledNodeInputMember
   | FlowValidationDetails.UnknownConnectionConditionMember
@@ -7523,6 +7405,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -7558,6 +7446,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -7593,6 +7487,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -7628,6 +7528,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -7663,6 +7569,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -7698,6 +7610,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -7733,6 +7651,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -7768,6 +7692,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -7803,6 +7733,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -7838,6 +7774,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -7873,6 +7815,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -7908,6 +7856,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -7943,6 +7897,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -7978,6 +7938,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -8013,6 +7979,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -8048,6 +8020,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -8083,6 +8061,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -8118,6 +8102,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -8153,6 +8143,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -8188,6 +8184,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -8223,6 +8225,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -8258,6 +8266,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -8293,6 +8307,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -8328,6 +8348,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -8363,6 +8389,12 @@ export namespace FlowValidationDetails {
     unspecified: UnspecifiedFlowValidationDetails;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -8398,6 +8430,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput: UnknownNodeInputFlowValidationDetails;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown?: never;
   }
 
@@ -8433,6 +8471,258 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput: UnknownNodeOutputFlowValidationDetails;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about a flow that's missing a required <code>LoopInput</code> node in a DoWhile loop.</p>
+   * @public
+   */
+  export interface MissingLoopInputNodeMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
+    missingLoopInputNode: MissingLoopInputNodeFlowValidationDetails;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about a flow that's missing a required <code>LoopController</code> node in a DoWhile loop.</p>
+   * @public
+   */
+  export interface MissingLoopControllerNodeMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode: MissingLoopControllerNodeFlowValidationDetails;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about a flow that contains multiple <code>LoopInput</code> nodes in a DoWhile loop.</p>
+   * @public
+   */
+  export interface MultipleLoopInputNodesMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes: MultipleLoopInputNodesFlowValidationDetails;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about a flow that contains multiple <code>LoopController</code> nodes in a DoWhile loop.</p>
+   * @public
+   */
+  export interface MultipleLoopControllerNodesMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes: MultipleLoopControllerNodesFlowValidationDetails;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about a flow that includes incompatible node types in a DoWhile loop.</p>
+   * @public
+   */
+  export interface LoopIncompatibleNodeTypeMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType: LoopIncompatibleNodeTypeFlowValidationDetails;
+    invalidLoopBoundary?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about a flow that includes connections that violate loop boundary rules.</p>
+   * @public
+   */
+  export interface InvalidLoopBoundaryMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary: InvalidLoopBoundaryFlowValidationDetails;
     $unknown?: never;
   }
 
@@ -8467,6 +8757,12 @@ export namespace FlowValidationDetails {
     unspecified?: never;
     unknownNodeInput?: never;
     unknownNodeOutput?: never;
+    missingLoopInputNode?: never;
+    missingLoopControllerNode?: never;
+    multipleLoopInputNodes?: never;
+    multipleLoopControllerNodes?: never;
+    loopIncompatibleNodeType?: never;
+    invalidLoopBoundary?: never;
     $unknown: [string, any];
   }
 
@@ -8498,6 +8794,12 @@ export namespace FlowValidationDetails {
     unspecified: (value: UnspecifiedFlowValidationDetails) => T;
     unknownNodeInput: (value: UnknownNodeInputFlowValidationDetails) => T;
     unknownNodeOutput: (value: UnknownNodeOutputFlowValidationDetails) => T;
+    missingLoopInputNode: (value: MissingLoopInputNodeFlowValidationDetails) => T;
+    missingLoopControllerNode: (value: MissingLoopControllerNodeFlowValidationDetails) => T;
+    multipleLoopInputNodes: (value: MultipleLoopInputNodesFlowValidationDetails) => T;
+    multipleLoopControllerNodes: (value: MultipleLoopControllerNodesFlowValidationDetails) => T;
+    loopIncompatibleNodeType: (value: LoopIncompatibleNodeTypeFlowValidationDetails) => T;
+    invalidLoopBoundary: (value: InvalidLoopBoundaryFlowValidationDetails) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -8545,6 +8847,15 @@ export namespace FlowValidationDetails {
     if (value.unspecified !== undefined) return visitor.unspecified(value.unspecified);
     if (value.unknownNodeInput !== undefined) return visitor.unknownNodeInput(value.unknownNodeInput);
     if (value.unknownNodeOutput !== undefined) return visitor.unknownNodeOutput(value.unknownNodeOutput);
+    if (value.missingLoopInputNode !== undefined) return visitor.missingLoopInputNode(value.missingLoopInputNode);
+    if (value.missingLoopControllerNode !== undefined)
+      return visitor.missingLoopControllerNode(value.missingLoopControllerNode);
+    if (value.multipleLoopInputNodes !== undefined) return visitor.multipleLoopInputNodes(value.multipleLoopInputNodes);
+    if (value.multipleLoopControllerNodes !== undefined)
+      return visitor.multipleLoopControllerNodes(value.multipleLoopControllerNodes);
+    if (value.loopIncompatibleNodeType !== undefined)
+      return visitor.loopIncompatibleNodeType(value.loopIncompatibleNodeType);
+    if (value.invalidLoopBoundary !== undefined) return visitor.invalidLoopBoundary(value.invalidLoopBoundary);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -8572,6 +8883,8 @@ export const FlowValidationType = {
   DUPLICATE_CONDITION_EXPRESSION: "DuplicateConditionExpression",
   DUPLICATE_CONNECTIONS: "DuplicateConnections",
   INCOMPATIBLE_CONNECTION_DATA_TYPE: "IncompatibleConnectionDataType",
+  INVALID_LOOP_BOUNDARY: "InvalidLoopBoundary",
+  LOOP_INCOMPATIBLE_NODE_TYPE: "LoopIncompatibleNodeType",
   MALFORMED_CONDITION_EXPRESSION: "MalformedConditionExpression",
   MALFORMED_NODE_INPUT_EXPRESSION: "MalformedNodeInputExpression",
   MISMATCHED_NODE_INPUT_TYPE: "MismatchedNodeInputType",
@@ -8579,10 +8892,14 @@ export const FlowValidationType = {
   MISSING_CONNECTION_CONFIGURATION: "MissingConnectionConfiguration",
   MISSING_DEFAULT_CONDITION: "MissingDefaultCondition",
   MISSING_ENDING_NODES: "MissingEndingNodes",
+  MISSING_LOOP_CONTROLLER_NODE: "MissingLoopControllerNode",
+  MISSING_LOOP_INPUT_NODE: "MissingLoopInputNode",
   MISSING_NODE_CONFIGURATION: "MissingNodeConfiguration",
   MISSING_NODE_INPUT: "MissingNodeInput",
   MISSING_NODE_OUTPUT: "MissingNodeOutput",
   MISSING_STARTING_NODES: "MissingStartingNodes",
+  MULTIPLE_LOOP_CONTROLLER_NODES: "MultipleLoopControllerNodes",
+  MULTIPLE_LOOP_INPUT_NODES: "MultipleLoopInputNodes",
   MULTIPLE_NODE_INPUT_CONNECTIONS: "MultipleNodeInputConnections",
   UNFULFILLED_NODE_INPUT: "UnfulfilledNodeInput",
   UNKNOWN_CONNECTION_CONDITION: "UnknownConnectionCondition",
@@ -8643,97 +8960,6 @@ export interface FlowValidation {
    * @public
    */
   type?: FlowValidationType | undefined;
-}
-
-/**
- * @public
- */
-export interface GetFlowResponse {
-  /**
-   * <p>The name of the flow.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the flow.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow.  For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service row for flows</a> in the Amazon Bedrock User Guide.</p>
-   * @public
-   */
-  executionRoleArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key that the flow is encrypted with.</p>
-   * @public
-   */
-  customerEncryptionKeyArn?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the flow.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The status of the flow. The following statuses are possible:</p>
-   *          <ul>
-   *             <li>
-   *                <p>NotPrepared – The flow has been created or updated, but hasn't been prepared. If you just created the flow, you can't test it. If you updated the flow, the <code>DRAFT</code> version won't contain the latest changes for testing. Send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PrepareFlow.html">PrepareFlow</a> request to package the latest changes into the <code>DRAFT</code> version.</p>
-   *             </li>
-   *             <li>
-   *                <p>Preparing – The flow is being prepared so that the <code>DRAFT</code> version contains the latest changes for testing.</p>
-   *             </li>
-   *             <li>
-   *                <p>Prepared – The flow is prepared and the <code>DRAFT</code> version contains the latest changes for testing.</p>
-   *             </li>
-   *             <li>
-   *                <p>Failed – The last API operation that you invoked on the flow failed. Send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html">GetFlow</a> request and check the error message in the <code>validations</code> field.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  status: FlowStatus | undefined;
-
-  /**
-   * <p>The time at which the flow was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The time at which the flow was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The version of the flow for which information was retrieved.</p>
-   * @public
-   */
-  version: string | undefined;
-
-  /**
-   * <p>The definition of the nodes and connections between the nodes in the flow.</p>
-   * @public
-   */
-  definition?: FlowDefinition | undefined;
-
-  /**
-   * <p>A list of validation error messages related to the last failed operation on the flow.</p>
-   * @public
-   */
-  validations?: FlowValidation[] | undefined;
 }
 
 /**
@@ -8869,118 +9095,6 @@ export interface PrepareFlowResponse {
 /**
  * @public
  */
-export interface UpdateFlowRequest {
-  /**
-   * <p>A name for the flow.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A description for the flow.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
-   * @public
-   */
-  executionRoleArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.</p>
-   * @public
-   */
-  customerEncryptionKeyArn?: string | undefined;
-
-  /**
-   * <p>A definition of the nodes and the connections between the nodes in the flow.</p>
-   * @public
-   */
-  definition?: FlowDefinition | undefined;
-
-  /**
-   * <p>The unique identifier of the flow.</p>
-   * @public
-   */
-  flowIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFlowResponse {
-  /**
-   * <p>The name of the flow.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the flow.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
-   * @public
-   */
-  executionRoleArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key that the flow was encrypted with.</p>
-   * @public
-   */
-  customerEncryptionKeyArn?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the flow.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The status of the flow. When you submit this request, the status will be <code>NotPrepared</code>. If updating fails, the status becomes <code>Failed</code>.</p>
-   * @public
-   */
-  status: FlowStatus | undefined;
-
-  /**
-   * <p>The time at which the flow was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The time at which the flow was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The version of the flow. When you update a flow, the version updated is the <code>DRAFT</code> version.</p>
-   * @public
-   */
-  version: string | undefined;
-
-  /**
-   * <p>A definition of the nodes and the connections between nodes in the flow.</p>
-   * @public
-   */
-  definition?: FlowDefinition | undefined;
-}
-
-/**
- * @public
- */
 export interface GetIngestionJobRequest {
   /**
    * <p>The unique identifier of the knowledge base for the data ingestion job you want to get information on.</p>
@@ -9066,371 +9180,6 @@ export const IngestionJobStatus = {
  * @public
  */
 export type IngestionJobStatus = (typeof IngestionJobStatus)[keyof typeof IngestionJobStatus];
-
-/**
- * <p>Contains details about a data ingestion job. Data sources are ingested into a knowledge base so that Large Language Models (LLMs) can use your data.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_StartIngestionJob.html#API_agent_StartIngestionJob_ResponseSyntax">StartIngestionJob response</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetIngestionJob.html#API_agent_GetIngestionJob_ResponseSyntax">GetIngestionJob response</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListIngestionJobs.html#API_agent_ListIngestionJobs_ResponseSyntax">ListIngestionJob response</a>
- *                </p>
- *             </li>
- *          </ul>
- * @public
- */
-export interface IngestionJob {
-  /**
-   * <p>The unique identifier of the knowledge for the data ingestion job.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the data source for the data ingestion job.</p>
-   * @public
-   */
-  dataSourceId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the data ingestion job.</p>
-   * @public
-   */
-  ingestionJobId: string | undefined;
-
-  /**
-   * <p>The description of the data ingestion job.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The status of the data ingestion job.</p>
-   * @public
-   */
-  status: IngestionJobStatus | undefined;
-
-  /**
-   * <p>Contains statistics about the data ingestion job.</p>
-   * @public
-   */
-  statistics?: IngestionJobStatistics | undefined;
-
-  /**
-   * <p>A list of reasons that the data ingestion job failed.</p>
-   * @public
-   */
-  failureReasons?: string[] | undefined;
-
-  /**
-   * <p>The time the data ingestion job started.</p>
-   *          <p>If you stop a data ingestion job, the <code>startedAt</code> time is the time the job was started before the job was stopped.</p>
-   * @public
-   */
-  startedAt: Date | undefined;
-
-  /**
-   * <p>The time the data ingestion job was last updated.</p>
-   *          <p>If you stop a data ingestion job, the <code>updatedAt</code> time is the time the job was stopped.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIngestionJobResponse {
-  /**
-   * <p>Contains details about the data ingestion job.</p>
-   * @public
-   */
-  ingestionJob: IngestionJob | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const IngestionJobFilterAttribute = {
-  STATUS: "STATUS",
-} as const;
-
-/**
- * @public
- */
-export type IngestionJobFilterAttribute =
-  (typeof IngestionJobFilterAttribute)[keyof typeof IngestionJobFilterAttribute];
-
-/**
- * @public
- * @enum
- */
-export const IngestionJobFilterOperator = {
-  EQ: "EQ",
-} as const;
-
-/**
- * @public
- */
-export type IngestionJobFilterOperator = (typeof IngestionJobFilterOperator)[keyof typeof IngestionJobFilterOperator];
-
-/**
- * <p>The definition of a filter to filter the data.</p>
- * @public
- */
-export interface IngestionJobFilter {
-  /**
-   * <p>The name of field or attribute to apply the filter.</p>
-   * @public
-   */
-  attribute: IngestionJobFilterAttribute | undefined;
-
-  /**
-   * <p>The operation to apply to the field or attribute.</p>
-   * @public
-   */
-  operator: IngestionJobFilterOperator | undefined;
-
-  /**
-   * <p>A list of values that belong to the field or attribute.</p>
-   * @public
-   */
-  values: string[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const IngestionJobSortByAttribute = {
-  STARTED_AT: "STARTED_AT",
-  STATUS: "STATUS",
-} as const;
-
-/**
- * @public
- */
-export type IngestionJobSortByAttribute =
-  (typeof IngestionJobSortByAttribute)[keyof typeof IngestionJobSortByAttribute];
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASCENDING: "ASCENDING",
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
-
-/**
- * <p>The parameters of sorting the data.</p>
- * @public
- */
-export interface IngestionJobSortBy {
-  /**
-   * <p>The name of field or attribute to apply sorting of data.</p>
-   * @public
-   */
-  attribute: IngestionJobSortByAttribute | undefined;
-
-  /**
-   * <p>The order for sorting the data.</p>
-   * @public
-   */
-  order: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIngestionJobsRequest {
-  /**
-   * <p>The unique identifier of the knowledge base for the list of data ingestion jobs.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the data source for the list of data ingestion jobs.</p>
-   * @public
-   */
-  dataSourceId: string | undefined;
-
-  /**
-   * <p>Contains information about the filters for filtering the data.</p>
-   * @public
-   */
-  filters?: IngestionJobFilter[] | undefined;
-
-  /**
-   * <p>Contains details about how to sort the data.</p>
-   * @public
-   */
-  sortBy?: IngestionJobSortBy | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Contains details about a data ingestion job.</p>
- * @public
- */
-export interface IngestionJobSummary {
-  /**
-   * <p>The unique identifier of the knowledge base for the data ingestion job.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the data source for the data ingestion job.</p>
-   * @public
-   */
-  dataSourceId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the data ingestion job.</p>
-   * @public
-   */
-  ingestionJobId: string | undefined;
-
-  /**
-   * <p>The description of the data ingestion job.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The status of the data ingestion job.</p>
-   * @public
-   */
-  status: IngestionJobStatus | undefined;
-
-  /**
-   * <p>The time the data ingestion job started.</p>
-   * @public
-   */
-  startedAt: Date | undefined;
-
-  /**
-   * <p>The time the data ingestion job was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>Contains statistics for the data ingestion job.</p>
-   * @public
-   */
-  statistics?: IngestionJobStatistics | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIngestionJobsResponse {
-  /**
-   * <p>A list of data ingestion jobs with information about each job.</p>
-   * @public
-   */
-  ingestionJobSummaries: IngestionJobSummary[] | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartIngestionJobRequest {
-  /**
-   * <p>The unique identifier of the knowledge base for the data ingestion job.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the data source you want to ingest into your knowledge base.</p>
-   * @public
-   */
-  dataSourceId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>A description of the data ingestion job.</p>
-   * @public
-   */
-  description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartIngestionJobResponse {
-  /**
-   * <p>Contains information about the data ingestion job.</p>
-   * @public
-   */
-  ingestionJob: IngestionJob | undefined;
-}
-
-/**
- * @public
- */
-export interface StopIngestionJobRequest {
-  /**
-   * <p>The unique identifier of the knowledge base for the data ingestion job you want to stop.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the data source for the data ingestion job you want to stop.</p>
-   * @public
-   */
-  dataSourceId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the data ingestion job you want to stop.</p>
-   * @public
-   */
-  ingestionJobId: string | undefined;
-}
 
 /**
  * @internal
@@ -9860,6 +9609,99 @@ export const InlineCodeFlowNodeConfigurationFilterSensitiveLog = (obj: InlineCod
 /**
  * @internal
  */
+export const KnowledgeBasePromptTemplateFilterSensitiveLog = (obj: KnowledgeBasePromptTemplate): any => ({
+  ...obj,
+  ...(obj.textPromptTemplate && { textPromptTemplate: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseOrchestrationConfigurationFilterSensitiveLog = (
+  obj: KnowledgeBaseOrchestrationConfiguration
+): any => ({
+  ...obj,
+  ...(obj.promptTemplate && { promptTemplate: KnowledgeBasePromptTemplateFilterSensitiveLog(obj.promptTemplate) }),
+  ...(obj.inferenceConfig && { inferenceConfig: obj.inferenceConfig }),
+});
+
+/**
+ * @internal
+ */
+export const RerankingMetadataSelectiveModeConfigurationFilterSensitiveLog = (
+  obj: RerankingMetadataSelectiveModeConfiguration
+): any => {
+  if (obj.fieldsToInclude !== undefined) return { fieldsToInclude: SENSITIVE_STRING };
+  if (obj.fieldsToExclude !== undefined) return { fieldsToExclude: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const MetadataConfigurationForRerankingFilterSensitiveLog = (obj: MetadataConfigurationForReranking): any => ({
+  ...obj,
+  ...(obj.selectiveModeConfiguration && {
+    selectiveModeConfiguration: RerankingMetadataSelectiveModeConfigurationFilterSensitiveLog(
+      obj.selectiveModeConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const VectorSearchBedrockRerankingConfigurationFilterSensitiveLog = (
+  obj: VectorSearchBedrockRerankingConfiguration
+): any => ({
+  ...obj,
+  ...(obj.metadataConfiguration && {
+    metadataConfiguration: MetadataConfigurationForRerankingFilterSensitiveLog(obj.metadataConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const VectorSearchRerankingConfigurationFilterSensitiveLog = (obj: VectorSearchRerankingConfiguration): any => ({
+  ...obj,
+  ...(obj.bedrockRerankingConfiguration && {
+    bedrockRerankingConfiguration: VectorSearchBedrockRerankingConfigurationFilterSensitiveLog(
+      obj.bedrockRerankingConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseFlowNodeConfigurationFilterSensitiveLog = (obj: KnowledgeBaseFlowNodeConfiguration): any => ({
+  ...obj,
+  ...(obj.promptTemplate && { promptTemplate: KnowledgeBasePromptTemplateFilterSensitiveLog(obj.promptTemplate) }),
+  ...(obj.inferenceConfiguration && { inferenceConfiguration: obj.inferenceConfiguration }),
+  ...(obj.rerankingConfiguration && {
+    rerankingConfiguration: VectorSearchRerankingConfigurationFilterSensitiveLog(obj.rerankingConfiguration),
+  }),
+  ...(obj.orchestrationConfiguration && {
+    orchestrationConfiguration: KnowledgeBaseOrchestrationConfigurationFilterSensitiveLog(
+      obj.orchestrationConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const LoopControllerFlowNodeConfigurationFilterSensitiveLog = (
+  obj: LoopControllerFlowNodeConfiguration
+): any => ({
+  ...obj,
+  ...(obj.continueCondition && { continueCondition: FlowConditionFilterSensitiveLog(obj.continueCondition) }),
+});
+
+/**
+ * @internal
+ */
 export const ContentBlockFilterSensitiveLog = (obj: ContentBlock): any => {
   if (obj.text !== undefined) return { text: obj.text };
   if (obj.cachePoint !== undefined) return { cachePoint: obj.cachePoint };
@@ -9964,81 +9806,9 @@ export const PromptFlowNodeConfigurationFilterSensitiveLog = (obj: PromptFlowNod
 /**
  * @internal
  */
-export const FlowNodeConfigurationFilterSensitiveLog = (obj: FlowNodeConfiguration): any => {
-  if (obj.input !== undefined) return { input: obj.input };
-  if (obj.output !== undefined) return { output: obj.output };
-  if (obj.knowledgeBase !== undefined) return { knowledgeBase: obj.knowledgeBase };
-  if (obj.condition !== undefined)
-    return { condition: ConditionFlowNodeConfigurationFilterSensitiveLog(obj.condition) };
-  if (obj.lex !== undefined) return { lex: obj.lex };
-  if (obj.prompt !== undefined) return { prompt: PromptFlowNodeConfigurationFilterSensitiveLog(obj.prompt) };
-  if (obj.lambdaFunction !== undefined) return { lambdaFunction: obj.lambdaFunction };
-  if (obj.storage !== undefined) return { storage: obj.storage };
-  if (obj.agent !== undefined) return { agent: obj.agent };
-  if (obj.retrieval !== undefined) return { retrieval: obj.retrieval };
-  if (obj.iterator !== undefined) return { iterator: obj.iterator };
-  if (obj.collector !== undefined) return { collector: obj.collector };
-  if (obj.inlineCode !== undefined)
-    return { inlineCode: InlineCodeFlowNodeConfigurationFilterSensitiveLog(obj.inlineCode) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
 export const FlowNodeInputFilterSensitiveLog = (obj: FlowNodeInput): any => ({
   ...obj,
   ...(obj.expression && { expression: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FlowNodeFilterSensitiveLog = (obj: FlowNode): any => ({
-  ...obj,
-  ...(obj.configuration && { configuration: FlowNodeConfigurationFilterSensitiveLog(obj.configuration) }),
-  ...(obj.inputs && { inputs: obj.inputs.map((item) => FlowNodeInputFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const FlowDefinitionFilterSensitiveLog = (obj: FlowDefinition): any => ({
-  ...obj,
-  ...(obj.nodes && { nodes: obj.nodes.map((item) => FlowNodeFilterSensitiveLog(item)) }),
-  ...(obj.connections && { connections: obj.connections.map((item) => item) }),
-});
-
-/**
- * @internal
- */
-export const CreateFlowRequestFilterSensitiveLog = (obj: CreateFlowRequest): any => ({
-  ...obj,
-  ...(obj.definition && { definition: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateFlowResponseFilterSensitiveLog = (obj: CreateFlowResponse): any => ({
-  ...obj,
-  ...(obj.definition && { definition: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateFlowVersionResponseFilterSensitiveLog = (obj: CreateFlowVersionResponse): any => ({
-  ...obj,
-  ...(obj.definition && { definition: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetFlowVersionResponseFilterSensitiveLog = (obj: GetFlowVersionResponse): any => ({
-  ...obj,
-  ...(obj.definition && { definition: SENSITIVE_STRING }),
 });
 
 /**
@@ -10096,6 +9866,13 @@ export const FlowValidationDetailsFilterSensitiveLog = (obj: FlowValidationDetai
   if (obj.unspecified !== undefined) return { unspecified: obj.unspecified };
   if (obj.unknownNodeInput !== undefined) return { unknownNodeInput: obj.unknownNodeInput };
   if (obj.unknownNodeOutput !== undefined) return { unknownNodeOutput: obj.unknownNodeOutput };
+  if (obj.missingLoopInputNode !== undefined) return { missingLoopInputNode: obj.missingLoopInputNode };
+  if (obj.missingLoopControllerNode !== undefined) return { missingLoopControllerNode: obj.missingLoopControllerNode };
+  if (obj.multipleLoopInputNodes !== undefined) return { multipleLoopInputNodes: obj.multipleLoopInputNodes };
+  if (obj.multipleLoopControllerNodes !== undefined)
+    return { multipleLoopControllerNodes: obj.multipleLoopControllerNodes };
+  if (obj.loopIncompatibleNodeType !== undefined) return { loopIncompatibleNodeType: obj.loopIncompatibleNodeType };
+  if (obj.invalidLoopBoundary !== undefined) return { invalidLoopBoundary: obj.invalidLoopBoundary };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -10105,29 +9882,4 @@ export const FlowValidationDetailsFilterSensitiveLog = (obj: FlowValidationDetai
 export const FlowValidationFilterSensitiveLog = (obj: FlowValidation): any => ({
   ...obj,
   ...(obj.details && { details: FlowValidationDetailsFilterSensitiveLog(obj.details) }),
-});
-
-/**
- * @internal
- */
-export const GetFlowResponseFilterSensitiveLog = (obj: GetFlowResponse): any => ({
-  ...obj,
-  ...(obj.definition && { definition: SENSITIVE_STRING }),
-  ...(obj.validations && { validations: obj.validations.map((item) => FlowValidationFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateFlowRequestFilterSensitiveLog = (obj: UpdateFlowRequest): any => ({
-  ...obj,
-  ...(obj.definition && { definition: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateFlowResponseFilterSensitiveLog = (obj: UpdateFlowResponse): any => ({
-  ...obj,
-  ...(obj.definition && { definition: SENSITIVE_STRING }),
 });

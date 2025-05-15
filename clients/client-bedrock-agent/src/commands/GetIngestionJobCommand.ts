@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetIngestionJobRequest, GetIngestionJobResponse } from "../models/models_0";
+import { GetIngestionJobRequest } from "../models/models_0";
+import { GetIngestionJobResponse } from "../models/models_1";
 import { de_GetIngestionJobCommand, se_GetIngestionJobCommand } from "../protocols/Aws_restJson1";
 
 /**

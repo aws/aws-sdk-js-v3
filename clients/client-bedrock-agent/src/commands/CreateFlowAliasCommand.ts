@@ -43,6 +43,10 @@ export interface CreateFlowAliasCommandOutput extends CreateFlowAliasResponse, _
  *       flowVersion: "STRING_VALUE",
  *     },
  *   ],
+ *   concurrencyConfiguration: { // FlowAliasConcurrencyConfiguration
+ *     type: "Automatic" || "Manual", // required
+ *     maxConcurrency: Number("int"),
+ *   },
  *   flowIdentifier: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  *   tags: { // TagsMap
@@ -59,6 +63,10 @@ export interface CreateFlowAliasCommandOutput extends CreateFlowAliasResponse, _
  * //       flowVersion: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   concurrencyConfiguration: { // FlowAliasConcurrencyConfiguration
+ * //     type: "Automatic" || "Manual", // required
+ * //     maxConcurrency: Number("int"),
+ * //   },
  * //   flowId: "STRING_VALUE", // required
  * //   id: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required

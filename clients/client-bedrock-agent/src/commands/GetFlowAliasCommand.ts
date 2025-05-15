@@ -49,6 +49,10 @@ export interface GetFlowAliasCommandOutput extends GetFlowAliasResponse, __Metad
  * //       flowVersion: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   concurrencyConfiguration: { // FlowAliasConcurrencyConfiguration
+ * //     type: "Automatic" || "Manual", // required
+ * //     maxConcurrency: Number("int"),
+ * //   },
  * //   flowId: "STRING_VALUE", // required
  * //   id: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required

@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetFlowRequest, GetFlowResponse, GetFlowResponseFilterSensitiveLog } from "../models/models_0";
+import { GetFlowRequest } from "../models/models_0";
+import { GetFlowResponse, GetFlowResponseFilterSensitiveLog } from "../models/models_1";
 import { de_GetFlowCommand, se_GetFlowCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -55,7 +56,7 @@ export interface GetFlowCommandOutput extends GetFlowResponse, __MetadataBearer 
  * //     nodes: [ // FlowNodes
  * //       { // FlowNode
  * //         name: "STRING_VALUE", // required
- * //         type: "Input" || "Output" || "KnowledgeBase" || "Condition" || "Lex" || "Prompt" || "LambdaFunction" || "Storage" || "Agent" || "Retrieval" || "Iterator" || "Collector" || "InlineCode", // required
+ * //         type: "Input" || "Output" || "KnowledgeBase" || "Condition" || "Lex" || "Prompt" || "LambdaFunction" || "Storage" || "Agent" || "Retrieval" || "Iterator" || "Collector" || "InlineCode" || "Loop" || "LoopInput" || "LoopController", // required
  * //         configuration: { // FlowNodeConfiguration Union: only one key present
  * //           input: {},
  * //           output: {},
@@ -65,6 +66,68 @@ export interface GetFlowCommandOutput extends GetFlowResponse, __MetadataBearer 
  * //             guardrailConfiguration: { // GuardrailConfiguration
  * //               guardrailIdentifier: "STRING_VALUE",
  * //               guardrailVersion: "STRING_VALUE",
+ * //             },
+ * //             numberOfResults: Number("int"),
+ * //             promptTemplate: { // KnowledgeBasePromptTemplate
+ * //               textPromptTemplate: "STRING_VALUE",
+ * //             },
+ * //             inferenceConfiguration: { // PromptInferenceConfiguration Union: only one key present
+ * //               text: { // PromptModelInferenceConfiguration
+ * //                 temperature: Number("float"),
+ * //                 topP: Number("float"),
+ * //                 maxTokens: Number("int"),
+ * //                 stopSequences: [ // StopSequences
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             },
+ * //             rerankingConfiguration: { // VectorSearchRerankingConfiguration
+ * //               type: "BEDROCK_RERANKING_MODEL", // required
+ * //               bedrockRerankingConfiguration: { // VectorSearchBedrockRerankingConfiguration
+ * //                 modelConfiguration: { // VectorSearchBedrockRerankingModelConfiguration
+ * //                   modelArn: "STRING_VALUE", // required
+ * //                   additionalModelRequestFields: { // AdditionalModelRequestFields
+ * //                     "<keys>": "DOCUMENT_VALUE",
+ * //                   },
+ * //                 },
+ * //                 numberOfRerankedResults: Number("int"),
+ * //                 metadataConfiguration: { // MetadataConfigurationForReranking
+ * //                   selectionMode: "SELECTIVE" || "ALL", // required
+ * //                   selectiveModeConfiguration: { // RerankingMetadataSelectiveModeConfiguration Union: only one key present
+ * //                     fieldsToInclude: [ // FieldsForReranking
+ * //                       { // FieldForReranking
+ * //                         fieldName: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                     fieldsToExclude: [
+ * //                       {
+ * //                         fieldName: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                   },
+ * //                 },
+ * //               },
+ * //             },
+ * //             orchestrationConfiguration: { // KnowledgeBaseOrchestrationConfiguration
+ * //               promptTemplate: {
+ * //                 textPromptTemplate: "STRING_VALUE",
+ * //               },
+ * //               inferenceConfig: {//  Union: only one key present
+ * //                 text: {
+ * //                   temperature: Number("float"),
+ * //                   topP: Number("float"),
+ * //                   maxTokens: Number("int"),
+ * //                   stopSequences: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               },
+ * //               additionalModelRequestFields: {
+ * //                 "<keys>": "DOCUMENT_VALUE",
+ * //               },
+ * //               performanceConfig: { // PerformanceConfiguration
+ * //                 latency: "standard" || "optimized",
+ * //               },
  * //             },
  * //           },
  * //           condition: { // ConditionFlowNodeConfiguration
@@ -147,16 +210,7 @@ export interface GetFlowCommandOutput extends GetFlowResponse, __MetadataBearer 
  * //                   },
  * //                 },
  * //                 modelId: "STRING_VALUE", // required
- * //                 inferenceConfiguration: { // PromptInferenceConfiguration Union: only one key present
- * //                   text: { // PromptModelInferenceConfiguration
- * //                     temperature: Number("float"),
- * //                     topP: Number("float"),
- * //                     maxTokens: Number("int"),
- * //                     stopSequences: [ // StopSequences
- * //                       "STRING_VALUE",
- * //                     ],
- * //                   },
- * //                 },
+ * //                 inferenceConfiguration: "<PromptInferenceConfiguration>",
  * //                 additionalModelRequestFields: "DOCUMENT_VALUE",
  * //               },
  * //             },
@@ -191,34 +245,248 @@ export interface GetFlowCommandOutput extends GetFlowResponse, __MetadataBearer 
  * //             code: "STRING_VALUE", // required
  * //             language: "Python_3", // required
  * //           },
+ * //           loop: { // LoopFlowNodeConfiguration
+ * //             definition: {
+ * //               nodes: [
+ * //                 {
+ * //                   name: "STRING_VALUE", // required
+ * //                   type: "Input" || "Output" || "KnowledgeBase" || "Condition" || "Lex" || "Prompt" || "LambdaFunction" || "Storage" || "Agent" || "Retrieval" || "Iterator" || "Collector" || "InlineCode" || "Loop" || "LoopInput" || "LoopController", // required
+ * //                   configuration: {//  Union: only one key present
+ * //                     input: {},
+ * //                     output: {},
+ * //                     knowledgeBase: {
+ * //                       knowledgeBaseId: "STRING_VALUE", // required
+ * //                       modelId: "STRING_VALUE",
+ * //                       guardrailConfiguration: {
+ * //                         guardrailIdentifier: "STRING_VALUE",
+ * //                         guardrailVersion: "STRING_VALUE",
+ * //                       },
+ * //                       numberOfResults: Number("int"),
+ * //                       promptTemplate: "<KnowledgeBasePromptTemplate>",
+ * //                       inferenceConfiguration: "<PromptInferenceConfiguration>",
+ * //                       rerankingConfiguration: {
+ * //                         type: "BEDROCK_RERANKING_MODEL", // required
+ * //                         bedrockRerankingConfiguration: {
+ * //                           modelConfiguration: {
+ * //                             modelArn: "STRING_VALUE", // required
+ * //                             additionalModelRequestFields: "<AdditionalModelRequestFields>",
+ * //                           },
+ * //                           numberOfRerankedResults: Number("int"),
+ * //                           metadataConfiguration: {
+ * //                             selectionMode: "SELECTIVE" || "ALL", // required
+ * //                             selectiveModeConfiguration: {//  Union: only one key present
+ * //                               fieldsToInclude: [
+ * //                                 {
+ * //                                   fieldName: "STRING_VALUE", // required
+ * //                                 },
+ * //                               ],
+ * //                               fieldsToExclude: [
+ * //                                 {
+ * //                                   fieldName: "STRING_VALUE", // required
+ * //                                 },
+ * //                               ],
+ * //                             },
+ * //                           },
+ * //                         },
+ * //                       },
+ * //                       orchestrationConfiguration: {
+ * //                         promptTemplate: "<KnowledgeBasePromptTemplate>",
+ * //                         inferenceConfig: "<PromptInferenceConfiguration>",
+ * //                         additionalModelRequestFields: "<AdditionalModelRequestFields>",
+ * //                         performanceConfig: {
+ * //                           latency: "standard" || "optimized",
+ * //                         },
+ * //                       },
+ * //                     },
+ * //                     condition: {
+ * //                       conditions: [ // required
+ * //                         {
+ * //                           name: "STRING_VALUE", // required
+ * //                           expression: "STRING_VALUE",
+ * //                         },
+ * //                       ],
+ * //                     },
+ * //                     lex: {
+ * //                       botAliasArn: "STRING_VALUE", // required
+ * //                       localeId: "STRING_VALUE", // required
+ * //                     },
+ * //                     prompt: {
+ * //                       sourceConfiguration: {//  Union: only one key present
+ * //                         resource: {
+ * //                           promptArn: "STRING_VALUE", // required
+ * //                         },
+ * //                         inline: {
+ * //                           templateType: "TEXT" || "CHAT", // required
+ * //                           templateConfiguration: {//  Union: only one key present
+ * //                             text: {
+ * //                               text: "STRING_VALUE", // required
+ * //                               cachePoint: "<CachePointBlock>",
+ * //                               inputVariables: [
+ * //                                 {
+ * //                                   name: "STRING_VALUE",
+ * //                                 },
+ * //                               ],
+ * //                             },
+ * //                             chat: {
+ * //                               messages: [ // required
+ * //                                 {
+ * //                                   role: "user" || "assistant", // required
+ * //                                   content: [ // required
+ * //                                     {//  Union: only one key present
+ * //                                       text: "STRING_VALUE",
+ * //                                       cachePoint: "<CachePointBlock>",
+ * //                                     },
+ * //                                   ],
+ * //                                 },
+ * //                               ],
+ * //                               system: [
+ * //                                 {//  Union: only one key present
+ * //                                   text: "STRING_VALUE",
+ * //                                   cachePoint: "<CachePointBlock>",
+ * //                                 },
+ * //                               ],
+ * //                               inputVariables: [
+ * //                                 {
+ * //                                   name: "STRING_VALUE",
+ * //                                 },
+ * //                               ],
+ * //                               toolConfiguration: {
+ * //                                 tools: [ // required
+ * //                                   {//  Union: only one key present
+ * //                                     toolSpec: {
+ * //                                       name: "STRING_VALUE", // required
+ * //                                       description: "STRING_VALUE",
+ * //                                       inputSchema: {//  Union: only one key present
+ * //                                         json: "DOCUMENT_VALUE",
+ * //                                       },
+ * //                                     },
+ * //                                     cachePoint: "<CachePointBlock>",
+ * //                                   },
+ * //                                 ],
+ * //                                 toolChoice: {//  Union: only one key present
+ * //                                   auto: {},
+ * //                                   any: {},
+ * //                                   tool: {
+ * //                                     name: "STRING_VALUE", // required
+ * //                                   },
+ * //                                 },
+ * //                               },
+ * //                             },
+ * //                           },
+ * //                           modelId: "STRING_VALUE", // required
+ * //                           inferenceConfiguration: "<PromptInferenceConfiguration>",
+ * //                           additionalModelRequestFields: "DOCUMENT_VALUE",
+ * //                         },
+ * //                       },
+ * //                       guardrailConfiguration: {
+ * //                         guardrailIdentifier: "STRING_VALUE",
+ * //                         guardrailVersion: "STRING_VALUE",
+ * //                       },
+ * //                     },
+ * //                     lambdaFunction: {
+ * //                       lambdaArn: "STRING_VALUE", // required
+ * //                     },
+ * //                     storage: {
+ * //                       serviceConfiguration: {//  Union: only one key present
+ * //                         s3: {
+ * //                           bucketName: "STRING_VALUE", // required
+ * //                         },
+ * //                       },
+ * //                     },
+ * //                     agent: {
+ * //                       agentAliasArn: "STRING_VALUE", // required
+ * //                     },
+ * //                     retrieval: {
+ * //                       serviceConfiguration: {//  Union: only one key present
+ * //                         s3: {
+ * //                           bucketName: "STRING_VALUE", // required
+ * //                         },
+ * //                       },
+ * //                     },
+ * //                     iterator: {},
+ * //                     collector: {},
+ * //                     inlineCode: {
+ * //                       code: "STRING_VALUE", // required
+ * //                       language: "Python_3", // required
+ * //                     },
+ * //                     loop: {
+ * //                       definition: "<FlowDefinition>", // required
+ * //                     },
+ * //                     loopInput: {},
+ * //                     loopController: { // LoopControllerFlowNodeConfiguration
+ * //                       continueCondition: "<FlowCondition>", // required
+ * //                       maxIterations: Number("int"),
+ * //                     },
+ * //                   },
+ * //                   inputs: [ // FlowNodeInputs
+ * //                     { // FlowNodeInput
+ * //                       name: "STRING_VALUE", // required
+ * //                       type: "String" || "Number" || "Boolean" || "Object" || "Array", // required
+ * //                       expression: "STRING_VALUE", // required
+ * //                       category: "LoopCondition" || "ReturnValueToLoopStart" || "ExitLoop",
+ * //                     },
+ * //                   ],
+ * //                   outputs: [ // FlowNodeOutputs
+ * //                     { // FlowNodeOutput
+ * //                       name: "STRING_VALUE", // required
+ * //                       type: "String" || "Number" || "Boolean" || "Object" || "Array", // required
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               ],
+ * //               connections: [ // FlowConnections
+ * //                 { // FlowConnection
+ * //                   type: "Data" || "Conditional", // required
+ * //                   name: "STRING_VALUE", // required
+ * //                   source: "STRING_VALUE", // required
+ * //                   target: "STRING_VALUE", // required
+ * //                   configuration: { // FlowConnectionConfiguration Union: only one key present
+ * //                     data: { // FlowDataConnectionConfiguration
+ * //                       sourceOutput: "STRING_VALUE", // required
+ * //                       targetInput: "STRING_VALUE", // required
+ * //                     },
+ * //                     conditional: { // FlowConditionalConnectionConfiguration
+ * //                       condition: "STRING_VALUE", // required
+ * //                     },
+ * //                   },
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //           loopInput: {},
+ * //           loopController: {
+ * //             continueCondition: "<FlowCondition>", // required
+ * //             maxIterations: Number("int"),
+ * //           },
  * //         },
- * //         inputs: [ // FlowNodeInputs
- * //           { // FlowNodeInput
+ * //         inputs: [
+ * //           {
  * //             name: "STRING_VALUE", // required
  * //             type: "String" || "Number" || "Boolean" || "Object" || "Array", // required
  * //             expression: "STRING_VALUE", // required
+ * //             category: "LoopCondition" || "ReturnValueToLoopStart" || "ExitLoop",
  * //           },
  * //         ],
- * //         outputs: [ // FlowNodeOutputs
- * //           { // FlowNodeOutput
+ * //         outputs: [
+ * //           {
  * //             name: "STRING_VALUE", // required
  * //             type: "String" || "Number" || "Boolean" || "Object" || "Array", // required
  * //           },
  * //         ],
  * //       },
  * //     ],
- * //     connections: [ // FlowConnections
- * //       { // FlowConnection
+ * //     connections: [
+ * //       {
  * //         type: "Data" || "Conditional", // required
  * //         name: "STRING_VALUE", // required
  * //         source: "STRING_VALUE", // required
  * //         target: "STRING_VALUE", // required
- * //         configuration: { // FlowConnectionConfiguration Union: only one key present
- * //           data: { // FlowDataConnectionConfiguration
+ * //         configuration: {//  Union: only one key present
+ * //           data: {
  * //             sourceOutput: "STRING_VALUE", // required
  * //             targetInput: "STRING_VALUE", // required
  * //           },
- * //           conditional: { // FlowConditionalConnectionConfiguration
+ * //           conditional: {
  * //             condition: "STRING_VALUE", // required
  * //           },
  * //         },
@@ -321,8 +589,30 @@ export interface GetFlowCommandOutput extends GetFlowResponse, __MetadataBearer 
  * //           node: "STRING_VALUE", // required
  * //           output: "STRING_VALUE", // required
  * //         },
+ * //         missingLoopInputNode: { // MissingLoopInputNodeFlowValidationDetails
+ * //           loopNode: "STRING_VALUE", // required
+ * //         },
+ * //         missingLoopControllerNode: { // MissingLoopControllerNodeFlowValidationDetails
+ * //           loopNode: "STRING_VALUE", // required
+ * //         },
+ * //         multipleLoopInputNodes: { // MultipleLoopInputNodesFlowValidationDetails
+ * //           loopNode: "STRING_VALUE", // required
+ * //         },
+ * //         multipleLoopControllerNodes: { // MultipleLoopControllerNodesFlowValidationDetails
+ * //           loopNode: "STRING_VALUE", // required
+ * //         },
+ * //         loopIncompatibleNodeType: { // LoopIncompatibleNodeTypeFlowValidationDetails
+ * //           node: "STRING_VALUE", // required
+ * //           incompatibleNodeType: "Input" || "Condition" || "Iterator" || "Collector", // required
+ * //           incompatibleNodeName: "STRING_VALUE", // required
+ * //         },
+ * //         invalidLoopBoundary: { // InvalidLoopBoundaryFlowValidationDetails
+ * //           connection: "STRING_VALUE", // required
+ * //           source: "STRING_VALUE", // required
+ * //           target: "STRING_VALUE", // required
+ * //         },
  * //       },
- * //       type: "CyclicConnection" || "DuplicateConnections" || "DuplicateConditionExpression" || "UnreachableNode" || "UnknownConnectionSource" || "UnknownConnectionSourceOutput" || "UnknownConnectionTarget" || "UnknownConnectionTargetInput" || "UnknownConnectionCondition" || "MalformedConditionExpression" || "MalformedNodeInputExpression" || "MismatchedNodeInputType" || "MismatchedNodeOutputType" || "IncompatibleConnectionDataType" || "MissingConnectionConfiguration" || "MissingDefaultCondition" || "MissingEndingNodes" || "MissingNodeConfiguration" || "MissingNodeInput" || "MissingNodeOutput" || "MissingStartingNodes" || "MultipleNodeInputConnections" || "UnfulfilledNodeInput" || "UnsatisfiedConnectionConditions" || "Unspecified" || "UnknownNodeInput" || "UnknownNodeOutput",
+ * //       type: "CyclicConnection" || "DuplicateConnections" || "DuplicateConditionExpression" || "UnreachableNode" || "UnknownConnectionSource" || "UnknownConnectionSourceOutput" || "UnknownConnectionTarget" || "UnknownConnectionTargetInput" || "UnknownConnectionCondition" || "MalformedConditionExpression" || "MalformedNodeInputExpression" || "MismatchedNodeInputType" || "MismatchedNodeOutputType" || "IncompatibleConnectionDataType" || "MissingConnectionConfiguration" || "MissingDefaultCondition" || "MissingEndingNodes" || "MissingNodeConfiguration" || "MissingNodeInput" || "MissingNodeOutput" || "MissingStartingNodes" || "MultipleNodeInputConnections" || "UnfulfilledNodeInput" || "UnsatisfiedConnectionConditions" || "Unspecified" || "UnknownNodeInput" || "UnknownNodeOutput" || "MissingLoopInputNode" || "MissingLoopControllerNode" || "MultipleLoopInputNodes" || "MultipleLoopControllerNodes" || "LoopIncompatibleNodeType" || "InvalidLoopBoundary",
  * //     },
  * //   ],
  * // };

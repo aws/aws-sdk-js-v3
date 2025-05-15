@@ -52,6 +52,10 @@ export interface ListFlowAliasesCommandOutput extends ListFlowAliasesResponse, _
  * //           flowVersion: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       concurrencyConfiguration: { // FlowAliasConcurrencyConfiguration
+ * //         type: "Automatic" || "Manual", // required
+ * //         maxConcurrency: Number("int"),
+ * //       },
  * //       flowId: "STRING_VALUE", // required
  * //       id: "STRING_VALUE", // required
  * //       arn: "STRING_VALUE", // required
