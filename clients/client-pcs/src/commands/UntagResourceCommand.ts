@@ -28,8 +28,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes tags from an Amazon Web Services PCS resource. To delete a tag, specify the tag key and the
- *          Amazon Resource Name (ARN) of the Amazon Web Services PCS resource.</p>
+ * <p>Deletes tags from an Amazon Web Services PCS resource. To delete a tag, specify the tag key and the Amazon Resource Name (ARN) of the Amazon Web Services PCS resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,11 +54,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link PCSClientResolvedConfig | config} for PCSClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found. The cluster, node group, or queue you're
- *          attempting to get, update, list, or delete doesn't exist.</p>
- *          <p>
- *             <u>Examples</u>
- *          </p>
+ *  <p>The requested resource can't be found. The cluster, node group, or queue you're attempting to get, update, list, or delete doesn't exist.</p> <p> <u>Examples</u> </p>
  *
  * @throws {@link PCSServiceException}
  * <p>Base exception class for all service exceptions from PCS service.</p>

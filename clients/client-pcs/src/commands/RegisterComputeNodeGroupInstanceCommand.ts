@@ -37,10 +37,7 @@ export interface RegisterComputeNodeGroupInstanceCommandOutput
     __MetadataBearer {}
 
 /**
- * <important>
- *             <p>This API action isn't intended for you to use.</p>
- *          </important>
- *          <p>Amazon Web Services PCS uses this API action to register the compute nodes it launches in your account.</p>
+ * <important> <p>This API action isn't intended for you to use.</p> </important> <p>Amazon Web Services PCS uses this API action to register the compute nodes it launches in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,25 +72,7 @@ export interface RegisterComputeNodeGroupInstanceCommandOutput
  * @see {@link PCSClientResolvedConfig | config} for PCSClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action.</p>
- *          <p>
- *             <u>Examples</u>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>The launch template instance profile doesn't pass <code>iam:PassRole</code>
- *                verification.</p>
- *             </li>
- *             <li>
- *                <p>There is a mismatch between the account ID and cluster ID.</p>
- *             </li>
- *             <li>
- *                <p>The cluster ID doesn't exist.</p>
- *             </li>
- *             <li>
- *                <p>The EC2 instance isn't present.</p>
- *             </li>
- *          </ul>
+ *  <p>You don't have permission to perform the action.</p> <p> <u>Examples</u> </p> <ul> <li> <p>The launch template instance profile doesn't pass <code>iam:PassRole</code> verification.</p> </li> <li> <p>There is a mismatch between the account ID and cluster ID.</p> </li> <li> <p>The cluster ID doesn't exist.</p> </li> <li> <p>The EC2 instance isn't present.</p> </li> </ul>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Amazon Web Services PCS can't process your request right now. Try again later.</p>

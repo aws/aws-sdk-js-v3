@@ -55,11 +55,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link PCSClientResolvedConfig | config} for PCSClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found. The cluster, node group, or queue you're
- *          attempting to get, update, list, or delete doesn't exist.</p>
- *          <p>
- *             <u>Examples</u>
- *          </p>
+ *  <p>The requested resource can't be found. The cluster, node group, or queue you're attempting to get, update, list, or delete doesn't exist.</p> <p> <u>Examples</u> </p>
  *
  * @throws {@link PCSServiceException}
  * <p>Base exception class for all service exceptions from PCS service.</p>

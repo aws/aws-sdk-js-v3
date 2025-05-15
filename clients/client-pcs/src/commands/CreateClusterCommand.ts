@@ -28,18 +28,7 @@ export interface CreateClusterCommandInput extends CreateClusterRequest {}
 export interface CreateClusterCommandOutput extends CreateClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a cluster in your account. Amazon Web Services PCS creates the cluster controller in a
- *          service-owned account. The cluster controller communicates with the cluster resources in
- *          your account. The subnets and security groups for the cluster must already exist before you
- *          use this API action.</p>
- *          <note>
- *             <p>It takes time for Amazon Web Services PCS to create the cluster. The cluster is in
- *          a <code>Creating</code> state until it is ready to use. There can only be 1
- *          cluster in a <code>Creating</code> state per Amazon Web Services Region per Amazon Web Services account.
- *          <code>CreateCluster</code>
- *          fails with a <code>ServiceQuotaExceededException</code> if there is already
- *          a cluster in a <code>Creating</code> state.</p>
- *          </note>
+ * <p>Creates a cluster in your account. Amazon Web Services PCS creates the cluster controller in a service-owned account. The cluster controller communicates with the cluster resources in your account. The subnets and security groups for the cluster must already exist before you use this API action.</p> <note> <p>It takes time for Amazon Web Services PCS to create the cluster. The cluster is in a <code>Creating</code> state until it is ready to use. There can only be 1 cluster in a <code>Creating</code> state per Amazon Web Services Region per Amazon Web Services account. <code>CreateCluster</code> fails with a <code>ServiceQuotaExceededException</code> if there is already a cluster in a <code>Creating</code> state.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,6 +58,10 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *         parameterValue: "STRING_VALUE", // required
  *       },
  *     ],
+ *     accounting: { // AccountingRequest
+ *       mode: "STANDARD" || "NONE", // required
+ *       defaultPurgeTimeInDays: Number("int"),
+ *     },
  *   },
  *   clientToken: "STRING_VALUE",
  *   tags: { // RequestTagMap
@@ -101,6 +94,10 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //       authKey: { // SlurmAuthKey
  * //         secretArn: "STRING_VALUE", // required
  * //         secretVersion: "STRING_VALUE", // required
+ * //       },
+ * //       accounting: { // Accounting
+ * //         mode: "STANDARD" || "NONE", // required
+ * //         defaultPurgeTimeInDays: Number("int"),
  * //       },
  * //     },
  * //     networking: { // Networking
@@ -137,97 +134,22 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @see {@link PCSClientResolvedConfig | config} for PCSClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action.</p>
- *          <p>
- *             <u>Examples</u>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>The launch template instance profile doesn't pass <code>iam:PassRole</code>
- *                verification.</p>
- *             </li>
- *             <li>
- *                <p>There is a mismatch between the account ID and cluster ID.</p>
- *             </li>
- *             <li>
- *                <p>The cluster ID doesn't exist.</p>
- *             </li>
- *             <li>
- *                <p>The EC2 instance isn't present.</p>
- *             </li>
- *          </ul>
+ *  <p>You don't have permission to perform the action.</p> <p> <u>Examples</u> </p> <ul> <li> <p>The launch template instance profile doesn't pass <code>iam:PassRole</code> verification.</p> </li> <li> <p>There is a mismatch between the account ID and cluster ID.</p> </li> <li> <p>The cluster ID doesn't exist.</p> </li> <li> <p>The EC2 instance isn't present.</p> </li> </ul>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *          than 1 operation on the same resource at the same time.</p>
- *          <p>
- *             <u>Examples</u>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>A cluster with the same name already exists.</p>
- *             </li>
- *             <li>
- *                <p>A cluster isn't in <code>ACTIVE</code> status.</p>
- *             </li>
- *             <li>
- *                <p>A cluster to delete is in an unstable state. For example, because it still has
- *                   <code>ACTIVE</code> node groups or queues.</p>
- *             </li>
- *             <li>
- *                <p>A queue already exists in a cluster.</p>
- *             </li>
- *          </ul>
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform more than 1 operation on the same resource at the same time.</p> <p> <u>Examples</u> </p> <ul> <li> <p>A cluster with the same name already exists.</p> </li> <li> <p>A cluster isn't in <code>ACTIVE</code> status.</p> </li> <li> <p>A cluster to delete is in an unstable state. For example, because it still has <code>ACTIVE</code> node groups or queues.</p> </li> <li> <p>A queue already exists in a cluster.</p> </li> </ul>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Amazon Web Services PCS can't process your request right now. Try again later.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
- *          maximum number of service resources or operations for your Amazon Web Services account. To learn how to
- *          increase your service quota, see <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">Requesting a quota
- *             increase</a> in the <i>Service Quotas User Guide</i>
- *          </p>
- *          <p>
- *             <u>Examples</u>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>The max number of clusters or queues has been reached for the account.</p>
- *             </li>
- *             <li>
- *                <p>The max number of compute node groups has been reached for the associated
- *                cluster.</p>
- *             </li>
- *             <li>
- *                <p>The total of <code>maxInstances</code> across all compute node groups has been
- *                reached for associated cluster.</p>
- *             </li>
- *          </ul>
+ *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account. To learn how to increase your service quota, see <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">Requesting a quota increase</a> in the <i>Service Quotas User Guide</i> </p> <p> <u>Examples</u> </p> <ul> <li> <p>The max number of clusters or queues has been reached for the account.</p> </li> <li> <p>The max number of compute node groups has been reached for the associated cluster.</p> </li> <li> <p>The total of <code>maxInstances</code> across all compute node groups has been reached for associated cluster.</p> </li> </ul>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request exceeded a request rate quota. Check the resource's request rate quota and try again.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid.</p>
- *          <p>
- *             <u>Examples</u>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Your request contains malformed JSON or unsupported characters.</p>
- *             </li>
- *             <li>
- *                <p>The scheduler version isn't supported.</p>
- *             </li>
- *             <li>
- *                <p>There are networking related errors, such as network validation failure.</p>
- *             </li>
- *             <li>
- *                <p>AMI type is <code>CUSTOM</code> and the launch template doesn't define the AMI ID,
- *             or the AMI type is AL2 and the launch template defines the AMI.</p>
- *             </li>
- *          </ul>
+ *  <p>The request isn't valid.</p> <p> <u>Examples</u> </p> <ul> <li> <p>Your request contains malformed JSON or unsupported characters.</p> </li> <li> <p>The scheduler version isn't supported.</p> </li> <li> <p>There are networking related errors, such as network validation failure.</p> </li> <li> <p>AMI type is <code>CUSTOM</code> and the launch template doesn't define the AMI ID, or the AMI type is AL2 and the launch template defines the AMI.</p> </li> </ul>
  *
  * @throws {@link PCSServiceException}
  * <p>Base exception class for all service exceptions from PCS service.</p>

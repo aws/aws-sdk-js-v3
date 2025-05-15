@@ -28,10 +28,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds or edits tags on an Amazon Web Services PCS resource. Each tag consists of a tag key and a tag
- *          value. The tag key and tag value are case-sensitive strings. The tag value can be an empty
- *          (null) string. To add a tag, specify a new tag key and a tag value. To edit a tag, specify
- *          an existing tag key and a new tag value.</p>
+ * <p>Adds or edits tags on an Amazon Web Services PCS resource. Each tag consists of a tag key and a tag value. The tag key and tag value are case-sensitive strings. The tag value can be an empty (null) string. To add a tag, specify a new tag key and a tag value. To edit a tag, specify an existing tag key and a new tag value.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,34 +54,10 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link PCSClientResolvedConfig | config} for PCSClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found. The cluster, node group, or queue you're
- *          attempting to get, update, list, or delete doesn't exist.</p>
- *          <p>
- *             <u>Examples</u>
- *          </p>
+ *  <p>The requested resource can't be found. The cluster, node group, or queue you're attempting to get, update, list, or delete doesn't exist.</p> <p> <u>Examples</u> </p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
- *          maximum number of service resources or operations for your Amazon Web Services account. To learn how to
- *          increase your service quota, see <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">Requesting a quota
- *             increase</a> in the <i>Service Quotas User Guide</i>
- *          </p>
- *          <p>
- *             <u>Examples</u>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>The max number of clusters or queues has been reached for the account.</p>
- *             </li>
- *             <li>
- *                <p>The max number of compute node groups has been reached for the associated
- *                cluster.</p>
- *             </li>
- *             <li>
- *                <p>The total of <code>maxInstances</code> across all compute node groups has been
- *                reached for associated cluster.</p>
- *             </li>
- *          </ul>
+ *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account. To learn how to increase your service quota, see <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">Requesting a quota increase</a> in the <i>Service Quotas User Guide</i> </p> <p> <u>Examples</u> </p> <ul> <li> <p>The max number of clusters or queues has been reached for the account.</p> </li> <li> <p>The max number of compute node groups has been reached for the associated cluster.</p> </li> <li> <p>The total of <code>maxInstances</code> across all compute node groups has been reached for associated cluster.</p> </li> </ul>
  *
  * @throws {@link PCSServiceException}
  * <p>Base exception class for all service exceptions from PCS service.</p>

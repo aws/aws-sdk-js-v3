@@ -60,6 +60,7 @@ import {
 import { UpdateQueueCommandInput, UpdateQueueCommandOutput } from "../commands/UpdateQueueCommand";
 import {
   AccessDeniedException,
+  AccountingRequest,
   Cluster,
   ClusterSlurmConfigurationRequest,
   ClusterSummary,
@@ -847,6 +848,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
+// se_AccountingRequest omitted.
+
 // se_ClusterSlurmConfigurationRequest omitted.
 
 // se_ComputeNodeGroupConfiguration omitted.
@@ -1018,6 +1021,8 @@ const se_UpdateQueueRequest = (input: UpdateQueueRequest, context: __SerdeContex
 };
 
 // de_AccessDeniedException omitted.
+
+// de_Accounting omitted.
 
 /**
  * deserializeAws_json1_0Cluster
