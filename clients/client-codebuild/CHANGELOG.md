@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.811.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.810.0...v3.811.0) (2025-05-15)
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild now supports Docker Server capability ([4be4416](https://github.com/aws/aws-sdk-js-v3/commit/4be4416037be596a1d0ad888a7d6542dc0cd4af7))
+
+
+
+
+
 # [3.810.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.809.0...v3.810.0) (2025-05-14)
 
 **Note:** Version bump only for package @aws-sdk/client-codebuild

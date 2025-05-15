@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.811.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.810.0...v3.811.0) (2025-05-15)
+
+
+### Features
+
+* **client-bedrock-agent:** Amazon Bedrock Flows introduces DoWhile loops nodes, parallel node executions, and enhancements to knowledge base nodes. ([d754c78](https://github.com/aws/aws-sdk-js-v3/commit/d754c78990d38d6b828e2b43621f739e95c41ae1))
+
+
+
+
+
 # [3.810.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.809.0...v3.810.0) (2025-05-14)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent

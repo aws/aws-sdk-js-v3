@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.811.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.810.0...v3.811.0) (2025-05-15)
+
+
+### Bug Fixes
+
+* **tests:** remove the catch statement ([#7081](https://github.com/aws/aws-sdk-js-v3/issues/7081)) ([ab952cb](https://github.com/aws/aws-sdk-js-v3/commit/ab952cb61343ce66bd848ff9848f3173419d2880))
+
+
+### Features
+
+* **client-bedrock-agent:** Amazon Bedrock Flows introduces DoWhile loops nodes, parallel node executions, and enhancements to knowledge base nodes. ([d754c78](https://github.com/aws/aws-sdk-js-v3/commit/d754c78990d38d6b828e2b43621f739e95c41ae1))
+* **client-codebuild:** AWS CodeBuild now supports Docker Server capability ([4be4416](https://github.com/aws/aws-sdk-js-v3/commit/4be4416037be596a1d0ad888a7d6542dc0cd4af7))
+* **client-database-migration-service:** Introduces Data Resync feature to describe-table-statistics and IAM database authentication for MariaDB, MySQL, and PostgreSQL. ([1aeeeda](https://github.com/aws/aws-sdk-js-v3/commit/1aeeeda72aef69b48c9c51775f59828c2c257ac4))
+* **client-pcs:** This release adds support for Slurm accounting. For more information, see the Slurm accounting topic in the AWS PCS User Guide. Slurm accounting is supported for Slurm 24.11 and later. This release also adds 24.11 as a valid value for the version parameter of the Scheduler data type. ([8f51899](https://github.com/aws/aws-sdk-js-v3/commit/8f518997cebf7a8ae60afb6b2e5d6ade5380d33b))
+* **client-workspaces:** Added the new AlwaysOn running mode for WorkSpaces Pools. Customers can now choose between AlwaysOn (for instant access, with hourly usage billing regardless of connection status), or AutoStop (to optimize cost, with a brief startup delay) for their pools. ([039e7be](https://github.com/aws/aws-sdk-js-v3/commit/039e7bee0e240ecbf08d5ffa66263715d8938eb8))
+
+
+
+
+
 # [3.810.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.809.0...v3.810.0) (2025-05-14)
 
 
