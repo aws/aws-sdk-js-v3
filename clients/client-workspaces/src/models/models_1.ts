@@ -10,6 +10,7 @@ import {
   FailedWorkspaceChangeRequest,
   IpRuleItem,
   MicrosoftEntraConfig,
+  PoolsRunningMode,
   Tag,
   Tenancy,
   TimeoutSettings,
@@ -20,6 +21,17 @@ import {
 } from "./models_0";
 
 import { WorkSpacesServiceException as __BaseException } from "./WorkSpacesServiceException";
+
+/**
+ * @public
+ */
+export interface RebootWorkspacesResult {
+  /**
+   * <p>Information about the WorkSpaces that could not be rebooted.</p>
+   * @public
+   */
+  FailedRequests?: FailedWorkspaceChangeRequest[] | undefined;
+}
 
 /**
  * <p>Describes the information used to rebuild a WorkSpace.</p>
@@ -615,6 +627,12 @@ export interface UpdateWorkspacesPoolRequest {
    * @public
    */
   TimeoutSettings?: TimeoutSettings | undefined;
+
+  /**
+   * <p>The desired running mode for the pool. The running mode can only be updated when the pool is in a stopped state.</p>
+   * @public
+   */
+  RunningMode?: PoolsRunningMode | undefined;
 }
 
 /**

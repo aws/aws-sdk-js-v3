@@ -5193,6 +5193,7 @@ const de_WorkspacesPool = (output: any, context: __SerdeContext): WorkspacesPool
     PoolArn: __expectString,
     PoolId: __expectString,
     PoolName: __expectString,
+    RunningMode: __expectString,
     State: __expectString,
     TimeoutSettings: _json,
   }) as any;

@@ -2866,6 +2866,20 @@ export interface CreateWorkspacesResult {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const PoolsRunningMode = {
+  ALWAYS_ON: "ALWAYS_ON",
+  AUTO_STOP: "AUTO_STOP",
+} as const;
+
+/**
+ * @public
+ */
+export type PoolsRunningMode = (typeof PoolsRunningMode)[keyof typeof PoolsRunningMode];
+
+/**
  * <p>Describes the timeout settings for a pool of WorkSpaces.</p>
  * @public
  */
@@ -2946,6 +2960,12 @@ export interface CreateWorkspacesPoolRequest {
    * @public
    */
   TimeoutSettings?: TimeoutSettings | undefined;
+
+  /**
+   * <p>The running mode for the pool.</p>
+   * @public
+   */
+  RunningMode?: PoolsRunningMode | undefined;
 }
 
 /**
@@ -3061,7 +3081,7 @@ export interface WorkspacesPool {
   CapacityStatus: CapacityStatus | undefined;
 
   /**
-   * <p>The name of the pool,</p>
+   * <p>The name of the pool.</p>
    * @public
    */
   PoolName: string | undefined;
@@ -3116,6 +3136,12 @@ export interface WorkspacesPool {
    * @public
    */
   TimeoutSettings?: TimeoutSettings | undefined;
+
+  /**
+   * <p>The running mode of the pool.</p>
+   * @public
+   */
+  RunningMode: PoolsRunningMode | undefined;
 }
 
 /**
@@ -5314,7 +5340,9 @@ export const WorkspaceImageErrorDetailCode = {
   DOMAIN_JOINED: "DomainJoined",
   ENVIRONMENT_VARIABLES_PATH_MISSING_ENTRIES: "EnvironmentVariablesPathMissingEntries",
   FIREWALL_ENABLED: "FirewallEnabled",
+  INCOMPATIBLE_MEMORY_INTEGRITY: "MemoryIntegrityIncompatibility",
   INCOMPATIBLE_PARTITIONING: "IncompatiblePartitioning",
+  INCOMPATIBLE_PROTOCOL: "ProtocolOSIncompatibility",
   INSUFFICIENT_DISK_SPACE: "InsufficientDiskSpace",
   INSUFFICIENT_REARM_COUNT: "InsufficientRearmCount",
   INVALID_IP: "InvalidIp",
@@ -5329,6 +5357,7 @@ export const WorkspaceImageErrorDetailCode = {
   REALTIME_UNIVERSAL_DISABLED: "RealTimeUniversalDisabled",
   REMOTE_DESKTOP_SERVICES_DISABLED: "RemoteDesktopServicesDisabled",
   RESERVED_STORAGE_IN_USE: "ReservedStorageInUse",
+  RESTRICTED_DRIVE_LETTER: "RestrictedDriveLetterInUse",
   SIXTY_FOUR_BIT_OS: "Requires64BitOS",
   STAGED_APPX_PACKAGE: "StagedAppxPackage",
   SYSPREP_FILE_MISSING: "SysPrepFileMissing",
@@ -6868,15 +6897,4 @@ export interface RebootWorkspacesRequest {
    * @public
    */
   RebootWorkspaceRequests: RebootRequest[] | undefined;
-}
-
-/**
- * @public
- */
-export interface RebootWorkspacesResult {
-  /**
-   * <p>Information about the WorkSpaces that could not be rebooted.</p>
-   * @public
-   */
-  FailedRequests?: FailedWorkspaceChangeRequest[] | undefined;
 }

@@ -52,6 +52,7 @@ export interface UpdateWorkspacesPoolCommandOutput extends UpdateWorkspacesPoolR
  *     IdleDisconnectTimeoutInSeconds: Number("int"),
  *     MaxUserDurationInSeconds: Number("int"),
  *   },
+ *   RunningMode: "AUTO_STOP" || "ALWAYS_ON",
  * };
  * const command = new UpdateWorkspacesPoolCommand(input);
  * const response = await client.send(command);
@@ -87,6 +88,7 @@ export interface UpdateWorkspacesPoolCommandOutput extends UpdateWorkspacesPoolR
  * //       IdleDisconnectTimeoutInSeconds: Number("int"),
  * //       MaxUserDurationInSeconds: Number("int"),
  * //     },
+ * //     RunningMode: "AUTO_STOP" || "ALWAYS_ON", // required
  * //   },
  * // };
  *

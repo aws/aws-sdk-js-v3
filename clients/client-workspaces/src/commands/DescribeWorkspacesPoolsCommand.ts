@@ -86,6 +86,7 @@ export interface DescribeWorkspacesPoolsCommandOutput extends DescribeWorkspaces
  * //         IdleDisconnectTimeoutInSeconds: Number("int"),
  * //         MaxUserDurationInSeconds: Number("int"),
  * //       },
+ * //       RunningMode: "AUTO_STOP" || "ALWAYS_ON", // required
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
