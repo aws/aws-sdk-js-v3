@@ -29,10 +29,19 @@ export const convertToNative = (data: AttributeValue, options?: unmarshallOption
         case "M":
           return convertMap(value as Record<string, AttributeValue>, options);
         case "NS":
+          if (options?.preferNativeArrays) {
+            return (value as string[]).map((item) => convertNumber(item, options));
+          }
           return new Set((value as string[]).map((item) => convertNumber(item, options)));
         case "BS":
+          if (options?.preferNativeArrays) {
+            return (value as Uint8Array[]).map(convertBinary);
+          }
           return new Set((value as Uint8Array[]).map(convertBinary));
         case "SS":
+          if (options?.preferNativeArrays) {
+            return (value as string[]).map(convertString);
+          }
           return new Set((value as string[]).map(convertString));
         default:
           throw new Error(`Unsupported type passed: ${key}`);
