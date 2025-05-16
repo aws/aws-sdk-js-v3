@@ -45,16 +45,6 @@ export type AgentUpdateStatus = (typeof AgentUpdateStatus)[keyof typeof AgentUpd
  * <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
- *          <p>The following list includes additional causes for the error:</p>
- *          <ul>
- *             <li>
- *                <p>The <code>RunTask</code> could not be processed because you use managed
- * 					scaling and there is a capacity error because the quota of tasks in the
- * 						<code>PROVISIONING</code> per cluster has been reached. For information
- * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
- * 						service quotas</a>.</p>
- *             </li>
- *          </ul>
  * @public
  */
 export class ClientException extends __BaseException {
@@ -4358,10 +4348,11 @@ export interface DeleteAccountSettingRequest {
   name: SettingName | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the principal. It can be an user, role, or the
+   * <p>The Amazon Resource Name (ARN) of the principal. It can be a user, role, or the
    * 			root user. If you specify the root user, it disables the account setting for all users, roles,
    * 			and the root user of the account unless a user or role explicitly overrides these settings.
    * 			If this field is omitted, the setting is changed only for the authenticated user.</p>
+   *          <p>In order to use this parameter, you must be the root user, or the principal.</p>
    * @public
    */
   principalArn?: string | undefined;
@@ -7465,35 +7456,8 @@ export interface TaskDefinition {
    *          <p>If you're using the EC2 launch type or the external launch type, this
    * 			field is optional. Supported values are between <code>128</code> CPU units
    * 				(<code>0.125</code> vCPUs) and <code>196608</code> CPU units (<code>192</code>
-   * 			vCPUs). The CPU units cannot be less than 1 vCPU when you use Windows containers on
-   * 			Fargate.</p>
-   *          <ul>
-   *             <li>
-   *                <p>256 (.25 vCPU) - Available <code>memory</code> values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)</p>
-   *             </li>
-   *             <li>
-   *                <p>512 (.5 vCPU) - Available <code>memory</code> values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)</p>
-   *             </li>
-   *             <li>
-   *                <p>1024 (1 vCPU) - Available <code>memory</code> values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)</p>
-   *             </li>
-   *             <li>
-   *                <p>2048 (2 vCPU) - Available <code>memory</code> values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)</p>
-   *             </li>
-   *             <li>
-   *                <p>4096 (4 vCPU) - Available <code>memory</code> values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)</p>
-   *             </li>
-   *             <li>
-   *                <p>8192 (8 vCPU)  - Available <code>memory</code> values: 16 GB and 60 GB in 4 GB increments</p>
-   *                <p>This option requires Linux platform <code>1.4.0</code> or
-   *                                         later.</p>
-   *             </li>
-   *             <li>
-   *                <p>16384 (16vCPU)  - Available <code>memory</code> values: 32GB and 120 GB in 8 GB increments</p>
-   *                <p>This option requires Linux platform <code>1.4.0</code> or
-   *                                         later.</p>
-   *             </li>
-   *          </ul>
+   * 			vCPUs). </p>
+   *          <p>This field is required for Fargate. For information about the valid values, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_size">Task size</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * @public
    */
   cpu?: string | undefined;
@@ -9308,8 +9272,8 @@ export interface Container {
   exitCode?: number | undefined;
 
   /**
-   * <p>A short (255 max characters) human-readable string to provide additional details about
-   * 			a running or stopped container.</p>
+   * <p>A short (1024 max characters) human-readable string to provide additional details about a
+   * 			running or stopped container.</p>
    * @public
    */
   reason?: string | undefined;
@@ -9631,42 +9595,11 @@ export interface Task {
    * 			expressed as a string using vCPUs (for example, <code>1 vCPU</code> or <code>1
    * 				vcpu</code>). String values are converted to an integer that indicates the CPU units
    * 			when the task definition is registered.</p>
-   *          <p>If you're using the EC2 launch type or the external launch type, this
-   * 			field is optional. Supported values are between <code>128</code> CPU units
-   * 				(<code>0.125</code> vCPUs) and <code>196608</code> CPU units (<code>192</code>
-   * 			vCPUs). If you do not specify a value, the parameter is ignored.</p>
-   *          <p>If you're using the Fargate launch type, this field is required. You
-   * 			must use one of the following values. These values determine the range of supported
-   * 			values for the <code>memory</code> parameter:</p>
-   *          <p>The CPU units cannot be less than 1 vCPU when you use Windows containers on
-   * 			Fargate.</p>
-   *          <ul>
-   *             <li>
-   *                <p>256 (.25 vCPU) - Available <code>memory</code> values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)</p>
-   *             </li>
-   *             <li>
-   *                <p>512 (.5 vCPU) - Available <code>memory</code> values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)</p>
-   *             </li>
-   *             <li>
-   *                <p>1024 (1 vCPU) - Available <code>memory</code> values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)</p>
-   *             </li>
-   *             <li>
-   *                <p>2048 (2 vCPU) - Available <code>memory</code> values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)</p>
-   *             </li>
-   *             <li>
-   *                <p>4096 (4 vCPU) - Available <code>memory</code> values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)</p>
-   *             </li>
-   *             <li>
-   *                <p>8192 (8 vCPU)  - Available <code>memory</code> values: 16 GB and 60 GB in 4 GB increments</p>
-   *                <p>This option requires Linux platform <code>1.4.0</code> or
-   *                                         later.</p>
-   *             </li>
-   *             <li>
-   *                <p>16384 (16vCPU)  - Available <code>memory</code> values: 32GB and 120 GB in 8 GB increments</p>
-   *                <p>This option requires Linux platform <code>1.4.0</code> or
-   *                                         later.</p>
-   *             </li>
-   *          </ul>
+   *          <p>If you're using the EC2 launch type or the external launch type, this field is
+   * 			optional. Supported values are between <code>128</code> CPU units (<code>0.125</code>
+   * 			vCPUs) and <code>196608</code> CPU units (<code>192</code> vCPUs). If you do not specify
+   * 			a value, the parameter is ignored.</p>
+   *          <p>This field is required for Fargate. For information about the valid values, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_size">Task size</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * @public
    */
   cpu?: string | undefined;
@@ -10324,6 +10257,7 @@ export interface ListAccountSettingsRequest {
   /**
    * <p>The ARN of the principal, which can be a user, role, or the root user. If this field is
    * 			omitted, the account settings are listed only for the authenticated user.</p>
+   *          <p>In order to use this parameter, you must be the root user, or the principal.</p>
    *          <note>
    *             <p>Federated users assume the account setting of the root user and can't have explicit
    * 				account settings set for them.</p>
@@ -11449,6 +11383,7 @@ export interface PutAccountSettingRequest {
    * 			the root user, it modifies the account setting for all users, roles, and the root user of the
    * 			account unless a user or role explicitly overrides these settings. If this field is
    * 			omitted, the setting is changed only for the authenticated user.</p>
+   *          <p>In order to use this parameter, you must be the root user, or the principal.</p>
    *          <note>
    *             <p>You must use the root user when you set the Fargate wait time
    * 					(<code>fargateTaskRetirementWaitPeriod</code>). </p>
@@ -12010,38 +11945,7 @@ export interface RegisterTaskDefinitionRequest {
    * 			is optional. Supported values are between <code>128</code> CPU units (<code>0.125</code>
    * 			vCPUs) and <code>196608</code> CPU units (<code>192</code> vCPUs). If you do not specify
    * 			a value, the parameter is ignored.</p>
-   *          <p>If you're using the Fargate launch type, this field is required and you
-   * 			must use one of the following values, which determines your range of supported values
-   * 			for the <code>memory</code> parameter:</p>
-   *          <p>The CPU units cannot be less than 1 vCPU when you use Windows containers on
-   * 			Fargate.</p>
-   *          <ul>
-   *             <li>
-   *                <p>256 (.25 vCPU) - Available <code>memory</code> values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)</p>
-   *             </li>
-   *             <li>
-   *                <p>512 (.5 vCPU) - Available <code>memory</code> values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)</p>
-   *             </li>
-   *             <li>
-   *                <p>1024 (1 vCPU) - Available <code>memory</code> values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)</p>
-   *             </li>
-   *             <li>
-   *                <p>2048 (2 vCPU) - Available <code>memory</code> values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)</p>
-   *             </li>
-   *             <li>
-   *                <p>4096 (4 vCPU) - Available <code>memory</code> values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)</p>
-   *             </li>
-   *             <li>
-   *                <p>8192 (8 vCPU)  - Available <code>memory</code> values: 16 GB and 60 GB in 4 GB increments</p>
-   *                <p>This option requires Linux platform <code>1.4.0</code> or
-   *                                         later.</p>
-   *             </li>
-   *             <li>
-   *                <p>16384 (16vCPU)  - Available <code>memory</code> values: 32GB and 120 GB in 8 GB increments</p>
-   *                <p>This option requires Linux platform <code>1.4.0</code> or
-   *                                         later.</p>
-   *             </li>
-   *          </ul>
+   *          <p>This field is required for Fargate. For information about the valid values, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_size">Task size</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * @public
    */
   cpu?: string | undefined;
@@ -13008,7 +12912,7 @@ export interface StopServiceDeploymentRequest {
 
   /**
    * <p>How you want Amazon ECS to stop the service. </p>
-   *          <p>The ROLLBACK and ABORT stopType aren't supported.</p>
+   *          <p>The valid values are <code>ROLLBACK</code>.</p>
    * @public
    */
   stopType?: StopServiceDeploymentStopType | undefined;

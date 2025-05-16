@@ -29,9 +29,18 @@ export interface StopServiceDeploymentCommandOutput extends StopServiceDeploymen
 
 /**
  * <p>Stops an ongoing service deployment.</p>
- *          <note>
- *             <p>StopServiceDeployment isn't currently  supported.</p>
- *          </note>
+ *          <p>The following stop types are avaiable:</p>
+ *          <ul>
+ *             <li>
+ *                <p>ROLLBACK - This option rolls back the service deployment to the previous
+ * 					service revision. </p>
+ *                <p>You can use this option even if you didn't configure the service deployment
+ * 					for the rollback option. </p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/stop-service-deployment.html">Stopping Amazon ECS
+ * 				service deployments</a> in the <i>Amazon Elastic Container Service Developer
+ * 			Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,16 +72,6 @@ export interface StopServiceDeploymentCommandOutput extends StopServiceDeploymen
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
- *          <p>The following list includes additional causes for the error:</p>
- *          <ul>
- *             <li>
- *                <p>The <code>RunTask</code> could not be processed because you use managed
- * 					scaling and there is a capacity error because the quota of tasks in the
- * 						<code>PROVISIONING</code> per cluster has been reached. For information
- * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
- * 						service quotas</a>.</p>
- *             </li>
- *          </ul>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>The request could not be processed because of conflict in the current state of the resource. </p>
