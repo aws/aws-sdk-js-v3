@@ -31,6 +31,8 @@ Please refer to [Performance](https://github.com/aws/aws-sdk-js-v3/tree/main/sup
 # Table of Contents
 
 1. [Getting Started](#getting-started)
+   1. [Installation](#installation)
+   1. [Usage Example](#usage-example)
 1. [New Features](#new-features)
    1. [Modularized packages](#modularized-packages)
    1. [API consistency changes](#api-changes)
@@ -54,6 +56,22 @@ Please refer to [Performance](https://github.com/aws/aws-sdk-js-v3/tree/main/sup
    1. [Functionality requiring AWS Common Runtime (CRT)](#functionality-requiring-aws-common-runtime-crt)
 
 ## Getting Started
+
+### Installation
+
+To install using **npm**:
+
+```bash
+npm install @aws-sdk/client-[service name] # e.g. client-s3
+```
+
+Using **yarn**:
+
+```bash
+yarn add @aws-sdk/client-[service name] # e.g. client-s3
+```
+
+### Usage Example
 
 Let’s walk through setting up a project that depends on DynamoDB from the SDK and makes a simple service call. The following steps use yarn as an example. These steps assume you have Node.js and yarn already installed.
 
