@@ -8,6 +8,11 @@ import {
   AssociateServiceQuotaTemplateCommandOutput,
 } from "./commands/AssociateServiceQuotaTemplateCommand";
 import {
+  CreateSupportCaseCommand,
+  CreateSupportCaseCommandInput,
+  CreateSupportCaseCommandOutput,
+} from "./commands/CreateSupportCaseCommand";
+import {
   DeleteServiceQuotaIncreaseRequestFromTemplateCommand,
   DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
   DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput,
@@ -97,6 +102,7 @@ import { ServiceQuotasClient, ServiceQuotasClientConfig } from "./ServiceQuotasC
 
 const commands = {
   AssociateServiceQuotaTemplateCommand,
+  CreateSupportCaseCommand,
   DeleteServiceQuotaIncreaseRequestFromTemplateCommand,
   DisassociateServiceQuotaTemplateCommand,
   GetAssociationForServiceQuotaTemplateCommand,
@@ -134,6 +140,23 @@ export interface ServiceQuotas {
     args: AssociateServiceQuotaTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateServiceQuotaTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSupportCaseCommand}
+   */
+  createSupportCase(
+    args: CreateSupportCaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSupportCaseCommandOutput>;
+  createSupportCase(
+    args: CreateSupportCaseCommandInput,
+    cb: (err: any, data?: CreateSupportCaseCommandOutput) => void
+  ): void;
+  createSupportCase(
+    args: CreateSupportCaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSupportCaseCommandOutput) => void
   ): void;
 
   /**

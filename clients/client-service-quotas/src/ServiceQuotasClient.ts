@@ -57,6 +57,7 @@ import {
   AssociateServiceQuotaTemplateCommandInput,
   AssociateServiceQuotaTemplateCommandOutput,
 } from "./commands/AssociateServiceQuotaTemplateCommand";
+import { CreateSupportCaseCommandInput, CreateSupportCaseCommandOutput } from "./commands/CreateSupportCaseCommand";
 import {
   DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
   DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput,
@@ -130,6 +131,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateServiceQuotaTemplateCommandInput
+  | CreateSupportCaseCommandInput
   | DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput
   | DisassociateServiceQuotaTemplateCommandInput
   | GetAWSDefaultServiceQuotaCommandInput
@@ -154,6 +156,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AssociateServiceQuotaTemplateCommandOutput
+  | CreateSupportCaseCommandOutput
   | DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
   | DisassociateServiceQuotaTemplateCommandOutput
   | GetAWSDefaultServiceQuotaCommandOutput

@@ -217,6 +217,14 @@ AssociateServiceQuotaTemplate
 </details>
 <details>
 <summary>
+CreateSupportCase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/CreateSupportCaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/CreateSupportCaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/CreateSupportCaseCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteServiceQuotaIncreaseRequestFromTemplate
 </summary>
 

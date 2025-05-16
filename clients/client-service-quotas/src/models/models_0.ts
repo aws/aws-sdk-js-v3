@@ -210,6 +210,110 @@ export class TooManyRequestsException extends __BaseException {
 /**
  * @public
  */
+export interface CreateSupportCaseRequest {
+  /**
+   * <p>The ID of the pending quota increase request for which you want to open a Support case. </p>
+   * @public
+   */
+  RequestId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSupportCaseResponse {}
+
+/**
+ * <p>Invalid input was provided.</p>
+ * @public
+ */
+export class IllegalArgumentException extends __BaseException {
+  readonly name: "IllegalArgumentException" = "IllegalArgumentException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IllegalArgumentException, __BaseException>) {
+    super({
+      name: "IllegalArgumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IllegalArgumentException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The resource is in an invalid state.</p>
+ * @public
+ */
+export class InvalidResourceStateException extends __BaseException {
+  readonly name: "InvalidResourceStateException" = "InvalidResourceStateException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResourceStateException, __BaseException>) {
+    super({
+      name: "InvalidResourceStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourceStateException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The specified resource does not exist.</p>
+ * @public
+ */
+export class NoSuchResourceException extends __BaseException {
+  readonly name: "NoSuchResourceException" = "NoSuchResourceException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchResourceException, __BaseException>) {
+    super({
+      name: "NoSuchResourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchResourceException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The specified resource already exists.</p>
+ * @public
+ */
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
 export interface DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
   /**
    * <p>Specifies the service identifier. To find the service code value
@@ -237,50 +341,6 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
  * @public
  */
 export interface DeleteServiceQuotaIncreaseRequestFromTemplateResponse {}
-
-/**
- * <p>Invalid input was provided.</p>
- * @public
- */
-export class IllegalArgumentException extends __BaseException {
-  readonly name: "IllegalArgumentException" = "IllegalArgumentException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IllegalArgumentException, __BaseException>) {
-    super({
-      name: "IllegalArgumentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IllegalArgumentException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified resource does not exist.</p>
- * @public
- */
-export class NoSuchResourceException extends __BaseException {
-  readonly name: "NoSuchResourceException" = "NoSuchResourceException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoSuchResourceException, __BaseException>) {
-    super({
-      name: "NoSuchResourceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoSuchResourceException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public
@@ -998,28 +1058,6 @@ export class InvalidPaginationTokenException extends __BaseException {
 }
 
 /**
- * <p>The resource is in an invalid state.</p>
- * @public
- */
-export class InvalidResourceStateException extends __BaseException {
-  readonly name: "InvalidResourceStateException" = "InvalidResourceStateException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidResourceStateException, __BaseException>) {
-    super({
-      name: "InvalidResourceStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidResourceStateException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface ListAWSDefaultServiceQuotasRequest {
@@ -1574,28 +1612,6 @@ export interface RequestServiceQuotaIncreaseResponse {
    * @public
    */
   RequestedQuota?: RequestedServiceQuotaChange | undefined;
-}
-
-/**
- * <p>The specified resource already exists.</p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
