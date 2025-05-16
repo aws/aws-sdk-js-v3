@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.812.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.811.0...v3.812.0) (2025-05-16)
+
+
+### Features
+
+* **client-glue:** Changes include (1) Excel as S3 Source type and XML and Tableau's Hyper as S3 Sink types, (2) targeted number of partitions parameter in S3 sinks and (3) new compression types in CSV/JSON and Parquet S3 sinks. ([a5f2aef](https://github.com/aws/aws-sdk-js-v3/commit/a5f2aef9f311287e5f4f556b35757d310b02871d))
+
+
+
+
+
 # [3.810.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.809.0...v3.810.0) (2025-05-14)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

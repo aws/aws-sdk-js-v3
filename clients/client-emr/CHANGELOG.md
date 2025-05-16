@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.812.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.811.0...v3.812.0) (2025-05-16)
+
+
+### Features
+
+* **client-emr:** Added APIs for managing Application UIs: Access Persistent (serverless) UIs via CreatePersistentAppUI DescribePersistentAppUI & GetPersistentAppUIPresignedURL, and Cluster-based UIs through GetOnClusterAppUIPresignedURL. Supports Yarn, Spark History, and TEZ interfaces. ([f1f82e1](https://github.com/aws/aws-sdk-js-v3/commit/f1f82e19a6d67a043a3cf780e7c66c953f909e3d))
+
+
+
+
+
 # [3.810.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.809.0...v3.810.0) (2025-05-14)
 
 **Note:** Version bump only for package @aws-sdk/client-emr

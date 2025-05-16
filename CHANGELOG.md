@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.812.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.811.0...v3.812.0) (2025-05-16)
+
+
+### Bug Fixes
+
+* **core/protocols:** read error code case-insensitively ([#7085](https://github.com/aws/aws-sdk-js-v3/issues/7085)) ([c13a2a0](https://github.com/aws/aws-sdk-js-v3/commit/c13a2a07660ea42eb31374100042e64688005146))
+
+
+### Features
+
+* **client-bedrock-data-automation-runtime:** Add AssetProcessingConfiguration for video segment to InputConfiguration ([bbf9999](https://github.com/aws/aws-sdk-js-v3/commit/bbf9999dec7f69fea941ece86632bda684ee9dd5))
+* **client-bedrock-data-automation:** Add support for VIDEO modality to BlueprintType enum. ([5657cb1](https://github.com/aws/aws-sdk-js-v3/commit/5657cb1e76b524bae4410cc2274b073629ff63cb))
+* **client-codepipeline:** CodePipeline now supports new API ListDeployActionExecutionTargets that lists the deployment target details for deploy action executions. ([eb51d8f](https://github.com/aws/aws-sdk-js-v3/commit/eb51d8f64aab6f9eaca9227ad36998dbd775f0fc))
+* **client-emr:** Added APIs for managing Application UIs: Access Persistent (serverless) UIs via CreatePersistentAppUI DescribePersistentAppUI & GetPersistentAppUIPresignedURL, and Cluster-based UIs through GetOnClusterAppUIPresignedURL. Supports Yarn, Spark History, and TEZ interfaces. ([f1f82e1](https://github.com/aws/aws-sdk-js-v3/commit/f1f82e19a6d67a043a3cf780e7c66c953f909e3d))
+* **client-glue:** Changes include (1) Excel as S3 Source type and XML and Tableau's Hyper as S3 Sink types, (2) targeted number of partitions parameter in S3 sinks and (3) new compression types in CSV/JSON and Parquet S3 sinks. ([a5f2aef](https://github.com/aws/aws-sdk-js-v3/commit/a5f2aef9f311287e5f4f556b35757d310b02871d))
+* **client-neptune:** This release adds Global Cluster Switchover capability which enables you to change your global cluster's primary AWS Region, the region that serves writes, while preserving the replication between all regions in the global cluster. ([ab547b0](https://github.com/aws/aws-sdk-js-v3/commit/ab547b08323ed2b701c8d70360cdf95a036ceaf1))
+* **client-service-quotas:** This release introduces CreateSupportCase operation to SDK. ([611d06e](https://github.com/aws/aws-sdk-js-v3/commit/611d06e00cacd29164488449b85eb2d9542c0048))
+* **clients:** update client endpoints as of 2025-05-16 ([9a8d9b5](https://github.com/aws/aws-sdk-js-v3/commit/9a8d9b5da07d02c2bc4629f4610936b88f69592f))
+
+
+
+
+
 # [3.811.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.810.0...v3.811.0) (2025-05-15)
 
 
