@@ -288,6 +288,10 @@ import {
 import { StartDBClusterCommandInput, StartDBClusterCommandOutput } from "./commands/StartDBClusterCommand";
 import { StopDBClusterCommandInput, StopDBClusterCommandOutput } from "./commands/StopDBClusterCommand";
 import {
+  SwitchoverGlobalClusterCommandInput,
+  SwitchoverGlobalClusterCommandOutput,
+} from "./commands/SwitchoverGlobalClusterCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -370,7 +374,8 @@ export type ServiceInputTypes =
   | RestoreDBClusterFromSnapshotCommandInput
   | RestoreDBClusterToPointInTimeCommandInput
   | StartDBClusterCommandInput
-  | StopDBClusterCommandInput;
+  | StopDBClusterCommandInput
+  | SwitchoverGlobalClusterCommandInput;
 
 /**
  * @public
@@ -444,7 +449,8 @@ export type ServiceOutputTypes =
   | RestoreDBClusterFromSnapshotCommandOutput
   | RestoreDBClusterToPointInTimeCommandOutput
   | StartDBClusterCommandOutput
-  | StopDBClusterCommandOutput;
+  | StopDBClusterCommandOutput
+  | SwitchoverGlobalClusterCommandOutput;
 
 /**
  * @public

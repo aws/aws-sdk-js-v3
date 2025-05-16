@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RemoveFromGlobalClusterMessage, RemoveFromGlobalClusterResult } from "../models/models_0";
+import { SwitchoverGlobalClusterMessage, SwitchoverGlobalClusterResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { de_RemoveFromGlobalClusterCommand, se_RemoveFromGlobalClusterCommand } from "../protocols/Aws_query";
+import { de_SwitchoverGlobalClusterCommand, se_SwitchoverGlobalClusterCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -17,34 +17,41 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link RemoveFromGlobalClusterCommand}.
+ * The input for {@link SwitchoverGlobalClusterCommand}.
  */
-export interface RemoveFromGlobalClusterCommandInput extends RemoveFromGlobalClusterMessage {}
+export interface SwitchoverGlobalClusterCommandInput extends SwitchoverGlobalClusterMessage {}
 /**
  * @public
  *
- * The output of {@link RemoveFromGlobalClusterCommand}.
+ * The output of {@link SwitchoverGlobalClusterCommand}.
  */
-export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalClusterResult, __MetadataBearer {}
+export interface SwitchoverGlobalClusterCommandOutput extends SwitchoverGlobalClusterResult, __MetadataBearer {}
 
 /**
- * <p>Detaches a Neptune DB cluster from a Neptune global database. A secondary
- *       cluster becomes a normal standalone cluster with read-write capability
- *       instead of being read-only, and no longer receives data from a the
- *       primary cluster.</p>
+ * <p>Switches over the specified secondary DB cluster to be the new primary DB cluster in the global
+ *       database cluster. Switchover operations were previously called "managed planned failovers."</p>
+ *          <p>Promotes the specified secondary cluster to assume full read/write capabilities and demotes the current
+ *       primary cluster to a secondary (read-only) cluster, maintaining the original replication topology. All secondary
+ *       clusters are synchronized with the primary at the beginning of the process so the new primary continues operations
+ *       for the global database without losing any data. Your database is unavailable for a short time while the primary
+ *       and selected secondary clusters are assuming their new roles.</p>
+ *          <note>
+ *             <p>This operation is intended for controlled environments, for operations such as "regional rotation" or
+ *       to fall back to the original primary after a global database failover.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, RemoveFromGlobalClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, RemoveFromGlobalClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, SwitchoverGlobalClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, SwitchoverGlobalClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = { // RemoveFromGlobalClusterMessage
+ * const input = { // SwitchoverGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE", // required
- *   DbClusterIdentifier: "STRING_VALUE", // required
+ *   TargetDbClusterIdentifier: "STRING_VALUE", // required
  * };
- * const command = new RemoveFromGlobalClusterCommand(input);
+ * const command = new SwitchoverGlobalClusterCommand(input);
  * const response = await client.send(command);
- * // { // RemoveFromGlobalClusterResult
+ * // { // SwitchoverGlobalClusterResult
  * //   GlobalCluster: { // GlobalCluster
  * //     GlobalClusterIdentifier: "STRING_VALUE",
  * //     GlobalClusterResourceId: "STRING_VALUE",
@@ -74,10 +81,10 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  *
  * ```
  *
- * @param RemoveFromGlobalClusterCommandInput - {@link RemoveFromGlobalClusterCommandInput}
- * @returns {@link RemoveFromGlobalClusterCommandOutput}
- * @see {@link RemoveFromGlobalClusterCommandInput} for command's `input` shape.
- * @see {@link RemoveFromGlobalClusterCommandOutput} for command's `response` shape.
+ * @param SwitchoverGlobalClusterCommandInput - {@link SwitchoverGlobalClusterCommandInput}
+ * @returns {@link SwitchoverGlobalClusterCommandOutput}
+ * @see {@link SwitchoverGlobalClusterCommandInput} for command's `input` shape.
+ * @see {@link SwitchoverGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
@@ -86,6 +93,9 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  *
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
  *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster. </p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The DB cluster is not in a valid state.</p>
  *
  * @throws {@link InvalidGlobalClusterStateFault} (client fault)
  *  <p>The global cluster is in an invalid state and can't perform the requested operation. </p>
@@ -96,10 +106,10 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  *
  * @public
  */
-export class RemoveFromGlobalClusterCommand extends $Command
+export class SwitchoverGlobalClusterCommand extends $Command
   .classBuilder<
-    RemoveFromGlobalClusterCommandInput,
-    RemoveFromGlobalClusterCommandOutput,
+    SwitchoverGlobalClusterCommandInput,
+    SwitchoverGlobalClusterCommandOutput,
     NeptuneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -111,21 +121,21 @@ export class RemoveFromGlobalClusterCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonRDSv19", "RemoveFromGlobalCluster", {})
-  .n("NeptuneClient", "RemoveFromGlobalClusterCommand")
+  .s("AmazonRDSv19", "SwitchoverGlobalCluster", {})
+  .n("NeptuneClient", "SwitchoverGlobalClusterCommand")
   .f(void 0, void 0)
-  .ser(se_RemoveFromGlobalClusterCommand)
-  .de(de_RemoveFromGlobalClusterCommand)
+  .ser(se_SwitchoverGlobalClusterCommand)
+  .de(de_SwitchoverGlobalClusterCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: RemoveFromGlobalClusterMessage;
-      output: RemoveFromGlobalClusterResult;
+      input: SwitchoverGlobalClusterMessage;
+      output: SwitchoverGlobalClusterResult;
     };
     sdk: {
-      input: RemoveFromGlobalClusterCommandInput;
-      output: RemoveFromGlobalClusterCommandOutput;
+      input: SwitchoverGlobalClusterCommandInput;
+      output: SwitchoverGlobalClusterCommandOutput;
     };
   };
 }

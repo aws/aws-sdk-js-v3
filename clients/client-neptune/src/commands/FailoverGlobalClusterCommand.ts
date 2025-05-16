@@ -51,6 +51,8 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * const input = { // FailoverGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE", // required
  *   TargetDbClusterIdentifier: "STRING_VALUE", // required
+ *   AllowDataLoss: true || false,
+ *   Switchover: true || false,
  * };
  * const command = new FailoverGlobalClusterCommand(input);
  * const response = await client.send(command);
@@ -73,6 +75,12 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * //         IsWriter: true || false,
  * //       },
  * //     ],
+ * //     FailoverState: { // FailoverState
+ * //       Status: "pending" || "failing-over" || "cancelling",
+ * //       FromDbClusterArn: "STRING_VALUE",
+ * //       ToDbClusterArn: "STRING_VALUE",
+ * //       IsDataLossAllowed: true || false,
+ * //     },
  * //   },
  * // };
  *

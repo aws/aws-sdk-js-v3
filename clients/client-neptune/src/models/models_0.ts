@@ -1247,7 +1247,7 @@ export interface CreateDBClusterMessage {
 
   /**
    * <p>The version number of the database engine to use for the new DB cluster.</p>
-   *          <p>Example: <code>1.0.2.1</code>
+   *          <p>Example: <code>1.2.1.0</code>
    *          </p>
    * @public
    */
@@ -1417,27 +1417,29 @@ export interface CreateDBClusterMessage {
   GlobalClusterIdentifier?: string | undefined;
 
   /**
-   * <p>The storage type to associate with the DB cluster.</p>
+   * <p>The storage type for the new DB cluster.</p>
    *          <p>Valid Values:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>standard | iopt1</code>
-   *                </p>
+   *                   <b>
+   *                      <code>standard</code>
+   *                   </b>   –
+   *         ( <i>the default</i> ) Configures cost-effective database storage for applications
+   *         with moderate to small I/O usage. When set to <code>standard</code>, the storage type
+   *         is not returned in the response.</p>
    *             </li>
-   *          </ul>
-   *          <p>Default:</p>
-   *          <ul>
    *             <li>
    *                <p>
-   *                   <code>standard</code>
-   *                </p>
+   *                   <b>
+   *                      <code>iopt1</code>
+   *                   </b>   –
+   *           Enables <a href="https://docs.aws.amazon.com/neptune/latest/userguide/storage-types.html#provisioned-iops-storage">I/O-Optimized storage</a>
+   *           that's designed to meet the needs of I/O-intensive graph workloads that
+   *           require predictable pricing with low I/O latency and consistent I/O throughput.</p>
+   *                <p>Neptune I/O-Optimized storage is only available starting with engine release 1.3.0.0.</p>
    *             </li>
    *          </ul>
-   *          <note>
-   *             <p>When you create a Neptune cluster with the storage type set to <code>iopt1</code>, the storage type is returned
-   *         in the response. The storage type isn't returned when you set it to <code>standard</code>.</p>
-   *          </note>
    * @public
    */
   StorageType?: string | undefined;
@@ -1603,7 +1605,27 @@ export interface ClusterPendingModifiedValues {
   BackupRetentionPeriod?: number | undefined;
 
   /**
-   * <p>The storage type for the DB cluster.</p>
+   * <p>The pending change in storage type for the DB cluster.   Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>standard</code>
+   *                   </b>   –
+   *         ( <i>the default</i> ) Configures cost-effective database storage for applications
+   *         with moderate to small I/O usage.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>iopt1</code>
+   *                   </b>   –
+   *           Enables <a href="https://docs.aws.amazon.com/neptune/latest/userguide/storage-types.html#provisioned-iops-storage">I/O-Optimized storage</a>
+   *           that's designed to meet the needs of I/O-intensive graph workloads that
+   *           require predictable pricing with low I/O latency and consistent I/O throughput.</p>
+   *                <p>Neptune I/O-Optimized storage is only available starting with engine release 1.3.0.0.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   StorageType?: string | undefined;
@@ -1617,7 +1639,7 @@ export interface ClusterPendingModifiedValues {
   AllocatedStorage?: number | undefined;
 
   /**
-   * <p>The Provisioned IOPS (I/O operations per second) value. This setting is only for non-Aurora Multi-AZ DB clusters.</p>
+   * <p>The Provisioned IOPS (I/O operations per second) value. This setting is only for Multi-AZ DB clusters.</p>
    * @public
    */
   Iops?: number | undefined;
@@ -1971,7 +1993,28 @@ export interface DBCluster {
   IOOptimizedNextAllowedModificationTime?: Date | undefined;
 
   /**
-   * <p>The storage type associated with the DB cluster.</p>
+   * <p>The storage type used by the DB cluster.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>standard</code>
+   *                   </b>   –
+   *         ( <i>the default</i> ) Provides cost-effective database storage for applications
+   *         with moderate to small I/O usage.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>iopt1</code>
+   *                   </b>   –
+   *           Enables <a href="https://docs.aws.amazon.com/neptune/latest/userguide/storage-types.html#provisioned-iops-storage">I/O-Optimized storage</a>
+   *           that's designed to meet the needs of I/O-intensive graph workloads that
+   *           require predictable pricing with low I/O latency and consistent I/O throughput.</p>
+   *                <p>Neptune I/O-Optimized storage is only available starting with engine release 1.3.0.0.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   StorageType?: string | undefined;
@@ -2816,8 +2859,7 @@ export interface CreateDBInstanceMessage {
   DBClusterIdentifier: string | undefined;
 
   /**
-   * <p>Specifies the storage type to be associated with the DB instance.</p>
-   *          <p>Not applicable. Storage is managed by the DB Cluster.</p>
+   * <p>Not applicable. In Neptune the storage type is managed at the DB Cluster level.</p>
    * @public
    */
   StorageType?: string | undefined;
@@ -3242,7 +3284,7 @@ export interface PendingModifiedValues {
   DBInstanceIdentifier?: string | undefined;
 
   /**
-   * <p>Specifies the storage type to be associated with the DB instance.</p>
+   * <p>Not applicable. In Neptune the storage type is managed at the DB Cluster level.</p>
    * @public
    */
   StorageType?: string | undefined;
@@ -3516,7 +3558,7 @@ export interface DBInstance {
   StatusInfos?: DBInstanceStatusInfo[] | undefined;
 
   /**
-   * <p>Specifies the storage type associated with DB instance.</p>
+   * <p>Specifies the storage type associated with the DB instance.</p>
    * @public
    */
   StorageType?: string | undefined;
@@ -4265,6 +4307,74 @@ export interface CreateGlobalClusterMessage {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const FailoverStatus = {
+  CANCELLING: "cancelling",
+  FAILING_OVER: "failing-over",
+  PENDING: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type FailoverStatus = (typeof FailoverStatus)[keyof typeof FailoverStatus];
+
+/**
+ * <p>Contains the state of scheduled or in-process operations on a
+ *       global cluster (Neptune global database). This data type is empty unless a switchover
+ *       or failover operation is scheduled or is in progress on the Neptune global database.</p>
+ * @public
+ */
+export interface FailoverState {
+  /**
+   * <p>The current status of the global cluster. Possible values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>pending  The service received a request to switch over or fail over the global cluster. The
+   *           global cluster's primary DB cluster and the specified secondary DB cluster are being verified before the operation
+   *           starts.</p>
+   *             </li>
+   *             <li>
+   *                <p>failing-over  Neptune is promoting the chosen secondary Neptune DB cluster to become the new primary DB cluster to fail over the global cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>cancelling  The request to switch over or fail over the global cluster was cancelled and the primary
+   *           Neptune DB cluster and the selected secondary Neptune DB cluster are returning to their previous states.</p>
+   *             </li>
+   *             <li>
+   *                <p>switching-over  This status covers the range of Neptune internal operations that take place during the switchover process, such
+   *           as demoting the primary Neptune DB cluster, promoting the secondary Neptune DB cluster, and synchronizing replicas.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: FailoverStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Neptune DB cluster that is currently being demoted, and which is associated with this
+   *       state.</p>
+   * @public
+   */
+  FromDbClusterArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Neptune DB cluster that is currently being promoted, and which is associated
+   *       with this state.</p>
+   * @public
+   */
+  ToDbClusterArn?: string | undefined;
+
+  /**
+   * <p>Indicates whether the operation is a global switchover or a global failover. If data loss is allowed, then the operation is a global failover.
+   *       Otherwise, it's a switchover.</p>
+   * @public
+   */
+  IsDataLossAllowed?: boolean | undefined;
+}
+
+/**
  * <p>
  *     A data structure with information about any primary and
  *     secondary clusters associated with an Neptune global database.
@@ -4370,6 +4480,13 @@ export interface GlobalCluster {
    * @public
    */
   GlobalClusterMembers?: GlobalClusterMember[] | undefined;
+
+  /**
+   * <p>A data object containing all properties for the current state of an in-process or pending switchover or failover process for this global cluster (Neptune global database).
+   *       This object is empty unless the <code>SwitchoverGlobalCluster</code> or <code>FailoverGlobalCluster</code> operation was called on this global cluster.</p>
+   * @public
+   */
+  FailoverState?: FailoverState | undefined;
 }
 
 /**
@@ -5042,12 +5159,11 @@ export interface DBClusterEndpoint {
  */
 export interface DBClusterEndpointMessage {
   /**
-   * <p> An optional pagination token provided by a previous
+   * <p> n optional pagination token provided by a previous
    *       <code>DescribeDBClusterEndpoints</code> request.
    *       If this parameter is specified, the response includes
    *       only records beyond the marker,
-   *       up to the value specified by <code>MaxRecords</code>.
-   *     </p>
+   *       up to the value specified by <code>MaxRecords</code>.</p>
    * @public
    */
   Marker?: string | undefined;
@@ -5111,8 +5227,8 @@ export interface DescribeDBClusterEndpointsMessage {
   /**
    * <p>The maximum number of records to include in the response.
    *       If more records exist than the specified <code>MaxRecords</code> value,
-   *       a pagination token called a marker is included in the response so you can retrieve the remaining results.
-   *     </p>
+   *       a pagination token called a marker is included in the response
+   *       so you can retrieve the remaining results.</p>
    *          <p>Default: 100</p>
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
@@ -5120,12 +5236,11 @@ export interface DescribeDBClusterEndpointsMessage {
   MaxRecords?: number | undefined;
 
   /**
-   * <p> An optional pagination token provided by a previous
+   * <p>An optional pagination token provided by a previous
    *       <code>DescribeDBClusterEndpoints</code> request.
    *       If this parameter is specified, the response includes
    *       only records beyond the marker,
-   *       up to the value specified by <code>MaxRecords</code>.
-   *     </p>
+   *       up to the value specified by <code>MaxRecords</code>.</p>
    * @public
    */
   Marker?: string | undefined;
@@ -6730,7 +6845,7 @@ export interface OrderableDBInstanceOption {
   SupportsStorageEncryption?: boolean | undefined;
 
   /**
-   * <p>Indicates the storage type for a DB instance.</p>
+   * <p>Not applicable. In Neptune the storage type is managed at the DB Cluster level.</p>
    * @public
    */
   StorageType?: string | undefined;
@@ -6954,33 +7069,30 @@ export interface Range {
 }
 
 /**
- * <p>Information about valid modifications that you can make to your DB
- *       instance.</p>
- *          <p>Contains the result of a successful call to the <a>DescribeValidDBInstanceModifications</a> action.</p>
+ * <p>Not applicable. In Neptune the storage type is managed at the DB Cluster level.</p>
  * @public
  */
 export interface ValidStorageOptions {
   /**
-   * <p>The valid storage types for your DB instance. For example, gp2, io1.</p>
+   * <p>Not applicable. In Neptune the storage type is managed at the DB Cluster level.</p>
    * @public
    */
   StorageType?: string | undefined;
 
   /**
-   * <p>The valid range of storage in gibibytes. For example, 100 to 16384.</p>
+   * <p>Not applicable. In Neptune the storage type is managed at the DB Cluster level.</p>
    * @public
    */
   StorageSize?: Range[] | undefined;
 
   /**
-   * <p>The valid range of provisioned IOPS. For example, 1000-20000.</p>
+   * <p>Not applicable. In Neptune the storage type is managed at the DB Cluster level.</p>
    * @public
    */
   ProvisionedIops?: Range[] | undefined;
 
   /**
-   * <p>The valid range of Provisioned IOPS to gibibytes of storage multiplier. For example, 3-10,
-   *       which means that provisioned IOPS can be between 3 and 10 times storage.</p>
+   * <p>Not applicable. In Neptune the storage type is managed at the DB Cluster level.</p>
    * @public
    */
   IopsToStorageRatio?: DoubleRange[] | undefined;
@@ -7074,6 +7186,23 @@ export interface FailoverGlobalClusterMessage {
    * @public
    */
   TargetDbClusterIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies whether to allow data loss for this global database cluster operation.
+   *       Allowing data loss triggers a global failover operation.</p>
+   *          <p>If you don't specify <code>AllowDataLoss</code>, the global database cluster operation
+   *       defaults to a switchover.</p>
+   *          <p>Constraints:Can't be specified together with the <code>Switchover</code> parameter.</p>
+   * @public
+   */
+  AllowDataLoss?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to switch over this global database cluster.</p>
+   *          <p>Constraints:Can't be specified together with the <code>AllowDataLoss</code> parameter.</p>
+   * @public
+   */
+  Switchover?: boolean | undefined;
 }
 
 /**
@@ -7400,16 +7529,21 @@ export interface ModifyDBClusterMessage {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>standard | iopt1</code>
-   *                </p>
+   *                   <b>
+   *                      <code>standard</code>
+   *                   </b>   –
+   *         ( <i>the default</i> ) Configures cost-effective database storage for applications
+   *         with moderate to small I/O usage.</p>
    *             </li>
-   *          </ul>
-   *          <p>Default:</p>
-   *          <ul>
    *             <li>
    *                <p>
-   *                   <code>standard</code>
-   *                </p>
+   *                   <b>
+   *                      <code>iopt1</code>
+   *                   </b>   –
+   *           Enables <a href="https://docs.aws.amazon.com/neptune/latest/userguide/storage-types.html#provisioned-iops-storage">I/O-Optimized storage</a>
+   *           that's designed to meet the needs of I/O-intensive graph workloads that
+   *           require predictable pricing with low I/O latency and consistent I/O throughput.</p>
+   *                <p>Neptune I/O-Optimized storage is only available starting with engine release 1.3.0.0.</p>
    *             </li>
    *          </ul>
    * @public
@@ -7955,7 +8089,7 @@ export interface ModifyDBInstanceMessage {
   NewDBInstanceIdentifier?: string | undefined;
 
   /**
-   * <p>Not supported.</p>
+   * <p>Not applicable. In Neptune the storage type is managed at the DB Cluster level.</p>
    * @public
    */
   StorageType?: string | undefined;
@@ -9132,6 +9266,43 @@ export interface StopDBClusterResult {
    * @public
    */
   DBCluster?: DBCluster | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SwitchoverGlobalClusterMessage {
+  /**
+   * <p>The identifier of the global database cluster to switch over. This parameter isn't case-sensitive.</p>
+   *          <p>Constraints: Must match the identifier of an existing global database cluster.</p>
+   * @public
+   */
+  GlobalClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the secondary Neptune DB cluster that you want to promote to primary for
+   *       the global database.</p>
+   * @public
+   */
+  TargetDbClusterIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SwitchoverGlobalClusterResult {
+  /**
+   * <p>Contains the details of an Amazon Neptune global database.</p>
+   *          <p>This data type is used as a response element for the
+   *       <a>CreateGlobalCluster</a>,
+   *       <a>DescribeGlobalClusters</a>,
+   *       <a>ModifyGlobalCluster</a>,
+   *       <a>DeleteGlobalCluster</a>,
+   *       <a>FailoverGlobalCluster</a>, and
+   *       <a>RemoveFromGlobalCluster</a> actions.</p>
+   * @public
+   */
+  GlobalCluster?: GlobalCluster | undefined;
 }
 
 /**
