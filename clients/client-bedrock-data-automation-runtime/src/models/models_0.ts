@@ -263,6 +263,88 @@ export interface EncryptionConfiguration {
 }
 
 /**
+ * Timestamp segment
+ * @public
+ */
+export interface TimestampSegment {
+  /**
+   * Start timestamp in milliseconds
+   * @public
+   */
+  startTimeMillis: number | undefined;
+
+  /**
+   * End timestamp in milliseconds
+   * @public
+   */
+  endTimeMillis: number | undefined;
+}
+
+/**
+ * Delimits the segment of the input that will be processed
+ * @public
+ */
+export type VideoSegmentConfiguration =
+  | VideoSegmentConfiguration.TimestampSegmentMember
+  | VideoSegmentConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace VideoSegmentConfiguration {
+  /**
+   * Timestamp segment
+   * @public
+   */
+  export interface TimestampSegmentMember {
+    timestampSegment: TimestampSegment;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    timestampSegment?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    timestampSegment: (value: TimestampSegment) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: VideoSegmentConfiguration, visitor: Visitor<T>): T => {
+    if (value.timestampSegment !== undefined) return visitor.timestampSegment(value.timestampSegment);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * Video asset processing configuration
+ * @public
+ */
+export interface VideoAssetProcessingConfiguration {
+  /**
+   * Delimits the segment of the input that will be processed
+   * @public
+   */
+  segmentConfiguration?: VideoSegmentConfiguration | undefined;
+}
+
+/**
+ * Config containing asset processing related knobs for all modalities
+ * @public
+ */
+export interface AssetProcessingConfiguration {
+  /**
+   * Video asset processing configuration
+   * @public
+   */
+  video?: VideoAssetProcessingConfiguration | undefined;
+}
+
+/**
  * Input configuration.
  * @public
  */
@@ -272,6 +354,12 @@ export interface InputConfiguration {
    * @public
    */
   s3Uri: string | undefined;
+
+  /**
+   * Asset processing configuration
+   * @public
+   */
+  assetProcessingConfiguration?: AssetProcessingConfiguration | undefined;
 }
 
 /**

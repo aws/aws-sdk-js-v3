@@ -43,6 +43,16 @@ export interface InvokeDataAutomationAsyncCommandOutput extends InvokeDataAutoma
  *   clientToken: "STRING_VALUE",
  *   inputConfiguration: { // InputConfiguration
  *     s3Uri: "STRING_VALUE", // required
+ *     assetProcessingConfiguration: { // AssetProcessingConfiguration
+ *       video: { // VideoAssetProcessingConfiguration
+ *         segmentConfiguration: { // VideoSegmentConfiguration Union: only one key present
+ *           timestampSegment: { // TimestampSegment
+ *             startTimeMillis: Number("long"), // required
+ *             endTimeMillis: Number("long"), // required
+ *           },
+ *         },
+ *       },
+ *     },
  *   },
  *   outputConfiguration: { // OutputConfiguration
  *     s3Uri: "STRING_VALUE", // required

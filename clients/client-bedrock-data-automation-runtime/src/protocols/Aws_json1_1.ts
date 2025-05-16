@@ -33,6 +33,7 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../comman
 import { BedrockDataAutomationRuntimeServiceException as __BaseException } from "../models/BedrockDataAutomationRuntimeServiceException";
 import {
   AccessDeniedException,
+  AssetProcessingConfiguration,
   Blueprint,
   DataAutomationConfiguration,
   EncryptionConfiguration,
@@ -49,8 +50,11 @@ import {
   Tag,
   TagResourceRequest,
   ThrottlingException,
+  TimestampSegment,
   UntagResourceRequest,
   ValidationException,
+  VideoAssetProcessingConfiguration,
+  VideoSegmentConfiguration,
 } from "../models/models_0";
 
 /**
@@ -346,6 +350,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
+// se_AssetProcessingConfiguration omitted.
+
 // se_Blueprint omitted.
 
 // se_BlueprintList omitted.
@@ -393,7 +399,13 @@ const se_InvokeDataAutomationAsyncRequest = (input: InvokeDataAutomationAsyncReq
 
 // se_TagResourceRequest omitted.
 
+// se_TimestampSegment omitted.
+
 // se_UntagResourceRequest omitted.
+
+// se_VideoAssetProcessingConfiguration omitted.
+
+// se_VideoSegmentConfiguration omitted.
 
 // de_AccessDeniedException omitted.
 
