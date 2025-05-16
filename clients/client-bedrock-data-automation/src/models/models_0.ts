@@ -101,6 +101,7 @@ export const Type = {
   AUDIO: "AUDIO",
   DOCUMENT: "DOCUMENT",
   IMAGE: "IMAGE",
+  VIDEO: "VIDEO",
 } as const;
 
 /**

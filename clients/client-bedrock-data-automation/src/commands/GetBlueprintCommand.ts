@@ -50,7 +50,7 @@ export interface GetBlueprintCommandOutput extends GetBlueprintResponse, __Metad
  * //   blueprint: { // Blueprint
  * //     blueprintArn: "STRING_VALUE", // required
  * //     schema: "STRING_VALUE", // required
- * //     type: "DOCUMENT" || "IMAGE" || "AUDIO", // required
+ * //     type: "DOCUMENT" || "IMAGE" || "AUDIO" || "VIDEO", // required
  * //     creationTime: new Date("TIMESTAMP"), // required
  * //     lastModifiedTime: new Date("TIMESTAMP"), // required
  * //     blueprintName: "STRING_VALUE", // required
