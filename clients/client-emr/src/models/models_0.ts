@@ -1994,6 +1994,86 @@ export interface ComputeLimits {
 }
 
 /**
+ * <p>The EMR container configuration.</p>
+ * @public
+ */
+export interface EMRContainersConfig {
+  /**
+   * <p>The Job run ID for the container configuration.</p>
+   * @public
+   */
+  JobRunId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProfilerType = {
+  SHS: "SHS",
+  TEZUI: "TEZUI",
+  YTS: "YTS",
+} as const;
+
+/**
+ * @public
+ */
+export type ProfilerType = (typeof ProfilerType)[keyof typeof ProfilerType];
+
+/**
+ * @public
+ */
+export interface CreatePersistentAppUIInput {
+  /**
+   * <p>The unique Amazon Resource Name (ARN) of the target resource.</p>
+   * @public
+   */
+  TargetResourceArn: string | undefined;
+
+  /**
+   * <p>The EMR containers configuration.</p>
+   * @public
+   */
+  EMRContainersConfig?: EMRContainersConfig | undefined;
+
+  /**
+   * <p>Tags for the persistent application user interface.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The cross reference for the persistent application user interface.</p>
+   * @public
+   */
+  XReferer?: string | undefined;
+
+  /**
+   * <p>The profiler type for the persistent application user interface. Valid values are SHS, TEZUI, or YTS.</p>
+   * @public
+   */
+  ProfilerType?: ProfilerType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePersistentAppUIOutput {
+  /**
+   * <p>The persistent application user interface identifier.</p>
+   * @public
+   */
+  PersistentAppUIId?: string | undefined;
+
+  /**
+   * <p>Represents if the EMR on EC2 cluster that the persisent application user interface is created for is a runtime role
+   *          enabled cluster or not.</p>
+   * @public
+   */
+  RuntimeRoleEnabledCluster?: boolean | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateSecurityConfigurationInput {
@@ -3250,6 +3330,99 @@ export interface DescribeNotebookExecutionOutput {
 /**
  * @public
  */
+export interface DescribePersistentAppUIInput {
+  /**
+   * <p>The identifier for the persistent application user interface.</p>
+   * @public
+   */
+  PersistentAppUIId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PersistentAppUIType = {
+  SHS: "SHS",
+  TEZ: "TEZ",
+  YTS: "YTS",
+} as const;
+
+/**
+ * @public
+ */
+export type PersistentAppUIType = (typeof PersistentAppUIType)[keyof typeof PersistentAppUIType];
+
+/**
+ * <p>Holds persistent application user interface information. Applications installed on the Amazon EMR cluster publish user interfaces as
+ *          web sites to monitor cluster activity.</p>
+ * @public
+ */
+export interface PersistentAppUI {
+  /**
+   * <p>The identifier for the persistent application user interface object.</p>
+   * @public
+   */
+  PersistentAppUIId?: string | undefined;
+
+  /**
+   * <p>The type list for the persistent application user interface object. Valid values
+   *          include SHS, YTS, or TEZ.</p>
+   * @public
+   */
+  PersistentAppUITypeList?: PersistentAppUIType[] | undefined;
+
+  /**
+   * <p>The status for the persistent application user interface object.</p>
+   * @public
+   */
+  PersistentAppUIStatus?: string | undefined;
+
+  /**
+   * <p>The author ID for the persistent application user interface object.</p>
+   * @public
+   */
+  AuthorId?: string | undefined;
+
+  /**
+   * <p>The creation date and time for the persistent application user interface object.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The date and time the persistent application user interface object was last changed.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The reason the persistent application user interface object was last changed.</p>
+   * @public
+   */
+  LastStateChangeReason?: string | undefined;
+
+  /**
+   * <p>A collection of tags for the persistent application user interface object.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePersistentAppUIOutput {
+  /**
+   * <p>The persistent application user interface.</p>
+   * @public
+   */
+  PersistentAppUI?: PersistentAppUI | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeReleaseLabelInput {
   /**
    * <p>The target release label to be described.</p>
@@ -3975,6 +4148,129 @@ export interface GetManagedScalingPolicyOutput {
    * @public
    */
   ManagedScalingPolicy?: ManagedScalingPolicy | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OnClusterAppUIType = {
+  ApplicationMaster: "ApplicationMaster",
+  JobHistoryServer: "JobHistoryServer",
+  ResourceManager: "ResourceManager",
+  SparkHistoryServer: "SparkHistoryServer",
+  TezUI: "TezUI",
+  YarnTimelineService: "YarnTimelineService",
+} as const;
+
+/**
+ * @public
+ */
+export type OnClusterAppUIType = (typeof OnClusterAppUIType)[keyof typeof OnClusterAppUIType];
+
+/**
+ * @public
+ */
+export interface GetOnClusterAppUIPresignedURLInput {
+  /**
+   * <p>The cluster ID associated with the cluster's application user interface presigned URL.</p>
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * <p>The application UI type associated with the cluster's application user interface presigned URL.</p>
+   * @public
+   */
+  OnClusterAppUIType?: OnClusterAppUIType | undefined;
+
+  /**
+   * <p>The application ID associated with the cluster's application user interface presigned URL.</p>
+   * @public
+   */
+  ApplicationId?: string | undefined;
+
+  /**
+   * <p>Determines if the user interface presigned URL is for a dry run.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The execution role ARN associated with the cluster's application user interface
+   *          presigned URL.</p>
+   * @public
+   */
+  ExecutionRoleArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetOnClusterAppUIPresignedURLOutput {
+  /**
+   * <p>Used to determine if the presigned URL is ready.</p>
+   * @public
+   */
+  PresignedURLReady?: boolean | undefined;
+
+  /**
+   * <p>The cluster's generated presigned URL.</p>
+   * @public
+   */
+  PresignedURL?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPersistentAppUIPresignedURLInput {
+  /**
+   * <p>The persistent application user interface ID associated with the presigned URL.</p>
+   * @public
+   */
+  PersistentAppUIId: string | undefined;
+
+  /**
+   * <p>The persistent application user interface type associated with the presigned URL.</p>
+   * @public
+   */
+  PersistentAppUIType?: PersistentAppUIType | undefined;
+
+  /**
+   * <p>The application ID associated with the presigned URL.</p>
+   * @public
+   */
+  ApplicationId?: string | undefined;
+
+  /**
+   * <p>A boolean that represents if the caller is an authentication proxy call.</p>
+   * @public
+   */
+  AuthProxyCall?: boolean | undefined;
+
+  /**
+   * <p>The execution role ARN associated with the presigned URL.</p>
+   * @public
+   */
+  ExecutionRoleArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPersistentAppUIPresignedURLOutput {
+  /**
+   * <p>Used to determine if the presigned URL is ready.</p>
+   * @public
+   */
+  PresignedURLReady?: boolean | undefined;
+
+  /**
+   * <p>The returned presigned URL.</p>
+   * @public
+   */
+  PresignedURL?: string | undefined;
 }
 
 /**

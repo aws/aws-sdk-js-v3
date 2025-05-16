@@ -247,6 +247,14 @@ CancelSteps
 </details>
 <details>
 <summary>
+CreatePersistentAppUI
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/emr/command/CreatePersistentAppUICommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr/Interface/CreatePersistentAppUICommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr/Interface/CreatePersistentAppUICommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateSecurityConfiguration
 </summary>
 
@@ -319,6 +327,14 @@ DescribeNotebookExecution
 </details>
 <details>
 <summary>
+DescribePersistentAppUI
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/emr/command/DescribePersistentAppUICommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr/Interface/DescribePersistentAppUICommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr/Interface/DescribePersistentAppUICommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeReleaseLabel
 </summary>
 
@@ -379,6 +395,22 @@ GetManagedScalingPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/emr/command/GetManagedScalingPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr/Interface/GetManagedScalingPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr/Interface/GetManagedScalingPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetOnClusterAppUIPresignedURL
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/emr/command/GetOnClusterAppUIPresignedURLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr/Interface/GetOnClusterAppUIPresignedURLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr/Interface/GetOnClusterAppUIPresignedURLCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetPersistentAppUIPresignedURL
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/emr/command/GetPersistentAppUIPresignedURLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr/Interface/GetPersistentAppUIPresignedURLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr/Interface/GetPersistentAppUIPresignedURLCommandOutput/)
 
 </details>
 <details>

@@ -59,6 +59,10 @@ import { AddJobFlowStepsCommandInput, AddJobFlowStepsCommandOutput } from "./com
 import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import { CancelStepsCommandInput, CancelStepsCommandOutput } from "./commands/CancelStepsCommand";
 import {
+  CreatePersistentAppUICommandInput,
+  CreatePersistentAppUICommandOutput,
+} from "./commands/CreatePersistentAppUICommand";
+import {
   CreateSecurityConfigurationCommandInput,
   CreateSecurityConfigurationCommandOutput,
 } from "./commands/CreateSecurityConfigurationCommand";
@@ -82,6 +86,10 @@ import {
   DescribeNotebookExecutionCommandInput,
   DescribeNotebookExecutionCommandOutput,
 } from "./commands/DescribeNotebookExecutionCommand";
+import {
+  DescribePersistentAppUICommandInput,
+  DescribePersistentAppUICommandOutput,
+} from "./commands/DescribePersistentAppUICommand";
 import {
   DescribeReleaseLabelCommandInput,
   DescribeReleaseLabelCommandOutput,
@@ -108,6 +116,14 @@ import {
   GetManagedScalingPolicyCommandInput,
   GetManagedScalingPolicyCommandOutput,
 } from "./commands/GetManagedScalingPolicyCommand";
+import {
+  GetOnClusterAppUIPresignedURLCommandInput,
+  GetOnClusterAppUIPresignedURLCommandOutput,
+} from "./commands/GetOnClusterAppUIPresignedURLCommand";
+import {
+  GetPersistentAppUIPresignedURLCommandInput,
+  GetPersistentAppUIPresignedURLCommandOutput,
+} from "./commands/GetPersistentAppUIPresignedURLCommand";
 import {
   GetStudioSessionMappingCommandInput,
   GetStudioSessionMappingCommandOutput,
@@ -228,6 +244,7 @@ export type ServiceInputTypes =
   | AddJobFlowStepsCommandInput
   | AddTagsCommandInput
   | CancelStepsCommandInput
+  | CreatePersistentAppUICommandInput
   | CreateSecurityConfigurationCommandInput
   | CreateStudioCommandInput
   | CreateStudioSessionMappingCommandInput
@@ -237,6 +254,7 @@ export type ServiceInputTypes =
   | DescribeClusterCommandInput
   | DescribeJobFlowsCommandInput
   | DescribeNotebookExecutionCommandInput
+  | DescribePersistentAppUICommandInput
   | DescribeReleaseLabelCommandInput
   | DescribeSecurityConfigurationCommandInput
   | DescribeStepCommandInput
@@ -245,6 +263,8 @@ export type ServiceInputTypes =
   | GetBlockPublicAccessConfigurationCommandInput
   | GetClusterSessionCredentialsCommandInput
   | GetManagedScalingPolicyCommandInput
+  | GetOnClusterAppUIPresignedURLCommandInput
+  | GetPersistentAppUIPresignedURLCommandInput
   | GetStudioSessionMappingCommandInput
   | ListBootstrapActionsCommandInput
   | ListClustersCommandInput
@@ -289,6 +309,7 @@ export type ServiceOutputTypes =
   | AddJobFlowStepsCommandOutput
   | AddTagsCommandOutput
   | CancelStepsCommandOutput
+  | CreatePersistentAppUICommandOutput
   | CreateSecurityConfigurationCommandOutput
   | CreateStudioCommandOutput
   | CreateStudioSessionMappingCommandOutput
@@ -298,6 +319,7 @@ export type ServiceOutputTypes =
   | DescribeClusterCommandOutput
   | DescribeJobFlowsCommandOutput
   | DescribeNotebookExecutionCommandOutput
+  | DescribePersistentAppUICommandOutput
   | DescribeReleaseLabelCommandOutput
   | DescribeSecurityConfigurationCommandOutput
   | DescribeStepCommandOutput
@@ -306,6 +328,8 @@ export type ServiceOutputTypes =
   | GetBlockPublicAccessConfigurationCommandOutput
   | GetClusterSessionCredentialsCommandOutput
   | GetManagedScalingPolicyCommandOutput
+  | GetOnClusterAppUIPresignedURLCommandOutput
+  | GetPersistentAppUIPresignedURLCommandOutput
   | GetStudioSessionMappingCommandOutput
   | ListBootstrapActionsCommandOutput
   | ListClustersCommandOutput

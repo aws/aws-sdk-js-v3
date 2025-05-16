@@ -20,6 +20,11 @@ import {
 import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import { CancelStepsCommand, CancelStepsCommandInput, CancelStepsCommandOutput } from "./commands/CancelStepsCommand";
 import {
+  CreatePersistentAppUICommand,
+  CreatePersistentAppUICommandInput,
+  CreatePersistentAppUICommandOutput,
+} from "./commands/CreatePersistentAppUICommand";
+import {
   CreateSecurityConfigurationCommand,
   CreateSecurityConfigurationCommandInput,
   CreateSecurityConfigurationCommandOutput,
@@ -65,6 +70,11 @@ import {
   DescribeNotebookExecutionCommandOutput,
 } from "./commands/DescribeNotebookExecutionCommand";
 import {
+  DescribePersistentAppUICommand,
+  DescribePersistentAppUICommandInput,
+  DescribePersistentAppUICommandOutput,
+} from "./commands/DescribePersistentAppUICommand";
+import {
   DescribeReleaseLabelCommand,
   DescribeReleaseLabelCommandInput,
   DescribeReleaseLabelCommandOutput,
@@ -104,6 +114,16 @@ import {
   GetManagedScalingPolicyCommandInput,
   GetManagedScalingPolicyCommandOutput,
 } from "./commands/GetManagedScalingPolicyCommand";
+import {
+  GetOnClusterAppUIPresignedURLCommand,
+  GetOnClusterAppUIPresignedURLCommandInput,
+  GetOnClusterAppUIPresignedURLCommandOutput,
+} from "./commands/GetOnClusterAppUIPresignedURLCommand";
+import {
+  GetPersistentAppUIPresignedURLCommand,
+  GetPersistentAppUIPresignedURLCommandInput,
+  GetPersistentAppUIPresignedURLCommandOutput,
+} from "./commands/GetPersistentAppUIPresignedURLCommand";
 import {
   GetStudioSessionMappingCommand,
   GetStudioSessionMappingCommandInput,
@@ -266,6 +286,7 @@ const commands = {
   AddJobFlowStepsCommand,
   AddTagsCommand,
   CancelStepsCommand,
+  CreatePersistentAppUICommand,
   CreateSecurityConfigurationCommand,
   CreateStudioCommand,
   CreateStudioSessionMappingCommand,
@@ -275,6 +296,7 @@ const commands = {
   DescribeClusterCommand,
   DescribeJobFlowsCommand,
   DescribeNotebookExecutionCommand,
+  DescribePersistentAppUICommand,
   DescribeReleaseLabelCommand,
   DescribeSecurityConfigurationCommand,
   DescribeStepCommand,
@@ -283,6 +305,8 @@ const commands = {
   GetBlockPublicAccessConfigurationCommand,
   GetClusterSessionCredentialsCommand,
   GetManagedScalingPolicyCommand,
+  GetOnClusterAppUIPresignedURLCommand,
+  GetPersistentAppUIPresignedURLCommand,
   GetStudioSessionMappingCommand,
   ListBootstrapActionsCommand,
   ListClustersCommand,
@@ -388,6 +412,23 @@ export interface EMR {
     args: CancelStepsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelStepsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePersistentAppUICommand}
+   */
+  createPersistentAppUI(
+    args: CreatePersistentAppUICommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePersistentAppUICommandOutput>;
+  createPersistentAppUI(
+    args: CreatePersistentAppUICommandInput,
+    cb: (err: any, data?: CreatePersistentAppUICommandOutput) => void
+  ): void;
+  createPersistentAppUI(
+    args: CreatePersistentAppUICommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePersistentAppUICommandOutput) => void
   ): void;
 
   /**
@@ -530,6 +571,23 @@ export interface EMR {
   ): void;
 
   /**
+   * @see {@link DescribePersistentAppUICommand}
+   */
+  describePersistentAppUI(
+    args: DescribePersistentAppUICommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePersistentAppUICommandOutput>;
+  describePersistentAppUI(
+    args: DescribePersistentAppUICommandInput,
+    cb: (err: any, data?: DescribePersistentAppUICommandOutput) => void
+  ): void;
+  describePersistentAppUI(
+    args: DescribePersistentAppUICommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePersistentAppUICommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeReleaseLabelCommand}
    */
   describeReleaseLabel(): Promise<DescribeReleaseLabelCommandOutput>;
@@ -656,6 +714,40 @@ export interface EMR {
     args: GetManagedScalingPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetManagedScalingPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetOnClusterAppUIPresignedURLCommand}
+   */
+  getOnClusterAppUIPresignedURL(
+    args: GetOnClusterAppUIPresignedURLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOnClusterAppUIPresignedURLCommandOutput>;
+  getOnClusterAppUIPresignedURL(
+    args: GetOnClusterAppUIPresignedURLCommandInput,
+    cb: (err: any, data?: GetOnClusterAppUIPresignedURLCommandOutput) => void
+  ): void;
+  getOnClusterAppUIPresignedURL(
+    args: GetOnClusterAppUIPresignedURLCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOnClusterAppUIPresignedURLCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPersistentAppUIPresignedURLCommand}
+   */
+  getPersistentAppUIPresignedURL(
+    args: GetPersistentAppUIPresignedURLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPersistentAppUIPresignedURLCommandOutput>;
+  getPersistentAppUIPresignedURL(
+    args: GetPersistentAppUIPresignedURLCommandInput,
+    cb: (err: any, data?: GetPersistentAppUIPresignedURLCommandOutput) => void
+  ): void;
+  getPersistentAppUIPresignedURL(
+    args: GetPersistentAppUIPresignedURLCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPersistentAppUIPresignedURLCommandOutput) => void
   ): void;
 
   /**
