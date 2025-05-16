@@ -77,10 +77,13 @@ import {
   S3DeltaDirectTarget,
   S3DeltaSource,
   S3DirectTarget,
+  S3ExcelSource,
   S3GlueParquetTarget,
   S3HudiCatalogTarget,
   S3HudiDirectTarget,
   S3HudiSource,
+  S3HyperDirectTarget,
+  S3IcebergDirectTarget,
   S3JsonSource,
   S3ParquetSource,
   SchemaChangePolicy,
@@ -140,6 +143,106 @@ import {
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * <p>The workflow is in an invalid state to perform a requested operation.</p>
+ * @public
+ */
+export class IllegalWorkflowStateException extends __BaseException {
+  readonly name: "IllegalWorkflowStateException" = "IllegalWorkflowStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IllegalWorkflowStateException, __BaseException>) {
+    super({
+      name: "IllegalWorkflowStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IllegalWorkflowStateException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface ResumeWorkflowRunRequest {
+  /**
+   * <p>The name of the workflow to resume.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The ID of the workflow run to resume.</p>
+   * @public
+   */
+  RunId: string | undefined;
+
+  /**
+   * <p>A list of the node IDs for the nodes you want to restart. The nodes that are to be restarted must have a run attempt in the original run.</p>
+   * @public
+   */
+  NodeIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResumeWorkflowRunResponse {
+  /**
+   * <p>The new ID assigned to the resumed workflow run. Each resume of a workflow run will have a new run ID.</p>
+   * @public
+   */
+  RunId?: string | undefined;
+
+  /**
+   * <p>A list of the node IDs for the nodes that were actually restarted.</p>
+   * @public
+   */
+  NodeIds?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RunStatementRequest {
+  /**
+   * <p>The Session Id of the statement to be run.</p>
+   * @public
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>The statement code to be run.</p>
+   * @public
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>The origin of the request.</p>
+   * @public
+   */
+  RequestOrigin?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RunStatementResponse {
+  /**
+   * <p>Returns the Id of the statement that was run.</p>
+   * @public
+   */
+  Id?: number | undefined;
+}
 
 /**
  * @public
@@ -3300,6 +3403,12 @@ export interface CodeGenConfigurationNode {
   S3CsvSource?: S3CsvSource | undefined;
 
   /**
+   * <p>Defines configuration parameters for reading Excel files from Amazon S3.</p>
+   * @public
+   */
+  S3ExcelSource?: S3ExcelSource | undefined;
+
+  /**
    * <p>Specifies a JSON data store stored in Amazon S3.</p>
    * @public
    */
@@ -3360,10 +3469,22 @@ export interface CodeGenConfigurationNode {
   S3GlueParquetTarget?: S3GlueParquetTarget | undefined;
 
   /**
+   * <p>Defines configuration parameters for writing data to Amazon S3 using HyperDirect optimization.</p>
+   * @public
+   */
+  S3HyperDirectTarget?: S3HyperDirectTarget | undefined;
+
+  /**
    * <p>Specifies a data target that writes to Amazon S3.</p>
    * @public
    */
   S3DirectTarget?: S3DirectTarget | undefined;
+
+  /**
+   * <p>Defines configuration parameters for writing data to Amazon S3 as an Apache Iceberg table.</p>
+   * @public
+   */
+  S3IcebergDirectTarget?: S3IcebergDirectTarget | undefined;
 
   /**
    * <p>Specifies a transform that maps data property keys in the data source to data property keys in the data target. You can rename keys, modify the data types for keys, and choose which keys to drop from the dataset.</p>

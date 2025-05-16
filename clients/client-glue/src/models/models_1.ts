@@ -6,6 +6,7 @@ import { GlueServiceException as __BaseException } from "./GlueServiceException"
 import {
   Action,
   AllowFullTableExternalDataAccessEnum,
+  AnnotationError,
   AuthConfiguration,
   AuthenticationConfigurationInput,
   AuthenticationConfigurationInputFilterSensitiveLog,
@@ -18,6 +19,7 @@ import {
   ErrorDetail,
   EventBatchingCondition,
   GlueTable,
+  InclusionAnnotationValue,
   LakeFormationConfiguration,
   LineageConfiguration,
   PartitionInput,
@@ -31,7 +33,95 @@ import {
   TableOptimizerType,
   TriggerType,
   WorkerType,
+  Workflow,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface BatchGetWorkflowsResponse {
+  /**
+   * <p>A list of workflow resource metadata.</p>
+   * @public
+   */
+  Workflows?: Workflow[] | undefined;
+
+  /**
+   * <p>A list of names of workflows not found.</p>
+   * @public
+   */
+  MissingWorkflows?: string[] | undefined;
+}
+
+/**
+ * <p>An Inclusion Annotation.</p>
+ * @public
+ */
+export interface DatapointInclusionAnnotation {
+  /**
+   * <p>The ID of the data quality profile the statistic belongs to.</p>
+   * @public
+   */
+  ProfileId?: string | undefined;
+
+  /**
+   * <p>The Statistic ID.</p>
+   * @public
+   */
+  StatisticId?: string | undefined;
+
+  /**
+   * <p>The inclusion annotation value to apply to the statistic.</p>
+   * @public
+   */
+  InclusionAnnotation?: InclusionAnnotationValue | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchPutDataQualityStatisticAnnotationRequest {
+  /**
+   * <p>A list of <code>DatapointInclusionAnnotation</code>'s.</p>
+   * @public
+   */
+  InclusionAnnotations: DatapointInclusionAnnotation[] | undefined;
+
+  /**
+   * <p>Client Token.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchPutDataQualityStatisticAnnotationResponse {
+  /**
+   * <p>A list of <code>AnnotationError</code>'s.</p>
+   * @public
+   */
+  FailedInclusionAnnotations?: AnnotationError[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchStopJobRunRequest {
+  /**
+   * <p>The name of the job definition for which to stop job runs.</p>
+   * @public
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>A list of the <code>JobRunIds</code> that should be stopped for that job
+   *       definition.</p>
+   * @public
+   */
+  JobRunIds: string[] | undefined;
+}
 
 /**
  * <p>Records an error that occurred when attempting to stop a
@@ -7772,200 +7862,6 @@ export const ColumnStatisticsState = {
  * @public
  */
 export type ColumnStatisticsState = (typeof ColumnStatisticsState)[keyof typeof ColumnStatisticsState];
-
-/**
- * <p>The object that shows the details of the column stats run.</p>
- * @public
- */
-export interface ColumnStatisticsTaskRun {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  CustomerId?: string | undefined;
-
-  /**
-   * <p>The identifier for the particular column statistics task run.</p>
-   * @public
-   */
-  ColumnStatisticsTaskRunId?: string | undefined;
-
-  /**
-   * <p>The database where the table resides.</p>
-   * @public
-   */
-  DatabaseName?: string | undefined;
-
-  /**
-   * <p>The name of the table for which column statistics is generated.</p>
-   * @public
-   */
-  TableName?: string | undefined;
-
-  /**
-   * <p>A list of the column names. If none is supplied, all column names for the table will be used by default.</p>
-   * @public
-   */
-  ColumnNameList?: string[] | undefined;
-
-  /**
-   * <p>The ID of the Data Catalog where the table resides. If none is supplied, the Amazon Web Services account ID is used by default.</p>
-   * @public
-   */
-  CatalogID?: string | undefined;
-
-  /**
-   * <p>The IAM role that the service assumes to generate statistics.</p>
-   * @public
-   */
-  Role?: string | undefined;
-
-  /**
-   * <p>The percentage of rows used to generate statistics. If none is supplied, the entire table will be used to generate stats.</p>
-   * @public
-   */
-  SampleSize?: number | undefined;
-
-  /**
-   * <p>Name of the security configuration that is used to encrypt CloudWatch logs for the column stats task run.</p>
-   * @public
-   */
-  SecurityConfiguration?: string | undefined;
-
-  /**
-   * <p>The number of workers used to generate column statistics. The job is preconfigured to autoscale up to 25 instances.</p>
-   * @public
-   */
-  NumberOfWorkers?: number | undefined;
-
-  /**
-   * <p>The type of workers being used for generating stats. The default is <code>g.1x</code>.</p>
-   * @public
-   */
-  WorkerType?: string | undefined;
-
-  /**
-   * <p>The type of column statistics computation.</p>
-   * @public
-   */
-  ComputationType?: ComputationType | undefined;
-
-  /**
-   * <p>The status of the task run.</p>
-   * @public
-   */
-  Status?: ColumnStatisticsState | undefined;
-
-  /**
-   * <p>The time that this task was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The last point in time when this task was modified.</p>
-   * @public
-   */
-  LastUpdated?: Date | undefined;
-
-  /**
-   * <p>The start time of the task.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The end time of the task.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>The error message for the job.</p>
-   * @public
-   */
-  ErrorMessage?: string | undefined;
-
-  /**
-   * <p>The calculated DPU usage in seconds for all autoscaled workers.</p>
-   * @public
-   */
-  DPUSeconds?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetColumnStatisticsTaskRunResponse {
-  /**
-   * <p>A <code>ColumnStatisticsTaskRun</code> object representing the details of the column stats run.</p>
-   * @public
-   */
-  ColumnStatisticsTaskRun?: ColumnStatisticsTaskRun | undefined;
-}
-
-/**
- * @public
- */
-export interface GetColumnStatisticsTaskRunsRequest {
-  /**
-   * <p>The name of the database where the table resides.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the table.</p>
-   * @public
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>The maximum size of the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetColumnStatisticsTaskRunsResponse {
-  /**
-   * <p>A list of column statistics task runs.</p>
-   * @public
-   */
-  ColumnStatisticsTaskRuns?: ColumnStatisticsTaskRun[] | undefined;
-
-  /**
-   * <p>A continuation token, if not all task runs have yet been returned.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetColumnStatisticsTaskSettingsRequest {
-  /**
-   * <p>The name of the database where the table resides.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the table for which to retrieve column statistics.</p>
-   * @public
-   */
-  TableName: string | undefined;
-}
 
 /**
  * @internal

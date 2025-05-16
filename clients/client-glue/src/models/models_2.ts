@@ -42,7 +42,9 @@ import {
   CodeGenEdge,
   CodeGenNode,
   CodeGenNodeArg,
+  ColumnStatisticsState,
   Compatibility,
+  ComputationType,
   ComputeEnvironment,
   ConnectionPropertyKey,
   ConnectionStatus,
@@ -77,6 +79,200 @@ import {
   TransformType,
   ViewDialect,
 } from "./models_1";
+
+/**
+ * <p>The object that shows the details of the column stats run.</p>
+ * @public
+ */
+export interface ColumnStatisticsTaskRun {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  CustomerId?: string | undefined;
+
+  /**
+   * <p>The identifier for the particular column statistics task run.</p>
+   * @public
+   */
+  ColumnStatisticsTaskRunId?: string | undefined;
+
+  /**
+   * <p>The database where the table resides.</p>
+   * @public
+   */
+  DatabaseName?: string | undefined;
+
+  /**
+   * <p>The name of the table for which column statistics is generated.</p>
+   * @public
+   */
+  TableName?: string | undefined;
+
+  /**
+   * <p>A list of the column names. If none is supplied, all column names for the table will be used by default.</p>
+   * @public
+   */
+  ColumnNameList?: string[] | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog where the table resides. If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogID?: string | undefined;
+
+  /**
+   * <p>The IAM role that the service assumes to generate statistics.</p>
+   * @public
+   */
+  Role?: string | undefined;
+
+  /**
+   * <p>The percentage of rows used to generate statistics. If none is supplied, the entire table will be used to generate stats.</p>
+   * @public
+   */
+  SampleSize?: number | undefined;
+
+  /**
+   * <p>Name of the security configuration that is used to encrypt CloudWatch logs for the column stats task run.</p>
+   * @public
+   */
+  SecurityConfiguration?: string | undefined;
+
+  /**
+   * <p>The number of workers used to generate column statistics. The job is preconfigured to autoscale up to 25 instances.</p>
+   * @public
+   */
+  NumberOfWorkers?: number | undefined;
+
+  /**
+   * <p>The type of workers being used for generating stats. The default is <code>g.1x</code>.</p>
+   * @public
+   */
+  WorkerType?: string | undefined;
+
+  /**
+   * <p>The type of column statistics computation.</p>
+   * @public
+   */
+  ComputationType?: ComputationType | undefined;
+
+  /**
+   * <p>The status of the task run.</p>
+   * @public
+   */
+  Status?: ColumnStatisticsState | undefined;
+
+  /**
+   * <p>The time that this task was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The last point in time when this task was modified.</p>
+   * @public
+   */
+  LastUpdated?: Date | undefined;
+
+  /**
+   * <p>The start time of the task.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The end time of the task.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The error message for the job.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * <p>The calculated DPU usage in seconds for all autoscaled workers.</p>
+   * @public
+   */
+  DPUSeconds?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetColumnStatisticsTaskRunResponse {
+  /**
+   * <p>A <code>ColumnStatisticsTaskRun</code> object representing the details of the column stats run.</p>
+   * @public
+   */
+  ColumnStatisticsTaskRun?: ColumnStatisticsTaskRun | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetColumnStatisticsTaskRunsRequest {
+  /**
+   * <p>The name of the database where the table resides.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The maximum size of the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetColumnStatisticsTaskRunsResponse {
+  /**
+   * <p>A list of column statistics task runs.</p>
+   * @public
+   */
+  ColumnStatisticsTaskRuns?: ColumnStatisticsTaskRun[] | undefined;
+
+  /**
+   * <p>A continuation token, if not all task runs have yet been returned.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetColumnStatisticsTaskSettingsRequest {
+  /**
+   * <p>The name of the database where the table resides.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table for which to retrieve column statistics.</p>
+   * @public
+   */
+  TableName: string | undefined;
+}
 
 /**
  * @public
@@ -8486,106 +8682,6 @@ export class ConcurrentRunsExceededException extends __BaseException {
     Object.setPrototypeOf(this, ConcurrentRunsExceededException.prototype);
     this.Message = opts.Message;
   }
-}
-
-/**
- * <p>The workflow is in an invalid state to perform a requested operation.</p>
- * @public
- */
-export class IllegalWorkflowStateException extends __BaseException {
-  readonly name: "IllegalWorkflowStateException" = "IllegalWorkflowStateException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IllegalWorkflowStateException, __BaseException>) {
-    super({
-      name: "IllegalWorkflowStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IllegalWorkflowStateException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
-export interface ResumeWorkflowRunRequest {
-  /**
-   * <p>The name of the workflow to resume.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The ID of the workflow run to resume.</p>
-   * @public
-   */
-  RunId: string | undefined;
-
-  /**
-   * <p>A list of the node IDs for the nodes you want to restart. The nodes that are to be restarted must have a run attempt in the original run.</p>
-   * @public
-   */
-  NodeIds: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ResumeWorkflowRunResponse {
-  /**
-   * <p>The new ID assigned to the resumed workflow run. Each resume of a workflow run will have a new run ID.</p>
-   * @public
-   */
-  RunId?: string | undefined;
-
-  /**
-   * <p>A list of the node IDs for the nodes that were actually restarted.</p>
-   * @public
-   */
-  NodeIds?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface RunStatementRequest {
-  /**
-   * <p>The Session Id of the statement to be run.</p>
-   * @public
-   */
-  SessionId: string | undefined;
-
-  /**
-   * <p>The statement code to be run.</p>
-   * @public
-   */
-  Code: string | undefined;
-
-  /**
-   * <p>The origin of the request.</p>
-   * @public
-   */
-  RequestOrigin?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RunStatementResponse {
-  /**
-   * <p>Returns the Id of the statement that was run.</p>
-   * @public
-   */
-  Id?: number | undefined;
 }
 
 /**

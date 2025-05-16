@@ -638,9 +638,6 @@ import {
   BatchGetTableOptimizerResponse,
   BatchGetTriggersRequest,
   BatchGetWorkflowsRequest,
-  BatchGetWorkflowsResponse,
-  BatchPutDataQualityStatisticAnnotationRequest,
-  BatchStopJobRunRequest,
   BatchTableOptimizer,
   Blueprint,
   CatalogDeltaSource,
@@ -662,7 +659,6 @@ import {
   CrawlerNodeDetails,
   CrawlerTargets,
   CustomCode,
-  DatapointInclusionAnnotation,
   DataQualityAnalyzerResult,
   DataQualityMetricValues,
   DataQualityObservation,
@@ -780,10 +776,13 @@ import {
   S3DeltaSource,
   S3DirectSourceAdditionalOptions,
   S3DirectTarget,
+  S3ExcelSource,
   S3GlueParquetTarget,
   S3HudiCatalogTarget,
   S3HudiDirectTarget,
   S3HudiSource,
+  S3HyperDirectTarget,
+  S3IcebergDirectTarget,
   S3JsonSource,
   S3ParquetSource,
   S3SourceAdditionalOptions,
@@ -822,6 +821,9 @@ import {
   WorkflowRun,
 } from "../models/models_0";
 import {
+  BatchGetWorkflowsResponse,
+  BatchPutDataQualityStatisticAnnotationRequest,
+  BatchStopJobRunRequest,
   BatchUpdatePartitionRequest,
   BatchUpdatePartitionRequestEntry,
   BinaryColumnStatisticsData,
@@ -843,7 +845,6 @@ import {
   CodeGenNodeArg,
   ColumnStatistics,
   ColumnStatisticsData,
-  ColumnStatisticsTaskRun,
   ColumnStatisticsTaskRunningException,
   ComputeEnvironment,
   ConcurrentModificationException,
@@ -893,6 +894,7 @@ import {
   DatabaseInput,
   DataLakeAccessProperties,
   DataLakePrincipal,
+  DatapointInclusionAnnotation,
   DataQualityEncryption,
   DataQualityTargetTable,
   DateColumnStatisticsData,
@@ -963,10 +965,6 @@ import {
   GetColumnStatisticsForTableRequest,
   GetColumnStatisticsForTableResponse,
   GetColumnStatisticsTaskRunRequest,
-  GetColumnStatisticsTaskRunResponse,
-  GetColumnStatisticsTaskRunsRequest,
-  GetColumnStatisticsTaskRunsResponse,
-  GetColumnStatisticsTaskSettingsRequest,
   GrokClassifier,
   IcebergInput,
   IdempotentParameterMismatchException,
@@ -1021,6 +1019,7 @@ import {
 import {
   CatalogEntry,
   ColumnImportance,
+  ColumnStatisticsTaskRun,
   ColumnStatisticsTaskSettings,
   ConcurrentRunsExceededException,
   Connection,
@@ -1044,6 +1043,10 @@ import {
   EvaluationMetrics,
   ExecutionAttempt,
   FindMatchesMetrics,
+  GetColumnStatisticsTaskRunResponse,
+  GetColumnStatisticsTaskRunsRequest,
+  GetColumnStatisticsTaskRunsResponse,
+  GetColumnStatisticsTaskSettingsRequest,
   GetColumnStatisticsTaskSettingsResponse,
   GetConnectionRequest,
   GetConnectionResponse,
@@ -1150,7 +1153,6 @@ import {
   GetWorkflowRunsRequest,
   GetWorkflowRunsResponse,
   GluePolicy,
-  IllegalWorkflowStateException,
   ImportCatalogToGlueRequest,
   ListBlueprintsRequest,
   ListColumnStatisticsTaskRunsRequest,
@@ -1206,8 +1208,6 @@ import {
   RegisterSchemaVersionInput,
   RemoveSchemaVersionMetadataInput,
   ResetJobBookmarkRequest,
-  ResumeWorkflowRunRequest,
-  RunStatementRequest,
   SchemaColumn,
   SchemaVersionNumber,
   SecurityConfiguration,
@@ -1247,12 +1247,15 @@ import {
   GetTableVersionsResponse,
   GetUnfilteredTableMetadataResponse,
   IllegalBlueprintStateException,
+  IllegalWorkflowStateException,
   Job,
   JobUpdate,
   Mapping,
   MLTransformNotReadyException,
   NoScheduleException,
   PropertyPredicate,
+  ResumeWorkflowRunRequest,
+  RunStatementRequest,
   SchedulerNotRunningException,
   SchedulerRunningException,
   SearchTablesRequest,
@@ -10823,10 +10826,13 @@ const se_CodeGenConfigurationNode = (input: CodeGenConfigurationNode, context: _
     S3DeltaDirectTarget: _json,
     S3DeltaSource: _json,
     S3DirectTarget: _json,
+    S3ExcelSource: _json,
     S3GlueParquetTarget: _json,
     S3HudiCatalogTarget: _json,
     S3HudiDirectTarget: _json,
     S3HudiSource: _json,
+    S3HyperDirectTarget: _json,
+    S3IcebergDirectTarget: _json,
     S3JsonSource: _json,
     S3ParquetSource: _json,
     SelectFields: _json,
@@ -12349,6 +12355,8 @@ const se_QuerySessionContext = (input: QuerySessionContext, context: __SerdeCont
 
 // se_S3EncryptionList omitted.
 
+// se_S3ExcelSource omitted.
+
 // se_S3GlueParquetTarget omitted.
 
 // se_S3HudiCatalogTarget omitted.
@@ -12356,6 +12364,10 @@ const se_QuerySessionContext = (input: QuerySessionContext, context: __SerdeCont
 // se_S3HudiDirectTarget omitted.
 
 // se_S3HudiSource omitted.
+
+// se_S3HyperDirectTarget omitted.
+
+// se_S3IcebergDirectTarget omitted.
 
 // se_S3JsonSource omitted.
 
@@ -13351,10 +13363,13 @@ const de_CodeGenConfigurationNode = (output: any, context: __SerdeContext): Code
     S3DeltaDirectTarget: _json,
     S3DeltaSource: _json,
     S3DirectTarget: _json,
+    S3ExcelSource: _json,
     S3GlueParquetTarget: _json,
     S3HudiCatalogTarget: _json,
     S3HudiDirectTarget: _json,
     S3HudiSource: _json,
+    S3HyperDirectTarget: _json,
+    S3IcebergDirectTarget: _json,
     S3JsonSource: _json,
     S3ParquetSource: _json,
     SelectFields: _json,
@@ -16442,6 +16457,8 @@ const de_RetentionMetrics = (output: any, context: __SerdeContext): RetentionMet
 
 // de_S3EncryptionList omitted.
 
+// de_S3ExcelSource omitted.
+
 // de_S3GlueParquetTarget omitted.
 
 // de_S3HudiCatalogTarget omitted.
@@ -16449,6 +16466,10 @@ const de_RetentionMetrics = (output: any, context: __SerdeContext): RetentionMet
 // de_S3HudiDirectTarget omitted.
 
 // de_S3HudiSource omitted.
+
+// de_S3HyperDirectTarget omitted.
+
+// de_S3IcebergDirectTarget omitted.
 
 // de_S3JsonSource omitted.
 

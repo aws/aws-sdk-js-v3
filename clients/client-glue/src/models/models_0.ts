@@ -6250,9 +6250,12 @@ export const TargetFormat = {
   CSV: "csv",
   DELTA: "delta",
   HUDI: "hudi",
+  HYPER: "hyper",
+  ICEBERG: "iceberg",
   JSON: "json",
   ORC: "orc",
   PARQUET: "parquet",
+  XML: "xml",
 } as const;
 
 /**
@@ -6324,6 +6327,12 @@ export interface S3DeltaDirectTarget {
    * @public
    */
   Compression: DeltaTargetCompressionType | undefined;
+
+  /**
+   * <p>Specifies the number of target partitions for distributing Delta Lake dataset files across Amazon S3.</p>
+   * @public
+   */
+  NumberTargetPartitions?: string | undefined;
 
   /**
    * <p>Specifies the data output format for the target.</p>
@@ -6416,6 +6425,12 @@ export interface S3DirectTarget {
   Compression?: string | undefined;
 
   /**
+   * <p>Specifies the number of target partitions when writing data directly to Amazon S3.</p>
+   * @public
+   */
+  NumberTargetPartitions?: string | undefined;
+
+  /**
    * <p>Specifies the data output format for the target.</p>
    * @public
    */
@@ -6433,7 +6448,9 @@ export interface S3DirectTarget {
  * @enum
  */
 export const ParquetCompressionType = {
+  BROTLI: "brotli",
   GZIP: "gzip",
+  LZ4: "lz4",
   LZO: "lzo",
   NONE: "none",
   SNAPPY: "snappy",
@@ -6444,6 +6461,90 @@ export const ParquetCompressionType = {
  * @public
  */
 export type ParquetCompressionType = (typeof ParquetCompressionType)[keyof typeof ParquetCompressionType];
+
+/**
+ * <p>Specifies an S3 Excel data source.</p>
+ * @public
+ */
+export interface S3ExcelSource {
+  /**
+   * <p>The name of the S3 Excel data source.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The S3 paths where the Excel files are located.</p>
+   * @public
+   */
+  Paths: string[] | undefined;
+
+  /**
+   * <p>The compression format used for the Excel files.</p>
+   * @public
+   */
+  CompressionType?: ParquetCompressionType | undefined;
+
+  /**
+   * <p>Patterns to exclude specific files or paths from processing.</p>
+   * @public
+   */
+  Exclusions?: string[] | undefined;
+
+  /**
+   * <p>Defines the size of file groups for batch processing.</p>
+   * @public
+   */
+  GroupSize?: string | undefined;
+
+  /**
+   * <p>Specifies how files should be grouped for processing.</p>
+   * @public
+   */
+  GroupFiles?: string | undefined;
+
+  /**
+   * <p>Indicates whether to recursively process subdirectories.</p>
+   * @public
+   */
+  Recurse?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of processing bands to use.</p>
+   * @public
+   */
+  MaxBand?: number | undefined;
+
+  /**
+   * <p>The maximum number of files to process in each band.</p>
+   * @public
+   */
+  MaxFilesInBand?: number | undefined;
+
+  /**
+   * <p>Additional configuration options for S3 direct source processing.</p>
+   * @public
+   */
+  AdditionalOptions?: S3DirectSourceAdditionalOptions | undefined;
+
+  /**
+   * <p>The number of rows to process from each Excel file.</p>
+   * @public
+   */
+  NumberRows?: number | undefined;
+
+  /**
+   * <p>The number of rows to skip at the end of each Excel file.</p>
+   * @public
+   */
+  SkipFooter?: number | undefined;
+
+  /**
+   * <p>The AWS Glue schemas to apply to the processed data.</p>
+   * @public
+   */
+  OutputSchemas?: GlueSchema[] | undefined;
+}
 
 /**
  * <p>Specifies a data target that writes to Amazon S3 in Apache Parquet columnar storage.</p>
@@ -6479,6 +6580,12 @@ export interface S3GlueParquetTarget {
    * @public
    */
   Compression?: ParquetCompressionType | undefined;
+
+  /**
+   * <p>Specifies the number of target partitions for Parquet files when writing to Amazon S3 using AWS Glue.</p>
+   * @public
+   */
+  NumberTargetPartitions?: string | undefined;
 
   /**
    * <p>A policy that specifies update behavior for the crawler.</p>
@@ -6581,6 +6688,12 @@ export interface S3HudiDirectTarget {
   Compression: HudiTargetCompressionType | undefined;
 
   /**
+   * <p>Specifies the number of target partitions for distributing Hudi dataset files across Amazon S3.</p>
+   * @public
+   */
+  NumberTargetPartitions?: string | undefined;
+
+  /**
    * <p>Specifies native partitioning using a sequence of keys.</p>
    * @public
    */
@@ -6639,6 +6752,138 @@ export interface S3HudiSource {
    * @public
    */
   OutputSchemas?: GlueSchema[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HyperTargetCompressionType = {
+  UNCOMPRESSED: "uncompressed",
+} as const;
+
+/**
+ * @public
+ */
+export type HyperTargetCompressionType = (typeof HyperTargetCompressionType)[keyof typeof HyperTargetCompressionType];
+
+/**
+ * <p>Specifies a HyperDirect data target that writes to Amazon S3.</p>
+ * @public
+ */
+export interface S3HyperDirectTarget {
+  /**
+   * <p>The unique identifier for the HyperDirect target node.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Specifies the input source for the HyperDirect target.</p>
+   * @public
+   */
+  Inputs: string[] | undefined;
+
+  /**
+   * <p>Defines the partitioning strategy for the output data.</p>
+   * @public
+   */
+  PartitionKeys?: string[][] | undefined;
+
+  /**
+   * <p>The S3 location where the output data will be written.</p>
+   * @public
+   */
+  Path: string | undefined;
+
+  /**
+   * <p>The compression type to apply to the output data.</p>
+   * @public
+   */
+  Compression?: HyperTargetCompressionType | undefined;
+
+  /**
+   * <p>Defines how schema changes are handled during write operations.</p>
+   * @public
+   */
+  SchemaChangePolicy?: DirectSchemaChangePolicy | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IcebergTargetCompressionType = {
+  GZIP: "gzip",
+  LZO: "lzo",
+  SNAPPY: "snappy",
+  UNCOMPRESSED: "uncompressed",
+} as const;
+
+/**
+ * @public
+ */
+export type IcebergTargetCompressionType =
+  (typeof IcebergTargetCompressionType)[keyof typeof IcebergTargetCompressionType];
+
+/**
+ * <p>Specifies a target that writes to an Iceberg data source in Amazon S3.</p>
+ * @public
+ */
+export interface S3IcebergDirectTarget {
+  /**
+   * <p>Specifies the unique identifier for the Iceberg target node in your data pipeline.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Defines the single input source that provides data to this Iceberg target.</p>
+   * @public
+   */
+  Inputs: string[] | undefined;
+
+  /**
+   * <p>Specifies the columns used to partition the Iceberg table data in S3.</p>
+   * @public
+   */
+  PartitionKeys?: string[][] | undefined;
+
+  /**
+   * <p>Defines the S3 location where the Iceberg table data will be stored.</p>
+   * @public
+   */
+  Path: string | undefined;
+
+  /**
+   * <p>Specifies the file format used for storing Iceberg table data (e.g., Parquet, ORC).</p>
+   * @public
+   */
+  Format: TargetFormat | undefined;
+
+  /**
+   * <p>Provides additional configuration options for customizing the Iceberg table behavior.</p>
+   * @public
+   */
+  AdditionalOptions?: Record<string, string> | undefined;
+
+  /**
+   * <p>Defines how schema changes are handled when writing data to the Iceberg table.</p>
+   * @public
+   */
+  SchemaChangePolicy?: DirectSchemaChangePolicy | undefined;
+
+  /**
+   * <p>Specifies the compression codec used for Iceberg table files in S3.</p>
+   * @public
+   */
+  Compression: IcebergTargetCompressionType | undefined;
+
+  /**
+   * <p>Sets the number of target partitions for distributing Iceberg table files across S3.</p>
+   * @public
+   */
+  NumberTargetPartitions?: string | undefined;
 }
 
 /**
@@ -9291,93 +9536,6 @@ export interface Workflow {
    * @public
    */
   BlueprintDetails?: BlueprintDetails | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchGetWorkflowsResponse {
-  /**
-   * <p>A list of workflow resource metadata.</p>
-   * @public
-   */
-  Workflows?: Workflow[] | undefined;
-
-  /**
-   * <p>A list of names of workflows not found.</p>
-   * @public
-   */
-  MissingWorkflows?: string[] | undefined;
-}
-
-/**
- * <p>An Inclusion Annotation.</p>
- * @public
- */
-export interface DatapointInclusionAnnotation {
-  /**
-   * <p>The ID of the data quality profile the statistic belongs to.</p>
-   * @public
-   */
-  ProfileId?: string | undefined;
-
-  /**
-   * <p>The Statistic ID.</p>
-   * @public
-   */
-  StatisticId?: string | undefined;
-
-  /**
-   * <p>The inclusion annotation value to apply to the statistic.</p>
-   * @public
-   */
-  InclusionAnnotation?: InclusionAnnotationValue | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchPutDataQualityStatisticAnnotationRequest {
-  /**
-   * <p>A list of <code>DatapointInclusionAnnotation</code>'s.</p>
-   * @public
-   */
-  InclusionAnnotations: DatapointInclusionAnnotation[] | undefined;
-
-  /**
-   * <p>Client Token.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchPutDataQualityStatisticAnnotationResponse {
-  /**
-   * <p>A list of <code>AnnotationError</code>'s.</p>
-   * @public
-   */
-  FailedInclusionAnnotations?: AnnotationError[] | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchStopJobRunRequest {
-  /**
-   * <p>The name of the job definition for which to stop job runs.</p>
-   * @public
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>A list of the <code>JobRunIds</code> that should be stopped for that job
-   *       definition.</p>
-   * @public
-   */
-  JobRunIds: string[] | undefined;
 }
 
 /**
