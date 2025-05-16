@@ -983,6 +983,26 @@ export interface ActionExecutionFilter {
 }
 
 /**
+ * <p>The action execution was not found.</p>
+ * @public
+ */
+export class ActionExecutionNotFoundException extends __BaseException {
+  readonly name: "ActionExecutionNotFoundException" = "ActionExecutionNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ActionExecutionNotFoundException, __BaseException>) {
+    super({
+      name: "ActionExecutionNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ActionExecutionNotFoundException.prototype);
+  }
+}
+
+/**
  * <p>The specified action cannot be found.</p>
  * @public
  */
@@ -4451,6 +4471,188 @@ export interface ListActionTypesOutput {
    * <p>If the amount of returned information is significantly large, an identifier is also
    *             returned. It can be used in a subsequent list action types call to return the next set
    *             of action types in the list.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetFilterName = {
+  TARGET_STATUS: "TARGET_STATUS",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetFilterName = (typeof TargetFilterName)[keyof typeof TargetFilterName];
+
+/**
+ * <p>Filters the list of targets.</p>
+ * @public
+ */
+export interface TargetFilter {
+  /**
+   * <p>The name on which to filter.</p>
+   * @public
+   */
+  name?: TargetFilterName | undefined;
+
+  /**
+   * <p>The values on which to filter.</p>
+   * @public
+   */
+  values?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDeployActionExecutionTargetsInput {
+  /**
+   * <p>The name of the pipeline with the deploy action.</p>
+   * @public
+   */
+  pipelineName?: string | undefined;
+
+  /**
+   * <p>The execution ID for the deploy action.</p>
+   * @public
+   */
+  actionExecutionId: string | undefined;
+
+  /**
+   * <p>Filters the targets for a specified deploy action.</p>
+   * @public
+   */
+  filters?: TargetFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another call with the returned nextToken value.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>An identifier that was returned from the previous list action types call, which can be
+   *             used to return the next set of action types in the list.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The context for the event for the deploy action.</p>
+ * @public
+ */
+export interface DeployTargetEventContext {
+  /**
+   * <p>The command ID for the event for the deploy action.</p>
+   * @public
+   */
+  ssmCommandId?: string | undefined;
+
+  /**
+   * <p>The context message for the event for the deploy action.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * <p>A lifecycle event for the deploy action.</p>
+ * @public
+ */
+export interface DeployTargetEvent {
+  /**
+   * <p>The name of the event for the deploy action.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The status of the event for the deploy action.</p>
+   * @public
+   */
+  status?: string | undefined;
+
+  /**
+   * <p>The start time for the event for the deploy action.</p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p>The end time for the event for the deploy action.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>The context for the event for the deploy action.</p>
+   * @public
+   */
+  context?: DeployTargetEventContext | undefined;
+}
+
+/**
+ * <p>The target for the deploy action.</p>
+ * @public
+ */
+export interface DeployActionExecutionTarget {
+  /**
+   * <p>The ID of the target for the deploy action.</p>
+   * @public
+   */
+  targetId?: string | undefined;
+
+  /**
+   * <p>The type of target for the deploy action.</p>
+   * @public
+   */
+  targetType?: string | undefined;
+
+  /**
+   * <p>The status of the deploy action.</p>
+   * @public
+   */
+  status?: string | undefined;
+
+  /**
+   * <p>The start time for the deploy action.</p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p>The end time for the deploy action.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>The lifecycle events for the deploy action.</p>
+   * @public
+   */
+  events?: DeployTargetEvent[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDeployActionExecutionTargetsOutput {
+  /**
+   * <p>The targets for the deploy action.</p>
+   * @public
+   */
+  targets?: DeployActionExecutionTarget[] | undefined;
+
+  /**
+   * <p>An identifier that was returned from the previous list action types call, which can be
+   *             used to return the next set of action types in the list.</p>
    * @public
    */
   nextToken?: string | undefined;

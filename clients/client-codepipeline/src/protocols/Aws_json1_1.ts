@@ -68,6 +68,10 @@ import {
 } from "../commands/ListActionExecutionsCommand";
 import { ListActionTypesCommandInput, ListActionTypesCommandOutput } from "../commands/ListActionTypesCommand";
 import {
+  ListDeployActionExecutionTargetsCommandInput,
+  ListDeployActionExecutionTargetsCommandOutput,
+} from "../commands/ListDeployActionExecutionTargetsCommand";
+import {
   ListPipelineExecutionsCommandInput,
   ListPipelineExecutionsCommandOutput,
 } from "../commands/ListPipelineExecutionsCommand";
@@ -137,6 +141,7 @@ import {
   ActionExecution,
   ActionExecutionDetail,
   ActionExecutionFilter,
+  ActionExecutionNotFoundException,
   ActionNotFoundException,
   ActionRevision,
   ActionState,
@@ -171,6 +176,8 @@ import {
   DeleteCustomActionTypeInput,
   DeletePipelineInput,
   DeleteWebhookInput,
+  DeployActionExecutionTarget,
+  DeployTargetEvent,
   DeregisterWebhookWithThirdPartyInput,
   DisableStageTransitionInput,
   DuplicatedStopRequestException,
@@ -220,6 +227,8 @@ import {
   ListActionExecutionsInput,
   ListActionExecutionsOutput,
   ListActionTypesInput,
+  ListDeployActionExecutionTargetsInput,
+  ListDeployActionExecutionTargetsOutput,
   ListPipelineExecutionsInput,
   ListPipelineExecutionsOutput,
   ListPipelinesInput,
@@ -286,6 +295,7 @@ import {
   SuccessConditions,
   Tag,
   TagResourceInput,
+  TargetFilter,
   TooManyTagsException,
   TransitionState,
   UnableToRollbackStageException,
@@ -529,6 +539,19 @@ export const se_ListActionTypesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListActionTypes");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListDeployActionExecutionTargetsCommand
+ */
+export const se_ListDeployActionExecutionTargetsCommand = async (
+  input: ListDeployActionExecutionTargetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListDeployActionExecutionTargets");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1208,6 +1231,26 @@ export const de_ListActionTypesCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListDeployActionExecutionTargetsCommand
+ */
+export const de_ListDeployActionExecutionTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDeployActionExecutionTargetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDeployActionExecutionTargetsOutput(data, context);
+  const response: ListDeployActionExecutionTargetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListPipelineExecutionsCommand
  */
 export const de_ListPipelineExecutionsCommand = async (
@@ -1762,6 +1805,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidNextTokenException":
     case "com.amazonaws.codepipeline#InvalidNextTokenException":
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "ActionExecutionNotFoundException":
+    case "com.amazonaws.codepipeline#ActionExecutionNotFoundException":
+      throw await de_ActionExecutionNotFoundExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.codepipeline#InvalidArnException":
       throw await de_InvalidArnExceptionRes(parsedOutput, context);
@@ -1827,6 +1873,22 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
         errorCode,
       }) as never;
   }
+};
+
+/**
+ * deserializeAws_json1_1ActionExecutionNotFoundExceptionRes
+ */
+const de_ActionExecutionNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ActionExecutionNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ActionExecutionNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
 };
 
 /**
@@ -2624,6 +2686,8 @@ const se_CurrentRevision = (input: CurrentRevision, context: __SerdeContext): an
 
 // se_ListActionTypesInput omitted.
 
+// se_ListDeployActionExecutionTargetsInput omitted.
+
 // se_ListPipelineExecutionsInput omitted.
 
 // se_ListPipelinesInput omitted.
@@ -2777,6 +2841,12 @@ const se_StartPipelineExecutionInput = (input: StartPipelineExecutionInput, cont
 
 // se_TagResourceInput omitted.
 
+// se_TargetFilter omitted.
+
+// se_TargetFilterList omitted.
+
+// se_TargetFilterValueList omitted.
+
 // se_UntagResourceInput omitted.
 
 // se_UpdateActionTypeInput omitted.
@@ -2865,6 +2935,8 @@ const de_ActionExecutionDetailList = (output: any, context: __SerdeContext): Act
 };
 
 // de_ActionExecutionInput omitted.
+
+// de_ActionExecutionNotFoundException omitted.
 
 // de_ActionExecutionOutput omitted.
 
@@ -3047,6 +3119,59 @@ const de_CreatePipelineOutput = (output: any, context: __SerdeContext): CreatePi
 
 // de_DeleteWebhookOutput omitted.
 
+/**
+ * deserializeAws_json1_1DeployActionExecutionTarget
+ */
+const de_DeployActionExecutionTarget = (output: any, context: __SerdeContext): DeployActionExecutionTarget => {
+  return take(output, {
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    events: (_: any) => de_DeployTargetEventList(_, context),
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    targetId: __expectString,
+    targetType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DeployActionExecutionTargetList
+ */
+const de_DeployActionExecutionTargetList = (output: any, context: __SerdeContext): DeployActionExecutionTarget[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DeployActionExecutionTarget(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1DeployTargetEvent
+ */
+const de_DeployTargetEvent = (output: any, context: __SerdeContext): DeployTargetEvent => {
+  return take(output, {
+    context: _json,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+  }) as any;
+};
+
+// de_DeployTargetEventContext omitted.
+
+/**
+ * deserializeAws_json1_1DeployTargetEventList
+ */
+const de_DeployTargetEventList = (output: any, context: __SerdeContext): DeployTargetEvent[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DeployTargetEvent(entry, context);
+    });
+  return retVal;
+};
+
 // de_DeregisterWebhookWithThirdPartyOutput omitted.
 
 // de_DuplicatedStopRequestException omitted.
@@ -3188,6 +3313,19 @@ const de_ListActionExecutionsOutput = (output: any, context: __SerdeContext): Li
 };
 
 // de_ListActionTypesOutput omitted.
+
+/**
+ * deserializeAws_json1_1ListDeployActionExecutionTargetsOutput
+ */
+const de_ListDeployActionExecutionTargetsOutput = (
+  output: any,
+  context: __SerdeContext
+): ListDeployActionExecutionTargetsOutput => {
+  return take(output, {
+    nextToken: __expectString,
+    targets: (_: any) => de_DeployActionExecutionTargetList(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1ListPipelineExecutionsOutput

@@ -99,6 +99,10 @@ import {
 } from "./commands/ListActionExecutionsCommand";
 import { ListActionTypesCommandInput, ListActionTypesCommandOutput } from "./commands/ListActionTypesCommand";
 import {
+  ListDeployActionExecutionTargetsCommandInput,
+  ListDeployActionExecutionTargetsCommandOutput,
+} from "./commands/ListDeployActionExecutionTargetsCommand";
+import {
   ListPipelineExecutionsCommandInput,
   ListPipelineExecutionsCommandOutput,
 } from "./commands/ListPipelineExecutionsCommand";
@@ -192,6 +196,7 @@ export type ServiceInputTypes =
   | GetThirdPartyJobDetailsCommandInput
   | ListActionExecutionsCommandInput
   | ListActionTypesCommandInput
+  | ListDeployActionExecutionTargetsCommandInput
   | ListPipelineExecutionsCommandInput
   | ListPipelinesCommandInput
   | ListRuleExecutionsCommandInput
@@ -240,6 +245,7 @@ export type ServiceOutputTypes =
   | GetThirdPartyJobDetailsCommandOutput
   | ListActionExecutionsCommandOutput
   | ListActionTypesCommandOutput
+  | ListDeployActionExecutionTargetsCommandOutput
   | ListPipelineExecutionsCommandOutput
   | ListPipelinesCommandOutput
   | ListRuleExecutionsCommandOutput

@@ -546,6 +546,14 @@ ListActionTypes
 </details>
 <details>
 <summary>
+ListDeployActionExecutionTargets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/ListDeployActionExecutionTargetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListDeployActionExecutionTargetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListDeployActionExecutionTargetsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListPipelineExecutions
 </summary>
 

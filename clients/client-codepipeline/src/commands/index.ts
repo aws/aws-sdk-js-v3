@@ -17,6 +17,7 @@ export * from "./GetPipelineStateCommand";
 export * from "./GetThirdPartyJobDetailsCommand";
 export * from "./ListActionExecutionsCommand";
 export * from "./ListActionTypesCommand";
+export * from "./ListDeployActionExecutionTargetsCommand";
 export * from "./ListPipelineExecutionsCommand";
 export * from "./ListPipelinesCommand";
 export * from "./ListRuleExecutionsCommand";

@@ -90,6 +90,11 @@ import {
   ListActionTypesCommandOutput,
 } from "./commands/ListActionTypesCommand";
 import {
+  ListDeployActionExecutionTargetsCommand,
+  ListDeployActionExecutionTargetsCommandInput,
+  ListDeployActionExecutionTargetsCommandOutput,
+} from "./commands/ListDeployActionExecutionTargetsCommand";
+import {
   ListPipelineExecutionsCommand,
   ListPipelineExecutionsCommandInput,
   ListPipelineExecutionsCommandOutput,
@@ -222,6 +227,7 @@ const commands = {
   GetThirdPartyJobDetailsCommand,
   ListActionExecutionsCommand,
   ListActionTypesCommand,
+  ListDeployActionExecutionTargetsCommand,
   ListPipelineExecutionsCommand,
   ListPipelinesCommand,
   ListRuleExecutionsCommand,
@@ -520,6 +526,23 @@ export interface CodePipeline {
     args: ListActionTypesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListActionTypesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDeployActionExecutionTargetsCommand}
+   */
+  listDeployActionExecutionTargets(
+    args: ListDeployActionExecutionTargetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDeployActionExecutionTargetsCommandOutput>;
+  listDeployActionExecutionTargets(
+    args: ListDeployActionExecutionTargetsCommandInput,
+    cb: (err: any, data?: ListDeployActionExecutionTargetsCommandOutput) => void
+  ): void;
+  listDeployActionExecutionTargets(
+    args: ListDeployActionExecutionTargetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDeployActionExecutionTargetsCommandOutput) => void
   ): void;
 
   /**
