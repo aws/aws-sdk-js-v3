@@ -55,7 +55,7 @@ const policy = {
 
 const policyString = JSON.stringify(policy);
 
-const cookies = getSignedUrl({
+const signedUrl = getSignedUrl({
   keyPairId,
   privateKey,
   policy: policyString,
