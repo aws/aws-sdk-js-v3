@@ -147,6 +147,43 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *         TimingMode: "HTTP_HEAD" || "HTTP_ISO" || "HTTP_XSDATE" || "UTC_DIRECT",
  *         TimingSource: "STRING_VALUE",
  *       },
+ *       Profiles: [ // DashProfiles
+ *         "DVB_DASH",
+ *       ],
+ *       BaseUrls: [ // DashBaseUrls
+ *         { // DashBaseUrl
+ *           Url: "STRING_VALUE", // required
+ *           ServiceLocation: "STRING_VALUE",
+ *           DvbPriority: Number("int"),
+ *           DvbWeight: Number("int"),
+ *         },
+ *       ],
+ *       ProgramInformation: { // DashProgramInformation
+ *         Title: "STRING_VALUE",
+ *         Source: "STRING_VALUE",
+ *         Copyright: "STRING_VALUE",
+ *         LanguageCode: "STRING_VALUE",
+ *         MoreInformationUrl: "STRING_VALUE",
+ *       },
+ *       DvbSettings: { // DashDvbSettings
+ *         FontDownload: { // DashDvbFontDownload
+ *           Url: "STRING_VALUE",
+ *           MimeType: "STRING_VALUE",
+ *           FontFamily: "STRING_VALUE",
+ *         },
+ *         ErrorMetrics: [ // DashDvbErrorMetrics
+ *           { // DashDvbMetricsReporting
+ *             ReportingUrl: "STRING_VALUE", // required
+ *             Probability: Number("int"),
+ *           },
+ *         ],
+ *       },
+ *       Compactness: "STANDARD" || "NONE",
+ *       SubtitleConfiguration: { // DashSubtitleConfiguration
+ *         TtmlConfiguration: { // DashTtmlConfiguration
+ *           TtmlProfile: "IMSC_1" || "EBU_TT_D_101", // required
+ *         },
+ *       },
  *     },
  *   ],
  *   ForceEndpointErrorConfiguration: { // ForceEndpointErrorConfiguration
@@ -276,6 +313,43 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //       UtcTiming: { // DashUtcTiming
  * //         TimingMode: "HTTP_HEAD" || "HTTP_ISO" || "HTTP_XSDATE" || "UTC_DIRECT",
  * //         TimingSource: "STRING_VALUE",
+ * //       },
+ * //       Profiles: [ // DashProfiles
+ * //         "DVB_DASH",
+ * //       ],
+ * //       BaseUrls: [ // DashBaseUrls
+ * //         { // DashBaseUrl
+ * //           Url: "STRING_VALUE", // required
+ * //           ServiceLocation: "STRING_VALUE",
+ * //           DvbPriority: Number("int"),
+ * //           DvbWeight: Number("int"),
+ * //         },
+ * //       ],
+ * //       ProgramInformation: { // DashProgramInformation
+ * //         Title: "STRING_VALUE",
+ * //         Source: "STRING_VALUE",
+ * //         Copyright: "STRING_VALUE",
+ * //         LanguageCode: "STRING_VALUE",
+ * //         MoreInformationUrl: "STRING_VALUE",
+ * //       },
+ * //       DvbSettings: { // DashDvbSettings
+ * //         FontDownload: { // DashDvbFontDownload
+ * //           Url: "STRING_VALUE",
+ * //           MimeType: "STRING_VALUE",
+ * //           FontFamily: "STRING_VALUE",
+ * //         },
+ * //         ErrorMetrics: [ // DashDvbErrorMetrics
+ * //           { // DashDvbMetricsReporting
+ * //             ReportingUrl: "STRING_VALUE", // required
+ * //             Probability: Number("int"),
+ * //           },
+ * //         ],
+ * //       },
+ * //       Compactness: "STANDARD" || "NONE",
+ * //       SubtitleConfiguration: { // DashSubtitleConfiguration
+ * //         TtmlConfiguration: { // DashTtmlConfiguration
+ * //           TtmlProfile: "IMSC_1" || "EBU_TT_D_101", // required
+ * //         },
  * //       },
  * //     },
  * //   ],
@@ -533,7 +607,29 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *   ContainerType: "CMAF",
  *   DashManifests: [
  *     {
+ *       BaseUrls: [
+ *         {
+ *           DvbPriority: 1,
+ *           DvbWeight: 3,
+ *           ServiceLocation: "A",
+ *           Url: "http://example.com/"
+ *         }
+ *       ],
+ *       Compactness: "STANDARD",
  *       DrmSignaling: "INDIVIDUAL",
+ *       DvbSettings: {
+ *         ErrorMetrics: [
+ *           {
+ *             Probability: 500,
+ *             ReportingUrl: "https://example.com/dvb-errors/errors"
+ *           }
+ *         ],
+ *         FontDownload: {
+ *           FontFamily: "SubtitleDisplay",
+ *           MimeType: "application/font",
+ *           Url: "https://example.com/fonts/SubtitleDisplay.woff"
+ *         }
+ *       },
  *       ManifestName: "exampleDashManifest1",
  *       ManifestWindowSeconds: 300,
  *       MinBufferTimeSeconds: 30,
@@ -541,14 +637,50 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       PeriodTriggers: [
  *         "AVAILS"
  *       ],
+ *       Profiles: [
+ *         "DVB_DASH"
+ *       ],
+ *       ProgramInformation: {
+ *         Copyright: "(c) Example. All rights reserved",
+ *         LanguageCode: "en",
+ *         MoreInformationUrl: "https://example.com/more-information",
+ *         Source: "exampleSource",
+ *         Title: "exampleTitle"
+ *       },
  *       ScteDash: {
  *         AdMarkerDash: "XML"
  *       },
  *       SegmentTemplateFormat: "NUMBER_WITH_TIMELINE",
- *       SuggestedPresentationDelaySeconds: 2
+ *       SuggestedPresentationDelaySeconds: 2,
+ *       UtcTiming: {
+ *         TimingMode: "HTTP_HEAD",
+ *         TimingSource: "example"
+ *       }
  *     },
  *     {
+ *       BaseUrls: [
+ *         {
+ *           DvbPriority: 2,
+ *           DvbWeight: 2,
+ *           ServiceLocation: "B",
+ *           Url: "http://example2.com/"
+ *         }
+ *       ],
+ *       Compactness: "STANDARD",
  *       DrmSignaling: "INDIVIDUAL",
+ *       DvbSettings: {
+ *         ErrorMetrics: [
+ *           {
+ *             Probability: 600,
+ *             ReportingUrl: "https://example2.com/dvb-errors/errors"
+ *           }
+ *         ],
+ *         FontDownload: {
+ *           FontFamily: "SubtitleDisplay",
+ *           MimeType: "application/font",
+ *           Url: "https://example.com/fonts/SubtitleDisplay.woff"
+ *         }
+ *       },
  *       ManifestName: "exampleDashManifest2",
  *       ManifestWindowSeconds: 60,
  *       MinBufferTimeSeconds: 9,
@@ -559,11 +691,25 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *         "SOURCE_CHANGES",
  *         "SOURCE_DISRUPTIONS"
  *       ],
+ *       Profiles: [
+ *         "DVB_DASH"
+ *       ],
+ *       ProgramInformation: {
+ *         Copyright: "(c) Example. All rights reserved",
+ *         LanguageCode: "en",
+ *         MoreInformationUrl: "https://example2.com/more-information",
+ *         Source: "exampleSource2",
+ *         Title: "exampleTitle2"
+ *       },
  *       ScteDash: {
  *         AdMarkerDash: "XML"
  *       },
  *       SegmentTemplateFormat: "NUMBER_WITH_TIMELINE",
- *       SuggestedPresentationDelaySeconds: 12
+ *       SuggestedPresentationDelaySeconds: 12,
+ *       UtcTiming: {
+ *         TimingMode: "HTTP_HEAD",
+ *         TimingSource: "example"
+ *       }
  *     }
  *   ],
  *   ForceEndpointErrorConfiguration: {
@@ -663,7 +809,29 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *   CreatedAt: "2022-10-18T09:36:00.00Z",
  *   DashManifests: [
  *     {
+ *       BaseUrls: [
+ *         {
+ *           DvbPriority: 1,
+ *           DvbWeight: 3,
+ *           ServiceLocation: "A",
+ *           Url: "http://example.com/"
+ *         }
+ *       ],
+ *       Compactness: "STANDARD",
  *       DrmSignaling: "INDIVIDUAL",
+ *       DvbSettings: {
+ *         ErrorMetrics: [
+ *           {
+ *             Probability: 500,
+ *             ReportingUrl: "https://example.com/dvb-errors/errors"
+ *           }
+ *         ],
+ *         FontDownload: {
+ *           FontFamily: "SubtitleDisplay",
+ *           MimeType: "application/font",
+ *           Url: "https://example.com/fonts/SubtitleDisplay.woff"
+ *         }
+ *       },
  *       ManifestName: "exampleDashManifest1",
  *       ManifestWindowSeconds: 300,
  *       MinBufferTimeSeconds: 30,
@@ -671,15 +839,51 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       PeriodTriggers: [
  *         "AVAILS"
  *       ],
+ *       Profiles: [
+ *         "DVB_DASH"
+ *       ],
+ *       ProgramInformation: {
+ *         Copyright: "(c) Example. All rights reserved",
+ *         LanguageCode: "en",
+ *         MoreInformationUrl: "https://example.com/more-information",
+ *         Source: "exampleSource",
+ *         Title: "exampleTitle"
+ *       },
  *       ScteDash: {
  *         AdMarkerDash: "XML"
  *       },
  *       SegmentTemplateFormat: "NUMBER_WITH_TIMELINE",
  *       SuggestedPresentationDelaySeconds: 2,
- *       Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleDashManifest1.mpd"
+ *       Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleDashManifest1.mpd",
+ *       UtcTiming: {
+ *         TimingMode: "HTTP_HEAD",
+ *         TimingSource: "example"
+ *       }
  *     },
  *     {
+ *       BaseUrls: [
+ *         {
+ *           DvbPriority: 2,
+ *           DvbWeight: 2,
+ *           ServiceLocation: "B",
+ *           Url: "http://example2.com/"
+ *         }
+ *       ],
+ *       Compactness: "STANDARD",
  *       DrmSignaling: "INDIVIDUAL",
+ *       DvbSettings: {
+ *         ErrorMetrics: [
+ *           {
+ *             Probability: 600,
+ *             ReportingUrl: "https://example2.com/dvb-errors/errors"
+ *           }
+ *         ],
+ *         FontDownload: {
+ *           FontFamily: "SubtitleDisplay",
+ *           MimeType: "application/font",
+ *           Url: "https://example.com/fonts/SubtitleDisplay.woff"
+ *         }
+ *       },
  *       ManifestName: "exampleDashManifest2",
  *       ManifestWindowSeconds: 60,
  *       MinBufferTimeSeconds: 9,
@@ -690,12 +894,26 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *         "SOURCE_CHANGES",
  *         "SOURCE_DISRUPTIONS"
  *       ],
+ *       Profiles: [
+ *         "DVB_DASH"
+ *       ],
+ *       ProgramInformation: {
+ *         Copyright: "(c) Example. All rights reserved",
+ *         LanguageCode: "en",
+ *         MoreInformationUrl: "https://example2.com/more-information",
+ *         Source: "exampleSource2",
+ *         Title: "exampleTitle2"
+ *       },
  *       ScteDash: {
  *         AdMarkerDash: "XML"
  *       },
  *       SegmentTemplateFormat: "NUMBER_WITH_TIMELINE",
  *       SuggestedPresentationDelaySeconds: 12,
- *       Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleDashManifest2.mpd"
+ *       Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleDashManifest2.mpd",
+ *       UtcTiming: {
+ *         TimingMode: "HTTP_HEAD",
+ *         TimingSource: "example"
+ *       }
  *     }
  *   ],
  *   ETag: "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",

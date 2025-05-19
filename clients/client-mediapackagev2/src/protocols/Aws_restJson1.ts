@@ -98,7 +98,15 @@ import {
   CreateDashManifestConfiguration,
   CreateHlsManifestConfiguration,
   CreateLowLatencyHlsManifestConfiguration,
+  DashBaseUrl,
+  DashDvbFontDownload,
+  DashDvbMetricsReporting,
+  DashDvbSettings,
   DashPeriodTrigger,
+  DashProfile,
+  DashProgramInformation,
+  DashSubtitleConfiguration,
+  DashTtmlConfiguration,
   DashUtcTiming,
   Destination,
   DrmSystem,
@@ -1695,15 +1703,21 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_CreateDashManifestConfiguration = (input: CreateDashManifestConfiguration, context: __SerdeContext): any => {
   return take(input, {
+    BaseUrls: _json,
+    Compactness: [],
     DrmSignaling: [],
+    DvbSettings: _json,
     FilterConfiguration: (_) => se_FilterConfiguration(_, context),
     ManifestName: [],
     ManifestWindowSeconds: [],
     MinBufferTimeSeconds: [],
     MinUpdatePeriodSeconds: [],
     PeriodTriggers: _json,
+    Profiles: _json,
+    ProgramInformation: _json,
     ScteDash: _json,
     SegmentTemplateFormat: [],
+    SubtitleConfiguration: _json,
     SuggestedPresentationDelaySeconds: [],
     UtcTiming: _json,
   });
@@ -1780,7 +1794,27 @@ const se_CreateLowLatencyHlsManifests = (
     });
 };
 
+// se_DashBaseUrl omitted.
+
+// se_DashBaseUrls omitted.
+
+// se_DashDvbErrorMetrics omitted.
+
+// se_DashDvbFontDownload omitted.
+
+// se_DashDvbMetricsReporting omitted.
+
+// se_DashDvbSettings omitted.
+
 // se_DashPeriodTriggers omitted.
+
+// se_DashProfiles omitted.
+
+// se_DashProgramInformation omitted.
+
+// se_DashSubtitleConfiguration omitted.
+
+// se_DashTtmlConfiguration omitted.
 
 // se_DashUtcTiming omitted.
 
@@ -1917,7 +1951,27 @@ const de_ChannelListConfiguration = (output: any, context: __SerdeContext): Chan
   }) as any;
 };
 
+// de_DashBaseUrl omitted.
+
+// de_DashBaseUrls omitted.
+
+// de_DashDvbErrorMetrics omitted.
+
+// de_DashDvbFontDownload omitted.
+
+// de_DashDvbMetricsReporting omitted.
+
+// de_DashDvbSettings omitted.
+
 // de_DashPeriodTriggers omitted.
+
+// de_DashProfiles omitted.
+
+// de_DashProgramInformation omitted.
+
+// de_DashSubtitleConfiguration omitted.
+
+// de_DashTtmlConfiguration omitted.
 
 // de_DashUtcTiming omitted.
 
@@ -1953,15 +2007,21 @@ const de_FilterConfiguration = (output: any, context: __SerdeContext): FilterCon
  */
 const de_GetDashManifestConfiguration = (output: any, context: __SerdeContext): GetDashManifestConfiguration => {
   return take(output, {
+    BaseUrls: _json,
+    Compactness: __expectString,
     DrmSignaling: __expectString,
+    DvbSettings: _json,
     FilterConfiguration: (_: any) => de_FilterConfiguration(_, context),
     ManifestName: __expectString,
     ManifestWindowSeconds: __expectInt32,
     MinBufferTimeSeconds: __expectInt32,
     MinUpdatePeriodSeconds: __expectInt32,
     PeriodTriggers: _json,
+    Profiles: _json,
+    ProgramInformation: _json,
     ScteDash: _json,
     SegmentTemplateFormat: __expectString,
+    SubtitleConfiguration: _json,
     SuggestedPresentationDelaySeconds: __expectInt32,
     Url: __expectString,
     UtcTiming: _json,

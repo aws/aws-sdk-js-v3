@@ -232,6 +232,7 @@ export const ValidationExceptionType = {
   CENC_IV_INCOMPATIBLE: "CENC_IV_INCOMPATIBLE",
   CLIP_START_TIME_WITH_START_OR_END: "CLIP_START_TIME_WITH_START_OR_END",
   CONTAINER_TYPE_IMMUTABLE: "CONTAINER_TYPE_IMMUTABLE",
+  DASH_DVB_ATTRIBUTES_WITHOUT_DVB_DASH_PROFILE: "DASH_DVB_ATTRIBUTES_WITHOUT_DVB_DASH_PROFILE",
   DIRECT_MODE_WITH_TIMING_SOURCE: "DIRECT_MODE_WITH_TIMING_SOURCE",
   DRM_SIGNALING_MISMATCH_SEGMENT_ENCRYPTION_STATUS: "DRM_SIGNALING_MISMATCH_SEGMENT_ENCRYPTION_STATUS",
   DRM_SYSTEMS_ENCRYPTION_METHOD_INCOMPATIBLE: "DRM_SYSTEMS_ENCRYPTION_METHOD_INCOMPATIBLE",
@@ -246,6 +247,9 @@ export const ValidationExceptionType = {
   HARVEST_JOB_INELIGIBLE_FOR_CANCELLATION: "HARVEST_JOB_INELIGIBLE_FOR_CANCELLATION",
   HARVEST_JOB_S3_DESTINATION_MISSING_OR_INCOMPLETE: "HARVEST_JOB_S3_DESTINATION_MISSING_OR_INCOMPLETE",
   HARVEST_JOB_UNABLE_TO_WRITE_TO_S3_DESTINATION: "HARVEST_JOB_UNABLE_TO_WRITE_TO_S3_DESTINATION",
+  INCOMPATIBLE_DASH_COMPACTNESS_CONFIGURATION: "INCOMPATIBLE_DASH_COMPACTNESS_CONFIGURATION",
+  INCOMPATIBLE_DASH_PROFILE_DVB_DASH_CONFIGURATION: "INCOMPATIBLE_DASH_PROFILE_DVB_DASH_CONFIGURATION",
+  INCOMPATIBLE_XML_ENCODING: "INCOMPATIBLE_XML_ENCODING",
   INVALID_HARVEST_JOB_DURATION: "INVALID_HARVEST_JOB_DURATION",
   INVALID_MANIFEST_FILTER: "INVALID_MANIFEST_FILTER",
   INVALID_PAGINATION_MAX_RESULTS: "INVALID_PAGINATION_MAX_RESULTS",
@@ -933,6 +937,50 @@ export const ContainerType = {
 export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
 
 /**
+ * <p>The base URLs to use for retrieving segments. You can specify multiple locations and indicate the priority and weight for when each should be used, for use in mutli-CDN workflows.</p>
+ * @public
+ */
+export interface DashBaseUrl {
+  /**
+   * <p>A source location for segments.</p>
+   * @public
+   */
+  Url: string | undefined;
+
+  /**
+   * <p>The name of the source location.</p>
+   * @public
+   */
+  ServiceLocation?: string | undefined;
+
+  /**
+   * <p>For use with DVB-DASH profiles only. The priority of this location for servings segments. The lower the number, the higher the priority.</p>
+   * @public
+   */
+  DvbPriority?: number | undefined;
+
+  /**
+   * <p>For use with DVB-DASH profiles only. The weighting for source locations that have the same priority. </p>
+   * @public
+   */
+  DvbWeight?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DashCompactness = {
+  NONE: "NONE",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type DashCompactness = (typeof DashCompactness)[keyof typeof DashCompactness];
+
+/**
  * @public
  * @enum
  */
@@ -945,6 +993,67 @@ export const DashDrmSignaling = {
  * @public
  */
 export type DashDrmSignaling = (typeof DashDrmSignaling)[keyof typeof DashDrmSignaling];
+
+/**
+ * <p>For use with DVB-DASH profiles only. The settings for error reporting from the playback device that you want Elemental MediaPackage to pass through to the manifest.</p>
+ * @public
+ */
+export interface DashDvbMetricsReporting {
+  /**
+   * <p>The URL where playback devices send error reports.</p>
+   * @public
+   */
+  ReportingUrl: string | undefined;
+
+  /**
+   * <p>The number of playback devices per 1000 that will send error reports to the reporting URL. This represents the probability that a playback device will be a reporting player for this session.</p>
+   * @public
+   */
+  Probability?: number | undefined;
+}
+
+/**
+ * <p>For use with DVB-DASH profiles only. The settings for font downloads that you want Elemental MediaPackage to pass through to the manifest.</p>
+ * @public
+ */
+export interface DashDvbFontDownload {
+  /**
+   * <p>The URL for downloading fonts for subtitles.</p>
+   * @public
+   */
+  Url?: string | undefined;
+
+  /**
+   * <p>The <code>mimeType</code> of the resource that's at the font download URL.</p>
+   *          <p>For information about font MIME types, see the <a href="https://dvb.org/wp-content/uploads/2021/06/A168r4_MPEG-DASH-Profile-for-Transport-of-ISO-BMFF-Based-DVB-Services_Draft-ts_103-285-v140_November_2021.pdf">MPEG-DASH Profile for Transport of ISO BMFF Based DVB Services over IP Based Networks</a> document. </p>
+   * @public
+   */
+  MimeType?: string | undefined;
+
+  /**
+   * <p>The <code>fontFamily</code> name for subtitles, as described in <a href="https://tech.ebu.ch/publications/tech3380">EBU-TT-D Subtitling Distribution Format</a>. </p>
+   * @public
+   */
+  FontFamily?: string | undefined;
+}
+
+/**
+ * <p>For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.</p>
+ * @public
+ */
+export interface DashDvbSettings {
+  /**
+   * <p>Subtitle font settings.</p>
+   * @public
+   */
+  FontDownload?: DashDvbFontDownload | undefined;
+
+  /**
+   * <p>Playback device error reporting settings.</p>
+   * @public
+   */
+  ErrorMetrics?: DashDvbMetricsReporting[] | undefined;
+}
 
 /**
  * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
@@ -1000,6 +1109,55 @@ export const DashPeriodTrigger = {
 export type DashPeriodTrigger = (typeof DashPeriodTrigger)[keyof typeof DashPeriodTrigger];
 
 /**
+ * @public
+ * @enum
+ */
+export const DashProfile = {
+  DVB_DASH: "DVB_DASH",
+} as const;
+
+/**
+ * @public
+ */
+export type DashProfile = (typeof DashProfile)[keyof typeof DashProfile];
+
+/**
+ * <p>Details about the content that you want MediaPackage to pass through in the manifest to the playback device.</p>
+ * @public
+ */
+export interface DashProgramInformation {
+  /**
+   * <p>The title for the manifest.</p>
+   * @public
+   */
+  Title?: string | undefined;
+
+  /**
+   * <p>Information about the content provider.</p>
+   * @public
+   */
+  Source?: string | undefined;
+
+  /**
+   * <p>A copyright statement about the content.</p>
+   * @public
+   */
+  Copyright?: string | undefined;
+
+  /**
+   * <p>The language code for this manifest.</p>
+   * @public
+   */
+  LanguageCode?: string | undefined;
+
+  /**
+   * <p>An absolute URL that contains more information about this content.</p>
+   * @public
+   */
+  MoreInformationUrl?: string | undefined;
+}
+
+/**
  * <p>The SCTE configuration.</p>
  * @public
  */
@@ -1034,6 +1192,46 @@ export const DashSegmentTemplateFormat = {
  * @public
  */
 export type DashSegmentTemplateFormat = (typeof DashSegmentTemplateFormat)[keyof typeof DashSegmentTemplateFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashTtmlProfile = {
+  EBU_TT_D_101: "EBU_TT_D_101",
+  IMSC_1: "IMSC_1",
+} as const;
+
+/**
+ * @public
+ */
+export type DashTtmlProfile = (typeof DashTtmlProfile)[keyof typeof DashTtmlProfile];
+
+/**
+ * <p>The settings for TTML subtitles.</p>
+ * @public
+ */
+export interface DashTtmlConfiguration {
+  /**
+   * <p>The profile that MediaPackage uses when signaling subtitles in the manifest. <code>IMSC</code> is the default profile.
+   *          <code>EBU-TT-D</code> produces subtitles that are compliant with the EBU-TT-D TTML profile.
+   *          MediaPackage passes through subtitle styles to the manifest. For more information about EBU-TT-D subtitles, see <a href="https://tech.ebu.ch/publications/tech3380">EBU-TT-D Subtitling Distribution Format</a>.</p>
+   * @public
+   */
+  TtmlProfile: DashTtmlProfile | undefined;
+}
+
+/**
+ * <p>The configuration for DASH subtitles.</p>
+ * @public
+ */
+export interface DashSubtitleConfiguration {
+  /**
+   * <p>Settings for TTML subtitles.</p>
+   * @public
+   */
+  TtmlConfiguration?: DashTtmlConfiguration | undefined;
+}
 
 /**
  * @public
@@ -1147,6 +1345,43 @@ export interface CreateDashManifestConfiguration {
    * @public
    */
   UtcTiming?: DashUtcTiming | undefined;
+
+  /**
+   * <p>The profile that the output is compliant with.</p>
+   * @public
+   */
+  Profiles?: DashProfile[] | undefined;
+
+  /**
+   * <p>The base URLs to use for retrieving segments.</p>
+   * @public
+   */
+  BaseUrls?: DashBaseUrl[] | undefined;
+
+  /**
+   * <p>Details about the content that you want MediaPackage to pass through in the manifest to the playback device.</p>
+   * @public
+   */
+  ProgramInformation?: DashProgramInformation | undefined;
+
+  /**
+   * <p>For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.</p>
+   * @public
+   */
+  DvbSettings?: DashDvbSettings | undefined;
+
+  /**
+   * <p>The layout of the DASH manifest that MediaPackage produces. <code>STANDARD</code> indicates a default manifest, which is compacted. <code>NONE</code> indicates a full manifest.</p>
+   *          <p>For information about compactness, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/compacted.html">DASH manifest compactness</a> in the <i>Elemental MediaPackage v2 User Guide</i>.</p>
+   * @public
+   */
+  Compactness?: DashCompactness | undefined;
+
+  /**
+   * <p>The configuration for DASH subtitles.</p>
+   * @public
+   */
+  SubtitleConfiguration?: DashSubtitleConfiguration | undefined;
 }
 
 /**
@@ -1871,6 +2106,42 @@ export interface GetDashManifestConfiguration {
    * @public
    */
   UtcTiming?: DashUtcTiming | undefined;
+
+  /**
+   * <p>The profile that the output is compliant with.</p>
+   * @public
+   */
+  Profiles?: DashProfile[] | undefined;
+
+  /**
+   * <p>The base URL to use for retrieving segments.</p>
+   * @public
+   */
+  BaseUrls?: DashBaseUrl[] | undefined;
+
+  /**
+   * <p>Details about the content that you want MediaPackage to pass through in the manifest to the playback device.</p>
+   * @public
+   */
+  ProgramInformation?: DashProgramInformation | undefined;
+
+  /**
+   * <p>For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.</p>
+   * @public
+   */
+  DvbSettings?: DashDvbSettings | undefined;
+
+  /**
+   * <p>The layout of the DASH manifest that MediaPackage produces. <code>STANDARD</code> indicates a default manifest, which is compacted. <code>NONE</code> indicates a full manifest.</p>
+   * @public
+   */
+  Compactness?: DashCompactness | undefined;
+
+  /**
+   * <p>The configuration for DASH subtitles.</p>
+   * @public
+   */
+  SubtitleConfiguration?: DashSubtitleConfiguration | undefined;
 }
 
 /**

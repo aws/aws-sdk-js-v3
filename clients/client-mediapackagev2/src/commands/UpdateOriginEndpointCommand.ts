@@ -147,6 +147,43 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *         TimingMode: "HTTP_HEAD" || "HTTP_ISO" || "HTTP_XSDATE" || "UTC_DIRECT",
  *         TimingSource: "STRING_VALUE",
  *       },
+ *       Profiles: [ // DashProfiles
+ *         "DVB_DASH",
+ *       ],
+ *       BaseUrls: [ // DashBaseUrls
+ *         { // DashBaseUrl
+ *           Url: "STRING_VALUE", // required
+ *           ServiceLocation: "STRING_VALUE",
+ *           DvbPriority: Number("int"),
+ *           DvbWeight: Number("int"),
+ *         },
+ *       ],
+ *       ProgramInformation: { // DashProgramInformation
+ *         Title: "STRING_VALUE",
+ *         Source: "STRING_VALUE",
+ *         Copyright: "STRING_VALUE",
+ *         LanguageCode: "STRING_VALUE",
+ *         MoreInformationUrl: "STRING_VALUE",
+ *       },
+ *       DvbSettings: { // DashDvbSettings
+ *         FontDownload: { // DashDvbFontDownload
+ *           Url: "STRING_VALUE",
+ *           MimeType: "STRING_VALUE",
+ *           FontFamily: "STRING_VALUE",
+ *         },
+ *         ErrorMetrics: [ // DashDvbErrorMetrics
+ *           { // DashDvbMetricsReporting
+ *             ReportingUrl: "STRING_VALUE", // required
+ *             Probability: Number("int"),
+ *           },
+ *         ],
+ *       },
+ *       Compactness: "STANDARD" || "NONE",
+ *       SubtitleConfiguration: { // DashSubtitleConfiguration
+ *         TtmlConfiguration: { // DashTtmlConfiguration
+ *           TtmlProfile: "IMSC_1" || "EBU_TT_D_101", // required
+ *         },
+ *       },
  *     },
  *   ],
  *   ForceEndpointErrorConfiguration: { // ForceEndpointErrorConfiguration
@@ -283,6 +320,43 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //       UtcTiming: { // DashUtcTiming
  * //         TimingMode: "HTTP_HEAD" || "HTTP_ISO" || "HTTP_XSDATE" || "UTC_DIRECT",
  * //         TimingSource: "STRING_VALUE",
+ * //       },
+ * //       Profiles: [ // DashProfiles
+ * //         "DVB_DASH",
+ * //       ],
+ * //       BaseUrls: [ // DashBaseUrls
+ * //         { // DashBaseUrl
+ * //           Url: "STRING_VALUE", // required
+ * //           ServiceLocation: "STRING_VALUE",
+ * //           DvbPriority: Number("int"),
+ * //           DvbWeight: Number("int"),
+ * //         },
+ * //       ],
+ * //       ProgramInformation: { // DashProgramInformation
+ * //         Title: "STRING_VALUE",
+ * //         Source: "STRING_VALUE",
+ * //         Copyright: "STRING_VALUE",
+ * //         LanguageCode: "STRING_VALUE",
+ * //         MoreInformationUrl: "STRING_VALUE",
+ * //       },
+ * //       DvbSettings: { // DashDvbSettings
+ * //         FontDownload: { // DashDvbFontDownload
+ * //           Url: "STRING_VALUE",
+ * //           MimeType: "STRING_VALUE",
+ * //           FontFamily: "STRING_VALUE",
+ * //         },
+ * //         ErrorMetrics: [ // DashDvbErrorMetrics
+ * //           { // DashDvbMetricsReporting
+ * //             ReportingUrl: "STRING_VALUE", // required
+ * //             Probability: Number("int"),
+ * //           },
+ * //         ],
+ * //       },
+ * //       Compactness: "STANDARD" || "NONE",
+ * //       SubtitleConfiguration: { // DashSubtitleConfiguration
+ * //         TtmlConfiguration: { // DashTtmlConfiguration
+ * //           TtmlProfile: "IMSC_1" || "EBU_TT_D_101", // required
+ * //         },
  * //       },
  * //     },
  * //   ],
