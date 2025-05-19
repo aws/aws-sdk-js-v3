@@ -20,11 +20,11 @@ import {
   IamInstanceProfileSpecification,
   InstanceEventWindow,
   Ipv6SupportValue,
-  PortRange,
-  RouteTableAssociationState,
   SecurityGroupReferencingSupportValue,
   Tag,
   TagSpecification,
+  TransitGatewayAssociationState,
+  TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
@@ -77,15 +77,12 @@ import {
   DefaultRouteTableAssociationValue,
   DefaultRouteTablePropagationValue,
   DnsOptionsSpecification,
-  IcmpTypeCode,
   InternetGatewayExclusionMode,
   IpAddressType,
   LocalGatewayRoute,
   ManagedPrefixList,
-  PayerResponsibility,
   RouteServer,
   RouteServerPersistRoutesAction,
-  RuleAction,
   SubnetConfiguration,
   TrafficDirection,
   TrafficMirrorFilter,
@@ -96,7 +93,6 @@ import {
   TrafficMirrorSession,
   TransitGateway,
   TransitGatewayPrefixListReference,
-  TransitGatewayRoute,
   VerifiedAccessEndpoint,
   VerifiedAccessEndpointProtocol,
   VerifiedAccessGroup,
@@ -108,9 +104,11 @@ import {
 import {
   Byoasn,
   CapacityBlockExtension,
+  Filter,
   IKEVersionsRequestListValue,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
+  PayerResponsibility,
   Phase1DHGroupNumbersRequestListValue,
   Phase1EncryptionAlgorithmsRequestListValue,
   Phase1IntegrityAlgorithmsRequestListValue,
@@ -169,8 +167,343 @@ import {
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
+  TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayPrefixListReferencesResult {
+  /**
+   * <p>Information about the prefix list references.</p>
+   * @public
+   */
+  TransitGatewayPrefixListReferences?: TransitGatewayPrefixListReference[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayRouteTableAssociationsRequest {
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   * @public
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code> - The ID of the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-type</code> - The resource type. Valid values are <code>vpc</code>
+   *                     | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>
+   *                     | <code>connect</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes an association between a route table and a resource attachment.</p>
+ * @public
+ */
+export interface TransitGatewayRouteTableAssociation {
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The ID of the resource.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
+   * @public
+   */
+  ResourceType?: TransitGatewayAttachmentResourceType | undefined;
+
+  /**
+   * <p>The state of the association.</p>
+   * @public
+   */
+  State?: TransitGatewayAssociationState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayRouteTableAssociationsResult {
+  /**
+   * <p>Information about the associations.</p>
+   * @public
+   */
+  Associations?: TransitGatewayRouteTableAssociation[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayRouteTablePropagationsRequest {
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   * @public
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code> - The ID of the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-type</code> - The resource type. Valid values are <code>vpc</code>
+   *                     | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>
+   *                     | <code>connect</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a route table propagation.</p>
+ * @public
+ */
+export interface TransitGatewayRouteTablePropagation {
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The ID of the resource.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The type of resource. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
+   * @public
+   */
+  ResourceType?: TransitGatewayAttachmentResourceType | undefined;
+
+  /**
+   * <p>The state of the resource.</p>
+   * @public
+   */
+  State?: TransitGatewayPropagationState | undefined;
+
+  /**
+   * <p>The ID of the transit gateway route table announcement.</p>
+   * @public
+   */
+  TransitGatewayRouteTableAnnouncementId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayRouteTablePropagationsResult {
+  /**
+   * <p>Information about the route table propagations.</p>
+   * @public
+   */
+  TransitGatewayRouteTablePropagations?: TransitGatewayRouteTablePropagation[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVerifiedAccessEndpointPolicyRequest {
+  /**
+   * <p>The ID of the Verified Access endpoint.</p>
+   * @public
+   */
+  VerifiedAccessEndpointId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVerifiedAccessEndpointPolicyResult {
+  /**
+   * <p>The status of the Verified Access policy.</p>
+   * @public
+   */
+  PolicyEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Verified Access policy document.</p>
+   * @public
+   */
+  PolicyDocument?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVerifiedAccessEndpointTargetsRequest {
+  /**
+   * <p>The ID of the network CIDR endpoint.</p>
+   * @public
+   */
+  VerifiedAccessEndpointId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the targets for the specified Verified Access endpoint.</p>
+ * @public
+ */
+export interface VerifiedAccessEndpointTarget {
+  /**
+   * <p>The ID of the Verified Access endpoint.</p>
+   * @public
+   */
+  VerifiedAccessEndpointId?: string | undefined;
+
+  /**
+   * <p>The IP address of the target.</p>
+   * @public
+   */
+  VerifiedAccessEndpointTargetIpAddress?: string | undefined;
+
+  /**
+   * <p>The DNS name of the target.</p>
+   * @public
+   */
+  VerifiedAccessEndpointTargetDns?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVerifiedAccessEndpointTargetsResult {
+  /**
+   * <p>The Verified Access targets.</p>
+   * @public
+   */
+  VerifiedAccessEndpointTargets?: VerifiedAccessEndpointTarget[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -8955,465 +9288,6 @@ export interface ReplaceNetworkAclAssociationRequest {
 }
 
 /**
- * @public
- */
-export interface ReplaceNetworkAclAssociationResult {
-  /**
-   * <p>The ID of the new association.</p>
-   * @public
-   */
-  NewAssociationId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceNetworkAclEntryRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the ACL.</p>
-   * @public
-   */
-  NetworkAclId: string | undefined;
-
-  /**
-   * <p>The rule number of the entry to replace.</p>
-   * @public
-   */
-  RuleNumber: number | undefined;
-
-  /**
-   * <p>The protocol number. A value of "-1" means all protocols. If you specify "-1" or a
-   *            protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is
-   *            allowed, regardless of any ports or ICMP types or codes that you specify. If you specify
-   *            protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and
-   *            codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6)
-   *            and specify an IPv6 CIDR block, you must specify an ICMP type and code.</p>
-   * @public
-   */
-  Protocol: string | undefined;
-
-  /**
-   * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
-   * @public
-   */
-  RuleAction: RuleAction | undefined;
-
-  /**
-   * <p>Indicates whether to replace the egress rule.</p>
-   *          <p>Default: If no value is specified, we replace the ingress rule.</p>
-   * @public
-   */
-  Egress: boolean | undefined;
-
-  /**
-   * <p>The IPv4 network range to allow or deny, in CIDR notation (for example
-   *                 <code>172.16.0.0/24</code>).</p>
-   * @public
-   */
-  CidrBlock?: string | undefined;
-
-  /**
-   * <p>The IPv6 network range to allow or deny, in CIDR notation (for example
-   *                 <code>2001:bd8:1234:1a00::/64</code>).</p>
-   * @public
-   */
-  Ipv6CidrBlock?: string | undefined;
-
-  /**
-   * <p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol
-   * 		        1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>
-   * @public
-   */
-  IcmpTypeCode?: IcmpTypeCode | undefined;
-
-  /**
-   * <p>TCP or UDP protocols: The range of ports the rule applies to.
-   * 		        Required if specifying protocol 6 (TCP) or 17 (UDP).</p>
-   * @public
-   */
-  PortRange?: PortRange | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceRouteRequest {
-  /**
-   * <p>The ID of the prefix list for the route.</p>
-   * @public
-   */
-  DestinationPrefixListId?: string | undefined;
-
-  /**
-   * <p>The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.</p>
-   * @public
-   */
-  VpcEndpointId?: string | undefined;
-
-  /**
-   * <p>Specifies whether to reset the local route to its default target (<code>local</code>).</p>
-   * @public
-   */
-  LocalTarget?: boolean | undefined;
-
-  /**
-   * <p>The ID of a transit gateway.</p>
-   * @public
-   */
-  TransitGatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of the local gateway.</p>
-   * @public
-   */
-  LocalGatewayId?: string | undefined;
-
-  /**
-   * <p>[IPv4 traffic only] The ID of a carrier gateway.</p>
-   * @public
-   */
-  CarrierGatewayId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the core network.</p>
-   * @public
-   */
-  CoreNetworkArn?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the route table.</p>
-   * @public
-   */
-  RouteTableId: string | undefined;
-
-  /**
-   * <p>The IPv4 CIDR address block used for the destination match. The value that you
-   * 			provide must match the CIDR of an existing route in the table.</p>
-   * @public
-   */
-  DestinationCidrBlock?: string | undefined;
-
-  /**
-   * <p>The ID of an internet gateway or virtual private gateway.</p>
-   * @public
-   */
-  GatewayId?: string | undefined;
-
-  /**
-   * <p>The IPv6 CIDR address block used for the destination match. The value that you
-   * 			provide must match the CIDR of an existing route in the table.</p>
-   * @public
-   */
-  DestinationIpv6CidrBlock?: string | undefined;
-
-  /**
-   * <p>[IPv6 traffic only] The ID of an egress-only internet gateway.</p>
-   * @public
-   */
-  EgressOnlyInternetGatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of a NAT instance in your VPC.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The ID of a network interface.</p>
-   * @public
-   */
-  NetworkInterfaceId?: string | undefined;
-
-  /**
-   * <p>The ID of a VPC peering connection.</p>
-   * @public
-   */
-  VpcPeeringConnectionId?: string | undefined;
-
-  /**
-   * <p>[IPv4 traffic only] The ID of a NAT gateway.</p>
-   * @public
-   */
-  NatGatewayId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceRouteTableAssociationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The association ID.</p>
-   * @public
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>The ID of the new route table to associate with the subnet.</p>
-   * @public
-   */
-  RouteTableId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceRouteTableAssociationResult {
-  /**
-   * <p>The ID of the new association.</p>
-   * @public
-   */
-  NewAssociationId?: string | undefined;
-
-  /**
-   * <p>The state of the association.</p>
-   * @public
-   */
-  AssociationState?: RouteTableAssociationState | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceTransitGatewayRouteRequest {
-  /**
-   * <p>The CIDR range used for the destination match. Routing decisions are based on the most specific match.</p>
-   * @public
-   */
-  DestinationCidrBlock: string | undefined;
-
-  /**
-   * <p>The ID of the route table.</p>
-   * @public
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>The ID of the attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId?: string | undefined;
-
-  /**
-   * <p>Indicates whether traffic matching this route is to be dropped.</p>
-   * @public
-   */
-  Blackhole?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceTransitGatewayRouteResult {
-  /**
-   * <p>Information about the modified route.</p>
-   * @public
-   */
-  Route?: TransitGatewayRoute | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceVpnTunnelRequest {
-  /**
-   * <p>The ID of the Site-to-Site VPN connection. </p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The external IP address of the VPN tunnel.</p>
-   * @public
-   */
-  VpnTunnelOutsideIpAddress: string | undefined;
-
-  /**
-   * <p>Trigger pending tunnel endpoint maintenance.</p>
-   * @public
-   */
-  ApplyPendingMaintenance?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceVpnTunnelResult {
-  /**
-   * <p>Confirmation of replace tunnel operation.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ReportInstanceReasonCodes = {
-  instance_stuck_in_state: "instance-stuck-in-state",
-  not_accepting_credentials: "not-accepting-credentials",
-  other: "other",
-  password_not_available: "password-not-available",
-  performance_ebs_volume: "performance-ebs-volume",
-  performance_instance_store: "performance-instance-store",
-  performance_network: "performance-network",
-  performance_other: "performance-other",
-  unresponsive: "unresponsive",
-} as const;
-
-/**
- * @public
- */
-export type ReportInstanceReasonCodes = (typeof ReportInstanceReasonCodes)[keyof typeof ReportInstanceReasonCodes];
-
-/**
- * @public
- * @enum
- */
-export const ReportStatusType = {
-  impaired: "impaired",
-  ok: "ok",
-} as const;
-
-/**
- * @public
- */
-export type ReportStatusType = (typeof ReportStatusType)[keyof typeof ReportStatusType];
-
-/**
- * @public
- */
-export interface ReportInstanceStatusRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The instances.</p>
-   * @public
-   */
-  Instances: string[] | undefined;
-
-  /**
-   * <p>The status of all instances listed.</p>
-   * @public
-   */
-  Status: ReportStatusType | undefined;
-
-  /**
-   * <p>The time at which the reported instance health state began.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The time at which the reported instance health state ended.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>The reason codes that describe the health state of your instance.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-stuck-in-state</code>: My instance is stuck in a state.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unresponsive</code>: My instance is unresponsive.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>not-accepting-credentials</code>: My instance is not accepting my
-   *                     credentials.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>password-not-available</code>: A password is not available for my
-   *                     instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>performance-network</code>: My instance is experiencing performance
-   *                     problems that I believe are network related.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>performance-instance-store</code>: My instance is experiencing performance
-   *                     problems that I believe are related to the instance stores.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>performance-ebs-volume</code>: My instance is experiencing performance
-   *                     problems that I believe are related to an EBS volume.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>performance-other</code>: My instance is experiencing performance
-   *                     problems.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>other</code>: [explain using the description parameter]</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ReasonCodes: ReportInstanceReasonCodes[] | undefined;
-
-  /**
-   * <p>Descriptive text about the health state of your instance.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog = (
@@ -9638,12 +9512,4 @@ export const ModifyVpnTunnelOptionsRequestFilterSensitiveLog = (obj: ModifyVpnTu
 export const ModifyVpnTunnelOptionsResultFilterSensitiveLog = (obj: ModifyVpnTunnelOptionsResult): any => ({
   ...obj,
   ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
-});
-
-/**
- * @internal
- */
-export const ReportInstanceStatusRequestFilterSensitiveLog = (obj: ReportInstanceStatusRequest): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
 });

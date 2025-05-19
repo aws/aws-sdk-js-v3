@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetTransitGatewayRouteTablePropagationsRequest,
   GetTransitGatewayRouteTablePropagationsResult,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   de_GetTransitGatewayRouteTablePropagationsCommand,
   se_GetTransitGatewayRouteTablePropagationsCommand,

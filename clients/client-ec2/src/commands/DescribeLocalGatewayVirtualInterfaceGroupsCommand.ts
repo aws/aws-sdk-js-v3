@@ -6,8 +6,10 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeLocalGatewayVirtualInterfaceGroupsRequest } from "../models/models_4";
-import { DescribeLocalGatewayVirtualInterfaceGroupsResult } from "../models/models_5";
+import {
+  DescribeLocalGatewayVirtualInterfaceGroupsRequest,
+  DescribeLocalGatewayVirtualInterfaceGroupsResult,
+} from "../models/models_5";
 import {
   de_DescribeLocalGatewayVirtualInterfaceGroupsCommand,
   se_DescribeLocalGatewayVirtualInterfaceGroupsCommand,

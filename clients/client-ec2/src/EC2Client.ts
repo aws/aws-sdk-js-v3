@@ -289,6 +289,10 @@ import {
   CreateDefaultSubnetCommandOutput,
 } from "./commands/CreateDefaultSubnetCommand";
 import { CreateDefaultVpcCommandInput, CreateDefaultVpcCommandOutput } from "./commands/CreateDefaultVpcCommand";
+import {
+  CreateDelegateMacVolumeOwnershipTaskCommandInput,
+  CreateDelegateMacVolumeOwnershipTaskCommandOutput,
+} from "./commands/CreateDelegateMacVolumeOwnershipTaskCommand";
 import { CreateDhcpOptionsCommandInput, CreateDhcpOptionsCommandOutput } from "./commands/CreateDhcpOptionsCommand";
 import {
   CreateEgressOnlyInternetGatewayCommandInput,
@@ -358,6 +362,10 @@ import {
   CreateLocalGatewayVirtualInterfaceGroupCommandInput,
   CreateLocalGatewayVirtualInterfaceGroupCommandOutput,
 } from "./commands/CreateLocalGatewayVirtualInterfaceGroupCommand";
+import {
+  CreateMacSystemIntegrityProtectionModificationTaskCommandInput,
+  CreateMacSystemIntegrityProtectionModificationTaskCommandOutput,
+} from "./commands/CreateMacSystemIntegrityProtectionModificationTaskCommand";
 import {
   CreateManagedPrefixListCommandInput,
   CreateManagedPrefixListCommandOutput,
@@ -1095,6 +1103,10 @@ import {
   DescribeLockedSnapshotsCommandOutput,
 } from "./commands/DescribeLockedSnapshotsCommand";
 import { DescribeMacHostsCommandInput, DescribeMacHostsCommandOutput } from "./commands/DescribeMacHostsCommand";
+import {
+  DescribeMacModificationTasksCommandInput,
+  DescribeMacModificationTasksCommandOutput,
+} from "./commands/DescribeMacModificationTasksCommand";
 import {
   DescribeManagedPrefixListsCommandInput,
   DescribeManagedPrefixListsCommandOutput,
@@ -2470,6 +2482,7 @@ export type ServiceInputTypes =
   | CreateCustomerGatewayCommandInput
   | CreateDefaultSubnetCommandInput
   | CreateDefaultVpcCommandInput
+  | CreateDelegateMacVolumeOwnershipTaskCommandInput
   | CreateDhcpOptionsCommandInput
   | CreateEgressOnlyInternetGatewayCommandInput
   | CreateFleetCommandInput
@@ -2494,6 +2507,7 @@ export type ServiceInputTypes =
   | CreateLocalGatewayRouteTableVpcAssociationCommandInput
   | CreateLocalGatewayVirtualInterfaceCommandInput
   | CreateLocalGatewayVirtualInterfaceGroupCommandInput
+  | CreateMacSystemIntegrityProtectionModificationTaskCommandInput
   | CreateManagedPrefixListCommandInput
   | CreateNatGatewayCommandInput
   | CreateNetworkAclCommandInput
@@ -2718,6 +2732,7 @@ export type ServiceInputTypes =
   | DescribeLocalGatewaysCommandInput
   | DescribeLockedSnapshotsCommandInput
   | DescribeMacHostsCommandInput
+  | DescribeMacModificationTasksCommandInput
   | DescribeManagedPrefixListsCommandInput
   | DescribeMovingAddressesCommandInput
   | DescribeNatGatewaysCommandInput
@@ -3156,6 +3171,7 @@ export type ServiceOutputTypes =
   | CreateCustomerGatewayCommandOutput
   | CreateDefaultSubnetCommandOutput
   | CreateDefaultVpcCommandOutput
+  | CreateDelegateMacVolumeOwnershipTaskCommandOutput
   | CreateDhcpOptionsCommandOutput
   | CreateEgressOnlyInternetGatewayCommandOutput
   | CreateFleetCommandOutput
@@ -3180,6 +3196,7 @@ export type ServiceOutputTypes =
   | CreateLocalGatewayRouteTableVpcAssociationCommandOutput
   | CreateLocalGatewayVirtualInterfaceCommandOutput
   | CreateLocalGatewayVirtualInterfaceGroupCommandOutput
+  | CreateMacSystemIntegrityProtectionModificationTaskCommandOutput
   | CreateManagedPrefixListCommandOutput
   | CreateNatGatewayCommandOutput
   | CreateNetworkAclCommandOutput
@@ -3404,6 +3421,7 @@ export type ServiceOutputTypes =
   | DescribeLocalGatewaysCommandOutput
   | DescribeLockedSnapshotsCommandOutput
   | DescribeMacHostsCommandOutput
+  | DescribeMacModificationTasksCommandOutput
   | DescribeManagedPrefixListsCommandOutput
   | DescribeMovingAddressesCommandOutput
   | DescribeNatGatewaysCommandOutput

@@ -30,7 +30,6 @@ import {
   CapacityReservation,
   CapacityReservationTenancy,
   CarrierGateway,
-  ClientVpnAuthenticationType,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipCidr,
@@ -49,6 +48,7 @@ import {
 } from "./models_1";
 
 import {
+  ConnectionNotificationState,
   GroupIdentifier,
   LocalGatewayRoute,
   LocalGatewayRouteTable,
@@ -57,13 +57,9 @@ import {
   LocalGatewayVirtualInterface,
   LocalGatewayVirtualInterfaceGroup,
   ManagedPrefixList,
-  PayerResponsibility,
-  PrivateDnsNameConfiguration,
   RouteServer,
   RouteServerEndpoint,
   RouteServerPeer,
-  ServiceState,
-  ServiceTypeDetail,
   SubnetCidrReservation,
   TransitGateway,
   TransitGatewayConnect,
@@ -78,6 +74,262 @@ import {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionNotificationType = {
+  Topic: "Topic",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionNotificationType = (typeof ConnectionNotificationType)[keyof typeof ConnectionNotificationType];
+
+/**
+ * <p>Describes a connection notification for a VPC endpoint or VPC endpoint
+ *             service.</p>
+ * @public
+ */
+export interface ConnectionNotification {
+  /**
+   * <p>The ID of the notification.</p>
+   * @public
+   */
+  ConnectionNotificationId?: string | undefined;
+
+  /**
+   * <p>The ID of the endpoint service.</p>
+   * @public
+   */
+  ServiceId?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC endpoint.</p>
+   * @public
+   */
+  VpcEndpointId?: string | undefined;
+
+  /**
+   * <p>The type of notification.</p>
+   * @public
+   */
+  ConnectionNotificationType?: ConnectionNotificationType | undefined;
+
+  /**
+   * <p>The ARN of the SNS topic for the notification.</p>
+   * @public
+   */
+  ConnectionNotificationArn?: string | undefined;
+
+  /**
+   * <p>The events for the notification. Valid values are <code>Accept</code>,
+   *             <code>Connect</code>, <code>Delete</code>, and <code>Reject</code>.</p>
+   * @public
+   */
+  ConnectionEvents?: string[] | undefined;
+
+  /**
+   * <p>The state of the notification.</p>
+   * @public
+   */
+  ConnectionNotificationState?: ConnectionNotificationState | undefined;
+
+  /**
+   * <p>The Region for the endpoint service.</p>
+   * @public
+   */
+  ServiceRegion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcEndpointConnectionNotificationResult {
+  /**
+   * <p>Information about the notification.</p>
+   * @public
+   */
+  ConnectionNotification?: ConnectionNotification | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcEndpointServiceConfigurationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether requests from service consumers to create an endpoint to your service must
+   *             be accepted manually.</p>
+   * @public
+   */
+  AcceptanceRequired?: boolean | undefined;
+
+  /**
+   * <p>(Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.</p>
+   * @public
+   */
+  PrivateDnsName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the Network Load Balancers.</p>
+   * @public
+   */
+  NetworkLoadBalancerArns?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers.</p>
+   * @public
+   */
+  GatewayLoadBalancerArns?: string[] | undefined;
+
+  /**
+   * <p>The supported IP address types. The possible values are <code>ipv4</code> and <code>ipv6</code>.</p>
+   * @public
+   */
+  SupportedIpAddressTypes?: string[] | undefined;
+
+  /**
+   * <p>The Regions from which service consumers can access the service.</p>
+   * @public
+   */
+  SupportedRegions?: string[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *             For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure
+   *                 idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The tags to associate with the service.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PayerResponsibility = {
+  ServiceOwner: "ServiceOwner",
+} as const;
+
+/**
+ * @public
+ */
+export type PayerResponsibility = (typeof PayerResponsibility)[keyof typeof PayerResponsibility];
+
+/**
+ * @public
+ * @enum
+ */
+export const DnsNameState = {
+  Failed: "failed",
+  PendingVerification: "pendingVerification",
+  Verified: "verified",
+} as const;
+
+/**
+ * @public
+ */
+export type DnsNameState = (typeof DnsNameState)[keyof typeof DnsNameState];
+
+/**
+ * <p>Information about the private DNS name for the service endpoint.</p>
+ * @public
+ */
+export interface PrivateDnsNameConfiguration {
+  /**
+   * <p>The verification state of the VPC endpoint service.</p>
+   *          <p>>Consumers
+   *             of the endpoint service can use the private name only when the state is
+   *                 <code>verified</code>.</p>
+   * @public
+   */
+  State?: DnsNameState | undefined;
+
+  /**
+   * <p>The endpoint service verification type, for example TXT.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The value the service provider adds to the private DNS name domain record before verification.</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>The name of the record subdomain the service provider needs to create. The service provider adds the <code>value</code> text to the <code>name</code>.</p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceState = {
+  Available: "Available",
+  Deleted: "Deleted",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Pending: "Pending",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceState = (typeof ServiceState)[keyof typeof ServiceState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceType = {
+  Gateway: "Gateway",
+  GatewayLoadBalancer: "GatewayLoadBalancer",
+  Interface: "Interface",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];
+
+/**
+ * <p>Describes the type of service for a VPC endpoint.</p>
+ * @public
+ */
+export interface ServiceTypeDetail {
+  /**
+   * <p>The type of service.</p>
+   * @public
+   */
+  ServiceType?: ServiceType | undefined;
+}
 
 /**
  * @public
@@ -7311,194 +7563,6 @@ export const AssociatedNetworkType = {
  * @public
  */
 export type AssociatedNetworkType = (typeof AssociatedNetworkType)[keyof typeof AssociatedNetworkType];
-
-/**
- * <p>Describes a target network that is associated with a Client VPN endpoint. A target network is a subnet in a VPC.</p>
- * @public
- */
-export interface AssociatedTargetNetwork {
-  /**
-   * <p>The ID of the subnet.</p>
-   * @public
-   */
-  NetworkId?: string | undefined;
-
-  /**
-   * <p>The target network type.</p>
-   * @public
-   */
-  NetworkType?: AssociatedNetworkType | undefined;
-}
-
-/**
- * <p>Describes an Active Directory.</p>
- * @public
- */
-export interface DirectoryServiceAuthentication {
-  /**
-   * <p>The ID of the Active Directory used for authentication.</p>
-   * @public
-   */
-  DirectoryId?: string | undefined;
-}
-
-/**
- * <p>Describes the IAM SAML identity providers used for federated authentication.</p>
- * @public
- */
-export interface FederatedAuthentication {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>
-   * @public
-   */
-  SamlProviderArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.</p>
-   * @public
-   */
-  SelfServiceSamlProviderArn?: string | undefined;
-}
-
-/**
- * <p>Information about the client certificate used for authentication.</p>
- * @public
- */
-export interface CertificateAuthentication {
-  /**
-   * <p>The ARN of the client certificate. </p>
-   * @public
-   */
-  ClientRootCertificateChain?: string | undefined;
-}
-
-/**
- * <p>Describes the authentication methods used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html">Authentication</a>
- * 			in the <i>Client VPN Administrator Guide</i>.</p>
- * @public
- */
-export interface ClientVpnAuthentication {
-  /**
-   * <p>The authentication type used.</p>
-   * @public
-   */
-  Type?: ClientVpnAuthenticationType | undefined;
-
-  /**
-   * <p>Information about the Active Directory, if applicable.</p>
-   * @public
-   */
-  ActiveDirectory?: DirectoryServiceAuthentication | undefined;
-
-  /**
-   * <p>Information about the authentication certificates, if applicable.</p>
-   * @public
-   */
-  MutualAuthentication?: CertificateAuthentication | undefined;
-
-  /**
-   * <p>Information about the IAM SAML identity provider, if applicable.</p>
-   * @public
-   */
-  FederatedAuthentication?: FederatedAuthentication | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ClientVpnEndpointAttributeStatusCode = {
-  applied: "applied",
-  applying: "applying",
-} as const;
-
-/**
- * @public
- */
-export type ClientVpnEndpointAttributeStatusCode =
-  (typeof ClientVpnEndpointAttributeStatusCode)[keyof typeof ClientVpnEndpointAttributeStatusCode];
-
-/**
- * <p>Describes the status of the Client VPN endpoint attribute.</p>
- * @public
- */
-export interface ClientVpnEndpointAttributeStatus {
-  /**
-   * <p>The status code.</p>
-   * @public
-   */
-  Code?: ClientVpnEndpointAttributeStatusCode | undefined;
-
-  /**
-   * <p>The status message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>The options for managing connection authorization for new client connections.</p>
- * @public
- */
-export interface ClientConnectResponseOptions {
-  /**
-   * <p>Indicates whether client connect options are enabled.</p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.</p>
-   * @public
-   */
-  LambdaFunctionArn?: string | undefined;
-
-  /**
-   * <p>The status of any updates to the client connect options.</p>
-   * @public
-   */
-  Status?: ClientVpnEndpointAttributeStatus | undefined;
-}
-
-/**
- * <p>Current state of options for customizable text banner that will be displayed on
- * 			Amazon Web Services provided clients when a VPN session is established.</p>
- * @public
- */
-export interface ClientLoginBannerResponseOptions {
-  /**
-   * <p>Current state of text banner feature.</p>
-   *          <p>Valid values: <code>true | false</code>
-   *          </p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-
-  /**
-   * <p>Customizable text that will be displayed in a banner on Amazon Web Services provided
-   * 			clients when a VPN session is established. UTF-8 encoded
-   * 			characters only. Maximum of 1400 characters.</p>
-   * @public
-   */
-  BannerText?: string | undefined;
-}
-
-/**
- * <p>The current status of Client Route Enforcement. </p>
- * @public
- */
-export interface ClientRouteEnforcementResponseOptions {
-  /**
-   * <p>Status of the client route enforcement feature, indicating whether Client Route Enforcement
-   * 			is <code>true</code> (enabled) or <code>false</code> (disabled).</p>
-   *          <p>Valid values: <code>true | false</code>
-   *          </p>
-   *          <p>Default value: <code>false</code>
-   *          </p>
-   * @public
-   */
-  Enforced?: boolean | undefined;
-}
 
 /**
  * @internal

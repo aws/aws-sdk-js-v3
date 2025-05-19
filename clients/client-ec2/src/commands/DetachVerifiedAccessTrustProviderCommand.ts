@@ -10,7 +10,7 @@ import {
   DetachVerifiedAccessTrustProviderRequest,
   DetachVerifiedAccessTrustProviderResult,
   DetachVerifiedAccessTrustProviderResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   de_DetachVerifiedAccessTrustProviderCommand,
   se_DetachVerifiedAccessTrustProviderCommand,

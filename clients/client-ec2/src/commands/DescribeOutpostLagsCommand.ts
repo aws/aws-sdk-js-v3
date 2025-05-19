@@ -29,6 +29,9 @@ export interface DescribeOutpostLagsCommandOutput extends DescribeOutpostLagsRes
 
 /**
  * <p>Describes the Outposts link aggregation groups (LAGs).</p>
+ *          <note>
+ *             <p>LAGs are only available for second-generation Outposts racks at this time.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

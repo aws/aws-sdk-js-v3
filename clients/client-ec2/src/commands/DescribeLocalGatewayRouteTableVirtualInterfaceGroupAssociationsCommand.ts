@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest,
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   de_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand,
   se_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand,

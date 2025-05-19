@@ -260,6 +260,10 @@ import {
   CreateDefaultSubnetCommandOutput,
 } from "../commands/CreateDefaultSubnetCommand";
 import { CreateDefaultVpcCommandInput, CreateDefaultVpcCommandOutput } from "../commands/CreateDefaultVpcCommand";
+import {
+  CreateDelegateMacVolumeOwnershipTaskCommandInput,
+  CreateDelegateMacVolumeOwnershipTaskCommandOutput,
+} from "../commands/CreateDelegateMacVolumeOwnershipTaskCommand";
 import { CreateDhcpOptionsCommandInput, CreateDhcpOptionsCommandOutput } from "../commands/CreateDhcpOptionsCommand";
 import {
   CreateEgressOnlyInternetGatewayCommandInput,
@@ -329,6 +333,10 @@ import {
   CreateLocalGatewayVirtualInterfaceGroupCommandInput,
   CreateLocalGatewayVirtualInterfaceGroupCommandOutput,
 } from "../commands/CreateLocalGatewayVirtualInterfaceGroupCommand";
+import {
+  CreateMacSystemIntegrityProtectionModificationTaskCommandInput,
+  CreateMacSystemIntegrityProtectionModificationTaskCommandOutput,
+} from "../commands/CreateMacSystemIntegrityProtectionModificationTaskCommand";
 import {
   CreateManagedPrefixListCommandInput,
   CreateManagedPrefixListCommandOutput,
@@ -1066,6 +1074,10 @@ import {
   DescribeLockedSnapshotsCommandOutput,
 } from "../commands/DescribeLockedSnapshotsCommand";
 import { DescribeMacHostsCommandInput, DescribeMacHostsCommandOutput } from "../commands/DescribeMacHostsCommand";
+import {
+  DescribeMacModificationTasksCommandInput,
+  DescribeMacModificationTasksCommandOutput,
+} from "../commands/DescribeMacModificationTasksCommand";
 import {
   DescribeManagedPrefixListsCommandInput,
   DescribeManagedPrefixListsCommandOutput,
@@ -2656,6 +2668,8 @@ import {
   CreateDefaultSubnetResult,
   CreateDefaultVpcRequest,
   CreateDefaultVpcResult,
+  CreateDelegateMacVolumeOwnershipTaskRequest,
+  CreateDelegateMacVolumeOwnershipTaskResult,
   CreateDhcpOptionsRequest,
   CreateDhcpOptionsResult,
   CreateEgressOnlyInternetGatewayRequest,
@@ -2743,7 +2757,6 @@ import {
   Ipv4PrefixSpecificationRequest,
   Ipv4PrefixSpecificationResponse,
   Ipv6PrefixSpecificationRequest,
-  Ipv6PrefixSpecificationResponse,
   KeyPair,
   LaunchTemplate,
   LaunchTemplateAndOverridesResponse,
@@ -2771,23 +2784,20 @@ import {
   LaunchTemplateInstanceMarketOptionsRequest,
   LaunchTemplateInstanceMetadataOptions,
   LaunchTemplateInstanceMetadataOptionsRequest,
-  LaunchTemplateInstanceNetworkInterfaceSpecification,
   LaunchTemplateInstanceNetworkInterfaceSpecificationRequest,
   LaunchTemplateLicenseConfiguration,
   LaunchTemplateLicenseConfigurationRequest,
-  LaunchTemplateNetworkPerformanceOptions,
   LaunchTemplateNetworkPerformanceOptionsRequest,
-  LaunchTemplatePlacement,
   LaunchTemplatePlacementRequest,
-  LaunchTemplatePrivateDnsNameOptions,
   LaunchTemplatePrivateDnsNameOptionsRequest,
   LaunchTemplatesMonitoring,
   LaunchTemplatesMonitoringRequest,
   LaunchTemplateSpotMarketOptions,
   LaunchTemplateSpotMarketOptionsRequest,
-  LaunchTemplateTagSpecification,
   LaunchTemplateTagSpecificationRequest,
   LocalStorageType,
+  MacModificationTask,
+  MacSystemIntegrityProtectionConfiguration,
   MemoryGiBPerVCpu,
   MemoryGiBPerVCpuRequest,
   MemoryMiB,
@@ -2809,7 +2819,6 @@ import {
   RequestIpamResourceTag,
   RequestLaunchTemplateData,
   ReservationFleetInstanceSpecification,
-  ResponseLaunchTemplateData,
   SpotOptionsRequest,
   StorageLocation,
   Subnet,
@@ -2828,7 +2837,6 @@ import {
 import {
   AttachmentEnaSrdSpecification,
   AttachmentEnaSrdUdpSpecification,
-  ConnectionNotification,
   ConnectionTrackingConfiguration,
   CreateLaunchTemplateVersionResult,
   CreateLocalGatewayRouteRequest,
@@ -2843,6 +2851,8 @@ import {
   CreateLocalGatewayVirtualInterfaceGroupResult,
   CreateLocalGatewayVirtualInterfaceRequest,
   CreateLocalGatewayVirtualInterfaceResult,
+  CreateMacSystemIntegrityProtectionModificationTaskRequest,
+  CreateMacSystemIntegrityProtectionModificationTaskResult,
   CreateManagedPrefixListRequest,
   CreateManagedPrefixListResult,
   CreateNatGatewayRequest,
@@ -2946,10 +2956,8 @@ import {
   CreateVpcBlockPublicAccessExclusionRequest,
   CreateVpcBlockPublicAccessExclusionResult,
   CreateVpcEndpointConnectionNotificationRequest,
-  CreateVpcEndpointConnectionNotificationResult,
   CreateVpcEndpointRequest,
   CreateVpcEndpointResult,
-  CreateVpcEndpointServiceConfigurationRequest,
   CreateVpcRequest,
   CreateVpcResult,
   DnsEntry,
@@ -2960,7 +2968,13 @@ import {
   IcmpTypeCode,
   InstanceSpecification,
   Ipv6PrefixSpecification,
+  Ipv6PrefixSpecificationResponse,
   LastError,
+  LaunchTemplateInstanceNetworkInterfaceSpecification,
+  LaunchTemplateNetworkPerformanceOptions,
+  LaunchTemplatePlacement,
+  LaunchTemplatePrivateDnsNameOptions,
+  LaunchTemplateTagSpecification,
   LaunchTemplateVersion,
   LocalGatewayRoute,
   LocalGatewayRouteTable,
@@ -2968,6 +2982,7 @@ import {
   LocalGatewayRouteTableVpcAssociation,
   LocalGatewayVirtualInterface,
   LocalGatewayVirtualInterfaceGroup,
+  MacSystemIntegrityProtectionConfigurationRequest,
   ManagedPrefixList,
   NatGateway,
   NetworkAcl,
@@ -2987,11 +3002,11 @@ import {
   PathRequestFilter,
   PlacementGroup,
   PriceScheduleSpecification,
-  PrivateDnsNameConfiguration,
   PropagatingVgw,
   ProvisionedBandwidth,
   ReplaceRootVolumeTask,
   RequestFilterPortRange,
+  ResponseLaunchTemplateData,
   Route,
   RouteServer,
   RouteServerBfdStatus,
@@ -3004,7 +3019,6 @@ import {
   RouteTableAssociation,
   S3ObjectTag,
   SecurityGroupIdentifier,
-  ServiceTypeDetail,
   Snapshot,
   SnapshotInfo,
   SpotDatafeedSubscription,
@@ -3052,7 +3066,6 @@ import {
   VpcEndpoint,
 } from "../models/models_2";
 import {
-  AssociatedTargetNetwork,
   AuthorizationRule,
   AvailabilityZone,
   AvailabilityZoneMessage,
@@ -3063,17 +3076,14 @@ import {
   CapacityReservationBillingRequest,
   CapacityReservationFleet,
   CapacityReservationInfo,
-  CertificateAuthentication,
   ClassicLinkInstance,
-  ClientConnectResponseOptions,
-  ClientLoginBannerResponseOptions,
-  ClientRouteEnforcementResponseOptions,
-  ClientVpnAuthentication,
   ClientVpnConnection,
   ClientVpnConnectionStatus,
-  ClientVpnEndpointAttributeStatus,
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
+  ConnectionNotification,
+  CreateVpcEndpointConnectionNotificationResult,
+  CreateVpcEndpointServiceConfigurationRequest,
   CreateVpcEndpointServiceConfigurationResult,
   CreateVpcPeeringConnectionRequest,
   CreateVpcPeeringConnectionResult,
@@ -3288,9 +3298,7 @@ import {
   DescribeClientVpnConnectionsRequest,
   DescribeClientVpnConnectionsResult,
   DescribeClientVpnEndpointsRequest,
-  DirectoryServiceAuthentication,
   FailedQueuedPurchaseDeletion,
-  FederatedAuthentication,
   Filter,
   IdFormat,
   IKEVersionsListValue,
@@ -3311,9 +3319,11 @@ import {
   Phase2EncryptionAlgorithmsRequestListValue,
   Phase2IntegrityAlgorithmsListValue,
   Phase2IntegrityAlgorithmsRequestListValue,
+  PrivateDnsNameConfiguration,
   ResponseError,
   ServiceConfiguration,
   ServiceConnectivityType,
+  ServiceTypeDetail,
   Subscription,
   SuccessfulQueuedPurchaseDeletion,
   SupportedRegionDetail,
@@ -3332,13 +3342,20 @@ import {
 } from "../models/models_3";
 import {
   ArchitectureType,
+  AssociatedTargetNetwork,
   AttributeBooleanValue,
   AvailableCapacity,
   BandwidthWeightingType,
   BootModeType,
   CapacityReservationOptions,
   CapacityReservationSpecificationResponse,
+  CertificateAuthentication,
+  ClientConnectResponseOptions,
+  ClientLoginBannerResponseOptions,
+  ClientRouteEnforcementResponseOptions,
+  ClientVpnAuthentication,
   ClientVpnEndpoint,
+  ClientVpnEndpointAttributeStatus,
   ClientVpnRoute,
   ConnectionLogResponseOptions,
   ConnectionTrackingSpecificationResponse,
@@ -3452,16 +3469,8 @@ import {
   DescribeLaunchTemplatesResult,
   DescribeLaunchTemplateVersionsRequest,
   DescribeLaunchTemplateVersionsResult,
-  DescribeLocalGatewayRouteTablesRequest,
-  DescribeLocalGatewayRouteTablesResult,
-  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest,
-  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult,
-  DescribeLocalGatewayRouteTableVpcAssociationsRequest,
-  DescribeLocalGatewayRouteTableVpcAssociationsResult,
-  DescribeLocalGatewaysRequest,
-  DescribeLocalGatewaysResult,
-  DescribeLocalGatewayVirtualInterfaceGroupsRequest,
   DestinationOptionsResponse,
+  DirectoryServiceAuthentication,
   DiskImageDescription,
   DiskImageVolumeDescription,
   DiskInfo,
@@ -3481,6 +3490,7 @@ import {
   ExportTaskS3Location,
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchSnapshotConfigurationResponse,
+  FederatedAuthentication,
   FleetData,
   FleetLaunchTemplateConfig,
   FleetSpotCapacityRebalance,
@@ -3545,7 +3555,6 @@ import {
   LaunchPermission,
   LicenseConfiguration,
   LoadPermission,
-  LocalGateway,
   MediaAcceleratorInfo,
   MediaDeviceInfo,
   MediaDeviceMemoryInfo,
@@ -3584,6 +3593,15 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeLocalGatewayRouteTablesRequest,
+  DescribeLocalGatewayRouteTablesResult,
+  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest,
+  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult,
+  DescribeLocalGatewayRouteTableVpcAssociationsRequest,
+  DescribeLocalGatewayRouteTableVpcAssociationsResult,
+  DescribeLocalGatewaysRequest,
+  DescribeLocalGatewaysResult,
+  DescribeLocalGatewayVirtualInterfaceGroupsRequest,
   DescribeLocalGatewayVirtualInterfaceGroupsResult,
   DescribeLocalGatewayVirtualInterfacesRequest,
   DescribeLocalGatewayVirtualInterfacesResult,
@@ -3591,6 +3609,8 @@ import {
   DescribeLockedSnapshotsResult,
   DescribeMacHostsRequest,
   DescribeMacHostsResult,
+  DescribeMacModificationTasksRequest,
+  DescribeMacModificationTasksResult,
   DescribeManagedPrefixListsRequest,
   DescribeManagedPrefixListsResult,
   DescribeMovingAddressesRequest,
@@ -3764,24 +3784,13 @@ import {
   DescribeVpnGatewaysRequest,
   DescribeVpnGatewaysResult,
   DetachClassicLinkVpcRequest,
-  DetachClassicLinkVpcResult,
-  DetachInternetGatewayRequest,
-  DetachNetworkInterfaceRequest,
-  DetachVerifiedAccessTrustProviderRequest,
-  DetachVerifiedAccessTrustProviderResult,
-  DetachVolumeRequest,
-  DetachVpnGatewayRequest,
-  DisableAddressTransferRequest,
-  DisableAddressTransferResult,
-  DisableAllowedImagesSettingsRequest,
-  DisableAllowedImagesSettingsResult,
-  DisableAwsNetworkPerformanceMetricSubscriptionRequest,
   HistoryRecord,
   InstanceNetworkInterfaceSpecification,
   LaunchSpecification,
   LaunchTemplateConfig,
   LaunchTemplateOverrides,
   LoadBalancersConfig,
+  LocalGateway,
   LockedSnapshotsInfo,
   MacHost,
   MovingAddressStatus,
@@ -3861,6 +3870,18 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DetachClassicLinkVpcResult,
+  DetachInternetGatewayRequest,
+  DetachNetworkInterfaceRequest,
+  DetachVerifiedAccessTrustProviderRequest,
+  DetachVerifiedAccessTrustProviderResult,
+  DetachVolumeRequest,
+  DetachVpnGatewayRequest,
+  DisableAddressTransferRequest,
+  DisableAddressTransferResult,
+  DisableAllowedImagesSettingsRequest,
+  DisableAllowedImagesSettingsResult,
+  DisableAwsNetworkPerformanceMetricSubscriptionRequest,
   DisableAwsNetworkPerformanceMetricSubscriptionResult,
   DisableEbsEncryptionByDefaultRequest,
   DisableEbsEncryptionByDefaultResult,
@@ -4077,15 +4098,6 @@ import {
   GetTransitGatewayPolicyTableEntriesRequest,
   GetTransitGatewayPolicyTableEntriesResult,
   GetTransitGatewayPrefixListReferencesRequest,
-  GetTransitGatewayPrefixListReferencesResult,
-  GetTransitGatewayRouteTableAssociationsRequest,
-  GetTransitGatewayRouteTableAssociationsResult,
-  GetTransitGatewayRouteTablePropagationsRequest,
-  GetTransitGatewayRouteTablePropagationsResult,
-  GetVerifiedAccessEndpointPolicyRequest,
-  GetVerifiedAccessEndpointPolicyResult,
-  GetVerifiedAccessEndpointTargetsRequest,
-  GetVerifiedAccessEndpointTargetsResult,
   ImageCriterion,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
@@ -4124,9 +4136,6 @@ import {
   TransitGatewayPolicyRuleMetaData,
   TransitGatewayPolicyTableEntry,
   TransitGatewayPropagation,
-  TransitGatewayRouteTableAssociation,
-  TransitGatewayRouteTablePropagation,
-  VerifiedAccessEndpointTarget,
   VerifiedAccessInstanceOpenVpnClientConfiguration,
   VerifiedAccessInstanceOpenVpnClientConfigurationRoute,
   VerifiedAccessInstanceUserTrustProviderClientConfiguration,
@@ -4142,6 +4151,15 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetTransitGatewayPrefixListReferencesResult,
+  GetTransitGatewayRouteTableAssociationsRequest,
+  GetTransitGatewayRouteTableAssociationsResult,
+  GetTransitGatewayRouteTablePropagationsRequest,
+  GetTransitGatewayRouteTablePropagationsResult,
+  GetVerifiedAccessEndpointPolicyRequest,
+  GetVerifiedAccessEndpointPolicyResult,
+  GetVerifiedAccessEndpointTargetsRequest,
+  GetVerifiedAccessEndpointTargetsResult,
   GetVerifiedAccessGroupPolicyRequest,
   GetVerifiedAccessGroupPolicyResult,
   GetVpnConnectionDeviceSampleConfigurationRequest,
@@ -4388,17 +4406,6 @@ import {
   ReplaceImageCriteriaInAllowedImagesSettingsRequest,
   ReplaceImageCriteriaInAllowedImagesSettingsResult,
   ReplaceNetworkAclAssociationRequest,
-  ReplaceNetworkAclAssociationResult,
-  ReplaceNetworkAclEntryRequest,
-  ReplaceRouteRequest,
-  ReplaceRouteTableAssociationRequest,
-  ReplaceRouteTableAssociationResult,
-  ReplaceTransitGatewayRouteRequest,
-  ReplaceTransitGatewayRouteResult,
-  ReplaceVpnTunnelRequest,
-  ReplaceVpnTunnelResult,
-  ReportInstanceReasonCodes,
-  ReportInstanceStatusRequest,
   ReservedInstanceLimitPrice,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
@@ -4409,10 +4416,13 @@ import {
   TrafficMirrorSessionField,
   TransitGatewayMulticastRegisteredGroupMembers,
   TransitGatewayMulticastRegisteredGroupSources,
+  TransitGatewayRouteTableAssociation,
+  TransitGatewayRouteTablePropagation,
   UnsuccessfulInstanceCreditSpecificationItem,
   UnsuccessfulInstanceCreditSpecificationItemError,
   UserBucket,
   UserData,
+  VerifiedAccessEndpointTarget,
   VerifiedAccessLogCloudWatchLogsDestinationOptions,
   VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
   VerifiedAccessLogOptions,
@@ -4433,6 +4443,17 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  ReplaceNetworkAclAssociationResult,
+  ReplaceNetworkAclEntryRequest,
+  ReplaceRouteRequest,
+  ReplaceRouteTableAssociationRequest,
+  ReplaceRouteTableAssociationResult,
+  ReplaceTransitGatewayRouteRequest,
+  ReplaceTransitGatewayRouteResult,
+  ReplaceVpnTunnelRequest,
+  ReplaceVpnTunnelResult,
+  ReportInstanceReasonCodes,
+  ReportInstanceStatusRequest,
   RequestSpotFleetRequest,
   RequestSpotFleetResponse,
   RequestSpotInstancesRequest,
@@ -5729,6 +5750,23 @@ export const se_CreateDefaultVpcCommand = async (
 };
 
 /**
+ * serializeAws_ec2CreateDelegateMacVolumeOwnershipTaskCommand
+ */
+export const se_CreateDelegateMacVolumeOwnershipTaskCommand = async (
+  input: CreateDelegateMacVolumeOwnershipTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateDelegateMacVolumeOwnershipTaskRequest(input, context),
+    [_A]: _CDMVOT,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2CreateDhcpOptionsCommand
  */
 export const se_CreateDhcpOptionsCommand = async (
@@ -6131,6 +6169,23 @@ export const se_CreateLocalGatewayVirtualInterfaceGroupCommand = async (
   body = buildFormUrlencodedString({
     ...se_CreateLocalGatewayVirtualInterfaceGroupRequest(input, context),
     [_A]: _CLGVIG,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2CreateMacSystemIntegrityProtectionModificationTaskCommand
+ */
+export const se_CreateMacSystemIntegrityProtectionModificationTaskCommand = async (
+  input: CreateMacSystemIntegrityProtectionModificationTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateMacSystemIntegrityProtectionModificationTaskRequest(input, context),
+    [_A]: _CMSIPMT,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -9939,6 +9994,23 @@ export const se_DescribeMacHostsCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeMacHostsRequest(input, context),
     [_A]: _DMH,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeMacModificationTasksCommand
+ */
+export const se_DescribeMacModificationTasksCommand = async (
+  input: DescribeMacModificationTasksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeMacModificationTasksRequest(input, context),
+    [_A]: _DMMT,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -17507,6 +17579,26 @@ export const de_CreateDefaultVpcCommand = async (
 };
 
 /**
+ * deserializeAws_ec2CreateDelegateMacVolumeOwnershipTaskCommand
+ */
+export const de_CreateDelegateMacVolumeOwnershipTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDelegateMacVolumeOwnershipTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDelegateMacVolumeOwnershipTaskResult(data, context);
+  const response: CreateDelegateMacVolumeOwnershipTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2CreateDhcpOptionsCommand
  */
 export const de_CreateDhcpOptionsCommand = async (
@@ -17980,6 +18072,26 @@ export const de_CreateLocalGatewayVirtualInterfaceGroupCommand = async (
   let contents: any = {};
   contents = de_CreateLocalGatewayVirtualInterfaceGroupResult(data, context);
   const response: CreateLocalGatewayVirtualInterfaceGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2CreateMacSystemIntegrityProtectionModificationTaskCommand
+ */
+export const de_CreateMacSystemIntegrityProtectionModificationTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMacSystemIntegrityProtectionModificationTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateMacSystemIntegrityProtectionModificationTaskResult(data, context);
+  const response: CreateMacSystemIntegrityProtectionModificationTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -22397,6 +22509,26 @@ export const de_DescribeMacHostsCommand = async (
   let contents: any = {};
   contents = de_DescribeMacHostsResult(data, context);
   const response: DescribeMacHostsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeMacModificationTasksCommand
+ */
+export const de_DescribeMacModificationTasksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMacModificationTasksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeMacModificationTasksResult(data, context);
+  const response: DescribeMacModificationTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -32606,6 +32738,39 @@ const se_CreateDefaultVpcRequest = (input: CreateDefaultVpcRequest, context: __S
 };
 
 /**
+ * serializeAws_ec2CreateDelegateMacVolumeOwnershipTaskRequest
+ */
+const se_CreateDelegateMacVolumeOwnershipTaskRequest = (
+  input: CreateDelegateMacVolumeOwnershipTaskRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
+  if (input[_CTl] != null) {
+    entries[_CTl] = input[_CTl];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_IIn] != null) {
+    entries[_IIn] = input[_IIn];
+  }
+  if (input[_MC] != null) {
+    entries[_MC] = input[_MC];
+  }
+  if (input[_TS] != null) {
+    const memberEntries = se_TagSpecificationList(input[_TS], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2CreateDhcpOptionsRequest
  */
 const se_CreateDhcpOptionsRequest = (input: CreateDhcpOptionsRequest, context: __SerdeContext): any => {
@@ -33492,6 +33657,49 @@ const se_CreateLocalGatewayVirtualInterfaceRequest = (
   }
   if (input[_PBAE] != null) {
     entries[_PBAE] = input[_PBAE];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2CreateMacSystemIntegrityProtectionModificationTaskRequest
+ */
+const se_CreateMacSystemIntegrityProtectionModificationTaskRequest = (
+  input: CreateMacSystemIntegrityProtectionModificationTaskRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
+  if (input[_CTl] != null) {
+    entries[_CTl] = input[_CTl];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_IIn] != null) {
+    entries[_IIn] = input[_IIn];
+  }
+  if (input[_MC] != null) {
+    entries[_MC] = input[_MC];
+  }
+  if (input[_MSIPC] != null) {
+    const memberEntries = se_MacSystemIntegrityProtectionConfigurationRequest(input[_MSIPC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MacSystemIntegrityProtectionConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_MSIPS] != null) {
+    entries[_MSIPS] = input[_MSIPS];
+  }
+  if (input[_TS] != null) {
+    const memberEntries = se_TagSpecificationList(input[_TS], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -40094,6 +40302,40 @@ const se_DescribeMacHostsRequest = (input: DescribeMacHostsRequest, context: __S
     const memberEntries = se_RequestHostIdList(input[_HI], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HostId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeMacModificationTasksRequest
+ */
+const se_DescribeMacModificationTasksRequest = (
+  input: DescribeMacModificationTasksRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_MMTI] != null) {
+    const memberEntries = se_MacModificationTaskIdList(input[_MMTI], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MacModificationTaskId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
@@ -49389,6 +49631,54 @@ const se_LockSnapshotRequest = (input: LockSnapshotRequest, context: __SerdeCont
 };
 
 /**
+ * serializeAws_ec2MacModificationTaskIdList
+ */
+const se_MacModificationTaskIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2MacSystemIntegrityProtectionConfigurationRequest
+ */
+const se_MacSystemIntegrityProtectionConfigurationRequest = (
+  input: MacSystemIntegrityProtectionConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_AIp] != null) {
+    entries[_AIp] = input[_AIp];
+  }
+  if (input[_BS] != null) {
+    entries[_BS] = input[_BS];
+  }
+  if (input[_DReb] != null) {
+    entries[_DReb] = input[_DReb];
+  }
+  if (input[_DTR] != null) {
+    entries[_DTR] = input[_DTR];
+  }
+  if (input[_FPi] != null) {
+    entries[_FPi] = input[_FPi];
+  }
+  if (input[_KS] != null) {
+    entries[_KS] = input[_KS];
+  }
+  if (input[_NP] != null) {
+    entries[_NP] = input[_NP];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2MemoryGiBPerVCpu
  */
 const se_MemoryGiBPerVCpu = (input: MemoryGiBPerVCpu, context: __SerdeContext): any => {
@@ -55689,8 +55979,8 @@ const se_RunInstancesRequest = (input: RunInstancesRequest, context: __SerdeCont
   if (input[_KN] != null) {
     entries[_KN] = input[_KN];
   }
-  if (input[_MC] != null) {
-    entries[_MC] = input[_MC];
+  if (input[_MCa] != null) {
+    entries[_MCa] = input[_MCa];
   }
   if (input[_MCi] != null) {
     entries[_MCi] = input[_MCi];
@@ -62813,6 +63103,20 @@ const de_CreateDefaultVpcResult = (output: any, context: __SerdeContext): Create
 };
 
 /**
+ * deserializeAws_ec2CreateDelegateMacVolumeOwnershipTaskResult
+ */
+const de_CreateDelegateMacVolumeOwnershipTaskResult = (
+  output: any,
+  context: __SerdeContext
+): CreateDelegateMacVolumeOwnershipTaskResult => {
+  const contents: any = {};
+  if (output[_mMT] != null) {
+    contents[_MMT] = de_MacModificationTask(output[_mMT], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2CreateDhcpOptionsResult
  */
 const de_CreateDhcpOptionsResult = (output: any, context: __SerdeContext): CreateDhcpOptionsResult => {
@@ -63193,6 +63497,20 @@ const de_CreateLocalGatewayVirtualInterfaceResult = (
   const contents: any = {};
   if (output[_lGVI] != null) {
     contents[_LGVI] = de_LocalGatewayVirtualInterface(output[_lGVI], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2CreateMacSystemIntegrityProtectionModificationTaskResult
+ */
+const de_CreateMacSystemIntegrityProtectionModificationTaskResult = (
+  output: any,
+  context: __SerdeContext
+): CreateMacSystemIntegrityProtectionModificationTaskResult => {
+  const contents: any = {};
+  if (output[_mMT] != null) {
+    contents[_MMT] = de_MacModificationTask(output[_mMT], context);
   }
   return contents;
 };
@@ -66671,6 +66989,25 @@ const de_DescribeMacHostsResult = (output: any, context: __SerdeContext): Descri
     contents[_MHa] = [];
   } else if (output[_mHS] != null && output[_mHS][_i] != null) {
     contents[_MHa] = de_MacHostList(__getArrayIfSingleItem(output[_mHS][_i]), context);
+  }
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DescribeMacModificationTasksResult
+ */
+const de_DescribeMacModificationTasksResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeMacModificationTasksResult => {
+  const contents: any = {};
+  if (output.macModificationTaskSet === "") {
+    contents[_MMTa] = [];
+  } else if (output[_mMTS] != null && output[_mMTS][_i] != null) {
+    contents[_MMTa] = de_MacModificationTaskList(__getArrayIfSingleItem(output[_mMTS][_i]), context);
   }
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
@@ -78015,6 +78352,48 @@ const de_MacHostList = (output: any, context: __SerdeContext): MacHost[] => {
 };
 
 /**
+ * deserializeAws_ec2MacModificationTask
+ */
+const de_MacModificationTask = (output: any, context: __SerdeContext): MacModificationTask => {
+  const contents: any = {};
+  if (output[_iI] != null) {
+    contents[_IIn] = __expectString(output[_iI]);
+  }
+  if (output[_mMTI] != null) {
+    contents[_MMTIa] = __expectString(output[_mMTI]);
+  }
+  if (output[_mSIPC] != null) {
+    contents[_MSIPCa] = de_MacSystemIntegrityProtectionConfiguration(output[_mSIPC], context);
+  }
+  if (output[_sT] != null) {
+    contents[_STt] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_sT]));
+  }
+  if (output.tagSet === "") {
+    contents[_Ta] = [];
+  } else if (output[_tS] != null && output[_tS][_i] != null) {
+    contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  if (output[_tSas] != null) {
+    contents[_TSas] = __expectString(output[_tSas]);
+  }
+  if (output[_tTa] != null) {
+    contents[_TTa] = __expectString(output[_tTa]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2MacModificationTaskList
+ */
+const de_MacModificationTaskList = (output: any, context: __SerdeContext): MacModificationTask[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MacModificationTask(entry, context);
+    });
+};
+
+/**
  * deserializeAws_ec2MacOSVersionStringList
  */
 const de_MacOSVersionStringList = (output: any, context: __SerdeContext): string[] => {
@@ -78023,6 +78402,41 @@ const de_MacOSVersionStringList = (output: any, context: __SerdeContext): string
     .map((entry: any) => {
       return __expectString(entry) as any;
     });
+};
+
+/**
+ * deserializeAws_ec2MacSystemIntegrityProtectionConfiguration
+ */
+const de_MacSystemIntegrityProtectionConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MacSystemIntegrityProtectionConfiguration => {
+  const contents: any = {};
+  if (output[_aIp] != null) {
+    contents[_AIp] = __expectString(output[_aIp]);
+  }
+  if (output[_bSa] != null) {
+    contents[_BS] = __expectString(output[_bSa]);
+  }
+  if (output[_dRe] != null) {
+    contents[_DReb] = __expectString(output[_dRe]);
+  }
+  if (output[_dTR] != null) {
+    contents[_DTR] = __expectString(output[_dTR]);
+  }
+  if (output[_fPi] != null) {
+    contents[_FPi] = __expectString(output[_fPi]);
+  }
+  if (output[_kSe] != null) {
+    contents[_KS] = __expectString(output[_kSe]);
+  }
+  if (output[_nP] != null) {
+    contents[_NP] = __expectString(output[_nP]);
+  }
+  if (output[_sta] != null) {
+    contents[_Statu] = __expectString(output[_sta]);
+  }
+  return contents;
 };
 
 /**
@@ -79407,8 +79821,8 @@ const de_NetworkCardInfo = (output: any, context: __SerdeContext): NetworkCardIn
   if (output[_nCI] != null) {
     contents[_NCI] = __strictParseInt32(output[_nCI]) as number;
   }
-  if (output[_nP] != null) {
-    contents[_NP] = __expectString(output[_nP]);
+  if (output[_nPe] != null) {
+    contents[_NPe] = __expectString(output[_nPe]);
   }
   if (output[_mNI] != null) {
     contents[_MNI] = __strictParseInt32(output[_mNI]) as number;
@@ -79447,8 +79861,8 @@ const de_NetworkCardInfoList = (output: any, context: __SerdeContext): NetworkCa
  */
 const de_NetworkInfo = (output: any, context: __SerdeContext): NetworkInfo => {
   const contents: any = {};
-  if (output[_nP] != null) {
-    contents[_NP] = __expectString(output[_nP]);
+  if (output[_nPe] != null) {
+    contents[_NPe] = __expectString(output[_nPe]);
   }
   if (output[_mNI] != null) {
     contents[_MNI] = __strictParseInt32(output[_mNI]) as number;
@@ -82161,8 +82575,8 @@ const de_ReservedInstances = (output: any, context: __SerdeContext): ReservedIns
   if (output[_uPs] != null) {
     contents[_UPs] = __strictParseFloat(output[_uPs]) as number;
   }
-  if (output[_fPi] != null) {
-    contents[_FPi] = __strictParseFloat(output[_fPi]) as number;
+  if (output[_fPix] != null) {
+    contents[_FPix] = __strictParseFloat(output[_fPix]) as number;
   }
   if (output[_iC] != null) {
     contents[_IC] = __strictParseInt32(output[_iC]) as number;
@@ -82414,8 +82828,8 @@ const de_ReservedInstancesOffering = (output: any, context: __SerdeContext): Res
   if (output[_uPs] != null) {
     contents[_UPs] = __strictParseFloat(output[_uPs]) as number;
   }
-  if (output[_fPi] != null) {
-    contents[_FPi] = __strictParseFloat(output[_fPi]) as number;
+  if (output[_fPix] != null) {
+    contents[_FPix] = __strictParseFloat(output[_fPix]) as number;
   }
   if (output[_pDr] != null) {
     contents[_PDr] = __expectString(output[_pDr]);
@@ -83138,7 +83552,7 @@ const de_RouteServerPeer = (output: any, context: __SerdeContext): RouteServerPe
     contents[_BO] = de_RouteServerBgpOptions(output[_bO], context);
   }
   if (output[_bSg] != null) {
-    contents[_BS] = de_RouteServerBgpStatus(output[_bSg], context);
+    contents[_BSg] = de_RouteServerBgpStatus(output[_bSg], context);
   }
   if (output[_bSf] != null) {
     contents[_BSf] = de_RouteServerBfdStatus(output[_bSf], context);
@@ -83527,8 +83941,8 @@ const de_ScheduledInstance = (output: any, context: __SerdeContext): ScheduledIn
   if (output[_iT] != null) {
     contents[_IT] = __expectString(output[_iT]);
   }
-  if (output[_nPe] != null) {
-    contents[_NPe] = __expectString(output[_nPe]);
+  if (output[_nPet] != null) {
+    contents[_NPet] = __expectString(output[_nPet]);
   }
   if (output[_nSST] != null) {
     contents[_NSST] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_nSST]));
@@ -83586,8 +84000,8 @@ const de_ScheduledInstanceAvailability = (output: any, context: __SerdeContext):
   if (output[_mTDIDi] != null) {
     contents[_MTDIDi] = __strictParseInt32(output[_mTDIDi]) as number;
   }
-  if (output[_nPe] != null) {
-    contents[_NPe] = __expectString(output[_nPe]);
+  if (output[_nPet] != null) {
+    contents[_NPet] = __expectString(output[_nPet]);
   }
   if (output[_pl] != null) {
     contents[_Pla] = __expectString(output[_pl]);
@@ -86384,7 +86798,7 @@ const de_TransitGatewayAttachmentBgpConfiguration = (
     contents[_PAe] = __expectString(output[_pAe]);
   }
   if (output[_bSg] != null) {
-    contents[_BS] = __expectString(output[_bSg]);
+    contents[_BSg] = __expectString(output[_bSg]);
   }
   return contents;
 };
@@ -88985,8 +89399,8 @@ const de_VolumeModification = (output: any, context: __SerdeContext): VolumeModi
   if (output[_tVT] != null) {
     contents[_TVT] = __expectString(output[_tVT]);
   }
-  if (output[_tTa] != null) {
-    contents[_TTa] = __strictParseInt32(output[_tTa]) as number;
+  if (output[_tTar] != null) {
+    contents[_TTar] = __strictParseInt32(output[_tTar]) as number;
   }
   if (output[_tMAE] != null) {
     contents[_TMAE] = __parseBoolean(output[_tMAE]);
@@ -90252,6 +90666,7 @@ const _AId = "AdditionalInfo";
 const _AIl = "AllocationId";
 const _AIll = "AllocationIds";
 const _AIm = "AmiId";
+const _AIp = "AppleInternal";
 const _AIs = "AssociationIds";
 const _AIss = "AssociationId";
 const _AIsse = "AssetId";
@@ -90421,8 +90836,9 @@ const _BPAS = "BlockPublicAccessStates";
 const _BPF = "BaselinePerformanceFactors";
 const _BPS = "BurstablePerformanceSupported";
 const _BPi = "BillingProducts";
-const _BS = "BgpStatus";
+const _BS = "BaseSystem";
 const _BSf = "BfdStatus";
+const _BSg = "BgpStatus";
 const _BT = "BannerText";
 const _BTE = "BundleTaskError";
 const _BTIMB = "BaselineThroughputInMBps";
@@ -90485,6 +90901,7 @@ const _CCu = "CurrencyCode";
 const _CD = "CommitmentDuration";
 const _CDH = "CapacityDurationHours";
 const _CDM = "CompletionDurationMinutes";
+const _CDMVOT = "CreateDelegateMacVolumeOwnershipTask";
 const _CDO = "CreateDhcpOptions";
 const _CDPR = "CancelDeclarativePoliciesReport";
 const _CDS = "CreateDefaultSubnet";
@@ -90568,6 +90985,7 @@ const _CLTV = "CreateLaunchTemplateVersion";
 const _CM = "CpuManufacturers";
 const _CMKE = "CustomerManagedKeyEnabled";
 const _CMPL = "CreateManagedPrefixList";
+const _CMSIPMT = "CreateMacSystemIntegrityProtectionModificationTask";
 const _CN = "CommonName";
 const _CNA = "CreateNetworkAcl";
 const _CNAA = "CoreNetworkAttachmentArn";
@@ -90900,6 +91318,7 @@ const _DMA = "DescribeMovingAddresses";
 const _DMGM = "DeregisteredMulticastGroupMembers";
 const _DMGS = "DeregisteredMulticastGroupSources";
 const _DMH = "DescribeMacHosts";
+const _DMMT = "DescribeMacModificationTasks";
 const _DMPL = "DeleteManagedPrefixList";
 const _DMPLe = "DescribeManagedPrefixLists";
 const _DN = "DeviceName";
@@ -90983,6 +91402,7 @@ const _DRTe = "DescribeRouteTables";
 const _DRTi = "DisassociateRouteTable";
 const _DRa = "DataResponses";
 const _DRe = "DescribeRegions";
+const _DReb = "DebuggingRestrictions";
 const _DRes = "DestinationRegion";
 const _DRi = "DiscoveryRegion";
 const _DRr = "DryRun";
@@ -91063,6 +91483,7 @@ const _DTMTe = "DescribeTrafficMirrorTargets";
 const _DTP = "DeviceTrustProviders";
 const _DTPC = "DefaultThreadsPerCore";
 const _DTPT = "DeviceTrustProviderType";
+const _DTR = "DTraceRestrictions";
 const _DTS = "DpdTimeoutSeconds";
 const _DTe = "DescribeTags";
 const _DTel = "DeletionTime";
@@ -91312,7 +91733,8 @@ const _FOA = "FilterOutArns";
 const _FODC = "FulfilledOnDemandCapacity";
 const _FP = "FromPort";
 const _FPC = "ForwardPathComponents";
-const _FPi = "FixedPrice";
+const _FPi = "FilesystemProtections";
+const _FPix = "FixedPrice";
 const _FQPD = "FailedQueuedPurchaseDeletions";
 const _FR = "FailureReason";
 const _FRa = "FastRestored";
@@ -91662,6 +92084,7 @@ const _KNe = "KeyNames";
 const _KP = "KeyPairs";
 const _KPI = "KeyPairId";
 const _KPIe = "KeyPairIds";
+const _KS = "KextSigning";
 const _KT = "KeyType";
 const _KV = "KeyValue";
 const _Ke = "Key";
@@ -91796,12 +92219,13 @@ const _MAe = "MeteredAccount";
 const _MB = "ManagedBy";
 const _MBCTI = "MoveByoipCidrToIpam";
 const _MBIM = "MaximumBandwidthInMbps";
-const _MC = "MaxCount";
+const _MC = "MacCredentials";
 const _MCOIOL = "MapCustomerOwnedIpOnLaunch";
 const _MCR = "ModifyCapacityReservation";
 const _MCRF = "ModifyCapacityReservationFleet";
 const _MCRI = "MoveCapacityReservationInstances";
 const _MCVE = "ModifyClientVpnEndpoint";
+const _MCa = "MaxCount";
 const _MCi = "MinCount";
 const _MCis = "MissingComponent";
 const _MD = "MaxDuration";
@@ -91853,6 +92277,10 @@ const _MLGR = "ModifyLocalGatewayRoute";
 const _MLT = "ModifyLaunchTemplate";
 const _MMB = "MemoryMiB";
 const _MMPL = "ModifyManagedPrefixList";
+const _MMT = "MacModificationTask";
+const _MMTI = "MacModificationTaskIds";
+const _MMTIa = "MacModificationTaskId";
+const _MMTa = "MacModificationTasks";
 const _MNC = "MaximumNetworkCards";
 const _MNI = "MaximumNetworkInterfaces";
 const _MNIA = "ModifyNetworkInterfaceAttribute";
@@ -91878,6 +92306,9 @@ const _MSDIH = "MaxSlotDurationInHours";
 const _MSDIHi = "MinSlotDurationInHours";
 const _MSFR = "ModifySpotFleetRequest";
 const _MSGR = "ModifySecurityGroupRules";
+const _MSIPC = "MacSystemIntegrityProtectionConfiguration";
+const _MSIPCa = "MacSystemIntegrityProtectionConfig";
+const _MSIPS = "MacSystemIntegrityProtectionStatus";
 const _MSPAPOOODP = "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice";
 const _MST = "ModifySnapshotTier";
 const _MSa = "ManagementState";
@@ -92003,10 +92434,11 @@ const _NOA = "NumberOfAccounts";
 const _NOFA = "NumberOfFailedAccounts";
 const _NOMA = "NumberOfMatchedAccounts";
 const _NOUA = "NumberOfUnmatchedAccounts";
-const _NP = "NetworkPerformance";
+const _NP = "NvramProtections";
 const _NPF = "NetworkPathFound";
 const _NPO = "NetworkPerformanceOptions";
-const _NPe = "NetworkPlatform";
+const _NPe = "NetworkPerformance";
+const _NPet = "NetworkPlatform";
 const _NR = "NoReboot";
 const _NS = "NvmeSupport";
 const _NSST = "NextSlotStartTime";
@@ -92803,7 +93235,8 @@ const _TSp = "TpmSupport";
 const _TT = "TrafficType";
 const _TTC = "TotalTargetCapacity";
 const _TTGAI = "TransportTransitGatewayAttachmentId";
-const _TTa = "TargetThroughput";
+const _TTa = "TaskType";
+const _TTar = "TargetThroughput";
 const _TTr = "TransferType";
 const _TUP = "TotalUpfrontPrice";
 const _TV = "TargetVersion";
@@ -93024,6 +93457,7 @@ const _aISS = "allowedImagesSettingsState";
 const _aITS = "allowedInstanceTypeSet";
 const _aIc = "accountId";
 const _aIm = "amiId";
+const _aIp = "appleInternal";
 const _aIs = "associationId";
 const _aIss = "assetId";
 const _aIt = "attachmentId";
@@ -93146,6 +93580,7 @@ const _bPAS = "blockPublicAccessStates";
 const _bPF = "baselinePerformanceFactors";
 const _bPS = "burstablePerformanceSupported";
 const _bS = "byoasnSet";
+const _bSa = "baseSystem";
 const _bSf = "bfdStatus";
 const _bSg = "bgpStatus";
 const _bT = "bannerText";
@@ -93373,6 +93808,7 @@ const _dRS = "dataRetentionSupport";
 const _dRSa = "dataResponseSet";
 const _dRTA = "defaultRouteTableAssociation";
 const _dRTP = "defaultRouteTablePropagation";
+const _dRe = "debuggingRestrictions";
 const _dRy = "dynamicRouting";
 const _dS = "dnsServer";
 const _dSCR = "deletedSubnetCidrReservation";
@@ -93386,6 +93822,7 @@ const _dTCT = "defaultTargetCapacityType";
 const _dTPC = "defaultThreadsPerCore";
 const _dTPS = "deviceTrustProviderSet";
 const _dTPT = "deviceTrustProviderType";
+const _dTR = "dTraceRestrictions";
 const _dTS = "dpdTimeoutSeconds";
 const _dTe = "deprecationTime";
 const _dTel = "deleteTime";
@@ -93541,7 +93978,8 @@ const _fOAS = "filterOutArnSet";
 const _fODC = "fulfilledOnDemandCapacity";
 const _fP = "fromPort";
 const _fPCS = "forwardPathComponentSet";
-const _fPi = "fixedPrice";
+const _fPi = "filesystemProtections";
+const _fPix = "fixedPrice";
 const _fQPDS = "failedQueuedPurchaseDeletionSet";
 const _fR = "failureReason";
 const _fRa = "fastRestored";
@@ -93796,6 +94234,7 @@ const _kM = "keyMaterial";
 const _kN = "keyName";
 const _kPI = "keyPairId";
 const _kS = "keySet";
+const _kSe = "kextSigning";
 const _kT = "keyType";
 const _kV = "keyValue";
 const _ke = "kernel";
@@ -93927,6 +94366,9 @@ const _mHS = "macHostSet";
 const _mI = "maximumIops";
 const _mIe = "memoryInfo";
 const _mMB = "memoryMiB";
+const _mMT = "macModificationTask";
+const _mMTI = "macModificationTaskId";
+const _mMTS = "macModificationTaskSet";
 const _mNC = "maximumNetworkCards";
 const _mNI = "maximumNetworkInterfaces";
 const _mO = "metadataOptions";
@@ -93941,6 +94383,7 @@ const _mPSa = "matchPathSet";
 const _mR = "maxResults";
 const _mRS = "modificationResultSet";
 const _mS = "messageSet";
+const _mSIPC = "macSystemIntegrityProtectionConfig";
 const _mSPAPOOODP = "maxSpotPriceAsPercentageOfOptimalOnDemandPrice";
 const _mSa = "managementState";
 const _mSai = "maintenanceStrategies";
@@ -94027,10 +94470,11 @@ const _nOA = "numberOfAccounts";
 const _nOFA = "numberOfFailedAccounts";
 const _nOMA = "numberOfMatchedAccounts";
 const _nOUA = "numberOfUnmatchedAccounts";
-const _nP = "networkPerformance";
+const _nP = "nvramProtections";
 const _nPF = "networkPathFound";
 const _nPO = "networkPerformanceOptions";
-const _nPe = "networkPlatform";
+const _nPe = "networkPerformance";
+const _nPet = "networkPlatform";
 const _nS = "nvmeSupport";
 const _nSS = "networkServiceSet";
 const _nSST = "nextSlotStartTime";
@@ -94649,7 +95093,8 @@ const _tSp = "tpmSupport";
 const _tT = "trafficType";
 const _tTC = "totalTargetCapacity";
 const _tTGAI = "transportTransitGatewayAttachmentId";
-const _tTa = "targetThroughput";
+const _tTa = "taskType";
+const _tTar = "targetThroughput";
 const _tTr = "transferType";
 const _tUP = "totalUpfrontPrice";
 const _tV = "tokenValue";

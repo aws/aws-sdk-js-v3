@@ -187,6 +187,7 @@ export const ResourceType = {
   local_gateway_route_table_vpc_association: "local-gateway-route-table-vpc-association",
   local_gateway_virtual_interface: "local-gateway-virtual-interface",
   local_gateway_virtual_interface_group: "local-gateway-virtual-interface-group",
+  mac_modification_task: "mac-modification-task",
   natgateway: "natgateway",
   network_acl: "network-acl",
   network_insights_access_scope: "network-insights-access-scope",

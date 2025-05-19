@@ -7,7 +7,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { VolumeAttachment } from "../models/models_0";
-import { DetachVolumeRequest } from "../models/models_5";
+import { DetachVolumeRequest } from "../models/models_6";
 import { de_DetachVolumeCommand, se_DetachVolumeCommand } from "../protocols/Aws_ec2";
 
 /**

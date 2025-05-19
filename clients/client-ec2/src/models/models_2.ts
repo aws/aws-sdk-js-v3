@@ -17,6 +17,7 @@ import {
   PortRange,
   Protocol,
   ReservedInstancesListing,
+  ResourceType,
   RouteTableAssociationState,
   SecurityGroupReferencingSupportValue,
   Tag,
@@ -35,21 +36,588 @@ import {
 } from "./models_0";
 
 import {
+  _InstanceType,
+  ConnectionTrackingSpecification,
   ConnectionTrackingSpecificationRequest,
+  CreditSpecification,
+  ElasticGpuSpecificationResponse,
+  HostnameType,
+  InstanceBandwidthWeighting,
   InstanceIpv6Address,
+  InstanceRequirements,
   Ipv4PrefixSpecificationRequest,
+  Ipv4PrefixSpecificationResponse,
   Ipv6PrefixSpecificationRequest,
+  LaunchTemplateBlockDeviceMapping,
+  LaunchTemplateCapacityReservationSpecificationResponse,
+  LaunchTemplateCpuOptions,
+  LaunchTemplateElasticInferenceAcceleratorResponse,
+  LaunchTemplateEnaSrdSpecification,
+  LaunchTemplateEnclaveOptions,
+  LaunchTemplateHibernationOptions,
+  LaunchTemplateIamInstanceProfileSpecification,
+  LaunchTemplateInstanceMaintenanceOptions,
+  LaunchTemplateInstanceMarketOptions,
+  LaunchTemplateInstanceMetadataOptions,
+  LaunchTemplateLicenseConfiguration,
+  LaunchTemplatesMonitoring,
+  MacModificationTask,
+  MacSystemIntegrityProtectionSettingStatus,
   OperatorRequest,
   OperatorResponse,
   PrivateIpAddressSpecification,
-  ResponseLaunchTemplateData,
-  ResponseLaunchTemplateDataFilterSensitiveLog,
+  ShutdownBehavior,
   Subnet,
   Tenancy,
   ValidationWarning,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Information about the IPv6 delegated prefixes assigned to a network interface.</p>
+ * @public
+ */
+export interface Ipv6PrefixSpecificationResponse {
+  /**
+   * <p>The IPv6 delegated prefixes assigned to the network interface.</p>
+   * @public
+   */
+  Ipv6Prefix?: string | undefined;
+}
+
+/**
+ * <p>Describes a network interface.</p>
+ * @public
+ */
+export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
+  /**
+   * <p>Indicates whether to associate a Carrier IP address with eth0 for a new network
+   *             interface.</p>
+   *          <p>Use this option when you launch an instance in a Wavelength Zone and want to associate
+   *             a Carrier IP address with the network interface. For more information about Carrier IP
+   *             addresses, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip">Carrier IP address</a> in the <i>Wavelength Developer
+   *             Guide</i>.</p>
+   * @public
+   */
+  AssociateCarrierIpAddress?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether to associate a public IPv4 address with eth0 for a new network
+   *             interface.</p>
+   *          <p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses
+   * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
+   * @public
+   */
+  AssociatePublicIpAddress?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the network interface is deleted when the instance is
+   *             terminated.</p>
+   * @public
+   */
+  DeleteOnTermination?: boolean | undefined;
+
+  /**
+   * <p>A description for the network interface.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The device index for the network interface attachment.</p>
+   * @public
+   */
+  DeviceIndex?: number | undefined;
+
+  /**
+   * <p>The IDs of one or more security groups.</p>
+   * @public
+   */
+  Groups?: string[] | undefined;
+
+  /**
+   * <p>The type of network interface.</p>
+   * @public
+   */
+  InterfaceType?: string | undefined;
+
+  /**
+   * <p>The number of IPv6 addresses for the network interface.</p>
+   * @public
+   */
+  Ipv6AddressCount?: number | undefined;
+
+  /**
+   * <p>The IPv6 addresses for the network interface.</p>
+   * @public
+   */
+  Ipv6Addresses?: InstanceIpv6Address[] | undefined;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId?: string | undefined;
+
+  /**
+   * <p>The primary private IPv4 address of the network interface.</p>
+   * @public
+   */
+  PrivateIpAddress?: string | undefined;
+
+  /**
+   * <p>One or more private IPv4 addresses.</p>
+   * @public
+   */
+  PrivateIpAddresses?: PrivateIpAddressSpecification[] | undefined;
+
+  /**
+   * <p>The number of secondary private IPv4 addresses for the network interface.</p>
+   * @public
+   */
+  SecondaryPrivateIpAddressCount?: number | undefined;
+
+  /**
+   * <p>The ID of the subnet for the network interface.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The index of the network card.</p>
+   * @public
+   */
+  NetworkCardIndex?: number | undefined;
+
+  /**
+   * <p>One or more IPv4 prefixes assigned to the network interface.</p>
+   * @public
+   */
+  Ipv4Prefixes?: Ipv4PrefixSpecificationResponse[] | undefined;
+
+  /**
+   * <p>The number of IPv4 prefixes that Amazon Web Services automatically assigned to the network
+   *             interface.</p>
+   * @public
+   */
+  Ipv4PrefixCount?: number | undefined;
+
+  /**
+   * <p>One or more IPv6 prefixes assigned to the network interface.</p>
+   * @public
+   */
+  Ipv6Prefixes?: Ipv6PrefixSpecificationResponse[] | undefined;
+
+  /**
+   * <p>The number of IPv6 prefixes that Amazon Web Services automatically assigned to the network
+   *             interface.</p>
+   * @public
+   */
+  Ipv6PrefixCount?: number | undefined;
+
+  /**
+   * <p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address
+   *             to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the
+   *             instance is terminated or the network interface is detached. For more information about
+   *             primary IPv6 addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
+   * @public
+   */
+  PrimaryIpv6?: boolean | undefined;
+
+  /**
+   * <p>Contains the ENA Express settings for instances launched from your launch
+   *             template.</p>
+   * @public
+   */
+  EnaSrdSpecification?: LaunchTemplateEnaSrdSpecification | undefined;
+
+  /**
+   * <p>A security group connection tracking specification that enables you to set the timeout
+   *             for connection tracking on an Elastic network interface. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Idle connection tracking timeout</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  ConnectionTrackingSpecification?: ConnectionTrackingSpecification | undefined;
+
+  /**
+   * <p>The number of ENA queues created with the instance.</p>
+   * @public
+   */
+  EnaQueueCount?: number | undefined;
+}
+
+/**
+ * <p>With network performance options, you can adjust your bandwidth preferences to meet
+ *             the needs of the workload that runs on your instance at launch.</p>
+ * @public
+ */
+export interface LaunchTemplateNetworkPerformanceOptions {
+  /**
+   * <p>When you configure network bandwidth weighting, you can boost baseline bandwidth for
+   *             either networking or EBS by up to 25%. The total available baseline bandwidth for your
+   *             instance remains the same. The default option uses the standard bandwidth configuration
+   *             for your instance type.</p>
+   * @public
+   */
+  BandwidthWeighting?: InstanceBandwidthWeighting | undefined;
+}
+
+/**
+ * <p>Describes the placement of an instance.</p>
+ * @public
+ */
+export interface LaunchTemplatePlacement {
+  /**
+   * <p>The Availability Zone of the instance.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The affinity setting for the instance on the Dedicated Host.</p>
+   * @public
+   */
+  Affinity?: string | undefined;
+
+  /**
+   * <p>The name of the placement group for the instance.</p>
+   * @public
+   */
+  GroupName?: string | undefined;
+
+  /**
+   * <p>The ID of the Dedicated Host for the instance.</p>
+   * @public
+   */
+  HostId?: string | undefined;
+
+  /**
+   * <p>The tenancy of the instance. An instance with a tenancy of <code>dedicated</code> runs
+   *             on single-tenant hardware. </p>
+   * @public
+   */
+  Tenancy?: Tenancy | undefined;
+
+  /**
+   * <p>Reserved for future use.</p>
+   * @public
+   */
+  SpreadDomain?: string | undefined;
+
+  /**
+   * <p>The ARN of the host resource group in which to launch the instances. </p>
+   * @public
+   */
+  HostResourceGroupArn?: string | undefined;
+
+  /**
+   * <p>The number of the partition the instance should launch in. Valid only if the placement
+   *             group strategy is set to <code>partition</code>.</p>
+   * @public
+   */
+  PartitionNumber?: number | undefined;
+
+  /**
+   * <p>The Group ID of the placement group. You must specify the Placement Group <b>Group ID</b> to launch an instance in a shared placement
+   *             group.</p>
+   * @public
+   */
+  GroupId?: string | undefined;
+}
+
+/**
+ * <p>Describes the options for instance hostnames.</p>
+ * @public
+ */
+export interface LaunchTemplatePrivateDnsNameOptions {
+  /**
+   * <p>The type of hostname to assign to an instance.</p>
+   * @public
+   */
+  HostnameType?: HostnameType | undefined;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
+   *             records.</p>
+   * @public
+   */
+  EnableResourceNameDnsARecord?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA
+   *             records.</p>
+   * @public
+   */
+  EnableResourceNameDnsAAAARecord?: boolean | undefined;
+}
+
+/**
+ * <p>The tags specification for the launch template.</p>
+ * @public
+ */
+export interface LaunchTemplateTagSpecification {
+  /**
+   * <p>The type of resource to tag.</p>
+   * @public
+   */
+  ResourceType?: ResourceType | undefined;
+
+  /**
+   * <p>The tags for the resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>The information for a launch template. </p>
+ * @public
+ */
+export interface ResponseLaunchTemplateData {
+  /**
+   * <p>The ID of the kernel, if applicable.</p>
+   * @public
+   */
+  KernelId?: string | undefined;
+
+  /**
+   * <p>Indicates whether the instance is optimized for Amazon EBS I/O. </p>
+   * @public
+   */
+  EbsOptimized?: boolean | undefined;
+
+  /**
+   * <p>The IAM instance profile.</p>
+   * @public
+   */
+  IamInstanceProfile?: LaunchTemplateIamInstanceProfileSpecification | undefined;
+
+  /**
+   * <p>The block device mappings.</p>
+   * @public
+   */
+  BlockDeviceMappings?: LaunchTemplateBlockDeviceMapping[] | undefined;
+
+  /**
+   * <p>The network interfaces.</p>
+   * @public
+   */
+  NetworkInterfaces?: LaunchTemplateInstanceNetworkInterfaceSpecification[] | undefined;
+
+  /**
+   * <p>The ID of the AMI or a Systems Manager parameter. The Systems Manager parameter will
+   *             resolve to the ID of the AMI at instance launch.</p>
+   *          <p>The value depends on what you specified in the request. The possible values
+   *             are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If an AMI ID was specified in the request, then this is the AMI ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>If a Systems Manager parameter was specified in the request, and
+   *                         <code>ResolveAlias</code> was configured as <code>true</code>, then this is
+   *                     the AMI ID that the parameter is mapped to in the Parameter Store.</p>
+   *             </li>
+   *             <li>
+   *                <p>If a Systems Manager parameter was specified in the request, and
+   *                         <code>ResolveAlias</code> was configured as <code>false</code>, then this is
+   *                     the parameter value.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>The instance type.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The name of the key pair.</p>
+   * @public
+   */
+  KeyName?: string | undefined;
+
+  /**
+   * <p>The monitoring for the instance.</p>
+   * @public
+   */
+  Monitoring?: LaunchTemplatesMonitoring | undefined;
+
+  /**
+   * <p>The placement of the instance.</p>
+   * @public
+   */
+  Placement?: LaunchTemplatePlacement | undefined;
+
+  /**
+   * <p>The ID of the RAM disk, if applicable.</p>
+   * @public
+   */
+  RamDiskId?: string | undefined;
+
+  /**
+   * <p>If set to <code>true</code>, indicates that the instance cannot be terminated using
+   *             the Amazon EC2 console, command line tool, or API.</p>
+   * @public
+   */
+  DisableApiTermination?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the
+   *             instance (using the operating system command for system shutdown).</p>
+   * @public
+   */
+  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | undefined;
+
+  /**
+   * <p>The user data for the instance. </p>
+   * @public
+   */
+  UserData?: string | undefined;
+
+  /**
+   * <p>The tags that are applied to the resources that are created during instance
+   *             launch.</p>
+   * @public
+   */
+  TagSpecifications?: LaunchTemplateTagSpecification[] | undefined;
+
+  /**
+   * <p>Deprecated.</p>
+   *          <note>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
+   *          </note>
+   * @public
+   */
+  ElasticGpuSpecifications?: ElasticGpuSpecificationResponse[] | undefined;
+
+  /**
+   * <note>
+   *             <p>Amazon Elastic Inference is no longer available.</p>
+   *          </note>
+   *          <p>An elastic inference accelerator to associate with the instance. Elastic inference
+   *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
+   *             your Deep Learning (DL) inference workloads.</p>
+   *          <p>You cannot specify accelerators from different generations in the same request.</p>
+   * @public
+   */
+  ElasticInferenceAccelerators?: LaunchTemplateElasticInferenceAcceleratorResponse[] | undefined;
+
+  /**
+   * <p>The security group IDs.</p>
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The security group names.</p>
+   * @public
+   */
+  SecurityGroups?: string[] | undefined;
+
+  /**
+   * <p>The market (purchasing) option for the instances.</p>
+   * @public
+   */
+  InstanceMarketOptions?: LaunchTemplateInstanceMarketOptions | undefined;
+
+  /**
+   * <p>The credit option for CPU usage of the instance.</p>
+   * @public
+   */
+  CreditSpecification?: CreditSpecification | undefined;
+
+  /**
+   * <p>The CPU options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">CPU
+   *                 options for Amazon EC2 instances</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  CpuOptions?: LaunchTemplateCpuOptions | undefined;
+
+  /**
+   * <p>Information about the Capacity Reservation targeting option.</p>
+   * @public
+   */
+  CapacityReservationSpecification?: LaunchTemplateCapacityReservationSpecificationResponse | undefined;
+
+  /**
+   * <p>The license configurations.</p>
+   * @public
+   */
+  LicenseSpecifications?: LaunchTemplateLicenseConfiguration[] | undefined;
+
+  /**
+   * <p>Indicates whether an instance is configured for hibernation. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
+   *                 your Amazon EC2 instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  HibernationOptions?: LaunchTemplateHibernationOptions | undefined;
+
+  /**
+   * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure
+   *                 the Instance Metadata Service options</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  MetadataOptions?: LaunchTemplateInstanceMetadataOptions | undefined;
+
+  /**
+   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
+   * @public
+   */
+  EnclaveOptions?: LaunchTemplateEnclaveOptions | undefined;
+
+  /**
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with these attributes.</p>
+   *          <p>If you specify <code>InstanceRequirements</code>, you can't specify
+   *          <code>InstanceTypes</code>.</p>
+   * @public
+   */
+  InstanceRequirements?: InstanceRequirements | undefined;
+
+  /**
+   * <p>The options for the instance hostname.</p>
+   * @public
+   */
+  PrivateDnsNameOptions?: LaunchTemplatePrivateDnsNameOptions | undefined;
+
+  /**
+   * <p>The maintenance options for your instance.</p>
+   * @public
+   */
+  MaintenanceOptions?: LaunchTemplateInstanceMaintenanceOptions | undefined;
+
+  /**
+   * <p>Indicates whether the instance is enabled for stop protection. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html">Enable stop protection for your EC2 instances</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  DisableApiStop?: boolean | undefined;
+
+  /**
+   * <p>The entity that manages the launch template.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
+
+  /**
+   * <p>Contains the launch template settings for network performance options for your
+   *             instance.</p>
+   * @public
+   */
+  NetworkPerformanceOptions?: LaunchTemplateNetworkPerformanceOptions | undefined;
+}
 
 /**
  * <p>Describes a launch template version.</p>
@@ -1005,6 +1573,164 @@ export interface CreateLocalGatewayVirtualInterfaceGroupResult {
    * @public
    */
   LocalGatewayVirtualInterfaceGroup?: LocalGatewayVirtualInterfaceGroup | undefined;
+}
+
+/**
+ * <p>Describes a custom configuration for a System Integrity Protection (SIP) modification task.</p>
+ * @public
+ */
+export interface MacSystemIntegrityProtectionConfigurationRequest {
+  /**
+   * <p>Enables or disables Apple Internal.</p>
+   * @public
+   */
+  AppleInternal?: MacSystemIntegrityProtectionSettingStatus | undefined;
+
+  /**
+   * <p>Enables or disables Base System.</p>
+   * @public
+   */
+  BaseSystem?: MacSystemIntegrityProtectionSettingStatus | undefined;
+
+  /**
+   * <p>Enables or disables Debugging Restrictions.</p>
+   * @public
+   */
+  DebuggingRestrictions?: MacSystemIntegrityProtectionSettingStatus | undefined;
+
+  /**
+   * <p>Enables or disables Dtrace Restrictions.</p>
+   * @public
+   */
+  DTraceRestrictions?: MacSystemIntegrityProtectionSettingStatus | undefined;
+
+  /**
+   * <p>Enables or disables Filesystem Protections.</p>
+   * @public
+   */
+  FilesystemProtections?: MacSystemIntegrityProtectionSettingStatus | undefined;
+
+  /**
+   * <p>Enables or disables Kext Signing.</p>
+   * @public
+   */
+  KextSigning?: MacSystemIntegrityProtectionSettingStatus | undefined;
+
+  /**
+   * <p>Enables or disables Nvram Protections.</p>
+   * @public
+   */
+  NvramProtections?: MacSystemIntegrityProtectionSettingStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMacSystemIntegrityProtectionModificationTaskRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the Amazon EC2 Mac instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>
+   *             <b>[Apple silicon Mac instances only]</b> Specifies the
+   *          following credentials:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Internal disk administrative user</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>Username</b> - Only the default administrative
+   *                      user (<code>aws-managed-user</code>) is supported and it is used by default. You
+   *                      can't specify a different administrative user.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>Password</b> - If you did not change the default
+   *                      password for <code>aws-managed-user</code>, specify the default password, which
+   *                      is <i>blank</i>. Otherwise, specify your password.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon EBS root volume administrative user</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>Username</b> - If you did not change the default
+   *                      administrative user, specify <code>ec2-user</code>. Otherwise, specify the username
+   *                      for your administrative user.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>Password</b> - Specify the password for the
+   *                      administrative user.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *          <p>The credentials must be specified in the following JSON format:</p>
+   *          <p>
+   *             <code>\{
+   *   "internalDiskPassword":"<i>internal-disk-admin_password</i>",
+   *   "rootVolumeUsername":"<i>root-volume-admin_username</i>",
+   *   "rootVolumepassword":"<i>root-volume-admin_password</i>"
+   * \}</code>
+   *          </p>
+   * @public
+   */
+  MacCredentials?: string | undefined;
+
+  /**
+   * <p>Specifies the overrides to selectively enable or disable individual SIP settings.
+   *          The individual settings you specify here override the overall SIP status you specify
+   *          for <b>MacSystemIntegrityProtectionStatus</b>.</p>
+   * @public
+   */
+  MacSystemIntegrityProtectionConfiguration?: MacSystemIntegrityProtectionConfigurationRequest | undefined;
+
+  /**
+   * <p>Specifies the overall SIP status for the instance. To enable all SIP settings, specify
+   *          <code>enabled</code>. To disable all SIP settings, specify <code>disabled</code>.</p>
+   * @public
+   */
+  MacSystemIntegrityProtectionStatus: MacSystemIntegrityProtectionSettingStatus | undefined;
+
+  /**
+   * <p>Specifies tags to apply to the SIP modification task.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMacSystemIntegrityProtectionModificationTaskResult {
+  /**
+   * <p>Information about the SIP modification task.</p>
+   * @public
+   */
+  MacModificationTask?: MacModificationTask | undefined;
 }
 
 /**
@@ -10255,260 +10981,12 @@ export type ConnectionNotificationState =
   (typeof ConnectionNotificationState)[keyof typeof ConnectionNotificationState];
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const ConnectionNotificationType = {
-  Topic: "Topic",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionNotificationType = (typeof ConnectionNotificationType)[keyof typeof ConnectionNotificationType];
-
-/**
- * <p>Describes a connection notification for a VPC endpoint or VPC endpoint
- *             service.</p>
- * @public
- */
-export interface ConnectionNotification {
-  /**
-   * <p>The ID of the notification.</p>
-   * @public
-   */
-  ConnectionNotificationId?: string | undefined;
-
-  /**
-   * <p>The ID of the endpoint service.</p>
-   * @public
-   */
-  ServiceId?: string | undefined;
-
-  /**
-   * <p>The ID of the VPC endpoint.</p>
-   * @public
-   */
-  VpcEndpointId?: string | undefined;
-
-  /**
-   * <p>The type of notification.</p>
-   * @public
-   */
-  ConnectionNotificationType?: ConnectionNotificationType | undefined;
-
-  /**
-   * <p>The ARN of the SNS topic for the notification.</p>
-   * @public
-   */
-  ConnectionNotificationArn?: string | undefined;
-
-  /**
-   * <p>The events for the notification. Valid values are <code>Accept</code>,
-   *             <code>Connect</code>, <code>Delete</code>, and <code>Reject</code>.</p>
-   * @public
-   */
-  ConnectionEvents?: string[] | undefined;
-
-  /**
-   * <p>The state of the notification.</p>
-   * @public
-   */
-  ConnectionNotificationState?: ConnectionNotificationState | undefined;
-
-  /**
-   * <p>The Region for the endpoint service.</p>
-   * @public
-   */
-  ServiceRegion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVpcEndpointConnectionNotificationResult {
-  /**
-   * <p>Information about the notification.</p>
-   * @public
-   */
-  ConnectionNotification?: ConnectionNotification | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVpcEndpointServiceConfigurationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether requests from service consumers to create an endpoint to your service must
-   *             be accepted manually.</p>
-   * @public
-   */
-  AcceptanceRequired?: boolean | undefined;
-
-  /**
-   * <p>(Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.</p>
-   * @public
-   */
-  PrivateDnsName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the Network Load Balancers.</p>
-   * @public
-   */
-  NetworkLoadBalancerArns?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers.</p>
-   * @public
-   */
-  GatewayLoadBalancerArns?: string[] | undefined;
-
-  /**
-   * <p>The supported IP address types. The possible values are <code>ipv4</code> and <code>ipv6</code>.</p>
-   * @public
-   */
-  SupportedIpAddressTypes?: string[] | undefined;
-
-  /**
-   * <p>The Regions from which service consumers can access the service.</p>
-   * @public
-   */
-  SupportedRegions?: string[] | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   *             For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure
-   *                 idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The tags to associate with the service.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const PayerResponsibility = {
-  ServiceOwner: "ServiceOwner",
-} as const;
-
-/**
- * @public
- */
-export type PayerResponsibility = (typeof PayerResponsibility)[keyof typeof PayerResponsibility];
-
-/**
- * @public
- * @enum
- */
-export const DnsNameState = {
-  Failed: "failed",
-  PendingVerification: "pendingVerification",
-  Verified: "verified",
-} as const;
-
-/**
- * @public
- */
-export type DnsNameState = (typeof DnsNameState)[keyof typeof DnsNameState];
-
-/**
- * <p>Information about the private DNS name for the service endpoint.</p>
- * @public
- */
-export interface PrivateDnsNameConfiguration {
-  /**
-   * <p>The verification state of the VPC endpoint service.</p>
-   *          <p>>Consumers
-   *             of the endpoint service can use the private name only when the state is
-   *                 <code>verified</code>.</p>
-   * @public
-   */
-  State?: DnsNameState | undefined;
-
-  /**
-   * <p>The endpoint service verification type, for example TXT.</p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p>The value the service provider adds to the private DNS name domain record before verification.</p>
-   * @public
-   */
-  Value?: string | undefined;
-
-  /**
-   * <p>The name of the record subdomain the service provider needs to create. The service provider adds the <code>value</code> text to the <code>name</code>.</p>
-   * @public
-   */
-  Name?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ServiceState = {
-  Available: "Available",
-  Deleted: "Deleted",
-  Deleting: "Deleting",
-  Failed: "Failed",
-  Pending: "Pending",
-} as const;
-
-/**
- * @public
- */
-export type ServiceState = (typeof ServiceState)[keyof typeof ServiceState];
-
-/**
- * @public
- * @enum
- */
-export const ServiceType = {
-  Gateway: "Gateway",
-  GatewayLoadBalancer: "GatewayLoadBalancer",
-  Interface: "Interface",
-} as const;
-
-/**
- * @public
- */
-export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];
-
-/**
- * <p>Describes the type of service for a VPC endpoint.</p>
- * @public
- */
-export interface ServiceTypeDetail {
-  /**
-   * <p>The type of service.</p>
-   * @public
-   */
-  ServiceType?: ServiceType | undefined;
-}
+export const ResponseLaunchTemplateDataFilterSensitiveLog = (obj: ResponseLaunchTemplateData): any => ({
+  ...obj,
+  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
@@ -10528,6 +11006,16 @@ export const CreateLaunchTemplateVersionResultFilterSensitiveLog = (obj: CreateL
   ...(obj.LaunchTemplateVersion && {
     LaunchTemplateVersion: LaunchTemplateVersionFilterSensitiveLog(obj.LaunchTemplateVersion),
   }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMacSystemIntegrityProtectionModificationTaskRequestFilterSensitiveLog = (
+  obj: CreateMacSystemIntegrityProtectionModificationTaskRequest
+): any => ({
+  ...obj,
+  ...(obj.MacCredentials && { MacCredentials: SENSITIVE_STRING }),
 });
 
 /**

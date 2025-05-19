@@ -354,6 +354,11 @@ import {
   CreateDefaultVpcCommandOutput,
 } from "./commands/CreateDefaultVpcCommand";
 import {
+  CreateDelegateMacVolumeOwnershipTaskCommand,
+  CreateDelegateMacVolumeOwnershipTaskCommandInput,
+  CreateDelegateMacVolumeOwnershipTaskCommandOutput,
+} from "./commands/CreateDelegateMacVolumeOwnershipTaskCommand";
+import {
   CreateDhcpOptionsCommand,
   CreateDhcpOptionsCommandInput,
   CreateDhcpOptionsCommandOutput,
@@ -461,6 +466,11 @@ import {
   CreateLocalGatewayVirtualInterfaceGroupCommandInput,
   CreateLocalGatewayVirtualInterfaceGroupCommandOutput,
 } from "./commands/CreateLocalGatewayVirtualInterfaceGroupCommand";
+import {
+  CreateMacSystemIntegrityProtectionModificationTaskCommand,
+  CreateMacSystemIntegrityProtectionModificationTaskCommandInput,
+  CreateMacSystemIntegrityProtectionModificationTaskCommandOutput,
+} from "./commands/CreateMacSystemIntegrityProtectionModificationTaskCommand";
 import {
   CreateManagedPrefixListCommand,
   CreateManagedPrefixListCommandInput,
@@ -1553,6 +1563,11 @@ import {
   DescribeMacHostsCommandInput,
   DescribeMacHostsCommandOutput,
 } from "./commands/DescribeMacHostsCommand";
+import {
+  DescribeMacModificationTasksCommand,
+  DescribeMacModificationTasksCommandInput,
+  DescribeMacModificationTasksCommandOutput,
+} from "./commands/DescribeMacModificationTasksCommand";
 import {
   DescribeManagedPrefixListsCommand,
   DescribeManagedPrefixListsCommandInput,
@@ -3413,6 +3428,7 @@ const commands = {
   CreateCustomerGatewayCommand,
   CreateDefaultSubnetCommand,
   CreateDefaultVpcCommand,
+  CreateDelegateMacVolumeOwnershipTaskCommand,
   CreateDhcpOptionsCommand,
   CreateEgressOnlyInternetGatewayCommand,
   CreateFleetCommand,
@@ -3437,6 +3453,7 @@ const commands = {
   CreateLocalGatewayRouteTableVpcAssociationCommand,
   CreateLocalGatewayVirtualInterfaceCommand,
   CreateLocalGatewayVirtualInterfaceGroupCommand,
+  CreateMacSystemIntegrityProtectionModificationTaskCommand,
   CreateManagedPrefixListCommand,
   CreateNatGatewayCommand,
   CreateNetworkAclCommand,
@@ -3661,6 +3678,7 @@ const commands = {
   DescribeLocalGatewayVirtualInterfacesCommand,
   DescribeLockedSnapshotsCommand,
   DescribeMacHostsCommand,
+  DescribeMacModificationTasksCommand,
   DescribeManagedPrefixListsCommand,
   DescribeMovingAddressesCommand,
   DescribeNatGatewaysCommand,
@@ -5199,6 +5217,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link CreateDelegateMacVolumeOwnershipTaskCommand}
+   */
+  createDelegateMacVolumeOwnershipTask(
+    args: CreateDelegateMacVolumeOwnershipTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDelegateMacVolumeOwnershipTaskCommandOutput>;
+  createDelegateMacVolumeOwnershipTask(
+    args: CreateDelegateMacVolumeOwnershipTaskCommandInput,
+    cb: (err: any, data?: CreateDelegateMacVolumeOwnershipTaskCommandOutput) => void
+  ): void;
+  createDelegateMacVolumeOwnershipTask(
+    args: CreateDelegateMacVolumeOwnershipTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDelegateMacVolumeOwnershipTaskCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateDhcpOptionsCommand}
    */
   createDhcpOptions(
@@ -5572,6 +5607,23 @@ export interface EC2 {
     args: CreateLocalGatewayVirtualInterfaceGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateLocalGatewayVirtualInterfaceGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateMacSystemIntegrityProtectionModificationTaskCommand}
+   */
+  createMacSystemIntegrityProtectionModificationTask(
+    args: CreateMacSystemIntegrityProtectionModificationTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMacSystemIntegrityProtectionModificationTaskCommandOutput>;
+  createMacSystemIntegrityProtectionModificationTask(
+    args: CreateMacSystemIntegrityProtectionModificationTaskCommandInput,
+    cb: (err: any, data?: CreateMacSystemIntegrityProtectionModificationTaskCommandOutput) => void
+  ): void;
+  createMacSystemIntegrityProtectionModificationTask(
+    args: CreateMacSystemIntegrityProtectionModificationTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMacSystemIntegrityProtectionModificationTaskCommandOutput) => void
   ): void;
 
   /**
@@ -9334,6 +9386,24 @@ export interface EC2 {
     args: DescribeMacHostsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeMacHostsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMacModificationTasksCommand}
+   */
+  describeMacModificationTasks(): Promise<DescribeMacModificationTasksCommandOutput>;
+  describeMacModificationTasks(
+    args: DescribeMacModificationTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMacModificationTasksCommandOutput>;
+  describeMacModificationTasks(
+    args: DescribeMacModificationTasksCommandInput,
+    cb: (err: any, data?: DescribeMacModificationTasksCommandOutput) => void
+  ): void;
+  describeMacModificationTasks(
+    args: DescribeMacModificationTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMacModificationTasksCommandOutput) => void
   ): void;
 
   /**
