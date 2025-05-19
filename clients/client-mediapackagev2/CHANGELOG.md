@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.813.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.812.0...v3.813.0) (2025-05-19)
+
+
+### Features
+
+* **client-mediapackagev2:** This release adds support for DVB-DASH, EBU-TT-D subtitle format, and non-compacted manifests for DASH in MediaPackage v2 Origin Endpoints. ([3b671f5](https://github.com/aws/aws-sdk-js-v3/commit/3b671f5dc3d85f0ffca4e7f7d95eb6a16bbc889c))
+
+
+
+
+
 # [3.812.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.811.0...v3.812.0) (2025-05-16)
 
 **Note:** Version bump only for package @aws-sdk/client-mediapackagev2

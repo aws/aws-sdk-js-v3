@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.813.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.812.0...v3.813.0) (2025-05-19)
+
+
+### Features
+
+* **client-dsql:** CreateMultiRegionCluster and DeleteMultiRegionCluster APIs removed ([38ba363](https://github.com/aws/aws-sdk-js-v3/commit/38ba36317bc18a86b2da769ec47ec68a81143e32))
+* **client-ec2:** This release includes new APIs for System Integrity Protection (SIP) configuration and automated root volume ownership delegation for EC2 Mac instances. ([374726f](https://github.com/aws/aws-sdk-js-v3/commit/374726ff745820ef6d4f9712574398e1d61ddf95))
+* **client-mediapackagev2:** This release adds support for DVB-DASH, EBU-TT-D subtitle format, and non-compacted manifests for DASH in MediaPackage v2 Origin Endpoints. ([3b671f5](https://github.com/aws/aws-sdk-js-v3/commit/3b671f5dc3d85f0ffca4e7f7d95eb6a16bbc889c))
+* **clients:** update client endpoints as of 2025-05-19 ([596fafa](https://github.com/aws/aws-sdk-js-v3/commit/596fafa6ec37a22a6239fa2b3718423255194464))
+
+
+
+
+
 # [3.812.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.811.0...v3.812.0) (2025-05-16)
 
 
