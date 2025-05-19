@@ -46,7 +46,6 @@ export interface DeleteClusterCommandOutput extends DeleteClusterOutput, __Metad
  * //   arn: "STRING_VALUE", // required
  * //   status: "CREATING" || "ACTIVE" || "IDLE" || "INACTIVE" || "UPDATING" || "DELETING" || "DELETED" || "FAILED" || "PENDING_SETUP" || "PENDING_DELETE", // required
  * //   creationTime: new Date("TIMESTAMP"), // required
- * //   deletionProtectionEnabled: true || false, // required
  * // };
  *
  * ```

@@ -54,15 +54,7 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
-import {
-  CreateMultiRegionClustersCommandInput,
-  CreateMultiRegionClustersCommandOutput,
-} from "./commands/CreateMultiRegionClustersCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
-import {
-  DeleteMultiRegionClustersCommandInput,
-  DeleteMultiRegionClustersCommandOutput,
-} from "./commands/DeleteMultiRegionClustersCommand";
 import { GetClusterCommandInput, GetClusterCommandOutput } from "./commands/GetClusterCommand";
 import {
   GetVpcEndpointServiceNameCommandInput,
@@ -92,9 +84,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateClusterCommandInput
-  | CreateMultiRegionClustersCommandInput
   | DeleteClusterCommandInput
-  | DeleteMultiRegionClustersCommandInput
   | GetClusterCommandInput
   | GetVpcEndpointServiceNameCommandInput
   | ListClustersCommandInput
@@ -108,9 +98,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CreateClusterCommandOutput
-  | CreateMultiRegionClustersCommandOutput
   | DeleteClusterCommandOutput
-  | DeleteMultiRegionClustersCommandOutput
   | GetClusterCommandOutput
   | GetVpcEndpointServiceNameCommandOutput
   | ListClustersCommandOutput

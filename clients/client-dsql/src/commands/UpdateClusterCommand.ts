@@ -28,16 +28,79 @@ export interface UpdateClusterCommandInput extends UpdateClusterInput {}
 export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a cluster.</p>
+ * <p>The <i>UpdateCluster</i> API allows you to modify both single-Region and multi-Region cluster configurations. With the <i>multiRegionProperties</i> parameter, you can add or modify witness Region support and manage peer relationships with clusters in other Regions.</p>
+ *          <note>
+ *             <p>Note that updating multi-region clusters requires additional IAM permissions beyond those needed for standard cluster updates, as detailed in the Permissions section.</p>
+ *          </note>
  *          <p>
- *             <b>Example IAM Policy for Multi-Region Operations</b>
+ *             <b>Required permissions</b>
  *          </p>
- *          <p>The following IAM policy grants permissions for multi-Region operations.</p>
- *          <p>The <code>dsql:RemovePeerCluster</code> permission uses a wildcard ARN pattern to simplify permission management during updates.</p>
+ *          <dl>
+ *             <dt>dsql:UpdateCluster</dt>
+ *             <dd>
+ *                <p>Permission to update a DSQL cluster.</p>
+ *                <p>Resources: <code>arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/<i>cluster-id</i>
+ *                   </code>
+ *                </p>
+ *             </dd>
+ *          </dl>
+ *          <dl>
+ *             <dt>dsql:PutMultiRegionProperties</dt>
+ *             <dd>
+ *                <p>Permission to configure multi-Region properties for a cluster.</p>
+ *                <p>Resources: <code>arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/<i>cluster-id</i>
+ *                   </code>
+ *                </p>
+ *             </dd>
+ *          </dl>
+ *          <dl>
+ *             <dt>dsql:GetCluster</dt>
+ *             <dd>
+ *                <p>Permission to retrieve cluster information.</p>
+ *                <p>Resources: <code>arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/<i>cluster-id</i>
+ *                   </code>
+ *                </p>
+ *             </dd>
+ *             <dt>dsql:AddPeerCluster</dt>
+ *             <dd>
+ *                <p>Permission to add peer clusters.</p>
+ *                <p>Resources:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>Local cluster: <code>arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/<i>cluster-id</i>
+ *                         </code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Each peer cluster: exact ARN of each specified peer cluster</p>
+ *                   </li>
+ *                </ul>
+ *             </dd>
+ *             <dt>dsql:RemovePeerCluster</dt>
+ *             <dd>
+ *                <p>Permission to remove peer clusters. The <i>dsql:RemovePeerCluster</i> permission
+ *                   uses a wildcard ARN pattern to simplify permission management during updates.</p>
+ *                <p>Resources:
+ *                      <code>arn:aws:dsql:*:<i>account-id</i>:cluster/*</code>
+ *                </p>
+ *             </dd>
+ *          </dl>
+ *          <dl>
+ *             <dt>dsql:PutWitnessRegion</dt>
+ *             <dd>
+ *                <p>Permission to set a witness Region.</p>
+ *                <p>Resources: <code>arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/<i>cluster-id</i>
+ *                   </code>
+ *                </p>
+ *                <p>Condition Keys: dsql:WitnessRegion (matching the specified witness
+ *                   Region)</p>
+ *                <p>
+ *                   <b>This permission is checked both in the cluster Region and in the witness
+ *                         Region.</b>
+ *                </p>
+ *             </dd>
+ *          </dl>
  *          <important>
- *             <p>
- *                <b>Important Notes for Multi-Region Operations</b>
- *             </p>
  *             <ul>
  *                <li>
  *                   <p>The witness region specified in
@@ -76,11 +139,6 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  * //   arn: "STRING_VALUE", // required
  * //   status: "CREATING" || "ACTIVE" || "IDLE" || "INACTIVE" || "UPDATING" || "DELETING" || "DELETED" || "FAILED" || "PENDING_SETUP" || "PENDING_DELETE", // required
  * //   creationTime: new Date("TIMESTAMP"), // required
- * //   witnessRegion: "STRING_VALUE",
- * //   linkedClusterArns: [ // ClusterArnList
- * //     "STRING_VALUE",
- * //   ],
- * //   deletionProtectionEnabled: true || false, // required
  * // };
  *
  * ```

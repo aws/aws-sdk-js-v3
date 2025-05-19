@@ -28,74 +28,68 @@ export interface CreateClusterCommandInput extends CreateClusterInput {}
 export interface CreateClusterCommandOutput extends CreateClusterOutput, __MetadataBearer {}
 
 /**
- * <p>This operation creates a cluster in Amazon Aurora DSQL. You need the following permissions to
- *          use this operation.</p>
- *          <p>Permission to create a  cluster.</p>
+ * <p>The CreateCluster API allows you to create both single-region clusters and multi-Region
+ *          clusters. With the addition of the <i>multiRegionProperties</i> parameter,
+ *          you can create a cluster with witness Region support and establish peer relationships with
+ *          clusters in other Regions during creation.</p>
+ *          <note>
+ *             <p>Creating multi-Region clusters requires additional IAM permissions beyond those
+ *                needed for single-Region clusters, as detailed in the <b>Required permissions</b> section
+ *             below.</p>
+ *          </note>
+ *          <p>
+ *             <b>Required permissions</b>
+ *          </p>
  *          <dl>
  *             <dt>dsql:CreateCluster</dt>
  *             <dd>
- *                <p>Resources: arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/*</p>
+ *                <p>Required to create a cluster.</p>
+ *                <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/*</code>
+ *                </p>
  *             </dd>
- *          </dl>
- *          <p> Permission to add tags to a  resource.</p>
- *          <dl>
  *             <dt>dsql:TagResource</dt>
  *             <dd>
- *                <p>Resources:
- *                      arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/*</p>
+ *                <p>Permission to add tags to a resource.</p>
+ *                <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/*</code>
+ *                </p>
  *             </dd>
- *          </dl>
- *          <p>Permission to configure multi-region properties for
- *          a cluster.</p>
- *          <dl>
  *             <dt>dsql:PutMultiRegionProperties</dt>
  *             <dd>
- *                <p>Resources:
- *                      arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/*</p>
+ *                <p>Permission to configure multi-region properties for a cluster.</p>
+ *                <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/*</code>
+ *                </p>
  *             </dd>
- *          </dl>
- *          <p>When specifying multiRegionProperties.clusters.</p>
- *          <dl>
  *             <dt>dsql:AddPeerCluster</dt>
  *             <dd>
- *                <p>Permission to add peer clusters.</p>
+ *                <p>When specifying <code>multiRegionProperties.clusters</code>, permission to
+ *                   add peer clusters.</p>
  *                <p>Resources:</p>
  *                <ul>
  *                   <li>
- *                      <p>Local cluster: arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/*</p>
+ *                      <p>Local cluster: <code>arn:aws:dsql:region:account-id:cluster/*</code>
+ *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>Each peer cluster: exact ARN of each specified peer cluster</p>
  *                   </li>
  *                </ul>
  *             </dd>
- *          </dl>
- *          <p>When specifying multiRegionProperties.witnessRegion.</p>
- *          <dl>
  *             <dt>dsql:PutWitnessRegion</dt>
  *             <dd>
- *                <p>Permission to set a witness region.</p>
- *                <p>Resources: arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/*</p>
- *                <p>Condition Keys: <code>dsql:WitnessRegion</code> (matching the specified
- *                      witness region)</p>
- *                <note>
- *                   <p>This permission is checked both in the cluster Region and in the witness
- *                         Region.</p>
- *                </note>
+ *                <p>When specifying <code>multiRegionProperties.witnessRegion</code>, permission
+ *                   to set a witness Region. This permission is checked both in the cluster Region and
+ *                   in the witness Region.</p>
+ *                <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/*</code>
+ *                </p>
+ *                <p>Condition Keys: <code>dsql:WitnessRegion</code> (matching the specified witness region)</p>
  *             </dd>
  *          </dl>
  *          <important>
- *             <p>
- *                <b>Important Notes for Multi-Region Operations</b>
- *             </p>
  *             <ul>
  *                <li>
- *                   <p>The witness region specified in
- *                   <code>multiRegionProperties.witnessRegion</code> cannot be the same as the
+ *                   <p>The witness Region specified in
+ *                      <code>multiRegionProperties.witnessRegion</code> cannot be the same as the
  *                   cluster's Region.</p>
- *                </li>
- *                <li>
- *                   <p>When updating clusters with peer relationships, permissions are checked for both adding and removing peers.</p>
  *                </li>
  *             </ul>
  *          </important>

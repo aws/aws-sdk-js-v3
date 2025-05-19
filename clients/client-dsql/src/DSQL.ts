@@ -8,20 +8,10 @@ import {
   CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
-  CreateMultiRegionClustersCommand,
-  CreateMultiRegionClustersCommandInput,
-  CreateMultiRegionClustersCommandOutput,
-} from "./commands/CreateMultiRegionClustersCommand";
-import {
   DeleteClusterCommand,
   DeleteClusterCommandInput,
   DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
-import {
-  DeleteMultiRegionClustersCommand,
-  DeleteMultiRegionClustersCommandInput,
-  DeleteMultiRegionClustersCommandOutput,
-} from "./commands/DeleteMultiRegionClustersCommand";
 import { GetClusterCommand, GetClusterCommandInput, GetClusterCommandOutput } from "./commands/GetClusterCommand";
 import {
   GetVpcEndpointServiceNameCommand,
@@ -53,9 +43,7 @@ import { DSQLClient, DSQLClientConfig } from "./DSQLClient";
 
 const commands = {
   CreateClusterCommand,
-  CreateMultiRegionClustersCommand,
   DeleteClusterCommand,
-  DeleteMultiRegionClustersCommand,
   GetClusterCommand,
   GetVpcEndpointServiceNameCommand,
   ListClustersCommand,
@@ -79,23 +67,6 @@ export interface DSQL {
   ): void;
 
   /**
-   * @see {@link CreateMultiRegionClustersCommand}
-   */
-  createMultiRegionClusters(
-    args: CreateMultiRegionClustersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateMultiRegionClustersCommandOutput>;
-  createMultiRegionClusters(
-    args: CreateMultiRegionClustersCommandInput,
-    cb: (err: any, data?: CreateMultiRegionClustersCommandOutput) => void
-  ): void;
-  createMultiRegionClusters(
-    args: CreateMultiRegionClustersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateMultiRegionClustersCommandOutput) => void
-  ): void;
-
-  /**
    * @see {@link DeleteClusterCommand}
    */
   deleteCluster(args: DeleteClusterCommandInput, options?: __HttpHandlerOptions): Promise<DeleteClusterCommandOutput>;
@@ -104,23 +75,6 @@ export interface DSQL {
     args: DeleteClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteClusterCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link DeleteMultiRegionClustersCommand}
-   */
-  deleteMultiRegionClusters(
-    args: DeleteMultiRegionClustersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteMultiRegionClustersCommandOutput>;
-  deleteMultiRegionClusters(
-    args: DeleteMultiRegionClustersCommandInput,
-    cb: (err: any, data?: DeleteMultiRegionClustersCommandOutput) => void
-  ): void;
-  deleteMultiRegionClusters(
-    args: DeleteMultiRegionClustersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteMultiRegionClustersCommandOutput) => void
   ): void;
 
   /**

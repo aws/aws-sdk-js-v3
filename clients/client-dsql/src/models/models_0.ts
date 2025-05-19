@@ -367,76 +367,6 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Properties of linked clusters.</p>
- *
- * @deprecated The CreateMultiRegionClusters API is deprecated. To create a multi-Region cluster, use the CreateCluster API with multi-Region properties instead.
- * @public
- */
-export interface LinkedClusterProperties {
-  /**
-   * <p>Whether deletion protection is enabled.</p>
-   * @public
-   */
-  deletionProtectionEnabled?: boolean | undefined;
-
-  /**
-   * <p>A map of key and value pairs the linked cluster is tagged with.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMultiRegionClustersInput {
-  /**
-   * <p>An array of the Regions in which you want to create additional clusters.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  linkedRegionList: string[] | undefined;
-
-  /**
-   * <p>A mapping of properties to use when creating linked clusters.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  clusterProperties?: Record<string, LinkedClusterProperties> | undefined;
-
-  /**
-   * <p>The witness Region of multi-Region clusters.</p>
-   * @public
-   */
-  witnessRegion: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          request. Idempotency ensures that an API request completes only once. With an idempotent
-   *          request, if the original request completes successfully. The subsequent retries with the
-   *          same client token return the result from the original successful request and they have no
-   *          additional effect.</p>
-   *          <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates
-   *          one.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMultiRegionClustersOutput {
-  /**
-   * <p>An array that contains the ARNs of all linked clusters.</p>
-   * @public
-   */
-  linkedClusterArns: string[] | undefined;
-}
-
-/**
  * @public
  */
 export interface DeleteClusterInput {
@@ -487,14 +417,6 @@ export interface DeleteClusterOutput {
    * @public
    */
   creationTime: Date | undefined;
-
-  /**
-   * <p>Specifies whether deletion protection was enabled on the cluster.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  deletionProtectionEnabled: boolean | undefined;
 }
 
 /**
@@ -529,30 +451,6 @@ export class ResourceNotFoundException extends __BaseException {
     this.resourceId = opts.resourceId;
     this.resourceType = opts.resourceType;
   }
-}
-
-/**
- * @public
- */
-export interface DeleteMultiRegionClustersInput {
-  /**
-   * <p>The ARNs of the clusters linked to the cluster you want to delete.  also deletes
-   *          these clusters as part of the operation.</p>
-   * @public
-   */
-  linkedClusterArns: string[] | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          request. Idempotency ensures that an API request completes only once. With an idempotent
-   *          request, if the original request completes successfully. The subsequent retries with the
-   *          same client token return the result from the original successful request and they have no
-   *          additional effect.</p>
-   *          <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates
-   *          one.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
 }
 
 /**
@@ -594,22 +492,6 @@ export interface GetClusterOutput {
    * @public
    */
   creationTime: Date | undefined;
-
-  /**
-   * <p>The witness Region of the cluster. Applicable only for multi-Region clusters.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  witnessRegion?: string | undefined;
-
-  /**
-   * <p>The ARNs of the clusters linked to the retrieved cluster.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  linkedClusterArns?: string[] | undefined;
 
   /**
    * <p>Whether deletion protection is enabled in this cluster.</p>
@@ -772,31 +654,6 @@ export interface UpdateClusterOutput {
    * @public
    */
   creationTime: Date | undefined;
-
-  /**
-   * <p>The Region that receives all data you write to linked clusters.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  witnessRegion?: string | undefined;
-
-  /**
-   * <p>The ARNs of the clusters linked to the updated cluster. Applicable only for multi-Region
-   *          clusters.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  linkedClusterArns?: string[] | undefined;
-
-  /**
-   * <p>Whether deletion protection is enabled for the updated cluster.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  deletionProtectionEnabled: boolean | undefined;
 }
 
 /**

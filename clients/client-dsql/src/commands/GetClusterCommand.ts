@@ -45,14 +45,10 @@ export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBea
  * //   arn: "STRING_VALUE", // required
  * //   status: "CREATING" || "ACTIVE" || "IDLE" || "INACTIVE" || "UPDATING" || "DELETING" || "DELETED" || "FAILED" || "PENDING_SETUP" || "PENDING_DELETE", // required
  * //   creationTime: new Date("TIMESTAMP"), // required
- * //   witnessRegion: "STRING_VALUE",
- * //   linkedClusterArns: [ // ClusterArnList
- * //     "STRING_VALUE",
- * //   ],
  * //   deletionProtectionEnabled: true || false, // required
  * //   multiRegionProperties: { // MultiRegionProperties
  * //     witnessRegion: "STRING_VALUE",
- * //     clusters: [
+ * //     clusters: [ // ClusterArnList
  * //       "STRING_VALUE",
  * //     ],
  * //   },
