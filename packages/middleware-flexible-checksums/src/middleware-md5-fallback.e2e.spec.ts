@@ -44,7 +44,7 @@ describe("S3 MD5 Fallback for DeleteObjects", () => {
       console.error("Setup failed:", err);
       throw err;
     }
-  });
+  }, 60_000);
 
   afterAll(async () => {
     try {
@@ -60,7 +60,7 @@ describe("S3 MD5 Fallback for DeleteObjects", () => {
     } catch (error) {
       console.error("Cleanup failed:", error);
     }
-  });
+  }, 60_000);
 
   it("should use CRC32 checksum by default for DeleteObjects", async () => {
     const response = await s3.send(
