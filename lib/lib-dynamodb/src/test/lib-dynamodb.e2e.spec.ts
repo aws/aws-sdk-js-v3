@@ -346,6 +346,17 @@ describe(
         })
         .catch(passError);
 
+      for (const k of Object.keys(data)) {
+        await doc
+          .get({
+            TableName,
+            Key: {
+              id: k + "-transact",
+            },
+          })
+          .catch(passError);
+      }
+
       log.transactRead = await doc
         .transactGet({
           TransactItems: [
