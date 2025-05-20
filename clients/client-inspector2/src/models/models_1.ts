@@ -6,9 +6,14 @@ import {
   AtigData,
   AutoEnable,
   CisaData,
+  CisCheckAggregation,
   CisDateFilter,
   CisNumberFilter,
   CisScan,
+  CisScanConfiguration,
+  CisScanConfigurationsSortBy,
+  CisScanResultsAggregatedByChecksFilterCriteria,
+  CisScanResultsAggregatedByChecksSortBy,
   CisScanResultsAggregatedByTargetResourceFilterCriteria,
   CisScanResultsAggregatedByTargetResourceSortBy,
   CisScanStatusFilter,
@@ -25,24 +30,302 @@ import {
   Cvss2,
   Cvss3,
   DelegatedAdminAccount,
+  Destination,
   Ec2Configuration,
   Ec2DeepInspectionStatus,
   EcrConfiguration,
   Epss,
   ExploitObserved,
+  ExternalReportStatus,
   Filter,
   FilterAction,
   FilterCriteria,
   Finding,
   GroupKey,
   Member,
+  ReportingErrorCode,
+  ResourceFilterCriteria,
   ResourceType,
+  SbomReportFormat,
   ScanType,
   Schedule,
   SortOrder,
   StringFilter,
   TagFilter,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetSbomExportResponse {
+  /**
+   * <p>The report ID of the software bill of materials (SBOM) report.</p>
+   * @public
+   */
+  reportId?: string | undefined;
+
+  /**
+   * <p>The format of the software bill of materials (SBOM) report.</p>
+   * @public
+   */
+  format?: SbomReportFormat | undefined;
+
+  /**
+   * <p>The status of the software bill of materials (SBOM) report.</p>
+   * @public
+   */
+  status?: ExternalReportStatus | undefined;
+
+  /**
+   * <p>An error code.</p>
+   * @public
+   */
+  errorCode?: ReportingErrorCode | undefined;
+
+  /**
+   * <p>An error message.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+
+  /**
+   * <p>Contains details of the Amazon S3 bucket and KMS key used to export findings</p>
+   * @public
+   */
+  s3Destination?: Destination | undefined;
+
+  /**
+   * <p>Contains details about the resource filter criteria used for the software bill of materials (SBOM) report.</p>
+   * @public
+   */
+  filterCriteria?: ResourceFilterCriteria | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Service = {
+  EC2: "EC2",
+  ECR: "ECR",
+  LAMBDA: "LAMBDA",
+} as const;
+
+/**
+ * @public
+ */
+export type Service = (typeof Service)[keyof typeof Service];
+
+/**
+ * @public
+ */
+export interface ListAccountPermissionsRequest {
+  /**
+   * <p>The service scan type to check permissions for.</p>
+   * @public
+   */
+  service?: Service | undefined;
+
+  /**
+   * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Operation = {
+  DISABLE_REPOSITORY: "DISABLE_REPOSITORY",
+  DISABLE_SCANNING: "DISABLE_SCANNING",
+  ENABLE_REPOSITORY: "ENABLE_REPOSITORY",
+  ENABLE_SCANNING: "ENABLE_SCANNING",
+} as const;
+
+/**
+ * @public
+ */
+export type Operation = (typeof Operation)[keyof typeof Operation];
+
+/**
+ * <p>Contains information on the permissions an account has within Amazon Inspector.</p>
+ * @public
+ */
+export interface Permission {
+  /**
+   * <p>The services that the permissions allow an account to perform the given operations for.</p>
+   * @public
+   */
+  service: Service | undefined;
+
+  /**
+   * <p>The operations that can be performed with the given permissions.</p>
+   * @public
+   */
+  operation: Operation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAccountPermissionsResponse {
+  /**
+   * <p>Contains details on the permissions an account has to configure Amazon Inspector.</p>
+   * @public
+   */
+  permissions: Permission[] | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request to a list action. For subsequent calls, use
+   *          the <code>NextToken</code> value returned from the previous request to continue listing
+   *          results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A list of CIS scan configurations filter criteria.</p>
+ * @public
+ */
+export interface ListCisScanConfigurationsFilterCriteria {
+  /**
+   * <p>The list of scan name filters.</p>
+   * @public
+   */
+  scanNameFilters?: CisStringFilter[] | undefined;
+
+  /**
+   * <p>The list of target resource tag filters.</p>
+   * @public
+   */
+  targetResourceTagFilters?: TagFilter[] | undefined;
+
+  /**
+   * <p>The list of scan configuration ARN filters.</p>
+   * @public
+   */
+  scanConfigurationArnFilters?: CisStringFilter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCisScanConfigurationsRequest {
+  /**
+   * <p>The CIS scan configuration filter criteria.</p>
+   * @public
+   */
+  filterCriteria?: ListCisScanConfigurationsFilterCriteria | undefined;
+
+  /**
+   * <p>The CIS scan configuration sort by order.</p>
+   * @public
+   */
+  sortBy?: CisScanConfigurationsSortBy | undefined;
+
+  /**
+   * <p>The CIS scan configuration sort order order.</p>
+   * @public
+   */
+  sortOrder?: CisSortOrder | undefined;
+
+  /**
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of CIS scan configurations to be returned in a single page of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCisScanConfigurationsResponse {
+  /**
+   * <p>The CIS scan configuration scan configurations.</p>
+   * @public
+   */
+  scanConfigurations?: CisScanConfiguration[] | undefined;
+
+  /**
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCisScanResultsAggregatedByChecksRequest {
+  /**
+   * <p>The scan ARN.</p>
+   * @public
+   */
+  scanArn: string | undefined;
+
+  /**
+   * <p>The filter criteria.</p>
+   * @public
+   */
+  filterCriteria?: CisScanResultsAggregatedByChecksFilterCriteria | undefined;
+
+  /**
+   * <p>The sort by order.</p>
+   * @public
+   */
+  sortBy?: CisScanResultsAggregatedByChecksSortBy | undefined;
+
+  /**
+   * <p>The sort order.</p>
+   * @public
+   */
+  sortOrder?: CisSortOrder | undefined;
+
+  /**
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of scan results aggregated by checks to be returned in a single page of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCisScanResultsAggregatedByChecksResponse {
+  /**
+   * <p>The check aggregations.</p>
+   * @public
+   */
+  checkAggregations?: CisCheckAggregation[] | undefined;
+
+  /**
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * @public

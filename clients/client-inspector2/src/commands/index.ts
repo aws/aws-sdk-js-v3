@@ -22,6 +22,7 @@ export * from "./EnableCommand";
 export * from "./EnableDelegatedAdminAccountCommand";
 export * from "./GetCisScanReportCommand";
 export * from "./GetCisScanResultDetailsCommand";
+export * from "./GetClustersForImageCommand";
 export * from "./GetConfigurationCommand";
 export * from "./GetDelegatedAdminAccountCommand";
 export * from "./GetEc2DeepInspectionConfigurationCommand";

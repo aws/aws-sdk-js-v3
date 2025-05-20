@@ -110,6 +110,11 @@ import {
   GetCisScanResultDetailsCommandOutput,
 } from "./commands/GetCisScanResultDetailsCommand";
 import {
+  GetClustersForImageCommand,
+  GetClustersForImageCommandInput,
+  GetClustersForImageCommandOutput,
+} from "./commands/GetClustersForImageCommand";
+import {
   GetConfigurationCommand,
   GetConfigurationCommandInput,
   GetConfigurationCommandOutput,
@@ -299,6 +304,7 @@ const commands = {
   EnableDelegatedAdminAccountCommand,
   GetCisScanReportCommand,
   GetCisScanResultDetailsCommand,
+  GetClustersForImageCommand,
   GetConfigurationCommand,
   GetDelegatedAdminAccountCommand,
   GetEc2DeepInspectionConfigurationCommand,
@@ -704,6 +710,23 @@ export interface Inspector2 {
     args: GetCisScanResultDetailsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCisScanResultDetailsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetClustersForImageCommand}
+   */
+  getClustersForImage(
+    args: GetClustersForImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetClustersForImageCommandOutput>;
+  getClustersForImage(
+    args: GetClustersForImageCommandInput,
+    cb: (err: any, data?: GetClustersForImageCommandOutput) => void
+  ): void;
+  getClustersForImage(
+    args: GetClustersForImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetClustersForImageCommandOutput) => void
   ): void;
 
   /**

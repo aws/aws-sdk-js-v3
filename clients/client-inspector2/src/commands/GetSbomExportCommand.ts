@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { GetSbomExportRequest, GetSbomExportResponse } from "../models/models_0";
+import { GetSbomExportRequest } from "../models/models_0";
+import { GetSbomExportResponse } from "../models/models_1";
 import { de_GetSbomExportCommand, se_GetSbomExportCommand } from "../protocols/Aws_restJson1";
 
 /**

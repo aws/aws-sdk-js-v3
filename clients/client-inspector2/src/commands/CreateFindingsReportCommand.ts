@@ -115,6 +115,18 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  *     ecrImageRepositoryName: "<StringFilterList>",
  *     ecrImageTags: "<StringFilterList>",
  *     ecrImageHash: "<StringFilterList>",
+ *     ecrImageLastInUseAt: [
+ *       {
+ *         startInclusive: new Date("TIMESTAMP"),
+ *         endInclusive: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     ecrImageInUseCount: [
+ *       {
+ *         upperInclusive: Number("double"),
+ *         lowerInclusive: Number("double"),
+ *       },
+ *     ],
  *     portRange: [ // PortRangeFilterList
  *       { // PortRangeFilter
  *         beginInclusive: Number("int"),
@@ -147,12 +159,7 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  *     lambdaFunctionName: "<StringFilterList>",
  *     lambdaFunctionLayers: "<StringFilterList>",
  *     lambdaFunctionRuntime: "<StringFilterList>",
- *     lambdaFunctionLastModifiedAt: [
- *       {
- *         startInclusive: new Date("TIMESTAMP"),
- *         endInclusive: new Date("TIMESTAMP"),
- *       },
- *     ],
+ *     lambdaFunctionLastModifiedAt: "<DateFilterList>",
  *     lambdaFunctionExecutionRoleArn: "<StringFilterList>",
  *     exploitAvailable: "<StringFilterList>",
  *     codeVulnerabilityDetectorName: "<StringFilterList>",

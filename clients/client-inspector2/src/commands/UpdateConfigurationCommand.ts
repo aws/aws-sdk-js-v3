@@ -39,6 +39,7 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  *   ecrConfiguration: { // EcrConfiguration
  *     rescanDuration: "STRING_VALUE", // required
  *     pullDateRescanDuration: "STRING_VALUE",
+ *     pullDateRescanMode: "STRING_VALUE",
  *   },
  *   ec2Configuration: { // Ec2Configuration
  *     scanMode: "STRING_VALUE", // required

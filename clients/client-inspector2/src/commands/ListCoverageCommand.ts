@@ -101,6 +101,18 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *         endInclusive: new Date("TIMESTAMP"),
  *       },
  *     ],
+ *     ecrImageLastInUseAt: [
+ *       {
+ *         startInclusive: new Date("TIMESTAMP"),
+ *         endInclusive: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     ecrImageInUseCount: [ // CoverageNumberFilterList
+ *       { // CoverageNumberFilter
+ *         upperInclusive: Number("long"),
+ *         lowerInclusive: Number("long"),
+ *       },
+ *     ],
  *   },
  * };
  * const command = new ListCoverageCommand(input);
@@ -127,6 +139,8 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * //             "STRING_VALUE",
  * //           ],
  * //           imagePulledAt: new Date("TIMESTAMP"),
+ * //           lastInUseAt: new Date("TIMESTAMP"),
+ * //           inUseCount: Number("long"),
  * //         },
  * //         ec2: { // Ec2Metadata
  * //           tags: { // TagMap

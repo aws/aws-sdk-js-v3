@@ -1,4 +1,6 @@
 export * from "./GetCisScanResultDetailsPaginator";
+
+export * from "./GetClustersForImagePaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListAccountPermissionsPaginator";

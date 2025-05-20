@@ -463,6 +463,42 @@ export interface AmiAggregation {
 }
 
 /**
+ * <p>An object that describes the details of a number filter.</p>
+ * @public
+ */
+export interface NumberFilter {
+  /**
+   * <p>The highest number to be included in the filter.</p>
+   * @public
+   */
+  upperInclusive?: number | undefined;
+
+  /**
+   * <p>The lowest number to be included in the filter.</p>
+   * @public
+   */
+  lowerInclusive?: number | undefined;
+}
+
+/**
+ * <p>Contains details on the time range used to filter findings.</p>
+ * @public
+ */
+export interface DateFilter {
+  /**
+   * <p>A timestamp representing the start of the time period filtered on.</p>
+   * @public
+   */
+  startInclusive?: Date | undefined;
+
+  /**
+   * <p>A timestamp representing the end of the time period filtered on.</p>
+   * @public
+   */
+  endInclusive?: Date | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -523,6 +559,18 @@ export interface AwsEcrContainerAggregation {
    * @public
    */
   sortBy?: AwsEcrContainerSortBy | undefined;
+
+  /**
+   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or Amazon EKS pod.</p>
+   * @public
+   */
+  lastInUseAt?: DateFilter[] | undefined;
+
+  /**
+   * <p>The number of Amazon ECS tasks or Amazon EKS pods where the Amazon ECR container image is in use.</p>
+   * @public
+   */
+  inUseCount?: NumberFilter[] | undefined;
 }
 
 /**
@@ -1327,6 +1375,18 @@ export interface AwsEcrContainerAggregationResponse {
    * @public
    */
   severityCounts?: SeverityCounts | undefined;
+
+  /**
+   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or Amazon EKS pod.</p>
+   * @public
+   */
+  lastInUseAt?: Date | undefined;
+
+  /**
+   * <p>The number of Amazon ECS tasks or Amazon EKS pods where the Amazon ECR container image is in use.</p>
+   * @public
+   */
+  inUseCount?: number | undefined;
 }
 
 /**
@@ -2299,6 +2359,72 @@ export interface AwsEcrContainerImageDetails {
    * @public
    */
   platform?: string | undefined;
+
+  /**
+   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or Amazon EKS pod.</p>
+   * @public
+   */
+  lastInUseAt?: Date | undefined;
+
+  /**
+   * <p>The number of Amazon ECS tasks or Amazon EKS pods where the Amazon ECR container image is in use.</p>
+   * @public
+   */
+  inUseCount?: number | undefined;
+}
+
+/**
+ * <p>Metadata about tasks where an image was in use.</p>
+ * @public
+ */
+export interface AwsEcsMetadataDetails {
+  /**
+   * <p>The details group information for a task in a cluster.</p>
+   * @public
+   */
+  detailsGroup: string | undefined;
+
+  /**
+   * <p>The task definition ARN.</p>
+   * @public
+   */
+  taskDefinitionArn: string | undefined;
+}
+
+/**
+ * <p>Information about the workload.</p>
+ * @public
+ */
+export interface AwsEksWorkloadInfo {
+  /**
+   * <p>The name of the workload.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The workload type.</p>
+   * @public
+   */
+  type: string | undefined;
+}
+
+/**
+ * <p>The metadata for an Amazon EKS pod where an Amazon ECR image is in use.</p>
+ * @public
+ */
+export interface AwsEksMetadataDetails {
+  /**
+   * <p>The namespace for an Amazon EKS cluster.</p>
+   * @public
+   */
+  namespace?: string | undefined;
+
+  /**
+   * <p>The list of workloads.</p>
+   * @public
+   */
+  workloadInfoList?: AwsEksWorkloadInfo[] | undefined;
 }
 
 /**
@@ -4380,6 +4506,121 @@ export interface CisTargetResourceAggregation {
 }
 
 /**
+ * <p>The metadata for a cluster.</p>
+ * @public
+ */
+export type ClusterMetadata =
+  | ClusterMetadata.AwsEcsMetadataDetailsMember
+  | ClusterMetadata.AwsEksMetadataDetailsMember
+  | ClusterMetadata.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ClusterMetadata {
+  /**
+   * <p>The details for an Amazon ECS cluster in the cluster metadata.</p>
+   * @public
+   */
+  export interface AwsEcsMetadataDetailsMember {
+    awsEcsMetadataDetails: AwsEcsMetadataDetails;
+    awsEksMetadataDetails?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The details for an Amazon EKS cluster in the cluster metadata.</p>
+   * @public
+   */
+  export interface AwsEksMetadataDetailsMember {
+    awsEcsMetadataDetails?: never;
+    awsEksMetadataDetails: AwsEksMetadataDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    awsEcsMetadataDetails?: never;
+    awsEksMetadataDetails?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    awsEcsMetadataDetails: (value: AwsEcsMetadataDetails) => T;
+    awsEksMetadataDetails: (value: AwsEksMetadataDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ClusterMetadata, visitor: Visitor<T>): T => {
+    if (value.awsEcsMetadataDetails !== undefined) return visitor.awsEcsMetadataDetails(value.awsEcsMetadataDetails);
+    if (value.awsEksMetadataDetails !== undefined) return visitor.awsEksMetadataDetails(value.awsEksMetadataDetails);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Details about the task or pod in the cluster.</p>
+ * @public
+ */
+export interface ClusterDetails {
+  /**
+   * <p>The last timestamp when Amazon Inspector recorded the image in use in the task or pod in the cluster.</p>
+   * @public
+   */
+  lastInUse: Date | undefined;
+
+  /**
+   * <p>The number of tasks or pods where an image was running on the cluster.</p>
+   * @public
+   */
+  runningUnitCount?: number | undefined;
+
+  /**
+   * <p>The number of tasks or pods where an image was stopped on the cluster in the last 24 hours.</p>
+   * @public
+   */
+  stoppedUnitCount?: number | undefined;
+
+  /**
+   * <p>The metadata for a cluster.</p>
+   * @public
+   */
+  clusterMetadata: ClusterMetadata | undefined;
+}
+
+/**
+ * <p>The filter criteria to be used.</p>
+ * @public
+ */
+export interface ClusterForImageFilterCriteria {
+  /**
+   * <p>The resource Id to be used in the filter criteria.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+}
+
+/**
+ * <p>Information about the cluster.</p>
+ * @public
+ */
+export interface ClusterInformation {
+  /**
+   * <p>The cluster ARN.</p>
+   * @public
+   */
+  clusterArn: string | undefined;
+
+  /**
+   * <p>Details about the cluster.</p>
+   * @public
+   */
+  clusterDetails?: ClusterDetails[] | undefined;
+}
+
+/**
  * <p>Contains information on where a code vulnerability is located in your Lambda function.</p>
  * @public
  */
@@ -4645,6 +4886,24 @@ export interface CoverageMapFilter {
 }
 
 /**
+ * <p>The coverage number to be used in the filter.</p>
+ * @public
+ */
+export interface CoverageNumberFilter {
+  /**
+   * <p>The upper inclusive for the coverage number.&gt;</p>
+   * @public
+   */
+  upperInclusive?: number | undefined;
+
+  /**
+   * <p>The lower inclusive for the coverage number.</p>
+   * @public
+   */
+  lowerInclusive?: number | undefined;
+}
+
+/**
  * <p>A structure that identifies filter criteria for <code>GetCoverageStatistics</code>.</p>
  * @public
  */
@@ -4738,6 +4997,18 @@ export interface CoverageFilterCriteria {
    * @public
    */
   imagePulledAt?: CoverageDateFilter[] | undefined;
+
+  /**
+   * <p>The Amazon ECR image that was last in use.</p>
+   * @public
+   */
+  ecrImageLastInUseAt?: CoverageDateFilter[] | undefined;
+
+  /**
+   * <p>The number of Amazon ECR images in use.</p>
+   * @public
+   */
+  ecrImageInUseCount?: CoverageNumberFilter[] | undefined;
 }
 
 /**
@@ -4812,6 +5083,18 @@ export interface EcrContainerImageMetadata {
    * @public
    */
   imagePulledAt?: Date | undefined;
+
+  /**
+   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or Amazon EKS pod.</p>
+   * @public
+   */
+  lastInUseAt?: Date | undefined;
+
+  /**
+   * <p>The number of Amazon ECS tasks or Amazon EKS pods where the Amazon ECR container image is in use.</p>
+   * @public
+   */
+  inUseCount?: number | undefined;
 }
 
 /**
@@ -4941,6 +5224,7 @@ export const ScanStatusReason = {
   NO_RESOURCES_FOUND: "NO_RESOURCES_FOUND",
   PENDING_DISABLE: "PENDING_DISABLE",
   PENDING_INITIAL_SCAN: "PENDING_INITIAL_SCAN",
+  PENDING_REVIVAL_SCAN: "PENDING_REVIVAL_SCAN",
   RESOURCE_TERMINATED: "RESOURCE_TERMINATED",
   SCAN_ELIGIBILITY_EXPIRED: "SCAN_ELIGIBILITY_EXPIRED",
   SCAN_FREQUENCY_MANUAL: "SCAN_FREQUENCY_MANUAL",
@@ -5191,42 +5475,6 @@ export const FilterAction = {
 export type FilterAction = (typeof FilterAction)[keyof typeof FilterAction];
 
 /**
- * <p>Contains details on the time range used to filter findings.</p>
- * @public
- */
-export interface DateFilter {
-  /**
-   * <p>A timestamp representing the start of the time period filtered on.</p>
-   * @public
-   */
-  startInclusive?: Date | undefined;
-
-  /**
-   * <p>A timestamp representing the end of the time period filtered on.</p>
-   * @public
-   */
-  endInclusive?: Date | undefined;
-}
-
-/**
- * <p>An object that describes the details of a number filter.</p>
- * @public
- */
-export interface NumberFilter {
-  /**
-   * <p>The highest number to be included in the filter.</p>
-   * @public
-   */
-  upperInclusive?: number | undefined;
-
-  /**
-   * <p>The lowest number to be included in the filter.</p>
-   * @public
-   */
-  lowerInclusive?: number | undefined;
-}
-
-/**
  * <p>An object that describes the details of a port range filter.</p>
  * @public
  */
@@ -5434,6 +5682,18 @@ export interface FilterCriteria {
    * @public
    */
   ecrImageHash?: StringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria indicating when an Amazon ECR image was last used in an Amazon ECS cluster task or Amazon EKS cluster pod.</p>
+   * @public
+   */
+  ecrImageLastInUseAt?: DateFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria indicating when details for an Amazon ECR image include when an Amazon ECR image is in use.</p>
+   * @public
+   */
+  ecrImageInUseCount?: NumberFilter[] | undefined;
 
   /**
    * <p>Details on the port ranges used to filter findings.</p>
@@ -6321,6 +6581,20 @@ export type EcrPullDateRescanDuration = (typeof EcrPullDateRescanDuration)[keyof
  * @public
  * @enum
  */
+export const EcrPullDateRescanMode = {
+  LAST_IN_USE_AT: "LAST_IN_USE_AT",
+  LAST_PULL_DATE: "LAST_PULL_DATE",
+} as const;
+
+/**
+ * @public
+ */
+export type EcrPullDateRescanMode = (typeof EcrPullDateRescanMode)[keyof typeof EcrPullDateRescanMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const EcrRescanDuration = {
   DAYS_14: "DAYS_14",
   DAYS_180: "DAYS_180",
@@ -6351,6 +6625,12 @@ export interface EcrConfiguration {
    * @public
    */
   pullDateRescanDuration?: EcrPullDateRescanDuration | undefined;
+
+  /**
+   * <p>The pull date for the re-scan mode.</p>
+   * @public
+   */
+  pullDateRescanMode?: EcrPullDateRescanMode | undefined;
 }
 
 /**
@@ -6398,6 +6678,12 @@ export interface EcrRescanDurationState {
    * @public
    */
   pullDateRescanDuration?: EcrPullDateRescanDuration | undefined;
+
+  /**
+   * <p>The pull date for the re-scan mode.</p>
+   * @public
+   */
+  pullDateRescanMode?: EcrPullDateRescanMode | undefined;
 }
 
 /**
@@ -7315,6 +7601,46 @@ export interface GetCisScanResultDetailsResponse {
 /**
  * @public
  */
+export interface GetClustersForImageRequest {
+  /**
+   * <p>The resource Id for the Amazon ECR image.</p>
+   * @public
+   */
+  filter: ClusterForImageFilterCriteria | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned in a single page of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token from a previous request used to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetClustersForImageResponse {
+  /**
+   * <p>A unit of work inside of a cluster, which can include metadata about the cluster.</p>
+   * @public
+   */
+  cluster: ClusterInformation[] | undefined;
+
+  /**
+   * <p>The pagination token from a previous request used to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetConfigurationRequest {}
 
 /**
@@ -7543,277 +7869,4 @@ export interface GetSbomExportRequest {
    * @public
    */
   reportId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSbomExportResponse {
-  /**
-   * <p>The report ID of the software bill of materials (SBOM) report.</p>
-   * @public
-   */
-  reportId?: string | undefined;
-
-  /**
-   * <p>The format of the software bill of materials (SBOM) report.</p>
-   * @public
-   */
-  format?: SbomReportFormat | undefined;
-
-  /**
-   * <p>The status of the software bill of materials (SBOM) report.</p>
-   * @public
-   */
-  status?: ExternalReportStatus | undefined;
-
-  /**
-   * <p>An error code.</p>
-   * @public
-   */
-  errorCode?: ReportingErrorCode | undefined;
-
-  /**
-   * <p>An error message.</p>
-   * @public
-   */
-  errorMessage?: string | undefined;
-
-  /**
-   * <p>Contains details of the Amazon S3 bucket and KMS key used to export findings</p>
-   * @public
-   */
-  s3Destination?: Destination | undefined;
-
-  /**
-   * <p>Contains details about the resource filter criteria used for the software bill of materials (SBOM) report.</p>
-   * @public
-   */
-  filterCriteria?: ResourceFilterCriteria | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const Service = {
-  EC2: "EC2",
-  ECR: "ECR",
-  LAMBDA: "LAMBDA",
-} as const;
-
-/**
- * @public
- */
-export type Service = (typeof Service)[keyof typeof Service];
-
-/**
- * @public
- */
-export interface ListAccountPermissionsRequest {
-  /**
-   * <p>The service scan type to check permissions for.</p>
-   * @public
-   */
-  service?: Service | undefined;
-
-  /**
-   * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const Operation = {
-  DISABLE_REPOSITORY: "DISABLE_REPOSITORY",
-  DISABLE_SCANNING: "DISABLE_SCANNING",
-  ENABLE_REPOSITORY: "ENABLE_REPOSITORY",
-  ENABLE_SCANNING: "ENABLE_SCANNING",
-} as const;
-
-/**
- * @public
- */
-export type Operation = (typeof Operation)[keyof typeof Operation];
-
-/**
- * <p>Contains information on the permissions an account has within Amazon Inspector.</p>
- * @public
- */
-export interface Permission {
-  /**
-   * <p>The services that the permissions allow an account to perform the given operations for.</p>
-   * @public
-   */
-  service: Service | undefined;
-
-  /**
-   * <p>The operations that can be performed with the given permissions.</p>
-   * @public
-   */
-  operation: Operation | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAccountPermissionsResponse {
-  /**
-   * <p>Contains details on the permissions an account has to configure Amazon Inspector.</p>
-   * @public
-   */
-  permissions: Permission[] | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>A list of CIS scan configurations filter criteria.</p>
- * @public
- */
-export interface ListCisScanConfigurationsFilterCriteria {
-  /**
-   * <p>The list of scan name filters.</p>
-   * @public
-   */
-  scanNameFilters?: CisStringFilter[] | undefined;
-
-  /**
-   * <p>The list of target resource tag filters.</p>
-   * @public
-   */
-  targetResourceTagFilters?: TagFilter[] | undefined;
-
-  /**
-   * <p>The list of scan configuration ARN filters.</p>
-   * @public
-   */
-  scanConfigurationArnFilters?: CisStringFilter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCisScanConfigurationsRequest {
-  /**
-   * <p>The CIS scan configuration filter criteria.</p>
-   * @public
-   */
-  filterCriteria?: ListCisScanConfigurationsFilterCriteria | undefined;
-
-  /**
-   * <p>The CIS scan configuration sort by order.</p>
-   * @public
-   */
-  sortBy?: CisScanConfigurationsSortBy | undefined;
-
-  /**
-   * <p>The CIS scan configuration sort order order.</p>
-   * @public
-   */
-  sortOrder?: CisSortOrder | undefined;
-
-  /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of CIS scan configurations to be returned in a single page of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCisScanConfigurationsResponse {
-  /**
-   * <p>The CIS scan configuration scan configurations.</p>
-   * @public
-   */
-  scanConfigurations?: CisScanConfiguration[] | undefined;
-
-  /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCisScanResultsAggregatedByChecksRequest {
-  /**
-   * <p>The scan ARN.</p>
-   * @public
-   */
-  scanArn: string | undefined;
-
-  /**
-   * <p>The filter criteria.</p>
-   * @public
-   */
-  filterCriteria?: CisScanResultsAggregatedByChecksFilterCriteria | undefined;
-
-  /**
-   * <p>The sort by order.</p>
-   * @public
-   */
-  sortBy?: CisScanResultsAggregatedByChecksSortBy | undefined;
-
-  /**
-   * <p>The sort order.</p>
-   * @public
-   */
-  sortOrder?: CisSortOrder | undefined;
-
-  /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of scan results aggregated by checks to be returned in a single page of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCisScanResultsAggregatedByChecksResponse {
-  /**
-   * <p>The check aggregations.</p>
-   * @public
-   */
-  checkAggregations?: CisCheckAggregation[] | undefined;
-
-  /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
 }

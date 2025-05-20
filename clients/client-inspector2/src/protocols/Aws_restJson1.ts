@@ -100,6 +100,10 @@ import {
   GetCisScanResultDetailsCommandInput,
   GetCisScanResultDetailsCommandOutput,
 } from "../commands/GetCisScanResultDetailsCommand";
+import {
+  GetClustersForImageCommandInput,
+  GetClustersForImageCommandOutput,
+} from "../commands/GetClustersForImageCommand";
 import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "../commands/GetConfigurationCommand";
 import {
   GetDelegatedAdminAccountCommandInput,
@@ -207,6 +211,7 @@ import {
   AutoEnable,
   AwsEc2InstanceDetails,
   AwsEcrContainerAggregation,
+  AwsEcrContainerAggregationResponse,
   AwsEcrContainerImageDetails,
   AwsLambdaFunctionDetails,
   BadRequestException,
@@ -225,11 +230,15 @@ import {
   CisStringFilter,
   CisTargetStatusFilter,
   CisTargetStatusReasonFilter,
+  ClusterDetails,
+  ClusterForImageFilterCriteria,
+  ClusterInformation,
   ComputePlatform,
   ConflictException,
   CoverageDateFilter,
   CoverageFilterCriteria,
   CoverageMapFilter,
+  CoverageNumberFilter,
   CoverageStringFilter,
   CoveredResource,
   CreateCisTargets,
@@ -264,7 +273,6 @@ import {
   LambdaFunctionAggregation,
   LambdaFunctionAggregationResponse,
   LambdaLayerAggregation,
-  ListCisScanConfigurationsFilterCriteria,
   MapFilter,
   Member,
   MemberAccountEc2DeepInspectionStatus,
@@ -295,6 +303,7 @@ import {
   WeeklySchedule,
 } from "../models/models_0";
 import {
+  ListCisScanConfigurationsFilterCriteria,
   ListCisScansFilterCriteria,
   SearchVulnerabilitiesFilterCriteria,
   SortCriteria,
@@ -830,6 +839,30 @@ export const se_GetCisScanResultDetailsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetClustersForImageCommand
+ */
+export const se_GetClustersForImageCommand = async (
+  input: GetClustersForImageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cluster/get");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetConfigurationCommand
  */
 export const se_GetConfigurationCommand = async (
@@ -1202,7 +1235,7 @@ export const se_ListFindingAggregationsCommand = async (
   body = JSON.stringify(
     take(input, {
       accountIds: (_) => _json(_),
-      aggregationRequest: (_) => _json(_),
+      aggregationRequest: (_) => se_AggregationRequest(_, context),
       aggregationType: [],
       maxResults: [],
       nextToken: [],
@@ -2139,6 +2172,28 @@ export const de_GetCisScanResultDetailsCommand = async (
   const doc = take(data, {
     nextToken: __expectString,
     scanResultDetails: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetClustersForImageCommand
+ */
+export const de_GetClustersForImageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetClustersForImageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    cluster: (_) => de_ClusterInformationList(_, context),
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3102,13 +3157,48 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AccountIdSet omitted.
 
-// se_AggregationRequest omitted.
+/**
+ * serializeAws_restJson1AggregationRequest
+ */
+const se_AggregationRequest = (input: AggregationRequest, context: __SerdeContext): any => {
+  return AggregationRequest.visit(input, {
+    accountAggregation: (value) => ({ accountAggregation: _json(value) }),
+    amiAggregation: (value) => ({ amiAggregation: _json(value) }),
+    awsEcrContainerAggregation: (value) => ({
+      awsEcrContainerAggregation: se_AwsEcrContainerAggregation(value, context),
+    }),
+    ec2InstanceAggregation: (value) => ({ ec2InstanceAggregation: _json(value) }),
+    findingTypeAggregation: (value) => ({ findingTypeAggregation: _json(value) }),
+    imageLayerAggregation: (value) => ({ imageLayerAggregation: _json(value) }),
+    lambdaFunctionAggregation: (value) => ({ lambdaFunctionAggregation: _json(value) }),
+    lambdaLayerAggregation: (value) => ({ lambdaLayerAggregation: _json(value) }),
+    packageAggregation: (value) => ({ packageAggregation: _json(value) }),
+    repositoryAggregation: (value) => ({ repositoryAggregation: _json(value) }),
+    titleAggregation: (value) => ({ titleAggregation: _json(value) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
 
 // se_AmiAggregation omitted.
 
 // se_AutoEnable omitted.
 
-// se_AwsEcrContainerAggregation omitted.
+/**
+ * serializeAws_restJson1AwsEcrContainerAggregation
+ */
+const se_AwsEcrContainerAggregation = (input: AwsEcrContainerAggregation, context: __SerdeContext): any => {
+  return take(input, {
+    architectures: _json,
+    imageShas: _json,
+    imageTags: _json,
+    inUseCount: (_) => se_NumberFilterList(_, context),
+    lastInUseAt: (_) => se_DateFilterList(_, context),
+    repositories: _json,
+    resourceIds: _json,
+    sortBy: [],
+    sortOrder: [],
+  });
+};
 
 // se_CheckIdFilterList omitted.
 
@@ -3199,6 +3289,8 @@ const se_CisSessionMessages = (input: CisSessionMessage[], context: __SerdeConte
 
 // se_CisTargetStatusReasonFilter omitted.
 
+// se_ClusterForImageFilterCriteria omitted.
+
 // se_ComputePlatform omitted.
 
 /**
@@ -3229,6 +3321,8 @@ const se_CoverageFilterCriteria = (input: CoverageFilterCriteria, context: __Ser
   return take(input, {
     accountId: _json,
     ec2InstanceTags: _json,
+    ecrImageInUseCount: _json,
+    ecrImageLastInUseAt: (_) => se_CoverageDateFilterList(_, context),
     ecrImageTags: _json,
     ecrRepositoryName: _json,
     imagePulledAt: (_) => se_CoverageDateFilterList(_, context),
@@ -3248,6 +3342,10 @@ const se_CoverageFilterCriteria = (input: CoverageFilterCriteria, context: __Ser
 // se_CoverageMapFilter omitted.
 
 // se_CoverageMapFilterList omitted.
+
+// se_CoverageNumberFilter omitted.
+
+// se_CoverageNumberFilterList omitted.
 
 // se_CoverageStringFilter omitted.
 
@@ -3310,6 +3408,8 @@ const se_FilterCriteria = (input: FilterCriteria, context: __SerdeContext): any 
     ec2InstanceVpcId: _json,
     ecrImageArchitecture: _json,
     ecrImageHash: _json,
+    ecrImageInUseCount: (_) => se_NumberFilterList(_, context),
+    ecrImageLastInUseAt: (_) => se_DateFilterList(_, context),
     ecrImagePushedAt: (_) => se_DateFilterList(_, context),
     ecrImageRegistry: _json,
     ecrImageRepositoryName: _json,
@@ -3538,7 +3638,7 @@ const de_AggregationResponse = (output: any, context: __SerdeContext): Aggregati
   }
   if (output.awsEcrContainerAggregation != null) {
     return {
-      awsEcrContainerAggregation: _json(output.awsEcrContainerAggregation),
+      awsEcrContainerAggregation: de_AwsEcrContainerAggregationResponse(output.awsEcrContainerAggregation, context),
     };
   }
   if (output.ec2InstanceAggregation != null) {
@@ -3632,7 +3732,25 @@ const de_AwsEc2InstanceDetails = (output: any, context: __SerdeContext): AwsEc2I
   }) as any;
 };
 
-// de_AwsEcrContainerAggregationResponse omitted.
+/**
+ * deserializeAws_restJson1AwsEcrContainerAggregationResponse
+ */
+const de_AwsEcrContainerAggregationResponse = (
+  output: any,
+  context: __SerdeContext
+): AwsEcrContainerAggregationResponse => {
+  return take(output, {
+    accountId: __expectString,
+    architecture: __expectString,
+    imageSha: __expectString,
+    imageTags: _json,
+    inUseCount: __expectLong,
+    lastInUseAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    repository: __expectString,
+    resourceId: __expectString,
+    severityCounts: _json,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1AwsEcrContainerImageDetails
@@ -3643,12 +3761,22 @@ const de_AwsEcrContainerImageDetails = (output: any, context: __SerdeContext): A
     author: __expectString,
     imageHash: __expectString,
     imageTags: _json,
+    inUseCount: __expectLong,
+    lastInUseAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     platform: __expectString,
     pushedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     registry: __expectString,
     repositoryName: __expectString,
   }) as any;
 };
+
+// de_AwsEcsMetadataDetails omitted.
+
+// de_AwsEksMetadataDetails omitted.
+
+// de_AwsEksWorkloadInfo omitted.
+
+// de_AwsEksWorkloadInfoList omitted.
 
 /**
  * deserializeAws_restJson1AwsLambdaFunctionDetails
@@ -3730,6 +3858,54 @@ const de_CisScanList = (output: any, context: __SerdeContext): CisScan[] => {
 // de_CisTargetResourceAggregationList omitted.
 
 // de_CisTargets omitted.
+
+/**
+ * deserializeAws_restJson1ClusterDetails
+ */
+const de_ClusterDetails = (output: any, context: __SerdeContext): ClusterDetails => {
+  return take(output, {
+    clusterMetadata: (_: any) => _json(__expectUnion(_)),
+    lastInUse: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    runningUnitCount: __expectLong,
+    stoppedUnitCount: __expectLong,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ClusterDetailsList
+ */
+const de_ClusterDetailsList = (output: any, context: __SerdeContext): ClusterDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ClusterDetails(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ClusterInformation
+ */
+const de_ClusterInformation = (output: any, context: __SerdeContext): ClusterInformation => {
+  return take(output, {
+    clusterArn: __expectString,
+    clusterDetails: (_: any) => de_ClusterDetailsList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ClusterInformationList
+ */
+const de_ClusterInformationList = (output: any, context: __SerdeContext): ClusterInformation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ClusterInformation(entry, context);
+    });
+  return retVal;
+};
+
+// de_ClusterMetadata omitted.
 
 // de_CodeFilePath omitted.
 
@@ -3906,6 +4082,8 @@ const de_EcrConfigurationState = (output: any, context: __SerdeContext): EcrConf
 const de_EcrContainerImageMetadata = (output: any, context: __SerdeContext): EcrContainerImageMetadata => {
   return take(output, {
     imagePulledAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    inUseCount: __expectLong,
+    lastInUseAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     tags: _json,
   }) as any;
 };
@@ -3918,6 +4096,7 @@ const de_EcrContainerImageMetadata = (output: any, context: __SerdeContext): Ecr
 const de_EcrRescanDurationState = (output: any, context: __SerdeContext): EcrRescanDurationState => {
   return take(output, {
     pullDateRescanDuration: __expectString,
+    pullDateRescanMode: __expectString,
     rescanDuration: __expectString,
     status: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -4007,6 +4186,8 @@ const de_FilterCriteria = (output: any, context: __SerdeContext): FilterCriteria
     ec2InstanceVpcId: _json,
     ecrImageArchitecture: _json,
     ecrImageHash: _json,
+    ecrImageInUseCount: (_: any) => de_NumberFilterList(_, context),
+    ecrImageLastInUseAt: (_: any) => de_DateFilterList(_, context),
     ecrImagePushedAt: (_: any) => de_DateFilterList(_, context),
     ecrImageRegistry: _json,
     ecrImageRepositoryName: _json,

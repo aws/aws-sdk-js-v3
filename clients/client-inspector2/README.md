@@ -390,6 +390,14 @@ GetCisScanResultDetails
 </details>
 <details>
 <summary>
+GetClustersForImage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/GetClustersForImageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/GetClustersForImageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/GetClustersForImageCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetConfiguration
 </summary>
 

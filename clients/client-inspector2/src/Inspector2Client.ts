@@ -118,6 +118,10 @@ import {
   GetCisScanResultDetailsCommandInput,
   GetCisScanResultDetailsCommandOutput,
 } from "./commands/GetCisScanResultDetailsCommand";
+import {
+  GetClustersForImageCommandInput,
+  GetClustersForImageCommandOutput,
+} from "./commands/GetClustersForImageCommand";
 import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
 import {
   GetDelegatedAdminAccountCommandInput,
@@ -252,6 +256,7 @@ export type ServiceInputTypes =
   | EnableDelegatedAdminAccountCommandInput
   | GetCisScanReportCommandInput
   | GetCisScanResultDetailsCommandInput
+  | GetClustersForImageCommandInput
   | GetConfigurationCommandInput
   | GetDelegatedAdminAccountCommandInput
   | GetEc2DeepInspectionConfigurationCommandInput
@@ -316,6 +321,7 @@ export type ServiceOutputTypes =
   | EnableDelegatedAdminAccountCommandOutput
   | GetCisScanReportCommandOutput
   | GetCisScanResultDetailsCommandOutput
+  | GetClustersForImageCommandOutput
   | GetConfigurationCommandOutput
   | GetDelegatedAdminAccountCommandOutput
   | GetEc2DeepInspectionConfigurationCommandOutput
