@@ -6744,13 +6744,11 @@ __metadata:
     "@smithy/util-utf8": "npm:^4.0.0"
     "@tsconfig/node18": "npm:18.2.4"
     "@types/node": "npm:^18.19.69"
-    "@types/uuid": "npm:^9.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     rimraf: "npm:3.0.2"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
-    uuid: "npm:^9.0.1"
   languageName: unknown
   linkType: soft
 
