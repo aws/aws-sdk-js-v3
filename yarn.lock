@@ -16682,58 +16682,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-privatenetworks@workspace:clients/client-privatenetworks":
-  version: 0.0.0-use.local
-  resolution: "@aws-sdk/client-privatenetworks@workspace:clients/client-privatenetworks"
-  dependencies:
-    "@aws-crypto/sha256-browser": "npm:5.2.0"
-    "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/core": "npm:*"
-    "@aws-sdk/credential-provider-node": "npm:*"
-    "@aws-sdk/middleware-host-header": "npm:*"
-    "@aws-sdk/middleware-logger": "npm:*"
-    "@aws-sdk/middleware-recursion-detection": "npm:*"
-    "@aws-sdk/middleware-user-agent": "npm:*"
-    "@aws-sdk/region-config-resolver": "npm:*"
-    "@aws-sdk/types": "npm:*"
-    "@aws-sdk/util-endpoints": "npm:*"
-    "@aws-sdk/util-user-agent-browser": "npm:*"
-    "@aws-sdk/util-user-agent-node": "npm:*"
-    "@smithy/config-resolver": "npm:^4.1.2"
-    "@smithy/core": "npm:^3.3.3"
-    "@smithy/fetch-http-handler": "npm:^5.0.2"
-    "@smithy/hash-node": "npm:^4.0.2"
-    "@smithy/invalid-dependency": "npm:^4.0.2"
-    "@smithy/middleware-content-length": "npm:^4.0.2"
-    "@smithy/middleware-endpoint": "npm:^4.1.6"
-    "@smithy/middleware-retry": "npm:^4.1.7"
-    "@smithy/middleware-serde": "npm:^4.0.5"
-    "@smithy/middleware-stack": "npm:^4.0.2"
-    "@smithy/node-config-provider": "npm:^4.1.1"
-    "@smithy/node-http-handler": "npm:^4.0.4"
-    "@smithy/protocol-http": "npm:^5.1.0"
-    "@smithy/smithy-client": "npm:^4.2.6"
-    "@smithy/types": "npm:^4.2.0"
-    "@smithy/url-parser": "npm:^4.0.2"
-    "@smithy/util-base64": "npm:^4.0.0"
-    "@smithy/util-body-length-browser": "npm:^4.0.0"
-    "@smithy/util-body-length-node": "npm:^4.0.0"
-    "@smithy/util-defaults-mode-browser": "npm:^4.0.14"
-    "@smithy/util-defaults-mode-node": "npm:^4.0.14"
-    "@smithy/util-endpoints": "npm:^3.0.4"
-    "@smithy/util-middleware": "npm:^4.0.2"
-    "@smithy/util-retry": "npm:^4.0.3"
-    "@smithy/util-utf8": "npm:^4.0.0"
-    "@tsconfig/node18": "npm:18.2.4"
-    "@types/node": "npm:^18.19.69"
-    concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:3.0.2"
-    tslib: "npm:^2.6.2"
-    typescript: "npm:~5.8.3"
-  languageName: unknown
-  linkType: soft
-
 "@aws-sdk/client-proton@workspace:clients/client-proton":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-proton@workspace:clients/client-proton"
