@@ -1021,7 +1021,6 @@ import {
   ColumnImportance,
   ColumnStatisticsTaskRun,
   ColumnStatisticsTaskSettings,
-  ConcurrentRunsExceededException,
   Connection,
   ConnectionPasswordEncryption,
   CrawlerHistory,
@@ -1235,6 +1234,7 @@ import {
   ColumnStatisticsError,
   ColumnStatisticsTaskNotRunningException,
   ColumnStatisticsTaskStoppingException,
+  ConcurrentRunsExceededException,
   CrawlerNotRunningException,
   CrawlerStoppingException,
   CreateJobRequest,
@@ -13663,6 +13663,10 @@ const de_ConnectionList = (output: any, context: __SerdeContext): Connection[] =
 // de_ConnectionTypeBrief omitted.
 
 // de_ConnectionTypeList omitted.
+
+// de_ConnectionTypeVariant omitted.
+
+// de_ConnectionTypeVariantList omitted.
 
 // de_ConnectorDataSource omitted.
 

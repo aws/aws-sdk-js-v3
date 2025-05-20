@@ -6181,6 +6181,38 @@ export interface ListConnectionTypesRequest {
 }
 
 /**
+ * <p>Represents a variant of a connection type in Glue Data Catalog. Connection type variants provide specific configurations and behaviors
+ *       for different implementations of the same general connection type.</p>
+ * @public
+ */
+export interface ConnectionTypeVariant {
+  /**
+   * <p>The unique identifier for the connection type variant. This name is used internally to identify the specific variant of a connection type.
+   *     </p>
+   * @public
+   */
+  ConnectionTypeVariantName?: string | undefined;
+
+  /**
+   * <p>The human-readable name for the connection type variant that is displayed in the Glue console.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>A detailed description of the connection type variant, including its purpose, use cases, and any specific configuration requirements.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The URL of the logo associated with a connection type variant.</p>
+   * @public
+   */
+  LogoUrl?: string | undefined;
+}
+
+/**
  * <p>Brief information about a supported connection type returned by the <code>ListConnectionTypes</code> API.</p>
  * @public
  */
@@ -6192,16 +6224,48 @@ export interface ConnectionTypeBrief {
   ConnectionType?: ConnectionType | undefined;
 
   /**
+   * <p>The human-readable name for the connection type that is displayed in the Glue console.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The name of the vendor or provider that created or maintains this connection type.</p>
+   * @public
+   */
+  Vendor?: string | undefined;
+
+  /**
    * <p>A description of the connection type.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
+   * <p>A list of categories that this connection type belongs to. Categories help users filter and find appropriate connection types based on their
+   *       use cases.</p>
+   * @public
+   */
+  Categories?: string[] | undefined;
+
+  /**
    * <p>The supported authentication types, data interface types (compute environments), and data operations of the connector.</p>
    * @public
    */
   Capabilities?: Capabilities | undefined;
+
+  /**
+   * <p>The URL of the logo associated with a connection type.</p>
+   * @public
+   */
+  LogoUrl?: string | undefined;
+
+  /**
+   * <p>A list of variants available for this connection type. Different variants may provide specialized configurations for specific use cases or
+   *       implementations of the same general connection type.</p>
+   * @public
+   */
+  ConnectionTypeVariants?: ConnectionTypeVariant[] | undefined;
 }
 
 /**
@@ -8656,32 +8720,6 @@ export interface ResetJobBookmarkResponse {
    * @public
    */
   JobBookmarkEntry?: JobBookmarkEntry | undefined;
-}
-
-/**
- * <p>Too many jobs are being run concurrently.</p>
- * @public
- */
-export class ConcurrentRunsExceededException extends __BaseException {
-  readonly name: "ConcurrentRunsExceededException" = "ConcurrentRunsExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentRunsExceededException, __BaseException>) {
-    super({
-      name: "ConcurrentRunsExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentRunsExceededException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**

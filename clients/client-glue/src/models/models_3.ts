@@ -145,6 +145,32 @@ import {
 } from "./models_2";
 
 /**
+ * <p>Too many jobs are being run concurrently.</p>
+ * @public
+ */
+export class ConcurrentRunsExceededException extends __BaseException {
+  readonly name: "ConcurrentRunsExceededException" = "ConcurrentRunsExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentRunsExceededException, __BaseException>) {
+    super({
+      name: "ConcurrentRunsExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentRunsExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The workflow is in an invalid state to perform a requested operation.</p>
  * @public
  */
