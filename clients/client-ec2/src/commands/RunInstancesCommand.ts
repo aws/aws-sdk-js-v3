@@ -498,6 +498,7 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * //       TpmSupport: "STRING_VALUE",
  * //       MaintenanceOptions: { // InstanceMaintenanceOptions
  * //         AutoRecovery: "disabled" || "default",
+ * //         RebootMigration: "disabled" || "default",
  * //       },
  * //       CurrentInstanceBootMode: "legacy-bios" || "uefi",
  * //       NetworkPerformanceOptions: { // InstanceNetworkPerformanceOptions

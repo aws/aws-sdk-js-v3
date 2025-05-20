@@ -68,13 +68,7 @@ import {
   TransportProtocol,
 } from "./models_1";
 
-import {
-  GroupIdentifier,
-  LaunchTemplateVersion,
-  LaunchTemplateVersionFilterSensitiveLog,
-  NetworkInterfaceStatus,
-  StateReason,
-} from "./models_2";
+import { GroupIdentifier, NetworkInterfaceStatus, StateReason } from "./models_2";
 
 import {
   AssociatedNetworkType,
@@ -7828,6 +7822,21 @@ export const InstanceAutoRecoveryState = {
 export type InstanceAutoRecoveryState = (typeof InstanceAutoRecoveryState)[keyof typeof InstanceAutoRecoveryState];
 
 /**
+ * @public
+ * @enum
+ */
+export const InstanceRebootMigrationState = {
+  default: "default",
+  disabled: "disabled",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceRebootMigrationState =
+  (typeof InstanceRebootMigrationState)[keyof typeof InstanceRebootMigrationState];
+
+/**
  * <p>The maintenance options for the instance.</p>
  * @public
  */
@@ -7838,6 +7847,31 @@ export interface InstanceMaintenanceOptions {
    * @public
    */
   AutoRecovery?: InstanceAutoRecoveryState | undefined;
+
+  /**
+   * <p>Specifies whether to attempt reboot migration during a user-initiated reboot of an
+   *             instance that has a scheduled <code>system-reboot</code> event:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>default</code> - Amazon EC2 attempts to migrate the instance to
+   *                     new hardware (reboot migration). If successful, the <code>system-reboot</code>
+   *                     event is cleared. If unsuccessful, an in-place reboot occurs and the event
+   *                     remains scheduled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disabled</code> - Amazon EC2 keeps the instance on the same
+   *                     hardware (in-place reboot). The <code>system-reboot</code> event remains
+   *                     scheduled.</p>
+   *             </li>
+   *          </ul>
+   *          <p>This setting only applies to supported instances that have a scheduled reboot event.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/schedevents_actions_reboot.html#reboot-migration">Enable or disable reboot migration</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  RebootMigration?: InstanceRebootMigrationState | undefined;
 }
 
 /**
@@ -9803,6 +9837,11 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>reboot-migration-support</code> - Indicates whether enabling reboot migration is
+   *      supported (<code>supported</code> | <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>supported-boot-mode</code> - The boot mode (<code>legacy-bios</code> |
    *       <code>uefi</code>).</p>
    *             </li>
@@ -10797,6 +10836,20 @@ export interface ProcessorInfo {
  * @public
  * @enum
  */
+export const RebootMigrationSupport = {
+  SUPPORTED: "supported",
+  UNSUPPORTED: "unsupported",
+} as const;
+
+/**
+ * @public
+ */
+export type RebootMigrationSupport = (typeof RebootMigrationSupport)[keyof typeof RebootMigrationSupport];
+
+/**
+ * @public
+ * @enum
+ */
 export const BootModeType = {
   legacy_bios: "legacy-bios",
   uefi: "uefi",
@@ -11062,6 +11115,15 @@ export interface InstanceTypeInfo {
    * @public
    */
   PhcSupport?: PhcSupport | undefined;
+
+  /**
+   * <p>Indicates whether reboot migration during a user-initiated reboot is supported for
+   *             instances that have a scheduled <code>system-reboot</code> event. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/schedevents_actions_reboot.html#reboot-migration">Enable or disable reboot migration</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  RebootMigrationSupport?: RebootMigrationSupport | undefined;
 }
 
 /**
@@ -11920,188 +11982,6 @@ export interface DescribeLaunchTemplatesResult {
 }
 
 /**
- * @public
- */
-export interface DescribeLaunchTemplateVersionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the launch template.</p>
-   *          <p>To describe one or more versions of a specified launch template, you must specify
-   *             either the launch template ID or the launch template name, but not both.</p>
-   *          <p>To describe all the latest or default launch template versions in your account, you
-   *             must omit this parameter.</p>
-   * @public
-   */
-  LaunchTemplateId?: string | undefined;
-
-  /**
-   * <p>The name of the launch template.</p>
-   *          <p>To describe one or more versions of a specified launch template, you must specify
-   *             either the launch template name or the launch template ID, but not both.</p>
-   *          <p>To describe all the latest or default launch template versions in your account, you
-   *             must omit this parameter.</p>
-   * @public
-   */
-  LaunchTemplateName?: string | undefined;
-
-  /**
-   * <p>One or more versions of the launch template. Valid values depend on whether you are
-   *             describing a specified launch template (by ID or name) or all launch templates in your
-   *             account.</p>
-   *          <p>To describe one or more versions of a specified launch template, valid values are
-   *                 <code>$Latest</code>, <code>$Default</code>, and numbers.</p>
-   *          <p>To describe all launch templates in your account that are defined as the latest
-   *             version, the valid value is <code>$Latest</code>. To describe all launch templates in
-   *             your account that are defined as the default version, the valid value is
-   *                 <code>$Default</code>. You can specify <code>$Latest</code> and
-   *                 <code>$Default</code> in the same request. You cannot specify numbers.</p>
-   * @public
-   */
-  Versions?: string[] | undefined;
-
-  /**
-   * <p>The version number after which to describe launch template versions.</p>
-   * @public
-   */
-  MinVersion?: string | undefined;
-
-  /**
-   * <p>The version number up to which to describe launch template versions.</p>
-   * @public
-   */
-  MaxVersion?: string | undefined;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 1 and 200.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>create-time</code> - The time the launch template version was
-   *                     created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-optimized</code> - A boolean that indicates whether the instance is
-   *                     optimized for Amazon EBS I/O.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on
-   *                     your instances is enabled (<code>enabled</code> | <code>disabled</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the
-   *                     instance metadata service is enabled (<code>enabled</code> |
-   *                         <code>disabled</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>host-resource-group-arn</code> - The ARN of the host resource group in
-   *                     which to launch the instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>http-tokens</code> - The state of token usage for your instance metadata
-   *                     requests (<code>optional</code> | <code>required</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>iam-instance-profile</code> - The ARN of the IAM instance
-   *                     profile.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>image-id</code> - The ID of the AMI.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>is-default-version</code> - A boolean that indicates whether the launch
-   *                     template version is the default version.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>kernel-id</code> - The kernel ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>license-configuration-arn</code> - The ARN of the license
-   *                     configuration.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-card-index</code> - The index of the network card.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ram-disk-id</code> - The RAM disk ID.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>If <code>true</code>, and if a Systems Manager parameter is specified for
-   *                 <code>ImageId</code>, the AMI ID is displayed in the response for
-   *                 <code>imageId</code>.</p>
-   *          <p>If <code>false</code>, and if a Systems Manager parameter is specified for
-   *                 <code>ImageId</code>, the parameter is displayed in the response for
-   *                 <code>imageId</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  ResolveAlias?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeLaunchTemplateVersionsResult {
-  /**
-   * <p>Information about the launch template versions.</p>
-   * @public
-   */
-  LaunchTemplateVersions?: LaunchTemplateVersion[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const DiskImageDescriptionFilterSensitiveLog = (obj: DiskImageDescription): any => ({
@@ -12200,17 +12080,5 @@ export const DescribeImportSnapshotTasksResultFilterSensitiveLog = (obj: Describ
   ...obj,
   ...(obj.ImportSnapshotTasks && {
     ImportSnapshotTasks: obj.ImportSnapshotTasks.map((item) => ImportSnapshotTaskFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const DescribeLaunchTemplateVersionsResultFilterSensitiveLog = (
-  obj: DescribeLaunchTemplateVersionsResult
-): any => ({
-  ...obj,
-  ...(obj.LaunchTemplateVersions && {
-    LaunchTemplateVersions: obj.LaunchTemplateVersions.map((item) => LaunchTemplateVersionFilterSensitiveLog(item)),
   }),
 });

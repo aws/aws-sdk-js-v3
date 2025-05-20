@@ -137,6 +137,7 @@ import {
   InstanceMetadataOptionsResponse,
   InstanceMetadataProtocolState,
   InstanceMetadataTagsState,
+  InstanceRebootMigrationState,
   InstanceStatusEvent,
   LaunchPermission,
   Monitoring,
@@ -167,9 +168,91 @@ import {
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
+  TransitGatewayPolicyTableEntry,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayPolicyTableEntriesResult {
+  /**
+   * <p>The entries for the transit gateway policy table.</p>
+   * @public
+   */
+  TransitGatewayPolicyTableEntries?: TransitGatewayPolicyTableEntry[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayPrefixListReferencesRequest {
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   * @public
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.resource-id</code> - The ID of the resource for the attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.resource-type</code> - The type of resource for the
+   *                     attachment. Valid values are <code>vpc</code> | <code>vpn</code> |
+   *                         <code>direct-connect-gateway</code> | <code>peering</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.transit-gateway-attachment-id</code> - The ID of the attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>is-blackhole</code> - Whether traffic matching the route is blocked (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>prefix-list-id</code> - The ID of the prefix list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>prefix-list-owner-id</code> - The ID of the owner of the prefix list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the prefix list reference (<code>pending</code> | <code>available</code> | <code>modifying</code> | <code>deleting</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -3560,6 +3643,31 @@ export interface ModifyInstanceMaintenanceOptionsRequest {
   AutoRecovery?: InstanceAutoRecoveryState | undefined;
 
   /**
+   * <p>Specifies whether to attempt reboot migration during a user-initiated reboot of an
+   *             instance that has a scheduled <code>system-reboot</code> event:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>default</code> - Amazon EC2 attempts to migrate the instance to
+   *                     new hardware (reboot migration). If successful, the <code>system-reboot</code>
+   *                     event is cleared. If unsuccessful, an in-place reboot occurs and the event
+   *                     remains scheduled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disabled</code> - Amazon EC2 keeps the instance on the same
+   *                     hardware (in-place reboot). The <code>system-reboot</code> event remains
+   *                     scheduled.</p>
+   *             </li>
+   *          </ul>
+   *          <p>This setting only applies to supported instances that have a scheduled reboot event.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/schedevents_actions_reboot.html#reboot-migration">Enable or disable reboot migration</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  RebootMigration?: InstanceRebootMigrationState | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
@@ -3585,6 +3693,31 @@ export interface ModifyInstanceMaintenanceOptionsResult {
    * @public
    */
   AutoRecovery?: InstanceAutoRecoveryState | undefined;
+
+  /**
+   * <p>Specifies whether to attempt reboot migration during a user-initiated reboot of an
+   *             instance that has a scheduled <code>system-reboot</code> event:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>default</code> - Amazon EC2 attempts to migrate the instance to
+   *                     new hardware (reboot migration). If successful, the <code>system-reboot</code>
+   *                     event is cleared. If unsuccessful, an in-place reboot occurs and the event
+   *                     remains scheduled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disabled</code> - Amazon EC2 keeps the instance on the same
+   *                     hardware (in-place reboot). The <code>system-reboot</code> event remains
+   *                     scheduled.</p>
+   *             </li>
+   *          </ul>
+   *          <p>This setting only applies to supported instances that have a scheduled reboot event.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/schedevents_actions_reboot.html#reboot-migration">Enable or disable reboot migration</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  RebootMigration?: InstanceRebootMigrationState | undefined;
 }
 
 /**
@@ -9249,42 +9382,6 @@ export interface ReplaceImageCriteriaInAllowedImagesSettingsRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceImageCriteriaInAllowedImagesSettingsResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  ReturnValue?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceNetworkAclAssociationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the current association between the original network ACL and the subnet.</p>
-   * @public
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>The ID of the new network ACL to associate with the subnet.</p>
-   * @public
-   */
-  NetworkAclId: string | undefined;
 }
 
 /**

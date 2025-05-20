@@ -51,27 +51,42 @@ export interface DescribeInstanceTopologyCommandOutput extends DescribeInstanceT
  *                <p>Supported instance types</p>
  *                <ul>
  *                   <li>
- *                      <p>
- *                         <code>hpc6a.48xlarge</code> | <code>hpc6id.32xlarge</code> |
- *                                 <code>hpc7a.12xlarge</code> | <code>hpc7a.24xlarge</code> |
- *                                 <code>hpc7a.48xlarge</code> | <code>hpc7a.96xlarge</code> |
- *                                 <code>hpc7g.4xlarge</code> | <code>hpc7g.8xlarge</code> |
- *                                 <code>hpc7g.16xlarge</code>
- *                      </p>
+ *                      <p>Returns 3 network nodes in the response</p>
+ *                      <ul>
+ *                         <li>
+ *                            <p>
+ *                               <code>hpc6a.48xlarge</code> | <code>hpc6id.32xlarge</code> |
+ *                                     <code>hpc7a.12xlarge</code> | <code>hpc7a.24xlarge</code> |
+ *                                     <code>hpc7a.48xlarge</code> | <code>hpc7a.96xlarge</code> |
+ *                                     <code>hpc7g.4xlarge</code> | <code>hpc7g.8xlarge</code> |
+ *                                     <code>hpc7g.16xlarge</code>
+ *                            </p>
+ *                         </li>
+ *                         <li>
+ *                            <p>
+ *                               <code>p3dn.24xlarge</code> | <code>p4d.24xlarge</code> |
+ *                                     <code>p4de.24xlarge</code> | <code>p5.48xlarge</code> |
+ *                                     <code>p5e.48xlarge</code> | <code>p5en.48xlarge</code>
+ *                            </p>
+ *                         </li>
+ *                         <li>
+ *                            <p>
+ *                               <code>trn1.2xlarge</code> | <code>trn1.32xlarge</code> |
+ *                                     <code>trn1n.32xlarge</code> | <code>trn2.48xlarge</code> |
+ *                                     <code>trn2u.48xlarge</code>
+ *                            </p>
+ *                         </li>
+ *                      </ul>
  *                   </li>
  *                   <li>
- *                      <p>
- *                         <code>p3dn.24xlarge</code> | <code>p4d.24xlarge</code> |
- *                                 <code>p4de.24xlarge</code> | <code>p5.48xlarge</code> |
- *                                 <code>p5e.48xlarge</code> | <code>p5en.48xlarge</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>trn1.2xlarge</code> | <code>trn1.32xlarge</code> |
- *                                 <code>trn1n.32xlarge</code> | <code>trn2.48xlarge</code> |
- *                                 <code>trn2u.48xlarge</code>
- *                      </p>
+ *                      <p>Returns 4 network nodes in the response</p>
+ *                      <ul>
+ *                         <li>
+ *                            <p>
+ *                               <code>p6-b200.48xlarge</code>
+ *                            </p>
+ *                         </li>
+ *                      </ul>
  *                   </li>
  *                </ul>
  *             </li>

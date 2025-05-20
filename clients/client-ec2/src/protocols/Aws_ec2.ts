@@ -3467,8 +3467,6 @@ import {
   DescribeKeyPairsResult,
   DescribeLaunchTemplatesRequest,
   DescribeLaunchTemplatesResult,
-  DescribeLaunchTemplateVersionsRequest,
-  DescribeLaunchTemplateVersionsResult,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -3593,6 +3591,8 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeLaunchTemplateVersionsRequest,
+  DescribeLaunchTemplateVersionsResult,
   DescribeLocalGatewayRouteTablesRequest,
   DescribeLocalGatewayRouteTablesResult,
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest,
@@ -3782,8 +3782,6 @@ import {
   DescribeVpnConnectionsRequest,
   DescribeVpnConnectionsResult,
   DescribeVpnGatewaysRequest,
-  DescribeVpnGatewaysResult,
-  DetachClassicLinkVpcRequest,
   HistoryRecord,
   InstanceNetworkInterfaceSpecification,
   LaunchSpecification,
@@ -3870,6 +3868,8 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeVpnGatewaysResult,
+  DetachClassicLinkVpcRequest,
   DetachClassicLinkVpcResult,
   DetachInternetGatewayRequest,
   DetachNetworkInterfaceRequest,
@@ -4096,8 +4096,6 @@ import {
   GetTransitGatewayPolicyTableAssociationsRequest,
   GetTransitGatewayPolicyTableAssociationsResult,
   GetTransitGatewayPolicyTableEntriesRequest,
-  GetTransitGatewayPolicyTableEntriesResult,
-  GetTransitGatewayPrefixListReferencesRequest,
   ImageCriterion,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
@@ -4151,6 +4149,8 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetTransitGatewayPolicyTableEntriesResult,
+  GetTransitGatewayPrefixListReferencesRequest,
   GetTransitGatewayPrefixListReferencesResult,
   GetTransitGatewayRouteTableAssociationsRequest,
   GetTransitGatewayRouteTableAssociationsResult,
@@ -4404,8 +4404,6 @@ import {
   ReplaceIamInstanceProfileAssociationRequest,
   ReplaceIamInstanceProfileAssociationResult,
   ReplaceImageCriteriaInAllowedImagesSettingsRequest,
-  ReplaceImageCriteriaInAllowedImagesSettingsResult,
-  ReplaceNetworkAclAssociationRequest,
   ReservedInstanceLimitPrice,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
@@ -4443,6 +4441,8 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  ReplaceImageCriteriaInAllowedImagesSettingsResult,
+  ReplaceNetworkAclAssociationRequest,
   ReplaceNetworkAclAssociationResult,
   ReplaceNetworkAclEntryRequest,
   ReplaceRouteRequest,
@@ -50414,6 +50414,9 @@ const se_ModifyInstanceMaintenanceOptionsRequest = (
   if (input[_ARu] != null) {
     entries[_ARu] = input[_ARu];
   }
+  if (input[_RMe] != null) {
+    entries[_RMe] = input[_RMe];
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -74557,6 +74560,9 @@ const de_InstanceMaintenanceOptions = (output: any, context: __SerdeContext): In
   if (output[_aRu] != null) {
     contents[_ARu] = __expectString(output[_aRu]);
   }
+  if (output[_rM] != null) {
+    contents[_RMe] = __expectString(output[_rM]);
+  }
   return contents;
 };
 
@@ -75402,6 +75408,9 @@ const de_InstanceTypeInfo = (output: any, context: __SerdeContext): InstanceType
   }
   if (output[_pSh] != null) {
     contents[_PSh] = __expectString(output[_pSh]);
+  }
+  if (output[_rMS] != null) {
+    contents[_RMS] = __expectString(output[_rMS]);
   }
   return contents;
 };
@@ -78855,6 +78864,9 @@ const de_ModifyInstanceMaintenanceOptionsResult = (
   if (output[_aRu] != null) {
     contents[_ARu] = __expectString(output[_aRu]);
   }
+  if (output[_rM] != null) {
+    contents[_RMe] = __expectString(output[_rM]);
+  }
   return contents;
 };
 
@@ -80253,8 +80265,8 @@ const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInter
   if (output[_rIeq] != null) {
     contents[_RIeq] = __expectString(output[_rIeq]);
   }
-  if (output[_rM] != null) {
-    contents[_RMe] = __parseBoolean(output[_rM]);
+  if (output[_rMe] != null) {
+    contents[_RMeq] = __parseBoolean(output[_rMe]);
   }
   if (output[_sDC] != null) {
     contents[_SDC] = __parseBoolean(output[_sDC]);
@@ -89971,8 +89983,8 @@ const de_VpcEndpoint = (output: any, context: __SerdeContext): VpcEndpoint => {
   if (output[_pDE] != null) {
     contents[_PDE] = __parseBoolean(output[_pDE]);
   }
-  if (output[_rM] != null) {
-    contents[_RMe] = __parseBoolean(output[_rM]);
+  if (output[_rMe] != null) {
+    contents[_RMeq] = __parseBoolean(output[_rMe]);
   }
   if (output.networkInterfaceIdSet === "") {
     contents[_NIIe] = [];
@@ -92767,8 +92779,10 @@ const _RM = "ReasonMessage";
 const _RMGM = "RegisteredMulticastGroupMembers";
 const _RMGS = "RegisteredMulticastGroupSources";
 const _RMPLV = "RestoreManagedPrefixListVersion";
+const _RMS = "RebootMigrationSupport";
 const _RMTS = "RekeyMarginTimeSeconds";
-const _RMe = "RequesterManaged";
+const _RMe = "RebootMigration";
+const _RMeq = "RequesterManaged";
 const _RN = "RegionName";
 const _RNAA = "ReplaceNetworkAclAssociation";
 const _RNAE = "ReplaceNetworkAclEntry";
@@ -94721,10 +94735,12 @@ const _rIe = "regionInfo";
 const _rIeq = "requesterId";
 const _rIes = "resourceId";
 const _rIese = "reservationId";
-const _rM = "requesterManaged";
+const _rM = "rebootMigration";
 const _rMGM = "registeredMulticastGroupMembers";
 const _rMGS = "registeredMulticastGroupSources";
+const _rMS = "rebootMigrationSupport";
 const _rMTS = "rekeyMarginTimeSeconds";
+const _rMe = "requesterManaged";
 const _rN = "ruleNumber";
 const _rNII = "registeredNetworkInterfaceIds";
 const _rNe = "regionName";

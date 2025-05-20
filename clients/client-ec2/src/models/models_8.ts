@@ -72,6 +72,42 @@ import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./
 /**
  * @public
  */
+export interface ReplaceImageCriteriaInAllowedImagesSettingsResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  ReturnValue?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceNetworkAclAssociationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the current association between the original network ACL and the subnet.</p>
+   * @public
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * <p>The ID of the new network ACL to associate with the subnet.</p>
+   * @public
+   */
+  NetworkAclId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ReplaceNetworkAclAssociationResult {
   /**
    * <p>The ID of the new association.</p>

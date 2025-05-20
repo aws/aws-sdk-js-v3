@@ -51,7 +51,7 @@ import {
   SubnetCidrReservation,
 } from "./models_2";
 
-import { Filter, IpamPoolCidr, MetricType, PeriodType, StatisticType } from "./models_3";
+import { Filter, IpamPoolCidr, MetricType, PeriodType, StatisticType, VpnGateway } from "./models_3";
 
 import {
   ArchitectureType,
@@ -69,6 +69,43 @@ import {
 } from "./models_4";
 
 import { AnalysisStatus, ManagedBy } from "./models_5";
+
+/**
+ * <p>Contains the output of DescribeVpnGateways.</p>
+ * @public
+ */
+export interface DescribeVpnGatewaysResult {
+  /**
+   * <p>Information about one or more virtual private gateways.</p>
+   * @public
+   */
+  VpnGateways?: VpnGateway[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DetachClassicLinkVpcRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the instance to unlink from the VPC.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The ID of the VPC to which the instance is linked.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+}
 
 /**
  * @public
@@ -7623,87 +7660,6 @@ export interface TransitGatewayPolicyTableEntry {
    * @public
    */
   TargetRouteTableId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayPolicyTableEntriesResult {
-  /**
-   * <p>The entries for the transit gateway policy table.</p>
-   * @public
-   */
-  TransitGatewayPolicyTableEntries?: TransitGatewayPolicyTableEntry[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayPrefixListReferencesRequest {
-  /**
-   * <p>The ID of the transit gateway route table.</p>
-   * @public
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.resource-id</code> - The ID of the resource for the attachment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.resource-type</code> - The type of resource for the
-   *                     attachment. Valid values are <code>vpc</code> | <code>vpn</code> |
-   *                         <code>direct-connect-gateway</code> | <code>peering</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.transit-gateway-attachment-id</code> - The ID of the attachment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>is-blackhole</code> - Whether traffic matching the route is blocked (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>prefix-list-id</code> - The ID of the prefix list.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>prefix-list-owner-id</code> - The ID of the owner of the prefix list.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the prefix list reference (<code>pending</code> | <code>available</code> | <code>modifying</code> | <code>deleting</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**

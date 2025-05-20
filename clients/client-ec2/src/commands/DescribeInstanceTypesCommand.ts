@@ -241,6 +241,7 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  * //         TotalNeuronDeviceMemoryInMiB: Number("int"),
  * //       },
  * //       PhcSupport: "unsupported" || "supported",
+ * //       RebootMigrationSupport: "unsupported" || "supported",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

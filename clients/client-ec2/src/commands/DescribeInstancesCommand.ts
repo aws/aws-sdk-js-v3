@@ -286,6 +286,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * //           TpmSupport: "STRING_VALUE",
  * //           MaintenanceOptions: { // InstanceMaintenanceOptions
  * //             AutoRecovery: "disabled" || "default",
+ * //             RebootMigration: "disabled" || "default",
  * //           },
  * //           CurrentInstanceBootMode: "legacy-bios" || "uefi",
  * //           NetworkPerformanceOptions: { // InstanceNetworkPerformanceOptions

@@ -10,7 +10,7 @@ import {
   DescribeLaunchTemplateVersionsRequest,
   DescribeLaunchTemplateVersionsResult,
   DescribeLaunchTemplateVersionsResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   de_DescribeLaunchTemplateVersionsCommand,
   se_DescribeLaunchTemplateVersionsCommand,
