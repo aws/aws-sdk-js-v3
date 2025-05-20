@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.814.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.813.0...v3.814.0) (2025-05-20)
+
+
+### Features
+
+* **client-glue:** Enhanced AWS Glue ListConnectionTypes API Model with additional metadata fields. ([2e5c62e](https://github.com/aws/aws-sdk-js-v3/commit/2e5c62eb3a9ccd3da558b679170c40dcc768f461))
+
+
+
+
+
 # [3.812.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.811.0...v3.812.0) (2025-05-16)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.814.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.813.0...v3.814.0) (2025-05-20)
+
+
+### Features
+
+* **client-oam:** Add IncludeTags field to GetLink, GetSink and UpdateLink API ([b522468](https://github.com/aws/aws-sdk-js-v3/commit/b5224689fe0ba7f38d8de575fe2e9a138f381f6b))
+
+
+
+
+
 # [3.812.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.811.0...v3.812.0) (2025-05-16)
 
 **Note:** Version bump only for package @aws-sdk/client-oam

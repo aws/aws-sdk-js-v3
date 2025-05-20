@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.814.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.813.0...v3.814.0) (2025-05-20)
+
+
+### Features
+
+* **client-rds:** This release introduces the new DescribeDBMajorEngineVersions API for describing the properties of specific major versions of database engines. ([9c97266](https://github.com/aws/aws-sdk-js-v3/commit/9c9726627cd59d31103e8733a935b2e400f9c367))
+
+
+
+
+
 # [3.812.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.811.0...v3.812.0) (2025-05-16)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

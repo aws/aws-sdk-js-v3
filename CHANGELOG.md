@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.814.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.813.0...v3.814.0) (2025-05-20)
+
+
+### Features
+
+* **client-datasync:** Remove Discovery APIs from the DataSync service ([d9cd278](https://github.com/aws/aws-sdk-js-v3/commit/d9cd2787e462be0d6b56443c9b607ae09ed5db58))
+* **client-ec2:** This release expands the ModifyInstanceMaintenanceOptions API to enable or disable instance migration during customer-initiated reboots for EC2 Scheduled Reboot Events. ([fde0963](https://github.com/aws/aws-sdk-js-v3/commit/fde096353d5706fed085bfd8d18bb29b8ae8eedb))
+* **client-glue:** Enhanced AWS Glue ListConnectionTypes API Model with additional metadata fields. ([2e5c62e](https://github.com/aws/aws-sdk-js-v3/commit/2e5c62eb3a9ccd3da558b679170c40dcc768f461))
+* **client-inspector2:** This release adds GetClustersForImage API and filter updates as part of the mapping of container images to running containers feature. ([3bfec92](https://github.com/aws/aws-sdk-js-v3/commit/3bfec926f86e1fcc262f4ef3bf4527be1c417893))
+* **client-oam:** Add IncludeTags field to GetLink, GetSink and UpdateLink API ([b522468](https://github.com/aws/aws-sdk-js-v3/commit/b5224689fe0ba7f38d8de575fe2e9a138f381f6b))
+* **client-rds:** This release introduces the new DescribeDBMajorEngineVersions API for describing the properties of specific major versions of database engines. ([9c97266](https://github.com/aws/aws-sdk-js-v3/commit/9c9726627cd59d31103e8733a935b2e400f9c367))
+* **clients:** update client endpoints as of 2025-05-20 ([e9f23b3](https://github.com/aws/aws-sdk-js-v3/commit/e9f23b3344ef13b42baccaa298d37d7e70f9a930))
+
+
+
+
+
 # [3.813.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.812.0...v3.813.0) (2025-05-19)
 
 
