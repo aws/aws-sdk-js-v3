@@ -347,6 +347,8 @@ describe(
         .catch(passError);
 
       for (const k of Object.keys(data)) {
+        // this GET request uses ConsistentRead to ensure the previous TransactWrite
+        // has completed before the next TransactRead fires.
         await doc
           .get({
             TableName,
