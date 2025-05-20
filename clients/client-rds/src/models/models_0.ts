@@ -5420,11 +5420,11 @@ export interface CreateDBClusterMessage {
    *         you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:</p>
    *          <ul>
    *             <li>
-   *                <p>Amazon Aurora - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Using Amazon RDS Extended Support</a> in the <i>Amazon Aurora User Guide</i>
+   *                <p>Amazon Aurora - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Amazon RDS Extended Support with Amazon Aurora</a> in the <i>Amazon Aurora User Guide</i>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Amazon RDS - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Using Amazon RDS Extended Support</a> in the <i>Amazon RDS User Guide</i>
+   *                <p>Amazon RDS - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Amazon RDS Extended Support with Amazon RDS</a> in the <i>Amazon RDS User Guide</i>
    *                </p>
    *             </li>
    *          </ul>
@@ -6573,7 +6573,7 @@ export interface DBCluster {
   CertificateDetails?: CertificateDetails | undefined;
 
   /**
-   * <p>The life cycle type for the DB cluster.</p>
+   * <p>The lifecycle type for the DB cluster.</p>
    *          <p>For more information, see CreateDBCluster.</p>
    * @public
    */
@@ -8725,7 +8725,7 @@ export interface CreateDBInstanceMessage {
    *          </note>
    *          <p>This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.</p>
    *          <p>You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support,
-   *         you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Using Amazon RDS Extended Support</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *         you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Amazon RDS Extended Support with Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>Valid Values: <code>open-source-rds-extended-support | open-source-rds-extended-support-disabled</code>
    *          </p>
    *          <p>Default: <code>open-source-rds-extended-support</code>
@@ -9937,7 +9937,7 @@ export interface DBInstance {
   MultiTenant?: boolean | undefined;
 
   /**
-   * <p>The life cycle type for the DB instance.</p>
+   * <p>The lifecycle type for the DB instance.</p>
    *          <p>For more information, see CreateDBInstance.</p>
    * @public
    */
@@ -12422,7 +12422,7 @@ export interface CreateGlobalClusterMessage {
    *          </note>
    *          <p>This setting only applies to Aurora PostgreSQL-based global databases.</p>
    *          <p>You can use this setting to enroll your global cluster into Amazon RDS Extended Support. With RDS Extended Support,
-   *         you can run the selected major engine version on your global cluster past the end of standard support for that engine version. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Using Amazon RDS Extended Support</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   *         you can run the selected major engine version on your global cluster past the end of standard support for that engine version. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Amazon RDS Extended Support with Amazon Aurora</a> in the <i>Amazon Aurora User Guide</i>.</p>
    *          <p>Valid Values: <code>open-source-rds-extended-support | open-source-rds-extended-support-disabled</code>
    *          </p>
    *          <p>Default: <code>open-source-rds-extended-support</code>
@@ -12637,7 +12637,7 @@ export interface GlobalCluster {
   EngineVersion?: string | undefined;
 
   /**
-   * <p>The life cycle type for the global cluster.</p>
+   * <p>The lifecycle type for the global cluster.</p>
    *          <p>For more information, see CreateGlobalCluster.</p>
    * @public
    */

@@ -1965,6 +1965,242 @@ export interface DescribeDBLogFilesResponse {
 }
 
 /**
+ * @public
+ */
+export interface DescribeDBMajorEngineVersionsRequest {
+  /**
+   * <p>The database engine to return major version details for.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-postgresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-web</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-ae</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mariadb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>postgres</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ex</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-web</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Engine?: string | undefined;
+
+  /**
+   * <p>A specific database major engine version to return details for.</p>
+   *          <p>Example: <code>8.4</code>
+   *          </p>
+   * @public
+   */
+  MajorEngineVersion?: string | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is
+   *             specified, the response includes only records beyond the marker, up to the value
+   *             specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *             If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is
+   *             included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LifecycleSupportName = {
+  OPEN_SOURCE_RDS_EXTENDED_SUPPORT: "open-source-rds-extended-support",
+  OPEN_SOURCE_RDS_STANDARD_SUPPORT: "open-source-rds-standard-support",
+} as const;
+
+/**
+ * @public
+ */
+export type LifecycleSupportName = (typeof LifecycleSupportName)[keyof typeof LifecycleSupportName];
+
+/**
+ * <p>This data type is used as a response element in the operation
+ *             <code>DescribeDBMajorEngineVersions</code>.</p>
+ *          <p>You can use the information that this data type returns to plan for upgrades.</p>
+ *          <p>This data type only returns information for the open source engines Amazon RDS for
+ *             MariaDB, Amazon RDS for MySQL, Amazon RDS for PostgreSQL, Aurora MySQL, and Aurora
+ *             PostgreSQL.</p>
+ * @public
+ */
+export interface SupportedEngineLifecycle {
+  /**
+   * <p>The type of lifecycle support that the engine version is in.</p>
+   *          <p>This parameter returns the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>open-source-rds-standard-support</code> - Indicates RDS standard support or Aurora standard support.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>open-source-rds-extended-support</code> - Indicates Amazon RDS Extended Support.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For Amazon RDS for MySQL, Amazon RDS for PostgreSQL, Aurora MySQL, and Aurora
+   *             PostgreSQL, this parameter returns both <code>open-source-rds-standard-support</code>
+   *             and <code>open-source-rds-extended-support</code>.</p>
+   *          <p>For Amazon RDS for MariaDB, this parameter only returns the value
+   *                 <code>open-source-rds-standard-support</code>.</p>
+   *          <p>For information about Amazon RDS Extended Support, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Amazon RDS Extended Support
+   *             with Amazon RDS</a> in the <i>Amazon RDS User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Amazon RDS Extended Support with Amazon Aurora</a> in the <i>Amazon
+   *                     Aurora User Guide</i>.</p>
+   * @public
+   */
+  LifecycleSupportName: LifecycleSupportName | undefined;
+
+  /**
+   * <p>The start date for the type of support returned by <code>LifecycleSupportName</code>.</p>
+   * @public
+   */
+  LifecycleSupportStartDate: Date | undefined;
+
+  /**
+   * <p>The end date for the type of support returned by <code>LifecycleSupportName</code>.</p>
+   * @public
+   */
+  LifecycleSupportEndDate: Date | undefined;
+}
+
+/**
+ * <p>This data type is used as a response element in the operation
+ *             <code>DescribeDBMajorEngineVersions</code>.</p>
+ * @public
+ */
+export interface DBMajorEngineVersion {
+  /**
+   * <p>The name of the database engine.</p>
+   * @public
+   */
+  Engine?: string | undefined;
+
+  /**
+   * <p>The major version number of the database engine.</p>
+   * @public
+   */
+  MajorEngineVersion?: string | undefined;
+
+  /**
+   * <p>A list of the lifecycles supported by this engine for the
+   *                 <code>DescribeDBMajorEngineVersions</code> operation.</p>
+   * @public
+   */
+  SupportedEngineLifecycles?: SupportedEngineLifecycle[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBMajorEngineVersionsResponse {
+  /**
+   * <p>A list of <code>DBMajorEngineVersion</code> elements.</p>
+   * @public
+   */
+  DBMajorEngineVersions?: DBMajorEngineVersion[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is
+   *             specified, the response includes only records beyond the marker, up to the value
+   *             specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
  * <p>Contains the result of a successful invocation of the <code>DescribeDBParameterGroups</code> action.</p>
  * @public
  */
@@ -11660,11 +11896,11 @@ export interface RestoreDBClusterFromS3Message {
    *         you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:</p>
    *          <ul>
    *             <li>
-   *                <p>Amazon Aurora - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Using Amazon RDS Extended Support</a> in the <i>Amazon Aurora User Guide</i>
+   *                <p>Amazon Aurora - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Amazon RDS Extended Support with Amazon Aurora</a> in the <i>Amazon Aurora User Guide</i>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Amazon RDS - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Using Amazon RDS Extended Support</a> in the <i>Amazon RDS User Guide</i>
+   *                <p>Amazon RDS - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Amazon RDS Extended Support with Amazon RDS</a> in the <i>Amazon RDS User Guide</i>
    *                </p>
    *             </li>
    *          </ul>
@@ -12233,11 +12469,11 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *         you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:</p>
    *          <ul>
    *             <li>
-   *                <p>Amazon Aurora - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Using Amazon RDS Extended Support</a> in the <i>Amazon Aurora User Guide</i>
+   *                <p>Amazon Aurora - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Amazon RDS Extended Support with Amazon Aurora</a> in the <i>Amazon Aurora User Guide</i>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Amazon RDS - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Using Amazon RDS Extended Support</a> in the <i>Amazon RDS User Guide</i>
+   *                <p>Amazon RDS - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Amazon RDS Extended Support with Amazon RDS</a> in the <i>Amazon RDS User Guide</i>
    *                </p>
    *             </li>
    *          </ul>
@@ -12756,11 +12992,11 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *         you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:</p>
    *          <ul>
    *             <li>
-   *                <p>Amazon Aurora - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Using Amazon RDS Extended Support</a> in the <i>Amazon Aurora User Guide</i>
+   *                <p>Amazon Aurora - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Amazon RDS Extended Support with Amazon Aurora</a> in the <i>Amazon Aurora User Guide</i>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Amazon RDS - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Using Amazon RDS Extended Support</a> in the <i>Amazon RDS User Guide</i>
+   *                <p>Amazon RDS - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Amazon RDS Extended Support with Amazon RDS</a> in the <i>Amazon RDS User Guide</i>
    *                </p>
    *             </li>
    *          </ul>
@@ -13421,7 +13657,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *               RDS automatically upgrades your restored DB instance to a higher engine version, if the major engine version is past its end of standard support date.</p>
    *          </note>
    *          <p>You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support,
-   *         you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Using Amazon RDS Extended Support</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *         you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Amazon RDS Extended Support with Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.</p>
    *          <p>Valid Values: <code>open-source-rds-extended-support | open-source-rds-extended-support-disabled</code>
    *          </p>
@@ -14094,7 +14330,7 @@ export interface RestoreDBInstanceFromS3Message {
    *               RDS automatically upgrades your restored DB instance to a higher engine version, if the major engine version is past its end of standard support date.</p>
    *          </note>
    *          <p>You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support,
-   *         you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Using Amazon RDS Extended Support</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *         you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Amazon RDS Extended Support Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.</p>
    *          <p>Valid Values: <code>open-source-rds-extended-support | open-source-rds-extended-support-disabled</code>
    *          </p>
@@ -14823,7 +15059,7 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    *               RDS automatically upgrades your restored DB instance to a higher engine version, if the major engine version is past its end of standard support date.</p>
    *          </note>
    *          <p>You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support,
-   *         you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Using Amazon RDS Extended Support</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *         you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Amazon RDS Extended Support with Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.</p>
    *          <p>Valid Values: <code>open-source-rds-extended-support | open-source-rds-extended-support-disabled</code>
    *          </p>
@@ -15325,31 +15561,10 @@ export interface StartExportTaskMessage {
    *             These can be set in the Amazon Web Services KMS key policy:</p>
    *          <ul>
    *             <li>
-   *                <p>kms:Encrypt</p>
-   *             </li>
-   *             <li>
-   *                <p>kms:Decrypt</p>
-   *             </li>
-   *             <li>
-   *                <p>kms:GenerateDataKey</p>
-   *             </li>
-   *             <li>
-   *                <p>kms:GenerateDataKeyWithoutPlaintext</p>
-   *             </li>
-   *             <li>
-   *                <p>kms:ReEncryptFrom</p>
-   *             </li>
-   *             <li>
-   *                <p>kms:ReEncryptTo</p>
-   *             </li>
-   *             <li>
    *                <p>kms:CreateGrant</p>
    *             </li>
    *             <li>
    *                <p>kms:DescribeKey</p>
-   *             </li>
-   *             <li>
-   *                <p>kms:RetireGrant</p>
    *             </li>
    *          </ul>
    * @public

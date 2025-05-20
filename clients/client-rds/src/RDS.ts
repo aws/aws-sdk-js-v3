@@ -353,6 +353,11 @@ import {
   DescribeDBLogFilesCommandOutput,
 } from "./commands/DescribeDBLogFilesCommand";
 import {
+  DescribeDBMajorEngineVersionsCommand,
+  DescribeDBMajorEngineVersionsCommandInput,
+  DescribeDBMajorEngineVersionsCommandOutput,
+} from "./commands/DescribeDBMajorEngineVersionsCommand";
+import {
   DescribeDBParameterGroupsCommand,
   DescribeDBParameterGroupsCommandInput,
   DescribeDBParameterGroupsCommandOutput,
@@ -885,6 +890,7 @@ const commands = {
   DescribeDBInstanceAutomatedBackupsCommand,
   DescribeDBInstancesCommand,
   DescribeDBLogFilesCommand,
+  DescribeDBMajorEngineVersionsCommand,
   DescribeDBParameterGroupsCommand,
   DescribeDBParametersCommand,
   DescribeDBProxiesCommand,
@@ -2157,6 +2163,24 @@ export interface RDS {
     args: DescribeDBLogFilesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDBLogFilesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDBMajorEngineVersionsCommand}
+   */
+  describeDBMajorEngineVersions(): Promise<DescribeDBMajorEngineVersionsCommandOutput>;
+  describeDBMajorEngineVersions(
+    args: DescribeDBMajorEngineVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDBMajorEngineVersionsCommandOutput>;
+  describeDBMajorEngineVersions(
+    args: DescribeDBMajorEngineVersionsCommandInput,
+    cb: (err: any, data?: DescribeDBMajorEngineVersionsCommandOutput) => void
+  ): void;
+  describeDBMajorEngineVersions(
+    args: DescribeDBMajorEngineVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDBMajorEngineVersionsCommandOutput) => void
   ): void;
 
   /**

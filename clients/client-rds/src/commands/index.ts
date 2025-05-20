@@ -69,6 +69,7 @@ export * from "./DescribeDBEngineVersionsCommand";
 export * from "./DescribeDBInstanceAutomatedBackupsCommand";
 export * from "./DescribeDBInstancesCommand";
 export * from "./DescribeDBLogFilesCommand";
+export * from "./DescribeDBMajorEngineVersionsCommand";
 export * from "./DescribeDBParameterGroupsCommand";
 export * from "./DescribeDBParametersCommand";
 export * from "./DescribeDBProxiesCommand";

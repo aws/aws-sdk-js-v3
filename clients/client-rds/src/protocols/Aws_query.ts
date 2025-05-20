@@ -239,6 +239,10 @@ import {
 } from "../commands/DescribeDBInstancesCommand";
 import { DescribeDBLogFilesCommandInput, DescribeDBLogFilesCommandOutput } from "../commands/DescribeDBLogFilesCommand";
 import {
+  DescribeDBMajorEngineVersionsCommandInput,
+  DescribeDBMajorEngineVersionsCommandOutput,
+} from "../commands/DescribeDBMajorEngineVersionsCommand";
+import {
   DescribeDBParameterGroupsCommandInput,
   DescribeDBParameterGroupsCommandOutput,
 } from "../commands/DescribeDBParameterGroupsCommand";
@@ -848,6 +852,7 @@ import {
   DBInstanceNotReadyFault,
   DBInstanceRoleNotFoundFault,
   DBLogFileNotFoundFault,
+  DBMajorEngineVersion,
   DBParameterGroupDetails,
   DBParameterGroupNameMessage,
   DBParameterGroupsMessage,
@@ -889,6 +894,8 @@ import {
   DescribeDBLogFilesDetails,
   DescribeDBLogFilesMessage,
   DescribeDBLogFilesResponse,
+  DescribeDBMajorEngineVersionsRequest,
+  DescribeDBMajorEngineVersionsResponse,
   DescribeDBParameterGroupsMessage,
   DescribeDBParametersMessage,
   DescribeDBProxiesRequest,
@@ -1093,6 +1100,7 @@ import {
   StopDBInstanceResult,
   StorageTypeNotAvailableFault,
   SubnetAlreadyInUse,
+  SupportedEngineLifecycle,
   SwitchoverBlueGreenDeploymentRequest,
   SwitchoverBlueGreenDeploymentResponse,
   SwitchoverGlobalClusterMessage,
@@ -2292,6 +2300,23 @@ export const se_DescribeDBLogFilesCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeDBLogFilesMessage(input, context),
     [_A]: _DDBLF,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDescribeDBMajorEngineVersionsCommand
+ */
+export const se_DescribeDBMajorEngineVersionsCommand = async (
+  input: DescribeDBMajorEngineVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeDBMajorEngineVersionsRequest(input, context),
+    [_A]: _DDBMEV,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5231,6 +5256,26 @@ export const de_DescribeDBLogFilesCommand = async (
   let contents: any = {};
   contents = de_DescribeDBLogFilesResponse(data.DescribeDBLogFilesResult, context);
   const response: DescribeDBLogFilesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBMajorEngineVersionsCommand
+ */
+export const de_DescribeDBMajorEngineVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBMajorEngineVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDBMajorEngineVersionsResponse(data.DescribeDBMajorEngineVersionsResult, context);
+  const response: DescribeDBMajorEngineVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -12341,6 +12386,29 @@ const se_DescribeDBLogFilesMessage = (input: DescribeDBLogFilesMessage, context:
 };
 
 /**
+ * serializeAws_queryDescribeDBMajorEngineVersionsRequest
+ */
+const se_DescribeDBMajorEngineVersionsRequest = (
+  input: DescribeDBMajorEngineVersionsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
+  }
+  if (input[_MEV] != null) {
+    entries[_MEV] = input[_MEV];
+  }
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDescribeDBParameterGroupsMessage
  */
 const se_DescribeDBParameterGroupsMessage = (input: DescribeDBParameterGroupsMessage, context: __SerdeContext): any => {
@@ -19204,6 +19272,36 @@ const de_DBLogFileNotFoundFault = (output: any, context: __SerdeContext): DBLogF
 };
 
 /**
+ * deserializeAws_queryDBMajorEngineVersion
+ */
+const de_DBMajorEngineVersion = (output: any, context: __SerdeContext): DBMajorEngineVersion => {
+  const contents: any = {};
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
+  }
+  if (output[_MEV] != null) {
+    contents[_MEV] = __expectString(output[_MEV]);
+  }
+  if (output.SupportedEngineLifecycles === "") {
+    contents[_SEL] = [];
+  } else if (output[_SEL] != null && output[_SEL][_SELu] != null) {
+    contents[_SEL] = de_SupportedEngineLifecycleList(__getArrayIfSingleItem(output[_SEL][_SELu]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDBMajorEngineVersionsList
+ */
+const de_DBMajorEngineVersionsList = (output: any, context: __SerdeContext): DBMajorEngineVersion[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DBMajorEngineVersion(entry, context);
+    });
+};
+
+/**
  * deserializeAws_queryDBParameterGroup
  */
 const de_DBParameterGroup = (output: any, context: __SerdeContext): DBParameterGroup => {
@@ -20630,6 +20728,25 @@ const de_DescribeDBLogFilesResponse = (output: any, context: __SerdeContext): De
     contents[_DDBLF] = [];
   } else if (output[_DDBLF] != null && output[_DDBLF][_DDBLFD] != null) {
     contents[_DDBLF] = de_DescribeDBLogFilesList(__getArrayIfSingleItem(output[_DDBLF][_DDBLFD]), context);
+  }
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDescribeDBMajorEngineVersionsResponse
+ */
+const de_DescribeDBMajorEngineVersionsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeDBMajorEngineVersionsResponse => {
+  const contents: any = {};
+  if (output.DBMajorEngineVersions === "") {
+    contents[_DBMEV] = [];
+  } else if (output[_DBMEV] != null && output[_DBMEV][_DBMEVa] != null) {
+    contents[_DBMEV] = de_DBMajorEngineVersionsList(__getArrayIfSingleItem(output[_DBMEV][_DBMEVa]), context);
   }
   if (output[_Ma] != null) {
     contents[_Ma] = __expectString(output[_Ma]);
@@ -24548,6 +24665,34 @@ const de_SupportedCharacterSetsList = (output: any, context: __SerdeContext): Ch
 };
 
 /**
+ * deserializeAws_querySupportedEngineLifecycle
+ */
+const de_SupportedEngineLifecycle = (output: any, context: __SerdeContext): SupportedEngineLifecycle => {
+  const contents: any = {};
+  if (output[_LSN] != null) {
+    contents[_LSN] = __expectString(output[_LSN]);
+  }
+  if (output[_LSSD] != null) {
+    contents[_LSSD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LSSD]));
+  }
+  if (output[_LSED] != null) {
+    contents[_LSED] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LSED]));
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_querySupportedEngineLifecycleList
+ */
+const de_SupportedEngineLifecycleList = (output: any, context: __SerdeContext): SupportedEngineLifecycle[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SupportedEngineLifecycle(entry, context);
+    });
+};
+
+/**
  * deserializeAws_querySupportedTimezonesList
  */
 const de_SupportedTimezonesList = (output: any, context: __SerdeContext): Timezone[] => {
@@ -25292,6 +25437,8 @@ const _DBIR = "DBInstanceRole";
 const _DBIS = "DBInstanceStatus";
 const _DBISI = "DBInstanceStatusInfo";
 const _DBIn = "DBInstances";
+const _DBMEV = "DBMajorEngineVersions";
+const _DBMEVa = "DBMajorEngineVersion";
 const _DBN = "DBName";
 const _DBP = "DBProxy";
 const _DBPA = "DBProxyArn";
@@ -25366,6 +25513,7 @@ const _DDBIe = "DescribeDBInstances";
 const _DDBLF = "DescribeDBLogFiles";
 const _DDBLFD = "DescribeDBLogFilesDetails";
 const _DDBLFP = "DownloadDBLogFilePortion";
+const _DDBMEV = "DescribeDBMajorEngineVersions";
 const _DDBP = "DeleteDBProxy";
 const _DDBPE = "DeleteDBProxyEndpoint";
 const _DDBPEe = "DescribeDBProxyEndpoints";
@@ -25569,6 +25717,9 @@ const _LI = "LeaseId";
 const _LM = "LicenseModel";
 const _LRT = "LatestRestorableTime";
 const _LSCS = "ListSupportedCharacterSets";
+const _LSED = "LifecycleSupportEndDate";
+const _LSN = "LifecycleSupportName";
+const _LSSD = "LifecycleSupportStartDate";
 const _LST = "ListSupportedTimezones";
 const _LT = "LatestTime";
 const _LTFR = "ListTagsForResource";
@@ -25844,6 +25995,8 @@ const _SDe = "SettingDescription";
 const _SDt = "StatusDetails";
 const _SDta = "StatisticsDetails";
 const _SE = "StorageEncrypted";
+const _SEL = "SupportedEngineLifecycles";
+const _SELu = "SupportedEngineLifecycle";
 const _SEM = "SupportedEngineModes";
 const _SEMu = "SupportsEnhancedMonitoring";
 const _SET = "StartExportTask";

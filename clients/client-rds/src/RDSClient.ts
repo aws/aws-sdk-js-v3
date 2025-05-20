@@ -268,6 +268,10 @@ import {
 } from "./commands/DescribeDBInstancesCommand";
 import { DescribeDBLogFilesCommandInput, DescribeDBLogFilesCommandOutput } from "./commands/DescribeDBLogFilesCommand";
 import {
+  DescribeDBMajorEngineVersionsCommandInput,
+  DescribeDBMajorEngineVersionsCommandOutput,
+} from "./commands/DescribeDBMajorEngineVersionsCommand";
+import {
   DescribeDBParameterGroupsCommandInput,
   DescribeDBParameterGroupsCommandOutput,
 } from "./commands/DescribeDBParameterGroupsCommand";
@@ -654,6 +658,7 @@ export type ServiceInputTypes =
   | DescribeDBInstanceAutomatedBackupsCommandInput
   | DescribeDBInstancesCommandInput
   | DescribeDBLogFilesCommandInput
+  | DescribeDBMajorEngineVersionsCommandInput
   | DescribeDBParameterGroupsCommandInput
   | DescribeDBParametersCommandInput
   | DescribeDBProxiesCommandInput
@@ -821,6 +826,7 @@ export type ServiceOutputTypes =
   | DescribeDBInstanceAutomatedBackupsCommandOutput
   | DescribeDBInstancesCommandOutput
   | DescribeDBLogFilesCommandOutput
+  | DescribeDBMajorEngineVersionsCommandOutput
   | DescribeDBParameterGroupsCommandOutput
   | DescribeDBParametersCommandOutput
   | DescribeDBProxiesCommandOutput

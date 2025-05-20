@@ -22,6 +22,7 @@ export * from "./Interfaces";
 export * from "./DescribeDBInstanceAutomatedBackupsPaginator";
 export * from "./DescribeDBInstancesPaginator";
 export * from "./DescribeDBLogFilesPaginator";
+export * from "./DescribeDBMajorEngineVersionsPaginator";
 export * from "./DescribeDBParameterGroupsPaginator";
 export * from "./DescribeDBParametersPaginator";
 export * from "./DescribeDBProxiesPaginator";

@@ -818,6 +818,14 @@ DescribeDBLogFiles
 </details>
 <details>
 <summary>
+DescribeDBMajorEngineVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rds/command/DescribeDBMajorEngineVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds/Interface/DescribeDBMajorEngineVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds/Interface/DescribeDBMajorEngineVersionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeDBParameterGroups
 </summary>
 
