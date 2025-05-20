@@ -28,8 +28,7 @@ export interface DeleteLinkCommandInput extends DeleteLinkInput {}
 export interface DeleteLinkCommandOutput extends DeleteLinkOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a link between a monitoring account sink and a source account. You must run this operation
- *       in the source account.</p>
+ * <p>Deletes a link between a monitoring account sink and a source account. You must run this operation in the source account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

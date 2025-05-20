@@ -28,13 +28,7 @@ export interface UntagResourceCommandInput extends UntagResourceInput {}
 export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags from the specified resource.</p>
- *          <important>
- *             <p>Unlike tagging permissions in other Amazon Web Services services, to tag or untag links and
- *         sinks you must have the <code>oam:ResourceTag</code> permission. The
- *           <code>iam:TagResource</code> permission does not allow you to tag and untag links and
- *         sinks.</p>
- *          </important>
+ * <p>Removes one or more tags from the specified resource.</p> <important> <p>Unlike tagging permissions in other Amazon Web Services services, to tag or untag links and sinks you must have the <code>oam:ResourceTag</code> permission. The <code>iam:TagResource</code> permission does not allow you to tag and untag links and sinks.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

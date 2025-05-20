@@ -28,9 +28,7 @@ export interface ListLinksCommandInput extends ListLinksInput {}
 export interface ListLinksCommandOutput extends ListLinksOutput, __MetadataBearer {}
 
 /**
- * <p>Use this operation in a source account to return a list of links to monitoring account sinks that
- *       this source account has.</p>
- *          <p>To find a list of links for one monitoring account sink, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListAttachedLinks.html">ListAttachedLinks</a> from within the monitoring account.</p>
+ * <p>Use this operation in a source account to return a list of links to monitoring account sinks that this source account has.</p> <p>To find a list of links for one monitoring account sink, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListAttachedLinks.html">ListAttachedLinks</a> from within the monitoring account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

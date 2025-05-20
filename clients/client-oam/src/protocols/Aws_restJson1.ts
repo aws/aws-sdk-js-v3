@@ -164,6 +164,7 @@ export const se_GetLinkCommand = async (
   body = JSON.stringify(
     take(input, {
       Identifier: [],
+      IncludeTags: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -186,6 +187,7 @@ export const se_GetSinkCommand = async (
   body = JSON.stringify(
     take(input, {
       Identifier: [],
+      IncludeTags: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -381,6 +383,7 @@ export const se_UpdateLinkCommand = async (
   body = JSON.stringify(
     take(input, {
       Identifier: [],
+      IncludeTags: [],
       LinkConfiguration: (_) => _json(_),
       ResourceTypes: (_) => _json(_),
     })

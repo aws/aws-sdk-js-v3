@@ -28,8 +28,7 @@ export interface GetSinkCommandInput extends GetSinkInput {}
 export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
 
 /**
- * <p>Returns complete information about one monitoring account sink.</p>
- *          <p>To use this operation, provide the sink ARN. To retrieve a list of sink ARNs, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html">ListSinks</a>.</p>
+ * <p>Returns complete information about one monitoring account sink.</p> <p>To use this operation, provide the sink ARN. To retrieve a list of sink ARNs, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html">ListSinks</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,6 +37,7 @@ export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
  * const client = new OAMClient(config);
  * const input = { // GetSinkInput
  *   Identifier: "STRING_VALUE", // required
+ *   IncludeTags: true || false,
  * };
  * const command = new GetSinkCommand(input);
  * const response = await client.send(command);

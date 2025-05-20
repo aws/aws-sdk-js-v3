@@ -28,13 +28,7 @@ export interface CreateSinkCommandInput extends CreateSinkInput {}
 export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBearer {}
 
 /**
- * <p>Use this to create a <i>sink</i> in the current account, so that it can be
- *         used as a monitoring account in CloudWatch cross-account observability. A sink is a resource that
- *       represents an attachment point in a monitoring account. Source accounts can link to the sink
- *       to send observability data.</p>
- *          <p>After you create a sink, you must create a sink policy that allows source accounts to attach to it.
- *        For more information, see <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html">PutSinkPolicy</a>.</p>
- *          <p>Each account can contain one sink per Region. If you delete a sink, you can then create a new one in that Region.</p>
+ * <p>Use this to create a <i>sink</i> in the current account, so that it can be used as a monitoring account in CloudWatch cross-account observability. A sink is a resource that represents an attachment point in a monitoring account. Source accounts can link to the sink to send observability data.</p> <p>After you create a sink, you must create a sink policy that allows source accounts to attach to it. For more information, see <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html">PutSinkPolicy</a>.</p> <p>Each account can contain one sink per Region. If you delete a sink, you can then create a new one in that Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
