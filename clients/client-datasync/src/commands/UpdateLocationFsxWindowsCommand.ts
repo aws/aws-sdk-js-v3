@@ -32,8 +32,10 @@ export interface UpdateLocationFsxWindowsCommandInput extends UpdateLocationFsxW
 export interface UpdateLocationFsxWindowsCommandOutput extends UpdateLocationFsxWindowsResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the following configuration parameters of the Amazon FSx for Windows File Server transfer location that you're using with DataSync.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html">Configuring DataSync transfers with FSx for Windows File Server</a>.</p>
+ * <p>Modifies the following configuration parameters of the Amazon FSx for Windows File Server
+ *       transfer location that you're using with DataSync.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html">Configuring DataSync
+ *         transfers with FSx for Windows File Server</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

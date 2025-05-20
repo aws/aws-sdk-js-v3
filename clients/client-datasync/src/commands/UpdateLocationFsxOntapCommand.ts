@@ -32,8 +32,10 @@ export interface UpdateLocationFsxOntapCommandInput extends UpdateLocationFsxOnt
 export interface UpdateLocationFsxOntapCommandOutput extends UpdateLocationFsxOntapResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the following configuration parameters of the Amazon FSx for NetApp ONTAP transfer location that you're using with DataSync.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html">Configuring DataSync transfers with FSx for ONTAP</a>.</p>
+ * <p>Modifies the following configuration parameters of the Amazon FSx for NetApp ONTAP
+ *       transfer location that you're using with DataSync.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html">Configuring DataSync
+ *         transfers with FSx for ONTAP</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

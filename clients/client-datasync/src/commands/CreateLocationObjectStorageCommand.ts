@@ -36,8 +36,7 @@ export interface CreateLocationObjectStorageCommandOutput
 /**
  * <p>Creates a transfer <i>location</i> for an object storage system. DataSync can use this location as a source or destination for transferring
  *       data.</p>
- *          <p>Before you begin, make sure that you understand the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html#create-object-location-prerequisites">prerequisites</a>
- *       for DataSync to work with object storage systems.</p>
+ *          <p>Before you begin, make sure that you understand the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html#create-object-location-prerequisites">prerequisites</a> for DataSync to work with object storage systems.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

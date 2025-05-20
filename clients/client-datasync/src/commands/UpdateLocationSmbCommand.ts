@@ -32,9 +32,10 @@ export interface UpdateLocationSmbCommandInput extends UpdateLocationSmbRequest 
 export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the following configuration parameters of the Server Message Block
- *       (SMB) transfer location that you're using with DataSync.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">Configuring DataSync transfers with an SMB file server</a>.</p>
+ * <p>Modifies the following configuration parameters of the Server Message Block (SMB) transfer
+ *       location that you're using with DataSync.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">Configuring DataSync
+ *         transfers with an SMB file server</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

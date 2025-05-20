@@ -28,8 +28,8 @@ export interface DescribeAgentCommandInput extends DescribeAgentRequest {}
 export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about an DataSync agent, such as its name, service endpoint
- *       type, and status.</p>
+ * <p>Returns information about an DataSync agent, such as its name, service
+ *       endpoint type, and status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

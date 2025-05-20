@@ -28,9 +28,10 @@ export interface CreateTaskCommandInput extends CreateTaskRequest {}
 export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Configures a <i>task</i>, which defines where and how DataSync transfers your
- *       data.</p>
- *          <p>A task includes a source location, destination location, and transfer options (such as bandwidth limits, scheduling, and more).</p>
+ * <p>Configures a <i>task</i>, which defines where and how DataSync
+ *       transfers your data.</p>
+ *          <p>A task includes a source location, destination location, and transfer options (such as
+ *       bandwidth limits, scheduling, and more).</p>
  *          <important>
  *             <p>If you're planning to transfer data to or from an Amazon S3 location, review
  *           <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests">how

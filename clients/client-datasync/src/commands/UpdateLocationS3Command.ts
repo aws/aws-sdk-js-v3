@@ -28,14 +28,15 @@ export interface UpdateLocationS3CommandInput extends UpdateLocationS3Request {}
 export interface UpdateLocationS3CommandOutput extends UpdateLocationS3Response, __MetadataBearer {}
 
 /**
- * <p>Modifies the following configuration parameters of the Amazon S3 transfer location that you're using with DataSync.</p>
+ * <p>Modifies the following configuration parameters of the Amazon S3 transfer location
+ *       that you're using with DataSync.</p>
  *          <important>
  *             <p>Before you begin, make sure that you read the following topics:</p>
  *             <ul>
  *                <li>
  *                   <p>
  *                      <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage
- *             class considerations with Amazon S3 locations</a>
+ *               class considerations with Amazon S3 locations</a>
  *                   </p>
  *                </li>
  *                <li>

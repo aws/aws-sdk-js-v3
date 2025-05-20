@@ -28,7 +28,8 @@ export interface DescribeLocationAzureBlobCommandInput extends DescribeLocationA
 export interface DescribeLocationAzureBlobCommandOutput extends DescribeLocationAzureBlobResponse, __MetadataBearer {}
 
 /**
- * <p>Provides details about how an DataSync transfer location for Microsoft Azure Blob Storage is configured.</p>
+ * <p>Provides details about how an DataSync transfer location for Microsoft Azure
+ *       Blob Storage is configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

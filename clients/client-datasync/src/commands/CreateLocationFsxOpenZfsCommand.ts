@@ -32,11 +32,12 @@ export interface CreateLocationFsxOpenZfsCommandInput extends CreateLocationFsxO
 export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsxOpenZfsResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a transfer <i>location</i> for an Amazon FSx for OpenZFS file system.
- *       DataSync can use this location as a source or destination for transferring
- *       data.</p>
+ * <p>Creates a transfer <i>location</i> for an Amazon FSx for OpenZFS file
+ *       system. DataSync can use this location as a source or destination for
+ *       transferring data.</p>
  *          <p>Before you begin, make sure that you understand how DataSync
- *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html#create-openzfs-access">accesses FSx for OpenZFS file systems</a>.</p>
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html#create-openzfs-access">accesses
+ *           FSx for OpenZFS file systems</a>.</p>
  *          <note>
  *             <p>Request parameters related to <code>SMB</code> aren't supported with the
  *           <code>CreateLocationFsxOpenZfs</code> operation.</p>

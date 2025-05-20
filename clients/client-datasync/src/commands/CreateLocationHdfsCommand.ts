@@ -32,8 +32,8 @@ export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsRespo
  *       (HDFS). DataSync can use this location as a source or destination for
  *       transferring data.</p>
  *          <p>Before you begin, make sure that you understand how DataSync
- *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-hdfs-location.html#accessing-hdfs">accesses
- *         HDFS clusters</a>.</p>
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-hdfs-location.html#accessing-hdfs">accesses HDFS
+ *         clusters</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

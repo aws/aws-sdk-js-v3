@@ -33,8 +33,8 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  *             <p>Currently, the only <code>Option</code> that you can modify with
  *           <code>UpdateTaskExecution</code> is <code>
  *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond">BytesPerSecond</a>
- *                </code>, which throttles bandwidth for a running or queued
- *         task execution.</p>
+ *                </code>, which throttles bandwidth for a running or queued task
+ *         execution.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -28,8 +28,10 @@ export interface UpdateLocationFsxLustreCommandInput extends UpdateLocationFsxLu
 export interface UpdateLocationFsxLustreCommandOutput extends UpdateLocationFsxLustreResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the following configuration parameters of the Amazon FSx for Lustre transfer location that you're using with DataSync.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-lustre-location.html">Configuring DataSync transfers with FSx for Lustre</a>.</p>
+ * <p>Modifies the following configuration parameters of the Amazon FSx for Lustre
+ *       transfer location that you're using with DataSync.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-lustre-location.html">Configuring DataSync
+ *         transfers with FSx for Lustre</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,7 +28,8 @@ export interface DescribeTaskCommandInput extends DescribeTaskRequest {}
 export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about a <i>task</i>, which defines where and how DataSync transfers your data.</p>
+ * <p>Provides information about a <i>task</i>, which defines where and how
+ *         DataSync transfers your data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

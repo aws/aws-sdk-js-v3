@@ -32,11 +32,13 @@ export interface UpdateLocationFsxOpenZfsCommandInput extends UpdateLocationFsxO
 export interface UpdateLocationFsxOpenZfsCommandOutput extends UpdateLocationFsxOpenZfsResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the following configuration parameters of the Amazon FSx for OpenZFS transfer location that you're using with DataSync.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html">Configuring DataSync transfers with FSx for OpenZFS</a>.</p>
+ * <p>Modifies the following configuration parameters of the Amazon FSx for OpenZFS
+ *       transfer location that you're using with DataSync.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html">Configuring DataSync
+ *         transfers with FSx for OpenZFS</a>.</p>
  *          <note>
  *             <p>Request parameters related to <code>SMB</code> aren't supported with the
- *         <code>UpdateLocationFsxOpenZfs</code> operation.</p>
+ *           <code>UpdateLocationFsxOpenZfs</code> operation.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

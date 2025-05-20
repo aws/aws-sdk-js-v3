@@ -28,7 +28,8 @@ export interface UpdateTaskCommandInput extends UpdateTaskRequest {}
 export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of a <i>task</i>, which defines where and how DataSync transfers your data.</p>
+ * <p>Updates the configuration of a <i>task</i>, which defines where and how
+ *         DataSync transfers your data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
