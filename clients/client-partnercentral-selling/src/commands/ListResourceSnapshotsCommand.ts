@@ -37,26 +37,7 @@ export interface ListResourceSnapshotsCommandInput extends ListResourceSnapshots
 export interface ListResourceSnapshotsCommandOutput extends ListResourceSnapshotsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of resource view snapshots based on specified criteria. This
- *             operation supports various use cases, including: </p>
- *          <ul>
- *             <li>
- *                <p>Fetching all snapshots associated with an engagement.</p>
- *             </li>
- *             <li>
- *                <p>Retrieving snapshots of a specific resource type within an engagement.</p>
- *             </li>
- *             <li>
- *                <p>Obtaining snapshots for a particular resource using a specified
- *                     template.</p>
- *             </li>
- *             <li>
- *                <p>Accessing the latest snapshot of a resource within an engagement.</p>
- *             </li>
- *             <li>
- *                <p>Filtering snapshots by resource owner.</p>
- *             </li>
- *          </ul>
+ * <p>Retrieves a list of resource view snapshots based on specified criteria. This operation supports various use cases, including: </p> <ul> <li> <p>Fetching all snapshots associated with an engagement.</p> </li> <li> <p>Retrieving snapshots of a specific resource type within an engagement.</p> </li> <li> <p>Obtaining snapshots for a particular resource using a specified template.</p> </li> <li> <p>Accessing the latest snapshot of a resource within an engagement.</p> </li> <li> <p>Filtering snapshots by resource owner.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,27 +79,16 @@ export interface ListResourceSnapshotsCommandOutput extends ListResourceSnapshot
  * @see {@link PartnerCentralSellingClientResolvedConfig | config} for PartnerCentralSellingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>This error occurs when you don't have permission to perform the requested
- *             action.</p>
- *          <p>You don’t have access to this action or resource. Review IAM policies or contact your
- *             AWS administrator for assistance.</p>
+ *  <p>This error occurs when you don't have permission to perform the requested action.</p> <p>You don’t have access to this action or resource. Review IAM policies or contact your AWS administrator for assistance.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This error occurs when the specified resource can't be found. The resource might not
- *             exist, or isn't visible with the current credentials.</p>
- *          <p>Suggested action: Verify that the resource ID is correct and the resource is in the
- *             expected AWS region. Check IAM permissions for accessing the resource.</p>
+ *  <p>This error occurs when the specified resource can't be found. The resource might not exist, or isn't visible with the current credentials.</p> <p>Suggested action: Verify that the resource ID is correct and the resource is in the expected AWS region. Check IAM permissions for accessing the resource.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This error occurs when there are too many requests sent. Review the provided quotas
- *             and adapt your usage to avoid throttling.</p>
- *          <p>This error occurs when there are too many requests sent. Review the provided <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.</p>
+ *  <p>This error occurs when there are too many requests sent. Review the provided quotas and adapt your usage to avoid throttling.</p> <p>This error occurs when there are too many requests sent. Review the provided <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service or business
- *             validation rules.</p>
- *          <p>Suggested action: Review the error message, including the failed fields and reasons,
- *             to correct the request payload.</p>
+ *  <p>The input fails to satisfy the constraints specified by the service or business validation rules.</p> <p>Suggested action: Review the error message, including the failed fields and reasons, to correct the request payload.</p>
  *
  * @throws {@link PartnerCentralSellingServiceException}
  * <p>Base exception class for all service exceptions from PartnerCentralSelling service.</p>

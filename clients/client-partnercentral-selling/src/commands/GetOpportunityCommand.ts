@@ -36,9 +36,7 @@ export interface GetOpportunityCommandInput extends GetOpportunityRequest {}
 export interface GetOpportunityCommandOutput extends GetOpportunityResponse, __MetadataBearer {}
 
 /**
- * <p>Fetches the <code>Opportunity</code> record from Partner Central by a given
- *                 <code>Identifier</code>.</p>
- *          <p>Use the <code>ListOpportunities</code> action or the event notification (from Amazon EventBridge) to obtain this identifier.</p>
+ * <p>Fetches the <code>Opportunity</code> record from Partner Central by a given <code>Identifier</code>.</p> <p>Use the <code>ListOpportunities</code> action or the event notification (from Amazon EventBridge) to obtain this identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -183,33 +181,19 @@ export interface GetOpportunityCommandOutput extends GetOpportunityResponse, __M
  * @see {@link PartnerCentralSellingClientResolvedConfig | config} for PartnerCentralSellingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>This error occurs when you don't have permission to perform the requested
- *             action.</p>
- *          <p>You don’t have access to this action or resource. Review IAM policies or contact your
- *             AWS administrator for assistance.</p>
+ *  <p>This error occurs when you don't have permission to perform the requested action.</p> <p>You don’t have access to this action or resource. Review IAM policies or contact your AWS administrator for assistance.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This error occurs when the specified resource can’t be found or doesn't exist.
- *             Resource ID and type might be incorrect.</p>
- *          <p>Suggested action: This is usually a transient error. Retry after the provided retry
- *             delay or a short interval. If the problem persists, contact AWS support.</p>
+ *  <p>This error occurs when the specified resource can’t be found or doesn't exist. Resource ID and type might be incorrect.</p> <p>Suggested action: This is usually a transient error. Retry after the provided retry delay or a short interval. If the problem persists, contact AWS support.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This error occurs when the specified resource can't be found. The resource might not
- *             exist, or isn't visible with the current credentials.</p>
- *          <p>Suggested action: Verify that the resource ID is correct and the resource is in the
- *             expected AWS region. Check IAM permissions for accessing the resource.</p>
+ *  <p>This error occurs when the specified resource can't be found. The resource might not exist, or isn't visible with the current credentials.</p> <p>Suggested action: Verify that the resource ID is correct and the resource is in the expected AWS region. Check IAM permissions for accessing the resource.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This error occurs when there are too many requests sent. Review the provided quotas
- *             and adapt your usage to avoid throttling.</p>
- *          <p>This error occurs when there are too many requests sent. Review the provided <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.</p>
+ *  <p>This error occurs when there are too many requests sent. Review the provided quotas and adapt your usage to avoid throttling.</p> <p>This error occurs when there are too many requests sent. Review the provided <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service or business
- *             validation rules.</p>
- *          <p>Suggested action: Review the error message, including the failed fields and reasons,
- *             to correct the request payload.</p>
+ *  <p>The input fails to satisfy the constraints specified by the service or business validation rules.</p> <p>Suggested action: Review the error message, including the failed fields and reasons, to correct the request payload.</p>
  *
  * @throws {@link PartnerCentralSellingServiceException}
  * <p>Base exception class for all service exceptions from PartnerCentralSelling service.</p>
