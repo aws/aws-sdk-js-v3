@@ -2,6 +2,9 @@ import { getBearerTokenEnvKey } from "@aws-sdk/core";
 import type { CredentialProviderOptions, TokenIdentityProvider } from "@aws-sdk/types";
 import { TokenProviderError } from "@smithy/property-provider";
 
+/**
+ * @public
+ */
 export interface FromEnvBearerTokenInit extends CredentialProviderOptions {
   signingName?: string;
 }
