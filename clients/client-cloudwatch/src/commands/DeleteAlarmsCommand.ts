@@ -32,8 +32,8 @@ export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
  *             However, this total can include no more than one composite alarm. For example, you could
  *             delete 99 metric alarms and one composite alarms with one operation, but you can't
  *             delete two composite alarms with one operation.</p>
- *          <p> If you specify an incorrect alarm name or make any other error in the operation,
- *             no alarms are deleted. To confirm that alarms were deleted successfully, you can use the
+ *          <p> If you specify any incorrect alarm names, the alarms you specify with correct names are still deleted. Other syntax errors might result
+ *             in no alarms being deleted. To confirm that alarms were deleted successfully, you can use the
  *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a> operation after using <code>DeleteAlarms</code>.</p>
  *          <note>
  *             <p>It is possible to create a loop or cycle of composite alarms, where composite

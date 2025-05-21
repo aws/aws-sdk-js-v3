@@ -261,7 +261,7 @@ export interface MetricStat {
    * <p>The granularity, in seconds, of the returned data points. For metrics with regular
    *             resolution, a period can be as short as one minute (60 seconds) and must be a multiple
    *             of 60. For high-resolution metrics that are collected at intervals of less than one
-   *             minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution
+   *             minute, the period can be 1, 5, 10, 20, 30, 60, or any multiple of 60. High-resolution
    *             metrics are those metrics stored by a <code>PutMetricData</code> call that includes a
    *             <code>StorageResolution</code> of 1 second.</p>
    *          <p>If the <code>StartTime</code> parameter specifies a time stamp that is greater than
@@ -401,7 +401,7 @@ export interface MetricDataQuery {
    * <p>The granularity, in seconds, of the returned data points. For metrics with regular
    *             resolution, a period can be as short as one minute (60 seconds) and must be a multiple
    *             of 60. For high-resolution metrics that are collected at intervals of less than one
-   *             minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution
+   *             minute, the period can be 1, 5, 10, 20, 30, 60, or any multiple of 60. High-resolution
    *             metrics are those metrics stored by a <code>PutMetricData</code> operation that includes
    *             a <code>StorageResolution of 1 second</code>.</p>
    * @public
@@ -821,6 +821,28 @@ export class ConcurrentModificationException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>This operation attempted to create a resource that already exists.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -1950,6 +1972,13 @@ export interface InsightRule {
    * @public
    */
   ManagedRule?: boolean | undefined;
+
+  /**
+   * <p>Displays whether the rule is evaluated on the transformed versions of logs, for log groups
+   *             that have <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html">Log transformation</a> enabled. If this is <code>false</code>, log events are evaluated before they are transformed.</p>
+   * @public
+   */
+  ApplyOnTransformedLogs?: boolean | undefined;
 }
 
 /**
@@ -2615,8 +2644,8 @@ export interface GetMetricDataInput {
    *                     clock interval. For example, 12:32:34 is rounded down to 12:00:00.</p>
    *             </li>
    *          </ul>
-   *          <p>If you set <code>Period</code> to 5, 10, or 30, the start time of your request is
-   *             rounded down to the nearest time that corresponds to even 5-, 10-, or 30-second
+   *          <p>If you set <code>Period</code> to 5, 10, 20, or 30, the start time of your request is
+   *             rounded down to the nearest time that corresponds to even 5-, 10-, 20-, or 30-second
    *             divisions of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the
    *             previous 10-second period, the start time of your request is rounded down and you
    *             receive data from 01:05:10 to 01:05:20. If you make a query at 15:07:17 for the previous
@@ -2851,8 +2880,8 @@ export interface GetMetricStatisticsInput {
    *                     clock interval. For example, 12:32:34 is rounded down to 12:00:00.</p>
    *             </li>
    *          </ul>
-   *          <p>If you set <code>Period</code> to 5, 10, or 30, the start time of your request is
-   *             rounded down to the nearest time that corresponds to even 5-, 10-, or 30-second
+   *          <p>If you set <code>Period</code> to 5, 10, 20, or 30, the start time of your request is
+   *             rounded down to the nearest time that corresponds to even 5-, 10-, 20-, or 30-second
    *             divisions of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the
    *             previous 10-second period, the start time of your request is rounded down and you
    *             receive data from 01:05:10 to 01:05:20. If you make a query at 15:07:17 for the previous
@@ -2875,7 +2904,7 @@ export interface GetMetricStatisticsInput {
    * <p>The granularity, in seconds, of the returned data points. For metrics with regular
    *             resolution, a period can be as short as one minute (60 seconds) and must be a multiple
    *             of 60. For high-resolution metrics that are collected at intervals of less than one
-   *             minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution
+   *             minute, the period can be 1, 5, 10, 20, 30, 60, or any multiple of 60. High-resolution
    *             metrics are those metrics stored by a <code>PutMetricData</code> call that includes a
    *             <code>StorageResolution</code> of 1 second.</p>
    *          <p>If the <code>StartTime</code> parameter specifies a time stamp that is greater than
@@ -3386,8 +3415,8 @@ export interface ListMetricsInput {
   MetricName?: string | undefined;
 
   /**
-   * <p>The dimensions to filter against. Only the dimensions that match exactly will be
-   *             returned.</p>
+   * <p>The dimensions to filter against. Only the dimension with names that match exactly will be
+   *             returned. If you specify one dimension name and a metric has that dimension and also other dimensions, it will be returned.</p>
    * @public
    */
   Dimensions?: DimensionFilter[] | undefined;
@@ -3803,7 +3832,7 @@ export interface PutCompositeAlarmInput {
    *             <b>Start a Amazon Q Developer operational investigation</b>
    *          </p>
    *          <p>
-   *             <code>arn:aws:aiops:<i>region</i>:<i>account-id</i>:investigation-group:<i>ingestigation-group-id</i>
+   *             <code>arn:aws:aiops:<i>region</i>:<i>account-id</i>:investigation-group:<i>investigation-group-id</i>
    *             </code>
    *          </p>
    * @public
@@ -4099,6 +4128,22 @@ export interface PutInsightRuleInput {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Specify <code>true</code> to have this rule evalute log events after they have been transformed by
+   *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html">Log transformation</a>. If you specify <code>true</code>, then the log events in log groups that have transformers will
+   *        be evaluated by Contributor Insights after being transformed. Log groups that don't have
+   *         transformers will still have their original log events evaluated by Contributor Insights.</p>
+   *          <p>The default is <code>false</code>
+   *          </p>
+   *          <note>
+   *             <p>If a log group has a transformer, and transformation fails for some log events, those log events won't be evaluated by
+   *         Contributor Insights. For information about investigating log transformation failures, see
+   *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Transformation-Errors-Metrics.html">Transformation metrics and errors</a>.</p>
+   *          </note>
+   * @public
+   */
+  ApplyOnTransformedLogs?: boolean | undefined;
 }
 
 /**
@@ -4420,7 +4465,7 @@ export interface PutMetricAlarmInput {
    *             <b>Start a Amazon Q Developer operational investigation</b>
    *          </p>
    *          <p>
-   *             <code>arn:aws:aiops:<i>region</i>:<i>account-id</i>:investigation-group:<i>ingestigation-group-id</i>
+   *             <code>arn:aws:aiops:<i>region</i>:<i>account-id</i>:investigation-group:<i>investigation-group-id</i>
    *             </code>
    *          </p>
    * @public
@@ -4647,24 +4692,24 @@ export interface PutMetricAlarmInput {
 
   /**
    * <p>The length, in seconds, used each time the metric specified in
-   *             <code>MetricName</code> is evaluated. Valid values are 10, 30, and any multiple of
+   *             <code>MetricName</code> is evaluated. Valid values are 10, 20, 30, and any multiple of
    *             60.</p>
    *          <p>
    *             <code>Period</code> is required for alarms based on static thresholds. If you are
    *             creating an alarm based on a metric math expression, you specify the period for each
    *             metric within the objects in the <code>Metrics</code> array.</p>
-   *          <p>Be sure to specify 10 or 30 only for metrics that are stored by a
+   *          <p>Be sure to specify 10, 20, or 30 only for metrics that are stored by a
    *             <code>PutMetricData</code> call with a <code>StorageResolution</code> of 1. If you
-   *             specify a period of 10 or 30 for a metric that does not have sub-minute resolution, the
+   *             specify a period of 10, 20, or 30 for a metric that does not have sub-minute resolution, the
    *             alarm still attempts to gather data at the period rate that you specify. In this case,
    *             it does not receive data for the attempts that do not correspond to a one-minute data
-   *             resolution, and the alarm might often lapse into INSUFFICENT_DATA status. Specifying 10
+   *             resolution, and the alarm might often lapse into INSUFFICENT_DATA status. Specifying 10, 20,
    *             or 30 also sets this alarm as a high-resolution alarm, which has a higher charge than
    *             other alarms. For more information about pricing, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch
    *                 Pricing</a>.</p>
-   *          <p>An alarm's total current evaluation period can be no longer than one day, so
-   *             <code>Period</code> multiplied by <code>EvaluationPeriods</code> cannot be more than
-   *             86,400 seconds.</p>
+   *          <p>An alarm's total current evaluation period can be no longer than seven days, so
+   *             <code>Period</code> multiplied by <code>EvaluationPeriods</code> can't be more than
+   *             604,800 seconds. For alarms with a period of less than one hour (3,600 seconds), the total evaluation period can't be longer than one day (86,400 seconds).</p>
    * @public
    */
   Period?: number | undefined;
@@ -4695,8 +4740,6 @@ export interface PutMetricAlarmInput {
    *             you are setting an alarm that requires that a number of consecutive data points be
    *             breaching to trigger the alarm, this value specifies that number. If you are setting an
    *             "M out of N" alarm, this value is the N.</p>
-   *          <p>An alarm's total current evaluation period can be no longer than one day, so this
-   *             number multiplied by <code>Period</code> cannot be more than 86,400 seconds.</p>
    * @public
    */
   EvaluationPeriods: number | undefined;
@@ -4887,7 +4930,7 @@ export interface PutMetricDataInput {
    *                   </li>
    *                </ul>
    *                <p>For details of the requirements for specifying an entity, see
-   *                     <a href="https://docs.aws.amazon.com/adding-your-own-related-telemetry.html">How
+   *                     <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/adding-your-own-related-telemetry.html">How
    *                     to add related information to telemetry</a> in the
    *                     <i>CloudWatch User Guide</i>.</p>
    *             </li>

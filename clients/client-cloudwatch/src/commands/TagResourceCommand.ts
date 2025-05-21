@@ -72,6 +72,9 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>More than one process tried to modify a resource at the same time.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This operation attempted to create a resource that already exists.</p>
+ *
  * @throws {@link InternalServiceFault} (server fault)
  *  <p>Request processing has failed due to some unknown error, exception, or
  *             failure.</p>

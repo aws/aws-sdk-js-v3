@@ -110,6 +110,7 @@ import {
   AnomalyDetectorType,
   CompositeAlarm,
   ConcurrentModificationException,
+  ConflictException,
   DashboardEntry,
   DashboardInvalidInputError,
   DashboardValidationMessage,
@@ -1639,6 +1640,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatch#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cloudwatch#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InvalidNextToken":
     case "com.amazonaws.cloudwatch#InvalidNextToken":
       throw await de_InvalidNextTokenRes(parsedOutput, context);
@@ -1677,6 +1681,19 @@ const de_ConcurrentModificationExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_ConcurrentModificationException(body.Error, context);
   const exception = new ConcurrentModificationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_ConflictException(body.Error, context);
+  const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3396,6 +3413,9 @@ const se_PutInsightRuleInput = (input: PutInsightRuleInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
+  if (input[_AOTL] != null) {
+    entries[_AOTL] = input[_AOTL];
+  }
   return entries;
 };
 
@@ -4106,6 +4126,17 @@ const de_ConcurrentModificationException = (output: any, context: __SerdeContext
 };
 
 /**
+ * deserializeAws_queryConflictException
+ */
+const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+  const contents: any = {};
+  if (output[_Mes] != null) {
+    contents[_Mes] = __expectString(output[_Mes]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryDashboardEntries
  */
 const de_DashboardEntries = (output: any, context: __SerdeContext): DashboardEntry[] => {
@@ -4582,6 +4613,9 @@ const de_InsightRule = (output: any, context: __SerdeContext): InsightRule => {
   }
   if (output[_MRana] != null) {
     contents[_MRana] = __parseBoolean(output[_MRana]);
+  }
+  if (output[_AOTL] != null) {
+    contents[_AOTL] = __parseBoolean(output[_AOTL]);
   }
   return contents;
 };
@@ -5676,6 +5710,7 @@ const _AI = "AccountId";
 const _AN = "AlarmNames";
 const _ANP = "AlarmNamePrefix";
 const _ANl = "AlarmName";
+const _AOTL = "ApplyOnTransformedLogs";
 const _AP = "ActionPrefix";
 const _AR = "AlarmRule";
 const _AS = "AdditionalStatistics";

@@ -52,6 +52,7 @@ export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesO
  * //       Schema: "STRING_VALUE", // required
  * //       Definition: "STRING_VALUE", // required
  * //       ManagedRule: true || false,
+ * //       ApplyOnTransformedLogs: true || false,
  * //     },
  * //   ],
  * // };

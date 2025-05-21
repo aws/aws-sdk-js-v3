@@ -50,6 +50,7 @@ export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __Met
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   ApplyOnTransformedLogs: true || false,
  * };
  * const command = new PutInsightRuleCommand(input);
  * const response = await client.send(command);

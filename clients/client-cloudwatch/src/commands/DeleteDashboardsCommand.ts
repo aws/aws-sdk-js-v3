@@ -53,6 +53,9 @@ export interface DeleteDashboardsCommandOutput extends DeleteDashboardsOutput, _
  * @see {@link DeleteDashboardsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This operation attempted to create a resource that already exists.</p>
+ *
  * @throws {@link DashboardNotFoundError} (client fault)
  *  <p>The specified dashboard does not exist.</p>
  *

@@ -73,6 +73,9 @@ export interface PutDashboardCommandOutput extends PutDashboardOutput, __Metadat
  * @see {@link PutDashboardCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This operation attempted to create a resource that already exists.</p>
+ *
  * @throws {@link DashboardInvalidInputError} (client fault)
  *  <p>Some part of the dashboard data is invalid.</p>
  *
