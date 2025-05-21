@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.815.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.814.0...v3.815.0) (2025-05-21)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Amazon Bedrock introduces asynchronous flows (in preview), which let you run flows for longer durations and yield control so that your application can perform other tasks and you don't have to actively monitor the flow's progress. ([9128be8](https://github.com/aws/aws-sdk-js-v3/commit/9128be8e9151dd7c6392c522cb056cb351462bfe))
+* **client-cloudwatch:** Adds support for setting up Contributor Insight rules on logs transformed via Logs Transformation feature. ([0eed872](https://github.com/aws/aws-sdk-js-v3/commit/0eed8726267e154755d45f5545a2e008a7af689b))
+* **client-ec2:** Release of Dualstack and Ipv6-only EC2 Public DNS hostnames ([b9f691a](https://github.com/aws/aws-sdk-js-v3/commit/b9f691a5bacc61a12b266eabd9fb2848aee6708c))
+* **client-partnercentral-selling:** Modified validation to allow expectedCustomerSpend array with zero elements in Partner Opportunity operations. ([ed51782](https://github.com/aws/aws-sdk-js-v3/commit/ed51782d7192b06752c93f15a502006c247179e6))
+* **clients:** update client endpoints as of 2025-05-21 ([153ceba](https://github.com/aws/aws-sdk-js-v3/commit/153ceba342777fc1060e2b5bccdb21ee37b7bbe4))
+
+
+
+
+
 # [3.814.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.813.0...v3.814.0) (2025-05-20)
 
 

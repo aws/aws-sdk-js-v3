@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.815.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.814.0...v3.815.0) (2025-05-21)
+
+
+### Features
+
+* **client-cloudwatch:** Adds support for setting up Contributor Insight rules on logs transformed via Logs Transformation feature. ([0eed872](https://github.com/aws/aws-sdk-js-v3/commit/0eed8726267e154755d45f5545a2e008a7af689b))
+
+
+
+
+
 # [3.812.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.811.0...v3.812.0) (2025-05-16)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch
