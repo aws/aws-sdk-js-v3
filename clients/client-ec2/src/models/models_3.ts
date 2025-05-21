@@ -48,7 +48,6 @@ import {
 } from "./models_1";
 
 import {
-  ConnectionNotificationState,
   GroupIdentifier,
   LocalGatewayRoute,
   LocalGatewayRouteTable,
@@ -74,6 +73,21 @@ import {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionNotificationState = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionNotificationState =
+  (typeof ConnectionNotificationState)[keyof typeof ConnectionNotificationState];
 
 /**
  * @public
@@ -7550,19 +7564,6 @@ export interface DescribeClientVpnEndpointsRequest {
    */
   DryRun?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AssociatedNetworkType = {
-  vpc: "vpc",
-} as const;
-
-/**
- * @public
- */
-export type AssociatedNetworkType = (typeof AssociatedNetworkType)[keyof typeof AssociatedNetworkType];
 
 /**
  * @internal

@@ -572,6 +572,7 @@ export * from "./ModifyLocalGatewayRouteCommand";
 export * from "./ModifyManagedPrefixListCommand";
 export * from "./ModifyNetworkInterfaceAttributeCommand";
 export * from "./ModifyPrivateDnsNameOptionsCommand";
+export * from "./ModifyPublicIpDnsNameOptionsCommand";
 export * from "./ModifyReservedInstancesCommand";
 export * from "./ModifyRouteServerCommand";
 export * from "./ModifySecurityGroupRulesCommand";

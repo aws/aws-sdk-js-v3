@@ -3297,6 +3297,12 @@ export interface NetworkInterfaceIpv6Address {
   Ipv6Address?: string | undefined;
 
   /**
+   * <p>An IPv6-enabled public hostname for a network interface. Requests from within the VPC or from the internet resolve to the IPv6 GUA of the network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  PublicIpv6DnsName?: string | undefined;
+
+  /**
    * <p>Determines if an IPv6 address associated with a network interface is the primary IPv6
    *             address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA
    *             will be made the primary IPv6 address until the instance is terminated or the network
@@ -3348,6 +3354,36 @@ export interface NetworkInterfacePrivateIpAddress {
    * @public
    */
   PrivateIpAddress?: string | undefined;
+}
+
+/**
+ * <p>Public hostname type options. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface PublicIpDnsNameOptions {
+  /**
+   * <p>The public hostname type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  DnsHostnameType?: string | undefined;
+
+  /**
+   * <p>An IPv4-enabled public hostname for a network interface. Requests from within the VPC resolve to the private primary IPv4 address of the network interface. Requests from the internet resolve to the public IPv4 address of the network interface.</p>
+   * @public
+   */
+  PublicIpv4DnsName?: string | undefined;
+
+  /**
+   * <p>An IPv6-enabled public hostname for a network interface. Requests from within the VPC or from the internet resolve to the IPv6 GUA of the network interface.</p>
+   * @public
+   */
+  PublicIpv6DnsName?: string | undefined;
+
+  /**
+   * <p>A dual-stack public hostname for a network interface. Requests from within the VPC resolve to both the private IPv4 address and the IPv6 Global Unicast Address of the network interface. Requests from the internet resolve to both the public IPv4 and the IPv6 GUA address of the network interface.</p>
+   * @public
+   */
+  PublicDualStackDnsName?: string | undefined;
 }
 
 /**
@@ -3449,10 +3485,22 @@ export interface NetworkInterface {
   OwnerId?: string | undefined;
 
   /**
-   * <p>The private DNS name.</p>
+   * <p>The private hostname. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   PrivateDnsName?: string | undefined;
+
+  /**
+   * <p>A public hostname. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  PublicDnsName?: string | undefined;
+
+  /**
+   * <p>Public hostname type options. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  PublicIpDnsNameOptions?: PublicIpDnsNameOptions | undefined;
 
   /**
    * <p>The IPv4 address of the network interface within the subnet.</p>
@@ -10964,21 +11012,6 @@ export interface CreateVpcEndpointConnectionNotificationRequest {
    */
   ClientToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConnectionNotificationState = {
-  Disabled: "Disabled",
-  Enabled: "Enabled",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionNotificationState =
-  (typeof ConnectionNotificationState)[keyof typeof ConnectionNotificationState];
 
 /**
  * @internal

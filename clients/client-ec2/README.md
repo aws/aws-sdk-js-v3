@@ -4792,6 +4792,14 @@ ModifyPrivateDnsNameOptions
 </details>
 <details>
 <summary>
+ModifyPublicIpDnsNameOptions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyPublicIpDnsNameOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyPublicIpDnsNameOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyPublicIpDnsNameOptionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ModifyReservedInstances
 </summary>
 

@@ -2800,6 +2800,11 @@ import {
   ModifyPrivateDnsNameOptionsCommandOutput,
 } from "./commands/ModifyPrivateDnsNameOptionsCommand";
 import {
+  ModifyPublicIpDnsNameOptionsCommand,
+  ModifyPublicIpDnsNameOptionsCommandInput,
+  ModifyPublicIpDnsNameOptionsCommandOutput,
+} from "./commands/ModifyPublicIpDnsNameOptionsCommand";
+import {
   ModifyReservedInstancesCommand,
   ModifyReservedInstancesCommandInput,
   ModifyReservedInstancesCommandOutput,
@@ -3930,6 +3935,7 @@ const commands = {
   ModifyManagedPrefixListCommand,
   ModifyNetworkInterfaceAttributeCommand,
   ModifyPrivateDnsNameOptionsCommand,
+  ModifyPublicIpDnsNameOptionsCommand,
   ModifyReservedInstancesCommand,
   ModifyRouteServerCommand,
   ModifySecurityGroupRulesCommand,
@@ -13667,6 +13673,23 @@ export interface EC2 {
     args: ModifyPrivateDnsNameOptionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyPrivateDnsNameOptionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyPublicIpDnsNameOptionsCommand}
+   */
+  modifyPublicIpDnsNameOptions(
+    args: ModifyPublicIpDnsNameOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyPublicIpDnsNameOptionsCommandOutput>;
+  modifyPublicIpDnsNameOptions(
+    args: ModifyPublicIpDnsNameOptionsCommandInput,
+    cb: (err: any, data?: ModifyPublicIpDnsNameOptionsCommandOutput) => void
+  ): void;
+  modifyPublicIpDnsNameOptions(
+    args: ModifyPublicIpDnsNameOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyPublicIpDnsNameOptionsCommandOutput) => void
   ): void;
 
   /**

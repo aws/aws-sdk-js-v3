@@ -16,8 +16,6 @@ import {
   EnaSrdSpecification,
   HostMaintenance,
   HostRecovery,
-  IamInstanceProfileAssociation,
-  IamInstanceProfileSpecification,
   InstanceEventWindow,
   Ipv6SupportValue,
   SecurityGroupReferencingSupportValue,
@@ -168,10 +166,34 @@ import {
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
-  TransitGatewayPolicyTableEntry,
+  TransitGatewayPolicyRule,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
 } from "./models_6";
+
+/**
+ * <p>Describes a transit gateway policy table entry</p>
+ * @public
+ */
+export interface TransitGatewayPolicyTableEntry {
+  /**
+   * <p>The rule number for the transit gateway policy table entry.</p>
+   * @public
+   */
+  PolicyRuleNumber?: string | undefined;
+
+  /**
+   * <p>The policy rule associated with the transit gateway policy table.</p>
+   * @public
+   */
+  PolicyRule?: TransitGatewayPolicyRule | undefined;
+
+  /**
+   * <p>The ID of the target route table.</p>
+   * @public
+   */
+  TargetRouteTableId?: string | undefined;
+}
 
 /**
  * @public
@@ -4859,6 +4881,71 @@ export interface ModifyPrivateDnsNameOptionsResult {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const PublicIpDnsOption = {
+  public_dual_stack_dns_name: "public-dual-stack-dns-name",
+  public_ipv4_dns_name: "public-ipv4-dns-name",
+  public_ipv6_dns_name: "public-ipv6-dns-name",
+} as const;
+
+/**
+ * @public
+ */
+export type PublicIpDnsOption = (typeof PublicIpDnsOption)[keyof typeof PublicIpDnsOption];
+
+/**
+ * @public
+ */
+export interface ModifyPublicIpDnsNameOptionsRequest {
+  /**
+   * <p>A network interface ID.</p>
+   * @public
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>The public hostname type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>public-dual-stack-dns-name</code>: A dual-stack public hostname for a network interface. Requests from within the VPC resolve to both the private IPv4 address and the IPv6 Global Unicast Address of the network interface. Requests from the internet resolve to both the public IPv4 and the IPv6 GUA address of the network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public-ipv4-dns-name</code>: An IPv4-enabled public hostname for a network interface. Requests from within the VPC resolve to the private primary IPv4 address of the network interface. Requests from the internet resolve to the public IPv4 address of the network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public-ipv6-dns-name</code>: An IPv6-enabled public hostname for a network interface. Requests from within the VPC or from the internet resolve to the IPv6 GUA of the network interface. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  HostnameType: PublicIpDnsOption | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyPublicIpDnsNameOptionsResult {
+  /**
+   * <p>Whether or not the request was successful.</p>
+   * @public
+   */
+  Successful?: boolean | undefined;
+}
+
+/**
  * <p>Contains the parameters for ModifyReservedInstances.</p>
  * @public
  */
@@ -9302,86 +9389,6 @@ export interface ReleaseIpamPoolAllocationResult {
    * @public
    */
   Success?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceIamInstanceProfileAssociationRequest {
-  /**
-   * <p>The IAM instance profile.</p>
-   * @public
-   */
-  IamInstanceProfile: IamInstanceProfileSpecification | undefined;
-
-  /**
-   * <p>The ID of the existing IAM instance profile association.</p>
-   * @public
-   */
-  AssociationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceIamInstanceProfileAssociationResult {
-  /**
-   * <p>Information about the IAM instance profile association.</p>
-   * @public
-   */
-  IamInstanceProfileAssociation?: IamInstanceProfileAssociation | undefined;
-}
-
-/**
- * <p>The list of criteria that are evaluated to determine whch AMIs are discoverable and usable
- *       in the account in the specified Amazon Web Services Region. Currently, the only criteria that can be
- *       specified are AMI providers. </p>
- *          <p>Up to 10 <code>imageCriteria</code> objects can be specified, and up to a total of 200
- *       values for all <code>imageProviders</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#allowed-amis-json-configuration">JSON
- *         configuration for the Allowed AMIs criteria</a> in the
- *       <i>Amazon EC2 User Guide</i>.</p>
- * @public
- */
-export interface ImageCriterionRequest {
-  /**
-   * <p>A list of image providers whose AMIs are discoverable and useable in the account. Up to a
-   *       total of 200 values can be specified.</p>
-   *          <p>Possible values:</p>
-   *          <p>
-   *             <code>amazon</code>: Allow AMIs created by Amazon Web Services.</p>
-   *          <p>
-   *             <code>aws-marketplace</code>: Allow AMIs created by verified providers in the Amazon Web Services
-   *       Marketplace.</p>
-   *          <p>
-   *             <code>aws-backup-vault</code>: Allow AMIs created by Amazon Web Services Backup. </p>
-   *          <p>12-digit account ID: Allow AMIs created by this account. One or more account IDs can be
-   *       specified.</p>
-   *          <p>
-   *             <code>none</code>: Allow AMIs created by your own account only. When <code>none</code> is
-   *       specified, no other values can be specified.</p>
-   * @public
-   */
-  ImageProviders?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceImageCriteriaInAllowedImagesSettingsRequest {
-  /**
-   * <p>The list of criteria that are evaluated to determine whether AMIs are discoverable and
-   *       usable in the account in the specified Amazon Web Services Region.</p>
-   * @public
-   */
-  ImageCriteria?: ImageCriterionRequest[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**

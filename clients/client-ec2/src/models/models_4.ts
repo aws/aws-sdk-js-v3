@@ -55,7 +55,6 @@ import {
   IpamResourceDiscovery,
   IpamScope,
   KeyType,
-  LaunchTemplate,
   LaunchTemplateAndOverridesResponse,
   LogDestinationType,
   OperatorResponse,
@@ -70,14 +69,20 @@ import {
 
 import { GroupIdentifier, NetworkInterfaceStatus, StateReason } from "./models_2";
 
-import {
-  AssociatedNetworkType,
-  Byoasn,
-  Filter,
-  FleetStateCode,
-  IdFormat,
-  InstanceTagNotificationAttribute,
-} from "./models_3";
+import { Byoasn, Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+
+/**
+ * @public
+ * @enum
+ */
+export const AssociatedNetworkType = {
+  vpc: "vpc",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociatedNetworkType = (typeof AssociatedNetworkType)[keyof typeof AssociatedNetworkType];
 
 /**
  * <p>Describes a target network that is associated with a Client VPN endpoint. A target network is a subnet in a VPC.</p>
@@ -11961,24 +11966,6 @@ export interface DescribeLaunchTemplatesRequest {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeLaunchTemplatesResult {
-  /**
-   * <p>Information about the launch templates.</p>
-   * @public
-   */
-  LaunchTemplates?: LaunchTemplate[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }
 
 /**

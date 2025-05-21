@@ -30,6 +30,18 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
 /**
  * <p>Disassociates an Elastic IP address from the instance or network interface it's associated with.</p>
  *          <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p>
+ *          <p>An address cannot be disassociated if the all of the following conditions are met:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Network interface has a <code>publicDualStackDnsName</code> publicDnsName</p>
+ *             </li>
+ *             <li>
+ *                <p>Public IPv4 address is the primary public IPv4 address</p>
+ *             </li>
+ *             <li>
+ *                <p>Network interface only has one remaining public IPv4 address</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

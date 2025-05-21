@@ -1993,6 +1993,10 @@ import {
   ModifyPrivateDnsNameOptionsCommandOutput,
 } from "../commands/ModifyPrivateDnsNameOptionsCommand";
 import {
+  ModifyPublicIpDnsNameOptionsCommandInput,
+  ModifyPublicIpDnsNameOptionsCommandOutput,
+} from "../commands/ModifyPublicIpDnsNameOptionsCommand";
+import {
   ModifyReservedInstancesCommandInput,
   ModifyReservedInstancesCommandOutput,
 } from "../commands/ModifyReservedInstancesCommand";
@@ -3004,6 +3008,7 @@ import {
   PriceScheduleSpecification,
   PropagatingVgw,
   ProvisionedBandwidth,
+  PublicIpDnsNameOptions,
   ReplaceRootVolumeTask,
   RequestFilterPortRange,
   ResponseLaunchTemplateData,
@@ -3466,7 +3471,6 @@ import {
   DescribeKeyPairsRequest,
   DescribeKeyPairsResult,
   DescribeLaunchTemplatesRequest,
-  DescribeLaunchTemplatesResult,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -3591,6 +3595,7 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeLaunchTemplatesResult,
   DescribeLaunchTemplateVersionsRequest,
   DescribeLaunchTemplateVersionsResult,
   DescribeLocalGatewayRouteTablesRequest,
@@ -3781,7 +3786,6 @@ import {
   DescribeVpcsResult,
   DescribeVpnConnectionsRequest,
   DescribeVpnConnectionsResult,
-  DescribeVpnGatewaysRequest,
   HistoryRecord,
   InstanceNetworkInterfaceSpecification,
   LaunchSpecification,
@@ -3868,6 +3872,7 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeVpnGatewaysRequest,
   DescribeVpnGatewaysResult,
   DetachClassicLinkVpcRequest,
   DetachClassicLinkVpcResult,
@@ -4132,7 +4137,6 @@ import {
   TransitGatewayMulticastDomainAssociation,
   TransitGatewayPolicyRule,
   TransitGatewayPolicyRuleMetaData,
-  TransitGatewayPolicyTableEntry,
   TransitGatewayPropagation,
   VerifiedAccessInstanceOpenVpnClientConfiguration,
   VerifiedAccessInstanceOpenVpnClientConfigurationRoute,
@@ -4168,7 +4172,6 @@ import {
   GetVpnConnectionDeviceTypesResult,
   GetVpnTunnelReplacementStatusRequest,
   GetVpnTunnelReplacementStatusResult,
-  ImageCriterionRequest,
   ImageDiskContainer,
   ImageRecycleBinInfo,
   ImportClientVpnClientCertificateRevocationListRequest,
@@ -4262,6 +4265,8 @@ import {
   ModifyNetworkInterfaceAttributeRequest,
   ModifyPrivateDnsNameOptionsRequest,
   ModifyPrivateDnsNameOptionsResult,
+  ModifyPublicIpDnsNameOptionsRequest,
+  ModifyPublicIpDnsNameOptionsResult,
   ModifyReservedInstancesRequest,
   ModifyReservedInstancesResult,
   ModifyRouteServerRequest,
@@ -4401,9 +4406,6 @@ import {
   RemoveIpamOperatingRegion,
   RemoveIpamOrganizationalUnitExclusion,
   RemovePrefixListEntry,
-  ReplaceIamInstanceProfileAssociationRequest,
-  ReplaceIamInstanceProfileAssociationResult,
-  ReplaceImageCriteriaInAllowedImagesSettingsRequest,
   ReservedInstanceLimitPrice,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
@@ -4414,6 +4416,7 @@ import {
   TrafficMirrorSessionField,
   TransitGatewayMulticastRegisteredGroupMembers,
   TransitGatewayMulticastRegisteredGroupSources,
+  TransitGatewayPolicyTableEntry,
   TransitGatewayRouteTableAssociation,
   TransitGatewayRouteTablePropagation,
   UnsuccessfulInstanceCreditSpecificationItem,
@@ -4433,6 +4436,7 @@ import {
   ElasticInferenceAccelerator,
   EnclaveOptionsRequest,
   HibernationOptionsRequest,
+  ImageCriterionRequest,
   InstanceMaintenanceOptionsRequest,
   InstanceMarketOptionsRequest,
   InstanceMetadataOptionsRequest,
@@ -4441,6 +4445,9 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  ReplaceIamInstanceProfileAssociationRequest,
+  ReplaceIamInstanceProfileAssociationResult,
+  ReplaceImageCriteriaInAllowedImagesSettingsRequest,
   ReplaceImageCriteriaInAllowedImagesSettingsResult,
   ReplaceNetworkAclAssociationRequest,
   ReplaceNetworkAclAssociationResult,
@@ -14278,6 +14285,23 @@ export const se_ModifyPrivateDnsNameOptionsCommand = async (
   body = buildFormUrlencodedString({
     ...se_ModifyPrivateDnsNameOptionsRequest(input, context),
     [_A]: _MPDNO,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2ModifyPublicIpDnsNameOptionsCommand
+ */
+export const se_ModifyPublicIpDnsNameOptionsCommand = async (
+  input: ModifyPublicIpDnsNameOptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyPublicIpDnsNameOptionsRequest(input, context),
+    [_A]: _MPIDNO,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -27510,6 +27534,26 @@ export const de_ModifyPrivateDnsNameOptionsCommand = async (
   let contents: any = {};
   contents = de_ModifyPrivateDnsNameOptionsResult(data, context);
   const response: ModifyPrivateDnsNameOptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2ModifyPublicIpDnsNameOptionsCommand
+ */
+export const de_ModifyPublicIpDnsNameOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyPublicIpDnsNameOptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyPublicIpDnsNameOptionsResult(data, context);
+  const response: ModifyPublicIpDnsNameOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -50889,6 +50933,26 @@ const se_ModifyPrivateDnsNameOptionsRequest = (
   }
   if (input[_ERNDAAAAR] != null) {
     entries[_ERNDAAAAR] = input[_ERNDAAAAR];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ModifyPublicIpDnsNameOptionsRequest
+ */
+const se_ModifyPublicIpDnsNameOptionsRequest = (
+  input: ModifyPublicIpDnsNameOptionsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_NII] != null) {
+    entries[_NII] = input[_NII];
+  }
+  if (input[_HTo] != null) {
+    entries[_HTo] = input[_HTo];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
   }
   return entries;
 };
@@ -79035,6 +79099,20 @@ const de_ModifyPrivateDnsNameOptionsResult = (
 };
 
 /**
+ * deserializeAws_ec2ModifyPublicIpDnsNameOptionsResult
+ */
+const de_ModifyPublicIpDnsNameOptionsResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyPublicIpDnsNameOptionsResult => {
+  const contents: any = {};
+  if (output[_suc] != null) {
+    contents[_Suc] = __parseBoolean(output[_suc]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2ModifyReservedInstancesResult
  */
 const de_ModifyReservedInstancesResult = (output: any, context: __SerdeContext): ModifyReservedInstancesResult => {
@@ -80244,6 +80322,12 @@ const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInter
   if (output[_pDN] != null) {
     contents[_PDN] = __expectString(output[_pDN]);
   }
+  if (output[_pDNu] != null) {
+    contents[_PDNu] = __expectString(output[_pDNu]);
+  }
+  if (output[_pIDNO] != null) {
+    contents[_PIDNO] = de_PublicIpDnsNameOptions(output[_pIDNO], context);
+  }
   if (output[_pIA] != null) {
     contents[_PIAr] = __expectString(output[_pIA]);
   }
@@ -80399,6 +80483,9 @@ const de_NetworkInterfaceIpv6Address = (output: any, context: __SerdeContext): N
   const contents: any = {};
   if (output[_iApv] != null) {
     contents[_IApv] = __expectString(output[_iApv]);
+  }
+  if (output[_pIDN] != null) {
+    contents[_PIDN] = __expectString(output[_pIDN]);
   }
   if (output[_iPI] != null) {
     contents[_IPIs] = __parseBoolean(output[_iPI]);
@@ -81802,6 +81889,26 @@ const de_PtrUpdateStatus = (output: any, context: __SerdeContext): PtrUpdateStat
   }
   if (output[_rea] != null) {
     contents[_Rea] = __expectString(output[_rea]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2PublicIpDnsNameOptions
+ */
+const de_PublicIpDnsNameOptions = (output: any, context: __SerdeContext): PublicIpDnsNameOptions => {
+  const contents: any = {};
+  if (output[_dHT] != null) {
+    contents[_DHT] = __expectString(output[_dHT]);
+  }
+  if (output[_pIDNu] != null) {
+    contents[_PIDNu] = __expectString(output[_pIDNu]);
+  }
+  if (output[_pIDN] != null) {
+    contents[_PIDN] = __expectString(output[_pIDN]);
+  }
+  if (output[_pDSDN] != null) {
+    contents[_PDSDN] = __expectString(output[_pDSDN]);
   }
   return contents;
 };
@@ -91245,6 +91352,7 @@ const _DHI = "DedicatedHostIds";
 const _DHR = "DescribeHostReservations";
 const _DHRO = "DescribeHostReservationOfferings";
 const _DHS = "DedicatedHostsSupported";
+const _DHT = "DnsHostnameType";
 const _DI = "DeleteIpam";
 const _DIA = "DescribeImageAttribute";
 const _DIAe = "DescribeInstanceAttribute";
@@ -92302,6 +92410,7 @@ const _MOSLSV = "MacOSLatestSupportedVersions";
 const _MOa = "MaintenanceOptions";
 const _MP = "MatchPaths";
 const _MPDNO = "ModifyPrivateDnsNameOptions";
+const _MPIDNO = "ModifyPublicIpDnsNameOptions";
 const _MPIOL = "MapPublicIpOnLaunch";
 const _MPL = "MaxParallelLaunches";
 const _MPa = "MaxPrice";
@@ -92558,6 +92667,7 @@ const _PDNr = "PrivateDnsNames";
 const _PDNu = "PublicDnsName";
 const _PDOFIRE = "PrivateDnsOnlyForInboundResolverEndpoint";
 const _PDRTI = "PropagationDefaultRouteTableId";
+const _PDSDN = "PublicDualStackDnsName";
 const _PDSI = "PublicDefaultScopeId";
 const _PDSIr = "PrivateDefaultScopeId";
 const _PDa = "PasswordData";
@@ -92590,6 +92700,9 @@ const _PIAha = "Phase2IntegrityAlgorithms";
 const _PIAr = "PrivateIpAddress";
 const _PIAu = "PublicIpAddress";
 const _PIB = "ProvisionIpamByoasn";
+const _PIDN = "PublicIpv6DnsName";
+const _PIDNO = "PublicIpDnsNameOptions";
+const _PIDNu = "PublicIpv4DnsName";
 const _PIP = "PublicIpv4Pool";
 const _PIPC = "ProvisionIpamPoolCidr";
 const _PIPI = "PublicIpv4PoolId";
@@ -93781,6 +93894,7 @@ const _dES = "dnsEntrySet";
 const _dFA = "defaultForAz";
 const _dHIS = "dedicatedHostIdSet";
 const _dHS = "dedicatedHostsSupported";
+const _dHT = "dnsHostnameType";
 const _dI = "directoryId";
 const _dICB = "destinationIpv6CidrBlock";
 const _dIF = "diskImageFormat";
@@ -94581,6 +94695,7 @@ const _pDNu = "publicDnsName";
 const _pDOFIRE = "privateDnsOnlyForInboundResolverEndpoint";
 const _pDRTI = "propagationDefaultRouteTableId";
 const _pDS = "pricingDetailsSet";
+const _pDSDN = "publicDualStackDnsName";
 const _pDSI = "publicDefaultScopeId";
 const _pDSIr = "privateDefaultScopeId";
 const _pDa = "paymentDue";
@@ -94605,6 +94720,9 @@ const _pIA = "privateIpAddress";
 const _pIAS = "privateIpAddressesSet";
 const _pIASh = "phase1IntegrityAlgorithmSet";
 const _pIASha = "phase2IntegrityAlgorithmSet";
+const _pIDN = "publicIpv6DnsName";
+const _pIDNO = "publicIpDnsNameOptions";
+const _pIDNu = "publicIpv4DnsName";
 const _pIP = "publicIpv4Pool";
 const _pIPI = "publicIpv4PoolId";
 const _pIPS = "publicIpv4PoolSet";

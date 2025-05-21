@@ -6,6 +6,7 @@ import {
   AddressAttributeName,
   ByoipCidr,
   ClientVpnAuthorizationRuleStatus,
+  IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   IpPermission,
   NatGatewayAddress,
@@ -68,6 +69,86 @@ import {
 } from "./models_5";
 
 import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_7";
+
+/**
+ * @public
+ */
+export interface ReplaceIamInstanceProfileAssociationRequest {
+  /**
+   * <p>The IAM instance profile.</p>
+   * @public
+   */
+  IamInstanceProfile: IamInstanceProfileSpecification | undefined;
+
+  /**
+   * <p>The ID of the existing IAM instance profile association.</p>
+   * @public
+   */
+  AssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceIamInstanceProfileAssociationResult {
+  /**
+   * <p>Information about the IAM instance profile association.</p>
+   * @public
+   */
+  IamInstanceProfileAssociation?: IamInstanceProfileAssociation | undefined;
+}
+
+/**
+ * <p>The list of criteria that are evaluated to determine whch AMIs are discoverable and usable
+ *       in the account in the specified Amazon Web Services Region. Currently, the only criteria that can be
+ *       specified are AMI providers. </p>
+ *          <p>Up to 10 <code>imageCriteria</code> objects can be specified, and up to a total of 200
+ *       values for all <code>imageProviders</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#allowed-amis-json-configuration">JSON
+ *         configuration for the Allowed AMIs criteria</a> in the
+ *       <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface ImageCriterionRequest {
+  /**
+   * <p>A list of image providers whose AMIs are discoverable and useable in the account. Up to a
+   *       total of 200 values can be specified.</p>
+   *          <p>Possible values:</p>
+   *          <p>
+   *             <code>amazon</code>: Allow AMIs created by Amazon Web Services.</p>
+   *          <p>
+   *             <code>aws-marketplace</code>: Allow AMIs created by verified providers in the Amazon Web Services
+   *       Marketplace.</p>
+   *          <p>
+   *             <code>aws-backup-vault</code>: Allow AMIs created by Amazon Web Services Backup. </p>
+   *          <p>12-digit account ID: Allow AMIs created by this account. One or more account IDs can be
+   *       specified.</p>
+   *          <p>
+   *             <code>none</code>: Allow AMIs created by your own account only. When <code>none</code> is
+   *       specified, no other values can be specified.</p>
+   * @public
+   */
+  ImageProviders?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceImageCriteriaInAllowedImagesSettingsRequest {
+  /**
+   * <p>The list of criteria that are evaluated to determine whether AMIs are discoverable and
+   *       usable in the account in the specified Amazon Web Services Region.</p>
+   * @public
+   */
+  ImageCriteria?: ImageCriterionRequest[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public

@@ -2022,6 +2022,10 @@ import {
   ModifyPrivateDnsNameOptionsCommandOutput,
 } from "./commands/ModifyPrivateDnsNameOptionsCommand";
 import {
+  ModifyPublicIpDnsNameOptionsCommandInput,
+  ModifyPublicIpDnsNameOptionsCommandOutput,
+} from "./commands/ModifyPublicIpDnsNameOptionsCommand";
+import {
   ModifyReservedInstancesCommandInput,
   ModifyReservedInstancesCommandOutput,
 } from "./commands/ModifyReservedInstancesCommand";
@@ -2984,6 +2988,7 @@ export type ServiceInputTypes =
   | ModifyManagedPrefixListCommandInput
   | ModifyNetworkInterfaceAttributeCommandInput
   | ModifyPrivateDnsNameOptionsCommandInput
+  | ModifyPublicIpDnsNameOptionsCommandInput
   | ModifyReservedInstancesCommandInput
   | ModifyRouteServerCommandInput
   | ModifySecurityGroupRulesCommandInput
@@ -3673,6 +3678,7 @@ export type ServiceOutputTypes =
   | ModifyManagedPrefixListCommandOutput
   | ModifyNetworkInterfaceAttributeCommandOutput
   | ModifyPrivateDnsNameOptionsCommandOutput
+  | ModifyPublicIpDnsNameOptionsCommandOutput
   | ModifyReservedInstancesCommandOutput
   | ModifyRouteServerCommandOutput
   | ModifySecurityGroupRulesCommandOutput

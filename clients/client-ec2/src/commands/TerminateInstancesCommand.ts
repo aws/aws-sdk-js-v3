@@ -84,10 +84,10 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  *             devices attached to the instance persist. When you terminate an instance, any attached
  *             EBS volumes with the <code>DeleteOnTermination</code> block device mapping parameter set
  *             to <code>true</code> are automatically deleted. For more information about the
- *             differences between stopping and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Amazon EC2
- *                 instance state changes</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *          <p>For information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting terminating your instance</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
+ *             differences between stopping and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a>
+ *             in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting terminating your instance</a> in the
+ *    <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

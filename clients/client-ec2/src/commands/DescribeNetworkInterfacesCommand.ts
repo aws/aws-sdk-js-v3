@@ -108,6 +108,7 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * //       Ipv6Addresses: [ // NetworkInterfaceIpv6AddressesList
  * //         { // NetworkInterfaceIpv6Address
  * //           Ipv6Address: "STRING_VALUE",
+ * //           PublicIpv6DnsName: "STRING_VALUE",
  * //           IsPrimaryIpv6: true || false,
  * //         },
  * //       ],
@@ -116,6 +117,13 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * //       OutpostArn: "STRING_VALUE",
  * //       OwnerId: "STRING_VALUE",
  * //       PrivateDnsName: "STRING_VALUE",
+ * //       PublicDnsName: "STRING_VALUE",
+ * //       PublicIpDnsNameOptions: { // PublicIpDnsNameOptions
+ * //         DnsHostnameType: "STRING_VALUE",
+ * //         PublicIpv4DnsName: "STRING_VALUE",
+ * //         PublicIpv6DnsName: "STRING_VALUE",
+ * //         PublicDualStackDnsName: "STRING_VALUE",
+ * //       },
  * //       PrivateIpAddress: "STRING_VALUE",
  * //       PrivateIpAddresses: [ // NetworkInterfacePrivateIpAddressList
  * //         { // NetworkInterfacePrivateIpAddress
