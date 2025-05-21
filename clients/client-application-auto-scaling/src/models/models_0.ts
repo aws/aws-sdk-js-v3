@@ -2397,6 +2397,54 @@ export interface PredictiveScalingCustomizedMetricSpecification {
  *          <p>When returned in the output of <code>DescribePolicies</code>, it indicates that a
  *          predictive scaling policy uses individually specified load and scaling metrics instead
  *          of a metric pair.</p>
+ *          <p>The following predefined metrics are available for predictive scaling:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>ECSServiceAverageCPUUtilization</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ECSServiceAverageMemoryUtilization</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ECSServiceCPUUtilization</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ECSServiceMemoryUtilization</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ECSServiceTotalCPUUtilization</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ECSServiceTotalMemoryUtilization</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ALBRequestCount</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ALBRequestCountPerTarget</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>TotalALBRequestCount</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface PredictiveScalingPredefinedLoadMetricSpecification {
@@ -2421,6 +2469,54 @@ export interface PredictiveScalingPredefinedLoadMetricSpecification {
  * <p>
  *          Represents a metric pair for a predictive scaling policy.
  *       </p>
+ *          <p>The following predefined metrics are available for predictive scaling:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>ECSServiceAverageCPUUtilization</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ECSServiceAverageMemoryUtilization</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ECSServiceCPUUtilization</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ECSServiceMemoryUtilization</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ECSServiceTotalCPUUtilization</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ECSServiceTotalMemoryUtilization</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ALBRequestCount</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ALBRequestCountPerTarget</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>TotalALBRequestCount</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface PredictiveScalingPredefinedMetricPairSpecification {
@@ -2450,6 +2546,54 @@ export interface PredictiveScalingPredefinedMetricPairSpecification {
  *          <p>When returned in the output of <code>DescribePolicies</code>, it indicates that a
  *          predictive scaling policy uses individually specified load and scaling metrics instead
  *          of a metric pair.</p>
+ *          <p>The following predefined metrics are available for predictive scaling:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>ECSServiceAverageCPUUtilization</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ECSServiceAverageMemoryUtilization</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ECSServiceCPUUtilization</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ECSServiceMemoryUtilization</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ECSServiceTotalCPUUtilization</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ECSServiceTotalMemoryUtilization</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ALBRequestCount</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ALBRequestCountPerTarget</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>TotalALBRequestCount</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface PredictiveScalingPredefinedScalingMetricSpecification {
