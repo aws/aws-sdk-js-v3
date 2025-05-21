@@ -84,7 +84,7 @@ describe('MathematicalExpression', () => {
 
             expect(expression.serialize(attributes)).toBe(serialized);
             expect(attributes.names).toEqual(expectedNames);
-            expect(attributes.values).toEqual(expectedValues);q
+            expect(attributes.values).toEqual(expectedValues);
             }
         });
     });
