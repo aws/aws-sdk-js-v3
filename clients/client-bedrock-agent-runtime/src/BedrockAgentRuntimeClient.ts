@@ -66,11 +66,21 @@ import { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "./command
 import { EndSessionCommandInput, EndSessionCommandOutput } from "./commands/EndSessionCommand";
 import { GenerateQueryCommandInput, GenerateQueryCommandOutput } from "./commands/GenerateQueryCommand";
 import { GetAgentMemoryCommandInput, GetAgentMemoryCommandOutput } from "./commands/GetAgentMemoryCommand";
+import {
+  GetExecutionFlowSnapshotCommandInput,
+  GetExecutionFlowSnapshotCommandOutput,
+} from "./commands/GetExecutionFlowSnapshotCommand";
+import { GetFlowExecutionCommandInput, GetFlowExecutionCommandOutput } from "./commands/GetFlowExecutionCommand";
 import { GetInvocationStepCommandInput, GetInvocationStepCommandOutput } from "./commands/GetInvocationStepCommand";
 import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
 import { InvokeAgentCommandInput, InvokeAgentCommandOutput } from "./commands/InvokeAgentCommand";
 import { InvokeFlowCommandInput, InvokeFlowCommandOutput } from "./commands/InvokeFlowCommand";
 import { InvokeInlineAgentCommandInput, InvokeInlineAgentCommandOutput } from "./commands/InvokeInlineAgentCommand";
+import {
+  ListFlowExecutionEventsCommandInput,
+  ListFlowExecutionEventsCommandOutput,
+} from "./commands/ListFlowExecutionEventsCommand";
+import { ListFlowExecutionsCommandInput, ListFlowExecutionsCommandOutput } from "./commands/ListFlowExecutionsCommand";
 import { ListInvocationsCommandInput, ListInvocationsCommandOutput } from "./commands/ListInvocationsCommand";
 import {
   ListInvocationStepsCommandInput,
@@ -93,6 +103,8 @@ import {
   RetrieveAndGenerateStreamCommandOutput,
 } from "./commands/RetrieveAndGenerateStreamCommand";
 import { RetrieveCommandInput, RetrieveCommandOutput } from "./commands/RetrieveCommand";
+import { StartFlowExecutionCommandInput, StartFlowExecutionCommandOutput } from "./commands/StartFlowExecutionCommand";
+import { StopFlowExecutionCommandInput, StopFlowExecutionCommandOutput } from "./commands/StopFlowExecutionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateSessionCommandInput, UpdateSessionCommandOutput } from "./commands/UpdateSessionCommand";
@@ -118,11 +130,15 @@ export type ServiceInputTypes =
   | EndSessionCommandInput
   | GenerateQueryCommandInput
   | GetAgentMemoryCommandInput
+  | GetExecutionFlowSnapshotCommandInput
+  | GetFlowExecutionCommandInput
   | GetInvocationStepCommandInput
   | GetSessionCommandInput
   | InvokeAgentCommandInput
   | InvokeFlowCommandInput
   | InvokeInlineAgentCommandInput
+  | ListFlowExecutionEventsCommandInput
+  | ListFlowExecutionsCommandInput
   | ListInvocationStepsCommandInput
   | ListInvocationsCommandInput
   | ListSessionsCommandInput
@@ -133,6 +149,8 @@ export type ServiceInputTypes =
   | RetrieveAndGenerateCommandInput
   | RetrieveAndGenerateStreamCommandInput
   | RetrieveCommandInput
+  | StartFlowExecutionCommandInput
+  | StopFlowExecutionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateSessionCommandInput;
@@ -148,11 +166,15 @@ export type ServiceOutputTypes =
   | EndSessionCommandOutput
   | GenerateQueryCommandOutput
   | GetAgentMemoryCommandOutput
+  | GetExecutionFlowSnapshotCommandOutput
+  | GetFlowExecutionCommandOutput
   | GetInvocationStepCommandOutput
   | GetSessionCommandOutput
   | InvokeAgentCommandOutput
   | InvokeFlowCommandOutput
   | InvokeInlineAgentCommandOutput
+  | ListFlowExecutionEventsCommandOutput
+  | ListFlowExecutionsCommandOutput
   | ListInvocationStepsCommandOutput
   | ListInvocationsCommandOutput
   | ListSessionsCommandOutput
@@ -163,6 +185,8 @@ export type ServiceOutputTypes =
   | RetrieveAndGenerateCommandOutput
   | RetrieveAndGenerateStreamCommandOutput
   | RetrieveCommandOutput
+  | StartFlowExecutionCommandOutput
+  | StopFlowExecutionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateSessionCommandOutput;

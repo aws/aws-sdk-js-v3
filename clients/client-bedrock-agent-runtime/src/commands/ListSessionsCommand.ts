@@ -10,8 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSessionsRequest } from "../models/models_0";
-import { ListSessionsResponse } from "../models/models_1";
+import { ListSessionsRequest, ListSessionsResponse } from "../models/models_1";
 import { de_ListSessionsCommand, se_ListSessionsCommand } from "../protocols/Aws_restJson1";
 
 /**

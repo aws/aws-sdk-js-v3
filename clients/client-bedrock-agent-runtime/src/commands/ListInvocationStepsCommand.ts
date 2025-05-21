@@ -10,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListInvocationStepsRequest, ListInvocationStepsResponse } from "../models/models_0";
+import { ListInvocationStepsRequest, ListInvocationStepsResponse } from "../models/models_1";
 import { de_ListInvocationStepsCommand, se_ListInvocationStepsCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -14,7 +14,7 @@ import {
   PutInvocationStepRequest,
   PutInvocationStepRequestFilterSensitiveLog,
   PutInvocationStepResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_PutInvocationStepCommand, se_PutInvocationStepCommand } from "../protocols/Aws_restJson1";
 
 /**

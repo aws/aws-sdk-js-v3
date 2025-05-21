@@ -10,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetSessionRequest, GetSessionResponse } from "../models/models_0";
+import { GetSessionRequest, GetSessionResponse } from "../models/models_1";
 import { de_GetSessionCommand, se_GetSessionCommand } from "../protocols/Aws_restJson1";
 
 /**

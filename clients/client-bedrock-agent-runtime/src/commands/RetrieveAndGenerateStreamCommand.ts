@@ -11,12 +11,10 @@ import {
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
-  RetrieveAndGenerateStreamResponse,
-  RetrieveAndGenerateStreamResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
   RetrieveAndGenerateStreamRequest,
   RetrieveAndGenerateStreamRequestFilterSensitiveLog,
+  RetrieveAndGenerateStreamResponse,
+  RetrieveAndGenerateStreamResponseFilterSensitiveLog,
 } from "../models/models_1";
 import { de_RetrieveAndGenerateStreamCommand, se_RetrieveAndGenerateStreamCommand } from "../protocols/Aws_restJson1";
 

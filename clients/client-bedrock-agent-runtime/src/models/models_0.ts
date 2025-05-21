@@ -227,7 +227,7 @@ export interface Metadata {
   startTime?: Date | undefined;
 
   /**
-   * <p>In the final response, <code>endTime</code> is the end time time of the agent invocation operation.</p>
+   * <p>In the final response, <code>endTime</code> is the end time of the agent invocation operation.</p>
    * @public
    */
   endTime?: Date | undefined;
@@ -1209,6 +1209,978 @@ export interface AgentCollaboratorInvocationOutput {
 }
 
 /**
+ * @public
+ */
+export interface GetExecutionFlowSnapshotRequest {
+  /**
+   * <p>The unique identifier of the flow.</p>
+   * @public
+   */
+  flowIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow alias used for the async execution.</p>
+   * @public
+   */
+  flowAliasIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the async execution.</p>
+   * @public
+   */
+  executionIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetExecutionFlowSnapshotResponse {
+  /**
+   * <p>The unique identifier of the flow.</p>
+   * @public
+   */
+  flowIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow alias used for the async execution.</p>
+   * @public
+   */
+  flowAliasIdentifier: string | undefined;
+
+  /**
+   * <p>The version of the flow used for the async execution.</p>
+   * @public
+   */
+  flowVersion: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that's used by the async execution.</p>
+   * @public
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>The flow definition used for the async execution, including the nodes, connections, and configuration at the time when the execution started.</p> <p>The definition returns as a string that follows the structure of a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_FlowDefinition.html">FlowDefinition</a> object.</p>
+   * @public
+   */
+  definition: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer managed KMS key that's used to encrypt the flow snapshot.</p>
+   * @public
+   */
+  customerEncryptionKeyArn?: string | undefined;
+}
+
+/**
+ * <p>An internal server error occurred. Retry your request.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * <p>The reason for the exception. If the reason is <code>BEDROCK_MODEL_INVOCATION_SERVICE_UNAVAILABLE</code>, the model invocation service is unavailable. Retry your request.</p>
+   * @public
+   */
+  reason?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.reason = opts.reason;
+  }
+}
+
+/**
+ * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * <p>Input validation failed. Check your request parameters and retry the request.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface GetFlowExecutionRequest {
+  /**
+   * <p>The unique identifier of the flow.</p>
+   * @public
+   */
+  flowIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow alias used for the execution.</p>
+   * @public
+   */
+  flowAliasIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the async execution to retrieve.</p>
+   * @public
+   */
+  executionIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FlowExecutionErrorType = {
+  TIMED_OUT: "ExecutionTimedOut",
+} as const;
+
+/**
+ * @public
+ */
+export type FlowExecutionErrorType = (typeof FlowExecutionErrorType)[keyof typeof FlowExecutionErrorType];
+
+/**
+ * <p>Contains information about an error that occurred during an async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * @public
+ */
+export interface FlowExecutionError {
+  /**
+   * <p>The name of the node in the flow where the error occurred (if applicable).</p>
+   * @public
+   */
+  nodeName?: string | undefined;
+
+  /**
+   * <p>The error code for the type of error that occurred.</p>
+   * @public
+   */
+  error?: FlowExecutionErrorType | undefined;
+
+  /**
+   * <p>A descriptive message that provides details about the error.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FlowExecutionStatus = {
+  ABORTED: "Aborted",
+  FAILED: "Failed",
+  RUNNING: "Running",
+  SUCCEEDED: "Succeeded",
+  TIMED_OUT: "TimedOut",
+} as const;
+
+/**
+ * @public
+ */
+export type FlowExecutionStatus = (typeof FlowExecutionStatus)[keyof typeof FlowExecutionStatus];
+
+/**
+ * @public
+ */
+export interface GetFlowExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the async execution.</p>
+   * @public
+   */
+  executionArn: string | undefined;
+
+  /**
+   * <p>The current status of the async execution.</p> <p>Async executions time out after 24 hours.</p>
+   * @public
+   */
+  status: FlowExecutionStatus | undefined;
+
+  /**
+   * <p>The timestamp when the async execution started.</p>
+   * @public
+   */
+  startedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the async execution ended. This field is only populated when the execution has completed, failed, timed out, or been aborted.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>A list of errors that occurred during the async execution. Each error includes an error code, message, and the node where the error occurred, if applicable.</p>
+   * @public
+   */
+  errors?: FlowExecutionError[] | undefined;
+
+  /**
+   * <p>The unique identifier of the flow alias used for the execution.</p>
+   * @public
+   */
+  flowAliasIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow.</p>
+   * @public
+   */
+  flowIdentifier: string | undefined;
+
+  /**
+   * <p>The version of the flow used for the execution.</p>
+   * @public
+   */
+  flowVersion: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FlowExecutionEventType = {
+  FLOW: "Flow",
+  NODE: "Node",
+} as const;
+
+/**
+ * @public
+ */
+export type FlowExecutionEventType = (typeof FlowExecutionEventType)[keyof typeof FlowExecutionEventType];
+
+/**
+ * @public
+ */
+export interface ListFlowExecutionEventsRequest {
+  /**
+   * <p>The unique identifier of the flow.</p>
+   * @public
+   */
+  flowIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow alias used for the execution.</p>
+   * @public
+   */
+  flowAliasIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the async execution.</p>
+   * @public
+   */
+  executionIdentifier: string | undefined;
+
+  /**
+   * <p>The maximum number of events to return in a single response. If more events exist than the specified maxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to retrieve the next set of results. This value is returned in the response if more results are available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The type of events to retrieve. Specify <code>Node</code> for node-level events or <code>Flow</code> for flow-level events.</p>
+   * @public
+   */
+  eventType: FlowExecutionEventType | undefined;
+}
+
+/**
+ * <p>Represents a condition that was satisfied during a condition node evaluation in a flow's async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * @public
+ */
+export interface SatisfiedCondition {
+  /**
+   * <p>The name of the condition that was satisfied.</p>
+   * @public
+   */
+  conditionName: string | undefined;
+}
+
+/**
+ * <p>Contains information about a condition evaluation result during an async execution. This event is generated when a condition node in the flow evaluates its conditions.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * @public
+ */
+export interface ConditionResultEvent {
+  /**
+   * <p>The name of the condition node that evaluated the conditions.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The timestamp when the condition evaluation occurred.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>A list of conditions that were satisfied during the evaluation.</p>
+   * @public
+   */
+  satisfiedConditions: SatisfiedCondition[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FlowErrorCode = {
+  INTERNAL_SERVER: "INTERNAL_SERVER",
+  NODE_EXECUTION_FAILED: "NODE_EXECUTION_FAILED",
+  VALIDATION: "VALIDATION",
+} as const;
+
+/**
+ * @public
+ */
+export type FlowErrorCode = (typeof FlowErrorCode)[keyof typeof FlowErrorCode];
+
+/**
+ * <p>Contains information about a failure that occurred at the flow level during an async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * @public
+ */
+export interface FlowFailureEvent {
+  /**
+   * <p>The timestamp when the failure occurred.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>The error code that identifies the type of failure that occurred.</p>
+   * @public
+   */
+  errorCode: FlowErrorCode | undefined;
+
+  /**
+   * <p>A descriptive message that provides details about the failure.</p>
+   * @public
+   */
+  errorMessage: string | undefined;
+}
+
+/**
+ * <p>Contains the content of an async execution input or output field.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * @public
+ */
+export type FlowExecutionContent = FlowExecutionContent.DocumentMember | FlowExecutionContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FlowExecutionContent {
+  /**
+   * <p>The document content of the field, which can contain text or structured data.</p>
+   * @public
+   */
+  export interface DocumentMember {
+    document: __DocumentType;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    document?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    document: (value: __DocumentType) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: FlowExecutionContent, visitor: Visitor<T>): T => {
+    if (value.document !== undefined) return visitor.document(value.document);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Represents an input field provided to a flow during an async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * @public
+ */
+export interface FlowInputField {
+  /**
+   * <p>The name of the input field as defined in the flow's input schema.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The content of the input field, which can contain text or structured data.</p>
+   * @public
+   */
+  content: FlowExecutionContent | undefined;
+}
+
+/**
+ * <p>Contains information about the inputs provided to the flow at the start of async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * @public
+ */
+export interface FlowExecutionInputEvent {
+  /**
+   * <p>The name of the node that receives the inputs.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The timestamp when the inputs are provided.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>A list of input fields provided to the flow.</p>
+   * @public
+   */
+  fields: FlowInputField[] | undefined;
+}
+
+/**
+ * <p>Represents an output field produced by a flow during an async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * @public
+ */
+export interface FlowOutputField {
+  /**
+   * <p>The name of the output field as defined in the flow's output schema.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The content of the output field, which can contain text or structured data.</p>
+   * @public
+   */
+  content: FlowExecutionContent | undefined;
+}
+
+/**
+ * <p>Contains information about the outputs produced by the flow during an async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * @public
+ */
+export interface FlowExecutionOutputEvent {
+  /**
+   * <p>The name of the node that produces the outputs.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The timestamp when the outputs are produced.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>A list of output fields produced by the flow.</p>
+   * @public
+   */
+  fields: FlowOutputField[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NodeErrorCode = {
+  BAD_GATEWAY: "BAD_GATEWAY",
+  DEPENDENCY_FAILED: "DEPENDENCY_FAILED",
+  INTERNAL_SERVER: "INTERNAL_SERVER",
+  VALIDATION: "VALIDATION",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeErrorCode = (typeof NodeErrorCode)[keyof typeof NodeErrorCode];
+
+/**
+ * <p>Contains information about a failure that occurred at a specific node during a flow's async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * @public
+ */
+export interface NodeFailureEvent {
+  /**
+   * <p>The name of the node where the failure occurred.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The timestamp when the node failure occurred.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>The error code that identifies the type of failure that occurred at the node.</p>
+   * @public
+   */
+  errorCode: NodeErrorCode | undefined;
+
+  /**
+   * <p>A descriptive message that provides details about the node failure.</p>
+   * @public
+   */
+  errorMessage: string | undefined;
+}
+
+/**
+ * <p>Contains the content of a flow node's input or output field for an async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * @public
+ */
+export type NodeExecutionContent = NodeExecutionContent.DocumentMember | NodeExecutionContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace NodeExecutionContent {
+  /**
+   * <p>The document content of the field, which can contain text or structured data.</p>
+   * @public
+   */
+  export interface DocumentMember {
+    document: __DocumentType;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    document?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    document: (value: __DocumentType) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: NodeExecutionContent, visitor: Visitor<T>): T => {
+    if (value.document !== undefined) return visitor.document(value.document);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Represents an input field provided to a node during a flow's async execution.</p>
+ * @public
+ */
+export interface NodeInputField {
+  /**
+   * <p>The name of the input field as defined in the node's input schema.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The content of the input field, which can contain text or structured data.</p>
+   * @public
+   */
+  content: NodeExecutionContent | undefined;
+}
+
+/**
+ * <p>Contains information about the inputs provided to a specific node during a flow's async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * @public
+ */
+export interface NodeInputEvent {
+  /**
+   * <p>The name of the node that received the inputs.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The timestamp when the inputs were provided to the node.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>A list of input fields provided to the node.</p>
+   * @public
+   */
+  fields: NodeInputField[] | undefined;
+}
+
+/**
+ * <p>Represents an output field produced by a node during a flow's async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * @public
+ */
+export interface NodeOutputField {
+  /**
+   * <p>The name of the output field as defined in the node's output schema.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The content of the output field, which can contain text or structured data.</p>
+   * @public
+   */
+  content: NodeExecutionContent | undefined;
+}
+
+/**
+ * <p>Contains information about the outputs produced by a specific node during a flow's async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * @public
+ */
+export interface NodeOutputEvent {
+  /**
+   * <p>The name of the node that produced the outputs.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The timestamp when the outputs were produced by the node.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>A list of output fields produced by the node.</p>
+   * @public
+   */
+  fields: NodeOutputField[] | undefined;
+}
+
+/**
+ * <p>Represents an event that occurred during an async execution. This is a union type that can contain one of several event types, such as node input and output events; flow input and output events; condition node result events, or failure events.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * @public
+ */
+export type FlowExecutionEvent =
+  | FlowExecutionEvent.ConditionResultEventMember
+  | FlowExecutionEvent.FlowFailureEventMember
+  | FlowExecutionEvent.FlowInputEventMember
+  | FlowExecutionEvent.FlowOutputEventMember
+  | FlowExecutionEvent.NodeFailureEventMember
+  | FlowExecutionEvent.NodeInputEventMember
+  | FlowExecutionEvent.NodeOutputEventMember
+  | FlowExecutionEvent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FlowExecutionEvent {
+  /**
+   * <p>Contains information about the inputs provided to the flow at the start of execution.</p>
+   * @public
+   */
+  export interface FlowInputEventMember {
+    flowInputEvent: FlowExecutionInputEvent;
+    flowOutputEvent?: never;
+    nodeInputEvent?: never;
+    nodeOutputEvent?: never;
+    conditionResultEvent?: never;
+    nodeFailureEvent?: never;
+    flowFailureEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information about the outputs produced by the flow at the end of execution.</p>
+   * @public
+   */
+  export interface FlowOutputEventMember {
+    flowInputEvent?: never;
+    flowOutputEvent: FlowExecutionOutputEvent;
+    nodeInputEvent?: never;
+    nodeOutputEvent?: never;
+    conditionResultEvent?: never;
+    nodeFailureEvent?: never;
+    flowFailureEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information about the inputs provided to a specific node during execution.</p>
+   * @public
+   */
+  export interface NodeInputEventMember {
+    flowInputEvent?: never;
+    flowOutputEvent?: never;
+    nodeInputEvent: NodeInputEvent;
+    nodeOutputEvent?: never;
+    conditionResultEvent?: never;
+    nodeFailureEvent?: never;
+    flowFailureEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information about the outputs produced by a specific node during execution.</p>
+   * @public
+   */
+  export interface NodeOutputEventMember {
+    flowInputEvent?: never;
+    flowOutputEvent?: never;
+    nodeInputEvent?: never;
+    nodeOutputEvent: NodeOutputEvent;
+    conditionResultEvent?: never;
+    nodeFailureEvent?: never;
+    flowFailureEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information about a condition evaluation result during the async execution. This event is generated when a condition node in the flow evaluates its conditions.</p>
+   * @public
+   */
+  export interface ConditionResultEventMember {
+    flowInputEvent?: never;
+    flowOutputEvent?: never;
+    nodeInputEvent?: never;
+    nodeOutputEvent?: never;
+    conditionResultEvent: ConditionResultEvent;
+    nodeFailureEvent?: never;
+    flowFailureEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information about a failure that occurred at a specific node during execution.</p>
+   * @public
+   */
+  export interface NodeFailureEventMember {
+    flowInputEvent?: never;
+    flowOutputEvent?: never;
+    nodeInputEvent?: never;
+    nodeOutputEvent?: never;
+    conditionResultEvent?: never;
+    nodeFailureEvent: NodeFailureEvent;
+    flowFailureEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information about a failure that occurred at the flow level during execution.</p>
+   * @public
+   */
+  export interface FlowFailureEventMember {
+    flowInputEvent?: never;
+    flowOutputEvent?: never;
+    nodeInputEvent?: never;
+    nodeOutputEvent?: never;
+    conditionResultEvent?: never;
+    nodeFailureEvent?: never;
+    flowFailureEvent: FlowFailureEvent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    flowInputEvent?: never;
+    flowOutputEvent?: never;
+    nodeInputEvent?: never;
+    nodeOutputEvent?: never;
+    conditionResultEvent?: never;
+    nodeFailureEvent?: never;
+    flowFailureEvent?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    flowInputEvent: (value: FlowExecutionInputEvent) => T;
+    flowOutputEvent: (value: FlowExecutionOutputEvent) => T;
+    nodeInputEvent: (value: NodeInputEvent) => T;
+    nodeOutputEvent: (value: NodeOutputEvent) => T;
+    conditionResultEvent: (value: ConditionResultEvent) => T;
+    nodeFailureEvent: (value: NodeFailureEvent) => T;
+    flowFailureEvent: (value: FlowFailureEvent) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: FlowExecutionEvent, visitor: Visitor<T>): T => {
+    if (value.flowInputEvent !== undefined) return visitor.flowInputEvent(value.flowInputEvent);
+    if (value.flowOutputEvent !== undefined) return visitor.flowOutputEvent(value.flowOutputEvent);
+    if (value.nodeInputEvent !== undefined) return visitor.nodeInputEvent(value.nodeInputEvent);
+    if (value.nodeOutputEvent !== undefined) return visitor.nodeOutputEvent(value.nodeOutputEvent);
+    if (value.conditionResultEvent !== undefined) return visitor.conditionResultEvent(value.conditionResultEvent);
+    if (value.nodeFailureEvent !== undefined) return visitor.nodeFailureEvent(value.nodeFailureEvent);
+    if (value.flowFailureEvent !== undefined) return visitor.flowFailureEvent(value.flowFailureEvent);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface ListFlowExecutionEventsResponse {
+  /**
+   * <p>A list of events that occurred during the async execution. Events can include node inputs and outputs, flow inputs and outputs, condition results, and failure events.</p>
+   * @public
+   */
+  flowExecutionEvents: FlowExecutionEvent[] | undefined;
+
+  /**
+   * <p>A token to retrieve the next set of results. This value is returned if more results are available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFlowExecutionsRequest {
+  /**
+   * <p>The unique identifier of the flow to list executions for.</p>
+   * @public
+   */
+  flowIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow alias to list executions for.</p>
+   * @public
+   */
+  flowAliasIdentifier?: string | undefined;
+
+  /**
+   * <p>The maximum number of async executions to return in a single response. If more executions exist than the specified maxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to retrieve the next set of results. This value is returned in the response if more results are available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a flow's async execution, including its status, timestamps, and identifiers.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * @public
+ */
+export interface FlowExecutionSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the async execution.</p>
+   * @public
+   */
+  executionArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow alias used for the execution.</p>
+   * @public
+   */
+  flowAliasIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow.</p>
+   * @public
+   */
+  flowIdentifier: string | undefined;
+
+  /**
+   * <p>The version of the flow used for the execution.</p>
+   * @public
+   */
+  flowVersion: string | undefined;
+
+  /**
+   * <p>The current status of the async execution.</p> <p>Async executions time out after 24 hours.</p>
+   * @public
+   */
+  status: FlowExecutionStatus | undefined;
+
+  /**
+   * <p>The timestamp when the async execution was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the async execution ended. This field is only populated when the execution has completed, failed, timed out, or been aborted.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFlowExecutionsResponse {
+  /**
+   * <p>A list of async execution summaries. Each summary includes the execution ARN, flow identifier, flow alias identifier, flow version, status, and timestamps.</p>
+   * @public
+   */
+  flowExecutionSummaries: FlowExecutionSummary[] | undefined;
+
+  /**
+   * <p>A token to retrieve the next set of results. This value is returned if more results are available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * <p>There was an issue with a dependency due to a server issue. Retry your request.</p>
  * @public
  */
@@ -1283,29 +2255,22 @@ export class DependencyFailedException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred. Retry your request.</p>
+ * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
  * @public
  */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The reason for the exception. If the reason is <code>BEDROCK_MODEL_INVOCATION_SERVICE_UNAVAILABLE</code>, the model invocation service is unavailable. Retry your request.</p>
-   * @public
-   */
-  reason?: string | undefined;
-
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
     super({
-      name: "InternalServerException",
-      $fault: "server",
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
       ...opts,
     });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.reason = opts.reason;
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
   }
 }
 
@@ -1413,6 +2378,92 @@ export interface ModelPerformanceConfiguration {
    * @public
    */
   performanceConfig?: PerformanceConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartFlowExecutionRequest {
+  /**
+   * <p>The unique identifier of the flow to execute.</p>
+   * @public
+   */
+  flowIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow alias to use for the async execution.</p>
+   * @public
+   */
+  flowAliasIdentifier: string | undefined;
+
+  /**
+   * <p>The unique name for the async execution. If you don't provide one, a system-generated name is used.</p>
+   * @public
+   */
+  flowExecutionName?: string | undefined;
+
+  /**
+   * <p>The input data required for the async execution. This must match the input schema defined in the flow.</p>
+   * @public
+   */
+  inputs: FlowInput[] | undefined;
+
+  /**
+   * <p>The performance settings for the foundation model used in the async execution.</p>
+   * @public
+   */
+  modelPerformanceConfiguration?: ModelPerformanceConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartFlowExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the async execution.</p>
+   * @public
+   */
+  executionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopFlowExecutionRequest {
+  /**
+   * <p>The unique identifier of the flow.</p>
+   * @public
+   */
+  flowIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow alias used for the execution.</p>
+   * @public
+   */
+  flowAliasIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the async execution to stop.</p>
+   * @public
+   */
+  executionIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopFlowExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the async execution that was stopped.</p>
+   * @public
+   */
+  executionArn?: string | undefined;
+
+  /**
+   * <p>The updated status of the async execution after the stop request. This will typically be ABORTED if the execution was successfully stopped.</p>
+   * @public
+   */
+  status: FlowExecutionStatus | undefined;
 }
 
 /**
@@ -1965,86 +3016,6 @@ export interface FlowTraceEvent {
    * @public
    */
   trace: FlowTrace | undefined;
-}
-
-/**
- * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>Input validation failed. Check your request parameters and retry the request.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
 }
 
 /**
@@ -7586,1092 +8557,6 @@ export interface RetrieveAndGenerateOutputEvent {
 }
 
 /**
- * <p>A retrieve and generate stream response output.</p>
- * @public
- */
-export type RetrieveAndGenerateStreamResponseOutput =
-  | RetrieveAndGenerateStreamResponseOutput.AccessDeniedExceptionMember
-  | RetrieveAndGenerateStreamResponseOutput.BadGatewayExceptionMember
-  | RetrieveAndGenerateStreamResponseOutput.CitationMember
-  | RetrieveAndGenerateStreamResponseOutput.ConflictExceptionMember
-  | RetrieveAndGenerateStreamResponseOutput.DependencyFailedExceptionMember
-  | RetrieveAndGenerateStreamResponseOutput.GuardrailMember
-  | RetrieveAndGenerateStreamResponseOutput.InternalServerExceptionMember
-  | RetrieveAndGenerateStreamResponseOutput.OutputMember
-  | RetrieveAndGenerateStreamResponseOutput.ResourceNotFoundExceptionMember
-  | RetrieveAndGenerateStreamResponseOutput.ServiceQuotaExceededExceptionMember
-  | RetrieveAndGenerateStreamResponseOutput.ThrottlingExceptionMember
-  | RetrieveAndGenerateStreamResponseOutput.ValidationExceptionMember
-  | RetrieveAndGenerateStreamResponseOutput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RetrieveAndGenerateStreamResponseOutput {
-  /**
-   * <p>An output event.</p>
-   * @public
-   */
-  export interface OutputMember {
-    output: RetrieveAndGenerateOutputEvent;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A citation event.</p>
-   * @public
-   */
-  export interface CitationMember {
-    output?: never;
-    citation: CitationEvent;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A guardrail event.</p>
-   * @public
-   */
-  export interface GuardrailMember {
-    output?: never;
-    citation?: never;
-    guardrail: GuardrailEvent;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An internal server error occurred. Retry your request.</p>
-   * @public
-   */
-  export interface InternalServerExceptionMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException: InternalServerException;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide.</p>
-   * @public
-   */
-  export interface ValidationExceptionMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException: ValidationException;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The specified resource ARN was not found. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-resource-not-found">ResourceNotFound</a> in the Amazon Bedrock User Guide.</p>
-   * @public
-   */
-  export interface ResourceNotFoundExceptionMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException: ResourceNotFoundException;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Your request exceeds the service quota for your account. You can view your quotas at <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/gs-request-quota.html">Viewing service quotas</a>. You can resubmit your request later.</p>
-   * @public
-   */
-  export interface ServiceQuotaExceededExceptionMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException: ServiceQuotaExceededException;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide.</p>
-   * @public
-   */
-  export interface ThrottlingExceptionMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException: ThrottlingException;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The request is denied because you do not have sufficient permissions to perform the requested action. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-access-denied">AccessDeniedException</a> in the Amazon Bedrock User Guide.</p>
-   * @public
-   */
-  export interface AccessDeniedExceptionMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException: AccessDeniedException;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Error occurred because of a conflict while performing an operation.</p>
-   * @public
-   */
-  export interface ConflictExceptionMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException: ConflictException;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The request failed due to a dependency error.</p>
-   * @public
-   */
-  export interface DependencyFailedExceptionMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException: DependencyFailedException;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The request failed due to a bad gateway error.</p>
-   * @public
-   */
-  export interface BadGatewayExceptionMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException: BadGatewayException;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    output: (value: RetrieveAndGenerateOutputEvent) => T;
-    citation: (value: CitationEvent) => T;
-    guardrail: (value: GuardrailEvent) => T;
-    internalServerException: (value: InternalServerException) => T;
-    validationException: (value: ValidationException) => T;
-    resourceNotFoundException: (value: ResourceNotFoundException) => T;
-    serviceQuotaExceededException: (value: ServiceQuotaExceededException) => T;
-    throttlingException: (value: ThrottlingException) => T;
-    accessDeniedException: (value: AccessDeniedException) => T;
-    conflictException: (value: ConflictException) => T;
-    dependencyFailedException: (value: DependencyFailedException) => T;
-    badGatewayException: (value: BadGatewayException) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: RetrieveAndGenerateStreamResponseOutput, visitor: Visitor<T>): T => {
-    if (value.output !== undefined) return visitor.output(value.output);
-    if (value.citation !== undefined) return visitor.citation(value.citation);
-    if (value.guardrail !== undefined) return visitor.guardrail(value.guardrail);
-    if (value.internalServerException !== undefined)
-      return visitor.internalServerException(value.internalServerException);
-    if (value.validationException !== undefined) return visitor.validationException(value.validationException);
-    if (value.resourceNotFoundException !== undefined)
-      return visitor.resourceNotFoundException(value.resourceNotFoundException);
-    if (value.serviceQuotaExceededException !== undefined)
-      return visitor.serviceQuotaExceededException(value.serviceQuotaExceededException);
-    if (value.throttlingException !== undefined) return visitor.throttlingException(value.throttlingException);
-    if (value.accessDeniedException !== undefined) return visitor.accessDeniedException(value.accessDeniedException);
-    if (value.conflictException !== undefined) return visitor.conflictException(value.conflictException);
-    if (value.dependencyFailedException !== undefined)
-      return visitor.dependencyFailedException(value.dependencyFailedException);
-    if (value.badGatewayException !== undefined) return visitor.badGatewayException(value.badGatewayException);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- */
-export interface RetrieveAndGenerateStreamResponse {
-  /**
-   * <p>A stream of events from the model.</p>
-   * @public
-   */
-  stream: AsyncIterable<RetrieveAndGenerateStreamResponseOutput> | undefined;
-
-  /**
-   * <p>The session ID.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-}
-
-/**
- * <p>Contains the query made to the knowledge base.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>retrievalQuery</code> field</p> </li> </ul>
- * @public
- */
-export interface KnowledgeBaseQuery {
-  /**
-   * <p>The text of the query made to the knowledge base.</p>
-   * @public
-   */
-  text: string | undefined;
-}
-
-/**
- * <p>Details about a result from querying the knowledge base.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>retrievalResults</code> field</p> </li> </ul>
- * @public
- */
-export interface KnowledgeBaseRetrievalResult {
-  /**
-   * <p>Contains information about the content of the chunk.</p>
-   * @public
-   */
-  content: RetrievalResultContent | undefined;
-
-  /**
-   * <p>Contains information about the location of the data source.</p>
-   * @public
-   */
-  location?: RetrievalResultLocation | undefined;
-
-  /**
-   * <p>The level of relevance of the result to the query.</p>
-   * @public
-   */
-  score?: number | undefined;
-
-  /**
-   * <p>Contains metadata attributes and their values for the file in the data source. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-ds.html#kb-ds-metadata">Metadata and filtering</a>.</p>
-   * @public
-   */
-  metadata?: Record<string, __DocumentType> | undefined;
-}
-
-/**
- * @public
- */
-export interface RetrieveResponse {
-  /**
-   * <p>A list of results from querying the knowledge base.</p>
-   * @public
-   */
-  retrievalResults: KnowledgeBaseRetrievalResult[] | undefined;
-
-  /**
-   * <p>Specifies if there is a guardrail intervention in the response.</p>
-   * @public
-   */
-  guardrailAction?: GuadrailAction | undefined;
-
-  /**
-   * <p>If there are more results than can fit in the response, the response returns a <code>nextToken</code>. Use this token in the <code>nextToken</code> field of another request to retrieve the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateSessionRequest {
-  /**
-   * <p>A map of key-value pairs containing attributes to be persisted across the session. For example, the user's ID, their language preference, and the type of device they are using.</p>
-   * @public
-   */
-  sessionMetadata?: Record<string, string> | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key to use to encrypt the session data. The user or role creating the session must have permission to use the key. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/session-encryption.html">Amazon Bedrock session encryption</a>. </p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
-
-  /**
-   * <p>Specify the key-value pairs for the tags that you want to attach to the session.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SessionStatus = {
-  ACTIVE: "ACTIVE",
-  ENDED: "ENDED",
-  EXPIRED: "EXPIRED",
-} as const;
-
-/**
- * @public
- */
-export type SessionStatus = (typeof SessionStatus)[keyof typeof SessionStatus];
-
-/**
- * @public
- */
-export interface CreateSessionResponse {
-  /**
-   * <p>The unique identifier for the session.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the created session.</p>
-   * @public
-   */
-  sessionArn: string | undefined;
-
-  /**
-   * <p>The current status of the session.</p>
-   * @public
-   */
-  sessionStatus: SessionStatus | undefined;
-
-  /**
-   * <p>The timestamp for when the session was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSessionRequest {
-  /**
-   * <p>The unique identifier for the session to be deleted. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  sessionIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSessionResponse {}
-
-/**
- * @public
- */
-export interface EndSessionRequest {
-  /**
-   * <p>The unique identifier for the session to end. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  sessionIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface EndSessionResponse {
-  /**
-   * <p>The unique identifier of the session you ended.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the session you ended.</p>
-   * @public
-   */
-  sessionArn: string | undefined;
-
-  /**
-   * <p>The current status of the session you ended.</p>
-   * @public
-   */
-  sessionStatus: SessionStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSessionRequest {
-  /**
-   * <p>A unique identifier for the session to retrieve. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  sessionIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSessionResponse {
-  /**
-   * <p>The unique identifier for the session in UUID format.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the session.</p>
-   * @public
-   */
-  sessionArn: string | undefined;
-
-  /**
-   * <p>The current status of the session.</p>
-   * @public
-   */
-  sessionStatus: SessionStatus | undefined;
-
-  /**
-   * <p>The timestamp for when the session was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp for when the session was last modified.</p>
-   * @public
-   */
-  lastUpdatedAt: Date | undefined;
-
-  /**
-   * <p>A map of key-value pairs containing attributes persisted across the session.</p>
-   * @public
-   */
-  sessionMetadata?: Record<string, string> | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Key Management Service key used to encrypt the session data. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/session-encryption.html">Amazon Bedrock session encryption</a>.</p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateInvocationRequest {
-  /**
-   * <p>A unique identifier for the invocation in UUID format.</p>
-   * @public
-   */
-  invocationId?: string | undefined;
-
-  /**
-   * <p>A description for the interactions in the invocation. For example, "User asking about weather in Seattle".</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The unique identifier for the associated session for the invocation. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN). </p>
-   * @public
-   */
-  sessionIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateInvocationResponse {
-  /**
-   * <p>The unique identifier for the session associated with the invocation.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the invocation.</p>
-   * @public
-   */
-  invocationId: string | undefined;
-
-  /**
-   * <p>The timestamp for when the invocation was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInvocationsRequest {
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results. </p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The unique identifier for the session to list invocations for. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  sessionIdentifier: string | undefined;
-}
-
-/**
- * <p>Contains details about an invocation in a session. For more information about sessions, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html">Store and retrieve conversation history and context with Amazon Bedrock sessions</a>.</p>
- * @public
- */
-export interface InvocationSummary {
-  /**
-   * <p>The unique identifier for the session associated with the invocation.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the invocation in UUID format.</p>
-   * @public
-   */
-  invocationId: string | undefined;
-
-  /**
-   * <p>The timestamp for when the invocation was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInvocationsResponse {
-  /**
-   * <p>A list of invocation summaries associated with the session.</p>
-   * @public
-   */
-  invocationSummaries: InvocationSummary[] | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInvocationStepRequest {
-  /**
-   * <p>The unique identifier for the invocation in UUID format.</p>
-   * @public
-   */
-  invocationIdentifier: string | undefined;
-
-  /**
-   * <p>The unique identifier (in UUID format) for the specific invocation step to retrieve.</p>
-   * @public
-   */
-  invocationStepId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the invocation step's associated session. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  sessionIdentifier: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ImageFormat = {
-  GIF: "gif",
-  JPEG: "jpeg",
-  PNG: "png",
-  WEBP: "webp",
-} as const;
-
-/**
- * @public
- */
-export type ImageFormat = (typeof ImageFormat)[keyof typeof ImageFormat];
-
-/**
- * <p>Information about the Amazon S3 bucket where the image is stored.</p>
- * @public
- */
-export interface S3Location {
-  /**
-   * <p>The path to the Amazon S3 bucket where the image is stored.</p>
-   * @public
-   */
-  uri: string | undefined;
-}
-
-/**
- * <p>The source for an image.</p>
- * @public
- */
-export type ImageSource = ImageSource.BytesMember | ImageSource.S3LocationMember | ImageSource.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ImageSource {
-  /**
-   * <p> The raw image bytes for the image. If you use an Amazon Web Services SDK, you don't need to encode the image bytes in base64.</p>
-   * @public
-   */
-  export interface BytesMember {
-    bytes: Uint8Array;
-    s3Location?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The path to the Amazon S3 bucket where the image is stored.</p>
-   * @public
-   */
-  export interface S3LocationMember {
-    bytes?: never;
-    s3Location: S3Location;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    bytes?: never;
-    s3Location?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    bytes: (value: Uint8Array) => T;
-    s3Location: (value: S3Location) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: ImageSource, visitor: Visitor<T>): T => {
-    if (value.bytes !== undefined) return visitor.bytes(value.bytes);
-    if (value.s3Location !== undefined) return visitor.s3Location(value.s3Location);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>Image content for an invocation step.</p>
- * @public
- */
-export interface ImageBlock {
-  /**
-   * <p>The format of the image.</p>
-   * @public
-   */
-  format: ImageFormat | undefined;
-
-  /**
-   * <p>The source for the image.</p>
-   * @public
-   */
-  source: ImageSource | undefined;
-}
-
-/**
- * <p>A block of content that you pass to, or receive from, a Amazon Bedrock session in an invocation step. You pass the content to a session in the <code>payLoad</code> of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_PutInvocationStep.html">PutInvocationStep</a> API operation. You retrieve the content with the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GetInvocationStep.html">GetInvocationStep</a> API operation.</p> <p>For more information about sessions, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html">Store and retrieve conversation history and context with Amazon Bedrock sessions</a>.</p>
- * @public
- */
-export type BedrockSessionContentBlock =
-  | BedrockSessionContentBlock.ImageMember
-  | BedrockSessionContentBlock.TextMember
-  | BedrockSessionContentBlock.$UnknownMember;
-
-/**
- * @public
- */
-export namespace BedrockSessionContentBlock {
-  /**
-   * <p>The text in the invocation step.</p>
-   * @public
-   */
-  export interface TextMember {
-    text: string;
-    image?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The image in the invocation step.</p>
-   * @public
-   */
-  export interface ImageMember {
-    text?: never;
-    image: ImageBlock;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    text?: never;
-    image?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    text: (value: string) => T;
-    image: (value: ImageBlock) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: BedrockSessionContentBlock, visitor: Visitor<T>): T => {
-    if (value.text !== undefined) return visitor.text(value.text);
-    if (value.image !== undefined) return visitor.image(value.image);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>Payload content, such as text and images, for the invocation step.</p>
- * @public
- */
-export type InvocationStepPayload = InvocationStepPayload.ContentBlocksMember | InvocationStepPayload.$UnknownMember;
-
-/**
- * @public
- */
-export namespace InvocationStepPayload {
-  /**
-   * <p>The content for the invocation step.</p>
-   * @public
-   */
-  export interface ContentBlocksMember {
-    contentBlocks: BedrockSessionContentBlock[];
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    contentBlocks?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    contentBlocks: (value: BedrockSessionContentBlock[]) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: InvocationStepPayload, visitor: Visitor<T>): T => {
-    if (value.contentBlocks !== undefined) return visitor.contentBlocks(value.contentBlocks);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>Stores fine-grained state checkpoints, including text and images, for each interaction in an invocation in a session. For more information about sessions, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html">Store and retrieve conversation history and context with Amazon Bedrock sessions</a>. </p>
- * @public
- */
-export interface InvocationStep {
-  /**
-   * <p>The unique identifier of the session containing the invocation step.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>The unique identifier (in UUID format) for the invocation that includes the invocation step.</p>
-   * @public
-   */
-  invocationId: string | undefined;
-
-  /**
-   * <p>The unique identifier (in UUID format) for the invocation step.</p>
-   * @public
-   */
-  invocationStepId: string | undefined;
-
-  /**
-   * <p>The timestamp for when the invocation step was created.</p>
-   * @public
-   */
-  invocationStepTime: Date | undefined;
-
-  /**
-   * <p>Payload content, such as text and images, for the invocation step.</p>
-   * @public
-   */
-  payload: InvocationStepPayload | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInvocationStepResponse {
-  /**
-   * <p>The complete details of the requested invocation step.</p>
-   * @public
-   */
-  invocationStep: InvocationStep | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInvocationStepsRequest {
-  /**
-   * <p>The unique identifier (in UUID format) for the invocation to list invocation steps for.</p>
-   * @public
-   */
-  invocationIdentifier?: string | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results. </p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The unique identifier for the session associated with the invocation steps. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  sessionIdentifier: string | undefined;
-}
-
-/**
- * <p>Contains details about an invocation step within an invocation in a session. For more information about sessions, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html">Store and retrieve conversation history and context with Amazon Bedrock sessions</a>.</p>
- * @public
- */
-export interface InvocationStepSummary {
-  /**
-   * <p>The unique identifier for the session associated with the invocation step.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the invocation in UUID format.</p>
-   * @public
-   */
-  invocationId: string | undefined;
-
-  /**
-   * <p>The unique identifier (in UUID format) for the invocation step.</p>
-   * @public
-   */
-  invocationStepId: string | undefined;
-
-  /**
-   * <p>The timestamp for when the invocation step was created.</p>
-   * @public
-   */
-  invocationStepTime: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInvocationStepsResponse {
-  /**
-   * <p>A list of summaries for each invocation step associated with a session and if you specified it, an invocation within the session.</p>
-   * @public
-   */
-  invocationStepSummaries: InvocationStepSummary[] | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutInvocationStepRequest {
-  /**
-   * <p>The unique identifier for the session to add the invocation step to. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  sessionIdentifier: string | undefined;
-
-  /**
-   * <p>The unique identifier (in UUID format) of the invocation to add the invocation step to.</p>
-   * @public
-   */
-  invocationIdentifier: string | undefined;
-
-  /**
-   * <p>The timestamp for when the invocation step occurred.</p>
-   * @public
-   */
-  invocationStepTime: Date | undefined;
-
-  /**
-   * <p>The payload for the invocation step, including text and images for the interaction.</p>
-   * @public
-   */
-  payload: InvocationStepPayload | undefined;
-
-  /**
-   * <p>The unique identifier of the invocation step in UUID format.</p>
-   * @public
-   */
-  invocationStepId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutInvocationStepResponse {
-  /**
-   * <p>The unique identifier of the invocation step in UUID format.</p>
-   * @public
-   */
-  invocationStepId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSessionsRequest {
-  /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results. </p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const ActionGroupInvocationInputFilterSensitiveLog = (obj: ActionGroupInvocationInput): any => ({
@@ -8857,6 +8742,139 @@ export const AgentCollaboratorInvocationOutputFilterSensitiveLog = (obj: AgentCo
 /**
  * @internal
  */
+export const SatisfiedConditionFilterSensitiveLog = (obj: SatisfiedCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConditionResultEventFilterSensitiveLog = (obj: ConditionResultEvent): any => ({
+  ...obj,
+  ...(obj.satisfiedConditions && { satisfiedConditions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowFailureEventFilterSensitiveLog = (obj: FlowFailureEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FlowExecutionContentFilterSensitiveLog = (obj: FlowExecutionContent): any => {
+  if (obj.document !== undefined) return { document: obj.document };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const FlowInputFieldFilterSensitiveLog = (obj: FlowInputField): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowExecutionInputEventFilterSensitiveLog = (obj: FlowExecutionInputEvent): any => ({
+  ...obj,
+  ...(obj.fields && { fields: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowOutputFieldFilterSensitiveLog = (obj: FlowOutputField): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowExecutionOutputEventFilterSensitiveLog = (obj: FlowExecutionOutputEvent): any => ({
+  ...obj,
+  ...(obj.fields && { fields: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const NodeFailureEventFilterSensitiveLog = (obj: NodeFailureEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeExecutionContentFilterSensitiveLog = (obj: NodeExecutionContent): any => {
+  if (obj.document !== undefined) return { document: obj.document };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const NodeInputFieldFilterSensitiveLog = (obj: NodeInputField): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const NodeInputEventFilterSensitiveLog = (obj: NodeInputEvent): any => ({
+  ...obj,
+  ...(obj.fields && { fields: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const NodeOutputFieldFilterSensitiveLog = (obj: NodeOutputField): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const NodeOutputEventFilterSensitiveLog = (obj: NodeOutputEvent): any => ({
+  ...obj,
+  ...(obj.fields && { fields: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowExecutionEventFilterSensitiveLog = (obj: FlowExecutionEvent): any => {
+  if (obj.flowInputEvent !== undefined) return { flowInputEvent: SENSITIVE_STRING };
+  if (obj.flowOutputEvent !== undefined) return { flowOutputEvent: SENSITIVE_STRING };
+  if (obj.nodeInputEvent !== undefined) return { nodeInputEvent: SENSITIVE_STRING };
+  if (obj.nodeOutputEvent !== undefined) return { nodeOutputEvent: SENSITIVE_STRING };
+  if (obj.conditionResultEvent !== undefined) return { conditionResultEvent: SENSITIVE_STRING };
+  if (obj.nodeFailureEvent !== undefined) return { nodeFailureEvent: SENSITIVE_STRING };
+  if (obj.flowFailureEvent !== undefined) return { flowFailureEvent: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ListFlowExecutionEventsResponseFilterSensitiveLog = (obj: ListFlowExecutionEventsResponse): any => ({
+  ...obj,
+  ...(obj.flowExecutionEvents && {
+    flowExecutionEvents: obj.flowExecutionEvents.map((item) => FlowExecutionEventFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const FlowInputContentFilterSensitiveLog = (obj: FlowInputContent): any => {
   if (obj.document !== undefined) return { document: obj.document };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
@@ -8868,6 +8886,14 @@ export const FlowInputContentFilterSensitiveLog = (obj: FlowInputContent): any =
 export const FlowInputFilterSensitiveLog = (obj: FlowInput): any => ({
   ...obj,
   ...(obj.content && { content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartFlowExecutionRequestFilterSensitiveLog = (obj: StartFlowExecutionRequest): any => ({
+  ...obj,
+  ...(obj.inputs && { inputs: obj.inputs.map((item) => FlowInputFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -9990,100 +10016,4 @@ export const CitationEventFilterSensitiveLog = (obj: CitationEvent): any => ({
  */
 export const RetrieveAndGenerateOutputEventFilterSensitiveLog = (obj: RetrieveAndGenerateOutputEvent): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const RetrieveAndGenerateStreamResponseOutputFilterSensitiveLog = (
-  obj: RetrieveAndGenerateStreamResponseOutput
-): any => {
-  if (obj.output !== undefined) return { output: SENSITIVE_STRING };
-  if (obj.citation !== undefined) return { citation: CitationEventFilterSensitiveLog(obj.citation) };
-  if (obj.guardrail !== undefined) return { guardrail: obj.guardrail };
-  if (obj.internalServerException !== undefined) return { internalServerException: obj.internalServerException };
-  if (obj.validationException !== undefined) return { validationException: obj.validationException };
-  if (obj.resourceNotFoundException !== undefined) return { resourceNotFoundException: obj.resourceNotFoundException };
-  if (obj.serviceQuotaExceededException !== undefined)
-    return { serviceQuotaExceededException: obj.serviceQuotaExceededException };
-  if (obj.throttlingException !== undefined) return { throttlingException: obj.throttlingException };
-  if (obj.accessDeniedException !== undefined) return { accessDeniedException: obj.accessDeniedException };
-  if (obj.conflictException !== undefined) return { conflictException: obj.conflictException };
-  if (obj.dependencyFailedException !== undefined) return { dependencyFailedException: obj.dependencyFailedException };
-  if (obj.badGatewayException !== undefined) return { badGatewayException: obj.badGatewayException };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const RetrieveAndGenerateStreamResponseFilterSensitiveLog = (obj: RetrieveAndGenerateStreamResponse): any => ({
-  ...obj,
-  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
-});
-
-/**
- * @internal
- */
-export const KnowledgeBaseQueryFilterSensitiveLog = (obj: KnowledgeBaseQuery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KnowledgeBaseRetrievalResultFilterSensitiveLog = (obj: KnowledgeBaseRetrievalResult): any => ({
-  ...obj,
-  ...(obj.content && { content: SENSITIVE_STRING }),
-  ...(obj.location && { location: SENSITIVE_STRING }),
-  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RetrieveResponseFilterSensitiveLog = (obj: RetrieveResponse): any => ({
-  ...obj,
-  ...(obj.retrievalResults && { retrievalResults: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const BedrockSessionContentBlockFilterSensitiveLog = (obj: BedrockSessionContentBlock): any => {
-  if (obj.text !== undefined) return { text: obj.text };
-  if (obj.image !== undefined) return { image: obj.image };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const InvocationStepPayloadFilterSensitiveLog = (obj: InvocationStepPayload): any => {
-  if (obj.contentBlocks !== undefined) return { contentBlocks: SENSITIVE_STRING };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const InvocationStepFilterSensitiveLog = (obj: InvocationStep): any => ({
-  ...obj,
-  ...(obj.payload && { payload: InvocationStepPayloadFilterSensitiveLog(obj.payload) }),
-});
-
-/**
- * @internal
- */
-export const GetInvocationStepResponseFilterSensitiveLog = (obj: GetInvocationStepResponse): any => ({
-  ...obj,
-  ...(obj.invocationStep && { invocationStep: InvocationStepFilterSensitiveLog(obj.invocationStep) }),
-});
-
-/**
- * @internal
- */
-export const PutInvocationStepRequestFilterSensitiveLog = (obj: PutInvocationStepRequest): any => ({
-  ...obj,
-  ...(obj.payload && { payload: InvocationStepPayloadFilterSensitiveLog(obj.payload) }),
 });

@@ -35,6 +35,16 @@ import {
   GetAgentMemoryCommandOutput,
 } from "./commands/GetAgentMemoryCommand";
 import {
+  GetExecutionFlowSnapshotCommand,
+  GetExecutionFlowSnapshotCommandInput,
+  GetExecutionFlowSnapshotCommandOutput,
+} from "./commands/GetExecutionFlowSnapshotCommand";
+import {
+  GetFlowExecutionCommand,
+  GetFlowExecutionCommandInput,
+  GetFlowExecutionCommandOutput,
+} from "./commands/GetFlowExecutionCommand";
+import {
   GetInvocationStepCommand,
   GetInvocationStepCommandInput,
   GetInvocationStepCommandOutput,
@@ -47,6 +57,16 @@ import {
   InvokeInlineAgentCommandInput,
   InvokeInlineAgentCommandOutput,
 } from "./commands/InvokeInlineAgentCommand";
+import {
+  ListFlowExecutionEventsCommand,
+  ListFlowExecutionEventsCommandInput,
+  ListFlowExecutionEventsCommandOutput,
+} from "./commands/ListFlowExecutionEventsCommand";
+import {
+  ListFlowExecutionsCommand,
+  ListFlowExecutionsCommandInput,
+  ListFlowExecutionsCommandOutput,
+} from "./commands/ListFlowExecutionsCommand";
 import {
   ListInvocationsCommand,
   ListInvocationsCommandInput,
@@ -89,6 +109,16 @@ import {
   RetrieveAndGenerateStreamCommandOutput,
 } from "./commands/RetrieveAndGenerateStreamCommand";
 import { RetrieveCommand, RetrieveCommandInput, RetrieveCommandOutput } from "./commands/RetrieveCommand";
+import {
+  StartFlowExecutionCommand,
+  StartFlowExecutionCommandInput,
+  StartFlowExecutionCommandOutput,
+} from "./commands/StartFlowExecutionCommand";
+import {
+  StopFlowExecutionCommand,
+  StopFlowExecutionCommandInput,
+  StopFlowExecutionCommandOutput,
+} from "./commands/StopFlowExecutionCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -109,11 +139,15 @@ const commands = {
   EndSessionCommand,
   GenerateQueryCommand,
   GetAgentMemoryCommand,
+  GetExecutionFlowSnapshotCommand,
+  GetFlowExecutionCommand,
   GetInvocationStepCommand,
   GetSessionCommand,
   InvokeAgentCommand,
   InvokeFlowCommand,
   InvokeInlineAgentCommand,
+  ListFlowExecutionEventsCommand,
+  ListFlowExecutionsCommand,
   ListInvocationsCommand,
   ListInvocationStepsCommand,
   ListSessionsCommand,
@@ -124,6 +158,8 @@ const commands = {
   RetrieveCommand,
   RetrieveAndGenerateCommand,
   RetrieveAndGenerateStreamCommand,
+  StartFlowExecutionCommand,
+  StopFlowExecutionCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateSessionCommand,
@@ -224,6 +260,40 @@ export interface BedrockAgentRuntime {
   ): void;
 
   /**
+   * @see {@link GetExecutionFlowSnapshotCommand}
+   */
+  getExecutionFlowSnapshot(
+    args: GetExecutionFlowSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExecutionFlowSnapshotCommandOutput>;
+  getExecutionFlowSnapshot(
+    args: GetExecutionFlowSnapshotCommandInput,
+    cb: (err: any, data?: GetExecutionFlowSnapshotCommandOutput) => void
+  ): void;
+  getExecutionFlowSnapshot(
+    args: GetExecutionFlowSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetExecutionFlowSnapshotCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFlowExecutionCommand}
+   */
+  getFlowExecution(
+    args: GetFlowExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFlowExecutionCommandOutput>;
+  getFlowExecution(
+    args: GetFlowExecutionCommandInput,
+    cb: (err: any, data?: GetFlowExecutionCommandOutput) => void
+  ): void;
+  getFlowExecution(
+    args: GetFlowExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFlowExecutionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetInvocationStepCommand}
    */
   getInvocationStep(
@@ -288,6 +358,40 @@ export interface BedrockAgentRuntime {
     args: InvokeInlineAgentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: InvokeInlineAgentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFlowExecutionEventsCommand}
+   */
+  listFlowExecutionEvents(
+    args: ListFlowExecutionEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFlowExecutionEventsCommandOutput>;
+  listFlowExecutionEvents(
+    args: ListFlowExecutionEventsCommandInput,
+    cb: (err: any, data?: ListFlowExecutionEventsCommandOutput) => void
+  ): void;
+  listFlowExecutionEvents(
+    args: ListFlowExecutionEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFlowExecutionEventsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFlowExecutionsCommand}
+   */
+  listFlowExecutions(
+    args: ListFlowExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFlowExecutionsCommandOutput>;
+  listFlowExecutions(
+    args: ListFlowExecutionsCommandInput,
+    cb: (err: any, data?: ListFlowExecutionsCommandOutput) => void
+  ): void;
+  listFlowExecutions(
+    args: ListFlowExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFlowExecutionsCommandOutput) => void
   ): void;
 
   /**
@@ -435,6 +539,40 @@ export interface BedrockAgentRuntime {
     args: RetrieveAndGenerateStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RetrieveAndGenerateStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartFlowExecutionCommand}
+   */
+  startFlowExecution(
+    args: StartFlowExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartFlowExecutionCommandOutput>;
+  startFlowExecution(
+    args: StartFlowExecutionCommandInput,
+    cb: (err: any, data?: StartFlowExecutionCommandOutput) => void
+  ): void;
+  startFlowExecution(
+    args: StartFlowExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartFlowExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopFlowExecutionCommand}
+   */
+  stopFlowExecution(
+    args: StopFlowExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopFlowExecutionCommandOutput>;
+  stopFlowExecution(
+    args: StopFlowExecutionCommandInput,
+    cb: (err: any, data?: StopFlowExecutionCommandOutput) => void
+  ): void;
+  stopFlowExecution(
+    args: StopFlowExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopFlowExecutionCommandOutput) => void
   ): void;
 
   /**

@@ -10,8 +10,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListInvocationsRequest, ListInvocationsResponse } from "../models/models_1";
-import { de_ListInvocationsCommand, se_ListInvocationsCommand } from "../protocols/Aws_restJson1";
+import { ListFlowExecutionsRequest, ListFlowExecutionsResponse } from "../models/models_0";
+import { de_ListFlowExecutionsCommand, se_ListFlowExecutionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -21,37 +21,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListInvocationsCommand}.
+ * The input for {@link ListFlowExecutionsCommand}.
  */
-export interface ListInvocationsCommandInput extends ListInvocationsRequest {}
+export interface ListFlowExecutionsCommandInput extends ListFlowExecutionsRequest {}
 /**
  * @public
  *
- * The output of {@link ListInvocationsCommand}.
+ * The output of {@link ListFlowExecutionsCommand}.
  */
-export interface ListInvocationsCommandOutput extends ListInvocationsResponse, __MetadataBearer {}
+export interface ListFlowExecutionsCommandOutput extends ListFlowExecutionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all invocations associated with a specific session. For more information about sessions, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html">Store and retrieve conversation history and context with Amazon Bedrock sessions</a>.</p>
+ * <p>Lists all asynchronous executions for a flow. Results can be paginated and include summary information about each execution, such as status, start and end times, and the execution's Amazon Resource Name (ARN).</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentRuntimeClient, ListInvocationsCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
- * // const { BedrockAgentRuntimeClient, ListInvocationsCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * import { BedrockAgentRuntimeClient, ListFlowExecutionsCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
+ * // const { BedrockAgentRuntimeClient, ListFlowExecutionsCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
  * const client = new BedrockAgentRuntimeClient(config);
- * const input = { // ListInvocationsRequest
- *   nextToken: "STRING_VALUE",
+ * const input = { // ListFlowExecutionsRequest
+ *   flowIdentifier: "STRING_VALUE", // required
+ *   flowAliasIdentifier: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   sessionIdentifier: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
  * };
- * const command = new ListInvocationsCommand(input);
+ * const command = new ListFlowExecutionsCommand(input);
  * const response = await client.send(command);
- * // { // ListInvocationsResponse
- * //   invocationSummaries: [ // InvocationSummaries // required
- * //     { // InvocationSummary
- * //       sessionId: "STRING_VALUE", // required
- * //       invocationId: "STRING_VALUE", // required
+ * // { // ListFlowExecutionsResponse
+ * //   flowExecutionSummaries: [ // FlowExecutionSummaries // required
+ * //     { // FlowExecutionSummary
+ * //       executionArn: "STRING_VALUE", // required
+ * //       flowAliasIdentifier: "STRING_VALUE", // required
+ * //       flowIdentifier: "STRING_VALUE", // required
+ * //       flowVersion: "STRING_VALUE", // required
+ * //       status: "Running" || "Succeeded" || "Failed" || "TimedOut" || "Aborted", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       endedAt: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -59,10 +64,10 @@ export interface ListInvocationsCommandOutput extends ListInvocationsResponse, _
  *
  * ```
  *
- * @param ListInvocationsCommandInput - {@link ListInvocationsCommandInput}
- * @returns {@link ListInvocationsCommandOutput}
- * @see {@link ListInvocationsCommandInput} for command's `input` shape.
- * @see {@link ListInvocationsCommandOutput} for command's `response` shape.
+ * @param ListFlowExecutionsCommandInput - {@link ListFlowExecutionsCommandInput}
+ * @returns {@link ListFlowExecutionsCommandOutput}
+ * @see {@link ListFlowExecutionsCommandInput} for command's `input` shape.
+ * @see {@link ListFlowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentRuntimeClientResolvedConfig | config} for BedrockAgentRuntimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -86,10 +91,10 @@ export interface ListInvocationsCommandOutput extends ListInvocationsResponse, _
  *
  * @public
  */
-export class ListInvocationsCommand extends $Command
+export class ListFlowExecutionsCommand extends $Command
   .classBuilder<
-    ListInvocationsCommandInput,
-    ListInvocationsCommandOutput,
+    ListFlowExecutionsCommandInput,
+    ListFlowExecutionsCommandOutput,
     BedrockAgentRuntimeClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -101,21 +106,21 @@ export class ListInvocationsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockAgentRunTimeService", "ListInvocations", {})
-  .n("BedrockAgentRuntimeClient", "ListInvocationsCommand")
+  .s("AmazonBedrockAgentRunTimeService", "ListFlowExecutions", {})
+  .n("BedrockAgentRuntimeClient", "ListFlowExecutionsCommand")
   .f(void 0, void 0)
-  .ser(se_ListInvocationsCommand)
-  .de(de_ListInvocationsCommand)
+  .ser(se_ListFlowExecutionsCommand)
+  .de(de_ListFlowExecutionsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListInvocationsRequest;
-      output: ListInvocationsResponse;
+      input: ListFlowExecutionsRequest;
+      output: ListFlowExecutionsResponse;
     };
     sdk: {
-      input: ListInvocationsCommandInput;
-      output: ListInvocationsCommandOutput;
+      input: ListFlowExecutionsCommandInput;
+      output: ListFlowExecutionsCommandOutput;
     };
   };
 }

@@ -44,11 +44,21 @@ import { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "../comman
 import { EndSessionCommandInput, EndSessionCommandOutput } from "../commands/EndSessionCommand";
 import { GenerateQueryCommandInput, GenerateQueryCommandOutput } from "../commands/GenerateQueryCommand";
 import { GetAgentMemoryCommandInput, GetAgentMemoryCommandOutput } from "../commands/GetAgentMemoryCommand";
+import {
+  GetExecutionFlowSnapshotCommandInput,
+  GetExecutionFlowSnapshotCommandOutput,
+} from "../commands/GetExecutionFlowSnapshotCommand";
+import { GetFlowExecutionCommandInput, GetFlowExecutionCommandOutput } from "../commands/GetFlowExecutionCommand";
 import { GetInvocationStepCommandInput, GetInvocationStepCommandOutput } from "../commands/GetInvocationStepCommand";
 import { GetSessionCommandInput, GetSessionCommandOutput } from "../commands/GetSessionCommand";
 import { InvokeAgentCommandInput, InvokeAgentCommandOutput } from "../commands/InvokeAgentCommand";
 import { InvokeFlowCommandInput, InvokeFlowCommandOutput } from "../commands/InvokeFlowCommand";
 import { InvokeInlineAgentCommandInput, InvokeInlineAgentCommandOutput } from "../commands/InvokeInlineAgentCommand";
+import {
+  ListFlowExecutionEventsCommandInput,
+  ListFlowExecutionEventsCommandOutput,
+} from "../commands/ListFlowExecutionEventsCommand";
+import { ListFlowExecutionsCommandInput, ListFlowExecutionsCommandOutput } from "../commands/ListFlowExecutionsCommand";
 import { ListInvocationsCommandInput, ListInvocationsCommandOutput } from "../commands/ListInvocationsCommand";
 import {
   ListInvocationStepsCommandInput,
@@ -71,6 +81,8 @@ import {
   RetrieveAndGenerateStreamCommandOutput,
 } from "../commands/RetrieveAndGenerateStreamCommand";
 import { RetrieveCommandInput, RetrieveCommandOutput } from "../commands/RetrieveCommand";
+import { StartFlowExecutionCommandInput, StartFlowExecutionCommandOutput } from "../commands/StartFlowExecutionCommand";
+import { StopFlowExecutionCommandInput, StopFlowExecutionCommandOutput } from "../commands/StopFlowExecutionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateSessionCommandInput, UpdateSessionCommandOutput } from "../commands/UpdateSessionCommand";
@@ -91,13 +103,13 @@ import {
   BedrockModelConfigurations,
   BedrockRerankingConfiguration,
   BedrockRerankingModelConfiguration,
-  BedrockSessionContentBlock,
   ByteContentDoc,
   ByteContentFile,
   Citation,
   CitationEvent,
   CodeInterpreterInvocationOutput,
   CollaboratorConfiguration,
+  ConditionResultEvent,
   ConflictException,
   ContentBlock,
   ContentBody,
@@ -114,12 +126,20 @@ import {
   FilterAttribute,
   FinalResponse,
   FlowCompletionEvent,
+  FlowExecutionContent,
+  FlowExecutionEvent,
+  FlowExecutionInputEvent,
+  FlowExecutionOutputEvent,
+  FlowExecutionSummary,
+  FlowFailureEvent,
   FlowInput,
   FlowInputContent,
+  FlowInputField,
   FlowMultiTurnInputContent,
   FlowMultiTurnInputRequestEvent,
   FlowOutputContent,
   FlowOutputEvent,
+  FlowOutputField,
   FlowResponseStream,
   FlowTrace,
   FlowTraceConditionNodeResultEvent,
@@ -139,10 +159,8 @@ import {
   GuardrailConfigurationWithArn,
   GuardrailEvent,
   GuardrailTrace,
-  ImageBlock,
   ImageInput,
   ImageInputSource,
-  ImageSource,
   ImplicitFilterConfiguration,
   InferenceConfig,
   InferenceConfiguration,
@@ -158,13 +176,7 @@ import {
   InternalServerException,
   InvocationInput,
   InvocationResultMember,
-  InvocationStep,
-  InvocationStepPayload,
-  InvocationStepSummary,
-  InvocationSummary,
   KnowledgeBaseLookupOutput,
-  KnowledgeBaseQuery,
-  KnowledgeBaseRetrievalResult,
   Memory,
   MemorySessionSummary,
   Message,
@@ -174,6 +186,12 @@ import {
   ModelInvocationInput,
   ModelNotReadyException,
   ModelPerformanceConfiguration,
+  NodeExecutionContent,
+  NodeFailureEvent,
+  NodeInputEvent,
+  NodeInputField,
+  NodeOutputEvent,
+  NodeOutputField,
   Observation,
   OptimizedPromptEvent,
   OptimizedPromptStream,
@@ -207,14 +225,12 @@ import {
   RetrieveAndGenerateInput,
   RetrieveAndGenerateOutputEvent,
   RetrieveAndGenerateSessionConfiguration,
-  RetrieveAndGenerateStreamResponseOutput,
   RetrievedReference,
   ReturnControlPayload,
   ReturnControlResults,
   RoutingClassifierModelInvocationOutput,
   RoutingClassifierTrace,
   S3Identifier,
-  S3Location,
   S3ObjectDoc,
   S3ObjectFile,
   ServiceQuotaExceededException,
@@ -233,14 +249,25 @@ import {
   VectorSearchRerankingConfiguration,
 } from "../models/models_0";
 import {
+  BedrockSessionContentBlock,
   Collaborator,
+  ImageBlock,
+  ImageSource,
+  InvocationStep,
+  InvocationStepPayload,
+  InvocationStepSummary,
+  InvocationSummary,
   KnowledgeBase,
   KnowledgeBaseConfiguration,
+  KnowledgeBaseQuery,
   KnowledgeBaseRetrievalConfiguration,
+  KnowledgeBaseRetrievalResult,
   KnowledgeBaseRetrieveAndGenerateConfiguration,
   KnowledgeBaseVectorSearchConfiguration,
   RetrievalFilter,
   RetrieveAndGenerateConfiguration,
+  RetrieveAndGenerateStreamResponseOutput,
+  S3Location,
   SessionState,
   SessionSummary,
 } from "../models/models_1";
@@ -393,6 +420,42 @@ export const se_GetAgentMemoryCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetExecutionFlowSnapshotCommand
+ */
+export const se_GetExecutionFlowSnapshotCommand = async (
+  input: GetExecutionFlowSnapshotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}/flowsnapshot");
+  b.p("flowIdentifier", () => input.flowIdentifier!, "{flowIdentifier}", false);
+  b.p("flowAliasIdentifier", () => input.flowAliasIdentifier!, "{flowAliasIdentifier}", false);
+  b.p("executionIdentifier", () => input.executionIdentifier!, "{executionIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetFlowExecutionCommand
+ */
+export const se_GetFlowExecutionCommand = async (
+  input: GetFlowExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}");
+  b.p("flowIdentifier", () => input.flowIdentifier!, "{flowIdentifier}", false);
+  b.p("flowAliasIdentifier", () => input.flowAliasIdentifier!, "{flowAliasIdentifier}", false);
+  b.p("executionIdentifier", () => input.executionIdentifier!, "{executionIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetInvocationStepCommand
  */
 export const se_GetInvocationStepCommand = async (
@@ -530,6 +593,50 @@ export const se_InvokeInlineAgentCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListFlowExecutionEventsCommand
+ */
+export const se_ListFlowExecutionEventsCommand = async (
+  input: ListFlowExecutionEventsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}/events");
+  b.p("flowIdentifier", () => input.flowIdentifier!, "{flowIdentifier}", false);
+  b.p("flowAliasIdentifier", () => input.flowAliasIdentifier!, "{flowAliasIdentifier}", false);
+  b.p("executionIdentifier", () => input.executionIdentifier!, "{executionIdentifier}", false);
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_eT]: [, __expectNonNull(input[_eT]!, `eventType`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListFlowExecutionsCommand
+ */
+export const se_ListFlowExecutionsCommand = async (
+  input: ListFlowExecutionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/flows/{flowIdentifier}/executions");
+  b.p("flowIdentifier", () => input.flowIdentifier!, "{flowIdentifier}", false);
+  const query: any = map({
+    [_fAI]: [, input[_fAI]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -763,6 +870,50 @@ export const se_RetrieveAndGenerateStreamCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartFlowExecutionCommand
+ */
+export const se_StartFlowExecutionCommand = async (
+  input: StartFlowExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions");
+  b.p("flowIdentifier", () => input.flowIdentifier!, "{flowIdentifier}", false);
+  b.p("flowAliasIdentifier", () => input.flowAliasIdentifier!, "{flowAliasIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      flowExecutionName: [],
+      inputs: (_) => se_FlowInputs(_, context),
+      modelPerformanceConfiguration: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StopFlowExecutionCommand
+ */
+export const se_StopFlowExecutionCommand = async (
+  input: StopFlowExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}/stop");
+  b.p("flowIdentifier", () => input.flowIdentifier!, "{flowIdentifier}", false);
+  b.p("flowAliasIdentifier", () => input.flowAliasIdentifier!, "{flowAliasIdentifier}", false);
+  b.p("executionIdentifier", () => input.executionIdentifier!, "{executionIdentifier}", false);
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1TagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -975,6 +1126,60 @@ export const de_GetAgentMemoryCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetExecutionFlowSnapshotCommand
+ */
+export const de_GetExecutionFlowSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetExecutionFlowSnapshotCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    customerEncryptionKeyArn: __expectString,
+    definition: __expectString,
+    executionRoleArn: __expectString,
+    flowAliasIdentifier: __expectString,
+    flowIdentifier: __expectString,
+    flowVersion: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetFlowExecutionCommand
+ */
+export const de_GetFlowExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFlowExecutionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    endedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    errors: _json,
+    executionArn: __expectString,
+    flowAliasIdentifier: __expectString,
+    flowIdentifier: __expectString,
+    flowVersion: __expectString,
+    startedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetInvocationStepCommand
  */
 export const de_GetInvocationStepCommand = async (
@@ -1079,6 +1284,50 @@ export const de_InvokeInlineAgentCommand = async (
   });
   const data: any = output.body;
   contents.completion = de_InlineAgentResponseStream(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListFlowExecutionEventsCommand
+ */
+export const de_ListFlowExecutionEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFlowExecutionEventsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    flowExecutionEvents: (_) => de_FlowExecutionEvents(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListFlowExecutionsCommand
+ */
+export const de_ListFlowExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFlowExecutionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    flowExecutionSummaries: (_) => de_FlowExecutionSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1293,6 +1542,49 @@ export const de_RetrieveAndGenerateStreamCommand = async (
   });
   const data: any = output.body;
   contents.stream = de_RetrieveAndGenerateStreamResponseOutput(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartFlowExecutionCommand
+ */
+export const de_StartFlowExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartFlowExecutionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    executionArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopFlowExecutionCommand
+ */
+export const de_StopFlowExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopFlowExecutionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    executionArn: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3212,6 +3504,17 @@ const de_CodeInterpreterInvocationOutput = (output: any, context: __SerdeContext
 };
 
 /**
+ * deserializeAws_restJson1ConditionResultEvent
+ */
+const de_ConditionResultEvent = (output: any, context: __SerdeContext): ConditionResultEvent => {
+  return take(output, {
+    nodeName: __expectString,
+    satisfiedConditions: _json,
+    timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ContentBody
  */
 const de_ContentBody = (output: any, context: __SerdeContext): ContentBody => {
@@ -3263,6 +3566,158 @@ const de_FinalResponse = (output: any, context: __SerdeContext): FinalResponse =
 // de_FlowCompletionEvent omitted.
 
 /**
+ * deserializeAws_restJson1FlowExecutionContent
+ */
+const de_FlowExecutionContent = (output: any, context: __SerdeContext): FlowExecutionContent => {
+  if (output.document != null) {
+    return {
+      document: de_Document(output.document, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+// de_FlowExecutionError omitted.
+
+// de_FlowExecutionErrors omitted.
+
+/**
+ * deserializeAws_restJson1FlowExecutionEvent
+ */
+const de_FlowExecutionEvent = (output: any, context: __SerdeContext): FlowExecutionEvent => {
+  if (output.conditionResultEvent != null) {
+    return {
+      conditionResultEvent: de_ConditionResultEvent(output.conditionResultEvent, context),
+    };
+  }
+  if (output.flowFailureEvent != null) {
+    return {
+      flowFailureEvent: de_FlowFailureEvent(output.flowFailureEvent, context),
+    };
+  }
+  if (output.flowInputEvent != null) {
+    return {
+      flowInputEvent: de_FlowExecutionInputEvent(output.flowInputEvent, context),
+    };
+  }
+  if (output.flowOutputEvent != null) {
+    return {
+      flowOutputEvent: de_FlowExecutionOutputEvent(output.flowOutputEvent, context),
+    };
+  }
+  if (output.nodeFailureEvent != null) {
+    return {
+      nodeFailureEvent: de_NodeFailureEvent(output.nodeFailureEvent, context),
+    };
+  }
+  if (output.nodeInputEvent != null) {
+    return {
+      nodeInputEvent: de_NodeInputEvent(output.nodeInputEvent, context),
+    };
+  }
+  if (output.nodeOutputEvent != null) {
+    return {
+      nodeOutputEvent: de_NodeOutputEvent(output.nodeOutputEvent, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1FlowExecutionEvents
+ */
+const de_FlowExecutionEvents = (output: any, context: __SerdeContext): FlowExecutionEvent[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FlowExecutionEvent(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1FlowExecutionInputEvent
+ */
+const de_FlowExecutionInputEvent = (output: any, context: __SerdeContext): FlowExecutionInputEvent => {
+  return take(output, {
+    fields: (_: any) => de_FlowInputFields(_, context),
+    nodeName: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FlowExecutionOutputEvent
+ */
+const de_FlowExecutionOutputEvent = (output: any, context: __SerdeContext): FlowExecutionOutputEvent => {
+  return take(output, {
+    fields: (_: any) => de_FlowOutputFields(_, context),
+    nodeName: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FlowExecutionSummaries
+ */
+const de_FlowExecutionSummaries = (output: any, context: __SerdeContext): FlowExecutionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FlowExecutionSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1FlowExecutionSummary
+ */
+const de_FlowExecutionSummary = (output: any, context: __SerdeContext): FlowExecutionSummary => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    endedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    executionArn: __expectString,
+    flowAliasIdentifier: __expectString,
+    flowIdentifier: __expectString,
+    flowVersion: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FlowFailureEvent
+ */
+const de_FlowFailureEvent = (output: any, context: __SerdeContext): FlowFailureEvent => {
+  return take(output, {
+    errorCode: __expectString,
+    errorMessage: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FlowInputField
+ */
+const de_FlowInputField = (output: any, context: __SerdeContext): FlowInputField => {
+  return take(output, {
+    content: (_: any) => de_FlowExecutionContent(__expectUnion(_), context),
+    name: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FlowInputFields
+ */
+const de_FlowInputFields = (output: any, context: __SerdeContext): FlowInputField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FlowInputField(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1FlowMultiTurnInputContent
  */
 const de_FlowMultiTurnInputContent = (output: any, context: __SerdeContext): FlowMultiTurnInputContent => {
@@ -3306,6 +3761,28 @@ const de_FlowOutputEvent = (output: any, context: __SerdeContext): FlowOutputEve
     nodeName: __expectString,
     nodeType: __expectString,
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FlowOutputField
+ */
+const de_FlowOutputField = (output: any, context: __SerdeContext): FlowOutputField => {
+  return take(output, {
+    content: (_: any) => de_FlowExecutionContent(__expectUnion(_), context),
+    name: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FlowOutputFields
+ */
+const de_FlowOutputFields = (output: any, context: __SerdeContext): FlowOutputField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FlowOutputField(entry, context);
+    });
+  return retVal;
 };
 
 /**
@@ -3861,6 +4338,96 @@ const de_ModelInvocationInput = (output: any, context: __SerdeContext): ModelInv
 };
 
 /**
+ * deserializeAws_restJson1NodeExecutionContent
+ */
+const de_NodeExecutionContent = (output: any, context: __SerdeContext): NodeExecutionContent => {
+  if (output.document != null) {
+    return {
+      document: de_Document(output.document, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1NodeFailureEvent
+ */
+const de_NodeFailureEvent = (output: any, context: __SerdeContext): NodeFailureEvent => {
+  return take(output, {
+    errorCode: __expectString,
+    errorMessage: __expectString,
+    nodeName: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1NodeInputEvent
+ */
+const de_NodeInputEvent = (output: any, context: __SerdeContext): NodeInputEvent => {
+  return take(output, {
+    fields: (_: any) => de_NodeInputFields(_, context),
+    nodeName: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1NodeInputField
+ */
+const de_NodeInputField = (output: any, context: __SerdeContext): NodeInputField => {
+  return take(output, {
+    content: (_: any) => de_NodeExecutionContent(__expectUnion(_), context),
+    name: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1NodeInputFields
+ */
+const de_NodeInputFields = (output: any, context: __SerdeContext): NodeInputField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_NodeInputField(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1NodeOutputEvent
+ */
+const de_NodeOutputEvent = (output: any, context: __SerdeContext): NodeOutputEvent => {
+  return take(output, {
+    fields: (_: any) => de_NodeOutputFields(_, context),
+    nodeName: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1NodeOutputField
+ */
+const de_NodeOutputField = (output: any, context: __SerdeContext): NodeOutputField => {
+  return take(output, {
+    content: (_: any) => de_NodeExecutionContent(__expectUnion(_), context),
+    name: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1NodeOutputFields
+ */
+const de_NodeOutputFields = (output: any, context: __SerdeContext): NodeOutputField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_NodeOutputField(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1Observation
  */
 const de_Observation = (output: any, context: __SerdeContext): Observation => {
@@ -4252,6 +4819,10 @@ const de_RoutingClassifierTrace = (output: any, context: __SerdeContext): Routin
 
 // de_S3Location omitted.
 
+// de_SatisfiedCondition omitted.
+
+// de_SatisfiedConditions omitted.
+
 // de_SessionMetadataMap omitted.
 
 /**
@@ -4370,6 +4941,8 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const _cT = "contentType";
 const _eI = "executionId";
+const _eT = "eventType";
+const _fAI = "flowAliasIdentifier";
 const _mI = "memoryId";
 const _mIa = "maxItems";
 const _mR = "maxResults";

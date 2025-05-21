@@ -10,8 +10,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteSessionRequest, DeleteSessionResponse } from "../models/models_1";
-import { de_DeleteSessionCommand, se_DeleteSessionCommand } from "../protocols/Aws_restJson1";
+import { StopFlowExecutionRequest, StopFlowExecutionResponse } from "../models/models_0";
+import { de_StopFlowExecutionCommand, se_StopFlowExecutionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -21,44 +21,55 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteSessionCommand}.
+ * The input for {@link StopFlowExecutionCommand}.
  */
-export interface DeleteSessionCommandInput extends DeleteSessionRequest {}
+export interface StopFlowExecutionCommandInput extends StopFlowExecutionRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteSessionCommand}.
+ * The output of {@link StopFlowExecutionCommand}.
  */
-export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __MetadataBearer {}
+export interface StopFlowExecutionCommandOutput extends StopFlowExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a session that you ended. You can't delete a session with an <code>ACTIVE</code> status. To delete an active session, you must first end it with the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_EndSession.html">EndSession</a> API operation. For more information about sessions, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html">Store and retrieve conversation history and context with Amazon Bedrock sessions</a>.</p>
+ * <p>Stops an Amazon Bedrock flow's asynchronous execution. This operation prevents further processing of the flow and changes the execution status to <code>Aborted</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentRuntimeClient, DeleteSessionCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
- * // const { BedrockAgentRuntimeClient, DeleteSessionCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * import { BedrockAgentRuntimeClient, StopFlowExecutionCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
+ * // const { BedrockAgentRuntimeClient, StopFlowExecutionCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
  * const client = new BedrockAgentRuntimeClient(config);
- * const input = { // DeleteSessionRequest
- *   sessionIdentifier: "STRING_VALUE", // required
+ * const input = { // StopFlowExecutionRequest
+ *   flowIdentifier: "STRING_VALUE", // required
+ *   flowAliasIdentifier: "STRING_VALUE", // required
+ *   executionIdentifier: "STRING_VALUE", // required
  * };
- * const command = new DeleteSessionCommand(input);
+ * const command = new StopFlowExecutionCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // StopFlowExecutionResponse
+ * //   executionArn: "STRING_VALUE",
+ * //   status: "Running" || "Succeeded" || "Failed" || "TimedOut" || "Aborted", // required
+ * // };
  *
  * ```
  *
- * @param DeleteSessionCommandInput - {@link DeleteSessionCommandInput}
- * @returns {@link DeleteSessionCommandOutput}
- * @see {@link DeleteSessionCommandInput} for command's `input` shape.
- * @see {@link DeleteSessionCommandOutput} for command's `response` shape.
+ * @param StopFlowExecutionCommandInput - {@link StopFlowExecutionCommandInput}
+ * @returns {@link StopFlowExecutionCommandOutput}
+ * @see {@link StopFlowExecutionCommandInput} for command's `input` shape.
+ * @see {@link StopFlowExecutionCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentRuntimeClientResolvedConfig | config} for BedrockAgentRuntimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
  *
+ * @throws {@link BadGatewayException} (server fault)
+ *  <p>There was an issue with a dependency due to a server issue. Retry your request.</p>
+ *
  * @throws {@link ConflictException} (client fault)
  *  <p>There was a conflict performing an operation. Resolve the conflict and retry your request.</p>
+ *
+ * @throws {@link DependencyFailedException} (client fault)
+ *  <p>There was an issue with a dependency. Check the resource configurations and retry the request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal server error occurred. Retry your request.</p>
@@ -78,10 +89,10 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  *
  * @public
  */
-export class DeleteSessionCommand extends $Command
+export class StopFlowExecutionCommand extends $Command
   .classBuilder<
-    DeleteSessionCommandInput,
-    DeleteSessionCommandOutput,
+    StopFlowExecutionCommandInput,
+    StopFlowExecutionCommandOutput,
     BedrockAgentRuntimeClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -93,21 +104,21 @@ export class DeleteSessionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockAgentRunTimeService", "DeleteSession", {})
-  .n("BedrockAgentRuntimeClient", "DeleteSessionCommand")
+  .s("AmazonBedrockAgentRunTimeService", "StopFlowExecution", {})
+  .n("BedrockAgentRuntimeClient", "StopFlowExecutionCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteSessionCommand)
-  .de(de_DeleteSessionCommand)
+  .ser(se_StopFlowExecutionCommand)
+  .de(de_StopFlowExecutionCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteSessionRequest;
-      output: {};
+      input: StopFlowExecutionRequest;
+      output: StopFlowExecutionResponse;
     };
     sdk: {
-      input: DeleteSessionCommandInput;
-      output: DeleteSessionCommandOutput;
+      input: StopFlowExecutionCommandInput;
+      output: StopFlowExecutionCommandOutput;
     };
   };
 }
