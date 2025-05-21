@@ -28,6 +28,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.x",
     "@aws-sdk/core": "*",
     "@aws-sdk/util-dynamodb": "*",
     "@smithy/core": "^3.2.0",
@@ -35,9 +36,6 @@
     "@smithy/types": "^4.2.0",
     "reflect-metadata": "^0.1.13",
     "tslib": "^2.6.2"
-  },
-  "peerDependencies": {
-    "@aws-sdk/client-dynamodb": "*"
   },
   "devDependencies": {
     "@aws-sdk/client-dynamodb": "*",
@@ -58,7 +56,7 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-dynamodb",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-dynamodb-data-mapper",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

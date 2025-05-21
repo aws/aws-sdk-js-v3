@@ -1,50 +1,57 @@
-import type { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
-import { beforeEach,describe, expect, it, vi } from 'vitest';
+import { GetCommand, PutCommand } from '@aws-sdk/lib-dynamodb';
+import { afterEach,beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { DataMapper } from './DataMapper';
 
-describe("DynamoDBDataMapper", () => {
-  let mockSend: ReturnType<typeof vi.fn>;
-  let mockClient: DynamoDBDocumentClient;
 
-  class User {
-    id = '123';
-    name = 'Alice';
-  }
+const mockSend = vi.fn();
 
-  beforeEach(() => {
-    mockSend = vi.fn();
-    mockClient = { send: mockSend } as any;
-  });
+const mockClient = {
+  send: mockSend,
+  middlewareStack: {
+    add: vi.fn(),
+    addRelativeTo: vi.fn(),
+  },
+} as any;
 
-  it("should be instantiated with a document client", () => {
-    const dummyClient = {} as any;
-    const mapper = new DataMapper({ docClient: dummyClient });
-    expect(mapper).toBeInstanceOf(DataMapper);
-  });
+beforeEach(() => {
+  mockSend.mockReset();
+});
 
-  it('calls DynamoDB put operation with item', async () => {
+afterEach(() => {
+  vi.restoreAllMocks();
+});
+
+describe('DataMapper', () => {
+  it('should send PutCommand with provided input', async () => {
+    const mapper = new DataMapper({ docClient: mockClient });
+    const input = { TableName: 'Users', Item: { id: '123' } };
     mockSend.mockResolvedValueOnce({});
-    const mapper = new DataMapper({ docClient: mockClient });
 
-    const result = await mapper.put(new User());
+    await mapper.put(input);
 
-    expect(mockSend).toHaveBeenCalledTimes(1);
-    expect(mockSend.mock.calls[0][0].input.Item).toEqual({ id: '123', name: 'Alice' });
-    expect(result).toBeInstanceOf(User);
+    const sentCommand = mockSend.mock.calls[0][0];
+    expect(sentCommand).toBeInstanceOf(PutCommand);
+    expect(sentCommand.input).toEqual(input);
   });
 
-  it('calls DynamoDB get operation and hydrates object', async () => {
-    mockSend.mockResolvedValueOnce({
-      Item: { id: '123', name: 'Alice' }
-    });
+  it('should send GetCommand with provided input', async () => {
     const mapper = new DataMapper({ docClient: mockClient });
+    const input = { TableName: 'Users', Key: { id: '123' } };
+    const fakeResponse = { Item: { id: { S: '123' } } };
+    mockSend.mockResolvedValueOnce(fakeResponse);
 
-    const result = await mapper.get({ id: '123' }, User);
+    const result = await mapper.get(input);
 
-    expect(mockSend).toHaveBeenCalledTimes(1);
-    expect(mockSend.mock.calls[0][0].input.Key).toEqual({ id: '123' });
-    expect(result).toBeInstanceOf(User);
-    expect(result.name).toBe('Alice');
+    const sentCommand = mockSend.mock.calls[0][0];
+    expect(sentCommand).toBeInstanceOf(GetCommand);
+    expect(sentCommand.input).toEqual(input);
+    expect(result).toEqual(fakeResponse);
+  });
+
+  it('should register schema-aware middlewares on init', () => {
+    new DataMapper({ docClient: mockClient });
+    expect(mockClient.middlewareStack.addRelativeTo).toHaveBeenCalled();
+    expect(mockClient.middlewareStack.add).toHaveBeenCalled();
   });
 });

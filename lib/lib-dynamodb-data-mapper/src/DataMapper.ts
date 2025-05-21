@@ -1,7 +1,15 @@
-import type { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
+import {
+  DynamoDBDocumentClient,
+  GetCommand,
+  GetCommandInput,
+  GetCommandOutput,
+  PutCommand,
+  PutCommandInput,
+  PutCommandOutput,
+} from '@aws-sdk/lib-dynamodb';
+import type { HttpHandlerOptions } from '@smithy/types';
 
-import { runGetCommand } from './commands/GetCommand';
-import { runPutCommand } from './commands/PutCommand';
+import { registerSchemaMiddleware } from './middleware/registerSchemaMiddleware';
 
 export interface DataMapperConfig {
   docClient: DynamoDBDocumentClient;
@@ -12,13 +20,14 @@ export class DataMapper {
 
   constructor(config: DataMapperConfig) {
     this.client = config.docClient;
+    registerSchemaMiddleware(this.client);
   }
 
-  put<T extends object>(item: T): Promise<T> {
-    return runPutCommand({ client: this.client, item });
+  async put(input: PutCommandInput, options?: HttpHandlerOptions): Promise<PutCommandOutput> {
+    return this.client.send(new PutCommand(input), options);
   }
 
-  get<T extends object>(key: Partial<T>, model: new () => T): Promise<T> {
-    return runGetCommand({ client: this.client, key, model });
+  async get(input: GetCommandInput, options?: HttpHandlerOptions): Promise<GetCommandOutput> {
+    return this.client.send(new GetCommand(input), options);
   }
 }

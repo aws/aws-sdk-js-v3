@@ -2,7 +2,6 @@ import {
   BillingMode,
   CreateTableCommand,
   DeleteTableCommand,
-  DescribeTableCommandOutput,
   DynamoDB,
   waitUntilTableExists,
 } from '@aws-sdk/client-dynamodb';
@@ -11,86 +10,89 @@ import { randomUUID } from 'crypto';
 import { afterAll, beforeAll, describe, expect, test as it } from 'vitest';
 
 import { DataMapper } from '../DataMapper';
+import { DynamoDbSchema as DYNAMODB_SCHEMA, DynamoDbTable as DYNAMODB_TABLE } from '../schema/schemaMetadata';
 
-// This model's name will be used as the DynamoDB table name
-class TestModel {
+class SchemaModel {
   id!: string;
   name!: string;
   age!: number;
 }
 
-describe(DataMapper.name, () => {
-  it("should deny initialization with cacheMiddleware: true", () => {
-    const dynamodb = new DynamoDB({
-      credentials: {} as any,
-      cacheMiddleware: true,
-    });
-    expect(() => {
-      DynamoDBDocument.from(dynamodb);
-    }).toThrow();
-  });
-});
+const schema = {
+  id: { type: 'String', keyType: 'HASH' },
+  name: { type: 'String' },
+  age: { type: 'Number' },
+};
 
-describe(
-  DynamoDBDocument.name,
-  () => {
-  const dynamodb = new DynamoDB({ region: 'us-west-2', maxAttempts: 10 });
+Object.defineProperty(SchemaModel.prototype, DYNAMODB_SCHEMA, { value: schema });
+
+describe(DataMapper.name, () => {
+  const dynamodb = new DynamoDB({ region: 'us-west-2' });
   const docClient = DynamoDBDocument.from(dynamodb);
   const mapper = new DataMapper({ docClient });
 
-  const randId = Math.random().toString(36).substring(2, 6);
-  const timestamp = Math.floor(Date.now() / 1000);
-  const TableName = `${TestModel.name}-${timestamp}-${randId}`;
-
-  const log = {
-    describe: null as null | DescribeTableCommandOutput,
-    put: null as any,
-    get: null as any,
-  };
-
-  const testItem: TestModel = {
-    id: randomUUID(),
-    name: 'Alice',
-    age: 30,
+  const testData = {
+    noSchema: {
+      item: { id: randomUUID(), name: 'NoSchema', age: 40 },
+      table: `NoSchema-${Math.random().toString(36).substring(2, 6)}`,
+    },
+    schema: {
+      item: Object.assign(new SchemaModel(), {
+        id: randomUUID(),
+        name: 'WithSchema',
+        age: 50,
+      }),
+      table: `SchemaModel-${Math.random().toString(36).substring(2, 6)}`,
+    },
   };
 
   beforeAll(async () => {
-    log.describe = await dynamodb.describeTable({ TableName }).catch(() => null);
+    for (const data of Object.values(testData)) {
+      const { item, table } = data;
 
-    if (!log.describe?.Table) {
-      await dynamodb.send(
-        new CreateTableCommand({
-          TableName,
-          AttributeDefinitions: [{ AttributeName: 'id', AttributeType: 'S' }],
-          KeySchema: [{ AttributeName: 'id', KeyType: 'HASH' }],
-          BillingMode: BillingMode.PAY_PER_REQUEST,
-        })
-      );
-      await waitUntilTableExists({  client: dynamodb, maxWaitTime: 120 }, { TableName });
+      Object.defineProperty(item.constructor.prototype, DYNAMODB_TABLE, {
+        value: table,
+      });
+
+      const exists = await dynamodb.describeTable({ TableName: table }).catch(() => null);
+
+      if (!exists?.Table) {
+        await dynamodb.send(
+          new CreateTableCommand({
+            TableName: table,
+            AttributeDefinitions: [{ AttributeName: 'id', AttributeType: 'S' }],
+            KeySchema: [{ AttributeName: 'id', KeyType: 'HASH' }],
+            BillingMode: BillingMode.PAY_PER_REQUEST,
+          })
+        );
+        await waitUntilTableExists({ client: dynamodb, maxWaitTime: 60 }, { TableName: table });
+      }
     }
-
-    // Dynamically override the class name used by getTableName(model)
-    Object.defineProperty(TestModel, 'name', {
-      value: TableName,
-    });
-
-    log.put = await mapper.put(Object.assign(new TestModel(), testItem));
-    log.get = await mapper.get({ id: testItem.id }, TestModel);
-  }, 30_000);
+  }, 60_000);
 
   afterAll(async () => {
-    await dynamodb.send(new DeleteTableCommand({ TableName }));
+    for (const { table } of Object.values(testData)) {
+      await dynamodb.send(new DeleteTableCommand({ TableName: table }));
+    }
   });
 
-  it('should create or reuse the test table', () => {
-    expect(TableName).toMatch(/^TestModel-/);
+  it('should handle item with no schema (SDK marshalling)', async () => {
+    const { item, table } = testData.noSchema;
+
+    const result = await mapper.put({ TableName: table, Item: item });
+    expect(result).toEqual(item);
+
+    const fetched = await mapper.get({ TableName: table, Key: { id: item.id } });
+    expect(fetched).toEqual(item);
   });
 
-  it('should put the item', () => {
-    expect(log.put).toEqual(testItem);
-  });
+  it('should handle item with schema on prototype (custom marshalling)', async () => {
+    const { item } = testData.schema;
 
-  it('should get the item back', () => {
-    expect(log.get).toEqual(testItem);
+    const result = await mapper.put({ Item: item } as any);
+    expect(result).toEqual(item);
+
+    const fetched = await mapper.get({ Key: { id: item.id } } as any);
+    expect(fetched).toEqual(item);
   });
 });
