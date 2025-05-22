@@ -23621,6 +23621,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/token-providers@workspace:packages/token-providers"
   dependencies:
+    "@aws-sdk/core": "npm:*"
     "@aws-sdk/nested-clients": "npm:*"
     "@aws-sdk/types": "npm:*"
     "@smithy/property-provider": "npm:^4.0.2"
