@@ -31,7 +31,10 @@ export const getRuntimeConfig = (config: SSOOIDCClientConfig) => {
   const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
   const clientSharedValues = getSharedRuntimeConfig(config);
   awsCheckVersion(process.version);
-  const loaderConfig = { profile: config?.profile, logger: clientSharedValues.logger };
+  const loaderConfig = {
+    profile: config?.profile,
+    logger: clientSharedValues.logger,
+  };
   return {
     ...clientSharedValues,
     ...config,
