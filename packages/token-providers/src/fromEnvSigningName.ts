@@ -5,7 +5,7 @@ import { TokenProviderError } from "@smithy/property-provider";
 /**
  * @public
  */
-export interface FromEnvBearerTokenInit extends CredentialProviderOptions {
+export interface FromEnvSigningNameInit extends CredentialProviderOptions {
   signingName?: string;
 }
 
@@ -19,10 +19,10 @@ export interface FromEnvBearerTokenInit extends CredentialProviderOptions {
  *
  * @public
  */
-export const fromEnvBearerToken =
-  ({ logger, signingName }: FromEnvBearerTokenInit = {}): TokenIdentityProvider =>
+export const fromEnvSigningName =
+  ({ logger, signingName }: FromEnvSigningNameInit = {}): TokenIdentityProvider =>
   async () => {
-    logger?.debug?.("@aws-sdk/token-providers - fromEnvBearerToken");
+    logger?.debug?.("@aws-sdk/token-providers - fromEnvSigningName");
 
     if (!signingName) {
       throw new TokenProviderError("Please pass 'signingName' to compute environment variable key", { logger });

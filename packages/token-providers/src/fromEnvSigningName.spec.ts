@@ -1,11 +1,11 @@
 import { getBearerTokenEnvKey } from "@aws-sdk/core";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { fromEnvBearerToken } from "./fromEnvBearerToken";
+import { fromEnvSigningName } from "./fromEnvSigningName";
 
 vi.mock("@aws-sdk/core");
 
-describe("fromEnvBearerToken", () => {
+describe(fromEnvSigningName.name, () => {
   const originalEnv = process.env;
   const mockInit = { signingName: "signing name" };
   const mockBearerTokenEnvKey = "AWS_BEARER_TOKEN_SIGNING_NAME";
@@ -22,14 +22,14 @@ describe("fromEnvBearerToken", () => {
 
   describe("throws error", () => {
     it("when signingName is not passed", async () => {
-      await expect(fromEnvBearerToken()()).rejects.toThrow(
+      await expect(fromEnvSigningName()()).rejects.toThrow(
         "Please pass 'signingName' to compute environment variable key"
       );
       expect(getBearerTokenEnvKey).not.toHaveBeenCalled();
     });
 
     it("when token is not present in environment variable", async () => {
-      await expect(fromEnvBearerToken(mockInit)()).rejects.toThrow(
+      await expect(fromEnvSigningName(mockInit)()).rejects.toThrow(
         `Token not present in '${mockBearerTokenEnvKey}' environment variable`
       );
       expect(getBearerTokenEnvKey).toHaveBeenCalledWith(mockInit.signingName);
@@ -39,7 +39,7 @@ describe("fromEnvBearerToken", () => {
   it("returns token from environment variable", async () => {
     const mockBearerToken = "mock-bearer-token";
     process.env[mockBearerTokenEnvKey] = mockBearerToken;
-    const token = await fromEnvBearerToken(mockInit)();
+    const token = await fromEnvSigningName(mockInit)();
     expect(token).toEqual({ token: mockBearerToken });
     expect(getBearerTokenEnvKey).toHaveBeenCalledWith(mockInit.signingName);
   });
