@@ -159,6 +159,8 @@ export interface AssessmentControl {
 
   /**
    * <p> The description of the control. </p>
+   *
+   * @deprecated
    * @public
    */
   description?: string | undefined;
@@ -504,19 +506,19 @@ export interface AssessmentReportsDestination {
 }
 
 /**
- * <p> An Amazon Web Service such as Amazon S3 or CloudTrail.
+ * <p> An Amazon Web Services service such as Amazon S3 or CloudTrail.
  *       </p>
- *          <p>For an example of how to find an Amazon Web Service name and how to define it in
+ *          <p>For an example of how to find an Amazon Web Services service name and how to define it in
  *          your assessment scope, see the following:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetServicesInScope.html#API_GetServicesInScope_Example_2">Finding an Amazon Web Service name to use in your assessment scope</a>
+ *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetServicesInScope.html#API_GetServicesInScope_Example_2">Finding an Amazon Web Services service name to use in your assessment scope</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetServicesInScope.html#API_GetServicesInScope_Example_3">Defining an Amazon Web Service name in your assessment scope</a>
+ *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetServicesInScope.html#API_GetServicesInScope_Example_3">Defining an Amazon Web Services service name in your assessment scope</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -524,7 +526,7 @@ export interface AssessmentReportsDestination {
  */
 export interface AWSService {
   /**
-   * <p> The name of the Amazon Web Service. </p>
+   * <p> The name of the Amazon Web Services service. </p>
    * @public
    */
   serviceName?: string | undefined;
@@ -534,12 +536,12 @@ export interface AWSService {
  * <p> The wrapper that contains the Amazon Web Services accounts that are in
  *          scope for the assessment. </p>
  *          <note>
- *             <p>You no longer need to specify which Amazon Web Services are in scope when you
+ *             <p>You no longer need to specify which Amazon Web Services services are in scope when you
  *             create or update an assessment. Audit Manager infers the services in scope by
  *             examining your assessment controls and their data sources, and then mapping this
- *             information to the relevant Amazon Web Services. </p>
+ *             information to the relevant Amazon Web Services services. </p>
  *             <p>If an underlying data source changes for your assessment, we automatically update the
- *             services scope as needed to reflect the correct Amazon Web Services. This
+ *             services scope as needed to reflect the correct Amazon Web Services services. This
  *             ensures that your assessment collects accurate and comprehensive evidence about all of
  *             the relevant services in your AWS environment.</p>
  *          </note>
@@ -558,7 +560,7 @@ export interface Scope {
    *       </p>
    *          <important>
    *             <p>This API parameter is no longer supported. If you use this parameter to specify one
-   *             or more Amazon Web Services, Audit Manager ignores this input. Instead, the
+   *             or more Amazon Web Services services, Audit Manager ignores this input. Instead, the
    *             value for <code>awsServices</code> will show as empty.</p>
    *          </important>
    *
@@ -735,7 +737,7 @@ export interface AssessmentEvidenceFolder {
   id?: string | undefined;
 
   /**
-   * <p> The Amazon Web Service that the evidence was collected from. </p>
+   * <p> The Amazon Web Services service that the evidence was collected from. </p>
    * @public
    */
   dataSource?: string | undefined;
@@ -772,7 +774,7 @@ export interface AssessmentEvidenceFolder {
 
   /**
    * <p> The number of evidence that falls under the configuration data category. This evidence
-   *          is collected from configuration snapshots of other Amazon Web Services such as
+   *          is collected from configuration snapshots of other Amazon Web Services services such as
    *             Amazon EC2, Amazon S3, or IAM. </p>
    * @public
    */
@@ -1759,12 +1761,12 @@ export interface CreateAssessmentRequest {
    * <p> The wrapper that contains the Amazon Web Services accounts that are in
    *          scope for the assessment. </p>
    *          <note>
-   *             <p>You no longer need to specify which Amazon Web Services are in scope when you
+   *             <p>You no longer need to specify which Amazon Web Services services are in scope when you
    *             create or update an assessment. Audit Manager infers the services in scope by
    *             examining your assessment controls and their data sources, and then mapping this
-   *             information to the relevant Amazon Web Services. </p>
+   *             information to the relevant Amazon Web Services services. </p>
    *             <p>If an underlying data source changes for your assessment, we automatically update the
-   *             services scope as needed to reflect the correct Amazon Web Services. This
+   *             services scope as needed to reflect the correct Amazon Web Services services. This
    *             ensures that your assessment collects accurate and comprehensive evidence about all of
    *             the relevant services in your AWS environment.</p>
    *          </note>
@@ -2097,7 +2099,7 @@ export interface SourceKeyword {
    *                   <p>For CloudTrail: Make sure that the <code>keywordValue</code> is written
    *                   as <code>serviceprefix_ActionName</code>. For example,
    *                   <code>cloudtrail_StartLogging</code>. For accuracy, we recommend that you
-   *                   review the Amazon Web Service prefix and action names in the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Service Authorization Reference</a>.</p>
+   *                   review the Amazon Web Services service prefix and action names in the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Service Authorization Reference</a>.</p>
    *                </li>
    *             </ol>
    *          </important>
@@ -3292,7 +3294,7 @@ export interface Evidence {
   time?: Date | undefined;
 
   /**
-   * <p> The Amazon Web Service that the evidence is collected from. </p>
+   * <p> The Amazon Web Services service that the evidence is collected from. </p>
    * @public
    */
   eventSource?: string | undefined;
@@ -3854,30 +3856,30 @@ export interface GetOrganizationAdminAccountResponse {
 export interface GetServicesInScopeRequest {}
 
 /**
- * <p> The metadata that's associated with the Amazon Web Service. </p>
+ * <p> The metadata that's associated with the Amazon Web Services service. </p>
  * @public
  */
 export interface ServiceMetadata {
   /**
-   * <p> The name of the Amazon Web Service. </p>
+   * <p> The name of the Amazon Web Services service. </p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p> The display name of the Amazon Web Service. </p>
+   * <p> The display name of the Amazon Web Services service. </p>
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p> The description of the Amazon Web Service. </p>
+   * <p> The description of the Amazon Web Services service. </p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p> The category that the Amazon Web Service belongs to, such as compute, storage,
+   * <p> The category that the Amazon Web Services service belongs to, such as compute, storage,
    *          or database. </p>
    * @public
    */
@@ -3889,7 +3891,7 @@ export interface ServiceMetadata {
  */
 export interface GetServicesInScopeResponse {
   /**
-   * <p> The metadata that's associated with the Amazon Web Service. </p>
+   * <p> The metadata that's associated with the Amazon Web Services service. </p>
    * @public
    */
   serviceMetadata?: ServiceMetadata[] | undefined;

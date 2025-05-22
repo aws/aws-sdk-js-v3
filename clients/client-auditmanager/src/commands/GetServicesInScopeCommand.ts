@@ -28,12 +28,12 @@ export interface GetServicesInScopeCommandInput extends GetServicesInScopeReques
 export interface GetServicesInScopeCommandOutput extends GetServicesInScopeResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of the Amazon Web Services from which Audit Manager can collect
+ * <p>Gets a list of the Amazon Web Services services from which Audit Manager can collect
  *          evidence. </p>
- *          <p>Audit Manager defines which Amazon Web Services are in scope for an
+ *          <p>Audit Manager defines which Amazon Web Services services are in scope for an
  *          assessment. Audit Manager infers this scope by examining the assessment’s controls and
  *          their data sources, and then mapping this information to one or more of the corresponding
- *             Amazon Web Services that are in this list.</p>
+ *             Amazon Web Services services that are in this list.</p>
  *          <note>
  *             <p>For information about why it's no longer possible to specify services in scope manually, see
  *                <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-collection-issues.html#unable-to-edit-services">I can't edit the services in scope for my assessment</a> in
