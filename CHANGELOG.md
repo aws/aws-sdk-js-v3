@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.816.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.815.0...v3.816.0) (2025-05-22)
+
+
+### Features
+
+* **client-amp:** Add QueryLoggingConfiguration APIs for Amazon Managed Prometheus ([b889c42](https://github.com/aws/aws-sdk-js-v3/commit/b889c42b05f133625115e709f75f77fec53ba2a2))
+* **client-auditmanager:** With this release, the AssessmentControl description field has been deprecated, as of May 19, 2025. Additionally, the UpdateAssessment API can now return a ServiceQuotaExceededException when applicable service quotas are exceeded. ([4d7233a](https://github.com/aws/aws-sdk-js-v3/commit/4d7233a5307bd0f6c9af659ef2332d77e9868b35))
+* **client-dsql:** Features: support for customer managed encryption keys ([f5e3e09](https://github.com/aws/aws-sdk-js-v3/commit/f5e3e093efb65fdfd362037e4414f704b1ad7617))
+* **client-glue:** This release supports additional ConversionSpec parameter as part of IntegrationPartition Structure in CreateIntegrationTableProperty API. This parameter is referred to apply appropriate column transformation for columns that are used for timestamp based partitioning ([eeecd10](https://github.com/aws/aws-sdk-js-v3/commit/eeecd1004fe02b57b7a32f2b10b7a92f7a7b5a02))
+
+
+
+
+
 # [3.815.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.814.0...v3.815.0) (2025-05-21)
 
 

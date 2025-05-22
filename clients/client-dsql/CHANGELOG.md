@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.816.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.815.0...v3.816.0) (2025-05-22)
+
+
+### Features
+
+* **client-dsql:** Features: support for customer managed encryption keys ([f5e3e09](https://github.com/aws/aws-sdk-js-v3/commit/f5e3e093efb65fdfd362037e4414f704b1ad7617))
+
+
+
+
+
 # [3.813.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.812.0...v3.813.0) (2025-05-19)
 
 
