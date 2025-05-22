@@ -22,7 +22,7 @@ export interface FromEnvBearerTokenInit extends CredentialProviderOptions {
 export const fromEnvBearerToken =
   ({ logger, signingName }: FromEnvBearerTokenInit = {}): TokenIdentityProvider =>
   async () => {
-    logger?.debug("@aws-sdk/token-providers - fromEnvBearerToken");
+    logger?.debug?.("@aws-sdk/token-providers - fromEnvBearerToken");
 
     if (!signingName) {
       throw new TokenProviderError("Please pass 'signingName' to compute environment variable key", { logger });
