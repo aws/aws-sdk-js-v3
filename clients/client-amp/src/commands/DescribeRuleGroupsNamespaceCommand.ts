@@ -33,8 +33,7 @@ export interface DescribeRuleGroupsNamespaceCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns complete information about one rule groups namespace. To retrieve a list of
- *             rule groups namespaces, use <code>ListRuleGroupsNamespaces</code>.</p>
+ * <p>Returns complete information about one rule groups namespace. To retrieve a list of rule groups namespaces, use <code>ListRuleGroupsNamespaces</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,8 +84,7 @@ export interface DescribeRuleGroupsNamespaceCommandOutput
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *             service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>

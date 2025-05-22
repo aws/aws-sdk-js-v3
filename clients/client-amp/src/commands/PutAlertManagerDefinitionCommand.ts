@@ -28,9 +28,7 @@ export interface PutAlertManagerDefinitionCommandInput extends PutAlertManagerDe
 export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing alert manager definition in a workspace. If the workspace does not
- *             already have an alert manager definition, don't use this operation to create it.
- *             Instead, use <code>CreateAlertManagerDefinition</code>.</p>
+ * <p>Updates an existing alert manager definition in a workspace. If the workspace does not already have an alert manager definition, don't use this operation to create it. Instead, use <code>CreateAlertManagerDefinition</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,8 +76,7 @@ export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerD
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *             service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>

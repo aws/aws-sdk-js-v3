@@ -28,11 +28,7 @@ export interface DeleteWorkspaceCommandInput extends DeleteWorkspaceRequest {}
 export interface DeleteWorkspaceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an existing workspace. </p>
- *          <note>
- *             <p>When you delete a workspace, the data that has been ingested into it is not
- *                 immediately deleted. It will be permanently deleted within one month.</p>
- *          </note>
+ * <p>Deletes an existing workspace. </p> <note> <p>When you delete a workspace, the data that has been ingested into it is not immediately deleted. It will be permanently deleted within one month.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +67,7 @@ export interface DeleteWorkspaceCommandOutput extends __MetadataBearer {}
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *             service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>

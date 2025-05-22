@@ -33,8 +33,7 @@ export interface GetDefaultScraperConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>The <code>GetDefaultScraperConfiguration</code> operation returns the default
- *             scraper configuration used when Amazon EKS creates a scraper for you.</p>
+ * <p>The <code>GetDefaultScraperConfiguration</code> operation returns the default scraper configuration used when Amazon EKS creates a scraper for you.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

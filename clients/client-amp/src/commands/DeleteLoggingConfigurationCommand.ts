@@ -28,7 +28,7 @@ export interface DeleteLoggingConfigurationCommandInput extends DeleteLoggingCon
 export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the logging configuration for a workspace.</p>
+ * <p>Deletes the rules and alerting logging configuration for a workspace.</p> <note> <p>These logging configurations are only for rules and alerting logs.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +64,7 @@ export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBeare
  *  <p>The request references a resources that doesn't exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *             service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>

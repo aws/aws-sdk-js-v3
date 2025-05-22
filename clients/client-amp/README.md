@@ -6,24 +6,7 @@
 
 AWS SDK for JavaScript Amp Client for Node.js, Browser and React Native.
 
-<p>Amazon Managed Service for Prometheus is a serverless, Prometheus-compatible monitoring service for
-container metrics that makes it easier to securely monitor container environments at
-scale. With Amazon Managed Service for Prometheus, you can use the same open-source Prometheus data
-model and query language that you use today to monitor the performance of your
-containerized workloads, and also enjoy improved scalability, availability, and security
-without having to manage the underlying infrastructure.</p>
-<p>For more information about Amazon Managed Service for Prometheus, see the <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html">Amazon Managed Service for Prometheus</a> User Guide.</p>
-<p>Amazon Managed Service for Prometheus includes two APIs.</p>
-<ul>
-<li>
-<p>Use the Amazon Web Services API described in this guide to manage Amazon Managed Service for Prometheus resources, such as workspaces, rule groups, and alert
-managers.</p>
-</li>
-<li>
-<p>Use the <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-Prometheus-Compatible-Apis">Prometheus-compatible API</a> to work within your Prometheus
-workspace.</p>
-</li>
-</ul>
+<p>Amazon Managed Service for Prometheus is a serverless, Prometheus-compatible monitoring service for container metrics that makes it easier to securely monitor container environments at scale. With Amazon Managed Service for Prometheus, you can use the same open-source Prometheus data model and query language that you use today to monitor the performance of your containerized workloads, and also enjoy improved scalability, availability, and security without having to manage the underlying infrastructure.</p> <p>For more information about Amazon Managed Service for Prometheus, see the <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html">Amazon Managed Service for Prometheus</a> User Guide.</p> <p>Amazon Managed Service for Prometheus includes two APIs.</p> <ul> <li> <p>Use the Amazon Web Services API described in this guide to manage Amazon Managed Service for Prometheus resources, such as workspaces, rule groups, and alert managers.</p> </li> <li> <p>Use the <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-Prometheus-Compatible-Apis">Prometheus-compatible API</a> to work within your Prometheus workspace.</p> </li> </ul>
 
 ## Installing
 
@@ -238,6 +221,14 @@ CreateLoggingConfiguration
 </details>
 <details>
 <summary>
+CreateQueryLoggingConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/CreateQueryLoggingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/CreateQueryLoggingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/CreateQueryLoggingConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateRuleGroupsNamespace
 </summary>
 
@@ -278,6 +269,14 @@ DeleteLoggingConfiguration
 </details>
 <details>
 <summary>
+DeleteQueryLoggingConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/DeleteQueryLoggingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/DeleteQueryLoggingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/DeleteQueryLoggingConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteRuleGroupsNamespace
 </summary>
 
@@ -314,6 +313,14 @@ DescribeLoggingConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/DescribeLoggingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/DescribeLoggingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/DescribeLoggingConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeQueryLoggingConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/DescribeQueryLoggingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/DescribeQueryLoggingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/DescribeQueryLoggingConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -426,6 +433,14 @@ UpdateLoggingConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/UpdateLoggingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/UpdateLoggingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/UpdateLoggingConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateQueryLoggingConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/UpdateQueryLoggingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/UpdateQueryLoggingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/UpdateQueryLoggingConfigurationCommandOutput/)
 
 </details>
 <details>

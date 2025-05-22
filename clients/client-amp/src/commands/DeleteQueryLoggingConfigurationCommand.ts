@@ -6,8 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteRuleGroupsNamespaceRequest } from "../models/models_0";
-import { de_DeleteRuleGroupsNamespaceCommand, se_DeleteRuleGroupsNamespaceCommand } from "../protocols/Aws_restJson1";
+import { DeleteQueryLoggingConfigurationRequest } from "../models/models_0";
+import {
+  de_DeleteQueryLoggingConfigurationCommand,
+  se_DeleteQueryLoggingConfigurationCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,39 +20,38 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteRuleGroupsNamespaceCommand}.
+ * The input for {@link DeleteQueryLoggingConfigurationCommand}.
  */
-export interface DeleteRuleGroupsNamespaceCommandInput extends DeleteRuleGroupsNamespaceRequest {}
+export interface DeleteQueryLoggingConfigurationCommandInput extends DeleteQueryLoggingConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteRuleGroupsNamespaceCommand}.
+ * The output of {@link DeleteQueryLoggingConfigurationCommand}.
  */
-export interface DeleteRuleGroupsNamespaceCommandOutput extends __MetadataBearer {}
+export interface DeleteQueryLoggingConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes one rule groups namespace and its associated rule groups definition.</p>
+ * <p>Deletes the query logging configuration for the specified workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmpClient, DeleteRuleGroupsNamespaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
- * // const { AmpClient, DeleteRuleGroupsNamespaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * import { AmpClient, DeleteQueryLoggingConfigurationCommand } from "@aws-sdk/client-amp"; // ES Modules import
+ * // const { AmpClient, DeleteQueryLoggingConfigurationCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
- * const input = { // DeleteRuleGroupsNamespaceRequest
+ * const input = { // DeleteQueryLoggingConfigurationRequest
  *   workspaceId: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };
- * const command = new DeleteRuleGroupsNamespaceCommand(input);
+ * const command = new DeleteQueryLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteRuleGroupsNamespaceCommandInput - {@link DeleteRuleGroupsNamespaceCommandInput}
- * @returns {@link DeleteRuleGroupsNamespaceCommandOutput}
- * @see {@link DeleteRuleGroupsNamespaceCommandInput} for command's `input` shape.
- * @see {@link DeleteRuleGroupsNamespaceCommandOutput} for command's `response` shape.
+ * @param DeleteQueryLoggingConfigurationCommandInput - {@link DeleteQueryLoggingConfigurationCommandInput}
+ * @returns {@link DeleteQueryLoggingConfigurationCommandOutput}
+ * @see {@link DeleteQueryLoggingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteQueryLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -64,9 +66,6 @@ export interface DeleteRuleGroupsNamespaceCommandOutput extends __MetadataBearer
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resources that doesn't exist.</p>
  *
- * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
- *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
@@ -76,10 +75,10 @@ export interface DeleteRuleGroupsNamespaceCommandOutput extends __MetadataBearer
  *
  * @public
  */
-export class DeleteRuleGroupsNamespaceCommand extends $Command
+export class DeleteQueryLoggingConfigurationCommand extends $Command
   .classBuilder<
-    DeleteRuleGroupsNamespaceCommandInput,
-    DeleteRuleGroupsNamespaceCommandOutput,
+    DeleteQueryLoggingConfigurationCommandInput,
+    DeleteQueryLoggingConfigurationCommandOutput,
     AmpClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -91,21 +90,21 @@ export class DeleteRuleGroupsNamespaceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonPrometheusService", "DeleteRuleGroupsNamespace", {})
-  .n("AmpClient", "DeleteRuleGroupsNamespaceCommand")
+  .s("AmazonPrometheusService", "DeleteQueryLoggingConfiguration", {})
+  .n("AmpClient", "DeleteQueryLoggingConfigurationCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteRuleGroupsNamespaceCommand)
-  .de(de_DeleteRuleGroupsNamespaceCommand)
+  .ser(se_DeleteQueryLoggingConfigurationCommand)
+  .de(de_DeleteQueryLoggingConfigurationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteRuleGroupsNamespaceRequest;
+      input: DeleteQueryLoggingConfigurationRequest;
       output: {};
     };
     sdk: {
-      input: DeleteRuleGroupsNamespaceCommandInput;
-      output: DeleteRuleGroupsNamespaceCommandOutput;
+      input: DeleteQueryLoggingConfigurationCommandInput;
+      output: DeleteQueryLoggingConfigurationCommandOutput;
     };
   };
 }

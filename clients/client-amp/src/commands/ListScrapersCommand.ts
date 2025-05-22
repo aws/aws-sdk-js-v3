@@ -28,9 +28,7 @@ export interface ListScrapersCommandInput extends ListScrapersRequest {}
 export interface ListScrapersCommandOutput extends ListScrapersResponse, __MetadataBearer {}
 
 /**
- * <p>The <code>ListScrapers</code> operation lists all of the scrapers in
- *             your account. This includes scrapers being created or deleted. You can optionally
- *             filter the returned list.</p>
+ * <p>The <code>ListScrapers</code> operation lists all of the scrapers in your account. This includes scrapers being created or deleted. You can optionally filter the returned list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,8 +105,7 @@ export interface ListScrapersCommandOutput extends ListScrapersResponse, __Metad
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *             service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>

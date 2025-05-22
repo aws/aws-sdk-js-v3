@@ -28,10 +28,7 @@ export interface UpdateScraperCommandInput extends UpdateScraperRequest {}
 export interface UpdateScraperCommandOutput extends UpdateScraperResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing scraper.</p>
- *          <p>You can't use this function to update the source from which the scraper is
- *             collecting metrics. To change the source, delete the scraper and create a new
- *             one.</p>
+ * <p>Updates an existing scraper.</p> <p>You can't use this function to update the source from which the scraper is collecting metrics. To change the source, delete the scraper and create a new one.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,8 +92,7 @@ export interface UpdateScraperCommandOutput extends UpdateScraperResponse, __Met
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *             service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>

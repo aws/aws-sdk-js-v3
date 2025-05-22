@@ -33,8 +33,7 @@ export interface DescribeLoggingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns complete information about the current logging configuration of the
- *             workspace.</p>
+ * <p>Returns complete information about the current rules and alerting logging configuration of the workspace.</p> <note> <p>These logging configurations are only for rules and alerting logs.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,8 +76,7 @@ export interface DescribeLoggingConfigurationCommandOutput
  *  <p>The request references a resources that doesn't exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *             service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
