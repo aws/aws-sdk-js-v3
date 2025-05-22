@@ -25,6 +25,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
 import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.aws.typescript.codegen.extensions.AwsRegionExtensionConfiguration;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
@@ -169,6 +170,10 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             writer.openBlock("const loaderConfig = {", "};", () -> {
                 writer.write("profile: config?.profile,");
                 writer.write("logger: clientSharedValues.logger,");
+                ServiceShape service = settings.getService(model);
+                if (isSigningNameNeededInLoaderConfig(service)) {
+                    writer.write("signingName: $S,", service.expectTrait(SigV4Trait.class).getName());
+                }
             });
         }
     }
@@ -274,5 +279,12 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             default:
                 return Collections.emptyMap();
         }
+    }
+
+    private static boolean isSigningNameNeededInLoaderConfig(ServiceShape service) {
+        if (isSigV4Service(service)) {
+            return service.expectTrait(SigV4Trait.class).getName().equals("bedrock");
+        }
+        return false;
     }
 }
