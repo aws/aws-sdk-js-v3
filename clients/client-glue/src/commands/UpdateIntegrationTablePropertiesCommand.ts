@@ -60,6 +60,7 @@ export interface UpdateIntegrationTablePropertiesCommandOutput
  *       { // IntegrationPartition
  *         FieldName: "STRING_VALUE",
  *         FunctionSpec: "STRING_VALUE",
+ *         ConversionSpec: "STRING_VALUE",
  *       },
  *     ],
  *     TargetTableName: "STRING_VALUE",

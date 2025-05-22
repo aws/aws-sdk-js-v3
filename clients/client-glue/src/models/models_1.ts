@@ -2729,6 +2729,49 @@ export interface IntegrationPartition {
    * @public
    */
   FunctionSpec?: string | undefined;
+
+  /**
+   * <p>Specifies the timestamp format of the source data. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>epoch_sec</code> - Unix epoch timestamp in seconds</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>epoch_milli</code> - Unix epoch timestamp in milliseconds</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>iso</code> - ISO 8601 formatted timestamp</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>
+   *         Only specify <code>ConversionSpec</code> when using timestamp-based partition functions (year, month, day, or hour).
+   *         Glue Zero-ETL uses this parameter to correctly transform source data into timestamp format before partitioning.
+   *       </p>
+   *             <p>
+   *         Do not use high-cardinality columns with the <code>identity</code> partition function. High-cardinality columns include:
+   *       </p>
+   *             <ul>
+   *                <li>
+   *                   <p>Primary keys</p>
+   *                </li>
+   *                <li>
+   *                   <p>Timestamp fields (such as <code>LastModifiedTimestamp</code>, <code>CreatedDate</code>)</p>
+   *                </li>
+   *                <li>
+   *                   <p>System-generated timestamps</p>
+   *                </li>
+   *             </ul>
+   *             <p>
+   *         Using high-cardinality columns with identity partitioning creates many small partitions, which can significantly degrade ingestion performance.
+   *       </p>
+   *          </note>
+   * @public
+   */
+  ConversionSpec?: string | undefined;
 }
 
 /**
@@ -2775,7 +2818,10 @@ export interface TargetTableConfig {
  */
 export interface CreateIntegrationTablePropertiesRequest {
   /**
-   * <p>The connection ARN of the source, or the database ARN of the target.</p>
+   * <p>The Amazon Resource Name (ARN) of the target table for which to create integration table properties. Currently, this API only supports creating
+   *       integration table properties for target tables, and the provided ARN should be the ARN of the target table in the Glue Data Catalog. Support for
+   *       creating integration table properties for source connections (using the connection ARN) is not yet implemented and will be added in a future release.
+   *     </p>
    * @public
    */
   ResourceArn: string | undefined;
