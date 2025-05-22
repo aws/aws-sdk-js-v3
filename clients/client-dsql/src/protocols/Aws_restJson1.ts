@@ -70,6 +70,7 @@ export const se_CreateClusterCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       deletionProtectionEnabled: [],
+      kmsEncryptionKey: [],
       multiRegionProperties: (_) => _json(_),
       tags: (_) => _json(_),
     })
@@ -224,6 +225,7 @@ export const se_UpdateClusterCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       deletionProtectionEnabled: [],
+      kmsEncryptionKey: [],
       multiRegionProperties: (_) => _json(_),
     })
   );
@@ -249,6 +251,7 @@ export const de_CreateClusterCommand = async (
     arn: __expectString,
     creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     deletionProtectionEnabled: __expectBoolean,
+    encryptionDetails: _json,
     identifier: __expectString,
     multiRegionProperties: _json,
     status: __expectString,
@@ -299,6 +302,7 @@ export const de_GetClusterCommand = async (
     arn: __expectString,
     creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     deletionProtectionEnabled: __expectBoolean,
+    encryptionDetails: _json,
     identifier: __expectString,
     multiRegionProperties: _json,
     status: __expectString,
@@ -630,6 +634,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_ClusterList omitted.
 
 // de_ClusterSummary omitted.
+
+// de_EncryptionDetails omitted.
 
 // de_MultiRegionProperties omitted.
 

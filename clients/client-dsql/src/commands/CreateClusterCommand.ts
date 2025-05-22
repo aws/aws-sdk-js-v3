@@ -101,6 +101,7 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  * const client = new DSQLClient(config);
  * const input = { // CreateClusterInput
  *   deletionProtectionEnabled: true || false,
+ *   kmsEncryptionKey: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -124,6 +125,11 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  * //     clusters: [ // ClusterArnList
  * //       "STRING_VALUE",
  * //     ],
+ * //   },
+ * //   encryptionDetails: { // EncryptionDetails
+ * //     encryptionType: "AWS_OWNED_KMS_KEY" || "CUSTOMER_MANAGED_KMS_KEY", // required
+ * //     kmsKeyArn: "STRING_VALUE",
+ * //     encryptionStatus: "ENABLED" || "UPDATING" || "KMS_KEY_INACCESSIBLE" || "ENABLING", // required
  * //   },
  * //   deletionProtectionEnabled: true || false, // required
  * // };

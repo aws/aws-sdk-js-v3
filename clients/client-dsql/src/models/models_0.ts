@@ -109,6 +109,12 @@ export interface CreateClusterInput {
   deletionProtectionEnabled?: boolean | undefined;
 
   /**
+   * <p>The KMS key that encrypts and protects the data on your cluster. You can specify the ARN, ID, or alias of an existing key or have Amazon Web Services create a default key for you.</p>
+   * @public
+   */
+  kmsEncryptionKey?: string | undefined;
+
+  /**
    * <p>A map of key and value pairs to use to tag your cluster.</p>
    * @public
    */
@@ -131,6 +137,60 @@ export interface CreateClusterInput {
    * @public
    */
   multiRegionProperties?: MultiRegionProperties | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionStatus = {
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  KMS_KEY_INACCESSIBLE: "KMS_KEY_INACCESSIBLE",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionType = {
+  AWS_OWNED_KMS_KEY: "AWS_OWNED_KMS_KEY",
+  CUSTOMER_MANAGED_KMS_KEY: "CUSTOMER_MANAGED_KMS_KEY",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
+/**
+ * <p>Configuration details about encryption for the cluster including the KMS key ARN, encryption type, and encryption status.</p>
+ * @public
+ */
+export interface EncryptionDetails {
+  /**
+   * <p>The type of encryption that protects the data on your cluster.</p>
+   * @public
+   */
+  encryptionType: EncryptionType | undefined;
+
+  /**
+   * <p>The ARN of the KMS key that encrypts data in the cluster.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The status of encryption for the cluster.</p>
+   * @public
+   */
+  encryptionStatus: EncryptionStatus | undefined;
 }
 
 /**
@@ -167,6 +227,12 @@ export interface CreateClusterOutput {
    * @public
    */
   multiRegionProperties?: MultiRegionProperties | undefined;
+
+  /**
+   * <p>The encryption configuration for the cluster that was specified during the creation process, including the KMS key identifier and encryption state.</p>
+   * @public
+   */
+  encryptionDetails?: EncryptionDetails | undefined;
 
   /**
    * <p>Whether deletion protection is enabled on this cluster.</p>
@@ -510,6 +576,12 @@ export interface GetClusterOutput {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The current encryption configuration details for the cluster.</p>
+   * @public
+   */
+  encryptionDetails?: EncryptionDetails | undefined;
 }
 
 /**
@@ -606,6 +678,12 @@ export interface UpdateClusterInput {
    * @public
    */
   deletionProtectionEnabled?: boolean | undefined;
+
+  /**
+   * <p>The KMS key that encrypts and protects the data on your cluster. You can specify the ARN, ID, or alias of an existing key or have Amazon Web Services create a default key for you.</p>
+   * @public
+   */
+  kmsEncryptionKey?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the

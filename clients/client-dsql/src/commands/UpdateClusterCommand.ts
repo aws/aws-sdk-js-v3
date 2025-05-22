@@ -124,6 +124,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  * const input = { // UpdateClusterInput
  *   identifier: "STRING_VALUE", // required
  *   deletionProtectionEnabled: true || false,
+ *   kmsEncryptionKey: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  *   multiRegionProperties: { // MultiRegionProperties
  *     witnessRegion: "STRING_VALUE",
