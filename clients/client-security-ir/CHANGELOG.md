@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.817.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.816.0...v3.817.0) (2025-05-23)
+
+
+### Features
+
+* **client-security-ir:** Update PrincipalId pattern documentation to reflect what user should receive back from the API call ([2451593](https://github.com/aws/aws-sdk-js-v3/commit/2451593157b407aaf4f3a97434bc33fa76312573))
+
+
+
+
+
 # [3.816.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.815.0...v3.816.0) (2025-05-22)
 
 **Note:** Version bump only for package @aws-sdk/client-security-ir

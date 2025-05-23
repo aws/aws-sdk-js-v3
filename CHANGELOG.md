@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.817.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.816.0...v3.817.0) (2025-05-23)
+
+
+### Features
+
+* **client-ec2:** This release adds support for the C7i-flex, M7i-flex, I7i, I7ie, I8g, P6-b200, Trn2, C8gd, M8gd and R8gd instances ([b99e6ed](https://github.com/aws/aws-sdk-js-v3/commit/b99e6ed089786925c196421ae93fc3ce3bc2d30a))
+* **client-security-ir:** Update PrincipalId pattern documentation to reflect what user should receive back from the API call ([2451593](https://github.com/aws/aws-sdk-js-v3/commit/2451593157b407aaf4f3a97434bc33fa76312573))
+* **clients:** update client endpoints as of 2025-05-23 ([8775c8f](https://github.com/aws/aws-sdk-js-v3/commit/8775c8f69a49e41db9e8630740dea273aa1d7a3a))
+
+
+
+
+
 # [3.816.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.815.0...v3.816.0) (2025-05-22)
 
 
