@@ -10,7 +10,7 @@ Built for modern async/await workflows and powered by a custom marshalling engin
 
 > Work in progress! The types and interface are subject to change as implementation and review progress.
 
-### Install
+### Installation
 
 ```bash
 npm install @aws-sdk/lib-dynamodb-data-mapper
@@ -137,7 +137,7 @@ export interface IDataMapper {
 }
 ```
 
-### Define a Model - Decorator Style
+### Working with Decorated Models
 
 > Keep in mind that the current implementation does not yet include support for decorators.
 
@@ -196,7 +196,7 @@ console.log(result);
 //  }
 ```
 
-### Define a Model - Metadata Style
+### Working with Metadata-Based Models
 
 ```typescript
 iimport { DynamoDbSchema, DynamoDbTable } from '@aws-sdk/lib-dynamodb-data-mapper';
