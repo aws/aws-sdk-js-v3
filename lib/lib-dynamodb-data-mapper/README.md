@@ -144,8 +144,9 @@ export interface IDataMapper {
 ```typescript
 import { DynamoDbTable, hashKey, attribute, embedded } from "@aws-sdk/lib-dynamodb-data-mapper/decorators";
 
+@DynamoDbTable("Address")
 class Address {
-  @attribute()
+  @attribute({ attributeName: "street_name" })
   street!: string;
 
   @attribute()
@@ -157,7 +158,7 @@ class User {
   @hashKey()
   id!: string;
 
-  @attribute()
+  @attribute({ defaultProvider: () => "Anonymous" })
   name!: string;
 
   @embedded(() => Address)
