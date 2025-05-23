@@ -67,7 +67,7 @@ const ignored = [...node_libraries, "vitest"];
     const srcPath = path.join(containingFolder, packageFolder, "src");
     const pkgJson = require(pkgJsonPath);
 
-    if (!pkgJson.dependencies.tslib) {
+    if (!pkgJson.dependencies.tslib && pkgJson.name !== "@aws-sdk/all-in-one") {
       errors.push(`Missing tslib in ${pkgJson.name}`);
     }
 
