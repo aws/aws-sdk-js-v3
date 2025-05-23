@@ -28,9 +28,7 @@ export interface UpdateCaseStatusCommandInput extends UpdateCaseStatusRequest {}
 export interface UpdateCaseStatusCommandOutput extends UpdateCaseStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Grants permission to update the status for a designated cases. Options include <code>Submitted |
- *             Detection and Analysis | Eradication, Containment and Recovery | Post-Incident Activities | Closed</code>.
- *         </p>
+ * <p>Grants permission to update the status for a designated cases. Options include <code>Submitted | Detection and Analysis | Eradication, Containment and Recovery | Post-Incident Activities | Closed</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

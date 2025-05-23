@@ -28,11 +28,7 @@ export interface UpdateResolverTypeCommandInput extends UpdateResolverTypeReques
 export interface UpdateResolverTypeCommandOutput extends UpdateResolverTypeResponse, __MetadataBearer {}
 
 /**
- * <p>Grants permission to update the resolver type for a case.</p>
- *          <important>
- *             <p>This is a one-way action and cannot be reversed.</p>
- *          </important>
- *          <p>Options include self-supported &gt; AWS-supported.</p>
+ * <p>Grants permission to update the resolver type for a case.</p> <important> <p>This is a one-way action and cannot be reversed.</p> </important> <p>Options include self-supported &gt; AWS-supported.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

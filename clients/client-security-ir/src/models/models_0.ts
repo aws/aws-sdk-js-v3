@@ -38,6 +38,7 @@ export const AwsRegion = {
   AP_SOUTHEAST_3: "ap-southeast-3",
   AP_SOUTHEAST_4: "ap-southeast-4",
   AP_SOUTHEAST_5: "ap-southeast-5",
+  AP_SOUTHEAST_7: "ap-southeast-7",
   AP_SOUTH_1: "ap-south-1",
   AP_SOUTH_2: "ap-south-2",
   CA_CENTRAL_1: "ca-central-1",
@@ -55,6 +56,7 @@ export const AwsRegion = {
   IL_CENTRAL_1: "il-central-1",
   ME_CENTRAL_1: "me-central-1",
   ME_SOUTH_1: "me-south-1",
+  MX_CENTRAL_1: "mx-central-1",
   SA_EAST_1: "sa-east-1",
   US_EAST_1: "us-east-1",
   US_EAST_2: "us-east-2",
@@ -72,9 +74,7 @@ export type AwsRegion = (typeof AwsRegion)[keyof typeof AwsRegion];
  */
 export interface BatchGetMemberAccountDetailsRequest {
   /**
-   * <p>Required element used in combination with BatchGetMemberAccountDetails to identify the membership ID to
-   *             query.
-   *         </p>
+   * <p>Required element used in combination with BatchGetMemberAccountDetails to identify the membership ID to query. </p>
    * @public
    */
   membershipId: string | undefined;
@@ -468,9 +468,7 @@ export class ValidationException extends __BaseException {
  */
 export interface CancelMembershipRequest {
   /**
-   * <p>Required element used in combination with CancelMembershipRequest to identify the membership ID to
-   *             cancel.
-   *         </p>
+   * <p>Required element used in combination with CancelMembershipRequest to identify the membership ID to cancel. </p>
    * @public
    */
   membershipId: string | undefined;
@@ -522,17 +520,13 @@ export type CaseStatus = (typeof CaseStatus)[keyof typeof CaseStatus];
  */
 export interface CloseCaseResponse {
   /**
-   * <p>A response element providing responses for requests to CloseCase. This element responds with the case
-   *             status following the action.
-   *         </p>
+   * <p>A response element providing responses for requests to CloseCase. This element responds with the case status following the action. </p>
    * @public
    */
   caseStatus?: CaseStatus | undefined;
 
   /**
-   * <p>A response element providing responses for requests to CloseCase. This element responds with the case
-   *             closure date following the action.
-   *         </p>
+   * <p>A response element providing responses for requests to CloseCase. This element responds with the case closure date following the action. </p>
    * @public
    */
   closedDate?: Date | undefined;
@@ -631,9 +625,7 @@ export interface CreateCaseRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>Required element used in combination with CreateCase to identify the resolver type. Available resolvers
-   *             include self-supported | aws-supported.
-   *         </p>
+   * <p>Required element used in combination with CreateCase to identify the resolver type. Available resolvers include self-supported | aws-supported. </p>
    * @public
    */
   resolverType: ResolverType | undefined;
@@ -651,17 +643,13 @@ export interface CreateCaseRequest {
   description: string | undefined;
 
   /**
-   * <p>Required element used in combination with CreateCase to provide an engagement type for the new cases.
-   *             Available engagement types include Security Incident | Investigation
-   *         </p>
+   * <p>Required element used in combination with CreateCase to provide an engagement type for the new cases. Available engagement types include Security Incident | Investigation </p>
    * @public
    */
   engagementType: EngagementType | undefined;
 
   /**
-   * <p>Required element used in combination with CreateCase to provide an initial start date for the unauthorized
-   *             activity.
-   *         </p>
+   * <p>Required element used in combination with CreateCase to provide an initial start date for the unauthorized activity. </p>
    * @public
    */
   reportedIncidentStartDate: Date | undefined;
@@ -673,17 +661,13 @@ export interface CreateCaseRequest {
   impactedAccounts: string[] | undefined;
 
   /**
-   * <p>Required element used in combination with CreateCase to provide a list of entities to receive
-   *             notifications for case updates.
-   *         </p>
+   * <p>Required element used in combination with CreateCase to provide a list of entities to receive notifications for case updates. </p>
    * @public
    */
   watchers: Watcher[] | undefined;
 
   /**
-   * <p>An optional element used in combination with CreateCase to provide a list of suspicious internet protocol
-   *             addresses associated with unauthorized activity.
-   *         </p>
+   * <p>An optional element used in combination with CreateCase to provide a list of suspicious internet protocol addresses associated with unauthorized activity. </p>
    * @public
    */
   threatActorIpAddresses?: ThreatActorIp[] | undefined;
@@ -712,9 +696,7 @@ export interface CreateCaseRequest {
  */
 export interface CreateCaseResponse {
   /**
-   * <p>A response element providing responses for requests to CreateCase. This element responds with the case
-   *             ID.
-   *         </p>
+   * <p>A response element providing responses for requests to CreateCase. This element responds with the case ID. </p>
    * @public
    */
   caseId: string | undefined;
@@ -869,19 +851,13 @@ export interface GetCaseResponse {
   description?: string | undefined;
 
   /**
-   * <p>Response element for GetCase that provides the case status. Options for statuses include
-   *             <code>Submitted | Detection and Analysis | Eradication, Containment and Recovery | Post-Incident Activities
-   *                 | Closed
-   *             </code>
-   *          </p>
+   * <p>Response element for GetCase that provides the case status. Options for statuses include <code>Submitted | Detection and Analysis | Eradication, Containment and Recovery | Post-Incident Activities | Closed </code> </p>
    * @public
    */
   caseStatus?: CaseStatus | undefined;
 
   /**
-   * <p>Response element for GetCase that provides the engagement type. Options for engagement type include
-   *             <code>Active Security Event | Investigations</code>
-   *          </p>
+   * <p>Response element for GetCase that provides the engagement type. Options for engagement type include <code>Active Security Event | Investigations</code> </p>
    * @public
    */
   engagementType?: EngagementType | undefined;
@@ -893,9 +869,7 @@ export interface GetCaseResponse {
   reportedIncidentStartDate?: Date | undefined;
 
   /**
-   * <p>Response element for GetCase that provides the actual incident start date as identified by data analysis
-   *             during the investigation.
-   *         </p>
+   * <p>Response element for GetCase that provides the actual incident start date as identified by data analysis during the investigation. </p>
    * @public
    */
   actualIncidentStartDate?: Date | undefined;
@@ -907,9 +881,7 @@ export interface GetCaseResponse {
   impactedAwsRegions?: ImpactedAwsRegion[] | undefined;
 
   /**
-   * <p>Response element for GetCase that provides a list of suspicious IP addresses associated with unauthorized
-   *             activity.
-   *         </p>
+   * <p>Response element for GetCase that provides a list of suspicious IP addresses associated with unauthorized activity. </p>
    * @public
    */
   threatActorIpAddresses?: ThreatActorIp[] | undefined;
@@ -951,9 +923,7 @@ export interface GetCaseResponse {
   closureCode?: ClosureCode | undefined;
 
   /**
-   * <p>Response element for GetCase that provides the current resolver types. Options include <code>
-   *             self-supported | AWS-supported</code>.
-   *         </p>
+   * <p>Response element for GetCase that provides the current resolver types. Options include <code> self-supported | AWS-supported</code>. </p>
    * @public
    */
   resolverType?: ResolverType | undefined;
@@ -982,17 +952,13 @@ export interface GetCaseResponse {
  */
 export interface GetCaseAttachmentDownloadUrlRequest {
   /**
-   * <p>Required element for GetCaseAttachmentDownloadUrl to identify the case ID for downloading an attachment
-   *             from.
-   *         </p>
+   * <p>Required element for GetCaseAttachmentDownloadUrl to identify the case ID for downloading an attachment from. </p>
    * @public
    */
   caseId: string | undefined;
 
   /**
-   * <p>Required element for GetCaseAttachmentDownloadUrl to identify the attachment ID for downloading an
-   *             attachment.
-   *         </p>
+   * <p>Required element for GetCaseAttachmentDownloadUrl to identify the attachment ID for downloading an attachment. </p>
    * @public
    */
   attachmentId: string | undefined;
@@ -1014,15 +980,13 @@ export interface GetCaseAttachmentDownloadUrlResponse {
  */
 export interface GetCaseAttachmentUploadUrlRequest {
   /**
-   * <p>Required element for GetCaseAttachmentUploadUrl to identify the case ID for uploading an attachment to.
-   *         </p>
+   * <p>Required element for GetCaseAttachmentUploadUrl to identify the case ID for uploading an attachment to. </p>
    * @public
    */
   caseId: string | undefined;
 
   /**
-   * <p>Required element for GetCaseAttachmentUploadUrl to identify the file name of the attachment to upload.
-   *         </p>
+   * <p>Required element for GetCaseAttachmentUploadUrl to identify the file name of the attachment to upload. </p>
    * @public
    */
   fileName: string | undefined;
@@ -1115,9 +1079,7 @@ export interface ListCaseEditsResponse {
   nextToken?: string | undefined;
 
   /**
-   * <p>Response element for ListCaseEdits that includes the action, eventtimestamp, message, and principal for
-   *             the response.
-   *         </p>
+   * <p>Response element for ListCaseEdits that includes the action, eventtimestamp, message, and principal for the response. </p>
    * @public
    */
   items?: CaseEditItem[] | undefined;
@@ -1223,9 +1185,7 @@ export interface ListCasesResponse {
   nextToken?: string | undefined;
 
   /**
-   * <p>Response element for ListCases that includes caseARN, caseID, caseStatus, closedDate,
-   *             createdDate, engagementType, lastUpdatedDate, pendingAction, resolverType, and title for each response.
-   *         </p>
+   * <p>Response element for ListCases that includes caseARN, caseID, caseStatus, closedDate, createdDate, engagementType, lastUpdatedDate, pendingAction, resolverType, and title for each response. </p>
    * @public
    */
   items?: ListCasesItem[] | undefined;
@@ -1313,9 +1273,7 @@ export interface ListCommentsResponse {
   nextToken?: string | undefined;
 
   /**
-   * <p>Response element for ListComments providing the body, commentID, createDate, creator, lastUpdatedBy and
-   *             lastUpdatedDate for each response.
-   *         </p>
+   * <p>Response element for ListComments providing the body, commentID, createDate, creator, lastUpdatedBy and lastUpdatedDate for each response. </p>
    * @public
    */
   items?: ListCommentsItem[] | undefined;
@@ -1350,8 +1308,7 @@ export interface UpdateCaseRequest {
   description?: string | undefined;
 
   /**
-   * <p>Optional element for UpdateCase to provide content for the customer reported incident start date field.
-   *         </p>
+   * <p>Optional element for UpdateCase to provide content for the customer reported incident start date field. </p>
    * @public
    */
   reportedIncidentStartDate?: Date | undefined;
@@ -1363,9 +1320,7 @@ export interface UpdateCaseRequest {
   actualIncidentStartDate?: Date | undefined;
 
   /**
-   * <p>Optional element for UpdateCase to provide content for the engagement type field. <code>Available
-   *             engagement types include Security Incident | Investigation</code>.
-   *         </p>
+   * <p>Optional element for UpdateCase to provide content for the engagement type field. <code>Available engagement types include Security Incident | Investigation</code>. </p>
    * @public
    */
   engagementType?: EngagementType | undefined;
@@ -1383,9 +1338,7 @@ export interface UpdateCaseRequest {
   watchersToDelete?: Watcher[] | undefined;
 
   /**
-   * <p>Optional element for UpdateCase to provide content to add additional suspicious IP addresses related to a
-   *             case.
-   *         </p>
+   * <p>Optional element for UpdateCase to provide content to add additional suspicious IP addresses related to a case. </p>
    * @public
    */
   threatActorIpAddressesToAdd?: ThreatActorIp[] | undefined;
@@ -1443,8 +1396,7 @@ export interface UpdateCaseResponse {}
  */
 export interface UpdateCaseCommentRequest {
   /**
-   * <p>Required element for UpdateCaseComment to identify the case ID containing the comment to be updated.
-   *         </p>
+   * <p>Required element for UpdateCaseComment to identify the case ID containing the comment to be updated. </p>
    * @public
    */
   caseId: string | undefined;
@@ -1506,9 +1458,7 @@ export interface UpdateCaseStatusRequest {
   caseId: string | undefined;
 
   /**
-   * <p>Required element for UpdateCaseStatus to identify the status for a case. Options include <code>Submitted |
-   *             Detection and Analysis | Containment, Eradication and Recovery | Post-incident Activities</code>.
-   *         </p>
+   * <p>Required element for UpdateCaseStatus to identify the status for a case. Options include <code>Submitted | Detection and Analysis | Containment, Eradication and Recovery | Post-incident Activities</code>. </p>
    * @public
    */
   caseStatus: SelfManagedCaseStatus | undefined;
@@ -1637,9 +1587,7 @@ export interface CreateMembershipRequest {
   membershipName: string | undefined;
 
   /**
-   * <p>Required element use in combination with CreateMembership to add customer incident response team members
-   *             and trusted partners to the membership.
-   *         </p>
+   * <p>Required element use in combination with CreateMembership to add customer incident response team members and trusted partners to the membership. </p>
    * @public
    */
   incidentResponseTeam: IncidentResponder[] | undefined;
@@ -1719,8 +1667,7 @@ export interface GetMembershipResponse {
   membershipId: string | undefined;
 
   /**
-   * <p>Response element for GetMembership that provides the configured account for managing the membership.
-   *         </p>
+   * <p>Response element for GetMembership that provides the configured account for managing the membership. </p>
    * @public
    */
   accountId?: string | undefined;
@@ -1756,16 +1703,13 @@ export interface GetMembershipResponse {
   membershipActivationTimestamp?: Date | undefined;
 
   /**
-   * <p>Response element for GetMembership that provides the configured membership name deactivation timestamp.
-   *         </p>
+   * <p>Response element for GetMembership that provides the configured membership name deactivation timestamp. </p>
    * @public
    */
   membershipDeactivationTimestamp?: Date | undefined;
 
   /**
-   * <p>Response element for GetMembership that provides the configured membership type. Options include <code>
-   *             Standalone | Organizations</code>.
-   *         </p>
+   * <p>Response element for GetMembership that provides the configured membership type. Options include <code> Standalone | Organizations</code>. </p>
    * @public
    */
   customerType?: CustomerType | undefined;
@@ -1777,9 +1721,7 @@ export interface GetMembershipResponse {
   numberOfAccountsCovered?: number | undefined;
 
   /**
-   * <p>Response element for GetMembership that provides the configured membership incident response team
-   *             members.
-   *         </p>
+   * <p>Response element for GetMembership that provides the configured membership incident response team members. </p>
    * @public
    */
   incidentResponseTeam?: IncidentResponder[] | undefined;
@@ -1855,9 +1797,7 @@ export interface ListMembershipsResponse {
   nextToken?: string | undefined;
 
   /**
-   * <p>Request element for ListMemberships including the accountID, membershipARN, membershipID,
-   *             membershipStatus, and region for each response.
-   *         </p>
+   * <p>Request element for ListMemberships including the accountID, membershipARN, membershipID, membershipStatus, and region for each response. </p>
    * @public
    */
   items?: ListMembershipItem[] | undefined;
