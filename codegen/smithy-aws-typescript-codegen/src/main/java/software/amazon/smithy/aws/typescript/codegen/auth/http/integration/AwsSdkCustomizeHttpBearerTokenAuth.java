@@ -55,7 +55,9 @@ public final class AwsSdkCustomizeHttpBearerTokenAuth implements HttpAuthTypeScr
                     .addDependency(AwsDependency.TOKEN_PROVIDERS)
                     .addImport("nodeProvider", null, AwsDependency.TOKEN_PROVIDERS)
                     .addImport("FromSsoInit", null, AwsDependency.TOKEN_PROVIDERS)
-                    .write("async (idProps) => await nodeProvider(idProps as FromSsoInit)(idProps)"))
+                    .openBlock("async (idProps) => {", "}", () -> {
+                        w.write("return await nodeProvider(idProps as FromSsoInit)(idProps);");
+                    }))
                 // Add identityProperties for backward compatibility of the `nodeProvider` default provider.
                 // If adding new properties that need to be passed into `nodeProvider`, make sure
                 // to update the propertiesExtractor below.
