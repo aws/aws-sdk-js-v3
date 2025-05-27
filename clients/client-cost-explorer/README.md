@@ -324,6 +324,14 @@ GetCostAndUsage
 </details>
 <details>
 <summary>
+GetCostAndUsageComparisons
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetCostAndUsageComparisonsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostAndUsageComparisonsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostAndUsageComparisonsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetCostAndUsageWithResources
 </summary>
 
@@ -336,6 +344,14 @@ GetCostCategories
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetCostCategoriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostCategoriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostCategoriesCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetCostComparisonDrivers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetCostComparisonDriversCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostComparisonDriversCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostComparisonDriversCommandOutput/)
 
 </details>
 <details>

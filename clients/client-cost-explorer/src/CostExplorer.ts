@@ -68,6 +68,11 @@ import {
   GetCostAndUsageCommandOutput,
 } from "./commands/GetCostAndUsageCommand";
 import {
+  GetCostAndUsageComparisonsCommand,
+  GetCostAndUsageComparisonsCommandInput,
+  GetCostAndUsageComparisonsCommandOutput,
+} from "./commands/GetCostAndUsageComparisonsCommand";
+import {
   GetCostAndUsageWithResourcesCommand,
   GetCostAndUsageWithResourcesCommandInput,
   GetCostAndUsageWithResourcesCommandOutput,
@@ -77,6 +82,11 @@ import {
   GetCostCategoriesCommandInput,
   GetCostCategoriesCommandOutput,
 } from "./commands/GetCostCategoriesCommand";
+import {
+  GetCostComparisonDriversCommand,
+  GetCostComparisonDriversCommandInput,
+  GetCostComparisonDriversCommandOutput,
+} from "./commands/GetCostComparisonDriversCommand";
 import {
   GetCostForecastCommand,
   GetCostForecastCommandInput,
@@ -230,8 +240,10 @@ const commands = {
   GetApproximateUsageRecordsCommand,
   GetCommitmentPurchaseAnalysisCommand,
   GetCostAndUsageCommand,
+  GetCostAndUsageComparisonsCommand,
   GetCostAndUsageWithResourcesCommand,
   GetCostCategoriesCommand,
+  GetCostComparisonDriversCommand,
   GetCostForecastCommand,
   GetDimensionValuesCommand,
   GetReservationCoverageCommand,
@@ -479,6 +491,23 @@ export interface CostExplorer {
   ): void;
 
   /**
+   * @see {@link GetCostAndUsageComparisonsCommand}
+   */
+  getCostAndUsageComparisons(
+    args: GetCostAndUsageComparisonsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCostAndUsageComparisonsCommandOutput>;
+  getCostAndUsageComparisons(
+    args: GetCostAndUsageComparisonsCommandInput,
+    cb: (err: any, data?: GetCostAndUsageComparisonsCommandOutput) => void
+  ): void;
+  getCostAndUsageComparisons(
+    args: GetCostAndUsageComparisonsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCostAndUsageComparisonsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetCostAndUsageWithResourcesCommand}
    */
   getCostAndUsageWithResources(
@@ -510,6 +539,23 @@ export interface CostExplorer {
     args: GetCostCategoriesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCostCategoriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCostComparisonDriversCommand}
+   */
+  getCostComparisonDrivers(
+    args: GetCostComparisonDriversCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCostComparisonDriversCommandOutput>;
+  getCostComparisonDrivers(
+    args: GetCostComparisonDriversCommandInput,
+    cb: (err: any, data?: GetCostComparisonDriversCommandOutput) => void
+  ): void;
+  getCostComparisonDrivers(
+    args: GetCostComparisonDriversCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCostComparisonDriversCommandOutput) => void
   ): void;
 
   /**

@@ -63,10 +63,18 @@ import {
 } from "../commands/GetCommitmentPurchaseAnalysisCommand";
 import { GetCostAndUsageCommandInput, GetCostAndUsageCommandOutput } from "../commands/GetCostAndUsageCommand";
 import {
+  GetCostAndUsageComparisonsCommandInput,
+  GetCostAndUsageComparisonsCommandOutput,
+} from "../commands/GetCostAndUsageComparisonsCommand";
+import {
   GetCostAndUsageWithResourcesCommandInput,
   GetCostAndUsageWithResourcesCommandOutput,
 } from "../commands/GetCostAndUsageWithResourcesCommand";
 import { GetCostCategoriesCommandInput, GetCostCategoriesCommandOutput } from "../commands/GetCostCategoriesCommand";
+import {
+  GetCostComparisonDriversCommandInput,
+  GetCostComparisonDriversCommandOutput,
+} from "../commands/GetCostComparisonDriversCommand";
 import { GetCostForecastCommandInput, GetCostForecastCommandOutput } from "../commands/GetCostForecastCommand";
 import { GetDimensionValuesCommandInput, GetDimensionValuesCommandOutput } from "../commands/GetDimensionValuesCommand";
 import {
@@ -178,12 +186,14 @@ import {
   BillExpirationException,
   CommitmentPurchaseAnalysisConfiguration,
   CostAllocationTagStatusEntry,
+  CostAndUsageComparison,
   CostCategory,
   CostCategoryInheritedValueDimension,
   CostCategoryRule,
   CostCategorySplitChargeRule,
   CostCategorySplitChargeRuleParameter,
   CostCategoryValues,
+  CostComparisonDriver,
   CreateAnomalyMonitorRequest,
   CreateAnomalySubscriptionRequest,
   CreateCostCategoryDefinitionRequest,
@@ -207,9 +217,13 @@ import {
   GetApproximateUsageRecordsRequest,
   GetCommitmentPurchaseAnalysisRequest,
   GetCommitmentPurchaseAnalysisResponse,
+  GetCostAndUsageComparisonsRequest,
+  GetCostAndUsageComparisonsResponse,
   GetCostAndUsageRequest,
   GetCostAndUsageWithResourcesRequest,
   GetCostCategoriesRequest,
+  GetCostComparisonDriversRequest,
+  GetCostComparisonDriversResponse,
   GetCostForecastRequest,
   GetDimensionValuesRequest,
   GetReservationCoverageRequest,
@@ -436,6 +450,19 @@ export const se_GetCostAndUsageCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetCostAndUsageComparisonsCommand
+ */
+export const se_GetCostAndUsageComparisonsCommand = async (
+  input: GetCostAndUsageComparisonsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetCostAndUsageComparisons");
+  let body: any;
+  body = JSON.stringify(se_GetCostAndUsageComparisonsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetCostAndUsageWithResourcesCommand
  */
 export const se_GetCostAndUsageWithResourcesCommand = async (
@@ -458,6 +485,19 @@ export const se_GetCostCategoriesCommand = async (
   const headers: __HeaderBag = sharedHeaders("GetCostCategories");
   let body: any;
   body = JSON.stringify(se_GetCostCategoriesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetCostComparisonDriversCommand
+ */
+export const se_GetCostComparisonDriversCommand = async (
+  input: GetCostComparisonDriversCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetCostComparisonDrivers");
+  let body: any;
+  body = JSON.stringify(se_GetCostComparisonDriversRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1099,6 +1139,26 @@ export const de_GetCostAndUsageCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GetCostAndUsageComparisonsCommand
+ */
+export const de_GetCostAndUsageComparisonsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCostAndUsageComparisonsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetCostAndUsageComparisonsResponse(data, context);
+  const response: GetCostAndUsageComparisonsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1GetCostAndUsageWithResourcesCommand
  */
 export const de_GetCostAndUsageWithResourcesCommand = async (
@@ -1132,6 +1192,26 @@ export const de_GetCostCategoriesCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: GetCostCategoriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetCostComparisonDriversCommand
+ */
+export const de_GetCostComparisonDriversCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCostComparisonDriversCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetCostComparisonDriversResponse(data, context);
+  const response: GetCostComparisonDriversCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2198,6 +2278,25 @@ const se_GetAnomaliesRequest = (input: GetAnomaliesRequest, context: __SerdeCont
 // se_GetCommitmentPurchaseAnalysisRequest omitted.
 
 /**
+ * serializeAws_json1_1GetCostAndUsageComparisonsRequest
+ */
+const se_GetCostAndUsageComparisonsRequest = (
+  input: GetCostAndUsageComparisonsRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    BaselineTimePeriod: _json,
+    BillingViewArn: [],
+    ComparisonTimePeriod: _json,
+    Filter: (_) => se_Expression(_, context),
+    GroupBy: _json,
+    MaxResults: [],
+    MetricForComparison: [],
+    NextPageToken: [],
+  });
+};
+
+/**
  * serializeAws_json1_1GetCostAndUsageRequest
  */
 const se_GetCostAndUsageRequest = (input: GetCostAndUsageRequest, context: __SerdeContext): any => {
@@ -2243,6 +2342,22 @@ const se_GetCostCategoriesRequest = (input: GetCostCategoriesRequest, context: _
     SearchString: [],
     SortBy: _json,
     TimePeriod: _json,
+  });
+};
+
+/**
+ * serializeAws_json1_1GetCostComparisonDriversRequest
+ */
+const se_GetCostComparisonDriversRequest = (input: GetCostComparisonDriversRequest, context: __SerdeContext): any => {
+  return take(input, {
+    BaselineTimePeriod: _json,
+    BillingViewArn: [],
+    ComparisonTimePeriod: _json,
+    Filter: (_) => se_Expression(_, context),
+    GroupBy: _json,
+    MaxResults: [],
+    MetricForComparison: [],
+    NextPageToken: [],
   });
 };
 
@@ -2755,6 +2870,10 @@ const de_CommitmentPurchaseAnalysisConfiguration = (
   }) as any;
 };
 
+// de_ComparisonMetrics omitted.
+
+// de_ComparisonMetricValue omitted.
+
 // de_CostAllocationTag omitted.
 
 // de_CostAllocationTagBackfillRequest omitted.
@@ -2762,6 +2881,28 @@ const de_CommitmentPurchaseAnalysisConfiguration = (
 // de_CostAllocationTagBackfillRequestList omitted.
 
 // de_CostAllocationTagList omitted.
+
+/**
+ * deserializeAws_json1_1CostAndUsageComparison
+ */
+const de_CostAndUsageComparison = (output: any, context: __SerdeContext): CostAndUsageComparison => {
+  return take(output, {
+    CostAndUsageSelector: (_: any) => de_Expression(_, context),
+    Metrics: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CostAndUsageComparisons
+ */
+const de_CostAndUsageComparisons = (output: any, context: __SerdeContext): CostAndUsageComparison[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CostAndUsageComparison(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_json1_1CostCategory
@@ -2831,6 +2972,33 @@ const de_CostCategoryRulesList = (output: any, context: __SerdeContext): CostCat
 // de_CostCategoryValues omitted.
 
 // de_CostCategoryValuesList omitted.
+
+/**
+ * deserializeAws_json1_1CostComparisonDriver
+ */
+const de_CostComparisonDriver = (output: any, context: __SerdeContext): CostComparisonDriver => {
+  return take(output, {
+    CostDrivers: _json,
+    CostSelector: (_: any) => de_Expression(_, context),
+    Metrics: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CostComparisonDrivers
+ */
+const de_CostComparisonDrivers = (output: any, context: __SerdeContext): CostComparisonDriver[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CostComparisonDriver(entry, context);
+    });
+  return retVal;
+};
+
+// de_CostDriver omitted.
+
+// de_CostDrivers omitted.
 
 // de_Coverage omitted.
 
@@ -2987,11 +3155,38 @@ const de_GetCommitmentPurchaseAnalysisResponse = (
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_1GetCostAndUsageComparisonsResponse
+ */
+const de_GetCostAndUsageComparisonsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetCostAndUsageComparisonsResponse => {
+  return take(output, {
+    CostAndUsageComparisons: (_: any) => de_CostAndUsageComparisons(_, context),
+    NextPageToken: __expectString,
+    TotalCostAndUsage: _json,
+  }) as any;
+};
+
 // de_GetCostAndUsageResponse omitted.
 
 // de_GetCostAndUsageWithResourcesResponse omitted.
 
 // de_GetCostCategoriesResponse omitted.
+
+/**
+ * deserializeAws_json1_1GetCostComparisonDriversResponse
+ */
+const de_GetCostComparisonDriversResponse = (
+  output: any,
+  context: __SerdeContext
+): GetCostComparisonDriversResponse => {
+  return take(output, {
+    CostComparisonDrivers: (_: any) => de_CostComparisonDrivers(_, context),
+    NextPageToken: __expectString,
+  }) as any;
+};
 
 // de_GetCostForecastResponse omitted.
 

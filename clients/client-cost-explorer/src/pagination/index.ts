@@ -4,6 +4,10 @@ export * from "./GetAnomalyMonitorsPaginator";
 
 export * from "./GetAnomalySubscriptionsPaginator";
 
+export * from "./GetCostAndUsageComparisonsPaginator";
+
+export * from "./GetCostComparisonDriversPaginator";
+
 export * from "./GetSavingsPlansCoveragePaginator";
 
 export * from "./GetSavingsPlansUtilizationDetailsPaginator";

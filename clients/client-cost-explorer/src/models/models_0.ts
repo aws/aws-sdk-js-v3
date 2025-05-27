@@ -1994,6 +1994,39 @@ export class RequestChangedException extends __BaseException {
 }
 
 /**
+ * <p>Contains cost or usage metric values for comparing two time periods. Each value
+ *             includes amounts for the baseline and comparison time periods, their difference, and the
+ *             unit of measurement.</p>
+ * @public
+ */
+export interface ComparisonMetricValue {
+  /**
+   * <p>The numeric value for the baseline time period measurement.</p>
+   * @public
+   */
+  BaselineTimePeriodAmount?: string | undefined;
+
+  /**
+   * <p>The numeric value for the comparison time period measurement.</p>
+   * @public
+   */
+  ComparisonTimePeriodAmount?: string | undefined;
+
+  /**
+   * <p>The calculated difference between <code>ComparisonTimePeriodAmount</code> and
+   *                 <code>BaselineTimePeriodAmount</code>.</p>
+   * @public
+   */
+  Difference?: string | undefined;
+
+  /**
+   * <p>The unit of measurement applicable to all numeric values in this comparison.</p>
+   * @public
+   */
+  Unit?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface GetCostAndUsageWithResourcesResponse {
@@ -2093,6 +2126,37 @@ export interface GetCostCategoriesResponse {
    * @public
    */
   TotalSize: number | undefined;
+}
+
+/**
+ * <p>Represents factors that contribute to cost variations between the baseline and
+ *             comparison time periods, including the type of driver, an identifier of the driver, and
+ *             associated metrics.</p>
+ * @public
+ */
+export interface CostDriver {
+  /**
+   * <p>The category or classification of the cost driver.</p>
+   *          <p>Values include: BUNDLED_DISCOUNT, CREDIT, OUT_OF_CYCLE_CHARGE, REFUND,
+   *             RECURRING_RESERVATION_FEE, RESERVATION_USAGE, RI_VOLUME_DISCOUNT, SAVINGS_PLAN_USAGE,
+   *             SAVINGS_PLAN_NEGATION, SAVINGS_PLAN_RECURRING_FEE, SUPPORT_FEE, TAX,
+   *             UPFRONT_RESERVATION_FEE, USAGE_CHANGE, COMMITMENT</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The specific identifier of the cost driver.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A mapping of metric names to their comparison values, measuring the impact of this
+   *             cost driver.</p>
+   * @public
+   */
+  Metrics?: Record<string, ComparisonMetricValue> | undefined;
 }
 
 /**
@@ -6383,6 +6447,145 @@ export interface AnomalySubscription {
 }
 
 /**
+ * <p>Represents a comparison of cost and usage metrics between two time periods.</p>
+ * @public
+ */
+export interface CostAndUsageComparison {
+  /**
+   * <p>Use <code>Expression</code> to filter in various Cost Explorer APIs.</p>
+   *          <p>Not all <code>Expression</code> types are supported in each API. Refer to the
+   *             documentation for each specific API to see what is supported.</p>
+   *          <p>There are two patterns:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Simple dimension values.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>There are three types of simple dimension values:
+   *                                 <code>CostCategories</code>, <code>Tags</code>, and
+   *                                 <code>Dimensions</code>.</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>Specify the <code>CostCategories</code> field to define a
+   *                                     filter that acts on Cost Categories.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Specify the <code>Tags</code> field to define a filter that
+   *                                     acts on Cost Allocation Tags.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Specify the <code>Dimensions</code> field to define a filter
+   *                                     that acts on the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html">
+   *                                  <code>DimensionValues</code>
+   *                               </a>.</p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                   <li>
+   *                      <p>For each filter type, you can set the dimension name and values for
+   *                             the filters that you plan to use.</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>For example, you can filter for <code>REGION==us-east-1 OR
+   *                                         REGION==us-west-1</code>. For
+   *                                         <code>GetRightsizingRecommendation</code>, the Region is a
+   *                                     full name (for example, <code>REGION==US East (N.
+   *                                         Virginia)</code>.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>The corresponding <code>Expression</code> for this example is
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
+   *                                         "us-east-1", "us-west-1" ] \} \}</code>
+   *                            </p>
+   *                         </li>
+   *                         <li>
+   *                            <p>As shown in the previous example, lists of dimension values
+   *                                     are combined with <code>OR</code> when applying the
+   *                                     filter.</p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                   <li>
+   *                      <p>You can also set different match options to further control how the
+   *                             filter behaves. Not all APIs support match options. Refer to the
+   *                             documentation for each specific API to see what is supported.</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>For example, you can filter for linked account names that
+   *                                     start with "a".</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>The corresponding <code>Expression</code> for this example is
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key":
+   *                                         "LINKED_ACCOUNT_NAME", "MatchOptions": [ "STARTS_WITH" ],
+   *                                         "Values": [ "a" ] \} \}</code>
+   *                            </p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Compound <code>Expression</code> types with logical operations.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>You can use multiple <code>Expression</code> types and the logical
+   *                             operators <code>AND/OR/NOT</code> to create a list of one or more
+   *                                 <code>Expression</code> objects. By doing this, you can filter by
+   *                             more advanced options.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>For example, you can filter by <code>((REGION == us-east-1 OR REGION
+   *                                 == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
+   *                                 DataTransfer)</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The corresponding <code>Expression</code> for this example is as
+   *                             follows: <code>\{ "And": [ \{"Or": [ \{"Dimensions": \{ "Key": "REGION",
+   *                                 "Values": [ "us-east-1", "us-west-1" ] \}\}, \{"Tags": \{ "Key":
+   *                                 "TagName", "Values": ["Value1"] \} \} ]\}, \{"Not": \{"Dimensions": \{
+   *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] \}\}\} ] \}
+   *                             </code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <note>
+   *                   <p>Because each <code>Expression</code> can have only one operator, the
+   *                         service returns an error if more than one is specified. The following
+   *                         example shows an <code>Expression</code> object that creates an error:
+   *                             <code> \{ "And": [ ... ], "Dimensions": \{ "Key": "USAGE_TYPE", "Values":
+   *                             [ "DataTransfer" ] \} \} </code>
+   *                   </p>
+   *                   <p>The following is an example of the corresponding error message:
+   *                             <code>"Expression has more than one roots. Only one root operator is
+   *                             allowed for each expression: And, Or, Not, Dimensions, Tags,
+   *                             CostCategories"</code>
+   *                   </p>
+   *                </note>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
+   *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
+   *                 and tags. NOT operators aren't supported. Dimensions are also limited to
+   *                     <code>LINKED_ACCOUNT</code>, <code>REGION</code>, or
+   *                     <code>RIGHTSIZING_TYPE</code>.</p>
+   *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
+   *                 supported. AND and OR aren't supported. Dimensions are limited to
+   *                     <code>LINKED_ACCOUNT</code>.</p>
+   *          </note>
+   * @public
+   */
+  CostAndUsageSelector?: Expression | undefined;
+
+  /**
+   * <p>A mapping of metric names to their comparison values.</p>
+   * @public
+   */
+  Metrics?: Record<string, ComparisonMetricValue> | undefined;
+}
+
+/**
  * <p>Rules are processed in order. If there are multiple rules that match the line item,
  *             then the first rule to match is used to determine that Cost Category value.</p>
  * @public
@@ -6430,6 +6633,341 @@ export interface CostCategoryRule {
    * @public
    */
   Type?: CostCategoryRuleType | undefined;
+}
+
+/**
+ * <p>Represents a collection of cost drivers and their associated metrics for cost
+ *             comparison analysis.</p>
+ * @public
+ */
+export interface CostComparisonDriver {
+  /**
+   * <p>Use <code>Expression</code> to filter in various Cost Explorer APIs.</p>
+   *          <p>Not all <code>Expression</code> types are supported in each API. Refer to the
+   *             documentation for each specific API to see what is supported.</p>
+   *          <p>There are two patterns:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Simple dimension values.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>There are three types of simple dimension values:
+   *                                 <code>CostCategories</code>, <code>Tags</code>, and
+   *                                 <code>Dimensions</code>.</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>Specify the <code>CostCategories</code> field to define a
+   *                                     filter that acts on Cost Categories.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Specify the <code>Tags</code> field to define a filter that
+   *                                     acts on Cost Allocation Tags.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Specify the <code>Dimensions</code> field to define a filter
+   *                                     that acts on the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html">
+   *                                  <code>DimensionValues</code>
+   *                               </a>.</p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                   <li>
+   *                      <p>For each filter type, you can set the dimension name and values for
+   *                             the filters that you plan to use.</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>For example, you can filter for <code>REGION==us-east-1 OR
+   *                                         REGION==us-west-1</code>. For
+   *                                         <code>GetRightsizingRecommendation</code>, the Region is a
+   *                                     full name (for example, <code>REGION==US East (N.
+   *                                         Virginia)</code>.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>The corresponding <code>Expression</code> for this example is
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
+   *                                         "us-east-1", "us-west-1" ] \} \}</code>
+   *                            </p>
+   *                         </li>
+   *                         <li>
+   *                            <p>As shown in the previous example, lists of dimension values
+   *                                     are combined with <code>OR</code> when applying the
+   *                                     filter.</p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                   <li>
+   *                      <p>You can also set different match options to further control how the
+   *                             filter behaves. Not all APIs support match options. Refer to the
+   *                             documentation for each specific API to see what is supported.</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>For example, you can filter for linked account names that
+   *                                     start with "a".</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>The corresponding <code>Expression</code> for this example is
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key":
+   *                                         "LINKED_ACCOUNT_NAME", "MatchOptions": [ "STARTS_WITH" ],
+   *                                         "Values": [ "a" ] \} \}</code>
+   *                            </p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Compound <code>Expression</code> types with logical operations.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>You can use multiple <code>Expression</code> types and the logical
+   *                             operators <code>AND/OR/NOT</code> to create a list of one or more
+   *                                 <code>Expression</code> objects. By doing this, you can filter by
+   *                             more advanced options.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>For example, you can filter by <code>((REGION == us-east-1 OR REGION
+   *                                 == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
+   *                                 DataTransfer)</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The corresponding <code>Expression</code> for this example is as
+   *                             follows: <code>\{ "And": [ \{"Or": [ \{"Dimensions": \{ "Key": "REGION",
+   *                                 "Values": [ "us-east-1", "us-west-1" ] \}\}, \{"Tags": \{ "Key":
+   *                                 "TagName", "Values": ["Value1"] \} \} ]\}, \{"Not": \{"Dimensions": \{
+   *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] \}\}\} ] \}
+   *                             </code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <note>
+   *                   <p>Because each <code>Expression</code> can have only one operator, the
+   *                         service returns an error if more than one is specified. The following
+   *                         example shows an <code>Expression</code> object that creates an error:
+   *                             <code> \{ "And": [ ... ], "Dimensions": \{ "Key": "USAGE_TYPE", "Values":
+   *                             [ "DataTransfer" ] \} \} </code>
+   *                   </p>
+   *                   <p>The following is an example of the corresponding error message:
+   *                             <code>"Expression has more than one roots. Only one root operator is
+   *                             allowed for each expression: And, Or, Not, Dimensions, Tags,
+   *                             CostCategories"</code>
+   *                   </p>
+   *                </note>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
+   *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
+   *                 and tags. NOT operators aren't supported. Dimensions are also limited to
+   *                     <code>LINKED_ACCOUNT</code>, <code>REGION</code>, or
+   *                     <code>RIGHTSIZING_TYPE</code>.</p>
+   *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
+   *                 supported. AND and OR aren't supported. Dimensions are limited to
+   *                     <code>LINKED_ACCOUNT</code>.</p>
+   *          </note>
+   * @public
+   */
+  CostSelector?: Expression | undefined;
+
+  /**
+   * <p>A mapping of metric names to their comparison values.</p>
+   * @public
+   */
+  Metrics?: Record<string, ComparisonMetricValue> | undefined;
+
+  /**
+   * <p>An array of cost drivers, each representing a cost difference between the baseline and
+   *             comparison time periods. Each entry also includes a metric delta (for example, usage
+   *             change) that contributed to the cost variance, along with the identifier and type of
+   *             change.</p>
+   * @public
+   */
+  CostDrivers?: CostDriver[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCostAndUsageComparisonsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN
+   *       is used to specify which particular billing view you want to interact with or retrieve
+   *       information from when making API calls related to Amazon Web Services Billing and Cost
+   *       Management features. The BillingViewArn can be retrieved by calling the ListBillingViews
+   *       API.</p>
+   * @public
+   */
+  BillingViewArn?: string | undefined;
+
+  /**
+   * <p>The reference time period for comparison. This time period serves as the baseline against
+   *       which other cost and usage data will be compared. The interval must start and end on the first
+   *       day of a month, with a duration of exactly one month.</p>
+   * @public
+   */
+  BaselineTimePeriod: DateInterval | undefined;
+
+  /**
+   * <p>The comparison time period for analysis. This time period's cost and usage data will be
+   *       compared against the baseline time period. The interval must start and end on the first day of
+   *       a month, with a duration of exactly one month.</p>
+   * @public
+   */
+  ComparisonTimePeriod: DateInterval | undefined;
+
+  /**
+   * <p>The cost and usage metric to compare. Valid values are <code>AmortizedCost</code>,
+   *         <code>BlendedCost</code>, <code>NetAmortizedCost</code>, <code>NetUnblendedCost</code>,
+   *         <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>, and
+   *         <code>UsageQuantity</code>.</p>
+   * @public
+   */
+  MetricForComparison: string | undefined;
+
+  /**
+   * <p>Use <code>Expression</code> to filter in various Cost Explorer APIs.</p>
+   *          <p>Not all <code>Expression</code> types are supported in each API. Refer to the
+   *             documentation for each specific API to see what is supported.</p>
+   *          <p>There are two patterns:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Simple dimension values.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>There are three types of simple dimension values:
+   *                                 <code>CostCategories</code>, <code>Tags</code>, and
+   *                                 <code>Dimensions</code>.</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>Specify the <code>CostCategories</code> field to define a
+   *                                     filter that acts on Cost Categories.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Specify the <code>Tags</code> field to define a filter that
+   *                                     acts on Cost Allocation Tags.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Specify the <code>Dimensions</code> field to define a filter
+   *                                     that acts on the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html">
+   *                                  <code>DimensionValues</code>
+   *                               </a>.</p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                   <li>
+   *                      <p>For each filter type, you can set the dimension name and values for
+   *                             the filters that you plan to use.</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>For example, you can filter for <code>REGION==us-east-1 OR
+   *                                         REGION==us-west-1</code>. For
+   *                                         <code>GetRightsizingRecommendation</code>, the Region is a
+   *                                     full name (for example, <code>REGION==US East (N.
+   *                                         Virginia)</code>.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>The corresponding <code>Expression</code> for this example is
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
+   *                                         "us-east-1", "us-west-1" ] \} \}</code>
+   *                            </p>
+   *                         </li>
+   *                         <li>
+   *                            <p>As shown in the previous example, lists of dimension values
+   *                                     are combined with <code>OR</code> when applying the
+   *                                     filter.</p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                   <li>
+   *                      <p>You can also set different match options to further control how the
+   *                             filter behaves. Not all APIs support match options. Refer to the
+   *                             documentation for each specific API to see what is supported.</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>For example, you can filter for linked account names that
+   *                                     start with "a".</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>The corresponding <code>Expression</code> for this example is
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key":
+   *                                         "LINKED_ACCOUNT_NAME", "MatchOptions": [ "STARTS_WITH" ],
+   *                                         "Values": [ "a" ] \} \}</code>
+   *                            </p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Compound <code>Expression</code> types with logical operations.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>You can use multiple <code>Expression</code> types and the logical
+   *                             operators <code>AND/OR/NOT</code> to create a list of one or more
+   *                                 <code>Expression</code> objects. By doing this, you can filter by
+   *                             more advanced options.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>For example, you can filter by <code>((REGION == us-east-1 OR REGION
+   *                                 == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
+   *                                 DataTransfer)</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The corresponding <code>Expression</code> for this example is as
+   *                             follows: <code>\{ "And": [ \{"Or": [ \{"Dimensions": \{ "Key": "REGION",
+   *                                 "Values": [ "us-east-1", "us-west-1" ] \}\}, \{"Tags": \{ "Key":
+   *                                 "TagName", "Values": ["Value1"] \} \} ]\}, \{"Not": \{"Dimensions": \{
+   *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] \}\}\} ] \}
+   *                             </code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <note>
+   *                   <p>Because each <code>Expression</code> can have only one operator, the
+   *                         service returns an error if more than one is specified. The following
+   *                         example shows an <code>Expression</code> object that creates an error:
+   *                             <code> \{ "And": [ ... ], "Dimensions": \{ "Key": "USAGE_TYPE", "Values":
+   *                             [ "DataTransfer" ] \} \} </code>
+   *                   </p>
+   *                   <p>The following is an example of the corresponding error message:
+   *                             <code>"Expression has more than one roots. Only one root operator is
+   *                             allowed for each expression: And, Or, Not, Dimensions, Tags,
+   *                             CostCategories"</code>
+   *                   </p>
+   *                </note>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
+   *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
+   *                 and tags. NOT operators aren't supported. Dimensions are also limited to
+   *                     <code>LINKED_ACCOUNT</code>, <code>REGION</code>, or
+   *                     <code>RIGHTSIZING_TYPE</code>.</p>
+   *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
+   *                 supported. AND and OR aren't supported. Dimensions are limited to
+   *                     <code>LINKED_ACCOUNT</code>.</p>
+   *          </note>
+   * @public
+   */
+  Filter?: Expression | undefined;
+
+  /**
+   * <p>You can group results using the attributes <code>DIMENSION</code>, <code>TAG</code>, and
+   *         <code>COST_CATEGORY</code>. </p>
+   * @public
+   */
+  GroupBy?: GroupDefinition[] | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned for the request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token to retrieve the next set of paginated results.</p>
+   * @public
+   */
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -6836,6 +7374,193 @@ export interface GetCostCategoriesRequest {
   /**
    * <p>If the number of objects that are still available for retrieval exceeds the quota, Amazon Web Services returns a NextPageToken value in the response. To retrieve the next batch of
    *       objects, provide the NextPageToken from the previous call in your next request.</p>
+   * @public
+   */
+  NextPageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCostComparisonDriversRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN
+   *       is used to specify which particular billing view you want to interact with or retrieve
+   *       information from when making API calls related to Amazon Web Services Billing and Cost
+   *       Management features. The BillingViewArn can be retrieved by calling the ListBillingViews
+   *       API.</p>
+   * @public
+   */
+  BillingViewArn?: string | undefined;
+
+  /**
+   * <p>The reference time period for comparison. This time period serves as the baseline against
+   *       which other cost and usage data will be compared. The interval must start and end on the first
+   *       day of a month, with a duration of exactly one month.</p>
+   * @public
+   */
+  BaselineTimePeriod: DateInterval | undefined;
+
+  /**
+   * <p>The comparison time period for analysis. This time period's cost and usage data will be
+   *       compared against the baseline time period. The interval must start and end on the first day of
+   *       a month, with a duration of exactly one month.</p>
+   * @public
+   */
+  ComparisonTimePeriod: DateInterval | undefined;
+
+  /**
+   * <p>The cost and usage metric to compare. Valid values are <code>AmortizedCost</code>,
+   *         <code>BlendedCost</code>, <code>NetAmortizedCost</code>, <code>NetUnblendedCost</code>,
+   *         <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>, and
+   *         <code>UsageQuantity</code>.</p>
+   * @public
+   */
+  MetricForComparison: string | undefined;
+
+  /**
+   * <p>Use <code>Expression</code> to filter in various Cost Explorer APIs.</p>
+   *          <p>Not all <code>Expression</code> types are supported in each API. Refer to the
+   *             documentation for each specific API to see what is supported.</p>
+   *          <p>There are two patterns:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Simple dimension values.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>There are three types of simple dimension values:
+   *                                 <code>CostCategories</code>, <code>Tags</code>, and
+   *                                 <code>Dimensions</code>.</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>Specify the <code>CostCategories</code> field to define a
+   *                                     filter that acts on Cost Categories.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Specify the <code>Tags</code> field to define a filter that
+   *                                     acts on Cost Allocation Tags.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Specify the <code>Dimensions</code> field to define a filter
+   *                                     that acts on the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html">
+   *                                  <code>DimensionValues</code>
+   *                               </a>.</p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                   <li>
+   *                      <p>For each filter type, you can set the dimension name and values for
+   *                             the filters that you plan to use.</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>For example, you can filter for <code>REGION==us-east-1 OR
+   *                                         REGION==us-west-1</code>. For
+   *                                         <code>GetRightsizingRecommendation</code>, the Region is a
+   *                                     full name (for example, <code>REGION==US East (N.
+   *                                         Virginia)</code>.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>The corresponding <code>Expression</code> for this example is
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
+   *                                         "us-east-1", "us-west-1" ] \} \}</code>
+   *                            </p>
+   *                         </li>
+   *                         <li>
+   *                            <p>As shown in the previous example, lists of dimension values
+   *                                     are combined with <code>OR</code> when applying the
+   *                                     filter.</p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                   <li>
+   *                      <p>You can also set different match options to further control how the
+   *                             filter behaves. Not all APIs support match options. Refer to the
+   *                             documentation for each specific API to see what is supported.</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>For example, you can filter for linked account names that
+   *                                     start with "a".</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>The corresponding <code>Expression</code> for this example is
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key":
+   *                                         "LINKED_ACCOUNT_NAME", "MatchOptions": [ "STARTS_WITH" ],
+   *                                         "Values": [ "a" ] \} \}</code>
+   *                            </p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Compound <code>Expression</code> types with logical operations.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>You can use multiple <code>Expression</code> types and the logical
+   *                             operators <code>AND/OR/NOT</code> to create a list of one or more
+   *                                 <code>Expression</code> objects. By doing this, you can filter by
+   *                             more advanced options.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>For example, you can filter by <code>((REGION == us-east-1 OR REGION
+   *                                 == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
+   *                                 DataTransfer)</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The corresponding <code>Expression</code> for this example is as
+   *                             follows: <code>\{ "And": [ \{"Or": [ \{"Dimensions": \{ "Key": "REGION",
+   *                                 "Values": [ "us-east-1", "us-west-1" ] \}\}, \{"Tags": \{ "Key":
+   *                                 "TagName", "Values": ["Value1"] \} \} ]\}, \{"Not": \{"Dimensions": \{
+   *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] \}\}\} ] \}
+   *                             </code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <note>
+   *                   <p>Because each <code>Expression</code> can have only one operator, the
+   *                         service returns an error if more than one is specified. The following
+   *                         example shows an <code>Expression</code> object that creates an error:
+   *                             <code> \{ "And": [ ... ], "Dimensions": \{ "Key": "USAGE_TYPE", "Values":
+   *                             [ "DataTransfer" ] \} \} </code>
+   *                   </p>
+   *                   <p>The following is an example of the corresponding error message:
+   *                             <code>"Expression has more than one roots. Only one root operator is
+   *                             allowed for each expression: And, Or, Not, Dimensions, Tags,
+   *                             CostCategories"</code>
+   *                   </p>
+   *                </note>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
+   *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
+   *                 and tags. NOT operators aren't supported. Dimensions are also limited to
+   *                     <code>LINKED_ACCOUNT</code>, <code>REGION</code>, or
+   *                     <code>RIGHTSIZING_TYPE</code>.</p>
+   *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
+   *                 supported. AND and OR aren't supported. Dimensions are limited to
+   *                     <code>LINKED_ACCOUNT</code>.</p>
+   *          </note>
+   * @public
+   */
+  Filter?: Expression | undefined;
+
+  /**
+   * <p>You can group results using the attributes <code>DIMENSION</code>, <code>TAG</code>, and
+   *         <code>COST_CATEGORY</code>. Note that <code>SERVICE</code> and <code>USAGE_TYPE</code>
+   *       dimensions are automatically included in the cost comparison drivers analysis.</p>
+   * @public
+   */
+  GroupBy?: GroupDefinition[] | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned for the request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token to retrieve the next set of paginated results.</p>
    * @public
    */
   NextPageToken?: string | undefined;
@@ -9394,6 +10119,51 @@ export interface GetAnomalySubscriptionsResponse {
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
    *       the response from a previous call has more results than the maximum page size. </p>
+   * @public
+   */
+  NextPageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCostAndUsageComparisonsResponse {
+  /**
+   * <p>An array of comparison results showing cost and usage metrics between
+   *         <code>BaselineTimePeriod</code> and <code>ComparisonTimePeriod</code>.</p>
+   * @public
+   */
+  CostAndUsageComparisons?: CostAndUsageComparison[] | undefined;
+
+  /**
+   * <p>A summary of the total cost and usage, comparing amounts between
+   *         <code>BaselineTimePeriod</code> and <code>ComparisonTimePeriod</code> and their differences.
+   *       This total represents the aggregate total across all paginated results, if the response spans
+   *       multiple pages.</p>
+   * @public
+   */
+  TotalCostAndUsage?: Record<string, ComparisonMetricValue> | undefined;
+
+  /**
+   * <p>The token to retrieve the next set of paginated results.</p>
+   * @public
+   */
+  NextPageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCostComparisonDriversResponse {
+  /**
+   * <p>An array of comparison results showing factors that drive significant cost differences
+   *       between <code>BaselineTimePeriod</code> and <code>ComparisonTimePeriod</code>.</p>
+   * @public
+   */
+  CostComparisonDrivers?: CostComparisonDriver[] | undefined;
+
+  /**
+   * <p>The token to retrieve the next set of paginated results.</p>
    * @public
    */
   NextPageToken?: string | undefined;

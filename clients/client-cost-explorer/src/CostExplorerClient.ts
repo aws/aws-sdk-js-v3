@@ -97,10 +97,18 @@ import {
 } from "./commands/GetCommitmentPurchaseAnalysisCommand";
 import { GetCostAndUsageCommandInput, GetCostAndUsageCommandOutput } from "./commands/GetCostAndUsageCommand";
 import {
+  GetCostAndUsageComparisonsCommandInput,
+  GetCostAndUsageComparisonsCommandOutput,
+} from "./commands/GetCostAndUsageComparisonsCommand";
+import {
   GetCostAndUsageWithResourcesCommandInput,
   GetCostAndUsageWithResourcesCommandOutput,
 } from "./commands/GetCostAndUsageWithResourcesCommand";
 import { GetCostCategoriesCommandInput, GetCostCategoriesCommandOutput } from "./commands/GetCostCategoriesCommand";
+import {
+  GetCostComparisonDriversCommandInput,
+  GetCostComparisonDriversCommandOutput,
+} from "./commands/GetCostComparisonDriversCommand";
 import { GetCostForecastCommandInput, GetCostForecastCommandOutput } from "./commands/GetCostForecastCommand";
 import { GetDimensionValuesCommandInput, GetDimensionValuesCommandOutput } from "./commands/GetDimensionValuesCommand";
 import {
@@ -227,8 +235,10 @@ export type ServiceInputTypes =
   | GetApproximateUsageRecordsCommandInput
   | GetCommitmentPurchaseAnalysisCommandInput
   | GetCostAndUsageCommandInput
+  | GetCostAndUsageComparisonsCommandInput
   | GetCostAndUsageWithResourcesCommandInput
   | GetCostCategoriesCommandInput
+  | GetCostComparisonDriversCommandInput
   | GetCostForecastCommandInput
   | GetDimensionValuesCommandInput
   | GetReservationCoverageCommandInput
@@ -276,8 +286,10 @@ export type ServiceOutputTypes =
   | GetApproximateUsageRecordsCommandOutput
   | GetCommitmentPurchaseAnalysisCommandOutput
   | GetCostAndUsageCommandOutput
+  | GetCostAndUsageComparisonsCommandOutput
   | GetCostAndUsageWithResourcesCommandOutput
   | GetCostCategoriesCommandOutput
+  | GetCostComparisonDriversCommandOutput
   | GetCostForecastCommandOutput
   | GetDimensionValuesCommandOutput
   | GetReservationCoverageCommandOutput
