@@ -3276,6 +3276,12 @@ export interface ServiceManagedEc2FleetConfiguration {
    * @public
    */
   instanceMarketOptions: ServiceManagedEc2InstanceMarketOptions | undefined;
+
+  /**
+   * <p>The storage profile ID.</p>
+   * @public
+   */
+  storageProfileId?: string | undefined;
 }
 
 /**

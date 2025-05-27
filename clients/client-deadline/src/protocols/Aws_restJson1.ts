@@ -6706,6 +6706,7 @@ const se_ServiceManagedEc2FleetConfiguration = (
   return take(input, {
     instanceCapabilities: (_) => se_ServiceManagedEc2InstanceCapabilities(_, context),
     instanceMarketOptions: _json,
+    storageProfileId: [],
   });
 };
 
@@ -7550,6 +7551,7 @@ const de_ServiceManagedEc2FleetConfiguration = (
   return take(output, {
     instanceCapabilities: (_: any) => de_ServiceManagedEc2InstanceCapabilities(_, context),
     instanceMarketOptions: _json,
+    storageProfileId: __expectString,
   }) as any;
 };
 

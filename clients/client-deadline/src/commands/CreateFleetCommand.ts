@@ -141,6 +141,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  *       instanceMarketOptions: { // ServiceManagedEc2InstanceMarketOptions
  *         type: "on-demand" || "spot", // required
  *       },
+ *       storageProfileId: "STRING_VALUE",
  *     },
  *   },
  *   tags: { // Tags

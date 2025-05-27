@@ -142,6 +142,7 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  *       instanceMarketOptions: { // ServiceManagedEc2InstanceMarketOptions
  *         type: "on-demand" || "spot", // required
  *       },
+ *       storageProfileId: "STRING_VALUE",
  *     },
  *   },
  *   hostConfiguration: { // HostConfiguration

@@ -155,6 +155,7 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * //           instanceMarketOptions: { // ServiceManagedEc2InstanceMarketOptions
  * //             type: "on-demand" || "spot", // required
  * //           },
+ * //           storageProfileId: "STRING_VALUE",
  * //         },
  * //       },
  * //       createdAt: new Date("TIMESTAMP"), // required

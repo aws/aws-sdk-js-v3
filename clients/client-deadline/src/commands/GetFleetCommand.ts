@@ -150,6 +150,7 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * //       instanceMarketOptions: { // ServiceManagedEc2InstanceMarketOptions
  * //         type: "on-demand" || "spot", // required
  * //       },
+ * //       storageProfileId: "STRING_VALUE",
  * //     },
  * //   },
  * //   hostConfiguration: { // HostConfiguration
