@@ -104,6 +104,7 @@ export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOpti
  *   },
  *   DryRun: true || false,
  *   SkipTunnelReplacement: true || false,
+ *   PreSharedKeyStorage: "STRING_VALUE",
  * };
  * const command = new ModifyVpnTunnelOptionsCommand(input);
  * const response = await client.send(command);
@@ -207,6 +208,7 @@ export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOpti
  * //         CertificateArn: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     PreSharedKeyArn: "STRING_VALUE",
  * //     VpnConnectionId: "STRING_VALUE",
  * //     State: "pending" || "available" || "deleting" || "deleted",
  * //     CustomerGatewayConfiguration: "STRING_VALUE",

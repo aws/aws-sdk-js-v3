@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CopyFpgaImageRequest, CopyFpgaImageResult } from "../models/models_0";
+import { CopyFpgaImageRequest, CopyFpgaImageResult } from "../models/models_1";
 import { de_CopyFpgaImageCommand, se_CopyFpgaImageCommand } from "../protocols/Aws_ec2";
 
 /**

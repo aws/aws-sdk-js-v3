@@ -474,6 +474,7 @@ export * from "./ExportClientVpnClientConfigurationCommand";
 export * from "./ExportImageCommand";
 export * from "./ExportTransitGatewayRoutesCommand";
 export * from "./ExportVerifiedAccessInstanceClientConfigurationCommand";
+export * from "./GetActiveVpnTunnelStatusCommand";
 export * from "./GetAllowedImagesSettingsCommand";
 export * from "./GetAssociatedEnclaveCertificateIamRolesCommand";
 export * from "./GetAssociatedIpv6PoolCidrsCommand";

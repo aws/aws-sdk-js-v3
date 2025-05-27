@@ -10,7 +10,7 @@ import {
   DescribeVpnConnectionsRequest,
   DescribeVpnConnectionsResult,
   DescribeVpnConnectionsResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import { de_DescribeVpnConnectionsCommand, se_DescribeVpnConnectionsCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -158,6 +158,7 @@ export interface DescribeVpnConnectionsCommandOutput extends DescribeVpnConnecti
  * //           CertificateArn: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       PreSharedKeyArn: "STRING_VALUE",
  * //       VpnConnectionId: "STRING_VALUE",
  * //       State: "pending" || "available" || "deleting" || "deleted",
  * //       CustomerGatewayConfiguration: "STRING_VALUE",

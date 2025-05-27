@@ -43,10 +43,8 @@ import {
   ElasticGpuSpecificationResponse,
   HostnameType,
   InstanceBandwidthWeighting,
-  InstanceIpv6Address,
   InstanceRequirements,
   Ipv4PrefixSpecificationRequest,
-  Ipv4PrefixSpecificationResponse,
   Ipv6PrefixSpecificationRequest,
   LaunchTemplateBlockDeviceMapping,
   LaunchTemplateCapacityReservationSpecificationResponse,
@@ -73,6 +71,37 @@ import {
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Information about the IPv4 delegated prefixes assigned to a network interface.</p>
+ * @public
+ */
+export interface Ipv4PrefixSpecificationResponse {
+  /**
+   * <p>The IPv4 delegated prefixes assigned to the network interface.</p>
+   * @public
+   */
+  Ipv4Prefix?: string | undefined;
+}
+
+/**
+ * <p>Describes an IPv6 address.</p>
+ * @public
+ */
+export interface InstanceIpv6Address {
+  /**
+   * <p>The IPv6 address.</p>
+   * @public
+   */
+  Ipv6Address?: string | undefined;
+
+  /**
+   * <p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
+   * @public
+   */
+  IsPrimaryIpv6?: boolean | undefined;
+}
 
 /**
  * <p>Information about the IPv6 delegated prefixes assigned to a network interface.</p>
@@ -10946,71 +10975,6 @@ export interface VpcEndpoint {
    * @public
    */
   ServiceRegion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVpcEndpointResult {
-  /**
-   * <p>Information about the endpoint.</p>
-   * @public
-   */
-  VpcEndpoint?: VpcEndpoint | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVpcEndpointConnectionNotificationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the endpoint service.</p>
-   * @public
-   */
-  ServiceId?: string | undefined;
-
-  /**
-   * <p>The ID of the endpoint.</p>
-   * @public
-   */
-  VpcEndpointId?: string | undefined;
-
-  /**
-   * <p>The ARN of the SNS topic for the notifications.</p>
-   * @public
-   */
-  ConnectionNotificationArn: string | undefined;
-
-  /**
-   * <p>The endpoint events for which to receive notifications. Valid values are
-   *                 <code>Accept</code>, <code>Connect</code>, <code>Delete</code>, and
-   *                 <code>Reject</code>.</p>
-   * @public
-   */
-  ConnectionEvents: string[] | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure
-   *                 idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
 }
 
 /**

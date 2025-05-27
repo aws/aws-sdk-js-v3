@@ -153,6 +153,7 @@ export interface ModifyVpnConnectionOptionsCommandOutput extends ModifyVpnConnec
  * //         CertificateArn: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     PreSharedKeyArn: "STRING_VALUE",
  * //     VpnConnectionId: "STRING_VALUE",
  * //     State: "pending" || "available" || "deleting" || "deleted",
  * //     CustomerGatewayConfiguration: "STRING_VALUE",

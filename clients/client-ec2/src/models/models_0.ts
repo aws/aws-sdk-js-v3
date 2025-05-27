@@ -2723,6 +2723,82 @@ export interface ActiveInstance {
  * @public
  * @enum
  */
+export const VpnTunnelProvisioningStatus = {
+  available: "available",
+  failed: "failed",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type VpnTunnelProvisioningStatus =
+  (typeof VpnTunnelProvisioningStatus)[keyof typeof VpnTunnelProvisioningStatus];
+
+/**
+ * <p>Contains information about the current security configuration of an active VPN tunnel.</p>
+ * @public
+ */
+export interface ActiveVpnTunnelStatus {
+  /**
+   * <p>The encryption algorithm negotiated in Phase 1 IKE negotiations.</p>
+   * @public
+   */
+  Phase1EncryptionAlgorithm?: string | undefined;
+
+  /**
+   * <p>The encryption algorithm negotiated in Phase 2 IKE negotiations.</p>
+   * @public
+   */
+  Phase2EncryptionAlgorithm?: string | undefined;
+
+  /**
+   * <p>The integrity algorithm negotiated in Phase 1 IKE negotiations.</p>
+   * @public
+   */
+  Phase1IntegrityAlgorithm?: string | undefined;
+
+  /**
+   * <p>The integrity algorithm negotiated in Phase 2 IKE negotiations.</p>
+   * @public
+   */
+  Phase2IntegrityAlgorithm?: string | undefined;
+
+  /**
+   * <p>The Diffie-Hellman group number being used in Phase 1 IKE negotiations.</p>
+   * @public
+   */
+  Phase1DHGroup?: number | undefined;
+
+  /**
+   * <p>The Diffie-Hellman group number being used in Phase 2 IKE negotiations.</p>
+   * @public
+   */
+  Phase2DHGroup?: number | undefined;
+
+  /**
+   * <p>The version of the Internet Key Exchange (IKE) protocol being used.</p>
+   * @public
+   */
+  IkeVersion?: string | undefined;
+
+  /**
+   * <p>The current provisioning status of the VPN tunnel.</p>
+   * @public
+   */
+  ProvisioningStatus?: VpnTunnelProvisioningStatus | undefined;
+
+  /**
+   * <p>The reason for the current provisioning status.</p>
+   * @public
+   */
+  ProvisioningStatusReason?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ActivityStatus = {
   ERROR: "error",
   FULFILLED: "fulfilled",
@@ -8352,61 +8428,6 @@ export interface ConfirmProductInstanceResult {
    * @public
    */
   OwnerId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CopyFpgaImageRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the source AFI.</p>
-   * @public
-   */
-  SourceFpgaImageId: string | undefined;
-
-  /**
-   * <p>The description for the new AFI.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The name for the new AFI. The default is the name of the source AFI.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The Region that contains the source AFI.</p>
-   * @public
-   */
-  SourceRegion: string | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   *       	For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CopyFpgaImageResult {
-  /**
-   * <p>The ID of the new AFI.</p>
-   * @public
-   */
-  FpgaImageId?: string | undefined;
 }
 
 /**

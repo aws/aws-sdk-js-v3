@@ -14,6 +14,7 @@ import {
   RouteTableAssociationState,
   TagSpecification,
   TransitGatewayAttachmentResourceType,
+  UnsuccessfulItem,
 } from "./models_0";
 
 import {
@@ -25,7 +26,6 @@ import {
   HostnameType,
   InstanceBandwidthWeighting,
   InstanceInterruptionBehavior,
-  InstanceIpv6Address,
   MarketType,
   OperatorRequest,
   Placement,
@@ -35,6 +35,7 @@ import {
 
 import {
   IcmpTypeCode,
+  InstanceIpv6Address,
   LocalGatewayRoute,
   ManagedPrefixList,
   RuleAction,
@@ -69,6 +70,77 @@ import {
 } from "./models_5";
 
 import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_7";
+
+/**
+ * @public
+ */
+export interface ReleaseHostsRequest {
+  /**
+   * <p>The IDs of the Dedicated Hosts to release.</p>
+   * @public
+   */
+  HostIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReleaseHostsResult {
+  /**
+   * <p>The IDs of the Dedicated Hosts that were successfully released.</p>
+   * @public
+   */
+  Successful?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the Dedicated Hosts that could not be released, including an error
+   *             message.</p>
+   * @public
+   */
+  Unsuccessful?: UnsuccessfulItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReleaseIpamPoolAllocationRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM pool which contains the allocation you want to release.</p>
+   * @public
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>The CIDR of the allocation you want to release.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>The ID of the allocation.</p>
+   * @public
+   */
+  IpamPoolAllocationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReleaseIpamPoolAllocationResult {
+  /**
+   * <p>Indicates if the release was successful.</p>
+   * @public
+   */
+  Success?: boolean | undefined;
+}
 
 /**
  * @public

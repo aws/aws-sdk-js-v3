@@ -2326,6 +2326,11 @@ import {
   ExportVerifiedAccessInstanceClientConfigurationCommandOutput,
 } from "./commands/ExportVerifiedAccessInstanceClientConfigurationCommand";
 import {
+  GetActiveVpnTunnelStatusCommand,
+  GetActiveVpnTunnelStatusCommandInput,
+  GetActiveVpnTunnelStatusCommandOutput,
+} from "./commands/GetActiveVpnTunnelStatusCommand";
+import {
   GetAllowedImagesSettingsCommand,
   GetAllowedImagesSettingsCommandInput,
   GetAllowedImagesSettingsCommandOutput,
@@ -3837,6 +3842,7 @@ const commands = {
   ExportImageCommand,
   ExportTransitGatewayRoutesCommand,
   ExportVerifiedAccessInstanceClientConfigurationCommand,
+  GetActiveVpnTunnelStatusCommand,
   GetAllowedImagesSettingsCommand,
   GetAssociatedEnclaveCertificateIamRolesCommand,
   GetAssociatedIpv6PoolCidrsCommand,
@@ -12052,6 +12058,23 @@ export interface EC2 {
     args: ExportVerifiedAccessInstanceClientConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ExportVerifiedAccessInstanceClientConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetActiveVpnTunnelStatusCommand}
+   */
+  getActiveVpnTunnelStatus(
+    args: GetActiveVpnTunnelStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetActiveVpnTunnelStatusCommandOutput>;
+  getActiveVpnTunnelStatus(
+    args: GetActiveVpnTunnelStatusCommandInput,
+    cb: (err: any, data?: GetActiveVpnTunnelStatusCommandOutput) => void
+  ): void;
+  getActiveVpnTunnelStatus(
+    args: GetActiveVpnTunnelStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetActiveVpnTunnelStatusCommandOutput) => void
   ): void;
 
   /**

@@ -72,6 +72,7 @@ export interface CreateVpnConnectionCommandOutput extends CreateVpnConnectionRes
  *       ],
  *     },
  *   ],
+ *   PreSharedKeyStorage: "STRING_VALUE",
  *   DryRun: true || false,
  *   Options: { // VpnConnectionOptionsSpecification
  *     EnableAcceleration: true || false,
@@ -245,6 +246,7 @@ export interface CreateVpnConnectionCommandOutput extends CreateVpnConnectionRes
  * //         CertificateArn: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     PreSharedKeyArn: "STRING_VALUE",
  * //     VpnConnectionId: "STRING_VALUE",
  * //     State: "pending" || "available" || "deleting" || "deleted",
  * //     CustomerGatewayConfiguration: "STRING_VALUE",

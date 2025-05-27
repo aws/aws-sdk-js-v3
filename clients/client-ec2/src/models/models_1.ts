@@ -26,6 +26,61 @@ import {
 } from "./models_0";
 
 /**
+ * @public
+ */
+export interface CopyFpgaImageRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the source AFI.</p>
+   * @public
+   */
+  SourceFpgaImageId: string | undefined;
+
+  /**
+   * <p>The description for the new AFI.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The name for the new AFI. The default is the name of the source AFI.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The Region that contains the source AFI.</p>
+   * @public
+   */
+  SourceRegion: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *       	For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CopyFpgaImageResult {
+  /**
+   * <p>The ID of the new AFI.</p>
+   * @public
+   */
+  FpgaImageId?: string | undefined;
+}
+
+/**
  * <p>Contains the parameters for CopyImage.</p>
  * @public
  */
@@ -12426,37 +12481,6 @@ export interface LaunchTemplateEnaSrdSpecification {
    * @public
    */
   EnaSrdUdpSpecification?: LaunchTemplateEnaSrdUdpSpecification | undefined;
-}
-
-/**
- * <p>Information about the IPv4 delegated prefixes assigned to a network interface.</p>
- * @public
- */
-export interface Ipv4PrefixSpecificationResponse {
-  /**
-   * <p>The IPv4 delegated prefixes assigned to the network interface.</p>
-   * @public
-   */
-  Ipv4Prefix?: string | undefined;
-}
-
-/**
- * <p>Describes an IPv6 address.</p>
- * @public
- */
-export interface InstanceIpv6Address {
-  /**
-   * <p>The IPv6 address.</p>
-   * @public
-   */
-  Ipv6Address?: string | undefined;
-
-  /**
-   * <p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
-   * @public
-   */
-  IsPrimaryIpv6?: boolean | undefined;
 }
 
 /**

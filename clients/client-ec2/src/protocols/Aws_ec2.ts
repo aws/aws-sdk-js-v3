@@ -1649,6 +1649,10 @@ import {
   ExportVerifiedAccessInstanceClientConfigurationCommandOutput,
 } from "../commands/ExportVerifiedAccessInstanceClientConfigurationCommand";
 import {
+  GetActiveVpnTunnelStatusCommandInput,
+  GetActiveVpnTunnelStatusCommandOutput,
+} from "../commands/GetActiveVpnTunnelStatusCommand";
+import {
   GetAllowedImagesSettingsCommandInput,
   GetAllowedImagesSettingsCommandOutput,
 } from "../commands/GetAllowedImagesSettingsCommand";
@@ -2403,6 +2407,7 @@ import {
   AccountAttributeName,
   AccountAttributeValue,
   ActiveInstance,
+  ActiveVpnTunnelStatus,
   AddedPrincipal,
   AddIpamOperatingRegion,
   AddIpamOrganizationalUnitExclusion,
@@ -2527,8 +2532,6 @@ import {
   ClientVpnAuthorizationRuleStatus,
   ConfirmProductInstanceRequest,
   ConfirmProductInstanceResult,
-  CopyFpgaImageRequest,
-  CopyFpgaImageResult,
   DeviceOptions,
   DeviceTrustProviderType,
   EnaSrdSpecification,
@@ -2643,6 +2646,8 @@ import {
   ConnectionLogOptions,
   ConnectionTrackingSpecification,
   ConnectionTrackingSpecificationRequest,
+  CopyFpgaImageRequest,
+  CopyFpgaImageResult,
   CopyImageRequest,
   CopyImageResult,
   CopySnapshotRequest,
@@ -2742,7 +2747,6 @@ import {
   InstanceEventWindowTimeRangeRequest,
   InstanceExportDetails,
   InstanceGeneration,
-  InstanceIpv6Address,
   InstanceIpv6AddressRequest,
   InstanceRequirements,
   InstanceRequirementsRequest,
@@ -2759,7 +2763,6 @@ import {
   IpamResourceTag,
   IpamScope,
   Ipv4PrefixSpecificationRequest,
-  Ipv4PrefixSpecificationResponse,
   Ipv6PrefixSpecificationRequest,
   KeyPair,
   LaunchTemplate,
@@ -2959,9 +2962,7 @@ import {
   CreateVolumeRequest,
   CreateVpcBlockPublicAccessExclusionRequest,
   CreateVpcBlockPublicAccessExclusionResult,
-  CreateVpcEndpointConnectionNotificationRequest,
   CreateVpcEndpointRequest,
-  CreateVpcEndpointResult,
   CreateVpcRequest,
   CreateVpcResult,
   DnsEntry,
@@ -2970,7 +2971,9 @@ import {
   FilterPortRange,
   GroupIdentifier,
   IcmpTypeCode,
+  InstanceIpv6Address,
   InstanceSpecification,
+  Ipv4PrefixSpecificationResponse,
   Ipv6PrefixSpecification,
   Ipv6PrefixSpecificationResponse,
   LastError,
@@ -3087,7 +3090,9 @@ import {
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
+  CreateVpcEndpointConnectionNotificationRequest,
   CreateVpcEndpointConnectionNotificationResult,
+  CreateVpcEndpointResult,
   CreateVpcEndpointServiceConfigurationRequest,
   CreateVpcEndpointServiceConfigurationResult,
   CreateVpcPeeringConnectionRequest,
@@ -3301,8 +3306,6 @@ import {
   DescribeClientVpnAuthorizationRulesRequest,
   DescribeClientVpnAuthorizationRulesResult,
   DescribeClientVpnConnectionsRequest,
-  DescribeClientVpnConnectionsResult,
-  DescribeClientVpnEndpointsRequest,
   FailedQueuedPurchaseDeletion,
   Filter,
   IdFormat,
@@ -3367,6 +3370,8 @@ import {
   ConversionTask,
   CpuOptions,
   DeclarativePoliciesReport,
+  DescribeClientVpnConnectionsResult,
+  DescribeClientVpnEndpointsRequest,
   DescribeClientVpnEndpointsResult,
   DescribeClientVpnRoutesRequest,
   DescribeClientVpnRoutesResult,
@@ -3469,8 +3474,6 @@ import {
   DescribeIpv6PoolsRequest,
   DescribeIpv6PoolsResult,
   DescribeKeyPairsRequest,
-  DescribeKeyPairsResult,
-  DescribeLaunchTemplatesRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -3595,6 +3598,8 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeKeyPairsResult,
+  DescribeLaunchTemplatesRequest,
   DescribeLaunchTemplatesResult,
   DescribeLaunchTemplateVersionsRequest,
   DescribeLaunchTemplateVersionsResult,
@@ -3784,8 +3789,6 @@ import {
   DescribeVpcPeeringConnectionsResult,
   DescribeVpcsRequest,
   DescribeVpcsResult,
-  DescribeVpnConnectionsRequest,
-  DescribeVpnConnectionsResult,
   HistoryRecord,
   InstanceNetworkInterfaceSpecification,
   LaunchSpecification,
@@ -3872,6 +3875,8 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeVpnConnectionsRequest,
+  DescribeVpnConnectionsResult,
   DescribeVpnGatewaysRequest,
   DescribeVpnGatewaysResult,
   DetachClassicLinkVpcRequest,
@@ -4010,6 +4015,8 @@ import {
   ExportVerifiedAccessInstanceClientConfigurationResult,
   FastLaunchLaunchTemplateSpecificationRequest,
   FastLaunchSnapshotConfigurationRequest,
+  GetActiveVpnTunnelStatusRequest,
+  GetActiveVpnTunnelStatusResult,
   GetAllowedImagesSettingsRequest,
   GetAllowedImagesSettingsResult,
   GetAssociatedEnclaveCertificateIamRolesRequest,
@@ -4099,8 +4106,6 @@ import {
   GetTransitGatewayMulticastDomainAssociationsRequest,
   GetTransitGatewayMulticastDomainAssociationsResult,
   GetTransitGatewayPolicyTableAssociationsRequest,
-  GetTransitGatewayPolicyTableAssociationsResult,
-  GetTransitGatewayPolicyTableEntriesRequest,
   ImageCriterion,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
@@ -4135,8 +4140,6 @@ import {
   TargetReservationValue,
   TransitGatewayAttachmentPropagation,
   TransitGatewayMulticastDomainAssociation,
-  TransitGatewayPolicyRule,
-  TransitGatewayPolicyRuleMetaData,
   TransitGatewayPropagation,
   VerifiedAccessInstanceOpenVpnClientConfiguration,
   VerifiedAccessInstanceOpenVpnClientConfigurationRoute,
@@ -4153,6 +4156,8 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetTransitGatewayPolicyTableAssociationsResult,
+  GetTransitGatewayPolicyTableEntriesRequest,
   GetTransitGatewayPolicyTableEntriesResult,
   GetTransitGatewayPrefixListReferencesRequest,
   GetTransitGatewayPrefixListReferencesResult,
@@ -4399,10 +4404,6 @@ import {
   RejectVpcPeeringConnectionRequest,
   RejectVpcPeeringConnectionResult,
   ReleaseAddressRequest,
-  ReleaseHostsRequest,
-  ReleaseHostsResult,
-  ReleaseIpamPoolAllocationRequest,
-  ReleaseIpamPoolAllocationResult,
   RemoveIpamOperatingRegion,
   RemoveIpamOrganizationalUnitExclusion,
   RemovePrefixListEntry,
@@ -4416,6 +4417,8 @@ import {
   TrafficMirrorSessionField,
   TransitGatewayMulticastRegisteredGroupMembers,
   TransitGatewayMulticastRegisteredGroupSources,
+  TransitGatewayPolicyRule,
+  TransitGatewayPolicyRuleMetaData,
   TransitGatewayPolicyTableEntry,
   TransitGatewayRouteTableAssociation,
   TransitGatewayRouteTablePropagation,
@@ -4445,6 +4448,10 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  ReleaseHostsRequest,
+  ReleaseHostsResult,
+  ReleaseIpamPoolAllocationRequest,
+  ReleaseIpamPoolAllocationResult,
   ReplaceIamInstanceProfileAssociationRequest,
   ReplaceIamInstanceProfileAssociationResult,
   ReplaceImageCriteriaInAllowedImagesSettingsRequest,
@@ -12619,6 +12626,23 @@ export const se_ExportVerifiedAccessInstanceClientConfigurationCommand = async (
   body = buildFormUrlencodedString({
     ...se_ExportVerifiedAccessInstanceClientConfigurationRequest(input, context),
     [_A]: _EVAICC,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2GetActiveVpnTunnelStatusCommand
+ */
+export const se_GetActiveVpnTunnelStatusCommand = async (
+  input: GetActiveVpnTunnelStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetActiveVpnTunnelStatusRequest(input, context),
+    [_A]: _GAVTS,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -25596,6 +25620,26 @@ export const de_ExportVerifiedAccessInstanceClientConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_ec2GetActiveVpnTunnelStatusCommand
+ */
+export const de_GetActiveVpnTunnelStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetActiveVpnTunnelStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetActiveVpnTunnelStatusResult(data, context);
+  const response: GetActiveVpnTunnelStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2GetAllowedImagesSettingsCommand
  */
 export const de_GetAllowedImagesSettingsCommand = async (
@@ -36234,6 +36278,9 @@ const se_CreateVpnConnectionRequest = (input: CreateVpnConnectionRequest, contex
       entries[loc] = value;
     });
   }
+  if (input[_PSKS] != null) {
+    entries[_PSKS] = input[_PSKS];
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -45289,6 +45336,23 @@ const se_FpgaImageIdList = (input: string[], context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_ec2GetActiveVpnTunnelStatusRequest
+ */
+const se_GetActiveVpnTunnelStatusRequest = (input: GetActiveVpnTunnelStatusRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_VCI] != null) {
+    entries[_VCI] = input[_VCI];
+  }
+  if (input[_VTOIA] != null) {
+    entries[_VTOIA] = input[_VTOIA];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2GetAllowedImagesSettingsRequest
  */
 const se_GetAllowedImagesSettingsRequest = (input: GetAllowedImagesSettingsRequest, context: __SerdeContext): any => {
@@ -46541,6 +46605,9 @@ const se_GetVpnConnectionDeviceSampleConfigurationRequest = (
   }
   if (input[_IKEV] != null) {
     entries[_IKEV] = input[_IKEV];
+  }
+  if (input[_STa] != null) {
+    entries[_STa] = input[_STa];
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
@@ -52480,6 +52547,9 @@ const se_ModifyVpnTunnelOptionsRequest = (input: ModifyVpnTunnelOptionsRequest, 
   }
   if (input[_STR] != null) {
     entries[_STR] = input[_STR];
+  }
+  if (input[_PSKS] != null) {
+    entries[_PSKS] = input[_PSKS];
   }
   return entries;
 };
@@ -59640,6 +59710,41 @@ const de_ActiveInstanceSet = (output: any, context: __SerdeContext): ActiveInsta
 };
 
 /**
+ * deserializeAws_ec2ActiveVpnTunnelStatus
+ */
+const de_ActiveVpnTunnelStatus = (output: any, context: __SerdeContext): ActiveVpnTunnelStatus => {
+  const contents: any = {};
+  if (output[_pEA] != null) {
+    contents[_PEAha] = __expectString(output[_pEA]);
+  }
+  if (output[_pEAh] != null) {
+    contents[_PEAhas] = __expectString(output[_pEAh]);
+  }
+  if (output[_pIA] != null) {
+    contents[_PIAhas] = __expectString(output[_pIA]);
+  }
+  if (output[_pIAh] != null) {
+    contents[_PIAhase] = __expectString(output[_pIAh]);
+  }
+  if (output[_pDHG] != null) {
+    contents[_PDHG] = __strictParseInt32(output[_pDHG]) as number;
+  }
+  if (output[_pDHGh] != null) {
+    contents[_PDHGh] = __strictParseInt32(output[_pDHGh]) as number;
+  }
+  if (output[_iV] != null) {
+    contents[_IVk] = __expectString(output[_iV]);
+  }
+  if (output[_pS] != null) {
+    contents[_PSr] = __expectString(output[_pS]);
+  }
+  if (output[_pSR] != null) {
+    contents[_PSR] = __expectString(output[_pSR]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2AddedPrincipal
  */
 const de_AddedPrincipal = (output: any, context: __SerdeContext): AddedPrincipal => {
@@ -59741,8 +59846,8 @@ const de_Address = (output: any, context: __SerdeContext): Address => {
   if (output[_nIOI] != null) {
     contents[_NIOI] = __expectString(output[_nIOI]);
   }
-  if (output[_pIA] != null) {
-    contents[_PIAr] = __expectString(output[_pIA]);
+  if (output[_pIAr] != null) {
+    contents[_PIAr] = __expectString(output[_pIAr]);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -60277,8 +60382,8 @@ const de_AsPath = (output: any, context: __SerdeContext): string[] => {
  */
 const de_AssignedPrivateIpAddress = (output: any, context: __SerdeContext): AssignedPrivateIpAddress => {
   const contents: any = {};
-  if (output[_pIA] != null) {
-    contents[_PIAr] = __expectString(output[_pIA]);
+  if (output[_pIAr] != null) {
+    contents[_PIAr] = __expectString(output[_pIAr]);
   }
   return contents;
 };
@@ -61373,8 +61478,8 @@ const de_CancelImportTaskResult = (output: any, context: __SerdeContext): Cancel
   if (output[_iTI] != null) {
     contents[_ITI] = __expectString(output[_iTI]);
   }
-  if (output[_pS] != null) {
-    contents[_PSr] = __expectString(output[_pS]);
+  if (output[_pSr] != null) {
+    contents[_PSre] = __expectString(output[_pSr]);
   }
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
@@ -62889,8 +62994,8 @@ const de_ConversionTask = (output: any, context: __SerdeContext): ConversionTask
   if (output[_iIm] != null) {
     contents[_IIm] = de_ImportInstanceTaskDetails(output[_iIm], context);
   }
-  if (output[_iV] != null) {
-    contents[_IV] = de_ImportVolumeTaskDetails(output[_iV], context);
+  if (output[_iVm] != null) {
+    contents[_IV] = de_ImportVolumeTaskDetails(output[_iVm], context);
   }
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
@@ -67343,8 +67448,8 @@ const de_DescribePrincipalIdFormatResult = (output: any, context: __SerdeContext
   const contents: any = {};
   if (output.principalSet === "") {
     contents[_Princ] = [];
-  } else if (output[_pSr] != null && output[_pSr][_i] != null) {
-    contents[_Princ] = de_PrincipalIdFormatList(__getArrayIfSingleItem(output[_pSr][_i]), context);
+  } else if (output[_pSri] != null && output[_pSri][_i] != null) {
+    contents[_Princ] = de_PrincipalIdFormatList(__getArrayIfSingleItem(output[_pSri][_i]), context);
   }
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
@@ -71592,6 +71697,17 @@ const de_FpgaInfo = (output: any, context: __SerdeContext): FpgaInfo => {
 };
 
 /**
+ * deserializeAws_ec2GetActiveVpnTunnelStatusResult
+ */
+const de_GetActiveVpnTunnelStatusResult = (output: any, context: __SerdeContext): GetActiveVpnTunnelStatusResult => {
+  const contents: any = {};
+  if (output[_aVTS] != null) {
+    contents[_AVTS] = de_ActiveVpnTunnelStatus(output[_aVTS], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2GetAllowedImagesSettingsResult
  */
 const de_GetAllowedImagesSettingsResult = (output: any, context: __SerdeContext): GetAllowedImagesSettingsResult => {
@@ -74087,8 +74203,8 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
   if (output[_vI] != null) {
     contents[_VI] = __expectString(output[_vI]);
   }
-  if (output[_pIA] != null) {
-    contents[_PIAr] = __expectString(output[_pIA]);
+  if (output[_pIAr] != null) {
+    contents[_PIAr] = __expectString(output[_pIAr]);
   }
   if (output[_iAp] != null) {
     contents[_PIAu] = __expectString(output[_iAp]);
@@ -74746,8 +74862,8 @@ const de_InstanceNetworkInterface = (output: any, context: __SerdeContext): Inst
   if (output[_pDN] != null) {
     contents[_PDN] = __expectString(output[_pDN]);
   }
-  if (output[_pIA] != null) {
-    contents[_PIAr] = __expectString(output[_pIA]);
+  if (output[_pIAr] != null) {
+    contents[_PIAr] = __expectString(output[_pIAr]);
   }
   if (output.privateIpAddressesSet === "") {
     contents[_PIA] = [];
@@ -74896,8 +75012,8 @@ const de_InstanceNetworkInterfaceSpecification = (
   if (output[_nII] != null) {
     contents[_NII] = __expectString(output[_nII]);
   }
-  if (output[_pIA] != null) {
-    contents[_PIAr] = __expectString(output[_pIA]);
+  if (output[_pIAr] != null) {
+    contents[_PIAr] = __expectString(output[_pIAr]);
   }
   if (output.privateIpAddressesSet === "") {
     contents[_PIA] = [];
@@ -74992,8 +75108,8 @@ const de_InstancePrivateIpAddress = (output: any, context: __SerdeContext): Inst
   if (output[_pDN] != null) {
     contents[_PDN] = __expectString(output[_pDN]);
   }
-  if (output[_pIA] != null) {
-    contents[_PIAr] = __expectString(output[_pIA]);
+  if (output[_pIAr] != null) {
+    contents[_PIAr] = __expectString(output[_pIAr]);
   }
   return contents;
 };
@@ -75144,8 +75260,8 @@ const de_InstanceStateChange = (output: any, context: __SerdeContext): InstanceS
   if (output[_cSu] != null) {
     contents[_CSu] = de_InstanceState(output[_cSu], context);
   }
-  if (output[_pS] != null) {
-    contents[_PSr] = de_InstanceState(output[_pS], context);
+  if (output[_pSr] != null) {
+    contents[_PSre] = de_InstanceState(output[_pSr], context);
   }
   return contents;
 };
@@ -75870,7 +75986,7 @@ const de_IpamDiscoveredPublicAddress = (output: any, context: __SerdeContext): I
     contents[_SG] = de_IpamPublicAddressSecurityGroupList(__getArrayIfSingleItem(output[_sGS][_i]), context);
   }
   if (output[_sTa] != null) {
-    contents[_STa] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_sTa]));
+    contents[_STam] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_sTa]));
   }
   return contents;
 };
@@ -75930,7 +76046,7 @@ const de_IpamDiscoveredResourceCidr = (output: any, context: __SerdeContext): Ip
     contents[_NIASet] = __expectString(output[_nIASet]);
   }
   if (output[_sTa] != null) {
-    contents[_STa] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_sTa]));
+    contents[_STam] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_sTa]));
   }
   if (output[_aZI] != null) {
     contents[_AZI] = __expectString(output[_aZI]);
@@ -77530,8 +77646,8 @@ const de_LaunchTemplateInstanceNetworkInterfaceSpecification = (
   if (output[_nII] != null) {
     contents[_NII] = __expectString(output[_nII]);
   }
-  if (output[_pIA] != null) {
-    contents[_PIAr] = __expectString(output[_pIA]);
+  if (output[_pIAr] != null) {
+    contents[_PIAr] = __expectString(output[_pIAr]);
   }
   if (output.privateIpAddressesSet === "") {
     contents[_PIA] = [];
@@ -80328,8 +80444,8 @@ const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInter
   if (output[_pIDNO] != null) {
     contents[_PIDNO] = de_PublicIpDnsNameOptions(output[_pIDNO], context);
   }
-  if (output[_pIA] != null) {
-    contents[_PIAr] = __expectString(output[_pIA]);
+  if (output[_pIAr] != null) {
+    contents[_PIAr] = __expectString(output[_pIAr]);
   }
   if (output.privateIpAddressesSet === "") {
     contents[_PIA] = [];
@@ -80583,8 +80699,8 @@ const de_NetworkInterfacePrivateIpAddress = (
   if (output[_pDN] != null) {
     contents[_PDN] = __expectString(output[_pDN]);
   }
-  if (output[_pIA] != null) {
-    contents[_PIAr] = __expectString(output[_pIA]);
+  if (output[_pIAr] != null) {
+    contents[_PIAr] = __expectString(output[_pIAr]);
   }
   return contents;
 };
@@ -81690,8 +81806,8 @@ const de_PrivateIpAddressSpecification = (output: any, context: __SerdeContext):
   if (output[_prim] != null) {
     contents[_Prim] = __parseBoolean(output[_prim]);
   }
-  if (output[_pIA] != null) {
-    contents[_PIAr] = __expectString(output[_pIA]);
+  if (output[_pIAr] != null) {
+    contents[_PIAr] = __expectString(output[_pIAr]);
   }
   return contents;
 };
@@ -82775,8 +82891,8 @@ const de_ReservedInstancesListing = (output: any, context: __SerdeContext): Rese
   }
   if (output.priceSchedules === "") {
     contents[_PS] = [];
-  } else if (output[_pSri] != null && output[_pSri][_i] != null) {
-    contents[_PS] = de_PriceScheduleList(__getArrayIfSingleItem(output[_pSri][_i]), context);
+  } else if (output[_pSric] != null && output[_pSric][_i] != null) {
+    contents[_PS] = de_PriceScheduleList(__getArrayIfSingleItem(output[_pSric][_i]), context);
   }
   if (output[_rII] != null) {
     contents[_RIIe] = __expectString(output[_rII]);
@@ -86469,7 +86585,7 @@ const de_TerminateConnectionStatus = (output: any, context: __SerdeContext): Ter
     contents[_CIo] = __expectString(output[_cIon]);
   }
   if (output[_pSre] != null) {
-    contents[_PSre] = de_ClientVpnConnectionStatus(output[_pSre], context);
+    contents[_PSrev] = de_ClientVpnConnectionStatus(output[_pSre], context);
   }
   if (output[_cSur] != null) {
     contents[_CSur] = de_ClientVpnConnectionStatus(output[_cSur], context);
@@ -88199,9 +88315,9 @@ const de_TunnelOption = (output: any, context: __SerdeContext): TunnelOption => 
     contents[_PDHGNh] = de_Phase2DHGroupNumbersList(__getArrayIfSingleItem(output[_pDHGNSh][_i]), context);
   }
   if (output.ikeVersionSet === "") {
-    contents[_IVk] = [];
+    contents[_IVke] = [];
   } else if (output[_iVS] != null && output[_iVS][_i] != null) {
-    contents[_IVk] = de_IKEVersionsList(__getArrayIfSingleItem(output[_iVS][_i]), context);
+    contents[_IVke] = de_IKEVersionsList(__getArrayIfSingleItem(output[_iVS][_i]), context);
   }
   if (output[_sAt] != null) {
     contents[_SA] = __expectString(output[_sAt]);
@@ -90468,6 +90584,9 @@ const de_VpnConnection = (output: any, context: __SerdeContext): VpnConnection =
   } else if (output[_vTg] != null && output[_vTg][_i] != null) {
     contents[_VTg] = de_VgwTelemetryList(__getArrayIfSingleItem(output[_vTg][_i]), context);
   }
+  if (output[_pSKA] != null) {
+    contents[_PSKA] = __expectString(output[_pSKA]);
+  }
   if (output[_vCI] != null) {
     contents[_VCI] = __expectString(output[_vCI]);
   }
@@ -90901,6 +91020,7 @@ const _AVEC = "AcceptVpcEndpointConnections";
 const _AVG = "AttachVpnGateway";
 const _AVI = "AccepterVpcInfo";
 const _AVPC = "AcceptVpcPeeringConnection";
+const _AVTS = "ActiveVpnTunnelStatus";
 const _AVt = "AttributeValues";
 const _AVtt = "AttributeValue";
 const _AWSAKI = "AWSAccessKeyId";
@@ -91882,6 +92002,7 @@ const _GAIPC = "GetAssociatedIpv6PoolCidrs";
 const _GAIS = "GetAllowedImagesSettings";
 const _GANPD = "GetAwsNetworkPerformanceData";
 const _GAS = "GatewayAssociationState";
+const _GAVTS = "GetActiveVpnTunnelStatus";
 const _GCO = "GetConsoleOutput";
 const _GCPU = "GetCoipPoolUsage";
 const _GCRU = "GetCapacityReservationUsage";
@@ -92179,7 +92300,8 @@ const _IU = "InstanceUsages";
 const _IUp = "IpUsage";
 const _IV = "ImportVolume";
 const _IVE = "IsValidExchange";
-const _IVk = "IkeVersions";
+const _IVk = "IkeVersion";
+const _IVke = "IkeVersions";
 const _Id = "Id";
 const _Im = "Image";
 const _Ima = "Images";
@@ -92654,8 +92776,10 @@ const _PCr = "ProductCodes";
 const _PD = "PolicyDocument";
 const _PDE = "PrivateDnsEnabled";
 const _PDEr = "PrivateDnsEntry";
+const _PDHG = "Phase1DHGroup";
 const _PDHGN = "Phase1DHGroupNumbers";
 const _PDHGNh = "Phase2DHGroupNumbers";
+const _PDHGh = "Phase2DHGroup";
 const _PDHT = "PrivateDnsHostnameType";
 const _PDHTOL = "PrivateDnsHostnameTypeOnLaunch";
 const _PDN = "PrivateDnsName";
@@ -92680,6 +92804,8 @@ const _PDro = "ProductDescriptions";
 const _PE = "PolicyEnabled";
 const _PEA = "Phase1EncryptionAlgorithms";
 const _PEAh = "Phase2EncryptionAlgorithms";
+const _PEAha = "Phase1EncryptionAlgorithm";
+const _PEAhas = "Phase2EncryptionAlgorithm";
 const _PED = "PartitionEndDate";
 const _PEk = "PkceEnabled";
 const _PF = "PacketField";
@@ -92697,6 +92823,8 @@ const _PIAC = "PrivateIpAddressCount";
 const _PIACr = "PrivateIpAddressConfigs";
 const _PIAh = "Phase1IntegrityAlgorithms";
 const _PIAha = "Phase2IntegrityAlgorithms";
+const _PIAhas = "Phase1IntegrityAlgorithm";
+const _PIAhase = "Phase2IntegrityAlgorithm";
 const _PIAr = "PrivateIpAddress";
 const _PIAu = "PublicIpAddress";
 const _PIB = "ProvisionIpamByoasn";
@@ -92759,13 +92887,17 @@ const _PSET = "PreviousSlotEndTime";
 const _PSFRS = "PreviousSpotFleetRequestState";
 const _PSI = "PurchaseScheduledInstances";
 const _PSK = "PreSharedKey";
+const _PSKA = "PreSharedKeyArn";
 const _PSKE = "PublicSigningKeyEndpoint";
+const _PSKS = "PreSharedKeyStorage";
 const _PSKU = "PublicSigningKeyUrl";
+const _PSR = "ProvisioningStatusReason";
 const _PSe = "PeeringStatus";
 const _PSer = "PermissionState";
 const _PSh = "PhcSupport";
-const _PSr = "PreviousState";
-const _PSre = "PreviousStatus";
+const _PSr = "ProvisioningStatus";
+const _PSre = "PreviousState";
+const _PSrev = "PreviousStatus";
 const _PT = "PurchaseToken";
 const _PTGI = "PeerTransitGatewayId";
 const _PTS = "PoolTagSpecifications";
@@ -93190,7 +93322,8 @@ const _STRt = "StateTransitionReason";
 const _STS = "SnapshotTierStatuses";
 const _STSt = "StoreTaskState";
 const _STT = "StateTransitionTime";
-const _STa = "SampleTime";
+const _STa = "SampleType";
+const _STam = "SampleTime";
 const _STe = "ServiceType";
 const _STo = "SourceType";
 const _STs = "SseType";
@@ -93660,6 +93793,7 @@ const _aV = "attributeValue";
 const _aVC = "availableVCpus";
 const _aVI = "accepterVpcInfo";
 const _aVS = "attributeValueSet";
+const _aVTS = "activeVpnTunnelStatus";
 const _aZ = "availabilityZone";
 const _aZG = "availabilityZoneGroup";
 const _aZI = "availabilityZoneId";
@@ -94340,9 +94474,10 @@ const _iTns = "instanceTenancy";
 const _iTnt = "interfaceType";
 const _iU = "ipUsage";
 const _iUS = "instanceUsageSet";
-const _iV = "importVolume";
+const _iV = "ikeVersion";
 const _iVE = "isValidExchange";
 const _iVS = "ikeVersionSet";
+const _iVm = "importVolume";
 const _id = "id";
 const _im = "image";
 const _in = "instance";
@@ -94683,8 +94818,10 @@ const _pCr = "productCode";
 const _pD = "passwordData";
 const _pDE = "privateDnsEnabled";
 const _pDEr = "privateDnsEntry";
+const _pDHG = "phase1DHGroup";
 const _pDHGNS = "phase1DHGroupNumberSet";
 const _pDHGNSh = "phase2DHGroupNumberSet";
+const _pDHGh = "phase2DHGroup";
 const _pDN = "privateDnsName";
 const _pDNC = "privateDnsNameConfiguration";
 const _pDNO = "privateDnsNameOptions";
@@ -94704,8 +94841,10 @@ const _pDo = "policyDocument";
 const _pDoo = "poolDepth";
 const _pDr = "productDescription";
 const _pE = "policyEnabled";
+const _pEA = "phase1EncryptionAlgorithm";
 const _pEAS = "phase1EncryptionAlgorithmSet";
 const _pEASh = "phase2EncryptionAlgorithmSet";
+const _pEAh = "phase2EncryptionAlgorithm";
 const _pEk = "pkceEnabled";
 const _pF = "packetField";
 const _pFS = "previousFleetState";
@@ -94716,10 +94855,12 @@ const _pGS = "placementGroupSet";
 const _pHP = "perHourPartition";
 const _pHS = "packetHeaderStatement";
 const _pI = "publicIp";
-const _pIA = "privateIpAddress";
+const _pIA = "phase1IntegrityAlgorithm";
 const _pIAS = "privateIpAddressesSet";
 const _pIASh = "phase1IntegrityAlgorithmSet";
 const _pIASha = "phase2IntegrityAlgorithmSet";
+const _pIAh = "phase2IntegrityAlgorithm";
+const _pIAr = "privateIpAddress";
 const _pIDN = "publicIpv6DnsName";
 const _pIDNO = "publicIpDnsNameOptions";
 const _pIDNu = "publicIpv4DnsName";
@@ -94760,18 +94901,21 @@ const _pRU = "ptrRecordUpdate";
 const _pRa = "payerResponsibility";
 const _pRo = "portRange";
 const _pRol = "policyRule";
-const _pS = "previousState";
+const _pS = "provisioningStatus";
 const _pSET = "previousSlotEndTime";
 const _pSFRS = "previousSpotFleetRequestState";
 const _pSK = "preSharedKey";
+const _pSKA = "preSharedKeyArn";
 const _pSKE = "publicSigningKeyEndpoint";
 const _pSKU = "publicSigningKeyUrl";
+const _pSR = "provisioningStatusReason";
 const _pSe = "permissionState";
 const _pSee = "peeringStatus";
 const _pSh = "phcSupport";
-const _pSr = "principalSet";
+const _pSr = "previousState";
 const _pSre = "previousStatus";
-const _pSri = "priceSchedules";
+const _pSri = "principalSet";
+const _pSric = "priceSchedules";
 const _pSro = "protocolSet";
 const _pT = "principalType";
 const _pTGI = "peerTransitGatewayId";

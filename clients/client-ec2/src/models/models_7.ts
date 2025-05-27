@@ -25,6 +25,7 @@ import {
   TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
+  TransitGatewayPolicyTableAssociation,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
   VerifiedAccessInstance,
@@ -166,10 +167,124 @@ import {
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
-  TransitGatewayPolicyRule,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayPolicyTableAssociationsResult {
+  /**
+   * <p>Returns details about the transit gateway policy table association.</p>
+   * @public
+   */
+  Associations?: TransitGatewayPolicyTableAssociation[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayPolicyTableEntriesRequest {
+  /**
+   * <p>The ID of the transit gateway policy table.</p>
+   * @public
+   */
+  TransitGatewayPolicyTableId: string | undefined;
+
+  /**
+   * <p>The filters associated with the transit gateway policy table.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the meta data tags associated with a transit gateway policy rule.</p>
+ * @public
+ */
+export interface TransitGatewayPolicyRuleMetaData {
+  /**
+   * <p>The key name for the transit gateway policy rule meta data tag.</p>
+   * @public
+   */
+  MetaDataKey?: string | undefined;
+
+  /**
+   * <p>The value of the key for the transit gateway policy rule meta data tag.</p>
+   * @public
+   */
+  MetaDataValue?: string | undefined;
+}
+
+/**
+ * <p>Describes a rule associated with a transit gateway policy.</p>
+ * @public
+ */
+export interface TransitGatewayPolicyRule {
+  /**
+   * <p>The source CIDR block for the transit gateway policy rule.</p>
+   * @public
+   */
+  SourceCidrBlock?: string | undefined;
+
+  /**
+   * <p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>
+   * @public
+   */
+  SourcePortRange?: string | undefined;
+
+  /**
+   * <p>The destination CIDR block for the transit gateway policy rule.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string | undefined;
+
+  /**
+   * <p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>
+   * @public
+   */
+  DestinationPortRange?: string | undefined;
+
+  /**
+   * <p>The protocol used by the transit gateway policy rule.</p>
+   * @public
+   */
+  Protocol?: string | undefined;
+
+  /**
+   * <p>The meta data tags used for the transit gateway policy rule.</p>
+   * @public
+   */
+  MetaData?: TransitGatewayPolicyRuleMetaData | undefined;
+}
 
 /**
  * <p>Describes a transit gateway policy table entry</p>
@@ -670,6 +785,12 @@ export interface GetVpnConnectionDeviceSampleConfigurationRequest {
    * @public
    */
   InternetKeyExchangeVersion?: string | undefined;
+
+  /**
+   * <p>The type of sample configuration to generate. Valid values are "compatibility" (includes IKEv1) or "recommended" (throws UnsupportedOperationException for IKEv1).</p>
+   * @public
+   */
+  SampleType?: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually
@@ -7886,6 +8007,12 @@ export interface ModifyVpnTunnelOptionsRequest {
    * @public
    */
   SkipTunnelReplacement?: boolean | undefined;
+
+  /**
+   * <p>Specifies the storage mode for the pre-shared key (PSK). Valid values are <code>Standard</code> (stored in Site-to-Site VPN service) or <code>SecretsManager</code> (stored in Amazon Web Services Secrets Manager).</p>
+   * @public
+   */
+  PreSharedKeyStorage?: string | undefined;
 }
 
 /**
@@ -9318,77 +9445,6 @@ export interface ReleaseAddressRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ReleaseHostsRequest {
-  /**
-   * <p>The IDs of the Dedicated Hosts to release.</p>
-   * @public
-   */
-  HostIds: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ReleaseHostsResult {
-  /**
-   * <p>The IDs of the Dedicated Hosts that were successfully released.</p>
-   * @public
-   */
-  Successful?: string[] | undefined;
-
-  /**
-   * <p>The IDs of the Dedicated Hosts that could not be released, including an error
-   *             message.</p>
-   * @public
-   */
-  Unsuccessful?: UnsuccessfulItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ReleaseIpamPoolAllocationRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM pool which contains the allocation you want to release.</p>
-   * @public
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>The CIDR of the allocation you want to release.</p>
-   * @public
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>The ID of the allocation.</p>
-   * @public
-   */
-  IpamPoolAllocationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ReleaseIpamPoolAllocationResult {
-  /**
-   * <p>Indicates if the release was successful.</p>
-   * @public
-   */
-  Success?: boolean | undefined;
 }
 
 /**

@@ -41,7 +41,6 @@ import {
   FleetLaunchTemplateSpecification,
   FleetType,
   InstanceInterruptionBehavior,
-  InstanceIpv6Address,
   InstanceRequirements,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
@@ -59,6 +58,7 @@ import {
 import {
   DnsEntry,
   GroupIdentifier,
+  InstanceIpv6Address,
   IpAddressType,
   LaunchTemplateVersion,
   LaunchTemplateVersionFilterSensitiveLog,
@@ -114,11 +114,85 @@ import {
   ServiceConfiguration,
   ServiceConnectivityType,
   ServiceTypeDetail,
-  VpnConnection,
-  VpnConnectionFilterSensitiveLog,
 } from "./models_3";
 
-import { AttributeBooleanValue, EventInformation, PermissionGroup, ProductCode } from "./models_4";
+import { AttributeBooleanValue, EventInformation, KeyPairInfo, PermissionGroup, ProductCode } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeKeyPairsResult {
+  /**
+   * <p>Information about the key pairs.</p>
+   * @public
+   */
+  KeyPairs?: KeyPairInfo[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeLaunchTemplatesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>One or more launch template IDs.</p>
+   * @public
+   */
+  LaunchTemplateIds?: string[] | undefined;
+
+  /**
+   * <p>One or more launch template names.</p>
+   * @public
+   */
+  LaunchTemplateNames?: string[] | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>create-time</code> - The time the launch template was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>launch-template-name</code> - The name of the launch template.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another call with the returned <code>NextToken</code> value. This value
+   *             can be between 1 and 200.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
 
 /**
  * @public
@@ -12771,108 +12845,6 @@ export interface DescribeVpcsResult {
 }
 
 /**
- * <p>Contains the parameters for DescribeVpnConnections.</p>
- * @public
- */
-export interface DescribeVpnConnectionsRequest {
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>customer-gateway-configuration</code> - The configuration information
-   *                     for the customer gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>customer-gateway-id</code> - The ID of a customer gateway associated
-   *                     with the VPN connection.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the VPN connection (<code>pending</code> |
-   *                         <code>available</code> | <code>deleting</code> |
-   *                     <code>deleted</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>option.static-routes-only</code> - Indicates whether the connection has
-   *                     static routes only. Used for devices that do not support Border Gateway Protocol
-   *                     (BGP).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.destination-cidr-block</code> - The destination CIDR block. This
-   *                     corresponds to the subnet used in a customer data center.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>bgp-asn</code> - The BGP Autonomous System Number (ASN) associated with
-   *                     a BGP device.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>type</code> - The type of VPN connection. Currently the only supported
-   *                     type is <code>ipsec.1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpn-connection-id</code> - The ID of the VPN connection.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpn-gateway-id</code> - The ID of a virtual private gateway associated
-   *                     with the VPN connection.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-id</code> - The ID of a transit gateway associated with
-   *                     the VPN connection.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>One or more VPN connection IDs.</p>
-   *          <p>Default: Describes your VPN connections.</p>
-   * @public
-   */
-  VpnConnectionIds?: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Contains the output of DescribeVpnConnections.</p>
- * @public
- */
-export interface DescribeVpnConnectionsResult {
-  /**
-   * <p>Information about one or more VPN connections.</p>
-   * @public
-   */
-  VpnConnections?: VpnConnection[] | undefined;
-}
-
-/**
  * @internal
  */
 export const DescribeLaunchTemplateVersionsResultFilterSensitiveLog = (
@@ -12958,15 +12930,5 @@ export const DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog = (
     VerifiedAccessTrustProviders: obj.VerifiedAccessTrustProviders.map((item) =>
       VerifiedAccessTrustProviderFilterSensitiveLog(item)
     ),
-  }),
-});
-
-/**
- * @internal
- */
-export const DescribeVpnConnectionsResultFilterSensitiveLog = (obj: DescribeVpnConnectionsResult): any => ({
-  ...obj,
-  ...(obj.VpnConnections && {
-    VpnConnections: obj.VpnConnections.map((item) => VpnConnectionFilterSensitiveLog(item)),
   }),
 });

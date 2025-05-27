@@ -72,7 +72,73 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
+  VpcEndpoint,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface CreateVpcEndpointResult {
+  /**
+   * <p>Information about the endpoint.</p>
+   * @public
+   */
+  VpcEndpoint?: VpcEndpoint | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcEndpointConnectionNotificationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the endpoint service.</p>
+   * @public
+   */
+  ServiceId?: string | undefined;
+
+  /**
+   * <p>The ID of the endpoint.</p>
+   * @public
+   */
+  VpcEndpointId?: string | undefined;
+
+  /**
+   * <p>The ARN of the SNS topic for the notifications.</p>
+   * @public
+   */
+  ConnectionNotificationArn: string | undefined;
+
+  /**
+   * <p>The endpoint events for which to receive notifications. Valid values are
+   *                 <code>Accept</code>, <code>Connect</code>, <code>Delete</code>, and
+   *                 <code>Reject</code>.</p>
+   * @public
+   */
+  ConnectionEvents: string[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure
+   *                 idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
 
 /**
  * @public
@@ -1070,6 +1136,12 @@ export interface CreateVpnConnectionRequest {
   TagSpecifications?: TagSpecification[] | undefined;
 
   /**
+   * <p>Specifies the storage mode for the pre-shared key (PSK). Valid values are <code>Standard</code>" (stored in the Site-to-Site VPN service) or <code>SecretsManager</code> (stored in Amazon Web Services Secrets Manager).</p>
+   * @public
+   */
+  PreSharedKeyStorage?: string | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
@@ -1605,6 +1677,12 @@ export interface VpnConnection {
    * @public
    */
   VgwTelemetry?: VgwTelemetry[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection.</p>
+   * @public
+   */
+  PreSharedKeyArn?: string | undefined;
 
   /**
    * <p>The ID of the VPN connection.</p>
@@ -7500,69 +7578,6 @@ export interface ClientVpnConnection {
    * @public
    */
   PostureComplianceStatuses?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClientVpnConnectionsResult {
-  /**
-   * <p>Information about the active and terminated client connections.</p>
-   * @public
-   */
-  Connections?: ClientVpnConnection[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClientVpnEndpointsRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   * @public
-   */
-  ClientVpnEndpointIds?: string[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>endpoint-id</code> - The ID of the Client VPN endpoint.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transport-protocol</code> - The transport protocol (<code>tcp</code> |
-   *                     <code>udp</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**

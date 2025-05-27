@@ -50,6 +50,7 @@ export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput
  *   VpnConnectionId: "STRING_VALUE", // required
  *   VpnConnectionDeviceTypeId: "STRING_VALUE", // required
  *   InternetKeyExchangeVersion: "STRING_VALUE",
+ *   SampleType: "STRING_VALUE",
  *   DryRun: true || false,
  * };
  * const command = new GetVpnConnectionDeviceSampleConfigurationCommand(input);

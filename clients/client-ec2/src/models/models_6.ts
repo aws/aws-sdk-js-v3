@@ -3,6 +3,7 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   AccessScopeAnalysisFinding,
+  ActiveVpnTunnelStatus,
   AddressTransfer,
   AllowedImagesSettingsDisabledState,
   AllowedImagesSettingsEnabledState,
@@ -51,7 +52,16 @@ import {
   SubnetCidrReservation,
 } from "./models_2";
 
-import { Filter, IpamPoolCidr, MetricType, PeriodType, StatisticType, VpnGateway } from "./models_3";
+import {
+  Filter,
+  IpamPoolCidr,
+  MetricType,
+  PeriodType,
+  StatisticType,
+  VpnConnection,
+  VpnConnectionFilterSensitiveLog,
+  VpnGateway,
+} from "./models_3";
 
 import {
   ArchitectureType,
@@ -69,6 +79,108 @@ import {
 } from "./models_4";
 
 import { AnalysisStatus, ManagedBy } from "./models_5";
+
+/**
+ * <p>Contains the parameters for DescribeVpnConnections.</p>
+ * @public
+ */
+export interface DescribeVpnConnectionsRequest {
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>customer-gateway-configuration</code> - The configuration information
+   *                     for the customer gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>customer-gateway-id</code> - The ID of a customer gateway associated
+   *                     with the VPN connection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the VPN connection (<code>pending</code> |
+   *                         <code>available</code> | <code>deleting</code> |
+   *                     <code>deleted</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>option.static-routes-only</code> - Indicates whether the connection has
+   *                     static routes only. Used for devices that do not support Border Gateway Protocol
+   *                     (BGP).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.destination-cidr-block</code> - The destination CIDR block. This
+   *                     corresponds to the subnet used in a customer data center.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bgp-asn</code> - The BGP Autonomous System Number (ASN) associated with
+   *                     a BGP device.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>type</code> - The type of VPN connection. Currently the only supported
+   *                     type is <code>ipsec.1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpn-connection-id</code> - The ID of the VPN connection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpn-gateway-id</code> - The ID of a virtual private gateway associated
+   *                     with the VPN connection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-id</code> - The ID of a transit gateway associated with
+   *                     the VPN connection.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>One or more VPN connection IDs.</p>
+   *          <p>Default: Describes your VPN connections.</p>
+   * @public
+   */
+  VpnConnectionIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Contains the output of DescribeVpnConnections.</p>
+ * @public
+ */
+export interface DescribeVpnConnectionsResult {
+  /**
+   * <p>Information about one or more VPN connections.</p>
+   * @public
+   */
+  VpnConnections?: VpnConnection[] | undefined;
+}
 
 /**
  * <p>Contains the parameters for DescribeVpnGateways.</p>
@@ -3319,6 +3431,40 @@ export interface ExportVerifiedAccessInstanceClientConfigurationResult {
    * @public
    */
   OpenVpnConfigurations?: VerifiedAccessInstanceOpenVpnClientConfiguration[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetActiveVpnTunnelStatusRequest {
+  /**
+   * <p>The ID of the VPN connection for which to retrieve the active tunnel status.</p>
+   * @public
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
+   * <p>The external IP address of the VPN tunnel for which to retrieve the active status.</p>
+   * @public
+   */
+  VpnTunnelOutsideIpAddress: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetActiveVpnTunnelStatusResult {
+  /**
+   * <p>Information about the current security configuration of the VPN tunnel.</p>
+   * @public
+   */
+  ActiveVpnTunnelStatus?: ActiveVpnTunnelStatus | undefined;
 }
 
 /**
@@ -7598,119 +7744,14 @@ export interface GetTransitGatewayPolicyTableAssociationsRequest {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface GetTransitGatewayPolicyTableAssociationsResult {
-  /**
-   * <p>Returns details about the transit gateway policy table association.</p>
-   * @public
-   */
-  Associations?: TransitGatewayPolicyTableAssociation[] | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayPolicyTableEntriesRequest {
-  /**
-   * <p>The ID of the transit gateway policy table.</p>
-   * @public
-   */
-  TransitGatewayPolicyTableId: string | undefined;
-
-  /**
-   * <p>The filters associated with the transit gateway policy table.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes the meta data tags associated with a transit gateway policy rule.</p>
- * @public
- */
-export interface TransitGatewayPolicyRuleMetaData {
-  /**
-   * <p>The key name for the transit gateway policy rule meta data tag.</p>
-   * @public
-   */
-  MetaDataKey?: string | undefined;
-
-  /**
-   * <p>The value of the key for the transit gateway policy rule meta data tag.</p>
-   * @public
-   */
-  MetaDataValue?: string | undefined;
-}
-
-/**
- * <p>Describes a rule associated with a transit gateway policy.</p>
- * @public
- */
-export interface TransitGatewayPolicyRule {
-  /**
-   * <p>The source CIDR block for the transit gateway policy rule.</p>
-   * @public
-   */
-  SourceCidrBlock?: string | undefined;
-
-  /**
-   * <p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>
-   * @public
-   */
-  SourcePortRange?: string | undefined;
-
-  /**
-   * <p>The destination CIDR block for the transit gateway policy rule.</p>
-   * @public
-   */
-  DestinationCidrBlock?: string | undefined;
-
-  /**
-   * <p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>
-   * @public
-   */
-  DestinationPortRange?: string | undefined;
-
-  /**
-   * <p>The protocol used by the transit gateway policy rule.</p>
-   * @public
-   */
-  Protocol?: string | undefined;
-
-  /**
-   * <p>The meta data tags used for the transit gateway policy rule.</p>
-   * @public
-   */
-  MetaData?: TransitGatewayPolicyRuleMetaData | undefined;
-}
+export const DescribeVpnConnectionsResultFilterSensitiveLog = (obj: DescribeVpnConnectionsResult): any => ({
+  ...obj,
+  ...(obj.VpnConnections && {
+    VpnConnections: obj.VpnConnections.map((item) => VpnConnectionFilterSensitiveLog(item)),
+  }),
+});
 
 /**
  * @internal

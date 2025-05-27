@@ -1678,6 +1678,10 @@ import {
   ExportVerifiedAccessInstanceClientConfigurationCommandOutput,
 } from "./commands/ExportVerifiedAccessInstanceClientConfigurationCommand";
 import {
+  GetActiveVpnTunnelStatusCommandInput,
+  GetActiveVpnTunnelStatusCommandOutput,
+} from "./commands/GetActiveVpnTunnelStatusCommand";
+import {
   GetAllowedImagesSettingsCommandInput,
   GetAllowedImagesSettingsCommandOutput,
 } from "./commands/GetAllowedImagesSettingsCommand";
@@ -2890,6 +2894,7 @@ export type ServiceInputTypes =
   | ExportImageCommandInput
   | ExportTransitGatewayRoutesCommandInput
   | ExportVerifiedAccessInstanceClientConfigurationCommandInput
+  | GetActiveVpnTunnelStatusCommandInput
   | GetAllowedImagesSettingsCommandInput
   | GetAssociatedEnclaveCertificateIamRolesCommandInput
   | GetAssociatedIpv6PoolCidrsCommandInput
@@ -3580,6 +3585,7 @@ export type ServiceOutputTypes =
   | ExportImageCommandOutput
   | ExportTransitGatewayRoutesCommandOutput
   | ExportVerifiedAccessInstanceClientConfigurationCommandOutput
+  | GetActiveVpnTunnelStatusCommandOutput
   | GetAllowedImagesSettingsCommandOutput
   | GetAssociatedEnclaveCertificateIamRolesCommandOutput
   | GetAssociatedIpv6PoolCidrsCommandOutput

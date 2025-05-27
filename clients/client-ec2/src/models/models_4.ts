@@ -46,7 +46,6 @@ import {
   FleetType,
   HostnameType,
   InstanceBandwidthWeighting,
-  InstanceIpv6Address,
   InstanceLifecycle,
   InternetGateway,
   Ipam,
@@ -67,9 +66,79 @@ import {
   TransportProtocol,
 } from "./models_1";
 
-import { GroupIdentifier, NetworkInterfaceStatus, StateReason } from "./models_2";
+import { GroupIdentifier, InstanceIpv6Address, NetworkInterfaceStatus, StateReason } from "./models_2";
 
-import { Byoasn, Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+import {
+  Byoasn,
+  ClientVpnConnection,
+  Filter,
+  FleetStateCode,
+  IdFormat,
+  InstanceTagNotificationAttribute,
+} from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeClientVpnConnectionsResult {
+  /**
+   * <p>Information about the active and terminated client connections.</p>
+   * @public
+   */
+  Connections?: ClientVpnConnection[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClientVpnEndpointsRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   * @public
+   */
+  ClientVpnEndpointIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>endpoint-id</code> - The ID of the Client VPN endpoint.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transport-protocol</code> - The transport protocol (<code>tcp</code> |
+   *                     <code>udp</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -11890,82 +11959,6 @@ export interface KeyPairInfo {
    * @public
    */
   KeyFingerprint?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeKeyPairsResult {
-  /**
-   * <p>Information about the key pairs.</p>
-   * @public
-   */
-  KeyPairs?: KeyPairInfo[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeLaunchTemplatesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>One or more launch template IDs.</p>
-   * @public
-   */
-  LaunchTemplateIds?: string[] | undefined;
-
-  /**
-   * <p>One or more launch template names.</p>
-   * @public
-   */
-  LaunchTemplateNames?: string[] | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>create-time</code> - The time the launch template was created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>launch-template-name</code> - The name of the launch template.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 1 and 200.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
 }
 
 /**
