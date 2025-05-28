@@ -53,7 +53,6 @@ import {
   IpamPool,
   IpamResourceDiscovery,
   IpamScope,
-  KeyType,
   LaunchTemplateAndOverridesResponse,
   LogDestinationType,
   OperatorResponse,
@@ -70,12 +69,122 @@ import { GroupIdentifier, InstanceIpv6Address, NetworkInterfaceStatus, StateReas
 
 import {
   Byoasn,
-  ClientVpnConnection,
+  ClientVpnConnectionStatusCode,
   Filter,
   FleetStateCode,
   IdFormat,
   InstanceTagNotificationAttribute,
 } from "./models_3";
+
+/**
+ * <p>Describes the status of a client connection.</p>
+ * @public
+ */
+export interface ClientVpnConnectionStatus {
+  /**
+   * <p>The state of the client connection.</p>
+   * @public
+   */
+  Code?: ClientVpnConnectionStatusCode | undefined;
+
+  /**
+   * <p>A message about the status of the client connection, if applicable.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>Describes a client connection.</p>
+ * @public
+ */
+export interface ClientVpnConnection {
+  /**
+   * <p>The ID of the Client VPN endpoint to which the client is connected.</p>
+   * @public
+   */
+  ClientVpnEndpointId?: string | undefined;
+
+  /**
+   * <p>The current date and time.</p>
+   * @public
+   */
+  Timestamp?: string | undefined;
+
+  /**
+   * <p>The ID of the client connection.</p>
+   * @public
+   */
+  ConnectionId?: string | undefined;
+
+  /**
+   * <p>The username of the client who established the client connection. This information is only provided
+   * 			if Active Directory client authentication is used.</p>
+   * @public
+   */
+  Username?: string | undefined;
+
+  /**
+   * <p>The date and time the client connection was established.</p>
+   * @public
+   */
+  ConnectionEstablishedTime?: string | undefined;
+
+  /**
+   * <p>The number of bytes sent by the client.</p>
+   * @public
+   */
+  IngressBytes?: string | undefined;
+
+  /**
+   * <p>The number of bytes received by the client.</p>
+   * @public
+   */
+  EgressBytes?: string | undefined;
+
+  /**
+   * <p>The number of packets sent by the client.</p>
+   * @public
+   */
+  IngressPackets?: string | undefined;
+
+  /**
+   * <p>The number of packets received by the client.</p>
+   * @public
+   */
+  EgressPackets?: string | undefined;
+
+  /**
+   * <p>The IP address of the client.</p>
+   * @public
+   */
+  ClientIp?: string | undefined;
+
+  /**
+   * <p>The common name associated with the client. This is either the name of the client certificate,
+   * 			or the Active Directory user name.</p>
+   * @public
+   */
+  CommonName?: string | undefined;
+
+  /**
+   * <p>The current state of the client connection.</p>
+   * @public
+   */
+  Status?: ClientVpnConnectionStatus | undefined;
+
+  /**
+   * <p>The date and time the client connection was terminated.</p>
+   * @public
+   */
+  ConnectionEndTime?: string | undefined;
+
+  /**
+   * <p>The statuses returned by the client connect handler for posture compliance, if applicable.</p>
+   * @public
+   */
+  PostureComplianceStatuses?: string[] | undefined;
+}
 
 /**
  * @public
@@ -4849,8 +4958,8 @@ export interface ImageAttribute {
    * <p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data,
    *       use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the
    *         <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
-   *       GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
-   *         <i>Amazon EC2 User Guide</i>.</p>
+   *       GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot for Amazon EC2
+   *         instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   UefiData?: AttributeValue | undefined;
@@ -5414,8 +5523,8 @@ export interface Image {
   VirtualizationType?: VirtualizationType | undefined;
 
   /**
-   * <p>The boot mode of the image. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
-   *         <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The boot mode of the image. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Instance launch behavior with Amazon EC2
+   *         boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   BootMode?: BootModeValues | undefined;
@@ -5488,8 +5597,8 @@ export interface Image {
    *          <p>The ID only appears if the AMI was created using <a>CreateImage</a>, <a>CopyImage</a>, or <a>CreateRestoreImageTask</a>. The ID does not appear
    *       if the AMI was created using any other API. For some older AMIs, the ID might not be
    *       available. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/identify-source-ami-used-to-create-new-ami.html">Identify the
-   *         source AMI used to create a new AMI</a> in the
-   *       <i>Amazon EC2 User Guide</i>.</p>
+   *         source AMI used to create a new Amazon EC2 AMI</a> in the
+   *         <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   SourceImageId?: string | undefined;
@@ -5499,8 +5608,8 @@ export interface Image {
    *          <p>The Region only appears if the AMI was created using <a>CreateImage</a>, <a>CopyImage</a>, or <a>CreateRestoreImageTask</a>. The Region does not
    *       appear if the AMI was created using any other API. For some older AMIs, the Region might not
    *       be available. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/identify-source-ami-used-to-create-new-ami.html">Identify the
-   *         source AMI used to create a new AMI</a> in the
-   *       <i>Amazon EC2 User Guide</i>.</p>
+   *         source AMI used to create a new Amazon EC2 AMI</a> in the
+   *         <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   SourceImageRegion?: string | undefined;
@@ -11824,141 +11933,6 @@ export interface DescribeIpv6PoolsResult {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeKeyPairsRequest {
-  /**
-   * <p>The key pair names.</p>
-   *          <p>Default: Describes all of your key pairs.</p>
-   * @public
-   */
-  KeyNames?: string[] | undefined;
-
-  /**
-   * <p>The IDs of the key pairs.</p>
-   * @public
-   */
-  KeyPairIds?: string[] | undefined;
-
-  /**
-   * <p>If <code>true</code>, the public key material is included in the response.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  IncludePublicKey?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>key-pair-id</code> - The ID of the key pair.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fingerprint</code> - The fingerprint of the key pair.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>key-name</code> - The name of the key pair.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Describes a key pair.</p>
- * @public
- */
-export interface KeyPairInfo {
-  /**
-   * <p>The ID of the key pair.</p>
-   * @public
-   */
-  KeyPairId?: string | undefined;
-
-  /**
-   * <p>The type of key pair.</p>
-   * @public
-   */
-  KeyType?: KeyType | undefined;
-
-  /**
-   * <p>Any tags applied to the key pair.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The public key material.</p>
-   * @public
-   */
-  PublicKey?: string | undefined;
-
-  /**
-   * <p>If you used Amazon EC2 to create the key pair, this is the date and time when the key
-   *             was created, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
-   *                 8601 date-time format</a>, in the UTC time zone.</p>
-   *          <p>If you imported an existing key pair to Amazon EC2, this is the date and time the key
-   *             was imported, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
-   *                 8601 date-time format</a>, in the UTC time zone.</p>
-   * @public
-   */
-  CreateTime?: Date | undefined;
-
-  /**
-   * <p>The name of the key pair.</p>
-   * @public
-   */
-  KeyName?: string | undefined;
-
-  /**
-   * <p>If you used <a>CreateKeyPair</a> to create the key pair:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For RSA key pairs, the key fingerprint is the SHA-1 digest of the DER encoded private key.</p>
-   *             </li>
-   *             <li>
-   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which
-   *                    is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you used <a>ImportKeyPair</a> to provide Amazon Web Services the public key:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC4716.</p>
-   *             </li>
-   *             <li>
-   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256
-   *                     digest, which is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  KeyFingerprint?: string | undefined;
 }
 
 /**

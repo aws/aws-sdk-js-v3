@@ -37,7 +37,7 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
  *       destination. Backing snapshots copied to an Outpost are encrypted by default using the default
  *       encryption key for the Region or the key that you specify. Outposts do not support unencrypted
  *       snapshots.</p>
- *          <p>For information about the prerequisites when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copy an AMI</a> in the
+ *          <p>For information about the prerequisites when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copy an Amazon EC2 AMI</a> in the
  *         <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

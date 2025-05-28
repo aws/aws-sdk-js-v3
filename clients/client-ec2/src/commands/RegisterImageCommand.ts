@@ -49,8 +49,8 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  *       the encryption state of the volume using the block device mapping. If the snapshot is
  *       encrypted, or encryption by default is enabled, the root volume of an instance launched from
  *       the AMI is encrypted.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create an AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with Amazon EBS-backed
- *         AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create an AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with EBS-backed AMIs</a>
+ *       in the <i>Amazon EC2 User Guide</i>.</p>
  *          <p>
  *             <b>Amazon Web Services Marketplace product codes</b>
  *          </p>

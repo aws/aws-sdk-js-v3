@@ -35,7 +35,7 @@ export interface GetImageBlockPublicAccessStateCommandOutput
 /**
  * <p>Gets the current state of <i>block public access for AMIs</i> at the account
  *       level in the specified Amazon Web Services Region.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis">Block
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-to-amis.html">Block
  *       public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

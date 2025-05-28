@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RejectVpcPeeringConnectionRequest, RejectVpcPeeringConnectionResult } from "../models/models_7";
+import { RejectVpcPeeringConnectionRequest } from "../models/models_7";
+import { RejectVpcPeeringConnectionResult } from "../models/models_8";
 import { de_RejectVpcPeeringConnectionCommand, se_RejectVpcPeeringConnectionCommand } from "../protocols/Aws_ec2";
 
 /**

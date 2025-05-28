@@ -34,8 +34,8 @@ export interface EnableImageCommandOutput extends EnableImageResult, __MetadataB
  *       disabled do not regain access automatically. Once the AMI is available, it can be shared with
  *       them again.</p>
  *          <p>Only the AMI owner can re-enable a disabled AMI.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html">Disable an AMI</a> in the
- *       <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html">Disable an Amazon EC2 AMI</a>
+ *       in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

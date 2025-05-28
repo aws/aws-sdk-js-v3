@@ -87,8 +87,9 @@ export interface CopyFpgaImageResult {
 export interface CopyImageRequest {
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For
-   *       more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
-   *       in the <i>Amazon EC2 API Reference</i>.</p>
+   *       more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency in
+   *           Amazon EC2 API requests</a> in the <i>Amazon EC2 API
+   *       Reference</i>.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -209,8 +210,8 @@ export interface CopyImageRequest {
    *       meet the timing target.</p>
    *          <p>If you do not specify a value, the AMI copy operation is completed on a best-effort
    *       basis.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/time-based-copies.html">
-   *       Time-based copies</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/time-based-copies.html">Time-based copies for Amazon EBS snapshots and
+   *         EBS-backed AMIs</a>.</p>
    * @public
    */
   SnapshotCopyCompletionDurationMinutes?: number | undefined;

@@ -3085,8 +3085,6 @@ import {
   CapacityReservationFleet,
   CapacityReservationInfo,
   ClassicLinkInstance,
-  ClientVpnConnection,
-  ClientVpnConnectionStatus,
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
@@ -3194,6 +3192,7 @@ import {
   DeleteSecurityGroupRequest,
   DeleteSecurityGroupResult,
   DeleteSnapshotRequest,
+  DeleteSnapshotReturnCode,
   DeleteSpotDatafeedSubscriptionRequest,
   DeleteSubnetCidrReservationRequest,
   DeleteSubnetCidrReservationResult,
@@ -3362,6 +3361,8 @@ import {
   ClientLoginBannerResponseOptions,
   ClientRouteEnforcementResponseOptions,
   ClientVpnAuthentication,
+  ClientVpnConnection,
+  ClientVpnConnectionStatus,
   ClientVpnEndpoint,
   ClientVpnEndpointAttributeStatus,
   ClientVpnRoute,
@@ -3473,7 +3474,6 @@ import {
   DescribeIpamsResult,
   DescribeIpv6PoolsRequest,
   DescribeIpv6PoolsResult,
-  DescribeKeyPairsRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -3556,7 +3556,6 @@ import {
   InstanceTypeInfo,
   InstanceTypeOffering,
   Ipv6Pool,
-  KeyPairInfo,
   LaunchPermission,
   LicenseConfiguration,
   LoadPermission,
@@ -3598,6 +3597,7 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeKeyPairsRequest,
   DescribeKeyPairsResult,
   DescribeLaunchTemplatesRequest,
   DescribeLaunchTemplatesResult,
@@ -3787,10 +3787,9 @@ import {
   DescribeVpcEndpointsResult,
   DescribeVpcPeeringConnectionsRequest,
   DescribeVpcPeeringConnectionsResult,
-  DescribeVpcsRequest,
-  DescribeVpcsResult,
   HistoryRecord,
   InstanceNetworkInterfaceSpecification,
+  KeyPairInfo,
   LaunchSpecification,
   LaunchTemplateConfig,
   LaunchTemplateOverrides,
@@ -3875,6 +3874,8 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeVpcsRequest,
+  DescribeVpcsResult,
   DescribeVpnConnectionsRequest,
   DescribeVpnConnectionsResult,
   DescribeVpnGatewaysRequest,
@@ -4104,8 +4105,6 @@ import {
   GetTransitGatewayAttachmentPropagationsRequest,
   GetTransitGatewayAttachmentPropagationsResult,
   GetTransitGatewayMulticastDomainAssociationsRequest,
-  GetTransitGatewayMulticastDomainAssociationsResult,
-  GetTransitGatewayPolicyTableAssociationsRequest,
   ImageCriterion,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
@@ -4156,6 +4155,8 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetTransitGatewayMulticastDomainAssociationsResult,
+  GetTransitGatewayPolicyTableAssociationsRequest,
   GetTransitGatewayPolicyTableAssociationsResult,
   GetTransitGatewayPolicyTableEntriesRequest,
   GetTransitGatewayPolicyTableEntriesResult,
@@ -4402,8 +4403,6 @@ import {
   RejectVpcEndpointConnectionsRequest,
   RejectVpcEndpointConnectionsResult,
   RejectVpcPeeringConnectionRequest,
-  RejectVpcPeeringConnectionResult,
-  ReleaseAddressRequest,
   RemoveIpamOperatingRegion,
   RemoveIpamOrganizationalUnitExclusion,
   RemovePrefixListEntry,
@@ -4448,6 +4447,8 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RejectVpcPeeringConnectionResult,
+  ReleaseAddressRequest,
   ReleaseHostsRequest,
   ReleaseHostsResult,
   ReleaseIpamPoolAllocationRequest,
@@ -37883,6 +37884,9 @@ const se_DeregisterImageRequest = (input: DeregisterImageRequest, context: __Ser
   if (input[_IIma] != null) {
     entries[_IIma] = input[_IIma];
   }
+  if (input[_DAS] != null) {
+    entries[_DAS] = input[_DAS];
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -50294,8 +50298,8 @@ const se_ModifyInstanceAttributeRequest = (input: ModifyInstanceAttributeRequest
       entries[loc] = value;
     });
   }
-  if (input[_DAS] != null) {
-    const memberEntries = se_AttributeBooleanValue(input[_DAS], context);
+  if (input[_DASi] != null) {
+    const memberEntries = se_AttributeBooleanValue(input[_DASi], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DisableApiStop.${key}`;
       entries[loc] = value;
@@ -55206,8 +55210,8 @@ const se_RequestLaunchTemplateData = (input: RequestLaunchTemplateData, context:
       entries[loc] = value;
     });
   }
-  if (input[_DAS] != null) {
-    entries[_DAS] = input[_DAS];
+  if (input[_DASi] != null) {
+    entries[_DASi] = input[_DASi];
   }
   if (input[_O] != null) {
     const memberEntries = se_OperatorRequest(input[_O], context);
@@ -56257,8 +56261,8 @@ const se_RunInstancesRequest = (input: RunInstancesRequest, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input[_DAS] != null) {
-    entries[_DAS] = input[_DAS];
+  if (input[_DASi] != null) {
+    entries[_DASi] = input[_DASi];
   }
   if (input[_EPI] != null) {
     entries[_EPI] = input[_EPI];
@@ -65193,6 +65197,31 @@ const de_DeleteSecurityGroupResult = (output: any, context: __SerdeContext): Del
 };
 
 /**
+ * deserializeAws_ec2DeleteSnapshotResultSet
+ */
+const de_DeleteSnapshotResultSet = (output: any, context: __SerdeContext): DeleteSnapshotReturnCode[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DeleteSnapshotReturnCode(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2DeleteSnapshotReturnCode
+ */
+const de_DeleteSnapshotReturnCode = (output: any, context: __SerdeContext): DeleteSnapshotReturnCode => {
+  const contents: any = {};
+  if (output[_sIn] != null) {
+    contents[_SIn] = __expectString(output[_sIn]);
+  }
+  if (output[_rC] != null) {
+    contents[_RCet] = __expectString(output[_rC]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2DeleteSubnetCidrReservationResult
  */
 const de_DeleteSubnetCidrReservationResult = (
@@ -65598,6 +65627,14 @@ const de_DeprovisionPublicIpv4PoolCidrResult = (
  */
 const de_DeregisterImageResult = (output: any, context: __SerdeContext): DeregisterImageResult => {
   const contents: any = {};
+  if (output[_r] != null) {
+    contents[_Ret] = __parseBoolean(output[_r]);
+  }
+  if (output.deleteSnapshotResultSet === "") {
+    contents[_DSR] = [];
+  } else if (output[_dSRS] != null && output[_dSRS][_i] != null) {
+    contents[_DSR] = de_DeleteSnapshotResultSet(__getArrayIfSingleItem(output[_dSRS][_i]), context);
+  }
   return contents;
 };
 
@@ -74298,7 +74335,7 @@ const de_InstanceAttribute = (output: any, context: __SerdeContext): InstanceAtt
     contents[_UD] = de_AttributeValue(output[_uDs], context);
   }
   if (output[_dASi] != null) {
-    contents[_DAS] = de_AttributeBooleanValue(output[_dASi], context);
+    contents[_DASi] = de_AttributeBooleanValue(output[_dASi], context);
   }
   if (output.groupSet === "") {
     contents[_G] = [];
@@ -83299,7 +83336,7 @@ const de_ResponseLaunchTemplateData = (output: any, context: __SerdeContext): Re
     contents[_MOa] = de_LaunchTemplateInstanceMaintenanceOptions(output[_mOa], context);
   }
   if (output[_dASi] != null) {
-    contents[_DAS] = __parseBoolean(output[_dASi]);
+    contents[_DASi] = __parseBoolean(output[_dASi]);
   }
   if (output[_op] != null) {
     contents[_O] = de_OperatorResponse(output[_op], context);
@@ -91388,7 +91425,8 @@ const _DAIT = "DenyAllIgwTraffic";
 const _DANPMS = "DescribeAwsNetworkPerformanceMetricSubscriptions";
 const _DANPMSi = "DisableAwsNetworkPerformanceMetricSubscription";
 const _DART = "DefaultAssociationRouteTable";
-const _DAS = "DisableApiStop";
+const _DAS = "DeleteAssociatedSnapshots";
+const _DASi = "DisableApiStop";
 const _DAT = "DescribeAddressTransfers";
 const _DATi = "DisableAddressTransfer";
 const _DATis = "DisableApiTermination";
@@ -91671,6 +91709,7 @@ const _DSIR = "DescribeSpotInstanceRequests";
 const _DSIT = "DescribeStoreImageTasks";
 const _DSLVI = "DescribeServiceLinkVirtualInterfaces";
 const _DSPH = "DescribeSpotPriceHistory";
+const _DSR = "DeleteSnapshotResults";
 const _DSSG = "DescribeStaleSecurityGroups";
 const _DSTS = "DescribeSnapshotTierStatus";
 const _DSe = "DeleteSubnet";
@@ -94074,6 +94113,7 @@ const _dRe = "debuggingRestrictions";
 const _dRy = "dynamicRouting";
 const _dS = "dnsServer";
 const _dSCR = "deletedSubnetCidrReservation";
+const _dSRS = "deleteSnapshotResultSet";
 const _dSe = "destinationSet";
 const _dSel = "deliveryStatus";
 const _dSeli = "deliveryStream";

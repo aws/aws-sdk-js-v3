@@ -44,9 +44,10 @@ import {
   TransitGatewayRoute,
 } from "./models_2";
 
-import { ClientVpnConnectionStatus, Filter } from "./models_3";
+import { Filter } from "./models_3";
 
 import {
+  ClientVpnConnectionStatus,
   HttpTokensState,
   InstanceAttributeName,
   InstanceAutoRecoveryState,
@@ -70,6 +71,50 @@ import {
 } from "./models_5";
 
 import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_7";
+
+/**
+ * @public
+ */
+export interface RejectVpcPeeringConnectionResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReleaseAddressRequest {
+  /**
+   * <p>The allocation ID. This parameter is required.</p>
+   * @public
+   */
+  AllocationId?: string | undefined;
+
+  /**
+   * <p>Deprecated.</p>
+   * @public
+   */
+  PublicIp?: string | undefined;
+
+  /**
+   * <p>The set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services advertises
+   *       IP addresses.</p>
+   *          <p>If you provide an incorrect network border group, you receive an <code>InvalidAddress.NotFound</code> error.</p>
+   * @public
+   */
+  NetworkBorderGroup?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public

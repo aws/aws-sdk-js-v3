@@ -4932,6 +4932,17 @@ export interface DeregisterImageRequest {
   ImageId: string | undefined;
 
   /**
+   * <p>Specifies whether to delete the snapshots associated with the AMI during
+   *       deregistration.</p>
+   *          <note>
+   *             <p>If a snapshot is associated with multiple AMIs, it is not deleted, regardless of this setting.</p>
+   *          </note>
+   *          <p>Default: The snapshots are not deleted.</p>
+   * @public
+   */
+  DeleteAssociatedSnapshots?: boolean | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    * 			and provides an error response. If you have the required permissions, the error response is
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -4942,8 +4953,86 @@ export interface DeregisterImageRequest {
 
 /**
  * @public
+ * @enum
  */
-export interface DeregisterImageResult {}
+export const SnapshotReturnCodes = {
+  ERROR_CODE_CLIENT_ERROR: "client-error",
+  ERROR_CODE_INTERNAL_ERROR: "internal-error",
+  ERROR_MISSING_PERMISSIONS: "missing-permissions",
+  SUCCESS: "success",
+  WARN_SKIPPED: "skipped",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapshotReturnCodes = (typeof SnapshotReturnCodes)[keyof typeof SnapshotReturnCodes];
+
+/**
+ * <p>The snapshot ID and its deletion result code.</p>
+ * @public
+ */
+export interface DeleteSnapshotReturnCode {
+  /**
+   * <p>The ID of the snapshot.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The result code from the snapshot deletion attempt. Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>success</code> - The snapshot was successfully deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>skipped</code> - The snapshot was not deleted because it's associated with other
+   *           AMIs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>missing-permissions</code> - The snapshot was not deleted because the role lacks
+   *             <code>DeleteSnapshot</code> permissions. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/security_iam_service-with-iam.html">How
+   *             Amazon EBS works with IAM</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>internal-error</code> - The snapshot was not deleted due to a server
+   *           error.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>client-error</code> - The snapshot was not deleted due to a client configuration
+   *           error.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For details about an error, check the <code>DeleteSnapshot</code> event in the CloudTrail
+   *       event history. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/tutorial-event-history.html">View event history</a>
+   *       in the <i>Amazon Web Services CloudTrail User Guide</i>.</p>
+   * @public
+   */
+  ReturnCode?: SnapshotReturnCodes | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeregisterImageResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+
+  /**
+   * <p>The deletion result for each snapshot associated with the AMI, including the snapshot ID
+   *       and its success or error code.</p>
+   * @public
+   */
+  DeleteSnapshotResults?: DeleteSnapshotReturnCode[] | undefined;
+}
 
 /**
  * <p>Information about the tag keys to deregister for the current Region. You can either
@@ -7469,116 +7558,6 @@ export const ClientVpnConnectionStatusCode = {
  */
 export type ClientVpnConnectionStatusCode =
   (typeof ClientVpnConnectionStatusCode)[keyof typeof ClientVpnConnectionStatusCode];
-
-/**
- * <p>Describes the status of a client connection.</p>
- * @public
- */
-export interface ClientVpnConnectionStatus {
-  /**
-   * <p>The state of the client connection.</p>
-   * @public
-   */
-  Code?: ClientVpnConnectionStatusCode | undefined;
-
-  /**
-   * <p>A message about the status of the client connection, if applicable.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>Describes a client connection.</p>
- * @public
- */
-export interface ClientVpnConnection {
-  /**
-   * <p>The ID of the Client VPN endpoint to which the client is connected.</p>
-   * @public
-   */
-  ClientVpnEndpointId?: string | undefined;
-
-  /**
-   * <p>The current date and time.</p>
-   * @public
-   */
-  Timestamp?: string | undefined;
-
-  /**
-   * <p>The ID of the client connection.</p>
-   * @public
-   */
-  ConnectionId?: string | undefined;
-
-  /**
-   * <p>The username of the client who established the client connection. This information is only provided
-   * 			if Active Directory client authentication is used.</p>
-   * @public
-   */
-  Username?: string | undefined;
-
-  /**
-   * <p>The date and time the client connection was established.</p>
-   * @public
-   */
-  ConnectionEstablishedTime?: string | undefined;
-
-  /**
-   * <p>The number of bytes sent by the client.</p>
-   * @public
-   */
-  IngressBytes?: string | undefined;
-
-  /**
-   * <p>The number of bytes received by the client.</p>
-   * @public
-   */
-  EgressBytes?: string | undefined;
-
-  /**
-   * <p>The number of packets sent by the client.</p>
-   * @public
-   */
-  IngressPackets?: string | undefined;
-
-  /**
-   * <p>The number of packets received by the client.</p>
-   * @public
-   */
-  EgressPackets?: string | undefined;
-
-  /**
-   * <p>The IP address of the client.</p>
-   * @public
-   */
-  ClientIp?: string | undefined;
-
-  /**
-   * <p>The common name associated with the client. This is either the name of the client certificate,
-   * 			or the Active Directory user name.</p>
-   * @public
-   */
-  CommonName?: string | undefined;
-
-  /**
-   * <p>The current state of the client connection.</p>
-   * @public
-   */
-  Status?: ClientVpnConnectionStatus | undefined;
-
-  /**
-   * <p>The date and time the client connection was terminated.</p>
-   * @public
-   */
-  ConnectionEndTime?: string | undefined;
-
-  /**
-   * <p>The statuses returned by the client connect handler for posture compliance, if applicable.</p>
-   * @public
-   */
-  PostureComplianceStatuses?: string[] | undefined;
-}
 
 /**
  * @internal

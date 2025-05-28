@@ -167,9 +167,65 @@ import {
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
+  TransitGatewayMulticastDomainAssociation,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayMulticastDomainAssociationsResult {
+  /**
+   * <p>Information about the multicast domain associations.</p>
+   * @public
+   */
+  MulticastDomainAssociations?: TransitGatewayMulticastDomainAssociation[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayPolicyTableAssociationsRequest {
+  /**
+   * <p>The ID of the transit gateway policy table.</p>
+   * @public
+   */
+  TransitGatewayPolicyTableId: string | undefined;
+
+  /**
+   * <p>The filters associated with the transit gateway policy table.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -8862,7 +8918,7 @@ export interface RegisterImageRequest {
   /**
    * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the
    *         <code>aws-exec-read</code> canned access control list (ACL) to ensure that it can be
-   *       accessed by Amazon EC2. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned ACLs</a> in the
+   *       accessed by Amazon EC2. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned ACL</a> in the
    *         <i>Amazon S3 Service Developer Guide</i>.</p>
    * @public
    */
@@ -8873,9 +8929,7 @@ export interface RegisterImageRequest {
    *       codes.</p>
    *          <p>If your account is not authorized to specify billing product codes, you can publish AMIs
    *       that include billable software and list them on the Amazon Web Services Marketplace. You must first register as a seller
-   *       on the Amazon Web Services Marketplace. For more information, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/user-guide-for-sellers.html">Getting started as a
-   *         seller</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html">AMI-based products</a> in the
-   *         <i>Amazon Web Services Marketplace Seller Guide</i>.</p>
+   *       on the Amazon Web Services Marketplace. For more information, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/user-guide-for-sellers.html">Getting started as an Amazon Web Services Marketplace seller</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html">AMI-based products in Amazon Web Services Marketplace</a> in the <i>Amazon Web Services Marketplace Seller Guide</i>.</p>
    * @public
    */
   BillingProducts?: string[] | undefined;
@@ -8887,8 +8941,8 @@ export interface RegisterImageRequest {
    *             <p>The operating system contained in the AMI must be configured to support the specified
    *         boot mode.</p>
    *          </note>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
-   *         <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Instance launch behavior with Amazon EC2
+   *         boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   BootMode?: BootModeValues | undefined;
@@ -8904,8 +8958,8 @@ export interface RegisterImageRequest {
    * <p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data,
    *       use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the
    *         <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
-   *       GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
-   *         <i>Amazon EC2 User Guide</i>.</p>
+   *       GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot for Amazon EC2
+   *         instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   UefiData?: string | undefined;
@@ -8988,8 +9042,8 @@ export interface RegisterImageRequest {
    *       encryption state of the volume.</p>
    *          <p>If you create an AMI on an Outpost, then all backing snapshots must be on the same Outpost
    *       or in the Region of that Outpost. AMIs on an Outpost that include local snapshots can be used
-   *       to launch instances on the same Outpost only. For more information, <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">Amazon EBS local
-   *         snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.</p>
+   *       to launch instances on the same Outpost only. For more information, <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">Create AMIs from
+   *         local snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
    * @public
    */
   BlockDeviceMappings?: BlockDeviceMapping[] | undefined;
@@ -9401,50 +9455,6 @@ export interface RejectVpcPeeringConnectionRequest {
    * @public
    */
   VpcPeeringConnectionId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectVpcPeeringConnectionResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ReleaseAddressRequest {
-  /**
-   * <p>The allocation ID. This parameter is required.</p>
-   * @public
-   */
-  AllocationId?: string | undefined;
-
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  PublicIp?: string | undefined;
-
-  /**
-   * <p>The set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services advertises
-   *       IP addresses.</p>
-   *          <p>If you provide an incorrect network border group, you receive an <code>InvalidAddress.NotFound</code> error.</p>
-   * @public
-   */
-  NetworkBorderGroup?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**

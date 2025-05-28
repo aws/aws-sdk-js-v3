@@ -33,8 +33,12 @@ export interface DeregisterImageCommandOutput extends DeregisterImageResult, __M
  *          <p>If a deregistered EBS-backed AMI matches a Recycle Bin retention rule, it moves to the
  *       Recycle Bin for the specified retention period. It can be restored before its retention period
  *       expires, after which it is permanently deleted. If the deregistered AMI doesn't match a
- *       retention rule, it is permanently deleted immediately. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in
- *       the <i>Amazon EBS User Guide</i>.</p>
+ *       retention rule, it is permanently deleted immediately. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recover deleted Amazon EBS
+ *         snapshots and EBS-backed AMIs with Recycle Bin</a> in the <i>Amazon EBS User
+ *         Guide</i>.</p>
+ *          <p>When deregistering an EBS-backed AMI, you can optionally delete its associated snapshots
+ *       at the same time. However, if a snapshot is associated with multiple AMIs, it won't be deleted
+ *       even if specified for deletion, although the AMI will still be deregistered.</p>
  *          <p>Deregistering an AMI does not delete the following:</p>
  *          <ul>
  *             <li>
@@ -42,8 +46,8 @@ export interface DeregisterImageCommandOutput extends DeregisterImageResult, __M
  *           instances until you terminate them.</p>
  *             </li>
  *             <li>
- *                <p>For EBS-backed AMIs: The snapshots that were created of the root and data volumes of
- *           the instance during AMI creation. You'll continue to incur snapshot storage costs.</p>
+ *                <p>For EBS-backed AMIs: Snapshots that are associated with multiple AMIs. You'll continue
+ *           to incur snapshot storage costs.</p>
  *             </li>
  *             <li>
  *                <p>For instance store-backed AMIs: The files uploaded to Amazon S3 during AMI creation. You'll
@@ -60,11 +64,20 @@ export interface DeregisterImageCommandOutput extends DeregisterImageResult, __M
  * const client = new EC2Client(config);
  * const input = { // DeregisterImageRequest
  *   ImageId: "STRING_VALUE", // required
+ *   DeleteAssociatedSnapshots: true || false,
  *   DryRun: true || false,
  * };
  * const command = new DeregisterImageCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DeregisterImageResult
+ * //   Return: true || false,
+ * //   DeleteSnapshotResults: [ // DeleteSnapshotResultSet
+ * //     { // DeleteSnapshotReturnCode
+ * //       SnapshotId: "STRING_VALUE",
+ * //       ReturnCode: "success" || "skipped" || "missing-permissions" || "internal-error" || "client-error",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *
@@ -105,7 +118,7 @@ export class DeregisterImageCommand extends $Command
   protected declare static __types: {
     api: {
       input: DeregisterImageRequest;
-      output: {};
+      output: DeregisterImageResult;
     };
     sdk: {
       input: DeregisterImageCommandInput;
