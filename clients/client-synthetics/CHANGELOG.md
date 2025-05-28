@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.819.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.818.0...v3.819.0) (2025-05-28)
+
+
+### Features
+
+* **client-synthetics:** Add support to change ephemeral storage. Add a new field "TestResult" under CanaryRunStatus. ([7467f15](https://github.com/aws/aws-sdk-js-v3/commit/7467f15ba52ac515c50610c02a27f9b2083fb191))
+
+
+
+
+
 # [3.817.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.816.0...v3.817.0) (2025-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-synthetics

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.819.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.818.0...v3.819.0) (2025-05-28)
+
+
+### Features
+
+* **client-cost-optimization-hub:** This release allows customers to modify their preferred commitment term and payment options. ([09599cb](https://github.com/aws/aws-sdk-js-v3/commit/09599cb370b6673674505f02c2d30c5ef81c9ffd))
+* **client-ec2:** Enable the option to automatically delete underlying Amazon EBS snapshots when deregistering Amazon Machine Images (AMIs) ([93df0c5](https://github.com/aws/aws-sdk-js-v3/commit/93df0c5dcb98390d1c7fbd443269e71fdb426788))
+* **client-eventbridge:** Allow for more than 2 characters for location codes in EventBridge ARNs ([9f438f0](https://github.com/aws/aws-sdk-js-v3/commit/9f438f0e132f7af25b3f755d9cf80316aebe900e))
+* **client-network-firewall:** You can now use VPC endpoint associations to create multiple firewall endpoints for a single firewall. ([73b191f](https://github.com/aws/aws-sdk-js-v3/commit/73b191ffd4f429024ace38a0b8e95b07b69cd30a))
+* **client-synthetics:** Add support to change ephemeral storage. Add a new field "TestResult" under CanaryRunStatus. ([7467f15](https://github.com/aws/aws-sdk-js-v3/commit/7467f15ba52ac515c50610c02a27f9b2083fb191))
+* **clients:** update client endpoints as of 2025-05-28 ([0541c92](https://github.com/aws/aws-sdk-js-v3/commit/0541c92693c844108945fd21ef12a2b1b34d8c0f))
+
+
+
+
+
 # [3.818.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.817.0...v3.818.0) (2025-05-27)
 
 

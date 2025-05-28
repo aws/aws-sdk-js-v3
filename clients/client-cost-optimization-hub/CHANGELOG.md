@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.819.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.818.0...v3.819.0) (2025-05-28)
+
+
+### Features
+
+* **client-cost-optimization-hub:** This release allows customers to modify their preferred commitment term and payment options. ([09599cb](https://github.com/aws/aws-sdk-js-v3/commit/09599cb370b6673674505f02c2d30c5ef81c9ffd))
+
+
+
+
+
 # [3.817.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.816.0...v3.817.0) (2025-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-cost-optimization-hub

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.819.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.818.0...v3.819.0) (2025-05-28)
+
+
+### Features
+
+* **client-ec2:** Enable the option to automatically delete underlying Amazon EBS snapshots when deregistering Amazon Machine Images (AMIs) ([93df0c5](https://github.com/aws/aws-sdk-js-v3/commit/93df0c5dcb98390d1c7fbd443269e71fdb426788))
+
+
+
+
+
 # [3.818.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.817.0...v3.818.0) (2025-05-27)
 
 
