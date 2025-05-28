@@ -1,4 +1,4 @@
-import {isSchemaType, SchemaType} from "./SchemaType";
+import {isSchemaType, SchemaType} from "./schemaType";
 
 /**
  * A key => value mapping outlining how to convert an arbitrary JavaScript

@@ -1,4 +1,4 @@
-import type { Schema } from './Schema';
+import type { Schema } from './schema';
 
 /**
  * Symbol for defining table name metadata on a class

@@ -1,4 +1,4 @@
-import { describe, expect,it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 import type { Schema } from '../../schema';
 import { unmarshallItem } from './unmarshallItem';

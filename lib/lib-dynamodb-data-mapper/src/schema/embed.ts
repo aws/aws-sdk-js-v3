@@ -1,5 +1,5 @@
 import { DynamoDbSchema } from './schemaMetadata';
-import type { DocumentType, ZeroArgumentsConstructor } from './SchemaType';
+import type { DocumentType, ZeroArgumentsConstructor } from './schemaType';
 
 /**
  * Options for configuring an embedded document field in a schema.

@@ -2,7 +2,7 @@ import type { AttributeValue } from '@aws-sdk/client-dynamodb';
 import { marshallOptions } from '@aws-sdk/util-dynamodb';
 
 import { Schema } from '../schema';
-import { marshallItem } from './core/marshallItem';
+import { marshallItem } from './core/';
 import { unmarshallItem } from './core/unmarshallItem';
 import { marshallKey } from './key/marshallKey';
 

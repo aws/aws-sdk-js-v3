@@ -11,7 +11,7 @@ import {
     KeySchema,
     KeyTypeMap,
     ScalarAttributeType,
-} from './KeySchema';
+} from '../../schema/keySchema';
 
 export function keysFromSchema(schema: Schema): KeySchema {
     const attributes: AttributeTypeMap = {};

@@ -1,8 +1,8 @@
 import { AttributeValue } from '@aws-sdk/client-dynamodb';
 import type { marshallOptions } from '@aws-sdk/util-dynamodb';
 
-import type { Schema } from '../../schema/Schema';
-import { marshallValue } from '../core/marshallValue';
+import type { Schema } from '../../schema';
+import { marshallValue } from '../core';
 import { isKey } from './isKey';
 
 export type AttributeMap = {[key: string]: AttributeValue};

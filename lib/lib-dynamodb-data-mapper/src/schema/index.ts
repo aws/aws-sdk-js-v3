@@ -1,3 +1,4 @@
-export * from './Schema';
-export * from './SchemaType';
+export * from './embed';
+export * from './schema';
 export * from './schemaMetadata';
+export * from './schemaType';

@@ -8,9 +8,50 @@ Welcome! We're excited that you're interested in contributing to the DataMapper 
 
 This project follows naming conventions inspired by the AWS SDK for JavaScript v3.
 
+### Factories & Classes
+
+Use **PascalCase** for files that export a primary class or factory-centric class (e.g., with a static `.from()` method).
+
+Examples:
+
+- `DataMapper.ts` – exports `class DataMapper` with a `static from()` method
+- `DataMarshaller.ts` – utility class with only static methods
+- `User.ts` – domain model class
+- `Address.ts` – embedded document class
+
+These files may include:
+
+- Static factory methods (e.g., `from()`, `create()`)
+- Type or interface definitions related to the class
+- Utility functions scoped to the class (if minimal)
+
+> Avoid PascalCase for utility-only modules that do not define a class.
+
+```ts
+// ✅ OK
+export class DataMapper {
+  static from(...) { ... }
+}
+```
+
+❌ Avoid using PascalCase when exporting only functions or constants
+**Bad example** (file named DataMapper.ts but doesn’t export a class):
+
+```ts
+// ❌ File: DataMapper.ts
+export function createMapper(config: Config): Mapper { ... } // no class
+```
+
+**Instead, use a camelCase name:**
+
+```ts
+// ✅ File: createMapper.ts
+export function createMapper(config: Config): Mapper { ... }
+```
+
 ### Commands
 
-Use `PascalCaseCommand.ts` for all DataMapper commands.
+Use **PascalCase** for all DataMapper commands.
 
 Examples:
 
@@ -27,7 +68,7 @@ Each file should export:
 
 ### Middleware
 
-Use `camelCaseMiddleware.ts` and export each middleware as a named function.
+Use **camelCase** and export each middleware as a named function.
 
 Examples:
 
@@ -39,7 +80,7 @@ Examples:
 
 ### Utilities & Helpers
 
-Use `camelCase.ts` for reusable utility functions or internal helpers.
+Use **camelCase** for reusable utility functions or internal helpers.
 
 Examples:
 
@@ -51,7 +92,7 @@ Examples:
 
 ### Constants & Symbols
 
-Use either `camelCase.ts` or `symbols.ts` for defining shared constants or symbols.
+Use either **camelCase** for defining shared constants or symbols.
 
 Examples:
 
@@ -63,14 +104,26 @@ Examples:
 
 ### Models & Types
 
-Use PascalCase file names for shared type definitions.
+Use **PascalCase** file names **only** when the file exports a single, top-level `class` or `type alias` that matches the filename exactly.
+
+Examples
+
+- `SchemaType.ts` – if it only exports `type SchemaType = ...`
+- `User.ts` – if it exports `class User`
+
+---
+
+Use **camelCase** file names when:
+
+- The file exports **multiple types, interfaces, or utility functions**
+- It is a shared schema or marshaller utility module
 
 Examples:
 
-- `SchemaType.ts`
-- `AttributeValue.ts`
+- `schemaType.ts` – multiple schema-related types and helpers
+- `keySchema.ts` – exports `KeySchema`, `KeyTypeMap`, etc.
 
-Interfaces specific to a command can be defined in the same file as the command class.
+Interfaces that are **specific to a command** can be defined in the same file as the command implementation.
 
 ---
 
@@ -82,8 +135,10 @@ Interfaces specific to a command can be defined in the same file as the command 
 Example:
 
 ```
+
 marshallItem.ts
 marshallItem.spec.ts
+
 ```
 
 Use the **AAA pattern**: Arrange, Act, Assert.

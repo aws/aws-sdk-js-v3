@@ -1,6 +1,6 @@
-import { describe, expect,it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
-import type { Schema } from '../../schema/Schema';
+import type { Schema } from '../../schema/';
 import { marshallItem } from './marshallItem';
 
 describe('marshallItem', () => {

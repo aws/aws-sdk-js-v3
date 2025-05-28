@@ -1,4 +1,4 @@
-import { KeyType } from '../../schema';
+import { KeyType } from './schemaType';
 
 export interface AttributeTypeMap {
     [attributeName: string]: ScalarAttributeType;

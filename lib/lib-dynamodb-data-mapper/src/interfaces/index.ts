@@ -1,1 +1,1 @@
-export * from './DataMapper.interface';
+export * from './dataMapper.interface';

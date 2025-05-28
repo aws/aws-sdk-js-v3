@@ -15,7 +15,7 @@ import { DataMapperConfig, IDataMapper } from './interfaces/';
 import { DataMarshaller } from './marshaller/DataMarshaller';
 import { getSchema } from './schema/';
 import { getTableName } from './schema/';
-import { Schema } from './schema/Schema';
+import { Schema } from './schema/schema';
 
 
 export class DataMapper implements IDataMapper {

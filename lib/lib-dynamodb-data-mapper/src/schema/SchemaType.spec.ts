@@ -1,7 +1,7 @@
 import { describe, expect,it } from 'vitest';
 
-import {Schema} from "./Schema";
-import {isSchemaType} from "./SchemaType";
+import {Schema} from "./schema";
+import {isSchemaType} from "./schemaType";
 
 
 describe('isSchemaType', () => {

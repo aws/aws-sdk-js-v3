@@ -1,8 +1,8 @@
 import { AttributeValue } from '@aws-sdk/client-dynamodb';
 import { marshallOptions } from "@aws-sdk/util-dynamodb";
 
-import { ScalarAttributeType } from '../marshaller/key/KeySchema';
-import { Schema } from './Schema';
+import { ScalarAttributeType } from '../marshaller';
+import { Schema } from './schema';
 
 /**
  * The enumeration of types supported by this marshaller package.
