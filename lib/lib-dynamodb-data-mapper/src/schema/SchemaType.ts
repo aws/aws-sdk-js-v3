@@ -171,7 +171,7 @@ export interface CustomType<JsType> extends BaseType<JsType>, KeyableType {
      * A function that converts an input value into a DynamoDB attribute value.
      * This function will not be invoked if the input value is undefined.
      *
-     * @param input The value to be converted.
+     * @param input - The value to be converted.
      */
     marshall: (input: JsType)=> AttributeValue;
 
@@ -179,7 +179,7 @@ export interface CustomType<JsType> extends BaseType<JsType>, KeyableType {
      * A function that converts a DynamoDB AttributeValue into a JavaScript
      * value.
      *
-     * @param persistedValue The value to be converted.
+     * @param persistedValue - The value to be converted.
      */
     unmarshall: (persistedValue: AttributeValue) => JsType;
 }
@@ -224,7 +224,7 @@ export interface DocumentType<T = {[key: string]: any}>extends BaseType<T> {
 }
 
 /**
- * A node used to store a key => value mapping of mixed or untyped values.
+ * A node used to store a key-to-value mapping of mixed or untyped values.
  * Values provided for this node will be marshalled using run-time type
  * detection and may not be exactly the same when unmarshalled.
  */

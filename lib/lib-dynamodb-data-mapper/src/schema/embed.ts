@@ -20,8 +20,8 @@ export interface DocumentTypeOptions<T extends object> {
  * Declares a field in your schema as an embedded document (nested object)
  * that has its own schema defined via `DynamoDbSchema`.
  *
- * @param constructor The class constructor of the embedded document.
- * @param options Optional configuration for attribute name or default value.
+ * @param constructor - The class constructor of the embedded document.
+ * @param options - Optional configuration for attribute name or default value.
  * @returns A `DocumentType` schema node used in manual schema definitions.
  */
 export function embed<T extends object>(

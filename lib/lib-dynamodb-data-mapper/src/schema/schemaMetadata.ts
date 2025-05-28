@@ -1,25 +1,27 @@
 import type { Schema } from './schema';
 
 /**
- * Symbol for defining table name metadata on a class
+ * Symbol for defining table name metadata on a class.
+ *
  * Can be:
- *  - method: [DynamoDbTable]() => string
- *  - property: [DynamoDbTable]: string
- * 
- *  @example
+ * - A method: `[DynamoDbTable](): string`
+ * - A property: `[DynamoDbTable]: string`
  *
- *      class FooDocument {
- *          [DynamoDbTable]() {
- *              return 'FooTable';
- *          }
+ * @example
+ * ```ts
+ * class FooDocument {
+ *   [DynamoDbTable]() {
+ *     return 'FooTable';
+ *   }
  *
- *          [DynamoDbSchema]() {
- *              return {
- *                  bar: {type: 'String'},
- *                  baz: {type: 'Number'},
- *              };
- *          }
- *      }
+ *   [DynamoDbSchema]() {
+ *     return {
+ *       bar: { type: 'String' },
+ *       baz: { type: 'Number' },
+ *     };
+ *   }
+ * }
+ * ```
  */
 export const DynamoDbTable = Symbol.for('DynamoDbTableName');
 
@@ -41,22 +43,24 @@ export function getTableName(item: any, tableNamePrefix = ''): string {
 }
 
 /**
- * Symbol for defining schema metadata on a class
+ * Symbol for defining schema metadata on a class.
+ *
  * Can be used as:
- *  - method: [DynamoDbSchema]() => Schema
- *  - property: [DynamoDbSchema]: Schema
+ * - A method: `[DynamoDbSchema](): Schema`
+ * - A property: `[DynamoDbSchema]: Schema`
  *
  * @example
- *
- *      class FooDocument {
- *          [DynamoDbSchema]() {
- *              return {
- *                  bar: {type: 'String'},
- *                  baz: {type: 'Number'},
- *              };
- *          }
- *      }
- */ 
+ * ```ts
+ * class FooDocument {
+ *   [DynamoDbSchema]() {
+ *     return {
+ *       bar: { type: 'String' },
+ *       baz: { type: 'Number' },
+ *     };
+ *   }
+ * }
+ * ```
+ */
 export const DynamoDbSchema = Symbol.for('DynamoDbSchema');
 
 export function getSchema(item: any): Schema {
