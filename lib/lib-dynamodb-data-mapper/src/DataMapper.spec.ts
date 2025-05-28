@@ -2,7 +2,7 @@ import {
   GetItemCommand,
   PutItemCommand,  
  } from '@aws-sdk/client-dynamodb';
-import { afterEach,beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { DataMapper } from './DataMapper';
 import { DynamoDbSchema, DynamoDbTable } from './schema';
@@ -23,7 +23,7 @@ afterEach(() => {
 
 describe('DataMapper', () => {
   it('should send PutItemCommand with marshalled input', async () => {
-    const mapper = new DataMapper({ client: mockClient });
+    const mapper = DataMapper.from(mockClient);
     const user = { id: '123', name: 'Alice' };
 
     const schema = {
@@ -31,8 +31,8 @@ describe('DataMapper', () => {
       name: { type: 'String' },
     };
 
-    Object.defineProperty(user, Symbol.for('DynamoDbSchema'), { value: schema });
-    Object.defineProperty(user, Symbol.for('DynamoDbTable'), { value: 'Users' });
+    Object.defineProperty(user, DynamoDbTable, { value: 'Users' });
+    Object.defineProperty(user, DynamoDbSchema, { value: schema });
 
     mockSend.mockResolvedValueOnce({});
 
@@ -62,7 +62,7 @@ describe('DataMapper', () => {
     };
     User[DynamoDbTable] = 'Users';
 
-    const mapper = new DataMapper({ client: mockClient });
+    const mapper = DataMapper.from(mockClient);
 
     const fakeResponse = {
       Item: {

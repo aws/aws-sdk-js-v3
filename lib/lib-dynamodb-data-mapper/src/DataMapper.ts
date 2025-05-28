@@ -22,7 +22,7 @@ export class DataMapper implements IDataMapper {
   private readonly client: DynamoDBClient;
   private readonly translateConfig?: marshallOptions;
 
-  constructor(config: DataMapperConfig) {
+  private constructor(config: DataMapperConfig) {
     this.client = config.client;
     this.translateConfig = config.translateConfig;
   }
@@ -34,7 +34,7 @@ export class DataMapper implements IDataMapper {
 
   async put<T extends object>(item: T, criteria?: Omit<Partial<PutItemCommandInput>, 'TableName' | 'Item'>, httpOptions?: HttpHandlerOptions): Promise<T> {
     const schema = getSchema(item);
-    const tableName = getTableName(schema);
+    const tableName = getTableName(item);
 
     const command = new PutItemCommand({
       TableName: tableName,
@@ -47,8 +47,8 @@ export class DataMapper implements IDataMapper {
   }
 
   async get<T extends object>(key: Partial<T>, modelCtor: new () => T, httpOptions?: HttpHandlerOptions): Promise<T | undefined> {
-    const schema: Schema = getSchema(modelCtor.prototype);
-    const tableName = getTableName(schema);
+    const schema = getSchema(modelCtor);
+    const tableName = getTableName(modelCtor);
 
     const command = new GetItemCommand({
       TableName: tableName,

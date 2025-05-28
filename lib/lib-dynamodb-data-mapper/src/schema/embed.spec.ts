@@ -1,5 +1,7 @@
+import { describe, expect, it } from 'vitest';
+
 import { embed } from './embed';
-import { DynamoDbSchema } from './schemaMetadata';
+import { DynamoDbSchema, DynamoDbTable } from './schemaMetadata';
 
 describe('embed', () => {
   const schema = { foo: { type: 'String' } };
@@ -7,6 +9,10 @@ describe('embed', () => {
   class Embeddable {}
   Object.defineProperty(Embeddable.prototype, DynamoDbSchema as any, {
     value: schema,
+  });
+
+  Object.defineProperty(Embeddable.prototype, DynamoDbTable as any, {
+    value: 'DummyTable',
   });
 
   it('should return a DocumentType using the embedded schema of a document constructor', () => {
