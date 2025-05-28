@@ -44,12 +44,16 @@ export interface ListFlowOperationResultsCommandOutput extends ListFlowOperation
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   AvailabilityZone: "STRING_VALUE",
+ *   VpcEndpointId: "STRING_VALUE",
+ *   VpcEndpointAssociationArn: "STRING_VALUE",
  * };
  * const command = new ListFlowOperationResultsCommand(input);
  * const response = await client.send(command);
  * // { // ListFlowOperationResultsResponse
  * //   FirewallArn: "STRING_VALUE",
  * //   AvailabilityZone: "STRING_VALUE",
+ * //   VpcEndpointAssociationArn: "STRING_VALUE",
+ * //   VpcEndpointId: "STRING_VALUE",
  * //   FlowOperationId: "STRING_VALUE",
  * //   FlowOperationStatus: "COMPLETED" || "IN_PROGRESS" || "FAILED" || "COMPLETED_WITH_ERRORS",
  * //   StatusMessage: "STRING_VALUE",

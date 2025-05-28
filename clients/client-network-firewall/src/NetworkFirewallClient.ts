@@ -68,6 +68,10 @@ import {
   CreateTLSInspectionConfigurationCommandInput,
   CreateTLSInspectionConfigurationCommandOutput,
 } from "./commands/CreateTLSInspectionConfigurationCommand";
+import {
+  CreateVpcEndpointAssociationCommandInput,
+  CreateVpcEndpointAssociationCommandOutput,
+} from "./commands/CreateVpcEndpointAssociationCommand";
 import { DeleteFirewallCommandInput, DeleteFirewallCommandOutput } from "./commands/DeleteFirewallCommand";
 import {
   DeleteFirewallPolicyCommandInput,
@@ -82,7 +86,15 @@ import {
   DeleteTLSInspectionConfigurationCommandInput,
   DeleteTLSInspectionConfigurationCommandOutput,
 } from "./commands/DeleteTLSInspectionConfigurationCommand";
+import {
+  DeleteVpcEndpointAssociationCommandInput,
+  DeleteVpcEndpointAssociationCommandOutput,
+} from "./commands/DeleteVpcEndpointAssociationCommand";
 import { DescribeFirewallCommandInput, DescribeFirewallCommandOutput } from "./commands/DescribeFirewallCommand";
+import {
+  DescribeFirewallMetadataCommandInput,
+  DescribeFirewallMetadataCommandOutput,
+} from "./commands/DescribeFirewallMetadataCommand";
 import {
   DescribeFirewallPolicyCommandInput,
   DescribeFirewallPolicyCommandOutput,
@@ -108,6 +120,10 @@ import {
   DescribeTLSInspectionConfigurationCommandInput,
   DescribeTLSInspectionConfigurationCommandOutput,
 } from "./commands/DescribeTLSInspectionConfigurationCommand";
+import {
+  DescribeVpcEndpointAssociationCommandInput,
+  DescribeVpcEndpointAssociationCommandOutput,
+} from "./commands/DescribeVpcEndpointAssociationCommand";
 import {
   DisassociateSubnetsCommandInput,
   DisassociateSubnetsCommandOutput,
@@ -139,6 +155,10 @@ import {
   ListTLSInspectionConfigurationsCommandInput,
   ListTLSInspectionConfigurationsCommandOutput,
 } from "./commands/ListTLSInspectionConfigurationsCommand";
+import {
+  ListVpcEndpointAssociationsCommandInput,
+  ListVpcEndpointAssociationsCommandOutput,
+} from "./commands/ListVpcEndpointAssociationsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import {
   StartAnalysisReportCommandInput,
@@ -206,12 +226,15 @@ export type ServiceInputTypes =
   | CreateFirewallPolicyCommandInput
   | CreateRuleGroupCommandInput
   | CreateTLSInspectionConfigurationCommandInput
+  | CreateVpcEndpointAssociationCommandInput
   | DeleteFirewallCommandInput
   | DeleteFirewallPolicyCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteRuleGroupCommandInput
   | DeleteTLSInspectionConfigurationCommandInput
+  | DeleteVpcEndpointAssociationCommandInput
   | DescribeFirewallCommandInput
+  | DescribeFirewallMetadataCommandInput
   | DescribeFirewallPolicyCommandInput
   | DescribeFlowOperationCommandInput
   | DescribeLoggingConfigurationCommandInput
@@ -219,6 +242,7 @@ export type ServiceInputTypes =
   | DescribeRuleGroupCommandInput
   | DescribeRuleGroupMetadataCommandInput
   | DescribeTLSInspectionConfigurationCommandInput
+  | DescribeVpcEndpointAssociationCommandInput
   | DisassociateSubnetsCommandInput
   | GetAnalysisReportResultsCommandInput
   | ListAnalysisReportsCommandInput
@@ -229,6 +253,7 @@ export type ServiceInputTypes =
   | ListRuleGroupsCommandInput
   | ListTLSInspectionConfigurationsCommandInput
   | ListTagsForResourceCommandInput
+  | ListVpcEndpointAssociationsCommandInput
   | PutResourcePolicyCommandInput
   | StartAnalysisReportCommandInput
   | StartFlowCaptureCommandInput
@@ -256,12 +281,15 @@ export type ServiceOutputTypes =
   | CreateFirewallPolicyCommandOutput
   | CreateRuleGroupCommandOutput
   | CreateTLSInspectionConfigurationCommandOutput
+  | CreateVpcEndpointAssociationCommandOutput
   | DeleteFirewallCommandOutput
   | DeleteFirewallPolicyCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteRuleGroupCommandOutput
   | DeleteTLSInspectionConfigurationCommandOutput
+  | DeleteVpcEndpointAssociationCommandOutput
   | DescribeFirewallCommandOutput
+  | DescribeFirewallMetadataCommandOutput
   | DescribeFirewallPolicyCommandOutput
   | DescribeFlowOperationCommandOutput
   | DescribeLoggingConfigurationCommandOutput
@@ -269,6 +297,7 @@ export type ServiceOutputTypes =
   | DescribeRuleGroupCommandOutput
   | DescribeRuleGroupMetadataCommandOutput
   | DescribeTLSInspectionConfigurationCommandOutput
+  | DescribeVpcEndpointAssociationCommandOutput
   | DisassociateSubnetsCommandOutput
   | GetAnalysisReportResultsCommandOutput
   | ListAnalysisReportsCommandOutput
@@ -279,6 +308,7 @@ export type ServiceOutputTypes =
   | ListRuleGroupsCommandOutput
   | ListTLSInspectionConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListVpcEndpointAssociationsCommandOutput
   | PutResourcePolicyCommandOutput
   | StartAnalysisReportCommandOutput
   | StartFlowCaptureCommandOutput
@@ -549,12 +579,17 @@ export interface NetworkFirewallClientResolvedConfig extends NetworkFirewallClie
  *                subnet for the sole use of Network Firewall. </p>
  *             </li>
  *             <li>
- *                <p>In Network Firewall, create stateless and stateful rule groups,
+ *                <p>In Network Firewall, define the firewall behavior as follows: </p>
+ *                <ol>
+ *                   <li>
+ *                      <p>Create stateless and stateful rule groups,
  *                  to define the components of the network traffic filtering behavior that you want your firewall to have. </p>
- *             </li>
- *             <li>
- *                <p>In Network Firewall, create a firewall policy that uses your rule groups and
- *                  specifies additional default traffic filtering behavior. </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Create a firewall policy that uses your rule groups and
+ *                      specifies additional default traffic filtering behavior. </p>
+ *                   </li>
+ *                </ol>
  *             </li>
  *             <li>
  *                <p>In Network Firewall, create a firewall and specify your new firewall policy and
@@ -566,6 +601,9 @@ export interface NetworkFirewallClientResolvedConfig extends NetworkFirewallClie
  *                endpoints.</p>
  *             </li>
  *          </ol>
+ *          <p>After your firewall is established, you can add firewall endpoints for new Availability Zones by following the prior steps for the Amazon VPC setup and
+ *       firewall subnet definitions. You can also add endpoints to Availability Zones that you're using in the firewall, either for the same VPC
+ *           or for another VPC, by following the prior steps for the Amazon VPC setup, and defining the new VPC subnets as VPC endpoint associations. </p>
  * @public
  */
 export class NetworkFirewallClient extends __Client<

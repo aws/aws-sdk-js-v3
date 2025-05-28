@@ -35,6 +35,10 @@ import {
   CreateTLSInspectionConfigurationCommandInput,
   CreateTLSInspectionConfigurationCommandOutput,
 } from "../commands/CreateTLSInspectionConfigurationCommand";
+import {
+  CreateVpcEndpointAssociationCommandInput,
+  CreateVpcEndpointAssociationCommandOutput,
+} from "../commands/CreateVpcEndpointAssociationCommand";
 import { DeleteFirewallCommandInput, DeleteFirewallCommandOutput } from "../commands/DeleteFirewallCommand";
 import {
   DeleteFirewallPolicyCommandInput,
@@ -49,7 +53,15 @@ import {
   DeleteTLSInspectionConfigurationCommandInput,
   DeleteTLSInspectionConfigurationCommandOutput,
 } from "../commands/DeleteTLSInspectionConfigurationCommand";
+import {
+  DeleteVpcEndpointAssociationCommandInput,
+  DeleteVpcEndpointAssociationCommandOutput,
+} from "../commands/DeleteVpcEndpointAssociationCommand";
 import { DescribeFirewallCommandInput, DescribeFirewallCommandOutput } from "../commands/DescribeFirewallCommand";
+import {
+  DescribeFirewallMetadataCommandInput,
+  DescribeFirewallMetadataCommandOutput,
+} from "../commands/DescribeFirewallMetadataCommand";
 import {
   DescribeFirewallPolicyCommandInput,
   DescribeFirewallPolicyCommandOutput,
@@ -75,6 +87,10 @@ import {
   DescribeTLSInspectionConfigurationCommandInput,
   DescribeTLSInspectionConfigurationCommandOutput,
 } from "../commands/DescribeTLSInspectionConfigurationCommand";
+import {
+  DescribeVpcEndpointAssociationCommandInput,
+  DescribeVpcEndpointAssociationCommandOutput,
+} from "../commands/DescribeVpcEndpointAssociationCommand";
 import {
   DisassociateSubnetsCommandInput,
   DisassociateSubnetsCommandOutput,
@@ -106,6 +122,10 @@ import {
   ListTLSInspectionConfigurationsCommandInput,
   ListTLSInspectionConfigurationsCommandOutput,
 } from "../commands/ListTLSInspectionConfigurationsCommand";
+import {
+  ListVpcEndpointAssociationsCommandInput,
+  ListVpcEndpointAssociationsCommandOutput,
+} from "../commands/ListVpcEndpointAssociationsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import {
   StartAnalysisReportCommandInput,
@@ -167,6 +187,7 @@ import {
   CreateRuleGroupResponse,
   CreateTLSInspectionConfigurationRequest,
   CreateTLSInspectionConfigurationResponse,
+  CreateVpcEndpointAssociationRequest,
   CustomAction,
   DeleteFirewallPolicyRequest,
   DeleteFirewallPolicyResponse,
@@ -176,6 +197,8 @@ import {
   DeleteRuleGroupResponse,
   DeleteTLSInspectionConfigurationRequest,
   DeleteTLSInspectionConfigurationResponse,
+  DeleteVpcEndpointAssociationRequest,
+  DescribeFirewallMetadataRequest,
   DescribeFirewallPolicyRequest,
   DescribeFirewallPolicyResponse,
   DescribeFirewallRequest,
@@ -189,6 +212,7 @@ import {
   DescribeRuleGroupResponse,
   DescribeTLSInspectionConfigurationRequest,
   DescribeTLSInspectionConfigurationResponse,
+  DescribeVpcEndpointAssociationRequest,
   Dimension,
   DisassociateSubnetsRequest,
   EnabledAnalysisType,
@@ -221,6 +245,7 @@ import {
   ListRuleGroupsRequest,
   ListTagsForResourceRequest,
   ListTLSInspectionConfigurationsRequest,
+  ListVpcEndpointAssociationsRequest,
   LogDestinationConfig,
   LogDestinationPermissionException,
   LoggingConfiguration,
@@ -361,6 +386,19 @@ export const se_CreateTLSInspectionConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_json1_0CreateVpcEndpointAssociationCommand
+ */
+export const se_CreateVpcEndpointAssociationCommand = async (
+  input: CreateVpcEndpointAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateVpcEndpointAssociation");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DeleteFirewallCommand
  */
 export const se_DeleteFirewallCommand = async (
@@ -426,6 +464,19 @@ export const se_DeleteTLSInspectionConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DeleteVpcEndpointAssociationCommand
+ */
+export const se_DeleteVpcEndpointAssociationCommand = async (
+  input: DeleteVpcEndpointAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteVpcEndpointAssociation");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DescribeFirewallCommand
  */
 export const se_DescribeFirewallCommand = async (
@@ -433,6 +484,19 @@ export const se_DescribeFirewallCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeFirewall");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DescribeFirewallMetadataCommand
+ */
+export const se_DescribeFirewallMetadataCommand = async (
+  input: DescribeFirewallMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeFirewallMetadata");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -524,6 +588,19 @@ export const se_DescribeTLSInspectionConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeTLSInspectionConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DescribeVpcEndpointAssociationCommand
+ */
+export const se_DescribeVpcEndpointAssociationCommand = async (
+  input: DescribeVpcEndpointAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeVpcEndpointAssociation");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -654,6 +731,19 @@ export const se_ListTLSInspectionConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTLSInspectionConfigurations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ListVpcEndpointAssociationsCommand
+ */
+export const se_ListVpcEndpointAssociationsCommand = async (
+  input: ListVpcEndpointAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListVpcEndpointAssociations");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -988,6 +1078,26 @@ export const de_CreateTLSInspectionConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0CreateVpcEndpointAssociationCommand
+ */
+export const de_CreateVpcEndpointAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVpcEndpointAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateVpcEndpointAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0DeleteFirewallCommand
  */
 export const de_DeleteFirewallCommand = async (
@@ -1088,6 +1198,26 @@ export const de_DeleteTLSInspectionConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0DeleteVpcEndpointAssociationCommand
+ */
+export const de_DeleteVpcEndpointAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVpcEndpointAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteVpcEndpointAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0DescribeFirewallCommand
  */
 export const de_DescribeFirewallCommand = async (
@@ -1101,6 +1231,26 @@ export const de_DescribeFirewallCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DescribeFirewallCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeFirewallMetadataCommand
+ */
+export const de_DescribeFirewallMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFirewallMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeFirewallMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1241,6 +1391,26 @@ export const de_DescribeTLSInspectionConfigurationCommand = async (
   let contents: any = {};
   contents = de_DescribeTLSInspectionConfigurationResponse(data, context);
   const response: DescribeTLSInspectionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeVpcEndpointAssociationCommand
+ */
+export const de_DescribeVpcEndpointAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVpcEndpointAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeVpcEndpointAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1441,6 +1611,26 @@ export const de_ListTLSInspectionConfigurationsCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ListTLSInspectionConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListVpcEndpointAssociationsCommand
+ */
+export const de_ListVpcEndpointAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVpcEndpointAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListVpcEndpointAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2048,6 +2238,8 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 
 // se_CreateTLSInspectionConfigurationRequest omitted.
 
+// se_CreateVpcEndpointAssociationRequest omitted.
+
 // se_CustomAction omitted.
 
 // se_CustomActions omitted.
@@ -2061,6 +2253,10 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 // se_DeleteRuleGroupRequest omitted.
 
 // se_DeleteTLSInspectionConfigurationRequest omitted.
+
+// se_DeleteVpcEndpointAssociationRequest omitted.
+
+// se_DescribeFirewallMetadataRequest omitted.
 
 // se_DescribeFirewallPolicyRequest omitted.
 
@@ -2077,6 +2273,8 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 // se_DescribeRuleGroupRequest omitted.
 
 // se_DescribeTLSInspectionConfigurationRequest omitted.
+
+// se_DescribeVpcEndpointAssociationRequest omitted.
 
 // se_Dimension omitted.
 
@@ -2125,6 +2323,8 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 // se_ListTagsForResourceRequest omitted.
 
 // se_ListTLSInspectionConfigurationsRequest omitted.
+
+// se_ListVpcEndpointAssociationsRequest omitted.
 
 // se_LogDestinationConfig omitted.
 
@@ -2349,7 +2549,13 @@ const de_AnalysisTypeReportResult = (output: any, context: __SerdeContext): Anal
 
 // de_AssociateSubnetsResponse omitted.
 
+// de_AssociationSyncState omitted.
+
 // de_Attachment omitted.
+
+// de_AvailabilityZoneMetadata omitted.
+
+// de_AZSyncState omitted.
 
 // de_CapacityUsageSummary omitted.
 
@@ -2394,6 +2600,8 @@ const de_CreateTLSInspectionConfigurationResponse = (
   }) as any;
 };
 
+// de_CreateVpcEndpointAssociationResponse omitted.
+
 // de_CustomAction omitted.
 
 // de_CustomActions omitted.
@@ -2432,6 +2640,10 @@ const de_DeleteTLSInspectionConfigurationResponse = (
   }) as any;
 };
 
+// de_DeleteVpcEndpointAssociationResponse omitted.
+
+// de_DescribeFirewallMetadataResponse omitted.
+
 /**
  * deserializeAws_json1_0DescribeFirewallPolicyResponse
  */
@@ -2458,6 +2670,8 @@ const de_DescribeFlowOperationResponse = (output: any, context: __SerdeContext):
     FlowOperationType: __expectString,
     FlowRequestTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     StatusMessage: __expectString,
+    VpcEndpointAssociationArn: __expectString,
+    VpcEndpointId: __expectString,
   }) as any;
 };
 
@@ -2507,6 +2721,8 @@ const de_DescribeTLSInspectionConfigurationResponse = (
     UpdateToken: __expectString,
   }) as any;
 };
+
+// de_DescribeVpcEndpointAssociationResponse omitted.
 
 // de_Dimension omitted.
 
@@ -2667,6 +2883,8 @@ const de_ListFlowOperationResultsResponse = (
     Flows: _json,
     NextToken: __expectString,
     StatusMessage: __expectString,
+    VpcEndpointAssociationArn: __expectString,
+    VpcEndpointId: __expectString,
   }) as any;
 };
 
@@ -2685,6 +2903,8 @@ const de_ListFlowOperationsResponse = (output: any, context: __SerdeContext): Li
 // de_ListTagsForResourceResponse omitted.
 
 // de_ListTLSInspectionConfigurationsResponse omitted.
+
+// de_ListVpcEndpointAssociationsResponse omitted.
 
 // de_LogDestinationConfig omitted.
 
@@ -2823,6 +3043,8 @@ const de_RuleGroupResponse = (output: any, context: __SerdeContext): RuleGroupRe
 
 // de_SubnetMappings omitted.
 
+// de_SupportedAvailabilityZones omitted.
+
 // de_SyncState omitted.
 
 // de_SyncStateConfig omitted.
@@ -2927,6 +3149,14 @@ const de_UpdateTLSInspectionConfigurationResponse = (
 };
 
 // de_VariableDefinitionList omitted.
+
+// de_VpcEndpointAssociation omitted.
+
+// de_VpcEndpointAssociationMetadata omitted.
+
+// de_VpcEndpointAssociations omitted.
+
+// de_VpcEndpointAssociationStatus omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

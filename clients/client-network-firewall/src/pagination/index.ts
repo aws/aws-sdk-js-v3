@@ -9,3 +9,4 @@ export * from "./ListFlowOperationsPaginator";
 export * from "./ListRuleGroupsPaginator";
 export * from "./ListTLSInspectionConfigurationsPaginator";
 export * from "./ListTagsForResourcePaginator";
+export * from "./ListVpcEndpointAssociationsPaginator";

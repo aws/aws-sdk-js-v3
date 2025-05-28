@@ -38,6 +38,8 @@ export interface DescribeFlowOperationCommandOutput extends DescribeFlowOperatio
  * const input = { // DescribeFlowOperationRequest
  *   FirewallArn: "STRING_VALUE", // required
  *   AvailabilityZone: "STRING_VALUE",
+ *   VpcEndpointAssociationArn: "STRING_VALUE",
+ *   VpcEndpointId: "STRING_VALUE",
  *   FlowOperationId: "STRING_VALUE", // required
  * };
  * const command = new DescribeFlowOperationCommand(input);
@@ -45,6 +47,8 @@ export interface DescribeFlowOperationCommandOutput extends DescribeFlowOperatio
  * // { // DescribeFlowOperationResponse
  * //   FirewallArn: "STRING_VALUE",
  * //   AvailabilityZone: "STRING_VALUE",
+ * //   VpcEndpointAssociationArn: "STRING_VALUE",
+ * //   VpcEndpointId: "STRING_VALUE",
  * //   FlowOperationId: "STRING_VALUE",
  * //   FlowOperationType: "FLOW_FLUSH" || "FLOW_CAPTURE",
  * //   FlowOperationStatus: "COMPLETED" || "IN_PROGRESS" || "FAILED" || "COMPLETED_WITH_ERRORS",

@@ -486,8 +486,8 @@ export const IPAddressType = {
 export type IPAddressType = (typeof IPAddressType)[keyof typeof IPAddressType];
 
 /**
- * <p>The ID for a subnet that you want to associate with the firewall. This is used with
- *             <a>CreateFirewall</a> and <a>AssociateSubnets</a>. Network Firewall
+ * <p>The ID for a subnet that's used in an association with a firewall. This is used in
+ *       <a>CreateFirewall</a>, <a>AssociateSubnets</a>, and <a>CreateVpcEndpointAssociation</a>. Network Firewall
  *          creates an instance of the associated firewall in each subnet that you specify, to filter
  *          traffic in the subnet's Availability Zone.</p>
  * @public
@@ -612,14 +612,22 @@ export const AttachmentStatus = {
 export type AttachmentStatus = (typeof AttachmentStatus)[keyof typeof AttachmentStatus];
 
 /**
- * <p>The configuration and status for a single subnet that you've specified for use by the
- *          Network Firewall firewall. This is part of the <a>FirewallStatus</a>.</p>
+ * <p>The definition and status of the firewall endpoint for a single subnet. In each configured subnet, Network Firewall instantiates a firewall
+ *          endpoint to handle network traffic. </p>
+ *          <p>This data type is used for any firewall endpoint type: </p>
+ *          <ul>
+ *             <li>
+ *                <p>For <code>Firewall.SubnetMappings</code>, this <code>Attachment</code> is part of the <code>FirewallStatus</code> sync states information. You define firewall subnets using <code>CreateFirewall</code> and <code>AssociateSubnets</code>. </p>
+ *             </li>
+ *             <li>
+ *                <p>For <code>VpcEndpointAssociation</code>, this <code>Attachment</code> is part of the <code>VpcEndpointAssociationStatus</code> sync states information. You define these subnets using <code>CreateVpcEndpointAssociation</code>. </p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface Attachment {
   /**
-   * <p>The unique identifier of the subnet that you've specified to be used for a firewall
-   *          endpoint. </p>
+   * <p>The unique identifier of the subnet that you've specified to be used for a firewall endpoint. </p>
    * @public
    */
   SubnetId?: string | undefined;
@@ -633,12 +641,9 @@ export interface Attachment {
   EndpointId?: string | undefined;
 
   /**
-   * <p>The current status of the firewall endpoint in the subnet. This value reflects both the
-   *          instantiation of the endpoint in the VPC subnet and the sync states that are reported in
-   *          the <code>Config</code> settings. When this value is <code>READY</code>, the endpoint is
-   *          available and configured properly to handle network traffic. When the endpoint isn't
-   *          available for traffic, this value will reflect its state, for example
-   *          <code>CREATING</code> or <code>DELETING</code>.</p>
+   * <p>The current status of the firewall endpoint instantiation in the subnet. </p>
+   *          <p>When this value is <code>READY</code>, the endpoint is available to handle network traffic. Otherwise,
+   *          this value reflects its state, for example <code>CREATING</code> or <code>DELETING</code>.</p>
    * @public
    */
   Status?: AttachmentStatus | undefined;
@@ -648,6 +653,40 @@ export interface Attachment {
    * @public
    */
   StatusMessage?: string | undefined;
+}
+
+/**
+ * <p>The status of the firewall endpoint defined by a <code>VpcEndpointAssociation</code>. </p>
+ * @public
+ */
+export interface AZSyncState {
+  /**
+   * <p>The definition and status of the firewall endpoint for a single subnet. In each configured subnet, Network Firewall instantiates a firewall
+   *          endpoint to handle network traffic. </p>
+   *          <p>This data type is used for any firewall endpoint type: </p>
+   *          <ul>
+   *             <li>
+   *                <p>For <code>Firewall.SubnetMappings</code>, this <code>Attachment</code> is part of the <code>FirewallStatus</code> sync states information. You define firewall subnets using <code>CreateFirewall</code> and <code>AssociateSubnets</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>VpcEndpointAssociation</code>, this <code>Attachment</code> is part of the <code>VpcEndpointAssociationStatus</code> sync states information. You define these subnets using <code>CreateVpcEndpointAssociation</code>. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Attachment?: Attachment | undefined;
+}
+
+/**
+ * <p>High-level information about an Availability Zone where the firewall has an endpoint defined. </p>
+ * @public
+ */
+export interface AvailabilityZoneMetadata {
+  /**
+   * <p>The IP address type of the Firewall subnet in the Availability Zone. You can't change the IP address type after you create the subnet.</p>
+   * @public
+   */
+  IPAddressType?: IPAddressType | undefined;
 }
 
 /**
@@ -942,10 +981,11 @@ export interface CreateFirewallRequest {
 }
 
 /**
- * <p>The firewall defines the configuration settings for an Network Firewall firewall. These settings include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall Amazon Web Services resource. </p>
+ * <p>A firewall defines the behavior of a firewall, the main VPC where the firewall is used, the Availability Zones where the firewall can be used, and one subnet to use for a firewall endpoint within each of the Availability Zones. The Availability Zones are defined implicitly in the subnet specifications.</p>
+ *          <p>In addition to the firewall endpoints that you define in this <code>Firewall</code> specification, you can create firewall endpoints in <code>VpcEndpointAssociation</code> resources for any VPC, in any Availability Zone where the firewall is already in use. </p>
  *          <p>The status of the firewall, for example whether it's ready to filter network traffic,
  *          is provided in the corresponding <a>FirewallStatus</a>. You can retrieve both
- *          objects by calling <a>DescribeFirewall</a>.</p>
+ *          the firewall and firewall status by calling <a>DescribeFirewall</a>.</p>
  * @public
  */
 export interface Firewall {
@@ -977,8 +1017,9 @@ export interface Firewall {
   VpcId: string | undefined;
 
   /**
-   * <p>The public subnets that Network Firewall is using for the firewall. Each subnet must belong
-   *          to a different Availability Zone. </p>
+   * <p>The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.</p>
+   *          <p>These subnets are all defined for a single, primary VPC, and each must belong to a different Availability Zone. Each of these subnets establishes the availability of the firewall in its Availability Zone. </p>
+   *          <p>In addition to these subnets, you can define other endpoints for the firewall in <code>VpcEndpointAssociation</code> resources. You can define these additional endpoints for any VPC, and for any of the Availability Zones where the firewall resource already has a subnet mapping. VPC endpoint associations give you the ability to protect multiple VPCs using a single firewall, and to define multiple firewall endpoints for a VPC in a single Availability Zone. </p>
    * @public
    */
   SubnetMappings: SubnetMapping[] | undefined;
@@ -1030,6 +1071,12 @@ export interface Firewall {
    * @public
    */
   EncryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>The number of <code>VpcEndpointAssociation</code> resources that use this firewall. </p>
+   * @public
+   */
+  NumberOfAssociations?: number | undefined;
 
   /**
    * <p>An optional setting indicating the specific traffic analysis types to enable on the firewall. </p>
@@ -1090,8 +1137,8 @@ export interface PerObjectStatus {
 }
 
 /**
- * <p>The status of the firewall endpoint and firewall policy configuration for a single VPC
- *          subnet. </p>
+ * <p>The status of the firewall endpoint and firewall policy configuration for a single VPC subnet.
+ *           This is part of the <a>FirewallStatus</a>. </p>
  *          <p>For each VPC subnet that you associate with a firewall, Network Firewall does the
  *          following: </p>
  *          <ul>
@@ -1110,9 +1157,9 @@ export interface PerObjectStatus {
  */
 export interface SyncState {
   /**
-   * <p>The attachment status of the firewall's association with a single VPC subnet. For each
-   *          configured subnet, Network Firewall creates the attachment by instantiating the firewall
-   *          endpoint in the subnet so that it's ready to take traffic. This is part of the <a>FirewallStatus</a>.</p>
+   * <p>The configuration and status for a single firewall subnet.
+   *        For each configured subnet, Network Firewall creates the attachment by instantiating the firewall
+   *          endpoint in the subnet so that it's ready to take traffic. </p>
    * @public
    */
   Attachment?: Attachment | undefined;
@@ -1121,7 +1168,7 @@ export interface SyncState {
    * <p>The configuration status of the firewall endpoint in a single VPC subnet. Network Firewall
    *          provides each endpoint with the rules that are configured in the firewall policy. Each time
    *          you add a subnet or modify the associated firewall policy, Network Firewall synchronizes the
-   *          rules in the endpoint, so it can properly filter network traffic. This is part of the <a>FirewallStatus</a>.</p>
+   *           rules in the endpoint, so it can properly filter network traffic. </p>
    * @public
    */
   Config?: Record<string, PerObjectStatus> | undefined;
@@ -1129,12 +1176,13 @@ export interface SyncState {
 
 /**
  * <p>Detailed information about the current status of a <a>Firewall</a>. You can retrieve this for a firewall by calling <a>DescribeFirewall</a> and providing the firewall name and ARN.</p>
+ *          <p>The firewall status indicates a combined status. It indicates whether all subnets are up-to-date with the latest firewall configurations, which is based on the sync states config values, and also whether all subnets have their endpoints fully enabled, based on their sync states attachment values. </p>
  * @public
  */
 export interface FirewallStatus {
   /**
    * <p>The readiness of the configured firewall to handle network traffic across all of the
-   *          Availability Zones where you've configured it. This setting is <code>READY</code> only when
+   *          Availability Zones where you have it configured. This setting is <code>READY</code> only when
    *          the <code>ConfigurationSyncStateSummary</code> value is <code>IN_SYNC</code> and the
    *             <code>Attachment</code>
    *             <code>Status</code> values for all of the configured subnets are <code>READY</code>.
@@ -1144,32 +1192,30 @@ export interface FirewallStatus {
   Status: FirewallStatusValue | undefined;
 
   /**
-   * <p>The configuration sync state for the firewall. This summarizes the sync states reported
-   *          in the <code>Config</code> settings for all of the Availability Zones where you have
-   *          configured the firewall. </p>
+   * <p>The configuration sync state for the firewall. This summarizes the <code>Config</code>
+   *                settings in the <code>SyncStates</code> for this firewall status object. </p>
    *          <p>When you create a firewall or update its configuration, for example by adding a rule
    *          group to its firewall policy, Network Firewall distributes the configuration changes to all
-   *          zones where the firewall is in use. This summary indicates whether the configuration
+   *          Availability Zones that have subnets defined for the firewall. This summary indicates whether the configuration
    *          changes have been applied everywhere. </p>
    *          <p>This status must be <code>IN_SYNC</code> for the firewall to be ready for use, but it
    *          doesn't indicate that the firewall is ready. The <code>Status</code> setting indicates
-   *          firewall readiness.</p>
+   *          firewall readiness. It's based on this setting and the readiness of the firewall endpoints to take traffic. </p>
    * @public
    */
   ConfigurationSyncStateSummary: ConfigurationSyncState | undefined;
 
   /**
-   * <p>The subnets that you've configured for use by the Network Firewall firewall. This contains
-   *          one array element per Availability Zone where you've configured a subnet. These objects
-   *          provide details of the information that is summarized in the
-   *             <code>ConfigurationSyncStateSummary</code> and <code>Status</code>, broken down by zone
-   *          and configuration object. </p>
+   * <p>Status for the subnets that you've configured in the firewall. This contains
+   *       one array element per Availability Zone where you've configured a subnet in the firewall. </p>
+   *          <p>These objects provide detailed information for the settings
+   *   <code>ConfigurationSyncStateSummary</code> and <code>Status</code>. </p>
    * @public
    */
   SyncStates?: Record<string, SyncState> | undefined;
 
   /**
-   * <p>Describes the capacity usage of the resources contained in a firewall's reference sets. Network Firewall calclulates the capacity usage by taking an aggregated count of all of the resources used by all of the reference sets in a firewall.</p>
+   * <p>Describes the capacity usage of the resources contained in a firewall's reference sets. Network Firewall calculates the capacity usage by taking an aggregated count of all of the resources used by all of the reference sets in a firewall.</p>
    * @public
    */
   CapacityUsageSummary?: CapacityUsageSummary | undefined;
@@ -1187,6 +1233,7 @@ export interface CreateFirewallResponse {
 
   /**
    * <p>Detailed information about the current status of a <a>Firewall</a>. You can retrieve this for a firewall by calling <a>DescribeFirewall</a> and providing the firewall name and ARN.</p>
+   *          <p>The firewall status indicates a combined status. It indicates whether all subnets are up-to-date with the latest firewall configurations, which is based on the sync states config values, and also whether all subnets have their endpoints fully enabled, based on their sync states attachment values. </p>
    * @public
    */
   FirewallStatus?: FirewallStatus | undefined;
@@ -2770,7 +2817,8 @@ export interface ServerCertificateConfiguration {
 /**
  * <p>The object that defines a TLS inspection configuration. This, along with <a>TLSInspectionConfigurationResponse</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
  *          <p>Network Firewall uses a TLS inspection configuration to decrypt traffic. Network Firewall re-encrypts the traffic before sending it to its destination.</p>
- *          <p>To use a TLS inspection configuration, you add it to a new Network Firewall firewall policy, then you apply the firewall policy to a firewall. Network Firewall acts as a proxy service to decrypt and inspect the traffic traveling through your firewalls. You can reference a TLS inspection configuration from more than one firewall policy, and you can use a firewall policy in more than one firewall. For more information about using TLS inspection configurations, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Inspecting SSL/TLS traffic with TLS
+ *          <p>To use a TLS inspection configuration, you add it to a new Network Firewall firewall policy, then you apply the firewall policy to a firewall. Network Firewall acts as a proxy service to decrypt and inspect the traffic traveling through your firewalls. You can reference a TLS inspection configuration from more than one firewall policy, and you can use a firewall policy in more than one firewall. For more information about using TLS inspection configurations, see
+ *     <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Inspecting SSL/TLS traffic with TLS
  * inspection configurations</a> in the <i>Network Firewall Developer Guide</i>.</p>
  * @public
  */
@@ -2795,7 +2843,8 @@ export interface CreateTLSInspectionConfigurationRequest {
   /**
    * <p>The object that defines a TLS inspection configuration. This, along with <a>TLSInspectionConfigurationResponse</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
    *          <p>Network Firewall uses a TLS inspection configuration to decrypt traffic. Network Firewall re-encrypts the traffic before sending it to its destination.</p>
-   *          <p>To use a TLS inspection configuration, you add it to a new Network Firewall firewall policy, then you apply the firewall policy to a firewall. Network Firewall acts as a proxy service to decrypt and inspect the traffic traveling through your firewalls. You can reference a TLS inspection configuration from more than one firewall policy, and you can use a firewall policy in more than one firewall. For more information about using TLS inspection configurations, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Inspecting SSL/TLS traffic with TLS
+   *          <p>To use a TLS inspection configuration, you add it to a new Network Firewall firewall policy, then you apply the firewall policy to a firewall. Network Firewall acts as a proxy service to decrypt and inspect the traffic traveling through your firewalls. You can reference a TLS inspection configuration from more than one firewall policy, and you can use a firewall policy in more than one firewall. For more information about using TLS inspection configurations, see
+   *     <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Inspecting SSL/TLS traffic with TLS
    * inspection configurations</a> in the <i>Network Firewall Developer Guide</i>.</p>
    * @public
    */
@@ -2913,6 +2962,158 @@ export interface CreateTLSInspectionConfigurationResponse {
 /**
  * @public
  */
+export interface CreateVpcEndpointAssociationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   * @public
+   */
+  FirewallArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the VPC where you want to create a firewall endpoint. </p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The ID for a subnet that's used in an association with a firewall. This is used in
+   *       <a>CreateFirewall</a>, <a>AssociateSubnets</a>, and <a>CreateVpcEndpointAssociation</a>. Network Firewall
+   *          creates an instance of the associated firewall in each subnet that you specify, to filter
+   *          traffic in the subnet's Availability Zone.</p>
+   * @public
+   */
+  SubnetMapping: SubnetMapping | undefined;
+
+  /**
+   * <p>A description of the VPC endpoint association. </p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The key:value pairs to associate with the resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>A VPC endpoint association defines a single subnet to use for a firewall endpoint for a <code>Firewall</code>.
+ *        You can define VPC endpoint associations only in the Availability Zones that already have
+ *            a subnet mapping defined in the <code>Firewall</code> resource. </p>
+ *          <note>
+ *             <p>You can retrieve the list of Availability Zones that are available for use by calling <code>DescribeFirewallMetadata</code>.</p>
+ *          </note>
+ *          <p>To manage firewall endpoints, first, in the <code>Firewall</code> specification, you specify a single VPC and one subnet
+ *            for each of the Availability Zones where you want to use the firewall. Then you can define additional endpoints as
+ *            VPC endpoint associations. </p>
+ *          <p>You can use VPC endpoint associations to expand the protections of the firewall as follows: </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Protect multiple VPCs with a single firewall</b> - You can use the firewall to protect other VPCs, either in your account or in accounts where the firewall is shared. You can only specify Availability Zones that already have a firewall endpoint defined in the <code>Firewall</code> subnet mappings.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Define multiple firewall endpoints for a VPC in an Availability Zone</b> - You can create additional firewall endpoints for the VPC that you have defined in the firewall, in any Availability Zone that already has an endpoint defined in the <code>Firewall</code> subnet mappings. You can create multiple VPC endpoint associations for any other VPC where you use the firewall.</p>
+ *             </li>
+ *          </ul>
+ *          <p>You can use Resource Access Manager to share a <code>Firewall</code> that you own with other accounts, which gives them the ability to use the firewall
+ *       to create VPC endpoint associations. For information about sharing a firewall, see <code>PutResourcePolicy</code>
+ *           in this guide and see
+ *     <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/sharing.html">Sharing Network Firewall resources</a> in the <i>Network Firewall Developer Guide</i>.</p>
+ *          <p>The status of the VPC endpoint association, which indicates whether it's ready to filter network traffic,
+ *          is provided in the corresponding <a>VpcEndpointAssociationStatus</a>. You can retrieve both
+ *          the association and its status by calling <a>DescribeVpcEndpointAssociation</a>.</p>
+ * @public
+ */
+export interface VpcEndpointAssociation {
+  /**
+   * <p>The unique identifier of the VPC endpoint association. </p>
+   * @public
+   */
+  VpcEndpointAssociationId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>
+   * @public
+   */
+  VpcEndpointAssociationArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   * @public
+   */
+  FirewallArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the VPC for the endpoint association. </p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The ID for a subnet that's used in an association with a firewall. This is used in
+   *       <a>CreateFirewall</a>, <a>AssociateSubnets</a>, and <a>CreateVpcEndpointAssociation</a>. Network Firewall
+   *          creates an instance of the associated firewall in each subnet that you specify, to filter
+   *          traffic in the subnet's Availability Zone.</p>
+   * @public
+   */
+  SubnetMapping: SubnetMapping | undefined;
+
+  /**
+   * <p>A description of the VPC endpoint association. </p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The key:value pairs to associate with the resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>Detailed information about the current status of a <a>VpcEndpointAssociation</a>. You can retrieve this
+ * by calling <a>DescribeVpcEndpointAssociation</a> and providing the VPC endpoint association ARN.</p>
+ * @public
+ */
+export interface VpcEndpointAssociationStatus {
+  /**
+   * <p>The readiness of the configured firewall endpoint to handle network traffic. </p>
+   * @public
+   */
+  Status: FirewallStatusValue | undefined;
+
+  /**
+   * <p>The list of the Availability Zone sync states for all subnets that are defined by the firewall. </p>
+   * @public
+   */
+  AssociationSyncState?: Record<string, AZSyncState> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcEndpointAssociationResponse {
+  /**
+   * <p>The configuration settings for the VPC endpoint association. These settings include the firewall and the VPC and subnet to use for the firewall endpoint. </p>
+   * @public
+   */
+  VpcEndpointAssociation?: VpcEndpointAssociation | undefined;
+
+  /**
+   * <p>Detailed information about the current status of a <a>VpcEndpointAssociation</a>. You can retrieve this
+   * by calling <a>DescribeVpcEndpointAssociation</a> and providing the VPC endpoint association ARN.</p>
+   * @public
+   */
+  VpcEndpointAssociationStatus?: VpcEndpointAssociationStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteFirewallRequest {
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
@@ -2934,16 +3135,18 @@ export interface DeleteFirewallRequest {
  */
 export interface DeleteFirewallResponse {
   /**
-   * <p>The firewall defines the configuration settings for an Network Firewall firewall. These settings include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall Amazon Web Services resource. </p>
+   * <p>A firewall defines the behavior of a firewall, the main VPC where the firewall is used, the Availability Zones where the firewall can be used, and one subnet to use for a firewall endpoint within each of the Availability Zones. The Availability Zones are defined implicitly in the subnet specifications.</p>
+   *          <p>In addition to the firewall endpoints that you define in this <code>Firewall</code> specification, you can create firewall endpoints in <code>VpcEndpointAssociation</code> resources for any VPC, in any Availability Zone where the firewall is already in use. </p>
    *          <p>The status of the firewall, for example whether it's ready to filter network traffic,
    *          is provided in the corresponding <a>FirewallStatus</a>. You can retrieve both
-   *          objects by calling <a>DescribeFirewall</a>.</p>
+   *          the firewall and firewall status by calling <a>DescribeFirewall</a>.</p>
    * @public
    */
   Firewall?: Firewall | undefined;
 
   /**
    * <p>Detailed information about the current status of a <a>Firewall</a>. You can retrieve this for a firewall by calling <a>DescribeFirewall</a> and providing the firewall name and ARN.</p>
+   *          <p>The firewall status indicates a combined status. It indicates whether all subnets are up-to-date with the latest firewall configurations, which is based on the sync states config values, and also whether all subnets have their endpoints fully enabled, based on their sync states attachment values. </p>
    * @public
    */
   FirewallStatus?: FirewallStatus | undefined;
@@ -3113,6 +3316,35 @@ export interface DeleteTLSInspectionConfigurationResponse {
 /**
  * @public
  */
+export interface DeleteVpcEndpointAssociationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>
+   * @public
+   */
+  VpcEndpointAssociationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVpcEndpointAssociationResponse {
+  /**
+   * <p>The configuration settings for the VPC endpoint association. These settings include the firewall and the VPC and subnet to use for the firewall endpoint. </p>
+   * @public
+   */
+  VpcEndpointAssociation?: VpcEndpointAssociation | undefined;
+
+  /**
+   * <p>Detailed information about the current status of a <a>VpcEndpointAssociation</a>. You can retrieve this
+   * by calling <a>DescribeVpcEndpointAssociation</a> and providing the VPC endpoint association ARN.</p>
+   * @public
+   */
+  VpcEndpointAssociationStatus?: VpcEndpointAssociationStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeFirewallRequest {
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
@@ -3149,9 +3381,62 @@ export interface DescribeFirewallResponse {
 
   /**
    * <p>Detailed information about the current status of a <a>Firewall</a>. You can retrieve this for a firewall by calling <a>DescribeFirewall</a> and providing the firewall name and ARN.</p>
+   *          <p>The firewall status indicates a combined status. It indicates whether all subnets are up-to-date with the latest firewall configurations, which is based on the sync states config values, and also whether all subnets have their endpoints fully enabled, based on their sync states attachment values. </p>
    * @public
    */
   FirewallStatus?: FirewallStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFirewallMetadataRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFirewallMetadataResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall policy.</p>
+   * @public
+   */
+  FirewallPolicyArn?: string | undefined;
+
+  /**
+   * <p>A description of the firewall.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The readiness of the configured firewall to handle network traffic across all of the
+   *          Availability Zones where you have it configured. This setting is <code>READY</code> only when
+   *          the <code>ConfigurationSyncStateSummary</code> value is <code>IN_SYNC</code> and the
+   *             <code>Attachment</code>
+   *             <code>Status</code> values for all of the configured subnets are <code>READY</code>.
+   *       </p>
+   * @public
+   */
+  Status?: FirewallStatusValue | undefined;
+
+  /**
+   * <p>The Availability Zones that the firewall currently supports. This includes all Availability Zones for which
+   *        the firewall has a subnet defined. </p>
+   * @public
+   */
+  SupportedAvailabilityZones?: Record<string, AvailabilityZoneMetadata> | undefined;
 }
 
 /**
@@ -3213,6 +3498,18 @@ export interface DescribeFlowOperationRequest {
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>
+   * @public
+   */
+  VpcEndpointAssociationArn?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the primary endpoint associated with a firewall.</p>
+   * @public
+   */
+  VpcEndpointId?: string | undefined;
 
   /**
    * <p>A unique identifier for the flow operation. This ID is returned in the responses to start and list commands. You provide to describe commands.</p>
@@ -3332,6 +3629,18 @@ export interface DescribeFlowOperationResponse {
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>
+   * @public
+   */
+  VpcEndpointAssociationArn?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the primary endpoint associated with a firewall.</p>
+   * @public
+   */
+  VpcEndpointId?: string | undefined;
 
   /**
    * <p>A unique identifier for the flow operation. This ID is returned in the responses to start and list commands. You provide to describe commands.</p>
@@ -3730,7 +4039,8 @@ export interface DescribeTLSInspectionConfigurationResponse {
   /**
    * <p>The object that defines a TLS inspection configuration. This, along with <a>TLSInspectionConfigurationResponse</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
    *          <p>Network Firewall uses a TLS inspection configuration to decrypt traffic. Network Firewall re-encrypts the traffic before sending it to its destination.</p>
-   *          <p>To use a TLS inspection configuration, you add it to a new Network Firewall firewall policy, then you apply the firewall policy to a firewall. Network Firewall acts as a proxy service to decrypt and inspect the traffic traveling through your firewalls. You can reference a TLS inspection configuration from more than one firewall policy, and you can use a firewall policy in more than one firewall. For more information about using TLS inspection configurations, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Inspecting SSL/TLS traffic with TLS
+   *          <p>To use a TLS inspection configuration, you add it to a new Network Firewall firewall policy, then you apply the firewall policy to a firewall. Network Firewall acts as a proxy service to decrypt and inspect the traffic traveling through your firewalls. You can reference a TLS inspection configuration from more than one firewall policy, and you can use a firewall policy in more than one firewall. For more information about using TLS inspection configurations, see
+   *     <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Inspecting SSL/TLS traffic with TLS
    * inspection configurations</a> in the <i>Network Firewall Developer Guide</i>.</p>
    * @public
    */
@@ -3741,6 +4051,35 @@ export interface DescribeTLSInspectionConfigurationResponse {
    * @public
    */
   TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcEndpointAssociationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>
+   * @public
+   */
+  VpcEndpointAssociationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcEndpointAssociationResponse {
+  /**
+   * <p>The configuration settings for the VPC endpoint association. These settings include the firewall and the VPC and subnet to use for the firewall endpoint. </p>
+   * @public
+   */
+  VpcEndpointAssociation?: VpcEndpointAssociation | undefined;
+
+  /**
+   * <p>Detailed information about the current status of a <a>VpcEndpointAssociation</a>. You can retrieve this
+   * by calling <a>DescribeVpcEndpointAssociation</a> and providing the VPC endpoint association ARN.</p>
+   * @public
+   */
+  VpcEndpointAssociationStatus?: VpcEndpointAssociationStatus | undefined;
 }
 
 /**
@@ -4215,6 +4554,18 @@ export interface ListFlowOperationResultsRequest {
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the primary endpoint associated with a firewall.</p>
+   * @public
+   */
+  VpcEndpointId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>
+   * @public
+   */
+  VpcEndpointAssociationArn?: string | undefined;
 }
 
 /**
@@ -4233,6 +4584,18 @@ export interface ListFlowOperationResultsResponse {
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  VpcEndpointAssociationArn?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  VpcEndpointId?: string | undefined;
 
   /**
    * <p>A unique identifier for the flow operation. This ID is returned in the responses to start and list commands. You provide to describe commands.</p>
@@ -4293,6 +4656,18 @@ export interface ListFlowOperationsRequest {
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>
+   * @public
+   */
+  VpcEndpointAssociationArn?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the primary endpoint associated with a firewall.</p>
+   * @public
+   */
+  VpcEndpointId?: string | undefined;
 
   /**
    * <p>An optional string that defines whether any or all operation types are returned.</p>
@@ -4552,6 +4927,69 @@ export interface ListTLSInspectionConfigurationsResponse {
 }
 
 /**
+ * @public
+ */
+export interface ListVpcEndpointAssociationsRequest {
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of objects that you want Network Firewall to return for this request. If more
+   *           objects are available, in the response, Network Firewall provides a
+   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   *          <p>If you don't specify this, Network Firewall retrieves all VPC endpoint associations that you have defined.</p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+}
+
+/**
+ * <p>High-level information about a VPC endpoint association, returned by <code>ListVpcEndpointAssociations</code>. You can use the information provided in the metadata to retrieve and manage a VPC endpoint association.</p>
+ * @public
+ */
+export interface VpcEndpointAssociationMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>
+   * @public
+   */
+  VpcEndpointAssociationArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcEndpointAssociationsResponse {
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The VPC endpoint assocation metadata objects for the firewall that you specified. If you didn't
+   *            specify a firewall, this is all VPC endpoint associations that you have defined. </p>
+   *          <p>Depending on your setting
+   *          for max results and the number of firewalls you have, a single call might not be the full
+   *          list. </p>
+   * @public
+   */
+  VpcEndpointAssociations?: VpcEndpointAssociationMetadata[] | undefined;
+}
+
+/**
  * <p>Unable to send logs to a configured logging destination. </p>
  * @public
  */
@@ -4578,13 +5016,13 @@ export class LogDestinationPermissionException extends __BaseException {
  */
 export interface PutResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the account that you want to share rule groups and firewall policies with.</p>
+   * <p>The Amazon Resource Name (ARN) of the account that you want to share your Network Firewall resources with.</p>
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The IAM policy statement that lists the accounts that you want to share your rule group or firewall policy with
+   * <p>The IAM policy statement that lists the accounts that you want to share your Network Firewall resources with
    *            and the operations that you want the accounts to be able to perform. </p>
    *          <p>For a rule group resource, you can specify the following operations in the Actions section of the statement:</p>
    *          <ul>
@@ -4607,7 +5045,19 @@ export interface PutResourcePolicyRequest {
    *                <p>network-firewall:ListFirewallPolicies</p>
    *             </li>
    *          </ul>
-   *          <p>In the Resource section of the statement, you specify the ARNs for the rule groups and firewall policies that you want to share with the account that you specified in <code>Arn</code>.</p>
+   *          <p>For a firewall resource, you can specify the following operations in the Actions section of the statement:</p>
+   *          <ul>
+   *             <li>
+   *                <p>network-firewall:CreateVpcEndpointAssociation</p>
+   *             </li>
+   *             <li>
+   *                <p>network-firewall:DescribeFirewallMetadata</p>
+   *             </li>
+   *             <li>
+   *                <p>network-firewall:ListFirewalls</p>
+   *             </li>
+   *          </ul>
+   *          <p>In the Resource section of the statement, you specify the ARNs for the Network Firewall resources that you want to share with the account that you specified in <code>Arn</code>.</p>
    * @public
    */
   Policy: string | undefined;
@@ -4672,6 +5122,18 @@ export interface StartFlowCaptureRequest {
   AvailabilityZone?: string | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>
+   * @public
+   */
+  VpcEndpointAssociationArn?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the primary endpoint associated with a firewall.</p>
+   * @public
+   */
+  VpcEndpointId?: string | undefined;
+
+  /**
    * <p>The reqested <code>FlowOperation</code> ignores flows with an age (in seconds) lower than <code>MinimumFlowAgeInSeconds</code>.
    * You provide this for start commands.</p>
    *          <note>
@@ -4729,6 +5191,18 @@ export interface StartFlowFlushRequest {
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>
+   * @public
+   */
+  VpcEndpointAssociationArn?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the primary endpoint associated with a firewall.</p>
+   * @public
+   */
+  VpcEndpointId?: string | undefined;
 
   /**
    * <p>The reqested <code>FlowOperation</code> ignores flows with an age (in seconds) lower than <code>MinimumFlowAgeInSeconds</code>.
@@ -5483,7 +5957,8 @@ export interface UpdateTLSInspectionConfigurationRequest {
   /**
    * <p>The object that defines a TLS inspection configuration. This, along with <a>TLSInspectionConfigurationResponse</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
    *          <p>Network Firewall uses a TLS inspection configuration to decrypt traffic. Network Firewall re-encrypts the traffic before sending it to its destination.</p>
-   *          <p>To use a TLS inspection configuration, you add it to a new Network Firewall firewall policy, then you apply the firewall policy to a firewall. Network Firewall acts as a proxy service to decrypt and inspect the traffic traveling through your firewalls. You can reference a TLS inspection configuration from more than one firewall policy, and you can use a firewall policy in more than one firewall. For more information about using TLS inspection configurations, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Inspecting SSL/TLS traffic with TLS
+   *          <p>To use a TLS inspection configuration, you add it to a new Network Firewall firewall policy, then you apply the firewall policy to a firewall. Network Firewall acts as a proxy service to decrypt and inspect the traffic traveling through your firewalls. You can reference a TLS inspection configuration from more than one firewall policy, and you can use a firewall policy in more than one firewall. For more information about using TLS inspection configurations, see
+   *     <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Inspecting SSL/TLS traffic with TLS
    * inspection configurations</a> in the <i>Network Firewall Developer Guide</i>.</p>
    * @public
    */

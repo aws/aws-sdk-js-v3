@@ -42,6 +42,8 @@ export interface ListFlowOperationsCommandOutput extends ListFlowOperationsRespo
  * const input = { // ListFlowOperationsRequest
  *   FirewallArn: "STRING_VALUE", // required
  *   AvailabilityZone: "STRING_VALUE",
+ *   VpcEndpointAssociationArn: "STRING_VALUE",
+ *   VpcEndpointId: "STRING_VALUE",
  *   FlowOperationType: "FLOW_FLUSH" || "FLOW_CAPTURE",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

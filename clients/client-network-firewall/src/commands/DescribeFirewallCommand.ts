@@ -69,6 +69,7 @@ export interface DescribeFirewallCommandOutput extends DescribeFirewallResponse,
  * //       KeyId: "STRING_VALUE",
  * //       Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
  * //     },
+ * //     NumberOfAssociations: Number("int"),
  * //     EnabledAnalysisTypes: [ // EnabledAnalysisTypes
  * //       "TLS_SNI" || "HTTP_HOST",
  * //     ],
