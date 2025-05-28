@@ -73,6 +73,7 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  *     EnvironmentVariables: { // EnvironmentVariablesMap
  *       "<keys>": "STRING_VALUE",
  *     },
+ *     EphemeralStorage: Number("int"),
  *   },
  *   SuccessRetentionPeriodInDays: Number("int"),
  *   FailureRetentionPeriodInDays: Number("int"),
@@ -122,6 +123,7 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * //       TimeoutInSeconds: Number("int"),
  * //       MemoryInMB: Number("int"),
  * //       ActiveTracing: true || false,
+ * //       EphemeralStorage: Number("int"),
  * //     },
  * //     SuccessRetentionPeriodInDays: Number("int"),
  * //     FailureRetentionPeriodInDays: Number("int"),

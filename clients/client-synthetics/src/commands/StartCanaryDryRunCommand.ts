@@ -52,6 +52,7 @@ export interface StartCanaryDryRunCommandOutput extends StartCanaryDryRunRespons
  *     EnvironmentVariables: { // EnvironmentVariablesMap
  *       "<keys>": "STRING_VALUE",
  *     },
+ *     EphemeralStorage: Number("int"),
  *   },
  *   VpcConfig: { // VpcConfigInput
  *     SubnetIds: [ // SubnetIds

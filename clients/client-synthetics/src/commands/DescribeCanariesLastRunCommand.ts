@@ -65,6 +65,7 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  * //           State: "RUNNING" || "PASSED" || "FAILED",
  * //           StateReason: "STRING_VALUE",
  * //           StateReasonCode: "CANARY_FAILURE" || "EXECUTION_FAILURE",
+ * //           TestResult: "PASSED" || "FAILED" || "UNKNOWN",
  * //         },
  * //         Timeline: { // CanaryRunTimeline
  * //           Started: new Date("TIMESTAMP"),

@@ -353,6 +353,12 @@ export interface CanaryRunConfigOutput {
    * @public
    */
   ActiveTracing?: boolean | undefined;
+
+  /**
+   * <p>Specifies the amount of ephemeral storage (in MB) to allocate for the canary run during execution. This temporary storage is used for storing canary run artifacts (which are uploaded to an Amazon S3 bucket at the end of the run), and any canary browser operations. This temporary storage is cleared after the run is completed. Default storage value is 1024 MB.</p>
+   * @public
+   */
+  EphemeralStorage?: number | undefined;
 }
 
 /**
@@ -746,6 +752,21 @@ export const CanaryRunStateReasonCode = {
 export type CanaryRunStateReasonCode = (typeof CanaryRunStateReasonCode)[keyof typeof CanaryRunStateReasonCode];
 
 /**
+ * @public
+ * @enum
+ */
+export const CanaryRunTestResult = {
+  FAILED: "FAILED",
+  PASSED: "PASSED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type CanaryRunTestResult = (typeof CanaryRunTestResult)[keyof typeof CanaryRunTestResult];
+
+/**
  * <p>This structure contains the status information about a canary run.</p>
  * @public
  */
@@ -763,12 +784,20 @@ export interface CanaryRunStatus {
   StateReason?: string | undefined;
 
   /**
-   * <p>If this value is <code>CANARY_FAILURE</code>, an exception occurred in the
-   *          canary code. If this value is <code>EXECUTION_FAILURE</code>, an exception occurred in
-   *          CloudWatch Synthetics.</p>
+   * <p>If this value is <code>CANARY_FAILURE</code>, either the canary script failed or Synthetics ran into a fatal error when running the canary. For example,  a canary timeout misconfiguration setting can cause the canary to timeout before Synthetics can evaluate its status.
+   *         </p>
+   *          <p> If this value is <code>EXECUTION_FAILURE</code>, a non-critical failure occurred such as failing to save generated debug artifacts (for example, screenshots or har files).</p>
+   *          <p>If both types of failures occurred, the <code>CANARY_FAILURE</code> takes precedence. To understand the exact error, use the <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CanaryRunStatus.html">StateReason</a> API.</p>
    * @public
    */
   StateReasonCode?: CanaryRunStateReasonCode | undefined;
+
+  /**
+   * <p>Specifies the status of canary script for this run. When Synthetics tries to determine the status but fails, the result is marked as <code>UNKNOWN</code>.
+   *          For the overall status of canary run, see <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CanaryRunStatus.html">State</a>.</p>
+   * @public
+   */
+  TestResult?: CanaryRunTestResult | undefined;
 }
 
 /**
@@ -871,7 +900,7 @@ export interface CanaryLastRun {
 /**
  * <p>Use this structure to input your script code for the canary. This structure contains the
  *          Lambda handler with the location where the canary should start running the script. If the
- *          script is stored in an S3 bucket, the bucket name, key, and version are also included. If
+ *          script is stored in an Amazon S3 bucket, the bucket name, key, and version are also included. If
  *          the script was passed into the canary directly, the script code is contained in the value
  *          of <code>Zipfile</code>. </p>
  *          <p>If you are uploading your canary scripts with an Amazon S3 bucket, your zip file should include your
@@ -895,29 +924,29 @@ export interface CanaryLastRun {
  */
 export interface CanaryCodeInput {
   /**
-   * <p>If your canary script is located in S3, specify the bucket name here. Do not include <code>s3://</code> as the
+   * <p>If your canary script is located in Amazon S3, specify the bucket name here. Do not include <code>s3://</code> as the
    *          start of the bucket name.</p>
    * @public
    */
   S3Bucket?: string | undefined;
 
   /**
-   * <p>The S3 key of your script. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html">Working with Amazon S3 Objects</a>.</p>
+   * <p>The Amazon S3 key of your script. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html">Working with Amazon S3 Objects</a>.</p>
    * @public
    */
   S3Key?: string | undefined;
 
   /**
-   * <p>The S3 version ID of your script.</p>
+   * <p>The Amazon S3 version ID of your script.</p>
    * @public
    */
   S3Version?: string | undefined;
 
   /**
-   * <p>If you input your canary script directly into the canary instead of referring to an S3
+   * <p>If you input your canary script directly into the canary instead of referring to an Amazon S3
    *          location, the value of this parameter is the base64-encoded contents of the .zip file that
    *          contains the script. It must be smaller than 225 Kb.</p>
-   *          <p>For large canary scripts, we recommend that you use an S3 location instead of inputting it
+   *          <p>For large canary scripts, we recommend that you use an Amazon S3 location instead of inputting it
    *       directly with this parameter.</p>
    * @public
    */
@@ -992,6 +1021,12 @@ export interface CanaryRunConfigInput {
    * @public
    */
   EnvironmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>Specifies the amount of ephemeral storage (in MB) to allocate for the canary run during execution. This temporary storage is used for storing canary run artifacts (which are uploaded to an Amazon S3 bucket at the end of the run), and any canary browser operations. This temporary storage is cleared after the run is completed. Default storage value is 1024 MB.</p>
+   * @public
+   */
+  EphemeralStorage?: number | undefined;
 }
 
 /**
@@ -1112,7 +1147,7 @@ export interface CreateCanaryRequest {
   /**
    * <p>A structure that includes the entry point from which the canary should start
    *          running your script. If the script is stored in
-   *          an S3 bucket, the bucket name, key, and version are also included.
+   *          an Amazon S3 bucket, the bucket name, key, and version are also included.
    *       </p>
    * @public
    */
@@ -1121,7 +1156,7 @@ export interface CreateCanaryRequest {
   /**
    * <p>The location in Amazon S3 where Synthetics stores artifacts from the test runs of this
    *          canary. Artifacts include the log file, screenshots, and HAR files.  The name of the
-   *          S3 bucket can't include a period (.).</p>
+   *          Amazon S3 bucket can't include a period (.).</p>
    * @public
    */
   ArtifactS3Location: string | undefined;
@@ -2080,7 +2115,7 @@ export interface StartCanaryDryRunRequest {
   /**
    * <p>Use this structure to input your script code for the canary. This structure contains the
    *          Lambda handler with the location where the canary should start running the script. If the
-   *          script is stored in an S3 bucket, the bucket name, key, and version are also included. If
+   *          script is stored in an Amazon S3 bucket, the bucket name, key, and version are also included. If
    *          the script was passed into the canary directly, the script code is contained in the value
    *          of <code>Zipfile</code>. </p>
    *          <p>If you are uploading your canary scripts with an Amazon S3 bucket, your zip file should include your
@@ -2137,7 +2172,8 @@ export interface StartCanaryDryRunRequest {
   ExecutionRoleArn?: string | undefined;
 
   /**
-   * <p>The number of days to retain data on the failed runs for this canary. The valid range is 1 to 455 days.</p>
+   * <p>The number of days to retain data about successful runs of this canary. If you omit
+   *          this field, the default of 31 days is used. The valid range is 1 to 455 days.</p>
    *          <p>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>, as well as
    *          the range of information displayed in the Synthetics console.
    *       </p>
@@ -2146,7 +2182,8 @@ export interface StartCanaryDryRunRequest {
   SuccessRetentionPeriodInDays?: number | undefined;
 
   /**
-   * <p>The number of days to retain data on the failed runs for this canary. The valid range is 1 to 455 days.</p>
+   * <p>The number of days to retain data about failed runs of this canary. If you omit
+   *          this field, the default of 31 days is used. The valid range is 1 to 455 days.</p>
    *          <p>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>, as well as
    *          the range of information displayed in the Synthetics console.
    *       </p>
@@ -2168,6 +2205,7 @@ export interface StartCanaryDryRunRequest {
 
   /**
    * <p>The location in Amazon S3 where Synthetics stores artifacts from the test runs of this
+   *
    *          canary. Artifacts include the log file, screenshots, and HAR files.  The name of the
    *          Amazon S3 bucket can't include a period (.).</p>
    * @public
@@ -2183,7 +2221,8 @@ export interface StartCanaryDryRunRequest {
 
   /**
    * <p>Specifies whether to also delete the Lambda functions and layers used by this canary
-   *          when the canary is deleted. If the value of this parameter is <code>AUTOMATIC</code>, it means
+   *          when the canary is deleted. If you omit this parameter, the default of <code>AUTOMATIC</code> is used, which means
+   *
    *          that the Lambda functions and layers will be deleted when the canary is deleted.</p>
    *          <p>If the value of this parameter is <code>OFF</code>, then the value of the <code>DeleteLambda</code> parameter
    *          of the <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html">DeleteCanary</a> operation
@@ -2294,7 +2333,7 @@ export interface UpdateCanaryRequest {
   /**
    * <p>A structure that includes the entry point from which the canary should start
    *          running your script. If the script is stored in
-   *          an S3 bucket, the bucket name, key, and version are also included.
+   *          an Amazon S3 bucket, the bucket name, key, and version are also included.
    *       </p>
    * @public
    */
@@ -2415,7 +2454,7 @@ export interface UpdateCanaryRequest {
   /**
    * <p>The location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
    *          Artifacts include the log file, screenshots, and HAR files. The name of the
-   *          S3 bucket can't include a period (.).</p>
+   *          Amazon S3 bucket can't include a period (.).</p>
    * @public
    */
   ArtifactS3Location?: string | undefined;
