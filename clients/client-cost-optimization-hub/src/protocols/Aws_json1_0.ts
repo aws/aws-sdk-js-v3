@@ -82,6 +82,7 @@ import {
   MemoryDbReservedInstances,
   OpenSearchReservedInstances,
   OrderBy,
+  PreferredCommitment,
   RdsDbInstance,
   RdsDbInstanceStorage,
   RdsDbInstanceStorageConfiguration,
@@ -469,6 +470,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_OrderBy omitted.
 
+// se_PreferredCommitment omitted.
+
 // se_RecommendationIdList omitted.
 
 // se_RegionList omitted.
@@ -798,6 +801,8 @@ const de_OpenSearchReservedInstances = (output: any, context: __SerdeContext): O
 };
 
 // de_OpenSearchReservedInstancesConfiguration omitted.
+
+// de_PreferredCommitment omitted.
 
 /**
  * deserializeAws_json1_0RdsDbInstance

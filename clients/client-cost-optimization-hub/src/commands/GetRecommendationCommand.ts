@@ -32,11 +32,7 @@ export interface GetRecommendationCommandInput extends GetRecommendationRequest 
 export interface GetRecommendationCommandOutput extends GetRecommendationResponse, __MetadataBearer {}
 
 /**
- * <p>Returns both the current and recommended resource configuration and the estimated cost
- *       impact for a recommendation.</p>
- *          <p>The <code>recommendationId</code> is only valid for up to a maximum of 24 hours as
- *       recommendations are refreshed daily. To retrieve the <code>recommendationId</code>, use the
- *         <code>ListRecommendations</code> API.</p>
+ * <p>Returns both the current and recommended resource configuration and the estimated cost impact for a recommendation.</p> <p>The <code>recommendationId</code> is only valid for up to a maximum of 24 hours as recommendations are refreshed daily. To retrieve the <code>recommendationId</code>, use the <code>ListRecommendations</code> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -729,8 +725,7 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  *  <p>You are not authorized to use this operation with the given parameters.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again
- *       later.</p>
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Resource Name (ARN) in the request doesn't exist.</p>
@@ -739,8 +734,7 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *       service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link CostOptimizationHubServiceException}
  * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
