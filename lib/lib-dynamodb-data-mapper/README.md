@@ -226,14 +226,19 @@ iimport { DynamoDbSchema, DynamoDbTable } from '@aws-sdk/lib-dynamodb-data-mappe
 class MyDomainModel {
   id!: string;
   name?: string;
+};
 
-  static [DynamoDbSchema] = {
+// Attach schema + table metadata
+Object.defineProperty(MyDomainModel.prototype, DynamoDbSchema, {
+  value: {
     id: { type: 'String', keyType: 'HASH' },
     name: { type: 'String' },
-  };
+  },
+});
 
-  static [DynamoDbTable] = 'MyDomainTable';
-}
+Object.defineProperty(MyDomainModel.prototype, DynamoDbTable, {
+  value: 'MyDomainModel',
+});
 ```
 
 The schema and table name may be declared as property accessors directly on the

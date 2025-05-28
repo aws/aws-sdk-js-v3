@@ -9,32 +9,34 @@ import { randomUUID } from 'crypto';
 import { afterAll, beforeAll, describe, expect, test as it } from 'vitest';
 
 import { DataMapper } from '../DataMapper';
-import { DynamoDbSchema, DynamoDbTable } from '../schema/schemaMetadata';
+import { DynamoDbSchema, DynamoDbTable } from '../schema';
+
+const tableName = `SchemaModel-${Math.random().toString(36).substring(2, 8)}`;
 
 class SchemaModel {
   id!: string;
   name!: string;
   age!: number;
+}
 
-  static [DynamoDbSchema] = {
+// Attach schema + table metadata on the prototype
+Object.defineProperty(SchemaModel.prototype, DynamoDbSchema, {
+  value: {
     id: { type: 'String', keyType: 'HASH' },
     name: { type: 'String' },
     age: { type: 'Number' },
-  };
+  },
+});
 
-  static [DynamoDbTable]: string;
-}
+Object.defineProperty(SchemaModel.prototype, DynamoDbTable, {
+  value: tableName,
+});
 
 describe(DataMapper.name, () => {
   const dynamodb = new DynamoDB({ region: 'us-west-2' });
   const mapper = DataMapper.from(dynamodb);
 
-  const tableName = `SchemaModel-${Math.random().toString(36).substring(2, 8)}`;
-
   beforeAll(async () => {
-    // Attach the dynamic table name to the model
-    SchemaModel[DynamoDbTable] = tableName;
-
     const exists = await dynamodb.describeTable({ TableName: tableName }).catch(() => null);
 
     if (!exists?.Table) {

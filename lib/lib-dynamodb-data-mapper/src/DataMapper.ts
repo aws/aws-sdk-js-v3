@@ -100,8 +100,9 @@ export class DataMapper {
    * @returns A hydrated instance of the model.
    */
   async get<T extends object>(key: Partial<T>, modelCtor: new () => T, httpOptions?: HttpHandlerOptions): Promise<T | undefined> {
-    const schema = getSchema(modelCtor);
-    const tableName = getTableName(modelCtor);
+    const instance = new modelCtor();
+    const schema = getSchema(instance);
+    const tableName = getTableName(instance);
 
     const command = new GetItemCommand({
       TableName: tableName,

@@ -48,40 +48,39 @@ describe('DataMapper', () => {
   });
 
   it('should send GetItemCommand and unmarshall result', async () => {
-    class User {
-      id!: string;
-      name?: string;
+  class User {
+    id!: string;
+    name?: string;
+  }
 
-      static [DynamoDbSchema]: any;
-      static [DynamoDbTable]: string;
-    }
-    
-    User[DynamoDbSchema] = {
-      id: { type: 'String', keyType: 'HASH' },
-      name: { type: 'String' },
-    };
-    User[DynamoDbTable] = 'Users';
+  const schema = {
+    id: { type: 'String', keyType: 'HASH' },
+    name: { type: 'String' },
+  };
 
-    const mapper = DataMapper.from(mockClient);
+  Object.defineProperty(User.prototype, DynamoDbSchema, { value: schema });
+  Object.defineProperty(User.prototype, DynamoDbTable, { value: 'Users' });
 
-    const fakeResponse = {
-      Item: {
-        id: { S: '123' },
-        name: { S: 'Alice' },
-      },
-    };
+  const mapper = DataMapper.from(mockClient);
 
-    mockSend.mockResolvedValueOnce(fakeResponse);
+  const fakeResponse = {
+    Item: {
+      id: { S: '123' },
+      name: { S: 'Alice' },
+    },
+  };
 
-    const result = await mapper.get({ id: '123' }, User) as User;
+  mockSend.mockResolvedValueOnce(fakeResponse);
 
-    const command = mockSend.mock.calls[0][0];
-    expect(command).toBeInstanceOf(GetItemCommand);
-    expect(command.input.TableName).toBe('Users');
-    expect(command.input.Key).toEqual({ id: { S: '123' } });
+  const result = await mapper.get({ id: '123' }, User) as User;
 
-    expect(result).toBeInstanceOf(User);
-    expect(result.id).toBe('123');
-    expect(result.name).toBe('Alice');
-  });
+  const command = mockSend.mock.calls[0][0];
+  expect(command).toBeInstanceOf(GetItemCommand);
+  expect(command.input.TableName).toBe('Users');
+  expect(command.input.Key).toEqual({ id: { S: '123' } });
+
+  expect(result).toBeInstanceOf(User);
+  expect(result.id).toBe('123');
+  expect(result.name).toBe('Alice');
+});
 });
