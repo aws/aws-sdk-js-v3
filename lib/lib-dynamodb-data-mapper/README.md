@@ -56,7 +56,7 @@ export interface DataMapperConfig {
  * High-level methods operate on domain objects with schema metadata (via decorators or static symbols).
  * Low-level methods accept raw AWS SDK command inputs for advanced use cases.
  */
-export interface IDataMapper {
+export class DataMapper {
   /**
    * Save a domain model object to DynamoDB using its schema metadata.
    *
