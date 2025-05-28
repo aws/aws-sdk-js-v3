@@ -2,7 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "dist-cjs",
-    "rootDir": "src"
+    "rootDir": "src",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "extends": "../../tsconfig.cjs.json",
   "include": ["src/"]

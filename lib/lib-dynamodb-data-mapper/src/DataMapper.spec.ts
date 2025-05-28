@@ -1,17 +1,16 @@
-import { GetCommand, PutCommand } from '@aws-sdk/lib-dynamodb';
+import {   
+  GetItemCommand,
+  PutItemCommand,  
+ } from '@aws-sdk/client-dynamodb';
 import { afterEach,beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { DataMapper } from './DataMapper';
-
+import { DynamoDbSchema, DynamoDbTable } from './schema';
 
 const mockSend = vi.fn();
 
 const mockClient = {
   send: mockSend,
-  middlewareStack: {
-    add: vi.fn(),
-    addRelativeTo: vi.fn(),
-  },
 } as any;
 
 beforeEach(() => {
@@ -23,35 +22,66 @@ afterEach(() => {
 });
 
 describe('DataMapper', () => {
-  it('should send PutCommand with provided input', async () => {
-    const mapper = new DataMapper({ docClient: mockClient });
-    const input = { TableName: 'Users', Item: { id: '123' } };
+  it('should send PutItemCommand with marshalled input', async () => {
+    const mapper = new DataMapper({ client: mockClient });
+    const user = { id: '123', name: 'Alice' };
+
+    const schema = {
+      id: { type: 'String', keyType: 'HASH' },
+      name: { type: 'String' },
+    };
+
+    Object.defineProperty(user, Symbol.for('DynamoDbSchema'), { value: schema });
+    Object.defineProperty(user, Symbol.for('DynamoDbTable'), { value: 'Users' });
+
     mockSend.mockResolvedValueOnce({});
 
-    await mapper.put(input);
+    await mapper.put(user);
 
-    const sentCommand = mockSend.mock.calls[0][0];
-    expect(sentCommand).toBeInstanceOf(PutCommand);
-    expect(sentCommand.input).toEqual(input);
+    const command = mockSend.mock.calls[0][0];
+    expect(command).toBeInstanceOf(PutItemCommand);
+    expect(command.input.TableName).toBe('Users');
+    expect(command.input.Item).toEqual({
+      id: { S: '123' },
+      name: { S: 'Alice' },
+    });
   });
 
-  it('should send GetCommand with provided input', async () => {
-    const mapper = new DataMapper({ docClient: mockClient });
-    const input = { TableName: 'Users', Key: { id: '123' } };
-    const fakeResponse = { Item: { id: { S: '123' } } };
+  it('should send GetItemCommand and unmarshall result', async () => {
+    class User {
+      id!: string;
+      name?: string;
+
+      static [DynamoDbSchema]: any;
+      static [DynamoDbTable]: string;
+    }
+    
+    User[DynamoDbSchema] = {
+      id: { type: 'String', keyType: 'HASH' },
+      name: { type: 'String' },
+    };
+    User[DynamoDbTable] = 'Users';
+
+    const mapper = new DataMapper({ client: mockClient });
+
+    const fakeResponse = {
+      Item: {
+        id: { S: '123' },
+        name: { S: 'Alice' },
+      },
+    };
+
     mockSend.mockResolvedValueOnce(fakeResponse);
 
-    const result = await mapper.get(input);
+    const result = await mapper.get({ id: '123' }, User) as User;
 
-    const sentCommand = mockSend.mock.calls[0][0];
-    expect(sentCommand).toBeInstanceOf(GetCommand);
-    expect(sentCommand.input).toEqual(input);
-    expect(result).toEqual(fakeResponse);
-  });
+    const command = mockSend.mock.calls[0][0];
+    expect(command).toBeInstanceOf(GetItemCommand);
+    expect(command.input.TableName).toBe('Users');
+    expect(command.input.Key).toEqual({ id: { S: '123' } });
 
-  it('should register schema-aware middlewares on init', () => {
-    new DataMapper({ docClient: mockClient });
-    expect(mockClient.middlewareStack.addRelativeTo).toHaveBeenCalled();
-    expect(mockClient.middlewareStack.add).toHaveBeenCalled();
+    expect(result).toBeInstanceOf(User);
+    expect(result.id).toBe('123');
+    expect(result.name).toBe('Alice');
   });
 });

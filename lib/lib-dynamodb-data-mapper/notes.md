@@ -130,3 +130,32 @@ Item: item,
 - DataMarshaller Core class to marshal/unmarshal based on schema
 - SchemaType.ts Describes schema structure
 - schemaMetadata.ts Gets schema at runtime via well-known symbols
+
+## decorators
+
+### attributes
+
+#### Empty Decorator (Implicit Inference)
+
+```ts
+@attribute()
+username: string;
+```
+
+This celies on Typescript emitDecoratorMetadata to infer to type (_string_ in this case) and the metadataToSchemaType determines to **{ type: 'String' }**
+
+This is convenient, but only works well for primitives (_string, number, boolean, Date_, etc.). It does not work for complex generics like _Set<T>, Map<K, V>, or tuples_.
+
+#### Typed Decorator (Explicit Schema Options)
+
+```ts
+@attribute({ type: 'Set', memberType: 'Binary' })
+attachments: Set<Uint8Array>;
+```
+
+This is explicit, and required for:
+
+- Set<T> types (because TS does not emit T)
+- Map<K, V>
+- Array<any> when you want to treat it as List or Tuple
+- Edge cases where you want to override the inferred type

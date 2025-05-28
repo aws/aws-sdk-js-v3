@@ -3,7 +3,9 @@
     "baseUrl": ".",
     "lib": ["dom"],
     "outDir": "dist-es",
-    "rootDir": "src"
+    "rootDir": "src",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "extends": "../../tsconfig.es.json",
   "include": ["src/"]

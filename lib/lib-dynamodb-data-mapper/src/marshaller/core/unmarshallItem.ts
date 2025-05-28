@@ -1,7 +1,7 @@
 import type { AttributeValue } from '@aws-sdk/client-dynamodb';
 
-import type { Schema } from '../../schema/Schema';
-import type { ZeroArgumentsConstructor } from '../../schema/SchemaType';
+import type { ZeroArgumentsConstructor } from '../../schema';
+import type { Schema } from '../../schema';
 import { unmarshallValue } from './unmarshallValue';
 
 export function unmarshallItem<T = Record<string, any>>(

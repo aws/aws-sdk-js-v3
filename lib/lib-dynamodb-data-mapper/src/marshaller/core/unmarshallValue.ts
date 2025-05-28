@@ -9,7 +9,7 @@ import type {
   MapType,
   SchemaType,
   SetType,
-  TupleType} from '../../schema/SchemaType';
+  TupleType} from '../../schema';
 
 function unmarshallTuple(schema: TupleType, input: AttributeValue[]): any[] {
   return schema.members.map((member, i) => unmarshallValue(member, input[i]));

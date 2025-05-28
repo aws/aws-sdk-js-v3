@@ -1,7 +1,7 @@
-import { describe, expect,it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
-import type { Schema } from '../schema/Schema';
-import { DynamoDbSchema, DynamoDbTable } from '../schema/schemaMetadata';
+import type { Schema } from '../schema';
+import { DynamoDbSchema, DynamoDbTable } from '../schema';
 import { DataMarshaller } from './DataMarshaller';
 
 class User {
@@ -16,15 +16,16 @@ const schema: Schema = {
   age: { type: 'Number' },
 };
 
+// Attach metadata
 Object.defineProperty(User.prototype, DynamoDbSchema, { value: schema });
 Object.defineProperty(User.prototype, DynamoDbTable, { value: 'Users' });
 
 describe('DataMarshaller', () => {
-  const marshaller = new DataMarshaller(new User());
 
   it('should marshall full item', () => {
     const user = Object.assign(new User(), { id: '123', name: 'Alice', age: 30 });
-    expect(marshaller.marshall(user)).toEqual({
+    const marshalled = DataMarshaller.marshall(user, schema);
+    expect(marshalled).toEqual({
       id: { S: '123' },
       full_name: { S: 'Alice' },
       age: { N: '30' },
@@ -33,7 +34,8 @@ describe('DataMarshaller', () => {
 
   it('should marshall key only', () => {
     const user = Object.assign(new User(), { id: '123', name: 'X', age: 99 });
-    expect(marshaller.marshallKey(user)).toEqual({
+    const marshalledKey = DataMarshaller.marshallKey(user, schema);
+    expect(marshalledKey).toEqual({
       id: { S: '123' },
     });
   });
@@ -44,10 +46,11 @@ describe('DataMarshaller', () => {
       full_name: { S: 'Alice' },
       age: { N: '30' },
     };
-    const result:User = marshaller.unmarshall(item);
+    const result: User = DataMarshaller.unmarshall(item, schema, User);
     expect(result).toBeInstanceOf(User);
     expect(result.id).toBe('123');
     expect(result.name).toBe('Alice');
     expect(result.age).toBe(30);
   });
+
 });

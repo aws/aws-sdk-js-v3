@@ -11,8 +11,8 @@ import type {
   MapType,
   SetType,
   TupleType,
-} from '../../schema/SchemaType';
-import { SchemaType } from '../../schema/SchemaType';
+} from '../../schema';
+import { SchemaType } from '../../schema';
 
 
 export function marshallValue(

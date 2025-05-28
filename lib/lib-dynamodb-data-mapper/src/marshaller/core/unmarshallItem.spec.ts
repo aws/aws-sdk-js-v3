@@ -1,6 +1,6 @@
 import { describe, expect,it } from 'vitest';
 
-import type { Schema } from '../../schema/Schema';
+import type { Schema } from '../../schema';
 import { unmarshallItem } from './unmarshallItem';
 
 class TestModel {
