@@ -107,6 +107,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * //         ErrorMessage: "STRING_VALUE",
  * //       },
  * //       Source: "STRING_VALUE",
+ * //       WorkerReplacementStrategy: "STRING_VALUE",
  * //     },
  * //     WeeklyMaintenanceWindowStart: "STRING_VALUE",
  * //     Tags: { // TagMap

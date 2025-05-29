@@ -42,25 +42,12 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * const input = { // UpdateEnvironmentInput
  *   Name: "STRING_VALUE", // required
  *   ExecutionRoleArn: "STRING_VALUE",
- *   AirflowVersion: "STRING_VALUE",
- *   SourceBucketArn: "STRING_VALUE",
- *   DagS3Path: "STRING_VALUE",
- *   PluginsS3Path: "STRING_VALUE",
- *   PluginsS3ObjectVersion: "STRING_VALUE",
- *   RequirementsS3Path: "STRING_VALUE",
- *   RequirementsS3ObjectVersion: "STRING_VALUE",
- *   StartupScriptS3Path: "STRING_VALUE",
- *   StartupScriptS3ObjectVersion: "STRING_VALUE",
  *   AirflowConfigurationOptions: { // AirflowConfigurationOptions
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   AirflowVersion: "STRING_VALUE",
+ *   DagS3Path: "STRING_VALUE",
  *   EnvironmentClass: "STRING_VALUE",
- *   MaxWorkers: Number("int"),
- *   NetworkConfiguration: { // UpdateNetworkConfigurationInput
- *     SecurityGroupIds: [ // SecurityGroupList // required
- *       "STRING_VALUE",
- *     ],
- *   },
  *   LoggingConfiguration: { // LoggingConfigurationInput
  *     DagProcessingLogs: { // ModuleLoggingConfigurationInput
  *       Enabled: true || false, // required
@@ -83,12 +70,26 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  *       LogLevel: "STRING_VALUE", // required
  *     },
  *   },
- *   WeeklyMaintenanceWindowStart: "STRING_VALUE",
- *   WebserverAccessMode: "STRING_VALUE",
+ *   MaxWorkers: Number("int"),
  *   MinWorkers: Number("int"),
- *   Schedulers: Number("int"),
- *   MinWebservers: Number("int"),
  *   MaxWebservers: Number("int"),
+ *   MinWebservers: Number("int"),
+ *   WorkerReplacementStrategy: "STRING_VALUE",
+ *   NetworkConfiguration: { // UpdateNetworkConfigurationInput
+ *     SecurityGroupIds: [ // SecurityGroupList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   PluginsS3Path: "STRING_VALUE",
+ *   PluginsS3ObjectVersion: "STRING_VALUE",
+ *   RequirementsS3Path: "STRING_VALUE",
+ *   RequirementsS3ObjectVersion: "STRING_VALUE",
+ *   Schedulers: Number("int"),
+ *   SourceBucketArn: "STRING_VALUE",
+ *   StartupScriptS3Path: "STRING_VALUE",
+ *   StartupScriptS3ObjectVersion: "STRING_VALUE",
+ *   WebserverAccessMode: "STRING_VALUE",
+ *   WeeklyMaintenanceWindowStart: "STRING_VALUE",
  * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);

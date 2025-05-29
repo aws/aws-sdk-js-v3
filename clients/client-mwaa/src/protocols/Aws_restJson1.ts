@@ -428,6 +428,7 @@ export const se_UpdateEnvironmentCommand = async (
       StartupScriptS3Path: [],
       WebserverAccessMode: [],
       WeeklyMaintenanceWindowStart: [],
+      WorkerReplacementStrategy: [],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -968,6 +969,7 @@ const de_LastUpdate = (output: any, context: __SerdeContext): LastUpdate => {
     Error: _json,
     Source: __expectString,
     Status: __expectString,
+    WorkerReplacementStrategy: __expectString,
   }) as any;
 };
 

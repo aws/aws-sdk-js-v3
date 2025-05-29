@@ -552,6 +552,20 @@ export const UpdateStatus = {
 export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
 
 /**
+ * @public
+ * @enum
+ */
+export const WorkerReplacementStrategy = {
+  FORCED: "FORCED",
+  GRACEFUL: "GRACEFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkerReplacementStrategy = (typeof WorkerReplacementStrategy)[keyof typeof WorkerReplacementStrategy];
+
+/**
  * <p>Describes the status of the last update on the environment, and any errors that were encountered.</p>
  * @public
  */
@@ -579,6 +593,12 @@ export interface LastUpdate {
    * @public
    */
   Source?: string | undefined;
+
+  /**
+   * <p>The worker replacement strategy used in the last update of the environment.</p>
+   * @public
+   */
+  WorkerReplacementStrategy?: WorkerReplacementStrategy | undefined;
 }
 
 /**
@@ -1452,6 +1472,12 @@ export interface UpdateEnvironmentInput {
   ExecutionRoleArn?: string | undefined;
 
   /**
+   * <p>A list of key-value pairs containing the Apache Airflow configuration options you want to attach to your environment. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html">Apache Airflow configuration options</a>.</p>
+   * @public
+   */
+  AirflowConfigurationOptions?: Record<string, string> | undefined;
+
+  /**
    * <p>The Apache Airflow version for your environment. To upgrade your environment, specify a newer version of Apache Airflow supported by Amazon MWAA.</p>
    *          <p>Before you upgrade an environment, make sure your requirements, DAGs, plugins, and other resources used in your workflows are compatible with the new Apache Airflow version. For more information about updating
    *             your resources, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/upgrading-environment.html">Upgrading an Amazon MWAA environment</a>.</p>
@@ -1463,16 +1489,93 @@ export interface UpdateEnvironmentInput {
   AirflowVersion?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code and supporting files are stored. For example, <code>arn:aws:s3:::my-airflow-bucket-unique-name</code>. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html">Create an Amazon S3 bucket for Amazon MWAA</a>.</p>
-   * @public
-   */
-  SourceBucketArn?: string | undefined;
-
-  /**
    * <p>The relative path to the DAGs folder on your Amazon S3 bucket. For example, <code>dags</code>. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html">Adding or updating DAGs</a>.</p>
    * @public
    */
   DagS3Path?: string | undefined;
+
+  /**
+   * <p>The environment class type. Valid values: <code>mw1.micro</code>,
+   *                 <code>mw1.small</code>, <code>mw1.medium</code>, <code>mw1.large</code>,
+   *                 <code>mw1.xlarge</code>, and <code>mw1.2xlarge</code>. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon MWAA environment class</a>. </p>
+   * @public
+   */
+  EnvironmentClass?: string | undefined;
+
+  /**
+   * <p>The Apache Airflow log types to send to CloudWatch Logs.</p>
+   * @public
+   */
+  LoggingConfiguration?: LoggingConfigurationInput | undefined;
+
+  /**
+   * <p>The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the <code>MaxWorkers</code> field. For example, <code>20</code>. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in <code>MinWorkers</code>.</p>
+   * @public
+   */
+  MaxWorkers?: number | undefined;
+
+  /**
+   * <p>The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the <code>MaxWorkers</code> field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the <code>MinWorkers</code> field. For example, <code>2</code>.</p>
+   * @public
+   */
+  MinWorkers?: number | undefined;
+
+  /**
+   * <p>
+   *             The maximum number of web servers that you want to run in your environment.
+   *             Amazon MWAA scales the number of Apache Airflow web servers up to the number you specify for <code>MaxWebservers</code>
+   *             when you interact with your Apache Airflow environment using Apache Airflow REST API, or
+   *             the Apache Airflow CLI. For example, in scenarios where your workload requires network calls to the Apache Airflow REST API with a high transaction-per-second (TPS)
+   *             rate, Amazon MWAA will increase the number of web servers up to the number set in <code>MaxWebserers</code>. As TPS rates decrease
+   *             Amazon MWAA disposes of the additional web servers, and scales down to the number set in <code>MinxWebserers</code>.
+   *         </p>
+   *          <p>Valid values: For environments larger than mw1.micro, accepts values from
+   *                 <code>2</code> to <code>5</code>. Defaults to <code>2</code> for all environment
+   *             sizes except mw1.micro, which defaults to <code>1</code>.</p>
+   * @public
+   */
+  MaxWebservers?: number | undefined;
+
+  /**
+   * <p>
+   *             The minimum number of web servers that you want to run in your environment.
+   *             Amazon MWAA scales the number of Apache Airflow web servers up to the number you specify for <code>MaxWebservers</code>
+   *             when you interact with your Apache Airflow environment using Apache Airflow REST API, or
+   *             the Apache Airflow CLI. As the transaction-per-second rate, and the network load, decrease,
+   *             Amazon MWAA disposes of the additional web servers, and scales down to the number set in <code>MinxWebserers</code>.
+   *         </p>
+   *          <p>Valid values: For environments larger than mw1.micro, accepts values from
+   *                 <code>2</code> to <code>5</code>. Defaults to <code>2</code> for all environment
+   *             sizes except mw1.micro, which defaults to <code>1</code>.</p>
+   * @public
+   */
+  MinWebservers?: number | undefined;
+
+  /**
+   * <p>The worker replacement strategy to use when updating the environment.</p>
+   *          <p>You can select one of the following strategies:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Forced -</b> Stops and replaces Apache Airflow workers without waiting for tasks to
+   *                     complete before an update.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Graceful -</b> Allows Apache Airflow workers to complete running tasks for up to 12 hours during an update before
+   *                     they're stopped and replaced.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  WorkerReplacementStrategy?: WorkerReplacementStrategy | undefined;
+
+  /**
+   * <p>The VPC networking components used to secure and enable network traffic between the Amazon Web Services resources for your environment. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html">About networking on Amazon MWAA</a>.</p>
+   * @public
+   */
+  NetworkConfiguration?: UpdateNetworkConfigurationInput | undefined;
 
   /**
    * <p>The relative path to the <code>plugins.zip</code> file on your Amazon S3 bucket. For example, <code>plugins.zip</code>. If specified, then the plugins.zip version is required. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html">Installing custom plugins</a>.</p>
@@ -1497,6 +1600,18 @@ export interface UpdateEnvironmentInput {
    * @public
    */
   RequirementsS3ObjectVersion?: string | undefined;
+
+  /**
+   * <p>The number of Apache Airflow schedulers to run in your Amazon MWAA environment.</p>
+   * @public
+   */
+  Schedulers?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code and supporting files are stored. For example, <code>arn:aws:s3:::my-airflow-bucket-unique-name</code>. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html">Create an Amazon S3 bucket for Amazon MWAA</a>.</p>
+   * @public
+   */
+  SourceBucketArn?: string | undefined;
 
   /**
    * <p>The relative path to the startup shell script in your Amazon S3 bucket. For example, <code>s3://mwaa-environment/startup.sh</code>.</p>
@@ -1528,92 +1643,16 @@ export interface UpdateEnvironmentInput {
   StartupScriptS3ObjectVersion?: string | undefined;
 
   /**
-   * <p>A list of key-value pairs containing the Apache Airflow configuration options you want to attach to your environment. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html">Apache Airflow configuration options</a>.</p>
-   * @public
-   */
-  AirflowConfigurationOptions?: Record<string, string> | undefined;
-
-  /**
-   * <p>The environment class type. Valid values: <code>mw1.micro</code>,
-   *                 <code>mw1.small</code>, <code>mw1.medium</code>, <code>mw1.large</code>,
-   *                 <code>mw1.xlarge</code>, and <code>mw1.2xlarge</code>. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon MWAA environment class</a>. </p>
-   * @public
-   */
-  EnvironmentClass?: string | undefined;
-
-  /**
-   * <p>The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the <code>MaxWorkers</code> field. For example, <code>20</code>. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in <code>MinWorkers</code>.</p>
-   * @public
-   */
-  MaxWorkers?: number | undefined;
-
-  /**
-   * <p>The VPC networking components used to secure and enable network traffic between the Amazon Web Services resources for your environment. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html">About networking on Amazon MWAA</a>.</p>
-   * @public
-   */
-  NetworkConfiguration?: UpdateNetworkConfigurationInput | undefined;
-
-  /**
-   * <p>The Apache Airflow log types to send to CloudWatch Logs.</p>
-   * @public
-   */
-  LoggingConfiguration?: LoggingConfigurationInput | undefined;
-
-  /**
-   * <p>The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time to start weekly maintenance updates of your environment in the following format: <code>DAY:HH:MM</code>. For example: <code>TUE:03:30</code>. You can specify a start time in 30 minute increments only.</p>
-   * @public
-   */
-  WeeklyMaintenanceWindowStart?: string | undefined;
-
-  /**
    * <p>The Apache Airflow <i>Web server</i> access mode. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache Airflow access modes</a>.</p>
    * @public
    */
   WebserverAccessMode?: WebserverAccessMode | undefined;
 
   /**
-   * <p>The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the <code>MaxWorkers</code> field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the <code>MinWorkers</code> field. For example, <code>2</code>.</p>
+   * <p>The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time to start weekly maintenance updates of your environment in the following format: <code>DAY:HH:MM</code>. For example: <code>TUE:03:30</code>. You can specify a start time in 30 minute increments only.</p>
    * @public
    */
-  MinWorkers?: number | undefined;
-
-  /**
-   * <p>The number of Apache Airflow schedulers to run in your Amazon MWAA environment.</p>
-   * @public
-   */
-  Schedulers?: number | undefined;
-
-  /**
-   * <p>
-   *             The minimum number of web servers that you want to run in your environment.
-   *             Amazon MWAA scales the number of Apache Airflow web servers up to the number you specify for <code>MaxWebservers</code>
-   *             when you interact with your Apache Airflow environment using Apache Airflow REST API, or
-   *             the Apache Airflow CLI. As the transaction-per-second rate, and the network load, decrease,
-   *             Amazon MWAA disposes of the additional web servers, and scales down to the number set in <code>MinxWebserers</code>.
-   *         </p>
-   *          <p>Valid values: For environments larger than mw1.micro, accepts values from
-   *                 <code>2</code> to <code>5</code>. Defaults to <code>2</code> for all environment
-   *             sizes except mw1.micro, which defaults to <code>1</code>.</p>
-   * @public
-   */
-  MinWebservers?: number | undefined;
-
-  /**
-   * <p>
-   *             The maximum number of web servers that you want to run in your environment.
-   *             Amazon MWAA scales the number of Apache Airflow web servers up to the number you specify for <code>MaxWebservers</code>
-   *             when you interact with your Apache Airflow environment using Apache Airflow REST API, or
-   *             the Apache Airflow CLI. For example, in scenarios where your workload requires network calls to the Apache Airflow REST API with a high transaction-per-second (TPS)
-   *             rate, Amazon MWAA will increase the number of web servers up to the number set in <code>MaxWebserers</code>. As TPS rates decrease
-   *             Amazon MWAA disposes of the additional web servers, and scales down to the number set in <code>MinxWebserers</code>.
-   *         </p>
-   *          <p>Valid values: For environments larger than mw1.micro, accepts values from
-   *                 <code>2</code> to <code>5</code>. Defaults to <code>2</code> for all environment
-   *             sizes except mw1.micro, which defaults to <code>1</code>.</p>
-   * @public
-   */
-  MaxWebservers?: number | undefined;
+  WeeklyMaintenanceWindowStart?: string | undefined;
 }
 
 /**
