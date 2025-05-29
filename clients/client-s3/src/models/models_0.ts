@@ -40,7 +40,7 @@ export type RequestCharged = (typeof RequestCharged)[keyof typeof RequestCharged
 export interface AbortMultipartUploadOutput {
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -559,7 +559,7 @@ export interface CompleteMultipartUploadOutput {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -1006,7 +1006,7 @@ export interface CopyObjectOutput {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -2140,8 +2140,8 @@ export interface CreateBucketConfiguration {
    * <p>Specifies the location where the bucket will be created.</p>
    *          <p>
    *             <b>Directory buckets </b> - The location type is Availability Zone or Local Zone.
-   *          To use the Local Zone location type, your account must be  enabled for Dedicated Local Zones. Otherwise, you get an HTTP <code>403 Forbidden</code> error with the
-   *          error code <code>AccessDenied</code>. To learn more, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/opt-in-directory-bucket-lz.html">Enable accounts for Dedicated Local Zones</a> in the <i>Amazon S3 User Guide</i>.
+   *          To use the Local Zone location type, your account must be  enabled for Local Zones. Otherwise, you get an HTTP <code>403 Forbidden</code> error with the
+   *          error code <code>AccessDenied</code>. To learn more, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/opt-in-directory-bucket-lz.html">Enable accounts for Local Zones</a> in the <i>Amazon S3 User Guide</i>.
    *       </p>
    *          <note>
    *             <p>This functionality is only supported by directory buckets.</p>
@@ -2497,7 +2497,7 @@ export interface CreateMultipartUploadOutput {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -3677,7 +3677,7 @@ export interface DeleteObjectOutput {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -5769,7 +5769,7 @@ export interface DeleteObjectsOutput {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -6078,7 +6078,7 @@ export interface GetBucketAccelerateConfigurationOutput {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -7509,8 +7509,8 @@ export interface LifecycleRule {
 
   /**
    * <p>The <code>Filter</code> is used to identify objects that a Lifecycle Rule applies to. A
-   *             <code>Filter</code> must have exactly one of <code>Prefix</code>, <code>Tag</code>, or
-   *             <code>And</code> specified. <code>Filter</code> is required if the
+   *          <code>Filter</code> must have exactly one of <code>Prefix</code>, <code>Tag</code>,
+   *          <code>ObjectSizeGreaterThan</code>, <code>ObjectSizeLessThan</code>, or <code>And</code> specified. <code>Filter</code> is required if the
    *             <code>LifecycleRule</code> does not contain a <code>Prefix</code> element.</p>
    *          <note>
    *             <p>
@@ -10040,7 +10040,7 @@ export interface GetObjectOutput {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -10492,7 +10492,7 @@ export interface GetObjectAclOutput {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -10762,7 +10762,7 @@ export interface GetObjectAttributesOutput {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -10872,14 +10872,14 @@ export interface GetObjectAttributesRequest {
   VersionId?: string | undefined;
 
   /**
-   * <p>Sets the maximum number of parts to return.</p>
+   * <p>Sets the maximum number of parts to return. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html">Uploading and copying objects using multipart upload in Amazon S3 </a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    * @public
    */
   MaxParts?: number | undefined;
 
   /**
    * <p>Specifies the part after which listing should begin. Only parts with higher part numbers
-   *          will be listed.</p>
+   *          will be listed. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html">Uploading and copying objects using multipart upload in Amazon S3 </a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    * @public
    */
   PartNumberMarker?: string | undefined;
@@ -11309,7 +11309,7 @@ export interface GetObjectTorrentOutput {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -11845,7 +11845,7 @@ export interface HeadObjectOutput {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -12826,7 +12826,7 @@ export interface ListMultipartUploadsOutput {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -13265,7 +13265,7 @@ export interface ListObjectsOutput {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -13527,7 +13527,7 @@ export interface ListObjectsV2Output {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -13915,7 +13915,7 @@ export interface ListObjectVersionsOutput {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -14212,7 +14212,7 @@ export interface ListPartsOutput {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>

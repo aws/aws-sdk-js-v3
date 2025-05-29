@@ -501,6 +501,19 @@ export interface PutBucketOwnershipControlsRequest {
    * @public
    */
   OwnershipControls: OwnershipControls | undefined;
+
+  /**
+   * <p> Indicates the algorithm used to create the checksum for the object when you use the
+   *          SDK. This header will not provide any additional functionality if you don't use the
+   *          SDK. When you send this header, there must be a corresponding
+   *                <code>x-amz-checksum-<i>algorithm</i>
+   *             </code> header sent. Otherwise, Amazon S3 fails the request with the HTTP
+   *          status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object
+   *             integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter. </p>
+   * @public
+   */
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 }
 
 /**
@@ -1188,7 +1201,7 @@ export interface PutObjectOutput {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -1803,7 +1816,7 @@ export class TooManyParts extends __BaseException {
 export interface PutObjectAclOutput {
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -1945,7 +1958,7 @@ export interface PutObjectAclRequest {
 export interface PutObjectLegalHoldOutput {
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -2033,7 +2046,7 @@ export interface PutObjectLegalHoldRequest {
 export interface PutObjectLockConfigurationOutput {
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -2112,7 +2125,7 @@ export interface PutObjectLockConfigurationRequest {
 export interface PutObjectRetentionOutput {
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -2362,7 +2375,7 @@ export class ObjectAlreadyInActiveTierError extends __BaseException {
 export interface RestoreObjectOutput {
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -3474,7 +3487,7 @@ export interface UploadPartOutput {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -3791,7 +3804,7 @@ export interface UploadPartCopyOutput {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -4387,7 +4400,7 @@ export interface WriteGetObjectResponseRequest {
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>

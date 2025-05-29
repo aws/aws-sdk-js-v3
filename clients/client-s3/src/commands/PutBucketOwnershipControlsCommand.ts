@@ -68,6 +68,7 @@ export interface PutBucketOwnershipControlsCommandOutput extends __MetadataBeare
  *       },
  *     ],
  *   },
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  * };
  * const command = new PutBucketOwnershipControlsCommand(input);
  * const response = await client.send(command);
@@ -105,6 +106,7 @@ export class PutBucketOwnershipControlsCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
+        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
         requestChecksumRequired: true,
       }),
     ];

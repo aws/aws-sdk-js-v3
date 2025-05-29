@@ -2508,6 +2508,7 @@ export const se_PutBucketOwnershipControlsCommand = async (
     "content-type": "application/xml",
     [_cm]: input[_CMD]!,
     [_xaebo]: input[_EBO]!,
+    [_xasca]: input[_CA]!,
   });
   b.bp("/");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);

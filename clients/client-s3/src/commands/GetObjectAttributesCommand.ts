@@ -34,11 +34,11 @@ export interface GetObjectAttributesCommandInput extends GetObjectAttributesRequ
 export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves all the metadata from an object without returning the object itself. This
+ * <p>Retrieves all of the metadata from an object without returning the object itself. This
  *          operation is useful if you're interested only in an object's metadata. </p>
  *          <p>
  *             <code>GetObjectAttributes</code> combines the functionality of <code>HeadObject</code>
- *          and <code>ListParts</code>. All of the data returned with each of those individual calls
+ *          and <code>ListParts</code>. All of the data returned with both of those individual calls
  *          can be returned with a single call to <code>GetObjectAttributes</code>.</p>
  *          <note>
  *             <p>
@@ -55,16 +55,24 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  *                   <li>
  *                      <p>
  *                         <b>General purpose bucket permissions</b> - To
- *                         use <code>GetObjectAttributes</code>, you must have READ access to the
- *                         object. The permissions that you need to use this operation depend on
- *                         whether the bucket is versioned. If the bucket is versioned, you need both
- *                         the <code>s3:GetObjectVersion</code> and
- *                            <code>s3:GetObjectVersionAttributes</code> permissions for this
- *                         operation. If the bucket is not versioned, you need the
+ *                         use <code>GetObjectAttributes</code>, you must have READ access to the object.</p>
+ *                      <p>The other permissions that you need to use this operation depend on
+ *                         whether the bucket is versioned and if a version ID is passed in the <code>GetObjectAttributes</code> request. </p>
+ *                      <ul>
+ *                         <li>
+ *                            <p>If you pass a version ID in your request, you need both the <code>s3:GetObjectVersion</code> and
+ *                            <code>s3:GetObjectVersionAttributes</code> permissions.</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>If you do not pass a version ID in your request, you need the
  *                            <code>s3:GetObject</code> and <code>s3:GetObjectAttributes</code>
- *                         permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
+ *                         permissions. </p>
+ *                         </li>
+ *                      </ul>
+ *                      <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
  *                            Permissions in a Policy</a> in the
- *                            <i>Amazon S3 User Guide</i>. If the object that you request does
+ *                            <i>Amazon S3 User Guide</i>.</p>
+ *                      <p>If the object that you request does
  *                         not exist, the error Amazon S3 returns depends on whether you also have the
  *                            <code>s3:ListBucket</code> permission.</p>
  *                      <ul>
@@ -112,10 +120,10 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  *                      error. It's because the encryption method can't be changed when you retrieve
  *                      the object.</p>
  *                </note>
- *                <p>If you encrypt an object by using server-side encryption with customer-provided
- *                   encryption keys (SSE-C) when you store the object in Amazon S3, then when you retrieve
- *                   the metadata from the object, you must use the following headers to provide the
- *                   encryption key for the server to be able to retrieve the object's metadata. The
+ *                <p>If you encrypted an object when you stored the object in Amazon S3 by using server-side encryption with customer-provided
+ *                   encryption keys (SSE-C), then when you retrieve
+ *                   the metadata from the object, you must use the following headers. These headers provide the
+ *                   server with the encryption key required to retrieve the object's metadata. The
  *                   headers are: </p>
  *                <ul>
  *                   <li>
