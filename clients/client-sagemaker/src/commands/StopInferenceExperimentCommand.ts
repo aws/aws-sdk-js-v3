@@ -5,8 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopInferenceExperimentRequest } from "../models/models_4";
-import { StopInferenceExperimentResponse } from "../models/models_5";
+import { StopInferenceExperimentRequest, StopInferenceExperimentResponse } from "../models/models_5";
 import { de_StopInferenceExperimentCommand, se_StopInferenceExperimentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

@@ -53,6 +53,7 @@ export interface DescribeMlflowTrackingServerCommandOutput
  * //   MlflowVersion: "STRING_VALUE",
  * //   RoleArn: "STRING_VALUE",
  * //   TrackingServerStatus: "Creating" || "Created" || "CreateFailed" || "Updating" || "Updated" || "UpdateFailed" || "Deleting" || "DeleteFailed" || "Stopping" || "Stopped" || "StopFailed" || "Starting" || "Started" || "StartFailed" || "MaintenanceInProgress" || "MaintenanceComplete" || "MaintenanceFailed",
+ * //   TrackingServerMaintenanceStatus: "MaintenanceInProgress" || "MaintenanceComplete" || "MaintenanceFailed",
  * //   IsActive: "Active" || "Inactive",
  * //   TrackingServerUrl: "STRING_VALUE",
  * //   WeeklyMaintenanceWindowStart: "STRING_VALUE",

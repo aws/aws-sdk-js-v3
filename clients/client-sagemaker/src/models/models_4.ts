@@ -15,6 +15,7 @@ import {
   Channel,
   CheckpointConfig,
   ClarifyCheckStepMetadata,
+  CompilationJobSummary,
   ComputeQuotaSummary,
   ConditionStepMetadata,
   InferenceSpecification,
@@ -49,7 +50,6 @@ import {
   ModelPackageModelCardFilterSensitiveLog,
   ModelPackageSecurityConfig,
   ModelPackageValidationSpecification,
-  ModelVariantConfig,
   RetryStrategy,
   SkipModelValidation,
   SourceAlgorithmSpecification,
@@ -142,7 +142,6 @@ import {
   InferenceComponentStatus,
   InferenceComponentSummary,
   InferenceExperimentStatus,
-  InferenceExperimentStopDesiredState,
   InferenceExperimentSummary,
   InferenceRecommendationsJob,
   InferenceRecommendationsJobStep,
@@ -192,6 +191,23 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListCompilationJobsResponse {
+  /**
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CompilationJobSummary.html">CompilationJobSummary</a> objects, each describing a model compilation job. </p>
+   * @public
+   */
+  CompilationJobSummaries: CompilationJobSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker AI returns this <code>NextToken</code>. To retrieve the next set of model compilation jobs, use this token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -10090,41 +10106,6 @@ export interface StopHyperParameterTuningJobRequest {
    * @public
    */
   HyperParameterTuningJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopInferenceExperimentRequest {
-  /**
-   * <p>The name of the inference experiment to stop.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p> Array of key-value pairs, with names of variants mapped to actions. The possible actions are the following: </p> <ul> <li> <p> <code>Promote</code> - Promote the shadow variant to a production variant</p> </li> <li> <p> <code>Remove</code> - Delete the variant</p> </li> <li> <p> <code>Retain</code> - Keep the variant as it is</p> </li> </ul>
-   * @public
-   */
-  ModelVariantActions: Record<string, ModelVariantAction> | undefined;
-
-  /**
-   * <p> An array of <code>ModelVariantConfig</code> objects. There is one for each variant that you want to deploy after the inference experiment stops. Each <code>ModelVariantConfig</code> describes the infrastructure configuration for deploying the corresponding variant. </p>
-   * @public
-   */
-  DesiredModelVariants?: ModelVariantConfig[] | undefined;
-
-  /**
-   * <p> The desired state of the experiment after stopping. The possible states are the following: </p> <ul> <li> <p> <code>Completed</code>: The experiment completed successfully</p> </li> <li> <p> <code>Cancelled</code>: The experiment was canceled</p> </li> </ul>
-   * @public
-   */
-  DesiredState?: InferenceExperimentStopDesiredState | undefined;
-
-  /**
-   * <p>The reason for stopping the experiment.</p>
-   * @public
-   */
-  Reason?: string | undefined;
 }
 
 /**

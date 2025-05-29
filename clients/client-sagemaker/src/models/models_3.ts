@@ -39,7 +39,6 @@ import {
   CodeRepositorySummary,
   CognitoConfig,
   CompilationJobStatus,
-  CompilationJobSummary,
   InferenceSpecification,
   ModelApprovalStatus,
   ModelPackageStatus,
@@ -2217,6 +2216,22 @@ export type IsTrackingServerActive = (typeof IsTrackingServerActive)[keyof typeo
  * @public
  * @enum
  */
+export const TrackingServerMaintenanceStatus = {
+  MAINTENANCE_COMPLETE: "MaintenanceComplete",
+  MAINTENANCE_FAILED: "MaintenanceFailed",
+  MAINTENANCE_IN_PROGRESS: "MaintenanceInProgress",
+} as const;
+
+/**
+ * @public
+ */
+export type TrackingServerMaintenanceStatus =
+  (typeof TrackingServerMaintenanceStatus)[keyof typeof TrackingServerMaintenanceStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const TrackingServerStatus = {
   CREATED: "Created",
   CREATE_FAILED: "CreateFailed",
@@ -2287,6 +2302,12 @@ export interface DescribeMlflowTrackingServerResponse {
    * @public
    */
   TrackingServerStatus?: TrackingServerStatus | undefined;
+
+  /**
+   * <p> The current maintenance status of the described MLflow Tracking Server. </p>
+   * @public
+   */
+  TrackingServerMaintenanceStatus?: TrackingServerMaintenanceStatus | undefined;
 
   /**
    * <p>Whether the described MLflow Tracking Server is currently active.</p>
@@ -10378,23 +10399,6 @@ export interface ListCompilationJobsRequest {
    * @public
    */
   SortOrder?: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCompilationJobsResponse {
-  /**
-   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CompilationJobSummary.html">CompilationJobSummary</a> objects, each describing a model compilation job. </p>
-   * @public
-   */
-  CompilationJobSummaries: CompilationJobSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker AI returns this <code>NextToken</code>. To retrieve the next set of model compilation jobs, use this token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }
 
 /**
