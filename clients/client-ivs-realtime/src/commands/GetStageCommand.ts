@@ -64,6 +64,7 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * //       hlsConfiguration: { // ParticipantRecordingHlsConfiguration
  * //         targetSegmentDurationSeconds: Number("int"),
  * //       },
+ * //       recordParticipantReplicas: true || false,
  * //     },
  * //     endpoints: { // StageEndpoints
  * //       events: "STRING_VALUE",

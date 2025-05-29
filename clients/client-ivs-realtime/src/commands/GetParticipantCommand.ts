@@ -62,6 +62,10 @@ export interface GetParticipantCommandOutput extends GetParticipantResponse, __M
  * //     recordingS3Prefix: "STRING_VALUE",
  * //     recordingState: "STRING_VALUE",
  * //     protocol: "UNKNOWN" || "WHIP" || "RTMP" || "RTMPS",
+ * //     replicationType: "STRING_VALUE",
+ * //     replicationState: "STRING_VALUE",
+ * //     sourceStageArn: "STRING_VALUE",
+ * //     sourceSessionId: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -40,6 +40,29 @@
  *             including how participants are positioned in the video.</p>
  *             </li>
  *          </ul>
+ *          <p>For participant replication:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Source stage</b> — The stage where the participant originally joined, which is used as the source for
+ * 			replication.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Destination stage</b> — The stage to which the participant is replicated.
+ * 				</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Replicated participant</b> — A participant in a stage that is replicated to one or more destination stages.
+ * 				</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Replica participant</b> — A participant in a destination stage that is replicated from another stage
+ * 			(the source stage).</p>
+ *             </li>
+ *          </ul>
  *          <p>For more information about your IVS live stream, also see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started.html">Getting Started with Amazon IVS Real-Time Streaming</a>.</p>
  *          <p>
  *             <b>Tagging</b>

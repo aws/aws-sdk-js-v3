@@ -68,6 +68,7 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  *     hlsConfiguration: { // ParticipantRecordingHlsConfiguration
  *       targetSegmentDurationSeconds: Number("int"),
  *     },
+ *     recordParticipantReplicas: true || false,
  *   },
  * };
  * const command = new CreateStageCommand(input);
@@ -96,6 +97,7 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * //       hlsConfiguration: { // ParticipantRecordingHlsConfiguration
  * //         targetSegmentDurationSeconds: Number("int"),
  * //       },
+ * //       recordParticipantReplicas: true || false,
  * //     },
  * //     endpoints: { // StageEndpoints
  * //       events: "STRING_VALUE",

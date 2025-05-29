@@ -1120,6 +1120,13 @@ export interface AutoParticipantRecordingConfiguration {
    * @public
    */
   hlsConfiguration?: ParticipantRecordingHlsConfiguration | undefined;
+
+  /**
+   * <p>Optional field to disable replica participant recording. If this is set to <code>false</code> when a
+   * 	  participant is a replica, replica participants are not recorded. Default: <code>true</code>.</p>
+   * @public
+   */
+  recordParticipantReplicas?: boolean | undefined;
 }
 
 /**
@@ -1543,9 +1550,7 @@ export type RecordingConfigurationFormat =
  */
 export interface CompositionRecordingHlsConfiguration {
   /**
-   * <p>Defines the target duration for recorded segments generated when using composite recording.
-   * 	  Segments may have durations shorter than the specified value when needed to ensure each segment
-   * 	  begins with a keyframe. Default: 2.</p>
+   * <p>Defines the target duration for recorded segments generated when using composite recording. Default: 2.</p>
    * @public
    */
   targetSegmentDurationSeconds?: number | undefined;
@@ -2144,6 +2149,35 @@ export type ParticipantRecordingState = (typeof ParticipantRecordingState)[keyof
  * @public
  * @enum
  */
+export const ReplicationState = {
+  ACTIVE: "ACTIVE",
+  STOPPED: "STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationState = (typeof ReplicationState)[keyof typeof ReplicationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationType = {
+  NONE: "NONE",
+  REPLICA: "REPLICA",
+  SOURCE: "SOURCE",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationType = (typeof ReplicationType)[keyof typeof ReplicationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ParticipantState = {
   CONNECTED: "CONNECTED",
   DISCONNECTED: "DISCONNECTED",
@@ -2249,7 +2283,11 @@ export interface Participant {
   /**
    * <p>S3 prefix of the S3 bucket where the participant is being recorded, if individual
    *          participant recording is enabled, or <code>""</code> (empty string), if recording is not
-   *          enabled.</p>
+   *          enabled. If individual participant recording merge is enabled, and if a stage publisher
+   * 		 disconnects from a stage and then reconnects, IVS tries to record to the same S3 prefix as
+   * 		 the previous session. See
+   * 		 <a href="/ivs/latest/RealTimeUserGuide/rt-individual-participant-recording.html#ind-part-rec-merge-frag">
+   * 		 Merge Fragmented Individual Participant Recordings</a>.</p>
    * @public
    */
   recordingS3Prefix?: string | undefined;
@@ -2265,6 +2303,31 @@ export interface Participant {
    * @public
    */
   protocol?: ParticipantProtocol | undefined;
+
+  /**
+   * <p>Indicates if the participant has been replicated to another stage or is a replica from another stage. Default: <code>NONE</code>. </p>
+   * @public
+   */
+  replicationType?: ReplicationType | undefined;
+
+  /**
+   * <p>The participant's replication state.</p>
+   * @public
+   */
+  replicationState?: ReplicationState | undefined;
+
+  /**
+   * <p>Source stage ARN from which this participant is replicated, if <code>replicationType</code> is <code>REPLICA</code>.
+   * </p>
+   * @public
+   */
+  sourceStageArn?: string | undefined;
+
+  /**
+   * <p>ID of the session within the source stage, if <code>replicationType</code> is <code>REPLICA</code>.</p>
+   * @public
+   */
+  sourceSessionId?: string | undefined;
 }
 
 /**
@@ -2851,6 +2914,8 @@ export const EventName = {
   PUBLISH_ERROR: "PUBLISH_ERROR",
   PUBLISH_STARTED: "PUBLISH_STARTED",
   PUBLISH_STOPPED: "PUBLISH_STOPPED",
+  REPLICATION_STARTED: "REPLICATION_STARTED",
+  REPLICATION_STOPPED: "REPLICATION_STOPPED",
   SUBSCRIBE_ERROR: "SUBSCRIBE_ERROR",
   SUBSCRIBE_STARTED: "SUBSCRIBE_STARTED",
   SUBSCRIBE_STOPPED: "SUBSCRIBE_STOPPED",
@@ -2982,6 +3047,27 @@ export interface Event {
    * @public
    */
   errorCode?: EventErrorCode | undefined;
+
+  /**
+   * <p>ARN of the stage where the participant is replicated. Applicable only if the event name is
+   * 	  <code>REPLICATION_STARTED</code> or <code>REPLICATION_STOPPED</code>.</p>
+   * @public
+   */
+  destinationStageArn?: string | undefined;
+
+  /**
+   * <p>ID of the session within the destination stage. Applicable only if the event name is
+   * 	  <code>REPLICATION_STARTED</code> or <code>REPLICATION_STOPPED</code>.</p>
+   * @public
+   */
+  destinationSessionId?: string | undefined;
+
+  /**
+   * <p>If true, this indicates the <code>participantId</code> is a replicated participant.
+   * 	  If this is a subscribe event, then this flag refers to <code>remoteParticipantId</code>.</p>
+   * @public
+   */
+  replica?: boolean | undefined;
 }
 
 /**
@@ -2997,6 +3083,99 @@ export interface ListParticipantEventsResponse {
   /**
    * <p>If there are more events than <code>maxResults</code>, use <code>nextToken</code> in the
    *          request to get the next set. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListParticipantReplicasRequest {
+  /**
+   * <p>ARN of the stage where the participant is publishing.</p>
+   * @public
+   */
+  sourceStageArn: string | undefined;
+
+  /**
+   * <p>Participant ID of the publisher that has been replicated. This is assigned by IVS and returned by
+   * 		<a>CreateParticipantToken</a>
+   * 		or the <code>jti</code> (JWT ID) used to <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started-distribute-tokens.html#getting-started-distribute-tokens-self-signed">create a self signed token</a>.</p>
+   * @public
+   */
+  participantId: string | undefined;
+
+  /**
+   * <p>The first participant to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Maximum number of results to return. Default: 50.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Information about the replicated destination stage for a participant.</p>
+ * @public
+ */
+export interface ParticipantReplica {
+  /**
+   * <p>ARN of the stage from which this participant is replicated.</p>
+   * @public
+   */
+  sourceStageArn: string | undefined;
+
+  /**
+   * <p>Participant ID of the publisher that will be replicated. This is assigned by IVS and returned by
+   * 		<a>CreateParticipantToken</a>
+   * 		or the <code>jti</code> (JWT ID) used to <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started-distribute-tokens.html#getting-started-distribute-tokens-self-signed">
+   * 				  create a self signed token</a>.</p>
+   * @public
+   */
+  participantId: string | undefined;
+
+  /**
+   * <p>ID of the session within the source stage.</p>
+   * @public
+   */
+  sourceSessionId: string | undefined;
+
+  /**
+   * <p>ARN of the stage where the participant is replicated.</p>
+   * @public
+   */
+  destinationStageArn: string | undefined;
+
+  /**
+   * <p>ID of the session within the destination stage.</p>
+   * @public
+   */
+  destinationSessionId: string | undefined;
+
+  /**
+   * <p>Replica’s current replication state.</p>
+   * @public
+   */
+  replicationState: ReplicationState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListParticipantReplicasResponse {
+  /**
+   * <p>List of all participant replicas.</p>
+   * @public
+   */
+  replicas: ParticipantReplica[] | undefined;
+
+  /**
+   * <p>If there are more participants than <code>maxResults</code>, use <code>nextToken</code> in the request to get the next set.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3129,6 +3308,30 @@ export interface ParticipantSummary {
    * @public
    */
   recordingState?: ParticipantRecordingState | undefined;
+
+  /**
+   * <p>Indicates if the participant has been replicated to another stage or is a replica from another stage. Default: <code>NONE</code>. </p>
+   * @public
+   */
+  replicationType?: ReplicationType | undefined;
+
+  /**
+   * <p>The participant's replication state.</p>
+   * @public
+   */
+  replicationState?: ReplicationState | undefined;
+
+  /**
+   * <p>ARN of the stage from which this participant is replicated.</p>
+   * @public
+   */
+  sourceStageArn?: string | undefined;
+
+  /**
+   * <p>ID of the session within the source stage, if <code>replicationType</code> is <code>REPLICA</code>.</p>
+   * @public
+   */
+  sourceSessionId?: string | undefined;
 }
 
 /**
@@ -3495,6 +3698,98 @@ export interface StartCompositionResponse {
 /**
  * @public
  */
+export interface StartParticipantReplicationRequest {
+  /**
+   * <p>ARN of the stage where the participant is publishing.</p>
+   * @public
+   */
+  sourceStageArn: string | undefined;
+
+  /**
+   * <p>ARN of the stage to which the participant will be replicated.</p>
+   * @public
+   */
+  destinationStageArn: string | undefined;
+
+  /**
+   * <p>Participant ID of the publisher that will be replicated. This is assigned by IVS and returned by
+   * 		<a>CreateParticipantToken</a>
+   * 		or the <code>jti</code> (JWT ID) used to <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started-distribute-tokens.html#getting-started-distribute-tokens-self-signed">create a self signed token</a>.
+   * 	  </p>
+   * @public
+   */
+  participantId: string | undefined;
+
+  /**
+   * <p>If the participant disconnects and then reconnects within the specified interval, replication will continue to be <code>ACTIVE</code>.
+   * 	  Default: 0.</p>
+   * @public
+   */
+  reconnectWindowSeconds?: number | undefined;
+
+  /**
+   * <p>Application-provided attributes to set on the replicated participant in the destination stage.
+   * 	  Map keys and values can contain UTF-8 encoded text. The maximum length of this field is 1 KB total.
+   * 	  <i>This field is exposed to all stage participants and should not be used for personally identifying,
+   * 	  confidential, or sensitive information.</i>
+   *          </p>
+   *          <p>These attributes are merged with any attributes set for this participant when creating the token.
+   * 	  If there is overlap in keys, the values in these attributes are replaced.</p>
+   * @public
+   */
+  attributes?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartParticipantReplicationResponse {
+  /**
+   * <p/>
+   * @public
+   */
+  accessControlAllowOrigin?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  accessControlExposeHeaders?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  cacheControl?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  contentSecurityPolicy?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  strictTransportSecurity?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xContentTypeOptions?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xFrameOptions?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StopCompositionRequest {
   /**
    * <p>ARN of the Composition.</p>
@@ -3507,6 +3802,79 @@ export interface StopCompositionRequest {
  * @public
  */
 export interface StopCompositionResponse {}
+
+/**
+ * @public
+ */
+export interface StopParticipantReplicationRequest {
+  /**
+   * <p>ARN of the stage where the participant is publishing.</p>
+   * @public
+   */
+  sourceStageArn: string | undefined;
+
+  /**
+   * <p>ARN of the stage where the participant has been replicated.</p>
+   * @public
+   */
+  destinationStageArn: string | undefined;
+
+  /**
+   * <p>Participant ID of the publisher that has been replicated. This is assigned by IVS and returned by
+   * 		<a>CreateParticipantToken</a>
+   * 		or the <code>jti</code> (JWT ID) used to <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started-distribute-tokens.html#getting-started-distribute-tokens-self-signed">
+   * 				  create a self signed token</a>.</p>
+   * @public
+   */
+  participantId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopParticipantReplicationResponse {
+  /**
+   * <p/>
+   * @public
+   */
+  accessControlAllowOrigin?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  accessControlExposeHeaders?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  cacheControl?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  contentSecurityPolicy?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  strictTransportSecurity?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xContentTypeOptions?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  xFrameOptions?: string | undefined;
+}
 
 /**
  * @public

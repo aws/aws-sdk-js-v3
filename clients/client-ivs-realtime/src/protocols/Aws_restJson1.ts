@@ -93,6 +93,10 @@ import {
   ListParticipantEventsCommandInput,
   ListParticipantEventsCommandOutput,
 } from "../commands/ListParticipantEventsCommand";
+import {
+  ListParticipantReplicasCommandInput,
+  ListParticipantReplicasCommandOutput,
+} from "../commands/ListParticipantReplicasCommand";
 import { ListParticipantsCommandInput, ListParticipantsCommandOutput } from "../commands/ListParticipantsCommand";
 import { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "../commands/ListPublicKeysCommand";
 import { ListStagesCommandInput, ListStagesCommandOutput } from "../commands/ListStagesCommand";
@@ -106,7 +110,15 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { StartCompositionCommandInput, StartCompositionCommandOutput } from "../commands/StartCompositionCommand";
+import {
+  StartParticipantReplicationCommandInput,
+  StartParticipantReplicationCommandOutput,
+} from "../commands/StartParticipantReplicationCommand";
 import { StopCompositionCommandInput, StopCompositionCommandOutput } from "../commands/StopCompositionCommand";
+import {
+  StopParticipantReplicationCommandInput,
+  StopParticipantReplicationCommandOutput,
+} from "../commands/StopParticipantReplicationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -719,6 +731,31 @@ export const se_ListParticipantEventsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListParticipantReplicasCommand
+ */
+export const se_ListParticipantReplicasCommand = async (
+  input: ListParticipantReplicasCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListParticipantReplicas");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      participantId: [],
+      sourceStageArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListParticipantsCommand
  */
 export const se_ListParticipantsCommand = async (
@@ -883,6 +920,32 @@ export const se_StartCompositionCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartParticipantReplicationCommand
+ */
+export const se_StartParticipantReplicationCommand = async (
+  input: StartParticipantReplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/StartParticipantReplication");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      attributes: (_) => _json(_),
+      destinationStageArn: [],
+      participantId: [],
+      reconnectWindowSeconds: [],
+      sourceStageArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StopCompositionCommand
  */
 export const se_StopCompositionCommand = async (
@@ -898,6 +961,30 @@ export const se_StopCompositionCommand = async (
   body = JSON.stringify(
     take(input, {
       arn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StopParticipantReplicationCommand
+ */
+export const se_StopParticipantReplicationCommand = async (
+  input: StopParticipantReplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/StopParticipantReplication");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      destinationStageArn: [],
+      participantId: [],
+      sourceStageArn: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1479,6 +1566,28 @@ export const de_ListParticipantEventsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListParticipantReplicasCommand
+ */
+export const de_ListParticipantReplicasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListParticipantReplicasCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    replicas: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListParticipantsCommand
  */
 export const de_ListParticipantsCommand = async (
@@ -1631,6 +1740,30 @@ export const de_StartCompositionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StartParticipantReplicationCommand
+ */
+export const de_StartParticipantReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartParticipantReplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_aCAO]: [, output.headers[_acao]],
+    [_aCEH]: [, output.headers[_aceh]],
+    [_cC]: [, output.headers[_cc]],
+    [_cSP]: [, output.headers[_csp]],
+    [_sTS]: [, output.headers[_sts]],
+    [_xCTO]: [, output.headers[_xcto]],
+    [_xFO]: [, output.headers[_xfo]],
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StopCompositionCommand
  */
 export const de_StopCompositionCommand = async (
@@ -1642,6 +1775,30 @@ export const de_StopCompositionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopParticipantReplicationCommand
+ */
+export const de_StopParticipantReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopParticipantReplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_aCAO]: [, output.headers[_acao]],
+    [_aCEH]: [, output.headers[_aceh]],
+    [_cC]: [, output.headers[_cc]],
+    [_cSP]: [, output.headers[_csp]],
+    [_sTS]: [, output.headers[_sts]],
+    [_xCTO]: [, output.headers[_xcto]],
+    [_xFO]: [, output.headers[_xfo]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -2149,11 +2306,14 @@ const de_EncoderConfiguration = (output: any, context: __SerdeContext): EncoderC
  */
 const de_Event = (output: any, context: __SerdeContext): Event => {
   return take(output, {
+    destinationSessionId: __expectString,
+    destinationStageArn: __expectString,
     errorCode: __expectString,
     eventTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
     participantId: __expectString,
     remoteParticipantId: __expectString,
+    replica: __expectBoolean,
   }) as any;
 };
 
@@ -2197,7 +2357,11 @@ const de_Participant = (output: any, context: __SerdeContext): Participant => {
     recordingS3BucketName: __expectString,
     recordingS3Prefix: __expectString,
     recordingState: __expectString,
+    replicationState: __expectString,
+    replicationType: __expectString,
     sdkVersion: __expectString,
+    sourceSessionId: __expectString,
+    sourceStageArn: __expectString,
     state: __expectString,
     userId: __expectString,
   }) as any;
@@ -2221,6 +2385,10 @@ const de_ParticipantList = (output: any, context: __SerdeContext): ParticipantSu
 
 // de_ParticipantRecordingMediaTypeList omitted.
 
+// de_ParticipantReplica omitted.
+
+// de_ParticipantReplicaList omitted.
+
 /**
  * deserializeAws_restJson1ParticipantSummary
  */
@@ -2230,6 +2398,10 @@ const de_ParticipantSummary = (output: any, context: __SerdeContext): Participan
     participantId: __expectString,
     published: __expectBoolean,
     recordingState: __expectString,
+    replicationState: __expectString,
+    replicationType: __expectString,
+    sourceSessionId: __expectString,
+    sourceStageArn: __expectString,
     state: __expectString,
     userId: __expectString,
   }) as any;

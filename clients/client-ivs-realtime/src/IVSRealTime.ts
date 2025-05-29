@@ -111,6 +111,11 @@ import {
   ListParticipantEventsCommandOutput,
 } from "./commands/ListParticipantEventsCommand";
 import {
+  ListParticipantReplicasCommand,
+  ListParticipantReplicasCommandInput,
+  ListParticipantReplicasCommandOutput,
+} from "./commands/ListParticipantReplicasCommand";
+import {
   ListParticipantsCommand,
   ListParticipantsCommandInput,
   ListParticipantsCommandOutput,
@@ -142,10 +147,20 @@ import {
   StartCompositionCommandOutput,
 } from "./commands/StartCompositionCommand";
 import {
+  StartParticipantReplicationCommand,
+  StartParticipantReplicationCommandInput,
+  StartParticipantReplicationCommandOutput,
+} from "./commands/StartParticipantReplicationCommand";
+import {
   StopCompositionCommand,
   StopCompositionCommandInput,
   StopCompositionCommandOutput,
 } from "./commands/StopCompositionCommand";
+import {
+  StopParticipantReplicationCommand,
+  StopParticipantReplicationCommandInput,
+  StopParticipantReplicationCommandOutput,
+} from "./commands/StopParticipantReplicationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -185,6 +200,7 @@ const commands = {
   ListEncoderConfigurationsCommand,
   ListIngestConfigurationsCommand,
   ListParticipantEventsCommand,
+  ListParticipantReplicasCommand,
   ListParticipantsCommand,
   ListPublicKeysCommand,
   ListStagesCommand,
@@ -192,7 +208,9 @@ const commands = {
   ListStorageConfigurationsCommand,
   ListTagsForResourceCommand,
   StartCompositionCommand,
+  StartParticipantReplicationCommand,
   StopCompositionCommand,
+  StopParticipantReplicationCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateIngestConfigurationCommand,
@@ -575,6 +593,23 @@ export interface IVSRealTime {
   ): void;
 
   /**
+   * @see {@link ListParticipantReplicasCommand}
+   */
+  listParticipantReplicas(
+    args: ListParticipantReplicasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListParticipantReplicasCommandOutput>;
+  listParticipantReplicas(
+    args: ListParticipantReplicasCommandInput,
+    cb: (err: any, data?: ListParticipantReplicasCommandOutput) => void
+  ): void;
+  listParticipantReplicas(
+    args: ListParticipantReplicasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListParticipantReplicasCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListParticipantsCommand}
    */
   listParticipants(
@@ -688,6 +723,23 @@ export interface IVSRealTime {
   ): void;
 
   /**
+   * @see {@link StartParticipantReplicationCommand}
+   */
+  startParticipantReplication(
+    args: StartParticipantReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartParticipantReplicationCommandOutput>;
+  startParticipantReplication(
+    args: StartParticipantReplicationCommandInput,
+    cb: (err: any, data?: StartParticipantReplicationCommandOutput) => void
+  ): void;
+  startParticipantReplication(
+    args: StartParticipantReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartParticipantReplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopCompositionCommand}
    */
   stopComposition(
@@ -699,6 +751,23 @@ export interface IVSRealTime {
     args: StopCompositionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopCompositionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopParticipantReplicationCommand}
+   */
+  stopParticipantReplication(
+    args: StopParticipantReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopParticipantReplicationCommandOutput>;
+  stopParticipantReplication(
+    args: StopParticipantReplicationCommandInput,
+    cb: (err: any, data?: StopParticipantReplicationCommandOutput) => void
+  ): void;
+  stopParticipantReplication(
+    args: StopParticipantReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopParticipantReplicationCommandOutput) => void
   ): void;
 
   /**
@@ -790,6 +859,29 @@ export interface IVSRealTime {
  *                <p>
  *                   <b>Composition</b> — Controls the look of the outputs,
  *             including how participants are positioned in the video.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For participant replication:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Source stage</b> — The stage where the participant originally joined, which is used as the source for
+ * 			replication.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Destination stage</b> — The stage to which the participant is replicated.
+ * 				</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Replicated participant</b> — A participant in a stage that is replicated to one or more destination stages.
+ * 				</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Replica participant</b> — A participant in a destination stage that is replicated from another stage
+ * 			(the source stage).</p>
  *             </li>
  *          </ul>
  *          <p>For more information about your IVS live stream, also see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started.html">Getting Started with Amazon IVS Real-Time Streaming</a>.</p>

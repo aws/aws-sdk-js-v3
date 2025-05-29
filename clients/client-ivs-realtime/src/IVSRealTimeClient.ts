@@ -119,6 +119,10 @@ import {
   ListParticipantEventsCommandInput,
   ListParticipantEventsCommandOutput,
 } from "./commands/ListParticipantEventsCommand";
+import {
+  ListParticipantReplicasCommandInput,
+  ListParticipantReplicasCommandOutput,
+} from "./commands/ListParticipantReplicasCommand";
 import { ListParticipantsCommandInput, ListParticipantsCommandOutput } from "./commands/ListParticipantsCommand";
 import { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "./commands/ListPublicKeysCommand";
 import { ListStagesCommandInput, ListStagesCommandOutput } from "./commands/ListStagesCommand";
@@ -132,7 +136,15 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { StartCompositionCommandInput, StartCompositionCommandOutput } from "./commands/StartCompositionCommand";
+import {
+  StartParticipantReplicationCommandInput,
+  StartParticipantReplicationCommandOutput,
+} from "./commands/StartParticipantReplicationCommand";
 import { StopCompositionCommandInput, StopCompositionCommandOutput } from "./commands/StopCompositionCommand";
+import {
+  StopParticipantReplicationCommandInput,
+  StopParticipantReplicationCommandOutput,
+} from "./commands/StopParticipantReplicationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -179,6 +191,7 @@ export type ServiceInputTypes =
   | ListEncoderConfigurationsCommandInput
   | ListIngestConfigurationsCommandInput
   | ListParticipantEventsCommandInput
+  | ListParticipantReplicasCommandInput
   | ListParticipantsCommandInput
   | ListPublicKeysCommandInput
   | ListStageSessionsCommandInput
@@ -186,7 +199,9 @@ export type ServiceInputTypes =
   | ListStorageConfigurationsCommandInput
   | ListTagsForResourceCommandInput
   | StartCompositionCommandInput
+  | StartParticipantReplicationCommandInput
   | StopCompositionCommandInput
+  | StopParticipantReplicationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateIngestConfigurationCommandInput
@@ -220,6 +235,7 @@ export type ServiceOutputTypes =
   | ListEncoderConfigurationsCommandOutput
   | ListIngestConfigurationsCommandOutput
   | ListParticipantEventsCommandOutput
+  | ListParticipantReplicasCommandOutput
   | ListParticipantsCommandOutput
   | ListPublicKeysCommandOutput
   | ListStageSessionsCommandOutput
@@ -227,7 +243,9 @@ export type ServiceOutputTypes =
   | ListStorageConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
   | StartCompositionCommandOutput
+  | StartParticipantReplicationCommandOutput
   | StopCompositionCommandOutput
+  | StopParticipantReplicationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateIngestConfigurationCommandOutput
@@ -461,6 +479,29 @@ export interface IVSRealTimeClientResolvedConfig extends IVSRealTimeClientResolv
  *                <p>
  *                   <b>Composition</b> — Controls the look of the outputs,
  *             including how participants are positioned in the video.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For participant replication:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Source stage</b> — The stage where the participant originally joined, which is used as the source for
+ * 			replication.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Destination stage</b> — The stage to which the participant is replicated.
+ * 				</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Replicated participant</b> — A participant in a stage that is replicated to one or more destination stages.
+ * 				</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Replica participant</b> — A participant in a destination stage that is replicated from another stage
+ * 			(the source stage).</p>
  *             </li>
  *          </ul>
  *          <p>For more information about your IVS live stream, also see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started.html">Getting Started with Amazon IVS Real-Time Streaming</a>.</p>

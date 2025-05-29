@@ -54,6 +54,7 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  *     hlsConfiguration: { // ParticipantRecordingHlsConfiguration
  *       targetSegmentDurationSeconds: Number("int"),
  *     },
+ *     recordParticipantReplicas: true || false,
  *   },
  * };
  * const command = new UpdateStageCommand(input);
@@ -82,6 +83,7 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * //       hlsConfiguration: { // ParticipantRecordingHlsConfiguration
  * //         targetSegmentDurationSeconds: Number("int"),
  * //       },
+ * //       recordParticipantReplicas: true || false,
  * //     },
  * //     endpoints: { // StageEndpoints
  * //       events: "STRING_VALUE",
