@@ -248,6 +248,7 @@ export const se_CreateEventActionCommand = async (
     take(input, {
       Action: (_) => _json(_),
       Event: (_) => _json(_),
+      Tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1036,6 +1037,7 @@ export const de_CreateEventActionCommand = async (
     CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     Event: _json,
     Id: __expectString,
+    Tags: _json,
     UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   });
   Object.assign(contents, doc);
@@ -1303,6 +1305,7 @@ export const de_GetEventActionCommand = async (
     CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     Event: _json,
     Id: __expectString,
+    Tags: _json,
     UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   });
   Object.assign(contents, doc);

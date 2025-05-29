@@ -61,6 +61,9 @@ export interface GetEventActionCommandOutput extends GetEventActionResponse, __M
  * //     },
  * //   },
  * //   Id: "STRING_VALUE",
+ * //   Tags: { // MapOf__string
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * //   UpdatedAt: new Date("TIMESTAMP"),
  * // };
  *

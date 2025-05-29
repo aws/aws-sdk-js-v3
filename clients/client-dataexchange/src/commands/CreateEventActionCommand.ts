@@ -53,6 +53,9 @@ export interface CreateEventActionCommandOutput extends CreateEventActionRespons
  *       DataSetId: "STRING_VALUE", // required
  *     },
  *   },
+ *   Tags: { // MapOf__string
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateEventActionCommand(input);
  * const response = await client.send(command);
@@ -77,6 +80,9 @@ export interface CreateEventActionCommandOutput extends CreateEventActionRespons
  * //     },
  * //   },
  * //   Id: "STRING_VALUE",
+ * //   Tags: { // MapOf__string
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * //   UpdatedAt: new Date("TIMESTAMP"),
  * // };
  *

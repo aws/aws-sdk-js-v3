@@ -1399,6 +1399,12 @@ export interface CreateEventActionRequest {
    * @public
    */
   Event: Event | undefined;
+
+  /**
+   * <p>Key-value pairs that you can associate with the event action.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1434,6 +1440,12 @@ export interface CreateEventActionResponse {
    * @public
    */
   Id?: string | undefined;
+
+  /**
+   * <p>The tags for the event action.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The date and time that the event action was last updated, in ISO 8601 format.</p>
@@ -3045,6 +3057,12 @@ export interface GetEventActionResponse {
    * @public
    */
   Id?: string | undefined;
+
+  /**
+   * <p>The tags for the event action.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The date and time that the event action was last updated, in ISO 8601 format.</p>
