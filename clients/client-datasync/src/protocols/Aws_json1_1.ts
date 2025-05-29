@@ -156,6 +156,7 @@ import { DataSyncServiceException as __BaseException } from "../models/DataSyncS
 import {
   AzureBlobSasConfiguration,
   CancelTaskExecutionRequest,
+  CmkSecretConfig,
   CreateAgentRequest,
   CreateLocationAzureBlobRequest,
   CreateLocationEfsRequest,
@@ -169,6 +170,7 @@ import {
   CreateLocationS3Request,
   CreateLocationSmbRequest,
   CreateTaskRequest,
+  CustomSecretConfig,
   DeleteAgentRequest,
   DeleteLocationRequest,
   DeleteTaskRequest,
@@ -2063,6 +2065,8 @@ const de_InvalidRequestExceptionRes = async (
 
 // se_CancelTaskExecutionRequest omitted.
 
+// se_CmkSecretConfig omitted.
+
 // se_CreateAgentRequest omitted.
 
 // se_CreateLocationAzureBlobRequest omitted.
@@ -2111,6 +2115,8 @@ const se_CreateLocationObjectStorageRequest = (
     AccessKey: [],
     AgentArns: _json,
     BucketName: [],
+    CmkSecretConfig: _json,
+    CustomSecretConfig: _json,
     SecretKey: [],
     ServerCertificate: context.base64Encoder,
     ServerHostname: [],
@@ -2145,6 +2151,8 @@ const se_CreateLocationSmbRequest = (input: CreateLocationSmbRequest, context: _
 };
 
 // se_CreateTaskRequest omitted.
+
+// se_CustomSecretConfig omitted.
 
 // se_DeleteAgentRequest omitted.
 
@@ -2317,6 +2325,8 @@ const se_UpdateLocationObjectStorageRequest = (
   return take(input, {
     AccessKey: [],
     AgentArns: _json,
+    CmkSecretConfig: _json,
+    CustomSecretConfig: _json,
     LocationArn: [],
     SecretKey: [],
     ServerCertificate: context.base64Encoder,
@@ -2362,6 +2372,8 @@ const se_UpdateLocationSmbRequest = (input: UpdateLocationSmbRequest, context: _
 
 // de_CancelTaskExecutionResponse omitted.
 
+// de_CmkSecretConfig omitted.
+
 // de_CreateAgentResponse omitted.
 
 // de_CreateLocationAzureBlobResponse omitted.
@@ -2387,6 +2399,8 @@ const se_UpdateLocationSmbRequest = (input: UpdateLocationSmbRequest, context: _
 // de_CreateLocationSmbResponse omitted.
 
 // de_CreateTaskResponse omitted.
+
+// de_CustomSecretConfig omitted.
 
 // de_DeleteAgentResponse omitted.
 
@@ -2422,9 +2436,12 @@ const de_DescribeLocationAzureBlobResponse = (
     AgentArns: _json,
     AuthenticationType: __expectString,
     BlobType: __expectString,
+    CmkSecretConfig: _json,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CustomSecretConfig: _json,
     LocationArn: __expectString,
     LocationUri: __expectString,
+    ManagedSecretConfig: _json,
   }) as any;
 };
 
@@ -2552,9 +2569,12 @@ const de_DescribeLocationObjectStorageResponse = (
   return take(output, {
     AccessKey: __expectString,
     AgentArns: _json,
+    CmkSecretConfig: _json,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CustomSecretConfig: _json,
     LocationArn: __expectString,
     LocationUri: __expectString,
+    ManagedSecretConfig: _json,
     ServerCertificate: context.base64Decoder,
     ServerPort: __expectInt32,
     ServerProtocol: __expectString,
@@ -2601,6 +2621,7 @@ const de_DescribeTaskExecutionResponse = (output: any, context: __SerdeContext):
     BytesCompressed: __expectLong,
     BytesTransferred: __expectLong,
     BytesWritten: __expectLong,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EstimatedBytesToTransfer: __expectLong,
     EstimatedFilesToDelete: __expectLong,
     EstimatedFilesToTransfer: __expectLong,
@@ -2613,6 +2634,7 @@ const de_DescribeTaskExecutionResponse = (output: any, context: __SerdeContext):
     FilesTransferred: __expectLong,
     FilesVerified: __expectLong,
     Includes: _json,
+    LaunchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ManifestConfig: _json,
     Options: _json,
     ReportResult: _json,
@@ -2692,6 +2714,8 @@ const de_DescribeTaskResponse = (output: any, context: __SerdeContext): Describe
 // de_LocationList omitted.
 
 // de_LocationListEntry omitted.
+
+// de_ManagedSecretConfig omitted.
 
 // de_ManifestConfig omitted.
 

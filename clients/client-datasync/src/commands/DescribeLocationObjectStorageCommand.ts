@@ -57,6 +57,17 @@ export interface DescribeLocationObjectStorageCommandOutput
  * //   ],
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   ServerCertificate: new Uint8Array(),
+ * //   ManagedSecretConfig: { // ManagedSecretConfig
+ * //     SecretArn: "STRING_VALUE",
+ * //   },
+ * //   CmkSecretConfig: { // CmkSecretConfig
+ * //     SecretArn: "STRING_VALUE",
+ * //     KmsKeyArn: "STRING_VALUE",
+ * //   },
+ * //   CustomSecretConfig: { // CustomSecretConfig
+ * //     SecretArn: "STRING_VALUE",
+ * //     SecretAccessRoleArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

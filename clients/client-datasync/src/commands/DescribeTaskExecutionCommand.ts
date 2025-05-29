@@ -156,6 +156,8 @@ export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutio
  * //     Verify: Number("long"),
  * //     Delete: Number("long"),
  * //   },
+ * //   LaunchTime: new Date("TIMESTAMP"),
+ * //   EndTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```

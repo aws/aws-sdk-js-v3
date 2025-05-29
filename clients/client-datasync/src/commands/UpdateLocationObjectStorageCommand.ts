@@ -56,6 +56,14 @@ export interface UpdateLocationObjectStorageCommandOutput
  *     "STRING_VALUE",
  *   ],
  *   ServerCertificate: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *   CmkSecretConfig: { // CmkSecretConfig
+ *     SecretArn: "STRING_VALUE",
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
+ *   CustomSecretConfig: { // CustomSecretConfig
+ *     SecretArn: "STRING_VALUE",
+ *     SecretAccessRoleArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateLocationObjectStorageCommand(input);
  * const response = await client.send(command);

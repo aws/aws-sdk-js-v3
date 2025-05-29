@@ -44,7 +44,7 @@ export interface UpdateLocationAzureBlobCommandOutput extends UpdateLocationAzur
  * const input = { // UpdateLocationAzureBlobRequest
  *   LocationArn: "STRING_VALUE", // required
  *   Subdirectory: "STRING_VALUE",
- *   AuthenticationType: "SAS",
+ *   AuthenticationType: "SAS" || "NONE",
  *   SasConfiguration: { // AzureBlobSasConfiguration
  *     Token: "STRING_VALUE", // required
  *   },
@@ -53,6 +53,14 @@ export interface UpdateLocationAzureBlobCommandOutput extends UpdateLocationAzur
  *   AgentArns: [ // AgentArnList
  *     "STRING_VALUE",
  *   ],
+ *   CmkSecretConfig: { // CmkSecretConfig
+ *     SecretArn: "STRING_VALUE",
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
+ *   CustomSecretConfig: { // CustomSecretConfig
+ *     SecretArn: "STRING_VALUE",
+ *     SecretAccessRoleArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateLocationAzureBlobCommand(input);
  * const response = await client.send(command);

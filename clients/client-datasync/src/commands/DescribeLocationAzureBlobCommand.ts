@@ -44,13 +44,24 @@ export interface DescribeLocationAzureBlobCommandOutput extends DescribeLocation
  * // { // DescribeLocationAzureBlobResponse
  * //   LocationArn: "STRING_VALUE",
  * //   LocationUri: "STRING_VALUE",
- * //   AuthenticationType: "SAS",
+ * //   AuthenticationType: "SAS" || "NONE",
  * //   BlobType: "BLOCK",
  * //   AccessTier: "HOT" || "COOL" || "ARCHIVE",
  * //   AgentArns: [ // AgentArnList
  * //     "STRING_VALUE",
  * //   ],
  * //   CreationTime: new Date("TIMESTAMP"),
+ * //   ManagedSecretConfig: { // ManagedSecretConfig
+ * //     SecretArn: "STRING_VALUE",
+ * //   },
+ * //   CmkSecretConfig: { // CmkSecretConfig
+ * //     SecretArn: "STRING_VALUE",
+ * //     KmsKeyArn: "STRING_VALUE",
+ * //   },
+ * //   CustomSecretConfig: { // CustomSecretConfig
+ * //     SecretArn: "STRING_VALUE",
+ * //     SecretAccessRoleArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
