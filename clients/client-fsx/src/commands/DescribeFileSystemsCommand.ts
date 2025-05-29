@@ -178,6 +178,11 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * //           Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //         },
  * //         EfaEnabled: true || false,
+ * //         ThroughputCapacity: Number("int"),
+ * //         DataReadCacheConfiguration: { // LustreReadCacheConfiguration
+ * //           SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //           SizeGiB: Number("int"),
+ * //         },
  * //       },
  * //       AdministrativeActions: [ // AdministrativeActions
  * //         { // AdministrativeAction
@@ -286,6 +291,11 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * //                 Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //               },
  * //               EfaEnabled: true || false,
+ * //               ThroughputCapacity: Number("int"),
+ * //               DataReadCacheConfiguration: {
+ * //                 SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //                 SizeGiB: Number("int"),
+ * //               },
  * //             },
  * //             AdministrativeActions: [
  * //               {

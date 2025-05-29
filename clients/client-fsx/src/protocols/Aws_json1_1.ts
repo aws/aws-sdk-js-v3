@@ -258,6 +258,7 @@ import {
   InvalidSourceKmsKey,
   ListTagsForResourceRequest,
   LustreLogCreateConfiguration,
+  LustreReadCacheConfiguration,
   LustreRootSquashConfiguration,
   MissingFileCacheConfiguration,
   MissingFileSystemConfiguration,
@@ -2884,6 +2885,8 @@ const se_DisassociateFileSystemAliasesRequest = (
 
 // se_LustreNoSquashNids omitted.
 
+// se_LustreReadCacheConfiguration omitted.
+
 // se_LustreRootSquashConfiguration omitted.
 
 // se_OpenZFSClientConfiguration omitted.
@@ -3735,6 +3738,8 @@ const de_FileSystems = (output: any, context: __SerdeContext): FileSystem[] => {
 // de_LustreLogConfiguration omitted.
 
 // de_LustreNoSquashNids omitted.
+
+// de_LustreReadCacheConfiguration omitted.
 
 // de_LustreRootSquashConfiguration omitted.
 

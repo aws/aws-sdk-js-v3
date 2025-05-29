@@ -209,6 +209,62 @@ export type DataCompressionType = (typeof DataCompressionType)[keyof typeof Data
  * @public
  * @enum
  */
+export const LustreReadCacheSizingMode = {
+  NO_CACHE: "NO_CACHE",
+  PROPORTIONAL_TO_THROUGHPUT_CAPACITY: "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+  USER_PROVISIONED: "USER_PROVISIONED",
+} as const;
+
+/**
+ * @public
+ */
+export type LustreReadCacheSizingMode = (typeof LustreReadCacheSizingMode)[keyof typeof LustreReadCacheSizingMode];
+
+/**
+ * <p>
+ *             The configuration for the optional provisioned SSD read cache on Amazon FSx for Lustre file systems
+ *             that use the Intelligent-Tiering storage class.
+ *         </p>
+ * @public
+ */
+export interface LustreReadCacheConfiguration {
+  /**
+   * <p>
+   *             Specifies how the provisioned SSD read cache is sized, as follows:
+   *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>Set to <code>NO_CACHE</code> if you do not want to use an SSD read cache with your Intelligent-Tiering file system.</p>
+   *             </li>
+   *             <li>
+   *                <p>Set to <code>USER_PROVISIONED</code> to specify the exact size of your SSD read cache.</p>
+   *             </li>
+   *             <li>
+   *                <p>Set to <code>PROPORTIONAL_TO_THROUGHPUT_CAPACITY</code> to have your SSD read cache automatically sized based on your throughput capacity.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SizingMode?: LustreReadCacheSizingMode | undefined;
+
+  /**
+   * <p>
+   *             Required if <code>SizingMode</code> is set to <code>USER_PROVISIONED</code>.
+   *             Specifies the size of the file system's SSD read cache, in gibibytes (GiB).
+   *         </p>
+   *          <p>The SSD read cache size is distributed across provisioned file servers in
+   *             your file system. Intelligent-Tiering file systems support a minimum of 32 GiB
+   *             and maximum of 131072 GiB for SSD read cache size for every 4,000 MB/s of throughput
+   *             capacity provisioned.</p>
+   * @public
+   */
+  SizeGiB?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const AutoImportPolicyType = {
   NEW: "NEW",
   NEW_CHANGED: "NEW_CHANGED",
@@ -482,9 +538,18 @@ export type MetadataConfigurationMode = (typeof MetadataConfigurationMode)[keyof
  */
 export interface FileSystemLustreMetadataConfiguration {
   /**
-   * <p>The number of Metadata IOPS provisioned for the file system. Valid values
-   *             are <code>1500</code>, <code>3000</code>, <code>6000</code>, <code>12000</code>,
-   *             and multiples of <code>12000</code> up to a maximum of <code>192000</code>.</p>
+   * <p>The number of Metadata IOPS provisioned for the file system.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For SSD file systems, valid values are <code>1500</code>,
+   *                     <code>3000</code>, <code>6000</code>, <code>12000</code>, and
+   *                     multiples of <code>12000</code> up to a maximum of <code>192000</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Intelligent-Tiering file systems, valid values are <code>6000</code>
+   *                     and <code>12000</code>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Iops?: number | undefined;
@@ -494,9 +559,10 @@ export interface FileSystemLustreMetadataConfiguration {
    *             file system.</p>
    *          <ul>
    *             <li>
-   *                <p>In AUTOMATIC mode, FSx for Lustre automatically
-   *                 provisions and scales the number of Metadata IOPS on your file system based
-   *                 on your file system storage capacity.</p>
+   *                <p>In AUTOMATIC mode (supported only on SSD file systems),
+   *                     FSx for Lustre automatically provisions and scales the
+   *                     number of Metadata IOPS on your file system based on your file
+   *                     system storage capacity.</p>
    *             </li>
    *             <li>
    *                <p>In USER_PROVISIONED mode, you can choose to specify the number
@@ -597,8 +663,8 @@ export interface LustreFileSystemConfiguration {
    *             for longer-term storage and workloads and encryption of data in transit.
    *                 <code>PERSISTENT_2</code> offers higher <code>PerUnitStorageThroughput</code>
    *             (up to 1000 MB/s/TiB) along with a lower minimum storage capacity requirement (600 GiB).
-   *             To learn more about FSx for Lustre deployment types, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/lustre-deployment-types.html">
-   *                 FSx for Lustre deployment options</a>.</p>
+   *             To learn more about FSx for Lustre deployment types, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-fsx-lustre.html">Deployment and storage class options for
+   *                     FSx for Lustre file systems</a>.</p>
    *          <p>The default is <code>SCRATCH_1</code>.</p>
    * @public
    */
@@ -722,6 +788,20 @@ export interface LustreFileSystemConfiguration {
    * @public
    */
   EfaEnabled?: boolean | undefined;
+
+  /**
+   * <p>The throughput of an Amazon FSx for Lustre file system using the Intelligent-Tiering
+   *             storage class, measured in megabytes per second (MBps).</p>
+   * @public
+   */
+  ThroughputCapacity?: number | undefined;
+
+  /**
+   * <p>Required when <code>StorageType</code> is set to <code>INTELLIGENT_TIERING</code>.
+   *             Specifies the optional provisioned SSD read cache.</p>
+   * @public
+   */
+  DataReadCacheConfiguration?: LustreReadCacheConfiguration | undefined;
 }
 
 /**
@@ -927,13 +1007,8 @@ export interface OntapFileSystemConfiguration {
   ThroughputCapacity?: number | undefined;
 
   /**
-   * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
-   *          <p>
-   *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
-   *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
-   *          <p>
-   *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
-   *             the zero-padded minute of the hour. </p>
+   * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
+   *             time zone, where d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
    *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    * @public
    */
@@ -1028,7 +1103,7 @@ export type OpenZFSReadCacheSizingMode = (typeof OpenZFSReadCacheSizingMode)[key
 
 /**
  * <p>
- *             The configuration for the optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class.
+ *             The configuration for the optional provisioned SSD read cache on Amazon FSx for OpenZFS file systems that use the Intelligent-Tiering storage class.
  *         </p>
  * @public
  */
@@ -1119,13 +1194,8 @@ export interface OpenZFSFileSystemConfiguration {
   ThroughputCapacity?: number | undefined;
 
   /**
-   * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
-   *          <p>
-   *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
-   *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
-   *          <p>
-   *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
-   *             the zero-padded minute of the hour. </p>
+   * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
+   *             time zone, where d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
    *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    * @public
    */
@@ -3344,7 +3414,7 @@ export type ServiceLimit = (typeof ServiceLimit)[keyof typeof ServiceLimit];
 
 /**
  * <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web Services Support.</p>
+ *             some service limits by contacting Amazon Web ServicesSupport.</p>
  * @public
  */
 export class ServiceLimitExceeded extends __BaseException {
@@ -3784,7 +3854,7 @@ export interface NFSDataRepositoryConfiguration {
  *          </ul>
  *          <p>Data repository associations are supported on Amazon File Cache resources and
  *             all FSx for Lustre 2.12 and 2.15 file systems, excluding
- *             <code>scratch_1</code> deployment type.</p>
+ *             Intelligent-Tiering and <code>scratch_1</code> file systems.</p>
  * @public
  */
 export interface DataRepositoryAssociation {
@@ -4754,13 +4824,8 @@ export interface CreateFileCacheLustreConfiguration {
   DeploymentType: FileCacheLustreDeploymentType | undefined;
 
   /**
-   * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
-   *          <p>
-   *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
-   *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
-   *          <p>
-   *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
-   *             the zero-padded minute of the hour. </p>
+   * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
+   *             time zone, where d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
    *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    * @public
    */
@@ -4937,13 +5002,8 @@ export interface FileCacheLustreConfiguration {
   MountName?: string | undefined;
 
   /**
-   * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
-   *          <p>
-   *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
-   *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
-   *          <p>
-   *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
-   *             the zero-padded minute of the hour. </p>
+   * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
+   *             time zone, where d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
    *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    * @public
    */
@@ -5307,11 +5367,21 @@ export interface CreateFileSystemLustreMetadataConfiguration {
   /**
    * <p>(USER_PROVISIONED mode only) Specifies the number of Metadata IOPS to provision
    *             for the file system. This parameter sets the maximum rate of metadata disk IOPS
-   *             supported by the file system. Valid values are <code>1500</code>, <code>3000</code>,
-   *             <code>6000</code>, <code>12000</code>, and multiples of <code>12000</code>
-   *             up to a maximum of <code>192000</code>.</p>
+   *             supported by the file system.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For SSD file systems, valid values are <code>1500</code>,
+   *                     <code>3000</code>, <code>6000</code>, <code>12000</code>, and
+   *                     multiples of <code>12000</code> up to a maximum of <code>192000</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Intelligent-Tiering file systems, valid values are <code>6000</code>
+   *                     and <code>12000</code>.</p>
+   *             </li>
+   *          </ul>
    *          <note>
-   *             <p>Iops doesn’t have a default value. If you're using USER_PROVISIONED mode,
+   *             <p>
+   *                <code>Iops</code> doesn’t have a default value. If you're using USER_PROVISIONED mode,
    *                 you can choose to specify a valid value. If you're using AUTOMATIC mode,
    *                 you cannot specify a value because FSx for Lustre automatically sets
    *                 the value based on your file system storage capacity.
@@ -5327,8 +5397,9 @@ export interface CreateFileSystemLustreMetadataConfiguration {
    *             deployment type.</p>
    *          <ul>
    *             <li>
-   *                <p>In AUTOMATIC mode, FSx for Lustre automatically
-   *                 provisions and scales the number of Metadata IOPS for your file system
+   *                <p>In AUTOMATIC mode (supported only on SSD file systems),
+   *                     FSx for Lustre automatically provisions and scales the
+   *                     number of Metadata IOPS for your file system
    *                 based on your file system storage capacity.</p>
    *             </li>
    *             <li>
@@ -5443,13 +5514,14 @@ export interface CreateFileSystemLustreConfiguration {
    *             Amazon Web Services Regions in which FSx for Lustre is available.</p>
    *          <p>Choose <code>PERSISTENT_2</code> for longer-term storage and for latency-sensitive workloads
    *             that require the highest levels of IOPS/throughput. <code>PERSISTENT_2</code> supports
-   *             SSD storage, and offers higher <code>PerUnitStorageThroughput</code> (up to 1000 MB/s/TiB).
+   *             the SSD and Intelligent-Tiering storage classes.
    *             You can optionally specify a metadata configuration mode for <code>PERSISTENT_2</code>
    *             which supports increasing metadata performance. <code>PERSISTENT_2</code> is available
    *             in a limited number of Amazon Web Services Regions. For more information, and an up-to-date
    *             list of Amazon Web Services Regions in which <code>PERSISTENT_2</code> is available, see
-   *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-fsx-lustre.html#lustre-deployment-types">File
-   *                 system deployment options for FSx for Lustre</a> in the <i>Amazon FSx for Lustre User Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-fsx-lustre.html">Deployment and
+   *                 storage class options for FSx for Lustre file systems</a> in
+   *             the <i>Amazon FSx for Lustre User Guide</i>.</p>
    *          <note>
    *             <p>If you choose <code>PERSISTENT_2</code>, and you set <code>FileSystemTypeVersion</code> to
    *                     <code>2.10</code>, the <code>CreateFileSystem</code> operation fails.</p>
@@ -5509,7 +5581,7 @@ export interface CreateFileSystemLustreConfiguration {
 
   /**
    * <p>Required with <code>PERSISTENT_1</code> and <code>PERSISTENT_2</code> deployment
-   *             types, provisions the amount of read and write throughput for each 1 tebibyte (TiB) of
+   *             types using an SSD or HDD storage class, provisions the amount of read and write throughput for each 1 tebibyte (TiB) of
    *             file system storage capacity, in MB/s/TiB. File system throughput capacity is calculated
    *             by multiplying ﬁle system storage capacity (TiB) by the
    *                 <code>PerUnitStorageThroughput</code> (MB/s/TiB). For a 2.4-TiB ﬁle system,
@@ -5626,6 +5698,22 @@ export interface CreateFileSystemLustreConfiguration {
    * @public
    */
   MetadataConfiguration?: CreateFileSystemLustreMetadataConfiguration | undefined;
+
+  /**
+   * <p>Specifies the throughput of an FSx for Lustre file system using the Intelligent-Tiering storage class,
+   *             measured in megabytes per second (MBps). Valid values are 4000 MBps or
+   *             multiples of 4000 MBps. You pay for the amount of throughput that you provision.</p>
+   * @public
+   */
+  ThroughputCapacity?: number | undefined;
+
+  /**
+   * <p>Specifies the optional provisioned SSD read cache on FSx for Lustre file systems that
+   *             use the Intelligent-Tiering storage class. Required when <code>StorageType</code> is set
+   *             to <code>INTELLIGENT_TIERING</code>.</p>
+   * @public
+   */
+  DataReadCacheConfiguration?: LustreReadCacheConfiguration | undefined;
 }
 
 /**
@@ -5747,13 +5835,8 @@ export interface CreateFileSystemOntapConfiguration {
   ThroughputCapacity?: number | undefined;
 
   /**
-   * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
-   *          <p>
-   *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
-   *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
-   *          <p>
-   *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
-   *             the zero-padded minute of the hour. </p>
+   * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
+   *             time zone, where d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
    *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    * @public
    */
@@ -5964,7 +6047,7 @@ export interface CreateFileSystemOpenZFSConfiguration {
   DeploymentType: OpenZFSDeploymentType | undefined;
 
   /**
-   * <p>Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per second (MBps). Valid values depend on the DeploymentType you choose, as follows:</p>
+   * <p>Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per second (MBps). Valid values depend on the <code>DeploymentType</code> that you choose, as follows:</p>
    *          <ul>
    *             <li>
    *                <p>For <code>MULTI_AZ_1</code> and <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640,
@@ -5980,13 +6063,8 @@ export interface CreateFileSystemOpenZFSConfiguration {
   ThroughputCapacity: number | undefined;
 
   /**
-   * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
-   *          <p>
-   *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
-   *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
-   *          <p>
-   *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
-   *             the zero-padded minute of the hour. </p>
+   * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
+   *             time zone, where d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
    *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    * @public
    */
@@ -6019,7 +6097,7 @@ export interface CreateFileSystemOpenZFSConfiguration {
    *             file system will be created. By default in the Amazon FSx  API and Amazon FSx console, Amazon FSx
    *             selects an available /28 IP address range for you from one of the VPC's CIDR ranges.
    *             You can have overlapping endpoint IP addresses for file systems deployed in the
-   *             same VPC/route tables.</p>
+   *             same VPC/route tables, as long as they don't overlap with any subnet.</p>
    * @public
    */
   EndpointIpAddressRange?: string | undefined;
@@ -6426,20 +6504,21 @@ export interface CreateFileSystemRequest {
    *                     Lustre, ONTAP, and OpenZFS deployment types.</p>
    *             </li>
    *             <li>
-   *                <p>Set to <code>HDD</code> to use hard disk drive storage.
-   *                 HDD is supported on <code>SINGLE_AZ_2</code> and <code>MULTI_AZ_1</code> Windows file system deployment types,
+   *                <p>Set to <code>HDD</code> to use hard disk drive storage, which is supported on
+   *                     <code>SINGLE_AZ_2</code> and <code>MULTI_AZ_1</code> Windows file system deployment types,
    *                 and on <code>PERSISTENT_1</code> Lustre file system deployment types.</p>
    *             </li>
    *             <li>
-   *                <p>Set to <code>INTELLIGENT_TIERING</code> to use fully elastic, intelligently-tiered storage. Intelligent-Tiering is only available for OpenZFS file systems with the Multi-AZ deployment type.</p>
+   *                <p>Set to <code>INTELLIGENT_TIERING</code> to use fully elastic, intelligently-tiered storage.
+   *                     Intelligent-Tiering is only available for OpenZFS file systems with the Multi-AZ deployment type
+   *                     and for Lustre file systems with the Persistent_2 deployment type.</p>
    *             </li>
    *          </ul>
    *          <p>Default value is <code>SSD</code>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options"> Storage
    *                 type options</a> in the <i>FSx for Windows File Server User
-   *                 Guide</i>, <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html#storage-options">Multiple storage
-   *                 options</a> in the <i>FSx for Lustre User
-   *                     Guide</i>, and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance-intelligent-tiering">Working with Intelligent-Tiering</a> in the <i>Amazon FSx for OpenZFS User
-   *                             Guide</i>. </p>
+   *                 Guide</i>, <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/lustre-storage-classes">FSx for Lustre storage classes</a>
+   *             in the <i>FSx for Lustre User Guide</i>, and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance-intelligent-tiering">Working with Intelligent-Tiering</a>
+   *             in the <i>Amazon FSx for OpenZFS User Guide</i>.</p>
    * @public
    */
   StorageType?: StorageType | undefined;
@@ -6764,8 +6843,8 @@ export interface CreateFileSystemFromBackupRequest {
   LustreConfiguration?: CreateFileSystemLustreConfiguration | undefined;
 
   /**
-   * <p>Sets the storage type for the Windows or OpenZFS file system that you're creating from
-   *             a backup. Valid values are <code>SSD</code> and <code>HDD</code>.</p>
+   * <p>Sets the storage type for the Windows, OpenZFS, or Lustre file system that you're creating from
+   *             a backup. Valid values are <code>SSD</code>, <code>HDD</code>, and <code>INTELLIGENT_TIERING</code>.</p>
    *          <ul>
    *             <li>
    *                <p>Set to <code>SSD</code> to use solid state drive storage. SSD is supported on all Windows and OpenZFS
@@ -6774,6 +6853,11 @@ export interface CreateFileSystemFromBackupRequest {
    *             <li>
    *                <p>Set to <code>HDD</code> to use hard disk drive storage.
    *                     HDD is supported on <code>SINGLE_AZ_2</code> and <code>MULTI_AZ_1</code> FSx for Windows File Server file system deployment types.</p>
+   *             </li>
+   *             <li>
+   *                <p>Set to <code>INTELLIGENT_TIERING</code> to use fully elastic, intelligently-tiered storage.
+   *                     Intelligent-Tiering is only available for OpenZFS file systems with the Multi-AZ deployment type
+   *                     and for Lustre file systems with the Persistent_2 deployment type.</p>
    *             </li>
    *          </ul>
    *          <p> The default value is <code>SSD</code>. </p>
@@ -7641,11 +7725,9 @@ export interface CreateOpenZFSVolumeConfiguration {
 
   /**
    * <p>A Boolean value indicating whether tags for the volume should be copied to snapshots.
-   *             This value defaults to <code>false</code>. If it's set to <code>true</code>, all tags
-   *             for the volume are copied to snapshots where the user doesn't specify tags. If this
-   *             value is <code>true</code>, and you specify one or more tags, only the specified tags
-   *             are copied to snapshots. If you specify one or more tags when creating the snapshot, no
-   *             tags are copied from the volume, regardless of this value.</p>
+   *             This value defaults to <code>false</code>. If this value is set to <code>true</code>, and you do not specify any tags, all tags for the original volume are copied over to snapshots.
+   *             If this value is set to <code>true</code>, and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
+   *         </p>
    * @public
    */
   CopyTagsToSnapshots?: boolean | undefined;
@@ -9691,13 +9773,8 @@ export interface UpdateDataRepositoryAssociationResponse {
  */
 export interface UpdateFileCacheLustreConfiguration {
   /**
-   * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
-   *          <p>
-   *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
-   *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
-   *          <p>
-   *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
-   *             the zero-padded minute of the hour. </p>
+   * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
+   *             time zone, where d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
    *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    * @public
    */
@@ -9752,9 +9829,18 @@ export interface UpdateFileCacheResponse {
 export interface UpdateFileSystemLustreMetadataConfiguration {
   /**
    * <p>(USER_PROVISIONED mode only) Specifies the number of Metadata IOPS to provision
-   *             for your file system. Valid values are <code>1500</code>, <code>3000</code>,
-   *             <code>6000</code>, <code>12000</code>, and multiples of <code>12000</code>
-   *             up to a maximum of <code>192000</code>.</p>
+   *             for your file system.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For SSD file systems, valid values are <code>1500</code>,
+   *                     <code>3000</code>, <code>6000</code>, <code>12000</code>, and
+   *                     multiples of <code>12000</code> up to a maximum of <code>192000</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Intelligent-Tiering file systems, valid values are <code>6000</code>
+   *                     and <code>12000</code>.</p>
+   *             </li>
+   *          </ul>
    *          <p>The value you provide must be greater than or equal to the current number of
    *             Metadata IOPS provisioned for the file system.</p>
    * @public
@@ -9767,19 +9853,28 @@ export interface UpdateFileSystemLustreMetadataConfiguration {
    *             deployment type.</p>
    *          <ul>
    *             <li>
-   *                <p>To increase the Metadata IOPS or to switch from AUTOMATIC mode,
+   *                <p>To increase the Metadata IOPS or to switch an SSD file system from
+   *                     AUTOMATIC,
    *                 specify <code>USER_PROVISIONED</code> as the value for this parameter. Then use the
    *                 Iops parameter to provide a Metadata IOPS value that is greater than or equal to
    *                 the current number of Metadata IOPS provisioned for the file system.</p>
    *             </li>
    *             <li>
-   *                <p>To switch from USER_PROVISIONED mode, specify
+   *                <p>To switch from USER_PROVISIONED mode on an SSD file system, specify
    *                 <code>AUTOMATIC</code> as the value for this parameter, but do not input a value
    *                 for Iops.</p>
    *                <note>
-   *                   <p>If you request to switch from USER_PROVISIONED to AUTOMATIC mode and the
-   *                     current Metadata IOPS value is greater than the automated default, FSx for Lustre
-   *                     rejects the request because downscaling Metadata IOPS is not supported.</p>
+   *                   <ul>
+   *                      <li>
+   *                         <p>If you request to switch from USER_PROVISIONED to AUTOMATIC mode and the
+   *                                 current Metadata IOPS value is greater than the automated default, FSx for Lustre
+   *                                 rejects the request because downscaling Metadata IOPS is not supported.</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>AUTOMATIC mode is not supported on Intelligent-Tiering
+   *                                 file systems. For Intelligent-Tiering file systems, use USER_PROVISIONED mode.</p>
+   *                      </li>
+   *                   </ul>
    *                </note>
    *             </li>
    *          </ul>
@@ -9922,6 +10017,21 @@ export interface UpdateFileSystemLustreConfiguration {
    * @public
    */
   MetadataConfiguration?: UpdateFileSystemLustreMetadataConfiguration | undefined;
+
+  /**
+   * <p>The throughput of an Amazon FSx for Lustre file system using an Intelligent-Tiering
+   *             storage class, measured in megabytes per second (MBps). You can only increase your file
+   *             system's throughput. Valid values are 4000 MBps or multiples of 4000 MBps.</p>
+   * @public
+   */
+  ThroughputCapacity?: number | undefined;
+
+  /**
+   * <p>Specifies the optional provisioned SSD read cache on Amazon FSx for Lustre file systems that
+   *                 use the Intelligent-Tiering storage class.</p>
+   * @public
+   */
+  DataReadCacheConfiguration?: LustreReadCacheConfiguration | undefined;
 }
 
 /**
@@ -9955,13 +10065,8 @@ export interface UpdateFileSystemOntapConfiguration {
   FsxAdminPassword?: string | undefined;
 
   /**
-   * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
-   *          <p>
-   *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
-   *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
-   *          <p>
-   *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
-   *             the zero-padded minute of the hour. </p>
+   * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
+   *             time zone, where d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
    *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    * @public
    */
@@ -10114,13 +10219,8 @@ export interface UpdateFileSystemOpenZFSConfiguration {
   ThroughputCapacity?: number | undefined;
 
   /**
-   * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
-   *          <p>
-   *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
-   *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
-   *          <p>
-   *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
-   *             the zero-padded minute of the hour. </p>
+   * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
+   *             time zone, where d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
    *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    * @public
    */
@@ -11082,10 +11182,19 @@ export interface FileSystem {
   StorageCapacity?: number | undefined;
 
   /**
-   * <p>The type of storage the file system is using.
-   *             If set to <code>SSD</code>, the file system uses solid state drive storage.
-   *             If set to <code>HDD</code>, the file system uses hard disk drive storage.
-   *         </p>
+   * <p>The type of storage the file system is using.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If set to <code>SSD</code>, the file system uses solid state drive storage.</p>
+   *             </li>
+   *             <li>
+   *                <p>If set to <code>HDD</code>, the file system uses hard disk drive storage.</p>
+   *             </li>
+   *             <li>
+   *                <p>If set to <code>INTELLIGENT_TIERING</code>, the file system uses fully elastic,
+   *                     intelligently-tiered storage.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   StorageType?: StorageType | undefined;

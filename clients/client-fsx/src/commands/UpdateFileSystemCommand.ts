@@ -55,6 +55,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>DiskIopsConfiguration</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>SelfManagedActiveDirectoryConfiguration</code>
  *                </p>
  *             </li>
@@ -71,11 +76,6 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             <li>
  *                <p>
  *                   <code>ThroughputCapacity</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DiskIopsConfiguration</code>
  *                </p>
  *             </li>
  *             <li>
@@ -119,6 +119,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>LustreReadCacheConfiguration</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>LustreRootSquashConfiguration</code>
  *                </p>
  *             </li>
@@ -135,6 +140,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             <li>
  *                <p>
  *                   <code>StorageCapacity</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ThroughputCapacity</code>
  *                </p>
  *             </li>
  *             <li>
@@ -317,6 +327,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *       Iops: Number("int"),
  *       Mode: "AUTOMATIC" || "USER_PROVISIONED",
  *     },
+ *     ThroughputCapacity: Number("int"),
+ *     DataReadCacheConfiguration: { // LustreReadCacheConfiguration
+ *       SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ *       SizeGiB: Number("int"),
+ *     },
  *   },
  *   OntapConfiguration: { // UpdateFileSystemOntapConfiguration
  *     AutomaticBackupRetentionDays: Number("int"),
@@ -466,6 +481,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //         Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //       },
  * //       EfaEnabled: true || false,
+ * //       ThroughputCapacity: Number("int"),
+ * //       DataReadCacheConfiguration: { // LustreReadCacheConfiguration
+ * //         SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //         SizeGiB: Number("int"),
+ * //       },
  * //     },
  * //     AdministrativeActions: [ // AdministrativeActions
  * //       { // AdministrativeAction
@@ -574,6 +594,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //               Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //             },
  * //             EfaEnabled: true || false,
+ * //             ThroughputCapacity: Number("int"),
+ * //             DataReadCacheConfiguration: {
+ * //               SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //               SizeGiB: Number("int"),
+ * //             },
  * //           },
  * //           AdministrativeActions: [
  * //             {
@@ -972,7 +997,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
  *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web Services Support.</p>
+ *             some service limits by contacting Amazon Web ServicesSupport.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>The requested operation is not supported for this resource or API.</p>

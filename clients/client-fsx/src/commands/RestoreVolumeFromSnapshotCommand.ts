@@ -160,6 +160,11 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //             Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //           },
  * //           EfaEnabled: true || false,
+ * //           ThroughputCapacity: Number("int"),
+ * //           DataReadCacheConfiguration: { // LustreReadCacheConfiguration
+ * //             SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //             SizeGiB: Number("int"),
+ * //           },
  * //         },
  * //         AdministrativeActions: [
  * //           {
@@ -268,6 +273,11 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //                   Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //                 },
  * //                 EfaEnabled: true || false,
+ * //                 ThroughputCapacity: Number("int"),
+ * //                 DataReadCacheConfiguration: {
+ * //                   SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //                   SizeGiB: Number("int"),
+ * //                 },
  * //               },
  * //               AdministrativeActions: "<AdministrativeActions>",
  * //               OntapConfiguration: { // OntapFileSystemConfiguration

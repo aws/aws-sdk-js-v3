@@ -150,6 +150,11 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  * //         Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //       },
  * //       EfaEnabled: true || false,
+ * //       ThroughputCapacity: Number("int"),
+ * //       DataReadCacheConfiguration: { // LustreReadCacheConfiguration
+ * //         SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //         SizeGiB: Number("int"),
+ * //       },
  * //     },
  * //     AdministrativeActions: [ // AdministrativeActions
  * //       { // AdministrativeAction
@@ -258,6 +263,11 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  * //               Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //             },
  * //             EfaEnabled: true || false,
+ * //             ThroughputCapacity: Number("int"),
+ * //             DataReadCacheConfiguration: {
+ * //               SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //               SizeGiB: Number("int"),
+ * //             },
  * //           },
  * //           AdministrativeActions: [
  * //             {
@@ -650,7 +660,7 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
  *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web Services Support.</p>
+ *             some service limits by contacting Amazon Web ServicesSupport.</p>
  *
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
