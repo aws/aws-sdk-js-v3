@@ -6,11 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartEventDataStoreIngestionRequest, StartEventDataStoreIngestionResponse } from "../models/models_0";
-import {
-  de_StartEventDataStoreIngestionCommand,
-  se_StartEventDataStoreIngestionCommand,
-} from "../protocols/Aws_json1_1";
+import { PutEventConfigurationRequest, PutEventConfigurationResponse } from "../models/models_0";
+import { de_PutEventConfigurationCommand, se_PutEventConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -20,41 +17,71 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link StartEventDataStoreIngestionCommand}.
+ * The input for {@link PutEventConfigurationCommand}.
  */
-export interface StartEventDataStoreIngestionCommandInput extends StartEventDataStoreIngestionRequest {}
+export interface PutEventConfigurationCommandInput extends PutEventConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link StartEventDataStoreIngestionCommand}.
+ * The output of {@link PutEventConfigurationCommand}.
  */
-export interface StartEventDataStoreIngestionCommandOutput
-  extends StartEventDataStoreIngestionResponse,
-    __MetadataBearer {}
+export interface PutEventConfigurationCommandOutput extends PutEventConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Starts the ingestion of live events on an event data store specified as either an ARN or the ID portion of the ARN. To start ingestion, the event data store <code>Status</code> must be <code>STOPPED_INGESTION</code>
- *          and the <code>eventCategory</code> must be <code>Management</code>, <code>Data</code>, <code>NetworkActivity</code>, or <code>ConfigurationItem</code>.</p>
+ * <p>Updates the event configuration settings for the specified event data store. You can update the maximum event size and context key selectors.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, StartEventDataStoreIngestionCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, StartEventDataStoreIngestionCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, PutEventConfigurationCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
+ * // const { CloudTrailClient, PutEventConfigurationCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
- * const input = { // StartEventDataStoreIngestionRequest
- *   EventDataStore: "STRING_VALUE", // required
+ * const input = { // PutEventConfigurationRequest
+ *   EventDataStore: "STRING_VALUE",
+ *   MaxEventSize: "Standard" || "Large", // required
+ *   ContextKeySelectors: [ // ContextKeySelectors // required
+ *     { // ContextKeySelector
+ *       Type: "TagContext" || "RequestContext", // required
+ *       Equals: [ // OperatorTargetList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  * };
- * const command = new StartEventDataStoreIngestionCommand(input);
+ * const command = new PutEventConfigurationCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // PutEventConfigurationResponse
+ * //   EventDataStoreArn: "STRING_VALUE",
+ * //   MaxEventSize: "Standard" || "Large",
+ * //   ContextKeySelectors: [ // ContextKeySelectors
+ * //     { // ContextKeySelector
+ * //       Type: "TagContext" || "RequestContext", // required
+ * //       Equals: [ // OperatorTargetList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *
- * @param StartEventDataStoreIngestionCommandInput - {@link StartEventDataStoreIngestionCommandInput}
- * @returns {@link StartEventDataStoreIngestionCommandOutput}
- * @see {@link StartEventDataStoreIngestionCommandInput} for command's `input` shape.
- * @see {@link StartEventDataStoreIngestionCommandOutput} for command's `response` shape.
+ * @param PutEventConfigurationCommandInput - {@link PutEventConfigurationCommandInput}
+ * @returns {@link PutEventConfigurationCommandOutput}
+ * @see {@link PutEventConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutEventConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
+ *
+ * @throws {@link CloudTrailARNInvalidException} (client fault)
+ *  <p>This exception is thrown when an operation is called with an ARN that is not valid.</p>
+ *          <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
+ *          </p>
+ *          <p>The following is the format of an event data store ARN:
+ *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+ *          </p>
+ *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+ *          </p>
+ *          <p>The following is the format of a channel ARN:
+ *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+ *          </p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>This exception is thrown when the specified resource is not ready for an operation. This
@@ -69,10 +96,16 @@ export interface StartEventDataStoreIngestionCommandOutput
  * @throws {@link EventDataStoreNotFoundException} (client fault)
  *  <p>The specified event data store was not found.</p>
  *
+ * @throws {@link InactiveEventDataStoreException} (client fault)
+ *  <p>The event data store is inactive.</p>
+ *
  * @throws {@link InsufficientDependencyServiceAccessPermissionException} (client fault)
  *  <p>This exception is thrown when the IAM identity that is used to create
  *          the organization resource lacks one or more required permissions for creating an
  *          organization resource in a required service.</p>
+ *
+ * @throws {@link InsufficientIAMAccessPermissionException} (client fault)
+ *  <p>The task can't be completed because you are signed in with an account that lacks permissions to view or create a service-linked role. Sign in with an account that has the required permissions and then try again.</p>
  *
  * @throws {@link InvalidEventDataStoreCategoryException} (client fault)
  *  <p>This exception is thrown when event categories of specified event data stores are not
@@ -80,6 +113,10 @@ export interface StartEventDataStoreIngestionCommandOutput
  *
  * @throws {@link InvalidEventDataStoreStatusException} (client fault)
  *  <p>The event data store is not in a status that supports the operation.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>This exception is thrown when the combination of parameters provided is not
+ *          valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The request includes a parameter that is not valid.</p>
@@ -96,6 +133,11 @@ export interface StartEventDataStoreIngestionCommandOutput
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>This exception is thrown when the requested operation is not permitted.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *          This exception is thrown when the request rate exceeds the limit.
+ *       </p>
+ *
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
@@ -105,10 +147,10 @@ export interface StartEventDataStoreIngestionCommandOutput
  *
  * @public
  */
-export class StartEventDataStoreIngestionCommand extends $Command
+export class PutEventConfigurationCommand extends $Command
   .classBuilder<
-    StartEventDataStoreIngestionCommandInput,
-    StartEventDataStoreIngestionCommandOutput,
+    PutEventConfigurationCommandInput,
+    PutEventConfigurationCommandOutput,
     CloudTrailClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -120,21 +162,21 @@ export class StartEventDataStoreIngestionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("CloudTrail_20131101", "StartEventDataStoreIngestion", {})
-  .n("CloudTrailClient", "StartEventDataStoreIngestionCommand")
+  .s("CloudTrail_20131101", "PutEventConfiguration", {})
+  .n("CloudTrailClient", "PutEventConfigurationCommand")
   .f(void 0, void 0)
-  .ser(se_StartEventDataStoreIngestionCommand)
-  .de(de_StartEventDataStoreIngestionCommand)
+  .ser(se_PutEventConfigurationCommand)
+  .de(de_PutEventConfigurationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: StartEventDataStoreIngestionRequest;
-      output: {};
+      input: PutEventConfigurationRequest;
+      output: PutEventConfigurationResponse;
     };
     sdk: {
-      input: StartEventDataStoreIngestionCommandInput;
-      output: StartEventDataStoreIngestionCommandOutput;
+      input: PutEventConfigurationCommandInput;
+      output: PutEventConfigurationCommandOutput;
     };
   };
 }

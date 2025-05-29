@@ -84,6 +84,10 @@ import { EnableFederationCommandInput, EnableFederationCommandOutput } from "./c
 import { GenerateQueryCommandInput, GenerateQueryCommandOutput } from "./commands/GenerateQueryCommand";
 import { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
 import { GetDashboardCommandInput, GetDashboardCommandOutput } from "./commands/GetDashboardCommand";
+import {
+  GetEventConfigurationCommandInput,
+  GetEventConfigurationCommandOutput,
+} from "./commands/GetEventConfigurationCommand";
 import { GetEventDataStoreCommandInput, GetEventDataStoreCommandOutput } from "./commands/GetEventDataStoreCommand";
 import { GetEventSelectorsCommandInput, GetEventSelectorsCommandOutput } from "./commands/GetEventSelectorsCommand";
 import { GetImportCommandInput, GetImportCommandOutput } from "./commands/GetImportCommand";
@@ -112,6 +116,10 @@ import { ListQueriesCommandInput, ListQueriesCommandOutput } from "./commands/Li
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import { ListTrailsCommandInput, ListTrailsCommandOutput } from "./commands/ListTrailsCommand";
 import { LookupEventsCommandInput, LookupEventsCommandOutput } from "./commands/LookupEventsCommand";
+import {
+  PutEventConfigurationCommandInput,
+  PutEventConfigurationCommandOutput,
+} from "./commands/PutEventConfigurationCommand";
 import { PutEventSelectorsCommandInput, PutEventSelectorsCommandOutput } from "./commands/PutEventSelectorsCommand";
 import {
   PutInsightSelectorsCommandInput,
@@ -189,6 +197,7 @@ export type ServiceInputTypes =
   | GenerateQueryCommandInput
   | GetChannelCommandInput
   | GetDashboardCommandInput
+  | GetEventConfigurationCommandInput
   | GetEventDataStoreCommandInput
   | GetEventSelectorsCommandInput
   | GetImportCommandInput
@@ -208,6 +217,7 @@ export type ServiceInputTypes =
   | ListTagsCommandInput
   | ListTrailsCommandInput
   | LookupEventsCommandInput
+  | PutEventConfigurationCommandInput
   | PutEventSelectorsCommandInput
   | PutInsightSelectorsCommandInput
   | PutResourcePolicyCommandInput
@@ -251,6 +261,7 @@ export type ServiceOutputTypes =
   | GenerateQueryCommandOutput
   | GetChannelCommandOutput
   | GetDashboardCommandOutput
+  | GetEventConfigurationCommandOutput
   | GetEventDataStoreCommandOutput
   | GetEventSelectorsCommandOutput
   | GetImportCommandOutput
@@ -270,6 +281,7 @@ export type ServiceOutputTypes =
   | ListTagsCommandOutput
   | ListTrailsCommandOutput
   | LookupEventsCommandOutput
+  | PutEventConfigurationCommandOutput
   | PutEventSelectorsCommandOutput
   | PutInsightSelectorsCommandOutput
   | PutResourcePolicyCommandOutput

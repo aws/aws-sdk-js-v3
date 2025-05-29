@@ -79,6 +79,11 @@ import {
   GetDashboardCommandOutput,
 } from "./commands/GetDashboardCommand";
 import {
+  GetEventConfigurationCommand,
+  GetEventConfigurationCommandInput,
+  GetEventConfigurationCommandOutput,
+} from "./commands/GetEventConfigurationCommand";
+import {
   GetEventDataStoreCommand,
   GetEventDataStoreCommandInput,
   GetEventDataStoreCommandOutput,
@@ -149,6 +154,11 @@ import {
   LookupEventsCommandInput,
   LookupEventsCommandOutput,
 } from "./commands/LookupEventsCommand";
+import {
+  PutEventConfigurationCommand,
+  PutEventConfigurationCommandInput,
+  PutEventConfigurationCommandOutput,
+} from "./commands/PutEventConfigurationCommand";
 import {
   PutEventSelectorsCommand,
   PutEventSelectorsCommandInput,
@@ -241,6 +251,7 @@ const commands = {
   GenerateQueryCommand,
   GetChannelCommand,
   GetDashboardCommand,
+  GetEventConfigurationCommand,
   GetEventDataStoreCommand,
   GetEventSelectorsCommand,
   GetImportCommand,
@@ -260,6 +271,7 @@ const commands = {
   ListTagsCommand,
   ListTrailsCommand,
   LookupEventsCommand,
+  PutEventConfigurationCommand,
   PutEventSelectorsCommand,
   PutInsightSelectorsCommand,
   PutResourcePolicyCommand,
@@ -539,6 +551,24 @@ export interface CloudTrail {
   ): void;
 
   /**
+   * @see {@link GetEventConfigurationCommand}
+   */
+  getEventConfiguration(): Promise<GetEventConfigurationCommandOutput>;
+  getEventConfiguration(
+    args: GetEventConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEventConfigurationCommandOutput>;
+  getEventConfiguration(
+    args: GetEventConfigurationCommandInput,
+    cb: (err: any, data?: GetEventConfigurationCommandOutput) => void
+  ): void;
+  getEventConfiguration(
+    args: GetEventConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEventConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetEventDataStoreCommand}
    */
   getEventDataStore(
@@ -807,6 +837,23 @@ export interface CloudTrail {
     args: LookupEventsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: LookupEventsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutEventConfigurationCommand}
+   */
+  putEventConfiguration(
+    args: PutEventConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutEventConfigurationCommandOutput>;
+  putEventConfiguration(
+    args: PutEventConfigurationCommandInput,
+    cb: (err: any, data?: PutEventConfigurationCommandOutput) => void
+  ): void;
+  putEventConfiguration(
+    args: PutEventConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutEventConfigurationCommandOutput) => void
   ): void;
 
   /**

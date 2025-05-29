@@ -3953,6 +3953,112 @@ export interface GetDashboardResponse {
 /**
  * @public
  */
+export interface GetEventConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) or ID suffix of the ARN of the event data store for which you want to retrieve event configuration settings.</p>
+   * @public
+   */
+  EventDataStore?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Type = {
+  RequestContext: "RequestContext",
+  TagContext: "TagContext",
+} as const;
+
+/**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
+
+/**
+ * <p>An object that contains information types to be included in CloudTrail enriched events.</p>
+ * @public
+ */
+export interface ContextKeySelector {
+  /**
+   * <p>Specifies the type of the event record field in ContextKeySelector. Valid values include RequestContext, TagContext.</p>
+   * @public
+   */
+  Type: Type | undefined;
+
+  /**
+   * <p>A list of keys defined by Type to be included in CloudTrail enriched events. </p>
+   * @public
+   */
+  Equals: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MaxEventSize = {
+  Large: "Large",
+  Standard: "Standard",
+} as const;
+
+/**
+ * @public
+ */
+export type MaxEventSize = (typeof MaxEventSize)[keyof typeof MaxEventSize];
+
+/**
+ * @public
+ */
+export interface GetEventConfigurationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) or ID suffix of the ARN of the event data store for which the event configuration settings are returned.</p>
+   * @public
+   */
+  EventDataStoreArn?: string | undefined;
+
+  /**
+   * <p>The maximum allowed size for events stored in the specified event data store.</p>
+   * @public
+   */
+  MaxEventSize?: MaxEventSize | undefined;
+
+  /**
+   * <p>The list of context key selectors that are configured for the event data store.</p>
+   * @public
+   */
+  ContextKeySelectors?: ContextKeySelector[] | undefined;
+}
+
+/**
+ * <p>The event data store is not in a status that supports the operation.</p>
+ * @public
+ */
+export class InvalidEventDataStoreStatusException extends __BaseException {
+  readonly name: "InvalidEventDataStoreStatusException" = "InvalidEventDataStoreStatusException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidEventDataStoreStatusException, __BaseException>) {
+    super({
+      name: "InvalidEventDataStoreStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEventDataStoreStatusException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
 export interface GetEventDataStoreRequest {
   /**
    * <p>The ARN (or ID suffix of the ARN) of the event data store about which you want
@@ -6346,6 +6452,78 @@ export interface LookupEventsResponse {
 }
 
 /**
+ * <p>The task can't be completed because you are signed in with an account that lacks permissions to view or create a service-linked role. Sign in with an account that has the required permissions and then try again.</p>
+ * @public
+ */
+export class InsufficientIAMAccessPermissionException extends __BaseException {
+  readonly name: "InsufficientIAMAccessPermissionException" = "InsufficientIAMAccessPermissionException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientIAMAccessPermissionException, __BaseException>) {
+    super({
+      name: "InsufficientIAMAccessPermissionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientIAMAccessPermissionException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface PutEventConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) or ID suffix of the ARN of the event data store for which you want to update event configuration settings.</p>
+   * @public
+   */
+  EventDataStore?: string | undefined;
+
+  /**
+   * <p>The maximum allowed size for events to be stored in the specified event data store. If you are using context key selectors, MaxEventSize must be set to Large.</p>
+   * @public
+   */
+  MaxEventSize: MaxEventSize | undefined;
+
+  /**
+   * <p>A list of context key selectors that will be included to provide enriched event data.</p>
+   * @public
+   */
+  ContextKeySelectors: ContextKeySelector[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutEventConfigurationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) or ID suffix of the ARN of the event data store for which the event configuration settings were updated.</p>
+   * @public
+   */
+  EventDataStoreArn?: string | undefined;
+
+  /**
+   * <p>The maximum allowed size for events stored in the specified event data store.</p>
+   * @public
+   */
+  MaxEventSize?: MaxEventSize | undefined;
+
+  /**
+   * <p>The list of context key selectors that are configured for the event data store.</p>
+   * @public
+   */
+  ContextKeySelectors?: ContextKeySelector[] | undefined;
+}
+
+/**
  * @public
  */
 export interface PutEventSelectorsRequest {
@@ -6747,32 +6925,6 @@ export interface RemoveTagsRequest {
  * @public
  */
 export interface RemoveTagsResponse {}
-
-/**
- * <p>The event data store is not in a status that supports the operation.</p>
- * @public
- */
-export class InvalidEventDataStoreStatusException extends __BaseException {
-  readonly name: "InvalidEventDataStoreStatusException" = "InvalidEventDataStoreStatusException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidEventDataStoreStatusException, __BaseException>) {
-    super({
-      name: "InvalidEventDataStoreStatusException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidEventDataStoreStatusException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public

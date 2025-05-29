@@ -88,6 +88,9 @@ export interface RegisterOrganizationDelegatedAdminCommandOutput
  *          the organization resource lacks one or more required permissions for creating an
  *          organization resource in a required service.</p>
  *
+ * @throws {@link InsufficientIAMAccessPermissionException} (client fault)
+ *  <p>The task can't be completed because you are signed in with an account that lacks permissions to view or create a service-linked role. Sign in with an account that has the required permissions and then try again.</p>
+ *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The request includes a parameter that is not valid.</p>
  *

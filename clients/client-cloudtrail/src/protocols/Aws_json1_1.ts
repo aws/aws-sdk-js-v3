@@ -55,6 +55,10 @@ import { EnableFederationCommandInput, EnableFederationCommandOutput } from "../
 import { GenerateQueryCommandInput, GenerateQueryCommandOutput } from "../commands/GenerateQueryCommand";
 import { GetChannelCommandInput, GetChannelCommandOutput } from "../commands/GetChannelCommand";
 import { GetDashboardCommandInput, GetDashboardCommandOutput } from "../commands/GetDashboardCommand";
+import {
+  GetEventConfigurationCommandInput,
+  GetEventConfigurationCommandOutput,
+} from "../commands/GetEventConfigurationCommand";
 import { GetEventDataStoreCommandInput, GetEventDataStoreCommandOutput } from "../commands/GetEventDataStoreCommand";
 import { GetEventSelectorsCommandInput, GetEventSelectorsCommandOutput } from "../commands/GetEventSelectorsCommand";
 import { GetImportCommandInput, GetImportCommandOutput } from "../commands/GetImportCommand";
@@ -83,6 +87,10 @@ import { ListQueriesCommandInput, ListQueriesCommandOutput } from "../commands/L
 import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
 import { ListTrailsCommandInput, ListTrailsCommandOutput } from "../commands/ListTrailsCommand";
 import { LookupEventsCommandInput, LookupEventsCommandOutput } from "../commands/LookupEventsCommand";
+import {
+  PutEventConfigurationCommandInput,
+  PutEventConfigurationCommandOutput,
+} from "../commands/PutEventConfigurationCommand";
 import { PutEventSelectorsCommandInput, PutEventSelectorsCommandOutput } from "../commands/PutEventSelectorsCommand";
 import {
   PutInsightSelectorsCommandInput,
@@ -149,6 +157,7 @@ import {
   CloudWatchLogsDeliveryUnavailableException,
   ConcurrentModificationException,
   ConflictException,
+  ContextKeySelector,
   CreateChannelRequest,
   CreateDashboardRequest,
   CreateEventDataStoreRequest,
@@ -184,6 +193,7 @@ import {
   GetChannelResponse,
   GetDashboardRequest,
   GetDashboardResponse,
+  GetEventConfigurationRequest,
   GetEventDataStoreRequest,
   GetEventDataStoreResponse,
   GetEventSelectorsRequest,
@@ -206,6 +216,7 @@ import {
   InsightSelector,
   InsufficientDependencyServiceAccessPermissionException,
   InsufficientEncryptionPolicyException,
+  InsufficientIAMAccessPermissionException,
   InsufficientS3BucketPolicyException,
   InsufficientSnsTopicPolicyException,
   InvalidCloudWatchLogsLogGroupArnException,
@@ -265,6 +276,7 @@ import {
   OrganizationNotInAllFeaturesModeException,
   OrganizationsNotInUseException,
   PublicKey,
+  PutEventConfigurationRequest,
   PutEventSelectorsRequest,
   PutInsightSelectorsRequest,
   PutResourcePolicyRequest,
@@ -562,6 +574,19 @@ export const se_GetDashboardCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetEventConfigurationCommand
+ */
+export const se_GetEventConfigurationCommand = async (
+  input: GetEventConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetEventConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetEventDataStoreCommand
  */
 export const se_GetEventDataStoreCommand = async (
@@ -805,6 +830,19 @@ export const se_LookupEventsCommand = async (
   const headers: __HeaderBag = sharedHeaders("LookupEvents");
   let body: any;
   body = JSON.stringify(se_LookupEventsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1PutEventConfigurationCommand
+ */
+export const se_PutEventConfigurationCommand = async (
+  input: PutEventConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutEventConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1436,6 +1474,26 @@ export const de_GetDashboardCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GetEventConfigurationCommand
+ */
+export const de_GetEventConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEventConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetEventConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1GetEventDataStoreCommand
  */
 export const de_GetEventDataStoreCommand = async (
@@ -1809,6 +1867,26 @@ export const de_LookupEventsCommand = async (
   let contents: any = {};
   contents = de_LookupEventsResponse(data, context);
   const response: LookupEventsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutEventConfigurationCommand
+ */
+export const de_PutEventConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutEventConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutEventConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2403,6 +2481,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "GenerateResponseException":
     case "com.amazonaws.cloudtrail#GenerateResponseException":
       throw await de_GenerateResponseExceptionRes(parsedOutput, context);
+    case "InvalidEventDataStoreStatusException":
+    case "com.amazonaws.cloudtrail#InvalidEventDataStoreStatusException":
+      throw await de_InvalidEventDataStoreStatusExceptionRes(parsedOutput, context);
     case "ImportNotFoundException":
     case "com.amazonaws.cloudtrail#ImportNotFoundException":
       throw await de_ImportNotFoundExceptionRes(parsedOutput, context);
@@ -2433,6 +2514,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidLookupAttributesException":
     case "com.amazonaws.cloudtrail#InvalidLookupAttributesException":
       throw await de_InvalidLookupAttributesExceptionRes(parsedOutput, context);
+    case "InsufficientIAMAccessPermissionException":
+    case "com.amazonaws.cloudtrail#InsufficientIAMAccessPermissionException":
+      throw await de_InsufficientIAMAccessPermissionExceptionRes(parsedOutput, context);
     case "InvalidInsightSelectorsException":
     case "com.amazonaws.cloudtrail#InvalidInsightSelectorsException":
       throw await de_InvalidInsightSelectorsExceptionRes(parsedOutput, context);
@@ -2448,9 +2532,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "DelegatedAdminAccountLimitExceededException":
     case "com.amazonaws.cloudtrail#DelegatedAdminAccountLimitExceededException":
       throw await de_DelegatedAdminAccountLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidEventDataStoreStatusException":
-    case "com.amazonaws.cloudtrail#InvalidEventDataStoreStatusException":
-      throw await de_InvalidEventDataStoreStatusExceptionRes(parsedOutput, context);
     case "AccountHasOngoingImportException":
     case "com.amazonaws.cloudtrail#AccountHasOngoingImportException":
       throw await de_AccountHasOngoingImportExceptionRes(parsedOutput, context);
@@ -2973,6 +3054,22 @@ const de_InsufficientEncryptionPolicyExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new InsufficientEncryptionPolicyException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1InsufficientIAMAccessPermissionExceptionRes
+ */
+const de_InsufficientIAMAccessPermissionExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InsufficientIAMAccessPermissionException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new InsufficientIAMAccessPermissionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3833,6 +3930,10 @@ const de_UnsupportedOperationExceptionRes = async (
 
 // se_CancelQueryRequest omitted.
 
+// se_ContextKeySelector omitted.
+
+// se_ContextKeySelectors omitted.
+
 // se_CreateChannelRequest omitted.
 
 // se_CreateDashboardRequest omitted.
@@ -3884,6 +3985,8 @@ const de_UnsupportedOperationExceptionRes = async (
 // se_GetChannelRequest omitted.
 
 // se_GetDashboardRequest omitted.
+
+// se_GetEventConfigurationRequest omitted.
 
 // se_GetEventDataStoreRequest omitted.
 
@@ -3985,6 +4088,10 @@ const se_LookupEventsRequest = (input: LookupEventsRequest, context: __SerdeCont
 };
 
 // se_Operator omitted.
+
+// se_OperatorTargetList omitted.
+
+// se_PutEventConfigurationRequest omitted.
 
 // se_PutEventSelectorsRequest omitted.
 
@@ -4108,6 +4215,10 @@ const se_StartImportRequest = (input: StartImportRequest, context: __SerdeContex
 // de_ConcurrentModificationException omitted.
 
 // de_ConflictException omitted.
+
+// de_ContextKeySelector omitted.
+
+// de_ContextKeySelectors omitted.
 
 // de_CreateChannelResponse omitted.
 
@@ -4302,6 +4413,8 @@ const de_GetDashboardResponse = (output: any, context: __SerdeContext): GetDashb
   }) as any;
 };
 
+// de_GetEventConfigurationResponse omitted.
+
 /**
  * deserializeAws_json1_1GetEventDataStoreResponse
  */
@@ -4474,6 +4587,8 @@ const de_InsightsMetricValues = (output: any, context: __SerdeContext): number[]
 
 // de_InsufficientEncryptionPolicyException omitted.
 
+// de_InsufficientIAMAccessPermissionException omitted.
+
 // de_InsufficientS3BucketPolicyException omitted.
 
 // de_InsufficientSnsTopicPolicyException omitted.
@@ -4633,6 +4748,8 @@ const de_LookupEventsResponse = (output: any, context: __SerdeContext): LookupEv
 
 // de_Operator omitted.
 
+// de_OperatorTargetList omitted.
+
 // de_OrganizationNotInAllFeaturesModeException omitted.
 
 // de_OrganizationsNotInUseException omitted.
@@ -4664,6 +4781,8 @@ const de_PublicKeyList = (output: any, context: __SerdeContext): PublicKey[] => 
     });
   return retVal;
 };
+
+// de_PutEventConfigurationResponse omitted.
 
 // de_PutEventSelectorsResponse omitted.
 
