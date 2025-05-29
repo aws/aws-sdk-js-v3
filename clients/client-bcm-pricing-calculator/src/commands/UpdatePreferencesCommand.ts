@@ -32,9 +32,7 @@ export interface UpdatePreferencesCommandInput extends UpdatePreferencesRequest 
 export interface UpdatePreferencesCommandOutput extends UpdatePreferencesResponse, __MetadataBearer {}
 
 /**
- * <p>
- *                         Updates the preferences for Pricing Calculator.
- *                 </p>
+ * <p> Updates the preferences for Pricing Calculator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,26 +41,26 @@ export interface UpdatePreferencesCommandOutput extends UpdatePreferencesRespons
  * const client = new BCMPricingCalculatorClient(config);
  * const input = { // UpdatePreferencesRequest
  *   managementAccountRateTypeSelections: [ // RateTypes
- *     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS",
+ *     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS" || "AFTER_DISCOUNTS_AND_COMMITMENTS",
  *   ],
  *   memberAccountRateTypeSelections: [
- *     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS",
+ *     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS" || "AFTER_DISCOUNTS_AND_COMMITMENTS",
  *   ],
  *   standaloneAccountRateTypeSelections: [
- *     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS",
+ *     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS" || "AFTER_DISCOUNTS_AND_COMMITMENTS",
  *   ],
  * };
  * const command = new UpdatePreferencesCommand(input);
  * const response = await client.send(command);
  * // { // UpdatePreferencesResponse
  * //   managementAccountRateTypeSelections: [ // RateTypes
- * //     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS",
+ * //     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS" || "AFTER_DISCOUNTS_AND_COMMITMENTS",
  * //   ],
  * //   memberAccountRateTypeSelections: [
- * //     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS",
+ * //     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS" || "AFTER_DISCOUNTS_AND_COMMITMENTS",
  * //   ],
  * //   standaloneAccountRateTypeSelections: [
- * //     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS",
+ * //     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS" || "AFTER_DISCOUNTS_AND_COMMITMENTS",
  * //   ],
  * // };
  *
@@ -75,34 +73,22 @@ export interface UpdatePreferencesCommandOutput extends UpdatePreferencesRespons
  * @see {@link BCMPricingCalculatorClientResolvedConfig | config} for BCMPricingCalculatorClient's `config` shape.
  *
  * @throws {@link DataUnavailableException} (client fault)
- *  <p>
- *         The requested data is currently unavailable.
- *         </p>
+ *  <p> The requested data is currently unavailable. </p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>
- *         The request would cause you to exceed your service quota.
- *         </p>
+ *  <p> The request would cause you to exceed your service quota. </p>
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>
- *         You do not have sufficient access to perform this action.
- *         </p>
+ *  <p> You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *         An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support.
- *         </p>
+ *  <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *         The request was denied due to request throttling.
- *         </p>
+ *  <p> The request was denied due to request throttling. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>
- *         The input provided fails to satisfy the constraints specified by an Amazon Web Services service.
- *         </p>
+ *  <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
  *
  * @throws {@link BCMPricingCalculatorServiceException}
  * <p>Base exception class for all service exceptions from BCMPricingCalculator service.</p>

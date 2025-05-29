@@ -32,9 +32,7 @@ export interface ListBillScenariosCommandInput extends ListBillScenariosRequest 
 export interface ListBillScenariosCommandOutput extends ListBillScenariosResponse, __MetadataBearer {}
 
 /**
- * <p>
- *                         Lists all bill scenarios for the account.
- *                 </p>
+ * <p> Lists all bill scenarios for the account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,29 +89,19 @@ export interface ListBillScenariosCommandOutput extends ListBillScenariosRespons
  * @see {@link BCMPricingCalculatorClientResolvedConfig | config} for BCMPricingCalculatorClient's `config` shape.
  *
  * @throws {@link DataUnavailableException} (client fault)
- *  <p>
- *         The requested data is currently unavailable.
- *         </p>
+ *  <p> The requested data is currently unavailable. </p>
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>
- *         You do not have sufficient access to perform this action.
- *         </p>
+ *  <p> You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *         An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support.
- *         </p>
+ *  <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *         The request was denied due to request throttling.
- *         </p>
+ *  <p> The request was denied due to request throttling. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>
- *         The input provided fails to satisfy the constraints specified by an Amazon Web Services service.
- *         </p>
+ *  <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
  *
  * @throws {@link BCMPricingCalculatorServiceException}
  * <p>Base exception class for all service exceptions from BCMPricingCalculator service.</p>

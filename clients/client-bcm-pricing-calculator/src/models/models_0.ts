@@ -4,9 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { BCMPricingCalculatorServiceException as __BaseException } from "./BCMPricingCalculatorServiceException";
 
 /**
- * <p>
- *         You do not have sufficient access to perform this action.
- *         </p>
+ * <p> You do not have sufficient access to perform this action. </p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,63 +24,43 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>
- *                         Represents an action to add a Reserved Instance to a bill scenario.
- *                 </p>
+ * <p> Represents an action to add a Reserved Instance to a bill scenario. </p>
  * @public
  */
 export interface AddReservedInstanceAction {
   /**
-   * <p>
-   *                         The ID of the Reserved Instance offering to add. For more information, see
-   *                         <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeReservedInstancesOfferings.html">
-   *                                 DescribeReservedInstancesOfferings</a>.
-   *                 </p>
+   * <p> The ID of the Reserved Instance offering to add. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeReservedInstancesOfferings.html"> DescribeReservedInstancesOfferings</a>. </p>
    * @public
    */
   reservedInstancesOfferingId?: string | undefined;
 
   /**
-   * <p>
-   *                         The number of instances to add for this Reserved Instance offering.
-   *                 </p>
+   * <p> The number of instances to add for this Reserved Instance offering. </p>
    * @public
    */
   instanceCount?: number | undefined;
 }
 
 /**
- * <p>
- *                         Represents an action to add a Savings Plan to a bill scenario.
- *                 </p>
+ * <p> Represents an action to add a Savings Plan to a bill scenario. </p>
  * @public
  */
 export interface AddSavingsPlanAction {
   /**
-   * <p>
-   *                         The ID of the Savings Plan offering to add. For more information, see
-   *                         <a href="https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_DescribeSavingsPlansOfferings.html">
-   *                                 DescribeSavingsPlansOfferings</a>.
-   *                 </p>
+   * <p> The ID of the Savings Plan offering to add. For more information, see <a href="https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_DescribeSavingsPlansOfferings.html"> DescribeSavingsPlansOfferings</a>. </p>
    * @public
    */
   savingsPlanOfferingId?: string | undefined;
 
   /**
-   * <p>
-   *                         The hourly commitment, in the same currency of the <code>savingsPlanOfferingId</code>.
-   *                         This is a value between 0.001 and 1 million. You cannot specify more than five digits
-   *                         after the decimal point.
-   *                 </p>
+   * <p> The hourly commitment, in the same currency of the <code>savingsPlanOfferingId</code>. This is a value between 0.001 and 1 million. You cannot specify more than five digits after the decimal point. </p>
    * @public
    */
   commitment?: number | undefined;
 }
 
 /**
- * <p>
- *         The requested data is currently unavailable.
- *         </p>
+ * <p> The requested data is currently unavailable. </p>
  * @public
  */
 export class DataUnavailableException extends __BaseException {
@@ -102,18 +80,14 @@ export class DataUnavailableException extends __BaseException {
 }
 
 /**
- * <p>
- *         An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support.
- *         </p>
+ * <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
  * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   /**
-   * <p>
-   *                         An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support.
-   *                 </p>
+   * <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -137,25 +111,19 @@ export class InternalServerException extends __BaseException {
  */
 export interface ListBillEstimateCommitmentsRequest {
   /**
-   * <p>
-   *         The unique identifier of the bill estimate to list commitments for.
-   *         </p>
+   * <p> The unique identifier of the bill estimate to list commitments for. </p>
    * @public
    */
   billEstimateId: string | undefined;
 
   /**
-   * <p>
-   *         A token to retrieve the next page of results.
-   *         </p>
+   * <p> A token to retrieve the next page of results. </p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>
-   *         The maximum number of results to return per page.
-   *         </p>
+   * <p> The maximum number of results to return per page. </p>
    * @public
    */
   maxResults?: number | undefined;
@@ -175,24 +143,18 @@ export const CurrencyCode = {
 export type CurrencyCode = (typeof CurrencyCode)[keyof typeof CurrencyCode];
 
 /**
- * <p>
- *         Represents a monetary amount with associated currency.
- *         </p>
+ * <p> Represents a monetary amount with associated currency. </p>
  * @public
  */
 export interface CostAmount {
   /**
-   * <p>
-   *         The numeric value of the cost.
-   *         </p>
+   * <p> The numeric value of the cost. </p>
    * @public
    */
   amount?: number | undefined;
 
   /**
-   * <p>
-   *         The currency code for the cost amount.
-   *         </p>
+   * <p> The currency code for the cost amount. </p>
    * @public
    */
   currency?: CurrencyCode | undefined;
@@ -213,80 +175,60 @@ export const PurchaseAgreementType = {
 export type PurchaseAgreementType = (typeof PurchaseAgreementType)[keyof typeof PurchaseAgreementType];
 
 /**
- * <p>
- *         Provides a summary of commitment-related information for a bill estimate.
- *         </p>
+ * <p> Provides a summary of commitment-related information for a bill estimate. </p>
  * @public
  */
 export interface BillEstimateCommitmentSummary {
   /**
-   * <p>
-   *         The unique identifier of the commitment.
-   *         </p>
+   * <p> The unique identifier of the commitment. </p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>
-   *         The type of purchase agreement (e.g., Reserved Instance, Savings Plan).
-   *         </p>
+   * <p> The type of purchase agreement (e.g., Reserved Instance, Savings Plan). </p>
    * @public
    */
   purchaseAgreementType?: PurchaseAgreementType | undefined;
 
   /**
-   * <p>
-   *         The identifier of the specific offering associated with this commitment.
-   *         </p>
+   * <p> The identifier of the specific offering associated with this commitment. </p>
    * @public
    */
   offeringId?: string | undefined;
 
   /**
-   * <p>
-   *         The Amazon Web Services account ID associated with this commitment.
-   *         </p>
+   * <p> The Amazon Web Services account ID associated with this commitment. </p>
    * @public
    */
   usageAccountId?: string | undefined;
 
   /**
-   * <p>
-   *         The Amazon Web Services region associated with this commitment.
-   *         </p>
+   * <p> The Amazon Web Services region associated with this commitment. </p>
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>
-   *         The length of the commitment term.
-   *         </p>
+   * <p> The length of the commitment term. </p>
    * @public
    */
   termLength?: string | undefined;
 
   /**
-   * <p>
-   *         The payment option chosen for this commitment (e.g., All Upfront, Partial Upfront, No Upfront).
-   *         </p>
+   * <p> The payment option chosen for this commitment (e.g., All Upfront, Partial Upfront, No Upfront). </p>
    * @public
    */
   paymentOption?: string | undefined;
 
   /**
-   * <p>
-   *         The upfront payment amount for this commitment, if applicable.
-   *         </p>
+   * <p> The upfront payment amount for this commitment, if applicable. </p>
    * @public
    */
   upfrontPayment?: CostAmount | undefined;
 
   /**
-   * <p>
-   *         The monthly payment amount for this commitment, if applicable.
-   *         </p>
+   * <p> The monthly payment amount for this commitment, if applicable. </p>
    * @public
    */
   monthlyPayment?: CostAmount | undefined;
@@ -297,43 +239,33 @@ export interface BillEstimateCommitmentSummary {
  */
 export interface ListBillEstimateCommitmentsResponse {
   /**
-   * <p>
-   *         The list of commitments associated with the bill estimate.
-   *         </p>
+   * <p> The list of commitments associated with the bill estimate. </p>
    * @public
    */
   items?: BillEstimateCommitmentSummary[] | undefined;
 
   /**
-   * <p>
-   *         A token to retrieve the next page of results, if any.
-   *         </p>
+   * <p> A token to retrieve the next page of results, if any. </p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>
- *         The specified resource was not found.
- *         </p>
+ * <p> The specified resource was not found. </p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * <p>
-   *                         The identifier of the resource that was not found.
-   *                 </p>
+   * <p> The identifier of the resource that was not found. </p>
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>
-   *                         The type of the resource that was not found.
-   *                 </p>
+   * <p> The type of the resource that was not found. </p>
    * @public
    */
   resourceType: string | undefined;
@@ -354,9 +286,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>
- *         The request was denied due to request throttling.
- *         </p>
+ * <p> The request was denied due to request throttling. </p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -375,8 +305,7 @@ export class ThrottlingException extends __BaseException {
   quotaCode?: string | undefined;
 
   /**
-   * <p>The service code that exceeded the throttling limit. Retry your
-   *                         request, but if the problem persists, contact Amazon Web Services support.</p>
+   * <p>The service code that exceeded the throttling limit. Retry your request, but if the problem persists, contact Amazon Web Services support.</p>
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -398,24 +327,18 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>
- *         Represents a field that failed validation in a request.
- *         </p>
+ * <p> Represents a field that failed validation in a request. </p>
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>
-   *         The name of the field that failed validation.
-   *         </p>
+   * <p> The name of the field that failed validation. </p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>
-   *         The error message describing why the field failed validation.
-   *         </p>
+   * <p> The error message describing why the field failed validation. </p>
    * @public
    */
   message: string | undefined;
@@ -440,26 +363,20 @@ export const ValidationExceptionReason = {
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
- * <p>
- *         The input provided fails to satisfy the constraints specified by an Amazon Web Services service.
- *         </p>
+ * <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
  * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
-   * <p>
-   *                         The reason for the validation exception.
-   *                 </p>
+   * <p> The reason for the validation exception. </p>
    * @public
    */
   reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>
-   *                         The list of fields that are invalid.
-   *                 </p>
+   * <p> The list of fields that are invalid. </p>
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -480,48 +397,36 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>
- *         Represents the difference between historical and estimated costs.
- *         </p>
+ * <p> Represents the difference between historical and estimated costs. </p>
  * @public
  */
 export interface CostDifference {
   /**
-   * <p>
-   *         The historical cost amount.
-   *         </p>
+   * <p> The historical cost amount. </p>
    * @public
    */
   historicalCost?: CostAmount | undefined;
 
   /**
-   * <p>
-   *         The estimated cost amount.
-   *         </p>
+   * <p> The estimated cost amount. </p>
    * @public
    */
   estimatedCost?: CostAmount | undefined;
 }
 
 /**
- * <p>
- *         Provides a summary of cost-related information for a bill estimate.
- *         </p>
+ * <p> Provides a summary of cost-related information for a bill estimate. </p>
  * @public
  */
 export interface BillEstimateCostSummary {
   /**
-   * <p>
-   *         The total difference in cost between the estimated and historical costs.
-   *         </p>
+   * <p> The total difference in cost between the estimated and historical costs. </p>
    * @public
    */
   totalCostDifference?: CostDifference | undefined;
 
   /**
-   * <p>
-   *         A breakdown of cost differences by Amazon Web Services service.
-   *         </p>
+   * <p> A breakdown of cost differences by Amazon Web Services service. </p>
    * @public
    */
   serviceCostDifferences?: Record<string, CostDifference> | undefined;
@@ -532,72 +437,50 @@ export interface BillEstimateCostSummary {
  */
 export interface ListBillEstimateInputCommitmentModificationsRequest {
   /**
-   * <p>
-   *                         The unique identifier of the bill estimate to list input commitment modifications for.
-   *                 </p>
+   * <p> The unique identifier of the bill estimate to list input commitment modifications for. </p>
    * @public
    */
   billEstimateId: string | undefined;
 
   /**
-   * <p>
-   *                         A token to retrieve the next page of results.
-   *                 </p>
+   * <p> A token to retrieve the next page of results. </p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>
-   *                         The maximum number of results to return per page.
-   *                 </p>
+   * <p> The maximum number of results to return per page. </p>
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>
- *         Represents an action to remove a Reserved Instance from a bill scenario.
- *         </p>
- *          <p>
- *                         This is the ID of an existing Reserved Instance in your account.
- *                 </p>
+ * <p> Represents an action to remove a Reserved Instance from a bill scenario. </p> <p> This is the ID of an existing Reserved Instance in your account. </p>
  * @public
  */
 export interface NegateReservedInstanceAction {
   /**
-   * <p>
-   *         The ID of the Reserved Instance to remove.
-   *         </p>
+   * <p> The ID of the Reserved Instance to remove. </p>
    * @public
    */
   reservedInstancesId?: string | undefined;
 }
 
 /**
- * <p>
- *         Represents an action to remove a Savings Plan from a bill scenario.
- *         </p>
- *          <p>
- *                         This is the ID of an existing Savings Plan in your account.
- *                 </p>
+ * <p> Represents an action to remove a Savings Plan from a bill scenario. </p> <p> This is the ID of an existing Savings Plan in your account. </p>
  * @public
  */
 export interface NegateSavingsPlanAction {
   /**
-   * <p>
-   *         The ID of the Savings Plan to remove.
-   *         </p>
+   * <p> The ID of the Savings Plan to remove. </p>
    * @public
    */
   savingsPlanId?: string | undefined;
 }
 
 /**
- * <p>
- *         Represents an action to modify commitments in a bill scenario.
- *         </p>
+ * <p> Represents an action to modify commitments in a bill scenario. </p>
  * @public
  */
 export type BillScenarioCommitmentModificationAction =
@@ -612,9 +495,7 @@ export type BillScenarioCommitmentModificationAction =
  */
 export namespace BillScenarioCommitmentModificationAction {
   /**
-   * <p>
-   *         Action to add a Reserved Instance to the scenario.
-   *         </p>
+   * <p> Action to add a Reserved Instance to the scenario. </p>
    * @public
    */
   export interface AddReservedInstanceActionMember {
@@ -626,9 +507,7 @@ export namespace BillScenarioCommitmentModificationAction {
   }
 
   /**
-   * <p>
-   *         Action to add a Savings Plan to the scenario.
-   *         </p>
+   * <p> Action to add a Savings Plan to the scenario. </p>
    * @public
    */
   export interface AddSavingsPlanActionMember {
@@ -640,9 +519,7 @@ export namespace BillScenarioCommitmentModificationAction {
   }
 
   /**
-   * <p>
-   *         Action to remove a Reserved Instance from the scenario.
-   *         </p>
+   * <p> Action to remove a Reserved Instance from the scenario. </p>
    * @public
    */
   export interface NegateReservedInstanceActionMember {
@@ -654,9 +531,7 @@ export namespace BillScenarioCommitmentModificationAction {
   }
 
   /**
-   * <p>
-   *         Action to remove a Savings Plan from the scenario.
-   *         </p>
+   * <p> Action to remove a Savings Plan from the scenario. </p>
    * @public
    */
   export interface NegateSavingsPlanActionMember {
@@ -699,40 +574,30 @@ export namespace BillScenarioCommitmentModificationAction {
 }
 
 /**
- * <p>
- *         Summarizes an input commitment modification for a bill estimate.
- *         </p>
+ * <p> Summarizes an input commitment modification for a bill estimate. </p>
  * @public
  */
 export interface BillEstimateInputCommitmentModificationSummary {
   /**
-   * <p>
-   *         The unique identifier of the commitment modification.
-   *         </p>
+   * <p> The unique identifier of the commitment modification. </p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>
-   *         The group identifier for the commitment modification.
-   *         </p>
+   * <p> The group identifier for the commitment modification. </p>
    * @public
    */
   group?: string | undefined;
 
   /**
-   * <p>
-   *         The Amazon Web Services account ID associated with this commitment modification.
-   *         </p>
+   * <p> The Amazon Web Services account ID associated with this commitment modification. </p>
    * @public
    */
   usageAccountId?: string | undefined;
 
   /**
-   * <p>
-   *         The specific commitment action taken in this modification.
-   *         </p>
+   * <p> The specific commitment action taken in this modification. </p>
    * @public
    */
   commitmentAction?: BillScenarioCommitmentModificationAction | undefined;
@@ -743,17 +608,13 @@ export interface BillEstimateInputCommitmentModificationSummary {
  */
 export interface ListBillEstimateInputCommitmentModificationsResponse {
   /**
-   * <p>
-   *                         The list of input commitment modifications associated with the bill estimate.
-   *                 </p>
+   * <p> The list of input commitment modifications associated with the bill estimate. </p>
    * @public
    */
   items?: BillEstimateInputCommitmentModificationSummary[] | undefined;
 
   /**
-   * <p>
-   *                         A token to retrieve the next page of results, if any.
-   *                 </p>
+   * <p> A token to retrieve the next page of results, if any. </p>
    * @public
    */
   nextToken?: string | undefined;
@@ -798,32 +659,24 @@ export const ListUsageFilterName = {
 export type ListUsageFilterName = (typeof ListUsageFilterName)[keyof typeof ListUsageFilterName];
 
 /**
- * <p>
- *         Represents a filter for listing usage data.
- *         </p>
+ * <p> Represents a filter for listing usage data. </p>
  * @public
  */
 export interface ListUsageFilter {
   /**
-   * <p>
-   *         The name of the filter attribute.
-   *         </p>
+   * <p> The name of the filter attribute. </p>
    * @public
    */
   name: ListUsageFilterName | undefined;
 
   /**
-   * <p>
-   *         The values to filter by.
-   *         </p>
+   * <p> The values to filter by. </p>
    * @public
    */
   values: string[] | undefined;
 
   /**
-   * <p>
-   *         The match option for the filter (e.g., equals, contains).
-   *         </p>
+   * <p> The match option for the filter (e.g., equals, contains). </p>
    * @public
    */
   matchOption?: MatchOption | undefined;
@@ -834,121 +687,91 @@ export interface ListUsageFilter {
  */
 export interface ListBillEstimateInputUsageModificationsRequest {
   /**
-   * <p>
-   *                         The unique identifier of the bill estimate to list input usage modifications for.
-   *                 </p>
+   * <p> The unique identifier of the bill estimate to list input usage modifications for. </p>
    * @public
    */
   billEstimateId: string | undefined;
 
   /**
-   * <p>
-   *                         Filters to apply to the list of input usage modifications.
-   *                 </p>
+   * <p> Filters to apply to the list of input usage modifications. </p>
    * @public
    */
   filters?: ListUsageFilter[] | undefined;
 
   /**
-   * <p>
-   *                         A token to retrieve the next page of results.
-   *                 </p>
+   * <p> A token to retrieve the next page of results. </p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>
-   *                         The maximum number of results to return per page.
-   *                 </p>
+   * <p> The maximum number of results to return per page. </p>
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>
- *         Represents a time interval for a bill or estimate.
- *         </p>
+ * <p> Represents a time interval for a bill or estimate. </p>
  * @public
  */
 export interface BillInterval {
   /**
-   * <p>
-   *         The start date and time of the interval.
-   *         </p>
+   * <p> The start date and time of the interval. </p>
    * @public
    */
   start?: Date | undefined;
 
   /**
-   * <p>
-   *         The end date and time of the interval.
-   *         </p>
+   * <p> The end date and time of the interval. </p>
    * @public
    */
   end?: Date | undefined;
 }
 
 /**
- * <p>
- *         Represents a filter used within an expression.
- *         </p>
+ * <p> Represents a filter used within an expression. </p>
  * @public
  */
 export interface ExpressionFilter {
   /**
-   * <p>
-   *         The key or attribute to filter on.
-   *         </p>
+   * <p> The key or attribute to filter on. </p>
    * @public
    */
   key?: string | undefined;
 
   /**
-   * <p>
-   *         The match options for the filter (e.g., equals, contains).
-   *         </p>
+   * <p> The match options for the filter (e.g., equals, contains). </p>
    * @public
    */
   matchOptions?: string[] | undefined;
 
   /**
-   * <p>
-   *         The values to match against.
-   *         </p>
+   * <p> The values to match against. </p>
    * @public
    */
   values?: string[] | undefined;
 }
 
 /**
- * <p>
- *         Represents a usage quantity with associated unit and time period.
- *         </p>
+ * <p> Represents a usage quantity with associated unit and time period. </p>
  * @public
  */
 export interface UsageQuantity {
   /**
-   * <p>
-   *         The start hour of the usage period.
-   *         </p>
+   * <p> The start hour of the usage period. </p>
    * @public
    */
   startHour?: Date | undefined;
 
   /**
-   * <p>
-   *         The unit of measurement for the usage quantity.
-   *         </p>
+   * <p> The unit of measurement for the usage quantity. </p>
    * @public
    */
   unit?: string | undefined;
 
   /**
-   * <p>
-   *         The numeric value of the usage quantity.
-   *         </p>
+   * <p> The numeric value of the usage quantity. </p>
    * @public
    */
   amount?: number | undefined;
@@ -974,32 +797,24 @@ export type ListBillEstimateLineItemsFilterName =
   (typeof ListBillEstimateLineItemsFilterName)[keyof typeof ListBillEstimateLineItemsFilterName];
 
 /**
- * <p>
- *         Represents a filter for listing bill estimate line items.
- *         </p>
+ * <p> Represents a filter for listing bill estimate line items. </p>
  * @public
  */
 export interface ListBillEstimateLineItemsFilter {
   /**
-   * <p>
-   *         The name of the filter attribute.
-   *         </p>
+   * <p> The name of the filter attribute. </p>
    * @public
    */
   name: ListBillEstimateLineItemsFilterName | undefined;
 
   /**
-   * <p>
-   *         The values to filter by.
-   *         </p>
+   * <p> The values to filter by. </p>
    * @public
    */
   values: string[] | undefined;
 
   /**
-   * <p>
-   *         The match option for the filter (e.g., equals, contains).
-   *         </p>
+   * <p> The match option for the filter (e.g., equals, contains). </p>
    * @public
    */
   matchOption?: MatchOption | undefined;
@@ -1010,185 +825,139 @@ export interface ListBillEstimateLineItemsFilter {
  */
 export interface ListBillEstimateLineItemsRequest {
   /**
-   * <p>
-   *                         The unique identifier of the bill estimate to list line items for.
-   *                 </p>
+   * <p> The unique identifier of the bill estimate to list line items for. </p>
    * @public
    */
   billEstimateId: string | undefined;
 
   /**
-   * <p>
-   *                         Filters to apply to the list of line items.
-   *                 </p>
+   * <p> Filters to apply to the list of line items. </p>
    * @public
    */
   filters?: ListBillEstimateLineItemsFilter[] | undefined;
 
   /**
-   * <p>
-   *                         A token to retrieve the next page of results.
-   *                 </p>
+   * <p> A token to retrieve the next page of results. </p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>
-   *                         The maximum number of results to return per page.
-   *                 </p>
+   * <p> The maximum number of results to return per page. </p>
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>
- *         Represents the result of a usage quantity calculation.
- *         </p>
+ * <p> Represents the result of a usage quantity calculation. </p>
  * @public
  */
 export interface UsageQuantityResult {
   /**
-   * <p>
-   *         The numeric value of the usage quantity result.
-   *         </p>
+   * <p> The numeric value of the usage quantity result. </p>
    * @public
    */
   amount?: number | undefined;
 
   /**
-   * <p>
-   *         The unit of measurement for the usage quantity result.
-   *         </p>
+   * <p> The unit of measurement for the usage quantity result. </p>
    * @public
    */
   unit?: string | undefined;
 }
 
 /**
- * <p>
- *         Provides a summary of a line item in a bill estimate.
- *         </p>
+ * <p> Provides a summary of a line item in a bill estimate. </p>
  * @public
  */
 export interface BillEstimateLineItemSummary {
   /**
-   * <p>
-   *         The Amazon Web Services service code associated with this line item.
-   *         </p>
+   * <p> The Amazon Web Services service code associated with this line item. </p>
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>
-   *         The type of usage for this line item.
-   *         </p>
+   * <p> The type of usage for this line item. </p>
    * @public
    */
   usageType: string | undefined;
 
   /**
-   * <p>
-   *         The specific operation associated with this line item.
-   *         </p>
+   * <p> The specific operation associated with this line item. </p>
    * @public
    */
   operation: string | undefined;
 
   /**
-   * <p>
-   *         The location associated with this line item.
-   *         </p>
+   * <p> The location associated with this line item. </p>
    * @public
    */
   location?: string | undefined;
 
   /**
-   * <p>
-   *         The availability zone associated with this line item, if applicable.
-   *         </p>
+   * <p> The availability zone associated with this line item, if applicable. </p>
    * @public
    */
   availabilityZone?: string | undefined;
 
   /**
-   * <p>
-   *         The unique identifier of this line item.
-   *         </p>
+   * <p> The unique identifier of this line item. </p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>
-   *         The line item identifier from the original bill.
-   *         </p>
+   * <p> The line item identifier from the original bill. </p>
    * @public
    */
   lineItemId?: string | undefined;
 
   /**
-   * <p>
-   *         The type of this line item (e.g., Usage, Tax, Credit).
-   *         </p>
+   * <p> The type of this line item (e.g., Usage, Tax, Credit). </p>
    * @public
    */
   lineItemType?: string | undefined;
 
   /**
-   * <p>
-   *         The Amazon Web Services account ID of the payer for this line item.
-   *         </p>
+   * <p> The Amazon Web Services account ID of the payer for this line item. </p>
    * @public
    */
   payerAccountId?: string | undefined;
 
   /**
-   * <p>
-   *         The Amazon Web Services account ID associated with the usage for this line item.
-   *         </p>
+   * <p> The Amazon Web Services account ID associated with the usage for this line item. </p>
    * @public
    */
   usageAccountId?: string | undefined;
 
   /**
-   * <p>
-   *         The estimated usage quantity for this line item.
-   *         </p>
+   * <p> The estimated usage quantity for this line item. </p>
    * @public
    */
   estimatedUsageQuantity?: UsageQuantityResult | undefined;
 
   /**
-   * <p>
-   *         The estimated cost for this line item.
-   *         </p>
+   * <p> The estimated cost for this line item. </p>
    * @public
    */
   estimatedCost?: CostAmount | undefined;
 
   /**
-   * <p>
-   *         The historical usage quantity for this line item.
-   *         </p>
+   * <p> The historical usage quantity for this line item. </p>
    * @public
    */
   historicalUsageQuantity?: UsageQuantityResult | undefined;
 
   /**
-   * <p>
-   *         The historical cost for this line item.
-   *         </p>
+   * <p> The historical cost for this line item. </p>
    * @public
    */
   historicalCost?: CostAmount | undefined;
 
   /**
-   * <p>
-   *         The Amazon Resource Names (ARNs) of any Savings Plans applied to this line item.
-   *         </p>
+   * <p> The Amazon Resource Names (ARNs) of any Savings Plans applied to this line item. </p>
    * @public
    */
   savingsPlanArns?: string[] | undefined;
@@ -1199,17 +968,13 @@ export interface BillEstimateLineItemSummary {
  */
 export interface ListBillEstimateLineItemsResponse {
   /**
-   * <p>
-   *                         The list of line items associated with the bill estimate.
-   *                 </p>
+   * <p> The list of line items associated with the bill estimate. </p>
    * @public
    */
   items?: BillEstimateLineItemSummary[] | undefined;
 
   /**
-   * <p>
-   *                         A token to retrieve the next page of results, if any.
-   *                 </p>
+   * <p> A token to retrieve the next page of results, if any. </p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1231,26 +996,20 @@ export const BillEstimateStatus = {
 export type BillEstimateStatus = (typeof BillEstimateStatus)[keyof typeof BillEstimateStatus];
 
 /**
- * <p>
- *         The request could not be processed because of conflict in the current state of the resource.
- *         </p>
+ * <p> The request could not be processed because of conflict in the current state of the resource. </p>
  * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
-   * <p>
-   *                         The identifier of the resource that was not found.
-   *                 </p>
+   * <p> The identifier of the resource that was not found. </p>
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>
-   *                         The type of the resource that was not found.
-   *                 </p>
+   * <p> The type of the resource that was not found. </p>
    * @public
    */
   resourceType: string | undefined;
@@ -1275,58 +1034,25 @@ export class ConflictException extends __BaseException {
  */
 export interface CreateBillEstimateRequest {
   /**
-   * <p>
-   *                         The ID of the Bill Scenario for which you want to create a Bill estimate.
-   *                 </p>
+   * <p> The ID of the Bill Scenario for which you want to create a Bill estimate. </p>
    * @public
    */
   billScenarioId: string | undefined;
 
   /**
-   * <p>
-   *                         The name of the Bill estimate that will be created. Names must be unique for an account.
-   *                 </p>
+   * <p> The name of the Bill estimate that will be created. Names must be unique for an account. </p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>
-   *                         A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   *                 </p>
+   * <p> A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. </p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>
-   *                 An optional list of tags to associate with the specified BillEstimate. You can use resource tags to control access to your
-   *                 BillEstimate using IAM policies. Each tag consists of a key and a value, and each key must be unique for the resource. The following restrictions apply to resource tags:
-   *         </p>
-   *          <ul>
-   *             <li>
-   *                <p>Although the maximum number of array members is 200, you can assign a maximum of 50 user-tags to one resource.
-   *                                 The remaining are reserved for Amazon Web Services. </p>
-   *             </li>
-   *             <li>
-   *                <p>The maximum length of a key is 128 characters.</p>
-   *             </li>
-   *             <li>
-   *                <p>The maximum length of a value is 256 characters.</p>
-   *             </li>
-   *             <li>
-   *                <p>Keys and values can only contain alphanumeric characters, spaces, and any of the following: <code>_.:/=+@-</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Keys and values are trimmed for any leading or trailing whitespaces.</p>
-   *             </li>
-   *             <li>
-   *                <p>Don't use <code>aws:</code> as a prefix for your keys. This prefix is reserved for Amazon Web Services.</p>
-   *             </li>
-   *          </ul>
+   * <p> An optional list of tags to associate with the specified BillEstimate. You can use resource tags to control access to your BillEstimate using IAM policies. Each tag consists of a key and a value, and each key must be unique for the resource. The following restrictions apply to resource tags: </p> <ul> <li> <p>Although the maximum number of array members is 200, you can assign a maximum of 50 user-tags to one resource. The remaining are reserved for Amazon Web Services. </p> </li> <li> <p>The maximum length of a key is 128 characters.</p> </li> <li> <p>The maximum length of a value is 256 characters.</p> </li> <li> <p>Keys and values can only contain alphanumeric characters, spaces, and any of the following: <code>_.:/=+@-</code>.</p> </li> <li> <p>Keys and values are case sensitive.</p> </li> <li> <p>Keys and values are trimmed for any leading or trailing whitespaces.</p> </li> <li> <p>Don't use <code>aws:</code> as a prefix for your keys. This prefix is reserved for Amazon Web Services.</p> </li> </ul>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1349,8 +1075,7 @@ export interface CreateBillEstimateResponse {
   name?: string | undefined;
 
   /**
-   * <p> The status of your newly created Bill estimate. Bill estimate creation can take anywhere between 8 to 12 hours.
-   *                         The status will allow you to identify when the Bill estimate is complete or has failed. </p>
+   * <p> The status of your newly created Bill estimate. Bill estimate creation can take anywhere between 8 to 12 hours. The status will allow you to identify when the Bill estimate is complete or has failed. </p>
    * @public
    */
   status?: BillEstimateStatus | undefined;
@@ -1362,31 +1087,25 @@ export interface CreateBillEstimateResponse {
   failureMessage?: string | undefined;
 
   /**
-   * <p> The bill month start and end
-   *                 timestamp that was used to create the Bill estimate. This is set to the last complete anniversary bill month start and end timestamp. </p>
+   * <p> The bill month start and end timestamp that was used to create the Bill estimate. This is set to the last complete anniversary bill month start and end timestamp. </p>
    * @public
    */
   billInterval?: BillInterval | undefined;
 
   /**
-   * <p> Returns summary-level cost information once a Bill estimate is
-   *                 successfully generated. This summary includes: 1) the total cost difference, showing the pre-tax cost change for the consolidated
-   *                 billing family between the completed anniversary bill and the estimated bill, and 2) total cost differences per service, detailing
-   *                 the pre-tax cost of each service, comparing the completed anniversary bill to the estimated bill on a per-service basis. </p>
+   * <p> Returns summary-level cost information once a Bill estimate is successfully generated. This summary includes: 1) the total cost difference, showing the pre-tax cost change for the consolidated billing family between the completed anniversary bill and the estimated bill, and 2) total cost differences per service, detailing the pre-tax cost of each service, comparing the completed anniversary bill to the estimated bill on a per-service basis. </p>
    * @public
    */
   costSummary?: BillEstimateCostSummary | undefined;
 
   /**
-   * <p> The timestamp of when the Bill estimate create process
-   *                 was started (not when it successfully completed or failed). </p>
+   * <p> The timestamp of when the Bill estimate create process was started (not when it successfully completed or failed). </p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p> The timestamp of when the Bill estimate will
-   *                 expire. A Bill estimate becomes inaccessible after expiration. </p>
+   * <p> The timestamp of when the Bill estimate will expire. A Bill estimate becomes inaccessible after expiration. </p>
    * @public
    */
   expiresAt?: Date | undefined;
@@ -1397,9 +1116,7 @@ export interface CreateBillEstimateResponse {
  */
 export interface DeleteBillEstimateRequest {
   /**
-   * <p>
-   *         The unique identifier of the bill estimate to delete.
-   *         </p>
+   * <p> The unique identifier of the bill estimate to delete. </p>
    * @public
    */
   identifier: string | undefined;
@@ -1415,9 +1132,7 @@ export interface DeleteBillEstimateResponse {}
  */
 export interface GetBillEstimateRequest {
   /**
-   * <p>
-   *         The unique identifier of the bill estimate to retrieve.
-   *         </p>
+   * <p> The unique identifier of the bill estimate to retrieve. </p>
    * @public
    */
   identifier: string | undefined;
@@ -1428,89 +1143,67 @@ export interface GetBillEstimateRequest {
  */
 export interface GetBillEstimateResponse {
   /**
-   * <p>
-   *         The unique identifier of the retrieved bill estimate.
-   *         </p>
+   * <p> The unique identifier of the retrieved bill estimate. </p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>
-   *         The name of the retrieved bill estimate.
-   *         </p>
+   * <p> The name of the retrieved bill estimate. </p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>
-   *         The current status of the bill estimate.
-   *         </p>
+   * <p> The current status of the bill estimate. </p>
    * @public
    */
   status?: BillEstimateStatus | undefined;
 
   /**
-   * <p>
-   *         An error message if the bill estimate retrieval failed.
-   *         </p>
+   * <p> An error message if the bill estimate retrieval failed. </p>
    * @public
    */
   failureMessage?: string | undefined;
 
   /**
-   * <p>
-   *         The time period covered by the bill estimate.
-   *         </p>
+   * <p> The time period covered by the bill estimate. </p>
    * @public
    */
   billInterval?: BillInterval | undefined;
 
   /**
-   * <p>
-   *         A summary of the estimated costs.
-   *         </p>
+   * <p> A summary of the estimated costs. </p>
    * @public
    */
   costSummary?: BillEstimateCostSummary | undefined;
 
   /**
-   * <p>
-   *         The timestamp when the bill estimate was created.
-   *         </p>
+   * <p> The timestamp when the bill estimate was created. </p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>
-   *         The timestamp when the bill estimate will expire.
-   *         </p>
+   * <p> The timestamp when the bill estimate will expire. </p>
    * @public
    */
   expiresAt?: Date | undefined;
 }
 
 /**
- * <p>
- *         Represents a time-based filter.
- *         </p>
+ * <p> Represents a time-based filter. </p>
  * @public
  */
 export interface FilterTimestamp {
   /**
-   * <p>
-   *         Include results after this timestamp.
-   *         </p>
+   * <p> Include results after this timestamp. </p>
    * @public
    */
   afterTimestamp?: Date | undefined;
 
   /**
-   * <p>
-   *         Include results before this timestamp.
-   *         </p>
+   * <p> Include results before this timestamp. </p>
    * @public
    */
   beforeTimestamp?: Date | undefined;
@@ -1532,32 +1225,24 @@ export type ListBillEstimatesFilterName =
   (typeof ListBillEstimatesFilterName)[keyof typeof ListBillEstimatesFilterName];
 
 /**
- * <p>
- *         Represents a filter for listing bill estimates.
- *         </p>
+ * <p> Represents a filter for listing bill estimates. </p>
  * @public
  */
 export interface ListBillEstimatesFilter {
   /**
-   * <p>
-   *         The name of the filter attribute.
-   *         </p>
+   * <p> The name of the filter attribute. </p>
    * @public
    */
   name: ListBillEstimatesFilterName | undefined;
 
   /**
-   * <p>
-   *         The values to filter by.
-   *         </p>
+   * <p> The values to filter by. </p>
    * @public
    */
   values: string[] | undefined;
 
   /**
-   * <p>
-   *         The match option for the filter (e.g., equals, contains).
-   *         </p>
+   * <p> The match option for the filter (e.g., equals, contains). </p>
    * @public
    */
   matchOption?: MatchOption | undefined;
@@ -1568,97 +1253,73 @@ export interface ListBillEstimatesFilter {
  */
 export interface ListBillEstimatesRequest {
   /**
-   * <p>
-   *                         Filters to apply to the list of bill estimates.
-   *                 </p>
+   * <p> Filters to apply to the list of bill estimates. </p>
    * @public
    */
   filters?: ListBillEstimatesFilter[] | undefined;
 
   /**
-   * <p>
-   *                         Filter bill estimates based on the creation date.
-   *                 </p>
+   * <p> Filter bill estimates based on the creation date. </p>
    * @public
    */
   createdAtFilter?: FilterTimestamp | undefined;
 
   /**
-   * <p>
-   *                         Filter bill estimates based on the expiration date.
-   *                 </p>
+   * <p> Filter bill estimates based on the expiration date. </p>
    * @public
    */
   expiresAtFilter?: FilterTimestamp | undefined;
 
   /**
-   * <p>
-   *                         A token to retrieve the next page of results.
-   *                 </p>
+   * <p> A token to retrieve the next page of results. </p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>
-   *                         The maximum number of results to return per page.
-   *                 </p>
+   * <p> The maximum number of results to return per page. </p>
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>
- *         Provides a summary of a bill estimate.
- *         </p>
+ * <p> Provides a summary of a bill estimate. </p>
  * @public
  */
 export interface BillEstimateSummary {
   /**
-   * <p>
-   *         The unique identifier of the bill estimate.
-   *         </p>
+   * <p> The unique identifier of the bill estimate. </p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>
-   *         The name of the bill estimate.
-   *         </p>
+   * <p> The name of the bill estimate. </p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>
-   *         The current status of the bill estimate.
-   *         </p>
+   * <p> The current status of the bill estimate. </p>
    * @public
    */
   status?: BillEstimateStatus | undefined;
 
   /**
-   * <p>
-   *         The time period covered by the bill estimate.
-   *         </p>
+   * <p> The time period covered by the bill estimate. </p>
    * @public
    */
   billInterval?: BillInterval | undefined;
 
   /**
-   * <p>
-   *         The timestamp when the bill estimate was created.
-   *         </p>
+   * <p> The timestamp when the bill estimate was created. </p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>
-   *         The timestamp when the bill estimate will expire.
-   *         </p>
+   * <p> The timestamp when the bill estimate will expire. </p>
    * @public
    */
   expiresAt?: Date | undefined;
@@ -1669,17 +1330,13 @@ export interface BillEstimateSummary {
  */
 export interface ListBillEstimatesResponse {
   /**
-   * <p>
-   *                         The list of bill estimates for the account.
-   *                 </p>
+   * <p> The list of bill estimates for the account. </p>
    * @public
    */
   items?: BillEstimateSummary[] | undefined;
 
   /**
-   * <p>
-   *                         A token to retrieve the next page of results, if any.
-   *                 </p>
+   * <p> A token to retrieve the next page of results, if any. </p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1690,25 +1347,19 @@ export interface ListBillEstimatesResponse {
  */
 export interface UpdateBillEstimateRequest {
   /**
-   * <p>
-   *                         The unique identifier of the bill estimate to update.
-   *                 </p>
+   * <p> The unique identifier of the bill estimate to update. </p>
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>
-   *                         The new name for the bill estimate.
-   *                 </p>
+   * <p> The new name for the bill estimate. </p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>
-   *                         The new expiration date for the bill estimate.
-   *                 </p>
+   * <p> The new expiration date for the bill estimate. </p>
    * @public
    */
   expiresAt?: Date | undefined;
@@ -1719,107 +1370,79 @@ export interface UpdateBillEstimateRequest {
  */
 export interface UpdateBillEstimateResponse {
   /**
-   * <p>
-   *                         The unique identifier of the updated bill estimate.
-   *                 </p>
+   * <p> The unique identifier of the updated bill estimate. </p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>
-   *                         The updated name of the bill estimate.
-   *                 </p>
+   * <p> The updated name of the bill estimate. </p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>
-   *                         The current status of the updated bill estimate.
-   *                 </p>
+   * <p> The current status of the updated bill estimate. </p>
    * @public
    */
   status?: BillEstimateStatus | undefined;
 
   /**
-   * <p>
-   *                         An error message if the bill estimate update failed.
-   *                 </p>
+   * <p> An error message if the bill estimate update failed. </p>
    * @public
    */
   failureMessage?: string | undefined;
 
   /**
-   * <p>
-   *                         The time period covered by the updated bill estimate.
-   *                 </p>
+   * <p> The time period covered by the updated bill estimate. </p>
    * @public
    */
   billInterval?: BillInterval | undefined;
 
   /**
-   * <p>
-   *                         A summary of the updated estimated costs.
-   *                 </p>
+   * <p> A summary of the updated estimated costs. </p>
    * @public
    */
   costSummary?: BillEstimateCostSummary | undefined;
 
   /**
-   * <p>
-   *                         The timestamp when the bill estimate was originally created.
-   *                 </p>
+   * <p> The timestamp when the bill estimate was originally created. </p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>
-   *                         The updated expiration timestamp for the bill estimate.
-   *                 </p>
+   * <p> The updated expiration timestamp for the bill estimate. </p>
    * @public
    */
   expiresAt?: Date | undefined;
 }
 
 /**
- * <p>
- *                         Represents an entry object in the batch operation to create bill scenario commitment modifications.
- *                 </p>
+ * <p> Represents an entry object in the batch operation to create bill scenario commitment modifications. </p>
  * @public
  */
 export interface BatchCreateBillScenarioCommitmentModificationEntry {
   /**
-   * <p>
-   *                         A unique identifier for this entry in the batch operation. This can be any valid string.
-   *                         This key is useful to identify errors associated with any commitment entry as any error is
-   *                         returned with this key.
-   *                 </p>
+   * <p> A unique identifier for this entry in the batch operation. This can be any valid string. This key is useful to identify errors associated with any commitment entry as any error is returned with this key. </p>
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>
-   *                         An optional group identifier for the commitment modification.
-   *                 </p>
+   * <p> An optional group identifier for the commitment modification. </p>
    * @public
    */
   group?: string | undefined;
 
   /**
-   * <p>
-   *                         The Amazon Web Services account ID to which this commitment will be applied to.
-   *                 </p>
+   * <p> The Amazon Web Services account ID to which this commitment will be applied to. </p>
    * @public
    */
   usageAccountId: string | undefined;
 
   /**
-   * <p>
-   *                         The specific commitment action to be taken (e.g., adding a Reserved Instance or Savings Plan).
-   *                 </p>
+   * <p> The specific commitment action to be taken (e.g., adding a Reserved Instance or Savings Plan). </p>
    * @public
    */
   commitmentAction: BillScenarioCommitmentModificationAction | undefined;
@@ -1830,25 +1453,19 @@ export interface BatchCreateBillScenarioCommitmentModificationEntry {
  */
 export interface BatchCreateBillScenarioCommitmentModificationRequest {
   /**
-   * <p>
-   *                         The ID of the Bill Scenario for which you want to create the modeled commitment.
-   *                 </p>
+   * <p> The ID of the Bill Scenario for which you want to create the modeled commitment. </p>
    * @public
    */
   billScenarioId: string | undefined;
 
   /**
-   * <p>
-   *                         List of commitments that you want to model in the Bill Scenario.
-   *                 </p>
+   * <p> List of commitments that you want to model in the Bill Scenario. </p>
    * @public
    */
   commitmentModifications: BatchCreateBillScenarioCommitmentModificationEntry[] | undefined;
 
   /**
-   * <p>
-   *                         A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   *                 </p>
+   * <p> A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. </p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1871,81 +1488,60 @@ export type BatchCreateBillScenarioCommitmentModificationErrorCode =
   (typeof BatchCreateBillScenarioCommitmentModificationErrorCode)[keyof typeof BatchCreateBillScenarioCommitmentModificationErrorCode];
 
 /**
- * <p>
- *                         Represents an error that occurred during a batch create operation for bill scenario commitment modifications.
- *                 </p>
+ * <p> Represents an error that occurred during a batch create operation for bill scenario commitment modifications. </p>
  * @public
  */
 export interface BatchCreateBillScenarioCommitmentModificationError {
   /**
-   * <p>
-   *                         The key of the entry that caused the error.
-   *                 </p>
+   * <p> The key of the entry that caused the error. </p>
    * @public
    */
   key?: string | undefined;
 
   /**
-   * <p>
-   *                         A descriptive message for the error that occurred.
-   *                 </p>
+   * <p> A descriptive message for the error that occurred. </p>
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p>
-   *                         The error code associated with the failed operation.
-   *                 </p>
+   * <p> The error code associated with the failed operation. </p>
    * @public
    */
   errorCode?: BatchCreateBillScenarioCommitmentModificationErrorCode | undefined;
 }
 
 /**
- * <p>
- *                         Represents a successfully created item in a batch operation for bill scenario commitment modifications.
- *                 </p>
+ * <p> Represents a successfully created item in a batch operation for bill scenario commitment modifications. </p>
  * @public
  */
 export interface BatchCreateBillScenarioCommitmentModificationItem {
   /**
-   * <p>
-   *                         The key of the successfully created entry. This can be any valid string. This key is useful to
-   *                         identify errors associated with any commitment entry as any error is returned with this key.
-   *                 </p>
+   * <p> The key of the successfully created entry. This can be any valid string. This key is useful to identify errors associated with any commitment entry as any error is returned with this key. </p>
    * @public
    */
   key?: string | undefined;
 
   /**
-   * <p>
-   *                         The unique identifier assigned to the created commitment modification.
-   *                 </p>
+   * <p> The unique identifier assigned to the created commitment modification. </p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>
-   *                         The group identifier for the created commitment modification.
-   *                 </p>
+   * <p> The group identifier for the created commitment modification. </p>
    * @public
    */
   group?: string | undefined;
 
   /**
-   * <p>
-   *                         The Amazon Web Services account ID associated with the created commitment modification.
-   *                 </p>
+   * <p> The Amazon Web Services account ID associated with the created commitment modification. </p>
    * @public
    */
   usageAccountId?: string | undefined;
 
   /**
-   * <p>
-   *                         The specific commitment action that was taken.
-   *                 </p>
+   * <p> The specific commitment action that was taken. </p>
    * @public
    */
   commitmentAction?: BillScenarioCommitmentModificationAction | undefined;
@@ -1956,17 +1552,13 @@ export interface BatchCreateBillScenarioCommitmentModificationItem {
  */
 export interface BatchCreateBillScenarioCommitmentModificationResponse {
   /**
-   * <p>
-   *                         Returns the list of successful commitment line items that were created for the Bill Scenario.
-   *                 </p>
+   * <p> Returns the list of successful commitment line items that were created for the Bill Scenario. </p>
    * @public
    */
   items?: BatchCreateBillScenarioCommitmentModificationItem[] | undefined;
 
   /**
-   * <p>
-   *                         Returns the list of errors reason and the commitment item keys that cannot be created in the Bill Scenario.
-   *                 </p>
+   * <p> Returns the list of errors reason and the commitment item keys that cannot be created in the Bill Scenario. </p>
    * @public
    */
   errors?: BatchCreateBillScenarioCommitmentModificationError[] | undefined;
@@ -1977,17 +1569,13 @@ export interface BatchCreateBillScenarioCommitmentModificationResponse {
  */
 export interface BatchDeleteBillScenarioCommitmentModificationRequest {
   /**
-   * <p>
-   *                         The ID of the Bill Scenario for which you want to delete the modeled commitment.
-   *                 </p>
+   * <p> The ID of the Bill Scenario for which you want to delete the modeled commitment. </p>
    * @public
    */
   billScenarioId: string | undefined;
 
   /**
-   * <p>
-   *                         List of commitments that you want to delete from the Bill Scenario.
-   *                 </p>
+   * <p> List of commitments that you want to delete from the Bill Scenario. </p>
    * @public
    */
   ids: string[] | undefined;
@@ -2010,32 +1598,24 @@ export type BatchDeleteBillScenarioCommitmentModificationErrorCode =
   (typeof BatchDeleteBillScenarioCommitmentModificationErrorCode)[keyof typeof BatchDeleteBillScenarioCommitmentModificationErrorCode];
 
 /**
- * <p>
- *                         Represents an error that occurred when deleting a commitment in a Bill Scenario.
- *                 </p>
+ * <p> Represents an error that occurred when deleting a commitment in a Bill Scenario. </p>
  * @public
  */
 export interface BatchDeleteBillScenarioCommitmentModificationError {
   /**
-   * <p>
-   *                         The ID of the error.
-   *                 </p>
+   * <p> The ID of the error. </p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>
-   *                         The code associated with the error.
-   *                 </p>
+   * <p> The code associated with the error. </p>
    * @public
    */
   errorCode?: BatchDeleteBillScenarioCommitmentModificationErrorCode | undefined;
 
   /**
-   * <p>
-   *                         The message that describes the error.
-   *                 </p>
+   * <p> The message that describes the error. </p>
    * @public
    */
   errorMessage?: string | undefined;
@@ -2046,33 +1626,25 @@ export interface BatchDeleteBillScenarioCommitmentModificationError {
  */
 export interface BatchDeleteBillScenarioCommitmentModificationResponse {
   /**
-   * <p>
-   *                         Returns the list of errors reason and the commitment item keys that cannot be deleted from the Bill Scenario.
-   *                 </p>
+   * <p> Returns the list of errors reason and the commitment item keys that cannot be deleted from the Bill Scenario. </p>
    * @public
    */
   errors?: BatchDeleteBillScenarioCommitmentModificationError[] | undefined;
 }
 
 /**
- * <p>
- *         Represents an entry in a batch operation to update bill scenario commitment modifications.
- *         </p>
+ * <p> Represents an entry in a batch operation to update bill scenario commitment modifications. </p>
  * @public
  */
 export interface BatchUpdateBillScenarioCommitmentModificationEntry {
   /**
-   * <p>
-   *         The unique identifier of the commitment modification to update.
-   *         </p>
+   * <p> The unique identifier of the commitment modification to update. </p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>
-   *         The updated group identifier for the commitment modification.
-   *         </p>
+   * <p> The updated group identifier for the commitment modification. </p>
    * @public
    */
   group?: string | undefined;
@@ -2083,17 +1655,13 @@ export interface BatchUpdateBillScenarioCommitmentModificationEntry {
  */
 export interface BatchUpdateBillScenarioCommitmentModificationRequest {
   /**
-   * <p>
-   *                         The ID of the Bill Scenario for which you want to modify the commitment group of a modeled commitment.
-   *                 </p>
+   * <p> The ID of the Bill Scenario for which you want to modify the commitment group of a modeled commitment. </p>
    * @public
    */
   billScenarioId: string | undefined;
 
   /**
-   * <p>
-   *                         List of commitments that you want to update in a Bill Scenario.
-   *                 </p>
+   * <p> List of commitments that you want to update in a Bill Scenario. </p>
    * @public
    */
   commitmentModifications: BatchUpdateBillScenarioCommitmentModificationEntry[] | undefined;
@@ -2117,72 +1685,54 @@ export type BatchUpdateBillScenarioCommitmentModificationErrorCode =
   (typeof BatchUpdateBillScenarioCommitmentModificationErrorCode)[keyof typeof BatchUpdateBillScenarioCommitmentModificationErrorCode];
 
 /**
- * <p>
- *                         Represents an error that occurred when updating a commitment in a Bill Scenario.
- *                 </p>
+ * <p> Represents an error that occurred when updating a commitment in a Bill Scenario. </p>
  * @public
  */
 export interface BatchUpdateBillScenarioCommitmentModificationError {
   /**
-   * <p>
-   *                         The ID of the error.
-   *                 </p>
+   * <p> The ID of the error. </p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>
-   *                         The code associated with the error.
-   *                 </p>
+   * <p> The code associated with the error. </p>
    * @public
    */
   errorCode?: BatchUpdateBillScenarioCommitmentModificationErrorCode | undefined;
 
   /**
-   * <p>
-   *                         The message that describes the error.
-   *                 </p>
+   * <p> The message that describes the error. </p>
    * @public
    */
   errorMessage?: string | undefined;
 }
 
 /**
- * <p>
- *         Represents a commitment modification item in a bill scenario.
- *         </p>
+ * <p> Represents a commitment modification item in a bill scenario. </p>
  * @public
  */
 export interface BillScenarioCommitmentModificationItem {
   /**
-   * <p>
-   *         The unique identifier of the commitment modification.
-   *         </p>
+   * <p> The unique identifier of the commitment modification. </p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>
-   *         The Amazon Web Services account ID associated with this commitment modification.
-   *         </p>
+   * <p> The Amazon Web Services account ID associated with this commitment modification. </p>
    * @public
    */
   usageAccountId?: string | undefined;
 
   /**
-   * <p>
-   *         The group identifier for the commitment modification.
-   *         </p>
+   * <p> The group identifier for the commitment modification. </p>
    * @public
    */
   group?: string | undefined;
 
   /**
-   * <p>
-   *         The specific commitment action taken in this modification.
-   *         </p>
+   * <p> The specific commitment action taken in this modification. </p>
    * @public
    */
   commitmentAction?: BillScenarioCommitmentModificationAction | undefined;
@@ -2193,17 +1743,13 @@ export interface BillScenarioCommitmentModificationItem {
  */
 export interface BatchUpdateBillScenarioCommitmentModificationResponse {
   /**
-   * <p>
-   *                         Returns the list of successful commitment line items that were updated for a Bill Scenario.
-   *                 </p>
+   * <p> Returns the list of successful commitment line items that were updated for a Bill Scenario. </p>
    * @public
    */
   items?: BillScenarioCommitmentModificationItem[] | undefined;
 
   /**
-   * <p>
-   *                         Returns the list of error reasons and commitment line item IDs that could not be updated for the Bill Scenario.
-   *                 </p>
+   * <p> Returns the list of error reasons and commitment line item IDs that could not be updated for the Bill Scenario. </p>
    * @public
    */
   errors?: BatchUpdateBillScenarioCommitmentModificationError[] | undefined;
@@ -2214,25 +1760,19 @@ export interface BatchUpdateBillScenarioCommitmentModificationResponse {
  */
 export interface ListBillScenarioCommitmentModificationsRequest {
   /**
-   * <p>
-   *                         The unique identifier of the bill scenario to list commitment modifications for.
-   *                 </p>
+   * <p> The unique identifier of the bill scenario to list commitment modifications for. </p>
    * @public
    */
   billScenarioId: string | undefined;
 
   /**
-   * <p>
-   *                         A token to retrieve the next page of results.
-   *                 </p>
+   * <p> A token to retrieve the next page of results. </p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>
-   *                         The maximum number of results to return per page.
-   *                 </p>
+   * <p> The maximum number of results to return per page. </p>
    * @public
    */
   maxResults?: number | undefined;
@@ -2243,17 +1783,13 @@ export interface ListBillScenarioCommitmentModificationsRequest {
  */
 export interface ListBillScenarioCommitmentModificationsResponse {
   /**
-   * <p>
-   *                         The list of commitment modifications associated with the bill scenario.
-   *                 </p>
+   * <p> The list of commitment modifications associated with the bill scenario. </p>
    * @public
    */
   items?: BillScenarioCommitmentModificationItem[] | undefined;
 
   /**
-   * <p>
-   *                         A token to retrieve the next page of results, if any.
-   *                 </p>
+   * <p> A token to retrieve the next page of results, if any. </p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2276,24 +1812,18 @@ export const BillScenarioStatus = {
 export type BillScenarioStatus = (typeof BillScenarioStatus)[keyof typeof BillScenarioStatus];
 
 /**
- * <p>
- *         Represents a usage amount for a specific time period.
- *         </p>
+ * <p> Represents a usage amount for a specific time period. </p>
  * @public
  */
 export interface UsageAmount {
   /**
-   * <p>
-   *         The start hour of the usage period.
-   *         </p>
+   * <p> The start hour of the usage period. </p>
    * @public
    */
   startHour: Date | undefined;
 
   /**
-   * <p>
-   *         The usage amount for the period.
-   *         </p>
+   * <p> The usage amount for the period. </p>
    * @public
    */
   amount: number | undefined;
@@ -2317,74 +1847,56 @@ export type BatchCreateBillScenarioUsageModificationErrorCode =
   (typeof BatchCreateBillScenarioUsageModificationErrorCode)[keyof typeof BatchCreateBillScenarioUsageModificationErrorCode];
 
 /**
- * <p>
- *                         Represents an error that occurred during a batch create operation for bill scenario usage modifications.
- *                 </p>
+ * <p> Represents an error that occurred during a batch create operation for bill scenario usage modifications. </p>
  * @public
  */
 export interface BatchCreateBillScenarioUsageModificationError {
   /**
-   * <p>
-   *                         The key of the entry that caused the error.
-   *                 </p>
+   * <p> The key of the entry that caused the error. </p>
    * @public
    */
   key?: string | undefined;
 
   /**
-   * <p>
-   *                         A descriptive message for the error that occurred.
-   *                 </p>
+   * <p> A descriptive message for the error that occurred. </p>
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p>
-   *                         The error code associated with the failed operation.
-   *                 </p>
+   * <p> The error code associated with the failed operation. </p>
    * @public
    */
   errorCode?: BatchCreateBillScenarioUsageModificationErrorCode | undefined;
 }
 
 /**
- * <p>
- *         The request would cause you to exceed your service quota.
- *         </p>
+ * <p> The request would cause you to exceed your service quota. </p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
-   * <p>
-   *                         The identifier of the resource that exceeded quota.
-   *                 </p>
+   * <p> The identifier of the resource that exceeded quota. </p>
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>
-   *                         The type of the resource that exceeded quota.
-   *                 </p>
+   * <p> The type of the resource that exceeded quota. </p>
    * @public
    */
   resourceType: string | undefined;
 
   /**
-   * <p>
-   *                         The service code that exceeded quota.
-   *                 </p>
+   * <p> The service code that exceeded quota. </p>
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>
-   *                         The quota code that was exceeded.
-   *                 </p>
+   * <p> The quota code that was exceeded. </p>
    * @public
    */
   quotaCode?: string | undefined;
@@ -2411,17 +1923,13 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface BatchDeleteBillScenarioUsageModificationRequest {
   /**
-   * <p>
-   *                         The ID of the Bill Scenario for which you want to delete the modeled usage.
-   *                 </p>
+   * <p> The ID of the Bill Scenario for which you want to delete the modeled usage. </p>
    * @public
    */
   billScenarioId: string | undefined;
 
   /**
-   * <p>
-   *                         List of usage that you want to delete from the Bill Scenario.
-   *                 </p>
+   * <p> List of usage that you want to delete from the Bill Scenario. </p>
    * @public
    */
   ids: string[] | undefined;
@@ -2444,32 +1952,24 @@ export type BatchDeleteBillScenarioUsageModificationErrorCode =
   (typeof BatchDeleteBillScenarioUsageModificationErrorCode)[keyof typeof BatchDeleteBillScenarioUsageModificationErrorCode];
 
 /**
- * <p>
- *                         Represents an error that occurred when deleting  usage in a Bill Scenario.
- *                 </p>
+ * <p> Represents an error that occurred when deleting usage in a Bill Scenario. </p>
  * @public
  */
 export interface BatchDeleteBillScenarioUsageModificationError {
   /**
-   * <p>
-   *                         The ID of the error.
-   *                 </p>
+   * <p> The ID of the error. </p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>
-   *                         The message that describes the error.
-   *                 </p>
+   * <p> The message that describes the error. </p>
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p>
-   *                         The code associated with the error.
-   *                 </p>
+   * <p> The code associated with the error. </p>
    * @public
    */
   errorCode?: BatchDeleteBillScenarioUsageModificationErrorCode | undefined;
@@ -2480,41 +1980,31 @@ export interface BatchDeleteBillScenarioUsageModificationError {
  */
 export interface BatchDeleteBillScenarioUsageModificationResponse {
   /**
-   * <p>
-   *                         Returns the list of errors reason and the usage item keys that cannot be deleted from the Bill Scenario.
-   *                 </p>
+   * <p> Returns the list of errors reason and the usage item keys that cannot be deleted from the Bill Scenario. </p>
    * @public
    */
   errors?: BatchDeleteBillScenarioUsageModificationError[] | undefined;
 }
 
 /**
- * <p>
- *         Represents an entry in a batch operation to update bill scenario usage modifications.
- *         </p>
+ * <p> Represents an entry in a batch operation to update bill scenario usage modifications. </p>
  * @public
  */
 export interface BatchUpdateBillScenarioUsageModificationEntry {
   /**
-   * <p>
-   *         The unique identifier of the usage modification to update.
-   *         </p>
+   * <p> The unique identifier of the usage modification to update. </p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>
-   *         The updated group identifier for the usage modification.
-   *         </p>
+   * <p> The updated group identifier for the usage modification. </p>
    * @public
    */
   group?: string | undefined;
 
   /**
-   * <p>
-   *         The updated usage amounts for the modification.
-   *         </p>
+   * <p> The updated usage amounts for the modification. </p>
    * @public
    */
   amounts?: UsageAmount[] | undefined;
@@ -2525,17 +2015,13 @@ export interface BatchUpdateBillScenarioUsageModificationEntry {
  */
 export interface BatchUpdateBillScenarioUsageModificationRequest {
   /**
-   * <p>
-   *                         The ID of the Bill Scenario for which you want to modify the usage lines.
-   *                 </p>
+   * <p> The ID of the Bill Scenario for which you want to modify the usage lines. </p>
    * @public
    */
   billScenarioId: string | undefined;
 
   /**
-   * <p>
-   *                         List of usage lines that you want to update in a Bill Scenario identified by the usage ID.
-   *                 </p>
+   * <p> List of usage lines that you want to update in a Bill Scenario identified by the usage ID. </p>
    * @public
    */
   usageModifications: BatchUpdateBillScenarioUsageModificationEntry[] | undefined;
@@ -2559,32 +2045,24 @@ export type BatchUpdateBillScenarioUsageModificationErrorCode =
   (typeof BatchUpdateBillScenarioUsageModificationErrorCode)[keyof typeof BatchUpdateBillScenarioUsageModificationErrorCode];
 
 /**
- * <p>
- *                         Represents an error that occurred when updating usage in a Bill Scenario.
- *                 </p>
+ * <p> Represents an error that occurred when updating usage in a Bill Scenario. </p>
  * @public
  */
 export interface BatchUpdateBillScenarioUsageModificationError {
   /**
-   * <p>
-   *                         The ID of the error.
-   *                 </p>
+   * <p> The ID of the error. </p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>
-   *                         The message that describes the error.
-   *                 </p>
+   * <p> The message that describes the error. </p>
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p>
-   *                         The code associated with the error.
-   *                 </p>
+   * <p> The code associated with the error. </p>
    * @public
    */
   errorCode?: BatchUpdateBillScenarioUsageModificationErrorCode | undefined;
@@ -2595,33 +2073,25 @@ export interface BatchUpdateBillScenarioUsageModificationError {
  */
 export interface ListBillScenarioUsageModificationsRequest {
   /**
-   * <p>
-   *                         The unique identifier of the bill scenario to list usage modifications for.
-   *                 </p>
+   * <p> The unique identifier of the bill scenario to list usage modifications for. </p>
    * @public
    */
   billScenarioId: string | undefined;
 
   /**
-   * <p>
-   *                         Filters to apply to the list of usage modifications.
-   *                 </p>
+   * <p> Filters to apply to the list of usage modifications. </p>
    * @public
    */
   filters?: ListUsageFilter[] | undefined;
 
   /**
-   * <p>
-   *                         A token to retrieve the next page of results.
-   *                 </p>
+   * <p> A token to retrieve the next page of results. </p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>
-   *                         The maximum number of results to return per page.
-   *                 </p>
+   * <p> The maximum number of results to return per page. </p>
    * @public
    */
   maxResults?: number | undefined;
@@ -2632,25 +2102,19 @@ export interface ListBillScenarioUsageModificationsRequest {
  */
 export interface CreateBillScenarioRequest {
   /**
-   * <p>
-   *         A descriptive name for the bill scenario.
-   *         </p>
+   * <p> A descriptive name for the bill scenario. </p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>
-   *         A unique, case-sensitive identifier to ensure idempotency of the request.
-   *         </p>
+   * <p> A unique, case-sensitive identifier to ensure idempotency of the request. </p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>
-   *         The tags to apply to the bill scenario.
-   *         </p>
+   * <p> The tags to apply to the bill scenario. </p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2661,57 +2125,43 @@ export interface CreateBillScenarioRequest {
  */
 export interface CreateBillScenarioResponse {
   /**
-   * <p>
-   *         The unique identifier for the created bill scenario.
-   *         </p>
+   * <p> The unique identifier for the created bill scenario. </p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>
-   *         The name of the created bill scenario.
-   *         </p>
+   * <p> The name of the created bill scenario. </p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>
-   *         The time period covered by the bill scenario.
-   *         </p>
+   * <p> The time period covered by the bill scenario. </p>
    * @public
    */
   billInterval?: BillInterval | undefined;
 
   /**
-   * <p>
-   *         The current status of the bill scenario.
-   *         </p>
+   * <p> The current status of the bill scenario. </p>
    * @public
    */
   status?: BillScenarioStatus | undefined;
 
   /**
-   * <p>
-   *         The timestamp when the bill scenario was created.
-   *         </p>
+   * <p> The timestamp when the bill scenario was created. </p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>
-   *         The timestamp when the bill scenario will expire.
-   *         </p>
+   * <p> The timestamp when the bill scenario will expire. </p>
    * @public
    */
   expiresAt?: Date | undefined;
 
   /**
-   * <p>
-   *         An error message if the bill scenario creation failed.
-   *         </p>
+   * <p> An error message if the bill scenario creation failed. </p>
    * @public
    */
   failureMessage?: string | undefined;
@@ -2722,9 +2172,7 @@ export interface CreateBillScenarioResponse {
  */
 export interface DeleteBillScenarioRequest {
   /**
-   * <p>
-   *         The unique identifier of the bill scenario to delete.
-   *         </p>
+   * <p> The unique identifier of the bill scenario to delete. </p>
    * @public
    */
   identifier: string | undefined;
@@ -2740,9 +2188,7 @@ export interface DeleteBillScenarioResponse {}
  */
 export interface GetBillScenarioRequest {
   /**
-   * <p>
-   *         The unique identifier of the bill scenario to retrieve.
-   *         </p>
+   * <p> The unique identifier of the bill scenario to retrieve. </p>
    * @public
    */
   identifier: string | undefined;
@@ -2753,57 +2199,43 @@ export interface GetBillScenarioRequest {
  */
 export interface GetBillScenarioResponse {
   /**
-   * <p>
-   *         The unique identifier of the retrieved bill scenario.
-   *         </p>
+   * <p> The unique identifier of the retrieved bill scenario. </p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>
-   *         The name of the retrieved bill scenario.
-   *         </p>
+   * <p> The name of the retrieved bill scenario. </p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>
-   *         The time period covered by the bill scenario.
-   *         </p>
+   * <p> The time period covered by the bill scenario. </p>
    * @public
    */
   billInterval?: BillInterval | undefined;
 
   /**
-   * <p>
-   *         The current status of the bill scenario.
-   *         </p>
+   * <p> The current status of the bill scenario. </p>
    * @public
    */
   status?: BillScenarioStatus | undefined;
 
   /**
-   * <p>
-   *         The timestamp when the bill scenario was created.
-   *         </p>
+   * <p> The timestamp when the bill scenario was created. </p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>
-   *         The timestamp when the bill scenario will expire.
-   *         </p>
+   * <p> The timestamp when the bill scenario will expire. </p>
    * @public
    */
   expiresAt?: Date | undefined;
 
   /**
-   * <p>
-   *         An error message if the bill scenario retrieval failed.
-   *         </p>
+   * <p> An error message if the bill scenario retrieval failed. </p>
    * @public
    */
   failureMessage?: string | undefined;
@@ -2825,32 +2257,24 @@ export type ListBillScenariosFilterName =
   (typeof ListBillScenariosFilterName)[keyof typeof ListBillScenariosFilterName];
 
 /**
- * <p>
- *         Represents a filter for listing bill scenarios.
- *         </p>
+ * <p> Represents a filter for listing bill scenarios. </p>
  * @public
  */
 export interface ListBillScenariosFilter {
   /**
-   * <p>
-   *         The name of the filter attribute.
-   *         </p>
+   * <p> The name of the filter attribute. </p>
    * @public
    */
   name: ListBillScenariosFilterName | undefined;
 
   /**
-   * <p>
-   *         The values to filter by.
-   *         </p>
+   * <p> The values to filter by. </p>
    * @public
    */
   values: string[] | undefined;
 
   /**
-   * <p>
-   *         The match option for the filter (e.g., equals, contains).
-   *         </p>
+   * <p> The match option for the filter (e.g., equals, contains). </p>
    * @public
    */
   matchOption?: MatchOption | undefined;
@@ -2861,105 +2285,79 @@ export interface ListBillScenariosFilter {
  */
 export interface ListBillScenariosRequest {
   /**
-   * <p>
-   *                         Filters to apply to the list of bill scenarios.
-   *                 </p>
+   * <p> Filters to apply to the list of bill scenarios. </p>
    * @public
    */
   filters?: ListBillScenariosFilter[] | undefined;
 
   /**
-   * <p>
-   *                         Filter bill scenarios based on the creation date.
-   *                 </p>
+   * <p> Filter bill scenarios based on the creation date. </p>
    * @public
    */
   createdAtFilter?: FilterTimestamp | undefined;
 
   /**
-   * <p>
-   *                         Filter bill scenarios based on the expiration date.
-   *                 </p>
+   * <p> Filter bill scenarios based on the expiration date. </p>
    * @public
    */
   expiresAtFilter?: FilterTimestamp | undefined;
 
   /**
-   * <p>
-   *                         A token to retrieve the next page of results.
-   *                 </p>
+   * <p> A token to retrieve the next page of results. </p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>
-   *                         The maximum number of results to return per page.
-   *                 </p>
+   * <p> The maximum number of results to return per page. </p>
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>
- *         Provides a summary of a bill scenario.
- *         </p>
+ * <p> Provides a summary of a bill scenario. </p>
  * @public
  */
 export interface BillScenarioSummary {
   /**
-   * <p>
-   *         The unique identifier of the bill scenario.
-   *         </p>
+   * <p> The unique identifier of the bill scenario. </p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>
-   *         The name of the bill scenario.
-   *         </p>
+   * <p> The name of the bill scenario. </p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>
-   *         The time period covered by the bill scenario.
-   *         </p>
+   * <p> The time period covered by the bill scenario. </p>
    * @public
    */
   billInterval?: BillInterval | undefined;
 
   /**
-   * <p>
-   *         The current status of the bill scenario.
-   *         </p>
+   * <p> The current status of the bill scenario. </p>
    * @public
    */
   status?: BillScenarioStatus | undefined;
 
   /**
-   * <p>
-   *         The timestamp when the bill scenario was created.
-   *         </p>
+   * <p> The timestamp when the bill scenario was created. </p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>
-   *         The timestamp when the bill scenario will expire.
-   *         </p>
+   * <p> The timestamp when the bill scenario will expire. </p>
    * @public
    */
   expiresAt?: Date | undefined;
 
   /**
-   * <p>
-   *         An error message if the bill scenario creation or processing failed.
-   *         </p>
+   * <p> An error message if the bill scenario creation or processing failed. </p>
    * @public
    */
   failureMessage?: string | undefined;
@@ -2970,17 +2368,13 @@ export interface BillScenarioSummary {
  */
 export interface ListBillScenariosResponse {
   /**
-   * <p>
-   *                         The list of bill scenarios for the account.
-   *                 </p>
+   * <p> The list of bill scenarios for the account. </p>
    * @public
    */
   items?: BillScenarioSummary[] | undefined;
 
   /**
-   * <p>
-   *                         A token to retrieve the next page of results, if any.
-   *                 </p>
+   * <p> A token to retrieve the next page of results, if any. </p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2991,25 +2385,19 @@ export interface ListBillScenariosResponse {
  */
 export interface UpdateBillScenarioRequest {
   /**
-   * <p>
-   *                         The unique identifier of the bill scenario to update.
-   *                 </p>
+   * <p> The unique identifier of the bill scenario to update. </p>
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>
-   *                         The new name for the bill scenario.
-   *                 </p>
+   * <p> The new name for the bill scenario. </p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>
-   *                         The new expiration date for the bill scenario.
-   *                 </p>
+   * <p> The new expiration date for the bill scenario. </p>
    * @public
    */
   expiresAt?: Date | undefined;
@@ -3020,57 +2408,43 @@ export interface UpdateBillScenarioRequest {
  */
 export interface UpdateBillScenarioResponse {
   /**
-   * <p>
-   *                         The unique identifier of the updated bill scenario.
-   *                 </p>
+   * <p> The unique identifier of the updated bill scenario. </p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>
-   *                         The updated name of the bill scenario.
-   *                 </p>
+   * <p> The updated name of the bill scenario. </p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>
-   *                         The time period covered by the updated bill scenario.
-   *                 </p>
+   * <p> The time period covered by the updated bill scenario. </p>
    * @public
    */
   billInterval?: BillInterval | undefined;
 
   /**
-   * <p>
-   *                         The current status of the updated bill scenario.
-   *                 </p>
+   * <p> The current status of the updated bill scenario. </p>
    * @public
    */
   status?: BillScenarioStatus | undefined;
 
   /**
-   * <p>
-   *                         The timestamp when the bill scenario was originally created.
-   *                 </p>
+   * <p> The timestamp when the bill scenario was originally created. </p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>
-   *                         The updated expiration timestamp for the bill scenario.
-   *                 </p>
+   * <p> The updated expiration timestamp for the bill scenario. </p>
    * @public
    */
   expiresAt?: Date | undefined;
 
   /**
-   * <p>
-   *                         An error message if the bill scenario update failed.
-   *                 </p>
+   * <p> An error message if the bill scenario update failed. </p>
    * @public
    */
   failureMessage?: string | undefined;
@@ -3087,6 +2461,7 @@ export interface GetPreferencesRequest {}
  */
 export const RateType = {
   AFTER_DISCOUNTS: "AFTER_DISCOUNTS",
+  AFTER_DISCOUNTS_AND_COMMITMENTS: "AFTER_DISCOUNTS_AND_COMMITMENTS",
   BEFORE_DISCOUNTS: "BEFORE_DISCOUNTS",
 } as const;
 
@@ -3100,25 +2475,19 @@ export type RateType = (typeof RateType)[keyof typeof RateType];
  */
 export interface GetPreferencesResponse {
   /**
-   * <p>
-   *         The preferred rate types for the management account.
-   *         </p>
+   * <p> The preferred rate types for the management account. </p>
    * @public
    */
   managementAccountRateTypeSelections?: RateType[] | undefined;
 
   /**
-   * <p>
-   *         The preferred rate types for member accounts.
-   *         </p>
+   * <p> The preferred rate types for member accounts. </p>
    * @public
    */
   memberAccountRateTypeSelections?: RateType[] | undefined;
 
   /**
-   * <p>
-   *                         The preferred rate types for a standalone account.
-   *                 </p>
+   * <p> The preferred rate types for a standalone account. </p>
    * @public
    */
   standaloneAccountRateTypeSelections?: RateType[] | undefined;
@@ -3129,9 +2498,7 @@ export interface GetPreferencesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>
-   *                         The Amazon Resource Name (ARN) of the resource to list tags for.
-   *                 </p>
+   * <p> The Amazon Resource Name (ARN) of the resource to list tags for. </p>
    * @public
    */
   arn: string | undefined;
@@ -3142,9 +2509,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>
-   *                         The list of tags associated with the specified resource.
-   *                 </p>
+   * <p> The list of tags associated with the specified resource. </p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -3155,17 +2520,13 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>
-   *                         The Amazon Resource Name (ARN) of the resource to add tags to.
-   *                 </p>
+   * <p> The Amazon Resource Name (ARN) of the resource to add tags to. </p>
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>
-   *                         The tags to add to the resource.
-   *                 </p>
+   * <p> The tags to add to the resource. </p>
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -3181,17 +2542,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>
-   *                         The Amazon Resource Name (ARN) of the resource to remove tags from.
-   *                 </p>
+   * <p> The Amazon Resource Name (ARN) of the resource to remove tags from. </p>
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>
-   *                         The keys of the tags to remove from the resource.
-   *                 </p>
+   * <p> The keys of the tags to remove from the resource. </p>
    * @public
    */
   tagKeys: string[] | undefined;
@@ -3207,25 +2564,19 @@ export interface UntagResourceResponse {}
  */
 export interface UpdatePreferencesRequest {
   /**
-   * <p>
-   *                         The updated preferred rate types for the management account.
-   *                 </p>
+   * <p> The updated preferred rate types for the management account. </p>
    * @public
    */
   managementAccountRateTypeSelections?: RateType[] | undefined;
 
   /**
-   * <p>
-   *                         The updated preferred rate types for member accounts.
-   *                 </p>
+   * <p> The updated preferred rate types for member accounts. </p>
    * @public
    */
   memberAccountRateTypeSelections?: RateType[] | undefined;
 
   /**
-   * <p>
-   *                         The updated preferred rate types for a standalone account.
-   *                 </p>
+   * <p> The updated preferred rate types for a standalone account. </p>
    * @public
    */
   standaloneAccountRateTypeSelections?: RateType[] | undefined;
@@ -3236,25 +2587,19 @@ export interface UpdatePreferencesRequest {
  */
 export interface UpdatePreferencesResponse {
   /**
-   * <p>
-   *                         The updated preferred rate types for the management account.
-   *                 </p>
+   * <p> The updated preferred rate types for the management account. </p>
    * @public
    */
   managementAccountRateTypeSelections?: RateType[] | undefined;
 
   /**
-   * <p>
-   *                         The updated preferred rate types for member accounts.
-   *                 </p>
+   * <p> The updated preferred rate types for member accounts. </p>
    * @public
    */
   memberAccountRateTypeSelections?: RateType[] | undefined;
 
   /**
-   * <p>
-   *                         The updated preferred rate types for a standalone account.
-   *                 </p>
+   * <p> The updated preferred rate types for a standalone account. </p>
    * @public
    */
   standaloneAccountRateTypeSelections?: RateType[] | undefined;
@@ -3266,6 +2611,7 @@ export interface UpdatePreferencesResponse {
  */
 export const WorkloadEstimateRateType = {
   AFTER_DISCOUNTS: "AFTER_DISCOUNTS",
+  AFTER_DISCOUNTS_AND_COMMITMENTS: "AFTER_DISCOUNTS_AND_COMMITMENTS",
   BEFORE_DISCOUNTS: "BEFORE_DISCOUNTS",
 } as const;
 
@@ -3279,33 +2625,25 @@ export type WorkloadEstimateRateType = (typeof WorkloadEstimateRateType)[keyof t
  */
 export interface CreateWorkloadEstimateRequest {
   /**
-   * <p>
-   *         A descriptive name for the workload estimate.
-   *         </p>
+   * <p> A descriptive name for the workload estimate. </p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>
-   *         A unique, case-sensitive identifier to ensure idempotency of the request.
-   *         </p>
+   * <p> A unique, case-sensitive identifier to ensure idempotency of the request. </p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>
-   *         The type of pricing rates to use for the estimate.
-   *         </p>
+   * <p> The type of pricing rates to use for the estimate. </p>
    * @public
    */
   rateType?: WorkloadEstimateRateType | undefined;
 
   /**
-   * <p>
-   *         The tags to apply to the workload estimate.
-   *         </p>
+   * <p> The tags to apply to the workload estimate. </p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -3333,81 +2671,61 @@ export type WorkloadEstimateStatus = (typeof WorkloadEstimateStatus)[keyof typeo
  */
 export interface CreateWorkloadEstimateResponse {
   /**
-   * <p>
-   *         The unique identifier for the created workload estimate.
-   *         </p>
+   * <p> The unique identifier for the created workload estimate. </p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>
-   *         The name of the created workload estimate.
-   *         </p>
+   * <p> The name of the created workload estimate. </p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>
-   *         The timestamp when the workload estimate was created.
-   *         </p>
+   * <p> The timestamp when the workload estimate was created. </p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>
-   *         The timestamp when the workload estimate will expire.
-   *         </p>
+   * <p> The timestamp when the workload estimate will expire. </p>
    * @public
    */
   expiresAt?: Date | undefined;
 
   /**
-   * <p>
-   *         The type of pricing rates used for the estimate.
-   *         </p>
+   * <p> The type of pricing rates used for the estimate. </p>
    * @public
    */
   rateType?: WorkloadEstimateRateType | undefined;
 
   /**
-   * <p>
-   *         The timestamp of the pricing rates used for the estimate.
-   *         </p>
+   * <p> The timestamp of the pricing rates used for the estimate. </p>
    * @public
    */
   rateTimestamp?: Date | undefined;
 
   /**
-   * <p>
-   *         The current status of the workload estimate.
-   *         </p>
+   * <p> The current status of the workload estimate. </p>
    * @public
    */
   status?: WorkloadEstimateStatus | undefined;
 
   /**
-   * <p>
-   *         The total estimated cost for the workload.
-   *         </p>
+   * <p> The total estimated cost for the workload. </p>
    * @public
    */
   totalCost?: number | undefined;
 
   /**
-   * <p>
-   *         The currency of the estimated cost.
-   *         </p>
+   * <p> The currency of the estimated cost. </p>
    * @public
    */
   costCurrency?: CurrencyCode | undefined;
 
   /**
-   * <p>
-   *         An error message if the workload estimate creation failed.
-   *         </p>
+   * <p> An error message if the workload estimate creation failed. </p>
    * @public
    */
   failureMessage?: string | undefined;
@@ -3418,9 +2736,7 @@ export interface CreateWorkloadEstimateResponse {
  */
 export interface DeleteWorkloadEstimateRequest {
   /**
-   * <p>
-   *         The unique identifier of the workload estimate to delete.
-   *         </p>
+   * <p> The unique identifier of the workload estimate to delete. </p>
    * @public
    */
   identifier: string | undefined;
@@ -3436,9 +2752,7 @@ export interface DeleteWorkloadEstimateResponse {}
  */
 export interface GetWorkloadEstimateRequest {
   /**
-   * <p>
-   *         The unique identifier of the workload estimate to retrieve.
-   *         </p>
+   * <p> The unique identifier of the workload estimate to retrieve. </p>
    * @public
    */
   identifier: string | undefined;
@@ -3450,81 +2764,61 @@ export interface GetWorkloadEstimateRequest {
  */
 export interface GetWorkloadEstimateResponse {
   /**
-   * <p>
-   *         The unique identifier of the retrieved workload estimate.
-   *         </p>
+   * <p> The unique identifier of the retrieved workload estimate. </p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>
-   *         The name of the retrieved workload estimate.
-   *         </p>
+   * <p> The name of the retrieved workload estimate. </p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>
-   *         The timestamp when the workload estimate was created.
-   *         </p>
+   * <p> The timestamp when the workload estimate was created. </p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>
-   *         The timestamp when the workload estimate will expire.
-   *         </p>
+   * <p> The timestamp when the workload estimate will expire. </p>
    * @public
    */
   expiresAt?: Date | undefined;
 
   /**
-   * <p>
-   *         The type of pricing rates used for the estimate.
-   *         </p>
+   * <p> The type of pricing rates used for the estimate. </p>
    * @public
    */
   rateType?: WorkloadEstimateRateType | undefined;
 
   /**
-   * <p>
-   *         The timestamp of the pricing rates used for the estimate.
-   *         </p>
+   * <p> The timestamp of the pricing rates used for the estimate. </p>
    * @public
    */
   rateTimestamp?: Date | undefined;
 
   /**
-   * <p>
-   *         The current status of the workload estimate.
-   *         </p>
+   * <p> The current status of the workload estimate. </p>
    * @public
    */
   status?: WorkloadEstimateStatus | undefined;
 
   /**
-   * <p>
-   *         The total estimated cost for the workload.
-   *         </p>
+   * <p> The total estimated cost for the workload. </p>
    * @public
    */
   totalCost?: number | undefined;
 
   /**
-   * <p>
-   *         The currency of the estimated cost.
-   *         </p>
+   * <p> The currency of the estimated cost. </p>
    * @public
    */
   costCurrency?: CurrencyCode | undefined;
 
   /**
-   * <p>
-   *         An error message if the workload estimate retrieval failed.
-   *         </p>
+   * <p> An error message if the workload estimate retrieval failed. </p>
    * @public
    */
   failureMessage?: string | undefined;
@@ -3546,32 +2840,24 @@ export type ListWorkloadEstimatesFilterName =
   (typeof ListWorkloadEstimatesFilterName)[keyof typeof ListWorkloadEstimatesFilterName];
 
 /**
- * <p>
- *         Represents a filter for listing workload estimates.
- *         </p>
+ * <p> Represents a filter for listing workload estimates. </p>
  * @public
  */
 export interface ListWorkloadEstimatesFilter {
   /**
-   * <p>
-   *         The name of the filter attribute.
-   *         </p>
+   * <p> The name of the filter attribute. </p>
    * @public
    */
   name: ListWorkloadEstimatesFilterName | undefined;
 
   /**
-   * <p>
-   *         The values to filter by.
-   *         </p>
+   * <p> The values to filter by. </p>
    * @public
    */
   values: string[] | undefined;
 
   /**
-   * <p>
-   *         The match option for the filter (e.g., equals, contains).
-   *         </p>
+   * <p> The match option for the filter (e.g., equals, contains). </p>
    * @public
    */
   matchOption?: MatchOption | undefined;
@@ -3582,129 +2868,97 @@ export interface ListWorkloadEstimatesFilter {
  */
 export interface ListWorkloadEstimatesRequest {
   /**
-   * <p>
-   *                         Filter workload estimates based on the creation date.
-   *                 </p>
+   * <p> Filter workload estimates based on the creation date. </p>
    * @public
    */
   createdAtFilter?: FilterTimestamp | undefined;
 
   /**
-   * <p>
-   *                         Filter workload estimates based on the expiration date.
-   *                 </p>
+   * <p> Filter workload estimates based on the expiration date. </p>
    * @public
    */
   expiresAtFilter?: FilterTimestamp | undefined;
 
   /**
-   * <p>
-   *                         Filters to apply to the list of workload estimates.
-   *                 </p>
+   * <p> Filters to apply to the list of workload estimates. </p>
    * @public
    */
   filters?: ListWorkloadEstimatesFilter[] | undefined;
 
   /**
-   * <p>
-   *                         A token to retrieve the next page of results.
-   *                 </p>
+   * <p> A token to retrieve the next page of results. </p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>
-   *                         The maximum number of results to return per page.
-   *                 </p>
+   * <p> The maximum number of results to return per page. </p>
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>
- *         Provides a summary of a workload estimate.
- *         </p>
+ * <p> Provides a summary of a workload estimate. </p>
  * @public
  */
 export interface WorkloadEstimateSummary {
   /**
-   * <p>
-   *         The unique identifier of the workload estimate.
-   *         </p>
+   * <p> The unique identifier of the workload estimate. </p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>
-   *         The name of the workload estimate.
-   *         </p>
+   * <p> The name of the workload estimate. </p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>
-   *         The timestamp when the workload estimate was created.
-   *         </p>
+   * <p> The timestamp when the workload estimate was created. </p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>
-   *         The timestamp when the workload estimate will expire.
-   *         </p>
+   * <p> The timestamp when the workload estimate will expire. </p>
    * @public
    */
   expiresAt?: Date | undefined;
 
   /**
-   * <p>
-   *         The type of pricing rates used for the estimate.
-   *         </p>
+   * <p> The type of pricing rates used for the estimate. </p>
    * @public
    */
   rateType?: WorkloadEstimateRateType | undefined;
 
   /**
-   * <p>
-   *         The timestamp of the pricing rates used for the estimate.
-   *         </p>
+   * <p> The timestamp of the pricing rates used for the estimate. </p>
    * @public
    */
   rateTimestamp?: Date | undefined;
 
   /**
-   * <p>
-   *         The current status of the workload estimate.
-   *         </p>
+   * <p> The current status of the workload estimate. </p>
    * @public
    */
   status?: WorkloadEstimateStatus | undefined;
 
   /**
-   * <p>
-   *         The total estimated cost for the workload.
-   *         </p>
+   * <p> The total estimated cost for the workload. </p>
    * @public
    */
   totalCost?: number | undefined;
 
   /**
-   * <p>
-   *         The currency of the estimated cost.
-   *         </p>
+   * <p> The currency of the estimated cost. </p>
    * @public
    */
   costCurrency?: CurrencyCode | undefined;
 
   /**
-   * <p>
-   *         An error message if the workload estimate creation or processing failed.
-   *         </p>
+   * <p> An error message if the workload estimate creation or processing failed. </p>
    * @public
    */
   failureMessage?: string | undefined;
@@ -3715,17 +2969,13 @@ export interface WorkloadEstimateSummary {
  */
 export interface ListWorkloadEstimatesResponse {
   /**
-   * <p>
-   *                         The list of workload estimates for the account.
-   *                 </p>
+   * <p> The list of workload estimates for the account. </p>
    * @public
    */
   items?: WorkloadEstimateSummary[] | undefined;
 
   /**
-   * <p>
-   *                         A token to retrieve the next page of results, if any.
-   *                 </p>
+   * <p> A token to retrieve the next page of results, if any. </p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3736,25 +2986,19 @@ export interface ListWorkloadEstimatesResponse {
  */
 export interface UpdateWorkloadEstimateRequest {
   /**
-   * <p>
-   *                         The unique identifier of the workload estimate to update.
-   *                 </p>
+   * <p> The unique identifier of the workload estimate to update. </p>
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>
-   *                         The new name for the workload estimate.
-   *                 </p>
+   * <p> The new name for the workload estimate. </p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>
-   *                         The new expiration date for the workload estimate.
-   *                 </p>
+   * <p> The new expiration date for the workload estimate. </p>
    * @public
    */
   expiresAt?: Date | undefined;
@@ -3766,81 +3010,61 @@ export interface UpdateWorkloadEstimateRequest {
  */
 export interface UpdateWorkloadEstimateResponse {
   /**
-   * <p>
-   *                         The unique identifier of the updated workload estimate.
-   *                 </p>
+   * <p> The unique identifier of the updated workload estimate. </p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>
-   *                         The updated name of the workload estimate.
-   *                 </p>
+   * <p> The updated name of the workload estimate. </p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>
-   *                         The timestamp when the workload estimate was originally created.
-   *                 </p>
+   * <p> The timestamp when the workload estimate was originally created. </p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>
-   *                         The updated expiration timestamp for the workload estimate.
-   *                 </p>
+   * <p> The updated expiration timestamp for the workload estimate. </p>
    * @public
    */
   expiresAt?: Date | undefined;
 
   /**
-   * <p>
-   *                         The type of pricing rates used for the updated estimate.
-   *                 </p>
+   * <p> The type of pricing rates used for the updated estimate. </p>
    * @public
    */
   rateType?: WorkloadEstimateRateType | undefined;
 
   /**
-   * <p>
-   *                         The timestamp of the pricing rates used for the updated estimate.
-   *                 </p>
+   * <p> The timestamp of the pricing rates used for the updated estimate. </p>
    * @public
    */
   rateTimestamp?: Date | undefined;
 
   /**
-   * <p>
-   *                         The current status of the updated workload estimate.
-   *                 </p>
+   * <p> The current status of the updated workload estimate. </p>
    * @public
    */
   status?: WorkloadEstimateStatus | undefined;
 
   /**
-   * <p>
-   *                         The updated total estimated cost for the workload.
-   *                 </p>
+   * <p> The updated total estimated cost for the workload. </p>
    * @public
    */
   totalCost?: number | undefined;
 
   /**
-   * <p>
-   *                         The currency of the updated estimated cost.
-   *                 </p>
+   * <p> The currency of the updated estimated cost. </p>
    * @public
    */
   costCurrency?: CurrencyCode | undefined;
 
   /**
-   * <p>
-   *                         An error message if the workload estimate update failed.
-   *                 </p>
+   * <p> An error message if the workload estimate update failed. </p>
    * @public
    */
   failureMessage?: string | undefined;
@@ -3864,56 +3088,42 @@ export type BatchCreateWorkloadEstimateUsageCode =
   (typeof BatchCreateWorkloadEstimateUsageCode)[keyof typeof BatchCreateWorkloadEstimateUsageCode];
 
 /**
- * <p>
- *         Represents an error that occurred during a batch create operation for workload estimate usage.
- *         </p>
+ * <p> Represents an error that occurred during a batch create operation for workload estimate usage. </p>
  * @public
  */
 export interface BatchCreateWorkloadEstimateUsageError {
   /**
-   * <p>
-   *         The key of the entry that caused the error.
-   *         </p>
+   * <p> The key of the entry that caused the error. </p>
    * @public
    */
   key?: string | undefined;
 
   /**
-   * <p>
-   *         The error code associated with the failed operation.
-   *         </p>
+   * <p> The error code associated with the failed operation. </p>
    * @public
    */
   errorCode?: BatchCreateWorkloadEstimateUsageCode | undefined;
 
   /**
-   * <p>
-   *         A descriptive message for the error that occurred.
-   *         </p>
+   * <p> A descriptive message for the error that occurred. </p>
    * @public
    */
   errorMessage?: string | undefined;
 }
 
 /**
- * <p>
- *         Represents a usage quantity for a workload estimate.
- *         </p>
+ * <p> Represents a usage quantity for a workload estimate. </p>
  * @public
  */
 export interface WorkloadEstimateUsageQuantity {
   /**
-   * <p>
-   *         The unit of measurement for the usage quantity.
-   *         </p>
+   * <p> The unit of measurement for the usage quantity. </p>
    * @public
    */
   unit?: string | undefined;
 
   /**
-   * <p>
-   *         The numeric value of the usage quantity.
-   *         </p>
+   * <p> The numeric value of the usage quantity. </p>
    * @public
    */
   amount?: number | undefined;
@@ -3939,17 +3149,13 @@ export type WorkloadEstimateCostStatus = (typeof WorkloadEstimateCostStatus)[key
  */
 export interface BatchDeleteWorkloadEstimateUsageRequest {
   /**
-   * <p>
-   *                         The ID of the Workload estimate for which you want to delete the modeled usage.
-   *                 </p>
+   * <p> The ID of the Workload estimate for which you want to delete the modeled usage. </p>
    * @public
    */
   workloadEstimateId: string | undefined;
 
   /**
-   * <p>
-   *                         List of usage that you want to delete from the Workload estimate.
-   *                 </p>
+   * <p> List of usage that you want to delete from the Workload estimate. </p>
    * @public
    */
   ids: string[] | undefined;
@@ -3973,32 +3179,24 @@ export type WorkloadEstimateUpdateUsageErrorCode =
   (typeof WorkloadEstimateUpdateUsageErrorCode)[keyof typeof WorkloadEstimateUpdateUsageErrorCode];
 
 /**
- * <p>
- *                         Represents an error that occurred when deleting usage in a workload estimate.
- *                 </p>
+ * <p> Represents an error that occurred when deleting usage in a workload estimate. </p>
  * @public
  */
 export interface BatchDeleteWorkloadEstimateUsageError {
   /**
-   * <p>
-   *                         The ID of the error.
-   *                 </p>
+   * <p> The ID of the error. </p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>
-   *                         The message that describes the error.
-   *                 </p>
+   * <p> The message that describes the error. </p>
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p>
-   *                         The code associated with the error.
-   *                 </p>
+   * <p> The code associated with the error. </p>
    * @public
    */
   errorCode?: WorkloadEstimateUpdateUsageErrorCode | undefined;
@@ -4009,41 +3207,31 @@ export interface BatchDeleteWorkloadEstimateUsageError {
  */
 export interface BatchDeleteWorkloadEstimateUsageResponse {
   /**
-   * <p>
-   *                         Returns the list of errors reason and the usage item keys that cannot be deleted from the Workload estimate.
-   *                 </p>
+   * <p> Returns the list of errors reason and the usage item keys that cannot be deleted from the Workload estimate. </p>
    * @public
    */
   errors?: BatchDeleteWorkloadEstimateUsageError[] | undefined;
 }
 
 /**
- * <p>
- *         Represents an entry in a batch operation to update workload estimate usage.
- *         </p>
+ * <p> Represents an entry in a batch operation to update workload estimate usage. </p>
  * @public
  */
 export interface BatchUpdateWorkloadEstimateUsageEntry {
   /**
-   * <p>
-   *         The unique identifier of the usage estimate to update.
-   *         </p>
+   * <p> The unique identifier of the usage estimate to update. </p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>
-   *         The updated group identifier for the usage estimate.
-   *         </p>
+   * <p> The updated group identifier for the usage estimate. </p>
    * @public
    */
   group?: string | undefined;
 
   /**
-   * <p>
-   *         The updated estimated usage amount.
-   *         </p>
+   * <p> The updated estimated usage amount. </p>
    * @public
    */
   amount?: number | undefined;
@@ -4054,49 +3242,37 @@ export interface BatchUpdateWorkloadEstimateUsageEntry {
  */
 export interface BatchUpdateWorkloadEstimateUsageRequest {
   /**
-   * <p>
-   *                         The ID of the Workload estimate for which you want to modify the usage lines.
-   *                 </p>
+   * <p> The ID of the Workload estimate for which you want to modify the usage lines. </p>
    * @public
    */
   workloadEstimateId: string | undefined;
 
   /**
-   * <p>
-   *                         List of usage line amounts and usage group that you want to update in a Workload estimate identified by the usage ID.
-   *                 </p>
+   * <p> List of usage line amounts and usage group that you want to update in a Workload estimate identified by the usage ID. </p>
    * @public
    */
   usage: BatchUpdateWorkloadEstimateUsageEntry[] | undefined;
 }
 
 /**
- * <p>
- *                         Represents an error that occurred when updating usage in a workload estimate.
- *                 </p>
+ * <p> Represents an error that occurred when updating usage in a workload estimate. </p>
  * @public
  */
 export interface BatchUpdateWorkloadEstimateUsageError {
   /**
-   * <p>
-   *                         The ID of the error.
-   *                 </p>
+   * <p> The ID of the error. </p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>
-   *                         The message that describes the error.
-   *                 </p>
+   * <p> The message that describes the error. </p>
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p>
-   *                         The code associated with the error.
-   *                 </p>
+   * <p> The code associated with the error. </p>
    * @public
    */
   errorCode?: WorkloadEstimateUpdateUsageErrorCode | undefined;
@@ -4107,800 +3283,595 @@ export interface BatchUpdateWorkloadEstimateUsageError {
  */
 export interface ListWorkloadEstimateUsageRequest {
   /**
-   * <p>
-   *                         The unique identifier of the workload estimate to list usage for.
-   *                 </p>
+   * <p> The unique identifier of the workload estimate to list usage for. </p>
    * @public
    */
   workloadEstimateId: string | undefined;
 
   /**
-   * <p>
-   *                         Filters to apply to the list of usage items.
-   *                 </p>
+   * <p> Filters to apply to the list of usage items. </p>
    * @public
    */
   filters?: ListUsageFilter[] | undefined;
 
   /**
-   * <p>
-   *                         A token to retrieve the next page of results.
-   *                 </p>
+   * <p> A token to retrieve the next page of results. </p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>
-   *                         The maximum number of results to return per page.
-   *                 </p>
+   * <p> The maximum number of results to return per page. </p>
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>
- *         Represents a complex filtering expression for cost and usage data.
- *         </p>
+ * <p> Represents a complex filtering expression for cost and usage data. </p>
  * @public
  */
 export interface Expression {
   /**
-   * <p>
-   *         A list of expressions to be combined with AND logic.
-   *         </p>
+   * <p> A list of expressions to be combined with AND logic. </p>
    * @public
    */
   and?: Expression[] | undefined;
 
   /**
-   * <p>
-   *         A list of expressions to be combined with OR logic.
-   *         </p>
+   * <p> A list of expressions to be combined with OR logic. </p>
    * @public
    */
   or?: Expression[] | undefined;
 
   /**
-   * <p>
-   *         An expression to be negated.
-   *         </p>
+   * <p> An expression to be negated. </p>
    * @public
    */
   not?: Expression | undefined;
 
   /**
-   * <p>
-   *         Filters based on cost categories.
-   *         </p>
+   * <p> Filters based on cost categories. </p>
    * @public
    */
   costCategories?: ExpressionFilter | undefined;
 
   /**
-   * <p>
-   *         Filters based on dimensions (e.g., service, operation).
-   *         </p>
+   * <p> Filters based on dimensions (e.g., service, operation). </p>
    * @public
    */
   dimensions?: ExpressionFilter | undefined;
 
   /**
-   * <p>
-   *         Filters based on resource tags.
-   *         </p>
+   * <p> Filters based on resource tags. </p>
    * @public
    */
   tags?: ExpressionFilter | undefined;
 }
 
 /**
- * <p>
- *         Represents historical usage data for a specific entity.
- *         </p>
+ * <p> Represents historical usage data for a specific entity. </p>
  * @public
  */
 export interface HistoricalUsageEntity {
   /**
-   * <p>
-   *         The Amazon Web Services service code associated with the usage.
-   *         </p>
+   * <p> The Amazon Web Services service code associated with the usage. </p>
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>
-   *         The type of usage.
-   *         </p>
+   * <p> The type of usage. </p>
    * @public
    */
   usageType: string | undefined;
 
   /**
-   * <p>
-   *         The specific operation associated with the usage.
-   *         </p>
+   * <p> The specific operation associated with the usage. </p>
    * @public
    */
   operation: string | undefined;
 
   /**
-   * <p>
-   *         The location associated with the usage.
-   *         </p>
+   * <p> The location associated with the usage. </p>
    * @public
    */
   location?: string | undefined;
 
   /**
-   * <p>
-   *         The Amazon Web Services account ID associated with the usage.
-   *         </p>
+   * <p> The Amazon Web Services account ID associated with the usage. </p>
    * @public
    */
   usageAccountId: string | undefined;
 
   /**
-   * <p>
-   *         The time interval for the historical usage data.
-   *         </p>
+   * <p> The time interval for the historical usage data. </p>
    * @public
    */
   billInterval: BillInterval | undefined;
 
   /**
-   * <p>
-   *         An optional filter expression to apply to the historical usage data.
-   *         </p>
+   * <p> An optional filter expression to apply to the historical usage data. </p>
    * @public
    */
   filterExpression: Expression | undefined;
 }
 
 /**
- * <p>
- *                         Represents an entry in a batch operation to create bill scenario usage modifications.
- *                 </p>
+ * <p> Represents an entry in a batch operation to create bill scenario usage modifications. </p>
  * @public
  */
 export interface BatchCreateBillScenarioUsageModificationEntry {
   /**
-   * <p>
-   *                         The Amazon Web Services service code for this usage modification.
-   *                         This identifies the specific Amazon Web Services service to the customer as
-   *                         a unique short abbreviation. For example, <code>AmazonEC2</code>
-   *                         and <code>AWSKMS</code>.
-   *                 </p>
+   * <p> The Amazon Web Services service code for this usage modification. This identifies the specific Amazon Web Services service to the customer as a unique short abbreviation. For example, <code>AmazonEC2</code> and <code>AWSKMS</code>. </p>
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>
-   *                         Describes the usage details of the usage line item.
-   *                 </p>
+   * <p> Describes the usage details of the usage line item. </p>
    * @public
    */
   usageType: string | undefined;
 
   /**
-   * <p>
-   *                         The specific operation associated with this usage modification.
-   *                         Describes the specific Amazon Web Services operation that this usage line models.
-   *                         For example, <code>RunInstances</code> indicates the operation of an Amazon EC2 instance.
-   *                 </p>
+   * <p> The specific operation associated with this usage modification. Describes the specific Amazon Web Services operation that this usage line models. For example, <code>RunInstances</code> indicates the operation of an Amazon EC2 instance. </p>
    * @public
    */
   operation: string | undefined;
 
   /**
-   * <p>
-   *                         The Availability Zone that this usage line uses.
-   *                 </p>
+   * <p> The Availability Zone that this usage line uses. </p>
    * @public
    */
   availabilityZone?: string | undefined;
 
   /**
-   * <p>
-   *                         A unique identifier for this entry in the batch operation.
-   *                         This can be any valid string. This key is useful to identify errors
-   *                         associated with any usage entry as any error is returned with this key.
-   *                 </p>
+   * <p> A unique identifier for this entry in the batch operation. This can be any valid string. This key is useful to identify errors associated with any usage entry as any error is returned with this key. </p>
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>
-   *                         An optional group identifier for the usage modification.
-   *                 </p>
+   * <p> An optional group identifier for the usage modification. </p>
    * @public
    */
   group?: string | undefined;
 
   /**
-   * <p>
-   *                         The Amazon Web Services account ID to which this usage will be applied to.
-   *                 </p>
+   * <p> The Amazon Web Services account ID to which this usage will be applied to. </p>
    * @public
    */
   usageAccountId: string | undefined;
 
   /**
-   * <p>
-   *                         The amount of usage you want to create for the service use you are modeling.
-   *                 </p>
+   * <p> The amount of usage you want to create for the service use you are modeling. </p>
    * @public
    */
   amounts?: UsageAmount[] | undefined;
 
   /**
-   * <p>
-   *                         Historical usage data associated with this modification, if available.
-   *                 </p>
+   * <p> Historical usage data associated with this modification, if available. </p>
    * @public
    */
   historicalUsage?: HistoricalUsageEntity | undefined;
 }
 
 /**
- * <p>
- *                         Represents a successfully created item in a batch operation for bill scenario usage modifications.
- *                 </p>
+ * <p> Represents a successfully created item in a batch operation for bill scenario usage modifications. </p>
  * @public
  */
 export interface BatchCreateBillScenarioUsageModificationItem {
   /**
-   * <p>
-   *                         The Amazon Web Services service code for this usage modification.
-   *                 </p>
+   * <p> The Amazon Web Services service code for this usage modification. </p>
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>
-   *                         The type of usage that was modified.
-   *                 </p>
+   * <p> The type of usage that was modified. </p>
    * @public
    */
   usageType: string | undefined;
 
   /**
-   * <p>
-   *                         The specific operation associated with this usage modification.
-   *                 </p>
+   * <p> The specific operation associated with this usage modification. </p>
    * @public
    */
   operation: string | undefined;
 
   /**
-   * <p>
-   *                         The location associated with this usage modification.
-   *                 </p>
+   * <p> The location associated with this usage modification. </p>
    * @public
    */
   location?: string | undefined;
 
   /**
-   * <p>
-   *                         The availability zone associated with this usage modification, if applicable.
-   *                 </p>
+   * <p> The availability zone associated with this usage modification, if applicable. </p>
    * @public
    */
   availabilityZone?: string | undefined;
 
   /**
-   * <p>
-   *                         The unique identifier assigned to the created usage modification.
-   *                 </p>
+   * <p> The unique identifier assigned to the created usage modification. </p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>
-   *                         The group identifier for the created usage modification.
-   *                 </p>
+   * <p> The group identifier for the created usage modification. </p>
    * @public
    */
   group?: string | undefined;
 
   /**
-   * <p>
-   *                         The Amazon Web Services account ID associated with the created usage modification.
-   *                 </p>
+   * <p> The Amazon Web Services account ID associated with the created usage modification. </p>
    * @public
    */
   usageAccountId?: string | undefined;
 
   /**
-   * <p>
-   *                         The modified usage quantities.
-   *                 </p>
+   * <p> The modified usage quantities. </p>
    * @public
    */
   quantities?: UsageQuantity[] | undefined;
 
   /**
-   * <p>
-   *                         Historical usage data associated with this modification, if available.
-   *                 </p>
+   * <p> Historical usage data associated with this modification, if available. </p>
    * @public
    */
   historicalUsage?: HistoricalUsageEntity | undefined;
 
   /**
-   * <p>
-   *                         The key of the successfully created entry.
-   *                 </p>
+   * <p> The key of the successfully created entry. </p>
    * @public
    */
   key?: string | undefined;
 }
 
 /**
- * <p>
- *         Represents an entry in a batch operation to create workload estimate usage.
- *         </p>
+ * <p> Represents an entry in a batch operation to create workload estimate usage. </p>
  * @public
  */
 export interface BatchCreateWorkloadEstimateUsageEntry {
   /**
-   * <p>
-   *         The Amazon Web Services service code for this usage estimate.
-   *         </p>
+   * <p> The Amazon Web Services service code for this usage estimate. </p>
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>
-   *         The type of usage being estimated.
-   *         </p>
+   * <p> The type of usage being estimated. </p>
    * @public
    */
   usageType: string | undefined;
 
   /**
-   * <p>
-   *         The specific operation associated with this usage estimate.
-   *         </p>
+   * <p> The specific operation associated with this usage estimate. </p>
    * @public
    */
   operation: string | undefined;
 
   /**
-   * <p>
-   *         A unique identifier for this entry in the batch operation.
-   *         </p>
+   * <p> A unique identifier for this entry in the batch operation. </p>
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>
-   *         An optional group identifier for the usage estimate.
-   *         </p>
+   * <p> An optional group identifier for the usage estimate. </p>
    * @public
    */
   group?: string | undefined;
 
   /**
-   * <p>
-   *         The Amazon Web Services account ID associated with this usage estimate.
-   *         </p>
+   * <p> The Amazon Web Services account ID associated with this usage estimate. </p>
    * @public
    */
   usageAccountId: string | undefined;
 
   /**
-   * <p>
-   *         The estimated usage amount.
-   *         </p>
+   * <p> The estimated usage amount. </p>
    * @public
    */
   amount: number | undefined;
 
   /**
-   * <p>
-   *         Historical usage data associated with this estimate, if available.
-   *         </p>
+   * <p> Historical usage data associated with this estimate, if available. </p>
    * @public
    */
   historicalUsage?: HistoricalUsageEntity | undefined;
 }
 
 /**
- * <p>
- *         Represents a successfully created item in a batch operation for workload estimate usage.
- *         </p>
+ * <p> Represents a successfully created item in a batch operation for workload estimate usage. </p>
  * @public
  */
 export interface BatchCreateWorkloadEstimateUsageItem {
   /**
-   * <p>
-   *         The Amazon Web Services service code for this usage estimate.
-   *         </p>
+   * <p> The Amazon Web Services service code for this usage estimate. </p>
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>
-   *         The type of usage that was estimated.
-   *         </p>
+   * <p> The type of usage that was estimated. </p>
    * @public
    */
   usageType: string | undefined;
 
   /**
-   * <p>
-   *         The specific operation associated with this usage estimate.
-   *         </p>
+   * <p> The specific operation associated with this usage estimate. </p>
    * @public
    */
   operation: string | undefined;
 
   /**
-   * <p>
-   *         The location associated with this usage estimate.
-   *         </p>
+   * <p> The location associated with this usage estimate. </p>
    * @public
    */
   location?: string | undefined;
 
   /**
-   * <p>
-   *         The unique identifier assigned to the created usage estimate.
-   *         </p>
+   * <p> The unique identifier assigned to the created usage estimate. </p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>
-   *         The Amazon Web Services account ID associated with the created usage estimate.
-   *         </p>
+   * <p> The Amazon Web Services account ID associated with the created usage estimate. </p>
    * @public
    */
   usageAccountId?: string | undefined;
 
   /**
-   * <p>
-   *         The group identifier for the created usage estimate.
-   *         </p>
+   * <p> The group identifier for the created usage estimate. </p>
    * @public
    */
   group?: string | undefined;
 
   /**
-   * <p>
-   *         The estimated usage quantity.
-   *         </p>
+   * <p> The estimated usage quantity. </p>
    * @public
    */
   quantity?: WorkloadEstimateUsageQuantity | undefined;
 
   /**
-   * <p>
-   *         The estimated cost associated with this usage.
-   *         </p>
+   * <p> The estimated cost associated with this usage. </p>
    * @public
    */
   cost?: number | undefined;
 
   /**
-   * <p>
-   *         The currency of the estimated cost.
-   *         </p>
+   * <p> The currency of the estimated cost. </p>
    * @public
    */
   currency?: CurrencyCode | undefined;
 
   /**
-   * <p>
-   *         The current status of the created usage estimate.
-   *         </p>
+   * <p> The current status of the created usage estimate. </p>
    * @public
    */
   status?: WorkloadEstimateCostStatus | undefined;
 
   /**
-   * <p>
-   *         Historical usage data associated with this estimate, if available.
-   *         </p>
+   * <p> Historical usage data associated with this estimate, if available. </p>
    * @public
    */
   historicalUsage?: HistoricalUsageEntity | undefined;
 
   /**
-   * <p>
-   *         The key of the successfully created entry.
-   *         </p>
+   * <p> The key of the successfully created entry. </p>
    * @public
    */
   key?: string | undefined;
 }
 
 /**
- * <p>
- *         Summarizes an input usage modification for a bill estimate.
- *         </p>
+ * <p> Summarizes an input usage modification for a bill estimate. </p>
  * @public
  */
 export interface BillEstimateInputUsageModificationSummary {
   /**
-   * <p>
-   *         The Amazon Web Services service code for this usage modification.
-   *         </p>
+   * <p> The Amazon Web Services service code for this usage modification. </p>
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>
-   *         The type of usage being modified.
-   *         </p>
+   * <p> The type of usage being modified. </p>
    * @public
    */
   usageType: string | undefined;
 
   /**
-   * <p>
-   *         The specific operation associated with this usage modification.
-   *         </p>
+   * <p> The specific operation associated with this usage modification. </p>
    * @public
    */
   operation: string | undefined;
 
   /**
-   * <p>
-   *         The location associated with this usage modification.
-   *         </p>
+   * <p> The location associated with this usage modification. </p>
    * @public
    */
   location?: string | undefined;
 
   /**
-   * <p>
-   *         The availability zone associated with this usage modification, if applicable.
-   *         </p>
+   * <p> The availability zone associated with this usage modification, if applicable. </p>
    * @public
    */
   availabilityZone?: string | undefined;
 
   /**
-   * <p>
-   *         The unique identifier of the usage modification.
-   *         </p>
+   * <p> The unique identifier of the usage modification. </p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>
-   *         The group identifier for the usage modification.
-   *         </p>
+   * <p> The group identifier for the usage modification. </p>
    * @public
    */
   group?: string | undefined;
 
   /**
-   * <p>
-   *         The Amazon Web Services account ID associated with this usage modification.
-   *         </p>
+   * <p> The Amazon Web Services account ID associated with this usage modification. </p>
    * @public
    */
   usageAccountId?: string | undefined;
 
   /**
-   * <p>
-   *         The modified usage quantities.
-   *         </p>
+   * <p> The modified usage quantities. </p>
    * @public
    */
   quantities?: UsageQuantity[] | undefined;
 
   /**
-   * <p>
-   *         Historical usage data associated with this modification, if available.
-   *         </p>
+   * <p> Historical usage data associated with this modification, if available. </p>
    * @public
    */
   historicalUsage?: HistoricalUsageEntity | undefined;
 }
 
 /**
- * <p>
- *         Represents a usage modification item in a bill scenario.
- *         </p>
+ * <p> Represents a usage modification item in a bill scenario. </p>
  * @public
  */
 export interface BillScenarioUsageModificationItem {
   /**
-   * <p>
-   *         The Amazon Web Services service code for this usage modification.
-   *         </p>
+   * <p> The Amazon Web Services service code for this usage modification. </p>
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>
-   *         The type of usage being modified.
-   *         </p>
+   * <p> The type of usage being modified. </p>
    * @public
    */
   usageType: string | undefined;
 
   /**
-   * <p>
-   *         The specific operation associated with this usage modification.
-   *         </p>
+   * <p> The specific operation associated with this usage modification. </p>
    * @public
    */
   operation: string | undefined;
 
   /**
-   * <p>
-   *         The location associated with this usage modification.
-   *         </p>
+   * <p> The location associated with this usage modification. </p>
    * @public
    */
   location?: string | undefined;
 
   /**
-   * <p>
-   *         The availability zone associated with this usage modification, if applicable.
-   *         </p>
+   * <p> The availability zone associated with this usage modification, if applicable. </p>
    * @public
    */
   availabilityZone?: string | undefined;
 
   /**
-   * <p>
-   *         The unique identifier of the usage modification.
-   *         </p>
+   * <p> The unique identifier of the usage modification. </p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>
-   *         The group identifier for the usage modification.
-   *         </p>
+   * <p> The group identifier for the usage modification. </p>
    * @public
    */
   group?: string | undefined;
 
   /**
-   * <p>
-   *         The Amazon Web Services account ID associated with this usage modification.
-   *         </p>
+   * <p> The Amazon Web Services account ID associated with this usage modification. </p>
    * @public
    */
   usageAccountId?: string | undefined;
 
   /**
-   * <p>
-   *         The modified usage quantities.
-   *         </p>
+   * <p> The modified usage quantities. </p>
    * @public
    */
   quantities?: UsageQuantity[] | undefined;
 
   /**
-   * <p>
-   *         Historical usage data associated with this modification, if available.
-   *         </p>
+   * <p> Historical usage data associated with this modification, if available. </p>
    * @public
    */
   historicalUsage?: HistoricalUsageEntity | undefined;
 }
 
 /**
- * <p>
- *         Represents a usage item in a workload estimate.
- *         </p>
+ * <p> Represents a usage item in a workload estimate. </p>
  * @public
  */
 export interface WorkloadEstimateUsageItem {
   /**
-   * <p>
-   *         The Amazon Web Services service code associated with this usage item.
-   *         </p>
+   * <p> The Amazon Web Services service code associated with this usage item. </p>
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>
-   *         The type of usage for this item.
-   *         </p>
+   * <p> The type of usage for this item. </p>
    * @public
    */
   usageType: string | undefined;
 
   /**
-   * <p>
-   *         The specific operation associated with this usage item.
-   *         </p>
+   * <p> The specific operation associated with this usage item. </p>
    * @public
    */
   operation: string | undefined;
 
   /**
-   * <p>
-   *         The location associated with this usage item.
-   *         </p>
+   * <p> The location associated with this usage item. </p>
    * @public
    */
   location?: string | undefined;
 
   /**
-   * <p>
-   *         The unique identifier of this usage item.
-   *         </p>
+   * <p> The unique identifier of this usage item. </p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>
-   *         The Amazon Web Services account ID associated with this usage item.
-   *         </p>
+   * <p> The Amazon Web Services account ID associated with this usage item. </p>
    * @public
    */
   usageAccountId?: string | undefined;
 
   /**
-   * <p>
-   *         The group identifier for this usage item.
-   *         </p>
+   * <p> The group identifier for this usage item. </p>
    * @public
    */
   group?: string | undefined;
 
   /**
-   * <p>
-   *         The estimated usage quantity for this item.
-   *         </p>
+   * <p> The estimated usage quantity for this item. </p>
    * @public
    */
   quantity?: WorkloadEstimateUsageQuantity | undefined;
 
   /**
-   * <p>
-   *         The estimated cost for this usage item.
-   *         </p>
+   * <p> The estimated cost for this usage item. </p>
    * @public
    */
   cost?: number | undefined;
 
   /**
-   * <p>
-   *         The currency of the estimated cost.
-   *         </p>
+   * <p> The currency of the estimated cost. </p>
    * @public
    */
   currency?: CurrencyCode | undefined;
 
   /**
-   * <p>
-   *         The current status of this usage item.
-   *         </p>
+   * <p> The current status of this usage item. </p>
    * @public
    */
   status?: WorkloadEstimateCostStatus | undefined;
 
   /**
-   * <p>
-   *         Historical usage data associated with this item, if available.
-   *         </p>
+   * <p> Historical usage data associated with this item, if available. </p>
    * @public
    */
   historicalUsage?: HistoricalUsageEntity | undefined;
@@ -4911,25 +3882,19 @@ export interface WorkloadEstimateUsageItem {
  */
 export interface BatchCreateBillScenarioUsageModificationRequest {
   /**
-   * <p>
-   *                         The ID of the Bill Scenario for which you want to create the modeled usage.
-   *                 </p>
+   * <p> The ID of the Bill Scenario for which you want to create the modeled usage. </p>
    * @public
    */
   billScenarioId: string | undefined;
 
   /**
-   * <p>
-   *                         List of usage that you want to model in the Bill Scenario.
-   *                 </p>
+   * <p> List of usage that you want to model in the Bill Scenario. </p>
    * @public
    */
   usageModifications: BatchCreateBillScenarioUsageModificationEntry[] | undefined;
 
   /**
-   * <p>
-   *                         A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   *                 </p>
+   * <p> A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. </p>
    * @public
    */
   clientToken?: string | undefined;
@@ -4940,17 +3905,13 @@ export interface BatchCreateBillScenarioUsageModificationRequest {
  */
 export interface BatchCreateBillScenarioUsageModificationResponse {
   /**
-   * <p>
-   *                         Returns the list of successful usage line items that were created for the Bill Scenario.
-   *                 </p>
+   * <p> Returns the list of successful usage line items that were created for the Bill Scenario. </p>
    * @public
    */
   items?: BatchCreateBillScenarioUsageModificationItem[] | undefined;
 
   /**
-   * <p>
-   *                         Returns the list of errors reason and the usage item keys that cannot be created in the Bill Scenario.
-   *                 </p>
+   * <p> Returns the list of errors reason and the usage item keys that cannot be created in the Bill Scenario. </p>
    * @public
    */
   errors?: BatchCreateBillScenarioUsageModificationError[] | undefined;
@@ -4961,25 +3922,19 @@ export interface BatchCreateBillScenarioUsageModificationResponse {
  */
 export interface BatchCreateWorkloadEstimateUsageRequest {
   /**
-   * <p>
-   *                         The ID of the Workload estimate for which you want to create the modeled usage.
-   *                 </p>
+   * <p> The ID of the Workload estimate for which you want to create the modeled usage. </p>
    * @public
    */
   workloadEstimateId: string | undefined;
 
   /**
-   * <p>
-   *                         List of usage that you want to model in the Workload estimate.
-   *                 </p>
+   * <p> List of usage that you want to model in the Workload estimate. </p>
    * @public
    */
   usage: BatchCreateWorkloadEstimateUsageEntry[] | undefined;
 
   /**
-   * <p>
-   *                         A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   *                 </p>
+   * <p> A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. </p>
    * @public
    */
   clientToken?: string | undefined;
@@ -4990,17 +3945,13 @@ export interface BatchCreateWorkloadEstimateUsageRequest {
  */
 export interface BatchCreateWorkloadEstimateUsageResponse {
   /**
-   * <p>
-   *                         Returns the list of successful usage line items that were created for the Workload estimate.
-   *                 </p>
+   * <p> Returns the list of successful usage line items that were created for the Workload estimate. </p>
    * @public
    */
   items?: BatchCreateWorkloadEstimateUsageItem[] | undefined;
 
   /**
-   * <p>
-   *                         Returns the list of errors reason and the usage item keys that cannot be created in the Workload estimate.
-   *                 </p>
+   * <p> Returns the list of errors reason and the usage item keys that cannot be created in the Workload estimate. </p>
    * @public
    */
   errors?: BatchCreateWorkloadEstimateUsageError[] | undefined;
@@ -5011,17 +3962,13 @@ export interface BatchCreateWorkloadEstimateUsageResponse {
  */
 export interface BatchUpdateBillScenarioUsageModificationResponse {
   /**
-   * <p>
-   *                         Returns the list of successful usage line items that were updated for a Bill Scenario.
-   *                 </p>
+   * <p> Returns the list of successful usage line items that were updated for a Bill Scenario. </p>
    * @public
    */
   items?: BillScenarioUsageModificationItem[] | undefined;
 
   /**
-   * <p>
-   *                         Returns the list of error reasons and usage line item IDs that could not be updated for the Bill Scenario.
-   *                 </p>
+   * <p> Returns the list of error reasons and usage line item IDs that could not be updated for the Bill Scenario. </p>
    * @public
    */
   errors?: BatchUpdateBillScenarioUsageModificationError[] | undefined;
@@ -5032,17 +3979,13 @@ export interface BatchUpdateBillScenarioUsageModificationResponse {
  */
 export interface BatchUpdateWorkloadEstimateUsageResponse {
   /**
-   * <p>
-   *                         Returns the list of successful usage line items that were updated for a Workload estimate.
-   *                 </p>
+   * <p> Returns the list of successful usage line items that were updated for a Workload estimate. </p>
    * @public
    */
   items?: WorkloadEstimateUsageItem[] | undefined;
 
   /**
-   * <p>
-   *                         Returns the list of error reasons and usage line item IDs that could not be updated for the Workload estimate.
-   *                 </p>
+   * <p> Returns the list of error reasons and usage line item IDs that could not be updated for the Workload estimate. </p>
    * @public
    */
   errors?: BatchUpdateWorkloadEstimateUsageError[] | undefined;
@@ -5053,17 +3996,13 @@ export interface BatchUpdateWorkloadEstimateUsageResponse {
  */
 export interface ListBillEstimateInputUsageModificationsResponse {
   /**
-   * <p>
-   *                         The list of input usage modifications associated with the bill estimate.
-   *                 </p>
+   * <p> The list of input usage modifications associated with the bill estimate. </p>
    * @public
    */
   items?: BillEstimateInputUsageModificationSummary[] | undefined;
 
   /**
-   * <p>
-   *                         A token to retrieve the next page of results, if any.
-   *                 </p>
+   * <p> A token to retrieve the next page of results, if any. </p>
    * @public
    */
   nextToken?: string | undefined;
@@ -5074,17 +4013,13 @@ export interface ListBillEstimateInputUsageModificationsResponse {
  */
 export interface ListBillScenarioUsageModificationsResponse {
   /**
-   * <p>
-   *                         The list of usage modifications associated with the bill scenario.
-   *                 </p>
+   * <p> The list of usage modifications associated with the bill scenario. </p>
    * @public
    */
   items?: BillScenarioUsageModificationItem[] | undefined;
 
   /**
-   * <p>
-   *                         A token to retrieve the next page of results, if any.
-   *                 </p>
+   * <p> A token to retrieve the next page of results, if any. </p>
    * @public
    */
   nextToken?: string | undefined;
@@ -5095,17 +4030,13 @@ export interface ListBillScenarioUsageModificationsResponse {
  */
 export interface ListWorkloadEstimateUsageResponse {
   /**
-   * <p>
-   *                         The list of usage items associated with the workload estimate.
-   *                 </p>
+   * <p> The list of usage items associated with the workload estimate. </p>
    * @public
    */
   items?: WorkloadEstimateUsageItem[] | undefined;
 
   /**
-   * <p>
-   *                         A token to retrieve the next page of results, if any.
-   *                 </p>
+   * <p> A token to retrieve the next page of results, if any. </p>
    * @public
    */
   nextToken?: string | undefined;
