@@ -31,7 +31,7 @@
     "@aws-sdk/types": "*",
     "@smithy/property-provider": "^4.0.2",
     "@smithy/shared-ini-file-loader": "^4.0.2",
-    "@smithy/types": "^4.2.0",
+    "@smithy/types": "^4.3.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
