@@ -22,7 +22,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/eventstream-codec": "^4.0.2",
+    "@smithy/eventstream-codec": "^4.0.3",
     "@smithy/types": "^4.3.0",
     "tslib": "^2.6.2"
   },
