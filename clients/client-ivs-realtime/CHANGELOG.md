@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.820.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.819.0...v3.820.0) (2025-05-29)
+
+
+### Features
+
+* **client-ivs-realtime:** IVS Real-Time now offers customers the participant replication that allow customers to copy a participant from one stage to another. ([ae07662](https://github.com/aws/aws-sdk-js-v3/commit/ae076622987ed875d2fa5e2dc152042ec8897107))
+
+
+
+
+
 # [3.817.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.816.0...v3.817.0) (2025-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-ivs-realtime

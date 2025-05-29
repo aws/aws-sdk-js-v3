@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.820.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.819.0...v3.820.0) (2025-05-29)
+
+
+### Features
+
+* **client-mwaa:** Amazon MWAA now lets you choose a worker replacement strategy when updating an environment. This release adds two worker replacement strategies: FORCED (default), which stops workers immediately, and GRACEFUL, which allows workers to finish current tasks before shutting down. ([3ccfc39](https://github.com/aws/aws-sdk-js-v3/commit/3ccfc39ed3b7ddf2fb5b109a0fe4b7bdd9d2da16))
+
+
+
+
+
 # [3.817.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.816.0...v3.817.0) (2025-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-mwaa

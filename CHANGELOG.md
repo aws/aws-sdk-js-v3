@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.820.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.819.0...v3.820.0) (2025-05-29)
+
+
+### Features
+
+* **client-amplify:** Add support for customizable build instance sizes. CreateApp and UpdateApp operations now accept a new JobConfig parameter composed of BuildComputeType. ([092c952](https://github.com/aws/aws-sdk-js-v3/commit/092c95293b787e8f054e961a0117b9ab234873e9))
+* **client-auto-scaling:** Add support for "apple" CpuManufacturer in ABIS ([5d8aaf7](https://github.com/aws/aws-sdk-js-v3/commit/5d8aaf7a7c8339c569f1115771def6a4518df6d0))
+* **client-bcm-pricing-calculator:** Add AFTER_DISCOUNTS_AND_COMMITMENTS to Workload Estimate Rate Type. Set ListWorkLoadEstimateUsage maxResults range to minimum of 0 and maximum of 300. ([1e8cdb0](https://github.com/aws/aws-sdk-js-v3/commit/1e8cdb0c5198320fdcdf95bdb823175da2d6ddc1))
+* **client-cloudtrail:** CloudTrail Feature Release: Support for Enriched Events with Configurable Context for Event Data Store ([cd1e9a0](https://github.com/aws/aws-sdk-js-v3/commit/cd1e9a084d28fffdc648d529b9a407de62655127))
+* **client-connect:** Amazon Connect Service Feature: Email Recipient Limit Increase ([f3932ee](https://github.com/aws/aws-sdk-js-v3/commit/f3932ee086993cdb6d768323e52c7ef3fe7731ec))
+* **client-dataexchange:** This release adds Tag support for Event Action resource, through which customers can create event actions with Tags and retrieve event actions with Tags. ([0e347c5](https://github.com/aws/aws-sdk-js-v3/commit/0e347c5c0916e9f50e45e5d90da756bb64115a77))
+* **client-datasync:** AgentArns field is made optional for Object Storage and Azure Blob location create requests. Location credentials are now managed via Secrets Manager, and may be encrypted with service managed or customer managed keys. Authentication is now optional for Azure Blob locations. ([2e6785c](https://github.com/aws/aws-sdk-js-v3/commit/2e6785ce3846fc3ebeca77769191ce70f5134577))
+* **client-fsx:** FSx API changes to support the public launch of new Intelligent Tiering storage class on Amazon FSx for Lustre ([92e6ce0](https://github.com/aws/aws-sdk-js-v3/commit/92e6ce03b9a218877edcddd0fe5565756b639bd1))
+* **client-ivs-realtime:** IVS Real-Time now offers customers the participant replication that allow customers to copy a participant from one stage to another. ([ae07662](https://github.com/aws/aws-sdk-js-v3/commit/ae076622987ed875d2fa5e2dc152042ec8897107))
+* **client-mwaa:** Amazon MWAA now lets you choose a worker replacement strategy when updating an environment. This release adds two worker replacement strategies: FORCED (default), which stops workers immediately, and GRACEFUL, which allows workers to finish current tasks before shutting down. ([3ccfc39](https://github.com/aws/aws-sdk-js-v3/commit/3ccfc39ed3b7ddf2fb5b109a0fe4b7bdd9d2da16))
+* **client-s3:** Adding checksum support for S3 PutBucketOwnershipControls API. ([542663c](https://github.com/aws/aws-sdk-js-v3/commit/542663c4d784834ba1067293b804c78fcdd08ba4))
+* **client-sagemaker:** Add maintenance status field to DescribeMlflowTrackingServer API response ([3ed9c12](https://github.com/aws/aws-sdk-js-v3/commit/3ed9c12976cf6f0dc86aad8c0d2660a4aee578fd))
+
+
+
+
+
 # [3.819.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.818.0...v3.819.0) (2025-05-28)
 
 

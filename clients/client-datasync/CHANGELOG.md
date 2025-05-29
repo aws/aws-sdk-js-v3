@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.820.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.819.0...v3.820.0) (2025-05-29)
+
+
+### Features
+
+* **client-datasync:** AgentArns field is made optional for Object Storage and Azure Blob location create requests. Location credentials are now managed via Secrets Manager, and may be encrypted with service managed or customer managed keys. Authentication is now optional for Azure Blob locations. ([2e6785c](https://github.com/aws/aws-sdk-js-v3/commit/2e6785ce3846fc3ebeca77769191ce70f5134577))
+
+
+
+
+
 # [3.817.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.816.0...v3.817.0) (2025-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-datasync

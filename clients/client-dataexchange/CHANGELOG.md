@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.820.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.819.0...v3.820.0) (2025-05-29)
+
+
+### Features
+
+* **client-dataexchange:** This release adds Tag support for Event Action resource, through which customers can create event actions with Tags and retrieve event actions with Tags. ([0e347c5](https://github.com/aws/aws-sdk-js-v3/commit/0e347c5c0916e9f50e45e5d90da756bb64115a77))
+
+
+
+
+
 # [3.817.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.816.0...v3.817.0) (2025-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-dataexchange
