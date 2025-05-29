@@ -127,9 +127,8 @@ export type CacheConfigType = (typeof CacheConfigType)[keyof typeof CacheConfigT
 
 /**
  * <p>Describes the cache configuration for an Amplify app.</p>
- *          <p>For more
- *             information about how Amplify applies an optimal cache configuration for
- *             your app based on the type of content that is being served, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/managing-cache-configuration">Managing cache configuration</a> in the <i>Amplify User
+ *          <p>For more information about how Amplify applies an optimal cache
+ *             configuration for your app based on the type of content that is being served, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/managing-cache-configuration">Managing cache configuration</a> in the <i>Amplify User
  *                 guide</i>.</p>
  * @public
  */
@@ -139,7 +138,9 @@ export interface CacheConfig {
    *          <p>The <code>AMPLIFY_MANAGED</code> cache configuration automatically applies an
    *             optimized cache configuration for your app based on its platform, routing rules, and
    *             rewrite rules. This is the default setting.</p>
-   *          <p>The <code>AMPLIFY_MANAGED_NO_COOKIES</code> cache configuration type is the same as <code>AMPLIFY_MANAGED</code>, except that it excludes all cookies from the cache key.</p>
+   *          <p>The <code>AMPLIFY_MANAGED_NO_COOKIES</code> cache configuration type is the same as
+   *                 <code>AMPLIFY_MANAGED</code>, except that it excludes all cookies from the cache
+   *             key.</p>
    * @public
    */
   type: CacheConfigType | undefined;
@@ -202,6 +203,85 @@ export interface CustomRule {
  * @public
  * @enum
  */
+export const BuildComputeType = {
+  LARGE_16GB: "LARGE_16GB",
+  STANDARD_8GB: "STANDARD_8GB",
+  XLARGE_72GB: "XLARGE_72GB",
+} as const;
+
+/**
+ * @public
+ */
+export type BuildComputeType = (typeof BuildComputeType)[keyof typeof BuildComputeType];
+
+/**
+ * <p>Describes the configuration details that apply to the jobs for an Amplify app.</p>
+ *          <p>Use <code>JobConfig</code> to apply configuration to jobs, such as customizing the build instance size when you create or
+ *             update an Amplify app. For more information about customizable build
+ *             instances, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/custom-build-instance.html">Custom build instances</a> in the <i>Amplify User Guide</i>.</p>
+ * @public
+ */
+export interface JobConfig {
+  /**
+   * <p>Specifies the size of the build instance. Amplify supports three
+   *             instance sizes: <code>STANDARD_8GB</code>, <code>LARGE_16GB</code>, and
+   *                 <code>XLARGE_72GB</code>. If you don't specify a value, Amplify uses
+   *             the <code>STANDARD_8GB</code> default.</p>
+   *          <p>The following list describes the CPU, memory, and storage capacity for each build
+   *             instance type:</p>
+   *          <dl>
+   *             <dt>STANDARD_8GB</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>vCPUs: 4</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Memory: 8 GiB</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Disk space: 128 GB</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *             <dt>LARGE_16GB</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>vCPUs: 8</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Memory: 16 GiB</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Disk space: 128 GB</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *             <dt>XLARGE_72GB</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>vCPUs: 36</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Memory: 72 GiB</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Disk space: 256 GB</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  buildComputeType: BuildComputeType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const Platform = {
   WEB: "WEB",
   WEB_COMPUTE: "WEB_COMPUTE",
@@ -244,24 +324,24 @@ export interface CreateAppRequest {
    *          <p>If you are deploying an SSG only app with Next.js version 14 or later, you must set
    *             the platform type to <code>WEB_COMPUTE</code> and set the artifacts
    *                 <code>baseDirectory</code> to <code>.next</code> in the application's build
-   *             settings. For an example of the build specification settings, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14">Amplify build
-   *                 settings for a Next.js 14 SSG application</a> in the <i>Amplify Hosting User Guide</i>.</p>
+   *             settings. For an example of the build specification settings, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14">Amplify build settings for a Next.js 14 SSG application</a> in the
+   *                 <i>Amplify Hosting User Guide</i>.</p>
    * @public
    */
   platform?: Platform | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to assign to an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
-   *             based on the role's permissions. For more information about the SSR Compute role, see
-   *                 <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
-   *                 Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to assign to an SSR app.
+   *             The SSR Compute role allows the Amplify Hosting compute service to
+   *             securely access specific Amazon Web Services resources based on the role's permissions.
+   *             For more information about the SSR Compute role, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute
+   *                 role</a> in the <i>Amplify User Guide</i>.</p>
    * @public
    */
   computeRoleArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name
-   *             (ARN) of the IAM service role for the Amplify app.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM service role for the Amplify app.</p>
    * @public
    */
   iamServiceRoleArn?: string | undefined;
@@ -380,6 +460,12 @@ export interface CreateAppRequest {
   autoBranchCreationConfig?: AutoBranchCreationConfig | undefined;
 
   /**
+   * <p>Describes the configuration details that apply to the jobs for an Amplify app.</p>
+   * @public
+   */
+  jobConfig?: JobConfig | undefined;
+
+  /**
    * <p>The cache configuration for the Amplify app.</p>
    * @public
    */
@@ -451,9 +537,9 @@ export type WafStatus = (typeof WafStatus)[keyof typeof WafStatus];
 /**
  * <p>Describes the Firewall configuration for a hosted Amplify application.
  *             Firewall support enables you to protect your web applications with a direct integration
- *             with WAF. For more information about using WAF protections for an Amplify application, see
- *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/WAF-integration.html">Firewall support for hosted sites</a> in the <i>Amplify
- *                     User Guide</i>. </p>
+ *             with WAF. For more information about using WAF protections
+ *             for an Amplify application, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/WAF-integration.html">Firewall support for hosted
+ *                 sites</a> in the <i>Amplify User Guide</i>. </p>
  * @public
  */
 export interface WafConfiguration {
@@ -542,17 +628,17 @@ export interface App {
   updateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
-   *             based on the role's permissions. For more information about the SSR Compute role, see
-   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
-   *                     Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role for an SSR app. The
+   *             Compute role allows the Amplify Hosting compute service to securely
+   *             access specific Amazon Web Services resources based on the role's permissions. For more
+   *             information about the SSR Compute role, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute
+   *                 role</a> in the <i>Amplify User Guide</i>.</p>
    * @public
    */
   computeRoleArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name
-   *             (ARN) of the IAM service role for the Amplify app.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM service role for the Amplify app.</p>
    * @public
    */
   iamServiceRoleArn?: string | undefined;
@@ -664,17 +750,25 @@ export interface App {
   cacheConfig?: CacheConfig | undefined;
 
   /**
-   * <p>A timestamp of when Amplify created the webhook in your Git repository.</p>
+   * <p>A timestamp of when Amplify created the webhook in your Git
+   *             repository.</p>
    * @public
    */
   webhookCreateTime?: Date | undefined;
 
   /**
-   * <p>Describes the Firewall configuration for the Amplify app. Firewall support enables you to protect your hosted applications with a direct integration
-   *             with WAF.</p>
+   * <p>Describes the Firewall configuration for the Amplify app. Firewall
+   *             support enables you to protect your hosted applications with a direct integration with
+   *                 WAF.</p>
    * @public
    */
   wafConfiguration?: WafConfiguration | undefined;
+
+  /**
+   * <p>The configuration details that apply to the jobs for an Amplify app.</p>
+   * @public
+   */
+  jobConfig?: JobConfig | undefined;
 }
 
 /**
@@ -802,8 +896,8 @@ export interface CreateBackendEnvironmentRequest {
 /**
  * <p>Describes the backend environment associated with a <code>Branch</code> of a Gen 1
  *                 Amplify app. Amplify Gen 1 applications are created
- *             using Amplify Studio or the Amplify command line
- *             interface (CLI).</p>
+ *             using Amplify Studio or the Amplify command line interface
+ *             (CLI).</p>
  * @public
  */
 export interface BackendEnvironment {
@@ -882,9 +976,9 @@ export class NotFoundException extends __BaseException {
 /**
  * <p>Describes the backend associated with an Amplify
  *             <code>Branch</code>.</p>
- *          <p>This property is available to Amplify Gen 2 apps only. When you deploy an application with
- *             Amplify Gen 2, you provision the app's backend infrastructure using Typescript
- *             code.</p>
+ *          <p>This property is available to Amplify Gen 2 apps only. When you deploy
+ *             an application with Amplify Gen 2, you provision the app's backend infrastructure using
+ *             Typescript code.</p>
  * @public
  */
 export interface Backend {
@@ -944,11 +1038,12 @@ export interface CreateBranchRequest {
 
   /**
    * <p>Specifies whether the skew protection feature is enabled for the branch.</p>
-   *          <p>Deployment skew protection is available to Amplify applications to eliminate version skew
-   *             issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version
-   *             of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see
-   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html">Skew protection for Amplify deployments</a> in the <i>Amplify User
-   *                     Guide</i>.</p>
+   *          <p>Deployment skew protection is available to Amplify applications to
+   *             eliminate version skew issues between client and servers in web applications. When you
+   *             apply skew protection to a branch, you can ensure that your clients always interact with
+   *             the correct version of server-side assets, regardless of when a deployment occurs. For
+   *             more information about skew protection, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html">Skew protection for Amplify deployments</a> in the <i>Amplify User
+   *                 Guide</i>.</p>
    * @public
    */
   enableSkewProtection?: boolean | undefined;
@@ -1019,11 +1114,11 @@ export interface CreateBranchRequest {
   pullRequestEnvironmentName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for a backend environment that is part of a Gen 1 Amplify
-   *             app. </p>
-   *          <p>This field is available to Amplify Gen 1 apps only where the
-   *             backend is created using Amplify Studio or the Amplify
-   *             command line interface (CLI).</p>
+   * <p>The Amazon Resource Name (ARN) for a backend environment that is part of a Gen 1
+   *             Amplify app. </p>
+   *          <p>This field is available to Amplify Gen 1 apps only where the backend is
+   *             created using Amplify Studio or the Amplify command line
+   *             interface (CLI).</p>
    * @public
    */
   backendEnvironmentArn?: string | undefined;
@@ -1031,18 +1126,19 @@ export interface CreateBranchRequest {
   /**
    * <p>The backend for a <code>Branch</code> of an Amplify app. Use for a
    *             backend created from an CloudFormation stack.</p>
-   *          <p>This field is available to Amplify Gen 2 apps only. When you deploy an application with
-   *             Amplify Gen 2, you provision the app's backend infrastructure using Typescript
-   *             code.</p>
+   *          <p>This field is available to Amplify Gen 2 apps only. When you deploy an
+   *             application with Amplify Gen 2, you provision the app's backend infrastructure using
+   *             Typescript code.</p>
    * @public
    */
   backend?: Backend | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
-   *             based on the role's permissions. For more information about the SSR Compute role, see
-   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
-   *                     Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to assign to a branch of
+   *             an SSR app. The SSR Compute role allows the Amplify Hosting compute
+   *             service to securely access specific Amazon Web Services resources based on the role's
+   *             permissions. For more information about the SSR Compute role, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *                 Guide</i>.</p>
    * @public
    */
   computeRoleArn?: string | undefined;
@@ -1121,11 +1217,12 @@ export interface Branch {
 
   /**
    * <p>Specifies whether the skew protection feature is enabled for the branch.</p>
-   *          <p>Deployment skew protection is available to Amplify applications to eliminate version skew
-   *             issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version
-   *             of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see
-   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html">Skew protection for Amplify deployments</a> in the <i>Amplify User
-   *                     Guide</i>.</p>
+   *          <p>Deployment skew protection is available to Amplify applications to
+   *             eliminate version skew issues between client and servers in web applications. When you
+   *             apply skew protection to a branch, you can ensure that your clients always interact with
+   *             the correct version of server-side assets, regardless of when a deployment occurs. For
+   *             more information about skew protection, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html">Skew protection for Amplify deployments</a> in the <i>Amplify User
+   *                 Guide</i>.</p>
    * @public
    */
   enableSkewProtection?: boolean | undefined;
@@ -1228,9 +1325,9 @@ export interface Branch {
 
   /**
    * <p> The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app. </p>
-   *          <p>This property is available to Amplify Gen 1 apps only. When you deploy an application with
-   *             Amplify Gen 2, you provision the app's backend infrastructure using Typescript
-   *             code.</p>
+   *          <p>This property is available to Amplify Gen 1 apps only. When you deploy
+   *             an application with Amplify Gen 2, you provision the app's backend infrastructure using
+   *             Typescript code.</p>
    * @public
    */
   backendEnvironmentArn?: string | undefined;
@@ -1238,18 +1335,19 @@ export interface Branch {
   /**
    * <p>Describes the backend associated with an Amplify
    *             <code>Branch</code>.</p>
-   *          <p>This property is available to Amplify Gen 2 apps only. When you deploy an application with
-   *             Amplify Gen 2, you provision the app's backend infrastructure using Typescript
-   *             code.</p>
+   *          <p>This property is available to Amplify Gen 2 apps only. When you deploy
+   *             an application with Amplify Gen 2, you provision the app's backend infrastructure using
+   *             Typescript code.</p>
    * @public
    */
   backend?: Backend | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role for a branch of an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
-   *             based on the role's permissions. For more information about the SSR Compute role, see
-   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
-   *                     Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role for a branch of an SSR
+   *             app. The Compute role allows the Amplify Hosting compute service to
+   *             securely access specific Amazon Web Services resources based on the role's permissions.
+   *             For more information about the SSR Compute role, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute
+   *                 role</a> in the <i>Amplify User Guide</i>.</p>
    * @public
    */
   computeRoleArn?: string | undefined;
@@ -1738,13 +1836,15 @@ export interface Webhook {
   description: string | undefined;
 
   /**
-   * <p>A timestamp of when Amplify created the webhook in your Git repository.</p>
+   * <p>A timestamp of when Amplify created the webhook in your Git
+   *             repository.</p>
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>A timestamp of when Amplify updated the webhook in your Git repository.</p>
+   * <p>A timestamp of when Amplify updated the webhook in your Git
+   *             repository.</p>
    * @public
    */
   updateTime: Date | undefined;
@@ -2005,27 +2105,30 @@ export interface JobSummary {
 
   /**
    * <p> The type for the job. If the value is <code>RELEASE</code>, the job was manually
-   *             released from its source by using the <code>StartJob</code> API. This value is available only for apps
-   *             that are connected to a repository.</p>
-   *          <p>If the value is <code>RETRY</code>, the job was manually retried using the <code>StartJob</code>
-   *             API. If the value is <code>WEB_HOOK</code>, the job was automatically triggered by
-   *             webhooks. If the value is <code>MANUAL</code>, the job is for a manually deployed app. Manually deployed apps are not connected to a Git repository.</p>
+   *             released from its source by using the <code>StartJob</code> API. This value is available
+   *             only for apps that are connected to a repository.</p>
+   *          <p>If the value is <code>RETRY</code>, the job was manually retried using the
+   *                 <code>StartJob</code> API. If the value is <code>WEB_HOOK</code>, the job was
+   *             automatically triggered by webhooks. If the value is <code>MANUAL</code>, the job is for
+   *             a manually deployed app. Manually deployed apps are not connected to a Git
+   *             repository.</p>
    * @public
    */
   jobType: JobType | undefined;
 
   /**
-   * <p>The source URL for the files to deploy. The source URL can be either an HTTP GET URL that is publicly accessible and
-   *             downloads a single .zip file, or an Amazon S3 bucket and prefix.</p>
+   * <p>The source URL for the files to deploy. The source URL can be either an HTTP GET URL
+   *             that is publicly accessible and downloads a single .zip file, or an Amazon S3
+   *             bucket and prefix.</p>
    * @public
    */
   sourceUrl?: string | undefined;
 
   /**
-   * <p>The type of source specified by the <code>sourceURL</code>.
-   *             If the value is <code>ZIP</code>, the source is a .zip file.
-   *             If the value is <code>BUCKET_PREFIX</code>, the source is an Amazon S3 bucket and
-   *             prefix. If no value is specified, the default is <code>ZIP</code>.</p>
+   * <p>The type of source specified by the <code>sourceURL</code>. If the value is
+   *                 <code>ZIP</code>, the source is a .zip file. If the value is
+   *                 <code>BUCKET_PREFIX</code>, the source is an Amazon S3 bucket and prefix. If
+   *             no value is specified, the default is <code>ZIP</code>.</p>
    * @public
    */
   sourceUrlType?: SourceUrlType | undefined;
@@ -2820,23 +2923,26 @@ export interface StartDeploymentRequest {
   branchName: string | undefined;
 
   /**
-   * <p>The job ID for this deployment that is generated by the <code>CreateDeployment</code> request. </p>
+   * <p>The job ID for this deployment that is generated by the <code>CreateDeployment</code>
+   *             request. </p>
    * @public
    */
   jobId?: string | undefined;
 
   /**
-   * <p>The source URL for the deployment that is used when calling <code>StartDeployment</code> without <code>CreateDeployment</code>. The source URL can be either an HTTP GET URL that is publicly accessible and
-   *             downloads a single .zip file, or an Amazon S3 bucket and prefix.</p>
+   * <p>The source URL for the deployment that is used when calling
+   *                 <code>StartDeployment</code> without <code>CreateDeployment</code>. The source URL
+   *             can be either an HTTP GET URL that is publicly accessible and downloads a single .zip
+   *             file, or an Amazon S3 bucket and prefix.</p>
    * @public
    */
   sourceUrl?: string | undefined;
 
   /**
-   * <p>The type of source specified by the <code>sourceURL</code>.
-   *             If the value is <code>ZIP</code>, the source is a .zip file.
-   *             If the value is <code>BUCKET_PREFIX</code>, the source is an Amazon S3 bucket and
-   *             prefix. If no value is specified, the default is <code>ZIP</code>.</p>
+   * <p>The type of source specified by the <code>sourceURL</code>. If the value is
+   *                 <code>ZIP</code>, the source is a .zip file. If the value is
+   *                 <code>BUCKET_PREFIX</code>, the source is an Amazon S3 bucket and prefix. If
+   *             no value is specified, the default is <code>ZIP</code>.</p>
    * @public
    */
   sourceUrlType?: SourceUrlType | undefined;
@@ -3044,17 +3150,17 @@ export interface UpdateAppRequest {
   platform?: Platform | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to assign to an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
-   *             based on the role's permissions. For more information about the SSR Compute role, see
-   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
-   *                     Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to assign to an SSR app.
+   *             The SSR Compute role allows the Amplify Hosting compute service to
+   *             securely access specific Amazon Web Services resources based on the role's permissions.
+   *             For more information about the SSR Compute role, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute
+   *                 role</a> in the <i>Amplify User Guide</i>.</p>
    * @public
    */
   computeRoleArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name
-   *             (ARN) of the IAM service role for the Amplify app.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM service role for the Amplify app.</p>
    * @public
    */
   iamServiceRoleArn?: string | undefined;
@@ -3169,6 +3275,12 @@ export interface UpdateAppRequest {
   accessToken?: string | undefined;
 
   /**
+   * <p>Describes the configuration details that apply to the jobs for an Amplify app.</p>
+   * @public
+   */
+  jobConfig?: JobConfig | undefined;
+
+  /**
    * <p>The cache configuration for the Amplify app.</p>
    * @public
    */
@@ -3236,11 +3348,12 @@ export interface UpdateBranchRequest {
 
   /**
    * <p>Specifies whether the skew protection feature is enabled for the branch.</p>
-   *          <p>Deployment skew protection is available to Amplify applications to eliminate version skew
-   *             issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version
-   *             of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see
-   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html">Skew protection for Amplify deployments</a> in the <i>Amplify User
-   *                     Guide</i>.</p>
+   *          <p>Deployment skew protection is available to Amplify applications to
+   *             eliminate version skew issues between client and servers in web applications. When you
+   *             apply skew protection to a branch, you can ensure that your clients always interact with
+   *             the correct version of server-side assets, regardless of when a deployment occurs. For
+   *             more information about skew protection, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html">Skew protection for Amplify deployments</a> in the <i>Amplify User
+   *                 Guide</i>.</p>
    * @public
    */
   enableSkewProtection?: boolean | undefined;
@@ -3305,11 +3418,11 @@ export interface UpdateBranchRequest {
   pullRequestEnvironmentName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for a backend environment that is part of a Gen 1 Amplify
-   *             app. </p>
-   *          <p>This field is available to Amplify Gen 1 apps only where the
-   *             backend is created using Amplify Studio or the Amplify
-   *             command line interface (CLI).</p>
+   * <p>The Amazon Resource Name (ARN) for a backend environment that is part of a Gen 1
+   *             Amplify app. </p>
+   *          <p>This field is available to Amplify Gen 1 apps only where the backend is
+   *             created using Amplify Studio or the Amplify command line
+   *             interface (CLI).</p>
    * @public
    */
   backendEnvironmentArn?: string | undefined;
@@ -3317,18 +3430,19 @@ export interface UpdateBranchRequest {
   /**
    * <p>The backend for a <code>Branch</code> of an Amplify app. Use for a
    *             backend created from an CloudFormation stack.</p>
-   *          <p>This field is available to Amplify Gen 2 apps only. When you deploy an application with
-   *             Amplify Gen 2, you provision the app's backend infrastructure using Typescript
-   *             code.</p>
+   *          <p>This field is available to Amplify Gen 2 apps only. When you deploy an
+   *             application with Amplify Gen 2, you provision the app's backend infrastructure using
+   *             Typescript code.</p>
    * @public
    */
   backend?: Backend | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
-   *             based on the role's permissions. For more information about the SSR Compute role, see
-   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
-   *                     Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to assign to a branch of
+   *             an SSR app. The SSR Compute role allows the Amplify Hosting compute
+   *             service to securely access specific Amazon Web Services resources based on the role's
+   *             permissions. For more information about the SSR Compute role, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *                 Guide</i>.</p>
    * @public
    */
   computeRoleArn?: string | undefined;

@@ -105,6 +105,7 @@ import {
   DependentServiceFailureException,
   InternalFailureException,
   Job,
+  JobConfig,
   JobSummary,
   LimitExceededException,
   NotFoundException,
@@ -147,6 +148,7 @@ export const se_CreateAppCommand = async (
       enableBranchAutoDeletion: [],
       environmentVariables: (_) => _json(_),
       iamServiceRoleArn: [],
+      jobConfig: (_) => _json(_),
       name: [],
       oauthToken: [],
       platform: [],
@@ -844,6 +846,7 @@ export const se_UpdateAppCommand = async (
       enableBranchAutoDeletion: [],
       environmentVariables: (_) => _json(_),
       iamServiceRoleArn: [],
+      jobConfig: (_) => _json(_),
       name: [],
       oauthToken: [],
       platform: [],
@@ -1923,6 +1926,8 @@ const de_UnauthorizedExceptionRes = async (
 
 // se_FileMap omitted.
 
+// se_JobConfig omitted.
+
 // se_SubDomainSetting omitted.
 
 // se_SubDomainSettings omitted.
@@ -1953,6 +1958,7 @@ const de_App = (output: any, context: __SerdeContext): App => {
     enableBranchAutoDeletion: __expectBoolean,
     environmentVariables: _json,
     iamServiceRoleArn: __expectString,
+    jobConfig: _json,
     name: __expectString,
     platform: __expectString,
     productionBranch: (_: any) => de_ProductionBranch(_, context),
@@ -2094,6 +2100,8 @@ const de_Job = (output: any, context: __SerdeContext): Job => {
     summary: (_: any) => de_JobSummary(_, context),
   }) as any;
 };
+
+// de_JobConfig omitted.
 
 /**
  * deserializeAws_restJson1JobSummaries

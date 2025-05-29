@@ -107,6 +107,9 @@ export interface GetAppCommandOutput extends GetAppResult, __MetadataBearer {}
  * //       wafStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ASSOCIATION_SUCCESS" || "DISASSOCIATING" || "DISASSOCIATION_FAILED",
  * //       statusReason: "STRING_VALUE",
  * //     },
+ * //     jobConfig: { // JobConfig
+ * //       buildComputeType: "STANDARD_8GB" || "LARGE_16GB" || "XLARGE_72GB", // required
+ * //     },
  * //   },
  * // };
  *

@@ -85,6 +85,9 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  *   repository: "STRING_VALUE",
  *   oauthToken: "STRING_VALUE",
  *   accessToken: "STRING_VALUE",
+ *   jobConfig: { // JobConfig
+ *     buildComputeType: "STANDARD_8GB" || "LARGE_16GB" || "XLARGE_72GB", // required
+ *   },
  *   cacheConfig: { // CacheConfig
  *     type: "AMPLIFY_MANAGED" || "AMPLIFY_MANAGED_NO_COOKIES", // required
  *   },
@@ -157,6 +160,9 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  * //       webAclArn: "STRING_VALUE",
  * //       wafStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ASSOCIATION_SUCCESS" || "DISASSOCIATING" || "DISASSOCIATION_FAILED",
  * //       statusReason: "STRING_VALUE",
+ * //     },
+ * //     jobConfig: { // JobConfig
+ * //       buildComputeType: "STANDARD_8GB" || "LARGE_16GB" || "XLARGE_72GB", // required
  * //     },
  * //   },
  * // };
