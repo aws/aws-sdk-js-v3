@@ -88,7 +88,7 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  *                 Max: Number("int"),
  *               },
  *               CpuManufacturers: [ // CpuManufacturers
- *                 "intel" || "amd" || "amazon-web-services",
+ *                 "intel" || "amd" || "amazon-web-services" || "apple",
  *               ],
  *               MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
  *                 Min: Number("double"),

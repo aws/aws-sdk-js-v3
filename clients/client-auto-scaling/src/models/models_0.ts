@@ -1353,6 +1353,7 @@ export type BurstablePerformance = (typeof BurstablePerformance)[keyof typeof Bu
 export const CpuManufacturer = {
   AMAZON_WEB_SERVICES: "amazon-web-services",
   AMD: "amd",
+  APPLE: "apple",
   INTEL: "intel",
 } as const;
 
@@ -1450,7 +1451,7 @@ export interface MemoryMiBRequest {
  *                 the minimum bandwidth. Amazon EC2 will identify instance types that support the specified
  *                 minimum bandwidth, but the actual bandwidth of your instance might go below the
  *                 specified minimum at times. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth">Available instance bandwidth</a> in the
- *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ *                 <i>Amazon EC2 User Guide</i>.</p>
  *          </note>
  * @public
  */
@@ -1557,7 +1558,7 @@ export interface VCpuCountRequest {
  *                 selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For help determining
  *             which instance types match your attributes before you apply them to your Auto Scaling group, see
  *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements">Preview instance types with specified attributes</a> in the
- *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ *             <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface InstanceRequirements {
@@ -1585,6 +1586,10 @@ export interface InstanceRequirements {
    *             <li>
    *                <p>For instance types with Amazon Web Services CPUs, specify
    *                     <code>amazon-web-services</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Apple CPUs, specify
+   *                     <code>apple</code>.</p>
    *             </li>
    *          </ul>
    *          <note>
@@ -1630,7 +1635,7 @@ export interface InstanceRequirements {
    *                     current generation includes EC2 instance types currently recommended for use.
    *                     This typically includes the latest two to three generations in each instance
    *                     family. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in
-   *                     the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                     the <i>Amazon EC2 User Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>For previous generation instance types, specify <code>previous</code>.</p>
@@ -1726,7 +1731,7 @@ export interface InstanceRequirements {
   /**
    * <p>Indicates whether burstable performance instance types are included, excluded, or
    *             required. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
-   *                 performance instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>Default: <code>excluded</code>
    *          </p>
    * @public
@@ -1752,7 +1757,7 @@ export interface InstanceRequirements {
   /**
    * <p>Indicates whether instance types with instance store volumes are included, excluded,
    *             or required. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon EC2 instance store</a> in
-   *             the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>Default: <code>included</code>
    *          </p>
    * @public
@@ -1786,7 +1791,7 @@ export interface InstanceRequirements {
   /**
    * <p>The minimum and maximum baseline bandwidth performance for an instance type, in Mbps.
    *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon EBS–optimized instances</a>
-   *             in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             in the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>Default: No minimum or maximum limits</p>
    * @public
    */
@@ -1946,7 +1951,7 @@ export interface LaunchTemplateOverrides {
   /**
    * <p>The instance type, such as <code>m3.xlarge</code>. You must specify an instance type
    *             that is supported in your requested Region and Availability Zones. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>You can specify up to 40 instance types per Auto Scaling group.</p>
    * @public
    */
@@ -2243,7 +2248,7 @@ export interface CreateAutoScalingGroupType {
   /**
    * <p>The name of the placement group into which to launch your instances. For more
    *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    *          <note>
    *             <p>A <i>cluster</i> placement group is a logical grouping of instances
    *                 within a single Availability Zone. You cannot specify multiple Availability Zones
@@ -2555,7 +2560,7 @@ export interface BlockDeviceMapping {
   /**
    * <p>The device name assigned to the volume (for example, <code>/dev/sdh</code> or
    *                 <code>xvdh</code>). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html">Device naming on Linux
-   *                 instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <note>
    *             <p>To define a block device mapping, set the device name and exactly one of the
    *                 following properties: <code>Ebs</code>, <code>NoDevice</code>, or
@@ -2681,7 +2686,7 @@ export interface CreateLaunchConfigurationType {
   /**
    * <p>The ID of the Amazon Machine Image (AMI) that was assigned during registration. For
    *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Find a Linux AMI</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    *          <p>If you specify <code>InstanceId</code>, an <code>ImageId</code> is not
    *             required.</p>
    * @public
@@ -2690,7 +2695,7 @@ export interface CreateLaunchConfigurationType {
 
   /**
    * <p>The name of the key pair. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs and Amazon EC2
-   *                 instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   KeyName?: string | undefined;
@@ -2741,7 +2746,7 @@ export interface CreateLaunchConfigurationType {
   /**
    * <p>Specifies the instance type of the EC2 instance. For information about available
    *             instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">Available
-   *                 instance types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                 instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>If you specify <code>InstanceId</code>, an <code>InstanceType</code> is not
    *             required.</p>
    * @public
@@ -2753,7 +2758,7 @@ export interface CreateLaunchConfigurationType {
    *          <note>
    *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
    *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">User provided
-   *                     kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                     kernels</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          </note>
    * @public
    */
@@ -2764,7 +2769,7 @@ export interface CreateLaunchConfigurationType {
    *          <note>
    *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
    *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">User provided
-   *                     kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                     kernels</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          </note>
    * @public
    */
@@ -2774,7 +2779,7 @@ export interface CreateLaunchConfigurationType {
    * <p>The block device mapping entries that define the block devices to attach to the
    *             instances at launch. By default, the block devices specified in the block device mapping
    *             for the AMI are used. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block device
-   *                 mappings</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                 mappings</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   BlockDeviceMappings?: BlockDeviceMapping[] | undefined;
@@ -2826,7 +2831,7 @@ export interface CreateLaunchConfigurationType {
    *             performance. This optimization is not available with all instance types. Additional fees
    *             are incurred when you enable EBS optimization for an instance type that is not
    *             EBS-optimized by default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon EBS-optimized instances</a>
-   *             in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             in the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>The default value is <code>false</code>.</p>
    * @public
    */
@@ -4603,7 +4608,7 @@ export interface LaunchConfiguration {
   /**
    * <p>The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances. For more
    *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Find a Linux AMI</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ImageId: string | undefined;
@@ -4611,7 +4616,7 @@ export interface LaunchConfiguration {
   /**
    * <p>The name of the key pair.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs and Amazon EC2
-   *                 instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   KeyName?: string | undefined;
@@ -4639,8 +4644,8 @@ export interface LaunchConfiguration {
 
   /**
    * <p>The user data to make available to the launched EC2 instances. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> (Linux) and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html">Instance metadata and
-   *                 user data</a> (Windows). If you are using a command line tool, base64-encoding
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the <i>Amazon EC2 User Guide</i>.
+   *             If you are using a command line tool, base64-encoding
    *             is performed for you, and you can load the text from a file. Otherwise, you must provide
    *             base64-encoded text. User data is limited to 16 KB.</p>
    * @public
@@ -4650,7 +4655,7 @@ export interface LaunchConfiguration {
   /**
    * <p>The instance type for the instances. For information about available instance types,
    *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">Available
-   *                 instance types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                 instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   InstanceType: string | undefined;
@@ -4671,7 +4676,7 @@ export interface LaunchConfiguration {
    * <p>The block device mapping entries that define the block devices to attach to the
    *             instances at launch. By default, the block devices specified in the block device mapping
    *             for the AMI are used. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block device
-   *                 mappings</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                 mappings</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   BlockDeviceMappings?: BlockDeviceMapping[] | undefined;
@@ -4713,7 +4718,7 @@ export interface LaunchConfiguration {
   /**
    * <p>Specifies whether the launch configuration is optimized for EBS I/O
    *             (<code>true</code>) or not (<code>false</code>). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon EBS-optimized instances</a> in the
-   *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   EbsOptimized?: boolean | undefined;
@@ -8498,7 +8503,7 @@ export interface UpdateAutoScalingGroupType {
   /**
    * <p>The name of an existing placement group into which to launch your instances. To remove the placement group setting, pass an empty string for <code>placement-group</code>. For more
    *             information about placement groups, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    *          <note>
    *             <p>A <i>cluster</i> placement group is a logical grouping of instances
    *                 within a single Availability Zone. You cannot specify multiple Availability Zones
