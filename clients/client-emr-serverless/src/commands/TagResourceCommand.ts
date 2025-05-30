@@ -28,11 +28,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Assigns tags to resources. A tag is a label that you assign to an Amazon Web Services
- *          resource. Each tag consists of a key and an optional value, both of which you define. Tags
- *          enable you to categorize your Amazon Web Services resources by attributes such as purpose,
- *          owner, or environment. When you have many resources of the same type, you can quickly
- *          identify a specific resource based on the tags you've assigned to it. </p>
+ * <p>Assigns tags to resources. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value, both of which you define. Tags enable you to categorize your Amazon Web Services resources by attributes such as purpose, owner, or environment. When you have many resources of the same type, you can quickly identify a specific resource based on the tags you've assigned to it. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +60,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>The specified resource was not found.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *          service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>

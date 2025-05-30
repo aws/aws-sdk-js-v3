@@ -73,6 +73,7 @@ import {
   JobDriver,
   JobRun,
   JobRunAttemptSummary,
+  JobRunExecutionIamPolicy,
   JobRunSummary,
   ManagedPersistenceMonitoringConfiguration,
   MaximumAllowedResources,
@@ -335,6 +336,7 @@ export const se_StartJobRunCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       configurationOverrides: (_) => se_ConfigurationOverrides(_, context),
+      executionIamPolicy: (_) => _json(_),
       executionRoleArn: [],
       executionTimeoutMinutes: [],
       jobDriver: (_) => _json(_),
@@ -948,6 +950,8 @@ const se_ConfigurationOverrides = (input: ConfigurationOverrides, context: __Ser
 
 // se_JobDriver omitted.
 
+// se_JobRunExecutionIamPolicy omitted.
+
 // se_LogTypeList omitted.
 
 // se_LogTypeMap omitted.
@@ -959,6 +963,8 @@ const se_ConfigurationOverrides = (input: ConfigurationOverrides, context: __Ser
 // se_MonitoringConfiguration omitted.
 
 // se_NetworkConfiguration omitted.
+
+// se_PolicyArnList omitted.
 
 // se_PrometheusMonitoringConfiguration omitted.
 
