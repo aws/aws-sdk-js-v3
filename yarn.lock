@@ -22475,6 +22475,7 @@ __metadata:
   resolution: "@aws-sdk/core@workspace:packages/core"
   dependencies:
     "@aws-sdk/types": "npm:*"
+    "@aws-sdk/xml-builder": "npm:*"
     "@smithy/core": "npm:^3.5.1"
     "@smithy/node-config-provider": "npm:^4.1.3"
     "@smithy/property-provider": "npm:^4.0.4"
@@ -22482,7 +22483,10 @@ __metadata:
     "@smithy/signature-v4": "npm:^5.1.2"
     "@smithy/smithy-client": "npm:^4.4.1"
     "@smithy/types": "npm:^4.3.1"
+    "@smithy/util-base64": "npm:^4.0.0"
+    "@smithy/util-body-length-browser": "npm:^4.0.0"
     "@smithy/util-middleware": "npm:^4.0.4"
+    "@smithy/util-utf8": "npm:^4.0.0"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
