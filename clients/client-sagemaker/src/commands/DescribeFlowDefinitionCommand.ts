@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeFlowDefinitionRequest, DescribeFlowDefinitionResponse } from "../models/models_2";
+import { DescribeFlowDefinitionRequest } from "../models/models_2";
+import { DescribeFlowDefinitionResponse } from "../models/models_3";
 import { de_DescribeFlowDefinitionCommand, se_DescribeFlowDefinitionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

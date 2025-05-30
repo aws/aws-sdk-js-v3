@@ -283,6 +283,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *       ProjectId: "STRING_VALUE",
  *       EnvironmentId: "STRING_VALUE",
  *       ProjectS3Path: "STRING_VALUE",
+ *       SingleSignOnApplicationArn: "STRING_VALUE",
  *     },
  *   },
  *   AppSecurityGroupManagement: "Service" || "Customer",

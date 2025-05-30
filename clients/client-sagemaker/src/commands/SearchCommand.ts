@@ -898,6 +898,21 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             RoutingConfig: { // ProductionVariantRoutingConfig
  * //               RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
  * //             },
+ * //             CapacityReservationConfig: { // ProductionVariantCapacityReservationSummary
+ * //               MlReservationArn: "STRING_VALUE",
+ * //               CapacityReservationPreference: "capacity-reservations-only",
+ * //               TotalInstanceCount: Number("int"),
+ * //               AvailableInstanceCount: Number("int"),
+ * //               UsedByCurrentEndpoint: Number("int"),
+ * //               Ec2CapacityReservations: [ // Ec2CapacityReservationsList
+ * //                 { // Ec2CapacityReservation
+ * //                   Ec2CapacityReservationId: "STRING_VALUE",
+ * //                   TotalInstanceCount: Number("int"),
+ * //                   AvailableInstanceCount: Number("int"),
+ * //                   UsedByCurrentEndpoint: Number("int"),
+ * //                 },
+ * //               ],
+ * //             },
  * //           },
  * //         ],
  * //         DataCaptureConfig: { // DataCaptureConfigSummary
@@ -1077,6 +1092,21 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             },
  * //             RoutingConfig: {
  * //               RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
+ * //             },
+ * //             CapacityReservationConfig: {
+ * //               MlReservationArn: "STRING_VALUE",
+ * //               CapacityReservationPreference: "capacity-reservations-only",
+ * //               TotalInstanceCount: Number("int"),
+ * //               AvailableInstanceCount: Number("int"),
+ * //               UsedByCurrentEndpoint: Number("int"),
+ * //               Ec2CapacityReservations: [
+ * //                 {
+ * //                   Ec2CapacityReservationId: "STRING_VALUE",
+ * //                   TotalInstanceCount: Number("int"),
+ * //                   AvailableInstanceCount: Number("int"),
+ * //                   UsedByCurrentEndpoint: Number("int"),
+ * //                 },
+ * //               ],
  * //             },
  * //           },
  * //         ],

@@ -42,6 +42,7 @@ import {
   Bias,
   BlueGreenUpdatePolicy,
   CanvasAppSettings,
+  CapacityReservationPreference,
   CapacitySize,
   CaptureContentTypeHeader,
   CaptureOption,
@@ -74,8 +75,8 @@ import {
   MetricDefinition,
   MetricsSource,
   ModelApprovalStatus,
+  ModelCacheSetting,
   ModelDataSource,
-  MultiModelConfig,
   OutputDataConfig,
   ProblemType,
   ProcessingS3DataDistributionType,
@@ -96,6 +97,18 @@ import {
 } from "./models_0";
 
 import { SageMakerServiceException as __BaseException } from "./SageMakerServiceException";
+
+/**
+ * <p>Specifies additional configuration for hosting multi-model endpoints.</p>
+ * @public
+ */
+export interface MultiModelConfig {
+  /**
+   * <p>Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to <code>Disabled</code>.</p>
+   * @public
+   */
+  ModelCacheSetting?: ModelCacheSetting | undefined;
+}
 
 /**
  * <p>Describes the container, as part of model definition.</p>
@@ -2877,6 +2890,12 @@ export interface UnifiedStudioSettings {
    * @public
    */
   ProjectS3Path?: string | undefined;
+
+  /**
+   * <p>The ARN of the application managed by SageMaker AI and SageMaker Unified Studio in the Amazon Web Services IAM Identity Center.</p>
+   * @public
+   */
+  SingleSignOnApplicationArn?: string | undefined;
 }
 
 /**
@@ -3440,6 +3459,24 @@ export type ProductionVariantAcceleratorType =
   (typeof ProductionVariantAcceleratorType)[keyof typeof ProductionVariantAcceleratorType];
 
 /**
+ * <p>Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. </p>
+ * @public
+ */
+export interface ProductionVariantCapacityReservationConfig {
+  /**
+   * <p>Options that you can choose for the capacity reservation. SageMaker AI supports the following options:</p> <dl> <dt>capacity-reservations-only</dt> <dd> <p>SageMaker AI launches instances only into an ML capacity reservation. If no capacity is available, the instances fail to launch.</p> </dd> </dl>
+   * @public
+   */
+  CapacityReservationPreference?: CapacityReservationPreference | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.</p>
+   * @public
+   */
+  MlReservationArn?: string | undefined;
+}
+
+/**
  * <p>Specifies configuration for a core dump from the model container when the process crashes.</p>
  * @public
  */
@@ -3657,6 +3694,12 @@ export interface ProductionVariant {
    * @public
    */
   InferenceAmiVersion?: ProductionVariantInferenceAmiVersion | undefined;
+
+  /**
+   * <p>Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. </p>
+   * @public
+   */
+  CapacityReservationConfig?: ProductionVariantCapacityReservationConfig | undefined;
 }
 
 /**
@@ -7973,66 +8016,6 @@ export interface CreateModelQualityJobDefinitionResponse {
    * @public
    */
   JobDefinitionArn: string | undefined;
-}
-
-/**
- * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.</p>
- * @public
- */
-export interface MonitoringBaselineConfig {
-  /**
-   * <p>The name of the job that performs baselining for the monitoring job.</p>
-   * @public
-   */
-  BaseliningJobName?: string | undefined;
-
-  /**
-   * <p>The baseline constraint file in Amazon S3 that the current monitoring job should validated against.</p>
-   * @public
-   */
-  ConstraintsResource?: MonitoringConstraintsResource | undefined;
-
-  /**
-   * <p>The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.</p>
-   * @public
-   */
-  StatisticsResource?: MonitoringStatisticsResource | undefined;
-}
-
-/**
- * <p>Container image configuration object for the monitoring job.</p>
- * @public
- */
-export interface MonitoringAppSpecification {
-  /**
-   * <p>The container image to be run by the monitoring job.</p>
-   * @public
-   */
-  ImageUri: string | undefined;
-
-  /**
-   * <p>Specifies the entrypoint for a container used to run the monitoring job.</p>
-   * @public
-   */
-  ContainerEntrypoint?: string[] | undefined;
-
-  /**
-   * <p>An array of arguments for the container used to run the monitoring job.</p>
-   * @public
-   */
-  ContainerArguments?: string[] | undefined;
-
-  /**
-   * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flattened JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.</p>
-   * @public
-   */
-  RecordPreprocessorSourceUri?: string | undefined;
-
-  /**
-   * <p>An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.</p>
-   * @public
-   */
-  PostAnalyticsProcessorSourceUri?: string | undefined;
 }
 
 /**

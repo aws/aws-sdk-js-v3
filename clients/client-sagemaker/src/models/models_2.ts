@@ -38,6 +38,7 @@ import {
   BatchDataCaptureConfig,
   BatchStrategy,
   BatchTransformInput,
+  CapacityReservationPreference,
   CaptureStatus,
   Channel,
   CheckpointConfig,
@@ -95,20 +96,16 @@ import {
   ExplainerConfig,
   FeatureDefinition,
   FeatureType,
-  FlowDefinitionOutputConfig,
-  HumanLoopActivationConfig,
-  HumanLoopConfig,
-  HumanLoopRequestSource,
   InputConfig,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
   MetadataProperties,
   ModelDeployConfig,
-  MonitoringAppSpecification,
-  MonitoringBaselineConfig,
+  MonitoringConstraintsResource,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
+  MonitoringStatisticsResource,
   MonitoringStoppingCondition,
   NeoVpcConfig,
   OfflineStoreConfig,
@@ -128,6 +125,66 @@ import {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.</p>
+ * @public
+ */
+export interface MonitoringBaselineConfig {
+  /**
+   * <p>The name of the job that performs baselining for the monitoring job.</p>
+   * @public
+   */
+  BaseliningJobName?: string | undefined;
+
+  /**
+   * <p>The baseline constraint file in Amazon S3 that the current monitoring job should validated against.</p>
+   * @public
+   */
+  ConstraintsResource?: MonitoringConstraintsResource | undefined;
+
+  /**
+   * <p>The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.</p>
+   * @public
+   */
+  StatisticsResource?: MonitoringStatisticsResource | undefined;
+}
+
+/**
+ * <p>Container image configuration object for the monitoring job.</p>
+ * @public
+ */
+export interface MonitoringAppSpecification {
+  /**
+   * <p>The container image to be run by the monitoring job.</p>
+   * @public
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * <p>Specifies the entrypoint for a container used to run the monitoring job.</p>
+   * @public
+   */
+  ContainerEntrypoint?: string[] | undefined;
+
+  /**
+   * <p>An array of arguments for the container used to run the monitoring job.</p>
+   * @public
+   */
+  ContainerArguments?: string[] | undefined;
+
+  /**
+   * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flattened JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.</p>
+   * @public
+   */
+  RecordPreprocessorSourceUri?: string | undefined;
+
+  /**
+   * <p>An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.</p>
+   * @public
+   */
+  PostAnalyticsProcessorSourceUri?: string | undefined;
+}
 
 /**
  * <p>The inputs for a monitoring job.</p>
@@ -6963,6 +7020,78 @@ export interface PendingDeploymentSummary {
 }
 
 /**
+ * <p>The EC2 capacity reservations that are shared to an ML capacity reservation.</p>
+ * @public
+ */
+export interface Ec2CapacityReservation {
+  /**
+   * <p>The unique identifier for an EC2 capacity reservation that's part of the ML capacity reservation.</p>
+   * @public
+   */
+  Ec2CapacityReservationId?: string | undefined;
+
+  /**
+   * <p>The number of instances that you allocated to the EC2 capacity reservation.</p>
+   * @public
+   */
+  TotalInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances that are currently available in the EC2 capacity reservation.</p>
+   * @public
+   */
+  AvailableInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances from the EC2 capacity reservation that are being used by the endpoint.</p>
+   * @public
+   */
+  UsedByCurrentEndpoint?: number | undefined;
+}
+
+/**
+ * <p>Details about an ML capacity reservation.</p>
+ * @public
+ */
+export interface ProductionVariantCapacityReservationSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.</p>
+   * @public
+   */
+  MlReservationArn?: string | undefined;
+
+  /**
+   * <p>The option that you chose for the capacity reservation. SageMaker AI supports the following options:</p> <dl> <dt>capacity-reservations-only</dt> <dd> <p>SageMaker AI launches instances only into an ML capacity reservation. If no capacity is available, the instances fail to launch.</p> </dd> </dl>
+   * @public
+   */
+  CapacityReservationPreference?: CapacityReservationPreference | undefined;
+
+  /**
+   * <p>The number of instances that you allocated to the ML capacity reservation.</p>
+   * @public
+   */
+  TotalInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances that are currently available in the ML capacity reservation.</p>
+   * @public
+   */
+  AvailableInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances from the ML capacity reservation that are being used by the endpoint.</p>
+   * @public
+   */
+  UsedByCurrentEndpoint?: number | undefined;
+
+  /**
+   * <p>The EC2 capacity reservations that are shared to this ML capacity reservation, if any.</p>
+   * @public
+   */
+  Ec2CapacityReservations?: Ec2CapacityReservation[] | undefined;
+}
+
+/**
  * <p>Describes weight and capacities for a production variant associated with an endpoint. If you sent a request to the <code>UpdateEndpointWeightsAndCapacities</code> API and the endpoint status is <code>Updating</code>, you get different desired and current values. </p>
  * @public
  */
@@ -7032,6 +7161,12 @@ export interface ProductionVariantSummary {
    * @public
    */
   RoutingConfig?: ProductionVariantRoutingConfig | undefined;
+
+  /**
+   * <p>Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. </p>
+   * @public
+   */
+  CapacityReservationConfig?: ProductionVariantCapacityReservationSummary | undefined;
 }
 
 /**
@@ -7634,117 +7769,6 @@ export interface DescribeFlowDefinitionRequest {
    */
   FlowDefinitionName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FlowDefinitionStatus = {
-  ACTIVE: "Active",
-  DELETING: "Deleting",
-  FAILED: "Failed",
-  INITIALIZING: "Initializing",
-} as const;
-
-/**
- * @public
- */
-export type FlowDefinitionStatus = (typeof FlowDefinitionStatus)[keyof typeof FlowDefinitionStatus];
-
-/**
- * @public
- */
-export interface DescribeFlowDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow defintion.</p>
-   * @public
-   */
-  FlowDefinitionArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow definition.</p>
-   * @public
-   */
-  FlowDefinitionName: string | undefined;
-
-  /**
-   * <p>The status of the flow definition. Valid values are listed below.</p>
-   * @public
-   */
-  FlowDefinitionStatus: FlowDefinitionStatus | undefined;
-
-  /**
-   * <p>The timestamp when the flow definition was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Container for configuring the source of human task requests. Used to specify if Amazon Rekognition or Amazon Textract is used as an integration source.</p>
-   * @public
-   */
-  HumanLoopRequestSource?: HumanLoopRequestSource | undefined;
-
-  /**
-   * <p>An object containing information about what triggers a human review workflow.</p>
-   * @public
-   */
-  HumanLoopActivationConfig?: HumanLoopActivationConfig | undefined;
-
-  /**
-   * <p>An object containing information about who works on the task, the workforce task price, and other task details.</p>
-   * @public
-   */
-  HumanLoopConfig?: HumanLoopConfig | undefined;
-
-  /**
-   * <p>An object containing information about the output file.</p>
-   * @public
-   */
-  OutputConfig: FlowDefinitionOutputConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) execution role for the flow definition.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The reason your flow definition failed.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHubRequest {
-  /**
-   * <p>The name of the hub to describe.</p>
-   * @public
-   */
-  HubName: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const HubStatus = {
-  CREATE_FAILED: "CreateFailed",
-  CREATING: "Creating",
-  DELETE_FAILED: "DeleteFailed",
-  DELETING: "Deleting",
-  IN_SERVICE: "InService",
-  UPDATE_FAILED: "UpdateFailed",
-  UPDATING: "Updating",
-} as const;
-
-/**
- * @public
- */
-export type HubStatus = (typeof HubStatus)[keyof typeof HubStatus];
 
 /**
  * @internal

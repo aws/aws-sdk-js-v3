@@ -5561,6 +5561,20 @@ export interface CanvasAppSettings {
  * @public
  * @enum
  */
+export const CapacityReservationPreference = {
+  CAPACITY_RESERVATIONS_ONLY: "capacity-reservations-only",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationPreference =
+  (typeof CapacityReservationPreference)[keyof typeof CapacityReservationPreference];
+
+/**
+ * @public
+ * @enum
+ */
 export const NodeUnavailabilityType = {
   CAPACITY_PERCENTAGE: "CAPACITY_PERCENTAGE",
   INSTANCE_COUNT: "INSTANCE_COUNT",
@@ -7689,15 +7703,3 @@ export const ModelCacheSetting = {
  * @public
  */
 export type ModelCacheSetting = (typeof ModelCacheSetting)[keyof typeof ModelCacheSetting];
-
-/**
- * <p>Specifies additional configuration for hosting multi-model endpoints.</p>
- * @public
- */
-export interface MultiModelConfig {
-  /**
-   * <p>Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to <code>Disabled</code>.</p>
-   * @public
-   */
-  ModelCacheSetting?: ModelCacheSetting | undefined;
-}

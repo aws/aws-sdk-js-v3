@@ -34,11 +34,7 @@ import {
   ClusterSchedulerConfigSummary,
   ClusterSortBy,
   ClusterSummary,
-  CodeRepositorySortBy,
-  CodeRepositorySortOrder,
-  CodeRepositorySummary,
   CognitoConfig,
-  CompilationJobStatus,
   InferenceSpecification,
   ModelApprovalStatus,
   ModelPackageStatus,
@@ -68,7 +64,11 @@ import {
   ExecutionRoleIdentityConfig,
   FeatureDefinition,
   FeatureType,
+  FlowDefinitionOutputConfig,
   HubS3StorageConfig,
+  HumanLoopActivationConfig,
+  HumanLoopConfig,
+  HumanLoopRequestSource,
   HumanTaskConfig,
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningJobConfig,
@@ -145,9 +145,7 @@ import {
   ExperimentSource,
   FeatureGroupStatus,
   FeatureParameter,
-  FlowDefinitionStatus,
   HubContentType,
-  HubStatus,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
   LastUpdateStatus,
@@ -193,6 +191,117 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const FlowDefinitionStatus = {
+  ACTIVE: "Active",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  INITIALIZING: "Initializing",
+} as const;
+
+/**
+ * @public
+ */
+export type FlowDefinitionStatus = (typeof FlowDefinitionStatus)[keyof typeof FlowDefinitionStatus];
+
+/**
+ * @public
+ */
+export interface DescribeFlowDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow defintion.</p>
+   * @public
+   */
+  FlowDefinitionArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow definition.</p>
+   * @public
+   */
+  FlowDefinitionName: string | undefined;
+
+  /**
+   * <p>The status of the flow definition. Valid values are listed below.</p>
+   * @public
+   */
+  FlowDefinitionStatus: FlowDefinitionStatus | undefined;
+
+  /**
+   * <p>The timestamp when the flow definition was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Container for configuring the source of human task requests. Used to specify if Amazon Rekognition or Amazon Textract is used as an integration source.</p>
+   * @public
+   */
+  HumanLoopRequestSource?: HumanLoopRequestSource | undefined;
+
+  /**
+   * <p>An object containing information about what triggers a human review workflow.</p>
+   * @public
+   */
+  HumanLoopActivationConfig?: HumanLoopActivationConfig | undefined;
+
+  /**
+   * <p>An object containing information about who works on the task, the workforce task price, and other task details.</p>
+   * @public
+   */
+  HumanLoopConfig?: HumanLoopConfig | undefined;
+
+  /**
+   * <p>An object containing information about the output file.</p>
+   * @public
+   */
+  OutputConfig: FlowDefinitionOutputConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) execution role for the flow definition.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The reason your flow definition failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeHubRequest {
+  /**
+   * <p>The name of the hub to describe.</p>
+   * @public
+   */
+  HubName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HubStatus = {
+  CREATE_FAILED: "CreateFailed",
+  CREATING: "Creating",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  IN_SERVICE: "InService",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type HubStatus = (typeof HubStatus)[keyof typeof HubStatus];
 
 /**
  * @public
@@ -10243,162 +10352,6 @@ export interface ListClusterSchedulerConfigsResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCodeRepositoriesInput {
-  /**
-   * <p>A filter that returns only Git repositories that were created after the specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only Git repositories that were created before the specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only Git repositories that were last modified after the specified time.</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only Git repositories that were last modified before the specified time.</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>The maximum number of Git repositories to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A string in the Git repositories name. This filter returns only repositories whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the response includes a <code>NextToken</code>. To get the next set of Git repositories, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The field to sort results by. The default is <code>Name</code>.</p>
-   * @public
-   */
-  SortBy?: CodeRepositorySortBy | undefined;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: CodeRepositorySortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCodeRepositoriesOutput {
-  /**
-   * <p>Gets a list of summaries of the Git repositories. Each summary specifies the following values for the repository: </p> <ul> <li> <p>Name</p> </li> <li> <p>Amazon Resource Name (ARN)</p> </li> <li> <p>Creation time</p> </li> <li> <p>Last modified time</p> </li> <li> <p>Configuration information, including the URL location of the repository and the ARN of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the repository.</p> </li> </ul>
-   * @public
-   */
-  CodeRepositorySummaryList: CodeRepositorySummary[] | undefined;
-
-  /**
-   * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the response includes a <code>NextToken</code>. To get the next set of Git repositories, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ListCompilationJobsSortBy = {
-  CREATION_TIME: "CreationTime",
-  NAME: "Name",
-  STATUS: "Status",
-} as const;
-
-/**
- * @public
- */
-export type ListCompilationJobsSortBy = (typeof ListCompilationJobsSortBy)[keyof typeof ListCompilationJobsSortBy];
-
-/**
- * @public
- */
-export interface ListCompilationJobsRequest {
-  /**
-   * <p>If the result of the previous <code>ListCompilationJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of model compilation jobs, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of model compilation jobs to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A filter that returns the model compilation jobs that were created after a specified time. </p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns the model compilation jobs that were created before a specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns the model compilation jobs that were modified after a specified time.</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns the model compilation jobs that were modified before a specified time.</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns the model compilation jobs whose name contains a specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A filter that retrieves model compilation jobs with a specific <code>CompilationJobStatus</code> status.</p>
-   * @public
-   */
-  StatusEquals?: CompilationJobStatus | undefined;
-
-  /**
-   * <p>The field by which to sort results. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: ListCompilationJobsSortBy | undefined;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
 }
 
 /**

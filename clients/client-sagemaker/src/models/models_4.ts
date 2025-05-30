@@ -15,6 +15,10 @@ import {
   Channel,
   CheckpointConfig,
   ClarifyCheckStepMetadata,
+  CodeRepositorySortBy,
+  CodeRepositorySortOrder,
+  CodeRepositorySummary,
+  CompilationJobStatus,
   CompilationJobSummary,
   ComputeQuotaSummary,
   ConditionStepMetadata,
@@ -191,6 +195,162 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListCodeRepositoriesInput {
+  /**
+   * <p>A filter that returns only Git repositories that were created after the specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only Git repositories that were created before the specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only Git repositories that were last modified after the specified time.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only Git repositories that were last modified before the specified time.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>The maximum number of Git repositories to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A string in the Git repositories name. This filter returns only repositories whose name contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the response includes a <code>NextToken</code>. To get the next set of Git repositories, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The field to sort results by. The default is <code>Name</code>.</p>
+   * @public
+   */
+  SortBy?: CodeRepositorySortBy | undefined;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: CodeRepositorySortOrder | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCodeRepositoriesOutput {
+  /**
+   * <p>Gets a list of summaries of the Git repositories. Each summary specifies the following values for the repository: </p> <ul> <li> <p>Name</p> </li> <li> <p>Amazon Resource Name (ARN)</p> </li> <li> <p>Creation time</p> </li> <li> <p>Last modified time</p> </li> <li> <p>Configuration information, including the URL location of the repository and the ARN of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the repository.</p> </li> </ul>
+   * @public
+   */
+  CodeRepositorySummaryList: CodeRepositorySummary[] | undefined;
+
+  /**
+   * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the response includes a <code>NextToken</code>. To get the next set of Git repositories, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ListCompilationJobsSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type ListCompilationJobsSortBy = (typeof ListCompilationJobsSortBy)[keyof typeof ListCompilationJobsSortBy];
+
+/**
+ * @public
+ */
+export interface ListCompilationJobsRequest {
+  /**
+   * <p>If the result of the previous <code>ListCompilationJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of model compilation jobs, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of model compilation jobs to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A filter that returns the model compilation jobs that were created after a specified time. </p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns the model compilation jobs that were created before a specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns the model compilation jobs that were modified after a specified time.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns the model compilation jobs that were modified before a specified time.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns the model compilation jobs whose name contains a specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>A filter that retrieves model compilation jobs with a specific <code>CompilationJobStatus</code> status.</p>
+   * @public
+   */
+  StatusEquals?: CompilationJobStatus | undefined;
+
+  /**
+   * <p>The field by which to sort results. The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: ListCompilationJobsSortBy | undefined;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
 
 /**
  * @public
@@ -10056,56 +10216,6 @@ export interface StopAutoMLJobRequest {
    * @public
    */
   AutoMLJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopCompilationJobRequest {
-  /**
-   * <p>The name of the model compilation job to stop.</p>
-   * @public
-   */
-  CompilationJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopEdgeDeploymentStageRequest {
-  /**
-   * <p>The name of the edge deployment plan to stop.</p>
-   * @public
-   */
-  EdgeDeploymentPlanName: string | undefined;
-
-  /**
-   * <p>The name of the stage to stop.</p>
-   * @public
-   */
-  StageName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopEdgePackagingJobRequest {
-  /**
-   * <p>The name of the edge packaging job.</p>
-   * @public
-   */
-  EdgePackagingJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopHyperParameterTuningJobRequest {
-  /**
-   * <p>The name of the tuning job to stop.</p>
-   * @public
-   */
-  HyperParameterTuningJobName: string | undefined;
 }
 
 /**

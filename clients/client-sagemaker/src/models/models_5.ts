@@ -103,6 +103,56 @@ import {
 /**
  * @public
  */
+export interface StopCompilationJobRequest {
+  /**
+   * <p>The name of the model compilation job to stop.</p>
+   * @public
+   */
+  CompilationJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopEdgeDeploymentStageRequest {
+  /**
+   * <p>The name of the edge deployment plan to stop.</p>
+   * @public
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>The name of the stage to stop.</p>
+   * @public
+   */
+  StageName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopEdgePackagingJobRequest {
+  /**
+   * <p>The name of the edge packaging job.</p>
+   * @public
+   */
+  EdgePackagingJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopHyperParameterTuningJobRequest {
+  /**
+   * <p>The name of the tuning job to stop.</p>
+   * @public
+   */
+  HyperParameterTuningJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StopInferenceExperimentRequest {
   /**
    * <p>The name of the inference experiment to stop.</p>

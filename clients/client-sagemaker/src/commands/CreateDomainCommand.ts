@@ -284,6 +284,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *       ProjectId: "STRING_VALUE",
  *       EnvironmentId: "STRING_VALUE",
  *       ProjectS3Path: "STRING_VALUE",
+ *       SingleSignOnApplicationArn: "STRING_VALUE",
  *     },
  *   },
  *   SubnetIds: [ // Subnets // required

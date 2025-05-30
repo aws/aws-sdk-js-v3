@@ -1132,7 +1132,6 @@ import {
   MonitoringDatasetFormat,
   MonitoringJsonDatasetFormat,
   MonitoringParquetDatasetFormat,
-  MultiModelConfig,
   OutputDataConfig,
   OutputParameter,
   ProductionVariantInstanceType,
@@ -1367,8 +1366,6 @@ import {
   ModelQualityBaselineConfig,
   ModelQualityJobInput,
   ModelVariantConfig,
-  MonitoringAppSpecification,
-  MonitoringBaselineConfig,
   MonitoringClusterConfig,
   MonitoringConstraintsResource,
   MonitoringGroundTruthS3Input,
@@ -1379,6 +1376,7 @@ import {
   MonitoringS3Output,
   MonitoringStatisticsResource,
   MonitoringStoppingCondition,
+  MultiModelConfig,
   NeoVpcConfig,
   OfflineStoreConfig,
   OnlineStoreConfig,
@@ -1390,6 +1388,7 @@ import {
   Phase,
   PriorityClass,
   ProductionVariant,
+  ProductionVariantCapacityReservationConfig,
   ProductionVariantCoreDumpConfig,
   ProductionVariantManagedInstanceScaling,
   ProductionVariantRoutingConfig,
@@ -1616,9 +1615,8 @@ import {
   DescribeFeatureMetadataRequest,
   DescribeFeatureMetadataResponse,
   DescribeFlowDefinitionRequest,
-  DescribeFlowDefinitionResponse,
-  DescribeHubRequest,
   EbsStorageSettings,
+  Ec2CapacityReservation,
   EdgeDeploymentStatus,
   EdgeModel,
   EdgePresetDeploymentOutput,
@@ -1639,6 +1637,8 @@ import {
   ModelDigests,
   ModelQuantizationConfig,
   ModelShardingConfig,
+  MonitoringAppSpecification,
+  MonitoringBaselineConfig,
   MonitoringInput,
   MonitoringJobDefinition,
   MonitoringScheduleConfig,
@@ -1671,6 +1671,7 @@ import {
   ProcessingS3Input,
   ProcessingS3Output,
   ProcessingStoppingCondition,
+  ProductionVariantCapacityReservationSummary,
   ProductionVariantStatus,
   ProductionVariantSummary,
   ProfilerConfig,
@@ -1702,8 +1703,10 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeFlowDefinitionResponse,
   DescribeHubContentRequest,
   DescribeHubContentResponse,
+  DescribeHubRequest,
   DescribeHubResponse,
   DescribeHumanTaskUiRequest,
   DescribeHumanTaskUiResponse,
@@ -1893,9 +1896,6 @@ import {
   ListClusterSchedulerConfigsResponse,
   ListClustersRequest,
   ListClustersResponse,
-  ListCodeRepositoriesInput,
-  ListCodeRepositoriesOutput,
-  ListCompilationJobsRequest,
   MetricData,
   MetricSpecification,
   ModelCardExportArtifacts,
@@ -1940,6 +1940,9 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListCodeRepositoriesInput,
+  ListCodeRepositoriesOutput,
+  ListCompilationJobsRequest,
   ListCompilationJobsResponse,
   ListComputeQuotasRequest,
   ListComputeQuotasResponse,
@@ -2161,10 +2164,6 @@ import {
   StartPipelineExecutionRequest,
   StartPipelineExecutionResponse,
   StopAutoMLJobRequest,
-  StopCompilationJobRequest,
-  StopEdgeDeploymentStageRequest,
-  StopEdgePackagingJobRequest,
-  StopHyperParameterTuningJobRequest,
   StudioLifecycleConfigDetails,
   TotalHits,
   TrackingServerSummary,
@@ -2192,6 +2191,10 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  StopCompilationJobRequest,
+  StopEdgeDeploymentStageRequest,
+  StopEdgePackagingJobRequest,
+  StopHyperParameterTuningJobRequest,
   StopInferenceExperimentRequest,
   StopInferenceExperimentResponse,
   StopInferenceRecommendationsJobRequest,
@@ -16939,6 +16942,7 @@ const se_MonitoringScheduleConfig = (input: MonitoringScheduleConfig, context: _
 const se_ProductionVariant = (input: ProductionVariant, context: __SerdeContext): any => {
   return take(input, {
     AcceleratorType: [],
+    CapacityReservationConfig: _json,
     ContainerStartupHealthCheckTimeoutInSeconds: [],
     CoreDumpConfig: _json,
     EnableSSMAccess: [],
@@ -16955,6 +16959,8 @@ const se_ProductionVariant = (input: ProductionVariant, context: __SerdeContext)
     VolumeSizeInGB: [],
   });
 };
+
+// se_ProductionVariantCapacityReservationConfig omitted.
 
 // se_ProductionVariantCoreDumpConfig omitted.
 
@@ -22922,6 +22928,30 @@ const de_EbsStorageSettings = (output: any, context: __SerdeContext): EbsStorage
   return take(output, {
     EbsVolumeSizeInGb: __expectInt32,
   }) as any;
+};
+
+/**
+ * deserializeAws_json1_1Ec2CapacityReservation
+ */
+const de_Ec2CapacityReservation = (output: any, context: __SerdeContext): Ec2CapacityReservation => {
+  return take(output, {
+    AvailableInstanceCount: __expectInt32,
+    Ec2CapacityReservationId: __expectString,
+    TotalInstanceCount: __expectInt32,
+    UsedByCurrentEndpoint: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1Ec2CapacityReservationsList
+ */
+const de_Ec2CapacityReservationsList = (output: any, context: __SerdeContext): Ec2CapacityReservation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Ec2CapacityReservation(entry, context);
+    });
+  return retVal;
 };
 
 /**
@@ -29027,6 +29057,7 @@ const de_ProcessingStoppingCondition = (output: any, context: __SerdeContext): P
 const de_ProductionVariant = (output: any, context: __SerdeContext): ProductionVariant => {
   return take(output, {
     AcceleratorType: __expectString,
+    CapacityReservationConfig: (_: any) => de_ProductionVariantCapacityReservationConfig(_, context),
     ContainerStartupHealthCheckTimeoutInSeconds: __expectInt32,
     CoreDumpConfig: (_: any) => de_ProductionVariantCoreDumpConfig(_, context),
     EnableSSMAccess: __expectBoolean,
@@ -29041,6 +29072,36 @@ const de_ProductionVariant = (output: any, context: __SerdeContext): ProductionV
     ServerlessConfig: (_: any) => de_ProductionVariantServerlessConfig(_, context),
     VariantName: __expectString,
     VolumeSizeInGB: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ProductionVariantCapacityReservationConfig
+ */
+const de_ProductionVariantCapacityReservationConfig = (
+  output: any,
+  context: __SerdeContext
+): ProductionVariantCapacityReservationConfig => {
+  return take(output, {
+    CapacityReservationPreference: __expectString,
+    MlReservationArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ProductionVariantCapacityReservationSummary
+ */
+const de_ProductionVariantCapacityReservationSummary = (
+  output: any,
+  context: __SerdeContext
+): ProductionVariantCapacityReservationSummary => {
+  return take(output, {
+    AvailableInstanceCount: __expectInt32,
+    CapacityReservationPreference: __expectString,
+    Ec2CapacityReservations: (_: any) => de_Ec2CapacityReservationsList(_, context),
+    MlReservationArn: __expectString,
+    TotalInstanceCount: __expectInt32,
+    UsedByCurrentEndpoint: __expectInt32,
   }) as any;
 };
 
@@ -29131,6 +29192,7 @@ const de_ProductionVariantStatusList = (output: any, context: __SerdeContext): P
  */
 const de_ProductionVariantSummary = (output: any, context: __SerdeContext): ProductionVariantSummary => {
   return take(output, {
+    CapacityReservationConfig: (_: any) => de_ProductionVariantCapacityReservationSummary(_, context),
     CurrentInstanceCount: __expectInt32,
     CurrentServerlessConfig: (_: any) => de_ProductionVariantServerlessConfig(_, context),
     CurrentWeight: __limitedParseFloat32,
@@ -31692,6 +31754,7 @@ const de_UnifiedStudioSettings = (output: any, context: __SerdeContext): Unified
     EnvironmentId: __expectString,
     ProjectId: __expectString,
     ProjectS3Path: __expectString,
+    SingleSignOnApplicationArn: __expectString,
     StudioWebPortalAccess: __expectString,
   }) as any;
 };

@@ -299,6 +299,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //       ProjectId: "STRING_VALUE",
  * //       EnvironmentId: "STRING_VALUE",
  * //       ProjectS3Path: "STRING_VALUE",
+ * //       SingleSignOnApplicationArn: "STRING_VALUE",
  * //     },
  * //   },
  * //   AppNetworkAccessType: "PublicInternetOnly" || "VpcOnly",
