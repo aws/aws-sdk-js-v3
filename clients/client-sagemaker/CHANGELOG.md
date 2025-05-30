@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.821.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.820.0...v3.821.0) (2025-05-30)
+
+
+### Features
+
+* **client-sagemaker:** Release new parameter CapacityReservationConfig in ProductionVariant ([9ef6641](https://github.com/aws/aws-sdk-js-v3/commit/9ef66413ff91720ec7c383c5db6421b018a2cf35))
+
+
+
+
+
 # [3.820.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.819.0...v3.820.0) (2025-05-29)
 
 

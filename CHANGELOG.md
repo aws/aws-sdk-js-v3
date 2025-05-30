@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.821.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.820.0...v3.821.0) (2025-05-30)
+
+
+### Features
+
+* **client-emr-serverless:** This release adds the capability for users to specify an optional Execution IAM policy in the StartJobRun action. The resulting permissions assumed by the job run is the intersection of the permissions in the Execution Role and the specified Execution IAM Policy. ([e886e87](https://github.com/aws/aws-sdk-js-v3/commit/e886e87e2ee163213ad14c49956b18e95abf3e57))
+* **client-sagemaker:** Release new parameter CapacityReservationConfig in ProductionVariant ([9ef6641](https://github.com/aws/aws-sdk-js-v3/commit/9ef66413ff91720ec7c383c5db6421b018a2cf35))
+* **clients:** update client endpoints as of 2025-05-30 ([fa658a0](https://github.com/aws/aws-sdk-js-v3/commit/fa658a01a9cb159d475e39f7aee4e383f51633a8))
+
+
+
+
+
 # [3.820.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.819.0...v3.820.0) (2025-05-29)
 
 
