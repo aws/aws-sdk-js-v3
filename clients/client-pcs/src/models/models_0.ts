@@ -368,6 +368,8 @@ export const ComputeNodeGroupStatus = {
   DELETED: "DELETED",
   DELETE_FAILED: "DELETE_FAILED",
   DELETING: "DELETING",
+  SUSPENDED: "SUSPENDED",
+  SUSPENDING: "SUSPENDING",
   UPDATE_FAILED: "UPDATE_FAILED",
   UPDATING: "UPDATING",
 } as const;
@@ -419,7 +421,7 @@ export interface ComputeNodeGroup {
   modifiedAt: Date | undefined;
 
   /**
-   * <p>The provisioning status of the compute node group.</p> <note> <p>The provisioning status doesn't indicate the overall health of the compute node group.</p> </note>
+   * <p>The provisioning status of the compute node group.</p> <note> <p>The provisioning status doesn't indicate the overall health of the compute node group.</p> </note> <important> <p>The resource enters the <code>SUSPENDING</code> and <code>SUSPENDED</code> states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is <code>SUSPENDED</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html">Frequently asked questions about Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
    * @public
    */
   status: ComputeNodeGroupStatus | undefined;
@@ -816,7 +818,7 @@ export interface ComputeNodeGroupSummary {
   modifiedAt: Date | undefined;
 
   /**
-   * <p>The provisioning status of the compute node group.</p> <note> <p>The provisioning status doesn't indicate the overall health of the compute node group.</p> </note>
+   * <p>The provisioning status of the compute node group.</p> <note> <p>The provisioning status doesn't indicate the overall health of the compute node group.</p> </note> <important> <p>The resource enters the <code>SUSPENDING</code> and <code>SUSPENDED</code> states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is <code>SUSPENDED</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html">Frequently asked questions about Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
    * @public
    */
   status: ComputeNodeGroupStatus | undefined;
@@ -1206,6 +1208,8 @@ export const ClusterStatus = {
   CREATING: "CREATING",
   DELETE_FAILED: "DELETE_FAILED",
   DELETING: "DELETING",
+  SUSPENDED: "SUSPENDED",
+  SUSPENDING: "SUSPENDING",
   UPDATE_FAILED: "UPDATE_FAILED",
   UPDATING: "UPDATING",
 } as const;
@@ -1239,7 +1243,7 @@ export interface Cluster {
   arn: string | undefined;
 
   /**
-   * <p>The provisioning status of the cluster.</p> <note> <p>The provisioning status doesn't indicate the overall health of the cluster.</p> </note>
+   * <p>The provisioning status of the cluster.</p> <note> <p>The provisioning status doesn't indicate the overall health of the cluster.</p> </note> <important> <p>The resource enters the <code>SUSPENDING</code> and <code>SUSPENDED</code> states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is <code>SUSPENDED</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html">Frequently asked questions about Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
    * @public
    */
   status: ClusterStatus | undefined;
@@ -1401,7 +1405,7 @@ export interface ClusterSummary {
   modifiedAt: Date | undefined;
 
   /**
-   * <p>The provisioning status of the cluster.</p> <note> <p>The provisioning status doesn't indicate the overall health of the cluster.</p> </note>
+   * <p>The provisioning status of the cluster.</p> <note> <p>The provisioning status doesn't indicate the overall health of the cluster.</p> </note> <important> <p>The resource enters the <code>SUSPENDING</code> and <code>SUSPENDED</code> states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is <code>SUSPENDED</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html">Frequently asked questions about Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
    * @public
    */
   status: ClusterStatus | undefined;
@@ -1481,6 +1485,8 @@ export const QueueStatus = {
   CREATING: "CREATING",
   DELETE_FAILED: "DELETE_FAILED",
   DELETING: "DELETING",
+  SUSPENDED: "SUSPENDED",
+  SUSPENDING: "SUSPENDING",
   UPDATE_FAILED: "UPDATE_FAILED",
   UPDATING: "UPDATING",
 } as const;
@@ -1532,7 +1538,7 @@ export interface Queue {
   modifiedAt: Date | undefined;
 
   /**
-   * <p>The provisioning status of the queue.</p> <note> <p>The provisioning status doesn't indicate the overall health of the queue.</p> </note>
+   * <p>The provisioning status of the queue.</p> <note> <p>The provisioning status doesn't indicate the overall health of the queue.</p> </note> <important> <p>The resource enters the <code>SUSPENDING</code> and <code>SUSPENDED</code> states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is <code>SUSPENDED</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html">Frequently asked questions about Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
    * @public
    */
   status: QueueStatus | undefined;
@@ -1682,7 +1688,7 @@ export interface QueueSummary {
   modifiedAt: Date | undefined;
 
   /**
-   * <p>The provisioning status of the queue.</p> <note> <p> The provisioning status doesn't indicate the overall health of the queue.</p> </note>
+   * <p>The provisioning status of the queue.</p> <note> <p> The provisioning status doesn't indicate the overall health of the queue.</p> </note> <important> <p>The resource enters the <code>SUSPENDING</code> and <code>SUSPENDED</code> states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is <code>SUSPENDED</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html">Frequently asked questions about Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
    * @public
    */
   status: QueueStatus | undefined;

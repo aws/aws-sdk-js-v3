@@ -45,7 +45,7 @@ export interface GetClusterCommandOutput extends GetClusterResponse, __MetadataB
  * //     name: "STRING_VALUE", // required
  * //     id: "STRING_VALUE", // required
  * //     arn: "STRING_VALUE", // required
- * //     status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED" || "UPDATE_FAILED", // required
+ * //     status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED" || "UPDATE_FAILED" || "SUSPENDING" || "SUSPENDED", // required
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     modifiedAt: new Date("TIMESTAMP"), // required
  * //     scheduler: { // Scheduler

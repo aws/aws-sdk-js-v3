@@ -75,7 +75,7 @@ export interface UpdateComputeNodeGroupCommandOutput extends UpdateComputeNodeGr
  * //     clusterId: "STRING_VALUE", // required
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     modifiedAt: new Date("TIMESTAMP"), // required
- * //     status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED" || "UPDATE_FAILED" || "DELETED", // required
+ * //     status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED" || "UPDATE_FAILED" || "DELETED" || "SUSPENDING" || "SUSPENDED", // required
  * //     amiId: "STRING_VALUE",
  * //     subnetIds: [ // SubnetIdList // required
  * //       "STRING_VALUE",

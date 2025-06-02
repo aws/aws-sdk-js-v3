@@ -51,7 +51,7 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * //       clusterId: "STRING_VALUE", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       modifiedAt: new Date("TIMESTAMP"), // required
- * //       status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED" || "UPDATE_FAILED", // required
+ * //       status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED" || "UPDATE_FAILED" || "SUSPENDING" || "SUSPENDED", // required
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
