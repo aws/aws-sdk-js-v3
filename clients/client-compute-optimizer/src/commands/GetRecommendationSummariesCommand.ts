@@ -37,7 +37,7 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  *                         <code>Optimized</code>.</p>
  *             </li>
  *             <li>
- *                <p>Auto Scaling groups in an account that are <code>NotOptimized</code>, or
+ *                <p>EC2Auto Scaling groups in an account that are <code>NotOptimized</code>, or
  *                         <code>Optimized</code>.</p>
  *             </li>
  *             <li>
@@ -51,6 +51,14 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  *             <li>
  *                <p>Amazon ECS services in an account that are <code>Underprovisioned</code>,
  *                     <code>Overprovisioned</code>, or <code>Optimized</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Commercial software licenses in an account that are <code>InsufficientMetrics</code>,
+ *                     <code>NotOptimized</code> or <code>Optimized</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon Aurora and Amazon RDS databases in an account that are <code>Underprovisioned</code>,
+ *                     <code>Overprovisioned</code>, <code>Optimized</code>, or <code>NotOptimized</code>.</p>
  *             </li>
  *          </ul>
  * @example
@@ -90,7 +98,7 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * //           value: Number("double"),
  * //         },
  * //       ],
- * //       recommendationResourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License" || "RdsDBInstance" || "RdsDBInstanceStorage",
+ * //       recommendationResourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License" || "RdsDBInstance" || "RdsDBInstanceStorage" || "AuroraDBClusterStorage",
  * //       accountId: "STRING_VALUE",
  * //       savingsOpportunity: { // SavingsOpportunity
  * //         savingsOpportunityPercentage: Number("double"),

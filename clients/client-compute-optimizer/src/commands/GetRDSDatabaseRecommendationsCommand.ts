@@ -34,9 +34,9 @@ export interface GetRDSDatabaseRecommendationsCommandOutput
 
 /**
  * <p>
- *             Returns Amazon RDS recommendations.
+ *             Returns Amazon Aurora and RDS database recommendations.
  *         </p>
- *          <p>Compute Optimizer generates recommendations for Amazon RDS that
+ *          <p>Compute Optimizer generates recommendations for Amazon Aurora and RDS databases that
  *             meet a specific set of requirements. For more
  *             information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
  *                 requirements</a> in the <i>Compute Optimizer User
@@ -92,20 +92,21 @@ export interface GetRDSDatabaseRecommendationsCommandOutput
  * //       dbClusterIdentifier: "STRING_VALUE",
  * //       idle: "True" || "False",
  * //       instanceFinding: "Optimized" || "Underprovisioned" || "Overprovisioned",
- * //       storageFinding: "Optimized" || "Underprovisioned" || "Overprovisioned",
+ * //       storageFinding: "Optimized" || "Underprovisioned" || "Overprovisioned" || "NotOptimized",
  * //       instanceFindingReasonCodes: [ // RDSInstanceFindingReasonCodes
  * //         "CPUOverprovisioned" || "NetworkBandwidthOverprovisioned" || "EBSIOPSOverprovisioned" || "EBSIOPSUnderprovisioned" || "EBSThroughputOverprovisioned" || "CPUUnderprovisioned" || "NetworkBandwidthUnderprovisioned" || "EBSThroughputUnderprovisioned" || "NewGenerationDBInstanceClassAvailable" || "NewEngineVersionAvailable" || "DBClusterWriterUnderprovisioned" || "MemoryUnderprovisioned" || "InstanceStorageReadIOPSUnderprovisioned" || "InstanceStorageWriteIOPSUnderprovisioned",
  * //       ],
  * //       currentInstancePerformanceRisk: "VeryLow" || "Low" || "Medium" || "High",
+ * //       currentStorageEstimatedMonthlyVolumeIOPsCostVariation: "None" || "Low" || "Medium" || "High",
  * //       storageFindingReasonCodes: [ // RDSStorageFindingReasonCodes
- * //         "EBSVolumeAllocatedStorageUnderprovisioned" || "EBSVolumeThroughputUnderprovisioned" || "EBSVolumeIOPSOverprovisioned" || "EBSVolumeThroughputOverprovisioned" || "NewGenerationStorageTypeAvailable",
+ * //         "EBSVolumeAllocatedStorageUnderprovisioned" || "EBSVolumeThroughputUnderprovisioned" || "EBSVolumeIOPSOverprovisioned" || "EBSVolumeThroughputOverprovisioned" || "NewGenerationStorageTypeAvailable" || "DBClusterStorageOptionAvailable" || "DBClusterStorageSavingsAvailable",
  * //       ],
  * //       instanceRecommendationOptions: [ // RDSDBInstanceRecommendationOptions
  * //         { // RDSDBInstanceRecommendationOption
  * //           dbInstanceClass: "STRING_VALUE",
  * //           projectedUtilizationMetrics: [ // RDSDBProjectedUtilizationMetrics
  * //             { // RDSDBUtilizationMetric
- * //               name: "CPU" || "Memory" || "EBSVolumeStorageSpaceUtilization" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "EBSVolumeReadIOPS" || "EBSVolumeWriteIOPS" || "EBSVolumeReadThroughput" || "EBSVolumeWriteThroughput" || "DatabaseConnections" || "StorageNetworkReceiveThroughput" || "StorageNetworkTransmitThroughput" || "AuroraMemoryHealthState" || "AuroraMemoryNumDeclinedSql" || "AuroraMemoryNumKillConnTotal" || "AuroraMemoryNumKillQueryTotal" || "ReadIOPSEphemeralStorage" || "WriteIOPSEphemeralStorage",
+ * //               name: "CPU" || "Memory" || "EBSVolumeStorageSpaceUtilization" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "EBSVolumeReadIOPS" || "EBSVolumeWriteIOPS" || "EBSVolumeReadThroughput" || "EBSVolumeWriteThroughput" || "DatabaseConnections" || "StorageNetworkReceiveThroughput" || "StorageNetworkTransmitThroughput" || "AuroraMemoryHealthState" || "AuroraMemoryNumDeclinedSql" || "AuroraMemoryNumKillConnTotal" || "AuroraMemoryNumKillQueryTotal" || "ReadIOPSEphemeralStorage" || "WriteIOPSEphemeralStorage" || "VolumeReadIOPs" || "VolumeBytesUsed" || "VolumeWriteIOPs",
  * //               statistic: "Maximum" || "Minimum" || "Average",
  * //               value: Number("double"),
  * //             },
@@ -152,11 +153,12 @@ export interface GetRDSDatabaseRecommendationsCommandOutput
  * //               value: Number("double"),
  * //             },
  * //           },
+ * //           estimatedMonthlyVolumeIOPsCostVariation: "None" || "Low" || "Medium" || "High",
  * //         },
  * //       ],
  * //       utilizationMetrics: [ // RDSDBUtilizationMetrics
  * //         {
- * //           name: "CPU" || "Memory" || "EBSVolumeStorageSpaceUtilization" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "EBSVolumeReadIOPS" || "EBSVolumeWriteIOPS" || "EBSVolumeReadThroughput" || "EBSVolumeWriteThroughput" || "DatabaseConnections" || "StorageNetworkReceiveThroughput" || "StorageNetworkTransmitThroughput" || "AuroraMemoryHealthState" || "AuroraMemoryNumDeclinedSql" || "AuroraMemoryNumKillConnTotal" || "AuroraMemoryNumKillQueryTotal" || "ReadIOPSEphemeralStorage" || "WriteIOPSEphemeralStorage",
+ * //           name: "CPU" || "Memory" || "EBSVolumeStorageSpaceUtilization" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "EBSVolumeReadIOPS" || "EBSVolumeWriteIOPS" || "EBSVolumeReadThroughput" || "EBSVolumeWriteThroughput" || "DatabaseConnections" || "StorageNetworkReceiveThroughput" || "StorageNetworkTransmitThroughput" || "AuroraMemoryHealthState" || "AuroraMemoryNumDeclinedSql" || "AuroraMemoryNumKillConnTotal" || "AuroraMemoryNumKillQueryTotal" || "ReadIOPSEphemeralStorage" || "WriteIOPSEphemeralStorage" || "VolumeReadIOPs" || "VolumeBytesUsed" || "VolumeWriteIOPs",
  * //           statistic: "Maximum" || "Minimum" || "Average",
  * //           value: Number("double"),
  * //         },

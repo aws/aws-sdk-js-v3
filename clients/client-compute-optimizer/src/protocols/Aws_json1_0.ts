@@ -2832,6 +2832,7 @@ const de_RDSDBRecommendation = (output: any, context: __SerdeContext): RDSDBReco
     currentDBInstanceClass: __expectString,
     currentInstancePerformanceRisk: __expectString,
     currentStorageConfiguration: _json,
+    currentStorageEstimatedMonthlyVolumeIOPsCostVariation: __expectString,
     dbClusterIdentifier: __expectString,
     effectiveRecommendationPreferences: _json,
     engine: __expectString,
@@ -2872,6 +2873,7 @@ const de_RDSDBStorageRecommendationOption = (
   context: __SerdeContext
 ): RDSDBStorageRecommendationOption => {
   return take(output, {
+    estimatedMonthlyVolumeIOPsCostVariation: __expectString,
     rank: __expectInt32,
     savingsOpportunity: (_: any) => de_SavingsOpportunity(_, context),
     savingsOpportunityAfterDiscounts: (_: any) => de_RDSStorageSavingsOpportunityAfterDiscounts(_, context),

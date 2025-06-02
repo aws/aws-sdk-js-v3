@@ -38,7 +38,7 @@ export interface GetRDSDatabaseRecommendationProjectedMetricsCommandOutput
 
 /**
  * <p>
- *             Returns the projected metrics of Amazon RDS recommendations.
+ *             Returns the projected metrics of Aurora and RDS database recommendations.
  *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,7 +67,7 @@ export interface GetRDSDatabaseRecommendationProjectedMetricsCommandOutput
  * //       rank: Number("int"),
  * //       projectedMetrics: [ // RDSDatabaseProjectedMetrics
  * //         { // RDSDatabaseProjectedMetric
- * //           name: "CPU" || "Memory" || "EBSVolumeStorageSpaceUtilization" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "EBSVolumeReadIOPS" || "EBSVolumeWriteIOPS" || "EBSVolumeReadThroughput" || "EBSVolumeWriteThroughput" || "DatabaseConnections" || "StorageNetworkReceiveThroughput" || "StorageNetworkTransmitThroughput" || "AuroraMemoryHealthState" || "AuroraMemoryNumDeclinedSql" || "AuroraMemoryNumKillConnTotal" || "AuroraMemoryNumKillQueryTotal" || "ReadIOPSEphemeralStorage" || "WriteIOPSEphemeralStorage",
+ * //           name: "CPU" || "Memory" || "EBSVolumeStorageSpaceUtilization" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "EBSVolumeReadIOPS" || "EBSVolumeWriteIOPS" || "EBSVolumeReadThroughput" || "EBSVolumeWriteThroughput" || "DatabaseConnections" || "StorageNetworkReceiveThroughput" || "StorageNetworkTransmitThroughput" || "AuroraMemoryHealthState" || "AuroraMemoryNumDeclinedSql" || "AuroraMemoryNumKillConnTotal" || "AuroraMemoryNumKillQueryTotal" || "ReadIOPSEphemeralStorage" || "WriteIOPSEphemeralStorage" || "VolumeReadIOPs" || "VolumeBytesUsed" || "VolumeWriteIOPs",
  * //           timestamps: [ // Timestamps
  * //             new Date("TIMESTAMP"),
  * //           ],

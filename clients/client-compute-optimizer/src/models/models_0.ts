@@ -1273,6 +1273,7 @@ export type RecommendationPreferenceName =
  * @enum
  */
 export const ResourceType = {
+  AURORA_DB_CLUSTER_STORAGE: "AuroraDBClusterStorage",
   AUTO_SCALING_GROUP: "AutoScalingGroup",
   EBS_VOLUME: "EbsVolume",
   EC2_INSTANCE: "Ec2Instance",
@@ -3470,6 +3471,7 @@ export interface ExportLicenseRecommendationsResponse {
  */
 export const ExportableRDSDBField = {
   ACCOUNT_ID: "AccountId",
+  CLUSTER_WRITER: "ClusterWriter",
   CURRENT_DB_INSTANCE_CLASS: "CurrentDBInstanceClass",
   CURRENT_INSTANCE_ON_DEMAND_HOURLY_PRICE: "CurrentInstanceOnDemandHourlyPrice",
   CURRENT_INSTANCE_PERFORMANCE_RISK: "CurrentInstancePerformanceRisk",
@@ -3478,6 +3480,13 @@ export const ExportableRDSDBField = {
   CURRENT_STORAGE_CONFIGURATION_MAX_ALLOCATED_STORAGE: "CurrentStorageConfigurationMaxAllocatedStorage",
   CURRENT_STORAGE_CONFIGURATION_STORAGE_THROUGHPUT: "CurrentStorageConfigurationStorageThroughput",
   CURRENT_STORAGE_CONFIGURATION_STORAGE_TYPE: "CurrentStorageConfigurationStorageType",
+  CURRENT_STORAGE_ESTIMATED_CLUSTER_INSTANCE_ON_DEMAND_MONTHLY_COST:
+    "CurrentStorageEstimatedClusterInstanceOnDemandMonthlyCost",
+  CURRENT_STORAGE_ESTIMATED_CLUSTER_STORAGE_IO_ON_DEMAND_MONTHLY_COST:
+    "CurrentStorageEstimatedClusterStorageIOOnDemandMonthlyCost",
+  CURRENT_STORAGE_ESTIMATED_CLUSTER_STORAGE_ON_DEMAND_MONTHLY_COST:
+    "CurrentStorageEstimatedClusterStorageOnDemandMonthlyCost",
+  CURRENT_STORAGE_ESTIMATED_MONTHLY_VOLUME_IOPS_COST_VARIATION: "CurrentStorageEstimatedMonthlyVolumeIOPsCostVariation",
   CURRENT_STORAGE_ON_DEMAND_MONTHLY_PRICE: "CurrentStorageOnDemandMonthlyPrice",
   DB_CLUSTER_IDENTIFIER: "DBClusterIdentifier",
   EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES:
@@ -3519,6 +3528,12 @@ export const ExportableRDSDBField = {
   STORAGE_FINDING: "StorageFinding",
   STORAGE_FINDING_REASON_CODES: "StorageFindingReasonCodes",
   STORAGE_RECOMMENDATION_OPTIONS_ALLOCATED_STORAGE: "StorageRecommendationOptionsAllocatedStorage",
+  STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_CLUSTER_INSTANCE_ON_DEMAND_MONTHLY_COST:
+    "StorageRecommendationOptionsEstimatedClusterInstanceOnDemandMonthlyCost",
+  STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_CLUSTER_STORAGE_IO_ON_DEMAND_MONTHLY_COST:
+    "StorageRecommendationOptionsEstimatedClusterStorageIOOnDemandMonthlyCost",
+  STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_CLUSTER_STORAGE_ON_DEMAND_MONTHLY_COST:
+    "StorageRecommendationOptionsEstimatedClusterStorageOnDemandMonthlyCost",
   STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY:
     "StorageRecommendationOptionsEstimatedMonthlySavingsCurrency",
   STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS:
@@ -3527,6 +3542,8 @@ export const ExportableRDSDBField = {
     "StorageRecommendationOptionsEstimatedMonthlySavingsValue",
   STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS:
     "StorageRecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
+  STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_VOLUME_IOPS_COST_VARIATION:
+    "StorageRecommendationOptionsEstimatedMonthlyVolumeIOPsCostVariation",
   STORAGE_RECOMMENDATION_OPTIONS_IOPS: "StorageRecommendationOptionsIOPS",
   STORAGE_RECOMMENDATION_OPTIONS_MAX_ALLOCATED_STORAGE: "StorageRecommendationOptionsMaxAllocatedStorage",
   STORAGE_RECOMMENDATION_OPTIONS_ON_DEMAND_MONTHLY_PRICE: "StorageRecommendationOptionsOnDemandMonthlyPrice",
@@ -3561,6 +3578,9 @@ export const ExportableRDSDBField = {
     "UtilizationMetricsStorageNetworkReceiveThroughputMaximum",
   UTILIZATION_METRICS_STORAGE_NETWORK_TRANSMIT_THROUGHPUT_MAXIMUM:
     "UtilizationMetricsStorageNetworkTransmitThroughputMaximum",
+  UTILIZATION_METRICS_VOLUME_BYTES_USED_AVERAGE: "UtilizationMetricsVolumeBytesUsedAverage",
+  UTILIZATION_METRICS_VOLUME_READ_IOPS_AVERAGE: "UtilizationMetricsVolumeReadIOPsAverage",
+  UTILIZATION_METRICS_VOLUME_WRITE_IOPS_AVERAGE: "UtilizationMetricsVolumeWriteIOPsAverage",
   UTILIZATION_METRICS_WRITE_IOPS_EPHEMERAL_STORAGE_MAXIMUM: "UtilizationMetricsWriteIOPSEphemeralStorageMaximum",
 } as const;
 
@@ -3589,7 +3609,7 @@ export type RDSDBRecommendationFilterName =
 
 /**
  * <p>
- *             Describes a filter that returns a more specific list of Amazon RDS
+ *             Describes a filter that returns a more specific list of DB instance
  *             recommendations. Use this filter with the <a>GetECSServiceRecommendations</a> action.
  *         </p>
  * @public
@@ -3602,17 +3622,17 @@ export interface RDSDBRecommendationFilter {
    *          <p>
    *             Specify <code>Finding</code> to return recommendations with a specific finding classification.
    *         </p>
-   *          <p>You can filter your Amazon RDS recommendations by <code>tag:key</code>
+   *          <p>You can filter your DB instance recommendations by <code>tag:key</code>
    *             and <code>tag-key</code> tags.</p>
    *          <p>A <code>tag:key</code> is a key and value combination of a tag assigned to your
-   *             Amazon RDS recommendations. Use the tag key in the filter name and the tag value
-   *             as the filter value. For example, to find all Amazon RDS service recommendations that have
+   *             DB instance recommendations. Use the tag key in the filter name and the tag value
+   *             as the filter value. For example, to find all DB instance recommendations that have
    *             a tag with the key of <code>Owner</code> and the value of <code>TeamA</code>,
    *             specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *          <p>A <code>tag-key</code> is the key of a tag assigned to your Amazon RDS recommendations. Use
-   *             this filter to find all of your Amazon RDS recommendations that have a tag with a
+   *          <p>A <code>tag-key</code> is the key of a tag assigned to your DB instance recommendations. Use
+   *             this filter to find all of your DB instance recommendations that have a tag with a
    *             specific key. This doesn’t consider the tag value. For example, you can find
-   *             your Amazon RDS service recommendations with a tag key value of <code>Owner</code> or without any tag
+   *             your DB instance recommendations with a tag key value of <code>Owner</code> or without any tag
    *             keys assigned.</p>
    * @public
    */
@@ -3633,7 +3653,7 @@ export interface RDSDBRecommendationFilter {
 export interface ExportRDSDatabaseRecommendationsRequest {
   /**
    * <p>
-   *             The Amazon Web Services account IDs for the export Amazon RDS recommendations.
+   *             The Amazon Web Services account IDs for the export Amazon Aurora and RDS database recommendations.
    *         </p>
    *          <p>If your account is the management account or the delegated administrator
    *             of an organization, use this parameter to specify the member account you want to
@@ -3650,7 +3670,7 @@ export interface ExportRDSDatabaseRecommendationsRequest {
   /**
    * <p>
    *             An array of objects to specify a filter that exports a more specific set of
-   *             Amazon RDS recommendations.
+   *             Amazon Aurora and RDS recommendations.
    *         </p>
    * @public
    */
@@ -4782,6 +4802,7 @@ export interface InstanceRecommendationOption {
  * @enum
  */
 export const RecommendationSourceType = {
+  AURORA_DB_CLUSTER_STORAGE: "AuroraDBClusterStorage",
   AUTO_SCALING_GROUP: "AutoScalingGroup",
   EBS_VOLUME: "EbsVolume",
   EC2_INSTANCE: "Ec2Instance",
@@ -7990,7 +8011,7 @@ export interface GetLicenseRecommendationsResponse {
 export interface GetRDSDatabaseRecommendationProjectedMetricsRequest {
   /**
    * <p>
-   *             The ARN that identifies the Amazon RDS.
+   *             The ARN that identifies the Amazon Aurora or RDS database.
    *         </p>
    *          <p>
    *             The following is the format of the ARN:
@@ -8063,6 +8084,9 @@ export const RDSDBMetricName = {
   READ_IOPS_EPHEMERAL_STORAGE: "ReadIOPSEphemeralStorage",
   STORAGE_NETWORK_RECEIVE_THROUGHPUT: "StorageNetworkReceiveThroughput",
   STORAGE_NETWORK_TRANSMIT_THROUGHPUT: "StorageNetworkTransmitThroughput",
+  VOLUME_BYTES_USED: "VolumeBytesUsed",
+  VOLUME_READ_IOPS: "VolumeReadIOPs",
+  VOLUME_WRITE_IOPS: "VolumeWriteIOPs",
   WRITE_IOPS_EPHEMERAL_STORAGE: "WriteIOPSEphemeralStorage",
 } as const;
 
@@ -8073,10 +8097,10 @@ export type RDSDBMetricName = (typeof RDSDBMetricName)[keyof typeof RDSDBMetricN
 
 /**
  * <p>
- *             Describes the projected metrics of an Amazon RDS recommendation option.
+ *             Describes the projected metrics of an Amazon Aurora and RDS database recommendation option.
  *         </p>
  *          <p>
- *             To determine the performance difference between your current Amazon RDS
+ *             To determine the performance difference between your current Amazon Aurora and RDS database
  *             and the recommended option, compare the metric data of your service against
  *             its projected metric data.
  *         </p>
@@ -8110,10 +8134,10 @@ export interface RDSDatabaseProjectedMetric {
 
 /**
  * <p>
- *             Describes the projected metrics of an Amazon RDS recommendation option.
+ *             Describes the projected metrics of an Amazon Aurora and RDS database recommendation option.
  *         </p>
  *          <p>
- *             To determine the performance difference between your current Amazon RDS and the recommended option, compare
+ *             To determine the performance difference between your current Amazon Aurora and RDS database and the recommended option, compare
  *             the metric data of your service against its projected metric data.
  *         </p>
  * @public
@@ -8121,7 +8145,7 @@ export interface RDSDatabaseProjectedMetric {
 export interface RDSDatabaseRecommendedOptionProjectedMetric {
   /**
    * <p>
-   *             The recommended DB instance class for the Amazon RDS.
+   *             The recommended DB instance class for the Amazon Aurora or RDS database.
    *         </p>
    * @public
    */
@@ -8129,7 +8153,7 @@ export interface RDSDatabaseRecommendedOptionProjectedMetric {
 
   /**
    * <p>
-   *             The rank identifier of the RDS instance recommendation option.
+   *             The rank identifier of the Amazon Aurora or RDS DB instance recommendation option.
    *         </p>
    * @public
    */
@@ -8163,7 +8187,7 @@ export interface GetRDSDatabaseRecommendationProjectedMetricsResponse {
 export interface GetRDSDatabaseRecommendationsRequest {
   /**
    * <p>
-   *             The ARN that identifies the Amazon RDS.
+   *             The ARN that identifies the Amazon Aurora or RDS database.
    *         </p>
    *          <p>
    *             The following is the format of the ARN:
@@ -8181,14 +8205,14 @@ export interface GetRDSDatabaseRecommendationsRequest {
 
   /**
    * <p>
-   *             The token to advance to the next page of Amazon RDS recommendations.
+   *             The token to advance to the next page of Amazon Aurora and RDS database recommendations.
    *         </p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of Amazon RDS recommendations to return with a single
+   * <p>The maximum number of Amazon Aurora and RDS database recommendations to return with a single
    *             request.</p>
    *          <p>To retrieve the remaining results, make another request with the returned
    *             <code>nextToken</code> value.</p>
@@ -8198,7 +8222,7 @@ export interface GetRDSDatabaseRecommendationsRequest {
 
   /**
    * <p>
-   *             An array of objects to specify a filter that returns a more specific list of Amazon RDS recommendations.
+   *             An array of objects to specify a filter that returns a more specific list of Amazon Aurora and RDS database recommendations.
    *         </p>
    * @public
    */
@@ -8206,10 +8230,10 @@ export interface GetRDSDatabaseRecommendationsRequest {
 
   /**
    * <p>
-   *             Return the Amazon RDS recommendations to the specified Amazon Web Services account IDs.
+   *             Return the Amazon Aurora and RDS database recommendations to the specified Amazon Web Services account IDs.
    *         </p>
    *          <p>If your account is the management account or the delegated administrator
-   *             of an organization, use this parameter to return the Amazon RDS recommendations to specific
+   *             of an organization, use this parameter to return the Amazon Aurora and RDS database recommendations to specific
    *             member accounts.</p>
    *          <p>You can only specify one account ID per request.</p>
    * @public
@@ -8249,7 +8273,7 @@ export type RDSCurrentInstancePerformanceRisk =
 export interface DBStorageConfiguration {
   /**
    * <p>
-   *             The type of RDS storage.
+   *             The type of DB storage.
    *         </p>
    * @public
    */
@@ -8257,7 +8281,7 @@ export interface DBStorageConfiguration {
 
   /**
    * <p>
-   *             The size of the RDS storage in gigabytes (GB).
+   *             The size of the DB storage in gigabytes (GB).
    *         </p>
    * @public
    */
@@ -8265,7 +8289,7 @@ export interface DBStorageConfiguration {
 
   /**
    * <p>
-   *             The provisioned IOPs of the RDS storage.
+   *             The provisioned IOPs of the DB storage.
    *         </p>
    * @public
    */
@@ -8273,7 +8297,7 @@ export interface DBStorageConfiguration {
 
   /**
    * <p>
-   *             The maximum limit in gibibytes (GiB) to which Amazon RDS can automatically scale the storage of the RDS instance.
+   *             The maximum limit in gibibytes (GiB) to which Amazon RDS can automatically scale the storage of the DB instance.
    *         </p>
    * @public
    */
@@ -8281,12 +8305,29 @@ export interface DBStorageConfiguration {
 
   /**
    * <p>
-   *             The storage throughput of the RDS storage.
+   *             The storage throughput of the DB storage.
    *         </p>
    * @public
    */
   storageThroughput?: number | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const RDSEstimatedMonthlyVolumeIOPsCostVariation = {
+  HIGH: "High",
+  LOW: "Low",
+  MEDIUM: "Medium",
+  NONE: "None",
+} as const;
+
+/**
+ * @public
+ */
+export type RDSEstimatedMonthlyVolumeIOPsCostVariation =
+  (typeof RDSEstimatedMonthlyVolumeIOPsCostVariation)[keyof typeof RDSEstimatedMonthlyVolumeIOPsCostVariation];
 
 /**
  * @public
@@ -8306,14 +8347,14 @@ export type RDSSavingsEstimationModeSource =
 
 /**
  * <p>
- *             Describes the savings estimation mode used for calculating savings opportunity for Amazon RDS.
+ *             Describes the savings estimation mode used for calculating savings opportunity for DB instances.
  *         </p>
  * @public
  */
 export interface RDSSavingsEstimationMode {
   /**
    * <p>
-   *             Describes the source for calculating the savings opportunity for Amazon RDS.
+   *             Describes the source for calculating the savings opportunity for DB instances.
    *         </p>
    * @public
    */
@@ -8322,14 +8363,14 @@ export interface RDSSavingsEstimationMode {
 
 /**
  * <p>
- *             Describes the effective recommendation preferences for Amazon RDS.
+ *             Describes the effective recommendation preferences for Amazon Aurora and RDS databases.
  *         </p>
  * @public
  */
 export interface RDSEffectiveRecommendationPreferences {
   /**
    * <p>
-   *             Describes the CPU vendor and architecture for Amazon RDS recommendations.
+   *             Describes the CPU vendor and architecture for DB instance recommendations.
    *         </p>
    * @public
    */
@@ -8353,7 +8394,7 @@ export interface RDSEffectiveRecommendationPreferences {
 
   /**
    * <p>
-   *             The number of days the utilization metrics of the Amazon RDS are analyzed.
+   *             The number of days the utilization metrics of the DB instance are analyzed.
    *         </p>
    * @public
    */
@@ -8361,7 +8402,7 @@ export interface RDSEffectiveRecommendationPreferences {
 
   /**
    * <p>
-   *             Describes the savings estimation mode preference applied for calculating savings opportunity for Amazon RDS.
+   *             Describes the savings estimation mode preference applied for calculating savings opportunity for DB instances.
    *         </p>
    * @public
    */
@@ -8441,10 +8482,10 @@ export type RDSDBMetricStatistic = (typeof RDSDBMetricStatistic)[keyof typeof RD
 
 /**
  * <p>
- *             Describes the utilization metric of an Amazon RDS.
+ *             Describes the utilization metric of an Amazon Aurora and RDS database.
  *         </p>
  *          <p>
- *             To determine the performance difference between your current Amazon RDS and the recommended option,
+ *             To determine the performance difference between your current DB instance and the recommended option,
  *             compare the utilization metric data of your service against its projected utilization metric data.
  *         </p>
  * @public
@@ -8488,8 +8529,8 @@ export interface RDSDBUtilizationMetric {
 
 /**
  * <p>
- *             Describes the estimated monthly savings possible for Amazon RDS instances by adopting
- *             Compute Optimizer recommendations. This is based on Amazon RDS pricing after applying
+ *             Describes the estimated monthly savings possible for DB instances by adopting
+ *             Compute Optimizer recommendations. This is based on DB instance pricing after applying
  *             Savings Plans discounts.
  *         </p>
  * @public
@@ -8505,7 +8546,7 @@ export interface RDSInstanceEstimatedMonthlySavings {
 
   /**
    * <p>
-   *             The value of the estimated monthly savings for Amazon RDS instances.
+   *             The value of the estimated monthly savings for DB instances.
    *         </p>
    * @public
    */
@@ -8514,7 +8555,7 @@ export interface RDSInstanceEstimatedMonthlySavings {
 
 /**
  * <p>
- *             Describes the savings opportunity for Amazon RDS instance recommendations after applying Savings Plans discounts.
+ *             Describes the savings opportunity for DB instance recommendations after applying Savings Plans discounts.
  *         </p>
  *          <p>
  *             Savings opportunity represents the estimated monthly savings after applying Savings Plans discounts.
@@ -8526,7 +8567,7 @@ export interface RDSInstanceSavingsOpportunityAfterDiscounts {
   /**
    * <p>
    *             The estimated monthly savings possible as a percentage of monthly cost by adopting Compute Optimizer’s
-   *             Amazon RDS instance recommendations. This includes any applicable Savings Plans discounts.
+   *             DB instance recommendations. This includes any applicable Savings Plans discounts.
    *         </p>
    * @public
    */
@@ -8534,7 +8575,7 @@ export interface RDSInstanceSavingsOpportunityAfterDiscounts {
 
   /**
    * <p>
-   *             The estimated monthly savings possible by adopting Compute Optimizer’s Amazon RDS instance recommendations.
+   *             The estimated monthly savings possible by adopting Compute Optimizer’s DB instance recommendations.
    *             This includes any applicable Savings Plans discounts.
    *         </p>
    * @public
@@ -8544,14 +8585,14 @@ export interface RDSInstanceSavingsOpportunityAfterDiscounts {
 
 /**
  * <p>
- *             Describes the recommendation options for an Amazon RDS instance.
+ *             Describes the recommendation options for a DB instance.
  *         </p>
  * @public
  */
 export interface RDSDBInstanceRecommendationOption {
   /**
    * <p>
-   *             Describes the DB instance class recommendation option for your Amazon RDS instance.
+   *             Describes the DB instance class recommendation option for your Amazon Aurora or RDS database.
    *         </p>
    * @public
    */
@@ -8559,7 +8600,7 @@ export interface RDSDBInstanceRecommendationOption {
 
   /**
    * <p>
-   *             An array of objects that describe the projected utilization metrics of the RDS instance recommendation option.
+   *             An array of objects that describe the projected utilization metrics of the DB instance recommendation option.
    *         </p>
    * @public
    */
@@ -8567,7 +8608,7 @@ export interface RDSDBInstanceRecommendationOption {
 
   /**
    * <p>
-   *             The performance risk of the RDS instance recommendation option.
+   *             The performance risk of the DB instance recommendation option.
    *         </p>
    * @public
    */
@@ -8575,7 +8616,7 @@ export interface RDSDBInstanceRecommendationOption {
 
   /**
    * <p>
-   *             The rank identifier of the RDS instance recommendation option.
+   *             The rank identifier of the DB instance recommendation option.
    *         </p>
    * @public
    */
@@ -8604,7 +8645,7 @@ export interface RDSDBInstanceRecommendationOption {
 
   /**
    * <p>
-   *             Describes the savings opportunity for Amazon RDS recommendations or for the recommendation option.
+   *             Describes the savings opportunity for Amazon Aurora and RDS database recommendations or for the recommendation option.
    *         </p>
    *          <p>Savings opportunity represents the estimated monthly savings after applying Savings Plans discounts.
    *             You can achieve this by implementing a given Compute Optimizer recommendation.</p>
@@ -8618,6 +8659,7 @@ export interface RDSDBInstanceRecommendationOption {
  * @enum
  */
 export const RDSStorageFinding = {
+  NOT_OPTIMIZED: "NotOptimized",
   OPTIMIZED: "Optimized",
   OVER_PROVISIONED: "Overprovisioned",
   UNDER_PROVISIONED: "Underprovisioned",
@@ -8633,6 +8675,8 @@ export type RDSStorageFinding = (typeof RDSStorageFinding)[keyof typeof RDSStora
  * @enum
  */
 export const RDSStorageFindingReasonCode = {
+  DB_CLUSTER_STORAGE_OPTION_AVAILABLE: "DBClusterStorageOptionAvailable",
+  DB_CLUSTER_STORAGE_SAVINGS_AVAILABLE: "DBClusterStorageSavingsAvailable",
   EBS_VOLUME_ALLOCATED_STORAGE_UNDER_PROVISIONED: "EBSVolumeAllocatedStorageUnderprovisioned",
   EBS_VOLUME_IOPS_OVER_PROVISIONED: "EBSVolumeIOPSOverprovisioned",
   EBS_VOLUME_THROUGHPUT_OVER_PROVISIONED: "EBSVolumeThroughputOverprovisioned",
@@ -8648,8 +8692,8 @@ export type RDSStorageFindingReasonCode =
 
 /**
  * <p>
- *             Describes the estimated monthly savings possible for Amazon RDS storage by adopting Compute Optimizer
- *             recommendations. This is based on Amazon RDS pricing after applying Savings Plans discounts.
+ *             Describes the estimated monthly savings possible for DB instance storage by adopting Compute Optimizer
+ *             recommendations. This is based on DB instance pricing after applying Savings Plans discounts.
  *         </p>
  * @public
  */
@@ -8664,7 +8708,7 @@ export interface RDSStorageEstimatedMonthlySavings {
 
   /**
    * <p>
-   *             The value of the estimated monthly savings for Amazon RDS storage.
+   *             The value of the estimated monthly savings for DB instance storage.
    *         </p>
    * @public
    */
@@ -8685,7 +8729,7 @@ export interface RDSStorageSavingsOpportunityAfterDiscounts {
   /**
    * <p>
    *             The estimated monthly savings possible as a percentage of monthly cost by adopting Compute Optimizer’s
-   *             Amazon RDS storage recommendations. This includes any applicable Savings Plans discounts.
+   *             DB instance storage recommendations. This includes any applicable Savings Plans discounts.
    *         </p>
    * @public
    */
@@ -8693,7 +8737,7 @@ export interface RDSStorageSavingsOpportunityAfterDiscounts {
 
   /**
    * <p>
-   *             The estimated monthly savings possible by adopting Compute Optimizer’s Amazon RDS storage recommendations. This includes any applicable Savings Plans discounts.
+   *             The estimated monthly savings possible by adopting Compute Optimizer’s DB instance storage recommendations. This includes any applicable Savings Plans discounts.
    *         </p>
    * @public
    */
@@ -8702,7 +8746,7 @@ export interface RDSStorageSavingsOpportunityAfterDiscounts {
 
 /**
  * <p>
- *             Describes the recommendation options for Amazon RDS storage.
+ *             Describes the recommendation options for DB storage.
  *         </p>
  * @public
  */
@@ -8717,7 +8761,7 @@ export interface RDSDBStorageRecommendationOption {
 
   /**
    * <p>
-   *             The rank identifier of the RDS storage recommendation option.
+   *             The rank identifier of the DB storage recommendation option.
    *         </p>
    * @public
    */
@@ -8746,7 +8790,7 @@ export interface RDSDBStorageRecommendationOption {
 
   /**
    * <p>
-   *             Describes the savings opportunity for Amazon RDS storage recommendations or for the recommendation option.
+   *             Describes the savings opportunity for DB storage recommendations or for the recommendation option.
    *         </p>
    *          <p>
    *             Savings opportunity represents the estimated monthly savings after applying Savings Plans discounts. You can achieve
@@ -8755,18 +8799,26 @@ export interface RDSDBStorageRecommendationOption {
    * @public
    */
   savingsOpportunityAfterDiscounts?: RDSStorageSavingsOpportunityAfterDiscounts | undefined;
+
+  /**
+   * <p>
+   *             The projected level of variation in monthly I/O costs for the DB storage recommendation option.
+   *         </p>
+   * @public
+   */
+  estimatedMonthlyVolumeIOPsCostVariation?: RDSEstimatedMonthlyVolumeIOPsCostVariation | undefined;
 }
 
 /**
  * <p>
- *             Describes an Amazon RDS recommendation.
+ *             Describes an Amazon Aurora and RDS database recommendation.
  *         </p>
  * @public
  */
 export interface RDSDBRecommendation {
   /**
    * <p>
-   *             The ARN of the current Amazon RDS.
+   *             The ARN of the current Amazon Aurora or RDS database.
    *         </p>
    *          <p>
    *             The following is the format of the ARN:
@@ -8780,7 +8832,7 @@ export interface RDSDBRecommendation {
 
   /**
    * <p>
-   *             The Amazon Web Services account ID of the Amazon RDS.
+   *             The Amazon Web Services account ID of the Amazon Aurora or RDS database.
    *         </p>
    * @public
    */
@@ -8788,7 +8840,7 @@ export interface RDSDBRecommendation {
 
   /**
    * <p>
-   *             The engine of the RDS instance.
+   *             The engine of the DB instance.
    *         </p>
    * @public
    */
@@ -8810,7 +8862,7 @@ export interface RDSDBRecommendation {
 
   /**
    * <p>
-   *             The DB instance class of the current RDS instance.
+   *             The DB instance class of the current Aurora or RDS DB instance.
    *         </p>
    * @public
    */
@@ -8818,7 +8870,7 @@ export interface RDSDBRecommendation {
 
   /**
    * <p>
-   *             The configuration of the current RDS storage.
+   *             The configuration of the current DB storage.
    *         </p>
    * @public
    */
@@ -8832,7 +8884,7 @@ export interface RDSDBRecommendation {
 
   /**
    * <p>
-   *             This indicates if the RDS instance is idle or not.
+   *             This indicates if the DB instance is idle or not.
    *         </p>
    * @public
    */
@@ -8840,77 +8892,29 @@ export interface RDSDBRecommendation {
 
   /**
    * <p>
-   *             The finding classification of an Amazon RDS instance.
+   *             The finding classification of an Amazon Aurora and RDS DB instance.
    *         </p>
-   *          <p>Findings for Amazon RDS instance include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>Underprovisioned</code>
-   *                   </b> —
-   *                     When Compute Optimizer detects that there’s not enough resource specifications, an Amazon RDS
-   *                     is considered under-provisioned.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>Overprovisioned</code>
-   *                   </b> —
-   *                     When Compute Optimizer detects that there’s excessive resource specifications, an Amazon RDS
-   *                     is considered over-provisioned.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>Optimized</code>
-   *                   </b> —
-   *                     When the specifications of your Amazon RDS instance meet the performance requirements
-   *                     of your workload, the service is considered optimized.</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about finding classifications, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-rds-recommendations.html#rds-recommendations-findings">
+   *             Finding classifications for Aurora and RDS databases</a> in the <i>Compute Optimizer User
+   *                 Guide</i>.</p>
    * @public
    */
   instanceFinding?: RDSInstanceFinding | undefined;
 
   /**
    * <p>
-   *             The finding classification of Amazon RDS storage.
+   *             The finding classification of Amazon RDS DB instance storage.
    *         </p>
-   *          <p>Findings for Amazon RDS instance include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>Underprovisioned</code>
-   *                   </b> —
-   *                     When Compute Optimizer detects that there’s not enough storage, an Amazon RDS
-   *                     is considered under-provisioned.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>Overprovisioned</code>
-   *                   </b> —
-   *                     When Compute Optimizer detects that there’s excessive storage, an Amazon RDS
-   *                     is considered over-provisioned.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>Optimized</code>
-   *                   </b> —
-   *                     When the storage of your Amazon RDS meet the performance requirements
-   *                     of your workload, the service is considered optimized.</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about finding classifications, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-rds-recommendations.html#rds-recommendations-findings">
+   *             Finding classifications for Aurora and RDS databases</a> in the <i>Compute Optimizer User
+   *                 Guide</i>.</p>
    * @public
    */
   storageFinding?: RDSStorageFinding | undefined;
 
   /**
    * <p>
-   *             The reason for the finding classification of an Amazon RDS instance.
+   *             The reason for the finding classification of a DB instance.
    *         </p>
    * @public
    */
@@ -8924,7 +8928,15 @@ export interface RDSDBRecommendation {
 
   /**
    * <p>
-   *             The reason for the finding classification of Amazon RDS storage.
+   *             The level of variation in monthly I/O costs for the current DB storage configuration.
+   *         </p>
+   * @public
+   */
+  currentStorageEstimatedMonthlyVolumeIOPsCostVariation?: RDSEstimatedMonthlyVolumeIOPsCostVariation | undefined;
+
+  /**
+   * <p>
+   *             The reason for the finding classification of RDS DB instance storage.
    *         </p>
    * @public
    */
@@ -8932,7 +8944,7 @@ export interface RDSDBRecommendation {
 
   /**
    * <p>
-   *             An array of objects that describe the recommendation options for the Amazon RDS instance.
+   *             An array of objects that describe the recommendation options for the RDS DB instance.
    *         </p>
    * @public
    */
@@ -8940,7 +8952,7 @@ export interface RDSDBRecommendation {
 
   /**
    * <p>
-   *             An array of objects that describe the recommendation options for Amazon RDS storage.
+   *             An array of objects that describe the recommendation options for DB instance storage.
    *         </p>
    * @public
    */
@@ -8948,7 +8960,7 @@ export interface RDSDBRecommendation {
 
   /**
    * <p>
-   *             An array of objects that describe the utilization metrics of the Amazon RDS.
+   *             An array of objects that describe the utilization metrics of the DB instance.
    *         </p>
    * @public
    */
@@ -8956,7 +8968,7 @@ export interface RDSDBRecommendation {
 
   /**
    * <p>
-   *             Describes the effective recommendation preferences for Amazon RDS.
+   *             Describes the effective recommendation preferences for DB instances.
    *         </p>
    * @public
    */
@@ -8964,7 +8976,7 @@ export interface RDSDBRecommendation {
 
   /**
    * <p>
-   *             The number of days the Amazon RDS utilization metrics were analyzed.
+   *             The number of days the DB instance utilization metrics were analyzed.
    *         </p>
    * @public
    */
@@ -8972,7 +8984,7 @@ export interface RDSDBRecommendation {
 
   /**
    * <p>
-   *             The timestamp of when the Amazon RDS recommendation was last generated.
+   *             The timestamp of when the DB instance recommendation was last generated.
    *         </p>
    * @public
    */
@@ -8980,7 +8992,7 @@ export interface RDSDBRecommendation {
 
   /**
    * <p>
-   *             A list of tags assigned to your Amazon RDS recommendations.
+   *             A list of tags assigned to your DB instance recommendations.
    *         </p>
    * @public
    */
@@ -8993,7 +9005,7 @@ export interface RDSDBRecommendation {
 export interface GetRDSDatabaseRecommendationsResponse {
   /**
    * <p>
-   *             The token to advance to the next page of Amazon RDS recommendations.
+   *             The token to advance to the next page of Amazon Aurora and RDS database recommendations.
    *         </p>
    * @public
    */
@@ -9001,7 +9013,7 @@ export interface GetRDSDatabaseRecommendationsResponse {
 
   /**
    * <p>
-   *             An array of objects that describe the Amazon RDS recommendations.
+   *             An array of objects that describe the Amazon Aurora and RDS database recommendations.
    *         </p>
    * @public
    */
