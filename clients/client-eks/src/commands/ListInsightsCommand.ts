@@ -30,7 +30,21 @@ export interface ListInsightsCommandOutput extends ListInsightsResponse, __Metad
 /**
  * <p>Returns a list of all insights checked for against the specified cluster. You can
  *             filter which insights are returned by category, associated Kubernetes version, and
- *             status.</p>
+ *             status. The default filter lists all categories and every status.</p>
+ *          <p>The following lists the available categories:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>UPGRADE_READINESS</code>: Amazon EKS identifies issues that could impact your
+ *                     ability to upgrade to new versions of Kubernetes. These are called upgrade insights.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>MISCONFIGURATION</code>: Amazon EKS identifies misconfiguration in your EKS
+ *                     Hybrid Nodes setup that could impair functionality of your cluster or
+ *                     workloads. These are called configuration insights.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -41,7 +55,7 @@ export interface ListInsightsCommandOutput extends ListInsightsResponse, __Metad
  *   clusterName: "STRING_VALUE", // required
  *   filter: { // InsightsFilter
  *     categories: [ // CategoryList
- *       "UPGRADE_READINESS",
+ *       "UPGRADE_READINESS" || "MISCONFIGURATION",
  *     ],
  *     kubernetesVersions: [ // StringList
  *       "STRING_VALUE",
@@ -60,7 +74,7 @@ export interface ListInsightsCommandOutput extends ListInsightsResponse, __Metad
  * //     { // InsightSummary
  * //       id: "STRING_VALUE",
  * //       name: "STRING_VALUE",
- * //       category: "UPGRADE_READINESS",
+ * //       category: "UPGRADE_READINESS" || "MISCONFIGURATION",
  * //       kubernetesVersion: "STRING_VALUE",
  * //       lastRefreshTime: new Date("TIMESTAMP"),
  * //       lastTransitionTime: new Date("TIMESTAMP"),

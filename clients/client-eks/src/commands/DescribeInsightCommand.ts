@@ -45,7 +45,7 @@ export interface DescribeInsightCommandOutput extends DescribeInsightResponse, _
  * //   insight: { // Insight
  * //     id: "STRING_VALUE",
  * //     name: "STRING_VALUE",
- * //     category: "UPGRADE_READINESS",
+ * //     category: "UPGRADE_READINESS" || "MISCONFIGURATION",
  * //     kubernetesVersion: "STRING_VALUE",
  * //     lastRefreshTime: new Date("TIMESTAMP"),
  * //     lastTransitionTime: new Date("TIMESTAMP"),
