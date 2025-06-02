@@ -28,8 +28,7 @@ export interface ListProviderServicesCommandInput extends ListProviderServicesIn
 export interface ListProviderServicesCommandOutput extends ListProviderServicesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all the <code>ProviderServices</code> that are available in this
- *             Amazon Web Services Region.</p>
+ * <p>Returns a list of all the <code>ProviderServices</code> that are available in this Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +67,7 @@ export interface ListProviderServicesCommandOutput extends ListProviderServicesO
  *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. </p>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling. </p>

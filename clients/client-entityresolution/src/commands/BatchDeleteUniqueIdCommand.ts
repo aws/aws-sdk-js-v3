@@ -71,8 +71,7 @@ export interface BatchDeleteUniqueIdCommandOutput extends BatchDeleteUniqueIdOut
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. </p>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found. </p>

@@ -28,8 +28,7 @@ export interface StartIdMappingJobCommandInput extends StartIdMappingJobInput {}
 export interface StartIdMappingJobCommandOutput extends StartIdMappingJobOutput, __MetadataBearer {}
 
 /**
- * <p>Starts the <code>IdMappingJob</code> of a workflow. The workflow must have previously
- *          been created using the <code>CreateIdMappingWorkflow</code> endpoint.</p>
+ * <p>Starts the <code>IdMappingJob</code> of a workflow. The workflow must have previously been created using the <code>CreateIdMappingWorkflow</code> endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,18 +70,13 @@ export interface StartIdMappingJobCommandOutput extends StartIdMappingJobOutput,
  *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource. Example: Workflow already exists, Schema already exists, Workflow is currently
- *          running, etc. </p>
+ *  <p>The request could not be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
  *
  * @throws {@link ExceedsLimitException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *             Entity Resolution account limits. The error message describes the limit exceeded.
- *       </p>
+ *  <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. </p>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found. </p>

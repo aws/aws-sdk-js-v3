@@ -28,8 +28,7 @@ export interface AddPolicyStatementCommandInput extends AddPolicyStatementInput 
 export interface AddPolicyStatementCommandOutput extends AddPolicyStatementOutput, __MetadataBearer {}
 
 /**
- * <p>Adds a policy statement object. To retrieve a list of existing policy statements, use
- *          the <code>GetPolicy</code> API.</p>
+ * <p>Adds a policy statement object. To retrieve a list of existing policy statements, use the <code>GetPolicy</code> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,13 +67,10 @@ export interface AddPolicyStatementCommandOutput extends AddPolicyStatementOutpu
  *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource. Example: Workflow already exists, Schema already exists, Workflow is currently
- *          running, etc. </p>
+ *  <p>The request could not be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. </p>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found. </p>

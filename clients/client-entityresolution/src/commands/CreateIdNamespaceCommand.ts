@@ -28,9 +28,7 @@ export interface CreateIdNamespaceCommandInput extends CreateIdNamespaceInput {}
 export interface CreateIdNamespaceCommandOutput extends CreateIdNamespaceOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an ID namespace object which will help customers provide metadata explaining
- *          their dataset and how to use it. Each ID namespace must have a unique name. To modify an
- *          existing ID namespace, use the <code>UpdateIdNamespace</code> API.</p>
+ * <p>Creates an ID namespace object which will help customers provide metadata explaining their dataset and how to use it. Each ID namespace must have a unique name. To modify an existing ID namespace, use the <code>UpdateIdNamespace</code> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -137,18 +135,13 @@ export interface CreateIdNamespaceCommandOutput extends CreateIdNamespaceOutput,
  *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource. Example: Workflow already exists, Schema already exists, Workflow is currently
- *          running, etc. </p>
+ *  <p>The request could not be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
  *
  * @throws {@link ExceedsLimitException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *             Entity Resolution account limits. The error message describes the limit exceeded.
- *       </p>
+ *  <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. </p>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling. </p>

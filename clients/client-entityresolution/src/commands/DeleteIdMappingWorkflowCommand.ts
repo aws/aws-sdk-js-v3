@@ -28,8 +28,7 @@ export interface DeleteIdMappingWorkflowCommandInput extends DeleteIdMappingWork
 export interface DeleteIdMappingWorkflowCommandOutput extends DeleteIdMappingWorkflowOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the <code>IdMappingWorkflow</code> with a given name. This operation will
- *          succeed even if a workflow with the given name does not exist.</p>
+ * <p>Deletes the <code>IdMappingWorkflow</code> with a given name. This operation will succeed even if a workflow with the given name does not exist.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,13 +56,10 @@ export interface DeleteIdMappingWorkflowCommandOutput extends DeleteIdMappingWor
  *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource. Example: Workflow already exists, Schema already exists, Workflow is currently
- *          running, etc. </p>
+ *  <p>The request could not be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. </p>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling. </p>

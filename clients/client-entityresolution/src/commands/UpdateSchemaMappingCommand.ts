@@ -28,11 +28,7 @@ export interface UpdateSchemaMappingCommandInput extends UpdateSchemaMappingInpu
 export interface UpdateSchemaMappingCommandOutput extends UpdateSchemaMappingOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a schema mapping.</p>
- *          <note>
- *             <p>A schema is immutable if it is being used by a workflow. Therefore, you can't update
- *             a schema mapping if it's associated with a workflow. </p>
- *          </note>
+ * <p>Updates a schema mapping.</p> <note> <p>A schema is immutable if it is being used by a workflow. Therefore, you can't update a schema mapping if it's associated with a workflow. </p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,13 +79,10 @@ export interface UpdateSchemaMappingCommandOutput extends UpdateSchemaMappingOut
  *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource. Example: Workflow already exists, Schema already exists, Workflow is currently
- *          running, etc. </p>
+ *  <p>The request could not be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. </p>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found. </p>

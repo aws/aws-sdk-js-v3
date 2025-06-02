@@ -109,8 +109,7 @@ export interface GetMatchingWorkflowCommandOutput extends GetMatchingWorkflowOut
  *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. </p>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found. </p>

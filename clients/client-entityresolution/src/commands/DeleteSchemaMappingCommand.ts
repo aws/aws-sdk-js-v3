@@ -28,10 +28,7 @@ export interface DeleteSchemaMappingCommandInput extends DeleteSchemaMappingInpu
 export interface DeleteSchemaMappingCommandOutput extends DeleteSchemaMappingOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the <code>SchemaMapping</code> with a given name. This operation will succeed
- *          even if a schema with the given name does not exist. This operation will fail if there is a
- *             <code>MatchingWorkflow</code> object that references the <code>SchemaMapping</code> in
- *          the workflow's <code>InputSourceConfig</code>.</p>
+ * <p>Deletes the <code>SchemaMapping</code> with a given name. This operation will succeed even if a schema with the given name does not exist. This operation will fail if there is a <code>MatchingWorkflow</code> object that references the <code>SchemaMapping</code> in the workflow's <code>InputSourceConfig</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,13 +56,10 @@ export interface DeleteSchemaMappingCommandOutput extends DeleteSchemaMappingOut
  *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource. Example: Workflow already exists, Schema already exists, Workflow is currently
- *          running, etc. </p>
+ *  <p>The request could not be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. </p>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling. </p>

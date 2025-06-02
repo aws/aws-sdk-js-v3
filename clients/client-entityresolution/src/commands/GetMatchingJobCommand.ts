@@ -28,8 +28,7 @@ export interface GetMatchingJobCommandInput extends GetMatchingJobInput {}
 export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the status, metrics, and errors (if there are any) that are associated with a
- *          job.</p>
+ * <p>Returns the status, metrics, and errors (if there are any) that are associated with a job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,8 +76,7 @@ export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __Met
  *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. </p>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found. </p>

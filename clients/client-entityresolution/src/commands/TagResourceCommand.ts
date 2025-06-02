@@ -28,16 +28,7 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Assigns one or more tags (key-value pairs) to the specified Entity Resolution resource.
- *          Tags can help you organize and categorize your resources. You can also use them to scope
- *          user permissions by granting a user permission to access or change only resources with
- *          certain tag values. In Entity Resolution, <code>SchemaMapping</code> and
- *             <code>MatchingWorkflow</code> can be tagged. Tags don't have any semantic meaning to
- *             Amazon Web Services and are interpreted strictly as strings of characters. You can use
- *          the <code>TagResource</code> action with a resource that already has tags. If you specify a
- *          new tag key, this tag is appended to the list of tags associated with the resource. If you
- *          specify a tag key that is already associated with the resource, the new tag value that you
- *          specify replaces the previous value for that tag.</p>
+ * <p>Assigns one or more tags (key-value pairs) to the specified Entity Resolution resource. Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values. In Entity Resolution, <code>SchemaMapping</code> and <code>MatchingWorkflow</code> can be tagged. Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters. You can use the <code>TagResource</code> action with a resource that already has tags. If you specify a new tag key, this tag is appended to the list of tags associated with the resource. If you specify a tag key that is already associated with the resource, the new tag value that you specify replaces the previous value for that tag.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +54,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. </p>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found. </p>

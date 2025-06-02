@@ -6,17 +6,7 @@
 
 AWS SDK for JavaScript EntityResolution Client for Node.js, Browser and React Native.
 
-<p>Welcome to the <i>Entity Resolution API Reference</i>.</p>
-<p>Entity Resolution is an Amazon Web Services service that provides pre-configured entity
-resolution capabilities that enable developers and analysts at advertising and marketing
-companies to build an accurate and complete view of their consumers.</p>
-<p> With Entity Resolution, you can match source records containing consumer identifiers,
-such as name, email address, and phone number. This is true even when these records have
-incomplete or conflicting identifiers. For example, Entity Resolution can effectively match
-a source record from a customer relationship management (CRM) system with a source record
-from a marketing system containing campaign information.</p>
-<p>To learn more about Entity Resolution concepts, procedures, and best practices, see the
-<a href="https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html">Entity Resolution User Guide</a>.</p>
+<p>Welcome to the <i>Entity Resolution API Reference</i>.</p> <p>Entity Resolution is an Amazon Web Services service that provides pre-configured entity resolution capabilities that enable developers and analysts at advertising and marketing companies to build an accurate and complete view of their consumers.</p> <p> With Entity Resolution, you can match source records containing consumer identifiers, such as name, email address, and phone number. This is true even when these records have incomplete or conflicting identifiers. For example, Entity Resolution can effectively match a source record from a customer relationship management (CRM) system with a source record from a marketing system containing campaign information.</p> <p>To learn more about Entity Resolution concepts, procedures, and best practices, see the <a href="https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html">Entity Resolution User Guide</a>.</p>
 
 ## Installing
 
@@ -299,6 +289,14 @@ DeleteSchemaMapping
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/DeleteSchemaMappingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/DeleteSchemaMappingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/DeleteSchemaMappingCommandOutput/)
+
+</details>
+<details>
+<summary>
+GenerateMatchId
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/GenerateMatchIdCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GenerateMatchIdCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GenerateMatchIdCommandOutput/)
 
 </details>
 <details>

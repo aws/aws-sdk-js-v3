@@ -68,6 +68,7 @@ import {
   DeleteSchemaMappingCommandInput,
   DeleteSchemaMappingCommandOutput,
 } from "../commands/DeleteSchemaMappingCommand";
+import { GenerateMatchIdCommandInput, GenerateMatchIdCommandOutput } from "../commands/GenerateMatchIdCommand";
 import { GetIdMappingJobCommandInput, GetIdMappingJobCommandOutput } from "../commands/GetIdMappingJobCommand";
 import {
   GetIdMappingWorkflowCommandInput,
@@ -123,6 +124,7 @@ import {
 } from "../commands/UpdateSchemaMappingCommand";
 import { EntityResolutionServiceException as __BaseException } from "../models/EntityResolutionServiceException";
 import {
+  _Record,
   AccessDeniedException,
   ConflictException,
   ExceedsLimitException,
@@ -393,6 +395,30 @@ export const se_DeleteSchemaMappingCommand = async (
   b.p("schemaName", () => input.schemaName!, "{schemaName}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GenerateMatchIdCommand
+ */
+export const se_GenerateMatchIdCommand = async (
+  input: GenerateMatchIdCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/matchingworkflows/{workflowName}/generateMatches");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      processingType: [],
+      records: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -1171,6 +1197,28 @@ export const de_DeleteSchemaMappingCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     message: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GenerateMatchIdCommand
+ */
+export const de_GenerateMatchIdCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateMatchIdCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    failedRecords: _json,
+    matchGroups: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2084,7 +2132,13 @@ const se_ProviderProperties = (input: ProviderProperties, context: __SerdeContex
   });
 };
 
+// se__Record omitted.
+
 // se_RecordAttributeMap omitted.
+
+// se_RecordAttributeMapString255 omitted.
+
+// se_RecordList omitted.
 
 // se_RecordMatchingModelList omitted.
 
@@ -2135,6 +2189,10 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 // de_DisconnectedUniqueIdsList omitted.
 
 // de_ErrorDetails omitted.
+
+// de_FailedRecord omitted.
+
+// de_FailedRecordsList omitted.
 
 // de_IdMappingJobMetrics omitted.
 
@@ -2290,6 +2348,14 @@ const de_JobSummary = (output: any, context: __SerdeContext): JobSummary => {
     status: __expectString,
   }) as any;
 };
+
+// de_MatchedRecord omitted.
+
+// de_MatchedRecordsList omitted.
+
+// de_MatchGroup omitted.
+
+// de_MatchGroupsList omitted.
 
 // de_MatchingKeys omitted.
 

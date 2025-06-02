@@ -28,10 +28,7 @@ export interface GetMatchIdCommandInput extends GetMatchIdInput {}
 export interface GetMatchIdCommandOutput extends GetMatchIdOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the corresponding Match ID of a customer record if the record has been processed
- *          in a rule-based matching workflow or ML matching workflow.</p>
- *          <p>You can call this API as a dry run of an incremental load on the rule-based matching
- *          workflow.</p>
+ * <p>Returns the corresponding Match ID of a customer record if the record has been processed in a rule-based matching workflow or ML matching workflow.</p> <p>You can call this API as a dry run of an incremental load on the rule-based matching workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +61,7 @@ export interface GetMatchIdCommandOutput extends GetMatchIdOutput, __MetadataBea
  *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. </p>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found. </p>

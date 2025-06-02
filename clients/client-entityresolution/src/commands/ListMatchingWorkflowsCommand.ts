@@ -28,8 +28,7 @@ export interface ListMatchingWorkflowsCommandInput extends ListMatchingWorkflows
 export interface ListMatchingWorkflowsCommandOutput extends ListMatchingWorkflowsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all the <code>MatchingWorkflows</code> that have been created for an
- *             Amazon Web Services account.</p>
+ * <p>Returns a list of all the <code>MatchingWorkflows</code> that have been created for an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,8 +66,7 @@ export interface ListMatchingWorkflowsCommandOutput extends ListMatchingWorkflow
  *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. </p>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling. </p>

@@ -28,10 +28,7 @@ export interface UpdateMatchingWorkflowCommandInput extends UpdateMatchingWorkfl
 export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkflowOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an existing <code>MatchingWorkflow</code>. This method is identical to
- *             <code>CreateMatchingWorkflow</code>, except it uses an HTTP <code>PUT</code> request
- *          instead of a <code>POST</code> request, and the <code>MatchingWorkflow</code> must already
- *          exist for the method to succeed.</p>
+ * <p>Updates an existing <code>MatchingWorkflow</code>. This method is identical to <code>CreateMatchingWorkflow</code>, except it uses an HTTP <code>PUT</code> request instead of a <code>POST</code> request, and the <code>MatchingWorkflow</code> must already exist for the method to succeed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -153,8 +150,7 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. </p>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found. </p>
