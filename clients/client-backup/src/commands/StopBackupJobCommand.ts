@@ -29,10 +29,36 @@ export interface StopBackupJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Attempts to cancel a job to create a one-time backup of a resource.</p>
- *          <p>This action is not supported for the following services:
- *          Amazon FSx for Windows File Server, Amazon FSx for Lustre, Amazon FSx for NetApp ONTAP,
- *          Amazon FSx for OpenZFS, Amazon DocumentDB (with MongoDB compatibility), Amazon RDS, Amazon Aurora,
- *          and Amazon Neptune.</p>
+ *          <p>This action is not supported for the following services:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Amazon Aurora</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon DocumentDB (with MongoDB compatibility)</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon FSx for Lustre</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon FSx for NetApp ONTAP</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon FSx for OpenZFS</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon FSx for Windows File Server</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon Neptune</p>
+ *             </li>
+ *             <li>
+ *                <p>SAP HANA databases on Amazon EC2 instances</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon RDS</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

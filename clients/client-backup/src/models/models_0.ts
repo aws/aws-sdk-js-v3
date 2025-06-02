@@ -239,7 +239,44 @@ export interface BackupJob {
   PercentDone?: string | undefined;
 
   /**
-   * <p>The size, in bytes, of a backup.</p>
+   * <p>The size, in bytes, of a backup (recovery point).</p>
+   *          <p>This value can render differently depending on the resource type as Backup pulls in data information from other Amazon Web Services services. For example, the
+   *          value returned may show a value of <code>0</code>, which may differ from the
+   *          anticipated value.</p>
+   *          <p>The expected behavior for values by resource type are described as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Amazon Aurora, Amazon DocumentDB, and Amazon Neptune do
+   *                not have this value populate from the operation
+   *                <code>GetBackupJobStatus</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon DynamoDB with advanced features, this value refers to the size
+   *                of the recovery point (backup).</p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon EC2 and Amazon EBS show volume size (provisioned storage)
+   *                returned as part of this value. Amazon EBS does not return backup size
+   *                information; snapshot size will have the same value as the original resource that was
+   *                backed up.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon EFS, this value refers to the delta bytes transferred during a
+   *                backup.</p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon FSx does not populate this value from the operation
+   *                <code>GetBackupJobStatus</code> for FSx file systems.</p>
+   *             </li>
+   *             <li>
+   *                <p>An Amazon RDS instance will show as <code>0</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For virtual machines running VMware, this value is passed to Backup
+   *                through an asynchronous workflow, which can mean this displayed value can
+   *                under-represent the actual backup size.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   BackupSizeInBytes?: number | undefined;
@@ -570,12 +607,15 @@ export interface BackupRule {
   TargetBackupVaultName: string | undefined;
 
   /**
-   * <p>A cron expression in UTC specifying when Backup initiates a backup job. For
-   *          more information about Amazon Web Services cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">Schedule Expressions for Rules</a> in the <i>Amazon CloudWatch Events User
-   *             Guide.</i>. Two examples of Amazon Web Services cron expressions are <code> 15 * ?
-   *             * * *</code> (take a backup every hour at 15 minutes past the hour) and <code>0 12 * * ?
-   *             *</code> (take a backup every day at 12 noon UTC). For a table of examples, click the
-   *          preceding link and scroll down the page.</p>
+   * <p>A cron expression in UTC specifying when Backup initiates a backup job.
+   *          When no CRON expression is provided, Backup will use the default
+   *          expression <code>cron(0 5 ? * * *)</code>.</p>
+   *          <p>For more information about Amazon Web Services cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">Schedule Expressions for Rules</a> in the <i>Amazon CloudWatch Events User
+   *             Guide</i>.</p>
+   *          <p>Two examples of Amazon Web Services cron expressions are <code> 15 * ? * * *</code> (take
+   *          a backup every hour at 15 minutes past the hour) and <code>0 12 * * ? *</code> (take a
+   *          backup every day at 12 noon UTC).</p>
+   *          <p>For a table of examples, click the preceding link and scroll down the page.</p>
    * @public
    */
   ScheduleExpression?: string | undefined;
@@ -715,7 +755,8 @@ export interface BackupRuleInput {
 
   /**
    * <p>A CRON expression in UTC specifying when Backup initiates a backup
-   *          job.</p>
+   *          job. When no CRON expression is provided, Backup will use the default
+   *          expression <code>cron(0 5 ? * * *)</code>.</p>
    * @public
    */
   ScheduleExpression?: string | undefined;
@@ -1160,6 +1201,9 @@ export const BackupVaultEvent = {
   COPY_JOB_FAILED: "COPY_JOB_FAILED",
   COPY_JOB_STARTED: "COPY_JOB_STARTED",
   COPY_JOB_SUCCESSFUL: "COPY_JOB_SUCCESSFUL",
+  RECOVERY_POINT_INDEXING_FAILED: "RECOVERY_POINT_INDEXING_FAILED",
+  RECOVERY_POINT_INDEX_COMPLETED: "RECOVERY_POINT_INDEX_COMPLETED",
+  RECOVERY_POINT_INDEX_DELETED: "RECOVERY_POINT_INDEX_DELETED",
   RECOVERY_POINT_MODIFIED: "RECOVERY_POINT_MODIFIED",
   RESTORE_JOB_COMPLETED: "RESTORE_JOB_COMPLETED",
   RESTORE_JOB_FAILED: "RESTORE_JOB_FAILED",
@@ -2855,7 +2899,8 @@ export interface RestoreTestingPlanForCreate {
 
   /**
    * <p>A CRON expression in specified timezone when a restore
-   *          testing plan is executed.</p>
+   *          testing plan is executed. When no CRON expression is provided, Backup will use the default
+   *          expression <code>cron(0 5 ? * * *)</code>.</p>
    * @public
    */
   ScheduleExpression: string | undefined;
@@ -3119,7 +3164,7 @@ export interface RestoreTestingSelectionForCreate {
   RestoreTestingSelectionName: string | undefined;
 
   /**
-   * <p>This is amount of hours (1 to 168) available to run a validation script on the data. The
+   * <p>This is amount of hours (0 to 168) available to run a validation script on the data. The
    *          data will be deleted upon the completion of the validation script or the end of the
    *          specified retention period, whichever comes first.</p>
    * @public
@@ -3522,7 +3567,44 @@ export interface DescribeBackupJobOutput {
   PercentDone?: string | undefined;
 
   /**
-   * <p>The size, in bytes, of a backup.</p>
+   * <p>The size, in bytes, of a backup (recovery point).</p>
+   *          <p>This value can render differently depending on the resource type as Backup pulls in data information from other Amazon Web Services services. For example, the
+   *          value returned may show a value of <code>0</code>, which may differ from the
+   *          anticipated value.</p>
+   *          <p>The expected behavior for values by resource type are described as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Amazon Aurora, Amazon DocumentDB, and Amazon Neptune do
+   *                not have this value populate from the operation
+   *                <code>GetBackupJobStatus</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon DynamoDB with advanced features, this value refers to the size
+   *                of the recovery point (backup).</p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon EC2 and Amazon EBS show volume size (provisioned storage)
+   *                returned as part of this value. Amazon EBS does not return backup size
+   *                information; snapshot size will have the same value as the original resource that was
+   *                backed up.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon EFS, this value refers to the delta bytes transferred during a
+   *                backup.</p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon FSx does not populate this value from the operation
+   *                <code>GetBackupJobStatus</code> for FSx file systems.</p>
+   *             </li>
+   *             <li>
+   *                <p>An Amazon RDS instance will show as <code>0</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For virtual machines running VMware, this value is passed to Backup
+   *                through an asynchronous workflow, which can mean this displayed value can
+   *                under-represent the actual backup size.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   BackupSizeInBytes?: number | undefined;
@@ -3714,6 +3796,10 @@ export interface DescribeBackupVaultOutput {
 
   /**
    * <p>The number of recovery points that are stored in a backup vault.</p>
+   *          <p>Recovery point count value displayed in the console can be an approximation. Use <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListRecoveryPointsByBackupVault.html">
+   *                <code>ListRecoveryPointsByBackupVault</code>
+   *             </a> API to obtain the exact
+   *          count.</p>
    * @public
    */
   NumberOfRecoveryPoints?: number | undefined;
@@ -4039,10 +4125,13 @@ export type IndexStatus = (typeof IndexStatus)[keyof typeof IndexStatus];
  * @enum
  */
 export const RecoveryPointStatus = {
+  AVAILABLE: "AVAILABLE",
   COMPLETED: "COMPLETED",
+  CREATING: "CREATING",
   DELETING: "DELETING",
   EXPIRED: "EXPIRED",
   PARTIAL: "PARTIAL",
+  STOPPED: "STOPPED",
 } as const;
 
 /**
@@ -4131,32 +4220,55 @@ export interface DescribeRecoveryPointOutput {
   IamRoleArn?: string | undefined;
 
   /**
-   * <p>A status code specifying the state of the recovery point.</p>
-   *          <p>
-   *             <code>PARTIAL</code> status indicates Backup could not create the recovery
-   *          point before the backup window closed. To increase your backup plan window using the API,
-   *          see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateBackupPlan.html">UpdateBackupPlan</a>. You can also increase your backup plan window using the
-   *          Console by choosing and editing your backup plan.</p>
-   *          <p>
-   *             <code>EXPIRED</code> status indicates that the recovery point has exceeded its retention
-   *          period, but Backup lacks permission or is otherwise unable to delete it. To
-   *          manually delete these recovery points, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/gs-cleanup-resources.html#cleanup-backups"> Step 3:
-   *             Delete the recovery points</a> in the <i>Clean up resources</i>
-   *          section of <i>Getting started</i>.</p>
-   *          <p>
-   *             <code>STOPPED</code> status occurs on a continuous backup where a user has taken some
-   *          action that causes the continuous backup to be disabled. This can be caused by the removal
-   *          of permissions, turning off versioning, turning off events being sent to EventBridge,
-   *          or disabling the EventBridge rules that are put in place by Backup. For
-   *          recovery points of Amazon S3, Amazon RDS, and Amazon Aurora resources, this status
-   *          occurs when the retention period of a continuous backup rule is changed.</p>
-   *          <p>To resolve <code>STOPPED</code> status, ensure that all requested permissions are in place and
-   *          that versioning is enabled on the S3 bucket. Once these conditions are met, the next instance
-   *          of a backup rule running will result in a new continuous recovery point being created.
-   *          The recovery points with STOPPED status do not need to be deleted.</p>
-   *          <p>For SAP HANA on Amazon EC2 <code>STOPPED</code> status occurs due to user action, application
-   *          misconfiguration, or backup failure. To ensure that future continuous backups succeed,
-   *          refer to the recovery point status and check SAP HANA for details.</p>
+   * <p>A status code specifying the state of the recovery point. For more information, see
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/applicationstackbackups.html#cfnrecoverypointstatus">
+   *             Recovery point status</a> in the <i>Backup Developer
+   *                Guide</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> status indicates that an Backup job has been
+   *                initiated for a resource. The backup process has started and is actively processing
+   *                a backup job for the associated recovery point.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AVAILABLE</code> status indicates that the backup was successfully created
+   *                for the recovery point. The backup process has completed without any issues, and the
+   *                recovery point is now ready for use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PARTIAL</code> status indicates a composite recovery point has one or more
+   *                nested recovery points that were not in the backup.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXPIRED</code> status indicates that the recovery point has exceeded its retention
+   *                period, but Backup lacks permission or is otherwise unable to delete it. To
+   *                manually delete these recovery points, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/gs-cleanup-resources.html#cleanup-backups"> Step 3:
+   *                   Delete the recovery points</a> in the <i>Clean up resources</i>
+   *                section of <i>Getting started</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STOPPED</code> status occurs on a continuous backup where a user has taken some
+   *                action that causes the continuous backup to be disabled. This can be caused by the removal
+   *                of permissions, turning off versioning, turning off events being sent to EventBridge,
+   *                or disabling the EventBridge rules that are put in place by Backup. For
+   *                recovery points of Amazon S3, Amazon RDS, and Amazon Aurora
+   *                resources, this status occurs when the retention period of a continuous backup rule is
+   *                changed.</p>
+   *                <p>To resolve <code>STOPPED</code> status, ensure that all requested permissions are in
+   *                place and that versioning is enabled on the S3 bucket. Once these conditions are met, the
+   *                next instance of a backup rule running will result in a new continuous recovery point being
+   *                created. The recovery points with STOPPED status do not need to be deleted.</p>
+   *                <p>For SAP HANA on Amazon EC2
+   *                <code>STOPPED</code> status occurs due to user action, application misconfiguration, or
+   *                backup failure. To ensure that future continuous backups succeed, refer to the recovery
+   *                point status and check SAP HANA for details.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Status?: RecoveryPointStatus | undefined;
@@ -5495,7 +5607,8 @@ export interface RestoreTestingPlanForGet {
 
   /**
    * <p>A CRON expression in specified timezone when a restore
-   *          testing plan is executed.</p>
+   *          testing plan is executed. When no CRON expression is provided, Backup will use the default
+   *          expression <code>cron(0 5 ? * * *)</code>.</p>
    * @public
    */
   ScheduleExpression: string | undefined;
@@ -8527,8 +8640,9 @@ export interface RestoreTestingPlanForList {
   RestoreTestingPlanName: string | undefined;
 
   /**
-   * <p>A CRON expression in specified timezone when a restore
-   *          testing plan is executed.</p>
+   * <p>A CRON expression in specified timezone when a restore testing plan is executed. When no
+   *          CRON expression is provided, Backup will use the default expression
+   *             <code>cron(0 5 ? * * *)</code>.</p>
    * @public
    */
   ScheduleExpression: string | undefined;
@@ -8841,7 +8955,7 @@ export interface PutBackupVaultNotificationsInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>BACKUP_JOB_STARTED</code> | <code>BACKUP_JOB_COMPLETED</code>
+   *                   <code>BACKUP_JOB_STARTED</code> | <code>BACKUP_JOB_COMPLETED</code> | <code>BACKUP_JOB_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
@@ -8859,6 +8973,12 @@ export interface PutBackupVaultNotificationsInput {
    *             <li>
    *                <p>
    *                   <code>S3_BACKUP_OBJECT_FAILED</code> | <code>S3_RESTORE_OBJECT_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RECOVERY_POINT_INDEX_COMPLETED</code> | <code>RECOVERY_POINT_INDEX_DELETED</code> |
+   *                <code>RECOVERY_POINT_INDEXING_FAILED</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -9404,13 +9524,7 @@ export interface StopBackupJobInput {
  */
 export interface TagResourceInput {
   /**
-   * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the type of
-   *          the tagged resource.</p>
-   *          <p>ARNs that do not include <code>backup</code> are incompatible with tagging.
-   *       <code>TagResource</code> and <code>UntagResource</code> with invalid ARNs will
-   *       result in an error. Acceptable ARN content can include
-   *          <code>arn:aws:backup:us-east</code>. Invalid ARN content may look like
-   *       <code>arn:aws:ec2:us-east</code>.</p>
+   * <p>The ARN that uniquely identifies the resource.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -9847,8 +9961,9 @@ export interface RestoreTestingPlanForUpdate {
   RecoveryPointSelection?: RestoreTestingRecoveryPointSelection | undefined;
 
   /**
-   * <p>A CRON expression in specified timezone when a restore
-   *          testing plan is executed.</p>
+   * <p>A CRON expression in specified timezone when a restore testing plan is executed. When no
+   *          CRON expression is provided, Backup will use the default expression
+   *             <code>cron(0 5 ? * * *)</code>.</p>
    * @public
    */
   ScheduleExpression?: string | undefined;

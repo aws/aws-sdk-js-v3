@@ -28,8 +28,19 @@ export interface ListTagsCommandInput extends ListTagsInput {}
 export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the tags assigned to the resource, such as a target recovery point, backup plan, or
- *          backup vault.</p>
+ * <p>Returns the tags assigned to the resource, such as a target recovery point, backup plan,
+ *          or backup vault.</p>
+ *          <p>This operation returns results depending on the resource type used in the value for
+ *             <code>resourceArn</code>. For example, recovery points of Amazon DynamoDB with
+ *          Advanced Settings have an ARN (Amazon Resource Name) that begins with
+ *             <code>arn:aws:backup</code>. Recovery points (backups) of DynamoDB without
+ *          Advanced Settings enabled have an ARN that begins with
+ *          <code>arn:aws:dynamodb</code>.</p>
+ *          <p>When this operation is called and when you include values of <code>resourceArn</code>
+ *          that have an ARN other than <code>arn:aws:backup</code>, it may return one of the
+ *          exceptions listed below. To prevent this exception, include only values representing
+ *          resource types that are fully managed by Backup. These have an ARN that begins
+ *             <code>arn:aws:backup</code> and they are noted in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature availability by resource</a> table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

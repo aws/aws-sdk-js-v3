@@ -71,7 +71,7 @@ export interface ListRecoveryPointsByBackupVaultCommandOutput
  * //         BackupRuleId: "STRING_VALUE",
  * //       },
  * //       IamRoleArn: "STRING_VALUE",
- * //       Status: "COMPLETED" || "PARTIAL" || "DELETING" || "EXPIRED",
+ * //       Status: "COMPLETED" || "PARTIAL" || "DELETING" || "EXPIRED" || "AVAILABLE" || "STOPPED" || "CREATING",
  * //       StatusMessage: "STRING_VALUE",
  * //       CreationDate: new Date("TIMESTAMP"),
  * //       CompletionDate: new Date("TIMESTAMP"),

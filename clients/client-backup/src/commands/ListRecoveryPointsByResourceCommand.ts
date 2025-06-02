@@ -59,7 +59,7 @@ export interface ListRecoveryPointsByResourceCommandOutput
  * //     { // RecoveryPointByResource
  * //       RecoveryPointArn: "STRING_VALUE",
  * //       CreationDate: new Date("TIMESTAMP"),
- * //       Status: "COMPLETED" || "PARTIAL" || "DELETING" || "EXPIRED",
+ * //       Status: "COMPLETED" || "PARTIAL" || "DELETING" || "EXPIRED" || "AVAILABLE" || "STOPPED" || "CREATING",
  * //       StatusMessage: "STRING_VALUE",
  * //       EncryptionKeyArn: "STRING_VALUE",
  * //       BackupSizeBytes: Number("long"),
