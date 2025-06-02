@@ -22848,8 +22848,8 @@ __metadata:
     "@aws-sdk/client-dynamodb": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/util-dynamodb": "npm:*"
-    "@smithy/core": "npm:^3.2.0"
-    "@smithy/smithy-client": "npm:^4.2.0"
+    "@smithy/core": "npm:^3.3.1"
+    "@smithy/smithy-client": "npm:^4.2.2"
     "@smithy/types": "npm:^4.2.0"
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^18.19.69"
@@ -22858,7 +22858,7 @@ __metadata:
     reflect-metadata: "npm:^0.1.13"
     rimraf: "npm:3.0.2"
     tslib: "npm:^2.6.2"
-    typescript: "npm:~5.2.2"
+    typescript: "npm:~5.8.3"
   languageName: unknown
   linkType: soft
 
@@ -27813,7 +27813,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/core@npm:^3.2.0, @smithy/core@npm:^3.3.1":
+"@smithy/core@npm:^3.3.1":
   version: 3.3.1
   resolution: "@smithy/core@npm:3.3.1"
   dependencies:
@@ -28208,7 +28208,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/smithy-client@npm:^4.2.0, @smithy/smithy-client@npm:^4.2.2":
+"@smithy/smithy-client@npm:^4.2.2":
   version: 4.2.2
   resolution: "@smithy/smithy-client@npm:4.2.2"
   dependencies:
