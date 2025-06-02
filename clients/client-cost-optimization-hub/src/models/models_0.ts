@@ -102,6 +102,144 @@ export const AllocationStrategy = {
 export type AllocationStrategy = (typeof AllocationStrategy)[keyof typeof AllocationStrategy];
 
 /**
+ * <p>The Aurora DB cluster storage configuration used for recommendations.</p>
+ * @public
+ */
+export interface AuroraDbClusterStorageConfiguration {
+  /**
+   * <p>The storage type to associate with the Aurora DB cluster.</p>
+   * @public
+   */
+  storageType?: string | undefined;
+}
+
+/**
+ * <p>Estimated discount details of the current and recommended resource configuration for a recommendation.</p>
+ * @public
+ */
+export interface EstimatedDiscounts {
+  /**
+   * <p>Estimated Savings Plans discounts.</p>
+   * @public
+   */
+  savingsPlansDiscount?: number | undefined;
+
+  /**
+   * <p>Estimated reserved instance discounts.</p>
+   * @public
+   */
+  reservedInstancesDiscount?: number | undefined;
+
+  /**
+   * <p>Estimated other discounts include all discounts that are not itemized. Itemized discounts include <code>reservedInstanceDiscount</code> and <code>savingsPlansDiscount</code>.</p>
+   * @public
+   */
+  otherDiscount?: number | undefined;
+}
+
+/**
+ * <p>Contains pricing information about the specified resource.</p>
+ * @public
+ */
+export interface ResourcePricing {
+  /**
+   * <p>The savings estimate using Amazon Web Services public pricing without incorporating any discounts.</p>
+   * @public
+   */
+  estimatedCostBeforeDiscounts?: number | undefined;
+
+  /**
+   * <p>The estimated net unused amortized commitment for the recommendation.</p>
+   * @public
+   */
+  estimatedNetUnusedAmortizedCommitments?: number | undefined;
+
+  /**
+   * <p>The estimated discounts for a recommendation.</p>
+   * @public
+   */
+  estimatedDiscounts?: EstimatedDiscounts | undefined;
+
+  /**
+   * <p>The savings estimate incorporating all discounts with Amazon Web Services, such as Reserved Instances and Savings Plans.</p>
+   * @public
+   */
+  estimatedCostAfterDiscounts?: number | undefined;
+}
+
+/**
+ * <p>Details about the usage.</p>
+ * @public
+ */
+export interface Usage {
+  /**
+   * <p>The usage type.</p>
+   * @public
+   */
+  usageType?: string | undefined;
+
+  /**
+   * <p>The usage amount.</p>
+   * @public
+   */
+  usageAmount?: number | undefined;
+
+  /**
+   * <p>The operation value.</p>
+   * @public
+   */
+  operation?: string | undefined;
+
+  /**
+   * <p>The product code.</p>
+   * @public
+   */
+  productCode?: string | undefined;
+
+  /**
+   * <p>The usage unit.</p>
+   * @public
+   */
+  unit?: string | undefined;
+}
+
+/**
+ * <p>Cost impact of the resource recommendation.</p>
+ * @public
+ */
+export interface ResourceCostCalculation {
+  /**
+   * <p>Usage details of the resource recommendation.</p>
+   * @public
+   */
+  usages?: Usage[] | undefined;
+
+  /**
+   * <p>Pricing details of the resource recommendation.</p>
+   * @public
+   */
+  pricing?: ResourcePricing | undefined;
+}
+
+/**
+ * <p>Contains the details of an Aurora DB cluster storage.</p>
+ * @public
+ */
+export interface AuroraDbClusterStorage {
+  /**
+   * <p>The Aurora DB cluster storage configuration used for recommendations.</p>
+   * @public
+   */
+  configuration?: AuroraDbClusterStorageConfiguration | undefined;
+
+  /**
+   * <p>Cost impact of the resource recommendation.</p>
+   * @public
+   */
+  costCalculation?: ResourceCostCalculation | undefined;
+}
+
+/**
  * <p>Describes the Amazon Elastic Block Store performance configuration of the current and recommended resource configuration for a recommendation.</p>
  * @public
  */
@@ -620,114 +758,6 @@ export interface EbsVolumeConfiguration {
    * @public
    */
   attachmentState?: string | undefined;
-}
-
-/**
- * <p>Estimated discount details of the current and recommended resource configuration for a recommendation.</p>
- * @public
- */
-export interface EstimatedDiscounts {
-  /**
-   * <p>Estimated Savings Plans discounts.</p>
-   * @public
-   */
-  savingsPlansDiscount?: number | undefined;
-
-  /**
-   * <p>Estimated reserved instance discounts.</p>
-   * @public
-   */
-  reservedInstancesDiscount?: number | undefined;
-
-  /**
-   * <p>Estimated other discounts include all discounts that are not itemized. Itemized discounts include <code>reservedInstanceDiscount</code> and <code>savingsPlansDiscount</code>.</p>
-   * @public
-   */
-  otherDiscount?: number | undefined;
-}
-
-/**
- * <p>Contains pricing information about the specified resource.</p>
- * @public
- */
-export interface ResourcePricing {
-  /**
-   * <p>The savings estimate using Amazon Web Services public pricing without incorporating any discounts.</p>
-   * @public
-   */
-  estimatedCostBeforeDiscounts?: number | undefined;
-
-  /**
-   * <p>The estimated net unused amortized commitment for the recommendation.</p>
-   * @public
-   */
-  estimatedNetUnusedAmortizedCommitments?: number | undefined;
-
-  /**
-   * <p>The estimated discounts for a recommendation.</p>
-   * @public
-   */
-  estimatedDiscounts?: EstimatedDiscounts | undefined;
-
-  /**
-   * <p>The savings estimate incorporating all discounts with Amazon Web Services, such as Reserved Instances and Savings Plans.</p>
-   * @public
-   */
-  estimatedCostAfterDiscounts?: number | undefined;
-}
-
-/**
- * <p>Details about the usage.</p>
- * @public
- */
-export interface Usage {
-  /**
-   * <p>The usage type.</p>
-   * @public
-   */
-  usageType?: string | undefined;
-
-  /**
-   * <p>The usage amount.</p>
-   * @public
-   */
-  usageAmount?: number | undefined;
-
-  /**
-   * <p>The operation value.</p>
-   * @public
-   */
-  operation?: string | undefined;
-
-  /**
-   * <p>The product code.</p>
-   * @public
-   */
-  productCode?: string | undefined;
-
-  /**
-   * <p>The usage unit.</p>
-   * @public
-   */
-  unit?: string | undefined;
-}
-
-/**
- * <p>Cost impact of the resource recommendation.</p>
- * @public
- */
-export interface ResourceCostCalculation {
-  /**
-   * <p>Usage details of the resource recommendation.</p>
-   * @public
-   */
-  usages?: Usage[] | undefined;
-
-  /**
-   * <p>Pricing details of the resource recommendation.</p>
-   * @public
-   */
-  pricing?: ResourcePricing | undefined;
 }
 
 /**
@@ -1775,6 +1805,7 @@ export interface SageMakerSavingsPlans {
  * @public
  */
 export type ResourceDetails =
+  | ResourceDetails.AuroraDbClusterStorageMember
   | ResourceDetails.ComputeSavingsPlansMember
   | ResourceDetails.DynamoDbReservedCapacityMember
   | ResourceDetails.EbsVolumeMember
@@ -1818,6 +1849,7 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans?: never;
     rdsDbInstance?: never;
     rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     $unknown?: never;
@@ -1843,6 +1875,7 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans?: never;
     rdsDbInstance?: never;
     rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     $unknown?: never;
@@ -1868,6 +1901,7 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans?: never;
     rdsDbInstance?: never;
     rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     $unknown?: never;
@@ -1893,6 +1927,7 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans?: never;
     rdsDbInstance?: never;
     rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     $unknown?: never;
@@ -1918,6 +1953,7 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans?: never;
     rdsDbInstance?: never;
     rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     $unknown?: never;
@@ -1943,6 +1979,7 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans?: never;
     rdsDbInstance?: never;
     rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     $unknown?: never;
@@ -1968,6 +2005,7 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans?: never;
     rdsDbInstance?: never;
     rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     $unknown?: never;
@@ -1993,6 +2031,7 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans?: never;
     rdsDbInstance?: never;
     rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     $unknown?: never;
@@ -2018,6 +2057,7 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans?: never;
     rdsDbInstance?: never;
     rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     $unknown?: never;
@@ -2043,6 +2083,7 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans?: never;
     rdsDbInstance?: never;
     rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     $unknown?: never;
@@ -2068,6 +2109,7 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans?: never;
     rdsDbInstance?: never;
     rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     $unknown?: never;
@@ -2093,6 +2135,7 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans?: never;
     rdsDbInstance?: never;
     rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     $unknown?: never;
@@ -2118,6 +2161,7 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans: SageMakerSavingsPlans;
     rdsDbInstance?: never;
     rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     $unknown?: never;
@@ -2143,6 +2187,7 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans?: never;
     rdsDbInstance: RdsDbInstance;
     rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     $unknown?: never;
@@ -2168,6 +2213,33 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans?: never;
     rdsDbInstance?: never;
     rdsDbInstanceStorage: RdsDbInstanceStorage;
+    auroraDbClusterStorage?: never;
+    dynamoDbReservedCapacity?: never;
+    memoryDbReservedInstances?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Aurora DB cluster storage recommendation details.</p>
+   * @public
+   */
+  export interface AuroraDbClusterStorageMember {
+    lambdaFunction?: never;
+    ecsService?: never;
+    ec2Instance?: never;
+    ebsVolume?: never;
+    ec2AutoScalingGroup?: never;
+    ec2ReservedInstances?: never;
+    rdsReservedInstances?: never;
+    elastiCacheReservedInstances?: never;
+    openSearchReservedInstances?: never;
+    redshiftReservedInstances?: never;
+    ec2InstanceSavingsPlans?: never;
+    computeSavingsPlans?: never;
+    sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage: AuroraDbClusterStorage;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     $unknown?: never;
@@ -2193,6 +2265,7 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans?: never;
     rdsDbInstance?: never;
     rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity: DynamoDbReservedCapacity;
     memoryDbReservedInstances?: never;
     $unknown?: never;
@@ -2218,6 +2291,7 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans?: never;
     rdsDbInstance?: never;
     rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances: MemoryDbReservedInstances;
     $unknown?: never;
@@ -2242,6 +2316,7 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans?: never;
     rdsDbInstance?: never;
     rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     $unknown: [string, any];
@@ -2263,6 +2338,7 @@ export namespace ResourceDetails {
     sageMakerSavingsPlans: (value: SageMakerSavingsPlans) => T;
     rdsDbInstance: (value: RdsDbInstance) => T;
     rdsDbInstanceStorage: (value: RdsDbInstanceStorage) => T;
+    auroraDbClusterStorage: (value: AuroraDbClusterStorage) => T;
     dynamoDbReservedCapacity: (value: DynamoDbReservedCapacity) => T;
     memoryDbReservedInstances: (value: MemoryDbReservedInstances) => T;
     _: (name: string, value: any) => T;
@@ -2288,6 +2364,7 @@ export namespace ResourceDetails {
     if (value.sageMakerSavingsPlans !== undefined) return visitor.sageMakerSavingsPlans(value.sageMakerSavingsPlans);
     if (value.rdsDbInstance !== undefined) return visitor.rdsDbInstance(value.rdsDbInstance);
     if (value.rdsDbInstanceStorage !== undefined) return visitor.rdsDbInstanceStorage(value.rdsDbInstanceStorage);
+    if (value.auroraDbClusterStorage !== undefined) return visitor.auroraDbClusterStorage(value.auroraDbClusterStorage);
     if (value.dynamoDbReservedCapacity !== undefined)
       return visitor.dynamoDbReservedCapacity(value.dynamoDbReservedCapacity);
     if (value.memoryDbReservedInstances !== undefined)
@@ -2301,6 +2378,7 @@ export namespace ResourceDetails {
  * @enum
  */
 export const ResourceType = {
+  AURORA_DB_CLUSTER_STORAGE: "AuroraDbClusterStorage",
   COMPUTE_SAVINGS_PLANS: "ComputeSavingsPlans",
   DYNAMO_DB_RESERVED_CAPACITY: "DynamoDbReservedCapacity",
   EBS_VOLUME: "EbsVolume",

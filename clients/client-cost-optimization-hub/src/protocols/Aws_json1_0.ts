@@ -51,6 +51,7 @@ import {
   AccessDeniedException,
   AccountEnrollmentStatus,
   ActionType,
+  AuroraDbClusterStorage,
   BlockStoragePerformanceConfiguration,
   ComputeConfiguration,
   ComputeSavingsPlans,
@@ -519,6 +520,18 @@ const de_AccountEnrollmentStatuses = (output: any, context: __SerdeContext): Acc
 };
 
 /**
+ * deserializeAws_json1_0AuroraDbClusterStorage
+ */
+const de_AuroraDbClusterStorage = (output: any, context: __SerdeContext): AuroraDbClusterStorage => {
+  return take(output, {
+    configuration: _json,
+    costCalculation: (_: any) => de_ResourceCostCalculation(_, context),
+  }) as any;
+};
+
+// de_AuroraDbClusterStorageConfiguration omitted.
+
+/**
  * deserializeAws_json1_0BlockStoragePerformanceConfiguration
  */
 const de_BlockStoragePerformanceConfiguration = (
@@ -967,6 +980,11 @@ const de_ResourceCostCalculation = (output: any, context: __SerdeContext): Resou
  * deserializeAws_json1_0ResourceDetails
  */
 const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
+  if (output.auroraDbClusterStorage != null) {
+    return {
+      auroraDbClusterStorage: de_AuroraDbClusterStorage(output.auroraDbClusterStorage, context),
+    };
+  }
   if (output.computeSavingsPlans != null) {
     return {
       computeSavingsPlans: de_ComputeSavingsPlans(output.computeSavingsPlans, context),

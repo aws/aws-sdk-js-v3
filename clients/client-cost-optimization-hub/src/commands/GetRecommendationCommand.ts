@@ -54,8 +54,8 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //   costCalculationLookbackPeriodInDays: Number("int"),
  * //   estimatedSavingsPercentage: Number("double"),
  * //   estimatedSavingsOverCostCalculationLookbackPeriod: Number("double"),
- * //   currentResourceType: "Ec2Instance" || "LambdaFunction" || "EbsVolume" || "EcsService" || "Ec2AutoScalingGroup" || "Ec2InstanceSavingsPlans" || "ComputeSavingsPlans" || "SageMakerSavingsPlans" || "Ec2ReservedInstances" || "RdsReservedInstances" || "OpenSearchReservedInstances" || "RedshiftReservedInstances" || "ElastiCacheReservedInstances" || "RdsDbInstanceStorage" || "RdsDbInstance" || "DynamoDbReservedCapacity" || "MemoryDbReservedInstances",
- * //   recommendedResourceType: "Ec2Instance" || "LambdaFunction" || "EbsVolume" || "EcsService" || "Ec2AutoScalingGroup" || "Ec2InstanceSavingsPlans" || "ComputeSavingsPlans" || "SageMakerSavingsPlans" || "Ec2ReservedInstances" || "RdsReservedInstances" || "OpenSearchReservedInstances" || "RedshiftReservedInstances" || "ElastiCacheReservedInstances" || "RdsDbInstanceStorage" || "RdsDbInstance" || "DynamoDbReservedCapacity" || "MemoryDbReservedInstances",
+ * //   currentResourceType: "Ec2Instance" || "LambdaFunction" || "EbsVolume" || "EcsService" || "Ec2AutoScalingGroup" || "Ec2InstanceSavingsPlans" || "ComputeSavingsPlans" || "SageMakerSavingsPlans" || "Ec2ReservedInstances" || "RdsReservedInstances" || "OpenSearchReservedInstances" || "RedshiftReservedInstances" || "ElastiCacheReservedInstances" || "RdsDbInstanceStorage" || "RdsDbInstance" || "AuroraDbClusterStorage" || "DynamoDbReservedCapacity" || "MemoryDbReservedInstances",
+ * //   recommendedResourceType: "Ec2Instance" || "LambdaFunction" || "EbsVolume" || "EcsService" || "Ec2AutoScalingGroup" || "Ec2InstanceSavingsPlans" || "ComputeSavingsPlans" || "SageMakerSavingsPlans" || "Ec2ReservedInstances" || "RdsReservedInstances" || "OpenSearchReservedInstances" || "RedshiftReservedInstances" || "ElastiCacheReservedInstances" || "RdsDbInstanceStorage" || "RdsDbInstance" || "AuroraDbClusterStorage" || "DynamoDbReservedCapacity" || "MemoryDbReservedInstances",
  * //   region: "STRING_VALUE",
  * //   source: "ComputeOptimizer" || "CostExplorer",
  * //   lastRefreshTimestamp: new Date("TIMESTAMP"),
@@ -423,6 +423,12 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //       },
  * //       costCalculation: "<ResourceCostCalculation>",
  * //     },
+ * //     auroraDbClusterStorage: { // AuroraDbClusterStorage
+ * //       configuration: { // AuroraDbClusterStorageConfiguration
+ * //         storageType: "STRING_VALUE",
+ * //       },
+ * //       costCalculation: "<ResourceCostCalculation>",
+ * //     },
  * //     dynamoDbReservedCapacity: { // DynamoDbReservedCapacity
  * //       configuration: { // DynamoDbReservedCapacityConfiguration
  * //         accountScope: "STRING_VALUE",
@@ -669,6 +675,12 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //         allocatedStorageInGb: Number("double"),
  * //         iops: Number("double"),
  * //         storageThroughput: Number("double"),
+ * //       },
+ * //       costCalculation: "<ResourceCostCalculation>",
+ * //     },
+ * //     auroraDbClusterStorage: {
+ * //       configuration: {
+ * //         storageType: "STRING_VALUE",
  * //       },
  * //       costCalculation: "<ResourceCostCalculation>",
  * //     },
