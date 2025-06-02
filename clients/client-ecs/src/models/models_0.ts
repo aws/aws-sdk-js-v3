@@ -2140,6 +2140,17 @@ export interface LogConfiguration {
    * 						If you don't specify the <code>mode</code> option or
    * 						configure the account setting, Amazon ECS will default to the
    * 							<code>blocking</code> mode. For more information about the account setting, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#default-log-driver-mode">Default log driver mode</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   *                <note>
+   *                   <p>On June 25, 2025, Amazon ECS is changing the default log driver mode from <code>blocking</code> to <code>non-blocking</code> to prioritize task availability over logging. To continue using the <code>blocking</code> mode after this change, do one of the following:</p>
+   *                   <ul>
+   *                      <li>
+   *                         <p>Set the <code>mode</code> option in your container definition's <code>logConfiguration</code> as <code>blocking</code>.</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>Set the <code>defaultLogDriverMode</code> account setting to <code>blocking</code>.</p>
+   *                      </li>
+   *                   </ul>
+   *                </note>
    *             </dd>
    *             <dt>max-buffer-size</dt>
    *             <dd>
@@ -7871,7 +7882,7 @@ export interface VersionInfo {
   agentVersion?: string | undefined;
 
   /**
-   * <p>The Git commit hash for the Amazon ECS container agent build on the <a href="https://github.com/aws/amazon-ecs-agent/commits/master">amazon-ecs-agent
+   * <p>The Git commit hash for the Amazon ECS container agent build on the <a href="https://github.com/aws/amazon-ecs-agent">amazon-ecs-agent
    * 			</a> GitHub repository.</p>
    * @public
    */
@@ -11338,7 +11349,19 @@ export interface PutAccountSettingRequest {
    * 					<code>blocking</code> and <code>non-blocking</code>. If you don't specify a
    * 					delivery mode in your container definition's <code>logConfiguration</code>, the
    * 					mode you specify using this account setting will be used as the default. For
-   * 					more information about log delivery modes, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html">LogConfiguration</a>.</p>
+   * 					more information about log delivery modes, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html">LogConfiguration</a>.
+   * 				</p>
+   *                <note>
+   *                   <p>On June 25, 2025, Amazon ECS is changing the default log driver mode from <code>blocking</code> to <code>non-blocking</code> to prioritize task availability over logging. To continue using the <code>blocking</code> mode after this change, do one of the following:</p>
+   *                   <ul>
+   *                      <li>
+   *                         <p>Set the <code>mode</code> option in your container definition's <code>logConfiguration</code> as <code>blocking</code>.</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>Set the <code>defaultLogDriverMode</code> account setting to <code>blocking</code>.</p>
+   *                      </li>
+   *                   </ul>
+   *                </note>
    *             </li>
    *             <li>
    *                <p>
@@ -11516,6 +11539,17 @@ export interface PutAccountSettingDefaultRequest {
    * 					delivery mode in your container definition's <code>logConfiguration</code>, the
    * 					mode you specify using this account setting will be used as the default. For
    * 					more information about log delivery modes, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html">LogConfiguration</a>.</p>
+   *                <note>
+   *                   <p>On June 25, 2025, Amazon ECS is changing the default log driver mode from <code>blocking</code> to <code>non-blocking</code> to prioritize task availability over logging. To continue using the <code>blocking</code> mode after this change, do one of the following:</p>
+   *                   <ul>
+   *                      <li>
+   *                         <p>Set the <code>mode</code> option in your container definition's <code>logConfiguration</code> as <code>blocking</code>.</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>Set the <code>defaultLogDriverMode</code> account setting to <code>blocking</code>.</p>
+   *                      </li>
+   *                   </ul>
+   *                </note>
    *             </li>
    *             <li>
    *                <p>
