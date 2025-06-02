@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.822.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.821.0...v3.822.0) (2025-06-02)
+
+
+### Features
+
+* **client-athena:** Add support for the managed query result in the workgroup APIs. The managed query result configuration enables users to store query results to Athena owned storage. ([33fac0a](https://github.com/aws/aws-sdk-js-v3/commit/33fac0afa8609603e4b9c18c3b61296ac1ed1940))
+* **client-backup:** You can now subscribe to Amazon SNS notifications and Amazon EventBridge events for backup indexing. You can now receive notifications when a backup index is created, deleted, or fails to create, enhancing your ability to monitor and track your backup operations. ([9bec4ef](https://github.com/aws/aws-sdk-js-v3/commit/9bec4efa0470d32a5f33ec8be93091e62fec8f56))
+* **client-bedrock-agent:** This release adds the Agent Lifecycle Paused State feature to Amazon Bedrock agents. By using an agent's alias, you can temporarily suspend agent operations during maintenance, updates, or other situations. ([26fec88](https://github.com/aws/aws-sdk-js-v3/commit/26fec8800771706c002e6558ec7ea39d1e059807))
+* **client-compute-optimizer:** This release enables AWS Compute Optimizer to analyze Amazon Aurora database clusters and generate Aurora I/O-Optimized recommendations. ([a741c9e](https://github.com/aws/aws-sdk-js-v3/commit/a741c9e2e5e4eb7c6b64dba076211a0e049b4c1b))
+* **client-cost-optimization-hub:** Support recommendations for Aurora instance and Aurora cluster storage. ([307d369](https://github.com/aws/aws-sdk-js-v3/commit/307d369a0521553ce37291e4728080fd5f414145))
+* **client-eks:** Add support for filtering ListInsights API calls on MISCONFIGURATION insight category ([88f2623](https://github.com/aws/aws-sdk-js-v3/commit/88f2623229bdb917e3b12d7b40440b134f4da1ba))
+* **client-entityresolution:** Add support for generating match IDs in near real-time. ([697753c](https://github.com/aws/aws-sdk-js-v3/commit/697753c222df14afb3d516135dc9d22faec9d272))
+* **client-pcs:** Introduces SUSPENDING and SUSPENDED states for clusters, compute node groups, and queues. ([172256c](https://github.com/aws/aws-sdk-js-v3/commit/172256cc37cf024f1243832a5f6b70e2207a9218))
+* **client-synthetics:** Support for Java runtime handler pattern. ([ee418d1](https://github.com/aws/aws-sdk-js-v3/commit/ee418d1fcf41412b304f2b36ad024295af58e1c2))
+* **clients:** update client endpoints as of 2025-06-02 ([c61981f](https://github.com/aws/aws-sdk-js-v3/commit/c61981ff7e2e1065206d5c9744ec0d5c87da4bda))
+
+
+
+
+
 # [3.821.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.820.0...v3.821.0) (2025-05-30)
 
 
