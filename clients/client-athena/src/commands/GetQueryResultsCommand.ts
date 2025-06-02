@@ -54,6 +54,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __M
  *   QueryExecutionId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   QueryResultType: "DATA_MANIFEST" || "DATA_ROWS",
  * };
  * const command = new GetQueryResultsCommand(input);
  * const response = await client.send(command);

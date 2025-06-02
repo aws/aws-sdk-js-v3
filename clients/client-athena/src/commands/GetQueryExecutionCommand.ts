@@ -47,6 +47,12 @@ export interface GetQueryExecutionCommandOutput extends GetQueryExecutionOutput,
  * //     QueryExecutionId: "STRING_VALUE",
  * //     Query: "STRING_VALUE",
  * //     StatementType: "DDL" || "DML" || "UTILITY",
+ * //     ManagedQueryResultsConfiguration: { // ManagedQueryResultsConfiguration
+ * //       Enabled: true || false, // required
+ * //       EncryptionConfiguration: { // ManagedQueryResultsEncryptionConfiguration
+ * //         KmsKey: "STRING_VALUE", // required
+ * //       },
+ * //     },
  * //     ResultConfiguration: { // ResultConfiguration
  * //       OutputLocation: "STRING_VALUE",
  * //       EncryptionConfiguration: { // EncryptionConfiguration

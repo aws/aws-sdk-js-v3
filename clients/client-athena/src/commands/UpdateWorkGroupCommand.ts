@@ -56,6 +56,13 @@ export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __M
  *       },
  *       RemoveAclConfiguration: true || false,
  *     },
+ *     ManagedQueryResultsConfigurationUpdates: { // ManagedQueryResultsConfigurationUpdates
+ *       Enabled: true || false,
+ *       EncryptionConfiguration: { // ManagedQueryResultsEncryptionConfiguration
+ *         KmsKey: "STRING_VALUE", // required
+ *       },
+ *       RemoveEncryptionConfiguration: true || false,
+ *     },
  *     PublishCloudWatchMetricsEnabled: true || false,
  *     BytesScannedCutoffPerQuery: Number("long"),
  *     RemoveBytesScannedCutoffPerQuery: true || false,

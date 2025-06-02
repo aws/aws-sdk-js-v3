@@ -342,6 +342,46 @@ export interface EngineVersion {
 }
 
 /**
+ * <p>If you encrypt query and calculation results in Athena owned storage, this field
+ *             indicates the encryption option (for example, SSE_KMS or CSE_KMS) and key
+ *             information.</p>
+ * @public
+ */
+export interface ManagedQueryResultsEncryptionConfiguration {
+  /**
+   * <p>The ARN of an KMS key for encrypting managed query results.</p>
+   * @public
+   */
+  KmsKey: string | undefined;
+}
+
+/**
+ * <p>
+ *             The configuration for storing results in Athena owned storage, which includes whether this feature is enabled; whether encryption configuration, if any, is used for encrypting query results.
+ *         </p>
+ * @public
+ */
+export interface ManagedQueryResultsConfiguration {
+  /**
+   * <p>If set to true, allows you to store query results in Athena owned storage. If set to
+   *             false, workgroup member stores query results in location specified under
+   *                 <code>ResultConfiguration$OutputLocation</code>. The default is false. A workgroup
+   *             cannot have the <code>ResultConfiguration$OutputLocation</code> parameter when you set
+   *             this field to true. </p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>If you encrypt query and calculation results in Athena owned storage, this field
+   *             indicates the encryption option (for example, SSE_KMS or CSE_KMS) and key
+   *             information.</p>
+   * @public
+   */
+  EncryptionConfiguration?: ManagedQueryResultsEncryptionConfiguration | undefined;
+}
+
+/**
  * <p>The database and data catalog context in which the query execution occurs.</p>
  * @public
  */
@@ -768,11 +808,19 @@ export interface QueryExecution {
    * <p>The type of query statement that was run. <code>DDL</code> indicates DDL query
    *             statements. <code>DML</code> indicates DML (Data Manipulation Language) query
    *             statements, such as <code>CREATE TABLE AS SELECT</code>. <code>UTILITY</code> indicates
-   *             query statements other than DDL and DML, such as <code>SHOW CREATE TABLE</code>,
-   *                 <code>EXPLAIN</code>, <code>DESCRIBE</code>, or <code>SHOW TABLES</code>.</p>
+   *             query statements other than DDL and DML, such as <code>SHOW CREATE TABLE</code>, or
+   *                 <code>DESCRIBE TABLE</code>.</p>
    * @public
    */
   StatementType?: StatementType | undefined;
+
+  /**
+   * <p> The configuration for storing results in Athena owned storage, which includes whether
+   *             this feature is enabled; whether encryption configuration, if any, is used for
+   *             encrypting query results. </p>
+   * @public
+   */
+  ManagedQueryResultsConfiguration?: ManagedQueryResultsConfiguration | undefined;
 
   /**
    * <p>The location in Amazon S3 where query and calculation results are stored and
@@ -1699,6 +1747,14 @@ export interface WorkGroupConfiguration {
    * @public
    */
   ResultConfiguration?: ResultConfiguration | undefined;
+
+  /**
+   * <p> The configuration for storing results in Athena owned storage, which includes whether
+   *             this feature is enabled; whether encryption configuration, if any, is used for
+   *             encrypting query results. </p>
+   * @public
+   */
+  ManagedQueryResultsConfiguration?: ManagedQueryResultsConfiguration | undefined;
 
   /**
    * <p>If set to "true", the settings for the workgroup override client-side settings. If set
@@ -2677,6 +2733,20 @@ export interface GetQueryExecutionOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const QueryResultType = {
+  DATA_MANIFEST: "DATA_MANIFEST",
+  DATA_ROWS: "DATA_ROWS",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryResultType = (typeof QueryResultType)[keyof typeof QueryResultType];
+
+/**
+ * @public
  */
 export interface GetQueryResultsInput {
   /**
@@ -2698,6 +2768,16 @@ export interface GetQueryResultsInput {
    * @public
    */
   MaxResults?: number | undefined;
+
+  /**
+   * <p> When you set this to <code>DATA_ROWS</code> or empty, <code>GetQueryResults</code>
+   *             returns the query results in rows. If set to <code>DATA_MANIFEST</code>, it returns the
+   *             manifest file in rows. Only the query types <code>CREATE TABLE AS SELECT</code>,
+   *                 <code>UNLOAD</code>, and <code>INSERT</code> can generate a manifest file. If you
+   *             use <code>DATA_MANIFEST</code> for other query types, the query will fail. </p>
+   * @public
+   */
+  QueryResultType?: QueryResultType | undefined;
 }
 
 /**
@@ -5349,6 +5429,35 @@ export interface UpdatePreparedStatementInput {
 export interface UpdatePreparedStatementOutput {}
 
 /**
+ * <p>Updates the configuration for managed query results.</p>
+ * @public
+ */
+export interface ManagedQueryResultsConfigurationUpdates {
+  /**
+   * <p>If set to true, specifies that Athena manages query results in Athena owned
+   *             storage.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>If you encrypt query and calculation results in Athena owned storage, this field
+   *             indicates the encryption option (for example, SSE_KMS or CSE_KMS) and key
+   *             information.</p>
+   * @public
+   */
+  EncryptionConfiguration?: ManagedQueryResultsEncryptionConfiguration | undefined;
+
+  /**
+   * <p>If set to true, it removes workgroup from Athena owned storage. The existing query
+   *             results are cleaned up after 24hrs. You must provide query results in location specified
+   *             under <code>ResultConfiguration$OutputLocation</code>.</p>
+   * @public
+   */
+  RemoveEncryptionConfiguration?: boolean | undefined;
+}
+
+/**
  * <p>The information about the updates in the query results, such as output location and
  *             encryption configuration for the query results.</p>
  * @public
@@ -5466,6 +5575,12 @@ export interface WorkGroupConfigurationUpdates {
    * @public
    */
   ResultConfigurationUpdates?: ResultConfigurationUpdates | undefined;
+
+  /**
+   * <p>Updates configuration information for managed query results in the workgroup.</p>
+   * @public
+   */
+  ManagedQueryResultsConfigurationUpdates?: ManagedQueryResultsConfigurationUpdates | undefined;
 
   /**
    * <p>Indicates whether this workgroup enables publishing metrics to Amazon CloudWatch.</p>

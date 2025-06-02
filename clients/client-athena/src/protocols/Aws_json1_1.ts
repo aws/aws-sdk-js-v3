@@ -274,6 +274,9 @@ import {
   ListTagsForResourceInput,
   ListWorkGroupsInput,
   ListWorkGroupsOutput,
+  ManagedQueryResultsConfiguration,
+  ManagedQueryResultsConfigurationUpdates,
+  ManagedQueryResultsEncryptionConfiguration,
   MetadataException,
   NotebookMetadata,
   NotebookSessionSummary,
@@ -2839,6 +2842,12 @@ const se_DeleteNamedQueryInput = (input: DeleteNamedQueryInput, context: __Serde
 
 // se_ListWorkGroupsInput omitted.
 
+// se_ManagedQueryResultsConfiguration omitted.
+
+// se_ManagedQueryResultsConfigurationUpdates omitted.
+
+// se_ManagedQueryResultsEncryptionConfiguration omitted.
+
 // se_NamedQueryIdList omitted.
 
 // se_ParametersMap omitted.
@@ -3350,6 +3359,10 @@ const de_ListWorkGroupsOutput = (output: any, context: __SerdeContext): ListWork
   }) as any;
 };
 
+// de_ManagedQueryResultsConfiguration omitted.
+
+// de_ManagedQueryResultsEncryptionConfiguration omitted.
+
 // de_MetadataException omitted.
 
 // de_NamedQuery omitted.
@@ -3464,6 +3477,7 @@ const de_QueryExecution = (output: any, context: __SerdeContext): QueryExecution
   return take(output, {
     EngineVersion: _json,
     ExecutionParameters: _json,
+    ManagedQueryResultsConfiguration: _json,
     Query: __expectString,
     QueryExecutionContext: _json,
     QueryExecutionId: __expectString,

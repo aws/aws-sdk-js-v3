@@ -50,6 +50,12 @@ export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __M
  *         S3AclOption: "BUCKET_OWNER_FULL_CONTROL", // required
  *       },
  *     },
+ *     ManagedQueryResultsConfiguration: { // ManagedQueryResultsConfiguration
+ *       Enabled: true || false, // required
+ *       EncryptionConfiguration: { // ManagedQueryResultsEncryptionConfiguration
+ *         KmsKey: "STRING_VALUE", // required
+ *       },
+ *     },
  *     EnforceWorkGroupConfiguration: true || false,
  *     PublishCloudWatchMetricsEnabled: true || false,
  *     BytesScannedCutoffPerQuery: Number("long"),
