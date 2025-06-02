@@ -23,7 +23,6 @@ import {
   FlowValidation,
   FlowValidationFilterSensitiveLog,
   IngestionJobStatistics,
-  IngestionJobStatus,
   InlineCodeFlowNodeConfiguration,
   InlineCodeFlowNodeConfigurationFilterSensitiveLog,
   InputFlowNodeConfiguration,
@@ -47,6 +46,24 @@ import {
   S3Location,
   StorageFlowNodeConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const IngestionJobStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type IngestionJobStatus = (typeof IngestionJobStatus)[keyof typeof IngestionJobStatus];
 
 /**
  * <p>Contains details about a data ingestion job. Data sources are ingested into a knowledge base so that Large Language Models (LLMs) can use your data.</p>
@@ -4047,7 +4064,10 @@ export namespace FlowNodeConfiguration {
  *                   <code>LoopInput</code> - The entry point node for the loop. This node receives inputs from nodes outside the loop and from previous loop iterations.</p>
  *             </li>
  *             <li>
- *                <p>Body nodes - These can be </p>
+ *                <p>Body nodes - The processing nodes that execute within each loop iteration.
+ *                     These can be nodes for handling data in your flow, such as a prompt or Lambda
+ *                     function nodes. Some node types aren't supported inside a DoWhile loop body. For
+ *                     more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_LoopIncompatibleNodeTypeFlowValidationDetails.html">LoopIncompatibleNodeTypeFlowValidationDetails</a>.</p>
  *             </li>
  *             <li>
  *                <p>

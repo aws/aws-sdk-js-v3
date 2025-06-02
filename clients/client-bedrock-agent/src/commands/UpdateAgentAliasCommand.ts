@@ -46,6 +46,7 @@ export interface UpdateAgentAliasCommandOutput extends UpdateAgentAliasResponse,
  *       provisionedThroughput: "STRING_VALUE",
  *     },
  *   ],
+ *   aliasInvocationState: "ACCEPT_INVOCATIONS" || "REJECT_INVOCATIONS",
  * };
  * const command = new UpdateAgentAliasCommand(input);
  * const response = await client.send(command);
@@ -81,6 +82,7 @@ export interface UpdateAgentAliasCommandOutput extends UpdateAgentAliasResponse,
  * //     failureReasons: [ // FailureReasons
  * //       "STRING_VALUE",
  * //     ],
+ * //     aliasInvocationState: "ACCEPT_INVOCATIONS" || "REJECT_INVOCATIONS",
  * //   },
  * // };
  *

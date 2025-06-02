@@ -57,6 +57,7 @@ export interface ListAgentAliasesCommandOutput extends ListAgentAliasesResponse,
  * //       agentAliasStatus: "CREATING" || "PREPARED" || "FAILED" || "UPDATING" || "DELETING" || "DISSOCIATED", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //       aliasInvocationState: "ACCEPT_INVOCATIONS" || "REJECT_INVOCATIONS",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

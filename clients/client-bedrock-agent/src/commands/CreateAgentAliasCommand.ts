@@ -84,6 +84,7 @@ export interface CreateAgentAliasCommandOutput extends CreateAgentAliasResponse,
  * //     failureReasons: [ // FailureReasons
  * //       "STRING_VALUE",
  * //     ],
+ * //     aliasInvocationState: "ACCEPT_INVOCATIONS" || "REJECT_INVOCATIONS",
  * //   },
  * // };
  *

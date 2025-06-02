@@ -472,7 +472,7 @@ export interface CreateAgentActionGroupRequest {
    *             Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only.
    *             When operating computer use functionality, we recommend taking additional security precautions,
    *             such as executing computer actions in virtual environments with restricted data access and limited internet connectivity.
-   *              For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *              For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
    *           </p>
    *                </important>
    *                <ul>
@@ -500,7 +500,7 @@ export interface CreateAgentActionGroupRequest {
    * <p>The configuration settings for a computer use action.</p>
    *          <important>
    *             <p>
-   *         Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *         Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
    *       </p>
    *          </important>
    * @public
@@ -597,7 +597,7 @@ export interface AgentActionGroup {
    * <p>The configuration settings for a computer use action.</p>
    *          <important>
    *             <p>
-   *         Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *         Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
    *       </p>
    *          </important>
    * @public
@@ -967,7 +967,7 @@ export interface UpdateAgentActionGroupRequest {
    *             Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only.
    *             When operating computer use functionality, we recommend taking additional security precautions,
    *             such as executing computer actions in virtual environments with restricted data access and limited internet connectivity.
-   *              For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *              For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
    *           </p>
    *                </important>
    *                <ul>
@@ -996,7 +996,7 @@ export interface UpdateAgentActionGroupRequest {
    * <p>The configuration settings for a computer use action.</p>
    *          <important>
    *             <p>
-   *         Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *         Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
    *       </p>
    *          </important>
    * @public
@@ -1316,7 +1316,7 @@ export interface PromptConfiguration {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PRE_PROCESSING</code> – <code>ENABLED</code>
+   *                   <code>PRE_PROCESSING</code> – <code>DISABLED</code>
    *                </p>
    *             </li>
    *             <li>
@@ -1628,6 +1628,26 @@ export const AgentAliasStatus = {
 export type AgentAliasStatus = (typeof AgentAliasStatus)[keyof typeof AgentAliasStatus];
 
 /**
+ * @public
+ * @enum
+ */
+export const AliasInvocationState = {
+  /**
+   * Agent is actively processing requests
+   */
+  ACCEPT_INVOCATIONS: "ACCEPT_INVOCATIONS",
+  /**
+   * Agent is paused and will not accept new requests
+   */
+  REJECT_INVOCATIONS: "REJECT_INVOCATIONS",
+} as const;
+
+/**
+ * @public
+ */
+export type AliasInvocationState = (typeof AliasInvocationState)[keyof typeof AliasInvocationState];
+
+/**
  * <p>Contains details about an alias of an agent.</p>
  * @public
  */
@@ -1724,6 +1744,15 @@ export interface AgentAlias {
    * @public
    */
   failureReasons?: string[] | undefined;
+
+  /**
+   * <p>The invocation state for the agent alias. If the agent alias is running,
+   *       the value is <code>ACCEPT_INVOCATIONS</code>. If the agent alias is paused,
+   *       the value is <code>REJECT_INVOCATIONS</code>. Use the <code>UpdateAgentAlias</code> operation
+   *       to change the invocation state.</p>
+   * @public
+   */
+  aliasInvocationState?: AliasInvocationState | undefined;
 }
 
 /**
@@ -1772,6 +1801,15 @@ export interface AgentAliasSummary {
    * @public
    */
   updatedAt: Date | undefined;
+
+  /**
+   * <p>The invocation state for the agent alias. If the agent alias is running,
+   *       the value is <code>ACCEPT_INVOCATIONS</code>. If the agent alias is paused,
+   *       the value is <code>REJECT_INVOCATIONS</code>. Use the <code>UpdateAgentAlias</code> operation
+   *     to change the invocation state.</p>
+   * @public
+   */
+  aliasInvocationState?: AliasInvocationState | undefined;
 }
 
 /**
@@ -3050,6 +3088,16 @@ export interface UpdateAgentAliasRequest {
    * @public
    */
   routingConfiguration?: AgentAliasRoutingConfigurationListItem[] | undefined;
+
+  /**
+   * <p>The invocation state for the agent alias. To pause the agent alias, set the value to
+   *         <code>REJECT_INVOCATIONS</code>. To start the agent alias running again, set the value to
+   *         <code>ACCEPT_INVOCATIONS</code>. Use the <code>GetAgentAlias</code>, or
+   *         <code>ListAgentAliases</code>, operation to get the invocation state of an agent
+   *       alias.</p>
+   * @public
+   */
+  aliasInvocationState?: AliasInvocationState | undefined;
 }
 
 /**
@@ -9162,24 +9210,6 @@ export interface IngestionJobStatistics {
    */
   numberOfDocumentsFailed?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IngestionJobStatus = {
-  COMPLETE: "COMPLETE",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type IngestionJobStatus = (typeof IngestionJobStatus)[keyof typeof IngestionJobStatus];
 
 /**
  * @internal

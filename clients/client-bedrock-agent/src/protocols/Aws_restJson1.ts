@@ -1791,6 +1791,7 @@ export const se_UpdateAgentAliasCommand = async (
   body = JSON.stringify(
     take(input, {
       agentAliasName: [],
+      aliasInvocationState: [],
       description: [],
       routingConfiguration: (_) => _json(_),
     })
@@ -4780,6 +4781,7 @@ const de_AgentAlias = (output: any, context: __SerdeContext): AgentAlias => {
     agentAliasName: __expectString,
     agentAliasStatus: __expectString,
     agentId: __expectString,
+    aliasInvocationState: __expectString,
     clientToken: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
@@ -4836,6 +4838,7 @@ const de_AgentAliasSummary = (output: any, context: __SerdeContext): AgentAliasS
     agentAliasId: __expectString,
     agentAliasName: __expectString,
     agentAliasStatus: __expectString,
+    aliasInvocationState: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
     routingConfiguration: _json,

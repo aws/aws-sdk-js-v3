@@ -73,6 +73,7 @@ export interface GetAgentAliasCommandOutput extends GetAgentAliasResponse, __Met
  * //     failureReasons: [ // FailureReasons
  * //       "STRING_VALUE",
  * //     ],
+ * //     aliasInvocationState: "ACCEPT_INVOCATIONS" || "REJECT_INVOCATIONS",
  * //   },
  * // };
  *
