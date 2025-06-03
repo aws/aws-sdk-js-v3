@@ -419,7 +419,7 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                                   const name = s.name.toLowerCase();
                                   return name !== "sigv4a" && name.startsWith("sigv4");
                                 });
-                                if (SignatureV4MultiRegion.sigv4Dependency() === "none" && sigv4Present) {
+                                if (SignatureV4MultiRegion.sigv4aDependency() === "none" && sigv4Present) {
                                   // sigv4a -> sigv4 fallback.
                                   continue;
                                 }
