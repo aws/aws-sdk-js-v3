@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.823.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.822.0...v3.823.0) (2025-06-03)
+
+
+### Features
+
+* **client-apigatewayv2:** Adds support to create routing rules and set the routing mode for a custom domain name. ([adc341a](https://github.com/aws/aws-sdk-js-v3/commit/adc341a7c5d219ec26b0cf5edf027c5594dc0394))
+
+
+
+
+
 # [3.821.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.820.0...v3.821.0) (2025-05-30)
 
 **Note:** Version bump only for package @aws-sdk/client-apigatewayv2

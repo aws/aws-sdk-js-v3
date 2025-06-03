@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.823.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.822.0...v3.823.0) (2025-06-03)
+
+
+### Features
+
+* **core/protocols:** runtime protocol classes ([#7110](https://github.com/aws/aws-sdk-js-v3/issues/7110)) ([9babfac](https://github.com/aws/aws-sdk-js-v3/commit/9babfac3ba220afd210dbf57775e268ce5ade3a7))
+
+
+
+
+
 # [3.821.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.820.0...v3.821.0) (2025-05-30)
 
 **Note:** Version bump only for package @aws-sdk/core

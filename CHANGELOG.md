@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.823.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.822.0...v3.823.0) (2025-06-03)
+
+
+### Features
+
+* **client-api-gateway:** Adds support to set the routing mode for a custom domain name. ([fa3d7b9](https://github.com/aws/aws-sdk-js-v3/commit/fa3d7b94dd49d05b2304c9892ad079955835fd7f))
+* **client-apigatewayv2:** Adds support to create routing rules and set the routing mode for a custom domain name. ([adc341a](https://github.com/aws/aws-sdk-js-v3/commit/adc341a7c5d219ec26b0cf5edf027c5594dc0394))
+* **client-emr-serverless:** AWS EMR Serverless: Adds a new option in the CancelJobRun API in EMR 7.9.0+, to cancel a job with grace period. This feature is enabled by default with a 120-second grace period for streaming jobs and is not enabled by default for batch jobs. ([a04fee3](https://github.com/aws/aws-sdk-js-v3/commit/a04fee3c5ace78bdda922a56e2fabfb43e7f0836))
+* **core/protocols:** runtime protocol classes ([#7110](https://github.com/aws/aws-sdk-js-v3/issues/7110)) ([9babfac](https://github.com/aws/aws-sdk-js-v3/commit/9babfac3ba220afd210dbf57775e268ce5ade3a7))
+
+
+
+
+
 # [3.822.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.821.0...v3.822.0) (2025-06-02)
 
 
