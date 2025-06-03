@@ -41,6 +41,7 @@ export class AwsQueryProtocol extends RpcProtocol {
       httpBindings: false,
       xmlNamespace: options.xmlNamespace,
       serviceNamespace: options.defaultNamespace,
+      serializeEmptyLists: true,
     };
     this.serializer = new QueryShapeSerializer(settings);
     this.deserializer = new XmlShapeDeserializer(settings);
@@ -109,7 +110,8 @@ export class AwsQueryProtocol extends RpcProtocol {
       response.headers[header.toLowerCase()] = value;
     }
 
-    const awsQueryResultKey = ns.isStructSchema() ? operationSchema.name.split("#")[1] + "Result" : undefined;
+    const awsQueryResultKey =
+      ns.isStructSchema() && this.useNestedResult() ? operationSchema.name.split("#")[1] + "Result" : undefined;
     const bytes: Uint8Array = await collectBody(response.body, context as SerdeFunctions);
     if (bytes.byteLength > 0) {
       Object.assign(dataObject, await deserializer.read(ns, bytes, awsQueryResultKey));
@@ -121,6 +123,13 @@ export class AwsQueryProtocol extends RpcProtocol {
     };
 
     return output;
+  }
+
+  /**
+   * EC2 Query overrides this.
+   */
+  protected useNestedResult(): boolean {
+    return true;
   }
 
   protected async handleError(
@@ -137,6 +146,8 @@ export class AwsQueryProtocol extends RpcProtocol {
       [namespace, errorName] = errorIdentifier.split("#");
     }
 
+    const errorDataSource = this.loadQueryError(dataObject);
+
     const registry = TypeRegistry.for(namespace);
     let errorSchema: ErrorSchema;
 
@@ -148,23 +159,23 @@ export class AwsQueryProtocol extends RpcProtocol {
         errorSchema = registry.getSchema(errorIdentifier) as ErrorSchema;
       }
     } catch (e) {
-      const baseExceptionSchema = TypeRegistry.for("awssdkjs.synthetic." + namespace).getBaseException();
+      const baseExceptionSchema = TypeRegistry.for("smithy.ts.sdk.synthetic." + namespace).getBaseException();
       if (baseExceptionSchema) {
         const ErrorCtor = baseExceptionSchema.ctor;
-        throw Object.assign(new ErrorCtor(errorName), dataObject);
+        throw Object.assign(new ErrorCtor(errorName), errorDataSource);
       }
       throw new Error(errorName);
     }
 
     const ns = NormalizedSchema.of(errorSchema);
-    const message =
-      dataObject.Error?.message ?? dataObject.Error?.Message ?? dataObject.message ?? dataObject.Message ?? "Unknown";
+    const message = this.loadQueryErrorMessage(dataObject);
     const exception = new errorSchema.ctor(message);
 
     const output = {} as any;
+
     for (const [name, member] of ns.structIterator()) {
       const target = member.getMergedTraits().xmlName ?? name;
-      const value = dataObject.Error?.[target] ?? dataObject[target];
+      const value = errorDataSource[target] ?? dataObject[target];
       output[name] = this.deserializer.readSchema(member, value);
     }
 
@@ -179,12 +190,26 @@ export class AwsQueryProtocol extends RpcProtocol {
     throw exception;
   }
 
+  /**
+   * The variations in the error and error message locations are attributed to
+   * divergence between AWS Query and EC2 Query behavior.
+   */
   protected loadQueryErrorCode(output: IHttpResponse, data: any): string | undefined {
-    if (data.Error?.Code !== undefined) {
-      return data.Error.Code;
+    const code = (data.Errors?.[0]?.Error ?? data.Errors?.Error ?? data.Error)?.Code;
+    if (code !== undefined) {
+      return code;
     }
     if (output.statusCode == 404) {
       return "NotFound";
     }
+  }
+
+  protected loadQueryError(data: any): any | undefined {
+    return data.Errors?.[0]?.Error ?? data.Errors?.Error ?? data.Error;
+  }
+
+  protected loadQueryErrorMessage(data: any): string {
+    const errorData = this.loadQueryError(data);
+    return errorData?.message ?? errorData?.Message ?? data.message ?? data.Message ?? "Unknown";
   }
 }

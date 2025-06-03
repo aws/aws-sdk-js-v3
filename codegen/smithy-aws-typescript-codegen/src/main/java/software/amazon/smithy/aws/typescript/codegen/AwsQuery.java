@@ -28,8 +28,10 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.model.traits.Trait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpRpcProtocolGenerator;
+import software.amazon.smithy.typescript.codegen.schema.SchemaTraitExtension;
 import software.amazon.smithy.typescript.codegen.util.StringStore;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
@@ -50,6 +52,21 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 final class AwsQuery extends HttpRpcProtocolGenerator {
+    static {
+        SchemaTraitExtension.INSTANCE.add(
+            AwsQueryErrorTrait.ID,
+            (Trait trait) -> {
+                if (trait instanceof AwsQueryErrorTrait awsQueryError) {
+                    return """
+                        [`%s`, %s]""".formatted(
+                            awsQueryError.getCode(),
+                            awsQueryError.getHttpResponseCode()
+                        );
+                }
+                return "";
+            }
+        );
+    }
 
     AwsQuery() {
         // AWS Query protocols will attempt to parse error codes from response bodies.

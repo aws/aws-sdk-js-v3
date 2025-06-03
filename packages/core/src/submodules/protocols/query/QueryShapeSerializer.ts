@@ -2,10 +2,11 @@ import { determineTimestampFormat, extendedEncodeURIComponent } from "@smithy/co
 import { NormalizedSchema, SCHEMA } from "@smithy/core/schema";
 import { NumericValue } from "@smithy/core/serde";
 import { dateToUtcString } from "@smithy/smithy-client";
-import type { CodecSettings, Schema, ShapeSerializer } from "@smithy/types";
+import type { Schema, ShapeSerializer } from "@smithy/types";
 import { toBase64 } from "@smithy/util-base64";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
+import type { QuerySerializerSettings } from "./QuerySerializerSettings";
 
 /**
  * @alpha
@@ -13,7 +14,7 @@ import { SerdeContextConfig } from "../ConfigurableSerdeContext";
 export class QueryShapeSerializer extends SerdeContextConfig implements ShapeSerializer<string | Uint8Array> {
   private buffer: string | undefined;
 
-  public constructor(private settings: CodecSettings) {
+  public constructor(public readonly settings: QuerySerializerSettings) {
     super();
   }
 
@@ -67,17 +68,19 @@ export class QueryShapeSerializer extends SerdeContextConfig implements ShapeSer
     } else if (ns.isListSchema()) {
       if (Array.isArray(value)) {
         if (value.length === 0) {
-          this.writeKey(prefix);
-          this.writeValue("");
+          if (this.settings.serializeEmptyLists) {
+            this.writeKey(prefix);
+            this.writeValue("");
+          }
         } else {
           const member = ns.getValueSchema();
-          const flat = ns.getMergedTraits().xmlFlattened;
+          const flat = this.settings.flattenLists || ns.getMergedTraits().xmlFlattened;
           let i = 1;
           for (const item of value) {
             if (item == null) {
               continue;
             }
-            const suffix = member.getMergedTraits().xmlName ?? "member";
+            const suffix = this.getKey("member", member.getMergedTraits().xmlName);
             const key = flat ? `${prefix}${i}` : `${prefix}${suffix}.${i}`;
             this.write(member, item, key);
             ++i;
@@ -94,10 +97,10 @@ export class QueryShapeSerializer extends SerdeContextConfig implements ShapeSer
           if (v == null) {
             continue;
           }
-          const keySuffix = keySchema.getMergedTraits().xmlName ?? "key";
+          const keySuffix = this.getKey("key", keySchema.getMergedTraits().xmlName);
           const key = flat ? `${prefix}${i}.${keySuffix}` : `${prefix}entry.${i}.${keySuffix}`;
 
-          const valueSuffix = memberSchema.getMergedTraits().xmlName ?? "value";
+          const valueSuffix = this.getKey("value", memberSchema.getMergedTraits().xmlName);
           const valueKey = flat ? `${prefix}${i}.${valueSuffix}` : `${prefix}entry.${i}.${valueSuffix}`;
 
           this.write(keySchema, k, key);
@@ -111,7 +114,7 @@ export class QueryShapeSerializer extends SerdeContextConfig implements ShapeSer
           if ((value as any)[memberName] == null) {
             continue;
           }
-          const suffix = member.getMergedTraits().xmlName ?? memberName;
+          const suffix = this.getKey(memberName, member.getMergedTraits().xmlName);
           const key = `${prefix}${suffix}`;
           this.write(member, (value as any)[memberName], key);
         }
@@ -129,6 +132,14 @@ export class QueryShapeSerializer extends SerdeContextConfig implements ShapeSer
     const str = this.buffer;
     delete this.buffer;
     return str;
+  }
+
+  protected getKey(memberName: string, xmlName?: string): string {
+    const key = xmlName ?? memberName;
+    if (this.settings.capitalizeKeys) {
+      return key[0].toUpperCase() + key.slice(1);
+    }
+    return key;
   }
 
   protected writeKey(key: string) {
