@@ -117,6 +117,9 @@ const typeUnmarshallers: Record<ItemSchemaType["type"], UnmarshallHandler> = {
 };
 
 export function unmarshallValue(schema: ItemSchemaType, value: AttributeValue): any {
+  if (value === undefined) {
+    return undefined;
+  }
   const handler = typeUnmarshallers[schema.type];
   if (!handler) {
     throw new Error(`Unsupported schema type for unmarshalling: ${schema.type}`);

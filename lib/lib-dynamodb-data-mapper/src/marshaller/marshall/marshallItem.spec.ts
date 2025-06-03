@@ -33,3 +33,35 @@ describe("marshallItem", () => {
     expect(result).toEqual({ full_name: { S: "Alice" } });
   });
 });
+
+describe("error handling", () => {
+  it("throws for unknown schema type", () => {
+    const schema = {
+      field: { type: "Bogus" as any },
+    };
+    const input = { field: "test" };
+
+    expect(() => marshallItem(schema, input)).toThrow("Unsupported schema type");
+  });
+
+  it("throws for overly large numbers", () => {
+    const schema = {
+      score: { type: "Number" as const },
+    };
+    const input = {
+      score: Number.MAX_SAFE_INTEGER + 1,
+    };
+
+    expect(() => marshallItem(schema, input)).toThrow(/exceeds MAX_SAFE_INTEGER/);
+  });
+
+  it("skips undefined values", () => {
+    const schema = {
+      optional: { type: "String" as const },
+    };
+    const input = {};
+
+    const result = marshallItem(schema, input);
+    expect(result).not.toHaveProperty("optional");
+  });
+});

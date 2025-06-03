@@ -112,4 +112,97 @@ describe("DataMarshaller", () => {
     // Ensure it's NOT an instance of User (important distinction)
     expect(result).not.toBeInstanceOf(User);
   });
+
+  it("should roundtrip scalar fields", () => {
+    class Entity {
+      id!: string;
+      age!: number;
+    }
+
+    const schema = {
+      id: { type: "String", keyType: "HASH" },
+      age: { type: "Number" },
+    } as const;
+
+    Object.defineProperty(Entity.prototype, DynamoDbSchema, { value: schema });
+    Object.defineProperty(Entity.prototype, DynamoDbTable, { value: "Entities" });
+
+    const original = Object.assign(new Entity(), { id: "e1", age: 42 });
+
+    const marshalled = DataMarshaller.marshall(original, schema);
+    const result = DataMarshaller.unmarshall(marshalled, schema, Entity);
+
+    expect(result).toEqual(original); // 👈 roundtrip
+  });
+
+  it("should roundtrip embedded document", () => {
+    class Profile {
+      bio!: string;
+      age!: number;
+    }
+
+    Object.defineProperty(Profile.prototype, DynamoDbSchema, {
+      value: {
+        bio: { type: "String" },
+        age: { type: "Number" },
+      },
+    });
+
+    class User {
+      id!: string;
+      profile!: Profile;
+    }
+
+    const schema = {
+      id: { type: "String", keyType: "HASH" },
+      profile: embed(Profile),
+    } as const;
+
+    Object.defineProperty(User.prototype, DynamoDbSchema, { value: schema });
+    Object.defineProperty(User.prototype, DynamoDbTable, { value: "Users" });
+
+    const original = Object.assign(new User(), {
+      id: "u1",
+      profile: Object.assign(new Profile(), {
+        bio: "developer",
+        age: 30,
+      }),
+    });
+
+    const marshalled = DataMarshaller.marshall(original, schema);
+    const result = DataMarshaller.unmarshall(marshalled, schema, User);
+
+    expect(result).toEqual(original);
+  });
+
+  it("should roundtrip using factory + unmarshallObject", () => {
+    class UserRecord {
+      id!: string;
+      name!: string;
+    }
+
+    const schema = {
+      id: { type: "String", keyType: "HASH" },
+      name: { type: "String" },
+    } as const;
+
+    Object.defineProperty(UserRecord.prototype, DynamoDbSchema, { value: schema });
+    Object.defineProperty(UserRecord.prototype, DynamoDbTable, { value: "Users" });
+
+    class User {
+      constructor(public id: string, public name: string) {}
+
+      static from(data: UserRecord): User {
+        return new User(data.id, data.name.toUpperCase());
+      }
+    }
+
+    const original = { id: "123", name: "alice" };
+
+    const marshalled = DataMarshaller.marshall(original, schema);
+    const plain = DataMarshaller.unmarshallObject(marshalled, schema) as UserRecord;
+    const hydrated = User.from(plain);
+
+    expect(hydrated).toEqual(new User("123", "ALICE"));
+  });
 });

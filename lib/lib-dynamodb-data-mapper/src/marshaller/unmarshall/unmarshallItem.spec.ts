@@ -33,3 +33,43 @@ describe("unmarshallItem", () => {
     expect(result).toEqual({ id: "abc" });
   });
 });
+
+describe("error handling", () => {
+  it("throws for unknown schema type", () => {
+    const schema = {
+      field: { type: "Unknown" as any },
+    };
+    const input = { field: { S: "value" } };
+
+    expect(() => unmarshallItem(schema, input)).toThrow("Unsupported schema type");
+  });
+
+  it("throws for mismatched AttributeValue (Number expected, got String)", () => {
+    const schema = {
+      score: { type: "Number" as const },
+    };
+    const input = { score: { S: "not-a-number" } };
+
+    const result = unmarshallItem(schema, input);
+    expect(result.score).toBeUndefined();
+  });
+
+  it("handles missing fields as undefined", () => {
+    const schema = {
+      name: { type: "String" as const },
+    };
+    const input = {}; // field is missing
+
+    const result = unmarshallItem(schema, input);
+    expect(result.name).toBeUndefined();
+  });
+
+  it("throws for unsupported set member type", () => {
+    const schema = {
+      tags: { type: "Set", memberType: "Fake" as any },
+    } as const;
+    const input = { tags: { SS: ["a", "b"] } };
+
+    expect(() => unmarshallItem(schema, input)).toThrow("Unrecognized set member type");
+  });
+});

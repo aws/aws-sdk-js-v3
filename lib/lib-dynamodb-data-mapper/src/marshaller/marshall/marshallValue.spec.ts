@@ -90,3 +90,25 @@ describe("marshallValue", () => {
     ).toEqual({ M: { nested: { M: { id: { S: "x" } } } } });
   });
 });
+
+describe("marshallValue - error handling", () => {
+  class CustomDate {
+    constructor(public value: string) {}
+  }
+  it("throws on unsupported schema type", () => {
+    const badSchema = { type: "Invalid" } as any;
+    expect(() => marshallValue(badSchema, "value")).toThrow("Unsupported schema type");
+  });
+
+  it("throws for overly large numbers", () => {
+    const schema = { type: "Number" as const };
+    const value = Number.MAX_SAFE_INTEGER + 100;
+    expect(() => marshallValue(schema, value)).toThrow(/exceeds MAX_SAFE_INTEGER/);
+  });
+
+  it("throws on unknown Set memberType", () => {
+    const schema = { type: "Set", memberType: "Unknown" as any } as const;
+    const value = new Set(["a", "b"]);
+    expect(() => marshallValue(schema, value)).toThrow(/Unsupported set member type/);
+  });
+});

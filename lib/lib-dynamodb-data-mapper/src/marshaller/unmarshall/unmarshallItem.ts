@@ -1,6 +1,6 @@
 import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 
-import type { ZeroArgumentsConstructor } from "../../schema";
+import type { ItemSchemaType, ZeroArgumentsConstructor } from "../../schema";
 import type { ItemSchema } from "../../schema";
 import { unmarshallValue } from "./unmarshallValue";
 
@@ -36,15 +36,20 @@ export function unmarshallItem<T extends object = Record<string, any>>(
   const target: T = valueConstructor ? new valueConstructor() : Object.create(null);
 
   for (const key of Object.keys(schema)) {
-    const field = schema[key];
+    const field: ItemSchemaType = schema[key];
     const attrName = field.attributeName ?? key;
-    const attrValue = input[attrName];
+    const attr = input[attrName];
 
-    if (attrValue !== undefined) {
-      const unmarshalled = unmarshallValue(field, attrValue);
-      if (unmarshalled !== undefined) {
-        Object.assign(target, { [key]: unmarshalled });
-      }
+    let value: any;
+
+    if (attr !== undefined) {
+      value = unmarshallValue(field, attr);
+    } else if (typeof field.defaultProvider === "function") {
+      value = field.defaultProvider();
+    }
+
+    if (value !== undefined) {
+      (target as Record<string, any>)[key] = value;
     }
   }
 
