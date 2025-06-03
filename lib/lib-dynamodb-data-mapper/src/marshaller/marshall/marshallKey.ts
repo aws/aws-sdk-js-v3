@@ -3,7 +3,7 @@ import type { marshallOptions } from "@aws-sdk/util-dynamodb";
 
 import type { ItemSchema } from "../../schema";
 import { isKey } from "../../schema/";
-import { marshallValue } from "../core";
+import { marshallValue } from "./marshallValue";
 
 export type AttributeMap = { [key: string]: AttributeValue };
 

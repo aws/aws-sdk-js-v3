@@ -1,6 +1,7 @@
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
 import { marshallOptions } from "@aws-sdk/util-dynamodb";
 
+import type { AttributeValueMap } from "../../internal/AttributeValueMap";
 import type {
   AnyType,
   CollectionType,
@@ -13,6 +14,7 @@ import type {
   TupleType,
 } from "../../schema";
 import { ItemSchemaType } from "../../schema";
+import { marshallDocument } from "./marshallDocument";
 
 export function marshallValue(
   schema: ItemSchemaType,
@@ -84,8 +86,7 @@ const typeMarshallers: Record<ItemSchemaType["type"], MarshallHandler> = {
   },
 
   Document: (schema, value, options) => {
-    const documentSchema = schema as DocumentType;
-    return marshallMap(Object.entries(value), (key) => documentSchema.members[key], options);
+    return marshallDocument(value, schema as DocumentType, options);
   },
 
   Custom: (schema, value) => {
@@ -164,8 +165,6 @@ const typeMarshallers: Record<ItemSchemaType["type"], MarshallHandler> = {
     throw new Error("Unsupported value in Any marshaller");
   },
 };
-
-export type AttributeValueMap = Record<string, AttributeValue>;
 
 const marshallMap = (
   entries: Iterable<[string, any]>,

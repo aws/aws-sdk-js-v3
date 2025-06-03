@@ -1,5 +1,6 @@
 import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 
+import type { AttributeValueMap } from "../../internal/AttributeValueMap";
 import type {
   CollectionType,
   CustomType,
@@ -11,6 +12,7 @@ import type {
   SetType,
   TupleType,
 } from "../../schema";
+import { unmarshallDocument } from "./unmarshallDocument";
 
 const typeUnmarshallers: Record<ItemSchemaType["type"], UnmarshallHandler> = {
   String: (_schema, value) => {
@@ -123,7 +125,6 @@ export function unmarshallValue(schema: ItemSchemaType, value: AttributeValue): 
 }
 
 type UnmarshallHandler = (schema: ItemSchemaType, value: AttributeValue) => any;
-type AttributeValueMap = Record<string, AttributeValue>;
 
 const unmarshallTuple = (schema: TupleType, input: AttributeValue[]): any[] => {
   return schema.members.map((member, i) => unmarshallValue(member, input[i]));
@@ -156,17 +157,6 @@ const unmarshallMap = (
   }
 
   return target;
-};
-
-const unmarshallDocument = (
-  rawMap: AttributeValueMap | undefined,
-  schema: DocumentType
-): Record<string, any> | undefined => {
-  return unmarshallMap(
-    rawMap,
-    (key) => schema.members[key],
-    () => (schema.valueConstructor ? new schema.valueConstructor() : Object.create(null))
-  );
 };
 
 /**
