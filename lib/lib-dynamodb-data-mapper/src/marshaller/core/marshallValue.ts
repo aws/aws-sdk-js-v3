@@ -80,28 +80,12 @@ const typeMarshallers: Record<ItemSchemaType["type"], MarshallHandler> = {
     ) {
       value = { ...value };
     }
-    const output: Record<string, AttributeValue> = {};
-    for (const key of Object.keys(value)) {
-      const marshalled = marshallValue(mapSchema.memberType, value[key], options);
-      if (marshalled !== undefined || !options.removeUndefinedValues) {
-        output[key] = marshalled!;
-      }
-    }
-    return { M: output };
+    return marshallMap(Object.entries(value), () => mapSchema.memberType, options);
   },
 
   Document: (schema, value, options) => {
     const documentSchema = schema as DocumentType;
-    const M: Record<string, AttributeValue> = {};
-    for (const key of Object.keys(documentSchema.members)) {
-      const field = documentSchema.members[key];
-      const marshalled = marshallValue(field, value[key], options);
-      if (marshalled !== undefined || !options.removeUndefinedValues) {
-        const attrName = field.attributeName ?? key;
-        M[attrName] = marshalled!;
-      }
-    }
-    return { M };
+    return marshallMap(Object.entries(value), (key) => documentSchema.members[key], options);
   },
 
   Custom: (schema, value) => {
@@ -126,16 +110,7 @@ const typeMarshallers: Record<ItemSchemaType["type"], MarshallHandler> = {
 
   Hash: (schema, value, options) => {
     const hashSchema = schema as HashType;
-    const output: Record<string, AttributeValue> = {};
-
-    for (const key of Object.keys(value)) {
-      const marshalled = marshallValue(hashSchema, value[key], options);
-      if (marshalled !== undefined || !options.removeUndefinedValues) {
-        output[key] = marshalled!;
-      }
-    }
-
-    return { M: output };
+    return marshallMap(Object.entries(value), () => hashSchema, options);
   },
 
   Set: (schema, value) => {
@@ -184,17 +159,29 @@ const typeMarshallers: Record<ItemSchemaType["type"], MarshallHandler> = {
       };
     }
     if (typeof value === "object") {
-      const M: Record<string, AttributeValue> = {};
-      for (const key of Object.keys(value)) {
-        const val = marshallValue(schema, value[key], anySchema);
-        if (val !== undefined || !anySchema.removeUndefinedValues) {
-          M[key] = val!;
-        }
-      }
-      return { M };
+      return marshallMap(Object.entries(value), () => schema, anySchema);
     }
     throw new Error("Unsupported value in Any marshaller");
   },
+};
+
+export type AttributeValueMap = Record<string, AttributeValue>;
+
+const marshallMap = (
+  entries: Iterable<[string, any]>,
+  getSchema: (key: string) => ItemSchemaType,
+  options: marshallOptions
+): { M: AttributeValueMap } => {
+  const M: AttributeValueMap = {};
+  for (const [key, raw] of entries) {
+    const schema = getSchema(key);
+    const marshalled = marshallValue(schema, raw, options);
+    if (marshalled !== undefined || !options.removeUndefinedValues) {
+      const attrName = schema.attributeName ?? key;
+      M[attrName] = marshalled!;
+    }
+  }
+  return { M };
 };
 
 const utf8Bytes = (text: string): Uint8Array => new TextEncoder().encode(text);
