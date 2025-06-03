@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ApiGatewayV2Client` and
-the commands you need, for example `GetApisCommand`:
+the commands you need, for example `ListRoutingRulesCommand`:
 
 ```js
 // ES5 example
-const { ApiGatewayV2Client, GetApisCommand } = require("@aws-sdk/client-apigatewayv2");
+const { ApiGatewayV2Client, ListRoutingRulesCommand } = require("@aws-sdk/client-apigatewayv2");
 ```
 
 ```ts
 // ES6+ example
-import { ApiGatewayV2Client, GetApisCommand } from "@aws-sdk/client-apigatewayv2";
+import { ApiGatewayV2Client, ListRoutingRulesCommand } from "@aws-sdk/client-apigatewayv2";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new ApiGatewayV2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new GetApisCommand(params);
+const command = new ListRoutingRulesCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.ApiGatewayV2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.getApis(params);
+  const data = await client.listRoutingRules(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .getApis(params)
+  .listRoutingRules(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.getApis(params, (err, data) => {
+client.listRoutingRules(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -285,6 +285,14 @@ CreateRouteResponse
 </details>
 <details>
 <summary>
+CreateRoutingRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/CreateRoutingRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/CreateRoutingRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/CreateRoutingRuleCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateStage
 </summary>
 
@@ -409,6 +417,14 @@ DeleteRouteSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/DeleteRouteSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/DeleteRouteSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/DeleteRouteSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteRoutingRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/DeleteRoutingRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/DeleteRoutingRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/DeleteRoutingRuleCommandOutput/)
 
 </details>
 <details>
@@ -605,6 +621,14 @@ GetRoutes
 </details>
 <details>
 <summary>
+GetRoutingRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/GetRoutingRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/GetRoutingRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/GetRoutingRuleCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetStage
 </summary>
 
@@ -649,6 +673,22 @@ ImportApi
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/ImportApiCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/ImportApiCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/ImportApiCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListRoutingRules
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/ListRoutingRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/ListRoutingRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/ListRoutingRulesCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutRoutingRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/PutRoutingRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/PutRoutingRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/PutRoutingRuleCommandOutput/)
 
 </details>
 <details>

@@ -41,6 +41,11 @@ import {
   CreateRouteResponseCommandInput,
   CreateRouteResponseCommandOutput,
 } from "./commands/CreateRouteResponseCommand";
+import {
+  CreateRoutingRuleCommand,
+  CreateRoutingRuleCommandInput,
+  CreateRoutingRuleCommandOutput,
+} from "./commands/CreateRoutingRuleCommand";
 import { CreateStageCommand, CreateStageCommandInput, CreateStageCommandOutput } from "./commands/CreateStageCommand";
 import {
   CreateVpcLinkCommand,
@@ -105,6 +110,11 @@ import {
   DeleteRouteSettingsCommandInput,
   DeleteRouteSettingsCommandOutput,
 } from "./commands/DeleteRouteSettingsCommand";
+import {
+  DeleteRoutingRuleCommand,
+  DeleteRoutingRuleCommandInput,
+  DeleteRoutingRuleCommandOutput,
+} from "./commands/DeleteRoutingRuleCommand";
 import { DeleteStageCommand, DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
 import {
   DeleteVpcLinkCommand,
@@ -193,12 +203,27 @@ import {
   GetRouteResponsesCommandOutput,
 } from "./commands/GetRouteResponsesCommand";
 import { GetRoutesCommand, GetRoutesCommandInput, GetRoutesCommandOutput } from "./commands/GetRoutesCommand";
+import {
+  GetRoutingRuleCommand,
+  GetRoutingRuleCommandInput,
+  GetRoutingRuleCommandOutput,
+} from "./commands/GetRoutingRuleCommand";
 import { GetStageCommand, GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
 import { GetStagesCommand, GetStagesCommandInput, GetStagesCommandOutput } from "./commands/GetStagesCommand";
 import { GetTagsCommand, GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
 import { GetVpcLinkCommand, GetVpcLinkCommandInput, GetVpcLinkCommandOutput } from "./commands/GetVpcLinkCommand";
 import { GetVpcLinksCommand, GetVpcLinksCommandInput, GetVpcLinksCommandOutput } from "./commands/GetVpcLinksCommand";
 import { ImportApiCommand, ImportApiCommandInput, ImportApiCommandOutput } from "./commands/ImportApiCommand";
+import {
+  ListRoutingRulesCommand,
+  ListRoutingRulesCommandInput,
+  ListRoutingRulesCommandOutput,
+} from "./commands/ListRoutingRulesCommand";
+import {
+  PutRoutingRuleCommand,
+  PutRoutingRuleCommandInput,
+  PutRoutingRuleCommandOutput,
+} from "./commands/PutRoutingRuleCommand";
 import { ReimportApiCommand, ReimportApiCommandInput, ReimportApiCommandOutput } from "./commands/ReimportApiCommand";
 import {
   ResetAuthorizersCacheCommand,
@@ -267,6 +292,7 @@ const commands = {
   CreateModelCommand,
   CreateRouteCommand,
   CreateRouteResponseCommand,
+  CreateRoutingRuleCommand,
   CreateStageCommand,
   CreateVpcLinkCommand,
   DeleteAccessLogSettingsCommand,
@@ -283,6 +309,7 @@ const commands = {
   DeleteRouteRequestParameterCommand,
   DeleteRouteResponseCommand,
   DeleteRouteSettingsCommand,
+  DeleteRoutingRuleCommand,
   DeleteStageCommand,
   DeleteVpcLinkCommand,
   ExportApiCommand,
@@ -307,12 +334,15 @@ const commands = {
   GetRouteResponseCommand,
   GetRouteResponsesCommand,
   GetRoutesCommand,
+  GetRoutingRuleCommand,
   GetStageCommand,
   GetStagesCommand,
   GetTagsCommand,
   GetVpcLinkCommand,
   GetVpcLinksCommand,
   ImportApiCommand,
+  ListRoutingRulesCommand,
+  PutRoutingRuleCommand,
   ReimportApiCommand,
   ResetAuthorizersCacheCommand,
   TagResourceCommand,
@@ -482,6 +512,23 @@ export interface ApiGatewayV2 {
     args: CreateRouteResponseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateRouteResponseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRoutingRuleCommand}
+   */
+  createRoutingRule(
+    args: CreateRoutingRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRoutingRuleCommandOutput>;
+  createRoutingRule(
+    args: CreateRoutingRuleCommandInput,
+    cb: (err: any, data?: CreateRoutingRuleCommandOutput) => void
+  ): void;
+  createRoutingRule(
+    args: CreateRoutingRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRoutingRuleCommandOutput) => void
   ): void;
 
   /**
@@ -724,6 +771,23 @@ export interface ApiGatewayV2 {
     args: DeleteRouteSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRouteSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRoutingRuleCommand}
+   */
+  deleteRoutingRule(
+    args: DeleteRoutingRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRoutingRuleCommandOutput>;
+  deleteRoutingRule(
+    args: DeleteRoutingRuleCommandInput,
+    cb: (err: any, data?: DeleteRoutingRuleCommandOutput) => void
+  ): void;
+  deleteRoutingRule(
+    args: DeleteRoutingRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRoutingRuleCommandOutput) => void
   ): void;
 
   /**
@@ -1041,6 +1105,20 @@ export interface ApiGatewayV2 {
   ): void;
 
   /**
+   * @see {@link GetRoutingRuleCommand}
+   */
+  getRoutingRule(
+    args: GetRoutingRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRoutingRuleCommandOutput>;
+  getRoutingRule(args: GetRoutingRuleCommandInput, cb: (err: any, data?: GetRoutingRuleCommandOutput) => void): void;
+  getRoutingRule(
+    args: GetRoutingRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRoutingRuleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetStageCommand}
    */
   getStage(args: GetStageCommandInput, options?: __HttpHandlerOptions): Promise<GetStageCommandOutput>;
@@ -1105,6 +1183,37 @@ export interface ApiGatewayV2 {
     args: ImportApiCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ImportApiCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRoutingRulesCommand}
+   */
+  listRoutingRules(
+    args: ListRoutingRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRoutingRulesCommandOutput>;
+  listRoutingRules(
+    args: ListRoutingRulesCommandInput,
+    cb: (err: any, data?: ListRoutingRulesCommandOutput) => void
+  ): void;
+  listRoutingRules(
+    args: ListRoutingRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRoutingRulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutRoutingRuleCommand}
+   */
+  putRoutingRule(
+    args: PutRoutingRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutRoutingRuleCommandOutput>;
+  putRoutingRule(args: PutRoutingRuleCommandInput, cb: (err: any, data?: PutRoutingRuleCommandOutput) => void): void;
+  putRoutingRule(
+    args: PutRoutingRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutRoutingRuleCommandOutput) => void
   ): void;
 
   /**

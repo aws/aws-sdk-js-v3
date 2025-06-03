@@ -56,6 +56,7 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  *     TruststoreUri: "STRING_VALUE",
  *     TruststoreVersion: "STRING_VALUE",
  *   },
+ *   RoutingMode: "API_MAPPING_ONLY" || "ROUTING_RULE_ONLY" || "ROUTING_RULE_THEN_API_MAPPING",
  *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -65,6 +66,7 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  * // { // CreateDomainNameResponse
  * //   ApiMappingSelectionExpression: "STRING_VALUE",
  * //   DomainName: "STRING_VALUE",
+ * //   DomainNameArn: "STRING_VALUE",
  * //   DomainNameConfigurations: [ // DomainNameConfigurations
  * //     { // DomainNameConfiguration
  * //       ApiGatewayDomainName: "STRING_VALUE",
@@ -87,6 +89,7 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  * //       "STRING_VALUE",
  * //     ],
  * //   },
+ * //   RoutingMode: "API_MAPPING_ONLY" || "ROUTING_RULE_ONLY" || "ROUTING_RULE_THEN_API_MAPPING",
  * //   Tags: { // Tags
  * //     "<keys>": "STRING_VALUE",
  * //   },

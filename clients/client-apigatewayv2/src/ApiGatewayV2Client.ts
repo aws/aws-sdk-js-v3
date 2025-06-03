@@ -69,6 +69,7 @@ import {
   CreateRouteResponseCommandInput,
   CreateRouteResponseCommandOutput,
 } from "./commands/CreateRouteResponseCommand";
+import { CreateRoutingRuleCommandInput, CreateRoutingRuleCommandOutput } from "./commands/CreateRoutingRuleCommand";
 import { CreateStageCommandInput, CreateStageCommandOutput } from "./commands/CreateStageCommand";
 import { CreateVpcLinkCommandInput, CreateVpcLinkCommandOutput } from "./commands/CreateVpcLinkCommand";
 import {
@@ -103,6 +104,7 @@ import {
   DeleteRouteSettingsCommandInput,
   DeleteRouteSettingsCommandOutput,
 } from "./commands/DeleteRouteSettingsCommand";
+import { DeleteRoutingRuleCommandInput, DeleteRoutingRuleCommandOutput } from "./commands/DeleteRoutingRuleCommand";
 import { DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
 import { DeleteVpcLinkCommandInput, DeleteVpcLinkCommandOutput } from "./commands/DeleteVpcLinkCommand";
 import { ExportApiCommandInput, ExportApiCommandOutput } from "./commands/ExportApiCommand";
@@ -133,12 +135,15 @@ import { GetRouteCommandInput, GetRouteCommandOutput } from "./commands/GetRoute
 import { GetRouteResponseCommandInput, GetRouteResponseCommandOutput } from "./commands/GetRouteResponseCommand";
 import { GetRouteResponsesCommandInput, GetRouteResponsesCommandOutput } from "./commands/GetRouteResponsesCommand";
 import { GetRoutesCommandInput, GetRoutesCommandOutput } from "./commands/GetRoutesCommand";
+import { GetRoutingRuleCommandInput, GetRoutingRuleCommandOutput } from "./commands/GetRoutingRuleCommand";
 import { GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
 import { GetStagesCommandInput, GetStagesCommandOutput } from "./commands/GetStagesCommand";
 import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
 import { GetVpcLinkCommandInput, GetVpcLinkCommandOutput } from "./commands/GetVpcLinkCommand";
 import { GetVpcLinksCommandInput, GetVpcLinksCommandOutput } from "./commands/GetVpcLinksCommand";
 import { ImportApiCommandInput, ImportApiCommandOutput } from "./commands/ImportApiCommand";
+import { ListRoutingRulesCommandInput, ListRoutingRulesCommandOutput } from "./commands/ListRoutingRulesCommand";
+import { PutRoutingRuleCommandInput, PutRoutingRuleCommandOutput } from "./commands/PutRoutingRuleCommand";
 import { ReimportApiCommandInput, ReimportApiCommandOutput } from "./commands/ReimportApiCommand";
 import {
   ResetAuthorizersCacheCommandInput,
@@ -189,6 +194,7 @@ export type ServiceInputTypes =
   | CreateModelCommandInput
   | CreateRouteCommandInput
   | CreateRouteResponseCommandInput
+  | CreateRoutingRuleCommandInput
   | CreateStageCommandInput
   | CreateVpcLinkCommandInput
   | DeleteAccessLogSettingsCommandInput
@@ -205,6 +211,7 @@ export type ServiceInputTypes =
   | DeleteRouteRequestParameterCommandInput
   | DeleteRouteResponseCommandInput
   | DeleteRouteSettingsCommandInput
+  | DeleteRoutingRuleCommandInput
   | DeleteStageCommandInput
   | DeleteVpcLinkCommandInput
   | ExportApiCommandInput
@@ -229,12 +236,15 @@ export type ServiceInputTypes =
   | GetRouteResponseCommandInput
   | GetRouteResponsesCommandInput
   | GetRoutesCommandInput
+  | GetRoutingRuleCommandInput
   | GetStageCommandInput
   | GetStagesCommandInput
   | GetTagsCommandInput
   | GetVpcLinkCommandInput
   | GetVpcLinksCommandInput
   | ImportApiCommandInput
+  | ListRoutingRulesCommandInput
+  | PutRoutingRuleCommandInput
   | ReimportApiCommandInput
   | ResetAuthorizersCacheCommandInput
   | TagResourceCommandInput
@@ -266,6 +276,7 @@ export type ServiceOutputTypes =
   | CreateModelCommandOutput
   | CreateRouteCommandOutput
   | CreateRouteResponseCommandOutput
+  | CreateRoutingRuleCommandOutput
   | CreateStageCommandOutput
   | CreateVpcLinkCommandOutput
   | DeleteAccessLogSettingsCommandOutput
@@ -282,6 +293,7 @@ export type ServiceOutputTypes =
   | DeleteRouteRequestParameterCommandOutput
   | DeleteRouteResponseCommandOutput
   | DeleteRouteSettingsCommandOutput
+  | DeleteRoutingRuleCommandOutput
   | DeleteStageCommandOutput
   | DeleteVpcLinkCommandOutput
   | ExportApiCommandOutput
@@ -306,12 +318,15 @@ export type ServiceOutputTypes =
   | GetRouteResponseCommandOutput
   | GetRouteResponsesCommandOutput
   | GetRoutesCommandOutput
+  | GetRoutingRuleCommandOutput
   | GetStageCommandOutput
   | GetStagesCommandOutput
   | GetTagsCommandOutput
   | GetVpcLinkCommandOutput
   | GetVpcLinksCommandOutput
   | ImportApiCommandOutput
+  | ListRoutingRulesCommandOutput
+  | PutRoutingRuleCommandOutput
   | ReimportApiCommandOutput
   | ResetAuthorizersCacheCommandOutput
   | TagResourceCommandOutput

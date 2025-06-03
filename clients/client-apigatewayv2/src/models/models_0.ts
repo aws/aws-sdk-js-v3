@@ -514,6 +514,21 @@ export interface MutualTlsAuthentication {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const RoutingMode = {
+  API_MAPPING_ONLY: "API_MAPPING_ONLY",
+  ROUTING_RULE_ONLY: "ROUTING_RULE_ONLY",
+  ROUTING_RULE_THEN_API_MAPPING: "ROUTING_RULE_THEN_API_MAPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type RoutingMode = (typeof RoutingMode)[keyof typeof RoutingMode];
+
+/**
  * <p>Represents a domain name.</p>
  * @public
  */
@@ -531,6 +546,12 @@ export interface DomainName {
   DomainName: string | undefined;
 
   /**
+   * <p>Represents an Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  DomainNameArn?: string | undefined;
+
+  /**
    * <p>The domain name configurations.</p>
    * @public
    */
@@ -541,6 +562,12 @@ export interface DomainName {
    * @public
    */
   MutualTlsAuthentication?: MutualTlsAuthentication | undefined;
+
+  /**
+   * <p>The routing mode.</p>
+   * @public
+   */
+  RoutingMode?: RoutingMode | undefined;
 
   /**
    * <p>The collection of tags associated with a domain name.</p>
@@ -976,6 +1003,138 @@ export interface RouteResponse {
    * @public
    */
   RouteResponseKey: string | undefined;
+}
+
+/**
+ * <p>Represents an InvokeApi action.</p>
+ * @public
+ */
+export interface RoutingRuleActionInvokeApi {
+  /**
+   * <p>The identifier.</p>
+   * @public
+   */
+  ApiId: string | undefined;
+
+  /**
+   * <p>A string with a length between [1-128].</p>
+   * @public
+   */
+  Stage: string | undefined;
+
+  /**
+   * <p>The strip base path setting.</p>
+   * @public
+   */
+  StripBasePath?: boolean | undefined;
+}
+
+/**
+ * <p>The routing rule action.</p>
+ * @public
+ */
+export interface RoutingRuleAction {
+  /**
+   * <p>Represents an InvokeApi action.</p>
+   * @public
+   */
+  InvokeApi: RoutingRuleActionInvokeApi | undefined;
+}
+
+/**
+ * <p>Represents a MatchBasePaths condition.</p>
+ * @public
+ */
+export interface RoutingRuleMatchBasePaths {
+  /**
+   * The string of the case sensitive base path to be matched.
+   * @public
+   */
+  AnyOf: string[] | undefined;
+}
+
+/**
+ * <p>Represents a MatchHeaderValue.</p>
+ * @public
+ */
+export interface RoutingRuleMatchHeaderValue {
+  /**
+   * <p>After evaluating a selection expression, the result is compared against one or more selection keys to find a matching key. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">Selection Expressions</a> for a list of expressions and each expression's associated selection key type.</p>
+   * @public
+   */
+  Header: string | undefined;
+
+  /**
+   * <p>An expression used to extract information at runtime. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">Selection Expressions</a> for more information.</p>
+   * @public
+   */
+  ValueGlob: string | undefined;
+}
+
+/**
+ * <p>Represents a MatchHeaders condition.</p>
+ * @public
+ */
+export interface RoutingRuleMatchHeaders {
+  /**
+   * <p>The header name and header value glob to be matched. The matchHeaders condition is matched if any of the header name and header value globs are matched.</p>
+   * @public
+   */
+  AnyOf: RoutingRuleMatchHeaderValue[] | undefined;
+}
+
+/**
+ * <p>Represents a routing rule condition.</p>
+ * @public
+ */
+export interface RoutingRuleCondition {
+  /**
+   * <p>The base path to be matched.</p>
+   * @public
+   */
+  MatchBasePaths?: RoutingRuleMatchBasePaths | undefined;
+
+  /**
+   * <p>The headers to be matched.</p>
+   * @public
+   */
+  MatchHeaders?: RoutingRuleMatchHeaders | undefined;
+}
+
+/**
+ * <p>Represents a routing rule.</p>
+ * @public
+ */
+export interface RoutingRule {
+  /**
+   * <p>The routing rule action.</p>
+   * @public
+   */
+  Actions?: RoutingRuleAction[] | undefined;
+
+  /**
+   * <p>The routing rule condition.</p>
+   * @public
+   */
+  Conditions?: RoutingRuleCondition[] | undefined;
+
+  /**
+   * <p>The routing rule priority.</p>
+   * @public
+   */
+  Priority?: number | undefined;
+
+  /**
+   * <p>The routing rule ARN.</p>
+   * @public
+   */
+  RoutingRuleArn?: string | undefined;
+
+  /**
+   * <p>The routing rule ID.</p>
+   * @public
+   */
+  RoutingRuleId?: string | undefined;
 }
 
 /**
@@ -1873,6 +2032,12 @@ export interface CreateDomainNameRequest {
   MutualTlsAuthentication?: MutualTlsAuthenticationInput | undefined;
 
   /**
+   * <p>The routing mode.</p>
+   * @public
+   */
+  RoutingMode?: RoutingMode | undefined;
+
+  /**
    * <p>The collection of tags associated with a domain name.</p>
    * @public
    */
@@ -1896,6 +2061,12 @@ export interface CreateDomainNameResponse {
   DomainName?: string | undefined;
 
   /**
+   * <p>Represents an Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  DomainNameArn?: string | undefined;
+
+  /**
    * <p>The domain name configurations.</p>
    * @public
    */
@@ -1906,6 +2077,12 @@ export interface CreateDomainNameResponse {
    * @public
    */
   MutualTlsAuthentication?: MutualTlsAuthentication | undefined;
+
+  /**
+   * <p>The routing mode.</p>
+   * @public
+   */
+  RoutingMode?: RoutingMode | undefined;
 
   /**
    * <p>The collection of tags associated with a domain name.</p>
@@ -2574,6 +2751,76 @@ export interface CreateRouteResponseResponse {
 }
 
 /**
+ * @public
+ */
+export interface CreateRoutingRuleRequest {
+  /**
+   * <p>Represents a routing rule action. The only supported action is invokeApi.</p>
+   * @public
+   */
+  Actions: RoutingRuleAction[] | undefined;
+
+  /**
+   * <p>Represents a condition. Conditions can contain up to two matchHeaders conditions and one matchBasePaths conditions. API Gateway evaluates header conditions and base path conditions together. You can only use AND between header and base path conditions.</p>
+   * @public
+   */
+  Conditions: RoutingRuleCondition[] | undefined;
+
+  /**
+   * <p>The domain name.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The domain name ID.</p>
+   * @public
+   */
+  DomainNameId?: string | undefined;
+
+  /**
+   * Represents the priority of the routing rule.
+   * @public
+   */
+  Priority: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRoutingRuleResponse {
+  /**
+   * <p>Represents a routing rule action. The only supported action is invokeApi.</p>
+   * @public
+   */
+  Actions?: RoutingRuleAction[] | undefined;
+
+  /**
+   * <p>Represents a condition. Conditions can contain up to two matchHeaders conditions and one matchBasePaths conditions. API Gateway evaluates header conditions and base path conditions together. You can only use AND between header and base path conditions.</p>
+   * @public
+   */
+  Conditions?: RoutingRuleCondition[] | undefined;
+
+  /**
+   * <p>Represents the priority of the routing rule.<p>
+   * @public
+   */
+  Priority?: number | undefined;
+
+  /**
+   * <p>The ARN of the domain name.<p>
+   * @public
+   */
+  RoutingRuleArn?: string | undefined;
+
+  /**
+   * <p>The routing rule ID.</p>
+   * @public
+   */
+  RoutingRuleId?: string | undefined;
+}
+
+/**
  * <p>Creates a new Stage resource to represent a stage.</p>
  * @public
  */
@@ -3065,6 +3312,29 @@ export interface DeleteRouteSettingsRequest {
    * @public
    */
   StageName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRoutingRuleRequest {
+  /**
+   * <p>The domain name.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The domain name ID.</p>
+   * @public
+   */
+  DomainNameId?: string | undefined;
+
+  /**
+   * <p>The routing rule ID.</p>
+   * @public
+   */
+  RoutingRuleId: string | undefined;
 }
 
 /**
@@ -3645,6 +3915,12 @@ export interface GetDomainNameResponse {
   DomainName?: string | undefined;
 
   /**
+   * <p>Represents an Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  DomainNameArn?: string | undefined;
+
+  /**
    * <p>The domain name configurations.</p>
    * @public
    */
@@ -3655,6 +3931,12 @@ export interface GetDomainNameResponse {
    * @public
    */
   MutualTlsAuthentication?: MutualTlsAuthentication | undefined;
+
+  /**
+   * <p>The routing mode.</p>
+   * @public
+   */
+  RoutingMode?: RoutingMode | undefined;
 
   /**
    * <p>The collection of tags associated with a domain name.</p>
@@ -4361,6 +4643,64 @@ export interface GetRoutesResponse {
 /**
  * @public
  */
+export interface GetRoutingRuleRequest {
+  /**
+   * <p>The domain name.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The domain name ID.</p>
+   * @public
+   */
+  DomainNameId?: string | undefined;
+
+  /**
+   * <p>The routing rule ID.</p>
+   * @public
+   */
+  RoutingRuleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRoutingRuleResponse {
+  /**
+   * <p>The resulting action based on matching a routing rules condition. Only InvokeApi is supported.</p>
+   * @public
+   */
+  Actions?: RoutingRuleAction[] | undefined;
+
+  /**
+   * <p>The conditions of the routing rule.</p>
+   * @public
+   */
+  Conditions?: RoutingRuleCondition[] | undefined;
+
+  /**
+   * <p>The order in which API Gateway evaluates a rule. Priority is evaluated from the lowest value to the highest value.</p>
+   * @public
+   */
+  Priority?: number | undefined;
+
+  /**
+   * <p>The routing rule ARN.</p>
+   * @public
+   */
+  RoutingRuleArn?: string | undefined;
+
+  /**
+   * <p>The routing rule ID.</p>
+   * @public
+   */
+  RoutingRuleId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetStageRequest {
   /**
    * <p>The API identifier.</p>
@@ -4759,6 +5099,128 @@ export interface ImportApiResponse {
    * @public
    */
   Warnings?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRoutingRulesRequest {
+  /**
+   * <p>The domain name.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The domain name ID.</p>
+   * @public
+   */
+  DomainNameId?: string | undefined;
+
+  /**
+   * <p>The maximum number of elements to be returned for this resource.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRoutingRulesResponse {
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The routing rules.<p>
+   * @public
+   */
+  RoutingRules?: RoutingRule[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutRoutingRuleRequest {
+  /**
+   * <p>The routing rule action.</p>
+   * @public
+   */
+  Actions: RoutingRuleAction[] | undefined;
+
+  /**
+   * <p>The routing rule condition.</p>
+   * @public
+   */
+  Conditions: RoutingRuleCondition[] | undefined;
+
+  /**
+   * <p>The domain name.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The domain name ID.</p>
+   * @public
+   */
+  DomainNameId?: string | undefined;
+
+  /**
+   * <p>The routing rule priority.</p>
+   * @public
+   */
+  Priority: number | undefined;
+
+  /**
+   * <p>The routing rule ID.</p>
+   * @public
+   */
+  RoutingRuleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutRoutingRuleResponse {
+  /**
+   * <p>The routing rule action.</p>
+   * @public
+   */
+  Actions?: RoutingRuleAction[] | undefined;
+
+  /**
+   * <p>The conditions of the routing rule.</p>
+   * @public
+   */
+  Conditions?: RoutingRuleCondition[] | undefined;
+
+  /**
+   * <p>The routing rule priority.</p>
+   * @public
+   */
+  Priority?: number | undefined;
+
+  /**
+   * <p>The routing rule ARN.</p>
+   * @public
+   */
+  RoutingRuleArn?: string | undefined;
+
+  /**
+   * <p>The routing rule ID.</p>
+   * @public
+   */
+  RoutingRuleId?: string | undefined;
 }
 
 /**
@@ -5449,6 +5911,12 @@ export interface UpdateDomainNameRequest {
    * @public
    */
   MutualTlsAuthentication?: MutualTlsAuthenticationInput | undefined;
+
+  /**
+   * <p>The routing mode.</p>
+   * @public
+   */
+  RoutingMode?: RoutingMode | undefined;
 }
 
 /**
@@ -5468,6 +5936,12 @@ export interface UpdateDomainNameResponse {
   DomainName?: string | undefined;
 
   /**
+   * <p>Represents an Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  DomainNameArn?: string | undefined;
+
+  /**
    * <p>The domain name configurations.</p>
    * @public
    */
@@ -5478,6 +5952,12 @@ export interface UpdateDomainNameResponse {
    * @public
    */
   MutualTlsAuthentication?: MutualTlsAuthentication | undefined;
+
+  /**
+   * <p>The routing mode.</p>
+   * @public
+   */
+  RoutingMode?: RoutingMode | undefined;
 
   /**
    * <p>The collection of tags associated with a domain name.</p>

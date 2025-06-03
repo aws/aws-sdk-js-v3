@@ -43,6 +43,7 @@ import {
   CreateRouteResponseCommandInput,
   CreateRouteResponseCommandOutput,
 } from "../commands/CreateRouteResponseCommand";
+import { CreateRoutingRuleCommandInput, CreateRoutingRuleCommandOutput } from "../commands/CreateRoutingRuleCommand";
 import { CreateStageCommandInput, CreateStageCommandOutput } from "../commands/CreateStageCommand";
 import { CreateVpcLinkCommandInput, CreateVpcLinkCommandOutput } from "../commands/CreateVpcLinkCommand";
 import {
@@ -77,6 +78,7 @@ import {
   DeleteRouteSettingsCommandInput,
   DeleteRouteSettingsCommandOutput,
 } from "../commands/DeleteRouteSettingsCommand";
+import { DeleteRoutingRuleCommandInput, DeleteRoutingRuleCommandOutput } from "../commands/DeleteRoutingRuleCommand";
 import { DeleteStageCommandInput, DeleteStageCommandOutput } from "../commands/DeleteStageCommand";
 import { DeleteVpcLinkCommandInput, DeleteVpcLinkCommandOutput } from "../commands/DeleteVpcLinkCommand";
 import { ExportApiCommandInput, ExportApiCommandOutput } from "../commands/ExportApiCommand";
@@ -107,12 +109,15 @@ import { GetRouteCommandInput, GetRouteCommandOutput } from "../commands/GetRout
 import { GetRouteResponseCommandInput, GetRouteResponseCommandOutput } from "../commands/GetRouteResponseCommand";
 import { GetRouteResponsesCommandInput, GetRouteResponsesCommandOutput } from "../commands/GetRouteResponsesCommand";
 import { GetRoutesCommandInput, GetRoutesCommandOutput } from "../commands/GetRoutesCommand";
+import { GetRoutingRuleCommandInput, GetRoutingRuleCommandOutput } from "../commands/GetRoutingRuleCommand";
 import { GetStageCommandInput, GetStageCommandOutput } from "../commands/GetStageCommand";
 import { GetStagesCommandInput, GetStagesCommandOutput } from "../commands/GetStagesCommand";
 import { GetTagsCommandInput, GetTagsCommandOutput } from "../commands/GetTagsCommand";
 import { GetVpcLinkCommandInput, GetVpcLinkCommandOutput } from "../commands/GetVpcLinkCommand";
 import { GetVpcLinksCommandInput, GetVpcLinksCommandOutput } from "../commands/GetVpcLinksCommand";
 import { ImportApiCommandInput, ImportApiCommandOutput } from "../commands/ImportApiCommand";
+import { ListRoutingRulesCommandInput, ListRoutingRulesCommandOutput } from "../commands/ListRoutingRulesCommand";
+import { PutRoutingRuleCommandInput, PutRoutingRuleCommandOutput } from "../commands/PutRoutingRuleCommand";
 import { ReimportApiCommandInput, ReimportApiCommandOutput } from "../commands/ReimportApiCommand";
 import {
   ResetAuthorizersCacheCommandInput,
@@ -162,6 +167,13 @@ import {
   Route,
   RouteResponse,
   RouteSettings,
+  RoutingRule,
+  RoutingRuleAction,
+  RoutingRuleActionInvokeApi,
+  RoutingRuleCondition,
+  RoutingRuleMatchBasePaths,
+  RoutingRuleMatchHeaders,
+  RoutingRuleMatchHeaderValue,
   Stage,
   TlsConfig,
   TlsConfigInput,
@@ -303,6 +315,7 @@ export const se_CreateDomainNameCommand = async (
       domainName: [, , `DomainName`],
       domainNameConfigurations: [, (_) => se_DomainNameConfigurations(_, context), `DomainNameConfigurations`],
       mutualTlsAuthentication: [, (_) => se_MutualTlsAuthenticationInput(_, context), `MutualTlsAuthentication`],
+      routingMode: [, , `RoutingMode`],
       tags: [, (_) => _json(_), `Tags`],
     })
   );
@@ -460,6 +473,34 @@ export const se_CreateRouteResponseCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateRoutingRuleCommand
+ */
+export const se_CreateRoutingRuleCommand = async (
+  input: CreateRoutingRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domainnames/{DomainName}/routingrules");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  const query: any = map({
+    [_dNI]: [, input[_DNI]!],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      actions: [, (_) => se___listOfRoutingRuleAction(_, context), `Actions`],
+      conditions: [, (_) => se___listOfRoutingRuleCondition(_, context), `Conditions`],
+      priority: [, , `Priority`],
+    })
+  );
+  b.m("POST").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -756,6 +797,26 @@ export const se_DeleteRouteSettingsCommand = async (
   b.p("StageName", () => input.StageName!, "{StageName}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteRoutingRuleCommand
+ */
+export const se_DeleteRoutingRuleCommand = async (
+  input: DeleteRoutingRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domainnames/{DomainName}/routingrules/{RoutingRuleId}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("RoutingRuleId", () => input.RoutingRuleId!, "{RoutingRuleId}", false);
+  const query: any = map({
+    [_dNI]: [, input[_DNI]!],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1200,6 +1261,26 @@ export const se_GetRoutesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetRoutingRuleCommand
+ */
+export const se_GetRoutingRuleCommand = async (
+  input: GetRoutingRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domainnames/{DomainName}/routingrules/{RoutingRuleId}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("RoutingRuleId", () => input.RoutingRuleId!, "{RoutingRuleId}", false);
+  const query: any = map({
+    [_dNI]: [, input[_DNI]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetStageCommand
  */
 export const se_GetStageCommand = async (
@@ -1307,6 +1388,56 @@ export const se_ImportApiCommand = async (
   body = JSON.stringify(
     take(input, {
       body: [, , `Body`],
+    })
+  );
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListRoutingRulesCommand
+ */
+export const se_ListRoutingRulesCommand = async (
+  input: ListRoutingRulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domainnames/{DomainName}/routingrules");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  const query: any = map({
+    [_dNI]: [, input[_DNI]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutRoutingRuleCommand
+ */
+export const se_PutRoutingRuleCommand = async (
+  input: PutRoutingRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domainnames/{DomainName}/routingrules/{RoutingRuleId}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("RoutingRuleId", () => input.RoutingRuleId!, "{RoutingRuleId}", false);
+  const query: any = map({
+    [_dNI]: [, input[_DNI]!],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      actions: [, (_) => se___listOfRoutingRuleAction(_, context), `Actions`],
+      conditions: [, (_) => se___listOfRoutingRuleCondition(_, context), `Conditions`],
+      priority: [, , `Priority`],
     })
   );
   b.m("PUT").h(headers).q(query).b(body);
@@ -1534,6 +1665,7 @@ export const se_UpdateDomainNameCommand = async (
     take(input, {
       domainNameConfigurations: [, (_) => se_DomainNameConfigurations(_, context), `DomainNameConfigurations`],
       mutualTlsAuthentication: [, (_) => se_MutualTlsAuthenticationInput(_, context), `MutualTlsAuthentication`],
+      routingMode: [, , `RoutingMode`],
     })
   );
   b.m("PATCH").h(headers).b(body);
@@ -1887,8 +2019,10 @@ export const de_CreateDomainNameCommand = async (
   const doc = take(data, {
     ApiMappingSelectionExpression: [, __expectString, `apiMappingSelectionExpression`],
     DomainName: [, __expectString, `domainName`],
+    DomainNameArn: [, __expectString, `domainNameArn`],
     DomainNameConfigurations: [, (_) => de_DomainNameConfigurations(_, context), `domainNameConfigurations`],
     MutualTlsAuthentication: [, (_) => de_MutualTlsAuthentication(_, context), `mutualTlsAuthentication`],
+    RoutingMode: [, __expectString, `routingMode`],
     Tags: [, _json, `tags`],
   });
   Object.assign(contents, doc);
@@ -2039,6 +2173,31 @@ export const de_CreateRouteResponseCommand = async (
     ResponseParameters: [, (_) => de_RouteParameters(_, context), `responseParameters`],
     RouteResponseId: [, __expectString, `routeResponseId`],
     RouteResponseKey: [, __expectString, `routeResponseKey`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateRoutingRuleCommand
+ */
+export const de_CreateRoutingRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRoutingRuleCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Actions: [, (_) => de___listOfRoutingRuleAction(_, context), `actions`],
+    Conditions: [, (_) => de___listOfRoutingRuleCondition(_, context), `conditions`],
+    Priority: [, __expectInt32, `priority`],
+    RoutingRuleArn: [, __expectString, `routingRuleArn`],
+    RoutingRuleId: [, __expectString, `routingRuleId`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -2346,6 +2505,23 @@ export const de_DeleteRouteSettingsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteRoutingRuleCommand
+ */
+export const de_DeleteRoutingRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRoutingRuleCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteStageCommand
  */
 export const de_DeleteStageCommand = async (
@@ -2620,8 +2796,10 @@ export const de_GetDomainNameCommand = async (
   const doc = take(data, {
     ApiMappingSelectionExpression: [, __expectString, `apiMappingSelectionExpression`],
     DomainName: [, __expectString, `domainName`],
+    DomainNameArn: [, __expectString, `domainNameArn`],
     DomainNameConfigurations: [, (_) => de_DomainNameConfigurations(_, context), `domainNameConfigurations`],
     MutualTlsAuthentication: [, (_) => de_MutualTlsAuthentication(_, context), `mutualTlsAuthentication`],
+    RoutingMode: [, __expectString, `routingMode`],
     Tags: [, _json, `tags`],
   });
   Object.assign(contents, doc);
@@ -2931,6 +3109,31 @@ export const de_GetRoutesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetRoutingRuleCommand
+ */
+export const de_GetRoutingRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRoutingRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Actions: [, (_) => de___listOfRoutingRuleAction(_, context), `actions`],
+    Conditions: [, (_) => de___listOfRoutingRuleCondition(_, context), `conditions`],
+    Priority: [, __expectInt32, `priority`],
+    RoutingRuleArn: [, __expectString, `routingRuleArn`],
+    RoutingRuleId: [, __expectString, `routingRuleId`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetStageCommand
  */
 export const de_GetStageCommand = async (
@@ -3090,6 +3293,53 @@ export const de_ImportApiCommand = async (
     Tags: [, _json, `tags`],
     Version: [, __expectString, `version`],
     Warnings: [, _json, `warnings`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRoutingRulesCommand
+ */
+export const de_ListRoutingRulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRoutingRulesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    RoutingRules: [, (_) => de___listOfRoutingRule(_, context), `routingRules`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutRoutingRuleCommand
+ */
+export const de_PutRoutingRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRoutingRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Actions: [, (_) => de___listOfRoutingRuleAction(_, context), `actions`],
+    Conditions: [, (_) => de___listOfRoutingRuleCondition(_, context), `conditions`],
+    Priority: [, __expectInt32, `priority`],
+    RoutingRuleArn: [, __expectString, `routingRuleArn`],
+    RoutingRuleId: [, __expectString, `routingRuleId`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -3318,8 +3568,10 @@ export const de_UpdateDomainNameCommand = async (
   const doc = take(data, {
     ApiMappingSelectionExpression: [, __expectString, `apiMappingSelectionExpression`],
     DomainName: [, __expectString, `domainName`],
+    DomainNameArn: [, __expectString, `domainNameArn`],
     DomainNameConfigurations: [, (_) => de_DomainNameConfigurations(_, context), `domainNameConfigurations`],
     MutualTlsAuthentication: [, (_) => de_MutualTlsAuthentication(_, context), `mutualTlsAuthentication`],
+    RoutingMode: [, __expectString, `routingMode`],
     Tags: [, _json, `tags`],
   });
   Object.assign(contents, doc);
@@ -3670,6 +3922,41 @@ const de_TooManyRequestsExceptionRes = async (
 // se___listOf__string omitted.
 
 /**
+ * serializeAws_restJson1__listOfRoutingRuleAction
+ */
+const se___listOfRoutingRuleAction = (input: RoutingRuleAction[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_RoutingRuleAction(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfRoutingRuleCondition
+ */
+const se___listOfRoutingRuleCondition = (input: RoutingRuleCondition[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_RoutingRuleCondition(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfRoutingRuleMatchHeaderValue
+ */
+const se___listOfRoutingRuleMatchHeaderValue = (input: RoutingRuleMatchHeaderValue[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_RoutingRuleMatchHeaderValue(entry, context);
+    });
+};
+
+// se___listOfSelectionKey omitted.
+
+/**
  * serializeAws_restJson1AccessLogSettings
  */
 const se_AccessLogSettings = (input: AccessLogSettings, context: __SerdeContext): any => {
@@ -3805,6 +4092,64 @@ const se_RouteSettingsMap = (input: Record<string, RouteSettings>, context: __Se
     acc[key] = se_RouteSettings(value, context);
     return acc;
   }, {});
+};
+
+/**
+ * serializeAws_restJson1RoutingRuleAction
+ */
+const se_RoutingRuleAction = (input: RoutingRuleAction, context: __SerdeContext): any => {
+  return take(input, {
+    invokeApi: [, (_) => se_RoutingRuleActionInvokeApi(_, context), `InvokeApi`],
+  });
+};
+
+/**
+ * serializeAws_restJson1RoutingRuleActionInvokeApi
+ */
+const se_RoutingRuleActionInvokeApi = (input: RoutingRuleActionInvokeApi, context: __SerdeContext): any => {
+  return take(input, {
+    apiId: [, , `ApiId`],
+    stage: [, , `Stage`],
+    stripBasePath: [, , `StripBasePath`],
+  });
+};
+
+/**
+ * serializeAws_restJson1RoutingRuleCondition
+ */
+const se_RoutingRuleCondition = (input: RoutingRuleCondition, context: __SerdeContext): any => {
+  return take(input, {
+    matchBasePaths: [, (_) => se_RoutingRuleMatchBasePaths(_, context), `MatchBasePaths`],
+    matchHeaders: [, (_) => se_RoutingRuleMatchHeaders(_, context), `MatchHeaders`],
+  });
+};
+
+/**
+ * serializeAws_restJson1RoutingRuleMatchBasePaths
+ */
+const se_RoutingRuleMatchBasePaths = (input: RoutingRuleMatchBasePaths, context: __SerdeContext): any => {
+  return take(input, {
+    anyOf: [, _json, `AnyOf`],
+  });
+};
+
+/**
+ * serializeAws_restJson1RoutingRuleMatchHeaders
+ */
+const se_RoutingRuleMatchHeaders = (input: RoutingRuleMatchHeaders, context: __SerdeContext): any => {
+  return take(input, {
+    anyOf: [, (_) => se___listOfRoutingRuleMatchHeaderValue(_, context), `AnyOf`],
+  });
+};
+
+/**
+ * serializeAws_restJson1RoutingRuleMatchHeaderValue
+ */
+const se_RoutingRuleMatchHeaderValue = (input: RoutingRuleMatchHeaderValue, context: __SerdeContext): any => {
+  return take(input, {
+    header: [, , `Header`],
+    valueGlob: [, , `ValueGlob`],
+  });
 };
 
 // se_SecurityGroupIdList omitted.
@@ -3949,6 +4294,59 @@ const de___listOfRouteResponse = (output: any, context: __SerdeContext): RouteRe
 };
 
 /**
+ * deserializeAws_restJson1__listOfRoutingRule
+ */
+const de___listOfRoutingRule = (output: any, context: __SerdeContext): RoutingRule[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RoutingRule(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfRoutingRuleAction
+ */
+const de___listOfRoutingRuleAction = (output: any, context: __SerdeContext): RoutingRuleAction[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RoutingRuleAction(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfRoutingRuleCondition
+ */
+const de___listOfRoutingRuleCondition = (output: any, context: __SerdeContext): RoutingRuleCondition[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RoutingRuleCondition(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfRoutingRuleMatchHeaderValue
+ */
+const de___listOfRoutingRuleMatchHeaderValue = (
+  output: any,
+  context: __SerdeContext
+): RoutingRuleMatchHeaderValue[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RoutingRuleMatchHeaderValue(entry, context);
+    });
+  return retVal;
+};
+
+// de___listOfSelectionKey omitted.
+
+/**
  * deserializeAws_restJson1__listOfStage
  */
 const de___listOfStage = (output: any, context: __SerdeContext): Stage[] => {
@@ -4081,8 +4479,10 @@ const de_DomainName = (output: any, context: __SerdeContext): DomainName => {
   return take(output, {
     ApiMappingSelectionExpression: [, __expectString, `apiMappingSelectionExpression`],
     DomainName: [, __expectString, `domainName`],
+    DomainNameArn: [, __expectString, `domainNameArn`],
     DomainNameConfigurations: [, (_: any) => de_DomainNameConfigurations(_, context), `domainNameConfigurations`],
     MutualTlsAuthentication: [, (_: any) => de_MutualTlsAuthentication(_, context), `mutualTlsAuthentication`],
+    RoutingMode: [, __expectString, `routingMode`],
     Tags: [, _json, `tags`],
   }) as any;
 };
@@ -4288,6 +4688,77 @@ const de_RouteSettingsMap = (output: any, context: __SerdeContext): Record<strin
   }, {} as Record<string, RouteSettings>);
 };
 
+/**
+ * deserializeAws_restJson1RoutingRule
+ */
+const de_RoutingRule = (output: any, context: __SerdeContext): RoutingRule => {
+  return take(output, {
+    Actions: [, (_: any) => de___listOfRoutingRuleAction(_, context), `actions`],
+    Conditions: [, (_: any) => de___listOfRoutingRuleCondition(_, context), `conditions`],
+    Priority: [, __expectInt32, `priority`],
+    RoutingRuleArn: [, __expectString, `routingRuleArn`],
+    RoutingRuleId: [, __expectString, `routingRuleId`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RoutingRuleAction
+ */
+const de_RoutingRuleAction = (output: any, context: __SerdeContext): RoutingRuleAction => {
+  return take(output, {
+    InvokeApi: [, (_: any) => de_RoutingRuleActionInvokeApi(_, context), `invokeApi`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RoutingRuleActionInvokeApi
+ */
+const de_RoutingRuleActionInvokeApi = (output: any, context: __SerdeContext): RoutingRuleActionInvokeApi => {
+  return take(output, {
+    ApiId: [, __expectString, `apiId`],
+    Stage: [, __expectString, `stage`],
+    StripBasePath: [, __expectBoolean, `stripBasePath`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RoutingRuleCondition
+ */
+const de_RoutingRuleCondition = (output: any, context: __SerdeContext): RoutingRuleCondition => {
+  return take(output, {
+    MatchBasePaths: [, (_: any) => de_RoutingRuleMatchBasePaths(_, context), `matchBasePaths`],
+    MatchHeaders: [, (_: any) => de_RoutingRuleMatchHeaders(_, context), `matchHeaders`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RoutingRuleMatchBasePaths
+ */
+const de_RoutingRuleMatchBasePaths = (output: any, context: __SerdeContext): RoutingRuleMatchBasePaths => {
+  return take(output, {
+    AnyOf: [, _json, `anyOf`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RoutingRuleMatchHeaders
+ */
+const de_RoutingRuleMatchHeaders = (output: any, context: __SerdeContext): RoutingRuleMatchHeaders => {
+  return take(output, {
+    AnyOf: [, (_: any) => de___listOfRoutingRuleMatchHeaderValue(_, context), `anyOf`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RoutingRuleMatchHeaderValue
+ */
+const de_RoutingRuleMatchHeaderValue = (output: any, context: __SerdeContext): RoutingRuleMatchHeaderValue => {
+  return take(output, {
+    Header: [, __expectString, `header`],
+    ValueGlob: [, __expectString, `valueGlob`],
+  }) as any;
+};
+
 // de_SecurityGroupIdList omitted.
 
 /**
@@ -4359,6 +4830,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const _B = "Basepath";
+const _DNI = "DomainNameId";
 const _EV = "ExportVersion";
 const _FOW = "FailOnWarnings";
 const _IE = "IncludeExtensions";
@@ -4368,6 +4840,7 @@ const _OT = "OutputType";
 const _SN = "StageName";
 const _TK = "TagKeys";
 const _b = "basepath";
+const _dNI = "domainNameId";
 const _eV = "exportVersion";
 const _fOW = "failOnWarnings";
 const _iE = "includeExtensions";

@@ -11,6 +11,7 @@ export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ApiGatewayV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
+export * from "./pagination";
 export * from "./models";
 
 export { ApiGatewayV2ServiceException } from "./models/ApiGatewayV2ServiceException";

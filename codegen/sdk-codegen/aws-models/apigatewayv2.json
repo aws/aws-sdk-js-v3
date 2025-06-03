@@ -234,6 +234,9 @@
           "target": "com.amazonaws.apigatewayv2#CreateRouteResponse"
         },
         {
+          "target": "com.amazonaws.apigatewayv2#CreateRoutingRule"
+        },
+        {
           "target": "com.amazonaws.apigatewayv2#CreateStage"
         },
         {
@@ -280,6 +283,9 @@
         },
         {
           "target": "com.amazonaws.apigatewayv2#DeleteRouteSettings"
+        },
+        {
+          "target": "com.amazonaws.apigatewayv2#DeleteRoutingRule"
         },
         {
           "target": "com.amazonaws.apigatewayv2#DeleteStage"
@@ -354,6 +360,9 @@
           "target": "com.amazonaws.apigatewayv2#GetRoutes"
         },
         {
+          "target": "com.amazonaws.apigatewayv2#GetRoutingRule"
+        },
+        {
           "target": "com.amazonaws.apigatewayv2#GetStage"
         },
         {
@@ -370,6 +379,12 @@
         },
         {
           "target": "com.amazonaws.apigatewayv2#ImportApi"
+        },
+        {
+          "target": "com.amazonaws.apigatewayv2#ListRoutingRules"
+        },
+        {
+          "target": "com.amazonaws.apigatewayv2#PutRoutingRule"
         },
         {
           "target": "com.amazonaws.apigatewayv2#ReimportApi"
@@ -2455,6 +2470,13 @@
             "smithy.api#jsonName": "mutualTlsAuthentication"
           }
         },
+        "RoutingMode": {
+          "target": "com.amazonaws.apigatewayv2#RoutingMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing mode.</p>",
+            "smithy.api#jsonName": "routingMode"
+          }
+        },
         "Tags": {
           "target": "com.amazonaws.apigatewayv2#Tags",
           "traits": {
@@ -2485,6 +2507,12 @@
             "smithy.api#jsonName": "domainName"
           }
         },
+        "DomainNameArn": {
+          "target": "com.amazonaws.apigatewayv2#Arn",
+          "traits": {
+            "smithy.api#jsonName": "domainNameArn"
+          }
+        },
         "DomainNameConfigurations": {
           "target": "com.amazonaws.apigatewayv2#DomainNameConfigurations",
           "traits": {
@@ -2497,6 +2525,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The mutual TLS authentication configuration for a custom domain name.</p>",
             "smithy.api#jsonName": "mutualTlsAuthentication"
+          }
+        },
+        "RoutingMode": {
+          "target": "com.amazonaws.apigatewayv2#RoutingMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing mode.</p>",
+            "smithy.api#jsonName": "routingMode"
           }
         },
         "Tags": {
@@ -3442,6 +3477,130 @@
           "traits": {
             "smithy.api#documentation": "<p>The target for the route.</p>",
             "smithy.api#jsonName": "target"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.apigatewayv2#CreateRoutingRule": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.apigatewayv2#CreateRoutingRuleRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.apigatewayv2#CreateRoutingRuleResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.apigatewayv2#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.apigatewayv2#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.apigatewayv2#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.apigatewayv2#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a RoutingRule</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v2/domainnames/{DomainName}/routingrules",
+          "code": 201
+        }
+      }
+    },
+    "com.amazonaws.apigatewayv2#CreateRoutingRuleRequest": {
+      "type": "structure",
+      "members": {
+        "Actions": {
+          "target": "com.amazonaws.apigatewayv2#__listOfRoutingRuleAction",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>Represents a routing rule action. The only supported action is invokeApi.</p>",
+            "smithy.api#jsonName": "actions",
+            "smithy.api#required": {}
+          }
+        },
+        "Conditions": {
+          "target": "com.amazonaws.apigatewayv2#__listOfRoutingRuleCondition",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>Represents a condition. Conditions can contain up to two matchHeaders conditions and one matchBasePaths conditions. API Gateway evaluates header conditions and base path conditions together. You can only use AND between header and base path conditions.</p>",
+            "smithy.api#jsonName": "conditions",
+            "smithy.api#required": {}
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.apigatewayv2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "DomainNameId": {
+          "target": "com.amazonaws.apigatewayv2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name ID.</p>",
+            "smithy.api#httpQuery": "domainNameId"
+          }
+        },
+        "Priority": {
+          "target": "com.amazonaws.apigatewayv2#RoutingRulePriority",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "Represents the priority of the routing rule.",
+            "smithy.api#jsonName": "priority",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.apigatewayv2#CreateRoutingRuleResponse": {
+      "type": "structure",
+      "members": {
+        "Actions": {
+          "target": "com.amazonaws.apigatewayv2#__listOfRoutingRuleAction",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents a routing rule action. The only supported action is invokeApi.</p>",
+            "smithy.api#jsonName": "actions"
+          }
+        },
+        "Conditions": {
+          "target": "com.amazonaws.apigatewayv2#__listOfRoutingRuleCondition",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents a condition. Conditions can contain up to two matchHeaders conditions and one matchBasePaths conditions. API Gateway evaluates header conditions and base path conditions together. You can only use AND between header and base path conditions.</p>",
+            "smithy.api#jsonName": "conditions"
+          }
+        },
+        "Priority": {
+          "target": "com.amazonaws.apigatewayv2#RoutingRulePriority",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents the priority of the routing rule.<p>",
+            "smithy.api#jsonName": "priority"
+          }
+        },
+        "RoutingRuleArn": {
+          "target": "com.amazonaws.apigatewayv2#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the domain name.<p>",
+            "smithy.api#jsonName": "routingRuleArn"
+          }
+        },
+        "RoutingRuleId": {
+          "target": "com.amazonaws.apigatewayv2#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing rule ID.</p>",
+            "smithy.api#jsonName": "routingRuleId"
           }
         }
       },
@@ -4509,6 +4668,66 @@
         "smithy.api#input": {}
       }
     },
+    "com.amazonaws.apigatewayv2#DeleteRoutingRule": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.apigatewayv2#DeleteRoutingRuleRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.apigatewayv2#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.apigatewayv2#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.apigatewayv2#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes a routing rule.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/v2/domainnames/{DomainName}/routingrules/{RoutingRuleId}",
+          "code": 204
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.apigatewayv2#DeleteRoutingRuleRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.apigatewayv2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "DomainNameId": {
+          "target": "com.amazonaws.apigatewayv2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name ID.</p>",
+            "smithy.api#httpQuery": "domainNameId"
+          }
+        },
+        "RoutingRuleId": {
+          "target": "com.amazonaws.apigatewayv2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing rule ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
     "com.amazonaws.apigatewayv2#DeleteStage": {
       "type": "operation",
       "input": {
@@ -4701,6 +4920,12 @@
             "smithy.api#required": {}
           }
         },
+        "DomainNameArn": {
+          "target": "com.amazonaws.apigatewayv2#Arn",
+          "traits": {
+            "smithy.api#jsonName": "domainNameArn"
+          }
+        },
         "DomainNameConfigurations": {
           "target": "com.amazonaws.apigatewayv2#DomainNameConfigurations",
           "traits": {
@@ -4713,6 +4938,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The mutual TLS authentication configuration for a custom domain name.</p>",
             "smithy.api#jsonName": "mutualTlsAuthentication"
+          }
+        },
+        "RoutingMode": {
+          "target": "com.amazonaws.apigatewayv2#RoutingMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing mode.</p>",
+            "smithy.api#jsonName": "routingMode"
           }
         },
         "Tags": {
@@ -5833,6 +6065,12 @@
             "smithy.api#jsonName": "domainName"
           }
         },
+        "DomainNameArn": {
+          "target": "com.amazonaws.apigatewayv2#Arn",
+          "traits": {
+            "smithy.api#jsonName": "domainNameArn"
+          }
+        },
         "DomainNameConfigurations": {
           "target": "com.amazonaws.apigatewayv2#DomainNameConfigurations",
           "traits": {
@@ -5845,6 +6083,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The mutual TLS authentication configuration for a custom domain name.</p>",
             "smithy.api#jsonName": "mutualTlsAuthentication"
+          }
+        },
+        "RoutingMode": {
+          "target": "com.amazonaws.apigatewayv2#RoutingMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing mode.</p>",
+            "smithy.api#jsonName": "routingMode"
           }
         },
         "Tags": {
@@ -7055,6 +7300,108 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.apigatewayv2#GetRoutingRule": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.apigatewayv2#GetRoutingRuleRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.apigatewayv2#GetRoutingRuleResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.apigatewayv2#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.apigatewayv2#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.apigatewayv2#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets a routing rule.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/v2/domainnames/{DomainName}/routingrules/{RoutingRuleId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.apigatewayv2#GetRoutingRuleRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.apigatewayv2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "DomainNameId": {
+          "target": "com.amazonaws.apigatewayv2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name ID.</p>",
+            "smithy.api#httpQuery": "domainNameId"
+          }
+        },
+        "RoutingRuleId": {
+          "target": "com.amazonaws.apigatewayv2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing rule ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.apigatewayv2#GetRoutingRuleResponse": {
+      "type": "structure",
+      "members": {
+        "Actions": {
+          "target": "com.amazonaws.apigatewayv2#__listOfRoutingRuleAction",
+          "traits": {
+            "smithy.api#documentation": "<p>The resulting action based on matching a routing rules condition. Only InvokeApi is supported.</p>",
+            "smithy.api#jsonName": "actions"
+          }
+        },
+        "Conditions": {
+          "target": "com.amazonaws.apigatewayv2#__listOfRoutingRuleCondition",
+          "traits": {
+            "smithy.api#documentation": "<p>The conditions of the routing rule.</p>",
+            "smithy.api#jsonName": "conditions"
+          }
+        },
+        "Priority": {
+          "target": "com.amazonaws.apigatewayv2#RoutingRulePriority",
+          "traits": {
+            "smithy.api#documentation": "<p>The order in which API Gateway evaluates a rule. Priority is evaluated from the lowest value to the highest value.</p>",
+            "smithy.api#jsonName": "priority"
+          }
+        },
+        "RoutingRuleArn": {
+          "target": "com.amazonaws.apigatewayv2#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing rule ARN.</p>",
+            "smithy.api#jsonName": "routingRuleArn"
+          }
+        },
+        "RoutingRuleId": {
+          "target": "com.amazonaws.apigatewayv2#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing rule ID.</p>",
+            "smithy.api#jsonName": "routingRuleId"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.apigatewayv2#GetStage": {
       "type": "operation",
       "input": {
@@ -8059,6 +8406,98 @@
         "smithy.api#documentation": "<p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>"
       }
     },
+    "com.amazonaws.apigatewayv2#ListRoutingRules": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.apigatewayv2#ListRoutingRulesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.apigatewayv2#ListRoutingRulesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.apigatewayv2#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.apigatewayv2#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.apigatewayv2#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists routing rules.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/v2/domainnames/{DomainName}/routingrules",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "RoutingRules",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.apigatewayv2#ListRoutingRulesRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.apigatewayv2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "DomainNameId": {
+          "target": "com.amazonaws.apigatewayv2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name ID.</p>",
+            "smithy.api#httpQuery": "domainNameId"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.apigatewayv2#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of elements to be returned for this resource.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.apigatewayv2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The next page of elements from this collection. Not valid for the last element of the collection.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.apigatewayv2#ListRoutingRulesResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.apigatewayv2#NextToken",
+          "traits": {
+            "smithy.api#jsonName": "nextToken"
+          }
+        },
+        "RoutingRules": {
+          "target": "com.amazonaws.apigatewayv2#__listOfRoutingRule",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing rules.<p>",
+            "smithy.api#jsonName": "routingRules"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.apigatewayv2#LoggingLevel": {
       "type": "enum",
       "members": {
@@ -8083,6 +8522,15 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The logging level.</p>"
+      }
+    },
+    "com.amazonaws.apigatewayv2#MaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 100
+        }
       }
     },
     "com.amazonaws.apigatewayv2#Model": {
@@ -8264,6 +8712,139 @@
       },
       "traits": {
         "smithy.api#documentation": "Represents a protocol type."
+      }
+    },
+    "com.amazonaws.apigatewayv2#PutRoutingRule": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.apigatewayv2#PutRoutingRuleRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.apigatewayv2#PutRoutingRuleResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.apigatewayv2#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.apigatewayv2#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.apigatewayv2#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.apigatewayv2#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates a routing rule.</p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/v2/domainnames/{DomainName}/routingrules/{RoutingRuleId}",
+          "code": 200
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.apigatewayv2#PutRoutingRuleRequest": {
+      "type": "structure",
+      "members": {
+        "Actions": {
+          "target": "com.amazonaws.apigatewayv2#__listOfRoutingRuleAction",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The routing rule action.</p>",
+            "smithy.api#jsonName": "actions",
+            "smithy.api#required": {}
+          }
+        },
+        "Conditions": {
+          "target": "com.amazonaws.apigatewayv2#__listOfRoutingRuleCondition",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The routing rule condition.</p>",
+            "smithy.api#jsonName": "conditions",
+            "smithy.api#required": {}
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.apigatewayv2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "DomainNameId": {
+          "target": "com.amazonaws.apigatewayv2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name ID.</p>",
+            "smithy.api#httpQuery": "domainNameId"
+          }
+        },
+        "Priority": {
+          "target": "com.amazonaws.apigatewayv2#RoutingRulePriority",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The routing rule priority.</p>",
+            "smithy.api#jsonName": "priority",
+            "smithy.api#required": {}
+          }
+        },
+        "RoutingRuleId": {
+          "target": "com.amazonaws.apigatewayv2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing rule ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.apigatewayv2#PutRoutingRuleResponse": {
+      "type": "structure",
+      "members": {
+        "Actions": {
+          "target": "com.amazonaws.apigatewayv2#__listOfRoutingRuleAction",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing rule action.</p>",
+            "smithy.api#jsonName": "actions"
+          }
+        },
+        "Conditions": {
+          "target": "com.amazonaws.apigatewayv2#__listOfRoutingRuleCondition",
+          "traits": {
+            "smithy.api#documentation": "<p>The conditions of the routing rule.</p>",
+            "smithy.api#jsonName": "conditions"
+          }
+        },
+        "Priority": {
+          "target": "com.amazonaws.apigatewayv2#RoutingRulePriority",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing rule priority.</p>",
+            "smithy.api#jsonName": "priority"
+          }
+        },
+        "RoutingRuleArn": {
+          "target": "com.amazonaws.apigatewayv2#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing rule ARN.</p>",
+            "smithy.api#jsonName": "routingRuleArn"
+          }
+        },
+        "RoutingRuleId": {
+          "target": "com.amazonaws.apigatewayv2#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing rule ID.</p>",
+            "smithy.api#jsonName": "routingRuleId"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.apigatewayv2#ReimportApi": {
@@ -8748,6 +9329,209 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The route settings map.</p>"
+      }
+    },
+    "com.amazonaws.apigatewayv2#RoutingMode": {
+      "type": "enum",
+      "members": {
+        "API_MAPPING_ONLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "API_MAPPING_ONLY"
+          }
+        },
+        "ROUTING_RULE_ONLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROUTING_RULE_ONLY"
+          }
+        },
+        "ROUTING_RULE_THEN_API_MAPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROUTING_RULE_THEN_API_MAPPING"
+          }
+        }
+      }
+    },
+    "com.amazonaws.apigatewayv2#RoutingRule": {
+      "type": "structure",
+      "members": {
+        "Actions": {
+          "target": "com.amazonaws.apigatewayv2#__listOfRoutingRuleAction",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing rule action.</p>",
+            "smithy.api#jsonName": "actions"
+          }
+        },
+        "Conditions": {
+          "target": "com.amazonaws.apigatewayv2#__listOfRoutingRuleCondition",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing rule condition.</p>",
+            "smithy.api#jsonName": "conditions"
+          }
+        },
+        "Priority": {
+          "target": "com.amazonaws.apigatewayv2#RoutingRulePriority",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing rule priority.</p>",
+            "smithy.api#jsonName": "priority"
+          }
+        },
+        "RoutingRuleArn": {
+          "target": "com.amazonaws.apigatewayv2#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing rule ARN.</p>",
+            "smithy.api#jsonName": "routingRuleArn"
+          }
+        },
+        "RoutingRuleId": {
+          "target": "com.amazonaws.apigatewayv2#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing rule ID.</p>",
+            "smithy.api#jsonName": "routingRuleId"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents a routing rule.</p>"
+      }
+    },
+    "com.amazonaws.apigatewayv2#RoutingRuleAction": {
+      "type": "structure",
+      "members": {
+        "InvokeApi": {
+          "target": "com.amazonaws.apigatewayv2#RoutingRuleActionInvokeApi",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#jsonName": "invokeApi",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The routing rule action.</p>"
+      }
+    },
+    "com.amazonaws.apigatewayv2#RoutingRuleActionInvokeApi": {
+      "type": "structure",
+      "members": {
+        "ApiId": {
+          "target": "com.amazonaws.apigatewayv2#Id",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#jsonName": "apiId",
+            "smithy.api#required": {}
+          }
+        },
+        "Stage": {
+          "target": "com.amazonaws.apigatewayv2#StringWithLengthBetween1And128",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#jsonName": "stage",
+            "smithy.api#required": {}
+          }
+        },
+        "StripBasePath": {
+          "target": "com.amazonaws.apigatewayv2#__boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>The strip base path setting.</p>",
+            "smithy.api#jsonName": "stripBasePath"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents an InvokeApi action.</p>"
+      }
+    },
+    "com.amazonaws.apigatewayv2#RoutingRuleCondition": {
+      "type": "structure",
+      "members": {
+        "MatchBasePaths": {
+          "target": "com.amazonaws.apigatewayv2#RoutingRuleMatchBasePaths",
+          "traits": {
+            "smithy.api#documentation": "<p>The base path to be matched.</p>",
+            "smithy.api#jsonName": "matchBasePaths"
+          }
+        },
+        "MatchHeaders": {
+          "target": "com.amazonaws.apigatewayv2#RoutingRuleMatchHeaders",
+          "traits": {
+            "smithy.api#documentation": "<p>The headers to be matched.</p>",
+            "smithy.api#jsonName": "matchHeaders"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents a routing rule condition.</p>"
+      }
+    },
+    "com.amazonaws.apigatewayv2#RoutingRuleMatchBasePaths": {
+      "type": "structure",
+      "members": {
+        "AnyOf": {
+          "target": "com.amazonaws.apigatewayv2#__listOfSelectionKey",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "The string of the case sensitive base path to be matched.",
+            "smithy.api#jsonName": "anyOf",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents a MatchBasePaths condition.</p>"
+      }
+    },
+    "com.amazonaws.apigatewayv2#RoutingRuleMatchHeaderValue": {
+      "type": "structure",
+      "members": {
+        "Header": {
+          "target": "com.amazonaws.apigatewayv2#SelectionKey",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#jsonName": "header",
+            "smithy.api#required": {}
+          }
+        },
+        "ValueGlob": {
+          "target": "com.amazonaws.apigatewayv2#SelectionExpression",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#jsonName": "valueGlob",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents a MatchHeaderValue.</p>"
+      }
+    },
+    "com.amazonaws.apigatewayv2#RoutingRuleMatchHeaders": {
+      "type": "structure",
+      "members": {
+        "AnyOf": {
+          "target": "com.amazonaws.apigatewayv2#__listOfRoutingRuleMatchHeaderValue",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The header name and header value glob to be matched. The matchHeaders condition is matched if any of the header name and header value globs are matched.</p>",
+            "smithy.api#jsonName": "anyOf",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents a MatchHeaders condition.</p>"
+      }
+    },
+    "com.amazonaws.apigatewayv2#RoutingRulePriority": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#documentation": "<p>The routing rule priority.</p>",
+        "smithy.api#range": {
+          "min": 1,
+          "max": 1000000
+        }
       }
     },
     "com.amazonaws.apigatewayv2#SecurityGroupIdList": {
@@ -9923,6 +10707,13 @@
             "smithy.api#documentation": "<p>The mutual TLS authentication configuration for a custom domain name.</p>",
             "smithy.api#jsonName": "mutualTlsAuthentication"
           }
+        },
+        "RoutingMode": {
+          "target": "com.amazonaws.apigatewayv2#RoutingMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing mode.</p>",
+            "smithy.api#jsonName": "routingMode"
+          }
         }
       },
       "traits": {
@@ -9947,6 +10738,12 @@
             "smithy.api#jsonName": "domainName"
           }
         },
+        "DomainNameArn": {
+          "target": "com.amazonaws.apigatewayv2#Arn",
+          "traits": {
+            "smithy.api#jsonName": "domainNameArn"
+          }
+        },
         "DomainNameConfigurations": {
           "target": "com.amazonaws.apigatewayv2#DomainNameConfigurations",
           "traits": {
@@ -9959,6 +10756,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The mutual TLS authentication configuration for a custom domain name.</p>",
             "smithy.api#jsonName": "mutualTlsAuthentication"
+          }
+        },
+        "RoutingMode": {
+          "target": "com.amazonaws.apigatewayv2#RoutingMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The routing mode.</p>",
+            "smithy.api#jsonName": "routingMode"
           }
         },
         "Tags": {
@@ -11484,6 +12288,36 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.apigatewayv2#RouteResponse"
+      }
+    },
+    "com.amazonaws.apigatewayv2#__listOfRoutingRule": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.apigatewayv2#RoutingRule"
+      }
+    },
+    "com.amazonaws.apigatewayv2#__listOfRoutingRuleAction": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.apigatewayv2#RoutingRuleAction"
+      }
+    },
+    "com.amazonaws.apigatewayv2#__listOfRoutingRuleCondition": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.apigatewayv2#RoutingRuleCondition"
+      }
+    },
+    "com.amazonaws.apigatewayv2#__listOfRoutingRuleMatchHeaderValue": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.apigatewayv2#RoutingRuleMatchHeaderValue"
+      }
+    },
+    "com.amazonaws.apigatewayv2#__listOfSelectionKey": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.apigatewayv2#SelectionKey"
       }
     },
     "com.amazonaws.apigatewayv2#__listOfStage": {

@@ -46,6 +46,7 @@ export interface GetDomainNamesCommandOutput extends GetDomainNamesResponse, __M
  * //     { // DomainName
  * //       ApiMappingSelectionExpression: "STRING_VALUE",
  * //       DomainName: "STRING_VALUE", // required
+ * //       DomainNameArn: "STRING_VALUE",
  * //       DomainNameConfigurations: [ // DomainNameConfigurations
  * //         { // DomainNameConfiguration
  * //           ApiGatewayDomainName: "STRING_VALUE",
@@ -68,6 +69,7 @@ export interface GetDomainNamesCommandOutput extends GetDomainNamesResponse, __M
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       RoutingMode: "API_MAPPING_ONLY" || "ROUTING_RULE_ONLY" || "ROUTING_RULE_THEN_API_MAPPING",
  * //       Tags: { // Tags
  * //         "<keys>": "STRING_VALUE",
  * //       },
