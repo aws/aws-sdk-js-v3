@@ -308,11 +308,57 @@ const loaded = await mapper.get({ id: "123" }, MyDomainModel);
 console.log(loaded); // MyDomainModel { id: '123', name: 'Test Object' }
 ```
 
+### Working with Table-Bound Mappers
+
+If you frequently interact with a single model/table, you can use a `TableMapper` to bind the schema and factory logic once. This provides a cleaner and more ergonomic interface for domain-model-oriented applications.
+
+```ts
+import { TableMapper } from "@aws-sdk/lib-dynamodb-data-mapper";
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { DynamoDbSchema, DynamoDbTable } from "./schema";
+
+class UserRecord {
+  id!: string;
+  name!: string;
+}
+
+Object.defineProperty(UserRecord.prototype, DynamoDbSchema, {
+  value: {
+    id: { type: "String", keyType: "HASH" },
+    name: { type: "String" },
+  },
+});
+Object.defineProperty(UserRecord.prototype, DynamoDbTable, {
+  value: "Users",
+});
+
+class User {
+  constructor(public id: string, public name: string) {}
+
+  static from(data: UserRecord): User {
+    return new User(data.id, data.name.toUpperCase());
+  }
+}
+
+const client = new DynamoDBClient();
+const dataMapper = DataMapper.from(client);
+
+// Create a reusable table-bound mapper
+const users = TableMapper.from(UserRecord, User.from, dataMapper);
+
+// Get user
+const user = await users.get({ id: "123" });
+
+// Put new user
+await users.put({ id: "123", name: "Alice" });
+```
+
 ## Supported operations
 
 > This is a work in progress and will be updated as implementations are completed.
 
 The following operations are either supported or planned for the `DataMapper` interface.
+If you're using a **TableMapper**, all of these operations are available in a simplified, model-scoped form.
 
 ---
 
@@ -321,125 +367,93 @@ The following operations are either supported or planned for the `DataMapper` in
 Inserts or replaces an item in a DynamoDB table.
 
 ```ts
-put<T>(
-  item: T,
+put<D extends object>(
+  item: D,
   criteria?: Omit<Partial<PutItemCommandInput>, 'TableName' | 'Item'>,
   options?: HttpHandlerOptions
-): Promise<T>
+): Promise<D>
 ```
 
-- `item`: The domain model instance decorated with schema and table metadata.
-- `criteria`: Optional conditions like `ReturnValues`, `ConditionExpression`, etc. (excluding `TableName` and `Item`).
-- `options`: Optional HTTP options such as timeout, retries, or abort signals.
+- `item`: The raw schema-defined object (e.g., DTO) with metadata attached via symbols.
+- `criteria`: Optional conditions like `ReturnValues`, `ConditionExpression`, etc.
+- `options`: Optional HTTP handler options (timeout, retries, etc.)
 
 ```ts
-await mapper.put(user);
+await mapper.put({ id: "123", name: "Alice" });
 ```
-
-> [Future] Condition expressions are not yet implemented.
 
 ---
 
 ### `get`
 
-Fetches an item by key from a DynamoDB table.
+Fetches an item by key and hydrates it via a factory.
 
 ```ts
-get<T>(
-  key: Partial<T>,
-  modelCtor: new () => T,
+get<D extends object, T>(
+  key: Partial<D>,
+  factory: (data: D) => T,
+  modelCtor: ModelConstructor<D>,
   options?: HttpHandlerOptions
 ): Promise<T | undefined>
 ```
 
-- `key`: Partial object containing the partition (and optionally sort) key.
-- `modelCtor`: The model class constructor used to extract schema metadata.
-- `options`: Optional HTTP-level controls like timeouts and retries.
+- `key`: Partial object with primary key(s).
+- `factory`: A function that builds your return type `T` from raw `D`.
+- `modelCtor`: The constructor class that holds schema/table metadata.
+- `options`: Optional HTTP-level controls.
 
 ```ts
-const user = await mapper.get({ id: "u123" }, User);
+const user = await mapper.get({ id: "123" }, User.from, UserRecord);
 ```
 
 ---
 
 ### `delete`
 
-Deletes an item by key.
+Deletes an item by key (currently not implemented).
 
 ```ts
-delete<T>(
-  key: Partial<T>,
-  modelCtor: new () => T,
+delete<D extends object>(
+  key: Partial<D>,
+  modelCtor: ModelConstructor<D>,
   criteria?: Omit<Partial<DeleteItemCommandInput>, 'TableName' | 'Key'>,
   options?: HttpHandlerOptions
-): Promise<T>
+): Promise<D>
 ```
 
-- `key`: Partial object containing the partition (and optionally sort) key.
-- `modelCtor`: The model class constructor used to extract schema metadata.
-- `criteria`: Optional delete parameters like `ConditionExpression` and `ReturnValues`.
-- `options`: Optional HTTP handler options.
-
-```ts
-await mapper.delete({ id: "u123" }, User);
-```
-
-> ❗ Not yet implemented.
+> ❗ Not yet implemented
 
 ---
 
 ### `query`
 
-Retrieves multiple items by partition key using `KeyConditionExpression`.
+Retrieves multiple items by partition key using a schema-bound model constructor.
 
 ```ts
-query<T>(
-  modelCtor: new () => T,
+query<D extends object>(
+  modelCtor: ModelConstructor<D>,
   criteria?: Omit<QueryCommandInput, 'TableName'>,
   options?: HttpHandlerOptions
-): AsyncIterable<T>
+): AsyncIterable<D>
 ```
 
-- `modelCtor`: The model class constructor with schema metadata.
-- `criteria`: Query parameters (without `TableName`), including `KeyConditionExpression`, `IndexName`, etc.
-- `options`: Optional HTTP request options.
-
-```ts
-for await (const user of mapper.query(User, {
-  KeyConditionExpression: "id = :id",
-  ExpressionAttributeValues: { ":id": { S: "u123" } },
-})) {
-  console.log(user);
-}
-```
-
-> ❗ Expression building is not yet implemented.
+> ❗ Not yet implemented
 
 ---
 
 ### `scan`
 
-Scans the entire table or applies a filter.
+Scans the entire table using schema metadata.
 
 ```ts
-scan<T>(
-  modelCtor: new () => T,
+scan<D extends object>(
+  modelCtor: ModelConstructor<D>,
   criteria?: Omit<ScanCommandInput, 'TableName'>,
   options?: HttpHandlerOptions
-): AsyncIterable<T>
+): AsyncIterable<D>
 ```
 
-- `modelCtor`: The model class constructor with schema metadata.
-- `criteria`: Optional parameters like `FilterExpression`, `Limit`, `StartKey`, etc.
-- `options`: Optional HTTP handler options.
-
-```ts
-for await (const user of mapper.scan(User)) {
-  console.log(user);
-}
-```
-
-> ❗ Expression building is not yet implemented.
+> ❗ Not yet implemented
 
 ---
 
@@ -447,7 +461,7 @@ for await (const user of mapper.scan(User)) {
 
 - Fetch up to 100 items per request across one or more tables
 - Retries unprocessed keys
-- Based on metadata (schema + table name)
+- Uses schema metadata
 
 > ❗ Not implemented
 
@@ -469,3 +483,7 @@ for await (const user of mapper.scan(User)) {
 - Useful for syncing large sets of records
 
 > ❗ Not implemented
+
+```
+
+```

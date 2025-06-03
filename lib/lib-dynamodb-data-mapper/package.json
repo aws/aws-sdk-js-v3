@@ -17,7 +17,8 @@
     "test": "yarn g:vitest run",
     "test:e2e": "yarn g:vitest run -c vitest.config.e2e.ts --mode development",
     "test:watch": "yarn g:vitest watch",
-    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.ts"
+    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.ts",
+    "lint": "eslint 'src/**/*.{ts,tsx}'"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -41,8 +42,12 @@
     "@aws-sdk/client-dynamodb": "*",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^18.19.69",
+    "@typescript-eslint/eslint-plugin": "^8.33.1",
+    "@typescript-eslint/parser": "^8.33.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
+    "eslint": "^9.28.0",
+    "eslint-plugin-tsdoc": "^0.4.0",
     "rimraf": "3.0.2",
     "typescript": "~5.8.3"
   },

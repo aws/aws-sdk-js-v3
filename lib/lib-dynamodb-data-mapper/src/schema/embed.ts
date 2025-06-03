@@ -1,10 +1,10 @@
-import { DynamoDbSchema } from './schemaMetadata';
-import type { DocumentType, ZeroArgumentsConstructor } from './schemaType';
+import { DocumentType, ZeroArgumentsConstructor } from "./item";
+import { DynamoDbSchema } from "./symbols";
 
 /**
  * Options for configuring an embedded document field in a schema.
  */
-export interface DocumentTypeOptions<T extends object> {
+export interface ItemDocumentTypeOptions<T extends object> {
   /**
    * Optional override for the DynamoDB attribute name.
    */
@@ -25,14 +25,14 @@ export interface DocumentTypeOptions<T extends object> {
  * @returns A `DocumentType` schema node used in manual schema definitions.
  */
 export function embed<T extends object>(
-    documentConstructor: ZeroArgumentsConstructor<T>,
-    {attributeName, defaultProvider}: DocumentTypeOptions<T> = {}
+  documentConstructor: ZeroArgumentsConstructor<T>,
+  { attributeName, defaultProvider }: ItemDocumentTypeOptions<T> = {}
 ): DocumentType {
-    return {
-        type: 'Document',
-        members: (documentConstructor.prototype as any)[DynamoDbSchema] || {},
-        attributeName,
-        defaultProvider,
-        valueConstructor: documentConstructor
-    };
+  return {
+    type: "Document",
+    members: (documentConstructor.prototype as any)[DynamoDbSchema] || {},
+    attributeName,
+    defaultProvider,
+    valueConstructor: documentConstructor,
+  };
 }

@@ -1,21 +1,21 @@
-import { AttributeValue } from '@aws-sdk/client-dynamodb';
-import type { marshallOptions } from '@aws-sdk/util-dynamodb';
+import { AttributeValue } from "@aws-sdk/client-dynamodb";
+import type { marshallOptions } from "@aws-sdk/util-dynamodb";
 
-import type { Schema } from '../../schema';
-import { marshallValue } from '../core';
-import { isKey } from './isKey';
+import type { ItemSchema } from "../../schema";
+import { isKey } from "../../schema/";
+import { marshallValue } from "../core";
 
-export type AttributeMap = {[key: string]: AttributeValue};
+export type AttributeMap = { [key: string]: AttributeValue };
 
 /**
  * Extracts and marshals only the key fields from an input object,
  * based on the schema and optional index name.
  */
 export function marshallKey(
-  schema: Schema,
+  schema: ItemSchema,
   input: { [key: string]: any },
   indexName?: string,
-  options: marshallOptions = {},
+  options: marshallOptions = {}
 ): AttributeMap {
   const marshalled: AttributeMap = {};
 

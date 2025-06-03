@@ -1,11 +1,11 @@
-import type { AttributeValue } from '@aws-sdk/client-dynamodb';
-import { marshallOptions } from '@aws-sdk/util-dynamodb';
+import type { AttributeValue } from "@aws-sdk/client-dynamodb";
+import { marshallOptions } from "@aws-sdk/util-dynamodb";
 
-import { Schema } from '../../schema';
-import { marshallValue } from './marshallValue';
+import { ItemSchema } from "../../schema";
+import { marshallValue } from "./marshallValue";
 
 export function marshallItem(
-  schema: Schema,
+  schema: ItemSchema,
   input: Record<string, any>,
   options: marshallOptions = {}
 ): Record<string, AttributeValue> {

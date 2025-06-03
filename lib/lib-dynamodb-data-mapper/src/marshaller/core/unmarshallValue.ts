@@ -1,15 +1,16 @@
-import type { AttributeValue } from '@aws-sdk/client-dynamodb';
+import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import type {
   CollectionType,
   CustomType,
   DocumentType,
   HashType,
+  ItemSchemaType,
   ListType,
   MapType,
-  SchemaType,
   SetType,
-  TupleType} from '../../schema';
+  TupleType,
+} from "../../schema";
 
 function unmarshallTuple(schema: TupleType, input: AttributeValue[]): any[] {
   return schema.members.map((member, i) => unmarshallValue(member, input[i]));
@@ -23,10 +24,10 @@ function unmarshallNumberSet(input: string[]): Set<number> {
   return new Set(input.map(Number));
 }
 
-const typeUnmarshallers: Record<SchemaType['type'], UnmarshallHandler> = {
-  String: (_schema, value) => (value as any).NULL ? '' : (value as any).S,
+const typeUnmarshallers: Record<ItemSchemaType["type"], UnmarshallHandler> = {
+  String: (_schema, value) => ((value as any).NULL ? "" : (value as any).S),
 
-  Number: (_schema, value) => typeof (value as any).N === 'string' ? Number((value as any).N) : undefined,
+  Number: (_schema, value) => (typeof (value as any).N === "string" ? Number((value as any).N) : undefined),
 
   Boolean: (_schema, value) => (value as any).BOOL,
 
@@ -35,13 +36,11 @@ const typeUnmarshallers: Record<SchemaType['type'], UnmarshallHandler> = {
     return raw ? new Date(Number(raw) * 1000) : undefined;
   },
 
-  Null: (schema, value) => (value as any).NULL ? null : undefined,
+  Null: (schema, value) => ((value as any).NULL ? null : undefined),
 
   List: (schema, value) => {
     const listSchema = schema as ListType;
-    return (value as any).L?.map((item: AttributeValue) =>
-      unmarshallValue(listSchema.memberType, item)
-    );
+    return (value as any).L?.map((item: AttributeValue) => unmarshallValue(listSchema.memberType, item));
   },
 
   Map: (schema, value) => {
@@ -59,9 +58,7 @@ const typeUnmarshallers: Record<SchemaType['type'], UnmarshallHandler> = {
     const docSchema = schema as DocumentType;
     const rawMap = (value as any).M;
     if (!rawMap) return undefined;
-    const instance = docSchema.valueConstructor
-      ? new docSchema.valueConstructor()
-      : Object.create(null);
+    const instance = docSchema.valueConstructor ? new docSchema.valueConstructor() : Object.create(null);
 
     for (const key of Object.keys(docSchema.members)) {
       const fieldSchema = docSchema.members[key];
@@ -80,13 +77,11 @@ const typeUnmarshallers: Record<SchemaType['type'], UnmarshallHandler> = {
     return customSchema.unmarshall(value);
   },
 
-  Binary: (_schema, value) => (value as any).NULL ? new Uint8Array(0) : (value as any).B,
+  Binary: (_schema, value) => ((value as any).NULL ? new Uint8Array(0) : (value as any).B),
 
   Collection: (schema, value) => {
     const anySchema = schema as CollectionType;
-    return (value as any).L?.map((v: AttributeValue) =>
-      unmarshallValue(anySchema, v)
-    );
+    return (value as any).L?.map((v: AttributeValue) => unmarshallValue(anySchema, v));
   },
 
   Hash: (schema, value) => {
@@ -104,15 +99,21 @@ const typeUnmarshallers: Record<SchemaType['type'], UnmarshallHandler> = {
     const setSchema = schema as SetType;
     if ((value as any).NULL) {
       switch (setSchema.memberType) {
-        case 'Binary': return new Set<Uint8Array>();
-        case 'Number': return new Set<number>();
-        case 'String': return new Set<string>();
+        case "Binary":
+          return new Set<Uint8Array>();
+        case "Number":
+          return new Set<number>();
+        case "String":
+          return new Set<string>();
       }
     }
     switch (setSchema.memberType) {
-      case 'Binary': return new Set((value as any).BS);
-      case 'Number': return unmarshallNumberSet((value as any).NS);
-      case 'String': return unmarshallStringSet((value as any).SS);
+      case "Binary":
+        return new Set((value as any).BS);
+      case "Number":
+        return unmarshallNumberSet((value as any).NS);
+      case "String":
+        return unmarshallStringSet((value as any).SS);
       default:
         throw new Error(`Unrecognized set member type: ${setSchema.memberType}`);
     }
@@ -121,7 +122,7 @@ const typeUnmarshallers: Record<SchemaType['type'], UnmarshallHandler> = {
   Tuple: (schema, value) => unmarshallTuple(schema as TupleType, (value as any).L),
 
   Any: (schema, value) => {
-    const raw = (value as any);
+    const raw = value as any;
     if (raw.NULL) return null;
     if (raw.S !== undefined) return raw.S;
     if (raw.N !== undefined) return Number(raw.N);
@@ -134,19 +135,13 @@ const typeUnmarshallers: Record<SchemaType['type'], UnmarshallHandler> = {
       }
       return result;
     }
-    throw new Error('Unsupported value in Any unmarshall');
+    throw new Error("Unsupported value in Any unmarshall");
   },
 };
 
-type UnmarshallHandler = (
-  schema: SchemaType,
-  value: AttributeValue
-) => any;
+type UnmarshallHandler = (schema: ItemSchemaType, value: AttributeValue) => any;
 
-export function unmarshallValue(
-  schema: SchemaType,
-  value: AttributeValue
-): any {
+export function unmarshallValue(schema: ItemSchemaType, value: AttributeValue): any {
   const handler = typeUnmarshallers[schema.type];
   if (!handler) {
     throw new Error(`Unsupported schema type for unmarshalling: ${schema.type}`);

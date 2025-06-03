@@ -1,5 +1,5 @@
-import { AttributeValue } from '@aws-sdk/client-dynamodb';
-import { marshallOptions } from '@aws-sdk/util-dynamodb';
+import { AttributeValue } from "@aws-sdk/client-dynamodb";
+import { marshallOptions } from "@aws-sdk/util-dynamodb";
 
 import type {
   AnyType,
@@ -11,16 +11,15 @@ import type {
   MapType,
   SetType,
   TupleType,
-} from '../../schema';
-import { SchemaType } from '../../schema';
-
+} from "../../schema";
+import { ItemSchemaType } from "../../schema";
 
 export function marshallValue(
-  schema: SchemaType,
+  schema: ItemSchemaType,
   value: any,
   options: marshallOptions = {}
 ): AttributeValue | undefined {
-  if (value === undefined && typeof schema.defaultProvider === 'function') {
+  if (value === undefined && typeof schema.defaultProvider === "function") {
     value = schema.defaultProvider();
   }
   if (value === undefined || value === null) {
@@ -33,13 +32,9 @@ export function marshallValue(
   return handler(schema, value, options);
 }
 
-type MarshallHandler = (
-  schema: SchemaType,
-  value: any,
-  options: marshallOptions
-) => AttributeValue | undefined;
+type MarshallHandler = (schema: ItemSchemaType, value: any, options: marshallOptions) => AttributeValue | undefined;
 
-const typeMarshallers: Record<SchemaType['type'], MarshallHandler> = {
+const typeMarshallers: Record<ItemSchemaType["type"], MarshallHandler> = {
   String: (_schema, value, options) => {
     const str = marshallString(value);
     return str.length === 0 && options.convertEmptyValues ? { NULL: true } : { S: str };
@@ -47,7 +42,7 @@ const typeMarshallers: Record<SchemaType['type'], MarshallHandler> = {
 
   Number: (_schema, value, options) => {
     if (
-      typeof value === 'number' &&
+      typeof value === "number" &&
       !options.allowImpreciseNumbers &&
       (value > Number.MAX_SAFE_INTEGER || value < -Number.MAX_SAFE_INTEGER)
     ) {
@@ -67,13 +62,11 @@ const typeMarshallers: Record<SchemaType['type'], MarshallHandler> = {
 
   List: (schema, value, options) => {
     const listSchema = schema as ListType;
-    const items = (value as any[]).map(v =>
-      marshallValue(listSchema.memberType, v, options)
-    );
+    const items = (value as any[]).map((v) => marshallValue(listSchema.memberType, v, options));
     return {
       L: options.removeUndefinedValues
         ? items.filter((v): v is AttributeValue => v !== undefined)
-        : items as AttributeValue[],
+        : (items as AttributeValue[]),
     };
   },
 
@@ -81,7 +74,7 @@ const typeMarshallers: Record<SchemaType['type'], MarshallHandler> = {
     const mapSchema = schema as MapType;
     if (
       options.convertClassInstanceToMap &&
-      typeof value === 'object' &&
+      typeof value === "object" &&
       value !== null &&
       value.constructor !== Object
     ) {
@@ -123,13 +116,11 @@ const typeMarshallers: Record<SchemaType['type'], MarshallHandler> = {
 
   Collection: (schema, value, options) => {
     const collectionSchema = schema as CollectionType;
-    const items = (value as any[]).map(item =>
-      marshallValue(collectionSchema, item, options)
-    );
+    const items = (value as any[]).map((item) => marshallValue(collectionSchema, item, options));
     return {
       L: options.removeUndefinedValues
         ? items.filter((v): v is AttributeValue => v !== undefined)
-        : items as AttributeValue[],
+        : (items as AttributeValue[]),
     };
   },
 
@@ -151,48 +142,48 @@ const typeMarshallers: Record<SchemaType['type'], MarshallHandler> = {
     const setSchema = schema as SetType;
 
     switch (setSchema.memberType) {
-      case 'String': {
+      case "String": {
         const values = Array.from(value) as { toString(): string }[];
-        return marshallSet(values, marshallString, s => s.length === 0, 'SS');
+        return marshallSet(values, marshallString, (s) => s.length === 0, "SS");
       }
 
-      case 'Number': {
+      case "Number": {
         const values = Array.from(value) as number[];
-        return marshallSet(values, marshallNumber, () => false, 'NS');
+        return marshallSet(values, marshallNumber, () => false, "NS");
       }
 
-      case 'Binary': {
+      case "Binary": {
         const values = Array.from(value) as (string | ArrayBuffer | ArrayBufferView)[];
-        return marshallSet(values, marshallBinary, bin => bin.byteLength === 0, 'BS');
+        return marshallSet(values, marshallBinary, (bin) => bin.byteLength === 0, "BS");
       }
 
       default:
         throw new Error(`Unsupported set member type: ${setSchema.memberType}`);
     }
-},
+  },
 
   Tuple: (schema, value, options) => {
     const tupleSchema = schema as TupleType;
-    const L = tupleSchema.members.map((member, i) =>
-      marshallValue(member, value[i], options)
-    ).filter((v): v is AttributeValue => v !== undefined);
+    const L = tupleSchema.members
+      .map((member, i) => marshallValue(member, value[i], options))
+      .filter((v): v is AttributeValue => v !== undefined);
     return { L };
   },
 
   Any: (schema, value) => {
     const anySchema = schema as AnyType;
     if (value === undefined || value === null) return { NULL: true };
-    if (typeof value === 'string') {
-      return value === '' && anySchema.convertEmptyValues ? { NULL: true } : { S: value };
+    if (typeof value === "string") {
+      return value === "" && anySchema.convertEmptyValues ? { NULL: true } : { S: value };
     }
-    if (typeof value === 'number') return { N: marshallNumber(value) };
-    if (typeof value === 'boolean') return { BOOL: value };
+    if (typeof value === "number") return { N: marshallNumber(value) };
+    if (typeof value === "boolean") return { BOOL: value };
     if (Array.isArray(value)) {
       return {
-        L: value.map(v => marshallValue(schema, v, anySchema)).filter((v): v is AttributeValue => v !== undefined),
+        L: value.map((v) => marshallValue(schema, v, anySchema)).filter((v): v is AttributeValue => v !== undefined),
       };
     }
-    if (typeof value === 'object') {
+    if (typeof value === "object") {
       const M: Record<string, AttributeValue> = {};
       for (const key of Object.keys(value)) {
         const val = marshallValue(schema, value[key], anySchema);
@@ -202,7 +193,7 @@ const typeMarshallers: Record<SchemaType['type'], MarshallHandler> = {
       }
       return { M };
     }
-    throw new Error('Unsupported value in Any marshaller');
+    throw new Error("Unsupported value in Any marshaller");
   },
 };
 
@@ -224,7 +215,7 @@ const marshallSet = <InputType, MarshalledElementType>(
   value: Iterable<InputType>,
   marshaller: (element: InputType) => MarshalledElementType,
   isEmpty: (member: MarshalledElementType) => boolean,
-  setTag: 'BS' | 'NS' | 'SS'
+  setTag: "BS" | "NS" | "SS"
 ): AttributeValue => {
   const collected: MarshalledElementType[] = [];
   for (const member of value) {
@@ -233,5 +224,5 @@ const marshallSet = <InputType, MarshalledElementType>(
       collected.push(marshalled);
     }
   }
-  return collected.length === 0 ? { NULL: true } : { [setTag]: collected } as unknown as AttributeValue;
+  return collected.length === 0 ? { NULL: true } : ({ [setTag]: collected } as unknown as AttributeValue);
 };

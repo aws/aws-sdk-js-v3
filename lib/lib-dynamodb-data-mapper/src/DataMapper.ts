@@ -5,15 +5,17 @@ import {
   DeleteItemCommandInput,
   DynamoDBClient,
   GetItemCommand,
+  GetItemCommandInput,
+  GetItemCommandOutput,
   PutItemCommand,
   PutItemCommandInput,
-} from '@aws-sdk/client-dynamodb';
-import { marshallOptions } from '@aws-sdk/util-dynamodb';
-import { HttpHandlerOptions } from '@smithy/types';
+} from "@aws-sdk/client-dynamodb";
+import { marshallOptions } from "@aws-sdk/util-dynamodb";
+import { HttpHandlerOptions } from "@smithy/types";
 
-import { DataMarshaller } from './marshaller/DataMarshaller';
-import { getSchema } from './schema/';
-import { getTableName } from './schema/';
+import { DataMarshaller } from "./marshaller/DataMarshaller";
+import { getSchema, ModelConstructor, resolveMetadataFromCtor } from "./schema/";
+import { getTableName } from "./schema/";
 
 /**
  * Configuration options for initializing a {@link DataMapper}.
@@ -51,10 +53,7 @@ export class DataMapper {
    * @param client - The DynamoDB client to use for executing operations.
    * @param translateConfig - Optional configuration for marshalling data.
    */
-  private constructor(
-    private readonly client: DynamoDBClient,
-    private readonly translateConfig?: marshallOptions
-  ) {}
+  private constructor(private readonly client: DynamoDBClient, private readonly translateConfig?: marshallOptions) {}
 
   /**
    * Factory method to create a new DataMapper instance.
@@ -76,7 +75,11 @@ export class DataMapper {
    * (e.g., timeouts, retries, abort signals). See {@link HttpHandlerOptions}.
    * @returns The saved item.
    */
-  async put<T extends object>(item: T, criteria?: Omit<Partial<PutItemCommandInput>, 'TableName' | 'Item'>, httpOptions?: HttpHandlerOptions): Promise<T> {
+  async put<T extends object>(
+    item: T,
+    criteria?: Omit<Partial<PutItemCommandInput>, "TableName" | "Item">,
+    httpOptions?: HttpHandlerOptions
+  ): Promise<T> {
     const schema = getSchema(item);
     const tableName = getTableName(item);
 
@@ -91,26 +94,33 @@ export class DataMapper {
   }
 
   /**
-   * Retrieve and hydrate a domain object using schema metadata.
+   * Retrieves and hydrates an item from DynamoDB using a factory and metadata constructor.
    *
-   * @param key - The primary key of the item.
-   * @param modelCtor - The model class constructor.
-   * @param options - Optional HTTP handler options.
-   * (e.g., timeouts, retries, abort signals). See {@link HttpHandlerOptions}.
-   * @returns A hydrated instance of the model.
+   * @param key - The key to retrieve from the table.
+   * @param factory - A function that receives raw unmarshalled data and returns a model instance.
+   * @param modelCtor - A class constructor containing schema metadata (via prototype).
+   * @param httpOptions - Optional HTTP handler options.
+   * @returns The hydrated instance or `undefined` if not found.
    */
-  async get<T extends object>(key: Partial<T>, modelCtor: new () => T, httpOptions?: HttpHandlerOptions): Promise<T | undefined> {
-    const instance = new modelCtor();
-    const schema = getSchema(instance);
-    const tableName = getTableName(instance);
+  async get<D extends object, T>(
+    key: Partial<D>,
+    factory: (data: D) => T,
+    modelCtor: ModelConstructor<D>,
+    httpOptions?: HttpHandlerOptions
+  ): Promise<T | undefined> {
+    const { schema, tableName } = resolveMetadataFromCtor(modelCtor);
 
-    const command = new GetItemCommand({
+    const input: GetItemCommandInput = {
       TableName: tableName,
       Key: DataMarshaller.marshallKey(key, schema, this.translateConfig),
-    });
-    
-    const output = await this.client.send(command, httpOptions);
-    return output.Item ? DataMarshaller.unmarshall(output.Item, schema, modelCtor) : undefined;
+    };
+
+    const output: GetItemCommandOutput = await this.client.send(new GetItemCommand(input), httpOptions);
+
+    if (!output.Item) return undefined;
+
+    const plain = DataMarshaller.unmarshallObject(output.Item, schema);
+    return factory(plain as D);
   }
 
   /**
@@ -123,8 +133,13 @@ export class DataMapper {
    * (e.g., timeouts, retries, abort signals). See {@link HttpHandlerOptions}.
    * @returns The deleted item, if it existed.
    */
-  async delete<T extends object>(key: Partial<T>, modelCtor: new () => T, deleteOptions?: Omit<Partial<DeleteItemCommandInput>, 'TableName' | 'Key'>, httpOptions?: HttpHandlerOptions): Promise<T> {
-      throw new Error('Delete operation is not implemented yet.');
+  async delete<T extends object>(
+    key: Partial<T>,
+    modelCtor: new () => T,
+    deleteOptions?: Omit<Partial<DeleteItemCommandInput>, "TableName" | "Key">,
+    httpOptions?: HttpHandlerOptions
+  ): Promise<T> {
+    throw new Error("Delete operation is not implemented yet.");
   }
 
   /**
@@ -136,8 +151,12 @@ export class DataMapper {
    * (e.g., timeouts, retries, abort signals). See {@link HttpHandlerOptions}.
    * @returns An async iterable of hydrated model instances.
    */
-  async *query<T extends object>(modelCtor: new () => T, criteria?: Omit<QueryCommandInput, 'TableName'>, httpOptions?: HttpHandlerOptions): AsyncIterable<T> {
-      throw new Error('Query operation is not implemented yet.');
+  async *query<T extends object>(
+    modelCtor: new () => T,
+    criteria?: Omit<QueryCommandInput, "TableName">,
+    httpOptions?: HttpHandlerOptions
+  ): AsyncIterable<T> {
+    throw new Error("Query operation is not implemented yet.");
   }
 
   /**
@@ -149,7 +168,11 @@ export class DataMapper {
    * (e.g., timeouts, retries, abort signals). See {@link HttpHandlerOptions}.
    * @returns An async iterable of hydrated model instances.
    */
-  async *scan<T extends object>(modelCtor: new () => T, criteria?: Omit<ScanCommandInput, 'TableName'>, httpOptions?: HttpHandlerOptions): AsyncIterable<T> {
-    throw new Error('Scan operation is not implemented yet.');
+  async *scan<T extends object>(
+    modelCtor: new () => T,
+    criteria?: Omit<ScanCommandInput, "TableName">,
+    httpOptions?: HttpHandlerOptions
+  ): AsyncIterable<T> {
+    throw new Error("Scan operation is not implemented yet.");
   }
 }

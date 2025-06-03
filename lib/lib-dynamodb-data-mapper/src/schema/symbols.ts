@@ -1,4 +1,4 @@
-import type { Schema } from './schema';
+import { ItemSchema } from "./item";
 
 /**
  * Symbol for defining table name metadata on a class.
@@ -23,22 +23,22 @@ import type { Schema } from './schema';
  * }
  * ```
  */
-export const DynamoDbTable = Symbol.for('DynamoDbTableName');
+export const DynamoDbTable = Symbol.for("DynamoDbTableName");
 
-export function getTableName(item: any, tableNamePrefix = ''): string {
+export function getTableName(item: any, tableNamePrefix = ""): string {
   if (item) {
     const tableName = item[DynamoDbTable];
-    if (typeof tableName === 'function') {
+    if (typeof tableName === "function") {
       return tableNamePrefix + tableName.call(item);
     }
-    if (typeof tableName === 'string') {
+    if (typeof tableName === "string") {
       return tableNamePrefix + tableName;
     }
   }
 
   throw new Error(
-    'The provided item did not adhere to the DynamoDbTable protocol. ' +
-    'No string or function was found at the `DynamoDbTable` symbol.'
+    "The provided item did not adhere to the DynamoDbTable protocol. " +
+      "No string or function was found at the `DynamoDbTable` symbol."
   );
 }
 
@@ -61,21 +61,21 @@ export function getTableName(item: any, tableNamePrefix = ''): string {
  * }
  * ```
  */
-export const DynamoDbSchema = Symbol.for('DynamoDbSchema');
+export const DynamoDbSchema = Symbol.for("DynamoDbSchema");
 
-export function getSchema(item: any): Schema {
+export function getSchema(item: any): ItemSchema {
   if (item) {
     const schema = item[DynamoDbSchema];
-    if (typeof schema === 'function') {
+    if (typeof schema === "function") {
       return schema.call(item);
     }
-    if (typeof schema === 'object') {
+    if (typeof schema === "object") {
       return schema;
     }
   }
 
   throw new Error(
-    'The provided item did not adhere to the DynamoDbSchema protocol. ' +
-    'No function or object was found at the `DynamoDbSchema` symbol.'
+    "The provided item did not adhere to the DynamoDbSchema protocol. " +
+      "No function or object was found at the `DynamoDbSchema` symbol."
   );
 }
