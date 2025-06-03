@@ -663,6 +663,12 @@ export interface CancelJobRunRequest {
    * @public
    */
   jobRunId: string | undefined;
+
+  /**
+   * The duration (in seconds) to wait before forcefully terminating the job after cancellation is requested.
+   * @public
+   */
+  shutdownGracePeriodInSeconds?: number | undefined;
 }
 
 /**

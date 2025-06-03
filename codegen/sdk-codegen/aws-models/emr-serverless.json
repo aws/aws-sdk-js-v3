@@ -1194,6 +1194,14 @@
             "smithy.api#required": {},
             "smithy.api#resourceIdentifier": "jobRunId"
           }
+        },
+        "shutdownGracePeriodInSeconds": {
+          "target": "com.amazonaws.emrserverless#ShutdownGracePeriodInSeconds",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "The duration (in seconds) to wait before forcefully terminating the job after cancellation is requested.",
+            "smithy.api#httpQuery": "shutdownGracePeriodInSeconds"
+          }
         }
       }
     },
@@ -1638,8 +1646,7 @@
       "type": "string",
       "traits": {
         "smithy.api#length": {
-          "min": 1,
-          "max": 10280
+          "min": 1
         },
         "smithy.api#pattern": ".*\\S.*",
         "smithy.api#sensitive": {}
@@ -1649,6 +1656,12 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.emrserverless#EntryPointArgument"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1024
+        }
       }
     },
     "com.amazonaws.emrserverless#EntryPointPath": {
@@ -3400,6 +3413,9 @@
         "smithy.api#error": "client",
         "smithy.api#httpError": 402
       }
+    },
+    "com.amazonaws.emrserverless#ShutdownGracePeriodInSeconds": {
+      "type": "integer"
     },
     "com.amazonaws.emrserverless#SparkSubmit": {
       "type": "structure",

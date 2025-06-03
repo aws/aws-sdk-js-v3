@@ -105,8 +105,11 @@ export const se_CancelJobRunCommand = async (
   b.bp("/applications/{applicationId}/jobruns/{jobRunId}");
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   b.p("jobRunId", () => input.jobRunId!, "{jobRunId}", false);
+  const query: any = map({
+    [_sGPIS]: [() => input.shutdownGracePeriodInSeconds !== void 0, () => input[_sGPIS]!.toString()],
+  });
   let body: any;
-  b.m("DELETE").h(headers).b(body);
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1287,4 +1290,5 @@ const _m = "mode";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _s = "states";
+const _sGPIS = "shutdownGracePeriodInSeconds";
 const _tK = "tagKeys";

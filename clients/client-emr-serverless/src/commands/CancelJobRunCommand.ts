@@ -38,6 +38,7 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  * const input = { // CancelJobRunRequest
  *   applicationId: "STRING_VALUE", // required
  *   jobRunId: "STRING_VALUE", // required
+ *   shutdownGracePeriodInSeconds: Number("int"),
  * };
  * const command = new CancelJobRunCommand(input);
  * const response = await client.send(command);
