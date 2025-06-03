@@ -500,6 +500,7 @@ export const se_CreateDomainNameCommand = async (
       policy: [],
       regionalCertificateArn: [],
       regionalCertificateName: [],
+      routingMode: [],
       securityPolicy: [],
       tags: (_) => _json(_),
     })
@@ -3172,6 +3173,7 @@ export const de_CreateDomainNameCommand = async (
     regionalCertificateName: __expectString,
     regionalDomainName: __expectString,
     regionalHostedZoneId: __expectString,
+    routingMode: __expectString,
     securityPolicy: __expectString,
     tags: _json,
   });
@@ -4254,6 +4256,7 @@ export const de_GetDomainNameCommand = async (
     regionalCertificateName: __expectString,
     regionalDomainName: __expectString,
     regionalHostedZoneId: __expectString,
+    routingMode: __expectString,
     securityPolicy: __expectString,
     tags: _json,
   });
@@ -5609,6 +5612,7 @@ export const de_UpdateDomainNameCommand = async (
     regionalCertificateName: __expectString,
     regionalDomainName: __expectString,
     regionalHostedZoneId: __expectString,
+    routingMode: __expectString,
     securityPolicy: __expectString,
     tags: _json,
   });
@@ -6369,6 +6373,7 @@ const de_DomainName = (output: any, context: __SerdeContext): DomainName => {
     regionalCertificateName: __expectString,
     regionalDomainName: __expectString,
     regionalHostedZoneId: __expectString,
+    routingMode: __expectString,
     securityPolicy: __expectString,
     tags: _json,
   }) as any;

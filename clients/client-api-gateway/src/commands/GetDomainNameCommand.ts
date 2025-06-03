@@ -79,6 +79,7 @@ export interface GetDomainNameCommandOutput extends DomainName, __MetadataBearer
  * //   ownershipVerificationCertificateArn: "STRING_VALUE",
  * //   managementPolicy: "STRING_VALUE",
  * //   policy: "STRING_VALUE",
+ * //   routingMode: "BASE_PATH_MAPPING_ONLY" || "ROUTING_RULE_ONLY" || "ROUTING_RULE_THEN_BASE_PATH_MAPPING",
  * // };
  *
  * ```
