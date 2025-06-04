@@ -69,7 +69,11 @@ describe("DataMapper", () => {
 
     mockSend.mockResolvedValueOnce(fakeResponse);
 
-    const result = (await mapper.get({ id: "123" }, (data) => Object.assign(new User(), data), User)) as User;
+    const result = await mapper.get({
+      key: { id: "123" },
+      model: User,
+      factory: (data) => Object.assign(new User(), data),
+    });
 
     const command = mockSend.mock.calls[0][0];
     expect(command).toBeInstanceOf(GetItemCommand);
@@ -149,8 +153,12 @@ describe("DataMapper", () => {
     const factory = (data: ProductData) => new Product(data.id, data.title);
 
     // Provide all three arguments: key, factory, and metadata constructor
-    const result = (await mapper.get({ id: "p001" }, factory, ProductData)) as Product;
-
+    const result = await mapper.get({
+      key: { id: "p001" },
+      model: ProductData,
+      factory,
+    });
+    
     const command = mockSend.mock.calls[0][0];
     expect(command).toBeInstanceOf(GetItemCommand);
     expect(command.input.TableName).toBe("Products");
@@ -159,5 +167,109 @@ describe("DataMapper", () => {
     expect(result).toBeInstanceOf(Product);
     expect(result.id).toBe("p001");
     expect(result.title).toBe("Laptop");
+  });
+
+  it("should get() with model constructor only", async () => {
+    class User {
+      id!: string;
+      name!: string;
+    }
+
+    const schema = {
+      id: { type: "String", keyType: "HASH" },
+      name: { type: "String" },
+    };
+
+    Object.defineProperty(User.prototype, DynamoDbSchema, { value: schema });
+    Object.defineProperty(User.prototype, DynamoDbTable, { value: "Users" });
+
+    const mapper = DataMapper.from(mockClient);
+
+    const fakeResponse = {
+      Item: {
+        id: { S: "123" },
+        name: { S: "Alice" },
+      },
+    };
+
+    mockSend.mockResolvedValueOnce(fakeResponse);
+
+    const result = await mapper.get({ key: { id: "123" }, model: User });
+
+    expect(mockSend).toHaveBeenCalledWith(expect.any(GetItemCommand), undefined);
+    expect(result).toBeInstanceOf(User);
+    expect(result?.id).toBe("123");
+    expect(result?.name).toBe("Alice");
+  });
+
+  it("should get() using a factory function and modelCtor", async () => {
+    class Product {
+      constructor(public id: string, public title: string) {}
+    }
+
+    class ProductData {
+      id!: string;
+      title!: string;
+    }
+
+    const schema = {
+      id: { type: "String", keyType: "HASH" },
+      title: { type: "String" },
+    };
+
+    Object.defineProperty(ProductData.prototype, DynamoDbSchema, { value: schema });
+    Object.defineProperty(ProductData.prototype, DynamoDbTable, { value: "Products" });
+
+    const mapper = DataMapper.from(mockClient);
+
+    const fakeResponse = {
+      Item: {
+        id: { S: "p001" },
+        title: { S: "Laptop" },
+      },
+    };
+
+    mockSend.mockResolvedValueOnce(fakeResponse);
+
+    const result = await mapper.get({
+      key: { id: "p001" },
+      model: ProductData,
+      factory: (data) => new Product(data.id, data.title),
+    });
+
+    expect(result).toBeInstanceOf(Product);
+    expect(result?.id).toBe("p001");
+    expect(result?.title).toBe("Laptop");
+  });
+
+  it("should put() and return the saved item", async () => {
+    class User {
+      id!: string;
+      name!: string;
+    }
+
+    const schema = {
+      id: { type: "String", keyType: "HASH" },
+      name: { type: "String" },
+    };
+
+    Object.defineProperty(User.prototype, DynamoDbSchema, { value: schema });
+    Object.defineProperty(User.prototype, DynamoDbTable, { value: "Users" });
+
+    const mapper = DataMapper.from(mockClient);
+
+    mockSend.mockResolvedValueOnce({
+      Attributes: {
+        id: { S: "123" },
+        name: { S: "Alice" },
+      },
+    });
+
+    const user = Object.assign(new User(), { id: "123", name: "Alice" });
+    const result = await mapper.put(user);
+
+    expect(result).toBeInstanceOf(User);
+    expect(result.id).toBe("123");
+    expect(result.name).toBe("Alice");
   });
 });

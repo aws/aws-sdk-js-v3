@@ -9,6 +9,7 @@ import {
   GetItemCommandOutput,
   PutItemCommand,
   PutItemCommandInput,
+  PutItemCommandOutput,
 } from "@aws-sdk/client-dynamodb";
 import { marshallOptions } from "@aws-sdk/util-dynamodb";
 import { HttpHandlerOptions } from "@smithy/types";
@@ -16,6 +17,8 @@ import { HttpHandlerOptions } from "@smithy/types";
 import { DataMarshaller } from "./marshaller/DataMarshaller";
 import { getSchema, ModelConstructor, resolveMetadataFromCtor } from "./schema/";
 import { getTableName } from "./schema/";
+import { isPutCommandInput, PutCommandInput, PutCommandOutput } from "./commands/put";
+import { GetCommandInput, isGetCommandInput } from "./commands";
 
 /**
  * Configuration options for initializing a {@link DataMapper}.
@@ -23,115 +26,106 @@ import { getTableName } from "./schema/";
  * @public
  */
 export interface DataMapperConfig {
-  /**
-   * The underlying DynamoDB client instance used to execute operations.
-   */
   client: DynamoDBClient;
-
-  /**
-   * Optional configuration for customizing how data is marshalled into
-   * DynamoDB AttributeValue format.
-   *
-   * See {@link marshallOptions} for supported options such as:
-   * - `convertEmptyValues`: Convert empty strings, blobs, and sets to `null`
-   * - `removeUndefinedValues`: Exclude undefined values from the marshalled output
-   */
   translateConfig?: marshallOptions;
 }
 
 /**
  * @public
- * Interface for a schema-aware DataMapper supporting both low-level and high-level operations.
+ * Schema-aware DataMapper for performing high-level object persistence operations.
  *
- * High-level methods operate on domain objects with schema metadata (via decorators or static symbols).
- * Low-level methods accept raw AWS SDK command inputs for advanced use cases.
+ * This class handles marshalling/unmarshalling domain models using declarative schema metadata.
+ * It supports both constructor- and factory-based hydration patterns.
  */
 export class DataMapper {
-  /**
-   * Creates a new DataMapper instance.
-   *
-   * @param client - The DynamoDB client to use for executing operations.
-   * @param translateConfig - Optional configuration for marshalling data.
-   */
-  private constructor(private readonly client: DynamoDBClient, private readonly translateConfig?: marshallOptions) {}
+  private constructor(
+    private readonly client: DynamoDBClient,
+    private readonly translateConfig?: marshallOptions
+  ) {}
 
   /**
-   * Factory method to create a new DataMapper instance.
+   * Creates a new instance of the {@link DataMapper}.
    *
-   * @param client - The DynamoDB client to use for executing operations.
-   * @param translateConfig - Optional configuration for marshalling data.
-   * @returns A new DataMapper instance.
+   * @param client - An initialized DynamoDB client
+   * @param translateConfig - Optional marshalling behavior
    */
-  public static from(client: DynamoDBClient, translateConfig?: marshallOptions): DataMapper {
+  static from(client: DynamoDBClient, translateConfig?: marshallOptions): DataMapper {
     return new DataMapper(client, translateConfig);
   }
 
   /**
-   * Save a domain model object to DynamoDB using its schema metadata.
-   *
-   * @param item - The model instance with schema/table metadata.
-   * @param criteria - Optional conditions to apply to the put operation (excluding TableName).
-   * @param options - Optional HTTP handler options.
-   * (e.g., timeouts, retries, abort signals). See {@link HttpHandlerOptions}.
-   * @returns The saved item.
+   * Saves an item to DynamoDB. Supports both classic and command-style usage.
    */
   async put<T extends object>(
     item: T,
-    criteria?: Omit<Partial<PutItemCommandInput>, "TableName" | "Item">,
-    httpOptions?: HttpHandlerOptions
+    conditions?: Omit<Partial<PutItemCommandInput>, "TableName" | "Item">,
+    options?: HttpHandlerOptions
+  ): Promise<T>;
+  async put<T extends object>(input: PutCommandInput<T>): Promise<T>;
+  async put<T extends object>(
+    inputOrItem: T | PutCommandInput<T>,
+    maybeConditions?: Omit<Partial<PutItemCommandInput>, "TableName" | "Item">,
+    maybeOptions?: HttpHandlerOptions
   ): Promise<T> {
+    const item = isPutCommandInput(inputOrItem) ? inputOrItem.item : inputOrItem;
+    const conditions = isPutCommandInput(inputOrItem) ? inputOrItem.conditions : maybeConditions;
+    const options = isPutCommandInput(inputOrItem) ? inputOrItem.options : maybeOptions;
+
     const schema = getSchema(item);
     const tableName = getTableName(item);
 
-    const command = new PutItemCommand({
+    const input: PutItemCommandInput = {
       TableName: tableName,
       Item: DataMarshaller.marshall(item, schema, this.translateConfig),
-      ...criteria,
-    });
+      ReturnValues: "ALL_NEW",
+      ...conditions,
+    };
 
-    await this.client.send(command, httpOptions);
-    return item;
+    const result: PutItemCommandOutput = await this.client.send(new PutItemCommand(input), options);
+    return result.Attributes
+      ? DataMarshaller.unmarshall(result.Attributes, schema, item.constructor as new () => T)
+      : item;
   }
 
   /**
-   * Retrieves and hydrates an item from DynamoDB using a factory and metadata constructor.
-   *
-   * @param key - The key to retrieve from the table.
-   * @param factory - A function that receives raw unmarshalled data and returns a model instance.
-   * @param modelCtor - A class constructor containing schema metadata (via prototype).
-   * @param httpOptions - Optional HTTP handler options.
-   * @returns The hydrated instance or `undefined` if not found.
+   * Retrieves and hydrates an item from DynamoDB.
+   * Supports both constructor and factory patterns.
    */
+  async get<D extends object, T extends D>(
+    key: Partial<D>,
+    model: ModelConstructor<D>,
+    options?: HttpHandlerOptions
+  ): Promise<T | undefined>;
   async get<D extends object, T>(
     key: Partial<D>,
     factory: (data: D) => T,
-    modelCtor: ModelConstructor<D>,
-    httpOptions?: HttpHandlerOptions
+    model: ModelConstructor<D>,
+    options?: HttpHandlerOptions
+  ): Promise<T | undefined>;
+  async get<D extends object, T extends D>(input: GetCommandInput<D, T>): Promise<T | undefined>;
+  async get<D extends object, T extends D>(
+    arg1: Partial<D> | GetCommandInput<D,T>,
+    arg2?: ((data: D) => T) | ModelConstructor<D>,
+    arg3?: ModelConstructor<D> | HttpHandlerOptions,
+    arg4?: HttpHandlerOptions
   ): Promise<T | undefined> {
-    const { schema, tableName } = resolveMetadataFromCtor(modelCtor);
+    const { key, model, factory, options } = this.resolveGetArguments(arg1, arg2, arg3, arg4);
 
+    const { schema, tableName } = resolveMetadataFromCtor(model);
     const input: GetItemCommandInput = {
       TableName: tableName,
       Key: DataMarshaller.marshallKey(key, schema, this.translateConfig),
     };
 
-    const output: GetItemCommandOutput = await this.client.send(new GetItemCommand(input), httpOptions);
+    const result: GetItemCommandOutput = await this.client.send(new GetItemCommand(input), options);
+    if (!result.Item) return undefined;
 
-    if (!output.Item) return undefined;
-
-    const plain = DataMarshaller.unmarshallObject(output.Item, schema);
-    return factory(plain as D);
+    const plain = DataMarshaller.unmarshallObject(result.Item, schema);
+    return factory ? factory(plain as D) : (Object.assign(new model(), plain) as T);
   }
 
   /**
    * Delete a domain object by key using schema metadata.
-   *
-   * @param key - The key of the item to delete.
-   * @param modelCtor - The model class constructor.
-   * @param criteria - Optional conditions to apply to the delete operation (excluding TableName).
-   * @param options - Optional HTTP handler options.
-   * (e.g., timeouts, retries, abort signals). See {@link HttpHandlerOptions}.
-   * @returns The deleted item, if it existed.
    */
   async delete<T extends object>(
     key: Partial<T>,
@@ -144,12 +138,6 @@ export class DataMapper {
 
   /**
    * Query domain objects using a model constructor and key conditions.
-   *
-   * @param modelCtor - The model class constructor.
-   * @param criteria - Conditions to apply to the query operation (excluding TableName).
-   * @param options - Optional HTTP handler options.
-   * (e.g., timeouts, retries, abort signals). See {@link HttpHandlerOptions}.
-   * @returns An async iterable of hydrated model instances.
    */
   async *query<T extends object>(
     modelCtor: new () => T,
@@ -161,12 +149,6 @@ export class DataMapper {
 
   /**
    * Scan a table using schema metadata and return hydrated objects.
-   *
-   * @param modelCtor - The model class constructor.
-   * @param criteria - Conditions to apply to the scan operation (excluding TableName).
-   * @param options - Optional HTTP handler options.
-   * (e.g., timeouts, retries, abort signals). See {@link HttpHandlerOptions}.
-   * @returns An async iterable of hydrated model instances.
    */
   async *scan<T extends object>(
     modelCtor: new () => T,
@@ -174,5 +156,37 @@ export class DataMapper {
     httpOptions?: HttpHandlerOptions
   ): AsyncIterable<T> {
     throw new Error("Scan operation is not implemented yet.");
+  }
+
+  private resolveGetArguments<D extends object, T extends D> (
+    arg1: GetCommandInput<D, T>| Partial<D>,
+    arg2?: ((data: D) => T) | ModelConstructor<D>,
+    arg3?: ModelConstructor<D> | HttpHandlerOptions,
+    arg4?: HttpHandlerOptions
+  ): GetCommandInput<D, T> {
+    let key: Partial<D>;
+      let model: ModelConstructor<D>;
+      let factory: ((data: D) => T) | undefined;
+      let options: HttpHandlerOptions | undefined;
+
+      if (isGetCommandInput(arg1)) {
+        key = arg1.key;
+        model = arg1.model;
+        factory = arg1.factory;
+        options = arg1.options;
+      } else if (
+        typeof arg2 === "function" &&
+        typeof arg3 === "function"
+      ) {
+        key = arg1;
+        factory = arg2 as (data: D) => T;
+        model = arg3 as ModelConstructor<D>;
+        options = arg4;
+      } else {
+        key = arg1;
+        model = arg2 as ModelConstructor<D>;
+        options = arg3 as HttpHandlerOptions;
+      }
+      return {key, model, factory, options};
   }
 }
