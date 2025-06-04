@@ -32,11 +32,37 @@ import {
   JobStatus,
   OutputGroup,
   SimulateReservedQueue,
-  StatusUpdateInterval,
   TimecodeConfig,
   TimedMetadataInsertion,
   VideoDescription,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const StatusUpdateInterval = {
+  SECONDS_10: "SECONDS_10",
+  SECONDS_12: "SECONDS_12",
+  SECONDS_120: "SECONDS_120",
+  SECONDS_15: "SECONDS_15",
+  SECONDS_180: "SECONDS_180",
+  SECONDS_20: "SECONDS_20",
+  SECONDS_240: "SECONDS_240",
+  SECONDS_30: "SECONDS_30",
+  SECONDS_300: "SECONDS_300",
+  SECONDS_360: "SECONDS_360",
+  SECONDS_420: "SECONDS_420",
+  SECONDS_480: "SECONDS_480",
+  SECONDS_540: "SECONDS_540",
+  SECONDS_60: "SECONDS_60",
+  SECONDS_600: "SECONDS_600",
+} as const;
+
+/**
+ * @public
+ */
+export type StatusUpdateInterval = (typeof StatusUpdateInterval)[keyof typeof StatusUpdateInterval];
 
 /**
  * Information about when jobs are submitted, started, and finished is specified in Unix epoch format in seconds.
@@ -314,7 +340,7 @@ export interface JobTemplateSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;

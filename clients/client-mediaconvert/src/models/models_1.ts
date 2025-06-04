@@ -1423,6 +1423,20 @@ export interface MovSettings {
  * @public
  * @enum
  */
+export const Mp4C2paManifest = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type Mp4C2paManifest = (typeof Mp4C2paManifest)[keyof typeof Mp4C2paManifest];
+
+/**
+ * @public
+ * @enum
+ */
 export const Mp4CslgAtom = {
   EXCLUDE: "EXCLUDE",
   INCLUDE: "INCLUDE",
@@ -1473,6 +1487,18 @@ export interface Mp4Settings {
   AudioDuration?: CmfcAudioDuration | undefined;
 
   /**
+   * When enabled, a C2PA compliant manifest will be generated, signed and embeded in the output. For more information on C2PA, see https://c2pa.org/specifications/specifications/2.1/index.html
+   * @public
+   */
+  C2paManifest?: Mp4C2paManifest | undefined;
+
+  /**
+   * Specify the name or ARN of the AWS Secrets Manager secret that contains your C2PA public certificate chain in PEM format. Provide a valid secret name or ARN. Note that your MediaConvert service role must allow access to this secret. The public certificate chain is added to the COSE header (x5chain) for signature validation. Include the signer's certificate and all intermediate certificates. Do not include the root certificate. For details on COSE, see: https://opensource.contentauthenticity.org/docs/manifest/signing-manifests
+   * @public
+   */
+  CertificateSecret?: string | undefined;
+
+  /**
    * When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
    * @public
    */
@@ -1501,6 +1527,12 @@ export interface Mp4Settings {
    * @public
    */
   Mp4MajorBrand?: string | undefined;
+
+  /**
+   * Specify the ID or ARN of the AWS KMS key used to sign the C2PA manifest in your MP4 output. Provide a valid KMS key ARN. Note that your MediaConvert service role must allow access to this key.
+   * @public
+   */
+  SigningKmsKey?: string | undefined;
 }
 
 /**
@@ -7095,7 +7127,7 @@ export interface JobSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -7179,30 +7211,3 @@ export const JobStatus = {
  * @public
  */
 export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
-
-/**
- * @public
- * @enum
- */
-export const StatusUpdateInterval = {
-  SECONDS_10: "SECONDS_10",
-  SECONDS_12: "SECONDS_12",
-  SECONDS_120: "SECONDS_120",
-  SECONDS_15: "SECONDS_15",
-  SECONDS_180: "SECONDS_180",
-  SECONDS_20: "SECONDS_20",
-  SECONDS_240: "SECONDS_240",
-  SECONDS_30: "SECONDS_30",
-  SECONDS_300: "SECONDS_300",
-  SECONDS_360: "SECONDS_360",
-  SECONDS_420: "SECONDS_420",
-  SECONDS_480: "SECONDS_480",
-  SECONDS_540: "SECONDS_540",
-  SECONDS_60: "SECONDS_60",
-  SECONDS_600: "SECONDS_600",
-} as const;
-
-/**
- * @public
- */
-export type StatusUpdateInterval = (typeof StatusUpdateInterval)[keyof typeof StatusUpdateInterval];

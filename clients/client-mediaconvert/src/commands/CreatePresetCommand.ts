@@ -406,11 +406,14 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *       },
  *       Mp4Settings: { // Mp4Settings
  *         AudioDuration: "DEFAULT_CODEC_DURATION" || "MATCH_VIDEO_DURATION",
+ *         C2paManifest: "INCLUDE" || "EXCLUDE",
+ *         CertificateSecret: "STRING_VALUE",
  *         CslgAtom: "INCLUDE" || "EXCLUDE",
  *         CttsVersion: Number("int"),
  *         FreeSpaceBox: "INCLUDE" || "EXCLUDE",
  *         MoovPlacement: "PROGRESSIVE_DOWNLOAD" || "NORMAL",
  *         Mp4MajorBrand: "STRING_VALUE",
+ *         SigningKmsKey: "STRING_VALUE",
  *       },
  *       MpdSettings: { // MpdSettings
  *         AccessibilityCaptionHints: "INCLUDE" || "EXCLUDE",
@@ -1260,11 +1263,14 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //         },
  * //         Mp4Settings: { // Mp4Settings
  * //           AudioDuration: "DEFAULT_CODEC_DURATION" || "MATCH_VIDEO_DURATION",
+ * //           C2paManifest: "INCLUDE" || "EXCLUDE",
+ * //           CertificateSecret: "STRING_VALUE",
  * //           CslgAtom: "INCLUDE" || "EXCLUDE",
  * //           CttsVersion: Number("int"),
  * //           FreeSpaceBox: "INCLUDE" || "EXCLUDE",
  * //           MoovPlacement: "PROGRESSIVE_DOWNLOAD" || "NORMAL",
  * //           Mp4MajorBrand: "STRING_VALUE",
+ * //           SigningKmsKey: "STRING_VALUE",
  * //         },
  * //         MpdSettings: { // MpdSettings
  * //           AccessibilityCaptionHints: "INCLUDE" || "EXCLUDE",

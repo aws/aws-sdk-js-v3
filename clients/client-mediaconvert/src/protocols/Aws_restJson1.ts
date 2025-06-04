@@ -3767,11 +3767,14 @@ const se_Mp3Settings = (input: Mp3Settings, context: __SerdeContext): any => {
 const se_Mp4Settings = (input: Mp4Settings, context: __SerdeContext): any => {
   return take(input, {
     audioDuration: [, , `AudioDuration`],
+    c2paManifest: [, , `C2paManifest`],
+    certificateSecret: [, , `CertificateSecret`],
     cslgAtom: [, , `CslgAtom`],
     cttsVersion: [, , `CttsVersion`],
     freeSpaceBox: [, , `FreeSpaceBox`],
     moovPlacement: [, , `MoovPlacement`],
     mp4MajorBrand: [, , `Mp4MajorBrand`],
+    signingKmsKey: [, , `SigningKmsKey`],
   });
 };
 
@@ -7127,11 +7130,14 @@ const de_Mp3Settings = (output: any, context: __SerdeContext): Mp3Settings => {
 const de_Mp4Settings = (output: any, context: __SerdeContext): Mp4Settings => {
   return take(output, {
     AudioDuration: [, __expectString, `audioDuration`],
+    C2paManifest: [, __expectString, `c2paManifest`],
+    CertificateSecret: [, __expectString, `certificateSecret`],
     CslgAtom: [, __expectString, `cslgAtom`],
     CttsVersion: [, __expectInt32, `cttsVersion`],
     FreeSpaceBox: [, __expectString, `freeSpaceBox`],
     MoovPlacement: [, __expectString, `moovPlacement`],
     Mp4MajorBrand: [, __expectString, `mp4MajorBrand`],
+    SigningKmsKey: [, __expectString, `signingKmsKey`],
   }) as any;
 };
 
