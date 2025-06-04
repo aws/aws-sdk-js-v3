@@ -102,14 +102,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     const message = dataObject.message ?? dataObject.Message ?? "Unknown";
     const exception = new errorSchema.ctor(message);
 
-    const headerBindings = new Set<string>(
-      Object.values(NormalizedSchema.of(errorSchema).getMemberSchemas())
-        .map((schema) => {
-          return schema.getMergedTraits().httpHeader;
-        })
-        .filter(Boolean) as string[]
-    );
-    await this.deserializeHttpMessage(errorSchema, context, response, headerBindings, dataObject);
+    await this.deserializeHttpMessage(errorSchema, context, response, dataObject);
     const output = {} as any;
     for (const [name, member] of ns.structIterator()) {
       const target = member.getMergedTraits().jsonName ?? name;
