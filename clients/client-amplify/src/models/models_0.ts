@@ -137,10 +137,10 @@ export interface CacheConfig {
    * <p>The type of cache configuration to use for an Amplify app.</p>
    *          <p>The <code>AMPLIFY_MANAGED</code> cache configuration automatically applies an
    *             optimized cache configuration for your app based on its platform, routing rules, and
-   *             rewrite rules. This is the default setting.</p>
+   *             rewrite rules.</p>
    *          <p>The <code>AMPLIFY_MANAGED_NO_COOKIES</code> cache configuration type is the same as
    *                 <code>AMPLIFY_MANAGED</code>, except that it excludes all cookies from the cache
-   *             key.</p>
+   *             key. This is the default setting.</p>
    * @public
    */
   type: CacheConfigType | undefined;
