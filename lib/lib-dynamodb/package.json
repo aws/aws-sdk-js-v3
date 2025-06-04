@@ -30,8 +30,8 @@
   "dependencies": {
     "@aws-sdk/core": "*",
     "@aws-sdk/util-dynamodb": "*",
-    "@smithy/core": "^3.5.1",
-    "@smithy/smithy-client": "^4.4.1",
+    "@smithy/core": "^3.5.2",
+    "@smithy/smithy-client": "^4.4.2",
     "@smithy/types": "^4.3.1",
     "tslib": "^2.6.2"
   },
