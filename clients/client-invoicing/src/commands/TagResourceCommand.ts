@@ -28,8 +28,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a tag to a resource.
- *     </p>
+ * <p>Adds a tag to a resource. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,24 +60,19 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The processing request failed because of an unknown error, exception, or failure.
- * </p>
+ *  <p>The processing request failed because of an unknown error, exception, or failure. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.
- * </p>
+ *  <p>The resource could not be found. </p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
- *         </p>
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>
- *     The input fails to satisfy the constraints specified by an Amazon Web Services service.
- * </p>
+ *  <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
  *
  * @throws {@link InvoicingServiceException}
  * <p>Base exception class for all service exceptions from Invoicing service.</p>

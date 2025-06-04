@@ -27,6 +27,10 @@ import {
 import { CreateInvoiceUnitCommandInput, CreateInvoiceUnitCommandOutput } from "../commands/CreateInvoiceUnitCommand";
 import { DeleteInvoiceUnitCommandInput, DeleteInvoiceUnitCommandOutput } from "../commands/DeleteInvoiceUnitCommand";
 import { GetInvoiceUnitCommandInput, GetInvoiceUnitCommandOutput } from "../commands/GetInvoiceUnitCommand";
+import {
+  ListInvoiceSummariesCommandInput,
+  ListInvoiceSummariesCommandOutput,
+} from "../commands/ListInvoiceSummariesCommand";
 import { ListInvoiceUnitsCommandInput, ListInvoiceUnitsCommandOutput } from "../commands/ListInvoiceUnitsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -39,14 +43,21 @@ import { InvoicingServiceException as __BaseException } from "../models/Invoicin
 import {
   AccessDeniedException,
   BatchGetInvoiceProfileRequest,
+  BillingPeriod,
   CreateInvoiceUnitRequest,
+  DateInterval,
   DeleteInvoiceUnitRequest,
   Filters,
   GetInvoiceUnitRequest,
   GetInvoiceUnitResponse,
   InternalServerException,
+  InvoiceSummariesFilter,
+  InvoiceSummariesSelector,
+  InvoiceSummary,
   InvoiceUnit,
   InvoiceUnitRule,
+  ListInvoiceSummariesRequest,
+  ListInvoiceSummariesResponse,
   ListInvoiceUnitsRequest,
   ListInvoiceUnitsResponse,
   ListTagsForResourceRequest,
@@ -109,6 +120,19 @@ export const se_GetInvoiceUnitCommand = async (
   const headers: __HeaderBag = sharedHeaders("GetInvoiceUnit");
   let body: any;
   body = JSON.stringify(se_GetInvoiceUnitRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ListInvoiceSummariesCommand
+ */
+export const se_ListInvoiceSummariesCommand = async (
+  input: ListInvoiceSummariesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListInvoiceSummaries");
+  let body: any;
+  body = JSON.stringify(se_ListInvoiceSummariesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -251,6 +275,26 @@ export const de_GetInvoiceUnitCommand = async (
   let contents: any = {};
   contents = de_GetInvoiceUnitResponse(data, context);
   const response: GetInvoiceUnitCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListInvoiceSummariesCommand
+ */
+export const de_ListInvoiceSummariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInvoiceSummariesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListInvoiceSummariesResponse(data, context);
+  const response: ListInvoiceSummariesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -489,7 +533,19 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_BatchGetInvoiceProfileRequest omitted.
 
+// se_BillingPeriod omitted.
+
 // se_CreateInvoiceUnitRequest omitted.
+
+/**
+ * serializeAws_json1_0DateInterval
+ */
+const se_DateInterval = (input: DateInterval, context: __SerdeContext): any => {
+  return take(input, {
+    EndDate: (_) => _.getTime() / 1_000,
+    StartDate: (_) => _.getTime() / 1_000,
+  });
+};
 
 // se_DeleteInvoiceUnitRequest omitted.
 
@@ -505,9 +561,34 @@ const se_GetInvoiceUnitRequest = (input: GetInvoiceUnitRequest, context: __Serde
   });
 };
 
+/**
+ * serializeAws_json1_0InvoiceSummariesFilter
+ */
+const se_InvoiceSummariesFilter = (input: InvoiceSummariesFilter, context: __SerdeContext): any => {
+  return take(input, {
+    BillingPeriod: _json,
+    InvoicingEntity: [],
+    TimeInterval: (_) => se_DateInterval(_, context),
+  });
+};
+
+// se_InvoiceSummariesSelector omitted.
+
 // se_InvoiceUnitNames omitted.
 
 // se_InvoiceUnitRule omitted.
+
+/**
+ * serializeAws_json1_0ListInvoiceSummariesRequest
+ */
+const se_ListInvoiceSummariesRequest = (input: ListInvoiceSummariesRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Filter: (_) => se_InvoiceSummariesFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+    Selector: _json,
+  });
+};
 
 /**
  * serializeAws_json1_0ListInvoiceUnitsRequest
@@ -539,11 +620,31 @@ const se_ListInvoiceUnitsRequest = (input: ListInvoiceUnitsRequest, context: __S
 
 // de_AccountIdList omitted.
 
+// de_AmountBreakdown omitted.
+
 // de_BatchGetInvoiceProfileResponse omitted.
+
+// de_BillingPeriod omitted.
 
 // de_CreateInvoiceUnitResponse omitted.
 
+// de_CurrencyExchangeDetails omitted.
+
 // de_DeleteInvoiceUnitResponse omitted.
+
+// de_DiscountsBreakdown omitted.
+
+// de_DiscountsBreakdownAmount omitted.
+
+// de_DiscountsBreakdownAmountList omitted.
+
+// de_Entity omitted.
+
+// de_FeesBreakdown omitted.
+
+// de_FeesBreakdownAmount omitted.
+
+// de_FeesBreakdownAmountList omitted.
 
 /**
  * deserializeAws_json1_0GetInvoiceUnitResponse
@@ -562,7 +663,41 @@ const de_GetInvoiceUnitResponse = (output: any, context: __SerdeContext): GetInv
 
 // de_InternalServerException omitted.
 
+// de_InvoiceCurrencyAmount omitted.
+
 // de_InvoiceProfile omitted.
+
+/**
+ * deserializeAws_json1_0InvoiceSummaries
+ */
+const de_InvoiceSummaries = (output: any, context: __SerdeContext): InvoiceSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InvoiceSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0InvoiceSummary
+ */
+const de_InvoiceSummary = (output: any, context: __SerdeContext): InvoiceSummary => {
+  return take(output, {
+    AccountId: __expectString,
+    BaseCurrencyAmount: _json,
+    BillingPeriod: _json,
+    DueDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Entity: _json,
+    InvoiceId: __expectString,
+    InvoiceType: __expectString,
+    IssuedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OriginalInvoiceId: __expectString,
+    PaymentCurrencyAmount: _json,
+    PurchaseOrderNumber: __expectString,
+    TaxCurrencyAmount: _json,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_0InvoiceUnit
@@ -594,6 +729,16 @@ const de_InvoiceUnits = (output: any, context: __SerdeContext): InvoiceUnit[] =>
 };
 
 /**
+ * deserializeAws_json1_0ListInvoiceSummariesResponse
+ */
+const de_ListInvoiceSummariesResponse = (output: any, context: __SerdeContext): ListInvoiceSummariesResponse => {
+  return take(output, {
+    InvoiceSummaries: (_: any) => de_InvoiceSummaries(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0ListInvoiceUnitsResponse
  */
 const de_ListInvoiceUnitsResponse = (output: any, context: __SerdeContext): ListInvoiceUnitsResponse => {
@@ -618,6 +763,12 @@ const de_ListInvoiceUnitsResponse = (output: any, context: __SerdeContext): List
 // de_ServiceQuotaExceededException omitted.
 
 // de_TagResourceResponse omitted.
+
+// de_TaxesBreakdown omitted.
+
+// de_TaxesBreakdownAmount omitted.
+
+// de_TaxesBreakdownAmountList omitted.
 
 // de_ThrottlingException omitted.
 

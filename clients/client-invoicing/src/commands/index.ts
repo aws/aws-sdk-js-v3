@@ -3,6 +3,7 @@ export * from "./BatchGetInvoiceProfileCommand";
 export * from "./CreateInvoiceUnitCommand";
 export * from "./DeleteInvoiceUnitCommand";
 export * from "./GetInvoiceUnitCommand";
+export * from "./ListInvoiceSummariesCommand";
 export * from "./ListInvoiceUnitsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./TagResourceCommand";

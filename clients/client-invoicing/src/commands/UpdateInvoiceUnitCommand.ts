@@ -63,20 +63,16 @@ export interface UpdateInvoiceUnitCommandOutput extends UpdateInvoiceUnitRespons
  *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The processing request failed because of an unknown error, exception, or failure.
- * </p>
+ *  <p>The processing request failed because of an unknown error, exception, or failure. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.
- * </p>
+ *  <p>The resource could not be found. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>
- *     The input fails to satisfy the constraints specified by an Amazon Web Services service.
- * </p>
+ *  <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
  *
  * @throws {@link InvoicingServiceException}
  * <p>Base exception class for all service exceptions from Invoicing service.</p>
