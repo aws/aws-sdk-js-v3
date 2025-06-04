@@ -118,7 +118,7 @@ export interface StartMedicalScribeStreamCommandOutput extends StartMedicalScrib
  *       PostStreamAnalyticsSettings: { // MedicalScribePostStreamAnalyticsSettings
  *         ClinicalNoteGenerationSettings: { // ClinicalNoteGenerationSettings
  *           OutputBucketName: "STRING_VALUE", // required
- *           NoteTemplate: "HISTORY_AND_PHYSICAL" || "GIRPP",
+ *           NoteTemplate: "HISTORY_AND_PHYSICAL" || "GIRPP" || "DAP" || "SIRP" || "BIRP" || "BEHAVIORAL_SOAP" || "PHYSICAL_SOAP",
  *         },
  *       },
  *     },

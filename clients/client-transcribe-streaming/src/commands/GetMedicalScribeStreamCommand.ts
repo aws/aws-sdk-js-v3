@@ -75,7 +75,7 @@ export interface GetMedicalScribeStreamCommandOutput extends GetMedicalScribeStr
  * //     PostStreamAnalyticsSettings: { // MedicalScribePostStreamAnalyticsSettings
  * //       ClinicalNoteGenerationSettings: { // ClinicalNoteGenerationSettings
  * //         OutputBucketName: "STRING_VALUE", // required
- * //         NoteTemplate: "HISTORY_AND_PHYSICAL" || "GIRPP",
+ * //         NoteTemplate: "HISTORY_AND_PHYSICAL" || "GIRPP" || "DAP" || "SIRP" || "BIRP" || "BEHAVIORAL_SOAP" || "PHYSICAL_SOAP",
  * //       },
  * //     },
  * //     PostStreamAnalyticsResult: { // MedicalScribePostStreamAnalyticsResult

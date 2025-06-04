@@ -11,13 +11,13 @@ import { TranscribeStreamingServiceException as __BaseException } from "./Transc
  */
 export interface Entity {
   /**
-   * <p>The start time, in milliseconds, of the utterance that was identified as PII.</p>
+   * <p>The start time of the utterance that was identified as PII in seconds, with millisecond precision (e.g., 1.056)</p>
    * @public
    */
   StartTime?: number | undefined;
 
   /**
-   * <p>The end time, in milliseconds, of the utterance that was identified as PII.</p>
+   * <p>The end time of the utterance that was identified as PII in seconds, with millisecond precision (e.g., 1.056)</p>
    * @public
    */
   EndTime?: number | undefined;
@@ -72,13 +72,13 @@ export type ItemType = (typeof ItemType)[keyof typeof ItemType];
  */
 export interface Item {
   /**
-   * <p>The start time, in milliseconds, of the transcribed item.</p>
+   * <p>The start time of the transcribed item in seconds, with millisecond precision (e.g., 1.056)</p>
    * @public
    */
   StartTime?: number | undefined;
 
   /**
-   * <p>The end time, in milliseconds, of the transcribed item.</p>
+   * <p>The end time of the transcribed item in seconds, with millisecond precision (e.g., 1.056)</p>
    * @public
    */
   EndTime?: number | undefined;
@@ -1080,8 +1080,13 @@ export interface ClinicalNoteGenerationResult {
  * @enum
  */
 export const MedicalScribeNoteTemplate = {
+  BEHAVIORAL_SOAP: "BEHAVIORAL_SOAP",
+  BIRP: "BIRP",
+  DAP: "DAP",
   GIRPP: "GIRPP",
   HISTORY_AND_PHYSICAL: "HISTORY_AND_PHYSICAL",
+  PHYSICAL_SOAP: "PHYSICAL_SOAP",
+  SIRP: "SIRP",
 } as const;
 
 /**
@@ -1111,11 +1116,27 @@ export interface ClinicalNoteGenerationSettings {
    * <p>Specify one of the following templates to use for the clinical note summary. The default is <code>HISTORY_AND_PHYSICAL</code>.</p>
    *          <ul>
    *             <li>
-   *                <p>HISTORY_AND_PHYSICAL: Provides summaries for key sections of the clinical documentation. Sections include Chief Complaint,
-   *         History of Present Illness, Review of Systems, Past Medical History, Assessment, and Plan.</p>
+   *                <p>HISTORY_AND_PHYSICAL: Provides summaries for key sections of the clinical documentation. Examples of sections include Chief Complaint, History of Present Illness, Review of Systems, Past Medical History, Assessment, and Plan.
+   *         </p>
    *             </li>
    *             <li>
-   *                <p>GIRPP: Provides summaries based on the patients progress toward goals. Sections include Goal, Intervention, Response, Progress, and Plan.</p>
+   *                <p>GIRPP: Provides summaries based on the patients progress toward goals. Examples of sections include Goal, Intervention,
+   *           Response, Progress, and Plan.</p>
+   *             </li>
+   *             <li>
+   *                <p>BIRP: Focuses on the patient's behavioral patterns and responses. Examples of sections include Behavior, Intervention, Response, and Plan.</p>
+   *             </li>
+   *             <li>
+   *                <p>SIRP: Emphasizes the situational context of therapy. Examples of sections include Situation, Intervention, Response, and Plan.</p>
+   *             </li>
+   *             <li>
+   *                <p>DAP: Provides a simplified format for clinical documentation. Examples of sections include Data, Assessment, and Plan.</p>
+   *             </li>
+   *             <li>
+   *                <p>BEHAVIORAL_SOAP: Behavioral health focused documentation format. Examples of sections include Subjective, Objective, Assessment, and Plan.</p>
+   *             </li>
+   *             <li>
+   *                <p>PHYSICAL_SOAP: Physical health focused documentation format. Examples of sections include Subjective, Objective, Assessment, and Plan.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1615,13 +1636,13 @@ export type MediaEncoding = (typeof MediaEncoding)[keyof typeof MediaEncoding];
  */
 export interface MedicalEntity {
   /**
-   * <p>The start time, in milliseconds, of the utterance that was identified as PHI.</p>
+   * <p>The start time, in seconds, of the utterance that was identified as PHI.</p>
    * @public
    */
   StartTime?: number | undefined;
 
   /**
-   * <p>The end time, in milliseconds, of the utterance that was identified as PHI.</p>
+   * <p>The end time, in seconds, of the utterance that was identified as PHI.</p>
    * @public
    */
   EndTime?: number | undefined;
@@ -1655,13 +1676,13 @@ export interface MedicalEntity {
  */
 export interface MedicalItem {
   /**
-   * <p>The start time, in milliseconds, of the transcribed item.</p>
+   * <p>The start time, in seconds, of the transcribed item.</p>
    * @public
    */
   StartTime?: number | undefined;
 
   /**
-   * <p>The end time, in milliseconds, of the transcribed item.</p>
+   * <p>The end time, in seconds, of the transcribed item.</p>
    * @public
    */
   EndTime?: number | undefined;
@@ -1754,13 +1775,13 @@ export interface MedicalResult {
   ResultId?: string | undefined;
 
   /**
-   * <p>The start time, in milliseconds, of the <code>Result</code>.</p>
+   * <p>The start time, in seconds, of the <code>Result</code>.</p>
    * @public
    */
   StartTime?: number | undefined;
 
   /**
-   * <p>The end time, in milliseconds, of the <code>Result</code>.</p>
+   * <p>The end time, in seconds, of the <code>Result</code>.</p>
    * @public
    */
   EndTime?: number | undefined;
@@ -2530,13 +2551,13 @@ export interface Result {
   ResultId?: string | undefined;
 
   /**
-   * <p>The start time, in milliseconds, of the <code>Result</code>.</p>
+   * <p>The start time of the <code>Result</code> in seconds, with millisecond precision (e.g., 1.056).</p>
    * @public
    */
   StartTime?: number | undefined;
 
   /**
-   * <p>The end time, in milliseconds, of the <code>Result</code>.</p>
+   * <p>The end time of the <code>Result</code> in seconds, with millisecond precision (e.g., 1.056).</p>
    * @public
    */
   EndTime?: number | undefined;
