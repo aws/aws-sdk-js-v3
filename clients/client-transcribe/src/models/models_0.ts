@@ -1535,8 +1535,13 @@ export interface CategoryProperties {
  * @enum
  */
 export const MedicalScribeNoteTemplate = {
+  BEHAVIORAL_SOAP: "BEHAVIORAL_SOAP",
+  BIRP: "BIRP",
+  DAP: "DAP",
   GIRPP: "GIRPP",
   HISTORY_AND_PHYSICAL: "HISTORY_AND_PHYSICAL",
+  PHYSICAL_SOAP: "PHYSICAL_SOAP",
+  SIRP: "SIRP",
 } as const;
 
 /**
@@ -1559,6 +1564,21 @@ export interface ClinicalNoteGenerationSettings {
    *             <li>
    *                <p>GIRPP: Provides summaries based on the patients progress toward goals. Examples of sections include Goal, Intervention,
    *                     Response, Progress, and Plan.</p>
+   *             </li>
+   *             <li>
+   *                <p>BIRP: Focuses on the patient's behavioral patterns and responses. Examples of sections include Behavior, Intervention, Response, and Plan.</p>
+   *             </li>
+   *             <li>
+   *                <p>SIRP: Emphasizes the situational context of therapy. Examples of sections include Situation, Intervention, Response, and Plan.</p>
+   *             </li>
+   *             <li>
+   *                <p>DAP: Provides a simplified format for clinical documentation. Examples of sections include Data, Assessment, and Plan.</p>
+   *             </li>
+   *             <li>
+   *                <p>BEHAVIORAL_SOAP: Behavioral health focused documentation format. Examples of sections include Subjective, Objective, Assessment, and Plan.</p>
+   *             </li>
+   *             <li>
+   *                <p>PHYSICAL_SOAP: Physical health focused documentation format. Examples of sections include Subjective, Objective, Assessment, and Plan.</p>
    *             </li>
    *          </ul>
    * @public

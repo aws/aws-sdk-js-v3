@@ -100,7 +100,7 @@ export interface StartMedicalScribeJobCommandOutput extends StartMedicalScribeJo
  *     VocabularyFilterName: "STRING_VALUE",
  *     VocabularyFilterMethod: "remove" || "mask" || "tag",
  *     ClinicalNoteGenerationSettings: { // ClinicalNoteGenerationSettings
- *       NoteTemplate: "HISTORY_AND_PHYSICAL" || "GIRPP",
+ *       NoteTemplate: "HISTORY_AND_PHYSICAL" || "GIRPP" || "BIRP" || "SIRP" || "DAP" || "BEHAVIORAL_SOAP" || "PHYSICAL_SOAP",
  *     },
  *   },
  *   ChannelDefinitions: [ // MedicalScribeChannelDefinitions
@@ -143,7 +143,7 @@ export interface StartMedicalScribeJobCommandOutput extends StartMedicalScribeJo
  * //       VocabularyFilterName: "STRING_VALUE",
  * //       VocabularyFilterMethod: "remove" || "mask" || "tag",
  * //       ClinicalNoteGenerationSettings: { // ClinicalNoteGenerationSettings
- * //         NoteTemplate: "HISTORY_AND_PHYSICAL" || "GIRPP",
+ * //         NoteTemplate: "HISTORY_AND_PHYSICAL" || "GIRPP" || "BIRP" || "SIRP" || "DAP" || "BEHAVIORAL_SOAP" || "PHYSICAL_SOAP",
  * //       },
  * //     },
  * //     DataAccessRoleArn: "STRING_VALUE",
