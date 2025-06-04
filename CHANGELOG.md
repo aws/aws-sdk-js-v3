@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.824.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.823.0...v3.824.0) (2025-06-04)
+
+
+### Bug Fixes
+
+* **signature-v4-multi-region:** report available sigv4a dependency ([#7113](https://github.com/aws/aws-sdk-js-v3/issues/7113)) ([a96c5df](https://github.com/aws/aws-sdk-js-v3/commit/a96c5df2f1b8e5bcca160a2e4300af2d74f656d6))
+
+
+### Features
+
+* **client-evs:** Amazon Elastic VMware Service (Amazon EVS) allows you to run VMware Cloud Foundation (VCF) directly within your Amazon VPC including simplified self-managed migration experience with guided workflow in AWS console or via AWS CLI, get full access to their VCF deployment and VCF license portability. ([0ab8f34](https://github.com/aws/aws-sdk-js-v3/commit/0ab8f34aa9342ad53d8dc9176fb134f7a06b6424))
+* **client-invoicing:** Added new Invoicing ListInvoiceSummaries API Operation ([143e659](https://github.com/aws/aws-sdk-js-v3/commit/143e659c0f0999520a3d0e8ccefe3e840f5ccaa2))
+* **client-mediaconnect:** This release updates the DescribeFlow API to show peer IP addresses. You can now identify the peer IP addresses of devices connected to your sources and outputs. This helps you to verify and troubleshoot your flow's active connections. ([958d1f2](https://github.com/aws/aws-sdk-js-v3/commit/958d1f20927bafe786f49798d53e3e7e098cf83d))
+* **client-mediaconvert:** This release includes support for embedding and signing C2PA content credentials in MP4 outputs. ([f45745e](https://github.com/aws/aws-sdk-js-v3/commit/f45745ef1015b8cd095e29d35a0d838d12a83b1e))
+* **client-network-firewall:** You can now monitor flow and alert log metrics from the Network Firewall console. ([58bdb06](https://github.com/aws/aws-sdk-js-v3/commit/58bdb06d5b792cabe71556ec0a58c5957c469bdc))
+* **client-sagemaker:** Added support for p6-b200 instance type in SageMaker Training Jobs and Training Plans. ([b293230](https://github.com/aws/aws-sdk-js-v3/commit/b293230c51fc20d4c99c9cf3559e86a12beeb9c5))
+* **client-transcribe-streaming:** AWS Healthscribe now supports new templates for the clinical note summary: BIRP, SIRP, DAP, BEHAVIORAL_SOAP, and PHYSICAL_SOAP ([de7e46f](https://github.com/aws/aws-sdk-js-v3/commit/de7e46fda9db2222e31ce77e7f10e756fc46e67a))
+* **client-transcribe:** AWS Healthscribe now supports new templates for the clinical note summary: BIRP, SIRP, DAP, BEHAVIORAL_SOAP, and PHYSICAL_SOAP ([bd03227](https://github.com/aws/aws-sdk-js-v3/commit/bd03227d49bc2ff80088218559e55db35e36da15))
+* **clients:** update client endpoints as of 2025-06-04 ([61ac3f6](https://github.com/aws/aws-sdk-js-v3/commit/61ac3f62c853dd58a84d7c8e4e6098ae95ff4cd0))
+
+
+
+
+
 # [3.823.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.822.0...v3.823.0) (2025-06-03)
 
 

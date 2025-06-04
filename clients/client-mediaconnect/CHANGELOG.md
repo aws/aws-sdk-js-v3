@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.824.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.823.0...v3.824.0) (2025-06-04)
+
+
+### Features
+
+* **client-mediaconnect:** This release updates the DescribeFlow API to show peer IP addresses. You can now identify the peer IP addresses of devices connected to your sources and outputs. This helps you to verify and troubleshoot your flow's active connections. ([958d1f2](https://github.com/aws/aws-sdk-js-v3/commit/958d1f20927bafe786f49798d53e3e7e098cf83d))
+
+
+
+
+
 # [3.823.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.822.0...v3.823.0) (2025-06-03)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconnect
