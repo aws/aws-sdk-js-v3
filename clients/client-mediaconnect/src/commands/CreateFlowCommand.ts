@@ -420,6 +420,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //           Number("int"),
  * //         ],
  * //         OutputStatus: "ENABLED" || "DISABLED",
+ * //         PeerIpAddress: "STRING_VALUE",
  * //       },
  * //     ],
  * //     Source: { // Source
@@ -485,6 +486,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //           VpcInterfaceName: "STRING_VALUE",
  * //         },
  * //       },
+ * //       PeerIpAddress: "STRING_VALUE",
  * //     },
  * //     SourceFailoverConfig: { // FailoverConfig
  * //       FailoverMode: "MERGE" || "FAILOVER",
@@ -558,6 +560,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //             VpcInterfaceName: "STRING_VALUE",
  * //           },
  * //         },
+ * //         PeerIpAddress: "STRING_VALUE",
  * //       },
  * //     ],
  * //     Status: "STANDBY" || "ACTIVE" || "UPDATING" || "DELETING" || "STARTING" || "STOPPING" || "ERROR", // required
@@ -627,28 +630,22 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message.
- * </p>
+ *  <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
  *
  * @throws {@link CreateFlow420Exception} (client fault)
- *  <p>Exception raised by Elemental MediaConnect when creating the flow. See the error message for the operation for more information on the cause of this exception.
- *    </p>
+ *  <p>Exception raised by Elemental MediaConnect when creating the flow. See the error message for the operation for more information on the cause of this exception. </p>
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>You do not have sufficient access to perform this action.
- * </p>
+ *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request.
- * </p>
+ *  <p>The server encountered an internal error and is unable to complete the request. </p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable or busy.
- * </p>
+ *  <p>The service is currently unavailable or busy. </p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request was denied due to request throttling.
- * </p>
+ *  <p>The request was denied due to request throttling. </p>
  *
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
