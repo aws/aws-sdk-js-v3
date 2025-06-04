@@ -1,5 +1,6 @@
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
 import { marshallOptions } from "@aws-sdk/util-dynamodb";
+import { TextEncoder } from "util";
 
 import type { AttributeValueMap } from "../../internal/AttributeValueMap";
 import type {
@@ -39,7 +40,10 @@ type MarshallHandler = (schema: ItemSchemaType, value: any, options: marshallOpt
 const typeMarshallers: Record<ItemSchemaType["type"], MarshallHandler> = {
   String: (_schema, value, options) => {
     const str = marshallString(value);
-    return str.length === 0 && options.convertEmptyValues ? { NULL: true } : { S: str };
+    if (str.length === 0 && options.convertEmptyValues) {
+      return nullValue();
+    }
+    return { S: str };
   },
 
   Number: (_schema, value, options) => {
@@ -96,7 +100,10 @@ const typeMarshallers: Record<ItemSchemaType["type"], MarshallHandler> = {
 
   Binary: (_schema, value) => {
     const buffer = marshallBinary(value);
-    return buffer.length === 0 ? { NULL: true } : { B: buffer };
+    if (buffer.length === 0) {
+      return nullValue();
+    }
+    return { B: buffer };
   },
 
   Collection: (schema, value, options) => {
@@ -148,15 +155,19 @@ const typeMarshallers: Record<ItemSchemaType["type"], MarshallHandler> = {
 
   Any: (schema, value) => {
     const anySchema = schema as AnyType;
-    if (value === undefined || value === null) return { NULL: true };
+    if (value === undefined || value === null) return { NULL: true } as AttributeValue;
     if (typeof value === "string") {
-      return value === "" && anySchema.convertEmptyValues ? { NULL: true } : { S: value };
+      if (value === "" && anySchema.convertEmptyValues) {
+        return nullValue();
+      }
+      return { S: value };
     }
     if (typeof value === "number") return { N: marshallNumber(value) };
     if (typeof value === "boolean") return { BOOL: value };
     if (Array.isArray(value)) {
       return {
-        L: value.map((v) => marshallValue(schema, v, anySchema)).filter((v): v is AttributeValue => v !== undefined),
+        L: value.map((v) => marshallValue(schema, v, anySchema))
+                .filter((v): v is AttributeValue => v !== undefined),
       };
     }
     if (typeof value === "object") {
@@ -172,7 +183,7 @@ const marshallMap = (
   options: marshallOptions
 ): { M: AttributeValueMap } => {
   const M: AttributeValueMap = {};
-  for (const [key, raw] of entries) {
+  for (const [key, raw] of Array.from(entries)) {
     const schema = getSchema(key);
     const marshalled = marshallValue(schema, raw, options);
     if (marshalled !== undefined || !options.removeUndefinedValues) {
@@ -204,7 +215,7 @@ const marshallSet = <InputType, MarshalledElementType>(
   setTag: "BS" | "NS" | "SS"
 ): AttributeValue => {
   const collected: MarshalledElementType[] = [];
-  for (const member of value) {
+  for (const member of Array.from(value)) {
     const marshalled = marshaller(member);
     if (!isEmpty(marshalled)) {
       collected.push(marshalled);
@@ -212,3 +223,5 @@ const marshallSet = <InputType, MarshalledElementType>(
   }
   return collected.length === 0 ? { NULL: true } : ({ [setTag]: collected } as unknown as AttributeValue);
 };
+
+const nullValue = (): AttributeValue => ({ NULL: true });

@@ -4,7 +4,8 @@
     "declarationDir": "dist-types",
     "rootDir": "src",
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "types": ["reflect-metadata", "node"]
   },
   "extends": "../../tsconfig.types.json",
   "include": ["src/"]

@@ -3,6 +3,7 @@
   "compilerOptions": {
     "declaration": true,
     "emitDeclarationOnly": true,
+    "experimentalDecorators": true,
     "removeComments": false,
     "strict": true
   }

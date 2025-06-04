@@ -20,6 +20,7 @@
     "resolveJsonModule": true,
     "useUnknownInCatchVariables": false,
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "jsx": "react",
     "jsxFactory": "JSX.createElement",
     "jsxFragmentFactory": "JSX.Fragment"

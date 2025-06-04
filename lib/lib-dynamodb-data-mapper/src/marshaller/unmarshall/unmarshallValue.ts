@@ -14,6 +14,8 @@ import type {
 } from "../../schema";
 import { unmarshallDocument } from "./unmarshallDocument";
 
+type UnmarshallHandler = (schema: ItemSchemaType, value: AttributeValue) => unknown;
+
 const typeUnmarshallers: Record<ItemSchemaType["type"], UnmarshallHandler> = {
   String: (_schema, value) => {
     if (isNullValue(value)) return "";
@@ -127,7 +129,6 @@ export function unmarshallValue(schema: ItemSchemaType, value: AttributeValue): 
   return handler(schema, value);
 }
 
-type UnmarshallHandler = (schema: ItemSchemaType, value: AttributeValue) => any;
 
 const unmarshallTuple = (schema: TupleType, input: AttributeValue[]): any[] => {
   return schema.members.map((member, i) => unmarshallValue(member, input[i]));

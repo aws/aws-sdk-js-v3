@@ -6,4 +6,7 @@ export default defineConfig({
     include: ["**/*.spec.ts"],
     environment: "node",
   },
+  resolve: {
+    conditions: ['types']
+  }
 });
