@@ -51,6 +51,32 @@ describe("SignatureV4MultiRegion", () => {
     vi.clearAllMocks();
   });
 
+  describe("sigv4aDependency", () => {
+    it("should return 'crt' when CrtSignerV4 is available", () => {
+      signatureV4CrtContainer.CrtSignerV4 = CrtSignerV4 as any;
+      signatureV4aContainer.SignatureV4a = null;
+      expect(SignatureV4MultiRegion.sigv4aDependency()).toBe("crt");
+    });
+
+    it("should return 'crt' when CrtSignerV4 and SignatureV4a are available", () => {
+      signatureV4CrtContainer.CrtSignerV4 = CrtSignerV4 as any;
+      signatureV4aContainer.SignatureV4a = SignatureV4a as any;
+      expect(SignatureV4MultiRegion.sigv4aDependency()).toBe("crt");
+    });
+
+    it("should return 'js' when only SignatureV4a is available", () => {
+      signatureV4CrtContainer.CrtSignerV4 = null;
+      signatureV4aContainer.SignatureV4a = SignatureV4a as any;
+      expect(SignatureV4MultiRegion.sigv4aDependency()).toBe("js");
+    });
+
+    it("should return 'none' when neither implementation is available", () => {
+      signatureV4CrtContainer.CrtSignerV4 = null;
+      signatureV4aContainer.SignatureV4a = null;
+      expect(SignatureV4MultiRegion.sigv4aDependency()).toBe("none");
+    });
+  });
+
   it("should sign with SigV4 signer", async () => {
     const signer = new SignatureV4MultiRegion(params);
     await signer.sign(minimalRequest);

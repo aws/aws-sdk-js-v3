@@ -36,6 +36,15 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
   private readonly sigv4Signer: SignatureV4S3Express;
   private readonly signerOptions: SignatureV4MultiRegionInit;
 
+  public static sigv4aDependency(): "none" | "js" | "crt" {
+    if (typeof signatureV4CrtContainer.CrtSignerV4 === "function") {
+      return "crt";
+    } else if (typeof signatureV4aContainer.SignatureV4a === "function") {
+      return "js";
+    }
+    return "none";
+  }
+  
   constructor(options: SignatureV4MultiRegionInit) {
     this.sigv4Signer = new SignatureV4S3Express(options);
     this.signerOptions = options;

@@ -9,7 +9,7 @@ import {
   resolveAwsSdkSigV4AConfig,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core";
-import { signatureV4CrtContainer } from "@aws-sdk/signature-v4-multi-region";
+import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { EndpointParameterInstructions, resolveParams } from "@smithy/middleware-endpoint";
 import {
   EndpointV2,
@@ -236,7 +236,7 @@ const createEndpointRuleSetHttpAuthSchemeProvider = <
           const name = s.name.toLowerCase();
           return name !== "sigv4a" && name.startsWith("sigv4");
         });
-        if (!signatureV4CrtContainer.CrtSignerV4 && sigv4Present) {
+        if (SignatureV4MultiRegion.sigv4aDependency() === "none" && sigv4Present) {
           // sigv4a -> sigv4 fallback.
           continue;
         }

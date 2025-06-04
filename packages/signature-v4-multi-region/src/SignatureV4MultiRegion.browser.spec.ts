@@ -75,4 +75,8 @@ describe("SignatureV4MultiRegion (Browser Bundle SigV4a Test)", () => {
         "This scenario is covered in source unit tests."
     );
   });
+
+  it("should correctly identify JS SigV4a implementation in browser environment", () => {
+    expect(SignatureV4MultiRegion.sigv4aDependency()).toBe("js");
+  });
 });

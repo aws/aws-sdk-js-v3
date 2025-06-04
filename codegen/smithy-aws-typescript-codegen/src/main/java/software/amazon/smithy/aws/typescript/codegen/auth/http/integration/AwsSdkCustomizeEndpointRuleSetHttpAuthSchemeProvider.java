@@ -373,7 +373,7 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                           HttpAuthSchemeParametersT extends HttpAuthSchemeParameters
                         > extends HttpAuthSchemeProvider<EndpointParametersT & HttpAuthSchemeParametersT> { }""");
                     w.addDependency(TypeScriptDependency.SMITHY_TYPES);
-                    w.addImport("signatureV4CrtContainer", null, AwsDependency.SIGNATURE_V4_MULTIREGION);
+                    w.addImport("SignatureV4MultiRegion", null, AwsDependency.SIGNATURE_V4_MULTIREGION);
                     w.addImport("Logger", null, TypeScriptDependency.SMITHY_TYPES);
                     w.addImport("EndpointV2", null, TypeScriptDependency.SMITHY_TYPES);
                     w.writeDocs("@internal");
@@ -419,7 +419,7 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                                   const name = s.name.toLowerCase();
                                   return name !== "sigv4a" && name.startsWith("sigv4");
                                 });
-                                if (!signatureV4CrtContainer.CrtSignerV4 && sigv4Present) {
+                                if (SignatureV4MultiRegion.sigv4aDependency() === "none" && sigv4Present) {
                                   // sigv4a -> sigv4 fallback.
                                   continue;
                                 }
