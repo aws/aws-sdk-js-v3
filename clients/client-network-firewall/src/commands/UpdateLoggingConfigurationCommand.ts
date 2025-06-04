@@ -74,6 +74,7 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  *       },
  *     ],
  *   },
+ *   EnableMonitoringDashboard: true || false,
  * };
  * const command = new UpdateLoggingConfigurationCommand(input);
  * const response = await client.send(command);
@@ -91,6 +92,7 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * //       },
  * //     ],
  * //   },
+ * //   EnableMonitoringDashboard: true || false,
  * // };
  *
  * ```

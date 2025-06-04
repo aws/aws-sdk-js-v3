@@ -3831,6 +3831,16 @@ export interface DescribeLoggingConfigurationResponse {
    * @public
    */
   LoggingConfiguration?: LoggingConfiguration | undefined;
+
+  /**
+   * <p>A boolean that reflects whether or not the firewall monitoring dashboard is enabled on a firewall.</p>
+   *          <p>
+   *          Returns <code>TRUE</code> when the firewall monitoring dashboard is enabled on the firewall.
+   *          Returns <code>FALSE</code> when the firewall monitoring dashboard is not enabled on the firewall.
+   *       </p>
+   * @public
+   */
+  EnableMonitoringDashboard?: boolean | undefined;
 }
 
 /**
@@ -5735,6 +5745,18 @@ export interface UpdateLoggingConfigurationRequest {
    * @public
    */
   LoggingConfiguration?: LoggingConfiguration | undefined;
+
+  /**
+   * <p>A boolean that lets you enable or disable the detailed firewall monitoring dashboard on the firewall. </p>
+   *          <p>The monitoring dashboard provides comprehensive visibility into your firewall's flow logs and alert logs.
+   *          After you enable detailed monitoring, you can access these dashboards directly from the <b>Monitoring</b> page of the Network Firewall console.</p>
+   *          <p>
+   *          Specify <code>TRUE</code> to enable the the detailed monitoring dashboard on the firewall.
+   *          Specify <code>FALSE</code> to disable the the detailed monitoring dashboard on the firewall.
+   *       </p>
+   * @public
+   */
+  EnableMonitoringDashboard?: boolean | undefined;
 }
 
 /**
@@ -5758,6 +5780,16 @@ export interface UpdateLoggingConfigurationResponse {
    * @public
    */
   LoggingConfiguration?: LoggingConfiguration | undefined;
+
+  /**
+   * <p>A boolean that reflects whether or not the firewall monitoring dashboard is enabled on a firewall.</p>
+   *          <p>
+   *          Returns <code>TRUE</code> when the firewall monitoring dashboard is enabled on the firewall.
+   *          Returns <code>FALSE</code> when the firewall monitoring dashboard is not enabled on the firewall.
+   *       </p>
+   * @public
+   */
+  EnableMonitoringDashboard?: boolean | undefined;
 }
 
 /**
