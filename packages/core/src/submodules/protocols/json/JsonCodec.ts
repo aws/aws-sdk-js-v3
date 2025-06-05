@@ -15,7 +15,7 @@ export type JsonSettings = CodecSettings & {
  * @public
  */
 export class JsonCodec extends SerdeContextConfig implements Codec<string, string> {
-  public constructor(public settings: JsonSettings) {
+  public constructor(public readonly settings: JsonSettings) {
     super();
   }
 

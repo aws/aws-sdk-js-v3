@@ -18,7 +18,7 @@ import { parseJsonBody } from "./parseJsonBody";
  * @alpha
  */
 export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDeserializer<string> {
-  public constructor(public settings: JsonSettings) {
+  public constructor(public readonly settings: JsonSettings) {
     super();
   }
 

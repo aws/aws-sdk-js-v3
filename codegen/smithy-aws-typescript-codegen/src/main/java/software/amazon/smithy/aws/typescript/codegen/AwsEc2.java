@@ -16,6 +16,7 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Set;
+import software.amazon.smithy.aws.traits.protocols.Ec2QueryNameTrait;
 import software.amazon.smithy.aws.traits.protocols.Ec2QueryTrait;
 import software.amazon.smithy.codegen.core.SymbolReference;
 import software.amazon.smithy.model.shapes.OperationShape;
@@ -24,8 +25,10 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.model.traits.Trait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpRpcProtocolGenerator;
+import software.amazon.smithy.typescript.codegen.schema.SchemaTraitExtension;
 import software.amazon.smithy.typescript.codegen.util.StringStore;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
@@ -47,6 +50,19 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 final class AwsEc2 extends HttpRpcProtocolGenerator {
+    static {
+        SchemaTraitExtension.INSTANCE.add(
+            Ec2QueryNameTrait.ID,
+            (Trait trait) -> {
+                if (trait instanceof Ec2QueryNameTrait ec2QueryName) {
+                    return """
+                        `%s`
+                        """.formatted(ec2QueryName.getValue());
+                }
+                return "";
+            }
+        );
+    }
 
     AwsEc2() {
         super(true);

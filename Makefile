@@ -29,6 +29,9 @@ test-types:
 test-protocols: bundles
 	yarn g:vitest run -c vitest.config.protocols.integ.ts
 
+test-schema: bundles
+	yarn g:vitest run -c vitest.config.protocols-schema.integ.ts
+
 test-integration: bundles
 	rm -rf ./clients/client-sso/node_modules/\@smithy # todo(yarn) incompatible redundant nesting.
 	yarn g:vitest run -c vitest.config.integ.ts

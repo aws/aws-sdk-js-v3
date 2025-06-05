@@ -14,7 +14,7 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
   private buffer: any;
   private rootSchema: NormalizedSchema | undefined;
 
-  public constructor(public settings: JsonSettings) {
+  public constructor(public readonly settings: JsonSettings) {
     super();
   }
 

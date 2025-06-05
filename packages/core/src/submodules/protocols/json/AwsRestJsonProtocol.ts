@@ -128,7 +128,7 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
     try {
       errorSchema = registry.getSchema(errorIdentifier) as ErrorSchema;
     } catch (e) {
-      const baseExceptionSchema = TypeRegistry.for("awssdkjs.synthetic." + namespace).getBaseException();
+      const baseExceptionSchema = TypeRegistry.for("smithy.ts.sdk.synthetic." + namespace).getBaseException();
       if (baseExceptionSchema) {
         const ErrorCtor = baseExceptionSchema.ctor;
         throw Object.assign(new ErrorCtor(errorName), dataObject);
