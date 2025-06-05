@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.825.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.824.0...v3.825.0) (2025-06-05)
+
+
+### Features
+
+* **client-wafv2:** AWS WAF adds support for ASN-based traffic filtering and support for ASN-based rate limiting. ([5f85002](https://github.com/aws/aws-sdk-js-v3/commit/5f85002f33eec93fc286d67ff6564b0d050010c5))
+
+
+
+
+
 # [3.823.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.822.0...v3.823.0) (2025-06-03)
 
 **Note:** Version bump only for package @aws-sdk/client-wafv2

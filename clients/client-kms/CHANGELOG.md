@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.825.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.824.0...v3.825.0) (2025-06-05)
+
+
+### Features
+
+* **client-kms:** AWS KMS announces the support for on-demand rotation of symmetric-encryption KMS keys with imported key material (EXTERNAL origin). ([de7b7f0](https://github.com/aws/aws-sdk-js-v3/commit/de7b7f070673406068a93c454ed7068b97ab27e6))
+
+
+
+
+
 # [3.823.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.822.0...v3.823.0) (2025-06-03)
 
 **Note:** Version bump only for package @aws-sdk/client-kms

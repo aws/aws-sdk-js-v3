@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-protocoltests-json-10-schema",
   "description": "@aws-sdk/aws-protocoltests-json-10-schema client",
-  "version": "1.0.0-alpha.1",
+  "version": "3.825.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.825.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.824.0...v3.825.0) (2025-06-05)
+
+
+### Features
+
+* **client-bcm-pricing-calculator:** Updating the minimum for List APIs to be 1 (instead of 0) ([a79fcb1](https://github.com/aws/aws-sdk-js-v3/commit/a79fcb1b345e9e9feaedda15110c5d370daafe39))
+* **client-cloudformation:** Add new warning type 'EXCLUDED_PROPERTIES' ([29090b3](https://github.com/aws/aws-sdk-js-v3/commit/29090b3486d06a0699dfa4d476f09a2f72543e87))
+* **client-kms:** AWS KMS announces the support for on-demand rotation of symmetric-encryption KMS keys with imported key material (EXTERNAL origin). ([de7b7f0](https://github.com/aws/aws-sdk-js-v3/commit/de7b7f070673406068a93c454ed7068b97ab27e6))
+* **client-wafv2:** AWS WAF adds support for ASN-based traffic filtering and support for ASN-based rate limiting. ([5f85002](https://github.com/aws/aws-sdk-js-v3/commit/5f85002f33eec93fc286d67ff6564b0d050010c5))
+* **clients:** update client endpoints as of 2025-06-05 ([56047de](https://github.com/aws/aws-sdk-js-v3/commit/56047de8ef8f88c6cfe5059dc52a6039bf9686b8))
+
+
+
+
+
 # [3.824.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.823.0...v3.824.0) (2025-06-04)
 
 

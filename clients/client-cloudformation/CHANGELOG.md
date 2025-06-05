@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.825.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.824.0...v3.825.0) (2025-06-05)
+
+
+### Features
+
+* **client-cloudformation:** Add new warning type 'EXCLUDED_PROPERTIES' ([29090b3](https://github.com/aws/aws-sdk-js-v3/commit/29090b3486d06a0699dfa4d476f09a2f72543e87))
+
+
+
+
+
 # [3.823.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.822.0...v3.823.0) (2025-06-03)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudformation
