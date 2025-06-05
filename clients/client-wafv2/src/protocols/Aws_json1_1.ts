@@ -165,6 +165,7 @@ import {
   AllQueryArguments,
   AndStatement,
   APIKeySummary,
+  AsnMatchStatement,
   AssociatedResourceType,
   AssociateWebACLRequest,
   AssociationConfig,
@@ -286,6 +287,7 @@ import {
   QueryString,
   RateBasedStatement,
   RateBasedStatementCustomKey,
+  RateLimitAsn,
   RateLimitCookie,
   RateLimitForwardedIP,
   RateLimitHeader,
@@ -2546,6 +2548,10 @@ const se_AndStatement = (input: AndStatement, context: __SerdeContext): any => {
 
 // se_APIKeyTokenDomains omitted.
 
+// se_AsnList omitted.
+
+// se_AsnMatchStatement omitted.
+
 // se_AssociateWebACLRequest omitted.
 
 // se_AssociationConfig omitted.
@@ -2887,6 +2893,8 @@ const se_RateBasedStatement = (input: RateBasedStatement, context: __SerdeContex
 
 // se_RateBasedStatementCustomKeys omitted.
 
+// se_RateLimitAsn omitted.
+
 // se_RateLimitCookie omitted.
 
 // se_RateLimitForwardedIP omitted.
@@ -3003,6 +3011,7 @@ const se_Rules = (input: Rule[], context: __SerdeContext): any => {
 const se_Statement = (input: Statement, context: __SerdeContext): any => {
   return take(input, {
     AndStatement: (_) => se_AndStatement(_, context),
+    AsnMatchStatement: _json,
     ByteMatchStatement: (_) => se_ByteMatchStatement(_, context),
     GeoMatchStatement: _json,
     IPSetReferenceStatement: _json,
@@ -3174,6 +3183,10 @@ const de_APIKeySummary = (output: any, context: __SerdeContext): APIKeySummary =
     Version: __expectInt32,
   }) as any;
 };
+
+// de_AsnList omitted.
+
+// de_AsnMatchStatement omitted.
 
 // de_AssociateWebACLResponse omitted.
 
@@ -3696,6 +3709,8 @@ const de_RateBasedStatement = (output: any, context: __SerdeContext): RateBasedS
 
 // de_RateBasedStatementManagedKeysIPSet omitted.
 
+// de_RateLimitAsn omitted.
+
 // de_RateLimitCookie omitted.
 
 // de_RateLimitForwardedIP omitted.
@@ -3901,6 +3916,7 @@ const de_SampledHTTPRequests = (output: any, context: __SerdeContext): SampledHT
 const de_Statement = (output: any, context: __SerdeContext): Statement => {
   return take(output, {
     AndStatement: (_: any) => de_AndStatement(_, context),
+    AsnMatchStatement: _json,
     ByteMatchStatement: (_: any) => de_ByteMatchStatement(_, context),
     GeoMatchStatement: _json,
     IPSetReferenceStatement: _json,

@@ -147,6 +147,85 @@ export interface AllQueryArguments {}
  * @public
  * @enum
  */
+export const FallbackBehavior = {
+  MATCH: "MATCH",
+  NO_MATCH: "NO_MATCH",
+} as const;
+
+/**
+ * @public
+ */
+export type FallbackBehavior = (typeof FallbackBehavior)[keyof typeof FallbackBehavior];
+
+/**
+ * <p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>
+ *          <note>
+ *             <p>If the specified header isn't present in the request, WAF doesn't apply the rule to the web request at all.</p>
+ *          </note>
+ *          <p>This configuration is used for <a>GeoMatchStatement</a>, <a>AsnMatchStatement</a>, and
+ *          <a>RateBasedStatement</a>. For <a>IPSetReferenceStatement</a>, use <a>IPSetForwardedIPConfig</a> instead. </p>
+ *          <p>WAF only evaluates the first IP address found in the specified HTTP header.
+ *       </p>
+ * @public
+ */
+export interface ForwardedIPConfig {
+  /**
+   * <p>The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to <code>X-Forwarded-For</code>.</p>
+   *          <note>
+   *             <p>If the specified header isn't present in the request, WAF doesn't apply the rule to the web request at all.</p>
+   *          </note>
+   * @public
+   */
+  HeaderName: string | undefined;
+
+  /**
+   * <p>The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.</p>
+   *          <note>
+   *             <p>If the specified header isn't present in the request, WAF doesn't apply the rule to the web request at all.</p>
+   *          </note>
+   *          <p>You can specify the following fallback behaviors:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MATCH</code> - Treat the web request as matching the rule statement. WAF applies the rule action to the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO_MATCH</code> - Treat the web request as not matching the rule statement.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FallbackBehavior: FallbackBehavior | undefined;
+}
+
+/**
+ * <p>A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.</p>
+ *          <p>For additional details, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html">ASN match rule statement</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
+ * @public
+ */
+export interface AsnMatchStatement {
+  /**
+   * <p>Contains one or more Autonomous System Numbers (ASNs).
+   *          ASNs are unique identifiers assigned to large internet networks managed by organizations such as
+   *          internet service providers, enterprises, universities, or government agencies. </p>
+   * @public
+   */
+  AsnList: number[] | undefined;
+
+  /**
+   * <p>The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify,
+   *          instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header,
+   *          but you can specify any header name. </p>
+   * @public
+   */
+  ForwardedIPConfig?: ForwardedIPConfig | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const OversizeHandling = {
   CONTINUE: "CONTINUE",
   MATCH: "MATCH",
@@ -320,7 +399,7 @@ export interface Cookies {
  */
 export interface HeaderOrder {
   /**
-   * <p>What WAF should do if the headers of the request are more numerous or larger than WAF can inspect.
+   * <p>What WAF should do if the headers determined by your match scope are more numerous or larger than WAF can inspect.
    *     WAF does not support inspecting the entire contents of request headers
    *       when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers
    *       and at most 8 KB of header contents to WAF. </p>
@@ -411,7 +490,7 @@ export interface Headers {
   MatchScope: MapMatchScope | undefined;
 
   /**
-   * <p>What WAF should do if the headers of the request are more numerous or larger than WAF can inspect.
+   * <p>What WAF should do if the headers determined by your match scope are more numerous or larger than WAF can inspect.
    *     WAF does not support inspecting the entire contents of request headers
    *       when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers
    *       and at most 8 KB of header contents to WAF. </p>
@@ -436,20 +515,6 @@ export interface Headers {
    */
   OversizeHandling: OversizeHandling | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FallbackBehavior = {
-  MATCH: "MATCH",
-  NO_MATCH: "NO_MATCH",
-} as const;
-
-/**
- * @public
- */
-export type FallbackBehavior = (typeof FallbackBehavior)[keyof typeof FallbackBehavior];
 
 /**
  * <p>Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. WAF calculates and logs this fingerprint for each
@@ -1489,47 +1554,6 @@ export const CountryCode = {
  * @public
  */
 export type CountryCode = (typeof CountryCode)[keyof typeof CountryCode];
-
-/**
- * <p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>
- *          <note>
- *             <p>If the specified header isn't present in the request, WAF doesn't apply the rule to the web request at all.</p>
- *          </note>
- *          <p>This configuration is used for <a>GeoMatchStatement</a> and <a>RateBasedStatement</a>. For <a>IPSetReferenceStatement</a>, use <a>IPSetForwardedIPConfig</a> instead. </p>
- *          <p>WAF only evaluates the first IP address found in the specified HTTP header.
- *       </p>
- * @public
- */
-export interface ForwardedIPConfig {
-  /**
-   * <p>The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to <code>X-Forwarded-For</code>.</p>
-   *          <note>
-   *             <p>If the specified header isn't present in the request, WAF doesn't apply the rule to the web request at all.</p>
-   *          </note>
-   * @public
-   */
-  HeaderName: string | undefined;
-
-  /**
-   * <p>The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.</p>
-   *          <note>
-   *             <p>If the specified header isn't present in the request, WAF doesn't apply the rule to the web request at all.</p>
-   *          </note>
-   *          <p>You can specify the following fallback behaviors:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>MATCH</code> - Treat the web request as matching the rule statement. WAF applies the rule action to the request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NO_MATCH</code> - Treat the web request as not matching the rule statement.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  FallbackBehavior: FallbackBehavior | undefined;
-}
 
 /**
  * <p>A rule statement that labels web requests by country and region and that matches against web requests based on country code. A geo match rule labels every request that it inspects regardless of whether it finds a match.</p>
@@ -2699,6 +2723,14 @@ export type RateBasedStatementAggregateKeyType =
   (typeof RateBasedStatementAggregateKeyType)[keyof typeof RateBasedStatementAggregateKeyType];
 
 /**
+ * <p>Specifies an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key for a rate-based rule.
+ *          Each distinct ASN contributes to the aggregation instance.
+ *          If you use a single ASN as your custom key, then each ASN fully defines an aggregation instance. </p>
+ * @public
+ */
+export interface RateLimitAsn {}
+
+/**
  * <p>Specifies a cookie as an aggregate key for a rate-based rule. Each distinct value in the cookie contributes to the aggregation instance. If you use a single
  *     cookie as your custom key, then each value fully defines an aggregation instance.  </p>
  * @public
@@ -2971,6 +3003,13 @@ export interface RateBasedStatementCustomKey {
    * @public
    */
   JA4Fingerprint?: RateLimitJA4Fingerprint | undefined;
+
+  /**
+   * <p>Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key.
+   *          Each distinct ASN contributes to the aggregation instance. </p>
+   * @public
+   */
+  ASN?: RateLimitAsn | undefined;
 }
 
 /**
@@ -8234,6 +8273,13 @@ export interface Statement {
    * @public
    */
   RegexMatchStatement?: RegexMatchStatement | undefined;
+
+  /**
+   * <p>A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.</p>
+   *          <p>For additional details, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html">ASN match rule statement</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
+   * @public
+   */
+  AsnMatchStatement?: AsnMatchStatement | undefined;
 }
 
 /**

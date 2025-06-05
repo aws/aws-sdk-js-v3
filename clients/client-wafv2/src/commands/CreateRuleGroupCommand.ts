@@ -601,6 +601,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *                   JA4Fingerprint: { // RateLimitJA4Fingerprint
  *                     FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *                   },
+ *                   ASN: {},
  *                 },
  *               ],
  *             },
@@ -791,6 +792,15 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *               FieldToMatch: "<FieldToMatch>", // required
  *               TextTransformations: "<TextTransformations>", // required
  *             },
+ *             AsnMatchStatement: { // AsnMatchStatement
+ *               AsnList: [ // AsnList // required
+ *                 Number("long"),
+ *               ],
+ *               ForwardedIPConfig: {
+ *                 HeaderName: "STRING_VALUE", // required
+ *                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *               },
+ *             },
  *           },
  *           ForwardedIPConfig: {
  *             HeaderName: "STRING_VALUE", // required
@@ -828,6 +838,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *               JA4Fingerprint: {
  *                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *               },
+ *               ASN: {},
  *             },
  *           ],
  *         },
@@ -1005,6 +1016,12 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *           RegexString: "STRING_VALUE", // required
  *           FieldToMatch: "<FieldToMatch>", // required
  *           TextTransformations: "<TextTransformations>", // required
+ *         },
+ *         AsnMatchStatement: {
+ *           AsnList: [ // required
+ *             Number("long"),
+ *           ],
+ *           ForwardedIPConfig: "<ForwardedIPConfig>",
  *         },
  *       },
  *       Action: "<RuleAction>",

@@ -613,6 +613,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                     JA4Fingerprint: { // RateLimitJA4Fingerprint
  * //                       FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //                     },
+ * //                     ASN: {},
  * //                   },
  * //                 ],
  * //               },
@@ -795,6 +796,15 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                 FieldToMatch: "<FieldToMatch>", // required
  * //                 TextTransformations: "<TextTransformations>", // required
  * //               },
+ * //               AsnMatchStatement: { // AsnMatchStatement
+ * //                 AsnList: [ // AsnList // required
+ * //                   Number("long"),
+ * //                 ],
+ * //                 ForwardedIPConfig: {
+ * //                   HeaderName: "STRING_VALUE", // required
+ * //                   FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                 },
+ * //               },
  * //             },
  * //             ForwardedIPConfig: {
  * //               HeaderName: "STRING_VALUE", // required
@@ -832,6 +842,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                 JA4Fingerprint: {
  * //                   FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //                 },
+ * //                 ASN: {},
  * //               },
  * //             ],
  * //           },
@@ -1001,6 +1012,12 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //             RegexString: "STRING_VALUE", // required
  * //             FieldToMatch: "<FieldToMatch>", // required
  * //             TextTransformations: "<TextTransformations>", // required
+ * //           },
+ * //           AsnMatchStatement: {
+ * //             AsnList: [ // required
+ * //               Number("long"),
+ * //             ],
+ * //             ForwardedIPConfig: "<ForwardedIPConfig>",
  * //           },
  * //         },
  * //         Action: "<RuleAction>",

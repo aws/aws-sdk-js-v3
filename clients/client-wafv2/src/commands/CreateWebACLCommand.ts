@@ -604,6 +604,7 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *                   JA4Fingerprint: { // RateLimitJA4Fingerprint
  *                     FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *                   },
+ *                   ASN: {},
  *                 },
  *               ],
  *             },
@@ -786,6 +787,15 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *               FieldToMatch: "<FieldToMatch>", // required
  *               TextTransformations: "<TextTransformations>", // required
  *             },
+ *             AsnMatchStatement: { // AsnMatchStatement
+ *               AsnList: [ // AsnList // required
+ *                 Number("long"),
+ *               ],
+ *               ForwardedIPConfig: {
+ *                 HeaderName: "STRING_VALUE", // required
+ *                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *               },
+ *             },
  *           },
  *           ForwardedIPConfig: {
  *             HeaderName: "STRING_VALUE", // required
@@ -823,6 +833,7 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *               JA4Fingerprint: {
  *                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *               },
+ *               ASN: {},
  *             },
  *           ],
  *         },
@@ -992,6 +1003,12 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *           RegexString: "STRING_VALUE", // required
  *           FieldToMatch: "<FieldToMatch>", // required
  *           TextTransformations: "<TextTransformations>", // required
+ *         },
+ *         AsnMatchStatement: {
+ *           AsnList: [ // required
+ *             Number("long"),
+ *           ],
+ *           ForwardedIPConfig: "<ForwardedIPConfig>",
  *         },
  *       },
  *       Action: "<RuleAction>",
