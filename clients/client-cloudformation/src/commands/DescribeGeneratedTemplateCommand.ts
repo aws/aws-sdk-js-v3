@@ -57,7 +57,7 @@ export interface DescribeGeneratedTemplateCommandOutput extends DescribeGenerate
  * //       ResourceStatusReason: "STRING_VALUE",
  * //       Warnings: [ // WarningDetails
  * //         { // WarningDetail
- * //           Type: "MUTUALLY_EXCLUSIVE_PROPERTIES" || "UNSUPPORTED_PROPERTIES" || "MUTUALLY_EXCLUSIVE_TYPES",
+ * //           Type: "MUTUALLY_EXCLUSIVE_PROPERTIES" || "UNSUPPORTED_PROPERTIES" || "MUTUALLY_EXCLUSIVE_TYPES" || "EXCLUDED_PROPERTIES",
  * //           Properties: [ // WarningProperties
  * //             { // WarningProperty
  * //               PropertyPath: "STRING_VALUE",

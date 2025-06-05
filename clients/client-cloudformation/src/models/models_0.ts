@@ -4408,6 +4408,7 @@ export interface WarningProperty {
  * @enum
  */
 export const WarningType = {
+  EXCLUDED_PROPERTIES: "EXCLUDED_PROPERTIES",
   MUTUALLY_EXCLUSIVE_PROPERTIES: "MUTUALLY_EXCLUSIVE_PROPERTIES",
   MUTUALLY_EXCLUSIVE_TYPES: "MUTUALLY_EXCLUSIVE_TYPES",
   UNSUPPORTED_PROPERTIES: "UNSUPPORTED_PROPERTIES",
@@ -4832,7 +4833,7 @@ export interface ScanFilter {
    *    the full list of supported resource types, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.html">Resource type
    *     support</a> table in the <i>CloudFormation User Guide</i>.</p>
    *          <p>To scan all resource types within a service, you can use a wildcard, represented by an
-   *    asterisk (<code>*</code>). You can place a asterisk at only the end of the string, for example,
+   *    asterisk (<code>*</code>). You can place an asterisk at only the end of the string, for example,
    *     <code>AWS::S3::*</code>.</p>
    * @public
    */
