@@ -32,7 +32,7 @@ export interface CreateAliasCommandOutput extends __MetadataBearer {}
  *          <note>
  *             <p>Adding, deleting, or updating an alias can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          </note>
- *          <p>You can use an alias to identify a KMS key in the KMS console, in the <a>DescribeKey</a> operation and in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>, such as <a>Encrypt</a> and
+ *          <p>You can use an alias to identify a KMS key in the KMS console, in the <a>DescribeKey</a> operation and in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a>, such as <a>Encrypt</a> and
  *         <a>GenerateDataKey</a>. You can also change the KMS key that's associated with
  *       the alias (<a>UpdateAlias</a>) or delete the alias (<a>DeleteAlias</a>)
  *       at any time. These operations don't affect the underlying KMS key. </p>
@@ -40,7 +40,7 @@ export interface CreateAliasCommandOutput extends __MetadataBearer {}
  *       alias is associated with only one KMS key at a time, but a KMS key can have multiple aliases.
  *       A valid KMS key is required. You can't create an alias without a KMS key.</p>
  *          <p>The alias must be unique in the account and Region, but you can have aliases with the same
- *       name in different Regions. For detailed information about aliases, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html">Using aliases</a> in the
+ *       name in different Regions. For detailed information about aliases, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html">Aliases in KMS</a> in the
  *       <i>Key Management Service Developer Guide</i>.</p>
  *          <p>This operation does not return a response. To get the alias that you created, use the
  *         <a>ListAliases</a> operation.</p>
@@ -63,8 +63,7 @@ export interface CreateAliasCommandOutput extends __MetadataBearer {}
  *           the KMS key (key policy).</p>
  *             </li>
  *          </ul>
- *          <p>For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html#alias-access">Controlling access to aliases</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
+ *          <p>For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/alias-access.html">Controlling access to aliases</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Related operations:</b>
  *          </p>
@@ -87,7 +86,7 @@ export interface CreateAliasCommandOutput extends __MetadataBearer {}
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -146,8 +145,9 @@ export interface CreateAliasCommandOutput extends __MetadataBearer {}
  *          </ul>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because a quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
+ *  <p>The request was rejected because a length constraint or quota was exceeded. For more
+ *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in
+ *       the <i>Key Management Service Developer Guide</i>.</p>
  *
  * @throws {@link NotFoundException} (client fault)
  *  <p>The request was rejected because the specified entity or resource could not be

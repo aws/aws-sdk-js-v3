@@ -40,15 +40,14 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  *          <p>The response might also include aliases that have no <code>TargetKeyId</code> field. These
  *       are predefined aliases that Amazon Web Services has created but has not yet associated with a KMS key.
  *       Aliases that Amazon Web Services creates in your account, including predefined aliases, do not count against
- *       your <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#aliases-limit">KMS aliases
- *         quota</a>.</p>
+ *       your <a href="https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html#aliases-per-key">KMS
+ *         aliases quota</a>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. <code>ListAliases</code> does not
  *       return aliases in other Amazon Web Services accounts.</p>
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListAliases</a> (IAM policy)</p>
- *          <p>For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html#alias-access">Controlling access to aliases</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
+ *          <p>For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/alias-access.html">Controlling access to aliases</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Related operations:</b>
  *          </p>
@@ -71,7 +70,7 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

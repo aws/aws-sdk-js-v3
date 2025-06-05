@@ -75,8 +75,8 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *       the <code>Decrypt</code> operation fails. This practice ensures that you use the KMS key that
  *       you intend.</p>
  *          <p>Whenever possible, use key policies to give users permission to call the
- *         <code>Decrypt</code> operation on a particular KMS key, instead of using &IAM; policies.
- *       Otherwise, you might create an &IAM; policy that gives the user <code>Decrypt</code>
+ *         <code>Decrypt</code> operation on a particular KMS key, instead of using IAM policies.
+ *       Otherwise, you might create an IAM policy that gives the user <code>Decrypt</code>
  *       permission on all KMS keys. This user could decrypt ciphertext that was encrypted by KMS keys
  *       in other accounts if the key policy for the cross-account KMS key permits it. If you must use
  *       an IAM policy for <code>Decrypt</code> permissions, limit the user to particular KMS keys or
@@ -124,7 +124,7 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -154,6 +154,7 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  * //   Plaintext: new Uint8Array(),
  * //   EncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
  * //   CiphertextForRecipient: new Uint8Array(),
+ * //   KeyMaterialId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -208,8 +209,8 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
  *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
  *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
- *       <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code> of a KMS key, use the
- *         <a>DescribeKey</a> operation.</p>
+ *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code>
+ *       of a KMS key, use the <a>DescribeKey</a> operation.</p>
  *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
  *         <a>DescribeKey</a> operation.</p>
  *
@@ -249,24 +250,6 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  *
- * @example To decrypt data with a symmetric encryption KMS key
- * ```javascript
- * // The following example decrypts data that was encrypted with a symmetric encryption KMS key. The KeyId is not required when decrypting with a symmetric encryption key, but it is a best practice.
- * const input = {
- *   CiphertextBlob: "<binary data>",
- *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
- * };
- * const command = new DecryptCommand(input);
- * const response = await client.send(command);
- * /* response is
- * {
- *   EncryptionAlgorithm: "SYMMETRIC_DEFAULT",
- *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   Plaintext: "<binary data>"
- * }
- * *\/
- * ```
- *
  * @example To decrypt data with an asymmetric encryption KMS key
  * ```javascript
  * // The following example decrypts data that was encrypted with an asymmetric encryption KMS key. When the KMS encryption key is asymmetric, you must specify the KMS key ID and the encryption algorithm that was used to encrypt the data.
@@ -281,6 +264,24 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  * {
  *   EncryptionAlgorithm: "RSAES_OAEP_SHA_256",
  *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+ *   Plaintext: "<binary data>"
+ * }
+ * *\/
+ * ```
+ *
+ * @example To decrypt data with a symmetric encryption KMS key
+ * ```javascript
+ * // The following example decrypts data that was encrypted with a symmetric encryption KMS key. The KeyId is not required when decrypting with a symmetric encryption key, but it is a best practice.
+ * const input = {
+ *   CiphertextBlob: "<binary data>",
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new DecryptCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   EncryptionAlgorithm: "SYMMETRIC_DEFAULT",
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
  *   Plaintext: "<binary data>"
  * }
  * *\/

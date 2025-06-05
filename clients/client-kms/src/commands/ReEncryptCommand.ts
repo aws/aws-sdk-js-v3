@@ -29,18 +29,15 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
 
 /**
  * <p>Decrypts ciphertext and then reencrypts it entirely within KMS. You can use this
- *       operation to change the KMS key under which data is encrypted, such as when you <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-manually">manually
- *         rotate</a> a KMS key or change the KMS key that protects a ciphertext. You can also use
- *       it to reencrypt ciphertext under the same KMS key, such as to change the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption
- *         context</a> of a ciphertext.</p>
+ *       operation to change the KMS key under which data is encrypted, such as when you <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys-manually.html">manually rotate</a> a
+ *       KMS key or change the KMS key that protects a ciphertext. You can also use it to reencrypt
+ *       ciphertext under the same KMS key, such as to change the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">encryption context</a> of a ciphertext.</p>
  *          <p>The <code>ReEncrypt</code> operation can decrypt ciphertext that was encrypted by using a
  *       KMS key in an KMS operation, such as <a>Encrypt</a> or <a>GenerateDataKey</a>. It can also decrypt ciphertext that was encrypted by using the
- *       public key of an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks">asymmetric KMS key</a>
- *       outside of KMS. However, it cannot decrypt ciphertext produced by other libraries, such as
- *       the <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">Amazon Web Services Encryption SDK</a> or
- *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon S3
- *         client-side encryption</a>. These libraries return a ciphertext format that is
- *       incompatible with KMS.</p>
+ *       public key of an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS key</a> outside of KMS. However, it cannot decrypt ciphertext produced
+ *       by other libraries, such as the <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">Amazon Web Services
+ *         Encryption SDK</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon S3 client-side encryption</a>.
+ *       These libraries return a ciphertext format that is incompatible with KMS.</p>
  *          <p>When you use the <code>ReEncrypt</code> operation, you need to provide information for the
  *       decrypt operation and the subsequent encrypt operation.</p>
  *          <ul>
@@ -125,7 +122,7 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -157,6 +154,8 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  * //   KeyId: "STRING_VALUE",
  * //   SourceEncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
  * //   DestinationEncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
+ * //   SourceKeyMaterialId: "STRING_VALUE",
+ * //   DestinationKeyMaterialId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -211,8 +210,8 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
  *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
  *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
- *       <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code> of a KMS key, use the
- *         <a>DescribeKey</a> operation.</p>
+ *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code>
+ *       of a KMS key, use the <a>DescribeKey</a> operation.</p>
  *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
  *         <a>DescribeKey</a> operation.</p>
  *

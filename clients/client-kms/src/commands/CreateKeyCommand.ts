@@ -34,9 +34,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *       resources.</p>
  *          <p>A KMS key is a logical representation of a cryptographic key. In addition to the key
  *       material used in cryptographic operations, a KMS key includes metadata, such as the key ID,
- *       key policy, creation date, description, and key state. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html">Managing keys</a> in the
- *       <i>Key Management Service Developer Guide</i>
- *          </p>
+ *       key policy, creation date, description, and key state. </p>
  *          <p>Use the parameters of <code>CreateKey</code> to specify the type of KMS key, the source of
  *       its key material, its key policy, description, tags, and other properties.</p>
  *          <note>
@@ -71,13 +69,14 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *                <p>Asymmetric KMS keys contain an RSA key pair, Elliptic Curve (ECC) key pair, or an
  *             SM2 key pair (China Regions only). The private key in an asymmetric KMS key never leaves
  *             KMS unencrypted. However, you can use the <a>GetPublicKey</a> operation to
- *             download the public key so it can be used outside of KMS. Each KMS key can have only one key usage. KMS keys with RSA key
- *             pairs can be used to encrypt and decrypt data or sign and verify messages (but not both).
- *             KMS keys with NIST-recommended ECC key pairs can be used to sign and verify messages or
- *             derive shared secrets (but not both). KMS keys with <code>ECC_SECG_P256K1</code>
- *             can be used only to sign and verify messages. KMS keys with SM2 key pairs (China Regions only)
- *             can be used to either encrypt and decrypt data, sign and verify messages, or derive shared secrets (you must choose one key usage type). For
- *             information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric KMS keys</a> in the
+ *             download the public key so it can be used outside of KMS. Each KMS key can have only
+ *             one key usage. KMS keys with RSA key pairs can be used to encrypt and decrypt data or
+ *             sign and verify messages (but not both). KMS keys with NIST-recommended ECC key pairs
+ *             can be used to sign and verify messages or derive shared secrets (but not both). KMS
+ *             keys with <code>ECC_SECG_P256K1</code> can be used only to sign and verify messages. KMS
+ *             keys with SM2 key pairs (China Regions only) can be used to either encrypt and decrypt
+ *             data, sign and verify messages, or derive shared secrets (you must choose one key usage
+ *             type). For information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric KMS keys</a> in the
  *             <i>Key Management Service Developer Guide</i>.</p>
  *                <p> </p>
  *             </dd>
@@ -126,13 +125,13 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *                <p>To create a multi-Region primary key with imported key material, use the
  *               <code>Origin</code> parameter of <code>CreateKey</code> with a value of
  *               <code>EXTERNAL</code> and the <code>MultiRegion</code> parameter with a value of
- *               <code>True</code>. To create replicas of the multi-Region primary key, use the <a>ReplicateKey</a> operation. For instructions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-import.html ">Importing key material into
- *               multi-Region keys</a>. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *               <code>True</code>. To create replicas of the multi-Region primary key, use the <a>ReplicateKey</a> operation. For instructions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html ">Importing key material step
+ *               1</a>. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *                <p> </p>
  *             </dd>
  *             <dt>Custom key store</dt>
  *             <dd>
- *                <p>A <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> lets you protect your Amazon Web Services resources using keys in a backing key
+ *                <p>A <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a> lets you protect your Amazon Web Services resources using keys in a backing key
  *             store that you own and manage. When you request a cryptographic operation with a KMS key
  *             in a custom key store, the operation is performed in the backing key store using its
  *             cryptographic keys.</p>
@@ -154,11 +153,11 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *             Use the default <code>KeySpec</code> value, <code>SYMMETRIC_DEFAULT</code>, and the
  *             default <code>KeyUsage</code> value, <code>ENCRYPT_DECRYPT</code> to create a symmetric
  *             encryption key. No other key type is supported in a custom key store.</p>
- *                <p>To create a KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM key store</a>, use the
+ *                <p>To create a KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html">CloudHSM key store</a>, use the
  *               <code>Origin</code> parameter with a value of <code>AWS_CLOUDHSM</code>. The CloudHSM
  *             cluster that is associated with the custom key store must have at least two active HSMs
  *             in different Availability Zones in the Amazon Web Services Region.</p>
- *                <p>To create a KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html">external key store</a>, use the
+ *                <p>To create a KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keys.html">external key store</a>, use the
  *               <code>Origin</code> parameter with a value of <code>EXTERNAL_KEY_STORE</code> and an
  *               <code>XksKeyId</code> parameter that identifies an existing external key.</p>
  *                <note>
@@ -173,8 +172,8 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateKey</a> (IAM policy). To use the
  *         <code>Tags</code> parameter, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> (IAM policy). For examples and information about related
- *       permissions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#iam-policy-example-create-key">Allow a user to create
- *         KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *       permissions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/customer-managed-policies.html#iam-policy-example-create-key">Allow a user
+ *         to create KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Related operations:</b>
  *          </p>
@@ -197,7 +196,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -273,6 +272,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * //     XksKeyConfiguration: { // XksKeyConfigurationType
  * //       Id: "STRING_VALUE",
  * //     },
+ * //     CurrentKeyMaterialId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -371,8 +371,9 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *       retried.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because a quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
+ *  <p>The request was rejected because a length constraint or quota was exceeded. For more
+ *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in
+ *       the <i>Key Management Service Developer Guide</i>.</p>
  *
  * @throws {@link MalformedPolicyDocumentException} (client fault)
  *  <p>The request was rejected because the specified policy is not syntactically or semantically

@@ -1126,9 +1126,12 @@ export const de_DeleteImportedKeyMaterialCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  await collectBody(output.body, context);
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
   const response: DeleteImportedKeyMaterialCommandOutput = {
     $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -3027,7 +3030,10 @@ const se_ImportKeyMaterialRequest = (input: ImportKeyMaterialRequest, context: _
     EncryptedKeyMaterial: context.base64Encoder,
     ExpirationModel: [],
     ImportToken: context.base64Encoder,
+    ImportType: [],
     KeyId: [],
+    KeyMaterialDescription: [],
+    KeyMaterialId: [],
     ValidTo: (_) => _.getTime() / 1_000,
   });
 };
@@ -3249,11 +3255,14 @@ const de_DecryptResponse = (output: any, context: __SerdeContext): DecryptRespon
     CiphertextForRecipient: context.base64Decoder,
     EncryptionAlgorithm: __expectString,
     KeyId: __expectString,
+    KeyMaterialId: __expectString,
     Plaintext: context.base64Decoder,
   }) as any;
 };
 
 // de_DeleteCustomKeyStoreResponse omitted.
+
+// de_DeleteImportedKeyMaterialResponse omitted.
 
 // de_DependencyTimeoutException omitted.
 
@@ -3308,6 +3317,7 @@ const de_EncryptResponse = (output: any, context: __SerdeContext): EncryptRespon
     CiphertextBlob: context.base64Decoder,
     EncryptionAlgorithm: __expectString,
     KeyId: __expectString,
+    KeyMaterialId: __expectString,
   }) as any;
 };
 
@@ -3320,6 +3330,7 @@ const de_GenerateDataKeyPairResponse = (output: any, context: __SerdeContext): G
   return take(output, {
     CiphertextForRecipient: context.base64Decoder,
     KeyId: __expectString,
+    KeyMaterialId: __expectString,
     KeyPairSpec: __expectString,
     PrivateKeyCiphertextBlob: context.base64Decoder,
     PrivateKeyPlaintext: context.base64Decoder,
@@ -3336,6 +3347,7 @@ const de_GenerateDataKeyPairWithoutPlaintextResponse = (
 ): GenerateDataKeyPairWithoutPlaintextResponse => {
   return take(output, {
     KeyId: __expectString,
+    KeyMaterialId: __expectString,
     KeyPairSpec: __expectString,
     PrivateKeyCiphertextBlob: context.base64Decoder,
     PublicKey: context.base64Decoder,
@@ -3350,6 +3362,7 @@ const de_GenerateDataKeyResponse = (output: any, context: __SerdeContext): Gener
     CiphertextBlob: context.base64Decoder,
     CiphertextForRecipient: context.base64Decoder,
     KeyId: __expectString,
+    KeyMaterialId: __expectString,
     Plaintext: context.base64Decoder,
   }) as any;
 };
@@ -3364,6 +3377,7 @@ const de_GenerateDataKeyWithoutPlaintextResponse = (
   return take(output, {
     CiphertextBlob: context.base64Decoder,
     KeyId: __expectString,
+    KeyMaterialId: __expectString,
   }) as any;
 };
 
@@ -3503,6 +3517,7 @@ const de_KeyMetadata = (output: any, context: __SerdeContext): KeyMetadata => {
     Arn: __expectString,
     CloudHsmClusterId: __expectString,
     CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CurrentKeyMaterialId: __expectString,
     CustomKeyStoreId: __expectString,
     CustomerMasterKeySpec: __expectString,
     DeletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -3599,9 +3614,11 @@ const de_ReEncryptResponse = (output: any, context: __SerdeContext): ReEncryptRe
   return take(output, {
     CiphertextBlob: context.base64Decoder,
     DestinationEncryptionAlgorithm: __expectString,
+    DestinationKeyMaterialId: __expectString,
     KeyId: __expectString,
     SourceEncryptionAlgorithm: __expectString,
     SourceKeyId: __expectString,
+    SourceKeyMaterialId: __expectString,
   }) as any;
 };
 
@@ -3635,9 +3652,15 @@ const de_RotationsList = (output: any, context: __SerdeContext): RotationsListEn
  */
 const de_RotationsListEntry = (output: any, context: __SerdeContext): RotationsListEntry => {
   return take(output, {
+    ExpirationModel: __expectString,
+    ImportState: __expectString,
     KeyId: __expectString,
+    KeyMaterialDescription: __expectString,
+    KeyMaterialId: __expectString,
+    KeyMaterialState: __expectString,
     RotationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     RotationType: __expectString,
+    ValidTo: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
 

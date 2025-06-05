@@ -40,7 +40,7 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *         <code>EncryptionContext</code> when encrypting data, you must specify the same encryption
  *       context (a case-sensitive exact match) when decrypting the data. Otherwise, the request to
  *       decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see
- *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+ *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption
  *         Context</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>If you specify an asymmetric KMS key, you must also specify the encryption algorithm. The
  *       algorithm must be compatible with the KMS key spec.</p>
@@ -139,7 +139,7 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -164,6 +164,7 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  * //   CiphertextBlob: new Uint8Array(),
  * //   KeyId: "STRING_VALUE",
  * //   EncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
+ * //   KeyMaterialId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -204,8 +205,8 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
  *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
  *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
- *       <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code> of a KMS key, use the
- *         <a>DescribeKey</a> operation.</p>
+ *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code>
+ *       of a KMS key, use the <a>DescribeKey</a> operation.</p>
  *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
  *         <a>DescribeKey</a> operation.</p>
  *

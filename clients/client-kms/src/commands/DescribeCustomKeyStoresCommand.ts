@@ -32,8 +32,8 @@ export interface DescribeCustomKeyStoresCommandInput extends DescribeCustomKeySt
 export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyStoresResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a> in the account and Region.</p>
- *          <p> This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a> feature in KMS, which
+ * <p>Gets information about <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key stores</a> in the account and Region.</p>
+ *          <p> This operation is part of the custom key stores feature in KMS, which
  * combines the convenience and extensive integration of KMS with the isolation and control of a
  * key store that you own and manage.</p>
  *          <p>By default, this operation returns information about all custom key stores in the account
@@ -93,7 +93,7 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

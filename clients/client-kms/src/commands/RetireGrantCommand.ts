@@ -35,20 +35,19 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  *          <p>This operation can be called by the <i>retiring principal</i> for a grant,
  *       by the <i>grantee principal</i> if the grant allows the <code>RetireGrant</code>
  *       operation, and by the Amazon Web Services account in which the grant is created. It can also be called by
- *       principals to whom permission for retiring a grant is delegated. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring and revoking
- *         grants</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *       principals to whom permission for retiring a grant is delegated.</p>
  *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants in KMS</a> in the
  *         <i>
  *                <i>Key Management Service Developer Guide</i>
- *             </i>. For examples of working with grants in several
- *       programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming grants</a>. </p>
+ *             </i>. For examples of creating grants in several
+ *       programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/example_kms_CreateGrant_section.html">Use CreateGrant with an Amazon Web Services SDK or CLI</a>. </p>
  *          <p>
  *             <b>Cross-account use</b>: Yes. You can retire a grant on a KMS
  *       key in a different Amazon Web Services account.</p>
  *          <p>
  *             <b>Required permissions</b>: Permission to retire a grant is
- *       determined primarily by the grant. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring and revoking grants</a> in
- *       the <i>Key Management Service Developer Guide</i>.</p>
+ *       determined primarily by the grant. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-delete.html">Retiring and revoking grants</a> in the
+ *       <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Related operations:</b>
  *          </p>
@@ -76,7 +75,7 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

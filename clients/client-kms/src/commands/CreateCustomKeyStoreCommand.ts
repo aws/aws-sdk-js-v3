@@ -32,14 +32,14 @@ export interface CreateCustomKeyStoreCommandInput extends CreateCustomKeyStoreRe
 export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> backed by a key store that you own and manage. When you use a
+ * <p>Creates a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a> backed by a key store that you own and manage. When you use a
  *       KMS key in a custom key store for a cryptographic operation, the cryptographic operation is
  *       actually performed in your key store using your keys. KMS supports <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM key stores</a>
  *       backed by an <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/clusters.html">CloudHSM cluster</a>
  *       and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html">external key
  *         stores</a> backed by an external key store proxy and external key manager outside of
  *       Amazon Web Services.</p>
- *          <p> This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a> feature in KMS, which
+ *          <p> This operation is part of the custom key stores feature in KMS, which
  * combines the convenience and extensive integration of KMS with the isolation and control of a
  * key store that you own and manage.</p>
  *          <p>Before you create the custom key store, the required elements must be in place and
@@ -85,8 +85,6 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  *       external key manager. Even if you are not going to use your custom key store immediately, you
  *       might want to connect it to verify that all settings are correct and then disconnect it until
  *       you are ready to use it.</p>
- *          <p>For help with failures, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting a custom key store</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a custom key store in a different Amazon Web Services account.</p>
  *          <p>
@@ -123,7 +121,7 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -227,8 +225,9 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  *       retried.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because a quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
+ *  <p>The request was rejected because a length constraint or quota was exceeded. For more
+ *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in
+ *       the <i>Key Management Service Developer Guide</i>.</p>
  *
  * @throws {@link XksProxyIncorrectAuthenticationCredentialException} (client fault)
  *  <p>The request was rejected because the proxy credentials failed to authenticate to the

@@ -28,11 +28,12 @@ export interface ListKeyRotationsCommandInput extends ListKeyRotationsRequest {}
 export interface ListKeyRotationsCommandOutput extends ListKeyRotationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about all completed key material rotations for the specified KMS
- *       key.</p>
+ * <p>Returns information about the key materials associated with the specified KMS
+ *       key. You can use the optional <code>IncludeKeyMaterial</code> parameter to control which key materials
+ *       are included in the response.</p>
  *          <p>You must specify the KMS key in all requests. You can refine the key rotations list by
  *       limiting the number of rotations returned.</p>
- *          <p>For detailed information about automatic and on-demand key rotations, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">Rotating KMS keys</a> in the
+ *          <p>For detailed information about automatic and on-demand key rotations, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">Rotate KMS keys</a> in the
  *       <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
@@ -49,6 +50,11 @@ export interface ListKeyRotationsCommandOutput extends ListKeyRotationsResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <a>DeleteImportedKeyMaterial</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>DisableKeyRotation</a>
  *                </p>
  *             </li>
@@ -59,13 +65,18 @@ export interface ListKeyRotationsCommandOutput extends ListKeyRotationsResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <a>ImportKeyMaterial</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>RotateKeyOnDemand</a>
  *                </p>
  *             </li>
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,6 +85,7 @@ export interface ListKeyRotationsCommandOutput extends ListKeyRotationsResponse,
  * const client = new KMSClient(config);
  * const input = { // ListKeyRotationsRequest
  *   KeyId: "STRING_VALUE", // required
+ *   IncludeKeyMaterial: "ALL_KEY_MATERIAL" || "ROTATIONS_ONLY",
  *   Limit: Number("int"),
  *   Marker: "STRING_VALUE",
  * };
@@ -83,6 +95,12 @@ export interface ListKeyRotationsCommandOutput extends ListKeyRotationsResponse,
  * //   Rotations: [ // RotationsList
  * //     { // RotationsListEntry
  * //       KeyId: "STRING_VALUE",
+ * //       KeyMaterialId: "STRING_VALUE",
+ * //       KeyMaterialDescription: "STRING_VALUE",
+ * //       ImportState: "IMPORTED" || "PENDING_IMPORT",
+ * //       KeyMaterialState: "NON_CURRENT" || "CURRENT" || "PENDING_ROTATION",
+ * //       ExpirationModel: "KEY_MATERIAL_EXPIRES" || "KEY_MATERIAL_DOES_NOT_EXPIRE",
+ * //       ValidTo: new Date("TIMESTAMP"),
  * //       RotationDate: new Date("TIMESTAMP"),
  * //       RotationType: "AUTOMATIC" || "ON_DEMAND",
  * //     },

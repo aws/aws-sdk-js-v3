@@ -37,7 +37,7 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  *          <p>Use the required <code>CustomKeyStoreId</code> parameter to identify the custom key store.
  *       Use the remaining optional parameters to change its properties. This operation does not return
  *       any property values. To verify the updated property values, use the <a>DescribeCustomKeyStores</a> operation.</p>
- *          <p> This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a> feature in KMS, which
+ *          <p> This operation is part of the custom key stores feature in KMS, which
  * combines the convenience and extensive integration of KMS with the isolation and control of a
  * key store that you own and manage.</p>
  *          <important>
@@ -127,7 +127,7 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -348,12 +348,14 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * *\/
  * ```
  *
- * @example To associate the custom key store with a different, but related, AWS CloudHSM cluster.
+ * @example To update the proxy connectivity of an external key store to VPC_ENDPOINT_SERVICE
  * ```javascript
- * // This example changes the AWS CloudHSM cluster that is associated with an AWS CloudHSM key store to a related cluster, such as a different backup of the same cluster. This operation does not return any data. To verify that the operation worked, use the DescribeCustomKeyStores operation.
+ * // To change the external key store proxy connectivity option from public endpoint connectivity to VPC endpoint service connectivity, in addition to changing the <code>XksProxyConnectivity</code> value, you must change the <code>XksProxyUriEndpoint</code> value to reflect the private DNS name associated with the VPC endpoint service. You must also add an <code>XksProxyVpcEndpointServiceName</code> value.
  * const input = {
- *   CloudHsmClusterId: "cluster-234abcdefABC",
- *   CustomKeyStoreId: "cks-1234567890abcdef0"
+ *   CustomKeyStoreId: "cks-1234567890abcdef0",
+ *   XksProxyConnectivity: "VPC_ENDPOINT_SERVICE",
+ *   XksProxyUriEndpoint: "https://myproxy-private.xks.example.com",
+ *   XksProxyVpcEndpointServiceName: "com.amazonaws.vpce.us-east-1.vpce-svc-example"
  * };
  * const command = new UpdateCustomKeyStoreCommand(input);
  * const response = await client.send(command);
@@ -376,14 +378,12 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * *\/
  * ```
  *
- * @example To update the proxy connectivity of an external key store to VPC_ENDPOINT_SERVICE
+ * @example To associate the custom key store with a different, but related, AWS CloudHSM cluster.
  * ```javascript
- * // To change the external key store proxy connectivity option from public endpoint connectivity to VPC endpoint service connectivity, in addition to changing the <code>XksProxyConnectivity</code> value, you must change the <code>XksProxyUriEndpoint</code> value to reflect the private DNS name associated with the VPC endpoint service. You must also add an <code>XksProxyVpcEndpointServiceName</code> value.
+ * // This example changes the AWS CloudHSM cluster that is associated with an AWS CloudHSM key store to a related cluster, such as a different backup of the same cluster. This operation does not return any data. To verify that the operation worked, use the DescribeCustomKeyStores operation.
  * const input = {
- *   CustomKeyStoreId: "cks-1234567890abcdef0",
- *   XksProxyConnectivity: "VPC_ENDPOINT_SERVICE",
- *   XksProxyUriEndpoint: "https://myproxy-private.xks.example.com",
- *   XksProxyVpcEndpointServiceName: "com.amazonaws.vpce.us-east-1.vpce-svc-example"
+ *   CloudHsmClusterId: "cluster-234abcdefABC",
+ *   CustomKeyStoreId: "cks-1234567890abcdef0"
  * };
  * const command = new UpdateCustomKeyStoreCommand(input);
  * const response = await client.send(command);

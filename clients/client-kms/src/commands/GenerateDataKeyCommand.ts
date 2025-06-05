@@ -53,7 +53,7 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *          <p>You can use an optional encryption context to add additional security to the encryption
  *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
  *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
- *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the
+ *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption Context</a> in the
  *       <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <code>GenerateDataKey</code> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon Web Services Nitro Enclaves</a>, which provide an
@@ -137,7 +137,7 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -167,6 +167,7 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  * //   Plaintext: new Uint8Array(),
  * //   KeyId: "STRING_VALUE",
  * //   CiphertextForRecipient: new Uint8Array(),
+ * //   KeyMaterialId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -207,8 +208,8 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
  *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
  *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
- *       <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code> of a KMS key, use the
- *         <a>DescribeKey</a> operation.</p>
+ *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code>
+ *       of a KMS key, use the <a>DescribeKey</a> operation.</p>
  *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
  *         <a>DescribeKey</a> operation.</p>
  *

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { DeleteImportedKeyMaterialRequest } from "../models/models_0";
+import { DeleteImportedKeyMaterialRequest, DeleteImportedKeyMaterialResponse } from "../models/models_0";
 import { de_DeleteImportedKeyMaterialCommand, se_DeleteImportedKeyMaterialCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -25,7 +25,7 @@ export interface DeleteImportedKeyMaterialCommandInput extends DeleteImportedKey
  *
  * The output of {@link DeleteImportedKeyMaterialCommand}.
  */
-export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer {}
+export interface DeleteImportedKeyMaterialCommandOutput extends DeleteImportedKeyMaterialResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes key material that was previously imported. This operation makes the specified KMS
@@ -52,13 +52,18 @@ export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer
  *             </li>
  *             <li>
  *                <p>
+ *                   <a>ListKeyRotations</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>ImportKeyMaterial</a>
  *                </p>
  *             </li>
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,10 +72,14 @@ export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer
  * const client = new KMSClient(config);
  * const input = { // DeleteImportedKeyMaterialRequest
  *   KeyId: "STRING_VALUE", // required
+ *   KeyMaterialId: "STRING_VALUE",
  * };
  * const command = new DeleteImportedKeyMaterialCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DeleteImportedKeyMaterialResponse
+ * //   KeyId: "STRING_VALUE",
+ * //   KeyMaterialId: "STRING_VALUE",
+ * // };
  *
  * ```
  *
@@ -164,7 +173,7 @@ export class DeleteImportedKeyMaterialCommand extends $Command
   protected declare static __types: {
     api: {
       input: DeleteImportedKeyMaterialRequest;
-      output: {};
+      output: DeleteImportedKeyMaterialResponse;
     };
     sdk: {
       input: DeleteImportedKeyMaterialCommandInput;

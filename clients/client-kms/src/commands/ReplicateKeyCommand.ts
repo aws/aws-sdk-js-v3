@@ -40,14 +40,10 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  *          <p>A <i>replica key</i> is a fully-functional KMS key that can be used
  *       independently of its primary and peer replica keys. A primary key and its replica keys share
  *       properties that make them interoperable. They have the same <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">key ID</a> and key material. They also
- *       have the same <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-spec">key
- *         spec</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-usage">key
- *         usage</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-origin">key
- *         material origin</a>, and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic key rotation status</a>. KMS automatically synchronizes these shared
- *       properties among related multi-Region keys. All other properties of a replica key can differ,
- *       including its <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">key
- *         policy</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">tags</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html">aliases</a>, and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a>. KMS pricing and quotas for KMS keys apply to each
- *       primary key and replica key.</p>
+ *       have the same key spec, key usage, key material origin, and automatic key rotation status.
+ *       KMS automatically synchronizes these shared properties among related multi-Region keys. All
+ *       other properties of a replica key can differ, including its <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">key policy</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">tags</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html">aliases</a>, and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">key state</a>. KMS pricing and quotas for KMS keys
+ *       apply to each primary key and replica key.</p>
  *          <p>When this operation completes, the new replica key has a transient key state of
  *         <code>Creating</code>. This key state changes to <code>Enabled</code> (or
  *         <code>PendingImport</code>) after a few seconds when the process of creating the new replica
@@ -67,8 +63,7 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  *         <code>ReplicateKey</code> operation in the primary key's Region and a <a>CreateKey</a> operation in the replica key's Region.</p>
  *          <p>If you replicate a multi-Region primary key with imported key material, the replica key is
  *       created with no key material. You must import the same key material that you imported into the
- *       primary key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-import.html">Importing key material into multi-Region
- *         keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *       primary key.</p>
  *          <p>To convert a replica key to a primary key, use the <a>UpdatePrimaryRegion</a>
  *       operation.</p>
  *          <note>
@@ -114,7 +109,7 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -185,6 +180,7 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  * //     XksKeyConfiguration: { // XksKeyConfigurationType
  * //       Id: "STRING_VALUE",
  * //     },
+ * //     CurrentKeyMaterialId: "STRING_VALUE",
  * //   },
  * //   ReplicaPolicy: "STRING_VALUE",
  * //   ReplicaTags: [ // TagList
@@ -239,8 +235,9 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  *          </ul>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because a quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
+ *  <p>The request was rejected because a length constraint or quota was exceeded. For more
+ *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in
+ *       the <i>Key Management Service Developer Guide</i>.</p>
  *
  * @throws {@link MalformedPolicyDocumentException} (client fault)
  *  <p>The request was rejected because the specified policy is not syntactically or semantically
