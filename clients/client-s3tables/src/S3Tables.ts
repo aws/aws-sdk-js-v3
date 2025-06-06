@@ -317,6 +317,7 @@ export interface S3Tables {
   /**
    * @see {@link GetTableCommand}
    */
+  getTable(): Promise<GetTableCommandOutput>;
   getTable(args: GetTableCommandInput, options?: __HttpHandlerOptions): Promise<GetTableCommandOutput>;
   getTable(args: GetTableCommandInput, cb: (err: any, data?: GetTableCommandOutput) => void): void;
   getTable(

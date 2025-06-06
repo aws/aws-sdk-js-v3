@@ -33,13 +33,7 @@ export interface GetTableMaintenanceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets details about the maintenance configuration of a table. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-maintenance.html">S3 Tables maintenance</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3tables:GetTableMaintenanceConfiguration</code> permission to use this operation. </p>
- *             </dd>
- *          </dl>
+ * <p>Gets details about the maintenance configuration of a table. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-maintenance.html">S3 Tables maintenance</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableMaintenanceConfiguration</code> permission to use this operation. </p> </dd> </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,8 +77,7 @@ export interface GetTableMaintenanceConfigurationCommandOutput
  *  <p>The request is invalid or malformed.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because there is a conflict with a previous write. You can retry the
- *       request.</p>
+ *  <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The caller isn't authorized to make the request.</p>

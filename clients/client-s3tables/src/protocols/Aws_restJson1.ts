@@ -322,12 +322,15 @@ export const se_GetTableCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = {};
-  b.bp("/tables/{tableBucketARN}/{namespace}/{name}");
-  b.p("tableBucketARN", () => input.tableBucketARN!, "{tableBucketARN}", false);
-  b.p("namespace", () => input.namespace!, "{namespace}", false);
-  b.p("name", () => input.name!, "{name}", false);
+  b.bp("/get-table");
+  const query: any = map({
+    [_tBARN]: [, input[_tBARN]!],
+    [_n]: [, input[_n]!],
+    [_na]: [, input[_na]!],
+    [_tA]: [, input[_tA]!],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1688,5 +1691,8 @@ const _mB = "maxBuckets";
 const _mN = "maxNamespaces";
 const _mT = "maxTables";
 const _n = "namespace";
+const _na = "name";
 const _p = "prefix";
+const _tA = "tableArn";
+const _tBARN = "tableBucketARN";
 const _vT = "versionToken";

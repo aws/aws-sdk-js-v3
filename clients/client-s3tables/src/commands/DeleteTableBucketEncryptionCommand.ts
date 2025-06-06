@@ -31,13 +31,7 @@ export interface DeleteTableBucketEncryptionCommandInput extends DeleteTableBuck
 export interface DeleteTableBucketEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the encryption configuration for a table bucket.</p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3tables:DeleteTableBucketEncryption</code> permission to use this operation.</p>
- *             </dd>
- *          </dl>
+ * <p>Deletes the encryption configuration for a table bucket.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:DeleteTableBucketEncryption</code> permission to use this operation.</p> </dd> </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +57,7 @@ export interface DeleteTableBucketEncryptionCommandOutput extends __MetadataBear
  *  <p>The request is invalid or malformed.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because there is a conflict with a previous write. You can retry the
- *       request.</p>
+ *  <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The caller isn't authorized to make the request.</p>

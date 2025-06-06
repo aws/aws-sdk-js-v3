@@ -28,13 +28,7 @@ export interface CreateNamespaceCommandInput extends CreateNamespaceRequest {}
 export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a namespace. A namespace is a logical grouping of tables within your table bucket, which you can use to organize tables. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-namespace-create.html">Create a namespace</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3tables:CreateNamespace</code> permission to use this operation. </p>
- *             </dd>
- *          </dl>
+ * <p>Creates a namespace. A namespace is a logical grouping of tables within your table bucket, which you can use to organize tables. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-namespace-create.html">Create a namespace</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:CreateNamespace</code> permission to use this operation. </p> </dd> </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +62,7 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  *  <p>The request is invalid or malformed.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because there is a conflict with a previous write. You can retry the
- *       request.</p>
+ *  <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The caller isn't authorized to make the request.</p>

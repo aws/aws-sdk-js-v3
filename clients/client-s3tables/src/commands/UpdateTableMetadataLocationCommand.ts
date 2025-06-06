@@ -33,13 +33,7 @@ export interface UpdateTableMetadataLocationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates the metadata location for a table.  The metadata location of a table must be an S3 URI that begins with the table's warehouse location. The metadata location for an Apache Iceberg table must end with <code>.metadata.json</code>, or if the metadata file is Gzip-compressed, <code>.metadata.json.gz</code>.</p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3tables:UpdateTableMetadataLocation</code> permission to use this operation. </p>
- *             </dd>
- *          </dl>
+ * <p>Updates the metadata location for a table. The metadata location of a table must be an S3 URI that begins with the table's warehouse location. The metadata location for an Apache Iceberg table must end with <code>.metadata.json</code>, or if the metadata file is Gzip-compressed, <code>.metadata.json.gz</code>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:UpdateTableMetadataLocation</code> permission to use this operation. </p> </dd> </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,8 +71,7 @@ export interface UpdateTableMetadataLocationCommandOutput
  *  <p>The request is invalid or malformed.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because there is a conflict with a previous write. You can retry the
- *       request.</p>
+ *  <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The caller isn't authorized to make the request.</p>

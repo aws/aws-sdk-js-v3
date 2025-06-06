@@ -28,13 +28,7 @@ export interface GetTableEncryptionCommandInput extends GetTableEncryptionReques
 export interface GetTableEncryptionCommandOutput extends GetTableEncryptionResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the encryption configuration for a table.</p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3tables:GetTableEncryption</code> permission to use this operation.</p>
- *             </dd>
- *          </dl>
+ * <p>Gets the encryption configuration for a table.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableEncryption</code> permission to use this operation.</p> </dd> </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

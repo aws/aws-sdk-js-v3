@@ -28,13 +28,7 @@ export interface GetTableCommandInput extends GetTableRequest {}
 export interface GetTableCommandOutput extends GetTableResponse, __MetadataBearer {}
 
 /**
- * <p>Gets details about a table. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-tables.html">S3 Tables</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3tables:GetTable</code> permission to use this operation. </p>
- *             </dd>
- *          </dl>
+ * <p>Gets details about a table. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-tables.html">S3 Tables</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTable</code> permission to use this operation. </p> </dd> </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -42,9 +36,10 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * // const { S3TablesClient, GetTableCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
  * const client = new S3TablesClient(config);
  * const input = { // GetTableRequest
- *   tableBucketARN: "STRING_VALUE", // required
- *   namespace: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
+ *   tableBucketARN: "STRING_VALUE",
+ *   namespace: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   tableArn: "STRING_VALUE",
  * };
  * const command = new GetTableCommand(input);
  * const response = await client.send(command);
@@ -84,8 +79,7 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  *  <p>The request is invalid or malformed.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because there is a conflict with a previous write. You can retry the
- *       request.</p>
+ *  <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The caller isn't authorized to make the request.</p>

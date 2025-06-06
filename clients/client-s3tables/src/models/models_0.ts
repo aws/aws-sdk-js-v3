@@ -44,8 +44,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>The request failed because there is a conflict with a previous write. You can retry the
- *       request.</p>
+ * <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -344,10 +343,7 @@ export interface CreateTableRequest {
   metadata?: TableMetadata | undefined;
 
   /**
-   * <p>The encryption configuration to use for the table. This configuration specifies the encryption algorithm and, if using SSE-KMS, the KMS key to use for encrypting the table. </p>
-   *          <note>
-   *             <p>If you choose SSE-KMS encryption you must grant the S3 Tables maintenance principal access to your KMS key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html">Permissions requirements for S3 Tables SSE-KMS encryption</a>.</p>
-   *          </note>
+   * <p>The encryption configuration to use for the table. This configuration specifies the encryption algorithm and, if using SSE-KMS, the KMS key to use for encrypting the table. </p> <note> <p>If you choose SSE-KMS encryption you must grant the S3 Tables maintenance principal access to your KMS key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html">Permissions requirements for S3 Tables SSE-KMS encryption</a>.</p> </note>
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
@@ -566,19 +562,25 @@ export interface GetTableRequest {
    * <p>The Amazon Resource Name (ARN) of the table bucket associated with the table.</p>
    * @public
    */
-  tableBucketARN: string | undefined;
+  tableBucketARN?: string | undefined;
 
   /**
    * <p>The name of the namespace the table is associated with.</p>
    * @public
    */
-  namespace: string | undefined;
+  namespace?: string | undefined;
 
   /**
    * <p>The name of the table.</p>
    * @public
    */
-  name: string | undefined;
+  name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table.</p>
+   * @public
+   */
+  tableArn?: string | undefined;
 }
 
 /**
@@ -769,8 +771,7 @@ export interface GetTableBucketEncryptionResponse {
  */
 export interface GetTableBucketMaintenanceConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket associated with the maintenance
-   *       configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the table bucket associated with the maintenance configuration.</p>
    * @public
    */
   tableBucketARN: string | undefined;
@@ -885,8 +886,7 @@ export interface TableBucketMaintenanceConfigurationValue {
  */
 export interface GetTableBucketMaintenanceConfigurationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket associated with the maintenance
-   *       configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the table bucket associated with the maintenance configuration.</p>
    * @public
    */
   tableBucketARN: string | undefined;
@@ -1123,9 +1123,7 @@ export interface GetTableMaintenanceJobStatusRequest {
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The name of the namespace the table is associated with.
-   *
-   *     </p>
+   * <p>The name of the namespace the table is associated with. </p>
    * @public
    */
   namespace: string | undefined;
@@ -1306,10 +1304,7 @@ export interface ListNamespacesRequest {
   prefix?: string | undefined;
 
   /**
-   * <p>
-   *             <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on
-   *       this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not a real key.
-   *       You can use this <code>ContinuationToken</code> for pagination of the list results.</p>
+   * <p> <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not a real key. You can use this <code>ContinuationToken</code> for pagination of the list results.</p>
    * @public
    */
   continuationToken?: string | undefined;
@@ -1391,10 +1386,7 @@ export interface ListTableBucketsRequest {
   prefix?: string | undefined;
 
   /**
-   * <p>
-   *             <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on
-   *       this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not a real key.
-   *       You can use this <code>ContinuationToken</code> for pagination of the list results.</p>
+   * <p> <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not a real key. You can use this <code>ContinuationToken</code> for pagination of the list results.</p>
    * @public
    */
   continuationToken?: string | undefined;
@@ -1482,10 +1474,7 @@ export interface ListTablesRequest {
   prefix?: string | undefined;
 
   /**
-   * <p>
-   *             <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on
-   *       this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not a real key.
-   *       You can use this <code>ContinuationToken</code> for pagination of the list results.</p>
+   * <p> <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not a real key. You can use this <code>ContinuationToken</code> for pagination of the list results.</p>
    * @public
    */
   continuationToken?: string | undefined;
@@ -1590,8 +1579,7 @@ export interface PutTableBucketEncryptionRequest {
  */
 export interface PutTableBucketMaintenanceConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket associated with the maintenance
-   *       configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the table bucket associated with the maintenance configuration.</p>
    * @public
    */
   tableBucketARN: string | undefined;
@@ -1631,8 +1619,7 @@ export interface PutTableBucketPolicyRequest {
  */
 export interface PutTableMaintenanceConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table associated with the maintenance
-   *       configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the table associated with the maintenance configuration.</p>
    * @public
    */
   tableBucketARN: string | undefined;

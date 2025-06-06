@@ -28,13 +28,7 @@ export interface GetTableMetadataLocationCommandInput extends GetTableMetadataLo
 export interface GetTableMetadataLocationCommandOutput extends GetTableMetadataLocationResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the location of the table metadata.</p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3tables:GetTableMetadataLocation</code> permission to use this operation. </p>
- *             </dd>
- *          </dl>
+ * <p>Gets the location of the table metadata.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableMetadataLocation</code> permission to use this operation. </p> </dd> </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +60,7 @@ export interface GetTableMetadataLocationCommandOutput extends GetTableMetadataL
  *  <p>The request is invalid or malformed.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because there is a conflict with a previous write. You can retry the
- *       request.</p>
+ *  <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The caller isn't authorized to make the request.</p>
