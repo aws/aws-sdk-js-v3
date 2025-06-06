@@ -3317,7 +3317,6 @@ const de_EncryptResponse = (output: any, context: __SerdeContext): EncryptRespon
     CiphertextBlob: context.base64Decoder,
     EncryptionAlgorithm: __expectString,
     KeyId: __expectString,
-    KeyMaterialId: __expectString,
   }) as any;
 };
 

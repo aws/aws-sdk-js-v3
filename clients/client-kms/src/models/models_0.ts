@@ -2986,7 +2986,8 @@ export interface DecryptResponse {
 
   /**
    * <p>The identifier of the key material used to decrypt the ciphertext. This field is present only when
-   *       the operation uses a symmetric encryption KMS key.</p>
+   *       the operation uses a symmetric encryption KMS key. This field is omitted if the request includes
+   *       the <code>Recipient</code> parameter.</p>
    * @public
    */
   KeyMaterialId?: string | undefined;
@@ -3703,13 +3704,6 @@ export interface EncryptResponse {
    * @public
    */
   EncryptionAlgorithm?: EncryptionAlgorithmSpec | undefined;
-
-  /**
-   * <p>The identifier of the key material used to encrypt the ciphertext. This field is present only when
-   *       the operation uses a symmetric encryption KMS key.</p>
-   * @public
-   */
-  KeyMaterialId?: string | undefined;
 }
 
 /**
@@ -3869,7 +3863,8 @@ export interface GenerateDataKeyResponse {
   CiphertextForRecipient?: Uint8Array | undefined;
 
   /**
-   * <p>The identifier of the key material used to encrypt the data key.</p>
+   * <p>The identifier of the key material used to encrypt the data key. This field is omitted if the request
+   *       includes the <code>Recipient</code> parameter.</p>
    * @public
    */
   KeyMaterialId?: string | undefined;
@@ -4013,7 +4008,8 @@ export interface GenerateDataKeyPairResponse {
   CiphertextForRecipient?: Uint8Array | undefined;
 
   /**
-   * <p>The identifier of the key material used to encrypt the private key.</p>
+   * <p>The identifier of the key material used to encrypt the private key. This field is omitted if the request
+   *       includes the <code>Recipient</code> parameter.</p>
    * @public
    */
   KeyMaterialId?: string | undefined;

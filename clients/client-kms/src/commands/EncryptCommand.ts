@@ -164,7 +164,6 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  * //   CiphertextBlob: new Uint8Array(),
  * //   KeyId: "STRING_VALUE",
  * //   EncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
- * //   KeyMaterialId: "STRING_VALUE",
  * // };
  *
  * ```
