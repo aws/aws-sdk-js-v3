@@ -52,6 +52,15 @@ export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivene
  *       S3KeyPrefix: "STRING_VALUE",
  *     },
  *     AuditImagesLimit: Number("int"),
+ *     ChallengePreferences: [ // ChallengePreferences
+ *       { // ChallengePreference
+ *         Type: "FaceMovementAndLightChallenge" || "FaceMovementChallenge", // required
+ *         Versions: { // Versions
+ *           Minimum: "STRING_VALUE",
+ *           Maximum: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
  *   },
  *   ClientRequestToken: "STRING_VALUE",
  * };

@@ -91,6 +91,10 @@ export interface GetFaceLivenessSessionResultsCommandOutput
  * //       },
  * //     },
  * //   ],
+ * //   Challenge: { // Challenge
+ * //     Type: "FaceMovementAndLightChallenge" || "FaceMovementChallenge", // required
+ * //     Version: "STRING_VALUE", // required
+ * //   },
  * // };
  *
  * ```

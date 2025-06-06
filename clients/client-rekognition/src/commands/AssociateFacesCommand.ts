@@ -30,8 +30,12 @@ export interface AssociateFacesCommandOutput extends AssociateFacesResponse, __M
 /**
  * <p>Associates one or more faces with an existing UserID. Takes an array of
  *         <code>FaceIds</code>. Each <code>FaceId</code> that are present in the <code>FaceIds</code>
- *       list is associated with the provided UserID. The maximum number of total <code>FaceIds</code>
- *       per UserID is 100. </p>
+ *       list is associated with the provided UserID. The number of FaceIds that can be used as input
+ *       in a single request is limited to 100.</p>
+ *          <p>Note that the total number of faces that can be associated with a single
+ *       <code>UserID</code> is also limited to 100. Once a <code>UserID</code> has 100 faces
+ *       associated with it, no additional faces can be added. If more API calls are made after the
+ *       limit is reached, a <code>ServiceQuotaExceededException</code> will result.</p>
  *          <p>The <code>UserMatchThreshold</code> parameter specifies the minimum user match confidence
  *       required for the face to be associated with a UserID that has at least one <code>FaceID</code>
  *       already associated. This ensures that the <code>FaceIds</code> are associated with the right

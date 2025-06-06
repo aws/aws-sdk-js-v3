@@ -32,6 +32,97 @@ import {
 import { RekognitionServiceException as __BaseException } from "./RekognitionServiceException";
 
 /**
+ * @public
+ */
+export interface ListUsersRequest {
+  /**
+   * <p>The ID of an existing collection.</p>
+   * @public
+   */
+  CollectionId: string | undefined;
+
+  /**
+   * <p>Maximum number of UsersID to return. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Pagingation token to receive the next set of UsersID.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Metadata of the user stored in a collection.</p>
+ * @public
+ */
+export interface User {
+  /**
+   * <p> A provided ID for the User. Unique within the collection.</p>
+   * @public
+   */
+  UserId?: string | undefined;
+
+  /**
+   * <p> Communicates if the UserID has been updated with latest set of faces to be associated
+   *       with the UserID. </p>
+   * @public
+   */
+  UserStatus?: UserStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUsersResponse {
+  /**
+   * <p>List of UsersID associated with the specified collection.</p>
+   * @public
+   */
+  Users?: User[] | undefined;
+
+  /**
+   * <p>A pagination token to be used with the subsequent request if the response is
+   *       truncated.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The format of the project policy document that you supplied to
+ *       <code>PutProjectPolicy</code> is incorrect. </p>
+ * @public
+ */
+export class MalformedPolicyDocumentException extends __BaseException {
+  readonly name: "MalformedPolicyDocumentException" = "MalformedPolicyDocumentException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  Code?: string | undefined;
+  /**
+   * <p>A universally unique identifier (UUID) for the request.</p>
+   * @public
+   */
+  Logref?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MalformedPolicyDocumentException, __BaseException>) {
+    super({
+      name: "MalformedPolicyDocumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MalformedPolicyDocumentException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
+}
+
+/**
  * <p>Contains metadata for a UserID matched with a given face.</p>
  * @public
  */

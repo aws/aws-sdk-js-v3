@@ -28,7 +28,14 @@ export interface StartPersonTrackingCommandInput extends StartPersonTrackingRequ
 export interface StartPersonTrackingCommandOutput extends StartPersonTrackingResponse, __MetadataBearer {}
 
 /**
- * <p>Starts the asynchronous tracking of a person's path in a stored video.</p>
+ * <note>
+ *             <p>
+ *                <i>End of support notice:</i> On October 31, 2025, AWS will discontinue
+ *          support for Amazon Rekognition People Pathing. After October 31, 2025, you will no
+ *          longer be able to use the Rekognition People Pathing capability. For more information,
+ *          visit this <a href="https://aws.amazon.com/blogs/machine-learning/transitioning-from-amazon-rekognition-people-pathing-exploring-other-alternatives/">blog post</a>.</p>
+ *          </note>
+ *          <p>Starts the asynchronous tracking of a person's path in a stored video.</p>
  *          <p>Amazon Rekognition Video can track the path of people in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
  *        and the filename of the video. <code>StartPersonTracking</code>
  *        returns a job identifier (<code>JobId</code>) which you use to get the results of the operation.

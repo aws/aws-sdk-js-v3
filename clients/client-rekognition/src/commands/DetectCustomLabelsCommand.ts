@@ -38,12 +38,10 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  *          an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing
  *          image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p>
  *          <p> For each object that the model version detects on an image, the API returns a
- *             (<code>CustomLabel</code>) object in an array (<code>CustomLabels</code>). Each
- *             <code>CustomLabel</code> object provides the label name (<code>Name</code>), the level
- *          of confidence that the image contains the object (<code>Confidence</code>), and object
- *          location information, if it exists, for the label on the image (<code>Geometry</code>).
- *          Note that for the <code>DetectCustomLabelsLabels</code> operation, <code>Polygons</code>
- *          are not returned in the <code>Geometry</code> section of the response.</p>
+ *          (<code>CustomLabel</code>) object in an array (<code>CustomLabels</code>).
+ *          Each <code>CustomLabel</code> object provides the label name (<code>Name</code>), the level
+ *          of confidence that the image contains the object (<code>Confidence</code>), and
+ *          object location information, if it exists,  for the label on the image (<code>Geometry</code>). </p>
  *          <p>To filter labels that are returned, specify a value for <code>MinConfidence</code>.
  *          <code>DetectCustomLabelsLabels</code> only returns labels with a confidence that's higher than
  *          the specified value.

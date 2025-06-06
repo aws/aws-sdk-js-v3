@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListUsersRequest, ListUsersResponse } from "../models/models_0";
+import { ListUsersRequest, ListUsersResponse } from "../models/models_1";
 import { de_ListUsersCommand, se_ListUsersCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 

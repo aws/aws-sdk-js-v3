@@ -844,11 +844,11 @@ export const EmotionName = {
 export type EmotionName = (typeof EmotionName)[keyof typeof EmotionName];
 
 /**
- * <p>The emotions that appear to be expressed on the face, and the confidence level in the
- *       determination. The API is only making a determination of the physical appearance of a person's
- *       face. It is not a determination of the person’s internal emotional state and should not be
- *       used in such a way. For example, a person pretending to have a sad face might not be sad
- *       emotionally.</p>
+ * <p>The API returns a prediction of an emotion based on a person's facial expressions, along with
+ *       the confidence level for the predicted emotion. It is not a determination of the person’s internal emotional
+ *       state and should not be used in such a way. For example, a person pretending to have a sad face might not
+ *       be sad emotionally. The API is not intended to be used, and you may not use it, in a manner that violates
+ *       the EU Artificial Intelligence Act or any other applicable law.</p>
  * @public
  */
 export interface Emotion {
@@ -1554,6 +1554,74 @@ export const CelebrityRecognitionSortBy = {
  * @public
  */
 export type CelebrityRecognitionSortBy = (typeof CelebrityRecognitionSortBy)[keyof typeof CelebrityRecognitionSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChallengeType = {
+  FACE_MOVEMENT_AND_LIGHT_CHALLENGE: "FaceMovementAndLightChallenge",
+  FACE_MOVEMENT_CHALLENGE: "FaceMovementChallenge",
+} as const;
+
+/**
+ * @public
+ */
+export type ChallengeType = (typeof ChallengeType)[keyof typeof ChallengeType];
+
+/**
+ * <p>Describes the type and version of the challenge being used for the Face Liveness session.</p>
+ * @public
+ */
+export interface Challenge {
+  /**
+   * <p>The type of the challenge being used for the Face Liveness session.</p>
+   * @public
+   */
+  Type: ChallengeType | undefined;
+
+  /**
+   * <p>The version of the challenge being used for the Face Liveness session.</p>
+   * @public
+   */
+  Version: string | undefined;
+}
+
+/**
+ * <p>Object specifying the acceptable range of challenge versions.</p>
+ * @public
+ */
+export interface Versions {
+  /**
+   * <p>The desired minimum version for the challenge.</p>
+   * @public
+   */
+  Minimum?: string | undefined;
+
+  /**
+   * <p>The desired maximum version for the challenge.</p>
+   * @public
+   */
+  Maximum?: string | undefined;
+}
+
+/**
+ * <p>An ordered list of preferred challenge type and versions.</p>
+ * @public
+ */
+export interface ChallengePreference {
+  /**
+   * <p>The types of challenges that have been selected for the Face Liveness session.</p>
+   * @public
+   */
+  Type: ChallengeType | undefined;
+
+  /**
+   * <p>The version of the challenges that have been selected for the Face Liveness session.</p>
+   * @public
+   */
+  Versions?: Versions | undefined;
+}
 
 /**
  * <p>Type that describes the face Amazon Rekognition chose to compare with the faces in the target.
@@ -2436,6 +2504,12 @@ export interface CreateFaceLivenessSessionRequestSettings {
    * @public
    */
   AuditImagesLimit?: number | undefined;
+
+  /**
+   * <p>Indicates preferred challenge types and versions for the Face Liveness session to be created.</p>
+   * @public
+   */
+  ChallengePreferences?: ChallengePreference[] | undefined;
 }
 
 /**
@@ -6191,6 +6265,12 @@ export interface GetFaceLivenessSessionResultsResponse {
    * @public
    */
   AuditImages?: AuditImage[] | undefined;
+
+  /**
+   * <p>Contains information regarding the challenge type used for the Face Liveness check.</p>
+   * @public
+   */
+  Challenge?: Challenge | undefined;
 }
 
 /**
@@ -8160,97 +8240,6 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUsersRequest {
-  /**
-   * <p>The ID of an existing collection.</p>
-   * @public
-   */
-  CollectionId: string | undefined;
-
-  /**
-   * <p>Maximum number of UsersID to return. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Pagingation token to receive the next set of UsersID.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Metadata of the user stored in a collection.</p>
- * @public
- */
-export interface User {
-  /**
-   * <p> A provided ID for the User. Unique within the collection.</p>
-   * @public
-   */
-  UserId?: string | undefined;
-
-  /**
-   * <p> Communicates if the UserID has been updated with latest set of faces to be associated
-   *       with the UserID. </p>
-   * @public
-   */
-  UserStatus?: UserStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUsersResponse {
-  /**
-   * <p>List of UsersID associated with the specified collection.</p>
-   * @public
-   */
-  Users?: User[] | undefined;
-
-  /**
-   * <p>A pagination token to be used with the subsequent request if the response is
-   *       truncated.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>The format of the project policy document that you supplied to
- *       <code>PutProjectPolicy</code> is incorrect. </p>
- * @public
- */
-export class MalformedPolicyDocumentException extends __BaseException {
-  readonly name: "MalformedPolicyDocumentException" = "MalformedPolicyDocumentException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
-   * @public
-   */
-  Logref?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MalformedPolicyDocumentException, __BaseException>) {
-    super({
-      name: "MalformedPolicyDocumentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MalformedPolicyDocumentException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-    this.Logref = opts.Logref;
-  }
 }
 
 /**
