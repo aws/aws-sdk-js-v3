@@ -280,6 +280,7 @@ export class NoSuchKeySigningKey extends __BaseException {
 export const CloudWatchRegion = {
   af_south_1: "af-south-1",
   ap_east_1: "ap-east-1",
+  ap_east_2: "ap-east-2",
   ap_northeast_1: "ap-northeast-1",
   ap_northeast_2: "ap-northeast-2",
   ap_northeast_3: "ap-northeast-3",
@@ -803,6 +804,7 @@ export interface AliasTarget {
 export const VPCRegion = {
   af_south_1: "af-south-1",
   ap_east_1: "ap-east-1",
+  ap_east_2: "ap-east-2",
   ap_northeast_1: "ap-northeast-1",
   ap_northeast_2: "ap-northeast-2",
   ap_northeast_3: "ap-northeast-3",
@@ -1446,6 +1448,7 @@ export interface GeoProximityLocation {
 export const ResourceRecordSetRegion = {
   af_south_1: "af-south-1",
   ap_east_1: "ap-east-1",
+  ap_east_2: "ap-east-2",
   ap_northeast_1: "ap-northeast-1",
   ap_northeast_2: "ap-northeast-2",
   ap_northeast_3: "ap-northeast-3",
