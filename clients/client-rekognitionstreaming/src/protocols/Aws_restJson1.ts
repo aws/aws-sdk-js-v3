@@ -37,6 +37,7 @@ import {
   AccessDeniedException,
   BoundingBox,
   ChallengeConfig,
+  ChallengeEvent,
   ClientChallenge,
   ClientSessionInformationEvent,
   ColorDisplayed,
@@ -44,6 +45,8 @@ import {
   DisconnectionEvent,
   FaceMovementAndLightClientChallenge,
   FaceMovementAndLightServerChallenge,
+  FaceMovementClientChallenge,
+  FaceMovementServerChallenge,
   FreshnessColor,
   InitialFace,
   InternalServerException,
@@ -347,6 +350,11 @@ const de_LivenessResponseStream = (
         DisconnectionEvent: await de_DisconnectionEvent_event(event["DisconnectionEvent"], context),
       };
     }
+    if (event["ChallengeEvent"] != null) {
+      return {
+        ChallengeEvent: await de_ChallengeEvent_event(event["ChallengeEvent"], context),
+      };
+    }
     if (event["ValidationException"] != null) {
       return {
         ValidationException: await de_ValidationException_event(event["ValidationException"], context),
@@ -380,6 +388,12 @@ const de_LivenessResponseStream = (
     }
     return { $unknown: output };
   });
+};
+const de_ChallengeEvent_event = async (output: any, context: __SerdeContext): Promise<ChallengeEvent> => {
+  const contents: ChallengeEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
 };
 const de_DisconnectionEvent_event = async (output: any, context: __SerdeContext): Promise<DisconnectionEvent> => {
   const contents: DisconnectionEvent = {} as any;
@@ -460,6 +474,7 @@ const se_ClientChallenge = (input: ClientChallenge, context: __SerdeContext): an
     FaceMovementAndLightChallenge: (value) => ({
       FaceMovementAndLightChallenge: se_FaceMovementAndLightClientChallenge(value, context),
     }),
+    FaceMovementChallenge: (value) => ({ FaceMovementChallenge: se_FaceMovementClientChallenge(value, context) }),
     _: (name, value) => ({ [name]: value } as any),
   });
 };
@@ -487,6 +502,19 @@ const se_FaceMovementAndLightClientChallenge = (
   return take(input, {
     ChallengeId: [],
     ColorDisplayed: _json,
+    InitialFace: (_) => se_InitialFace(_, context),
+    TargetFace: (_) => se_TargetFace(_, context),
+    VideoEndTimestamp: [],
+    VideoStartTimestamp: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1FaceMovementClientChallenge
+ */
+const se_FaceMovementClientChallenge = (input: FaceMovementClientChallenge, context: __SerdeContext): any => {
+  return take(input, {
+    ChallengeId: [],
     InitialFace: (_) => se_InitialFace(_, context),
     TargetFace: (_) => se_TargetFace(_, context),
     VideoEndTimestamp: [],
@@ -546,6 +574,8 @@ const de_ChallengeConfig = (output: any, context: __SerdeContext): ChallengeConf
   }) as any;
 };
 
+// de_ChallengeEvent omitted.
+
 // de_ColorComponentList omitted.
 
 /**
@@ -588,6 +618,16 @@ const de_FaceMovementAndLightServerChallenge = (
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1FaceMovementServerChallenge
+ */
+const de_FaceMovementServerChallenge = (output: any, context: __SerdeContext): FaceMovementServerChallenge => {
+  return take(output, {
+    ChallengeConfig: (_: any) => de_ChallengeConfig(_, context),
+    OvalParameters: (_: any) => de_OvalParameters(_, context),
+  }) as any;
+};
+
 // de_FreshnessColor omitted.
 
 /**
@@ -612,6 +652,11 @@ const de_ServerChallenge = (output: any, context: __SerdeContext): ServerChallen
         output.FaceMovementAndLightChallenge,
         context
       ),
+    };
+  }
+  if (output.FaceMovementChallenge != null) {
+    return {
+      FaceMovementChallenge: de_FaceMovementServerChallenge(output.FaceMovementChallenge, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };

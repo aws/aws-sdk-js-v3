@@ -48,8 +48,6 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  *          <p>The maximum video size for Face Liveness is 10 MB. Face Liveness throws a
  *         <code>ValidationException</code> if the video does not match the necessary formatting and
  *       size parameters. </p>
- *          <p>StartFaceLivenessSession supports the websockets and <a href="https://aws.amazon.com/sdk-for-javascript/">the AWS SDK
- *        for JavaScript</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,6 +104,30 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  *             CurrentColorStartTimestamp: Number("long"), // required
  *           },
  *         },
+ *         FaceMovementChallenge: { // FaceMovementClientChallenge
+ *           ChallengeId: "STRING_VALUE", // required
+ *           VideoStartTimestamp: Number("long"),
+ *           VideoEndTimestamp: Number("long"),
+ *           InitialFace: {
+ *             BoundingBox: {
+ *               Width: Number("float"), // required
+ *               Height: Number("float"), // required
+ *               Left: Number("float"), // required
+ *               Top: Number("float"), // required
+ *             },
+ *             InitialFaceDetectedTimestamp: Number("long"), // required
+ *           },
+ *           TargetFace: {
+ *             BoundingBox: {
+ *               Width: Number("float"), // required
+ *               Height: Number("float"), // required
+ *               Left: Number("float"), // required
+ *               Top: Number("float"), // required
+ *             },
+ *             FaceDetectedInTargetPositionStartTimestamp: Number("long"), // required
+ *             FaceDetectedInTargetPositionEndTimestamp: Number("long"), // required
+ *           },
+ *         },
  *       },
  *     },
  *   },
@@ -151,11 +173,36 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  * //               },
  * //             ],
  * //           },
+ * //           FaceMovementChallenge: { // FaceMovementServerChallenge
+ * //             OvalParameters: {
+ * //               Width: Number("float"), // required
+ * //               Height: Number("float"), // required
+ * //               CenterX: Number("float"), // required
+ * //               CenterY: Number("float"), // required
+ * //             },
+ * //             ChallengeConfig: {
+ * //               BlazeFaceDetectionThreshold: Number("float"),
+ * //               FaceDistanceThresholdMin: Number("float"),
+ * //               FaceDistanceThreshold: Number("float"),
+ * //               FaceDistanceThresholdMax: Number("float"),
+ * //               OvalIouThreshold: Number("float"),
+ * //               OvalHeightWidthRatio: Number("float"),
+ * //               OvalIouWidthThreshold: Number("float"),
+ * //               OvalIouHeightThreshold: Number("float"),
+ * //               FaceIouWidthThreshold: Number("float"),
+ * //               FaceIouHeightThreshold: Number("float"),
+ * //               OvalFitTimeout: Number("int"),
+ * //             },
+ * //           },
  * //         },
  * //       },
  * //     },
  * //     DisconnectionEvent: { // DisconnectionEvent
  * //       TimestampMillis: Number("long"), // required
+ * //     },
+ * //     ChallengeEvent: { // ChallengeEvent
+ * //       Version: "STRING_VALUE", // required
+ * //       Type: "FaceMovementAndLightChallenge" || "FaceMovementChallenge", // required
  * //     },
  * //     ValidationException: { // ValidationException
  * //       Message: "STRING_VALUE",

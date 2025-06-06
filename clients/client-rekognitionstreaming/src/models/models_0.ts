@@ -12,6 +12,7 @@ export class AccessDeniedException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string | undefined;
   Code?: string | undefined;
+
   /**
    * @internal
    */
@@ -129,11 +130,29 @@ export interface ChallengeConfig {
    */
   FaceIouHeightThreshold?: number | undefined;
 
-  /**
-   * <p>Timeout limit in which the end-users need to fit in the oval, in miliseconds.</p>
-   * @public
-   */
   OvalFitTimeout?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ChallengeType = {
+  FACE_MOVEMENT_AND_LIGHT_CHALLENGE: "FaceMovementAndLightChallenge",
+  FACE_MOVEMENT_CHALLENGE: "FaceMovementChallenge",
+} as const;
+
+/**
+ * @public
+ */
+export type ChallengeType = (typeof ChallengeType)[keyof typeof ChallengeType];
+
+/**
+ * @public
+ */
+export interface ChallengeEvent {
+  Version: string | undefined;
+  Type: ChallengeType | undefined;
 }
 
 /**
@@ -276,11 +295,39 @@ export interface FaceMovementAndLightClientChallenge {
 }
 
 /**
+ * @public
+ */
+export interface FaceMovementClientChallenge {
+  ChallengeId: string | undefined;
+  VideoStartTimestamp?: number | undefined;
+  VideoEndTimestamp?: number | undefined;
+  /**
+   * <p> Contains bounding box of initial face position of the user on the device screen.
+   *       Contains an epoch timestamp of when the user was detected in this position. Used for Face
+   *       Liveness detection.</p>
+   * @public
+   */
+  InitialFace?: InitialFace | undefined;
+
+  /**
+   * <p>Contains bounding box of face position of the user on the device screen at target
+   *       location constructed for the challenge. This is generated using the random offsets provided by
+   *       the server to the client at session start. Also contains start and end epoch timestamp of when
+   *       the user was detected in this position.</p>
+   * @public
+   */
+  TargetFace?: TargetFace | undefined;
+}
+
+/**
  * <p>Object containing information for Face Liveness challenges performed at the client
  *       side.</p>
  * @public
  */
-export type ClientChallenge = ClientChallenge.FaceMovementAndLightChallengeMember | ClientChallenge.$UnknownMember;
+export type ClientChallenge =
+  | ClientChallenge.FaceMovementAndLightChallengeMember
+  | ClientChallenge.FaceMovementChallengeMember
+  | ClientChallenge.$UnknownMember;
 
 /**
  * @public
@@ -292,6 +339,13 @@ export namespace ClientChallenge {
    */
   export interface FaceMovementAndLightChallengeMember {
     FaceMovementAndLightChallenge: FaceMovementAndLightClientChallenge;
+    FaceMovementChallenge?: never;
+    $unknown?: never;
+  }
+
+  export interface FaceMovementChallengeMember {
+    FaceMovementAndLightChallenge?: never;
+    FaceMovementChallenge: FaceMovementClientChallenge;
     $unknown?: never;
   }
 
@@ -300,17 +354,20 @@ export namespace ClientChallenge {
    */
   export interface $UnknownMember {
     FaceMovementAndLightChallenge?: never;
+    FaceMovementChallenge?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     FaceMovementAndLightChallenge: (value: FaceMovementAndLightClientChallenge) => T;
+    FaceMovementChallenge: (value: FaceMovementClientChallenge) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ClientChallenge, visitor: Visitor<T>): T => {
     if (value.FaceMovementAndLightChallenge !== undefined)
       return visitor.FaceMovementAndLightChallenge(value.FaceMovementAndLightChallenge);
+    if (value.FaceMovementChallenge !== undefined) return visitor.FaceMovementChallenge(value.FaceMovementChallenge);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -440,6 +497,23 @@ export interface FaceMovementAndLightServerChallenge {
 }
 
 /**
+ * @public
+ */
+export interface FaceMovementServerChallenge {
+  /**
+   * <p>Oval parameters need for oval display to complete oval match challenge.</p>
+   * @public
+   */
+  OvalParameters: OvalParameters | undefined;
+
+  /**
+   * <p>Configuration options for Face Liveness challenges performed at the client side. </p>
+   * @public
+   */
+  ChallengeConfig: ChallengeConfig | undefined;
+}
+
+/**
  * <p>Unexpected error during processing of request.</p>
  * @public
  */
@@ -448,6 +522,7 @@ export class InternalServerException extends __BaseException {
   readonly $fault: "server" = "server";
   Message?: string | undefined;
   Code?: string | undefined;
+
   /**
    * @internal
    */
@@ -541,7 +616,10 @@ export namespace LivenessRequestStream {
  * <p>Information on the challenge sent by the server.</p>
  * @public
  */
-export type ServerChallenge = ServerChallenge.FaceMovementAndLightChallengeMember | ServerChallenge.$UnknownMember;
+export type ServerChallenge =
+  | ServerChallenge.FaceMovementAndLightChallengeMember
+  | ServerChallenge.FaceMovementChallengeMember
+  | ServerChallenge.$UnknownMember;
 
 /**
  * @public
@@ -553,6 +631,13 @@ export namespace ServerChallenge {
    */
   export interface FaceMovementAndLightChallengeMember {
     FaceMovementAndLightChallenge: FaceMovementAndLightServerChallenge;
+    FaceMovementChallenge?: never;
+    $unknown?: never;
+  }
+
+  export interface FaceMovementChallengeMember {
+    FaceMovementAndLightChallenge?: never;
+    FaceMovementChallenge: FaceMovementServerChallenge;
     $unknown?: never;
   }
 
@@ -561,17 +646,20 @@ export namespace ServerChallenge {
    */
   export interface $UnknownMember {
     FaceMovementAndLightChallenge?: never;
+    FaceMovementChallenge?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     FaceMovementAndLightChallenge: (value: FaceMovementAndLightServerChallenge) => T;
+    FaceMovementChallenge: (value: FaceMovementServerChallenge) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ServerChallenge, visitor: Visitor<T>): T => {
     if (value.FaceMovementAndLightChallenge !== undefined)
       return visitor.FaceMovementAndLightChallenge(value.FaceMovementAndLightChallenge);
+    if (value.FaceMovementChallenge !== undefined) return visitor.FaceMovementChallenge(value.FaceMovementChallenge);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -609,6 +697,7 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string | undefined;
   Code?: string | undefined;
+
   /**
    * @internal
    */
@@ -633,6 +722,7 @@ export class ServiceUnavailableException extends __BaseException {
   readonly $fault: "server" = "server";
   Message?: string | undefined;
   Code?: string | undefined;
+
   /**
    * @internal
    */
@@ -658,6 +748,7 @@ export class ThrottlingException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string | undefined;
   Code?: string | undefined;
+
   /**
    * @internal
    */
@@ -686,6 +777,7 @@ export class ValidationException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string | undefined;
   Code?: string | undefined;
+
   /**
    * @internal
    */
@@ -706,6 +798,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export type LivenessResponseStream =
+  | LivenessResponseStream.ChallengeEventMember
   | LivenessResponseStream.DisconnectionEventMember
   | LivenessResponseStream.InternalServerExceptionMember
   | LivenessResponseStream.ServerSessionInformationEventMember
@@ -726,6 +819,7 @@ export namespace LivenessResponseStream {
   export interface ServerSessionInformationEventMember {
     ServerSessionInformationEvent: ServerSessionInformationEvent;
     DisconnectionEvent?: never;
+    ChallengeEvent?: never;
     ValidationException?: never;
     InternalServerException?: never;
     ThrottlingException?: never;
@@ -741,6 +835,19 @@ export namespace LivenessResponseStream {
   export interface DisconnectionEventMember {
     ServerSessionInformationEvent?: never;
     DisconnectionEvent: DisconnectionEvent;
+    ChallengeEvent?: never;
+    ValidationException?: never;
+    InternalServerException?: never;
+    ThrottlingException?: never;
+    ServiceQuotaExceededException?: never;
+    ServiceUnavailableException?: never;
+    $unknown?: never;
+  }
+
+  export interface ChallengeEventMember {
+    ServerSessionInformationEvent?: never;
+    DisconnectionEvent?: never;
+    ChallengeEvent: ChallengeEvent;
     ValidationException?: never;
     InternalServerException?: never;
     ThrottlingException?: never;
@@ -756,6 +863,7 @@ export namespace LivenessResponseStream {
   export interface ValidationExceptionMember {
     ServerSessionInformationEvent?: never;
     DisconnectionEvent?: never;
+    ChallengeEvent?: never;
     ValidationException: ValidationException;
     InternalServerException?: never;
     ThrottlingException?: never;
@@ -771,6 +879,7 @@ export namespace LivenessResponseStream {
   export interface InternalServerExceptionMember {
     ServerSessionInformationEvent?: never;
     DisconnectionEvent?: never;
+    ChallengeEvent?: never;
     ValidationException?: never;
     InternalServerException: InternalServerException;
     ThrottlingException?: never;
@@ -786,6 +895,7 @@ export namespace LivenessResponseStream {
   export interface ThrottlingExceptionMember {
     ServerSessionInformationEvent?: never;
     DisconnectionEvent?: never;
+    ChallengeEvent?: never;
     ValidationException?: never;
     InternalServerException?: never;
     ThrottlingException: ThrottlingException;
@@ -801,6 +911,7 @@ export namespace LivenessResponseStream {
   export interface ServiceQuotaExceededExceptionMember {
     ServerSessionInformationEvent?: never;
     DisconnectionEvent?: never;
+    ChallengeEvent?: never;
     ValidationException?: never;
     InternalServerException?: never;
     ThrottlingException?: never;
@@ -816,6 +927,7 @@ export namespace LivenessResponseStream {
   export interface ServiceUnavailableExceptionMember {
     ServerSessionInformationEvent?: never;
     DisconnectionEvent?: never;
+    ChallengeEvent?: never;
     ValidationException?: never;
     InternalServerException?: never;
     ThrottlingException?: never;
@@ -830,6 +942,7 @@ export namespace LivenessResponseStream {
   export interface $UnknownMember {
     ServerSessionInformationEvent?: never;
     DisconnectionEvent?: never;
+    ChallengeEvent?: never;
     ValidationException?: never;
     InternalServerException?: never;
     ThrottlingException?: never;
@@ -841,6 +954,7 @@ export namespace LivenessResponseStream {
   export interface Visitor<T> {
     ServerSessionInformationEvent: (value: ServerSessionInformationEvent) => T;
     DisconnectionEvent: (value: DisconnectionEvent) => T;
+    ChallengeEvent: (value: ChallengeEvent) => T;
     ValidationException: (value: ValidationException) => T;
     InternalServerException: (value: InternalServerException) => T;
     ThrottlingException: (value: ThrottlingException) => T;
@@ -853,6 +967,7 @@ export namespace LivenessResponseStream {
     if (value.ServerSessionInformationEvent !== undefined)
       return visitor.ServerSessionInformationEvent(value.ServerSessionInformationEvent);
     if (value.DisconnectionEvent !== undefined) return visitor.DisconnectionEvent(value.DisconnectionEvent);
+    if (value.ChallengeEvent !== undefined) return visitor.ChallengeEvent(value.ChallengeEvent);
     if (value.ValidationException !== undefined) return visitor.ValidationException(value.ValidationException);
     if (value.InternalServerException !== undefined)
       return visitor.InternalServerException(value.InternalServerException);
@@ -874,6 +989,7 @@ export class SessionNotFoundException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string | undefined;
   Code?: string | undefined;
+
   /**
    * @internal
    */
@@ -961,6 +1077,7 @@ export const LivenessResponseStreamFilterSensitiveLog = (obj: LivenessResponseSt
   if (obj.ServerSessionInformationEvent !== undefined)
     return { ServerSessionInformationEvent: obj.ServerSessionInformationEvent };
   if (obj.DisconnectionEvent !== undefined) return { DisconnectionEvent: obj.DisconnectionEvent };
+  if (obj.ChallengeEvent !== undefined) return { ChallengeEvent: obj.ChallengeEvent };
   if (obj.ValidationException !== undefined) return { ValidationException: obj.ValidationException };
   if (obj.InternalServerException !== undefined) return { InternalServerException: obj.InternalServerException };
   if (obj.ThrottlingException !== undefined) return { ThrottlingException: obj.ThrottlingException };
