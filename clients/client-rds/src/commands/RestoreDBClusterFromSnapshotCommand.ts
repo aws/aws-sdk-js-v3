@@ -244,6 +244,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     GlobalClusterIdentifier: "STRING_VALUE",
  * //     GlobalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "unknown",
  * //     GlobalWriteForwardingRequested: true || false,
  * //     PendingModifiedValues: { // ClusterPendingModifiedValues

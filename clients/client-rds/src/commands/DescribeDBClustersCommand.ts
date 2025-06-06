@@ -184,6 +184,7 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       GlobalClusterIdentifier: "STRING_VALUE",
  * //       GlobalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "unknown",
  * //       GlobalWriteForwardingRequested: true || false,
  * //       PendingModifiedValues: { // ClusterPendingModifiedValues

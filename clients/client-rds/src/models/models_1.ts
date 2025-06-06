@@ -2541,11 +2541,11 @@ export interface ConnectionPoolConfigurationInfo {
 
   /**
    * <p>One or more SQL statements for the proxy to run when opening each new database connection.
-   *         Typically used with <code>SET</code> statements to make sure that each connection has identical
-   *         settings such as time zone and character set. This setting is empty by default.
-   *         For multiple statements, use semicolons as the separator.
-   *         You can also include multiple variables in a single <code>SET</code> statement, such as
-   *         <code>SET x=1, y=2</code>.</p>
+   *         The setting is typically used with <code>SET</code> statements to make sure that each connection has identical settings.
+   *         The query added here must be valid. For including multiple variables in a single SET statement, use a comma separator.
+   *         This is an optional field.</p>
+   *          <p>For example: <code>SET variable1=value1, variable2=value2</code>
+   *          </p>
    * @public
    */
   InitQuery?: string | undefined;
@@ -9973,7 +9973,7 @@ export interface ConnectionPoolConfiguration {
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must be between 0 and 3600.</p>
+   *                <p>Must be between 0 and 300.</p>
    *             </li>
    *          </ul>
    * @public
@@ -9990,15 +9990,12 @@ export interface ConnectionPoolConfiguration {
   SessionPinningFilters?: string[] | undefined;
 
   /**
-   * <p>Add an initialization query, or modify the current one. You can specify one or more SQL statements for
-   *             the proxy to run when opening each new database connection. The setting is
-   *             typically used with <code>SET</code> statements to make sure that each
-   *             connection has identical settings. Make sure that the query you add is valid. To
-   *             include multiple variables in a single <code>SET</code> statement, use comma
-   *             separators.</p>
+   * <p>Add an initialization query, or modify the current one. You can specify one or more SQL statements for the proxy to run when opening each new database connection.
+   *             The setting is typically used with <code>SET</code> statements to make sure that each connection has identical settings.
+   *             Make sure the query added here is valid. This is an optional field, so you can choose to leave it empty.
+   *             For including multiple variables in a single SET statement, use a comma separator.</p>
    *          <p>For example: <code>SET variable1=value1, variable2=value2</code>
    *          </p>
-   *          <p>For multiple statements, use semicolons as the separator.</p>
    *          <p>Default: no initialization query</p>
    * @public
    */

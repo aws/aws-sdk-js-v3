@@ -17545,6 +17545,9 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   } else if (output[_TL] != null && output[_TL][_Tag] != null) {
     contents[_TL] = de_TagList(__getArrayIfSingleItem(output[_TL][_Tag]), context);
   }
+  if (output[_GCI] != null) {
+    contents[_GCI] = __expectString(output[_GCI]);
+  }
   if (output[_GWFS] != null) {
     contents[_GWFS] = __expectString(output[_GWFS]);
   }

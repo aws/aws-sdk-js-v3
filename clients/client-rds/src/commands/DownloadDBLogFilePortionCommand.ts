@@ -30,6 +30,11 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
 /**
  * <p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p>
  *          <p>This command doesn't apply to RDS Custom.</p>
+ *          <note>
+ *             <p>This operation uses resources on database instances. Because of this, we recommend publishing database logs to CloudWatch and then
+ *                 using the GetLogEvents operation. For more information,
+ *                 see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html">GetLogEvents</a> in the <i>Amazon CloudWatch Logs API Reference</i>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

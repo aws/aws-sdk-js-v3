@@ -6359,6 +6359,13 @@ export interface DBCluster {
   TagList?: Tag[] | undefined;
 
   /**
+   * <p>Contains a user-supplied global database cluster identifier. This identifier is the unique key that
+   *         identifies a global database cluster.</p>
+   * @public
+   */
+  GlobalClusterIdentifier?: string | undefined;
+
+  /**
    * <p>The status of write forwarding for a secondary cluster in an Aurora global database.</p>
    * @public
    */
@@ -8978,7 +8985,9 @@ export interface DBSubnetGroup {
   SubnetGroupStatus?: string | undefined;
 
   /**
-   * <p>Contains a list of <code>Subnet</code> elements.</p>
+   * <p>Contains a list of <code>Subnet</code> elements. The list of subnets shown
+   *             here might not reflect the current state of your VPC. For the most up-to-date information,
+   *             we recommend checking your VPC configuration directly.</p>
    * @public
    */
   Subnets?: Subnet[] | undefined;
@@ -11708,16 +11717,17 @@ export interface CreateDBShardGroupMessage {
   DBClusterIdentifier: string | undefined;
 
   /**
-   * <p>Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:</p>
+   * <p>Specifies whether to create standby standby DB data access shard for the DB shard group.
+   *             Valid values are the following:</p>
    *          <ul>
    *             <li>
-   *                <p>0 - Creates a DB shard group without a standby DB shard group. This is the default value.</p>
+   *                <p>0 - Creates a DB shard group without a standby DB data access shard. This is the default value.</p>
    *             </li>
    *             <li>
-   *                <p>1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).</p>
+   *                <p>1 - Creates a DB shard group with a standby DB data access shard in a different Availability Zone (AZ).</p>
    *             </li>
    *             <li>
-   *                <p>2 - Creates a DB shard group with two standby DB shard groups in two different AZs.</p>
+   *                <p>2 - Creates a DB shard group with two standby DB data access shard in two different AZs.</p>
    *             </li>
    *          </ul>
    * @public
