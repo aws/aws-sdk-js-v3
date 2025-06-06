@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.826.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.825.0...v3.826.0) (2025-06-06)
+
+
+### Features
+
+* **client-s3tables:** S3 Tables now supports getting details about a table via its table ARN. ([caebd1b](https://github.com/aws/aws-sdk-js-v3/commit/caebd1bec7508051b5c81f04b88f4c12799807df))
+
+
+
+
+
 # [3.825.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.824.0...v3.825.0) (2025-06-05)
 
 **Note:** Version bump only for package @aws-sdk/client-s3tables

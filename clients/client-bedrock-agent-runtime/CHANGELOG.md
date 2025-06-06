@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.826.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.825.0...v3.826.0) (2025-06-06)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** This release introduces the `PromptCreationConfigurations` input parameter, which includes fields to control prompt population for `InvokeAgent` or `InvokeInlineAgent` requests. ([f0f84e5](https://github.com/aws/aws-sdk-js-v3/commit/f0f84e521a456ec058b2527834760471b7f9d7d5))
+
+
+
+
+
 # [3.825.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.824.0...v3.825.0) (2025-06-05)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent-runtime

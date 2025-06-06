@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.826.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.825.0...v3.826.0) (2025-06-06)
+
+
+### Features
+
+* **client-rekognition:** Adds support for defining an ordered preference list of different Rekognition Face Liveness challenge types when calling CreateFaceLivenessSession. ([a99b352](https://github.com/aws/aws-sdk-js-v3/commit/a99b3528f13de17fe7bb882f1953be0feda88363))
+
+
+
+
+
 # [3.825.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.824.0...v3.825.0) (2025-06-05)
 
 **Note:** Version bump only for package @aws-sdk/client-rekognition

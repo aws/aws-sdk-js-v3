@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.826.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.825.0...v3.826.0) (2025-06-06)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** This release introduces the `PromptCreationConfigurations` input parameter, which includes fields to control prompt population for `InvokeAgent` or `InvokeInlineAgent` requests. ([f0f84e5](https://github.com/aws/aws-sdk-js-v3/commit/f0f84e521a456ec058b2527834760471b7f9d7d5))
+* **client-kms:** Remove unpopulated KeyMaterialId from Encrypt Response ([b052704](https://github.com/aws/aws-sdk-js-v3/commit/b052704926b181c8386ed638fed4711266d6f3ab))
+* **client-rds:** Include Global Cluster Identifier in DBCluster if the DBCluster is a Global Cluster Member. ([8090631](https://github.com/aws/aws-sdk-js-v3/commit/80906313d78c0acb98611bea39dd4ab0cb027edb))
+* **client-rekognition:** Adds support for defining an ordered preference list of different Rekognition Face Liveness challenge types when calling CreateFaceLivenessSession. ([a99b352](https://github.com/aws/aws-sdk-js-v3/commit/a99b3528f13de17fe7bb882f1953be0feda88363))
+* **client-rekognitionstreaming:** adds support for defining an ordered preference list of different Rekognition Face Liveness challenge types when calling CreateFaceLivenessSession ([#7118](https://github.com/aws/aws-sdk-js-v3/issues/7118)) ([b17ba90](https://github.com/aws/aws-sdk-js-v3/commit/b17ba908157a4065a0425fdee6b7d9012afae7e2))
+* **client-route-53:** Amazon Route 53 now supports the Asia Pacific (Taipei) Region (ap-east-2) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region. ([7fd50fe](https://github.com/aws/aws-sdk-js-v3/commit/7fd50fe91c9a42cc3fb13d9ad973bea9c4684786))
+* **client-s3tables:** S3 Tables now supports getting details about a table via its table ARN. ([caebd1b](https://github.com/aws/aws-sdk-js-v3/commit/caebd1bec7508051b5c81f04b88f4c12799807df))
+* **clients:** update client endpoints as of 2025-06-06 ([b879476](https://github.com/aws/aws-sdk-js-v3/commit/b879476b22734aee6e0fbbc4df576f2107f06a83))
+
+
+
+
+
 # [3.825.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.824.0...v3.825.0) (2025-06-05)
 
 

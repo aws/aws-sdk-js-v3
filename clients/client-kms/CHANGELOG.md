@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.826.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.825.0...v3.826.0) (2025-06-06)
+
+
+### Features
+
+* **client-kms:** Remove unpopulated KeyMaterialId from Encrypt Response ([b052704](https://github.com/aws/aws-sdk-js-v3/commit/b052704926b181c8386ed638fed4711266d6f3ab))
+
+
+
+
+
 # [3.825.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.824.0...v3.825.0) (2025-06-05)
 
 
