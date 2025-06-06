@@ -154,14 +154,45 @@
           }
         },
         "OvalFitTimeout": {
-          "target": "com.amazonaws.rekognitionstreaming#TimeoutInMs",
-          "traits": {
-            "smithy.api#documentation": "<p>Timeout limit in which the end-users need to fit in the oval, in miliseconds.</p>"
-          }
+          "target": "com.amazonaws.rekognitionstreaming#TimeoutInMs"
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Configuration options for Face Liveness challenges performed at the client side. </p>"
+      }
+    },
+    "com.amazonaws.rekognitionstreaming#ChallengeEvent": {
+      "type": "structure",
+      "members": {
+        "Version": {
+          "target": "com.amazonaws.rekognitionstreaming#Version",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.rekognitionstreaming#ChallengeType",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.rekognitionstreaming#ChallengeType": {
+      "type": "enum",
+      "members": {
+        "FACE_MOVEMENT_AND_LIGHT_CHALLENGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FaceMovementAndLightChallenge"
+          }
+        },
+        "FACE_MOVEMENT_CHALLENGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FaceMovementChallenge"
+          }
+        }
       }
     },
     "com.amazonaws.rekognitionstreaming#ChallengeVersions": {
@@ -182,6 +213,9 @@
           "traits": {
             "smithy.api#documentation": "<p>Information about a face movement and light challenge type.</p>"
           }
+        },
+        "FaceMovementChallenge": {
+          "target": "com.amazonaws.rekognitionstreaming#FaceMovementClientChallenge"
         }
       },
       "traits": {
@@ -417,6 +451,46 @@
         "smithy.api#documentation": "<p>Contains information regarding the <code>OvalParameters</code> and\n        <code>LightChallengeType</code> for a challenge.</p>"
       }
     },
+    "com.amazonaws.rekognitionstreaming#FaceMovementClientChallenge": {
+      "type": "structure",
+      "members": {
+        "ChallengeId": {
+          "target": "com.amazonaws.rekognitionstreaming#UUID",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "VideoStartTimestamp": {
+          "target": "com.amazonaws.rekognitionstreaming#EpochMillis"
+        },
+        "VideoEndTimestamp": {
+          "target": "com.amazonaws.rekognitionstreaming#EpochMillis"
+        },
+        "InitialFace": {
+          "target": "com.amazonaws.rekognitionstreaming#InitialFace"
+        },
+        "TargetFace": {
+          "target": "com.amazonaws.rekognitionstreaming#TargetFace"
+        }
+      }
+    },
+    "com.amazonaws.rekognitionstreaming#FaceMovementServerChallenge": {
+      "type": "structure",
+      "members": {
+        "OvalParameters": {
+          "target": "com.amazonaws.rekognitionstreaming#OvalParameters",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "ChallengeConfig": {
+          "target": "com.amazonaws.rekognitionstreaming#ChallengeConfig",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
     "com.amazonaws.rekognitionstreaming#Float": {
       "type": "float"
     },
@@ -519,6 +593,9 @@
           "traits": {
             "smithy.api#documentation": "<p>Notification that disconnection event has occurred to a Face Liveness session.</p>"
           }
+        },
+        "ChallengeEvent": {
+          "target": "com.amazonaws.rekognitionstreaming#ChallengeEvent"
         },
         "ValidationException": {
           "target": "com.amazonaws.rekognitionstreaming#ValidationException",
@@ -665,7 +742,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -684,7 +760,6 @@
                 },
                 {
                   "conditions": [],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -712,13 +787,14 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -731,7 +807,6 @@
                       ]
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -745,7 +820,6 @@
                           "assign": "PartitionResult"
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -768,7 +842,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
@@ -803,11 +876,9 @@
                                   ]
                                 }
                               ],
-                              "type": "tree",
                               "rules": [
                                 {
                                   "conditions": [],
-                                  "type": "tree",
                                   "rules": [
                                     {
                                       "conditions": [],
@@ -818,16 +889,19 @@
                                       },
                                       "type": "endpoint"
                                     }
-                                  ]
+                                  ],
+                                  "type": "tree"
                                 }
-                              ]
+                              ],
+                              "type": "tree"
                             },
                             {
                               "conditions": [],
                               "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                               "type": "error"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [
@@ -841,14 +915,12 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
                                 {
                                   "fn": "booleanEquals",
                                   "argv": [
-                                    true,
                                     {
                                       "fn": "getAttr",
                                       "argv": [
@@ -857,15 +929,14 @@
                                         },
                                         "supportsFIPS"
                                       ]
-                                    }
+                                    },
+                                    true
                                   ]
                                 }
                               ],
-                              "type": "tree",
                               "rules": [
                                 {
                                   "conditions": [],
-                                  "type": "tree",
                                   "rules": [
                                     {
                                       "conditions": [],
@@ -876,16 +947,19 @@
                                       },
                                       "type": "endpoint"
                                     }
-                                  ]
+                                  ],
+                                  "type": "tree"
                                 }
-                              ]
+                              ],
+                              "type": "tree"
                             },
                             {
                               "conditions": [],
                               "error": "FIPS is enabled but this partition does not support FIPS",
                               "type": "error"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [
@@ -899,7 +973,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
@@ -919,11 +992,9 @@
                                   ]
                                 }
                               ],
-                              "type": "tree",
                               "rules": [
                                 {
                                   "conditions": [],
-                                  "type": "tree",
                                   "rules": [
                                     {
                                       "conditions": [],
@@ -934,20 +1005,22 @@
                                       },
                                       "type": "endpoint"
                                     }
-                                  ]
+                                  ],
+                                  "type": "tree"
                                 }
-                              ]
+                              ],
+                              "type": "tree"
                             },
                             {
                               "conditions": [],
                               "error": "DualStack is enabled but this partition does not support DualStack",
                               "type": "error"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -958,18 +1031,22 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 },
                 {
                   "conditions": [],
                   "error": "Invalid Configuration: Missing Region",
                   "type": "error"
                 }
-              ]
+              ],
+              "type": "tree"
             }
           ]
         },
@@ -1297,6 +1374,9 @@
           "traits": {
             "smithy.api#documentation": "<p>Paramteters and configuration information for the face movement and light sequence challenges.</p>"
           }
+        },
+        "FaceMovementChallenge": {
+          "target": "com.amazonaws.rekognitionstreaming#FaceMovementServerChallenge"
         }
       },
       "traits": {
@@ -1413,7 +1493,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Starts a Face Liveness video stream and liveness detection process for a given\n      session.</p>\n         <p>Requires <code>sessionId</code>, <code>ChallengeVersions</code>, <code>VideoWidth</code>,\n        <code>VideoHeight</code> and a <code>RequestEventStream</code> as input. The event stream\n      contains information about different events for the session, including the challenge\n      information used for verification. </p>\n         <p>The maximum video size for Face Liveness is 10 MB. Face Liveness throws a\n        <code>ValidationException</code> if the video does not match the necessary formatting and\n      size parameters. </p>\n         <p>StartFaceLivenessSession supports the websockets and <a href=\"https://aws.amazon.com/sdk-for-javascript/\">the AWS SDK \n       for JavaScript</a>.</p>",
+        "smithy.api#documentation": "<p>Starts a Face Liveness video stream and liveness detection process for a given\n      session.</p>\n         <p>Requires <code>sessionId</code>, <code>ChallengeVersions</code>, <code>VideoWidth</code>,\n        <code>VideoHeight</code> and a <code>RequestEventStream</code> as input. The event stream\n      contains information about different events for the session, including the challenge\n      information used for verification. </p>\n         <p>The maximum video size for Face Liveness is 10 MB. Face Liveness throws a\n        <code>ValidationException</code> if the video does not match the necessary formatting and\n      size parameters. </p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/start-face-liveness-session",
@@ -1581,6 +1661,16 @@
         "smithy.api#documentation": "<p>The input fails to satisfy the constraints specified by the service. Potential reasons\n      inlcude: video quality or size is invalid, video container format not supported, video does\n      not have enough information - no person detected in video, request couldn't be parsed or is\n      invalid, session has expired or is invalid, S3 bucket is invalid/in another AWS region, KMS\n      Key is invalid.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.rekognitionstreaming#Version": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 5,
+          "max": 15
+        },
+        "smithy.api#pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$"
       }
     },
     "com.amazonaws.rekognitionstreaming#VideoChunk": {
