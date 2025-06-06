@@ -33,7 +33,7 @@
     "@smithy/node-http-handler": "^4.0.6",
     "@smithy/property-provider": "^4.0.4",
     "@smithy/protocol-http": "^5.1.2",
-    "@smithy/smithy-client": "^4.4.2",
+    "@smithy/smithy-client": "^4.4.3",
     "@smithy/types": "^4.3.1",
     "@smithy/util-stream": "^4.2.2",
     "tslib": "^2.6.2"
