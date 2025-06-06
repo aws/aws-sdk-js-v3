@@ -208,6 +208,7 @@ import {
   PreProcessingModelInvocationOutput,
   PreProcessingTrace,
   PromptConfiguration,
+  PromptCreationConfigurations,
   PromptOverrideConfiguration,
   PromptTemplate,
   QueryGenerationInput,
@@ -223,7 +224,6 @@ import {
   ResourceNotFoundException,
   ResponseStream,
   RetrieveAndGenerateInput,
-  RetrieveAndGenerateOutputEvent,
   RetrieveAndGenerateSessionConfiguration,
   RetrievedReference,
   ReturnControlPayload,
@@ -266,6 +266,7 @@ import {
   KnowledgeBaseVectorSearchConfiguration,
   RetrievalFilter,
   RetrieveAndGenerateConfiguration,
+  RetrieveAndGenerateOutputEvent,
   RetrieveAndGenerateStreamResponseOutput,
   S3Location,
   SessionState,
@@ -519,6 +520,7 @@ export const se_InvokeAgentCommand = async (
       endSession: [],
       inputText: [],
       memoryId: [],
+      promptCreationConfigurations: (_) => _json(_),
       sessionState: (_) => se_SessionState(_, context),
       streamingConfigurations: (_) => _json(_),
     })
@@ -588,6 +590,7 @@ export const se_InvokeInlineAgentCommand = async (
       instruction: [],
       knowledgeBases: (_) => se_KnowledgeBases(_, context),
       orchestrationType: [],
+      promptCreationConfigurations: (_) => _json(_),
       promptOverrideConfiguration: (_) => se_PromptOverrideConfiguration(_, context),
       streamingConfigurations: (_) => _json(_),
     })
@@ -3090,6 +3093,8 @@ const se_PromptConfigurations = (input: PromptConfiguration[], context: __SerdeC
       return se_PromptConfiguration(entry, context);
     });
 };
+
+// se_PromptCreationConfigurations omitted.
 
 /**
  * serializeAws_restJson1PromptOverrideConfiguration

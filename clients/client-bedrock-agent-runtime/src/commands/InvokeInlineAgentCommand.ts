@@ -228,6 +228,10 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  *     streamFinalResponse: true || false,
  *     applyGuardrailInterval: Number("int"),
  *   },
+ *   promptCreationConfigurations: { // PromptCreationConfigurations
+ *     previousConversationTurnsToInclude: Number("int"),
+ *     excludePreviousThinkingSteps: true || false,
+ *   },
  *   inlineSessionState: { // InlineSessionState
  *     sessionAttributes: { // SessionAttributesMap
  *       "<keys>": "STRING_VALUE",

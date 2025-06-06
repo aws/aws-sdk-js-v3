@@ -36,7 +36,7 @@ export interface ListFlowExecutionEventsCommandInput extends ListFlowExecutionEv
 export interface ListFlowExecutionEventsCommandOutput extends ListFlowExecutionEventsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists events that occurred during an asynchronous execution of a flow. Events provide detailed information about the execution progress, including node inputs and outputs, flow inputs and outputs, condition results, and failure events.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Lists events that occurred during a flow execution. Events provide detailed information about the execution progress, including node inputs and outputs, flow inputs and outputs, condition results, and failure events.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

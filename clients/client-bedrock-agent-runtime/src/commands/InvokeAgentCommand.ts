@@ -240,6 +240,10 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *     streamFinalResponse: true || false,
  *     applyGuardrailInterval: Number("int"),
  *   },
+ *   promptCreationConfigurations: { // PromptCreationConfigurations
+ *     previousConversationTurnsToInclude: Number("int"),
+ *     excludePreviousThinkingSteps: true || false,
+ *   },
  *   sourceArn: "STRING_VALUE",
  * };
  * const command = new InvokeAgentCommand(input);

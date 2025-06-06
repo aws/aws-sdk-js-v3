@@ -32,7 +32,7 @@ export interface ListFlowExecutionsCommandInput extends ListFlowExecutionsReques
 export interface ListFlowExecutionsCommandOutput extends ListFlowExecutionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all asynchronous executions for a flow. Results can be paginated and include summary information about each execution, such as status, start and end times, and the execution's Amazon Resource Name (ARN).</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Lists all executions of a flow. Results can be paginated and include summary information about each execution, such as status, start and end times, and the execution's Amazon Resource Name (ARN).</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

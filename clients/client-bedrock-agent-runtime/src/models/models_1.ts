@@ -41,12 +41,12 @@ import {
   OrchestrationConfiguration,
   OrchestrationConfigurationFilterSensitiveLog,
   OrchestrationType,
+  PromptCreationConfigurations,
   PromptOverrideConfiguration,
   ResourceNotFoundException,
   RetrievalResultContent,
   RetrievalResultLocation,
   RetrieveAndGenerateInput,
-  RetrieveAndGenerateOutputEvent,
   RetrieveAndGenerateSessionConfiguration,
   RetrieveAndGenerateType,
   SearchType,
@@ -57,6 +57,18 @@ import {
   VectorSearchRerankingConfiguration,
   VectorSearchRerankingConfigurationFilterSensitiveLog,
 } from "./models_0";
+
+/**
+ * <p>A retrieve and generate output event.</p>
+ * @public
+ */
+export interface RetrieveAndGenerateOutputEvent {
+  /**
+   * <p>A text response.</p>
+   * @public
+   */
+  text: string | undefined;
+}
 
 /**
  * <p>A retrieve and generate stream response output.</p>
@@ -2095,6 +2107,12 @@ export interface InvokeAgentRequest {
   streamingConfigurations?: StreamingConfigurations | undefined;
 
   /**
+   * <p>Specifies parameters that control how the service populates the agent prompt for an <code>InvokeAgent</code> request. You can control which aspects of previous invocations in the same agent session the service uses to populate the agent prompt. This gives you more granular control over the contextual history that is used to process the current request.</p>
+   * @public
+   */
+  promptCreationConfigurations?: PromptCreationConfigurations | undefined;
+
+  /**
    * <p>The ARN of the resource making the request.</p>
    * @public
    */
@@ -2202,6 +2220,12 @@ export interface InvokeInlineAgentRequest {
   streamingConfigurations?: StreamingConfigurations | undefined;
 
   /**
+   * <p>Specifies parameters that control how the service populates the agent prompt for an <code>InvokeInlineAgent</code> request. You can control which aspects of previous invocations in the same agent session the service uses to populate the agent prompt. This gives you more granular control over the contextual history that is used to process the current request.</p>
+   * @public
+   */
+  promptCreationConfigurations?: PromptCreationConfigurations | undefined;
+
+  /**
    * <p> Parameters that specify the various attributes of a sessions. You can include attributes for the session or prompt or, if you configured an action group to return control, results from invocation of the action group. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>. </p> <note> <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p> </note>
    * @public
    */
@@ -2231,6 +2255,13 @@ export interface InvokeInlineAgentRequest {
    */
   customOrchestration?: CustomOrchestration | undefined;
 }
+
+/**
+ * @internal
+ */
+export const RetrieveAndGenerateOutputEventFilterSensitiveLog = (obj: RetrieveAndGenerateOutputEvent): any => ({
+  ...obj,
+});
 
 /**
  * @internal

@@ -32,7 +32,7 @@ export interface GetExecutionFlowSnapshotCommandInput extends GetExecutionFlowSn
 export interface GetExecutionFlowSnapshotCommandOutput extends GetExecutionFlowSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the flow definition snapshot used for an asynchronous execution. The snapshot represents the flow metadata and definition as it existed at the time the asynchronous execution was started. Note that even if the flow is edited after an execution starts, the snapshot connected to the execution remains unchanged.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Retrieves the flow definition snapshot used for a flow execution. The snapshot represents the flow metadata and definition as it existed at the time the execution was started. Note that even if the flow is edited after an execution starts, the snapshot connected to the execution remains unchanged.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

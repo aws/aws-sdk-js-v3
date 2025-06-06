@@ -32,7 +32,7 @@ export interface GetFlowExecutionCommandInput extends GetFlowExecutionRequest {}
 export interface GetFlowExecutionCommandOutput extends GetFlowExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves details about a specific asynchronous execution of a flow, including its status, start and end times, and any errors that occurred during execution.</p>
+ * <p>Retrieves details about a specific flow execution, including its status, start and end times, and any errors that occurred during execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

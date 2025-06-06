@@ -1219,13 +1219,13 @@ export interface GetExecutionFlowSnapshotRequest {
   flowIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the flow alias used for the async execution.</p>
+   * <p>The unique identifier of the flow alias used for the flow execution.</p>
    * @public
    */
   flowAliasIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the async execution.</p>
+   * <p>The unique identifier of the flow execution.</p>
    * @public
    */
   executionIdentifier: string | undefined;
@@ -1242,25 +1242,25 @@ export interface GetExecutionFlowSnapshotResponse {
   flowIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the flow alias used for the async execution.</p>
+   * <p>The unique identifier of the flow alias used for the flow execution.</p>
    * @public
    */
   flowAliasIdentifier: string | undefined;
 
   /**
-   * <p>The version of the flow used for the async execution.</p>
+   * <p>The version of the flow used for the flow execution.</p>
    * @public
    */
   flowVersion: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM service role that's used by the async execution.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that's used by the flow execution.</p>
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The flow definition used for the async execution, including the nodes, connections, and configuration at the time when the execution started.</p> <p>The definition returns as a string that follows the structure of a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_FlowDefinition.html">FlowDefinition</a> object.</p>
+   * <p>The flow definition used for the flow execution, including the nodes, connections, and configuration at the time when the execution started.</p> <p>The definition returns as a string that follows the structure of a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_FlowDefinition.html">FlowDefinition</a> object.</p>
    * @public
    */
   definition: string | undefined;
@@ -1376,7 +1376,7 @@ export interface GetFlowExecutionRequest {
   flowAliasIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the async execution to retrieve.</p>
+   * <p>The unique identifier of the flow execution to retrieve.</p>
    * @public
    */
   executionIdentifier: string | undefined;
@@ -1396,7 +1396,7 @@ export const FlowExecutionErrorType = {
 export type FlowExecutionErrorType = (typeof FlowExecutionErrorType)[keyof typeof FlowExecutionErrorType];
 
 /**
- * <p>Contains information about an error that occurred during an async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Contains information about an error that occurred during an flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
 export interface FlowExecutionError {
@@ -1441,31 +1441,31 @@ export type FlowExecutionStatus = (typeof FlowExecutionStatus)[keyof typeof Flow
  */
 export interface GetFlowExecutionResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the async execution.</p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the flow execution.</p>
    * @public
    */
   executionArn: string | undefined;
 
   /**
-   * <p>The current status of the async execution.</p> <p>Async executions time out after 24 hours.</p>
+   * <p>The current status of the flow execution.</p> <p>Flow executions time out after 24 hours.</p>
    * @public
    */
   status: FlowExecutionStatus | undefined;
 
   /**
-   * <p>The timestamp when the async execution started.</p>
+   * <p>The timestamp when the flow execution started.</p>
    * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the async execution ended. This field is only populated when the execution has completed, failed, timed out, or been aborted.</p>
+   * <p>The timestamp when the flow execution ended. This field is only populated when the execution has completed, failed, timed out, or been aborted.</p>
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>A list of errors that occurred during the async execution. Each error includes an error code, message, and the node where the error occurred, if applicable.</p>
+   * <p>A list of errors that occurred during the flow execution. Each error includes an error code, message, and the node where the error occurred, if applicable.</p>
    * @public
    */
   errors?: FlowExecutionError[] | undefined;
@@ -1520,7 +1520,7 @@ export interface ListFlowExecutionEventsRequest {
   flowAliasIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the async execution.</p>
+   * <p>The unique identifier of the flow execution.</p>
    * @public
    */
   executionIdentifier: string | undefined;
@@ -1545,7 +1545,7 @@ export interface ListFlowExecutionEventsRequest {
 }
 
 /**
- * <p>Represents a condition that was satisfied during a condition node evaluation in a flow's async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Represents a condition that was satisfied during a condition node evaluation in a flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
 export interface SatisfiedCondition {
@@ -1557,7 +1557,7 @@ export interface SatisfiedCondition {
 }
 
 /**
- * <p>Contains information about a condition evaluation result during an async execution. This event is generated when a condition node in the flow evaluates its conditions.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Contains information about a condition evaluation result during a flow execution. This event is generated when a condition node in the flow evaluates its conditions.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
 export interface ConditionResultEvent {
@@ -1596,7 +1596,7 @@ export const FlowErrorCode = {
 export type FlowErrorCode = (typeof FlowErrorCode)[keyof typeof FlowErrorCode];
 
 /**
- * <p>Contains information about a failure that occurred at the flow level during an async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Contains information about a failure that occurred at the flow level during a flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
 export interface FlowFailureEvent {
@@ -1620,7 +1620,7 @@ export interface FlowFailureEvent {
 }
 
 /**
- * <p>Contains the content of an async execution input or output field.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Contains the content of an flow execution input or output field.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
 export type FlowExecutionContent = FlowExecutionContent.DocumentMember | FlowExecutionContent.$UnknownMember;
@@ -1658,7 +1658,7 @@ export namespace FlowExecutionContent {
 }
 
 /**
- * <p>Represents an input field provided to a flow during an async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Represents an input field provided to a flow during a flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
 export interface FlowInputField {
@@ -1676,7 +1676,7 @@ export interface FlowInputField {
 }
 
 /**
- * <p>Contains information about the inputs provided to the flow at the start of async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Contains information about the inputs provided to the flow at the start of a flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
 export interface FlowExecutionInputEvent {
@@ -1700,7 +1700,7 @@ export interface FlowExecutionInputEvent {
 }
 
 /**
- * <p>Represents an output field produced by a flow during an async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Represents an output field produced by a flow during a flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
 export interface FlowOutputField {
@@ -1718,7 +1718,7 @@ export interface FlowOutputField {
 }
 
 /**
- * <p>Contains information about the outputs produced by the flow during an async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Contains information about the outputs produced by the flow during a flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
 export interface FlowExecutionOutputEvent {
@@ -1758,7 +1758,7 @@ export const NodeErrorCode = {
 export type NodeErrorCode = (typeof NodeErrorCode)[keyof typeof NodeErrorCode];
 
 /**
- * <p>Contains information about a failure that occurred at a specific node during a flow's async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Contains information about a failure that occurred at a specific node during a flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
 export interface NodeFailureEvent {
@@ -1788,7 +1788,7 @@ export interface NodeFailureEvent {
 }
 
 /**
- * <p>Contains the content of a flow node's input or output field for an async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Contains the content of a flow node's input or output field for a flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
 export type NodeExecutionContent = NodeExecutionContent.DocumentMember | NodeExecutionContent.$UnknownMember;
@@ -1826,7 +1826,7 @@ export namespace NodeExecutionContent {
 }
 
 /**
- * <p>Represents an input field provided to a node during a flow's async execution.</p>
+ * <p>Represents an input field provided to a node during a flow execution.</p>
  * @public
  */
 export interface NodeInputField {
@@ -1844,7 +1844,7 @@ export interface NodeInputField {
 }
 
 /**
- * <p>Contains information about the inputs provided to a specific node during a flow's async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Contains information about the inputs provided to a specific node during a flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
 export interface NodeInputEvent {
@@ -1868,7 +1868,7 @@ export interface NodeInputEvent {
 }
 
 /**
- * <p>Represents an output field produced by a node during a flow's async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Represents an output field produced by a node during a flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
 export interface NodeOutputField {
@@ -1886,7 +1886,7 @@ export interface NodeOutputField {
 }
 
 /**
- * <p>Contains information about the outputs produced by a specific node during a flow's async execution.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Contains information about the outputs produced by a specific node during a flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
 export interface NodeOutputEvent {
@@ -1910,7 +1910,7 @@ export interface NodeOutputEvent {
 }
 
 /**
- * <p>Represents an event that occurred during an async execution. This is a union type that can contain one of several event types, such as node input and output events; flow input and output events; condition node result events, or failure events.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Represents an event that occurred during an flow execution. This is a union type that can contain one of several event types, such as node input and output events; flow input and output events; condition node result events, or failure events.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
 export type FlowExecutionEvent =
@@ -1988,7 +1988,7 @@ export namespace FlowExecutionEvent {
   }
 
   /**
-   * <p>Contains information about a condition evaluation result during the async execution. This event is generated when a condition node in the flow evaluates its conditions.</p>
+   * <p>Contains information about a condition evaluation result during the flow execution. This event is generated when a condition node in the flow evaluates its conditions.</p>
    * @public
    */
   export interface ConditionResultEventMember {
@@ -2074,7 +2074,7 @@ export namespace FlowExecutionEvent {
  */
 export interface ListFlowExecutionEventsResponse {
   /**
-   * <p>A list of events that occurred during the async execution. Events can include node inputs and outputs, flow inputs and outputs, condition results, and failure events.</p>
+   * <p>A list of events that occurred during the flow execution. Events can include node inputs and outputs, flow inputs and outputs, condition results, and failure events.</p>
    * @public
    */
   flowExecutionEvents: FlowExecutionEvent[] | undefined;
@@ -2103,7 +2103,7 @@ export interface ListFlowExecutionsRequest {
   flowAliasIdentifier?: string | undefined;
 
   /**
-   * <p>The maximum number of async executions to return in a single response. If more executions exist than the specified maxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * <p>The maximum number of flow executions to return in a single response. If more executions exist than the specified <code>maxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -2116,12 +2116,12 @@ export interface ListFlowExecutionsRequest {
 }
 
 /**
- * <p>Contains summary information about a flow's async execution, including its status, timestamps, and identifiers.</p> <note> <p>Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * <p>Contains summary information about a flow execution, including its status, timestamps, and identifiers.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
 export interface FlowExecutionSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the async execution.</p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the flow execution.</p>
    * @public
    */
   executionArn: string | undefined;
@@ -2145,19 +2145,19 @@ export interface FlowExecutionSummary {
   flowVersion: string | undefined;
 
   /**
-   * <p>The current status of the async execution.</p> <p>Async executions time out after 24 hours.</p>
+   * <p>The current status of the flow execution.</p> <p>Flow executions time out after 24 hours.</p>
    * @public
    */
   status: FlowExecutionStatus | undefined;
 
   /**
-   * <p>The timestamp when the async execution was created.</p>
+   * <p>The timestamp when the flow execution was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the async execution ended. This field is only populated when the execution has completed, failed, timed out, or been aborted.</p>
+   * <p>The timestamp when the flow execution ended. This field is only populated when the execution has completed, failed, timed out, or been aborted.</p>
    * @public
    */
   endedAt?: Date | undefined;
@@ -2168,7 +2168,7 @@ export interface FlowExecutionSummary {
  */
 export interface ListFlowExecutionsResponse {
   /**
-   * <p>A list of async execution summaries. Each summary includes the execution ARN, flow identifier, flow alias identifier, flow version, status, and timestamps.</p>
+   * <p>A list of flow execution summaries. Each summary includes the execution ARN, flow identifier, flow alias identifier, flow version, status, and timestamps.</p>
    * @public
    */
   flowExecutionSummaries: FlowExecutionSummary[] | undefined;
@@ -2391,25 +2391,25 @@ export interface StartFlowExecutionRequest {
   flowIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the flow alias to use for the async execution.</p>
+   * <p>The unique identifier of the flow alias to use for the flow execution.</p>
    * @public
    */
   flowAliasIdentifier: string | undefined;
 
   /**
-   * <p>The unique name for the async execution. If you don't provide one, a system-generated name is used.</p>
+   * <p>The unique name for the flow execution. If you don't provide one, a system-generated name is used.</p>
    * @public
    */
   flowExecutionName?: string | undefined;
 
   /**
-   * <p>The input data required for the async execution. This must match the input schema defined in the flow.</p>
+   * <p>The input data required for the flow execution. This must match the input schema defined in the flow.</p>
    * @public
    */
   inputs: FlowInput[] | undefined;
 
   /**
-   * <p>The performance settings for the foundation model used in the async execution.</p>
+   * <p>The performance settings for the foundation model used in the flow execution.</p>
    * @public
    */
   modelPerformanceConfiguration?: ModelPerformanceConfiguration | undefined;
@@ -2420,7 +2420,7 @@ export interface StartFlowExecutionRequest {
  */
 export interface StartFlowExecutionResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the async execution.</p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the flow execution.</p>
    * @public
    */
   executionArn?: string | undefined;
@@ -2443,7 +2443,7 @@ export interface StopFlowExecutionRequest {
   flowAliasIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the async execution to stop.</p>
+   * <p>The unique identifier of the flow execution to stop.</p>
    * @public
    */
   executionIdentifier: string | undefined;
@@ -2454,13 +2454,13 @@ export interface StopFlowExecutionRequest {
  */
 export interface StopFlowExecutionResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the async execution that was stopped.</p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the flow execution that was stopped.</p>
    * @public
    */
   executionArn?: string | undefined;
 
   /**
-   * <p>The updated status of the async execution after the stop request. This will typically be ABORTED if the execution was successfully stopped.</p>
+   * <p>The updated status of the flow execution after the stop request. This will typically be ABORTED if the execution was successfully stopped.</p>
    * @public
    */
   status: FlowExecutionStatus | undefined;
@@ -3566,6 +3566,24 @@ export interface BedrockModelConfigurations {
    * @public
    */
   performanceConfig?: PerformanceConfiguration | undefined;
+}
+
+/**
+ * <p>Specifies parameters that control how the service populates the agent prompt for an <code>InvokeAgent</code> or <code>InvokeInlineAgent</code> request. You can control which aspects of previous invocations in the same agent session the service uses to populate the agent prompt. This gives you more granular control over the contextual history that is used to process the current request.</p>
+ * @public
+ */
+export interface PromptCreationConfigurations {
+  /**
+   * <p>The number of previous conversations from the ongoing agent session to include in the conversation history of the agent prompt, during the current invocation. This gives you more granular control over the context that the model is made aware of, and helps the model remove older context which is no longer useful during the ongoing agent session.</p>
+   * @public
+   */
+  previousConversationTurnsToInclude?: number | undefined;
+
+  /**
+   * <p>If <code>true</code>, the service removes any content between <code>&lt;thinking&gt;</code> tags from previous conversations in an agent session. The service will only remove content from already processed turns. This helps you remove content which might not be useful for current and subsequent invocations. This can reduce the input token count and potentially save costs. The default value is <code>false</code>.</p>
+   * @public
+   */
+  excludePreviousThinkingSteps?: boolean | undefined;
 }
 
 /**
@@ -8545,18 +8563,6 @@ export interface GuardrailEvent {
 }
 
 /**
- * <p>A retrieve and generate output event.</p>
- * @public
- */
-export interface RetrieveAndGenerateOutputEvent {
-  /**
-   * <p>A text response.</p>
-   * @public
-   */
-  text: string | undefined;
-}
-
-/**
  * @internal
  */
 export const ActionGroupInvocationInputFilterSensitiveLog = (obj: ActionGroupInvocationInput): any => ({
@@ -10009,11 +10015,4 @@ export const CitationEventFilterSensitiveLog = (obj: CitationEvent): any => ({
   ...(obj.retrievedReferences && {
     retrievedReferences: obj.retrievedReferences.map((item) => RetrievedReferenceFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const RetrieveAndGenerateOutputEventFilterSensitiveLog = (obj: RetrieveAndGenerateOutputEvent): any => ({
-  ...obj,
 });

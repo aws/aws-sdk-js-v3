@@ -32,7 +32,7 @@ export interface StopFlowExecutionCommandInput extends StopFlowExecutionRequest 
 export interface StopFlowExecutionCommandOutput extends StopFlowExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Stops an Amazon Bedrock flow's asynchronous execution. This operation prevents further processing of the flow and changes the execution status to <code>Aborted</code>.</p>
+ * <p>Stops an Amazon Bedrock flow's execution. This operation prevents further processing of the flow and changes the execution status to <code>Aborted</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
