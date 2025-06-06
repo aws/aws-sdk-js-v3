@@ -110,7 +110,10 @@ final class AwsProtocolUtils {
     static void generateJsonParseBody(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
         writer.addDependency(AwsDependency.AWS_SDK_CORE);
-        writer.addImport("parseJsonBody", "parseBody", AwsDependency.AWS_SDK_CORE);
+        writer.addImportSubmodule(
+            "parseJsonBody", "parseBody",
+            AwsDependency.AWS_SDK_CORE, "/protocols"
+        );
     }
 
     static void generateJsonParseBodyWithQueryHeader(GenerationContext context) {
@@ -129,7 +132,10 @@ final class AwsProtocolUtils {
     static void generateJsonParseErrorBody(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
         writer.addDependency(AwsDependency.AWS_SDK_CORE);
-        writer.addImport("parseJsonErrorBody", "parseErrorBody", AwsDependency.AWS_SDK_CORE);
+        writer.addImportSubmodule(
+            "parseJsonErrorBody", "parseErrorBody",
+            AwsDependency.AWS_SDK_CORE, "/protocols"
+        );
     }
 
     /**
@@ -141,7 +147,10 @@ final class AwsProtocolUtils {
     static void generateXmlParseBody(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
         writer.addDependency(AwsDependency.AWS_SDK_CORE);
-        writer.addImport("parseXmlBody", "parseBody", AwsDependency.AWS_SDK_CORE);
+        writer.addImportSubmodule(
+            "parseXmlBody", "parseBody",
+            AwsDependency.AWS_SDK_CORE, "/protocols"
+        );
     }
 
     /**
@@ -153,7 +162,10 @@ final class AwsProtocolUtils {
     static void generateXmlParseErrorBody(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
         writer.addDependency(AwsDependency.AWS_SDK_CORE);
-        writer.addImport("parseXmlErrorBody", "parseErrorBody", AwsDependency.AWS_SDK_CORE);
+        writer.addImportSubmodule(
+            "parseXmlErrorBody", "parseErrorBody",
+            AwsDependency.AWS_SDK_CORE, "/protocols"
+        );
     }
 
     /**

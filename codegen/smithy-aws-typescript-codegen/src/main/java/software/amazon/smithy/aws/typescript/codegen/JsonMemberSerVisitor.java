@@ -55,9 +55,12 @@ final class JsonMemberSerVisitor extends DocumentMemberSerVisitor {
         this.serdeElisionEnabled = !this.isAwsQueryCompat && !context.getSettings().generateServerSdk();
         if (isAwsQueryCompat) {
             writer.addDependency(AwsDependency.AWS_SDK_CORE);
-            writer.addImport("_toStr", null, AwsDependency.AWS_SDK_CORE);
-            writer.addImport("_toNum", null, AwsDependency.AWS_SDK_CORE);
-            writer.addImport("_toBool", null, AwsDependency.AWS_SDK_CORE);
+            writer.addImportSubmodule("_toStr", null,
+                AwsDependency.AWS_SDK_CORE, "/protocols");
+            writer.addImportSubmodule("_toNum", null,
+                AwsDependency.AWS_SDK_CORE, "/protocols");
+            writer.addImportSubmodule("_toBool", null,
+                AwsDependency.AWS_SDK_CORE, "/protocols");
         }
     }
 
