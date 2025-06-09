@@ -38,9 +38,7 @@ export const ApplyTimeOf = {
 export type ApplyTimeOf = (typeof ApplyTimeOf)[keyof typeof ApplyTimeOf];
 
 /**
- * <p>The requested operation would cause a conflict with the current state of a service
- *             resource associated with the request. Resolve the conflict before retrying this
- *             request.</p>
+ * <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -124,8 +122,7 @@ export interface MaintenanceWindow {
   startTimeHour?: number | undefined;
 
   /**
-   * <p>The minutes past the hour for the maintenance window start
-   *                 (<code>00</code>-<code>59</code>).</p>
+   * <p>The minutes past the hour for the maintenance window start (<code>00</code>-<code>59</code>).</p>
    * @public
    */
   startTimeMinute?: number | undefined;
@@ -149,8 +146,7 @@ export interface MaintenanceWindow {
   daysOfTheWeek?: DayOfWeek[] | undefined;
 
   /**
-   * <p>The option to set the maintenance window during the device local time or Universal
-   *             Coordinated Time (UTC).</p>
+   * <p>The option to set the maintenance window during the device local time or Universal Coordinated Time (UTC).</p>
    * @public
    */
   applyTimeOf?: ApplyTimeOf | undefined;
@@ -195,8 +191,7 @@ export interface CreateEnvironmentRequest {
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,
-   *             WorkSpaces Secure Browser, or AppStream 2.0.</p>
+   * <p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces, WorkSpaces Secure Browser, or AppStream 2.0.</p>
    * @public
    */
   desktopArn: string | undefined;
@@ -208,8 +203,7 @@ export interface CreateEnvironmentRequest {
   desktopEndpoint?: string | undefined;
 
   /**
-   * <p>An option to define if software updates should be applied within a maintenance
-   *             window.</p>
+   * <p>An option to define if software updates should be applied within a maintenance window.</p>
    * @public
    */
   softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule | undefined;
@@ -233,23 +227,13 @@ export interface CreateEnvironmentRequest {
   desiredSoftwareSetId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Management Service key to use to encrypt the
-   *             environment.</p>
+   * <p>The Amazon Resource Name (ARN) of the Key Management Service key to use to encrypt the environment.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
-   *          of the request. This lets you safely retry the request without accidentally performing the
-   *          same operation a second time. Passing the same value to a later call to an operation
-   *          requires that you also pass the same value for all other parameters. We recommend that you
-   *          use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
-   *             value</a>.</p>
-   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
-   *          you.</p>
-   *          <p>If you retry the operation with the same <code>ClientToken</code>, but with different
-   *          parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -300,8 +284,7 @@ export interface EnvironmentSummary {
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,
-   *             WorkSpaces Secure Browser, or AppStream 2.0.</p>
+   * <p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces, WorkSpaces Secure Browser, or AppStream 2.0.</p>
    * @public
    */
   desktopArn?: string | undefined;
@@ -325,8 +308,7 @@ export interface EnvironmentSummary {
   activationCode?: string | undefined;
 
   /**
-   * <p>An option to define if software updates should be applied within a maintenance
-   *             window.</p>
+   * <p>An option to define if software updates should be applied within a maintenance window.</p>
    * @public
    */
   softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule | undefined;
@@ -614,16 +596,7 @@ export interface DeleteDeviceRequest {
   id: string | undefined;
 
   /**
-   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
-   *          of the request. This lets you safely retry the request without accidentally performing the
-   *          same operation a second time. Passing the same value to a later call to an operation
-   *          requires that you also pass the same value for all other parameters. We recommend that you
-   *          use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
-   *             value</a>.</p>
-   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
-   *          you.</p>
-   *          <p>If you retry the operation with the same <code>ClientToken</code>, but with different
-   *          parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -645,16 +618,7 @@ export interface DeleteEnvironmentRequest {
   id: string | undefined;
 
   /**
-   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
-   *          of the request. This lets you safely retry the request without accidentally performing the
-   *          same operation a second time. Passing the same value to a later call to an operation
-   *          requires that you also pass the same value for all other parameters. We recommend that you
-   *          use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
-   *             value</a>.</p>
-   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
-   *          you.</p>
-   *          <p>If you retry the operation with the same <code>ClientToken</code>, but with different
-   *          parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -696,16 +660,7 @@ export interface DeregisterDeviceRequest {
   targetDeviceStatus?: TargetDeviceStatus | undefined;
 
   /**
-   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
-   *          of the request. This lets you safely retry the request without accidentally performing the
-   *          same operation a second time. Passing the same value to a later call to an operation
-   *          requires that you also pass the same value for all other parameters. We recommend that you
-   *          use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
-   *             value</a>.</p>
-   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
-   *          you.</p>
-   *          <p>If you retry the operation with the same <code>ClientToken</code>, but with different
-   *          parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -835,15 +790,13 @@ export interface Device {
   pendingSoftwareSetVersion?: string | undefined;
 
   /**
-   * <p>An option to define if software updates should be applied within a maintenance
-   *             window.</p>
+   * <p>An option to define if software updates should be applied within a maintenance window.</p>
    * @public
    */
   softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule | undefined;
 
   /**
-   * <p>Describes if the software currently installed on the device is a supported
-   *             version.</p>
+   * <p>Describes if the software currently installed on the device is a supported version.</p>
    * @public
    */
   softwareSetComplianceStatus?: DeviceSoftwareSetComplianceStatus | undefined;
@@ -885,8 +838,7 @@ export interface Device {
   arn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Management Service key used to encrypt the
-   *             device.</p>
+   * <p>The Amazon Resource Name (ARN) of the Key Management Service key used to encrypt the device.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -960,8 +912,7 @@ export interface DeviceSummary {
   pendingSoftwareSetId?: string | undefined;
 
   /**
-   * <p>An option to define if software updates should be applied within a maintenance
-   *             window.</p>
+   * <p>An option to define if software updates should be applied within a maintenance window.</p>
    * @public
    */
   softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule | undefined;
@@ -1031,8 +982,7 @@ export interface Environment {
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,
-   *             WorkSpaces Secure Browser, or AppStream 2.0.</p>
+   * <p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces, WorkSpaces Secure Browser, or AppStream 2.0.</p>
    * @public
    */
   desktopArn?: string | undefined;
@@ -1062,8 +1012,7 @@ export interface Environment {
   registeredDevicesCount?: number | undefined;
 
   /**
-   * <p>An option to define if software updates should be applied within a maintenance
-   *             window.</p>
+   * <p>An option to define if software updates should be applied within a maintenance window.</p>
    * @public
    */
   softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule | undefined;
@@ -1099,8 +1048,7 @@ export interface Environment {
   pendingSoftwareSetVersion?: string | undefined;
 
   /**
-   * <p>Describes if the software currently installed on all devices in the environment is a
-   *             supported version.</p>
+   * <p>Describes if the software currently installed on all devices in the environment is a supported version.</p>
    * @public
    */
   softwareSetComplianceStatus?: EnvironmentSoftwareSetComplianceStatus | undefined;
@@ -1124,8 +1072,7 @@ export interface Environment {
   arn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Management Service key used to encrypt the
-   *             environment.</p>
+   * <p>The Amazon Resource Name (ARN) of the Key Management Service key used to encrypt the environment.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -1305,20 +1252,13 @@ export interface GetSoftwareSetResponse {
  */
 export interface ListDevicesRequest {
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of
-   *             <code>nextToken</code> is a unique pagination token for each page. Make the call again
-   *          using the returned token to retrieve the next page. Keep all other arguments unchanged.
-   *          Each pagination token expires after 24 hours. Using an expired pagination token will return
-   *          an <i>HTTP 400 InvalidToken error</i>.</p>
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned per call. You can use
-   *                 <code>nextToken</code> to obtain further pages of results.</p>
-   *          <p>This is only an upper limit. The actual number of results returned per call might be
-   *             fewer than the specified maximum.</p>
+   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1335,11 +1275,7 @@ export interface ListDevicesResponse {
   devices?: DeviceSummary[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of
-   *             <code>nextToken</code> is a unique pagination token for each page. Make the call again
-   *          using the returned token to retrieve the next page. Keep all other arguments unchanged.
-   *          Each pagination token expires after 24 hours. Using an expired pagination token will return
-   *          an <i>HTTP 400 InvalidToken error</i>.</p>
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1350,20 +1286,13 @@ export interface ListDevicesResponse {
  */
 export interface ListEnvironmentsRequest {
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of
-   *             <code>nextToken</code> is a unique pagination token for each page. Make the call again
-   *          using the returned token to retrieve the next page. Keep all other arguments unchanged.
-   *          Each pagination token expires after 24 hours. Using an expired pagination token will return
-   *          an <i>HTTP 400 InvalidToken error</i>.</p>
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned per call. You can use
-   *                 <code>nextToken</code> to obtain further pages of results.</p>
-   *          <p>This is only an upper limit. The actual number of results returned per call might be
-   *             fewer than the specified maximum.</p>
+   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1380,11 +1309,7 @@ export interface ListEnvironmentsResponse {
   environments?: EnvironmentSummary[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of
-   *             <code>nextToken</code> is a unique pagination token for each page. Make the call again
-   *          using the returned token to retrieve the next page. Keep all other arguments unchanged.
-   *          Each pagination token expires after 24 hours. Using an expired pagination token will return
-   *          an <i>HTTP 400 InvalidToken error</i>.</p>
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1395,20 +1320,13 @@ export interface ListEnvironmentsResponse {
  */
 export interface ListSoftwareSetsRequest {
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of
-   *             <code>nextToken</code> is a unique pagination token for each page. Make the call again
-   *          using the returned token to retrieve the next page. Keep all other arguments unchanged.
-   *          Each pagination token expires after 24 hours. Using an expired pagination token will return
-   *          an <i>HTTP 400 InvalidToken error</i>.</p>
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned per call. You can use
-   *                 <code>nextToken</code> to obtain further pages of results.</p>
-   *          <p>This is only an upper limit. The actual number of results returned per call might be
-   *             fewer than the specified maximum.</p>
+   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1467,11 +1385,7 @@ export interface ListSoftwareSetsResponse {
   softwareSets?: SoftwareSetSummary[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of
-   *             <code>nextToken</code> is a unique pagination token for each page. Make the call again
-   *          using the returned token to retrieve the next page. Keep all other arguments unchanged.
-   *          Each pagination token expires after 24 hours. Using an expired pagination token will return
-   *          an <i>HTTP 400 InvalidToken error</i>.</p>
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1482,8 +1396,7 @@ export interface ListSoftwareSetsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which you want to retrieve
-   *             tags.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource for which you want to retrieve tags.</p>
    * @public
    */
   resourceArn: string | undefined;
@@ -1533,8 +1446,7 @@ export interface UntagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>The keys of the key-value pairs for the tag or tags you want to remove from the
-   *             specified resource.</p>
+   * <p>The keys of the key-value pairs for the tag or tags you want to remove from the specified resource.</p>
    * @public
    */
   tagKeys: string[] | undefined;
@@ -1568,8 +1480,7 @@ export interface UpdateDeviceRequest {
   desiredSoftwareSetId?: string | undefined;
 
   /**
-   * <p>An option to define if software updates should be applied within a maintenance
-   *             window.</p>
+   * <p>An option to define if software updates should be applied within a maintenance window.</p>
    * @public
    */
   softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule | undefined;
@@ -1603,8 +1514,7 @@ export interface UpdateEnvironmentRequest {
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,
-   *             WorkSpaces Secure Browser, or AppStream 2.0.</p>
+   * <p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces, WorkSpaces Secure Browser, or AppStream 2.0.</p>
    * @public
    */
   desktopArn?: string | undefined;
@@ -1616,8 +1526,7 @@ export interface UpdateEnvironmentRequest {
   desktopEndpoint?: string | undefined;
 
   /**
-   * <p>An option to define if software updates should be applied within a maintenance
-   *             window.</p>
+   * <p>An option to define if software updates should be applied within a maintenance window.</p>
    * @public
    */
   softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule | undefined;
