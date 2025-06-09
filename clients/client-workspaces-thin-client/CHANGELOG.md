@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.827.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.826.0...v3.827.0) (2025-06-09)
+
+
+### Features
+
+* **client-workspaces-thin-client:** Add ConflictException to UpdateEnvironment API ([c04afc4](https://github.com/aws/aws-sdk-js-v3/commit/c04afc43a2af828a4fb25de6547ac24f4c7c4be6))
+
+
+
+
+
 # [3.826.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.825.0...v3.826.0) (2025-06-06)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces-thin-client

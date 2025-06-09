@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.827.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.826.0...v3.827.0) (2025-06-09)
+
+
+### Features
+
+* **client-cost-explorer:** Support dual-stack endpoints for ce api ([7d158e3](https://github.com/aws/aws-sdk-js-v3/commit/7d158e3c8c4225523e884d9f4f4f0bf08f8d2c9b))
+
+
+
+
+
 # [3.826.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.825.0...v3.826.0) (2025-06-06)
 
 **Note:** Version bump only for package @aws-sdk/client-cost-explorer

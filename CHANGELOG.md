@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.827.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.826.0...v3.827.0) (2025-06-09)
+
+
+### Features
+
+* **client-appsync:** Deprecate `atRestEncryptionEnabled` and `transitEncryptionEnabled` attributes in `CreateApiCache` action. Encryption is always enabled for new caches. ([4a8e853](https://github.com/aws/aws-sdk-js-v3/commit/4a8e853a4bc7c2b0ccf6d63c35c6db4bbed68961))
+* **client-cost-explorer:** Support dual-stack endpoints for ce api ([7d158e3](https://github.com/aws/aws-sdk-js-v3/commit/7d158e3c8c4225523e884d9f4f4f0bf08f8d2c9b))
+* **client-customer-profiles:** This release introduces capability of Profile Explorer, using correct ingestion timestamp & using historical data for computing calculated attributes, and new standard objects for T&H as part of Amazon Connect Customer Profiles service. ([3558c83](https://github.com/aws/aws-sdk-js-v3/commit/3558c835ad3594642feb727530bfb3823a0081d9))
+* **client-ec2:** Release to support Elastic VMware Service (Amazon EVS) Subnet and Amazon EVS Network Interface Types. ([5b52d8f](https://github.com/aws/aws-sdk-js-v3/commit/5b52d8f7e73edcdd601ac03482dc2db82a977587))
+* **client-efs:** Added support for Internet Protocol Version 6 (IPv6) on EFS Service APIs and mount targets. ([e5738ab](https://github.com/aws/aws-sdk-js-v3/commit/e5738ab5364b7ac6751037ff227e9243ae6bca9a))
+* **client-marketplace-catalog:** The ListEntities API now supports the EntityID, LastModifiedDate, ProductTitle, and Visibility filters for machine learning products. You can also sort using all of those filters. ([8aaaa37](https://github.com/aws/aws-sdk-js-v3/commit/8aaaa37dc7afa30325ac8e009ad1802a5681f449))
+* **client-workspaces-thin-client:** Add ConflictException to UpdateEnvironment API ([c04afc4](https://github.com/aws/aws-sdk-js-v3/commit/c04afc43a2af828a4fb25de6547ac24f4c7c4be6))
+* **clients:** update client endpoints as of 2025-06-09 ([cf45be5](https://github.com/aws/aws-sdk-js-v3/commit/cf45be57084f43063e20c85877bc091881246cb4))
+
+
+
+
+
 # [3.826.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.825.0...v3.826.0) (2025-06-06)
 
 

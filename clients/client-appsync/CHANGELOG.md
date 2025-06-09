@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.827.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.826.0...v3.827.0) (2025-06-09)
+
+
+### Features
+
+* **client-appsync:** Deprecate `atRestEncryptionEnabled` and `transitEncryptionEnabled` attributes in `CreateApiCache` action. Encryption is always enabled for new caches. ([4a8e853](https://github.com/aws/aws-sdk-js-v3/commit/4a8e853a4bc7c2b0ccf6d63c35c6db4bbed68961))
+
+
+
+
+
 # [3.826.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.825.0...v3.826.0) (2025-06-06)
 
 **Note:** Version bump only for package @aws-sdk/client-appsync

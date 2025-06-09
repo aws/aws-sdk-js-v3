@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.827.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.826.0...v3.827.0) (2025-06-09)
+
+
+### Features
+
+* **client-marketplace-catalog:** The ListEntities API now supports the EntityID, LastModifiedDate, ProductTitle, and Visibility filters for machine learning products. You can also sort using all of those filters. ([8aaaa37](https://github.com/aws/aws-sdk-js-v3/commit/8aaaa37dc7afa30325ac8e009ad1802a5681f449))
+
+
+
+
+
 # [3.826.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.825.0...v3.826.0) (2025-06-06)
 
 **Note:** Version bump only for package @aws-sdk/client-marketplace-catalog
