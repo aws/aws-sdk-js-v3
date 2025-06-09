@@ -80,6 +80,14 @@ import {
   EntityTypeSort,
   Filter,
   InternalServiceException,
+  MachineLearningProductEntityIdFilter,
+  MachineLearningProductFilters,
+  MachineLearningProductLastModifiedDateFilter,
+  MachineLearningProductLastModifiedDateFilterDateRange,
+  MachineLearningProductSort,
+  MachineLearningProductTitleFilter,
+  MachineLearningProductVisibilityFilter,
+  MachineLearningProductVisibilityString,
   OfferAvailabilityEndDateFilter,
   OfferAvailabilityEndDateFilterDateRange,
   OfferBuyerAccountsFilter,
@@ -994,6 +1002,26 @@ const se_JsonDocumentType = (input: __DocumentType, context: __SerdeContext): an
   return input;
 };
 
+// se_MachineLearningProductEntityIdFilter omitted.
+
+// se_MachineLearningProductEntityIdFilterValueList omitted.
+
+// se_MachineLearningProductFilters omitted.
+
+// se_MachineLearningProductLastModifiedDateFilter omitted.
+
+// se_MachineLearningProductLastModifiedDateFilterDateRange omitted.
+
+// se_MachineLearningProductSort omitted.
+
+// se_MachineLearningProductTitleFilter omitted.
+
+// se_MachineLearningProductTitleFilterValueList omitted.
+
+// se_MachineLearningProductVisibilityFilter omitted.
+
+// se_MachineLearningProductVisibilityFilterValueList omitted.
+
 // se_OfferAvailabilityEndDateFilter omitted.
 
 // se_OfferAvailabilityEndDateFilterDateRange omitted.
@@ -1219,6 +1247,8 @@ const de_EntityDetails = (output: any, context: __SerdeContext): Record<string, 
 const de_JsonDocumentType = (output: any, context: __SerdeContext): __DocumentType => {
   return output;
 };
+
+// de_MachineLearningProductSummary omitted.
 
 // de_OfferBuyerAccountsList omitted.
 

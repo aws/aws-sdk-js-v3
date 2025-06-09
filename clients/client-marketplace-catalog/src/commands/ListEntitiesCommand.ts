@@ -291,6 +291,30 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *         },
  *       },
  *     },
+ *     MachineLearningProductFilters: { // MachineLearningProductFilters
+ *       EntityId: { // MachineLearningProductEntityIdFilter
+ *         ValueList: [ // MachineLearningProductEntityIdFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       LastModifiedDate: { // MachineLearningProductLastModifiedDateFilter
+ *         DateRange: { // MachineLearningProductLastModifiedDateFilterDateRange
+ *           AfterValue: "STRING_VALUE",
+ *           BeforeValue: "STRING_VALUE",
+ *         },
+ *       },
+ *       ProductTitle: { // MachineLearningProductTitleFilter
+ *         ValueList: [ // MachineLearningProductTitleFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *         WildCardValue: "STRING_VALUE",
+ *       },
+ *       Visibility: { // MachineLearningProductVisibilityFilter
+ *         ValueList: [ // MachineLearningProductVisibilityFilterValueList
+ *           "Limited" || "Public" || "Restricted" || "Draft",
+ *         ],
+ *       },
+ *     },
  *   },
  *   EntityTypeSort: { // EntityTypeSort Union: only one key present
  *     DataProductSort: { // DataProductSort
@@ -315,6 +339,10 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *     },
  *     ResaleAuthorizationSort: { // ResaleAuthorizationSort
  *       SortBy: "EntityId" || "Name" || "ProductId" || "ProductName" || "ManufacturerAccountId" || "ManufacturerLegalName" || "ResellerAccountID" || "ResellerLegalName" || "Status" || "OfferExtendedStatus" || "CreatedDate" || "AvailabilityEndDate" || "LastModifiedDate",
+ *       SortOrder: "ASCENDING" || "DESCENDING",
+ *     },
+ *     MachineLearningProductSort: { // MachineLearningProductSort
+ *       SortBy: "EntityId" || "LastModifiedDate" || "ProductTitle" || "Visibility",
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *   },
@@ -372,6 +400,10 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * //         OfferExtendedStatus: "STRING_VALUE",
  * //         CreatedDate: "STRING_VALUE",
  * //         AvailabilityEndDate: "STRING_VALUE",
+ * //       },
+ * //       MachineLearningProductSummary: { // MachineLearningProductSummary
+ * //         ProductTitle: "STRING_VALUE",
+ * //         Visibility: "Limited" || "Public" || "Restricted" || "Draft",
  * //       },
  * //     },
  * //   ],

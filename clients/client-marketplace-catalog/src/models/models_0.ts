@@ -567,6 +567,8 @@ export interface ChangeSummary {
 
   /**
    * <p>The JSON value of the details specific to the change type of the requested change.</p>
+   *          <p>To download the "DetailsDocument" shapes, see the <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-python">Python</a>
+   *             and <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-java/tree/main">Java</a> shapes on GitHub.</p>
    * @public
    */
   DetailsDocument?: __DocumentType | undefined;
@@ -762,6 +764,8 @@ export interface DescribeEntityResponse {
 
   /**
    * <p>The JSON value of the details specific to the entity.</p>
+   *          <p>To download "DetailsDocument" shapes, see the <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-python">Python</a>
+   *             and <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-java/tree/main">Java</a> shapes on GitHub.</p>
    * @public
    */
   DetailsDocument?: __DocumentType | undefined;
@@ -1257,6 +1261,125 @@ export interface DataProductFilters {
    * @public
    */
   LastModifiedDate?: DataProductLastModifiedDateFilter | undefined;
+}
+
+/**
+ * <p>The filter for machine learning product entity IDs.</p>
+ * @public
+ */
+export interface MachineLearningProductEntityIdFilter {
+  /**
+   * <p>A list of entity IDs to filter by. The operation returns machine learning products with entity IDs that match the values in this list.</p>
+   * @public
+   */
+  ValueList?: string[] | undefined;
+}
+
+/**
+ * <p>A date range for filtering machine learning products by their last modified date.</p>
+ * @public
+ */
+export interface MachineLearningProductLastModifiedDateFilterDateRange {
+  /**
+   * <p>The start date (inclusive) of the date range. The operation returns machine learning products with last modified dates on or after this date.</p>
+   * @public
+   */
+  AfterValue?: string | undefined;
+
+  /**
+   * <p>The end date (inclusive) of the date range. The operation returns machine learning products with last modified dates on or before this date.</p>
+   * @public
+   */
+  BeforeValue?: string | undefined;
+}
+
+/**
+ * <p>The filter for machine learning product last modified date.</p>
+ * @public
+ */
+export interface MachineLearningProductLastModifiedDateFilter {
+  /**
+   * <p>A date range to filter by. The operation returns machine learning products with last modified dates that fall within this range.</p>
+   * @public
+   */
+  DateRange?: MachineLearningProductLastModifiedDateFilterDateRange | undefined;
+}
+
+/**
+ * <p>The filter for machine learning product titles.</p>
+ * @public
+ */
+export interface MachineLearningProductTitleFilter {
+  /**
+   * <p>A list of product titles to filter by. The operation returns machine learning products with titles that exactly match the values in this list.</p>
+   * @public
+   */
+  ValueList?: string[] | undefined;
+
+  /**
+   * <p>A wildcard value to filter product titles. The operation returns machine learning products with titles that match this wildcard pattern.</p>
+   * @public
+   */
+  WildCardValue?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MachineLearningProductVisibilityString = {
+  Draft: "Draft",
+  Limited: "Limited",
+  Public: "Public",
+  Restricted: "Restricted",
+} as const;
+
+/**
+ * @public
+ */
+export type MachineLearningProductVisibilityString =
+  (typeof MachineLearningProductVisibilityString)[keyof typeof MachineLearningProductVisibilityString];
+
+/**
+ * <p>The filter for machine learning product visibility status.</p>
+ * @public
+ */
+export interface MachineLearningProductVisibilityFilter {
+  /**
+   * <p>A list of visibility values to filter by. The operation returns machine learning products with visibility status that match the values in this list.</p>
+   * @public
+   */
+  ValueList?: MachineLearningProductVisibilityString[] | undefined;
+}
+
+/**
+ * <p>The filters that you can use with the ListEntities operation to filter machine learning products. You can filter by EntityId, LastModifiedDate, ProductTitle, and Visibility.</p>
+ * @public
+ */
+export interface MachineLearningProductFilters {
+  /**
+   * <p>Filter machine learning products by their entity IDs.</p>
+   * @public
+   */
+  EntityId?: MachineLearningProductEntityIdFilter | undefined;
+
+  /**
+   * <p>Filter machine learning products by their last modified date.</p>
+   * @public
+   */
+  LastModifiedDate?: MachineLearningProductLastModifiedDateFilter | undefined;
+
+  /**
+   * <p>Filter machine learning products by their product titles.</p>
+   * @public
+   */
+  ProductTitle?: MachineLearningProductTitleFilter | undefined;
+
+  /**
+   * <p>Filter machine learning products by their visibility status.</p>
+   * @public
+   */
+  Visibility?: MachineLearningProductVisibilityFilter | undefined;
 }
 
 /**
@@ -2034,6 +2157,7 @@ export type EntityTypeFilters =
   | EntityTypeFilters.AmiProductFiltersMember
   | EntityTypeFilters.ContainerProductFiltersMember
   | EntityTypeFilters.DataProductFiltersMember
+  | EntityTypeFilters.MachineLearningProductFiltersMember
   | EntityTypeFilters.OfferFiltersMember
   | EntityTypeFilters.ResaleAuthorizationFiltersMember
   | EntityTypeFilters.SaaSProductFiltersMember
@@ -2054,6 +2178,7 @@ export namespace EntityTypeFilters {
     OfferFilters?: never;
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters?: never;
+    MachineLearningProductFilters?: never;
     $unknown?: never;
   }
 
@@ -2068,6 +2193,7 @@ export namespace EntityTypeFilters {
     OfferFilters?: never;
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters?: never;
+    MachineLearningProductFilters?: never;
     $unknown?: never;
   }
 
@@ -2082,6 +2208,7 @@ export namespace EntityTypeFilters {
     OfferFilters?: never;
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters?: never;
+    MachineLearningProductFilters?: never;
     $unknown?: never;
   }
 
@@ -2096,6 +2223,7 @@ export namespace EntityTypeFilters {
     OfferFilters: OfferFilters;
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters?: never;
+    MachineLearningProductFilters?: never;
     $unknown?: never;
   }
 
@@ -2110,6 +2238,7 @@ export namespace EntityTypeFilters {
     OfferFilters?: never;
     ContainerProductFilters: ContainerProductFilters;
     ResaleAuthorizationFilters?: never;
+    MachineLearningProductFilters?: never;
     $unknown?: never;
   }
 
@@ -2124,6 +2253,22 @@ export namespace EntityTypeFilters {
     OfferFilters?: never;
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters: ResaleAuthorizationFilters;
+    MachineLearningProductFilters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The filters that you can use with the ListEntities operation to filter machine learning products. You can filter by EntityId, LastModifiedDate, ProductTitle, and Visibility.</p>
+   * @public
+   */
+  export interface MachineLearningProductFiltersMember {
+    DataProductFilters?: never;
+    SaaSProductFilters?: never;
+    AmiProductFilters?: never;
+    OfferFilters?: never;
+    ContainerProductFilters?: never;
+    ResaleAuthorizationFilters?: never;
+    MachineLearningProductFilters: MachineLearningProductFilters;
     $unknown?: never;
   }
 
@@ -2137,6 +2282,7 @@ export namespace EntityTypeFilters {
     OfferFilters?: never;
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters?: never;
+    MachineLearningProductFilters?: never;
     $unknown: [string, any];
   }
 
@@ -2147,6 +2293,7 @@ export namespace EntityTypeFilters {
     OfferFilters: (value: OfferFilters) => T;
     ContainerProductFilters: (value: ContainerProductFilters) => T;
     ResaleAuthorizationFilters: (value: ResaleAuthorizationFilters) => T;
+    MachineLearningProductFilters: (value: MachineLearningProductFilters) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2159,6 +2306,8 @@ export namespace EntityTypeFilters {
       return visitor.ContainerProductFilters(value.ContainerProductFilters);
     if (value.ResaleAuthorizationFilters !== undefined)
       return visitor.ResaleAuthorizationFilters(value.ResaleAuthorizationFilters);
+    if (value.MachineLearningProductFilters !== undefined)
+      return visitor.MachineLearningProductFilters(value.MachineLearningProductFilters);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2226,6 +2375,41 @@ export interface DataProductSort {
 
   /**
    * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>DESCENDING</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MachineLearningProductSortBy = {
+  EntityId: "EntityId",
+  LastModifiedDate: "LastModifiedDate",
+  ProductTitle: "ProductTitle",
+  Visibility: "Visibility",
+} as const;
+
+/**
+ * @public
+ */
+export type MachineLearningProductSortBy =
+  (typeof MachineLearningProductSortBy)[keyof typeof MachineLearningProductSortBy];
+
+/**
+ * <p>The sort options for machine learning products.</p>
+ * @public
+ */
+export interface MachineLearningProductSort {
+  /**
+   * <p>The field to sort by. Valid values: <code>EntityId</code>, <code>LastModifiedDate</code>, <code>ProductTitle</code>, and <code>Visibility</code>.</p>
+   * @public
+   */
+  SortBy?: MachineLearningProductSortBy | undefined;
+
+  /**
+   * <p>The sort order. Valid values are <code>ASC</code> (ascending) and <code>DESC</code> (descending).</p>
    * @public
    */
   SortOrder?: SortOrder | undefined;
@@ -2356,6 +2540,7 @@ export type EntityTypeSort =
   | EntityTypeSort.AmiProductSortMember
   | EntityTypeSort.ContainerProductSortMember
   | EntityTypeSort.DataProductSortMember
+  | EntityTypeSort.MachineLearningProductSortMember
   | EntityTypeSort.OfferSortMember
   | EntityTypeSort.ResaleAuthorizationSortMember
   | EntityTypeSort.SaaSProductSortMember
@@ -2376,6 +2561,7 @@ export namespace EntityTypeSort {
     OfferSort?: never;
     ContainerProductSort?: never;
     ResaleAuthorizationSort?: never;
+    MachineLearningProductSort?: never;
     $unknown?: never;
   }
 
@@ -2390,6 +2576,7 @@ export namespace EntityTypeSort {
     OfferSort?: never;
     ContainerProductSort?: never;
     ResaleAuthorizationSort?: never;
+    MachineLearningProductSort?: never;
     $unknown?: never;
   }
 
@@ -2404,6 +2591,7 @@ export namespace EntityTypeSort {
     OfferSort?: never;
     ContainerProductSort?: never;
     ResaleAuthorizationSort?: never;
+    MachineLearningProductSort?: never;
     $unknown?: never;
   }
 
@@ -2418,6 +2606,7 @@ export namespace EntityTypeSort {
     OfferSort: OfferSort;
     ContainerProductSort?: never;
     ResaleAuthorizationSort?: never;
+    MachineLearningProductSort?: never;
     $unknown?: never;
   }
 
@@ -2432,6 +2621,7 @@ export namespace EntityTypeSort {
     OfferSort?: never;
     ContainerProductSort: ContainerProductSort;
     ResaleAuthorizationSort?: never;
+    MachineLearningProductSort?: never;
     $unknown?: never;
   }
 
@@ -2446,6 +2636,22 @@ export namespace EntityTypeSort {
     OfferSort?: never;
     ContainerProductSort?: never;
     ResaleAuthorizationSort: ResaleAuthorizationSort;
+    MachineLearningProductSort?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The sort options for machine learning products.</p>
+   * @public
+   */
+  export interface MachineLearningProductSortMember {
+    DataProductSort?: never;
+    SaaSProductSort?: never;
+    AmiProductSort?: never;
+    OfferSort?: never;
+    ContainerProductSort?: never;
+    ResaleAuthorizationSort?: never;
+    MachineLearningProductSort: MachineLearningProductSort;
     $unknown?: never;
   }
 
@@ -2459,6 +2665,7 @@ export namespace EntityTypeSort {
     OfferSort?: never;
     ContainerProductSort?: never;
     ResaleAuthorizationSort?: never;
+    MachineLearningProductSort?: never;
     $unknown: [string, any];
   }
 
@@ -2469,6 +2676,7 @@ export namespace EntityTypeSort {
     OfferSort: (value: OfferSort) => T;
     ContainerProductSort: (value: ContainerProductSort) => T;
     ResaleAuthorizationSort: (value: ResaleAuthorizationSort) => T;
+    MachineLearningProductSort: (value: MachineLearningProductSort) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2480,6 +2688,8 @@ export namespace EntityTypeSort {
     if (value.ContainerProductSort !== undefined) return visitor.ContainerProductSort(value.ContainerProductSort);
     if (value.ResaleAuthorizationSort !== undefined)
       return visitor.ResaleAuthorizationSort(value.ResaleAuthorizationSort);
+    if (value.MachineLearningProductSort !== undefined)
+      return visitor.MachineLearningProductSort(value.MachineLearningProductSort);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2610,6 +2820,24 @@ export interface DataProductSummary {
    * @public
    */
   Visibility?: DataProductVisibilityString | undefined;
+}
+
+/**
+ * <p>A summary of a machine learning product.</p>
+ * @public
+ */
+export interface MachineLearningProductSummary {
+  /**
+   * <p>The title of the machine learning product.</p>
+   * @public
+   */
+  ProductTitle?: string | undefined;
+
+  /**
+   * <p>The visibility status of the machine learning product. Valid values are <code>Limited</code>, <code>Public</code>, <code>Restricted</code>, and <code>Draft</code>.</p>
+   * @public
+   */
+  Visibility?: MachineLearningProductVisibilityString | undefined;
 }
 
 /**
@@ -2838,6 +3066,12 @@ export interface EntitySummary {
    * @public
    */
   ResaleAuthorizationSummary?: ResaleAuthorizationSummary | undefined;
+
+  /**
+   * <p>A summary of a machine learning product.</p>
+   * @public
+   */
+  MachineLearningProductSummary?: MachineLearningProductSummary | undefined;
 }
 
 /**
@@ -2990,6 +3224,8 @@ export interface Change {
    * <p>Alternative field that accepts a JSON value instead of a string for
    *                 <code>ChangeType</code> details. You can use either <code>Details</code> or
    *                 <code>DetailsDocument</code>, but not both.</p>
+   *          <p>To download the "DetailsDocument" shapes, see the <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-python">Python</a>
+   *             and <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-java/tree/main">Java</a> shapes on GitHub.</p>
    * @public
    */
   DetailsDocument?: __DocumentType | undefined;
