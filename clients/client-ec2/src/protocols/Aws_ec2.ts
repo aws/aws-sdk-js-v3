@@ -50945,6 +50945,13 @@ const se_ModifyNetworkInterfaceAttributeRequest = (
   if (input[_APIAs] != null) {
     entries[_APIAs] = input[_APIAs];
   }
+  if (input[_ASI] != null) {
+    const memberEntries = se_SubnetIdList(input[_ASI], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AssociatedSubnetId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -51496,8 +51503,8 @@ const se_ModifyTransitGatewayVpcAttachmentRequest = (
   if (input[_TGAI] != null) {
     entries[_TGAI] = input[_TGAI];
   }
-  if (input[_ASI] != null) {
-    const memberEntries = se_TransitGatewaySubnetIdList(input[_ASI], context);
+  if (input[_ASId] != null) {
+    const memberEntries = se_TransitGatewaySubnetIdList(input[_ASId], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddSubnetIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52224,8 +52231,8 @@ const se_ModifyVpcEndpointRequest = (input: ModifyVpcEndpointRequest, context: _
       entries[loc] = value;
     });
   }
-  if (input[_ASI] != null) {
-    const memberEntries = se_VpcEndpointSubnetIdList(input[_ASI], context);
+  if (input[_ASId] != null) {
+    const memberEntries = se_VpcEndpointSubnetIdList(input[_ASId], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddSubnetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -57783,6 +57790,22 @@ const se_SubnetConfigurationsList = (input: SubnetConfiguration[], context: __Se
 };
 
 /**
+ * serializeAws_ec2SubnetIdList
+ */
+const se_SubnetIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`AssociatedSubnetId.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2SubnetIdStringList
  */
 const se_SubnetIdStringList = (input: string[], context: __SerdeContext): any => {
@@ -59873,6 +59896,9 @@ const de_Address = (output: any, context: __SerdeContext): Address => {
   if (output[_cI] != null) {
     contents[_CIa] = __expectString(output[_cI]);
   }
+  if (output[_sIu] != null) {
+    contents[_SIub] = __expectString(output[_sIu]);
+  }
   if (output[_sM] != null) {
     contents[_SM] = __expectString(output[_sM]);
   }
@@ -60534,6 +60560,17 @@ const de_AssociatedRolesList = (output: any, context: __SerdeContext): Associate
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_AssociatedRole(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2AssociatedSubnetList
+ */
+const de_AssociatedSubnetList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
     });
 };
 
@@ -80534,6 +80571,11 @@ const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInter
   if (output[_op] != null) {
     contents[_O] = de_OperatorResponse(output[_op], context);
   }
+  if (output.associatedSubnetSet === "") {
+    contents[_ASsso] = [];
+  } else if (output[_aSSs] != null && output[_aSSs][_i] != null) {
+    contents[_ASsso] = de_AssociatedSubnetList(__getArrayIfSingleItem(output[_aSSs][_i]), context);
+  }
   return contents;
 };
 
@@ -86049,6 +86091,9 @@ const de_Subnet = (output: any, context: __SerdeContext): Subnet => {
   if (output[_bPAS] != null) {
     contents[_BPAS] = de_BlockPublicAccessStates(output[_bPAS], context);
   }
+  if (output[_ty] != null) {
+    contents[_T] = __expectString(output[_ty]);
+  }
   if (output[_sIu] != null) {
     contents[_SIub] = __expectString(output[_sIu]);
   }
@@ -91010,8 +91055,9 @@ const _ASGI = "AuthorizeSecurityGroupIngress";
 const _ASGId = "AddSecurityGroupIds";
 const _ASGTCVTN = "ApplySecurityGroupsToClientVpnTargetNetwork";
 const _ASGV = "AssociateSecurityGroupVpc";
-const _ASI = "AddSubnetIds";
+const _ASI = "AssociatedSubnetIds";
 const _ASIAT = "AddSupportedIpAddressTypes";
+const _ASId = "AddSubnetIds";
 const _ASR = "AddSupportedRegions";
 const _ASS = "AmdSevSnp";
 const _AST = "AnalysisStartTime";
@@ -91021,6 +91067,7 @@ const _ASc = "ActivityStatus";
 const _ASn = "AnalysisStatus";
 const _ASs = "AssociationState";
 const _ASss = "AssociationStatus";
+const _ASsso = "AssociatedSubnets";
 const _ASt = "AttributeSummaries";
 const _AStt = "AttachmentStatuses";
 const _ASw = "AwsService";
@@ -93800,6 +93847,7 @@ const _aRw = "awsRegion";
 const _aS = "associationState";
 const _aSA = "amazonSideAsn";
 const _aSS = "amdSevSnp";
+const _aSSs = "associatedSubnetSet";
 const _aSSt = "attributeSummarySet";
 const _aSc = "activityStatus";
 const _aSct = "actionsSet";

@@ -4953,6 +4953,12 @@ export interface ModifyNetworkInterfaceAttributeRequest {
   AssociatePublicIpAddress?: boolean | undefined;
 
   /**
+   * <p>A list of subnet IDs to associate with the network interface.</p>
+   * @public
+   */
+  AssociatedSubnetIds?: string[] | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is

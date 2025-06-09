@@ -8551,7 +8551,7 @@ export interface InstanceNetworkInterface {
 
   /**
    * <p>The type of network interface.</p>
-   *          <p>Valid values: <code>interface</code> | <code>efa</code> | <code>efa-only</code> |
+   *          <p>Valid values: <code>interface</code> | <code>efa</code> | <code>efa-only</code> | <code>evs</code> |
    *                 <code>trunk</code>
    *          </p>
    * @public

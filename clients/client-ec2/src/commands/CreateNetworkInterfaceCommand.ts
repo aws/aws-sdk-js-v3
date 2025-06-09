@@ -205,6 +205,9 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  * //       Managed: true || false,
  * //       Principal: "STRING_VALUE",
  * //     },
+ * //     AssociatedSubnets: [ // AssociatedSubnetList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * //   ClientToken: "STRING_VALUE",
  * // };

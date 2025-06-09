@@ -170,6 +170,9 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * //         Managed: true || false,
  * //         Principal: "STRING_VALUE",
  * //       },
+ * //       AssociatedSubnets: [ // AssociatedSubnetList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

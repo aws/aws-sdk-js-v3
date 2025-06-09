@@ -3625,6 +3625,12 @@ export interface NetworkInterface {
    * @public
    */
   Operator?: OperatorResponse | undefined;
+
+  /**
+   * <p>The subnets associated with this network interface.</p>
+   * @public
+   */
+  AssociatedSubnets?: string[] | undefined;
 }
 
 /**

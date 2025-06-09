@@ -2603,6 +2603,7 @@ export interface DescribeNetworkInterfacesRequest {
    *                         <code>aws_codestar_connections_managed</code> | <code>branch</code> |
    *                         <code>ec2_instance_connect_endpoint</code> | <code>efa</code> |
    *                         <code>efa-only</code> | <code>efs</code> |
+   *                         <code>evs</code> |
    *                         <code>gateway_load_balancer</code> |
    *                         <code>gateway_load_balancer_endpoint</code> |
    *                         <code>global_accelerator_managed</code> | <code>interface</code> |

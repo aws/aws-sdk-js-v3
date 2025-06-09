@@ -3535,6 +3535,8 @@ export interface PrivateDnsNameOptionsOnLaunch {
  */
 export const SubnetState = {
   available: "available",
+  failed: "failed",
+  failed_insufficient_capacity: "failed-insufficient-capacity",
   pending: "pending",
   unavailable: "unavailable",
 } as const;
@@ -3642,6 +3644,17 @@ export interface Subnet {
   BlockPublicAccessStates?: BlockPublicAccessStates | undefined;
 
   /**
+   * <p>Indicates if this is a subnet used with Amazon Elastic VMware Service (EVS).
+   *             Possible values are <code>Elastic VMware Service</code> or no value. For more
+   *             information about Amazon EVS, see <a href="https://docs.aws.amazon.com/evs/latest/APIReference/Welcome.html">
+   *                <i>Amazon Elastic VMware Service
+   *                     API Reference</i>
+   *             </a>.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
    * <p>The ID of the subnet.</p>
    * @public
    */
@@ -3649,6 +3662,18 @@ export interface Subnet {
 
   /**
    * <p>The current state of the subnet.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>failed</code>: The underlying infrastructure to support the subnet failed to provision
+   *                     as expected.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed-insufficient-capacity</code>: The underlying infrastructure to support the subnet
+   *                     failed to provision due to a shortage of EC2 instance capacity.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   State?: SubnetState | undefined;

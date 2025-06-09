@@ -3043,6 +3043,12 @@ export interface Address {
   CarrierIp?: string | undefined;
 
   /**
+   * <p>The ID of the subnet where the IP address is allocated.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
    * <p>The service that manages the elastic IP address.</p>
    *          <note>
    *             <p>The only option supported today is <code>alb</code>.</p>

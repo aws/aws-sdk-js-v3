@@ -97,8 +97,9 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  * //       BlockPublicAccessStates: { // BlockPublicAccessStates
  * //         InternetGatewayBlockMode: "off" || "block-bidirectional" || "block-ingress",
  * //       },
+ * //       Type: "STRING_VALUE",
  * //       SubnetId: "STRING_VALUE",
- * //       State: "pending" || "available" || "unavailable",
+ * //       State: "pending" || "available" || "unavailable" || "failed" || "failed-insufficient-capacity",
  * //       VpcId: "STRING_VALUE",
  * //       CidrBlock: "STRING_VALUE",
  * //       AvailableIpAddressCount: Number("int"),

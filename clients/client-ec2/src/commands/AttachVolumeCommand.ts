@@ -28,12 +28,18 @@ export interface AttachVolumeCommandInput extends AttachVolumeRequest {}
 export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataBearer {}
 
 /**
- * <p>Attaches an EBS volume to a running or stopped instance and exposes it to the instance
- *       with the specified device name.</p>
- *          <p>Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. For
- *       more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
- *          <p>After you attach an EBS volume, you must make it available. For more information, see
- *       <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html">Make an EBS volume available for use</a>.</p>
+ * <p>Attaches an Amazon EBS volume to a <code>running</code> or <code>stopped</code>
+ *       instance, and exposes it to the instance with the specified device name.</p>
+ *          <note>
+ *             <p>The maximum number of Amazon EBS volumes that you can attach to an instance depends on the
+ *         instance type. If you exceed the volume attachment limit for an instance type, the attachment
+ *         request fails with the <code>AttachmentLimitExceeded</code> error. For more information,
+ *         see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html">Instance
+ *           volume limits</a>.</p>
+ *          </note>
+ *          <p>After you attach an EBS volume, you must make it available for use. For more information,
+ *       see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html">Make an
+ *         EBS volume available for use</a>.</p>
  *          <p>If a volume has an Amazon Web Services Marketplace product code:</p>
  *          <ul>
  *             <li>

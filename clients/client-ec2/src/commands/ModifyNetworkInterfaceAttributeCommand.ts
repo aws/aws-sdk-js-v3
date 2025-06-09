@@ -54,6 +54,9 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  *     UdpTimeout: Number("int"),
  *   },
  *   AssociatePublicIpAddress: true || false,
+ *   AssociatedSubnetIds: [ // SubnetIdList
+ *     "STRING_VALUE",
+ *   ],
  *   DryRun: true || false,
  *   NetworkInterfaceId: "STRING_VALUE", // required
  *   Description: { // AttributeValue
