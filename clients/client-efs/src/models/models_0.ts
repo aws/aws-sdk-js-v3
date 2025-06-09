@@ -205,7 +205,8 @@ export interface AccessPointDescription {
   AccessPointId?: string | undefined;
 
   /**
-   * <p>The  unique Amazon Resource Name (ARN) associated with the access point.</p>
+   * <p>The unique Amazon Resource Name (ARN) associated with the access
+   *       point.</p>
    * @public
    */
   AccessPointArn?: string | undefined;
@@ -826,7 +827,7 @@ export interface CreateFileSystemRequest {
    * <p>The throughput, measured in mebibytes per second (MiBps), that you want to provision for a
    *       file system that you're creating. Required if <code>ThroughputMode</code> is set to
    *         <code>provisioned</code>. Valid values are 1-3414 MiBps, with the upper limit depending on
-   *       Region. To increase this limit, contact Amazon Web Services Support. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS quotas
+   *       Region. To increase this limit, contact Amazon Web ServicesSupport. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS quotas
    *         that you can increase</a> in the <i>Amazon EFS User
    *       Guide</i>.</p>
    * @public
@@ -952,8 +953,8 @@ export interface FileSystemProtectionDescription {
    *             <li>
    *                <p>
    *                   <code>REPLICATING</code> – The file system is being used as the destination
-   *           file system in a replication configuration. The file system is read-only and is only
-   *           modified only by EFS replication.</p>
+   *           file system in a replication configuration. The file system is read-only and is modified
+   *           only by EFS replication.</p>
    *             </li>
    *          </ul>
    *          <p>If the replication configuration is deleted, the file system's replication overwrite
@@ -1033,7 +1034,8 @@ export interface FileSystemDescription {
   FileSystemId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the EFS file system, in the format
+   * <p>The Amazon Resource Name (ARN) for the EFS file system, in the
+   *       format
    *           <code>arn:aws:elasticfilesystem:<i>region</i>:<i>account-id</i>:file-system/<i>file-system-id</i>
    *             </code>.
    *       Example with sample data:
@@ -1308,6 +1310,21 @@ export class UnsupportedAvailabilityZone extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const IpAddressType = {
+  DUAL_STACK: "DUAL_STACK",
+  IPV4_ONLY: "IPV4_ONLY",
+  IPV6_ONLY: "IPV6_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
+
+/**
  * <p></p>
  * @public
  */
@@ -1319,21 +1336,54 @@ export interface CreateMountTargetRequest {
   FileSystemId: string | undefined;
 
   /**
-   * <p>The ID of the subnet to add the mount target in. For One Zone  file systems, use the
-   *       subnet that is associated with the file system's Availability Zone.</p>
+   * <p>The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet
+   *       that is associated with the file system's Availability Zone.</p>
    * @public
    */
   SubnetId: string | undefined;
 
   /**
-   * <p>Valid IPv4 address within the address range of the specified subnet.</p>
+   * <p>If the IP address type for the mount target is IPv4, then specify the IPv4 address within
+   *       the address range of the specified subnet.</p>
    * @public
    */
   IpAddress?: string | undefined;
 
   /**
-   * <p>Up to five VPC security group IDs, of the form <code>sg-xxxxxxxx</code>. These must be
-   *       for the same VPC as subnet specified.</p>
+   * <p>If the IP address type for the mount target is IPv6, then specify the IPv6 address within
+   *       the address range of the specified subnet.</p>
+   * @public
+   */
+  Ipv6Address?: string | undefined;
+
+  /**
+   * <p>Specify the type of IP address of the mount target you are creating. Options are IPv4,
+   *       dual stack, or IPv6. If you don’t specify an IpAddressType, then IPv4 is used.</p>
+   *          <ul>
+   *             <li>
+   *                <p>IPV4_ONLY – Create mount target with IPv4 only subnet or dual-stack subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>DUAL_STACK – Create mount target with dual-stack subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>IPV6_ONLY – Create mount target with IPv6 only subnet.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Creating IPv6 mount target only ENI in dual-stack subnet is not supported.</p>
+   *          </note>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
+
+  /**
+   * <p>VPC security group IDs, of the form <code>sg-xxxxxxxx</code>. These must be for the same
+   *       VPC as the subnet specified. The maximum number of security groups depends on account quota.
+   *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Quotas</a>
+   *       in the <i>Amazon VPC User Guide</i> (see the <b>Security Groups</b>
+   *       table).
+   *     </p>
    * @public
    */
   SecurityGroups?: string[] | undefined;
@@ -1459,6 +1509,12 @@ export interface MountTargetDescription {
   IpAddress?: string | undefined;
 
   /**
+   * <p>The IPv6 address for the mount target.</p>
+   * @public
+   */
+  Ipv6Address?: string | undefined;
+
+  /**
    * <p>The ID of the network interface that Amazon EFS created when it created the mount
    *       target.</p>
    * @public
@@ -1467,15 +1523,17 @@ export interface MountTargetDescription {
 
   /**
    * <p>The unique and consistent identifier of the Availability Zone that the mount target resides in.
-   *       For example, <code>use1-az1</code> is an AZ ID for the us-east-1 Region and it has the same location in every Amazon Web Services account.</p>
+   *       For example, <code>use1-az1</code> is an AZ ID for the us-east-1 Region and it
+   *       has the same location in every Amazon Web Services account.</p>
    * @public
    */
   AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The name of the Availability Zone in which the mount target is located. Availability Zones are
-   *       independently mapped to names for each Amazon Web Services account. For example, the Availability Zone
-   *       <code>us-east-1a</code> for your Amazon Web Services account might not be the same location as <code>us-east-1a</code> for another Amazon Web Services account.</p>
+   *       independently mapped to names for each Amazon Web Services account. For example, the
+   *       Availability Zone <code>us-east-1a</code> for your Amazon Web Services account might not be the
+   *       same location as <code>us-east-1a</code> for another Amazon Web Services account.</p>
    * @public
    */
   AvailabilityZoneName?: string | undefined;
@@ -1490,7 +1548,7 @@ export interface MountTargetDescription {
 /**
  * <p>The calling account has reached the limit for elastic network interfaces for the
  *             specific Amazon Web Services Region. Either delete some network interfaces or request
- *             that the account quota be raised. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC Quotas</a>
+ *             that the account quota be raised. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Quotas</a>
  *             in the <i>Amazon VPC User Guide</i> (see the <b>Network
  *                 interfaces per Region</b> entry in the <b>Network
  *                 interfaces</b> table). </p>
@@ -1570,8 +1628,12 @@ export class NoFreeAddressesInSubnet extends __BaseException {
 }
 
 /**
- * <p>Returned if the size of <code>SecurityGroups</code> specified in the request is
- *             greater than five.</p>
+ * <p>Returned if the number of <code>SecurityGroups</code> specified in the request is
+ *             greater than the limit, which is based on account quota.  Either delete some security groups
+ *             or request that the account quota be raised. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Quotas</a>
+ *             in the <i>Amazon VPC User Guide</i> (see the <b>Security Groups</b>
+ *             table).
+ *         </p>
  * @public
  */
 export class SecurityGroupLimitExceeded extends __BaseException {
@@ -1767,13 +1829,19 @@ export interface DestinationToCreate {
    *       For cross-account replication, this must be an  ARN. The file system's
    *       replication overwrite replication must be disabled. If no ID or ARN is
    *       specified, then a new file system is created. </p>
+   *          <note>
+   *             <p>When you initially configure replication to an existing file system, Amazon EFS
+   *         writes data to or removes existing data from the destination file system to match data in
+   *         the source file system. If you don't want to change data in the destination file system,
+   *         then you should replicate to a new file system instead. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/create-replication.html">https://docs.aws.amazon.com/efs/latest/ug/create-replication.html</a>.</p>
+   *          </note>
    * @public
    */
   FileSystemId?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the IAM role in the source account that allows Amazon EFS
-   *       to perform replication on its behalf. This is optional for same-account
+   * <p>Amazon Resource Name (ARN) of the IAM role in the source account that allows
+   *         Amazon EFS to perform replication on its behalf. This is optional for same-account
    *       replication and required for cross-account replication.</p>
    * @public
    */
@@ -1868,8 +1936,8 @@ export interface Destination {
   StatusMessage?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the IAM role in the source account that allows Amazon EFS
-   *        to perform replication on its behalf. This is optional for same-account
+   * <p>Amazon Resource Name (ARN) of the IAM role in the source account that allows
+   *         Amazon EFS to perform replication on its behalf. This is optional for same-account
    *       replication and required for cross-account replication.</p>
    * @public
    */
@@ -1895,15 +1963,15 @@ export interface ReplicationConfigurationDescription {
   SourceFileSystemRegion: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the current source file system in the replication
-   *       configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the current source file system in the
+   *       replication configuration.</p>
    * @public
    */
   SourceFileSystemArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the original source EFS file system in the
-   *       replication configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the original source EFS file
+   *       system in the replication configuration.</p>
    * @public
    */
   OriginalSourceFileSystemArn: string | undefined;
@@ -2400,7 +2468,7 @@ export interface DescribeBackupPolicyRequest {
 }
 
 /**
- * <p>Returned if the default file system policy is in effect for the EFS file system specified.</p>
+ * <p>Returned if <code>no backup</code> is specified for a One Zone EFS file system.</p>
  * @public
  */
 export class PolicyNotFound extends __BaseException {
@@ -2980,7 +3048,7 @@ export interface ModifyMountTargetSecurityGroupsRequest {
   MountTargetId: string | undefined;
 
   /**
-   * <p>An array of up to five VPC security group IDs.</p>
+   * <p>An array of VPC security group IDs. </p>
    * @public
    */
   SecurityGroups?: string[] | undefined;
@@ -3219,7 +3287,7 @@ export interface UpdateFileSystemRequest {
    * <p>(Optional) The throughput, measured in mebibytes per second (MiBps), that you want to
    *       provision for a file system that you're creating. Required if <code>ThroughputMode</code>
    *       is set to <code>provisioned</code>. Valid values are 1-3414 MiBps, with the upper limit
-   *       depending on Region. To increase this limit, contact Amazon Web Services Support. For more information,
+   *       depending on Region. To increase this limit, contact Amazon Web ServicesSupport. For more information,
    *       see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS
    *         quotas that you can increase</a> in the <i>Amazon EFS User
    *         Guide</i>.</p>

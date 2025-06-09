@@ -33,9 +33,9 @@ export interface DescribeLifecycleConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns the current <code>LifecycleConfiguration</code> object for the specified Amazon
- *       EFS file system. Lifecycle management uses the <code>LifecycleConfiguration</code> object to
- *       identify when to move files between storage classes. For a file system without a
+ * <p>Returns the current <code>LifecycleConfiguration</code> object for the specified
+ *       EFS file system. Lifecycle management uses the <code>LifecycleConfiguration</code>
+ *       object to identify when to move files between storage classes. For a file system without a
  *         <code>LifecycleConfiguration</code> object, the call returns an empty array in the
  *       response.</p>
  *          <p>This operation requires permissions for the

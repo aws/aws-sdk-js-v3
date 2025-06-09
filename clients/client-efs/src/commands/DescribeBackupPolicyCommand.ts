@@ -66,7 +66,7 @@ export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescripti
  *  <p>Returned if an error occurred on the server side.</p>
  *
  * @throws {@link PolicyNotFound} (client fault)
- *  <p>Returned if the default file system policy is in effect for the EFS file system specified.</p>
+ *  <p>Returned if <code>no backup</code> is specified for a One Zone EFS file system.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>

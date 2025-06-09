@@ -60,6 +60,7 @@ export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsR
  * //       SubnetId: "STRING_VALUE", // required
  * //       LifeCycleState: "creating" || "available" || "updating" || "deleting" || "deleted" || "error", // required
  * //       IpAddress: "STRING_VALUE",
+ * //       Ipv6Address: "STRING_VALUE",
  * //       NetworkInterfaceId: "STRING_VALUE",
  * //       AvailabilityZoneId: "STRING_VALUE",
  * //       AvailabilityZoneName: "STRING_VALUE",

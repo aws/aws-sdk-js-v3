@@ -67,7 +67,7 @@ export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyD
  *  <p>Returned if an error occurred on the server side.</p>
  *
  * @throws {@link PolicyNotFound} (client fault)
- *  <p>Returned if the default file system policy is in effect for the EFS file system specified.</p>
+ *  <p>Returned if <code>no backup</code> is specified for a One Zone EFS file system.</p>
  *
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>

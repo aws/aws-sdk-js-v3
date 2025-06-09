@@ -234,6 +234,8 @@ export const se_CreateMountTargetCommand = async (
     take(input, {
       FileSystemId: [],
       IpAddress: [],
+      IpAddressType: [],
+      Ipv6Address: [],
       SecurityGroups: (_) => _json(_),
       SubnetId: [],
     })
@@ -896,6 +898,7 @@ export const de_CreateMountTargetCommand = async (
     AvailabilityZoneName: __expectString,
     FileSystemId: __expectString,
     IpAddress: __expectString,
+    Ipv6Address: __expectString,
     LifeCycleState: __expectString,
     MountTargetId: __expectString,
     NetworkInterfaceId: __expectString,

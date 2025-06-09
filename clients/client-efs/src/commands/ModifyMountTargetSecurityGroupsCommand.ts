@@ -91,8 +91,12 @@ export interface ModifyMountTargetSecurityGroupsCommandOutput extends __Metadata
  *             caller's Amazon Web Services account.</p>
  *
  * @throws {@link SecurityGroupLimitExceeded} (client fault)
- *  <p>Returned if the size of <code>SecurityGroups</code> specified in the request is
- *             greater than five.</p>
+ *  <p>Returned if the number of <code>SecurityGroups</code> specified in the request is
+ *             greater than the limit, which is based on account quota.  Either delete some security groups
+ *             or request that the account quota be raised. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Quotas</a>
+ *             in the <i>Amazon VPC User Guide</i> (see the <b>Security Groups</b>
+ *             table).
+ *         </p>
  *
  * @throws {@link SecurityGroupNotFound} (client fault)
  *  <p>Returned if one of the specified security groups doesn't exist in the subnet's

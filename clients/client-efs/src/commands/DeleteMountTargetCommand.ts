@@ -34,8 +34,8 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  *       avoid applications getting cut off abruptly, you might consider unmounting any mounts of the
  *       mount target, if feasible. The operation also deletes the associated network interface.
  *       Uncommitted writes might be lost, but breaking a mount target using this operation does not
- *       corrupt the file system itself. The file system you created remains. You can mount an EC2
- *       instance in your VPC by using another mount target.</p>
+ *       corrupt the file system itself. The file system you created remains. You can mount an
+ *       EC2 instance in your VPC by using another mount target.</p>
  *          <p>This operation requires permissions for the following action on the file
  *       system:</p>
  *          <ul>
