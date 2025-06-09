@@ -1505,12 +1505,16 @@ export interface CreateApiCacheRequest {
   /**
    * <p>Transit encryption flag when connecting to cache. You cannot update this setting after
    *          creation.</p>
+   *
+   * @deprecated
    * @public
    */
   transitEncryptionEnabled?: boolean | undefined;
 
   /**
    * <p>At-rest encryption flag for cache. You cannot update this setting after creation.</p>
+   *
+   * @deprecated
    * @public
    */
   atRestEncryptionEnabled?: boolean | undefined;
