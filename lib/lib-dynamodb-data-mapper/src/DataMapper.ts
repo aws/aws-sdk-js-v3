@@ -1,24 +1,33 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import {
-  type QueryCommandInput,
-  type ScanCommandInput,
-  DeleteItemCommandInput,
-  DynamoDBClient,
-  GetItemCommand,
-  GetItemCommandInput,
-  GetItemCommandOutput,
-  PutItemCommand,
-  PutItemCommandInput,
-  PutItemCommandOutput,
-} from "@aws-sdk/client-dynamodb";
-import { marshallOptions } from "@aws-sdk/util-dynamodb";
-import { HttpHandlerOptions } from "@smithy/types";
+import { AttributeValue, DynamoDBClient, GetItemCommand, GetItemCommandInput, GetItemCommandOutput, PutItemCommand, PutItemCommandInput, PutItemCommandOutput } from '@aws-sdk/client-dynamodb';
+import { marshallOptions } from '@aws-sdk/util-dynamodb';
+import { DataMarshaller } from './marshaller';
+import { HttpHandlerOptions } from '@smithy/types';
+import { getSchema, getTableName, ItemSchema } from './schema';
+import { marshall as awsMarshall, unmarshall as awsUnmarshall } from "@aws-sdk/util-dynamodb";
 
-import { DataMarshaller } from "./marshaller/DataMarshaller";
-import { getSchema, ModelConstructor, resolveMetadataFromCtor } from "./schema/";
-import { getTableName } from "./schema/";
-import { isPutCommandInput, PutCommandInput, PutCommandOutput } from "./commands/put";
-import { GetCommandInput, isGetCommandInput } from "./commands";
+/**
+ * Configuration for binding a specific table and model type.
+ * 
+ * @typeParam D - The raw DynamoDB document structure.
+ * @typeParam T - The application-level type that D is transformed into.
+ *
+ * @remarks
+ * This interface defines how to map between the DynamoDB representation (`D`)
+ * and the application-facing model (`T`). You may provide either:
+ * - Transformer functions (`fromDocument` / `toDocument`)
+ * - A class decorated with metadata (via `documentClass`)
+ *
+ * At least one mapping strategy must be defined.
+ *
+ * @public
+ */
+export interface TableBindingConfig<D, T = D> {
+  tableName?: string;
+  schema?: ItemSchema;
+  fromDocument?: (doc: D) => T;
+  toDocument?: (data: T) => D;
+  documentClass?: Function;
+}
 
 /**
  * Configuration options for initializing a {@link DataMapper}.
@@ -31,162 +40,163 @@ export interface DataMapperConfig {
 }
 
 /**
- * @public
- * Schema-aware DataMapper for performing high-level object persistence operations.
+ * A class that maps between typed application objects and DynamoDB document format.
+ * Supports schema-aware transformation and class-based hydration.
  *
- * This class handles marshalling/unmarshalling domain models using declarative schema metadata.
- * It supports both constructor- and factory-based hydration patterns.
+ * @typeParam D - The raw DynamoDB document format.
+ * @typeParam T - The application-facing data type.
+ *
+ * @public
  */
-export class DataMapper {
-  private constructor(
-    private readonly client: DynamoDBClient,
-    private readonly translateConfig?: marshallOptions
-  ) {}
+export class DataMapper<D extends object, T = D> {
+  private readonly client: DynamoDBClient;
+  private readonly tableName: string;
+  private readonly schema: ItemSchema;
+  private readonly fromDocument: (document: D) => T;
+  private readonly toDocument: (data: T) => D;
+  private readonly documentClass?: Function;
+  private readonly translateConfig?: marshallOptions;
 
   /**
-   * Creates a new instance of the {@link DataMapper}.
-   *
-   * @param client - An initialized DynamoDB client
-   * @param translateConfig - Optional marshalling behavior
+   * Constructor is private to enforce usage of factory methods like `forModel()`.
    */
-  static from(client: DynamoDBClient, translateConfig?: marshallOptions): DataMapper {
-    return new DataMapper(client, translateConfig);
+  private constructor(
+    config: DataMapperConfig,
+    binding: TableBindingConfig<D, T>
+  ) {
+    const pass = (x: any) => x;
+    this.fromDocument = binding.fromDocument ?? pass;
+    this.toDocument = binding.toDocument ?? pass;
+    this.client = config.client;
+    this.translateConfig = config.translateConfig;
+    this.schema = binding.schema;
+    if (!this.schema && binding.documentClass) {
+      try {
+        this.schema = getSchema(binding.documentClass);
+      } catch {
+        this.schema = undefined; // fall back to schema-less mode
+      }
+    }
+
+    this.tableName = binding.tableName;
+    if (!this.tableName && binding.documentClass) {
+      try {
+        this.tableName = getTableName(binding.documentClass);
+      } catch {
+        this.tableName =  binding.documentClass.name;; // fall back to schema-less mode
+      }
+    }
+
+    if (!this.tableName) {
+      throw new Error("Failed to resolve table name: none provided, and no documentClass fallback available.");
+    }
   }
 
   /**
-   * Saves an item to DynamoDB. Supports both classic and command-style usage.
+   * Creates a new {@link DataMapper} instance for a given model class.
+   * Automatically sets up basic object mapping and hydration.
+   *
+   * @param model - The class constructor used to hydrate data.
+   * @param config - Table and client configuration.
    */
-  async put<T extends object>(
-    item: T,
-    conditions?: Omit<Partial<PutItemCommandInput>, "TableName" | "Item">,
-    options?: HttpHandlerOptions
-  ): Promise<T>;
-  async put<T extends object>(input: PutCommandInput<T>): Promise<T>;
-  async put<T extends object>(
-    inputOrItem: T | PutCommandInput<T>,
-    maybeConditions?: Omit<Partial<PutItemCommandInput>, "TableName" | "Item">,
-    maybeOptions?: HttpHandlerOptions
-  ): Promise<T> {
-    const item = isPutCommandInput(inputOrItem) ? inputOrItem.item : inputOrItem;
-    const conditions = isPutCommandInput(inputOrItem) ? inputOrItem.conditions : maybeConditions;
-    const options = isPutCommandInput(inputOrItem) ? inputOrItem.options : maybeOptions;
+  static from<D extends object, T extends D>(
+    model: new () => T,
+    config: DataMapperConfig & TableBindingConfig<D, T>
+  ): DataMapper<D, T> {
+    return new DataMapper<D, T>(
+      config,
+      {
+        tableName: config.tableName,
+        schema: config.schema,
+        documentClass: model,
+        fromDocument: (doc) => Object.assign(new model(), doc),
+        toDocument: (data) => ({ ...data }),
+      }
+    );
+  }
 
-    const schema = getSchema(item);
-    const tableName = getTableName(item);
+ /**
+ * Persists a typed item to DynamoDB.
+ * Converts the item to a DynamoDB-compatible document and applies optional write conditions.
+ *
+ * @param item - The item to write.
+ * @param conditions - Optional write-time options (e.g. ReturnValues, ConditionExpression).
+ * @param options - Optional HTTP handler config.
+ * @returns The item returned from DynamoDB, or the input item if no attributes returned.
+ */
+async put(
+    item: T,
+    conditions?: Omit<Partial<PutItemCommandInput>, 'TableName' | 'Item'>,
+    options?: HttpHandlerOptions
+  ): Promise<T> {
+    const marshalled = this.marshallInput(this.toDocument(item));
 
     const input: PutItemCommandInput = {
-      TableName: tableName,
-      Item: DataMarshaller.marshall(item, schema, this.translateConfig),
-      ReturnValues: "ALL_NEW",
+      TableName: this.tableName,
+      Item: marshalled,
       ...conditions,
     };
 
     const result: PutItemCommandOutput = await this.client.send(new PutItemCommand(input), options);
-    return result.Attributes
-      ? DataMarshaller.unmarshall(result.Attributes, schema, item.constructor as new () => T)
-      : item;
+    if (!result.Attributes) return item;
+    const plain = this.unmarshallOutput(result.Attributes);
+    return this.fromDocument(plain as D);
   }
 
   /**
-   * Retrieves and hydrates an item from DynamoDB.
-   * Supports both constructor and factory patterns.
+   * Retrieves an item from DynamoDB using the specified key.
+   * Converts the DynamoDB document into a typed object.
+   *
+   * @param key - The key of the item to retrieve.
+   * @returns The hydrated object or undefined if not found.
    */
-  async get<D extends object, T extends D>(
-    key: Partial<D>,
-    model: ModelConstructor<D>,
-    options?: HttpHandlerOptions
-  ): Promise<T | undefined>;
-  async get<D extends object, T>(
-    key: Partial<D>,
-    factory: (data: D) => T,
-    model: ModelConstructor<D>,
-    options?: HttpHandlerOptions
-  ): Promise<T | undefined>;
-  async get<D extends object, T extends D>(input: GetCommandInput<D, T>): Promise<T | undefined>;
-  async get<D extends object, T extends D>(
-    arg1: Partial<D> | GetCommandInput<D,T>,
-    arg2?: ((data: D) => T) | ModelConstructor<D>,
-    arg3?: ModelConstructor<D> | HttpHandlerOptions,
-    arg4?: HttpHandlerOptions
-  ): Promise<T | undefined> {
-    const { key, model, factory, options } = this.resolveGetArguments(arg1, arg2, arg3, arg4);
-
-    const { schema, tableName } = resolveMetadataFromCtor(model);
+  async get(key: Partial<D>, options?: HttpHandlerOptions): Promise<T | undefined> {
     const input: GetItemCommandInput = {
-      TableName: tableName,
-      Key: DataMarshaller.marshallKey(key, schema, this.translateConfig),
+      TableName: this.tableName,
+      Key: this.marshallKey(key),
     };
-
     const result: GetItemCommandOutput = await this.client.send(new GetItemCommand(input), options);
     if (!result.Item) return undefined;
-
-    const plain = DataMarshaller.unmarshallObject(result.Item, schema);
-    return factory ? factory(plain as D) : (Object.assign(new model(), plain) as T);
+    const plain = this.unmarshallOutput(result.Item);
+    return this.fromDocument(plain as D);
   }
 
   /**
-   * Delete a domain object by key using schema metadata.
+   * Deletes an item by key (not implemented).
    */
-  async delete<T extends object>(
-    key: Partial<T>,
-    modelCtor: new () => T,
-    deleteOptions?: Omit<Partial<DeleteItemCommandInput>, "TableName" | "Key">,
-    httpOptions?: HttpHandlerOptions
-  ): Promise<T> {
-    throw new Error("Delete operation is not implemented yet.");
+  async delete(): Promise<void> {
+    throw new Error('delete() is not implemented.');
   }
 
   /**
-   * Query domain objects using a model constructor and key conditions.
+   * Queries the table for matching items (not implemented).
    */
-  async *query<T extends object>(
-    modelCtor: new () => T,
-    criteria?: Omit<QueryCommandInput, "TableName">,
-    httpOptions?: HttpHandlerOptions
-  ): AsyncIterable<T> {
-    throw new Error("Query operation is not implemented yet.");
+  async *query(): AsyncIterable<T> {
+    throw new Error('query() is not implemented.');
   }
 
   /**
-   * Scan a table using schema metadata and return hydrated objects.
+   * Scans the table for all items (not implemented).
    */
-  async *scan<T extends object>(
-    modelCtor: new () => T,
-    criteria?: Omit<ScanCommandInput, "TableName">,
-    httpOptions?: HttpHandlerOptions
-  ): AsyncIterable<T> {
-    throw new Error("Scan operation is not implemented yet.");
+  async *scan(): AsyncIterable<T> {
+    throw new Error('scan() is not implemented.');
   }
 
-  private resolveGetArguments<D extends object, T extends D> (
-    arg1: GetCommandInput<D, T>| Partial<D>,
-    arg2?: ((data: D) => T) | ModelConstructor<D>,
-    arg3?: ModelConstructor<D> | HttpHandlerOptions,
-    arg4?: HttpHandlerOptions
-  ): GetCommandInput<D, T> {
-    let key: Partial<D>;
-      let model: ModelConstructor<D>;
-      let factory: ((data: D) => T) | undefined;
-      let options: HttpHandlerOptions | undefined;
+  private marshallInput(input: D): Record<string, any> {
+    return this.schema
+      ? DataMarshaller.marshall(input, this.schema, this.translateConfig)
+      : awsMarshall(input, this.translateConfig);
+  }
 
-      if (isGetCommandInput(arg1)) {
-        key = arg1.key;
-        model = arg1.model;
-        factory = arg1.factory;
-        options = arg1.options;
-      } else if (
-        typeof arg2 === "function" &&
-        typeof arg3 === "function"
-      ) {
-        key = arg1;
-        factory = arg2 as (data: D) => T;
-        model = arg3 as ModelConstructor<D>;
-        options = arg4;
-      } else {
-        key = arg1;
-        model = arg2 as ModelConstructor<D>;
-        options = arg3 as HttpHandlerOptions;
-      }
-      return {key, model, factory, options};
+  private marshallKey(key: Partial<D>): Record<string, any> {
+    return this.schema
+      ? DataMarshaller.marshallKey(key, this.schema, this.translateConfig)
+      : awsMarshall(key, this.translateConfig);
+  }
+
+  private unmarshallOutput(item: Record<string, any>): D {
+  return this.schema
+    ? DataMarshaller.unmarshallObject(item, this.schema) as D
+    : awsUnmarshall(item) as D;
   }
 }
