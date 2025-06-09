@@ -59,6 +59,8 @@ export interface ListCalculatedAttributeDefinitionsCommandOutput
  * //       Description: "STRING_VALUE",
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       LastUpdatedAt: new Date("TIMESTAMP"),
+ * //       UseHistoricalData: true || false,
+ * //       Status: "PREPARING" || "IN_PROGRESS" || "COMPLETED" || "FAILED",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },

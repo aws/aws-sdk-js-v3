@@ -77,6 +77,7 @@ export interface BatchGetCalculatedAttributeForProfileCommandOutput
  * //       IsDataPartial: "STRING_VALUE",
  * //       ProfileId: "STRING_VALUE",
  * //       Value: "STRING_VALUE",
+ * //       LastObjectTimestamp: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   ConditionOverrides: { // ConditionOverrides

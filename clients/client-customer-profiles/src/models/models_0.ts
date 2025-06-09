@@ -1572,6 +1572,12 @@ export interface CalculatedAttributeValue {
    * @public
    */
   Value?: string | undefined;
+
+  /**
+   * <p>The timestamp of the newest object included in the calculated attribute calculation.</p>
+   * @public
+   */
+  LastObjectTimestamp?: Date | undefined;
 }
 
 /**
@@ -1725,7 +1731,7 @@ export interface Profile {
   ProfileId?: string | undefined;
 
   /**
-   * <p>An account number that you have given to the customer.</p>
+   * <p>An account number that you have assigned to the customer.</p>
    * @public
    */
   AccountNumber?: string | undefined;
@@ -1917,6 +1923,22 @@ export interface BatchGetProfileResponse {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ReadinessStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PREPARING: "PREPARING",
+} as const;
+
+/**
+ * @public
+ */
+export type ReadinessStatus = (typeof ReadinessStatus)[keyof typeof ReadinessStatus];
+
+/**
  * <p>The details of a single calculated attribute definition.</p>
  * @public
  */
@@ -1951,6 +1973,20 @@ export interface ListCalculatedAttributeDefinitionItem {
    * @public
    */
   LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>Whether historical data ingested before the Calculated Attribute was created should be
+   *          included in calculations.</p>
+   * @public
+   */
+  UseHistoricalData?: boolean | undefined;
+
+  /**
+   * <p>Status of the Calculated Attribute creation (whether all historical data has been
+   *          indexed.)</p>
+   * @public
+   */
+  Status?: ReadinessStatus | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
@@ -2012,6 +2048,12 @@ export interface ListCalculatedAttributeForProfileItem {
    * @public
    */
   Value?: string | undefined;
+
+  /**
+   * <p>The timestamp of the newest object included in the calculated attribute calculation.</p>
+   * @public
+   */
+  LastObjectTimestamp?: Date | undefined;
 }
 
 /**
@@ -2055,6 +2097,29 @@ export const Unit = {
 export type Unit = (typeof Unit)[keyof typeof Unit];
 
 /**
+ * <p>A structure letting customers specify a relative time window over which over which data
+ *          is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint
+ *          is in the past, and negative numbers to indicate it is in the future. ValueRange overrides
+ *          Value.</p>
+ * @public
+ */
+export interface ValueRange {
+  /**
+   * <p>The start time of when to include objects. Use positive numbers to indicate that the
+   *          starting point is in the past, and negative numbers to indicate it is in the future.</p>
+   * @public
+   */
+  Start: number | undefined;
+
+  /**
+   * <p>The end time of when to include objects. Use positive numbers to indicate that the
+   *          starting point is in the past, and negative numbers to indicate it is in the future.</p>
+   * @public
+   */
+  End: number | undefined;
+}
+
+/**
  * <p>The relative time period over which data is included in the aggregation.</p>
  * @public
  */
@@ -2063,13 +2128,43 @@ export interface Range {
    * <p>The amount of time of the specified unit.</p>
    * @public
    */
-  Value: number | undefined;
+  Value?: number | undefined;
 
   /**
    * <p>The unit of time.</p>
    * @public
    */
-  Unit: Unit | undefined;
+  Unit?: Unit | undefined;
+
+  /**
+   * <p>A structure letting customers specify a relative time window over which over which data
+   *          is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint
+   *          is in the past, and negative numbers to indicate it is in the future. ValueRange overrides
+   *          Value.</p>
+   * @public
+   */
+  ValueRange?: ValueRange | undefined;
+
+  /**
+   * <p>An expression specifying the field in your JSON object from which the date should be
+   *          parsed. The expression should follow the structure of \"\{ObjectTypeName.<Location of
+   *          timestamp field in JSON pointer format>\}\". E.g. if your object type is MyType and source
+   *          JSON is \{"generatedAt": \{"timestamp": "1737587945945"\}\}, then TimestampSource should be
+   *          "\{MyType.generatedAt.timestamp\}".</p>
+   * @public
+   */
+  TimestampSource?: string | undefined;
+
+  /**
+   * <p>The format the timestamp field in your JSON object is specified. This value should be
+   *          one of EPOCHMILLI (for Unix epoch timestamps with second/millisecond level precision) or
+   *          ISO_8601 (following ISO_8601 format with second/millisecond level precision, with an
+   *          optional offset of Z or in the format HH:MM or HHMM.). E.g. if your object type is MyType
+   *          and source JSON is \{"generatedAt": \{"timestamp": "2001-07-04T12:08:56.235-0700"\}\}, then
+   *          TimestampFormat should be "ISO_8601".</p>
+   * @public
+   */
+  TimestampFormat?: string | undefined;
 }
 
 /**
@@ -2286,10 +2381,36 @@ export interface CreateCalculatedAttributeDefinitionRequest {
   Statistic: Statistic | undefined;
 
   /**
+   * <p>Whether historical data ingested before the Calculated Attribute was created should be
+   *          included in calculations.</p>
+   * @public
+   */
+  UseHistoricalData?: boolean | undefined;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Information indicating if the Calculated Attribute is ready for use by confirming all
+ *          historical data has been processed and reflected.</p>
+ * @public
+ */
+export interface Readiness {
+  /**
+   * <p>Approximately how far the Calculated Attribute creation is from completion.</p>
+   * @public
+   */
+  ProgressPercentage?: number | undefined;
+
+  /**
+   * <p>Any customer messaging.</p>
+   * @public
+   */
+  Message?: string | undefined;
 }
 
 /**
@@ -2352,6 +2473,27 @@ export interface CreateCalculatedAttributeDefinitionResponse {
    * @public
    */
   LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>Whether historical data ingested before the Calculated Attribute was created should be
+   *          included in calculations.</p>
+   * @public
+   */
+  UseHistoricalData?: boolean | undefined;
+
+  /**
+   * <p>Status of the Calculated Attribute creation (whether all historical data has been
+   *          indexed.)</p>
+   * @public
+   */
+  Status?: ReadinessStatus | undefined;
+
+  /**
+   * <p>Information indicating if the Calculated Attribute is ready for use by confirming all
+   *          historical data has been processed and reflected.</p>
+   * @public
+   */
+  Readiness?: Readiness | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
@@ -2861,6 +3003,143 @@ export interface CreateDomainResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const LayoutType = {
+  PROFILE_EXPLORER: "PROFILE_EXPLORER",
+} as const;
+
+/**
+ * @public
+ */
+export type LayoutType = (typeof LayoutType)[keyof typeof LayoutType];
+
+/**
+ * @public
+ */
+export interface CreateDomainLayoutRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the layout.</p>
+   * @public
+   */
+  LayoutDefinitionName: string | undefined;
+
+  /**
+   * <p>The description of the layout</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The display name of the layout</p>
+   * @public
+   */
+  DisplayName: string | undefined;
+
+  /**
+   * <p>If set to true for a layout, this layout will be used by default to view data. If set to
+   *          false, then the layout will not be used by default, but it can be used to view data by
+   *          explicitly selecting it in the console.</p>
+   * @public
+   */
+  IsDefault?: boolean | undefined;
+
+  /**
+   * <p>The type of layout that can be used to view data under a Customer Profiles domain.</p>
+   * @public
+   */
+  LayoutType: LayoutType | undefined;
+
+  /**
+   * <p>A customizable layout that can be used to view data under a Customer Profiles
+   *          domain.</p>
+   * @public
+   */
+  Layout: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDomainLayoutResponse {
+  /**
+   * <p>The unique name of the layout.</p>
+   * @public
+   */
+  LayoutDefinitionName: string | undefined;
+
+  /**
+   * <p>The description of the layout</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The display name of the layout</p>
+   * @public
+   */
+  DisplayName: string | undefined;
+
+  /**
+   * <p>If set to true for a layout, this layout will be used by default to view data. If set to
+   *          false, then the layout will not be used by default, but it can be used to view data by
+   *          explicitly selecting it in the console.</p>
+   * @public
+   */
+  IsDefault?: boolean | undefined;
+
+  /**
+   * <p>The type of layout that can be used to view data under customer profiles domain.</p>
+   * @public
+   */
+  LayoutType: LayoutType | undefined;
+
+  /**
+   * <p>A customizable layout that can be used to view data under Customer Profiles
+   *          domain.</p>
+   * @public
+   */
+  Layout: string | undefined;
+
+  /**
+   * <p>The version used to create layout.</p>
+   * @public
+   */
+  Version: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The timestamp of when the layout was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the layout was most recently updated.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateEventStreamRequest {
   /**
@@ -2907,7 +3186,8 @@ export interface CreateEventStreamResponse {
 }
 
 /**
- * <p>The criteria that a specific object attribute must meet to trigger the destination.</p>
+ * <p>The criteria that a specific object attribute must meet to trigger the
+ *          destination.</p>
  * @public
  */
 export interface ObjectAttribute {
@@ -3022,19 +3302,22 @@ export interface Period {
   MaxInvocationsPerProfile?: number | undefined;
 
   /**
-   * <p>If set to true, there is no limit on the number of destination invocations per profile. The default is false.</p>
+   * <p>If set to true, there is no limit on the number of destination invocations per profile.
+   *          The default is false.</p>
    * @public
    */
   Unlimited?: boolean | undefined;
 }
 
 /**
- * <p>Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.</p>
+ * <p>Defines limits controlling whether an event triggers the destination, based on ingestion
+ *          latency and the number of invocations per profile over specific time periods.</p>
  * @public
  */
 export interface EventTriggerLimits {
   /**
-   * <p>In milliseconds. Specifies that an event will only trigger the destination if it is processed within a certain latency period.</p>
+   * <p>In milliseconds. Specifies that an event will only trigger the destination if it is
+   *          processed within a certain latency period.</p>
    * @public
    */
   EventExpiration?: number | undefined;
@@ -3256,7 +3539,7 @@ export interface CreateProfileRequest {
   DomainName: string | undefined;
 
   /**
-   * <p>An account number that you have given to the customer.</p>
+   * <p>An account number that you have assigned to the customer.</p>
    * @public
    */
   AccountNumber?: string | undefined;
@@ -3988,6 +4271,34 @@ export interface DeleteDomainResponse {
 /**
  * @public
  */
+export interface DeleteDomainLayoutRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the layout.</p>
+   * @public
+   */
+  LayoutDefinitionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDomainLayoutResponse {
+  /**
+   * <p>A message that indicates the delete request is done.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteEventStreamRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -4314,10 +4625,19 @@ export interface ObjectTypeField {
  * @enum
  */
 export const StandardIdentifier = {
+  AIR_BOOKING: "AIR_BOOKING",
+  AIR_PREFERENCE: "AIR_PREFERENCE",
+  AIR_SEGMENT: "AIR_SEGMENT",
   ASSET: "ASSET",
   CASE: "CASE",
   COMMUNICATION_RECORD: "COMMUNICATION_RECORD",
+  HOTEL_PREFERENCE: "HOTEL_PREFERENCE",
+  HOTEL_RESERVATION: "HOTEL_RESERVATION",
+  HOTEL_STAY_REVENUE: "HOTEL_STAY_REVENUE",
   LOOKUP_ONLY: "LOOKUP_ONLY",
+  LOYALTY: "LOYALTY",
+  LOYALTY_PROMOTION: "LOYALTY_PROMOTION",
+  LOYALTY_TRANSACTION: "LOYALTY_TRANSACTION",
   NEW_ONLY: "NEW_ONLY",
   ORDER: "ORDER",
   PROFILE: "PROFILE",
@@ -4533,6 +4853,27 @@ export interface GetCalculatedAttributeDefinitionResponse {
   AttributeDetails?: AttributeDetails | undefined;
 
   /**
+   * <p>Whether historical data ingested before the Calculated Attribute was created should be
+   *          included in calculations.</p>
+   * @public
+   */
+  UseHistoricalData?: boolean | undefined;
+
+  /**
+   * <p>Status of the Calculated Attribute creation (whether all historical data has been
+   *          indexed).</p>
+   * @public
+   */
+  Status?: ReadinessStatus | undefined;
+
+  /**
+   * <p>Information indicating if the Calculated Attribute is ready for use by confirming all
+   *          historical data has been processed and reflected.</p>
+   * @public
+   */
+  Readiness?: Readiness | undefined;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
@@ -4590,6 +4931,12 @@ export interface GetCalculatedAttributeForProfileResponse {
    * @public
    */
   Value?: string | undefined;
+
+  /**
+   * <p>The timestamp of the newest object included in the calculated attribute calculation.</p>
+   * @public
+   */
+  LastObjectTimestamp?: Date | undefined;
 }
 
 /**
@@ -4704,6 +5051,91 @@ export interface GetDomainResponse {
 
   /**
    * <p>The timestamp of when the domain was most recently edited.</p>
+   * @public
+   */
+  LastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDomainLayoutRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the layout.</p>
+   * @public
+   */
+  LayoutDefinitionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDomainLayoutResponse {
+  /**
+   * <p>The unique name of the layout.</p>
+   * @public
+   */
+  LayoutDefinitionName: string | undefined;
+
+  /**
+   * <p>The description of the layout</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The display name of the layout</p>
+   * @public
+   */
+  DisplayName: string | undefined;
+
+  /**
+   * <p>If set to true for a layout, this layout will be used by default to view data. If set to
+   *          false, then the layout will not be used by default, but it can be used to view data by
+   *          explicitly selecting it in the console.</p>
+   * @public
+   */
+  IsDefault?: boolean | undefined;
+
+  /**
+   * <p>The type of layout that can be used to view data under a Customer Profiles domain.</p>
+   * @public
+   */
+  LayoutType: LayoutType | undefined;
+
+  /**
+   * <p>A customizable layout that can be used to view data under a Customer Profiles
+   *          domain.</p>
+   * @public
+   */
+  Layout: string | undefined;
+
+  /**
+   * <p>The version used to create layout.</p>
+   * @public
+   */
+  Version: string | undefined;
+
+  /**
+   * <p>The timestamp of when the layout was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the layout was most recently updated.</p>
    * @public
    */
   LastUpdatedAt: Date | undefined;
@@ -4893,7 +5325,8 @@ export interface GetEventTriggerResponse {
   SegmentFilter?: string | undefined;
 
   /**
-   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.</p>
+   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion
+   *          latency and the number of invocations per profile over specific time periods.</p>
    * @public
    */
   EventTriggerLimits?: EventTriggerLimits | undefined;
@@ -6277,6 +6710,103 @@ export interface ListCalculatedAttributesForProfileResponse {
   /**
    * <p>The pagination token from the previous call to
    *          ListCalculatedAttributesForProfile.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDomainLayoutsRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>Identifies the next page of results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of objects returned per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The layout object that contains LayoutDefinitionName, Description, DisplayName,
+ *          IsDefault, LayoutType, Tags, CreatedAt, LastUpdatedAt </p>
+ * @public
+ */
+export interface LayoutItem {
+  /**
+   * <p>The unique name of the layout.</p>
+   * @public
+   */
+  LayoutDefinitionName: string | undefined;
+
+  /**
+   * <p>The description of the layout</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The display name of the layout</p>
+   * @public
+   */
+  DisplayName: string | undefined;
+
+  /**
+   * <p>If set to true for a layout, this layout will be used by default to view data. If set to
+   *          false, then layout will not be used by default but it can be used to view data by explicit
+   *          selection on UI.</p>
+   * @public
+   */
+  IsDefault?: boolean | undefined;
+
+  /**
+   * <p>The type of layout that can be used to view data under customer profiles domain.</p>
+   * @public
+   */
+  LayoutType: LayoutType | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The timestamp of when the layout was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the layout was most recently updated.</p>
+   * @public
+   */
+  LastUpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDomainLayoutsResponse {
+  /**
+   * <p>Contains summary information about an EventStream.</p>
+   * @public
+   */
+  Items?: LayoutItem[] | undefined;
+
+  /**
+   * <p>Identifies the next page of results to return.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -8103,6 +8633,27 @@ export interface UpdateCalculatedAttributeDefinitionResponse {
   AttributeDetails?: AttributeDetails | undefined;
 
   /**
+   * <p>Whether historical data ingested before the Calculated Attribute was created should be
+   *          included in calculations.</p>
+   * @public
+   */
+  UseHistoricalData?: boolean | undefined;
+
+  /**
+   * <p>Status of the Calculated Attribute creation (whether all historical data has been
+   *          indexed.)</p>
+   * @public
+   */
+  Status?: ReadinessStatus | undefined;
+
+  /**
+   * <p>Information indicating if the Calculated Attribute is ready for use by confirming all
+   *          historical data has been processed and reflected.</p>
+   * @public
+   */
+  Readiness?: Readiness | undefined;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
@@ -8252,6 +8803,123 @@ export interface UpdateDomainResponse {
 /**
  * @public
  */
+export interface UpdateDomainLayoutRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the layout.</p>
+   * @public
+   */
+  LayoutDefinitionName: string | undefined;
+
+  /**
+   * <p>The description of the layout</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The display name of the layout</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>If set to true for a layout, this layout will be used by default to view data. If set to
+   *          false, then the layout will not be used by default, but it can be used to view data by
+   *          explicitly selecting it in the console.</p>
+   * @public
+   */
+  IsDefault?: boolean | undefined;
+
+  /**
+   * <p>The type of layout that can be used to view data under a Customer Profiles domain.</p>
+   * @public
+   */
+  LayoutType?: LayoutType | undefined;
+
+  /**
+   * <p>A customizable layout that can be used to view data under a Customer Profiles
+   *          domain.</p>
+   * @public
+   */
+  Layout?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDomainLayoutResponse {
+  /**
+   * <p>The unique name of the layout.</p>
+   * @public
+   */
+  LayoutDefinitionName?: string | undefined;
+
+  /**
+   * <p>The description of the layout</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The display name of the layout</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>If set to true for a layout, this layout will be used by default to view data. If set to
+   *          false, then the layout will not be used by default, but it can be used to view data by
+   *          explicitly selecting it in the console.</p>
+   * @public
+   */
+  IsDefault?: boolean | undefined;
+
+  /**
+   * <p>The type of layout that can be used to view data under a Customer Profiles domain.</p>
+   * @public
+   */
+  LayoutType?: LayoutType | undefined;
+
+  /**
+   * <p>A customizable layout that can be used to view data under a Customer Profiles domain.</p>
+   * @public
+   */
+  Layout?: string | undefined;
+
+  /**
+   * <p>The version used to create layout.</p>
+   * @public
+   */
+  Version?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the layout was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the layout was most recently updated.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateEventTriggerRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -8291,7 +8959,8 @@ export interface UpdateEventTriggerRequest {
   SegmentFilter?: string | undefined;
 
   /**
-   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.</p>
+   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion
+   *          latency and the number of invocations per profile over specific time periods.</p>
    * @public
    */
   EventTriggerLimits?: EventTriggerLimits | undefined;
@@ -8333,7 +9002,8 @@ export interface UpdateEventTriggerResponse {
   SegmentFilter?: string | undefined;
 
   /**
-   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.</p>
+   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion
+   *          latency and the number of invocations per profile over specific time periods.</p>
    * @public
    */
   EventTriggerLimits?: EventTriggerLimits | undefined;
@@ -8421,179 +9091,6 @@ export interface UpdateAddress {
    * @public
    */
   PostalCode?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProfileRequest {
-  /**
-   * <p>The unique name of the domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The unique identifier of a customer profile.</p>
-   * @public
-   */
-  ProfileId: string | undefined;
-
-  /**
-   * <p>Any additional information relevant to the customer’s profile.</p>
-   * @public
-   */
-  AdditionalInformation?: string | undefined;
-
-  /**
-   * <p>An account number that you have given to the customer.</p>
-   * @public
-   */
-  AccountNumber?: string | undefined;
-
-  /**
-   * <p>The type of profile used to describe the customer.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  PartyType?: PartyType | undefined;
-
-  /**
-   * <p>The name of the customer’s business.</p>
-   * @public
-   */
-  BusinessName?: string | undefined;
-
-  /**
-   * <p>The customer’s first name.</p>
-   * @public
-   */
-  FirstName?: string | undefined;
-
-  /**
-   * <p>The customer’s middle name.</p>
-   * @public
-   */
-  MiddleName?: string | undefined;
-
-  /**
-   * <p>The customer’s last name.</p>
-   * @public
-   */
-  LastName?: string | undefined;
-
-  /**
-   * <p>The customer’s birth date. </p>
-   * @public
-   */
-  BirthDate?: string | undefined;
-
-  /**
-   * <p>The gender with which the customer identifies. </p>
-   *
-   * @deprecated
-   * @public
-   */
-  Gender?: Gender | undefined;
-
-  /**
-   * <p>The customer’s phone number, which has not been specified as a mobile, home, or business
-   *          number. </p>
-   * @public
-   */
-  PhoneNumber?: string | undefined;
-
-  /**
-   * <p>The customer’s mobile phone number.</p>
-   * @public
-   */
-  MobilePhoneNumber?: string | undefined;
-
-  /**
-   * <p>The customer’s home phone number.</p>
-   * @public
-   */
-  HomePhoneNumber?: string | undefined;
-
-  /**
-   * <p>The customer’s business phone number.</p>
-   * @public
-   */
-  BusinessPhoneNumber?: string | undefined;
-
-  /**
-   * <p>The customer’s email address, which has not been specified as a personal or business
-   *          address. </p>
-   * @public
-   */
-  EmailAddress?: string | undefined;
-
-  /**
-   * <p>The customer’s personal email address.</p>
-   * @public
-   */
-  PersonalEmailAddress?: string | undefined;
-
-  /**
-   * <p>The customer’s business email address.</p>
-   * @public
-   */
-  BusinessEmailAddress?: string | undefined;
-
-  /**
-   * <p>A generic address associated with the customer that is not mailing, shipping, or
-   *          billing.</p>
-   * @public
-   */
-  Address?: UpdateAddress | undefined;
-
-  /**
-   * <p>The customer’s shipping address.</p>
-   * @public
-   */
-  ShippingAddress?: UpdateAddress | undefined;
-
-  /**
-   * <p>The customer’s mailing address.</p>
-   * @public
-   */
-  MailingAddress?: UpdateAddress | undefined;
-
-  /**
-   * <p>The customer’s billing address.</p>
-   * @public
-   */
-  BillingAddress?: UpdateAddress | undefined;
-
-  /**
-   * <p>A key value pair of attributes of a customer profile.</p>
-   * @public
-   */
-  Attributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>An alternative to <code>PartyType</code> which accepts any string as input.</p>
-   * @public
-   */
-  PartyTypeString?: string | undefined;
-
-  /**
-   * <p>An alternative to <code>Gender</code> which accepts any string as input.</p>
-   * @public
-   */
-  GenderString?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProfileResponse {
-  /**
-   * <p>The unique identifier of a customer profile.</p>
-   * @public
-   */
-  ProfileId: string | undefined;
 }
 
 /**
@@ -8739,6 +9236,24 @@ export const CreateCalculatedAttributeDefinitionResponseFilterSensitiveLog = (
   ...(obj.AttributeDetails && { AttributeDetails: SENSITIVE_STRING }),
   ...(obj.Conditions && { Conditions: SENSITIVE_STRING }),
   ...(obj.Statistic && { Statistic: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainLayoutRequestFilterSensitiveLog = (obj: CreateDomainLayoutRequest): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.Layout && { Layout: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainLayoutResponseFilterSensitiveLog = (obj: CreateDomainLayoutResponse): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.Layout && { Layout: SENSITIVE_STRING }),
 });
 
 /**
@@ -8923,6 +9438,15 @@ export const GetCalculatedAttributeDefinitionResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const GetDomainLayoutResponseFilterSensitiveLog = (obj: GetDomainLayoutResponse): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.Layout && { Layout: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const GetEventTriggerResponseFilterSensitiveLog = (obj: GetEventTriggerResponse): any => ({
   ...obj,
   ...(obj.Description && { Description: SENSITIVE_STRING }),
@@ -8983,6 +9507,22 @@ export const ListCalculatedAttributeDefinitionsResponseFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.Items && { Items: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const LayoutItemFilterSensitiveLog = (obj: LayoutItem): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListDomainLayoutsResponseFilterSensitiveLog = (obj: ListDomainLayoutsResponse): any => ({
+  ...obj,
+  ...(obj.Items && { Items: obj.Items.map((item) => LayoutItemFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -9104,6 +9644,24 @@ export const UpdateCalculatedAttributeDefinitionResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const UpdateDomainLayoutRequestFilterSensitiveLog = (obj: UpdateDomainLayoutRequest): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.Layout && { Layout: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainLayoutResponseFilterSensitiveLog = (obj: UpdateDomainLayoutResponse): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.Layout && { Layout: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const UpdateEventTriggerRequestFilterSensitiveLog = (obj: UpdateEventTriggerRequest): any => ({
   ...obj,
   ...(obj.Description && { Description: SENSITIVE_STRING }),
@@ -9124,34 +9682,4 @@ export const UpdateEventTriggerResponseFilterSensitiveLog = (obj: UpdateEventTri
  */
 export const UpdateAddressFilterSensitiveLog = (obj: UpdateAddress): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProfileRequestFilterSensitiveLog = (obj: UpdateProfileRequest): any => ({
-  ...obj,
-  ...(obj.AdditionalInformation && { AdditionalInformation: SENSITIVE_STRING }),
-  ...(obj.AccountNumber && { AccountNumber: SENSITIVE_STRING }),
-  ...(obj.PartyType && { PartyType: SENSITIVE_STRING }),
-  ...(obj.BusinessName && { BusinessName: SENSITIVE_STRING }),
-  ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
-  ...(obj.MiddleName && { MiddleName: SENSITIVE_STRING }),
-  ...(obj.LastName && { LastName: SENSITIVE_STRING }),
-  ...(obj.BirthDate && { BirthDate: SENSITIVE_STRING }),
-  ...(obj.Gender && { Gender: SENSITIVE_STRING }),
-  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
-  ...(obj.MobilePhoneNumber && { MobilePhoneNumber: SENSITIVE_STRING }),
-  ...(obj.HomePhoneNumber && { HomePhoneNumber: SENSITIVE_STRING }),
-  ...(obj.BusinessPhoneNumber && { BusinessPhoneNumber: SENSITIVE_STRING }),
-  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
-  ...(obj.PersonalEmailAddress && { PersonalEmailAddress: SENSITIVE_STRING }),
-  ...(obj.BusinessEmailAddress && { BusinessEmailAddress: SENSITIVE_STRING }),
-  ...(obj.Address && { Address: SENSITIVE_STRING }),
-  ...(obj.ShippingAddress && { ShippingAddress: SENSITIVE_STRING }),
-  ...(obj.MailingAddress && { MailingAddress: SENSITIVE_STRING }),
-  ...(obj.BillingAddress && { BillingAddress: SENSITIVE_STRING }),
-  ...(obj.Attributes && { Attributes: SENSITIVE_STRING }),
-  ...(obj.PartyTypeString && { PartyTypeString: SENSITIVE_STRING }),
-  ...(obj.GenderString && { GenderString: SENSITIVE_STRING }),
 });

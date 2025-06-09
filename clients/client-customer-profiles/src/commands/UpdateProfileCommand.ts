@@ -10,7 +10,7 @@ import {
   UpdateProfileRequest,
   UpdateProfileRequestFilterSensitiveLog,
   UpdateProfileResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_UpdateProfileCommand, se_UpdateProfileCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -44,6 +44,7 @@ import {
   CreateCalculatedAttributeDefinitionCommandOutput,
 } from "../commands/CreateCalculatedAttributeDefinitionCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand";
+import { CreateDomainLayoutCommandInput, CreateDomainLayoutCommandOutput } from "../commands/CreateDomainLayoutCommand";
 import { CreateEventStreamCommandInput, CreateEventStreamCommandOutput } from "../commands/CreateEventStreamCommand";
 import { CreateEventTriggerCommandInput, CreateEventTriggerCommandOutput } from "../commands/CreateEventTriggerCommand";
 import {
@@ -68,6 +69,7 @@ import {
   DeleteCalculatedAttributeDefinitionCommandOutput,
 } from "../commands/DeleteCalculatedAttributeDefinitionCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
+import { DeleteDomainLayoutCommandInput, DeleteDomainLayoutCommandOutput } from "../commands/DeleteDomainLayoutCommand";
 import { DeleteEventStreamCommandInput, DeleteEventStreamCommandOutput } from "../commands/DeleteEventStreamCommand";
 import { DeleteEventTriggerCommandInput, DeleteEventTriggerCommandOutput } from "../commands/DeleteEventTriggerCommand";
 import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "../commands/DeleteIntegrationCommand";
@@ -103,6 +105,7 @@ import {
   GetCalculatedAttributeForProfileCommandOutput,
 } from "../commands/GetCalculatedAttributeForProfileCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "../commands/GetDomainCommand";
+import { GetDomainLayoutCommandInput, GetDomainLayoutCommandOutput } from "../commands/GetDomainLayoutCommand";
 import { GetEventStreamCommandInput, GetEventStreamCommandOutput } from "../commands/GetEventStreamCommand";
 import { GetEventTriggerCommandInput, GetEventTriggerCommandOutput } from "../commands/GetEventTriggerCommand";
 import {
@@ -144,6 +147,7 @@ import {
   ListCalculatedAttributesForProfileCommandInput,
   ListCalculatedAttributesForProfileCommandOutput,
 } from "../commands/ListCalculatedAttributesForProfileCommand";
+import { ListDomainLayoutsCommandInput, ListDomainLayoutsCommandOutput } from "../commands/ListDomainLayoutsCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
 import { ListEventStreamsCommandInput, ListEventStreamsCommandOutput } from "../commands/ListEventStreamsCommand";
 import { ListEventTriggersCommandInput, ListEventTriggersCommandOutput } from "../commands/ListEventTriggersCommand";
@@ -197,6 +201,7 @@ import {
   UpdateCalculatedAttributeDefinitionCommandOutput,
 } from "../commands/UpdateCalculatedAttributeDefinitionCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "../commands/UpdateDomainCommand";
+import { UpdateDomainLayoutCommandInput, UpdateDomainLayoutCommandOutput } from "../commands/UpdateDomainLayoutCommand";
 import { UpdateEventTriggerCommandInput, UpdateEventTriggerCommandOutput } from "../commands/UpdateEventTriggerCommand";
 import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "../commands/UpdateProfileCommand";
 import { CustomerProfilesServiceException as __BaseException } from "../models/CustomerProfilesServiceException";
@@ -215,6 +220,7 @@ import {
   BadRequestException,
   Batch,
   CalculatedAttributeDimension,
+  CalculatedAttributeValue,
   ConditionOverrides,
   Conditions,
   ConflictResolution,
@@ -243,7 +249,9 @@ import {
   IntegrationConfig,
   InternalServerException,
   JobSchedule,
+  LayoutItem,
   ListCalculatedAttributeDefinitionItem,
+  ListCalculatedAttributeForProfileItem,
   ListDomainItem,
   ListIntegrationItem,
   ListObjectTypeAttributeItem,
@@ -286,6 +294,7 @@ import {
   TriggerConfig,
   TriggerProperties,
   UpdateAddress,
+  ValueRange,
   WorkflowStepItem,
   ZendeskSourceProperties,
 } from "../models/models_0";
@@ -387,6 +396,7 @@ export const se_CreateCalculatedAttributeDefinitionCommand = async (
       Filter: (_) => _json(_),
       Statistic: [],
       Tags: (_) => _json(_),
+      UseHistoricalData: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -414,6 +424,35 @@ export const se_CreateDomainCommand = async (
       DefaultExpirationDays: [],
       Matching: (_) => se_MatchingRequest(_, context),
       RuleBasedMatching: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateDomainLayoutCommand
+ */
+export const se_CreateDomainLayoutCommand = async (
+  input: CreateDomainLayoutCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/domains/{DomainName}/layouts/{LayoutDefinitionName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("LayoutDefinitionName", () => input.LayoutDefinitionName!, "{LayoutDefinitionName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      DisplayName: [],
+      IsDefault: [],
+      Layout: [],
+      LayoutType: [],
       Tags: (_) => _json(_),
     })
   );
@@ -652,6 +691,23 @@ export const se_DeleteDomainCommand = async (
   const headers: any = {};
   b.bp("/domains/{DomainName}");
   b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteDomainLayoutCommand
+ */
+export const se_DeleteDomainLayoutCommand = async (
+  input: DeleteDomainLayoutCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domains/{DomainName}/layouts/{LayoutDefinitionName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("LayoutDefinitionName", () => input.LayoutDefinitionName!, "{LayoutDefinitionName}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -932,6 +988,23 @@ export const se_GetDomainCommand = async (
   const headers: any = {};
   b.bp("/domains/{DomainName}");
   b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetDomainLayoutCommand
+ */
+export const se_GetDomainLayoutCommand = async (
+  input: GetDomainLayoutCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domains/{DomainName}/layouts/{LayoutDefinitionName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("LayoutDefinitionName", () => input.LayoutDefinitionName!, "{LayoutDefinitionName}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -1266,6 +1339,26 @@ export const se_ListCalculatedAttributesForProfileCommand = async (
   b.bp("/domains/{DomainName}/profile/{ProfileId}/calculated-attributes");
   b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   b.p("ProfileId", () => input.ProfileId!, "{ProfileId}", false);
+  const query: any = map({
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListDomainLayoutsCommand
+ */
+export const se_ListDomainLayoutsCommand = async (
+  input: ListDomainLayoutsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domains/{DomainName}/layouts");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
     [_nt]: [, input[_NT]!],
     [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
@@ -1805,6 +1898,34 @@ export const se_UpdateDomainCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateDomainLayoutCommand
+ */
+export const se_UpdateDomainLayoutCommand = async (
+  input: UpdateDomainLayoutCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/domains/{DomainName}/layouts/{LayoutDefinitionName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("LayoutDefinitionName", () => input.LayoutDefinitionName!, "{LayoutDefinitionName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      DisplayName: [],
+      IsDefault: [],
+      Layout: [],
+      LayoutType: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateEventTriggerCommand
  */
 export const se_UpdateEventTriggerCommand = async (
@@ -1915,7 +2036,7 @@ export const de_BatchGetCalculatedAttributeForProfileCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    CalculatedAttributeValues: _json,
+    CalculatedAttributeValues: (_) => de_CalculatedAttributeValueList(_, context),
     ConditionOverrides: _json,
     Errors: _json,
   });
@@ -1968,8 +2089,11 @@ export const de_CreateCalculatedAttributeDefinitionCommand = async (
     DisplayName: __expectString,
     Filter: _json,
     LastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Readiness: _json,
     Statistic: __expectString,
+    Status: __expectString,
     Tags: _json,
+    UseHistoricalData: __expectBoolean,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1999,6 +2123,36 @@ export const de_CreateDomainCommand = async (
     Matching: (_) => de_MatchingResponse(_, context),
     RuleBasedMatching: _json,
     Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateDomainLayoutCommand
+ */
+export const de_CreateDomainLayoutCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDomainLayoutCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DisplayName: __expectString,
+    IsDefault: __expectBoolean,
+    LastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Layout: __expectString,
+    LayoutDefinitionName: __expectString,
+    LayoutType: __expectString,
+    Tags: _json,
+    Version: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2194,6 +2348,27 @@ export const de_DeleteDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteDomainLayoutCommand
+ */
+export const de_DeleteDomainLayoutCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDomainLayoutCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -2457,8 +2632,11 @@ export const de_GetCalculatedAttributeDefinitionCommand = async (
     DisplayName: __expectString,
     Filter: _json,
     LastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Readiness: _json,
     Statistic: __expectString,
+    Status: __expectString,
     Tags: _json,
+    UseHistoricalData: __expectBoolean,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2482,6 +2660,7 @@ export const de_GetCalculatedAttributeForProfileCommand = async (
     CalculatedAttributeName: __expectString,
     DisplayName: __expectString,
     IsDataPartial: __expectString,
+    LastObjectTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Value: __expectString,
   });
   Object.assign(contents, doc);
@@ -2513,6 +2692,36 @@ export const de_GetDomainCommand = async (
     RuleBasedMatching: _json,
     Stats: _json,
     Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetDomainLayoutCommand
+ */
+export const de_GetDomainLayoutCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDomainLayoutCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DisplayName: __expectString,
+    IsDefault: __expectBoolean,
+    LastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Layout: __expectString,
+    LayoutDefinitionName: __expectString,
+    LayoutType: __expectString,
+    Tags: _json,
+    Version: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2963,7 +3172,29 @@ export const de_ListCalculatedAttributesForProfileCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    Items: _json,
+    Items: (_) => de_CalculatedAttributesForProfileList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDomainLayoutsCommand
+ */
+export const de_ListDomainLayoutsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDomainLayoutsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: (_) => de_LayoutList(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -3466,8 +3697,11 @@ export const de_UpdateCalculatedAttributeDefinitionCommand = async (
     Description: __expectString,
     DisplayName: __expectString,
     LastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Readiness: _json,
     Statistic: __expectString,
+    Status: __expectString,
     Tags: _json,
+    UseHistoricalData: __expectBoolean,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3497,6 +3731,36 @@ export const de_UpdateDomainCommand = async (
     Matching: (_) => de_MatchingResponse(_, context),
     RuleBasedMatching: _json,
     Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateDomainLayoutCommand
+ */
+export const de_UpdateDomainLayoutCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDomainLayoutCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DisplayName: __expectString,
+    IsDefault: __expectBoolean,
+    LastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Layout: __expectString,
+    LayoutDefinitionName: __expectString,
+    LayoutType: __expectString,
+    Tags: _json,
+    Version: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4162,6 +4426,8 @@ const se_TriggerProperties = (input: TriggerProperties, context: __SerdeContext)
 
 // se_ValueList omitted.
 
+// se_ValueRange omitted.
+
 // se_Values omitted.
 
 // se_ZendeskSourceProperties omitted.
@@ -4276,11 +4542,46 @@ const de_CalculatedAttributeDimension = (output: any, context: __SerdeContext): 
   }) as any;
 };
 
-// de_CalculatedAttributesForProfileList omitted.
+/**
+ * deserializeAws_restJson1CalculatedAttributesForProfileList
+ */
+const de_CalculatedAttributesForProfileList = (
+  output: any,
+  context: __SerdeContext
+): ListCalculatedAttributeForProfileItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ListCalculatedAttributeForProfileItem(entry, context);
+    });
+  return retVal;
+};
 
-// de_CalculatedAttributeValue omitted.
+/**
+ * deserializeAws_restJson1CalculatedAttributeValue
+ */
+const de_CalculatedAttributeValue = (output: any, context: __SerdeContext): CalculatedAttributeValue => {
+  return take(output, {
+    CalculatedAttributeName: __expectString,
+    DisplayName: __expectString,
+    IsDataPartial: __expectString,
+    LastObjectTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ProfileId: __expectString,
+    Value: __expectString,
+  }) as any;
+};
 
-// de_CalculatedAttributeValueList omitted.
+/**
+ * deserializeAws_restJson1CalculatedAttributeValueList
+ */
+const de_CalculatedAttributeValueList = (output: any, context: __SerdeContext): CalculatedAttributeValue[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CalculatedAttributeValue(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1CalculatedCustomAttributes
@@ -4583,6 +4884,34 @@ const de_IntegrationList = (output: any, context: __SerdeContext): ListIntegrati
 // de_KeyMap omitted.
 
 /**
+ * deserializeAws_restJson1LayoutItem
+ */
+const de_LayoutItem = (output: any, context: __SerdeContext): LayoutItem => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DisplayName: __expectString,
+    IsDefault: __expectBoolean,
+    LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LayoutDefinitionName: __expectString,
+    LayoutType: __expectString,
+    Tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1LayoutList
+ */
+const de_LayoutList = (output: any, context: __SerdeContext): LayoutItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LayoutItem(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1ListCalculatedAttributeDefinitionItem
  */
 const de_ListCalculatedAttributeDefinitionItem = (
@@ -4595,11 +4924,27 @@ const de_ListCalculatedAttributeDefinitionItem = (
     Description: __expectString,
     DisplayName: __expectString,
     LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
     Tags: _json,
+    UseHistoricalData: __expectBoolean,
   }) as any;
 };
 
-// de_ListCalculatedAttributeForProfileItem omitted.
+/**
+ * deserializeAws_restJson1ListCalculatedAttributeForProfileItem
+ */
+const de_ListCalculatedAttributeForProfileItem = (
+  output: any,
+  context: __SerdeContext
+): ListCalculatedAttributeForProfileItem => {
+  return take(output, {
+    CalculatedAttributeName: __expectString,
+    DisplayName: __expectString,
+    IsDataPartial: __expectString,
+    LastObjectTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Value: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1ListDomainItem
@@ -4851,6 +5196,8 @@ const de_Profiles = (output: any, context: __SerdeContext): ProfileQueryResult[]
 
 // de_RangeOverride omitted.
 
+// de_Readiness omitted.
+
 // de_requestValueList omitted.
 
 // de_RuleBasedMatchingResponse omitted.
@@ -4935,6 +5282,8 @@ const de_SourceSegmentList = (output: any, context: __SerdeContext): SourceSegme
 // de_Threshold omitted.
 
 // de_ValueList omitted.
+
+// de_ValueRange omitted.
 
 // de_Values omitted.
 

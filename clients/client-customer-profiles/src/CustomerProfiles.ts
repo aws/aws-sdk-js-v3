@@ -28,6 +28,11 @@ import {
   CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
 import {
+  CreateDomainLayoutCommand,
+  CreateDomainLayoutCommandInput,
+  CreateDomainLayoutCommandOutput,
+} from "./commands/CreateDomainLayoutCommand";
+import {
   CreateEventStreamCommand,
   CreateEventStreamCommandInput,
   CreateEventStreamCommandOutput,
@@ -72,6 +77,11 @@ import {
   DeleteDomainCommandInput,
   DeleteDomainCommandOutput,
 } from "./commands/DeleteDomainCommand";
+import {
+  DeleteDomainLayoutCommand,
+  DeleteDomainLayoutCommandInput,
+  DeleteDomainLayoutCommandOutput,
+} from "./commands/DeleteDomainLayoutCommand";
 import {
   DeleteEventStreamCommand,
   DeleteEventStreamCommandInput,
@@ -138,6 +148,11 @@ import {
   GetCalculatedAttributeForProfileCommandOutput,
 } from "./commands/GetCalculatedAttributeForProfileCommand";
 import { GetDomainCommand, GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
+import {
+  GetDomainLayoutCommand,
+  GetDomainLayoutCommandInput,
+  GetDomainLayoutCommandOutput,
+} from "./commands/GetDomainLayoutCommand";
 import {
   GetEventStreamCommand,
   GetEventStreamCommandInput,
@@ -215,6 +230,11 @@ import {
   ListCalculatedAttributesForProfileCommandInput,
   ListCalculatedAttributesForProfileCommandOutput,
 } from "./commands/ListCalculatedAttributesForProfileCommand";
+import {
+  ListDomainLayoutsCommand,
+  ListDomainLayoutsCommandInput,
+  ListDomainLayoutsCommandOutput,
+} from "./commands/ListDomainLayoutsCommand";
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
   ListEventStreamsCommand,
@@ -323,6 +343,11 @@ import {
   UpdateDomainCommandOutput,
 } from "./commands/UpdateDomainCommand";
 import {
+  UpdateDomainLayoutCommand,
+  UpdateDomainLayoutCommandInput,
+  UpdateDomainLayoutCommandOutput,
+} from "./commands/UpdateDomainLayoutCommand";
+import {
   UpdateEventTriggerCommand,
   UpdateEventTriggerCommandInput,
   UpdateEventTriggerCommandOutput,
@@ -340,6 +365,7 @@ const commands = {
   BatchGetProfileCommand,
   CreateCalculatedAttributeDefinitionCommand,
   CreateDomainCommand,
+  CreateDomainLayoutCommand,
   CreateEventStreamCommand,
   CreateEventTriggerCommand,
   CreateIntegrationWorkflowCommand,
@@ -349,6 +375,7 @@ const commands = {
   CreateSegmentSnapshotCommand,
   DeleteCalculatedAttributeDefinitionCommand,
   DeleteDomainCommand,
+  DeleteDomainLayoutCommand,
   DeleteEventStreamCommand,
   DeleteEventTriggerCommand,
   DeleteIntegrationCommand,
@@ -363,6 +390,7 @@ const commands = {
   GetCalculatedAttributeDefinitionCommand,
   GetCalculatedAttributeForProfileCommand,
   GetDomainCommand,
+  GetDomainLayoutCommand,
   GetEventStreamCommand,
   GetEventTriggerCommand,
   GetIdentityResolutionJobCommand,
@@ -380,6 +408,7 @@ const commands = {
   ListAccountIntegrationsCommand,
   ListCalculatedAttributeDefinitionsCommand,
   ListCalculatedAttributesForProfileCommand,
+  ListDomainLayoutsCommand,
   ListDomainsCommand,
   ListEventStreamsCommand,
   ListEventTriggersCommand,
@@ -403,6 +432,7 @@ const commands = {
   UntagResourceCommand,
   UpdateCalculatedAttributeDefinitionCommand,
   UpdateDomainCommand,
+  UpdateDomainLayoutCommand,
   UpdateEventTriggerCommand,
   UpdateProfileCommand,
 };
@@ -476,6 +506,23 @@ export interface CustomerProfiles {
     args: CreateDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDomainLayoutCommand}
+   */
+  createDomainLayout(
+    args: CreateDomainLayoutCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDomainLayoutCommandOutput>;
+  createDomainLayout(
+    args: CreateDomainLayoutCommandInput,
+    cb: (err: any, data?: CreateDomainLayoutCommandOutput) => void
+  ): void;
+  createDomainLayout(
+    args: CreateDomainLayoutCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDomainLayoutCommandOutput) => void
   ): void;
 
   /**
@@ -617,6 +664,23 @@ export interface CustomerProfiles {
     args: DeleteDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDomainLayoutCommand}
+   */
+  deleteDomainLayout(
+    args: DeleteDomainLayoutCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDomainLayoutCommandOutput>;
+  deleteDomainLayout(
+    args: DeleteDomainLayoutCommandInput,
+    cb: (err: any, data?: DeleteDomainLayoutCommandOutput) => void
+  ): void;
+  deleteDomainLayout(
+    args: DeleteDomainLayoutCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDomainLayoutCommandOutput) => void
   ): void;
 
   /**
@@ -840,6 +904,20 @@ export interface CustomerProfiles {
     args: GetDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDomainLayoutCommand}
+   */
+  getDomainLayout(
+    args: GetDomainLayoutCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDomainLayoutCommandOutput>;
+  getDomainLayout(args: GetDomainLayoutCommandInput, cb: (err: any, data?: GetDomainLayoutCommandOutput) => void): void;
+  getDomainLayout(
+    args: GetDomainLayoutCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDomainLayoutCommandOutput) => void
   ): void;
 
   /**
@@ -1108,6 +1186,23 @@ export interface CustomerProfiles {
     args: ListCalculatedAttributesForProfileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCalculatedAttributesForProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDomainLayoutsCommand}
+   */
+  listDomainLayouts(
+    args: ListDomainLayoutsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDomainLayoutsCommandOutput>;
+  listDomainLayouts(
+    args: ListDomainLayoutsCommandInput,
+    cb: (err: any, data?: ListDomainLayoutsCommandOutput) => void
+  ): void;
+  listDomainLayouts(
+    args: ListDomainLayoutsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDomainLayoutsCommandOutput) => void
   ): void;
 
   /**
@@ -1459,6 +1554,23 @@ export interface CustomerProfiles {
     args: UpdateDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDomainLayoutCommand}
+   */
+  updateDomainLayout(
+    args: UpdateDomainLayoutCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDomainLayoutCommandOutput>;
+  updateDomainLayout(
+    args: UpdateDomainLayoutCommandInput,
+    cb: (err: any, data?: UpdateDomainLayoutCommandOutput) => void
+  ): void;
+  updateDomainLayout(
+    args: UpdateDomainLayoutCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDomainLayoutCommandOutput) => void
   ): void;
 
   /**

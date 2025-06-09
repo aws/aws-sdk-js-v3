@@ -80,8 +80,14 @@ export interface GetCalculatedAttributeDefinitionCommandOutput
  * //   },
  * //   Conditions: { // Conditions
  * //     Range: { // Range
- * //       Value: Number("int"), // required
- * //       Unit: "DAYS", // required
+ * //       Value: Number("int"),
+ * //       Unit: "DAYS",
+ * //       ValueRange: { // ValueRange
+ * //         Start: Number("int"), // required
+ * //         End: Number("int"), // required
+ * //       },
+ * //       TimestampSource: "STRING_VALUE",
+ * //       TimestampFormat: "STRING_VALUE",
  * //     },
  * //     ObjectCount: Number("int"),
  * //     Threshold: { // Threshold
@@ -96,6 +102,12 @@ export interface GetCalculatedAttributeDefinitionCommandOutput
  * //       },
  * //     ],
  * //     Expression: "STRING_VALUE", // required
+ * //   },
+ * //   UseHistoricalData: true || false,
+ * //   Status: "PREPARING" || "IN_PROGRESS" || "COMPLETED" || "FAILED",
+ * //   Readiness: { // Readiness
+ * //     ProgressPercentage: Number("int"),
+ * //     Message: "STRING_VALUE",
  * //   },
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",

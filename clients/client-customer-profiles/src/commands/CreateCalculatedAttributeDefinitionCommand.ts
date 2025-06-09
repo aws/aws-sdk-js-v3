@@ -65,8 +65,14 @@ export interface CreateCalculatedAttributeDefinitionCommandOutput
  *   },
  *   Conditions: { // Conditions
  *     Range: { // Range
- *       Value: Number("int"), // required
- *       Unit: "DAYS", // required
+ *       Value: Number("int"),
+ *       Unit: "DAYS",
+ *       ValueRange: { // ValueRange
+ *         Start: Number("int"), // required
+ *         End: Number("int"), // required
+ *       },
+ *       TimestampSource: "STRING_VALUE",
+ *       TimestampFormat: "STRING_VALUE",
  *     },
  *     ObjectCount: Number("int"),
  *     Threshold: { // Threshold
@@ -95,6 +101,7 @@ export interface CreateCalculatedAttributeDefinitionCommandOutput
  *     ],
  *   },
  *   Statistic: "FIRST_OCCURRENCE" || "LAST_OCCURRENCE" || "COUNT" || "SUM" || "MINIMUM" || "MAXIMUM" || "AVERAGE" || "MAX_OCCURRENCE", // required
+ *   UseHistoricalData: true || false,
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -115,8 +122,14 @@ export interface CreateCalculatedAttributeDefinitionCommandOutput
  * //   },
  * //   Conditions: { // Conditions
  * //     Range: { // Range
- * //       Value: Number("int"), // required
- * //       Unit: "DAYS", // required
+ * //       Value: Number("int"),
+ * //       Unit: "DAYS",
+ * //       ValueRange: { // ValueRange
+ * //         Start: Number("int"), // required
+ * //         End: Number("int"), // required
+ * //       },
+ * //       TimestampSource: "STRING_VALUE",
+ * //       TimestampFormat: "STRING_VALUE",
  * //     },
  * //     ObjectCount: Number("int"),
  * //     Threshold: { // Threshold
@@ -147,6 +160,12 @@ export interface CreateCalculatedAttributeDefinitionCommandOutput
  * //   Statistic: "FIRST_OCCURRENCE" || "LAST_OCCURRENCE" || "COUNT" || "SUM" || "MINIMUM" || "MAXIMUM" || "AVERAGE" || "MAX_OCCURRENCE",
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   LastUpdatedAt: new Date("TIMESTAMP"),
+ * //   UseHistoricalData: true || false,
+ * //   Status: "PREPARING" || "IN_PROGRESS" || "COMPLETED" || "FAILED",
+ * //   Readiness: { // Readiness
+ * //     ProgressPercentage: Number("int"),
+ * //     Message: "STRING_VALUE",
+ * //   },
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },

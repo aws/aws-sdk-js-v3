@@ -64,6 +64,7 @@ import {
   CreateCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/CreateCalculatedAttributeDefinitionCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import { CreateDomainLayoutCommandInput, CreateDomainLayoutCommandOutput } from "./commands/CreateDomainLayoutCommand";
 import { CreateEventStreamCommandInput, CreateEventStreamCommandOutput } from "./commands/CreateEventStreamCommand";
 import { CreateEventTriggerCommandInput, CreateEventTriggerCommandOutput } from "./commands/CreateEventTriggerCommand";
 import {
@@ -88,6 +89,7 @@ import {
   DeleteCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/DeleteCalculatedAttributeDefinitionCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
+import { DeleteDomainLayoutCommandInput, DeleteDomainLayoutCommandOutput } from "./commands/DeleteDomainLayoutCommand";
 import { DeleteEventStreamCommandInput, DeleteEventStreamCommandOutput } from "./commands/DeleteEventStreamCommand";
 import { DeleteEventTriggerCommandInput, DeleteEventTriggerCommandOutput } from "./commands/DeleteEventTriggerCommand";
 import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
@@ -123,6 +125,7 @@ import {
   GetCalculatedAttributeForProfileCommandOutput,
 } from "./commands/GetCalculatedAttributeForProfileCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
+import { GetDomainLayoutCommandInput, GetDomainLayoutCommandOutput } from "./commands/GetDomainLayoutCommand";
 import { GetEventStreamCommandInput, GetEventStreamCommandOutput } from "./commands/GetEventStreamCommand";
 import { GetEventTriggerCommandInput, GetEventTriggerCommandOutput } from "./commands/GetEventTriggerCommand";
 import {
@@ -164,6 +167,7 @@ import {
   ListCalculatedAttributesForProfileCommandInput,
   ListCalculatedAttributesForProfileCommandOutput,
 } from "./commands/ListCalculatedAttributesForProfileCommand";
+import { ListDomainLayoutsCommandInput, ListDomainLayoutsCommandOutput } from "./commands/ListDomainLayoutsCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import { ListEventStreamsCommandInput, ListEventStreamsCommandOutput } from "./commands/ListEventStreamsCommand";
 import { ListEventTriggersCommandInput, ListEventTriggersCommandOutput } from "./commands/ListEventTriggersCommand";
@@ -217,6 +221,7 @@ import {
   UpdateCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/UpdateCalculatedAttributeDefinitionCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
+import { UpdateDomainLayoutCommandInput, UpdateDomainLayoutCommandOutput } from "./commands/UpdateDomainLayoutCommand";
 import { UpdateEventTriggerCommandInput, UpdateEventTriggerCommandOutput } from "./commands/UpdateEventTriggerCommand";
 import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
 import {
@@ -239,6 +244,7 @@ export type ServiceInputTypes =
   | BatchGetProfileCommandInput
   | CreateCalculatedAttributeDefinitionCommandInput
   | CreateDomainCommandInput
+  | CreateDomainLayoutCommandInput
   | CreateEventStreamCommandInput
   | CreateEventTriggerCommandInput
   | CreateIntegrationWorkflowCommandInput
@@ -248,6 +254,7 @@ export type ServiceInputTypes =
   | CreateSegmentSnapshotCommandInput
   | DeleteCalculatedAttributeDefinitionCommandInput
   | DeleteDomainCommandInput
+  | DeleteDomainLayoutCommandInput
   | DeleteEventStreamCommandInput
   | DeleteEventTriggerCommandInput
   | DeleteIntegrationCommandInput
@@ -262,6 +269,7 @@ export type ServiceInputTypes =
   | GetCalculatedAttributeDefinitionCommandInput
   | GetCalculatedAttributeForProfileCommandInput
   | GetDomainCommandInput
+  | GetDomainLayoutCommandInput
   | GetEventStreamCommandInput
   | GetEventTriggerCommandInput
   | GetIdentityResolutionJobCommandInput
@@ -279,6 +287,7 @@ export type ServiceInputTypes =
   | ListAccountIntegrationsCommandInput
   | ListCalculatedAttributeDefinitionsCommandInput
   | ListCalculatedAttributesForProfileCommandInput
+  | ListDomainLayoutsCommandInput
   | ListDomainsCommandInput
   | ListEventStreamsCommandInput
   | ListEventTriggersCommandInput
@@ -302,6 +311,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateCalculatedAttributeDefinitionCommandInput
   | UpdateDomainCommandInput
+  | UpdateDomainLayoutCommandInput
   | UpdateEventTriggerCommandInput
   | UpdateProfileCommandInput;
 
@@ -314,6 +324,7 @@ export type ServiceOutputTypes =
   | BatchGetProfileCommandOutput
   | CreateCalculatedAttributeDefinitionCommandOutput
   | CreateDomainCommandOutput
+  | CreateDomainLayoutCommandOutput
   | CreateEventStreamCommandOutput
   | CreateEventTriggerCommandOutput
   | CreateIntegrationWorkflowCommandOutput
@@ -323,6 +334,7 @@ export type ServiceOutputTypes =
   | CreateSegmentSnapshotCommandOutput
   | DeleteCalculatedAttributeDefinitionCommandOutput
   | DeleteDomainCommandOutput
+  | DeleteDomainLayoutCommandOutput
   | DeleteEventStreamCommandOutput
   | DeleteEventTriggerCommandOutput
   | DeleteIntegrationCommandOutput
@@ -337,6 +349,7 @@ export type ServiceOutputTypes =
   | GetCalculatedAttributeDefinitionCommandOutput
   | GetCalculatedAttributeForProfileCommandOutput
   | GetDomainCommandOutput
+  | GetDomainLayoutCommandOutput
   | GetEventStreamCommandOutput
   | GetEventTriggerCommandOutput
   | GetIdentityResolutionJobCommandOutput
@@ -354,6 +367,7 @@ export type ServiceOutputTypes =
   | ListAccountIntegrationsCommandOutput
   | ListCalculatedAttributeDefinitionsCommandOutput
   | ListCalculatedAttributesForProfileCommandOutput
+  | ListDomainLayoutsCommandOutput
   | ListDomainsCommandOutput
   | ListEventStreamsCommandOutput
   | ListEventTriggersCommandOutput
@@ -377,6 +391,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateCalculatedAttributeDefinitionCommandOutput
   | UpdateDomainCommandOutput
+  | UpdateDomainLayoutCommandOutput
   | UpdateEventTriggerCommandOutput
   | UpdateProfileCommandOutput;
 

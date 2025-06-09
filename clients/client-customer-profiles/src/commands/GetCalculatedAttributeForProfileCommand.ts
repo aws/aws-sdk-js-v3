@@ -52,6 +52,7 @@ export interface GetCalculatedAttributeForProfileCommandOutput
  * //   DisplayName: "STRING_VALUE",
  * //   IsDataPartial: "STRING_VALUE",
  * //   Value: "STRING_VALUE",
+ * //   LastObjectTimestamp: new Date("TIMESTAMP"),
  * // };
  *
  * ```
