@@ -1,5 +1,13 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.31.0 (2025-06-09)
+
+## Features
+- Upgraded to smithy 1.58.0 and smithy-typescript 0.31.0.
+
+## Bug Fixes
+- Fixed fallback behavior for SigV4A to SigV4 ([#7113](https://github.com/aws/aws-sdk-js-v3/pull/7113))
+
 ## 0.30.0 (2025-05-08)
 
 ## Features
