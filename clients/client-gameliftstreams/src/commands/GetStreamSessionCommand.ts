@@ -32,8 +32,7 @@ export interface GetStreamSessionCommandInput extends GetStreamSessionInput {}
 export interface GetStreamSessionCommandOutput extends GetStreamSessionOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves properties for a Amazon GameLift Streams stream session resource. Specify the Amazon Resource Name (ARN) of the stream session that you want to retrieve and its
- *             stream group ARN. If the operation is successful, it returns properties for the requested resource.</p>
+ * <p>Retrieves properties for a Amazon GameLift Streams stream session resource. Specify the Amazon Resource Name (ARN) of the stream session that you want to retrieve and its stream group ARN. If the operation is successful, it returns properties for the requested resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,8 +97,7 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionOutput, _
  *  <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before
- *          retrying the request.</p>
+ *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
  *
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>

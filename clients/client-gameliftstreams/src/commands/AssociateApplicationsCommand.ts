@@ -28,8 +28,7 @@ export interface AssociateApplicationsCommandInput extends AssociateApplications
 export interface AssociateApplicationsCommandOutput extends AssociateApplicationsOutput, __MetadataBearer {}
 
 /**
- * <p>When you associate, or link, an application with a stream group, then Amazon GameLift Streams can launch the application using the stream group's
- *             allocated compute resources. The stream group must be in <code>ACTIVE</code> status. You can reverse this action by using <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_DisassociateApplications.html">DisassociateApplications</a>.</p>
+ * <p>When you associate, or link, an application with a stream group, then Amazon GameLift Streams can launch the application using the stream group's allocated compute resources. The stream group must be in <code>ACTIVE</code> status. You can reverse this action by using <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_DisassociateApplications.html">DisassociateApplications</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +74,7 @@ export interface AssociateApplicationsCommandOutput extends AssociateApplication
  *  <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before
- *          retrying the request.</p>
+ *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
  *
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>

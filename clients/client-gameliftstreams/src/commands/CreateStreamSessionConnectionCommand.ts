@@ -38,18 +38,7 @@ export interface CreateStreamSessionConnectionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Allows clients to reconnect to a recently disconnected stream session without losing any data from the last session.</p>
- *          <p>A client can reconnect to a stream session that's in <code>PENDING_CLIENT_RECONNECTION</code> or <code>ACTIVE</code> status. In the
- *             stream session life cycle, when the client disconnects from the stream session, the stream session transitions from <code>CONNECTED</code>
- *             to <code>PENDING_CLIENT_RECONNECTION</code> status. When a client requests to reconnect by calling
- *                 <code>CreateStreamSessionConnection</code>, the stream session transitions to <code>RECONNECTING</code> status. When the reconnection
- *             is successful, the stream session transitions to <code>ACTIVE</code> status. After a stream session is disconnected for longer than
- *                 <code>ConnectionTimeoutSeconds</code>, the stream session transitions to the <code>TERMINATED</code> status.</p>
- *          <p>To connect to an existing stream session, specify the stream group ID and stream session ID that you want to reconnect to, as well as
- *             the signal request settings to use with the stream.</p>
- *          <p>
- *             <code>ConnectionTimeoutSeconds</code> defines the amount of time after the stream session disconnects that a reconnection is allowed. If
- *             a client is disconnected from the stream for longer than <code>ConnectionTimeoutSeconds</code>, the stream session ends.</p>
+ * <p>Allows clients to reconnect to a recently disconnected stream session without losing any data from the last session.</p> <p>A client can reconnect to a stream session that's in <code>PENDING_CLIENT_RECONNECTION</code> or <code>ACTIVE</code> status. In the stream session life cycle, when the client disconnects from the stream session, the stream session transitions from <code>CONNECTED</code> to <code>PENDING_CLIENT_RECONNECTION</code> status. When a client requests to reconnect by calling <code>CreateStreamSessionConnection</code>, the stream session transitions to <code>RECONNECTING</code> status. When the reconnection is successful, the stream session transitions to <code>ACTIVE</code> status. After a stream session is disconnected for longer than <code>ConnectionTimeoutSeconds</code>, the stream session transitions to the <code>TERMINATED</code> status.</p> <p>To connect to an existing stream session, specify the stream group ID and stream session ID that you want to reconnect to, as well as the signal request settings to use with the stream.</p> <p> <code>ConnectionTimeoutSeconds</code> defines the amount of time after the stream session disconnects that a reconnection is allowed. If a client is disconnected from the stream for longer than <code>ConnectionTimeoutSeconds</code>, the stream session ends.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,8 +69,7 @@ export interface CreateStreamSessionConnectionCommandOutput
  *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the
- *          conflict before retrying this request.</p>
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The service encountered an internal error and is unable to complete the request.</p>
@@ -93,8 +81,7 @@ export interface CreateStreamSessionConnectionCommandOutput
  *  <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before
- *          retrying the request.</p>
+ *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
  *
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>

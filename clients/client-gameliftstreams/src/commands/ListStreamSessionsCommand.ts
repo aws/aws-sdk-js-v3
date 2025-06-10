@@ -28,10 +28,7 @@ export interface ListStreamSessionsCommandInput extends ListStreamSessionsInput 
 export interface ListStreamSessionsCommandOutput extends ListStreamSessionsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of Amazon GameLift Streams stream sessions that a stream group is hosting.</p>
- *          <p>To retrieve stream sessions, specify the stream group, and optionally filter by stream session status. You can paginate the results as
- *             needed.</p>
- *          <p>This operation returns the requested stream sessions in no particular order.</p>
+ * <p>Retrieves a list of Amazon GameLift Streams stream sessions that a stream group is hosting.</p> <p>To retrieve stream sessions, specify the stream group, and optionally filter by stream session status. You can paginate the results as needed.</p> <p>This operation returns the requested stream sessions in no particular order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,8 +86,7 @@ export interface ListStreamSessionsCommandOutput extends ListStreamSessionsOutpu
  *  <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before
- *          retrying the request.</p>
+ *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
  *
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>

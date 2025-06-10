@@ -33,30 +33,7 @@ export interface StartStreamSessionCommandInput extends StartStreamSessionInput 
 export interface StartStreamSessionCommandOutput extends StartStreamSessionOutput, __MetadataBearer {}
 
 /**
- * <p> This action initiates a new stream session and outputs connection information that clients can use to access the stream. A stream
- *             session refers to an instance of a stream that Amazon GameLift Streams transmits from the server to the end-user. A stream session runs on a compute
- *             resource, or stream capacity, that a stream group has allocated. </p>
- *          <p>To start a new stream session, specify a stream group and application ID, along with the transport protocol and signal request settings
- *             to use with the stream. You must have associated at least one application to the stream group before starting a stream session, either
- *             when creating the stream group, or by using <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_AssociateApplications.html">AssociateApplications</a>.</p>
- *          <p> For stream groups that have multiple locations, provide a set of locations ordered by priority by setting <code>Locations</code>.
- *             Amazon GameLift Streams will start a single stream session in the next available location. An application must be finished replicating in a remote
- *             location before the remote location can host a stream. </p>
- *          <p> If the request is successful, Amazon GameLift Streams begins to prepare the stream. Amazon GameLift Streams assigns an Amazon Resource Name (ARN) value to the stream
- *             session resource and sets the status to <code>ACTIVATING</code>. During the stream preparation process, Amazon GameLift Streams queues the request and
- *             searches for available stream capacity to run the stream. This can result to one of the following: </p>
- *          <ul>
- *             <li>
- *                <p> Amazon GameLift Streams identifies an available compute resource to run the application content and start the stream. When the stream is ready,
- *                     the stream session's status changes to <code>ACTIVE</code> and includes stream connection information. Provide the connection
- *                     information to the requesting client to join the stream session.</p>
- *             </li>
- *             <li>
- *                <p> Amazon GameLift Streams doesn't identify an available resource within a certain time, set by <code>ClientToken</code>. In this case, Amazon GameLift Streams
- *                     stops processing the request, and the stream session object status changes to <code>ERROR</code> with status reason
- *                         <code>placementTimeout</code>.</p>
- *             </li>
- *          </ul>
+ * <p> This action initiates a new stream session and outputs connection information that clients can use to access the stream. A stream session refers to an instance of a stream that Amazon GameLift Streams transmits from the server to the end-user. A stream session runs on a compute resource that a stream group has allocated. </p> <p>To start a new stream session, specify a stream group and application ID, along with the transport protocol and signal request settings to use with the stream. You must have associated at least one application to the stream group before starting a stream session, either when creating the stream group, or by using <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_AssociateApplications.html">AssociateApplications</a>.</p> <p> For stream groups that have multiple locations, provide a set of locations ordered by priority using a <code>Locations</code> parameter. Amazon GameLift Streams will start a single stream session in the next available location. An application must be finished replicating in a remote location before the remote location can host a stream. </p> <p> If the request is successful, Amazon GameLift Streams begins to prepare the stream. Amazon GameLift Streams assigns an Amazon Resource Name (ARN) value to the stream session resource and sets the status to <code>ACTIVATING</code>. During the stream preparation process, Amazon GameLift Streams queues the request and searches for available stream capacity to run the stream. This results in one of the following: </p> <ul> <li> <p> Amazon GameLift Streams identifies an available compute resource to run the application content and start the stream. When the stream is ready, the stream session's status changes to <code>ACTIVE</code> and includes stream connection information. Provide the connection information to the requesting client to join the stream session.</p> </li> <li> <p> Amazon GameLift Streams doesn't identify an available resource within a certain time, set by <code>ClientToken</code>. In this case, Amazon GameLift Streams stops processing the request, and the stream session object status changes to <code>ERROR</code> with status reason <code>placementTimeout</code>.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -128,8 +105,7 @@ export interface StartStreamSessionCommandOutput extends StartStreamSessionOutpu
  *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the
- *          conflict before retrying this request.</p>
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The service encountered an internal error and is unable to complete the request.</p>
@@ -141,8 +117,7 @@ export interface StartStreamSessionCommandOutput extends StartStreamSessionOutpu
  *  <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before
- *          retrying the request.</p>
+ *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
  *
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>
