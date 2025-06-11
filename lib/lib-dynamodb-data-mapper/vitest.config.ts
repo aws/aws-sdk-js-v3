@@ -1,4 +1,5 @@
 import { defineConfig } from "vitest/config";
+import tsconfig from "./tsconfig.json";
 
 export default defineConfig({
   test: {
@@ -7,6 +8,9 @@ export default defineConfig({
     environment: "node",
   },
   resolve: {
-    conditions: ['types']
-  }
+    conditions: ["types"],
+  },
+  esbuild: {
+    tsconfigRaw: tsconfig as any,
+  },
 });

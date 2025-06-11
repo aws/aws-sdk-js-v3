@@ -1,9 +1,13 @@
-import { describe, it, expect } from 'vitest';
 import "reflect-metadata";
+
+import { assert } from "console";
+import { describe, expect, it } from "vitest";
 
 function TestDecorator(): PropertyDecorator {
   return (target, propertyKey) => {
-    Reflect.defineMetadata("custom:marker", String, target, propertyKey);
+    const type = Reflect.getMetadata("design:type", target, propertyKey);
+    assert(type, "Type metadata should be defined");
+    Reflect.defineMetadata("custom:marker", type, target, propertyKey);
   };
 }
 
