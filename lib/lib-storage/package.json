@@ -61,6 +61,7 @@
   },
   "browser": {
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser",
+    "./dist-es/s3-transfer-manager/join-streams": "./dist-es/s3-transfer-manager/join-streams.browser",
     "fs": false,
     "stream": "stream-browserify"
   },
