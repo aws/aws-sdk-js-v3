@@ -94,3 +94,37 @@ Output (data redacted):
       </ListAllMyBucketsResult>
     <<<=== Response Body End ======
 ```
+
+## Usage (middleware timing)
+
+```ts
+import { DynamoDB } from "@aws-sdk/client-dynamodb";
+import { getMiddlewareTimerPlugin } from "@aws-sdk/middleware-http-debug-log";
+
+const client = new DynamoDB();
+
+const storage = {};
+
+client.middlewareStack.use(getMiddlewareTimerPlugin({ storage }));
+
+await client.listTables({});
+await client.listTables({});
+await client.listTables({});
+
+console.log({
+  storage,
+});
+```
+
+Output:
+
+```
+{
+  storage: {
+    serializerMiddleware: [ 4.506417000000056, 0.24324999999998909, 0.22945800000002237 ],
+    retryMiddleware: [ 0.3532910000000129, 0.06491599999992559, 0.08433399999989888 ],
+    httpSigningMiddleware: [ 2.129708000000022, 0.6848749999999768, 0.6588739999999689 ],
+    deserializerMiddleware: [ 3.7174159999999574, 0.8131239999999593, 0.9889160000001311 ]
+  }
+}
+```
