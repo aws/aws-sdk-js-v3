@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.828.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.827.1...v3.828.0) (2025-06-11)
+
+
+### Features
+
+* **client-eks:** Release for EKS Pod Identity Cross Account feature and disableSessionTags flag. ([52a85ab](https://github.com/aws/aws-sdk-js-v3/commit/52a85abb40d6b9207c3caa6806a9b23bcdd54713))
+
+
+
+
+
 # [3.826.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.825.0...v3.826.0) (2025-06-06)
 
 **Note:** Version bump only for package @aws-sdk/client-eks

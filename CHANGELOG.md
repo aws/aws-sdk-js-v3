@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.828.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.827.1...v3.828.0) (2025-06-11)
+
+
+### Features
+
+* **client-controlcatalog:** Introduced ListControlMappings API that retrieves control mappings. Added control aliases and governed resources fields in GetControl and ListControls APIs. New filtering capability in ListControls API, with implementation identifiers and implementation types. ([125f9f6](https://github.com/aws/aws-sdk-js-v3/commit/125f9f685a6ebe5c9cc7cc447228c4eb99adf460))
+* **client-eks:** Release for EKS Pod Identity Cross Account feature and disableSessionTags flag. ([52a85ab](https://github.com/aws/aws-sdk-js-v3/commit/52a85abb40d6b9207c3caa6806a9b23bcdd54713))
+* **client-lex-models-v2:** Add support for the Assisted NLU feature to improve bot performance ([ada2099](https://github.com/aws/aws-sdk-js-v3/commit/ada2099aa7624438d997f700ace6a3d36cd6e763))
+* **client-networkmanager:** Add support for public DNS hostname resolution to private IP addresses across Cloud WAN-managed VPCs. Add support for security group referencing across Cloud WAN-managed VPCs. ([de332cd](https://github.com/aws/aws-sdk-js-v3/commit/de332cdb3ea27a32f28378c63a256ad29366afcf))
+* **client-wafv2:** WAF now provides two DDoS protection options: resource-level monitoring for Application Load Balancers and the AWSManagedRulesAntiDDoSRuleSet managed rule group for CloudFront distributions. ([8337d3b](https://github.com/aws/aws-sdk-js-v3/commit/8337d3be7ebe93cb9cbff525b37c09a42efdc493))
+
+
+
+
+
 ## [3.827.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.827.0...v3.827.1) (2025-06-10)
 
 

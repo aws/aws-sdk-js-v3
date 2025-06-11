@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-global-accelerator",
   "description": "AWS SDK for JavaScript Global Accelerator Client for Node.js, Browser and React Native",
-  "version": "3.826.0",
+  "version": "3.828.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline client-global-accelerator",
