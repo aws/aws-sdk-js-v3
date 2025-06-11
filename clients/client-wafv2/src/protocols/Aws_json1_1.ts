@@ -170,6 +170,7 @@ import {
   AssociateWebACLRequest,
   AssociationConfig,
   AWSManagedRulesACFPRuleSet,
+  AWSManagedRulesAntiDDoSRuleSet,
   AWSManagedRulesATPRuleSet,
   AWSManagedRulesBotControlRuleSet,
   BlockAction,
@@ -180,6 +181,8 @@ import {
   ChallengeAction,
   ChallengeConfig,
   CheckCapacityRequest,
+  ClientSideAction,
+  ClientSideActionConfig,
   Condition,
   CookieMatchPattern,
   Cookies,
@@ -277,6 +280,7 @@ import {
   MobileSdkRelease,
   NoneAction,
   NotStatement,
+  OnSourceDDoSProtectionConfig,
   OrStatement,
   OverrideAction,
   PasswordField,
@@ -2558,6 +2562,8 @@ const se_AndStatement = (input: AndStatement, context: __SerdeContext): any => {
 
 // se_AWSManagedRulesACFPRuleSet omitted.
 
+// se_AWSManagedRulesAntiDDoSRuleSet omitted.
+
 // se_AWSManagedRulesATPRuleSet omitted.
 
 // se_AWSManagedRulesBotControlRuleSet omitted.
@@ -2595,6 +2601,10 @@ const se_CheckCapacityRequest = (input: CheckCapacityRequest, context: __SerdeCo
     Scope: [],
   });
 };
+
+// se_ClientSideAction omitted.
+
+// se_ClientSideActionConfig omitted.
 
 // se_Condition omitted.
 
@@ -2645,6 +2655,7 @@ const se_CreateWebACLRequest = (input: CreateWebACLRequest, context: __SerdeCont
     DefaultAction: _json,
     Description: [],
     Name: [],
+    OnSourceDDoSProtectionConfig: _json,
     Rules: (_) => se_Rules(_, context),
     Scope: [],
     Tags: _json,
@@ -2849,6 +2860,8 @@ const se_NotStatement = (input: NotStatement, context: __SerdeContext): any => {
     Statement: (_) => se_Statement(_, context),
   });
 };
+
+// se_OnSourceDDoSProtectionConfig omitted.
 
 /**
  * serializeAws_json1_1OrStatement
@@ -3118,6 +3131,7 @@ const se_UpdateWebACLRequest = (input: UpdateWebACLRequest, context: __SerdeCont
     Id: [],
     LockToken: [],
     Name: [],
+    OnSourceDDoSProtectionConfig: _json,
     Rules: (_) => se_Rules(_, context),
     Scope: [],
     TokenDomains: _json,
@@ -3194,6 +3208,8 @@ const de_APIKeySummary = (output: any, context: __SerdeContext): APIKeySummary =
 
 // de_AWSManagedRulesACFPRuleSet omitted.
 
+// de_AWSManagedRulesAntiDDoSRuleSet omitted.
+
 // de_AWSManagedRulesATPRuleSet omitted.
 
 // de_AWSManagedRulesBotControlRuleSet omitted.
@@ -3227,6 +3243,10 @@ const de_ByteMatchStatement = (output: any, context: __SerdeContext): ByteMatchS
 // de_ChallengeResponse omitted.
 
 // de_CheckCapacityResponse omitted.
+
+// de_ClientSideAction omitted.
+
+// de_ClientSideActionConfig omitted.
 
 // de_Condition omitted.
 
@@ -3651,6 +3671,8 @@ const de_NotStatement = (output: any, context: __SerdeContext): NotStatement => 
   }) as any;
 };
 
+// de_OnSourceDDoSProtectionConfig omitted.
+
 /**
  * deserializeAws_json1_1OrStatement
  */
@@ -4058,6 +4080,7 @@ const de_WebACL = (output: any, context: __SerdeContext): WebACL => {
     LabelNamespace: __expectString,
     ManagedByFirewallManager: __expectBoolean,
     Name: __expectString,
+    OnSourceDDoSProtectionConfig: _json,
     PostProcessFirewallManagerRuleGroups: (_: any) => de_FirewallManagerRuleGroups(_, context),
     PreProcessFirewallManagerRuleGroups: (_: any) => de_FirewallManagerRuleGroups(_, context),
     RetrofittedByFirewallManager: __expectBoolean,

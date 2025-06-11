@@ -773,6 +773,20 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                       },
  * //                       EnableRegexInPath: true || false,
  * //                     },
+ * //                     AWSManagedRulesAntiDDoSRuleSet: { // AWSManagedRulesAntiDDoSRuleSet
+ * //                       ClientSideActionConfig: { // ClientSideActionConfig
+ * //                         Challenge: { // ClientSideAction
+ * //                           UsageOfAction: "ENABLED" || "DISABLED", // required
+ * //                           Sensitivity: "LOW" || "MEDIUM" || "HIGH",
+ * //                           ExemptUriRegularExpressions: [ // RegularExpressionList
+ * //                             { // Regex
+ * //                               RegexString: "STRING_VALUE",
+ * //                             },
+ * //                           ],
+ * //                         },
+ * //                       },
+ * //                       SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ * //                     },
  * //                   },
  * //                 ],
  * //                 RuleActionOverrides: [
@@ -990,6 +1004,20 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                   },
  * //                   EnableRegexInPath: true || false,
  * //                 },
+ * //                 AWSManagedRulesAntiDDoSRuleSet: {
+ * //                   ClientSideActionConfig: {
+ * //                     Challenge: {
+ * //                       UsageOfAction: "ENABLED" || "DISABLED", // required
+ * //                       Sensitivity: "LOW" || "MEDIUM" || "HIGH",
+ * //                       ExemptUriRegularExpressions: [
+ * //                         {
+ * //                           RegexString: "STRING_VALUE",
+ * //                         },
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                   SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ * //                 },
  * //               },
  * //             ],
  * //             RuleActionOverrides: [
@@ -1169,6 +1197,20 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                   ResponseInspection: "<ResponseInspection>",
  * //                   EnableRegexInPath: true || false,
  * //                 },
+ * //                 AWSManagedRulesAntiDDoSRuleSet: {
+ * //                   ClientSideActionConfig: {
+ * //                     Challenge: {
+ * //                       UsageOfAction: "ENABLED" || "DISABLED", // required
+ * //                       Sensitivity: "LOW" || "MEDIUM" || "HIGH",
+ * //                       ExemptUriRegularExpressions: [
+ * //                         {
+ * //                           RegexString: "STRING_VALUE",
+ * //                         },
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                   SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ * //                 },
  * //               },
  * //             ],
  * //             RuleActionOverrides: [
@@ -1250,6 +1292,20 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                   ResponseInspection: "<ResponseInspection>",
  * //                   EnableRegexInPath: true || false,
  * //                 },
+ * //                 AWSManagedRulesAntiDDoSRuleSet: {
+ * //                   ClientSideActionConfig: {
+ * //                     Challenge: {
+ * //                       UsageOfAction: "ENABLED" || "DISABLED", // required
+ * //                       Sensitivity: "LOW" || "MEDIUM" || "HIGH",
+ * //                       ExemptUriRegularExpressions: [
+ * //                         {
+ * //                           RegexString: "STRING_VALUE",
+ * //                         },
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                   SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ * //                 },
  * //               },
  * //             ],
  * //             RuleActionOverrides: "<RuleActionOverrides>",
@@ -1300,6 +1356,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //       },
  * //     },
  * //     RetrofittedByFirewallManager: true || false,
+ * //     OnSourceDDoSProtectionConfig: { // OnSourceDDoSProtectionConfig
+ * //       ALBLowReputationMode: "ACTIVE_UNDER_DDOS" || "ALWAYS_ON", // required
+ * //     },
  * //   },
  * // };
  *

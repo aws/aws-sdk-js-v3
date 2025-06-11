@@ -766,6 +766,20 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                       },
  * //                       EnableRegexInPath: true || false,
  * //                     },
+ * //                     AWSManagedRulesAntiDDoSRuleSet: { // AWSManagedRulesAntiDDoSRuleSet
+ * //                       ClientSideActionConfig: { // ClientSideActionConfig
+ * //                         Challenge: { // ClientSideAction
+ * //                           UsageOfAction: "ENABLED" || "DISABLED", // required
+ * //                           Sensitivity: "LOW" || "MEDIUM" || "HIGH",
+ * //                           ExemptUriRegularExpressions: [ // RegularExpressionList
+ * //                             { // Regex
+ * //                               RegexString: "STRING_VALUE",
+ * //                             },
+ * //                           ],
+ * //                         },
+ * //                       },
+ * //                       SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ * //                     },
  * //                   },
  * //                 ],
  * //                 RuleActionOverrides: [
@@ -983,6 +997,20 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                   },
  * //                   EnableRegexInPath: true || false,
  * //                 },
+ * //                 AWSManagedRulesAntiDDoSRuleSet: {
+ * //                   ClientSideActionConfig: {
+ * //                     Challenge: {
+ * //                       UsageOfAction: "ENABLED" || "DISABLED", // required
+ * //                       Sensitivity: "LOW" || "MEDIUM" || "HIGH",
+ * //                       ExemptUriRegularExpressions: [
+ * //                         {
+ * //                           RegexString: "STRING_VALUE",
+ * //                         },
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                   SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ * //                 },
  * //               },
  * //             ],
  * //             RuleActionOverrides: [
@@ -1162,6 +1190,20 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                   ResponseInspection: "<ResponseInspection>",
  * //                   EnableRegexInPath: true || false,
  * //                 },
+ * //                 AWSManagedRulesAntiDDoSRuleSet: {
+ * //                   ClientSideActionConfig: {
+ * //                     Challenge: {
+ * //                       UsageOfAction: "ENABLED" || "DISABLED", // required
+ * //                       Sensitivity: "LOW" || "MEDIUM" || "HIGH",
+ * //                       ExemptUriRegularExpressions: [
+ * //                         {
+ * //                           RegexString: "STRING_VALUE",
+ * //                         },
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                   SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ * //                 },
  * //               },
  * //             ],
  * //             RuleActionOverrides: [
@@ -1243,6 +1285,20 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                   ResponseInspection: "<ResponseInspection>",
  * //                   EnableRegexInPath: true || false,
  * //                 },
+ * //                 AWSManagedRulesAntiDDoSRuleSet: {
+ * //                   ClientSideActionConfig: {
+ * //                     Challenge: {
+ * //                       UsageOfAction: "ENABLED" || "DISABLED", // required
+ * //                       Sensitivity: "LOW" || "MEDIUM" || "HIGH",
+ * //                       ExemptUriRegularExpressions: [
+ * //                         {
+ * //                           RegexString: "STRING_VALUE",
+ * //                         },
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                   SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ * //                 },
  * //               },
  * //             ],
  * //             RuleActionOverrides: "<RuleActionOverrides>",
@@ -1293,6 +1349,9 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //       },
  * //     },
  * //     RetrofittedByFirewallManager: true || false,
+ * //     OnSourceDDoSProtectionConfig: { // OnSourceDDoSProtectionConfig
+ * //       ALBLowReputationMode: "ACTIVE_UNDER_DDOS" || "ALWAYS_ON", // required
+ * //     },
  * //   },
  * //   LockToken: "STRING_VALUE",
  * //   ApplicationIntegrationURL: "STRING_VALUE",

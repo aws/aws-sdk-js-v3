@@ -757,6 +757,20 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *                     },
  *                     EnableRegexInPath: true || false,
  *                   },
+ *                   AWSManagedRulesAntiDDoSRuleSet: { // AWSManagedRulesAntiDDoSRuleSet
+ *                     ClientSideActionConfig: { // ClientSideActionConfig
+ *                       Challenge: { // ClientSideAction
+ *                         UsageOfAction: "ENABLED" || "DISABLED", // required
+ *                         Sensitivity: "LOW" || "MEDIUM" || "HIGH",
+ *                         ExemptUriRegularExpressions: [ // RegularExpressionList
+ *                           { // Regex
+ *                             RegexString: "STRING_VALUE",
+ *                           },
+ *                         ],
+ *                       },
+ *                     },
+ *                     SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ *                   },
  *                 },
  *               ],
  *               RuleActionOverrides: [
@@ -974,6 +988,20 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *                 },
  *                 EnableRegexInPath: true || false,
  *               },
+ *               AWSManagedRulesAntiDDoSRuleSet: {
+ *                 ClientSideActionConfig: {
+ *                   Challenge: {
+ *                     UsageOfAction: "ENABLED" || "DISABLED", // required
+ *                     Sensitivity: "LOW" || "MEDIUM" || "HIGH",
+ *                     ExemptUriRegularExpressions: [
+ *                       {
+ *                         RegexString: "STRING_VALUE",
+ *                       },
+ *                     ],
+ *                   },
+ *                 },
+ *                 SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ *               },
  *             },
  *           ],
  *           RuleActionOverrides: [
@@ -1089,6 +1117,9 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *         DefaultSizeInspectionLimit: "KB_16" || "KB_32" || "KB_48" || "KB_64", // required
  *       },
  *     },
+ *   },
+ *   OnSourceDDoSProtectionConfig: { // OnSourceDDoSProtectionConfig
+ *     ALBLowReputationMode: "ACTIVE_UNDER_DDOS" || "ALWAYS_ON", // required
  *   },
  * };
  * const command = new CreateWebACLCommand(input);
