@@ -1875,6 +1875,24 @@ export interface CoreNetworkChangeValues {
    * @public
    */
   ServiceInsertionActions?: ServiceInsertionAction[] | undefined;
+
+  /**
+   * <p>Indicates whether Equal Cost Multipath (ECMP) is enabled for the core network.</p>
+   * @public
+   */
+  VpnEcmpSupport?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether public DNS support is supported. The default is <code>true</code>. </p>
+   * @public
+   */
+  DnsSupport?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether security group referencing is enabled for the core network.</p>
+   * @public
+   */
+  SecurityGroupReferencingSupport?: boolean | undefined;
 }
 
 /**
@@ -3481,6 +3499,18 @@ export interface VpcOptions {
    * @public
    */
   ApplianceModeSupport?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether DNS is supported.</p>
+   * @public
+   */
+  DnsSupport?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether security group referencing is enabled for this VPC attachment. The default is <code>true</code>. However, at the core network policy-level the default is set to <code>false</code>.</p>
+   * @public
+   */
+  SecurityGroupReferencingSupport?: boolean | undefined;
 }
 
 /**

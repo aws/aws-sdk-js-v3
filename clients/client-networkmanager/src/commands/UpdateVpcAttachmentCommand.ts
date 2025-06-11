@@ -46,6 +46,8 @@ export interface UpdateVpcAttachmentCommandOutput extends UpdateVpcAttachmentRes
  *   Options: { // VpcOptions
  *     Ipv6Support: true || false,
  *     ApplianceModeSupport: true || false,
+ *     DnsSupport: true || false,
+ *     SecurityGroupReferencingSupport: true || false,
  *   },
  * };
  * const command = new UpdateVpcAttachmentCommand(input);
@@ -110,6 +112,8 @@ export interface UpdateVpcAttachmentCommandOutput extends UpdateVpcAttachmentRes
  * //     Options: { // VpcOptions
  * //       Ipv6Support: true || false,
  * //       ApplianceModeSupport: true || false,
+ * //       DnsSupport: true || false,
+ * //       SecurityGroupReferencingSupport: true || false,
  * //     },
  * //   },
  * // };

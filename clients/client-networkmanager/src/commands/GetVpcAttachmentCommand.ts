@@ -100,6 +100,8 @@ export interface GetVpcAttachmentCommandOutput extends GetVpcAttachmentResponse,
  * //     Options: { // VpcOptions
  * //       Ipv6Support: true || false,
  * //       ApplianceModeSupport: true || false,
+ * //       DnsSupport: true || false,
+ * //       SecurityGroupReferencingSupport: true || false,
  * //     },
  * //   },
  * // };

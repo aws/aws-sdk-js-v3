@@ -44,6 +44,8 @@ export interface CreateVpcAttachmentCommandOutput extends CreateVpcAttachmentRes
  *   Options: { // VpcOptions
  *     Ipv6Support: true || false,
  *     ApplianceModeSupport: true || false,
+ *     DnsSupport: true || false,
+ *     SecurityGroupReferencingSupport: true || false,
  *   },
  *   Tags: [ // TagList
  *     { // Tag
@@ -115,6 +117,8 @@ export interface CreateVpcAttachmentCommandOutput extends CreateVpcAttachmentRes
  * //     Options: { // VpcOptions
  * //       Ipv6Support: true || false,
  * //       ApplianceModeSupport: true || false,
+ * //       DnsSupport: true || false,
+ * //       SecurityGroupReferencingSupport: true || false,
  * //     },
  * //   },
  * // };
