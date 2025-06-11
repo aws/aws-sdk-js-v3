@@ -6,11 +6,26 @@ import fs from "node:fs";
 import { Readable } from "node:stream";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
-describe("@aws-sdk/lib-storage", () => {
-  let Bucket: string;
-  let region: string;
-  let data: Uint8Array;
-  let dataString: string;
+import { getIntegTestResources } from "../../../tests/e2e/get-integ-test-resources";
+
+// todo(s3-transfer-manager): unskip
+describe.skip("@aws-sdk/lib-storage", () => {
+  describe.each([undefined, "WHEN_REQUIRED", "WHEN_SUPPORTED"])(
+    "requestChecksumCalculation: %s",
+    (requestChecksumCalculation) => {
+      describe.each([
+        undefined,
+        ChecksumAlgorithm.SHA1,
+        ChecksumAlgorithm.SHA256,
+        ChecksumAlgorithm.CRC32,
+        ChecksumAlgorithm.CRC32C,
+      ])("ChecksumAlgorithm: %s", (ChecksumAlgorithm) => {
+        let Key: string;
+        let client: S3;
+        let data: Uint8Array;
+        let dataString: string;
+        let Bucket: string;
+        let region: string;
 
   beforeAll(async () => {
     const e2eTestResourcesEnv = await getE2eTestResources();
