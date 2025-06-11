@@ -85,6 +85,9 @@ export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleRespons
  * //           customPrompt: "STRING_VALUE",
  * //         },
  * //       },
+ * //       nluImprovement: { // NluImprovementSpecification
+ * //         enabled: true || false, // required
+ * //       },
  * //     },
  * //     buildtimeSettings: { // BuildtimeSettings
  * //       descriptiveBotBuilder: { // DescriptiveBotBuilderSpecification

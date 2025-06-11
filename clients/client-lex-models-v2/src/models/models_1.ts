@@ -119,6 +119,24 @@ import {
 } from "./models_0";
 
 /**
+ * @public
+ */
+export interface DescribeBotAliasRequest {
+  /**
+   * <p>The identifier of the bot alias to describe.</p>
+   * @public
+   */
+  botAliasId: string | undefined;
+
+  /**
+   * <p>The identifier of the bot associated with the bot alias to
+   *          describe.</p>
+   * @public
+   */
+  botId: string | undefined;
+}
+
+/**
  * <p>A network of bots.</p>
  * @public
  */

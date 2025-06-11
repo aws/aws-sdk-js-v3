@@ -62,6 +62,9 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  *           customPrompt: "STRING_VALUE",
  *         },
  *       },
+ *       nluImprovement: { // NluImprovementSpecification
+ *         enabled: true || false, // required
+ *       },
  *     },
  *     buildtimeSettings: { // BuildtimeSettings
  *       descriptiveBotBuilder: { // DescriptiveBotBuilderSpecification
@@ -119,6 +122,9 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  * //           traceStatus: "ENABLED" || "DISABLED",
  * //           customPrompt: "STRING_VALUE",
  * //         },
+ * //       },
+ * //       nluImprovement: { // NluImprovementSpecification
+ * //         enabled: true || false, // required
  * //       },
  * //     },
  * //     buildtimeSettings: { // BuildtimeSettings

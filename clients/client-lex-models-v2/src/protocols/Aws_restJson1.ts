@@ -353,6 +353,7 @@ import {
   MessageGroup,
   MultipleValuesSetting,
   NewCustomVocabularyItem,
+  NluImprovementSpecification,
   ObfuscationSetting,
   OpensearchConfiguration,
   OutputContext,
@@ -6152,6 +6153,8 @@ const se_LexTranscriptFilter = (input: LexTranscriptFilter, context: __SerdeCont
 
 // se_NewCustomVocabularyItem omitted.
 
+// se_NluImprovementSpecification omitted.
+
 // se_ObfuscationSetting omitted.
 
 // se_ObjectPrefixes omitted.
@@ -7482,6 +7485,8 @@ const de_LexTranscriptFilter = (output: any, context: __SerdeContext): LexTransc
 // de_MessageVariationsList omitted.
 
 // de_MultipleValuesSetting omitted.
+
+// de_NluImprovementSpecification omitted.
 
 // de_ObfuscationSetting omitted.
 

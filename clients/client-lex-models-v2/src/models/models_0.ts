@@ -5500,6 +5500,18 @@ export interface CreateBotAliasResponse {
 }
 
 /**
+ * <p>Specifies whether the assisted nlu feature is turned on or off.</p>
+ * @public
+ */
+export interface NluImprovementSpecification {
+  /**
+   * <p>Specifies whether the assisted nlu feature is enabled.</p>
+   * @public
+   */
+  enabled: boolean | undefined;
+}
+
+/**
  * <p>Contains specifications for the assisted slot resolution feature.</p>
  * @public
  */
@@ -5527,6 +5539,12 @@ export interface RuntimeSettings {
    * @public
    */
   slotResolutionImprovement?: SlotResolutionImprovementSpecification | undefined;
+
+  /**
+   * <p>An object containing specifications for the assisted nlu feature.</p>
+   * @public
+   */
+  nluImprovement?: NluImprovementSpecification | undefined;
 }
 
 /**
@@ -8158,24 +8176,6 @@ export interface DescribeBotResponse {
    * @public
    */
   errorLogSettings?: ErrorLogSettings | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeBotAliasRequest {
-  /**
-   * <p>The identifier of the bot alias to describe.</p>
-   * @public
-   */
-  botAliasId: string | undefined;
-
-  /**
-   * <p>The identifier of the bot associated with the bot alias to
-   *          describe.</p>
-   * @public
-   */
-  botId: string | undefined;
 }
 
 /**
