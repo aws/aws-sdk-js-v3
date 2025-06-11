@@ -9468,11 +9468,13 @@ export interface DBInstance {
   ReadReplicaDBClusterIdentifiers?: string[] | undefined;
 
   /**
-   * <p>The open mode of an Oracle read replica. The default is <code>open-read-only</code>.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Working with Oracle Read Replicas for Amazon RDS</a>
-   *             in the <i>Amazon RDS User Guide</i>.</p>
+   * <p>The open mode of a Db2 or an Oracle read replica. The default is
+   *                 <code>open-read-only</code>. For more information, see  <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-replication.html">Working with read replicas for
+   *                 Amazon RDS for Db2</a>  and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Working with read replicas
+   *                 for Amazon RDS for Oracle</a> in the <i>Amazon RDS User Guide</i>. </p>
    *          <note>
-   *             <p>This attribute is only supported in RDS for Oracle.</p>
+   *             <p>This attribute is only supported in RDS for Db2, RDS for Oracle, and RDS Custom
+   *                 for Oracle.</p>
    *          </note>
    * @public
    */
@@ -10083,8 +10085,19 @@ export interface CreateDBInstanceReadReplicaMessage {
 
   /**
    * <p>The identifier of the DB instance that will act as the source for the read replica.
-   *             Each DB instance can have up to 15 read replicas, with the exception of Oracle and SQL
-   *             Server, which can have up to five.</p>
+   *             Each DB instance can have up to 15 read replicas, except for the following
+   *             engines:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Db2 - Can have up to three replicas.</p>
+   *             </li>
+   *             <li>
+   *                <p>Oracle - Can have up to five read replicas.</p>
+   *             </li>
+   *             <li>
+   *                <p>SQL Server - Can have up to five read replicas.</p>
+   *             </li>
+   *          </ul>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -10190,6 +10203,14 @@ export interface CreateDBInstanceReadReplicaMessage {
   /**
    * <p>The name of the DB parameter group to associate with this read replica DB
    *             instance.</p>
+   *          <p>For the Db2 DB engine, if your source DB instance uses the Bring Your Own License
+   *             model, then a custom parameter group must be associated with the replica. For a same
+   *             Amazon Web Services Region replica, if you don't specify a custom parameter group, Amazon RDS
+   *             associates the custom parameter group associated with the source DB instance. For a
+   *             cross-Region replica, you must specify a custom parameter group. This custom parameter
+   *             group must include your IBM Site ID and IBM Customer ID. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html#db2-prereqs-ibm-info"> IBM IDs
+   *                 for Bring Your Own License for Db2</a>. </p>
    *          <p>For Single-AZ or Multi-AZ DB instance read replica instances, if you don't specify a
    *             value for <code>DBParameterGroupName</code>, then Amazon RDS uses the
    *                 <code>DBParameterGroup</code> of the source DB instance for a same Region read
@@ -10200,8 +10221,8 @@ export interface CreateDBInstanceReadReplicaMessage {
    *                 <code>DBParameterGroup</code>.</p>
    *          <p>Specifying a parameter group for this operation is only supported for MySQL DB
    *             instances for cross-Region read replicas, for Multi-AZ DB cluster read replica
-   *             instances, and for Oracle DB instances. It isn't supported for MySQL DB instances for
-   *             same Region read replicas or for RDS Custom.</p>
+   *             instances, for Db2 DB instances, and for Oracle DB instances. It isn't supported for
+   *             MySQL DB instances for same Region read replicas or for RDS Custom.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -10586,19 +10607,39 @@ export interface CreateDBInstanceReadReplicaMessage {
   DomainDnsIps?: string[] | undefined;
 
   /**
-   * <p>The open mode of the replica database: mounted or read-only.</p>
+   * <p>The open mode of the replica database.</p>
    *          <note>
-   *             <p>This parameter is only supported for Oracle DB instances.</p>
+   *             <p>This parameter is only supported for Db2 DB instances and Oracle DB
+   *                 instances.</p>
    *          </note>
-   *          <p>Mounted DB replicas are included in Oracle Database Enterprise Edition. The main use case for
-   *             mounted replicas is cross-Region disaster recovery. The primary database doesn't use Active
-   *             Data Guard to transmit information to the mounted replica. Because it doesn't accept
-   *             user connections, a mounted replica can't serve a read-only workload.</p>
-   *          <p>You can create a combination of mounted and read-only DB replicas for the same primary DB instance.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Working with Oracle Read Replicas for Amazon RDS</a>
-   *             in the <i>Amazon RDS User Guide</i>.</p>
-   *          <p>For RDS Custom, you must specify this parameter and set it to <code>mounted</code>. The value won't be set by default.
-   *             After replica creation, you can manage the open mode manually.</p>
+   *          <dl>
+   *             <dt>Db2</dt>
+   *             <dd>
+   *                <p>Standby DB replicas are included in Db2 Advanced Edition (AE) and Db2
+   *                         Standard Edition (SE). The main use case for standby replicas is
+   *                         cross-Region disaster recovery. Because it doesn't accept user
+   *                         connections, a standby replica can't serve a read-only workload.</p>
+   *                <p>You can create a combination of standby and read-only DB replicas for the
+   *                         same primary DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-replication.html">Working with read
+   *                             replicas for Amazon RDS for Db2</a> in the <i>Amazon RDS User
+   *                             Guide</i>.</p>
+   *                <p>To create standby DB replicas for RDS for Db2, set this parameter to
+   *                             <code>mounted</code>.</p>
+   *             </dd>
+   *             <dt>Oracle</dt>
+   *             <dd>
+   *                <p>Mounted DB replicas are included in Oracle Database Enterprise Edition. The main use case for
+   *                     mounted replicas is cross-Region disaster recovery. The primary database doesn't use Active
+   *                     Data Guard to transmit information to the mounted replica. Because it doesn't accept
+   *                     user connections, a mounted replica can't serve a read-only workload.</p>
+   *                <p>You can create a combination of mounted and read-only DB replicas for the same primary DB instance.
+   *                     For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Working with read replicas for Amazon RDS for Oracle</a>
+   *                     in the <i>Amazon RDS User Guide</i>.</p>
+   *                <p>For RDS Custom, you must specify this parameter and set it to
+   *                         <code>mounted</code>. The value won't be set by default. After replica
+   *                         creation, you can manage the open mode manually.</p>
+   *             </dd>
+   *          </dl>
    * @public
    */
   ReplicaMode?: ReplicaMode | undefined;

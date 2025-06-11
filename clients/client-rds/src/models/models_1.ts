@@ -2546,6 +2546,11 @@ export interface ConnectionPoolConfigurationInfo {
    *         This is an optional field.</p>
    *          <p>For example: <code>SET variable1=value1, variable2=value2</code>
    *          </p>
+   *          <important>
+   *             <p>Since you can access initialization query as part of target group configuration, it is not protected by authentication or cryptographic methods.
+   *                 Anyone with access to view or manage your proxy target group configuration can view the initialization query.
+   *                 You should not add sensitive data, such as passwords or long-lived encryption keys, to this option.</p>
+   *          </important>
    * @public
    */
   InitQuery?: string | undefined;
@@ -9526,17 +9531,40 @@ export interface ModifyDBInstanceMessage {
   CertificateRotationRestart?: boolean | undefined;
 
   /**
-   * <p>A value that sets the open mode of a replica database to either mounted or read-only.</p>
+   * <p>The open mode of a replica database.</p>
    *          <note>
-   *             <p>Currently, this parameter is only supported for Oracle DB instances.</p>
+   *             <p>This parameter is only supported for Db2 DB instances and Oracle DB
+   *                 instances.</p>
    *          </note>
-   *          <p>Mounted DB replicas are included in Oracle Enterprise Edition. The main use case for
-   *             mounted replicas is cross-Region disaster recovery. The primary database doesn't use
-   *             Active Data Guard to transmit information to the mounted replica. Because it doesn't
-   *             accept user connections, a mounted replica can't serve a read-only workload.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Working with Oracle Read Replicas for Amazon RDS</a>
-   *             in the <i>Amazon RDS User Guide</i>.</p>
-   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
+   *          <dl>
+   *             <dt>Db2</dt>
+   *             <dd>
+   *                <p>Standby DB replicas are included in Db2 Advanced Edition (AE) and Db2
+   *                         Standard Edition (SE). The main use case for standby replicas is
+   *                         cross-Region disaster recovery. Because it doesn't accept user
+   *                         connections, a standby replica can't serve a read-only workload.</p>
+   *                <p>You can create a combination of standby and read-only DB replicas for the
+   *                         same primary DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-replication.html">Working with read
+   *                             replicas for Amazon RDS for Db2</a> in the <i>Amazon RDS User
+   *                                 Guide</i>.</p>
+   *                <p>To create standby DB replicas for RDS for Db2, set this parameter to
+   *                         <code>mounted</code>.</p>
+   *             </dd>
+   *             <dt>Oracle</dt>
+   *             <dd>
+   *                <p>Mounted DB replicas are included in Oracle Database Enterprise Edition. The main use case for
+   *                         mounted replicas is cross-Region disaster recovery. The primary database doesn't use Active
+   *                         Data Guard to transmit information to the mounted replica. Because it doesn't accept
+   *                         user connections, a mounted replica can't serve a read-only workload.</p>
+   *                <p>You can create a combination of mounted and read-only DB replicas for the
+   *                         same primary DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Working with
+   *                             read replicas for Amazon RDS for Oracle</a> in the <i>Amazon
+   *                             RDS User Guide</i>.</p>
+   *                <p>For RDS Custom, you must specify this parameter and set it to
+   *                             <code>mounted</code>. The value won't be set by default. After replica
+   *                         creation, you can manage the open mode manually.</p>
+   *             </dd>
+   *          </dl>
    * @public
    */
   ReplicaMode?: ReplicaMode | undefined;
@@ -9997,6 +10025,11 @@ export interface ConnectionPoolConfiguration {
    *          <p>For example: <code>SET variable1=value1, variable2=value2</code>
    *          </p>
    *          <p>Default: no initialization query</p>
+   *          <important>
+   *             <p>Since you can access initialization query as part of target group configuration, it is not protected by authentication or cryptographic methods.
+   *                 Anyone with access to view or manage your proxy target group configuration can view the initialization query.
+   *                 You should not add sensitive data, such as passwords or long-lived encryption keys, to this option.</p>
+   *          </important>
    * @public
    */
   InitQuery?: string | undefined;
