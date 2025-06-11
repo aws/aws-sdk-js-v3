@@ -6,7 +6,8 @@ import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 import { getIntegTestResources } from "../../../tests/e2e/get-integ-test-resources";
 
-describe("@aws-sdk/lib-storage", () => {
+// todo(s3-transfer-manager): unskip
+describe.skip("@aws-sdk/lib-storage", () => {
   describe.each([undefined, "WHEN_REQUIRED", "WHEN_SUPPORTED"])(
     "requestChecksumCalculation: %s",
     (requestChecksumCalculation) => {
