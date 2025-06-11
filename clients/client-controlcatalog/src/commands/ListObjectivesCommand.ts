@@ -28,9 +28,7 @@ export interface ListObjectivesCommandInput extends ListObjectivesRequest {}
 export interface ListObjectivesCommandOutput extends ListObjectivesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of objectives from the Amazon Web Services Control Catalog.</p>
- *          <p>You can apply an optional filter to see the objectives that belong to a specific domain.
- *       If you don’t provide a filter, the operation returns all objectives. </p>
+ * <p>Returns a paginated list of objectives from the Control Catalog.</p> <p>You can apply an optional filter to see the objectives that belong to a specific domain. If you don’t provide a filter, the operation returns all objectives. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

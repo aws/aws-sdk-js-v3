@@ -28,8 +28,7 @@ export interface GetControlCommandInput extends GetControlRequest {}
 export interface GetControlCommandOutput extends GetControlResponse, __MetadataBearer {}
 
 /**
- * <p>Returns details about a specific control, most notably a list of Amazon Web Services Regions where this control is supported. Input a value for the <i>ControlArn</i> parameter, in ARN form. <code>GetControl</code> accepts <i>controltower</i> or <i>controlcatalog</i> control ARNs as input. Returns a <i>controlcatalog</i> ARN format.</p>
- *          <p>In the API response, controls that have the value <code>GLOBAL</code> in the <code>Scope</code> field do not show the <code>DeployableRegions</code> field, because it does not apply. Controls that have the value <code>REGIONAL</code> in the <code>Scope</code> field return a value for the <code>DeployableRegions</code> field, as shown in the example.</p>
+ * <p>Returns details about a specific control, most notably a list of Amazon Web Services Regions where this control is supported. Input a value for the <i>ControlArn</i> parameter, in ARN form. <code>GetControl</code> accepts <i>controltower</i> or <i>controlcatalog</i> control ARNs as input. Returns a <i>controlcatalog</i> ARN format.</p> <p>In the API response, controls that have the value <code>GLOBAL</code> in the <code>Scope</code> field do not show the <code>DeployableRegions</code> field, because it does not apply. Controls that have the value <code>REGIONAL</code> in the <code>Scope</code> field return a value for the <code>DeployableRegions</code> field, as shown in the example.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,6 +42,9 @@ export interface GetControlCommandOutput extends GetControlResponse, __MetadataB
  * const response = await client.send(command);
  * // { // GetControlResponse
  * //   Arn: "STRING_VALUE", // required
+ * //   Aliases: [ // ControlAliases
+ * //     "STRING_VALUE",
+ * //   ],
  * //   Name: "STRING_VALUE", // required
  * //   Description: "STRING_VALUE", // required
  * //   Behavior: "PREVENTIVE" || "PROACTIVE" || "DETECTIVE", // required
@@ -63,6 +65,9 @@ export interface GetControlCommandOutput extends GetControlResponse, __MetadataB
  * //     },
  * //   ],
  * //   CreateTime: new Date("TIMESTAMP"),
+ * //   GovernedResources: [ // GovernedResources
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```

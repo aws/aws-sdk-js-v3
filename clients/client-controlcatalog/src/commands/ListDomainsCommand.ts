@@ -28,7 +28,7 @@ export interface ListDomainsCommandInput extends ListDomainsRequest {}
 export interface ListDomainsCommandOutput extends ListDomainsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of domains from the Amazon Web Services Control Catalog.</p>
+ * <p>Returns a paginated list of domains from the Control Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

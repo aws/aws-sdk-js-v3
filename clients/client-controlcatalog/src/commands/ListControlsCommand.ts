@@ -28,7 +28,7 @@ export interface ListControlsCommandInput extends ListControlsRequest {}
 export interface ListControlsCommandOutput extends ListControlsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of all available controls in the Amazon Web Services Control Catalog library. Allows you to discover available controls. The list of controls is given as structures of type <i>controlSummary</i>. The ARN is returned in the global <i>controlcatalog</i> format, as shown in the examples.</p>
+ * <p>Returns a paginated list of all available controls in the Control Catalog library. Allows you to discover available controls. The list of controls is given as structures of type <i>controlSummary</i>. The ARN is returned in the global <i>controlcatalog</i> format, as shown in the examples.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,6 +38,16 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  * const input = { // ListControlsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   Filter: { // ControlFilter
+ *     Implementations: { // ImplementationFilter
+ *       Types: [ // ImplementationTypeFilterList
+ *         "STRING_VALUE",
+ *       ],
+ *       Identifiers: [ // ImplementationIdentifierFilterList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new ListControlsCommand(input);
  * const response = await client.send(command);
@@ -45,6 +55,9 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  * //   Controls: [ // Controls // required
  * //     { // ControlSummary
  * //       Arn: "STRING_VALUE", // required
+ * //       Aliases: [ // ControlAliases
+ * //         "STRING_VALUE",
+ * //       ],
  * //       Name: "STRING_VALUE", // required
  * //       Description: "STRING_VALUE", // required
  * //       Behavior: "PREVENTIVE" || "PROACTIVE" || "DETECTIVE",
@@ -54,6 +67,9 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  * //         Identifier: "STRING_VALUE",
  * //       },
  * //       CreateTime: new Date("TIMESTAMP"),
+ * //       GovernedResources: [ // GovernedResources
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

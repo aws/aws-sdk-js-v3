@@ -28,10 +28,7 @@ export interface ListCommonControlsCommandInput extends ListCommonControlsReques
 export interface ListCommonControlsCommandOutput extends ListCommonControlsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of common controls from the Amazon Web Services Control
- *       Catalog.</p>
- *          <p>You can apply an optional filter to see common controls that have a specific objective. If
- *       you don’t provide a filter, the operation returns all common controls. </p>
+ * <p>Returns a paginated list of common controls from the Amazon Web Services Control Catalog.</p> <p>You can apply an optional filter to see common controls that have a specific objective. If you don’t provide a filter, the operation returns all common controls. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
