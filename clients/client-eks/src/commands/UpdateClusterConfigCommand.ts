@@ -48,8 +48,8 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *             <li>
  *                <p>You can also use this API operation to enable or disable public and private
  *                     access to your cluster's Kubernetes API server endpoint. By default, public access is
- *                     enabled, and private access is disabled. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS
- *                         cluster endpoint access control</a> in the
+ *                     enabled, and private access is disabled. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">
+ *                         Cluster API server endpoint</a> in the
  *                         <i>
  *                      <i>Amazon EKS User Guide</i>
  *                   </i>.</p>

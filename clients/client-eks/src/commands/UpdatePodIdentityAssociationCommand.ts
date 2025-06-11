@@ -33,10 +33,23 @@ export interface UpdatePodIdentityAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates a EKS Pod Identity association. Only the IAM role can be changed; an association can't be moved
+ * <p>Updates a EKS Pod Identity association. In an update, you can change the IAM role, the target IAM role, or <code>disableSessionTags</code>.
+ *             You must change at least one of these in an update. An association can't be moved
  *             between clusters, namespaces, or service accounts. If you need to edit the namespace
  *             or service account, you need to delete the association and then create a new
  *             association with your desired settings.</p>
+ *          <p>Similar to Amazon Web Services IAM behavior, EKS Pod Identity associations are eventually consistent,
+ *             and may take several seconds to be effective after the initial API call returns
+ *             successfully. You must design your applications to account for these potential delays.
+ *             We recommend that you don’t include association create/updates in the
+ *             critical, high-availability code paths of your application. Instead, make changes in a
+ *             separate initialization or setup routine that you run less frequently.</p>
+ *          <p>You can set a <i>target IAM role</i> in the same or a different
+ *             account for advanced scenarios. With a target role, EKS Pod Identity automatically performs two
+ *             role assumptions in sequence: first assuming the role in the association that is in this
+ *             account, then using those credentials to assume the target IAM role. This process
+ *             provides your Pod with temporary credentials that have the permissions defined in the
+ *             target role, allowing secure access to resources in another Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,6 +61,8 @@ export interface UpdatePodIdentityAssociationCommandOutput
  *   associationId: "STRING_VALUE", // required
  *   roleArn: "STRING_VALUE",
  *   clientRequestToken: "STRING_VALUE",
+ *   disableSessionTags: true || false,
+ *   targetRoleArn: "STRING_VALUE",
  * };
  * const command = new UpdatePodIdentityAssociationCommand(input);
  * const response = await client.send(command);
@@ -65,6 +80,9 @@ export interface UpdatePodIdentityAssociationCommandOutput
  * //     createdAt: new Date("TIMESTAMP"),
  * //     modifiedAt: new Date("TIMESTAMP"),
  * //     ownerArn: "STRING_VALUE",
+ * //     disableSessionTags: true || false,
+ * //     targetRoleArn: "STRING_VALUE",
+ * //     externalId: "STRING_VALUE",
  * //   },
  * // };
  *

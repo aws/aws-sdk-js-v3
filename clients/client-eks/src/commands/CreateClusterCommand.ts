@@ -45,7 +45,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *          <p>You can use the <code>endpointPublicAccess</code> and
  *                 <code>endpointPrivateAccess</code> parameters to enable or disable public and
  *             private access to your cluster's Kubernetes API server endpoint. By default, public access is
- *             enabled, and private access is disabled. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster
+ *             enabled, and private access is disabled. The
+ *             endpoint domain name and IP address family depends on the value of the
+ *             <code>ipFamily</code> for the cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster
  *                 Endpoint Access Control</a> in the <i>
  *                <i>Amazon EKS User Guide</i>
  *             </i>. </p>

@@ -532,10 +532,12 @@ export const se_CreatePodIdentityAssociationCommand = async (
   body = JSON.stringify(
     take(input, {
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      disableSessionTags: [],
       namespace: [],
       roleArn: [],
       serviceAccount: [],
       tags: (_) => _json(_),
+      targetRoleArn: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1510,7 +1512,9 @@ export const se_UpdatePodIdentityAssociationCommand = async (
   body = JSON.stringify(
     take(input, {
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      disableSessionTags: [],
       roleArn: [],
+      targetRoleArn: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -3677,12 +3681,15 @@ const de_PodIdentityAssociation = (output: any, context: __SerdeContext): PodIde
     associationId: __expectString,
     clusterName: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    disableSessionTags: __expectBoolean,
+    externalId: __expectString,
     modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     namespace: __expectString,
     ownerArn: __expectString,
     roleArn: __expectString,
     serviceAccount: __expectString,
     tags: _json,
+    targetRoleArn: __expectString,
   }) as any;
 };
 

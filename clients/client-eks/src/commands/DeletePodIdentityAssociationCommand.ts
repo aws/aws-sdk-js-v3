@@ -61,6 +61,9 @@ export interface DeletePodIdentityAssociationCommandOutput
  * //     createdAt: new Date("TIMESTAMP"),
  * //     modifiedAt: new Date("TIMESTAMP"),
  * //     ownerArn: "STRING_VALUE",
+ * //     disableSessionTags: true || false,
+ * //     targetRoleArn: "STRING_VALUE",
+ * //     externalId: "STRING_VALUE",
  * //   },
  * // };
  *

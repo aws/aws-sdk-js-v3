@@ -388,10 +388,10 @@ export interface Addon {
   configurationValues?: string | undefined;
 
   /**
-   * <p>An array of Pod Identity Assocations owned by the Addon. Each EKS Pod Identity
-   *             association maps a role to a service account in a namespace in the cluster.</p>
+   * <p>An array of EKS Pod Identity associations owned by the add-on. Each association maps a role to a service
+   *             account in a namespace in the cluster.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach an IAM Role to an Amazon EKS add-on
-   *                 using Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *                 using EKS Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
   podIdentityAssociations?: string[] | undefined;
@@ -458,7 +458,7 @@ export interface AddonVersionInfo {
   architecture?: string[] | undefined;
 
   /**
-   * <p>Indicates the compute type of the addon version.</p>
+   * <p>Indicates the compute type of the add-on version.</p>
    * @public
    */
   computeTypes?: string[] | undefined;
@@ -476,7 +476,7 @@ export interface AddonVersionInfo {
   requiresConfiguration?: boolean | undefined;
 
   /**
-   * <p>Indicates if the Addon requires IAM Permissions to operate, such as networking
+   * <p>Indicates if the add-on requires IAM Permissions to operate, such as networking
    *             permissions.</p>
    * @public
    */
@@ -527,11 +527,11 @@ export interface AddonInfo {
 }
 
 /**
- * <p>A type of Pod Identity Association owned by an Amazon EKS Add-on.</p>
- *          <p>Each EKS Pod Identity Association maps a role to a service account in a namespace in
+ * <p>A type of EKS Pod Identity association owned by an Amazon EKS add-on.</p>
+ *          <p>Each association maps a role to a service account in a namespace in
  *             the cluster.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach an IAM Role to an Amazon EKS add-on
- *                 using Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p>
+ *                 using EKS Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p>
  * @public
  */
 export interface AddonPodIdentityAssociations {
@@ -549,18 +549,18 @@ export interface AddonPodIdentityAssociations {
 }
 
 /**
- * <p>Information about how to configure IAM for an Addon.</p>
+ * <p>Information about how to configure IAM for an add-on.</p>
  * @public
  */
 export interface AddonPodIdentityConfiguration {
   /**
-   * <p>The Kubernetes Service Account name used by the addon.</p>
+   * <p>The Kubernetes Service Account name used by the add-on.</p>
    * @public
    */
   serviceAccount?: string | undefined;
 
   /**
-   * <p>A suggested IAM Policy for the addon.</p>
+   * <p>A suggested IAM Policy for the add-on.</p>
    * @public
    */
   recommendedManagedPolicies?: string[] | undefined;
@@ -1737,10 +1737,10 @@ export interface CreateAddonRequest {
   configurationValues?: string | undefined;
 
   /**
-   * <p>An array of Pod Identity Assocations to be created. Each EKS Pod Identity association
-   *             maps a Kubernetes service account to an IAM Role.</p>
+   * <p>An array of EKS Pod Identity associations to be created. Each association maps a Kubernetes service account to
+   *             an IAM role.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach an IAM Role to an Amazon EKS add-on
-   *                 using Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *                 using EKS Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
   podIdentityAssociations?: AddonPodIdentityAssociations[] | undefined;
@@ -2017,7 +2017,7 @@ export interface OutpostConfigRequest {
  *          <ul>
  *             <li>
  *                <p>Each block must be within an <code>IPv4</code> RFC-1918 network range. Minimum
- *                     allowed size is /24, maximum allowed size is /8. Publicly-routable addresses
+ *                     allowed size is /32, maximum allowed size is /8. Publicly-routable addresses
  *                     aren't supported.</p>
  *             </li>
  *             <li>
@@ -2056,7 +2056,7 @@ export interface RemoteNodeNetwork {
    *          <ul>
    *             <li>
    *                <p>Each block must be within an <code>IPv4</code> RFC-1918 network range. Minimum
-   *                     allowed size is /24, maximum allowed size is /8. Publicly-routable addresses
+   *                     allowed size is /32, maximum allowed size is /8. Publicly-routable addresses
    *                     aren't supported.</p>
    *             </li>
    *             <li>
@@ -2098,7 +2098,7 @@ export interface RemoteNodeNetwork {
  *          <ul>
  *             <li>
  *                <p>Each block must be within an <code>IPv4</code> RFC-1918 network range. Minimum
- *                     allowed size is /24, maximum allowed size is /8. Publicly-routable addresses
+ *                     allowed size is /32, maximum allowed size is /8. Publicly-routable addresses
  *                     aren't supported.</p>
  *             </li>
  *             <li>
@@ -2120,7 +2120,7 @@ export interface RemotePodNetwork {
    *          <ul>
    *             <li>
    *                <p>Each block must be within an <code>IPv4</code> RFC-1918 network range. Minimum
-   *                     allowed size is /24, maximum allowed size is /8. Publicly-routable addresses
+   *                     allowed size is /32, maximum allowed size is /8. Publicly-routable addresses
    *                     aren't supported.</p>
    *             </li>
    *             <li>
@@ -2149,7 +2149,7 @@ export interface RemoteNetworkConfigRequest {
    *          <ul>
    *             <li>
    *                <p>Each block must be within an <code>IPv4</code> RFC-1918 network range. Minimum
-   *                     allowed size is /24, maximum allowed size is /8. Publicly-routable addresses
+   *                     allowed size is /32, maximum allowed size is /8. Publicly-routable addresses
    *                     aren't supported.</p>
    *             </li>
    *             <li>
@@ -2191,7 +2191,7 @@ export interface RemoteNetworkConfigRequest {
    *          <ul>
    *             <li>
    *                <p>Each block must be within an <code>IPv4</code> RFC-1918 network range. Minimum
-   *                     allowed size is /24, maximum allowed size is /8. Publicly-routable addresses
+   *                     allowed size is /32, maximum allowed size is /8. Publicly-routable addresses
    *                     aren't supported.</p>
    *             </li>
    *             <li>
@@ -2234,9 +2234,10 @@ export interface VpcConfigRequest {
    * <p>Set this value to <code>false</code> to disable public access to your cluster's Kubernetes
    *             API server endpoint. If you disable public access, your cluster's Kubernetes API server can
    *             only receive requests from within the cluster VPC. The default value for this parameter
-   *             is <code>true</code>, which enables public access for your Kubernetes API server. For more
-   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS cluster endpoint access control</a> in the
-   *                 <i>
+   *             is <code>true</code>, which enables public access for your Kubernetes API server. The
+   *             endpoint domain name and IP address family depends on the value of the
+   *                 <code>ipFamily</code> for the cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Cluster API
+   *                 server endpoint</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    * @public
@@ -2250,8 +2251,8 @@ export interface VpcConfigRequest {
    *                 <code>false</code>, which disables private access for your Kubernetes API server. If you
    *             disable private access and you have nodes or Fargate pods in the cluster, then
    *             ensure that <code>publicAccessCidrs</code> includes the necessary CIDR blocks for
-   *             communication with the nodes or Fargate pods. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS cluster
-   *                 endpoint access control</a> in the <i>
+   *             communication with the nodes or Fargate pods. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Cluster
+   *                 API server endpoint</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    * @public
@@ -2261,12 +2262,17 @@ export interface VpcConfigRequest {
   /**
    * <p>The CIDR blocks that are allowed access to your cluster's public Kubernetes API server
    *             endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that
-   *             you specify is denied. The default value is <code>0.0.0.0/0</code>. If you've disabled
-   *             private endpoint access, make sure that you specify the necessary CIDR blocks for every
-   *             node and Fargate <code>Pod</code> in the cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS cluster
-   *                 endpoint access control</a> in the <i>
+   *             you specify is denied. The default value is <code>0.0.0.0/0</code> and additionally
+   *                 <code>::/0</code> for dual-stack `IPv6` clusters. If you've disabled private
+   *             endpoint access, make sure that you specify the necessary CIDR blocks for every node and
+   *             Fargate <code>Pod</code> in the cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Cluster
+   *                 API server endpoint</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
+   *          <p>Note that the public endpoints are dual-stack for only <code>IPv6</code> clusters that
+   *             are made after October 2024. You can't add <code>IPv6</code> CIDR blocks to
+   *                 <code>IPv4</code> clusters or <code>IPv6</code> clusters that were made before
+   *             October 2024.</p>
    * @public
    */
   publicAccessCidrs?: string[] | undefined;
@@ -2458,7 +2464,8 @@ export interface CreateClusterRequest {
   /**
    * <p>If you set this value to <code>False</code> when creating a cluster, the default
    *             networking add-ons will not be installed.</p>
-   *          <p>The default networking addons include vpc-cni, coredns, and kube-proxy.</p>
+   *          <p>The default networking add-ons include <code>vpc-cni</code>, <code>coredns</code>, and
+   *                 <code>kube-proxy</code>.</p>
    *          <p>Use this option when you plan to install third-party alternative add-ons or
    *             self-manage the default networking add-ons.</p>
    * @public
@@ -2845,9 +2852,8 @@ export interface VpcConfigResponse {
    *             internet. If this value is disabled and you have nodes or Fargate pods in the
    *             cluster, then ensure that <code>publicAccessCidrs</code> includes the necessary CIDR
    *             blocks for communication with the nodes or Fargate pods. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS
-   *                 cluster endpoint access control</a> in the
-   *             <i>
+   *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Cluster
+   *                 API server endpoint</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    * @public
@@ -2856,7 +2862,18 @@ export interface VpcConfigResponse {
 
   /**
    * <p>The CIDR blocks that are allowed access to your cluster's public Kubernetes API server
-   *             endpoint.</p>
+   *             endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that
+   *             you specify is denied. The default value is <code>0.0.0.0/0</code> and additionally
+   *             <code>::/0</code> for dual-stack `IPv6` clusters. If you've disabled private
+   *             endpoint access, make sure that you specify the necessary CIDR blocks for every node and
+   *             Fargate <code>Pod</code> in the cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Cluster
+   *                 API server endpoint</a> in the <i>
+   *                <i>Amazon EKS User Guide</i>
+   *             </i>.</p>
+   *          <p>Note that the public endpoints are dual-stack for only <code>IPv6</code> clusters that
+   *             are made after October 2024. You can't add <code>IPv6</code> CIDR blocks to
+   *             <code>IPv4</code> clusters or <code>IPv6</code> clusters that were made before
+   *             October 2024.</p>
    * @public
    */
   publicAccessCidrs?: string[] | undefined;
@@ -4506,14 +4523,14 @@ export interface CreateNodegroupResponse {
  */
 export interface CreatePodIdentityAssociationRequest {
   /**
-   * <p>The name of the cluster to create the association in.</p>
+   * <p>The name of the cluster to create the EKS Pod Identity association in.</p>
    * @public
    */
   clusterName: string | undefined;
 
   /**
-   * <p>The name of the Kubernetes namespace inside the cluster to create the association in. The
-   *             service account and the pods that use the service account must be in this
+   * <p>The name of the Kubernetes namespace inside the cluster to create the EKS Pod Identity association in. The
+   *             service account and the Pods that use the service account must be in this
    *             namespace.</p>
    * @public
    */
@@ -4529,7 +4546,7 @@ export interface CreatePodIdentityAssociationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity
    *             agent manages credentials to assume this role for applications in the containers in the
-   *             pods that use this service account.</p>
+   *             Pods that use this service account.</p>
    * @public
    */
   roleArn: string | undefined;
@@ -4579,6 +4596,42 @@ export interface CreatePodIdentityAssociationRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Disable the automatic sessions tags that are appended by EKS Pod Identity.</p>
+   *          <p>EKS Pod Identity adds a pre-defined set of session tags when it assumes the role. You
+   *             can use these tags to author a single role that can work across resources by allowing
+   *             access to Amazon Web Services resources based on matching tags. By default, EKS Pod Identity attaches
+   *             six tags, including tags for cluster name, namespace, and service account name. For the
+   *             list of tags added by EKS Pod Identity, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-id-abac.html#pod-id-abac-tags">List of session tags
+   *                 added by EKS Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *          <p>Amazon Web Services compresses inline session policies, managed policy ARNs, and session tags into a
+   *             packed binary format that has a separate limit. If you receive a
+   *                 <code>PackedPolicyTooLarge</code> error indicating the packed binary format has
+   *             exceeded the size limit, you can attempt to reduce the size by disabling the session
+   *             tags added by EKS Pod Identity.</p>
+   * @public
+   */
+  disableSessionTags?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target IAM role to associate with the service account. This role
+   *             is assumed by using the EKS Pod Identity association role, then the credentials for this
+   *             role are injected into the Pod.</p>
+   *          <p>When you run applications on Amazon EKS, your application might need to access Amazon Web Services
+   *             resources from a different role that exists in the same or different Amazon Web Services account. For
+   *             example, your application running in “Account A” might need to access resources, such as
+   *             Amazon S3 buckets in “Account B” or within “Account A” itself. You can create a association
+   *             to access Amazon Web Services resources in “Account B” by creating two IAM roles: a role in “Account
+   *             A” and a role in “Account B” (which can be the same or different account), each with the
+   *             necessary trust and permission policies. After you provide these roles in the
+   *                 <i>IAM role</i> and <i>Target IAM role</i> fields, EKS
+   *             will perform role chaining to ensure your application gets the required permissions.
+   *             This means Role A will assume Role B, allowing your Pods to securely access resources
+   *             like S3 buckets in the target account.</p>
+   * @public
+   */
+  targetRoleArn?: string | undefined;
 }
 
 /**
@@ -4594,7 +4647,7 @@ export interface PodIdentityAssociation {
 
   /**
    * <p>The name of the Kubernetes namespace inside the cluster to create the association in. The
-   *             service account and the pods that use the service account must be in this
+   *             service account and the Pods that use the service account must be in this
    *             namespace.</p>
    * @public
    */
@@ -4610,7 +4663,7 @@ export interface PodIdentityAssociation {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity
    *             agent manages credentials to assume this role for applications in the containers in the
-   *             pods that use this service account.</p>
+   *             Pods that use this service account.</p>
    * @public
    */
   roleArn?: string | undefined;
@@ -4673,16 +4726,51 @@ export interface PodIdentityAssociation {
   createdAt?: Date | undefined;
 
   /**
-   * <p>The most recent timestamp that the association was modified at</p>
+   * <p>The most recent timestamp that the association was modified at.</p>
    * @public
    */
   modifiedAt?: Date | undefined;
 
   /**
-   * <p>If defined, the Pod Identity Association is owned by an Amazon EKS Addon.</p>
+   * <p>If defined, the EKS Pod Identity association is owned by an Amazon EKS add-on.</p>
    * @public
    */
   ownerArn?: string | undefined;
+
+  /**
+   * <p>The state of the automatic sessions tags. The value of <i>true</i>
+   *             disables these tags.</p>
+   *          <p>EKS Pod Identity adds a pre-defined set of session tags when it assumes the role. You
+   *             can use these tags to author a single role that can work across resources by allowing
+   *             access to Amazon Web Services resources based on matching tags. By default, EKS Pod Identity attaches
+   *             six tags, including tags for cluster name, namespace, and service account name. For the
+   *             list of tags added by EKS Pod Identity, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-id-abac.html#pod-id-abac-tags">List of session tags
+   *                 added by EKS Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p>
+   * @public
+   */
+  disableSessionTags?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target IAM role to associate with the service account. This
+   *             role is assumed by using the EKS Pod Identity association role, then the credentials for this
+   *             role are injected into the Pod.</p>
+   * @public
+   */
+  targetRoleArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier for this EKS Pod Identity association for a target IAM role. You put this value
+   *             in the trust policy of the target role, in a <code>Condition</code> to match the
+   *                 <code>sts.ExternalId</code>. This ensures that the target role can only be assumed
+   *             by this association. This prevents the <i>confused deputy problem</i>. For
+   *             more information about the confused deputy problem, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html">The confused deputy
+   *             problem</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>If you want to use the same target role with multiple associations or
+   *             other roles, use independent statements in the trust policy to allow
+   *             <code>sts:AssumeRole</code> access from each role.</p>
+   * @public
+   */
+  externalId?: string | undefined;
 }
 
 /**
@@ -5014,8 +5102,8 @@ export interface DescribeAddonConfigurationResponse {
   configurationSchema?: string | undefined;
 
   /**
-   * <p>The Kubernetes service account name used by the addon, and any suggested IAM policies.
-   *             Use this information to create an IAM Role for the Addon.</p>
+   * <p>The Kubernetes service account name used by the add-on, and any suggested IAM policies.
+   *             Use this information to create an IAM Role for the add-on.</p>
    * @public
    */
   podIdentityConfiguration?: AddonPodIdentityConfiguration[] | undefined;
@@ -6760,7 +6848,7 @@ export interface PodIdentityAssociationSummary {
 
   /**
    * <p>The name of the Kubernetes namespace inside the cluster to create the association in. The
-   *             service account and the pods that use the service account must be in this
+   *             service account and the Pods that use the service account must be in this
    *             namespace.</p>
    * @public
    */
@@ -6786,7 +6874,7 @@ export interface PodIdentityAssociationSummary {
   associationId?: string | undefined;
 
   /**
-   * <p>If defined, the Pod Identity Association is owned by an Amazon EKS Addon.</p>
+   * <p>If defined, the association is owned by an Amazon EKS add-on.</p>
    * @public
    */
   ownerArn?: string | undefined;
@@ -7274,12 +7362,12 @@ export interface UpdateAddonRequest {
   configurationValues?: string | undefined;
 
   /**
-   * <p>An array of Pod Identity Assocations to be updated. Each EKS Pod Identity association
-   *             maps a Kubernetes service account to an IAM Role. If this value is left blank, no change.
-   *             If an empty array is provided, existing Pod Identity Assocations owned by the Addon are
+   * <p>An array of EKS Pod Identity associations to be updated. Each association
+   *             maps a Kubernetes service account to an IAM role. If this value is left blank, no change.
+   *             If an empty array is provided, existing associations owned by the add-on are
    *             deleted.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach an IAM Role to an Amazon EKS add-on
-   *                 using Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *                 using EKS Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
   podIdentityAssociations?: AddonPodIdentityAssociations[] | undefined;
@@ -7731,7 +7819,7 @@ export interface UpdatePodIdentityAssociationRequest {
   associationId: string | undefined;
 
   /**
-   * <p>The new IAM role to change the </p>
+   * <p>The new IAM role to change in the association.</p>
    * @public
    */
   roleArn?: string | undefined;
@@ -7742,6 +7830,40 @@ export interface UpdatePodIdentityAssociationRequest {
    * @public
    */
   clientRequestToken?: string | undefined;
+
+  /**
+   * <p>Disable the automatic sessions tags that are appended by EKS Pod Identity.</p>
+   *          <p>EKS Pod Identity adds a pre-defined set of session tags when it assumes the role. You
+   *             can use these tags to author a single role that can work across resources by allowing
+   *             access to Amazon Web Services resources based on matching tags. By default, EKS Pod Identity attaches
+   *             six tags, including tags for cluster name, namespace, and service account name. For the
+   *             list of tags added by EKS Pod Identity, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-id-abac.html#pod-id-abac-tags">List of session tags
+   *                 added by EKS Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *          <p>Amazon Web Services compresses inline session policies, managed policy ARNs, and session tags into a
+   *             packed binary format that has a separate limit. If you receive a <code>PackedPolicyTooLarge</code> error
+   *             indicating the packed binary format has exceeded the size limit, you can attempt to reduce
+   *             the size by disabling the session tags added by EKS Pod Identity.</p>
+   * @public
+   */
+  disableSessionTags?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target IAM role to associate with the service account. This
+   *             role is assumed by using the EKS Pod Identity association role, then the credentials for this
+   *             role are injected into the Pod.</p>
+   *          <p>When you run applications on Amazon EKS, your application might need to access Amazon Web Services
+   *             resources from a different role that exists in the same or different Amazon Web Services account. For
+   *             example, your application running in “Account A” might need to access resources, such as
+   *             buckets in “Account B” or within “Account A” itself. You can create a association to
+   *             access Amazon Web Services resources in “Account B” by creating two IAM roles: a role in “Account A”
+   *             and a role in “Account B” (which can be the same or different account), each with the
+   *             necessary trust and permission policies. After you provide these roles in the <i>IAM role</i>
+   *             and <i>Target IAM role</i> fields, EKS will perform role chaining to ensure your application
+   *             gets the required permissions. This means Role A will assume Role B, allowing your Pods
+   *             to securely access resources like S3 buckets in the target account.</p>
+   * @public
+   */
+  targetRoleArn?: string | undefined;
 }
 
 /**
@@ -7749,7 +7871,7 @@ export interface UpdatePodIdentityAssociationRequest {
  */
 export interface UpdatePodIdentityAssociationResponse {
   /**
-   * <p>The full description of the EKS Pod Identity association that was updated.</p>
+   * <p>The full description of the association that was updated.</p>
    * @public
    */
   association?: PodIdentityAssociation | undefined;
