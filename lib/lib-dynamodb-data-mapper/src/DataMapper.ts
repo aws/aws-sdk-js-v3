@@ -1,13 +1,23 @@
-import { AttributeValue, DynamoDBClient, GetItemCommand, GetItemCommandInput, GetItemCommandOutput, PutItemCommand, PutItemCommandInput, PutItemCommandOutput } from '@aws-sdk/client-dynamodb';
-import { marshallOptions } from '@aws-sdk/util-dynamodb';
-import { DataMarshaller } from './marshaller';
-import { HttpHandlerOptions } from '@smithy/types';
-import { getSchema, getTableName, ItemSchema } from './schema';
+import {
+  AttributeValue,
+  DynamoDBClient,
+  GetItemCommand,
+  GetItemCommandInput,
+  GetItemCommandOutput,
+  PutItemCommand,
+  PutItemCommandInput,
+  PutItemCommandOutput,
+} from "@aws-sdk/client-dynamodb";
+import { marshallOptions } from "@aws-sdk/util-dynamodb";
 import { marshall as awsMarshall, unmarshall as awsUnmarshall } from "@aws-sdk/util-dynamodb";
+import { HttpHandlerOptions } from "@smithy/types";
+
+import { DataMarshaller } from "./marshaller";
+import { getSchema, getTableName, ItemSchema } from "./schema";
 
 /**
  * Configuration for binding a specific table and model type.
- * 
+ *
  * @typeParam D - The raw DynamoDB document structure.
  * @typeParam T - The application-level type that D is transformed into.
  *
@@ -50,8 +60,8 @@ export interface DataMapperConfig {
  */
 export class DataMapper<D extends object, T = D> {
   private readonly client: DynamoDBClient;
-  private readonly tableName: string;
-  private readonly schema: ItemSchema;
+  private readonly tableName: string | undefined;
+  private readonly schema: ItemSchema | undefined;
   private readonly fromDocument: (document: D) => T;
   private readonly toDocument: (data: T) => D;
   private readonly documentClass?: Function;
@@ -60,10 +70,7 @@ export class DataMapper<D extends object, T = D> {
   /**
    * Constructor is private to enforce usage of factory methods like `forModel()`.
    */
-  private constructor(
-    config: DataMapperConfig,
-    binding: TableBindingConfig<D, T>
-  ) {
+  private constructor(config: DataMapperConfig, binding: TableBindingConfig<D, T>) {
     const pass = (x: any) => x;
     this.fromDocument = binding.fromDocument ?? pass;
     this.toDocument = binding.toDocument ?? pass;
@@ -83,7 +90,7 @@ export class DataMapper<D extends object, T = D> {
       try {
         this.tableName = getTableName(binding.documentClass);
       } catch {
-        this.tableName =  binding.documentClass.name;; // fall back to schema-less mode
+        this.tableName = binding.documentClass.name; // fall back to schema-less mode
       }
     }
 
@@ -103,30 +110,27 @@ export class DataMapper<D extends object, T = D> {
     model: new () => T,
     config: DataMapperConfig & TableBindingConfig<D, T>
   ): DataMapper<D, T> {
-    return new DataMapper<D, T>(
-      config,
-      {
-        tableName: config.tableName,
-        schema: config.schema,
-        documentClass: model,
-        fromDocument: (doc) => Object.assign(new model(), doc),
-        toDocument: (data) => ({ ...data }),
-      }
-    );
+    return new DataMapper<D, T>(config, {
+      tableName: config.tableName,
+      schema: config.schema,
+      documentClass: model,
+      fromDocument: (doc) => Object.assign(new model(), doc),
+      toDocument: (data) => ({ ...data }),
+    });
   }
 
- /**
- * Persists a typed item to DynamoDB.
- * Converts the item to a DynamoDB-compatible document and applies optional write conditions.
- *
- * @param item - The item to write.
- * @param conditions - Optional write-time options (e.g. ReturnValues, ConditionExpression).
- * @param options - Optional HTTP handler config.
- * @returns The item returned from DynamoDB, or the input item if no attributes returned.
- */
-async put(
+  /**
+   * Persists a typed item to DynamoDB.
+   * Converts the item to a DynamoDB-compatible document and applies optional write conditions.
+   *
+   * @param item - The item to write.
+   * @param conditions - Optional write-time options (e.g. ReturnValues, ConditionExpression).
+   * @param options - Optional HTTP handler config.
+   * @returns The item returned from DynamoDB, or the input item if no attributes returned.
+   */
+  async put(
     item: T,
-    conditions?: Omit<Partial<PutItemCommandInput>, 'TableName' | 'Item'>,
+    conditions?: Omit<Partial<PutItemCommandInput>, "TableName" | "Item">,
     options?: HttpHandlerOptions
   ): Promise<T> {
     const marshalled = this.marshallInput(this.toDocument(item));
@@ -165,21 +169,21 @@ async put(
    * Deletes an item by key (not implemented).
    */
   async delete(): Promise<void> {
-    throw new Error('delete() is not implemented.');
+    throw new Error("delete() is not implemented.");
   }
 
   /**
    * Queries the table for matching items (not implemented).
    */
   async *query(): AsyncIterable<T> {
-    throw new Error('query() is not implemented.');
+    throw new Error("query() is not implemented.");
   }
 
   /**
    * Scans the table for all items (not implemented).
    */
   async *scan(): AsyncIterable<T> {
-    throw new Error('scan() is not implemented.');
+    throw new Error("scan() is not implemented.");
   }
 
   private marshallInput(input: D): Record<string, any> {
@@ -195,8 +199,6 @@ async put(
   }
 
   private unmarshallOutput(item: Record<string, any>): D {
-  return this.schema
-    ? DataMarshaller.unmarshallObject(item, this.schema) as D
-    : awsUnmarshall(item) as D;
+    return this.schema ? (DataMarshaller.unmarshallObject(item, this.schema) as D) : (awsUnmarshall(item) as D);
   }
 }
