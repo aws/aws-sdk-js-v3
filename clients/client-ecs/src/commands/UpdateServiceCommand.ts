@@ -145,25 +145,6 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * 					running tasks for this service.</p>
  *             </li>
  *          </ul>
- *          <note>
- *             <p>You must have a service-linked role when you update any of the following service
- * 				properties:</p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <code>loadBalancers</code>,</p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>serviceRegistries</code>
- *                   </p>
- *                </li>
- *             </ul>
- *             <p>For more information about the role see the <code>CreateService</code> request
- * 				parameter <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html#ECS-CreateService-request-role">
- *                   <code>role</code>
- *                </a>. </p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

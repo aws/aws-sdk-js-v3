@@ -406,6 +406,7 @@ export interface UpdateServiceRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that your service runs on.
    * 			If you do not specify a cluster, the default cluster is assumed.</p>
+   *          <p>You can't change the cluster name.</p>
    * @public
    */
   cluster?: string | undefined;
@@ -434,27 +435,33 @@ export interface UpdateServiceRequest {
   taskDefinition?: string | undefined;
 
   /**
-   * <p>The capacity provider strategy to update the service to use.</p>
-   *          <p>if the service uses the default capacity provider strategy for the cluster, the
-   * 			service can be updated to use one or more capacity providers as opposed to the default
-   * 			capacity provider strategy. However, when a service is using a capacity provider
-   * 			strategy that's not the default capacity provider strategy, the service can't be updated
-   * 			to use the cluster's default capacity provider strategy.</p>
-   *          <p>A capacity provider strategy consists of one or more capacity providers along with the
-   * 				<code>base</code> and <code>weight</code> to assign to them. A capacity provider
-   * 			must be associated with the cluster to be used in a capacity provider strategy. The
-   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a> API is used to associate a capacity provider
-   * 			with a cluster. Only capacity providers with an <code>ACTIVE</code> or
-   * 				<code>UPDATING</code> status can be used.</p>
-   *          <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
-   * 			provider must already be created. New capacity providers can be created with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateClusterCapacityProvider.html">CreateClusterCapacityProvider</a> API operation.</p>
-   *          <p>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or
-   * 				<code>FARGATE_SPOT</code> capacity providers. The Fargate capacity providers are
-   * 			available to all accounts and only need to be associated with a cluster to be
-   * 			used.</p>
-   *          <p>The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a>API operation is used to update the list of
-   * 			available capacity providers for a cluster after the cluster is created.</p>
-   *          <p></p>
+   * <p>The details of a capacity provider strategy. You can set a capacity provider when you
+   * 			create a cluster, run a task, or update a service.</p>
+   *          <p>When you use Fargate, the capacity providers are <code>FARGATE</code> or
+   * 				<code>FARGATE_SPOT</code>.</p>
+   *          <p>When you use Amazon EC2, the capacity providers are Auto Scaling groups.</p>
+   *          <p>You can change capacity providers for rolling deployments and blue/green
+   * 			deployments.</p>
+   *          <p>The following list provides the valid transitions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Update the Fargate launch type to an EC2 capacity provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>Update the Amazon EC2 launch type to a Fargate capacity provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>Update the Fargate capacity provider to an EC2 capacity provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>Update the Amazon EC2 capacity provider to a Fargate capacity provider. </p>
+   *             </li>
+   *             <li>
+   *                <p>Update the EC2 or Fargate capacity provider back to the launch type.</p>
+   *                <p>Pass an empty list in the <code>capacityProvider</code> parameter.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For information about Amazon Web Services CDK considerations, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/update-service-parameters.html">Amazon Web Services CDK considerations</a>.</p>
    * @public
    */
   capacityProviderStrategy?: CapacityProviderStrategyItem[] | undefined;
@@ -560,7 +567,10 @@ export interface UpdateServiceRequest {
   enableECSManagedTags?: boolean | undefined;
 
   /**
-   * <p>A list of Elastic Load Balancing load balancer objects. It contains the load balancer name, the
+   * <note>
+   *             <p>You must have a service-linked role when you update this property</p>
+   *          </note>
+   *          <p>A list of Elastic Load Balancing load balancer objects. It contains the load balancer name, the
    * 			container name, and the container port to access from the load balancer. The container
    * 			name is as it appears in a container definition.</p>
    *          <p>When you add, update, or remove a load balancer configuration, Amazon ECS starts new tasks
@@ -596,7 +606,14 @@ export interface UpdateServiceRequest {
   propagateTags?: PropagateTags | undefined;
 
   /**
-   * <p>The details for the service discovery registries to assign to this service. For more
+   * <note>
+   *             <p>You must have a service-linked role when you update this property.</p>
+   *             <p>For more information about the role see the <code>CreateService</code> request
+   * 				parameter <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html#ECS-CreateService-request-role">
+   *                   <code>role</code>
+   *                </a>. </p>
+   *          </note>
+   *          <p>The details for the service discovery registries to assign to this service. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
    * 				Discovery</a>.</p>
    *          <p>When you add, update, or remove the service registries configuration, Amazon ECS starts new
