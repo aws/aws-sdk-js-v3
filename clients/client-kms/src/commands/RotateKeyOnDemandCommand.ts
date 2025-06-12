@@ -30,8 +30,8 @@ export interface RotateKeyOnDemandCommandOutput extends RotateKeyOnDemandRespons
 /**
  * <p>Immediately initiates rotation of the key material of the specified symmetric encryption
  *       KMS key.</p>
- *          <p>You can perform <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-on-demand.html">on-demand rotation</a> of
- *       the key material in customer managed KMS keys, regardless of whether or not <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-enable-disable.html">automatic key
+ *          <p>You can perform <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-on-demand.html">on-demand rotation</a> of the key
+ *       material in customer managed KMS keys, regardless of whether or not <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-enable-disable.html">automatic key
  *         rotation</a> is enabled. On-demand rotations do not change existing automatic rotation
  *       schedules. For example, consider a KMS key that has automatic key rotation enabled with a
  *       rotation period of 730 days. If the key is scheduled to automatically rotate on April 14,

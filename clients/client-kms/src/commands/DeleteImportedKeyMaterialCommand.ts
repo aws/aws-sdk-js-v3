@@ -137,7 +137,8 @@ export interface DeleteImportedKeyMaterialCommandOutput extends DeleteImportedKe
  * ```javascript
  * // The following example deletes the imported key material from the specified KMS key.
  * const input = {
- *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   KeyMaterialId: "0b7fd7ddbac6eef27907413567cad8c810e2883dc8a7534067a82ee1142fc1e6"
  * };
  * const command = new DeleteImportedKeyMaterialCommand(input);
  * const response = await client.send(command);

@@ -75,9 +75,9 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  * const input = { // VerifyRequest
  *   KeyId: "STRING_VALUE", // required
  *   Message: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
- *   MessageType: "RAW" || "DIGEST",
+ *   MessageType: "RAW" || "DIGEST" || "EXTERNAL_MU",
  *   Signature: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
- *   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA", // required
+ *   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA" || "ML_DSA_SHAKE_256", // required
  *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",
  *   ],
@@ -88,7 +88,7 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  * // { // VerifyResponse
  * //   KeyId: "STRING_VALUE",
  * //   SignatureValid: true || false,
- * //   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA",
+ * //   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA" || "ML_DSA_SHAKE_256",
  * // };
  *
  * ```

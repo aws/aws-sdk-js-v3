@@ -34,7 +34,8 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  *       in <code>us-east-1</code> and a replica key in <code>eu-west-2</code>. If you run
  *         <code>UpdatePrimaryRegion</code> with a <code>PrimaryRegion</code> value of
  *         <code>eu-west-2</code>, the primary key is now the key in <code>eu-west-2</code>, and the
- *       key in <code>us-east-1</code> becomes a replica key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-update.html">Change the primary key in a set of multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *       key in <code>us-east-1</code> becomes a replica key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-update.html">Change the primary key in a
+ *         set of multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>This operation supports <i>multi-Region keys</i>, an KMS feature that lets you create multiple
  *       interoperable KMS keys in different Amazon Web Services Regions. Because these KMS keys have the same key ID, key
  *       material, and other metadata, you can use them interchangeably to encrypt data in one Amazon Web Services Region and decrypt

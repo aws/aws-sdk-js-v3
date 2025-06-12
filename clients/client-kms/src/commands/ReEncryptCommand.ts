@@ -263,8 +263,12 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  * /* response is
  * {
  *   CiphertextBlob: "<binary data>",
+ *   DestinationEncryptionAlgorithm: "SYMMETRIC_DEFAULT",
+ *   DestinationKeyMaterialId: "0b7fd7ddbac6eef27907413567cad8c810e2883dc8a7534067a82ee1142fc1e6",
  *   KeyId: "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
- *   SourceKeyId: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   SourceEncryptionAlgorithm: "SYMMETRIC_DEFAULT",
+ *   SourceKeyId: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   SourceKeyMaterialId: "1c6be7ddbac6eef27907413567cad8c810e2883dc8a7534067a82ee1142fc1e6"
  * }
  * *\/
  * ```

@@ -262,6 +262,7 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  * {
  *   CiphertextBlob: "<binary data>",
  *   KeyId: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   KeyMaterialId: "0b7fd7ddbac6eef27907413567cad8c810e2883dc8a7534067a82ee1142fc1e6",
  *   Plaintext: "<binary data>"
  * }
  * *\/

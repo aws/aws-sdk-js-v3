@@ -1446,6 +1446,9 @@ export const KeySpec = {
   HMAC_256: "HMAC_256",
   HMAC_384: "HMAC_384",
   HMAC_512: "HMAC_512",
+  ML_DSA_44: "ML_DSA_44",
+  ML_DSA_65: "ML_DSA_65",
+  ML_DSA_87: "ML_DSA_87",
   RSA_2048: "RSA_2048",
   RSA_3072: "RSA_3072",
   RSA_4096: "RSA_4096",
@@ -1538,13 +1541,13 @@ export interface CreateKeyRequest {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>If either of the required <code>Resource</code> or <code>Action</code>
-   *         elements are missing from a key policy statement, the policy statement has
-   *         no effect. When a key policy statement is missing one of these elements,
-   *         the KMS console correctly reports an error, but the
-   *         <code>CreateKey</code> and <code>PutKeyPolicy</code> API requests succeed, even though the policy
-   *         statement is ineffective.</p>
-   *             <p>For more information on required key policy elements, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html#key-policy-elements">Elements in a key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *             <p>If either of the required <code>Resource</code> or <code>Action</code> elements are
+   *         missing from a key policy statement, the policy statement has no effect. When a key policy
+   *         statement is missing one of these elements, the KMS console correctly reports an error,
+   *         but the <code>CreateKey</code> and <code>PutKeyPolicy</code> API requests succeed, even
+   *         though the policy statement is ineffective.</p>
+   *             <p>For more information on required key policy elements, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html#key-policy-elements">Elements in a key
+   *           policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          </note>
    *          <p>If you do not provide a key policy, KMS attaches a default key policy to the KMS key.
    *       For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html">Default key policy</a> in the
@@ -1594,8 +1597,12 @@ export interface CreateKeyRequest {
    *             <code>SIGN_VERIFY</code> or <code>KEY_AGREEMENT</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For asymmetric KMS keys with <code>ECC_SECG_P256K1</code> key pairs specify
+   *                <p>For asymmetric KMS keys with <code>ECC_SECG_P256K1</code> key pairs, specify
    *             <code>SIGN_VERIFY</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For asymmetric KMS keys with ML-DSA key pairs, specify
+   *           <code>SIGN_VERIFY</code>.</p>
    *             </li>
    *             <li>
    *                <p>For asymmetric KMS keys with SM2 key pairs (China Regions only), specify
@@ -1722,6 +1729,26 @@ export interface CreateKeyRequest {
    *                      <p>
    *                         <code>ECC_SECG_P256K1</code> (secp256k1), commonly used for
    *               cryptocurrencies.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Asymmetric ML-DSA key pairs (signing and verification)</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>ML_DSA_44</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>ML_DSA_65</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>ML_DSA_87</code>
+   *                      </p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -2021,6 +2048,7 @@ export const SigningAlgorithmSpec = {
   ECDSA_SHA_256: "ECDSA_SHA_256",
   ECDSA_SHA_384: "ECDSA_SHA_384",
   ECDSA_SHA_512: "ECDSA_SHA_512",
+  ML_DSA_SHAKE_256: "ML_DSA_SHAKE_256",
   RSASSA_PKCS1_V1_5_SHA_256: "RSASSA_PKCS1_V1_5_SHA_256",
   RSASSA_PKCS1_V1_5_SHA_384: "RSASSA_PKCS1_V1_5_SHA_384",
   RSASSA_PKCS1_V1_5_SHA_512: "RSASSA_PKCS1_V1_5_SHA_512",
@@ -3920,7 +3948,7 @@ export interface GenerateDataKeyPairRequest {
 
   /**
    * <p>Determines the type of data key pair that is generated. </p>
-   *          <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC KMS keys only to sign and verify, are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
+   *          <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), the rule that permits you to use ECC KMS keys only to sign and verify, and the rule that permits you to use ML-DSA key pairs to sign and verify only are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
    * @public
    */
   KeyPairSpec: DataKeyPairSpec | undefined;
@@ -4008,8 +4036,7 @@ export interface GenerateDataKeyPairResponse {
   CiphertextForRecipient?: Uint8Array | undefined;
 
   /**
-   * <p>The identifier of the key material used to encrypt the private key. This field is omitted if the request
-   *       includes the <code>Recipient</code> parameter.</p>
+   * <p>The identifier of the key material used to encrypt the private key.</p>
    * @public
    */
   KeyMaterialId?: string | undefined;
@@ -4065,7 +4092,7 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
 
   /**
    * <p>Determines the type of data key pair that is generated.</p>
-   *          <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC KMS keys only to sign and verify, are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
+   *          <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), the rule that permits you to use ECC KMS keys only to sign and verify, and the rule that permits you to use ML-DSA key pairs to sign and verify only are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
    * @public
    */
   KeyPairSpec: DataKeyPairSpec | undefined;
@@ -5662,6 +5689,7 @@ export interface ListRetirableGrantsRequest {
  */
 export const MessageType = {
   DIGEST: "DIGEST",
+  EXTERNAL_MU: "EXTERNAL_MU",
   RAW: "RAW",
 } as const;
 
@@ -5720,13 +5748,13 @@ export interface PutKeyPolicyRequest {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>If either of the required <code>Resource</code> or <code>Action</code>
-   *         elements are missing from a key policy statement, the policy statement has
-   *         no effect. When a key policy statement is missing one of these elements,
-   *         the KMS console correctly reports an error, but the
-   *         <code>PutKeyPolicy</code> API request succeeds, even though the policy
-   *         statement is ineffective.</p>
-   *             <p>For more information on required key policy elements, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html#key-policy-elements">Elements in a key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *             <p>If either of the required <code>Resource</code> or <code>Action</code> elements are
+   *         missing from a key policy statement, the policy statement has no effect. When a key policy
+   *         statement is missing one of these elements, the KMS console correctly reports an error,
+   *         but the <code>PutKeyPolicy</code> API request succeeds, even though the policy statement is
+   *         ineffective.</p>
+   *             <p>For more information on required key policy elements, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html#key-policy-elements">Elements in a key
+   *           policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          </note>
    *          <p>A key policy document can include only the following characters:</p>
    *          <ul>
@@ -6368,22 +6396,29 @@ export interface SignRequest {
   /**
    * <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed as
    *       part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use
-   *         <code>DIGEST</code> for message digests, which are already hashed.</p>
+   *         <code>DIGEST</code> for message digests, which are already hashed; use
+   *         <code>EXTERNAL_MU</code> for 64-byte representative μ used in ML-DSA signing as defined
+   *       in NIST FIPS 204 Section 6.2.</p>
    *          <p>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard
    *       signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>,
-   *       KMS skips the hashing step in the signing algorithm.</p>
+   *       KMS skips the hashing step in the signing algorithm. When the value is
+   *         <code>EXTERNAL_MU</code> KMS skips the concatenated hashing of the public key hash and the
+   *       message done in the ML-DSA signing algorithm.</p>
    *          <important>
-   *             <p>Use the <code>DIGEST</code> value only when the value of the <code>Message</code>
-   *         parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed
-   *         message, the security of the signing operation can be compromised.</p>
+   *             <p>Use the <code>DIGEST</code> or <code>EXTERNAL_MU</code> value only when the value of the
+   *           <code>Message</code> parameter is a message digest. If you use the <code>DIGEST</code>
+   *         value with an unhashed message, the security of the signing operation can be
+   *         compromised.</p>
    *          </important>
-   *          <p>When the value of <code>MessageType</code>is <code>DIGEST</code>, the length of the
+   *          <p>When the value of <code>MessageType</code> is <code>DIGEST</code>, the length of the
    *         <code>Message</code> value must match the length of hashed messages for the specified
    *       signing algorithm.</p>
+   *          <p>When the value of <code>MessageType</code> is <code>EXTERNAL_MU</code> the length of the
+   *         <code>Message</code> value must be 64 bytes.</p>
    *          <p>You can submit a message digest and omit the <code>MessageType</code> or specify
    *         <code>RAW</code> so the digest is hashed again while signing. However, this can cause
    *       verification failures when verifying with a system that assumes a single hash.</p>
-   *          <p>The hashing algorithm in that <code>Sign</code> uses is based on the
+   *          <p>The hashing algorithm that <code>Sign</code> uses is based on the
    *         <code>SigningAlgorithm</code> value.</p>
    *          <ul>
    *             <li>
@@ -6394,6 +6429,9 @@ export interface SignRequest {
    *             </li>
    *             <li>
    *                <p>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</p>
+   *             </li>
+   *             <li>
+   *                <p>Signing algorithms that end in SHAKE_256 use the SHAKE_256 hashing algorithm.</p>
    *             </li>
    *             <li>
    *                <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline
@@ -6817,23 +6855,30 @@ export interface VerifyRequest {
   /**
    * <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed as
    *       part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use
-   *         <code>DIGEST</code> for message digests, which are already hashed.</p>
+   *         <code>DIGEST</code> for message digests, which are already hashed; use
+   *         <code>EXTERNAL_MU</code> for 64-byte representative μ used in ML-DSA signing as defined
+   *       in NIST FIPS 204 Section 6.2.</p>
    *          <p>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard
    *       signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>,
-   *       KMS skips the hashing step in the signing algorithm.</p>
+   *       KMS skips the hashing step in the signing algorithm. When the value is
+   *         <code>EXTERNAL_MU</code> KMS skips the concatenated hashing of the public key hash and the
+   *       message done in the ML-DSA signing algorithm.</p>
    *          <important>
-   *             <p>Use the <code>DIGEST</code> value only when the value of the <code>Message</code>
-   *         parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed
-   *         message, the security of the verification operation can be compromised.</p>
+   *             <p>Use the <code>DIGEST</code> or <code>EXTERNAL_MU</code> value only when the value of the
+   *           <code>Message</code> parameter is a message digest. If you use the <code>DIGEST</code>
+   *         value with an unhashed message, the security of the signing operation can be
+   *         compromised.</p>
    *          </important>
-   *          <p>When the value of <code>MessageType</code>is <code>DIGEST</code>, the length of the
+   *          <p>When the value of <code>MessageType</code> is <code>DIGEST</code>, the length of the
    *         <code>Message</code> value must match the length of hashed messages for the specified
    *       signing algorithm.</p>
+   *          <p>When the value of <code>MessageType</code> is <code>EXTERNAL_MU</code> the length of the
+   *         <code>Message</code> value must be 64 bytes.</p>
    *          <p>You can submit a message digest and omit the <code>MessageType</code> or specify
    *         <code>RAW</code> so the digest is hashed again while signing. However, if the signed message
    *       is hashed once while signing, but twice while verifying, verification fails, even when the
    *       message hasn't changed.</p>
-   *          <p>The hashing algorithm in that <code>Verify</code> uses is based on the
+   *          <p>The hashing algorithm that <code>Verify</code> uses is based on the
    *         <code>SigningAlgorithm</code> value.</p>
    *          <ul>
    *             <li>
@@ -6844,6 +6889,9 @@ export interface VerifyRequest {
    *             </li>
    *             <li>
    *                <p>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</p>
+   *             </li>
+   *             <li>
+   *                <p>Signing algorithms that end in SHAKE_256 use the SHAKE_256 hashing algorithm.</p>
    *             </li>
    *             <li>
    *                <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline
