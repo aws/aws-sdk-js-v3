@@ -14,6 +14,10 @@ import {
 import { bucketHostname } from "./bucketHostname";
 import { BucketEndpointResolvedConfig } from "./configurations";
 
+/**
+ * @deprecated unused as of EndpointsV2.
+ * @internal
+ */
 export const bucketEndpointMiddleware =
   (options: BucketEndpointResolvedConfig): BuildMiddleware<any, any> =>
   <Output extends MetadataBearer>(
@@ -98,6 +102,10 @@ export const bucketEndpointMiddleware =
     return next({ ...args, request });
   };
 
+/**
+ * @deprecated unused as of EndpointsV2.
+ * @internal
+ */
 export const bucketEndpointMiddlewareOptions: RelativeMiddlewareOptions = {
   tags: ["BUCKET_ENDPOINT"],
   name: "bucketEndpointMiddleware",
@@ -106,6 +114,10 @@ export const bucketEndpointMiddlewareOptions: RelativeMiddlewareOptions = {
   override: true,
 };
 
+/**
+ * @deprecated unused as of EndpointsV2.
+ * @internal
+ */
 export const getBucketEndpointPlugin = (options: BucketEndpointResolvedConfig): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.addRelativeTo(bucketEndpointMiddleware(options), bucketEndpointMiddlewareOptions);

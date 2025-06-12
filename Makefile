@@ -41,7 +41,7 @@ test-integration: bundles
 	make test-endpoints
 
 test-endpoints:
-	npx jest -c ./tests/endpoints-2.0/jest.config.js --bail --watch --verbose false
+	npx jest -c ./tests/endpoints-2.0/jest.config.js --bail --verbose false
 
 test-e2e: bundles
 	yarn g:vitest run -c vitest.config.e2e.ts --retry=4

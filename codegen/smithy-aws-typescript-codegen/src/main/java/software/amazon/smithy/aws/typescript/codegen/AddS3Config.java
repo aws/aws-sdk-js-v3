@@ -33,6 +33,7 @@ import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.OperationIndex;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
+import software.amazon.smithy.model.pattern.SmithyPattern;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
@@ -47,6 +48,7 @@ import software.amazon.smithy.model.traits.EndpointTrait;
 import software.amazon.smithy.model.traits.HttpHeaderTrait;
 import software.amazon.smithy.model.traits.HttpPayloadTrait;
 import software.amazon.smithy.model.traits.StreamingTrait;
+import software.amazon.smithy.model.traits.Trait;
 import software.amazon.smithy.model.transform.ModelTransformer;
 import software.amazon.smithy.rulesengine.traits.EndpointRuleSetTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
@@ -89,7 +91,23 @@ public final class AddS3Config implements TypeScriptIntegration {
     public static Shape removeHostPrefixTrait(Shape shape) {
         return shape.asOperationShape()
             .map(OperationShape::shapeToBuilder)
-            .map(builder -> ((OperationShape.Builder) builder).removeTrait(EndpointTrait.ID))
+            .map((Object object) -> {
+                OperationShape.Builder builder = (OperationShape.Builder) object;
+                Trait trait = builder.getAllTraits().get(EndpointTrait.ID);
+                if (trait instanceof EndpointTrait endpointTrait) {
+                    if (
+                        endpointTrait.getHostPrefix().equals(
+                            SmithyPattern.builder()
+                                .segments(List.of())
+                                .pattern("{AccountId}.")
+                                .build()
+                        )
+                    ) {
+                        builder.removeTrait(EndpointTrait.ID);
+                    }
+                }
+                return builder;
+            })
             .map(OperationShape.Builder::build)
             .map(s -> (Shape) s)
             .orElse(shape);
@@ -224,7 +242,7 @@ public final class AddS3Config implements TypeScriptIntegration {
 
         Model builtModel = modelBuilder.addShapes(inputShapes).build();
         if (hasRuleset) {
-            ModelTransformer.create().mapShapes(
+            return ModelTransformer.create().mapShapes(
                 builtModel, AddS3Config::removeHostPrefixTrait
             );
         }
@@ -246,9 +264,9 @@ public final class AddS3Config implements TypeScriptIntegration {
             .write("signingEscapePath?: boolean;\n");
         writer.writeDocs(
                 "Whether to override the request region with the region inferred from requested resource's ARN."
-                    + " Defaults to false.")
+                    + " Defaults to undefined.")
             .addImport("Provider", "Provider", TypeScriptDependency.SMITHY_TYPES)
-            .write("useArnRegion?: boolean | Provider<boolean>;");
+            .write("useArnRegion?: boolean | undefined | Provider<boolean | undefined>;");
     }
 
     @Override
@@ -266,7 +284,7 @@ public final class AddS3Config implements TypeScriptIntegration {
                         writer.write("false");
                     },
                     "useArnRegion", writer -> {
-                        writer.write("false");
+                        writer.write("undefined");
                     }
                 );
             case NODE:

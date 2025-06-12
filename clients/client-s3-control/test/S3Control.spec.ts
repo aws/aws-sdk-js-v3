@@ -98,7 +98,7 @@ describe("S3Control Client", () => {
       expect(request.headers[HEADER_OUTPOST_ID]).eql(OutpostId);
       expect(request.headers[HEADER_ACCOUNT_ID]).eql(AccountId);
       expect(request.headers["authorization"]).contains(
-        `Credential=${credentials.accessKeyId}/${dateStr}/${region}/s3/aws4_request`
+        `Credential=${credentials.accessKeyId}/${dateStr}/${region}/s3-outposts/aws4_request`
       );
     });
   });
@@ -129,7 +129,7 @@ describe("S3Control Client", () => {
       expect(request.headers[HEADER_OUTPOST_ID]).eql(OutpostId);
       expect(request.headers[HEADER_ACCOUNT_ID]).eql(AccountId);
       expect(request.headers["authorization"]).contains(
-        `Credential=${credentials.accessKeyId}/${dateStr}/${region}/s3/aws4_request`
+        `Credential=${credentials.accessKeyId}/${dateStr}/${region}/s3-outposts/aws4_request`
       );
     });
   });
