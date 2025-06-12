@@ -1,9 +1,9 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
-import { PutItemCommand, GetItemCommand } from "@aws-sdk/client-dynamodb";
+import { GetItemCommand, PutItemCommand } from "@aws-sdk/client-dynamodb";
+import { marshall as awsMarshall, unmarshall as awsUnmarshall } from "@aws-sdk/util-dynamodb";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+
 import { DataMapper } from "./DataMapper";
 import { DataMarshaller } from "./marshaller";
-import { marshall as awsMarshall, unmarshall as awsUnmarshall } from "@aws-sdk/util-dynamodb";
-
 
 // 🔁 Common mocks
 const mockSend = vi.fn();
@@ -14,6 +14,7 @@ const mockUnmarshall = vi.spyOn(DataMarshaller, "unmarshallObject");
 const mockMarshallKey = vi.spyOn(DataMarshaller, "marshallKey");
 
 import type { AttributeValue } from "@aws-sdk/client-dynamodb";
+
 import { DynamoDbSchema, DynamoDbTable, ItemSchema } from "./schema";
 
 function mockPutResponse(returned: Record<string, AttributeValue>) {
@@ -40,16 +41,13 @@ describe("DataMapper - all usage variations", () => {
     type UserDefined = { id: string; name: string };
     const item: UserDefined = { id: "123", name: "Alice" };
     const marshalled = awsMarshall(item);
-    
+
     class Placeholder {
       id!: string;
       name!: string;
     }
 
-    const mapper = DataMapper.from<UserDefined, UserDefined>(
-      Placeholder,
-      { client: mockClient }
-    );
+    const mapper = DataMapper.from<UserDefined, UserDefined>(Placeholder, { client: mockClient });
 
     expect(mapper["schema"]).toBeUndefined();
     expect(mapper["tableName"]).toBe("Placeholder");
@@ -94,23 +92,20 @@ describe("DataMapper - all usage variations", () => {
 
     const marshalled = awsMarshall(doc);
 
-    const mapper = DataMapper.from<UserDefinedDocument, UserDefinedClass>(
-      UserDefinedClass,
-      {
-        client: mockClient,
-        tableName: "test",
-        fromDocument: (doc) => {
-          const data = new UserDefinedClass();
-          data.id = doc.id;
-          data.name = doc.name;
-          return data;
-        },
-        toDocument: (data) => ({
-          id: data.id,
-          name: data.name,
-        }),
-      }
-    );
+    const mapper = DataMapper.from<UserDefinedDocument, UserDefinedClass>(UserDefinedClass, {
+      client: mockClient,
+      tableName: "test",
+      fromDocument: (doc) => {
+        const data = new UserDefinedClass();
+        data.id = doc.id;
+        data.name = doc.name;
+        return data;
+      },
+      toDocument: (data) => ({
+        id: data.id,
+        name: data.name,
+      }),
+    });
 
     expect(mapper["schema"]).toBeUndefined();
     expect(mapper["tableName"]).toBe("test");
@@ -125,7 +120,7 @@ describe("DataMapper - all usage variations", () => {
     // --- GET ---
     mockSend.mockResolvedValueOnce({ Item: marshalled });
 
-    const loaded = await mapper.get({ id: "123" });
+    const loaded = (await mapper.get({ id: "123" })) as UserDefinedClass;
     expect(loaded).toBeInstanceOf(UserDefinedClass);
     expect(loaded.id).toBe("123");
     expect(loaded.name).toBe("Alice");
@@ -161,15 +156,12 @@ describe("DataMapper - all usage variations", () => {
     const instance = UserDefinedClass.fromDocument(doc);
     const marshalled = awsMarshall(doc);
 
-    const mapper = DataMapper.from<UserDefinedDocument, UserDefinedClass>(
-      UserDefinedClass,
-      {
-        client: mockClient,
-        tableName: "test",
-        fromDocument: UserDefinedClass.fromDocument,
-        toDocument: UserDefinedClass.toDocument,
-      }
-    );
+    const mapper = DataMapper.from<UserDefinedDocument, UserDefinedClass>(UserDefinedClass, {
+      client: mockClient,
+      tableName: "test",
+      fromDocument: UserDefinedClass.fromDocument,
+      toDocument: UserDefinedClass.toDocument,
+    });
 
     expect(mapper["schema"]).toBeUndefined();
     expect(mapper["tableName"]).toBe("test");
@@ -184,7 +176,7 @@ describe("DataMapper - all usage variations", () => {
     // --- GET ---
     mockSend.mockResolvedValueOnce({ Item: marshalled });
 
-    const loaded = await mapper.get({ id: "123" });
+    const loaded = (await mapper.get({ id: "123" })) as UserDefinedClass;
     expect(loaded).toBeInstanceOf(UserDefinedClass);
     expect(loaded.id).toBe("123");
     expect(loaded.name).toBe("Alice");
@@ -215,10 +207,7 @@ describe("DataMapper - all usage variations", () => {
     const instance = Object.assign(new UserDefinedClass(), doc);
     const marshalled = DataMarshaller.marshall(instance, schema as ItemSchema);
 
-    const mapper = DataMapper.from<UserDefinedDocument, UserDefinedClass>(
-      UserDefinedClass,
-      { client: mockClient }
-    );
+    const mapper = DataMapper.from<UserDefinedDocument, UserDefinedClass>(UserDefinedClass, { client: mockClient });
 
     expect(mapper["schema"]).toEqual(schema);
     expect(mapper["tableName"]).toBe("Users");
@@ -233,7 +222,7 @@ describe("DataMapper - all usage variations", () => {
     // --- GET ---
     mockSend.mockResolvedValueOnce({ Item: marshalled });
 
-    const loaded = await mapper.get({ id: "123" });
+    const loaded = (await mapper.get({ id: "123" })) as UserDefinedClass;
     expect(loaded).toBeInstanceOf(UserDefinedClass);
     expect(loaded.id).toBe("123");
     expect(loaded.name).toBe("Alice");

@@ -140,5 +140,8 @@
     ],
     "**/*.{ts,js,md,json}": "prettier --write"
   },
-  "packageManager": "yarn@4.5.3"
+  "packageManager": "yarn@4.5.3",
+  "dependencies": {
+    "reflect-metadata": "^0.2.2"
+  }
 }

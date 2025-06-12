@@ -52,7 +52,7 @@ import { METADATA_TYPE_KEY } from "./constants";
  *  }
  */
 export function attribute(): PropertyDecorator;
-export function attribute<T extends ValidExplicitSchema>(params: T): PropertyDecorator;
+export function attribute(params: Partial<ItemSchemaType>): PropertyDecorator;
 export function attribute(params: Partial<ItemSchemaType> = {}): PropertyDecorator {
   return (target: any, propertyKey: string | symbol) => {
     const reflectedType = Reflect.getMetadata(METADATA_TYPE_KEY, target, propertyKey);

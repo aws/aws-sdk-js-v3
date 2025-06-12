@@ -22852,7 +22852,6 @@ __metadata:
     "@smithy/smithy-client": "npm:^4.2.2"
     "@smithy/types": "npm:^4.2.0"
     "@tsconfig/recommended": "npm:1.0.1"
-    "@types/node": "npm:^22.15.29"
     "@typescript-eslint/eslint-plugin": "npm:^8.33.1"
     "@typescript-eslint/parser": "npm:^8.33.1"
     concurrently: "npm:7.0.0"
@@ -29005,15 +29004,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.15.29":
-  version: 22.15.29
-  resolution: "@types/node@npm:22.15.29"
-  dependencies:
-    undici-types: "npm:~6.21.0"
-  checksum: 10c0/602cc88c6150780cd9b5b44604754e0ce13983ae876a538861d6ecfb1511dff289e5576fffd26c841cde2142418d4bb76e2a72a382b81c04557ccb17cff29e1d
-  languageName: node
-  linkType: hard
-
 "@types/normalize-package-data@npm:^2.4.0":
   version: 2.4.4
   resolution: "@types/normalize-package-data@npm:2.4.4"
@@ -30618,6 +30608,7 @@ __metadata:
     lerna: "npm:5.5.2"
     lint-staged: "npm:^10.0.1"
     prettier: "npm:2.8.5"
+    reflect-metadata: "npm:^0.2.2"
     rimraf: "npm:3.0.2"
     ts-jest: "npm:29.1.1"
     ts-loader: "npm:9.4.2"
@@ -41355,13 +41346,6 @@ __metadata:
   version: 5.26.5
   resolution: "undici-types@npm:5.26.5"
   checksum: 10c0/bb673d7876c2d411b6eb6c560e0c571eef4a01c1c19925175d16e3a30c4c428181fb8d7ae802a261f283e4166a0ac435e2f505743aa9e45d893f9a3df017b501
-  languageName: node
-  linkType: hard
-
-"undici-types@npm:~6.21.0":
-  version: 6.21.0
-  resolution: "undici-types@npm:6.21.0"
-  checksum: 10c0/c01ed51829b10aa72fc3ce64b747f8e74ae9b60eafa19a7b46ef624403508a54c526ffab06a14a26b3120d055e1104d7abe7c9017e83ced038ea5cf52f8d5e04
   languageName: node
   linkType: hard
 
