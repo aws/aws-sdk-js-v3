@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.829.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.828.0...v3.829.0) (2025-06-12)
+
+
+### Features
+
+* **client-iotfleetwise:** Add new status READY_FOR_CHECKIN used for vehicle synchronisation ([f98e6ab](https://github.com/aws/aws-sdk-js-v3/commit/f98e6ab68f2d896e2783173953b9d01735cd171d))
+
+
+
+
+
 # [3.828.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.827.1...v3.828.0) (2025-06-11)
 
 **Note:** Version bump only for package @aws-sdk/client-iotfleetwise

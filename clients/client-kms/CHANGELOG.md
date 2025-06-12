@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.829.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.828.0...v3.829.0) (2025-06-12)
+
+
+### Features
+
+* **client-kms:** AWS KMS announces the support of ML-DSA key pairs that creates post-quantum safe digital signatures. ([6ac671f](https://github.com/aws/aws-sdk-js-v3/commit/6ac671f391c13a69bcae75c8c72fa1ca49c072e6))
+
+
+
+
+
 # [3.828.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.827.1...v3.828.0) (2025-06-11)
 
 **Note:** Version bump only for package @aws-sdk/client-kms

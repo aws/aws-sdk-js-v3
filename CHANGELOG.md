@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.829.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.828.0...v3.829.0) (2025-06-12)
+
+
+### Features
+
+* **client-connectcampaignsv2:** Added PutInstanceCommunicationLimits and GetInstanceCommunicationLimits APIs ([244af1f](https://github.com/aws/aws-sdk-js-v3/commit/244af1f49b150d4ce8fd85037927bbfa5c88ff55))
+* **client-emr-serverless:** This release adds support for retrieval of the optional executionIamPolicy field in the GetJobRun API response. ([cd2a984](https://github.com/aws/aws-sdk-js-v3/commit/cd2a9841bd8a7d41224c0ce1722da9acf449c169))
+* **client-iotfleetwise:** Add new status READY_FOR_CHECKIN used for vehicle synchronisation ([f98e6ab](https://github.com/aws/aws-sdk-js-v3/commit/f98e6ab68f2d896e2783173953b9d01735cd171d))
+* **client-kms:** AWS KMS announces the support of ML-DSA key pairs that creates post-quantum safe digital signatures. ([6ac671f](https://github.com/aws/aws-sdk-js-v3/commit/6ac671f391c13a69bcae75c8c72fa1ca49c072e6))
+* **client-pcs:** Fixed regex patterns for ARN fields. ([f7d6c3f](https://github.com/aws/aws-sdk-js-v3/commit/f7d6c3f20a2ca441d274d41fa9ed30a2eef2f318))
+
+
+
+
+
 # [3.828.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.827.1...v3.828.0) (2025-06-11)
 
 

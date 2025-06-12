@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.829.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.828.0...v3.829.0) (2025-06-12)
+
+
+### Features
+
+* **client-connectcampaignsv2:** Added PutInstanceCommunicationLimits and GetInstanceCommunicationLimits APIs ([244af1f](https://github.com/aws/aws-sdk-js-v3/commit/244af1f49b150d4ce8fd85037927bbfa5c88ff55))
+
+
+
+
+
 # [3.828.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.827.1...v3.828.0) (2025-06-11)
 
 **Note:** Version bump only for package @aws-sdk/client-connectcampaignsv2
