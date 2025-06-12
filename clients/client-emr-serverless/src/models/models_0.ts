@@ -665,7 +665,7 @@ export interface CancelJobRunRequest {
   jobRunId: string | undefined;
 
   /**
-   * The duration (in seconds) to wait before forcefully terminating the job after cancellation is requested.
+   * <p>The duration in seconds to wait before forcefully terminating the job after cancellation is requested.</p>
    * @public
    */
   shutdownGracePeriodInSeconds?: number | undefined;
@@ -773,6 +773,24 @@ export interface ResourceUtilization {
    * @public
    */
   storageGBHour?: number | undefined;
+}
+
+/**
+ * <p>Optional IAM policy. The resulting job IAM role permissions will be an intersection of the policies passed and the policy associated with your job execution role.</p>
+ * @public
+ */
+export interface JobRunExecutionIamPolicy {
+  /**
+   * <p>An IAM inline policy to use as an execution IAM policy.</p>
+   * @public
+   */
+  policy?: string | undefined;
+
+  /**
+   * <p>A list of Amazon Resource Names (ARNs) to use as an execution IAM policy.</p>
+   * @public
+   */
+  policyArns?: string[] | undefined;
 }
 
 /**
@@ -1258,24 +1276,6 @@ export interface ListJobRunsResponse {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * <p>Optional IAM policy. The resulting job IAM role permissions will be an intersection of the policies passed and the policy associated with your job execution role.</p>
- * @public
- */
-export interface JobRunExecutionIamPolicy {
-  /**
-   * <p>An IAM inline policy to use as an execution IAM policy.</p>
-   * @public
-   */
-  policy?: string | undefined;
-
-  /**
-   * <p>A list of Amazon Resource Names (ARNs) to use as an execution IAM policy.</p>
-   * @public
-   */
-  policyArns?: string[] | undefined;
 }
 
 /**
@@ -1812,6 +1812,12 @@ export interface JobRun {
    * @public
    */
   executionRole: string | undefined;
+
+  /**
+   * <p>Optional IAM policy. The resulting job IAM role permissions will be an intersection of the policies passed and the policy associated with your job execution role.</p>
+   * @public
+   */
+  executionIamPolicy?: JobRunExecutionIamPolicy | undefined;
 
   /**
    * <p>The state of the job run.</p>

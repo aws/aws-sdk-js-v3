@@ -52,6 +52,12 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     updatedAt: new Date("TIMESTAMP"), // required
  * //     executionRole: "STRING_VALUE", // required
+ * //     executionIamPolicy: { // JobRunExecutionIamPolicy
+ * //       policy: "STRING_VALUE",
+ * //       policyArns: [ // PolicyArnList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //     state: "STRING_VALUE", // required
  * //     stateDetails: "STRING_VALUE", // required
  * //     releaseLabel: "STRING_VALUE", // required

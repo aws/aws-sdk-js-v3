@@ -1121,6 +1121,7 @@ const de_JobRun = (output: any, context: __SerdeContext): JobRun => {
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     createdBy: __expectString,
     endedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    executionIamPolicy: _json,
     executionRole: __expectString,
     executionTimeoutMinutes: __expectLong,
     jobDriver: (_: any) => _json(__expectUnion(_)),
@@ -1176,6 +1177,8 @@ const de_JobRunAttemptSummary = (output: any, context: __SerdeContext): JobRunAt
   }) as any;
 };
 
+// de_JobRunExecutionIamPolicy omitted.
+
 /**
  * deserializeAws_restJson1JobRuns
  */
@@ -1223,6 +1226,8 @@ const de_JobRunSummary = (output: any, context: __SerdeContext): JobRunSummary =
 // de_MonitoringConfiguration omitted.
 
 // de_NetworkConfiguration omitted.
+
+// de_PolicyArnList omitted.
 
 // de_PrometheusMonitoringConfiguration omitted.
 
