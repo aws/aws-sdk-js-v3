@@ -1311,7 +1311,7 @@ export interface DomainName {
   domainNameId?: string | undefined;
 
   /**
-   * <p>The ARN of the domain name. Supported only for private custom domain names.
+   * <p>The ARN of the domain name.
    * </p>
    * @public
    */
@@ -1875,7 +1875,7 @@ export interface Integration {
   contentHandling?: ContentHandlingStrategy | undefined;
 
   /**
-   * <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.</p>
+   * <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.</p>
    * @public
    */
   timeoutInMillis?: number | undefined;
@@ -5222,7 +5222,7 @@ export interface PutIntegrationRequest {
   contentHandling?: ContentHandlingStrategy | undefined;
 
   /**
-   * <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.</p>
+   * <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.  You can increase the default value to longer than 29 seconds for Regional or private APIs only.</p>
    * @public
    */
   timeoutInMillis?: number | undefined;
