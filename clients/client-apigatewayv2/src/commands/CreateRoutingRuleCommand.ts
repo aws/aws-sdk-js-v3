@@ -28,7 +28,7 @@ export interface CreateRoutingRuleCommandInput extends CreateRoutingRuleRequest 
 export interface CreateRoutingRuleCommandOutput extends CreateRoutingRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a RoutingRule</p>
+ * <p>Creates a RoutingRule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
