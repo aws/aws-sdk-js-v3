@@ -65,13 +65,13 @@ export const parseOutpostArnablesMiddleaware =
       arn = parseArn(input.Name!);
       validateOutpostsArn(arn, validatorOptions);
       const { outpostId, accesspointName } = parseOutpostsAccessPointArnResource(arn.resource);
-      input.Name = accesspointName;
+      // input.Name = accesspointName;
       context[CONTEXT_OUTPOST_ID] = outpostId;
     } else {
       arn = parseArn(input.Bucket!);
       validateOutpostsArn(arn, validatorOptions);
       const { outpostId, bucketName } = parseOutpostBucketArnResource(arn.resource);
-      input.Bucket = bucketName;
+      // input.Bucket = bucketName;
       context[CONTEXT_OUTPOST_ID] = outpostId;
     }
     context[CONTEXT_SIGNING_SERVICE] = arn.service; // s3-outposts
