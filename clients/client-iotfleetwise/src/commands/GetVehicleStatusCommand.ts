@@ -48,7 +48,7 @@ export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse,
  * //     { // VehicleStatus
  * //       campaignName: "STRING_VALUE",
  * //       vehicleName: "STRING_VALUE",
- * //       status: "CREATED" || "READY" || "HEALTHY" || "SUSPENDED" || "DELETING",
+ * //       status: "CREATED" || "READY" || "HEALTHY" || "SUSPENDED" || "DELETING" || "READY_FOR_CHECKIN",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
