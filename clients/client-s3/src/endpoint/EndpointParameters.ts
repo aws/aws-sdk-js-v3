@@ -24,10 +24,16 @@ export type ClientResolvedEndpointParameters = ClientInputEndpointParameters & {
 export const resolveClientEndpointParameters = <T>(
   options: T & ClientInputEndpointParameters
 ): T & ClientResolvedEndpointParameters => {
+  let forcePathStyleDefault = false;
+  // Custom endpoints are incompatible with virtual-host-style, unless
+  // the endpoint includes "s3." to allow for virtual-host-style testing.
+  if (options.endpoint && !options.useAccelerateEndpoint && !options.endpoint.includes("s3.")) {
+    forcePathStyleDefault = true;
+  }
   return Object.assign(options, {
     useFipsEndpoint: options.useFipsEndpoint ?? false,
     useDualstackEndpoint: options.useDualstackEndpoint ?? false,
-    forcePathStyle: options.forcePathStyle ?? false,
+    forcePathStyle: options.forcePathStyle ?? forcePathStyleDefault,
     useAccelerateEndpoint: options.useAccelerateEndpoint ?? false,
     useGlobalEndpoint: options.useGlobalEndpoint ?? false,
     disableMultiregionAccessPoints: options.disableMultiregionAccessPoints ?? false,
