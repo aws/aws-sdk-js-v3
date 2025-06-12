@@ -63,6 +63,11 @@ import {
   GetConnectInstanceConfigCommandOutput,
 } from "./commands/GetConnectInstanceConfigCommand";
 import {
+  GetInstanceCommunicationLimitsCommand,
+  GetInstanceCommunicationLimitsCommandInput,
+  GetInstanceCommunicationLimitsCommandOutput,
+} from "./commands/GetInstanceCommunicationLimitsCommand";
+import {
   GetInstanceOnboardingJobStatusCommand,
   GetInstanceOnboardingJobStatusCommandInput,
   GetInstanceOnboardingJobStatusCommandOutput,
@@ -92,6 +97,11 @@ import {
   PutConnectInstanceIntegrationCommandInput,
   PutConnectInstanceIntegrationCommandOutput,
 } from "./commands/PutConnectInstanceIntegrationCommand";
+import {
+  PutInstanceCommunicationLimitsCommand,
+  PutInstanceCommunicationLimitsCommandInput,
+  PutInstanceCommunicationLimitsCommandOutput,
+} from "./commands/PutInstanceCommunicationLimitsCommand";
 import {
   PutOutboundRequestBatchCommand,
   PutOutboundRequestBatchCommandInput,
@@ -178,12 +188,14 @@ const commands = {
   GetCampaignStateCommand,
   GetCampaignStateBatchCommand,
   GetConnectInstanceConfigCommand,
+  GetInstanceCommunicationLimitsCommand,
   GetInstanceOnboardingJobStatusCommand,
   ListCampaignsCommand,
   ListConnectInstanceIntegrationsCommand,
   ListTagsForResourceCommand,
   PauseCampaignCommand,
   PutConnectInstanceIntegrationCommand,
+  PutInstanceCommunicationLimitsCommand,
   PutOutboundRequestBatchCommand,
   PutProfileOutboundRequestBatchCommand,
   ResumeCampaignCommand,
@@ -401,6 +413,23 @@ export interface ConnectCampaignsV2 {
   ): void;
 
   /**
+   * @see {@link GetInstanceCommunicationLimitsCommand}
+   */
+  getInstanceCommunicationLimits(
+    args: GetInstanceCommunicationLimitsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInstanceCommunicationLimitsCommandOutput>;
+  getInstanceCommunicationLimits(
+    args: GetInstanceCommunicationLimitsCommandInput,
+    cb: (err: any, data?: GetInstanceCommunicationLimitsCommandOutput) => void
+  ): void;
+  getInstanceCommunicationLimits(
+    args: GetInstanceCommunicationLimitsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInstanceCommunicationLimitsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetInstanceOnboardingJobStatusCommand}
    */
   getInstanceOnboardingJobStatus(
@@ -489,6 +518,23 @@ export interface ConnectCampaignsV2 {
     args: PutConnectInstanceIntegrationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutConnectInstanceIntegrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutInstanceCommunicationLimitsCommand}
+   */
+  putInstanceCommunicationLimits(
+    args: PutInstanceCommunicationLimitsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutInstanceCommunicationLimitsCommandOutput>;
+  putInstanceCommunicationLimits(
+    args: PutInstanceCommunicationLimitsCommandInput,
+    cb: (err: any, data?: PutInstanceCommunicationLimitsCommandOutput) => void
+  ): void;
+  putInstanceCommunicationLimits(
+    args: PutInstanceCommunicationLimitsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutInstanceCommunicationLimitsCommandOutput) => void
   ): void;
 
   /**

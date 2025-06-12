@@ -191,6 +191,7 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * //           },
  * //         ],
  * //       },
+ * //       instanceLimitsHandling: "STRING_VALUE",
  * //     },
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",

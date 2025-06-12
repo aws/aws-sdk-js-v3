@@ -10,10 +10,10 @@ import {
   ServiceOutputTypes,
 } from "../ConnectCampaignsV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateCampaignCommunicationLimitsRequest } from "../models/models_0";
+import { PutInstanceCommunicationLimitsRequest } from "../models/models_0";
 import {
-  de_UpdateCampaignCommunicationLimitsCommand,
-  se_UpdateCampaignCommunicationLimitsCommand,
+  de_PutInstanceCommunicationLimitsCommand,
+  se_PutInstanceCommunicationLimitsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -24,27 +24,27 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateCampaignCommunicationLimitsCommand}.
+ * The input for {@link PutInstanceCommunicationLimitsCommand}.
  */
-export interface UpdateCampaignCommunicationLimitsCommandInput extends UpdateCampaignCommunicationLimitsRequest {}
+export interface PutInstanceCommunicationLimitsCommandInput extends PutInstanceCommunicationLimitsRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateCampaignCommunicationLimitsCommand}.
+ * The output of {@link PutInstanceCommunicationLimitsCommand}.
  */
-export interface UpdateCampaignCommunicationLimitsCommandOutput extends __MetadataBearer {}
+export interface PutInstanceCommunicationLimitsCommandOutput extends __MetadataBearer {}
 
 /**
- * Updates the communication limits config for a campaign. This API is idempotent.
+ * Put the instance communication limits. This API is idempotent.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCampaignsV2Client, UpdateCampaignCommunicationLimitsCommand } from "@aws-sdk/client-connectcampaignsv2"; // ES Modules import
- * // const { ConnectCampaignsV2Client, UpdateCampaignCommunicationLimitsCommand } = require("@aws-sdk/client-connectcampaignsv2"); // CommonJS import
+ * import { ConnectCampaignsV2Client, PutInstanceCommunicationLimitsCommand } from "@aws-sdk/client-connectcampaignsv2"; // ES Modules import
+ * // const { ConnectCampaignsV2Client, PutInstanceCommunicationLimitsCommand } = require("@aws-sdk/client-connectcampaignsv2"); // CommonJS import
  * const client = new ConnectCampaignsV2Client(config);
- * const input = { // UpdateCampaignCommunicationLimitsRequest
- *   id: "STRING_VALUE", // required
- *   communicationLimitsOverride: { // CommunicationLimitsConfig
+ * const input = { // PutInstanceCommunicationLimitsRequest
+ *   connectInstanceId: "STRING_VALUE", // required
+ *   communicationLimitsConfig: { // InstanceCommunicationLimitsConfig
  *     allChannelSubtypes: { // CommunicationLimits Union: only one key present
  *       communicationLimitsList: [ // CommunicationLimitList
  *         { // CommunicationLimit
@@ -54,19 +54,18 @@ export interface UpdateCampaignCommunicationLimitsCommandOutput extends __Metada
  *         },
  *       ],
  *     },
- *     instanceLimitsHandling: "STRING_VALUE",
  *   },
  * };
- * const command = new UpdateCampaignCommunicationLimitsCommand(input);
+ * const command = new PutInstanceCommunicationLimitsCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param UpdateCampaignCommunicationLimitsCommandInput - {@link UpdateCampaignCommunicationLimitsCommandInput}
- * @returns {@link UpdateCampaignCommunicationLimitsCommandOutput}
- * @see {@link UpdateCampaignCommunicationLimitsCommandInput} for command's `input` shape.
- * @see {@link UpdateCampaignCommunicationLimitsCommandOutput} for command's `response` shape.
+ * @param PutInstanceCommunicationLimitsCommandInput - {@link PutInstanceCommunicationLimitsCommandInput}
+ * @returns {@link PutInstanceCommunicationLimitsCommandOutput}
+ * @see {@link PutInstanceCommunicationLimitsCommandInput} for command's `input` shape.
+ * @see {@link PutInstanceCommunicationLimitsCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsV2ClientResolvedConfig | config} for ConnectCampaignsV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -77,9 +76,6 @@ export interface UpdateCampaignCommunicationLimitsCommandOutput extends __Metada
  *
  * @throws {@link InternalServerException} (server fault)
  *  Request processing failed because of an error or failure with the service.
- *
- * @throws {@link InvalidCampaignStateException} (client fault)
- *  The request could not be processed because of conflict in the current state of the campaign.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  The specified resource was not found.
@@ -93,10 +89,10 @@ export interface UpdateCampaignCommunicationLimitsCommandOutput extends __Metada
  *
  * @public
  */
-export class UpdateCampaignCommunicationLimitsCommand extends $Command
+export class PutInstanceCommunicationLimitsCommand extends $Command
   .classBuilder<
-    UpdateCampaignCommunicationLimitsCommandInput,
-    UpdateCampaignCommunicationLimitsCommandOutput,
+    PutInstanceCommunicationLimitsCommandInput,
+    PutInstanceCommunicationLimitsCommandOutput,
     ConnectCampaignsV2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -108,21 +104,21 @@ export class UpdateCampaignCommunicationLimitsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonConnectCampaignServiceV2", "UpdateCampaignCommunicationLimits", {})
-  .n("ConnectCampaignsV2Client", "UpdateCampaignCommunicationLimitsCommand")
+  .s("AmazonConnectCampaignServiceV2", "PutInstanceCommunicationLimits", {})
+  .n("ConnectCampaignsV2Client", "PutInstanceCommunicationLimitsCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateCampaignCommunicationLimitsCommand)
-  .de(de_UpdateCampaignCommunicationLimitsCommand)
+  .ser(se_PutInstanceCommunicationLimitsCommand)
+  .de(de_PutInstanceCommunicationLimitsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateCampaignCommunicationLimitsRequest;
+      input: PutInstanceCommunicationLimitsRequest;
       output: {};
     };
     sdk: {
-      input: UpdateCampaignCommunicationLimitsCommandInput;
-      output: UpdateCampaignCommunicationLimitsCommandOutput;
+      input: PutInstanceCommunicationLimitsCommandInput;
+      output: PutInstanceCommunicationLimitsCommandOutput;
     };
   };
 }

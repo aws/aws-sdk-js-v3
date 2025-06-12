@@ -90,6 +90,10 @@ import {
   GetConnectInstanceConfigCommandOutput,
 } from "./commands/GetConnectInstanceConfigCommand";
 import {
+  GetInstanceCommunicationLimitsCommandInput,
+  GetInstanceCommunicationLimitsCommandOutput,
+} from "./commands/GetInstanceCommunicationLimitsCommand";
+import {
   GetInstanceOnboardingJobStatusCommandInput,
   GetInstanceOnboardingJobStatusCommandOutput,
 } from "./commands/GetInstanceOnboardingJobStatusCommand";
@@ -107,6 +111,10 @@ import {
   PutConnectInstanceIntegrationCommandInput,
   PutConnectInstanceIntegrationCommandOutput,
 } from "./commands/PutConnectInstanceIntegrationCommand";
+import {
+  PutInstanceCommunicationLimitsCommandInput,
+  PutInstanceCommunicationLimitsCommandOutput,
+} from "./commands/PutInstanceCommunicationLimitsCommand";
 import {
   PutOutboundRequestBatchCommandInput,
   PutOutboundRequestBatchCommandOutput,
@@ -176,12 +184,14 @@ export type ServiceInputTypes =
   | GetCampaignStateBatchCommandInput
   | GetCampaignStateCommandInput
   | GetConnectInstanceConfigCommandInput
+  | GetInstanceCommunicationLimitsCommandInput
   | GetInstanceOnboardingJobStatusCommandInput
   | ListCampaignsCommandInput
   | ListConnectInstanceIntegrationsCommandInput
   | ListTagsForResourceCommandInput
   | PauseCampaignCommandInput
   | PutConnectInstanceIntegrationCommandInput
+  | PutInstanceCommunicationLimitsCommandInput
   | PutOutboundRequestBatchCommandInput
   | PutProfileOutboundRequestBatchCommandInput
   | ResumeCampaignCommandInput
@@ -214,12 +224,14 @@ export type ServiceOutputTypes =
   | GetCampaignStateBatchCommandOutput
   | GetCampaignStateCommandOutput
   | GetConnectInstanceConfigCommandOutput
+  | GetInstanceCommunicationLimitsCommandOutput
   | GetInstanceOnboardingJobStatusCommandOutput
   | ListCampaignsCommandOutput
   | ListConnectInstanceIntegrationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PauseCampaignCommandOutput
   | PutConnectInstanceIntegrationCommandOutput
+  | PutInstanceCommunicationLimitsCommandOutput
   | PutOutboundRequestBatchCommandOutput
   | PutProfileOutboundRequestBatchCommandOutput
   | ResumeCampaignCommandOutput

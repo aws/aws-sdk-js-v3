@@ -500,6 +500,20 @@ export namespace CommunicationLimits {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const InstanceLimitsHandling = {
+  OPT_IN: "OPT_IN",
+  OPT_OUT: "OPT_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceLimitsHandling = (typeof InstanceLimitsHandling)[keyof typeof InstanceLimitsHandling];
+
+/**
  * Communication limits config
  * @public
  */
@@ -509,6 +523,12 @@ export interface CommunicationLimitsConfig {
    * @public
    */
   allChannelSubtypes?: CommunicationLimits | undefined;
+
+  /**
+   * Instance limits handling
+   * @public
+   */
+  instanceLimitsHandling?: InstanceLimitsHandling | undefined;
 }
 
 /**
@@ -1686,6 +1706,42 @@ export interface GetConnectInstanceConfigResponse {
 }
 
 /**
+ * The request for GetInstanceCommunicationLimits API.
+ * @public
+ */
+export interface GetInstanceCommunicationLimitsRequest {
+  /**
+   * Amazon Connect Instance Id
+   * @public
+   */
+  connectInstanceId: string | undefined;
+}
+
+/**
+ * Instance Communication limits config
+ * @public
+ */
+export interface InstanceCommunicationLimitsConfig {
+  /**
+   * Communication limits
+   * @public
+   */
+  allChannelSubtypes?: CommunicationLimits | undefined;
+}
+
+/**
+ * The response for GetInstanceCommunicationLimits API.
+ * @public
+ */
+export interface GetInstanceCommunicationLimitsResponse {
+  /**
+   * Instance Communication limits config
+   * @public
+   */
+  communicationLimitsConfig?: InstanceCommunicationLimitsConfig | undefined;
+}
+
+/**
  * The request for GetInstanceOnboardingJobStatus API.
  * @public
  */
@@ -2184,6 +2240,24 @@ export interface PutConnectInstanceIntegrationRequest {
    * @public
    */
   integrationConfig: IntegrationConfig | undefined;
+}
+
+/**
+ * The request for PutInstanceCommunicationLimits API.
+ * @public
+ */
+export interface PutInstanceCommunicationLimitsRequest {
+  /**
+   * Amazon Connect Instance Id
+   * @public
+   */
+  connectInstanceId: string | undefined;
+
+  /**
+   * Instance Communication limits config
+   * @public
+   */
+  communicationLimitsConfig: InstanceCommunicationLimitsConfig | undefined;
 }
 
 /**

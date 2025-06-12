@@ -67,6 +67,10 @@ import {
   GetConnectInstanceConfigCommandOutput,
 } from "../commands/GetConnectInstanceConfigCommand";
 import {
+  GetInstanceCommunicationLimitsCommandInput,
+  GetInstanceCommunicationLimitsCommandOutput,
+} from "../commands/GetInstanceCommunicationLimitsCommand";
+import {
   GetInstanceOnboardingJobStatusCommandInput,
   GetInstanceOnboardingJobStatusCommandOutput,
 } from "../commands/GetInstanceOnboardingJobStatusCommand";
@@ -84,6 +88,10 @@ import {
   PutConnectInstanceIntegrationCommandInput,
   PutConnectInstanceIntegrationCommandOutput,
 } from "../commands/PutConnectInstanceIntegrationCommand";
+import {
+  PutInstanceCommunicationLimitsCommandInput,
+  PutInstanceCommunicationLimitsCommandOutput,
+} from "../commands/PutInstanceCommunicationLimitsCommand";
 import {
   PutOutboundRequestBatchCommandInput,
   PutOutboundRequestBatchCommandOutput,
@@ -151,6 +159,7 @@ import {
   EncryptionConfig,
   EventTrigger,
   EventType,
+  InstanceCommunicationLimitsConfig,
   InstanceIdFilter,
   IntegrationConfig,
   IntegrationIdentifier,
@@ -418,6 +427,22 @@ export const se_GetConnectInstanceConfigCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetInstanceCommunicationLimitsCommand
+ */
+export const se_GetInstanceCommunicationLimitsCommand = async (
+  input: GetInstanceCommunicationLimitsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/connect-instance/{connectInstanceId}/communication-limits");
+  b.p("connectInstanceId", () => input.connectInstanceId!, "{connectInstanceId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetInstanceOnboardingJobStatusCommand
  */
 export const se_GetInstanceOnboardingJobStatusCommand = async (
@@ -526,6 +551,29 @@ export const se_PutConnectInstanceIntegrationCommand = async (
   body = JSON.stringify(
     take(input, {
       integrationConfig: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutInstanceCommunicationLimitsCommand
+ */
+export const se_PutInstanceCommunicationLimitsCommand = async (
+  input: PutInstanceCommunicationLimitsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/connect-instance/{connectInstanceId}/communication-limits");
+  b.p("connectInstanceId", () => input.connectInstanceId!, "{connectInstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      communicationLimitsConfig: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -1080,6 +1128,27 @@ export const de_GetConnectInstanceConfigCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetInstanceCommunicationLimitsCommand
+ */
+export const de_GetInstanceCommunicationLimitsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInstanceCommunicationLimitsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    communicationLimitsConfig: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetInstanceOnboardingJobStatusCommand
  */
 export const de_GetInstanceOnboardingJobStatusCommand = async (
@@ -1189,6 +1258,23 @@ export const de_PutConnectInstanceIntegrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConnectInstanceIntegrationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutInstanceCommunicationLimitsCommand
+ */
+export const de_PutInstanceCommunicationLimitsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutInstanceCommunicationLimitsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -1766,6 +1852,8 @@ const se_EmailChannelSubtypeConfig = (input: EmailChannelSubtypeConfig, context:
 
 // se_EventTrigger omitted.
 
+// se_InstanceCommunicationLimitsConfig omitted.
+
 // se_InstanceIdFilter omitted.
 
 // se_IntegrationConfig omitted.
@@ -2025,6 +2113,8 @@ const de_EmailChannelSubtypeConfig = (output: any, context: __SerdeContext): Ema
 // de_FailedRequest omitted.
 
 // de_FailedRequestList omitted.
+
+// de_InstanceCommunicationLimitsConfig omitted.
 
 // de_InstanceConfig omitted.
 

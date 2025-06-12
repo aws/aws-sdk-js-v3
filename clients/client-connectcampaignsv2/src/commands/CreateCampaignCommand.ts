@@ -183,6 +183,7 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *         },
  *       ],
  *     },
+ *     instanceLimitsHandling: "STRING_VALUE",
  *   },
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",

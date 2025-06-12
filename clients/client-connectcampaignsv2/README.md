@@ -301,6 +301,14 @@ GetConnectInstanceConfig
 </details>
 <details>
 <summary>
+GetInstanceCommunicationLimits
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/GetInstanceCommunicationLimitsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/GetInstanceCommunicationLimitsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/GetInstanceCommunicationLimitsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetInstanceOnboardingJobStatus
 </summary>
 
@@ -345,6 +353,14 @@ PutConnectInstanceIntegration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/PutConnectInstanceIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/PutConnectInstanceIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/PutConnectInstanceIntegrationCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutInstanceCommunicationLimits
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/PutInstanceCommunicationLimitsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/PutInstanceCommunicationLimitsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/PutInstanceCommunicationLimitsCommandOutput/)
 
 </details>
 <details>
