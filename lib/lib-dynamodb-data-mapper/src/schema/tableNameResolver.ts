@@ -1,4 +1,4 @@
-import { DynamoDbTable } from "../schema";
+import { DynamoDbTable, getTableName } from "../schema";
 
 /**
  * Interface for resolving the DynamoDB table name associated with a model class.
@@ -58,7 +58,12 @@ export class DefaultTableNameResolver implements TableNameResolver {
     }
 
     // 2. Use symbol or fallback to class name
-    const baseName = (modelClass as any)[DynamoDbTable] ?? name;
+    let baseName: string;
+    try {
+      baseName = getTableName(modelClass);
+    } catch {
+      baseName = modelClass.name;
+    }
 
     // 3. Apply prefix or environment tagging
     let resolved = baseName;

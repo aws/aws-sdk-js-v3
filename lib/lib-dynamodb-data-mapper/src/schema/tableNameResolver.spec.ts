@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { DynamoDbTable } from "../schema";
-import { DefaultTableNameResolver } from "./tableNameResolver";
+import { DefaultTableNameResolver, DynamoDbTable } from "../schema";
 
 class User {
   static [DynamoDbTable] = "Users";

@@ -14,6 +14,7 @@ import { HttpHandlerOptions } from "@smithy/types";
 
 import { DataMarshaller } from "./marshaller";
 import { getSchema, getTableName, ItemSchema } from "./schema";
+import { DefaultTableNameResolver, TableNameResolver } from "./schema";
 
 /**
  * Configuration for binding a specific table and model type.
@@ -45,8 +46,32 @@ export interface TableBindingConfig<D, T = D> {
  * @public
  */
 export interface DataMapperConfig {
+  /**
+   * The underlying DynamoDB client used to send requests.
+   */
   client: DynamoDBClient;
+
+  /**
+   * Optional configuration for value marshalling/unmarshalling.
+   * This is passed to the AWS marshall/unmarshall utilities.
+   */
   translateConfig?: marshallOptions;
+
+  /**
+   * Optional table name resolver used to dynamically determine table names
+   * based on the model class. If not provided, a {@link DefaultTableNameResolver}
+   * will be used.
+   *
+   * @example
+   * ```ts
+   * const resolver = new DefaultTableNameResolver({ prefix: 'dev_' });
+   * const mapper = DataMapper.from(User, {
+   *   client,
+   *   tableNameResolver: resolver,
+   * });
+   * ```
+   */
+  tableNameResolver?: TableNameResolver;
 }
 
 /**
@@ -66,6 +91,7 @@ export class DataMapper<D extends object, T = D> {
   private readonly toDocument: (data: T) => D;
   private readonly documentClass?: Function;
   private readonly translateConfig?: marshallOptions;
+  private readonly tableNameResolver: TableNameResolver;
 
   /**
    * Constructor is private to enforce usage of factory methods like `forModel()`.
@@ -85,10 +111,11 @@ export class DataMapper<D extends object, T = D> {
       }
     }
 
+    this.tableNameResolver = config.tableNameResolver ?? new DefaultTableNameResolver();
     this.tableName = binding.tableName;
     if (!this.tableName && binding.documentClass) {
       try {
-        this.tableName = getTableName(binding.documentClass);
+        this.tableName = this.tableNameResolver.resolve(binding.documentClass);
       } catch {
         this.tableName = binding.documentClass.name; // fall back to schema-less mode
       }
