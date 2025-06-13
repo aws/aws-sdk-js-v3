@@ -5,11 +5,11 @@ import { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provi
  * @public
  */
 export interface ClientInputEndpointParameters {
-  region?: string | Provider<string>;
-  useFipsEndpoint?: boolean | Provider<boolean>;
-  useDualstackEndpoint?: boolean | Provider<boolean>;
+  region?: string | undefined | Provider<string | undefined>;
+  useFipsEndpoint?: boolean | undefined | Provider<boolean | undefined>;
+  useDualstackEndpoint?: boolean | undefined | Provider<boolean | undefined>;
   endpoint?: string | Provider<string> | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
-  useArnRegion?: boolean | Provider<boolean>;
+  useArnRegion?: boolean | undefined | Provider<boolean | undefined>;
 }
 
 export type ClientResolvedEndpointParameters = ClientInputEndpointParameters & {
@@ -35,15 +35,15 @@ export const commonParams = {
 } as const;
 
 export interface EndpointParameters extends __EndpointParameters {
-  Region?: string;
-  UseFIPS?: boolean;
-  UseDualStack?: boolean;
-  Endpoint?: string;
-  AccountId?: string;
-  RequiresAccountId?: boolean;
-  OutpostId?: string;
-  Bucket?: string;
-  AccessPointName?: string;
-  UseArnRegion?: boolean;
-  UseS3ExpressControlEndpoint?: boolean;
+  Region?: string | undefined;
+  UseFIPS?: boolean | undefined;
+  UseDualStack?: boolean | undefined;
+  Endpoint?: string | undefined;
+  AccountId?: string | undefined;
+  RequiresAccountId?: boolean | undefined;
+  OutpostId?: string | undefined;
+  Bucket?: string | undefined;
+  AccessPointName?: string | undefined;
+  UseArnRegion?: boolean | undefined;
+  UseS3ExpressControlEndpoint?: boolean | undefined;
 }

@@ -5,10 +5,10 @@ import { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provi
  * @public
  */
 export interface ClientInputEndpointParameters {
-  useDualstackEndpoint?: boolean | Provider<boolean>;
-  useFipsEndpoint?: boolean | Provider<boolean>;
+  useDualstackEndpoint?: boolean | undefined | Provider<boolean | undefined>;
+  useFipsEndpoint?: boolean | undefined | Provider<boolean | undefined>;
   endpoint?: string | Provider<string> | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
-  region?: string | Provider<string>;
+  region?: string | undefined | Provider<string | undefined>;
 }
 
 export type ClientResolvedEndpointParameters = ClientInputEndpointParameters & {
@@ -33,8 +33,8 @@ export const commonParams = {
 } as const;
 
 export interface EndpointParameters extends __EndpointParameters {
-  UseDualStack?: boolean;
-  UseFIPS?: boolean;
-  Endpoint?: string;
-  Region?: string;
+  UseDualStack?: boolean | undefined;
+  UseFIPS?: boolean | undefined;
+  Endpoint?: string | undefined;
+  Region?: string | undefined;
 }
