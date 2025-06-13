@@ -1,18 +1,28 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
-import { PutItemCommand, GetItemCommand } from "@aws-sdk/client-dynamodb";
-import { DataMapper } from "./DataMapper";
-import { DataMarshaller } from "./marshaller";
-import { marshall as awsMarshall } from "@aws-sdk/util-dynamodb";
-import { DynamoDbSchema, ItemSchema } from "./schema";
 import "reflect-metadata";
 
-class Placeholder { id!: string; name!: string; }
+import { GetItemCommand, PutItemCommand } from "@aws-sdk/client-dynamodb";
+import { marshall as awsMarshall } from "@aws-sdk/util-dynamodb";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+
+import { DataMapper } from "./DataMapper";
+import { DataMarshaller } from "./marshaller";
+import { DynamoDbSchema, ItemSchema } from "./schema";
+
+class Placeholder {
+  id!: string;
+  name!: string;
+}
 class UserDefinedClass {
   id!: string;
   name!: string;
-  exampleMethod() { return `${this.id} ${this.name}`; }
+  exampleMethod() {
+    return `${this.id} ${this.name}`;
+  }
 }
-class DecoratedClass { id!: string; name!: string; }
+class DecoratedClass {
+  id!: string;
+  name!: string;
+}
 
 const schema: ItemSchema = {
   id: { type: "String", keyType: "HASH" },
@@ -42,8 +52,14 @@ const useCases = [
     instance: Object.assign(new UserDefinedClass(), { id: "123", name: "Alice" }),
     model: UserDefinedClass,
     tableName: "test",
-    fromDocument: UserDefinedClass["fromDocument"] || ((doc) => Object.assign(new UserDefinedClass(), doc)),
-    toDocument: UserDefinedClass["toDocument"] || ((data) => ({ id: data.id, name: data.name })),
+    fromDocument:
+      "fromDocument" in UserDefinedClass
+        ? (UserDefinedClass as any).fromDocument
+        : (doc: any) => Object.assign(new UserDefinedClass(), doc),
+    toDocument:
+      "toDocument" in UserDefinedClass
+        ? (UserDefinedClass as any).toDocument
+        : (data: any) => ({ id: data.id, name: data.name }),
   },
   {
     description: "class with schema metadata (protocol-based)",
@@ -61,8 +77,8 @@ const useCases = [
     tableName: "test",
     document: { id: "123", name: "Alice" },
     instance: Object.assign(new DecoratedClass(), { id: "123", name: "Alice" }),
-    skip: true
-  }
+    skip: true,
+  },
 ];
 
 describe("DataMapper", () => {
@@ -97,7 +113,17 @@ describe("DataMapper", () => {
   });
 
   describe("put", () => {
-    for (const { description, model, tableName, document, instance, schema, fromDocument, toDocument, skip } of useCases) {
+    for (const {
+      description,
+      model,
+      tableName,
+      document,
+      instance,
+      schema,
+      fromDocument,
+      toDocument,
+      skip,
+    } of useCases) {
       const run = skip ? it.skip : it;
       run(`put() works correctly for ${description}`, async () => {
         if (schema) Object.defineProperty(model, DynamoDbSchema, { value: schema });
@@ -125,7 +151,17 @@ describe("DataMapper", () => {
   });
 
   describe("get", () => {
-    for (const { description, model, tableName, document, instance, schema, fromDocument, toDocument, skip } of useCases) {
+    for (const {
+      description,
+      model,
+      tableName,
+      document,
+      instance,
+      schema,
+      fromDocument,
+      toDocument,
+      skip,
+    } of useCases) {
       const run = skip ? it.skip : it;
       run(`get() works correctly for ${description}`, async () => {
         if (schema) Object.defineProperty(model, DynamoDbSchema, { value: schema });
@@ -169,7 +205,7 @@ describe("DataMapper", () => {
   describe("scan", () => {
     it("throws not implemented", async () => {
       const mapper = DataMapper.from(Placeholder, { client: mockClient, tableName: "test" });
-      const iter = mapper.scan()[Symbol.asyncIterator]();;
+      const iter = mapper.scan()[Symbol.asyncIterator]();
       await expect(iter.next()).rejects.toThrow("not implemented");
     });
   });
