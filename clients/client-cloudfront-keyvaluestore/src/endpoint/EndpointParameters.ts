@@ -5,8 +5,8 @@ import { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provi
  * @public
  */
 export interface ClientInputEndpointParameters {
-  region?: string | Provider<string>;
-  useFipsEndpoint?: boolean | Provider<boolean>;
+  region?: string | undefined | Provider<string | undefined>;
+  useFipsEndpoint?: boolean | undefined | Provider<boolean | undefined>;
   endpoint?: string | Provider<string> | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
 }
 
@@ -30,8 +30,8 @@ export const commonParams = {
 } as const;
 
 export interface EndpointParameters extends __EndpointParameters {
-  KvsARN?: string;
-  Region?: string;
-  UseFIPS?: boolean;
-  Endpoint?: string;
+  KvsARN?: string | undefined;
+  Region?: string | undefined;
+  UseFIPS?: boolean | undefined;
+  Endpoint?: string | undefined;
 }

@@ -25,5 +25,5 @@ export const commonParams = {
 } as const;
 
 export interface EndpointParameters extends __EndpointParameters {
-  endpoint?: string;
+  endpoint?: string | undefined;
 }

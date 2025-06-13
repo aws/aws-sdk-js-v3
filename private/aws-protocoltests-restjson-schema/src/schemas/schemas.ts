@@ -261,8 +261,8 @@ const _SMi = "SimpleMap";
 const _SNM = "SparseNumberMap";
 const _SPI = "StringPayloadInput";
 const _SS = "StringSet";
-const _SSL = "SparseStringList";
-const _SSLp = "SparseShortList";
+const _SSL = "SparseShortList";
+const _SSLp = "SparseStringList";
 const _SSM = "SparseStringMap";
 const _SSMp = "SparseSetMap";
 const _SSMpa = "SparseStructMap";
@@ -2067,8 +2067,8 @@ export var TimestampFormatHeadersIO = struct(
 );
 export var TopLevel = struct(n0, _TLo, 0, [_di, _dLi, _dMi], [() => Dialog, () => DialogList, () => DialogMap]);
 export var UnionInputOutput = struct(n0, _UIO, 0, [_con], [() => MyUnion]);
-export var GreetingStruct_n2 = struct(n2, _GS, 0, [_sa], [0]);
-export var GreetingStruct = struct(n1, _GS, 0, [_hi], [0]);
+export var GreetingStruct = struct(n2, _GS, 0, [_sa], [0]);
+export var GreetingStruct_n1 = struct(n1, _GS, 0, [_hi], [0]);
 export var Unit = "unit" as const;
 
 export var RestJsonProtocolServiceException = error(
@@ -2104,7 +2104,7 @@ export var IntegerSet = 64 | 1;
 export var NestedStringList = list(n1, _NSL, 0, 64 | 0);
 export var SparseShortList = list(
   n1,
-  _SSLp,
+  _SSL,
   {
     [_sp]: 1,
   },
@@ -2112,7 +2112,7 @@ export var SparseShortList = list(
 );
 export var SparseStringList = list(
   n1,
-  _SSL,
+  _SSLp,
   {
     [_sp]: 1,
   },
@@ -2131,7 +2131,7 @@ export var DenseNumberMap = 128 | 1;
 export var DenseSetMap = map(n0, _DSMe, 0, 0, 64 | 0);
 export var DenseStringMap = 128 | 0;
 
-export var DenseStructMap = map(n0, _DSMen, 0, 0, () => GreetingStruct);
+export var DenseStructMap = map(n0, _DSMen, 0, 0, () => GreetingStruct_n1);
 export var DialogMap = map(n0, _DM, 0, 0, () => Dialog);
 export var DocumentValuedMap = map(n0, _DVM, 0, 0, 15);
 export var SimpleMap = 128 | 0;
@@ -2170,7 +2170,7 @@ export var SparseStructMap = map(
     [_sp]: 1,
   },
   0,
-  () => GreetingStruct
+  () => GreetingStruct_n1
 );
 export var TestStringMap = 128 | 0;
 
@@ -2195,7 +2195,7 @@ export var MyUnion = uni(
   _MU,
   0,
   [_sV, _bVo, _nVu, _bVl, _tV, _eV, _lVi, _mV, _sVt, _rSV],
-  [0, 2, 1, 21, 4, 0, 64 | 0, 128 | 0, () => GreetingStruct, () => GreetingStruct_n2]
+  [0, 2, 1, 21, 4, 0, 64 | 0, 128 | 0, () => GreetingStruct_n1, () => GreetingStruct]
 );
 export var PlayerAction = uni(n0, _PA, 0, [_qu], [() => Unit]);
 export var SimpleUnion = uni(n0, _SU, 0, [_int, _st], [1, 0]);
@@ -2589,7 +2589,7 @@ export var MalformedAcceptWithBody = op(
     [_ht]: ["POST", "/MalformedAcceptWithBody", 200],
   },
   () => Unit,
-  () => GreetingStruct
+  () => GreetingStruct_n1
 );
 export var MalformedAcceptWithGenericString = op(
   n0,
@@ -2642,7 +2642,7 @@ export var MalformedContentTypeWithBody = op(
   {
     [_ht]: ["POST", "/MalformedContentTypeWithBody", 200],
   },
-  () => GreetingStruct,
+  () => GreetingStruct_n1,
   () => Unit
 );
 export var MalformedContentTypeWithGenericString = op(

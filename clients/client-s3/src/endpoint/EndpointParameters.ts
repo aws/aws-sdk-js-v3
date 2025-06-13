@@ -5,16 +5,16 @@ import { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provi
  * @public
  */
 export interface ClientInputEndpointParameters {
-  region?: string | Provider<string>;
-  useFipsEndpoint?: boolean | Provider<boolean>;
-  useDualstackEndpoint?: boolean | Provider<boolean>;
+  region?: string | undefined | Provider<string | undefined>;
+  useFipsEndpoint?: boolean | undefined | Provider<boolean | undefined>;
+  useDualstackEndpoint?: boolean | undefined | Provider<boolean | undefined>;
   endpoint?: string | Provider<string> | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
-  forcePathStyle?: boolean | Provider<boolean>;
-  useAccelerateEndpoint?: boolean | Provider<boolean>;
-  useGlobalEndpoint?: boolean | Provider<boolean>;
-  disableMultiregionAccessPoints?: boolean | Provider<boolean>;
-  useArnRegion?: boolean | Provider<boolean>;
-  disableS3ExpressSessionAuth?: boolean | Provider<boolean>;
+  forcePathStyle?: boolean | undefined | Provider<boolean | undefined>;
+  useAccelerateEndpoint?: boolean | undefined | Provider<boolean | undefined>;
+  useGlobalEndpoint?: boolean | undefined | Provider<boolean | undefined>;
+  disableMultiregionAccessPoints?: boolean | undefined | Provider<boolean | undefined>;
+  useArnRegion?: boolean | undefined | Provider<boolean | undefined>;
+  disableS3ExpressSessionAuth?: boolean | undefined | Provider<boolean | undefined>;
 }
 
 export type ClientResolvedEndpointParameters = ClientInputEndpointParameters & {
@@ -49,21 +49,21 @@ export const commonParams = {
 } as const;
 
 export interface EndpointParameters extends __EndpointParameters {
-  Bucket?: string;
-  Region?: string;
-  UseFIPS?: boolean;
-  UseDualStack?: boolean;
-  Endpoint?: string;
-  ForcePathStyle?: boolean;
-  Accelerate?: boolean;
-  UseGlobalEndpoint?: boolean;
-  UseObjectLambdaEndpoint?: boolean;
-  Key?: string;
-  Prefix?: string;
-  CopySource?: string;
-  DisableAccessPoints?: boolean;
-  DisableMultiRegionAccessPoints?: boolean;
-  UseArnRegion?: boolean;
-  UseS3ExpressControlEndpoint?: boolean;
-  DisableS3ExpressSessionAuth?: boolean;
+  Bucket?: string | undefined;
+  Region?: string | undefined;
+  UseFIPS?: boolean | undefined;
+  UseDualStack?: boolean | undefined;
+  Endpoint?: string | undefined;
+  ForcePathStyle?: boolean | undefined;
+  Accelerate?: boolean | undefined;
+  UseGlobalEndpoint?: boolean | undefined;
+  UseObjectLambdaEndpoint?: boolean | undefined;
+  Key?: string | undefined;
+  Prefix?: string | undefined;
+  CopySource?: string | undefined;
+  DisableAccessPoints?: boolean | undefined;
+  DisableMultiRegionAccessPoints?: boolean | undefined;
+  UseArnRegion?: boolean | undefined;
+  UseS3ExpressControlEndpoint?: boolean | undefined;
+  DisableS3ExpressSessionAuth?: boolean | undefined;
 }

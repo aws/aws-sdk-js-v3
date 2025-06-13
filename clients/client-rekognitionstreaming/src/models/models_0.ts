@@ -12,7 +12,6 @@ export class AccessDeniedException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string | undefined;
   Code?: string | undefined;
-
   /**
    * @internal
    */
@@ -522,7 +521,6 @@ export class InternalServerException extends __BaseException {
   readonly $fault: "server" = "server";
   Message?: string | undefined;
   Code?: string | undefined;
-
   /**
    * @internal
    */
@@ -697,7 +695,6 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string | undefined;
   Code?: string | undefined;
-
   /**
    * @internal
    */
@@ -722,7 +719,6 @@ export class ServiceUnavailableException extends __BaseException {
   readonly $fault: "server" = "server";
   Message?: string | undefined;
   Code?: string | undefined;
-
   /**
    * @internal
    */
@@ -748,7 +744,6 @@ export class ThrottlingException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string | undefined;
   Code?: string | undefined;
-
   /**
    * @internal
    */
@@ -777,7 +772,6 @@ export class ValidationException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string | undefined;
   Code?: string | undefined;
-
   /**
    * @internal
    */
@@ -989,7 +983,6 @@ export class SessionNotFoundException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string | undefined;
   Code?: string | undefined;
-
   /**
    * @internal
    */

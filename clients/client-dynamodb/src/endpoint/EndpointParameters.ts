@@ -5,12 +5,12 @@ import { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provi
  * @public
  */
 export interface ClientInputEndpointParameters {
-  region?: string | Provider<string>;
-  useDualstackEndpoint?: boolean | Provider<boolean>;
-  useFipsEndpoint?: boolean | Provider<boolean>;
+  region?: string | undefined | Provider<string | undefined>;
+  useDualstackEndpoint?: boolean | undefined | Provider<boolean | undefined>;
+  useFipsEndpoint?: boolean | undefined | Provider<boolean | undefined>;
   endpoint?: string | Provider<string> | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
-  accountId?: string | Provider<string>;
-  accountIdEndpointMode?: string | Provider<string>;
+  accountId?: string | undefined | Provider<string | undefined>;
+  accountIdEndpointMode?: string | undefined | Provider<string | undefined>;
 }
 
 export type ClientResolvedEndpointParameters = ClientInputEndpointParameters & {
@@ -37,12 +37,12 @@ export const commonParams = {
 } as const;
 
 export interface EndpointParameters extends __EndpointParameters {
-  Region?: string;
-  UseDualStack?: boolean;
-  UseFIPS?: boolean;
-  Endpoint?: string;
-  AccountId?: string;
-  AccountIdEndpointMode?: string;
-  ResourceArn?: string;
-  ResourceArnList?: string[];
+  Region?: string | undefined;
+  UseDualStack?: boolean | undefined;
+  UseFIPS?: boolean | undefined;
+  Endpoint?: string | undefined;
+  AccountId?: string | undefined;
+  AccountIdEndpointMode?: string | undefined;
+  ResourceArn?: string | undefined;
+  ResourceArnList?: string[] | undefined;
 }
