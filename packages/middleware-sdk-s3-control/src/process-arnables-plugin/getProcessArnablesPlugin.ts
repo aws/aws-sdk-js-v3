@@ -6,7 +6,7 @@ import { updateArnablesRequestMiddleware, updateArnablesRequestMiddlewareOptions
 
 export const getProcessArnablesPlugin = (options: S3ControlResolvedConfig): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
-    clientStack.add(parseOutpostArnablesMiddleaware(options), parseOutpostArnablesMiddleawareOptions);
-    clientStack.add(updateArnablesRequestMiddleware(options), updateArnablesRequestMiddlewareOptions);
+    clientStack.addRelativeTo(parseOutpostArnablesMiddleaware(options), parseOutpostArnablesMiddleawareOptions);
+    clientStack.addRelativeTo(updateArnablesRequestMiddleware(options), updateArnablesRequestMiddlewareOptions);
   },
 });

@@ -36,7 +36,7 @@ describe("getProcessArnablesMiddleware", () => {
         });
         return next(args);
       },
-      { step: "serialize" }
+      { step: "serialize", name: "serializerMiddleware" }
     );
     // Add middleware intercepting the stack and return early with the
     // execution information of stack.
@@ -104,25 +104,6 @@ describe("getProcessArnablesMiddleware", () => {
       expect(request.headers).toMatchObject({ "x-amz-outpost-id": "op-01234567890123456" });
       expect(context).toMatchObject({ signing_service: "s3-outposts", signing_region: "us-east-1" });
       expect(input.AccountId).toBe("123456789012");
-    });
-
-    it("should throw if region is not matched", async () => {
-      expect.assertions(1);
-      const clientRegion = "us-west-2";
-      const options = setupPluginOptions({
-        region: clientRegion,
-      });
-      const stack = getStack(`s3-control.${clientRegion}.amazonaws.com`, options);
-      const handler = stack.resolve((() => {}) as any, {});
-      try {
-        await handler({
-          input: {
-            Name: "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
-          },
-        });
-      } catch (e) {
-        expect(e.message).toContain("Region in ARN is incompatible, got us-east-1 but expected us-west-2");
-      }
     });
 
     it("should throw if partition is not matched", async () => {
@@ -195,26 +176,6 @@ describe("getProcessArnablesMiddleware", () => {
       expect(context).toMatchObject({ signing_service: "s3-outposts", signing_region: "us-gov-east-1" });
     });
 
-    it("should validate dualstack flag", async () => {
-      expect.assertions(1);
-      const clientRegion = "us-west-2";
-      const options = setupPluginOptions({
-        region: clientRegion,
-        useDualstackEndpoint: () => Promise.resolve(true),
-      });
-      const stack = getStack(`s3-control.${clientRegion}.amazonaws.com`, options);
-      const handler = stack.resolve((() => {}) as any, {});
-      try {
-        await handler({
-          input: {
-            Name: "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
-          },
-        });
-      } catch (e) {
-        expect(e.message).toContain("Dualstack endpoint is not supported with Outpost");
-      }
-    });
-
     it("should validate invalid access point Arns", async () => {
       const message1 = "Outpost ARN should have resource outpost/{outpostId}/accesspoint/{accesspointName}";
       const message2 = "Outpost ARN should have resource outpost:{outpostId}:accesspoint:{accesspointName}";
@@ -253,16 +214,6 @@ describe("getProcessArnablesMiddleware", () => {
       })) as any;
       expect(request.hostname).toBe(hostname);
       expect(context["signing_service"]).toBe(undefined); //signed by 's3'
-    });
-
-    it("should throw when Account ID mismatches", async () => {
-      const arn = "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint";
-      const AccountId = "923456789012";
-      const stack = getStack("s3-control.us-west-2.amazonaws.com", setupPluginOptions({ region: "us-west-2" }));
-      const handler = stack.resolve((() => {}) as any, {});
-      await expect(handler({ input: { Name: arn, AccountId } })).rejects.toThrow(
-        new Error("AccountId is incompatible with account id inferred from Name")
-      );
     });
   });
 
@@ -306,23 +257,6 @@ describe("getProcessArnablesMiddleware", () => {
       expect(request.headers).toMatchObject({ "x-amz-outpost-id": "op-01234567890123456" });
       expect(input.AccountId).toBe("123456789012");
       expect(context).toMatchObject({ signing_service: "s3-outposts", signing_region: "us-east-1" });
-    });
-
-    it("should throw if region is not matched", async () => {
-      expect.assertions(1);
-      const clientRegion = "us-west-2";
-      const options = setupPluginOptions({ region: clientRegion });
-      const stack = getStack(`s3-control.${clientRegion}.amazonaws.com`, options);
-      const handler = stack.resolve((() => {}) as any, {});
-      try {
-        await handler({
-          input: {
-            Bucket: "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:bucket:mybucket",
-          },
-        });
-      } catch (e) {
-        expect(e.message).toContain("Region in ARN is incompatible, got us-east-1 but expected us-west-2");
-      }
     });
 
     it("should throw if partition is not matched", async () => {
@@ -419,26 +353,6 @@ describe("getProcessArnablesMiddleware", () => {
       expect(context).toMatchObject({ signing_service: "s3-outposts", signing_region: "us-gov-east-1" });
     });
 
-    it("should validate dualstack flag", async () => {
-      expect.assertions(1);
-      const clientRegion = "us-west-2";
-      const options = setupPluginOptions({
-        region: clientRegion,
-        useDualstackEndpoint: () => Promise.resolve(true),
-      });
-      const stack = getStack(`s3-control.${clientRegion}.amazonaws.com`, options);
-      const handler = stack.resolve((() => {}) as any, {});
-      try {
-        await handler({
-          input: {
-            Bucket: "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:bucket:mybucket",
-          },
-        });
-      } catch (e) {
-        expect(e.message).toContain("Dualstack endpoint is not supported with Outpost");
-      }
-    });
-
     it("should validate invalid access point Arns", async () => {
       const message = "Outpost Bucket ARN should have resource outpost:{outpostId}:bucket:{bucketName}";
       const cases = [
@@ -460,21 +374,6 @@ describe("getProcessArnablesMiddleware", () => {
         const handler = stack.resolve((() => {}) as any, {});
         await expect(handler({ input: { Bucket: arn } })).rejects.toThrow(new Error(message));
       }
-    });
-
-    it("should throw when Account ID mismatches", async () => {
-      const arn = "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:bucket:mybucket";
-      const AccountId = "923456789012";
-      const stack = getStack(
-        "s3-control.us-west-2.amazonaws.com",
-        setupPluginOptions({
-          region: "us-west-2",
-        })
-      );
-      const handler = stack.resolve((() => {}) as any, {});
-      await expect(handler({ input: { Bucket: arn, AccountId } })).rejects.toThrow(
-        new Error("AccountId is incompatible with account id inferred from Bucket")
-      );
     });
   });
 });

@@ -35,6 +35,7 @@ import software.amazon.smithy.model.traits.RequiredTrait;
 import software.amazon.smithy.model.transform.ModelTransformer;
 import software.amazon.smithy.rulesengine.traits.EndpointRuleSetTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.endpointsV2.AddDefaultEndpointRuleSet;
@@ -56,6 +57,22 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
             AddBuiltinPlugins.class.getCanonicalName(),
             AddDefaultEndpointRuleSet.class.getCanonicalName()
         );
+    }
+
+    @Override
+    public void addConfigInterfaceFields(TypeScriptSettings settings,
+                                         Model model,
+                                         SymbolProvider symbolProvider,
+                                         TypeScriptWriter writer) {
+        ServiceShape service = settings.getService(model);
+        if (!isS3Control(service)) {
+            return;
+        }
+        writer.writeDocs(
+                "Whether to override the request region with the region inferred from requested resource's ARN."
+                    + " Defaults to undefined.")
+            .addImport("Provider", "Provider", TypeScriptDependency.SMITHY_TYPES)
+            .write("useArnRegion?: boolean | undefined | Provider<boolean | undefined>;");
     }
 
     @Override
@@ -118,10 +135,26 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
         }
         switch (target) {
             case SHARED:
-                return MapUtils.of("signingEscapePath", writer -> {
-                    writer.write("false");
-                });
+                return MapUtils.of(
+                "signingEscapePath", writer -> {
+                        writer.write("false");
+                    },
+                "useArnRegion", writer -> {
+                        writer.write("undefined");
+                    }
+                );
             case NODE:
+                return MapUtils.of(
+                    "useArnRegion", writer -> {
+                        writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER)
+                            .addImport("loadConfig", "loadNodeConfig",
+                                TypeScriptDependency.NODE_CONFIG_PROVIDER)
+                            .addDependency(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
+                            .addImport("NODE_USE_ARN_REGION_CONFIG_OPTIONS", "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
+                                AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
+                            .write("loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS, loaderConfig)");
+                    }
+                );
             default:
                 return Collections.emptyMap();
         }

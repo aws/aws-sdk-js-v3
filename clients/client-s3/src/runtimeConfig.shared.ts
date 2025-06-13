@@ -43,7 +43,7 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
     signerConstructor: config?.signerConstructor ?? SignatureV4MultiRegion,
     signingEscapePath: config?.signingEscapePath ?? false,
     urlParser: config?.urlParser ?? parseUrl,
-    useArnRegion: config?.useArnRegion ?? false,
+    useArnRegion: config?.useArnRegion ?? undefined,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,
     utf8Encoder: config?.utf8Encoder ?? toUtf8,
   };

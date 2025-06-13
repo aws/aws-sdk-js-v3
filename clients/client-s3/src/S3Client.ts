@@ -755,9 +755,9 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   signingEscapePath?: boolean;
 
   /**
-   * Whether to override the request region with the region inferred from requested resource's ARN. Defaults to false.
+   * Whether to override the request region with the region inferred from requested resource's ARN. Defaults to undefined.
    */
-  useArnRegion?: boolean | Provider<boolean>;
+  useArnRegion?: boolean | undefined | Provider<boolean | undefined>;
   /**
    * The internal function that inject utilities to runtime-specific stream to help users consume the data
    * @internal

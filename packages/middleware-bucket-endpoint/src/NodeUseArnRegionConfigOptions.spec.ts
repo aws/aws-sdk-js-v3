@@ -44,8 +44,8 @@ describe("NODE_USE_ARN_REGION_CONFIG_OPTIONS", () => {
     test(configFileSelector, profileContent, NODE_USE_ARN_REGION_INI_NAME, SelectorType.CONFIG);
   });
 
-  it("returns false for default", () => {
+  it("returns undefined for default", () => {
     const { default: defaultValue } = NODE_USE_ARN_REGION_CONFIG_OPTIONS;
-    expect(defaultValue).toEqual(false);
+    expect(defaultValue).toEqual(undefined);
   });
 });

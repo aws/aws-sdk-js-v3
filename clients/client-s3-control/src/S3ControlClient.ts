@@ -708,6 +708,10 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   credentialDefaultProvider?: (input: any) => AwsCredentialIdentityProvider;
 
   /**
+   * Whether to override the request region with the region inferred from requested resource's ARN. Defaults to undefined.
+   */
+  useArnRegion?: boolean | undefined | Provider<boolean | undefined>;
+  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
