@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.830.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.829.0...v3.830.0) (2025-06-16)
+
+
+### Features
+
+* **client-bedrock:** This release of the SDK has the API and documentation for the createcustommodel API. This feature lets you copy a Amazon SageMaker trained Amazon Nova model into Amazon Bedrock for inference. ([c1459bc](https://github.com/aws/aws-sdk-js-v3/commit/c1459bc0f7607023ba24cd5d27bdc0f437f38196))
+* **client-ecr:** The `DescribeImageScanning` API now includes `lastInUseAt` and `InUseCount` fields that can be used to prioritize vulnerability remediation for images that are actively being used. ([255a444](https://github.com/aws/aws-sdk-js-v3/commit/255a444af14901988b3b5a9499f31b5ef29bc357))
+* **client-network-firewall:** You can now create firewalls using a Transit Gateway instead of a VPC, resulting in a TGW attachment. ([0163292](https://github.com/aws/aws-sdk-js-v3/commit/01632923339fa2345704ae4c7b2bf039102a1e5d))
+* **client-sagemaker:** This release 1) adds a new S3DataType Converse for SageMaker training 2)adds C8g R7gd M8g C6in P6 P6e instance type for SageMaker endpoint 3) adds m7i, r7i, c7i instance type for SageMaker Training and Processing. ([797e80c](https://github.com/aws/aws-sdk-js-v3/commit/797e80ce6bb536bbd5393d76ce3cc09d4ea8cd70))
+
+
+
+
+
 # [3.829.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.828.0...v3.829.0) (2025-06-12)
 
 
