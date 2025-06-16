@@ -28,15 +28,7 @@ export interface DeleteGuardrailCommandInput extends DeleteGuardrailRequest {}
 export interface DeleteGuardrailCommandOutput extends DeleteGuardrailResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a guardrail.</p>
- *          <ul>
- *             <li>
- *                <p>To delete a guardrail, only specify the ARN of the guardrail in the <code>guardrailIdentifier</code> field. If you delete a guardrail, all of its versions will be deleted.</p>
- *             </li>
- *             <li>
- *                <p>To delete a version of a guardrail, specify the ARN of the guardrail in the <code>guardrailIdentifier</code> field and the version in the <code>guardrailVersion</code> field.</p>
- *             </li>
- *          </ul>
+ * <p>Deletes a guardrail.</p> <ul> <li> <p>To delete a guardrail, only specify the ARN of the guardrail in the <code>guardrailIdentifier</code> field. If you delete a guardrail, all of its versions will be deleted.</p> </li> <li> <p>To delete a version of a guardrail, specify the ARN of the guardrail in the <code>guardrailIdentifier</code> field and the version in the <code>guardrailVersion</code> field.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

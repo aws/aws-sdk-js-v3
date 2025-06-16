@@ -33,8 +33,7 @@ export interface CreateMarketplaceModelEndpointCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates an endpoint for a model from Amazon Bedrock Marketplace. The endpoint is hosted by
- *             Amazon SageMaker.</p>
+ * <p>Creates an endpoint for a model from Amazon Bedrock Marketplace. The endpoint is hosted by Amazon SageMaker.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

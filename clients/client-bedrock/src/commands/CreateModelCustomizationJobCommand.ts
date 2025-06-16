@@ -37,15 +37,7 @@ export interface CreateModelCustomizationJobCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a fine-tuning job to customize a base model.</p>
- *          <p>You specify the base foundation model and the location of the training data.
- *          After the  model-customization job completes successfully, your custom model resource will be ready to use. Amazon Bedrock returns validation loss metrics and output generations after the job completes.
- *       </p>
- *          <p>For information on the format of training and validation data, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html">Prepare the datasets</a>.</p>
- *          <p>
- *        Model-customization jobs are asynchronous and the completion time depends on the base model and the training/validation data size.
- *        To monitor a job, use the <code>GetModelCustomizationJob</code> operation to retrieve the job status.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+ * <p>Creates a fine-tuning job to customize a base model.</p> <p>You specify the base foundation model and the location of the training data. After the model-customization job completes successfully, your custom model resource will be ready to use. Amazon Bedrock returns validation loss metrics and output generations after the job completes. </p> <p>For information on the format of training and validation data, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html">Prepare the datasets</a>.</p> <p> Model-customization jobs are asynchronous and the completion time depends on the base model and the training/validation data size. To monitor a job, use the <code>GetModelCustomizationJob</code> operation to retrieve the job status.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,7 +50,7 @@ export interface CreateModelCustomizationJobCommandOutput
  *   roleArn: "STRING_VALUE", // required
  *   clientRequestToken: "STRING_VALUE",
  *   baseModelIdentifier: "STRING_VALUE", // required
- *   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION",
+ *   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "IMPORTED",
  *   customModelKmsKeyId: "STRING_VALUE",
  *   jobTags: [ // TagList
  *     { // Tag
@@ -170,8 +162,7 @@ export interface CreateModelCustomizationJobCommandOutput
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The request contains more tags than can be associated with a resource (50 tags per resource).
- *          The maximum number of tags includes both existing tags and those included in your current request. </p>
+ *  <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Input validation failed. Check your request parameters and retry the request.</p>

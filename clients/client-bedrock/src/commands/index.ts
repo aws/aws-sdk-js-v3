@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./BatchDeleteEvaluationJobCommand";
+export * from "./CreateCustomModelCommand";
 export * from "./CreateEvaluationJobCommand";
 export * from "./CreateGuardrailCommand";
 export * from "./CreateGuardrailVersionCommand";

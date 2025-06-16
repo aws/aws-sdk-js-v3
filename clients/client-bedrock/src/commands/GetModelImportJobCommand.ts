@@ -28,9 +28,7 @@ export interface GetModelImportJobCommandInput extends GetModelImportJobRequest 
 export interface GetModelImportJobCommandOutput extends GetModelImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the properties associated with import model job, including the status of the
- *             job. For more information,
- *             see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">Import a customized model</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+ * <p>Retrieves the properties associated with import model job, including the status of the job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">Import a customized model</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

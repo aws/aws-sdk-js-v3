@@ -33,8 +33,7 @@ export interface RegisterMarketplaceModelEndpointCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Registers an existing Amazon SageMaker endpoint with Amazon Bedrock Marketplace, allowing it to be used with
- *             Amazon Bedrock APIs.</p>
+ * <p>Registers an existing Amazon SageMaker endpoint with Amazon Bedrock Marketplace, allowing it to be used with Amazon Bedrock APIs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,8 +28,7 @@ export interface CreateModelInvocationJobCommandInput extends CreateModelInvocat
 export interface CreateModelInvocationJobCommandOutput extends CreateModelInvocationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a batch inference job to invoke a model on multiple prompts. Format your data according to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data">Format your inference data</a> and upload it to an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference.html">Process multiple prompts with batch inference</a>.</p>
- *          <p>The response returns a <code>jobArn</code> that you can use to stop or get details about the job.</p>
+ * <p>Creates a batch inference job to invoke a model on multiple prompts. Format your data according to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data">Format your inference data</a> and upload it to an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference.html">Process multiple prompts with batch inference</a>.</p> <p>The response returns a <code>jobArn</code> that you can use to stop or get details about the job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

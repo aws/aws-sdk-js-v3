@@ -28,9 +28,7 @@ export interface ListModelCustomizationJobsCommandInput extends ListModelCustomi
 export interface ListModelCustomizationJobsCommandOutput extends ListModelCustomizationJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of model customization jobs that you have submitted. You can filter the jobs to return based on
- *       one or more criteria.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+ * <p>Returns a list of model customization jobs that you have submitted. You can filter the jobs to return based on one or more criteria.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,7 +55,6 @@ export interface ListModelCustomizationJobsCommandOutput extends ListModelCustom
  * //       baseModelArn: "STRING_VALUE", // required
  * //       jobName: "STRING_VALUE", // required
  * //       status: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
- * //       lastModifiedTime: new Date("TIMESTAMP"),
  * //       statusDetails: { // StatusDetails
  * //         validationDetails: { // ValidationDetails
  * //           status: "InProgress" || "Completed" || "Stopping" || "Stopped" || "Failed" || "NotStarted",
@@ -75,11 +72,12 @@ export interface ListModelCustomizationJobsCommandOutput extends ListModelCustom
  * //           lastModifiedTime: new Date("TIMESTAMP"),
  * //         },
  * //       },
+ * //       lastModifiedTime: new Date("TIMESTAMP"),
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //       endTime: new Date("TIMESTAMP"),
  * //       customModelArn: "STRING_VALUE",
  * //       customModelName: "STRING_VALUE",
- * //       customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION",
+ * //       customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "IMPORTED",
  * //     },
  * //   ],
  * // };

@@ -28,8 +28,7 @@ export interface ListModelCopyJobsCommandInput extends ListModelCopyJobsRequest 
 export interface ListModelCopyJobsCommandOutput extends ListModelCopyJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of model copy jobs that you have submitted. You can filter the jobs to return based on
- *             one or more criteria. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/copy-model.html">Copy models to be used in other regions</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+ * <p>Returns a list of model copy jobs that you have submitted. You can filter the jobs to return based on one or more criteria. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/copy-model.html">Copy models to be used in other regions</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

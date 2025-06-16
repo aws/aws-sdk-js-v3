@@ -36,9 +36,7 @@ export interface DeregisterMarketplaceModelEndpointCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deregisters an endpoint for a model from Amazon Bedrock Marketplace. This operation removes the
- *             endpoint's association with Amazon Bedrock but does not delete the underlying Amazon SageMaker
- *             endpoint.</p>
+ * <p>Deregisters an endpoint for a model from Amazon Bedrock Marketplace. This operation removes the endpoint's association with Amazon Bedrock but does not delete the underlying Amazon SageMaker endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

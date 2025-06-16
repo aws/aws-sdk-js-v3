@@ -57,6 +57,7 @@ import {
   BatchDeleteEvaluationJobCommandInput,
   BatchDeleteEvaluationJobCommandOutput,
 } from "./commands/BatchDeleteEvaluationJobCommand";
+import { CreateCustomModelCommandInput, CreateCustomModelCommandOutput } from "./commands/CreateCustomModelCommand";
 import {
   CreateEvaluationJobCommandInput,
   CreateEvaluationJobCommandOutput,
@@ -233,6 +234,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | BatchDeleteEvaluationJobCommandInput
+  | CreateCustomModelCommandInput
   | CreateEvaluationJobCommandInput
   | CreateGuardrailCommandInput
   | CreateGuardrailVersionCommandInput
@@ -297,6 +299,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | BatchDeleteEvaluationJobCommandOutput
+  | CreateCustomModelCommandOutput
   | CreateEvaluationJobCommandOutput
   | CreateGuardrailCommandOutput
   | CreateGuardrailVersionCommandOutput

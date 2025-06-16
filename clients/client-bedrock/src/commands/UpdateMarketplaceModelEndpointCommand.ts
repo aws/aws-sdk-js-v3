@@ -33,8 +33,7 @@ export interface UpdateMarketplaceModelEndpointCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of an existing endpoint for a model from Amazon Bedrock
- *             Marketplace.</p>
+ * <p>Updates the configuration of an existing endpoint for a model from Amazon Bedrock Marketplace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

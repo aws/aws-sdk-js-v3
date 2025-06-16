@@ -32,8 +32,7 @@ export interface GetModelCustomizationJobCommandInput extends GetModelCustomizat
 export interface GetModelCustomizationJobCommandOutput extends GetModelCustomizationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the properties associated with a model-customization job, including the status of the job.
- *       For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+ * <p>Retrieves the properties associated with a model-customization job, including the status of the job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,7 +52,6 @@ export interface GetModelCustomizationJobCommandOutput extends GetModelCustomiza
  * //   clientRequestToken: "STRING_VALUE",
  * //   roleArn: "STRING_VALUE", // required
  * //   status: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
- * //   failureMessage: "STRING_VALUE",
  * //   statusDetails: { // StatusDetails
  * //     validationDetails: { // ValidationDetails
  * //       status: "InProgress" || "Completed" || "Stopping" || "Stopped" || "Failed" || "NotStarted",
@@ -71,6 +69,7 @@ export interface GetModelCustomizationJobCommandOutput extends GetModelCustomiza
  * //       lastModifiedTime: new Date("TIMESTAMP"),
  * //     },
  * //   },
+ * //   failureMessage: "STRING_VALUE",
  * //   creationTime: new Date("TIMESTAMP"), // required
  * //   lastModifiedTime: new Date("TIMESTAMP"),
  * //   endTime: new Date("TIMESTAMP"),
@@ -123,7 +122,7 @@ export interface GetModelCustomizationJobCommandOutput extends GetModelCustomiza
  * //   outputDataConfig: { // OutputDataConfig
  * //     s3Uri: "STRING_VALUE", // required
  * //   },
- * //   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION",
+ * //   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "IMPORTED",
  * //   outputModelKmsKeyArn: "STRING_VALUE",
  * //   trainingMetrics: { // TrainingMetrics
  * //     trainingLoss: Number("float"),

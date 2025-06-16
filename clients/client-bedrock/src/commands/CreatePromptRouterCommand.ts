@@ -94,8 +94,7 @@ export interface CreatePromptRouterCommandOutput extends CreatePromptRouterRespo
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The request contains more tags than can be associated with a resource (50 tags per resource).
- *          The maximum number of tags includes both existing tags and those included in your current request. </p>
+ *  <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Input validation failed. Check your request parameters and retry the request.</p>

@@ -39,6 +39,7 @@ import {
   BatchDeleteEvaluationJobCommandInput,
   BatchDeleteEvaluationJobCommandOutput,
 } from "../commands/BatchDeleteEvaluationJobCommand";
+import { CreateCustomModelCommandInput, CreateCustomModelCommandOutput } from "../commands/CreateCustomModelCommand";
 import {
   CreateEvaluationJobCommandInput,
   CreateEvaluationJobCommandOutput,
@@ -222,7 +223,6 @@ import {
   EvaluationDataset,
   EvaluationDatasetLocation,
   EvaluationDatasetMetricConfig,
-  EvaluationInferenceConfig,
   EvaluationModelConfig,
   EvaluationOutputDataConfig,
   EvaluationPrecomputedInferenceSource,
@@ -288,7 +288,6 @@ import {
   PromptTemplate,
   ProvisionedModelSummary,
   QueryTransformationConfiguration,
-  RAGConfig,
   RatingScaleItem,
   RatingScaleItemValue,
   RequestMetadataBaseFilters,
@@ -320,6 +319,7 @@ import {
   ValidatorMetric,
   VpcConfig,
 } from "../models/models_0";
+import { EvaluationInferenceConfig, RAGConfig } from "../models/models_1";
 
 /**
  * serializeAws_restJson1BatchDeleteEvaluationJobCommand
@@ -337,6 +337,33 @@ export const se_BatchDeleteEvaluationJobCommand = async (
   body = JSON.stringify(
     take(input, {
       jobIdentifiers: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateCustomModelCommand
+ */
+export const se_CreateCustomModelCommand = async (
+  input: CreateCustomModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/custom-models/create-custom-model");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      modelKmsKeyArn: [],
+      modelName: [],
+      modelSourceConfig: (_) => _json(_),
+      modelTags: (_) => _json(_),
+      roleArn: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1055,6 +1082,7 @@ export const se_ListCustomModelsCommand = async (
     [_sB]: [, input[_sB]!],
     [_sO]: [, input[_sO]!],
     [_iO]: [() => input.isOwned !== void 0, () => input[_iO]!.toString()],
+    [_mS]: [, input[_mS]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1605,6 +1633,27 @@ export const de_BatchDeleteEvaluationJobCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateCustomModelCommand
+ */
+export const de_CreateCustomModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomModelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    modelArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateEvaluationJobCommand
  */
 export const de_CreateEvaluationJobCommand = async (
@@ -2012,12 +2061,14 @@ export const de_GetCustomModelCommand = async (
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     customizationConfig: (_) => _json(__expectUnion(_)),
     customizationType: __expectString,
+    failureMessage: __expectString,
     hyperParameters: _json,
     jobArn: __expectString,
     jobName: __expectString,
     modelArn: __expectString,
     modelKmsKeyArn: __expectString,
     modelName: __expectString,
+    modelStatus: __expectString,
     outputDataConfig: _json,
     trainingDataConfig: _json,
     trainingMetrics: (_) => de_TrainingMetrics(_, context),
@@ -3867,6 +3918,7 @@ const de_CustomModelSummary = (output: any, context: __SerdeContext): CustomMode
     customizationType: __expectString,
     modelArn: __expectString,
     modelName: __expectString,
+    modelStatus: __expectString,
     ownerAccountId: __expectString,
   }) as any;
 };
@@ -4943,6 +4995,7 @@ const _gV = "guardrailVersion";
 const _iO = "isOwned";
 const _mAE = "modelArnEquals";
 const _mR = "maxResults";
+const _mS = "modelStatus";
 const _mSE = "modelSourceEquals";
 const _mSI = "modelSourceIdentifier";
 const _nC = "nameContains";

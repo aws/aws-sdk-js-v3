@@ -32,7 +32,7 @@ export interface GetCustomModelCommandInput extends GetCustomModelRequest {}
 export interface GetCustomModelCommandOutput extends GetCustomModelResponse, __MetadataBearer {}
 
 /**
- * <p>Get the properties associated with a Amazon Bedrock custom model that you have created.For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+ * <p>Get the properties associated with a Amazon Bedrock custom model that you have created. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,9 +48,9 @@ export interface GetCustomModelCommandOutput extends GetCustomModelResponse, __M
  * //   modelArn: "STRING_VALUE", // required
  * //   modelName: "STRING_VALUE", // required
  * //   jobName: "STRING_VALUE",
- * //   jobArn: "STRING_VALUE", // required
- * //   baseModelArn: "STRING_VALUE", // required
- * //   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION",
+ * //   jobArn: "STRING_VALUE",
+ * //   baseModelArn: "STRING_VALUE",
+ * //   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "IMPORTED",
  * //   modelKmsKeyArn: "STRING_VALUE",
  * //   hyperParameters: { // ModelCustomizationHyperParameters
  * //     "<keys>": "STRING_VALUE",
@@ -117,6 +117,8 @@ export interface GetCustomModelCommandOutput extends GetCustomModelResponse, __M
  * //       },
  * //     },
  * //   },
+ * //   modelStatus: "Active" || "Creating" || "Failed",
+ * //   failureMessage: "STRING_VALUE",
  * // };
  *
  * ```

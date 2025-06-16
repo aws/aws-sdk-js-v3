@@ -213,6 +213,14 @@ BatchDeleteEvaluationJob
 </details>
 <details>
 <summary>
+CreateCustomModel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/CreateCustomModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/CreateCustomModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/CreateCustomModelCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateEvaluationJob
 </summary>
 

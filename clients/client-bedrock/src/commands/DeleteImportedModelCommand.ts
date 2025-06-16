@@ -28,9 +28,7 @@ export interface DeleteImportedModelCommandInput extends DeleteImportedModelRequ
 export interface DeleteImportedModelCommandOutput extends DeleteImportedModelResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a custom model that you imported earlier. For more information,
- *         see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">Import a customized model</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.
- * </p>
+ * <p>Deletes a custom model that you imported earlier. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">Import a customized model</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

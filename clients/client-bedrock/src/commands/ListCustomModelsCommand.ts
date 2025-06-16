@@ -28,8 +28,7 @@ export interface ListCustomModelsCommandInput extends ListCustomModelsRequest {}
 export interface ListCustomModelsCommandOutput extends ListCustomModelsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the custom models that you have created with the <code>CreateModelCustomizationJob</code> operation.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+ * <p>Returns a list of the custom models that you have created with the <code>CreateModelCustomizationJob</code> operation.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,6 +46,7 @@ export interface ListCustomModelsCommandOutput extends ListCustomModelsResponse,
  *   sortBy: "CreationTime",
  *   sortOrder: "Ascending" || "Descending",
  *   isOwned: true || false,
+ *   modelStatus: "Active" || "Creating" || "Failed",
  * };
  * const command = new ListCustomModelsCommand(input);
  * const response = await client.send(command);
@@ -59,8 +59,9 @@ export interface ListCustomModelsCommandOutput extends ListCustomModelsResponse,
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //       baseModelArn: "STRING_VALUE", // required
  * //       baseModelName: "STRING_VALUE", // required
- * //       customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION",
+ * //       customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "IMPORTED",
  * //       ownerAccountId: "STRING_VALUE",
+ * //       modelStatus: "Active" || "Creating" || "Failed",
  * //     },
  * //   ],
  * // };

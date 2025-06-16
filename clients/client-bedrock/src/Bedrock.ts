@@ -9,6 +9,11 @@ import {
   BatchDeleteEvaluationJobCommandOutput,
 } from "./commands/BatchDeleteEvaluationJobCommand";
 import {
+  CreateCustomModelCommand,
+  CreateCustomModelCommandInput,
+  CreateCustomModelCommandOutput,
+} from "./commands/CreateCustomModelCommand";
+import {
   CreateEvaluationJobCommand,
   CreateEvaluationJobCommandInput,
   CreateEvaluationJobCommandOutput,
@@ -297,6 +302,7 @@ import {
 
 const commands = {
   BatchDeleteEvaluationJobCommand,
+  CreateCustomModelCommand,
   CreateEvaluationJobCommand,
   CreateGuardrailCommand,
   CreateGuardrailVersionCommand,
@@ -373,6 +379,23 @@ export interface Bedrock {
     args: BatchDeleteEvaluationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchDeleteEvaluationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCustomModelCommand}
+   */
+  createCustomModel(
+    args: CreateCustomModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCustomModelCommandOutput>;
+  createCustomModel(
+    args: CreateCustomModelCommandInput,
+    cb: (err: any, data?: CreateCustomModelCommandOutput) => void
+  ): void;
+  createCustomModel(
+    args: CreateCustomModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCustomModelCommandOutput) => void
   ): void;
 
   /**

@@ -28,9 +28,7 @@ export interface ListImportedModelsCommandInput extends ListImportedModelsReques
 export interface ListImportedModelsCommandOutput extends ListImportedModelsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of models you've imported. You can filter the results to return based on one or more criteria.
- *     For more information,
- *     see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">Import a customized model</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+ * <p>Returns a list of models you've imported. You can filter the results to return based on one or more criteria. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">Import a customized model</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

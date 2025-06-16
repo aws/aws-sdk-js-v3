@@ -6,11 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateEvaluationJobRequest,
-  CreateEvaluationJobRequestFilterSensitiveLog,
-  CreateEvaluationJobResponse,
-} from "../models/models_0";
+import { CreateEvaluationJobResponse } from "../models/models_0";
+import { CreateEvaluationJobRequest, CreateEvaluationJobRequestFilterSensitiveLog } from "../models/models_1";
 import { de_CreateEvaluationJobCommand, se_CreateEvaluationJobCommand } from "../protocols/Aws_restJson1";
 
 /**

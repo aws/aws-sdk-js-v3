@@ -69,8 +69,7 @@ export interface VpcConfig {
  */
 export interface SageMakerEndpoint {
   /**
-   * <p>The number of Amazon EC2 compute instances to deploy for initial endpoint
-   *             creation.</p>
+   * <p>The number of Amazon EC2 compute instances to deploy for initial endpoint creation.</p>
    * @public
    */
   initialInstanceCount: number | undefined;
@@ -82,16 +81,13 @@ export interface SageMakerEndpoint {
   instanceType: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that Amazon SageMaker can assume to access model artifacts
-   *             and docker image for deployment on Amazon EC2 compute instances or for batch
-   *             transform jobs.</p>
+   * <p>The ARN of the IAM role that Amazon SageMaker can assume to access model artifacts and docker image for deployment on Amazon EC2 compute instances or for batch transform jobs.</p>
    * @public
    */
   executionRole: string | undefined;
 
   /**
-   * <p>The Amazon Web Services KMS key that Amazon SageMaker uses to encrypt data on the storage volume
-   *             attached to the Amazon EC2 compute instance that hosts the endpoint.</p>
+   * <p>The Amazon Web Services KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the Amazon EC2 compute instance that hosts the endpoint.</p>
    * @public
    */
   kmsEncryptionKey?: string | undefined;
@@ -164,46 +160,37 @@ export interface Tag {
  */
 export interface CreateMarketplaceModelEndpointRequest {
   /**
-   * <p>The ARN of the model from Amazon Bedrock Marketplace that you want to deploy to the
-   *             endpoint.</p>
+   * <p>The ARN of the model from Amazon Bedrock Marketplace that you want to deploy to the endpoint.</p>
    * @public
    */
   modelSourceIdentifier: string | undefined;
 
   /**
-   * <p>The configuration for the endpoint, including the number and type of instances to
-   *             use.</p>
+   * <p>The configuration for the endpoint, including the number and type of instances to use.</p>
    * @public
    */
   endpointConfig: EndpointConfig | undefined;
 
   /**
-   * <p>Indicates whether you accept the end-user license agreement (EULA) for the model. Set
-   *             to <code>true</code> to accept the EULA.</p>
+   * <p>Indicates whether you accept the end-user license agreement (EULA) for the model. Set to <code>true</code> to accept the EULA.</p>
    * @public
    */
   acceptEula?: boolean | undefined;
 
   /**
-   * <p>The name of the endpoint. This name must be unique within your Amazon Web Services
-   *             account and region.</p>
+   * <p>The name of the endpoint. This name must be unique within your Amazon Web Services account and region.</p>
    * @public
    */
   endpointName: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. This token is listed as not required because Amazon Web Services SDKs
-   *             automatically generate it for you and set this parameter. If you're not using the
-   *                 Amazon Web Services SDK or the CLI, you must provide this token or the
-   *             action will fail.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This token is listed as not required because Amazon Web Services SDKs automatically generate it for you and set this parameter. If you're not using the Amazon Web Services SDK or the CLI, you must provide this token or the action will fail.</p>
    * @public
    */
   clientRequestToken?: string | undefined;
 
   /**
-   * <p>An array of key-value pairs to apply to the underlying Amazon SageMaker endpoint. You can use
-   *             these tags to organize and identify your Amazon Web Services resources.</p>
+   * <p>An array of key-value pairs to apply to the underlying Amazon SageMaker endpoint. You can use these tags to organize and identify your Amazon Web Services resources.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -241,8 +228,7 @@ export interface MarketplaceModelEndpoint {
   modelSourceIdentifier: string | undefined;
 
   /**
-   * <p>The overall status of the endpoint in Amazon Bedrock Marketplace (e.g., ACTIVE,
-   *             INACTIVE).</p>
+   * <p>The overall status of the endpoint in Amazon Bedrock Marketplace (e.g., ACTIVE, INACTIVE).</p>
    * @public
    */
   status?: Status | undefined;
@@ -266,15 +252,13 @@ export interface MarketplaceModelEndpoint {
   updatedAt: Date | undefined;
 
   /**
-   * <p>The configuration of the endpoint, including the number and type of instances
-   *             used.</p>
+   * <p>The configuration of the endpoint, including the number and type of instances used.</p>
    * @public
    */
   endpointConfig: EndpointConfig | undefined;
 
   /**
-   * <p>The current status of the endpoint (e.g., Creating, InService, Updating,
-   *             Failed).</p>
+   * <p>The current status of the endpoint (e.g., Creating, InService, Updating, Failed).</p>
    * @public
    */
   endpointStatus: string | undefined;
@@ -454,8 +438,7 @@ export class ServiceUnavailableException extends __BaseException {
  */
 export interface GetMarketplaceModelEndpointRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint you want to get information
-   *             about.</p>
+   * <p>The Amazon Resource Name (ARN) of the endpoint you want to get information about.</p>
    * @public
    */
   endpointArn: string | undefined;
@@ -477,22 +460,19 @@ export interface GetMarketplaceModelEndpointResponse {
  */
 export interface ListMarketplaceModelEndpointsRequest {
   /**
-   * <p>The maximum number of results to return in a single call. If more results are
-   *             available, the operation returns a <code>NextToken</code> value.</p>
+   * <p>The maximum number of results to return in a single call. If more results are available, the operation returns a <code>NextToken</code> value.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. You receive this token from a previous
-   *                 <code>ListMarketplaceModelEndpoints</code> call.</p>
+   * <p>The token for the next set of results. You receive this token from a previous <code>ListMarketplaceModelEndpoints</code> call.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>If specified, only endpoints for the given model source identifier are
-   *             returned.</p>
+   * <p>If specified, only endpoints for the given model source identifier are returned.</p>
    * @public
    */
   modelSourceEquals?: string | undefined;
@@ -551,8 +531,7 @@ export interface ListMarketplaceModelEndpointsResponse {
   marketplaceModelEndpoints?: MarketplaceModelEndpointSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of results. Use this token to get the next set of
-   *             results.</p>
+   * <p>The token for the next set of results. Use this token to get the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -597,18 +576,13 @@ export interface UpdateMarketplaceModelEndpointRequest {
   endpointArn: string | undefined;
 
   /**
-   * <p>The new configuration for the endpoint, including the number and type of instances to
-   *             use.</p>
+   * <p>The new configuration for the endpoint, including the number and type of instances to use.</p>
    * @public
    */
   endpointConfig: EndpointConfig | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. This token is listed as not required because Amazon Web Services SDKs
-   *             automatically generate it for you and set this parameter. If you're not using the
-   *                 Amazon Web Services SDK or the CLI, you must provide this token or the
-   *             action will fail.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This token is listed as not required because Amazon Web Services SDKs automatically generate it for you and set this parameter. If you're not using the Amazon Web Services SDK or the CLI, you must provide this token or the action will fail.</p>
    * @public
    */
   clientRequestToken?: string | undefined;
@@ -623,6 +597,786 @@ export interface UpdateMarketplaceModelEndpointResponse {
    * @public
    */
   marketplaceModelEndpoint: MarketplaceModelEndpoint | undefined;
+}
+
+/**
+ * <p>The Amazon S3 data source of the model to import. For the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateCustomModel.html">CreateCustomModel</a> API operation, you must specify the Amazon S3 URI for the Amazon-managed Amazon S3 bucket containing your model artifacts. SageMaker AI creates this bucket when you run your first SageMaker AI training job.</p>
+ * @public
+ */
+export interface S3DataSource {
+  /**
+   * <p>The URI of the Amazon S3 data source.</p>
+   * @public
+   */
+  s3Uri: string | undefined;
+}
+
+/**
+ * <p>The data source of the model to import.</p>
+ * @public
+ */
+export type ModelDataSource = ModelDataSource.S3DataSourceMember | ModelDataSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ModelDataSource {
+  /**
+   * <p>The Amazon S3 data source of the model to import.</p>
+   * @public
+   */
+  export interface S3DataSourceMember {
+    s3DataSource: S3DataSource;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3DataSource?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3DataSource: (value: S3DataSource) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ModelDataSource, visitor: Visitor<T>): T => {
+    if (value.s3DataSource !== undefined) return visitor.s3DataSource(value.s3DataSource);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateCustomModelRequest {
+  /**
+   * <p>A unique name for the custom model.</p>
+   * @public
+   */
+  modelName: string | undefined;
+
+  /**
+   * <p>The data source for the model. The Amazon S3 URI in the model source must be for the Amazon-managed Amazon S3 bucket containing your model artifacts. SageMaker AI creates this bucket when you run your first SageMaker AI training job.</p>
+   * @public
+   */
+  modelSourceConfig: ModelDataSource | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer managed KMS key to encrypt the custom model. If you don't provide a KMS key, Amazon Bedrock uses an Amazon Web Services-managed KMS key to encrypt the model. </p> <p>If you provide a customer managed KMS key, your Amazon Bedrock service role must have permissions to use it. For more information see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/encryption-import-model.html">Encryption of imported models</a>. </p>
+   * @public
+   */
+  modelKmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM service role that Amazon Bedrock assumes to perform tasks on your behalf. This role must have permissions to access the Amazon S3 bucket containing your model artifacts and the KMS key (if specified). For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-import-iam-role.html">Setting up an IAM service role for importing models</a> in the Amazon Bedrock User Guide.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>A list of key-value pairs to associate with the custom model resource. You can use these tags to organize and identify your resources.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging resources</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+   * @public
+   */
+  modelTags?: Tag[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCustomModelResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the new custom model.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+}
+
+/**
+ * <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+ * @public
+ */
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The name of the resource with too many tags.</p>
+   * @public
+   */
+  resourceName?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.resourceName = opts.resourceName;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteCustomModelRequest {
+  /**
+   * <p>Name of the model to delete.</p>
+   * @public
+   */
+  modelIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCustomModelResponse {}
+
+/**
+ * @public
+ */
+export interface GetCustomModelRequest {
+  /**
+   * <p>Name or Amazon Resource Name (ARN) of the custom model.</p>
+   * @public
+   */
+  modelIdentifier: string | undefined;
+}
+
+/**
+ * <p>Details about a teacher model used for model customization.</p>
+ * @public
+ */
+export interface TeacherModelConfig {
+  /**
+   * <p>The identifier of the teacher model.</p>
+   * @public
+   */
+  teacherModelIdentifier: string | undefined;
+
+  /**
+   * <p>The maximum number of tokens requested when the customization job invokes the teacher model.</p>
+   * @public
+   */
+  maxResponseLengthForInference?: number | undefined;
+}
+
+/**
+ * <p>Settings for distilling a foundation model into a smaller and more efficient model.</p>
+ * @public
+ */
+export interface DistillationConfig {
+  /**
+   * <p>The teacher model configuration.</p>
+   * @public
+   */
+  teacherModelConfig: TeacherModelConfig | undefined;
+}
+
+/**
+ * <p>A model customization configuration</p>
+ * @public
+ */
+export type CustomizationConfig = CustomizationConfig.DistillationConfigMember | CustomizationConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CustomizationConfig {
+  /**
+   * <p>The Distillation configuration for the custom model.</p>
+   * @public
+   */
+  export interface DistillationConfigMember {
+    distillationConfig: DistillationConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    distillationConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    distillationConfig: (value: DistillationConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: CustomizationConfig, visitor: Visitor<T>): T => {
+    if (value.distillationConfig !== undefined) return visitor.distillationConfig(value.distillationConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomizationType = {
+  CONTINUED_PRE_TRAINING: "CONTINUED_PRE_TRAINING",
+  DISTILLATION: "DISTILLATION",
+  FINE_TUNING: "FINE_TUNING",
+  IMPORTED: "IMPORTED",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomizationType = (typeof CustomizationType)[keyof typeof CustomizationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelStatus = {
+  ACTIVE: "Active",
+  CREATING: "Creating",
+  FAILED: "Failed",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelStatus = (typeof ModelStatus)[keyof typeof ModelStatus];
+
+/**
+ * <p>S3 Location of the output data.</p>
+ * @public
+ */
+export interface OutputDataConfig {
+  /**
+   * <p>The S3 URI where the output data is stored.</p>
+   * @public
+   */
+  s3Uri: string | undefined;
+}
+
+/**
+ * <p>A storage location for invocation logs.</p>
+ * @public
+ */
+export type InvocationLogSource = InvocationLogSource.S3UriMember | InvocationLogSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InvocationLogSource {
+  /**
+   * <p>The URI of an invocation log in a bucket.</p>
+   * @public
+   */
+  export interface S3UriMember {
+    s3Uri: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3Uri?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3Uri: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: InvocationLogSource, visitor: Visitor<T>): T => {
+    if (value.s3Uri !== undefined) return visitor.s3Uri(value.s3Uri);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>A mapping of a metadata key to a value that it should or should not equal.</p>
+ * @public
+ */
+export interface RequestMetadataBaseFilters {
+  /**
+   * <p>Include results where the key equals the value.</p>
+   * @public
+   */
+  equals?: Record<string, string> | undefined;
+
+  /**
+   * <p>Include results where the key does not equal the value.</p>
+   * @public
+   */
+  notEquals?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Rules for filtering invocation logs. A filter can be a mapping of a metadata key to a value that it should or should not equal (a base filter), or a list of base filters that are all applied with <code>AND</code> or <code>OR</code> logical operators</p>
+ * @public
+ */
+export type RequestMetadataFilters =
+  | RequestMetadataFilters.AndAllMember
+  | RequestMetadataFilters.EqualsMember
+  | RequestMetadataFilters.NotEqualsMember
+  | RequestMetadataFilters.OrAllMember
+  | RequestMetadataFilters.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RequestMetadataFilters {
+  /**
+   * <p>Include results where the key equals the value.</p>
+   * @public
+   */
+  export interface EqualsMember {
+    equals: Record<string, string>;
+    notEquals?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Include results where the key does not equal the value.</p>
+   * @public
+   */
+  export interface NotEqualsMember {
+    equals?: never;
+    notEquals: Record<string, string>;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Include results where all of the based filters match.</p>
+   * @public
+   */
+  export interface AndAllMember {
+    equals?: never;
+    notEquals?: never;
+    andAll: RequestMetadataBaseFilters[];
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Include results where any of the base filters match.</p>
+   * @public
+   */
+  export interface OrAllMember {
+    equals?: never;
+    notEquals?: never;
+    andAll?: never;
+    orAll: RequestMetadataBaseFilters[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    equals?: never;
+    notEquals?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    equals: (value: Record<string, string>) => T;
+    notEquals: (value: Record<string, string>) => T;
+    andAll: (value: RequestMetadataBaseFilters[]) => T;
+    orAll: (value: RequestMetadataBaseFilters[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RequestMetadataFilters, visitor: Visitor<T>): T => {
+    if (value.equals !== undefined) return visitor.equals(value.equals);
+    if (value.notEquals !== undefined) return visitor.notEquals(value.notEquals);
+    if (value.andAll !== undefined) return visitor.andAll(value.andAll);
+    if (value.orAll !== undefined) return visitor.orAll(value.orAll);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Settings for using invocation logs to customize a model.</p>
+ * @public
+ */
+export interface InvocationLogsConfig {
+  /**
+   * <p>Whether to use the model's response for training, or just the prompt. The default value is <code>False</code>.</p>
+   * @public
+   */
+  usePromptResponse?: boolean | undefined;
+
+  /**
+   * <p>The source of the invocation logs.</p>
+   * @public
+   */
+  invocationLogSource: InvocationLogSource | undefined;
+
+  /**
+   * <p>Rules for filtering invocation logs based on request metadata.</p>
+   * @public
+   */
+  requestMetadataFilters?: RequestMetadataFilters | undefined;
+}
+
+/**
+ * <p>S3 Location of the training data.</p>
+ * @public
+ */
+export interface TrainingDataConfig {
+  /**
+   * <p>The S3 URI where the training data is stored.</p>
+   * @public
+   */
+  s3Uri?: string | undefined;
+
+  /**
+   * <p>Settings for using invocation logs to customize a model.</p>
+   * @public
+   */
+  invocationLogsConfig?: InvocationLogsConfig | undefined;
+}
+
+/**
+ * <p>Metrics associated with the custom job.</p>
+ * @public
+ */
+export interface TrainingMetrics {
+  /**
+   * <p>Loss metric associated with the custom job.</p>
+   * @public
+   */
+  trainingLoss?: number | undefined;
+}
+
+/**
+ * <p>Information about a validator.</p>
+ * @public
+ */
+export interface Validator {
+  /**
+   * <p>The S3 URI where the validation data is stored.</p>
+   * @public
+   */
+  s3Uri: string | undefined;
+}
+
+/**
+ * <p>Array of up to 10 validators.</p>
+ * @public
+ */
+export interface ValidationDataConfig {
+  /**
+   * <p>Information about the validators.</p>
+   * @public
+   */
+  validators: Validator[] | undefined;
+}
+
+/**
+ * <p>The metric for the validator.</p>
+ * @public
+ */
+export interface ValidatorMetric {
+  /**
+   * <p>The validation loss associated with this validator.</p>
+   * @public
+   */
+  validationLoss?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCustomModelResponse {
+  /**
+   * <p>Amazon Resource Name (ARN) associated with this model.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>Model name associated with this model.</p>
+   * @public
+   */
+  modelName: string | undefined;
+
+  /**
+   * <p>Job name associated with this model.</p>
+   * @public
+   */
+  jobName?: string | undefined;
+
+  /**
+   * <p>Job Amazon Resource Name (ARN) associated with this model. For models that you create with the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateCustomModel.html">CreateCustomModel</a> API operation, this is <code>NULL</code>.</p>
+   * @public
+   */
+  jobArn?: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the base model.</p>
+   * @public
+   */
+  baseModelArn?: string | undefined;
+
+  /**
+   * <p>The type of model customization.</p>
+   * @public
+   */
+  customizationType?: CustomizationType | undefined;
+
+  /**
+   * <p>The custom model is encrypted at rest using this key.</p>
+   * @public
+   */
+  modelKmsKeyArn?: string | undefined;
+
+  /**
+   * <p>Hyperparameter values associated with this model. For details on the format for different models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html">Custom model hyperparameters</a>.</p>
+   * @public
+   */
+  hyperParameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>Contains information about the training dataset.</p>
+   * @public
+   */
+  trainingDataConfig?: TrainingDataConfig | undefined;
+
+  /**
+   * <p>Contains information about the validation dataset.</p>
+   * @public
+   */
+  validationDataConfig?: ValidationDataConfig | undefined;
+
+  /**
+   * <p>Output data configuration associated with this custom model.</p>
+   * @public
+   */
+  outputDataConfig?: OutputDataConfig | undefined;
+
+  /**
+   * <p>Contains training metrics from the job creation.</p>
+   * @public
+   */
+  trainingMetrics?: TrainingMetrics | undefined;
+
+  /**
+   * <p>The validation metrics from the job creation.</p>
+   * @public
+   */
+  validationMetrics?: ValidatorMetric[] | undefined;
+
+  /**
+   * <p>Creation time of the model.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * <p>The customization configuration for the custom model.</p>
+   * @public
+   */
+  customizationConfig?: CustomizationConfig | undefined;
+
+  /**
+   * <p>The current status of the custom model. Possible values include:</p> <ul> <li> <p> <code>Creating</code> - The model is being created and validated.</p> </li> <li> <p> <code>Active</code> - The model has been successfully created and is ready for use.</p> </li> <li> <p> <code>Failed</code> - The model creation process failed. Check the <code>failureMessage</code> field for details.</p> </li> </ul>
+   * @public
+   */
+  modelStatus?: ModelStatus | undefined;
+
+  /**
+   * <p>A failure message for any issues that occurred when creating the custom model. This is included for only a failed CreateCustomModel operation.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SortModelsBy = {
+  CREATION_TIME: "CreationTime",
+} as const;
+
+/**
+ * @public
+ */
+export type SortModelsBy = (typeof SortModelsBy)[keyof typeof SortModelsBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
+export interface ListCustomModelsRequest {
+  /**
+   * <p>Return custom models created before the specified time. </p>
+   * @public
+   */
+  creationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Return custom models created after the specified time. </p>
+   * @public
+   */
+  creationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Return custom models only if the job name contains these characters.</p>
+   * @public
+   */
+  nameContains?: string | undefined;
+
+  /**
+   * <p>Return custom models only if the base model Amazon Resource Name (ARN) matches this parameter.</p>
+   * @public
+   */
+  baseModelArnEquals?: string | undefined;
+
+  /**
+   * <p>Return custom models only if the foundation model Amazon Resource Name (ARN) matches this parameter.</p>
+   * @public
+   */
+  foundationModelArnEquals?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The field to sort by in the returned list of models.</p>
+   * @public
+   */
+  sortBy?: SortModelsBy | undefined;
+
+  /**
+   * <p>The sort order of the results.</p>
+   * @public
+   */
+  sortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>Return custom models depending on if the current account owns them (<code>true</code>) or if they were shared with the current account (<code>false</code>).</p>
+   * @public
+   */
+  isOwned?: boolean | undefined;
+
+  /**
+   * <p>The status of them model to filter results by. Possible values include:</p> <ul> <li> <p> <code>Creating</code> - Include only models that are currently being created and validated.</p> </li> <li> <p> <code>Active</code> - Include only models that have been successfully created and are ready for use.</p> </li> <li> <p> <code>Failed</code> - Include only models where the creation process failed.</p> </li> </ul> <p>If you don't specify a status, the API returns models in all states.</p>
+   * @public
+   */
+  modelStatus?: ModelStatus | undefined;
+}
+
+/**
+ * <p>Summary information for a custom model.</p>
+ * @public
+ */
+export interface CustomModelSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom model.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>The name of the custom model.</p>
+   * @public
+   */
+  modelName: string | undefined;
+
+  /**
+   * <p>Creation time of the model.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * <p>The base model Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  baseModelArn: string | undefined;
+
+  /**
+   * <p>The base model name.</p>
+   * @public
+   */
+  baseModelName: string | undefined;
+
+  /**
+   * <p>Specifies whether to carry out continued pre-training of a model or whether to fine-tune it. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a>.</p>
+   * @public
+   */
+  customizationType?: CustomizationType | undefined;
+
+  /**
+   * <p>The unique identifier of the account that owns the model.</p>
+   * @public
+   */
+  ownerAccountId?: string | undefined;
+
+  /**
+   * <p>The current status of the custom model. Possible values include:</p> <ul> <li> <p> <code>Creating</code> - The model is being created and validated.</p> </li> <li> <p> <code>Active</code> - The model has been successfully created and is ready for use.</p> </li> <li> <p> <code>Failed</code> - The model creation process failed.</p> </li> </ul>
+   * @public
+   */
+  modelStatus?: ModelStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCustomModelsResponse {
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Model summaries.</p>
+   * @public
+   */
+  modelSummaries?: CustomModelSummary[] | undefined;
 }
 
 /**
@@ -801,11 +1555,7 @@ export interface RatingScaleItem {
 }
 
 /**
- * <p>The definition of a custom metric for use in an Amazon Bedrock evaluation job. A custom metric definition includes a metric name, prompt (instructions) and optionally,
- *          a rating scale. Your prompt must include a task description and input variables. The required input variables are different for model-as-a-judge and RAG evaluations.</p>
- *          <p>For more information about how to define a custom metric in Amazon Bedrock,
- *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-custom-metrics-prompt-formats.html">Create a prompt for a custom metrics (LLM-as-a-judge model evaluations)</a> and
- *          <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-evaluation-custom-metrics-prompt-formats.html">Create a prompt for a custom metrics (RAG evaluations)</a>.</p>
+ * <p>The definition of a custom metric for use in an Amazon Bedrock evaluation job. A custom metric definition includes a metric name, prompt (instructions) and optionally, a rating scale. Your prompt must include a task description and input variables. The required input variables are different for model-as-a-judge and RAG evaluations.</p> <p>For more information about how to define a custom metric in Amazon Bedrock, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-custom-metrics-prompt-formats.html">Create a prompt for a custom metrics (LLM-as-a-judge model evaluations)</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-evaluation-custom-metrics-prompt-formats.html">Create a prompt for a custom metrics (RAG evaluations)</a>.</p>
  * @public
  */
 export interface CustomMetricDefinition {
@@ -822,9 +1572,7 @@ export interface CustomMetricDefinition {
   instructions: string | undefined;
 
   /**
-   * <p>Defines the rating scale to be used for a custom metric. We recommend that you always define a ratings scale when creating a custom metric. If you don't
-   *       define a scale, Amazon Bedrock won't be able to visually display the results of the evaluation in the console or calculate average values of numerical scores. For
-   *          more information on specifying a rating scale, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-custom-metrics-prompt-formats.html#model-evaluation-custom-metrics-prompt-formats-schema">Specifying an output schema (rating scale)</a>.</p>
+   * <p>Defines the rating scale to be used for a custom metric. We recommend that you always define a ratings scale when creating a custom metric. If you don't define a scale, Amazon Bedrock won't be able to visually display the results of the evaluation in the console or calculate average values of numerical scores. For more information on specifying a rating scale, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-custom-metrics-prompt-formats.html#model-evaluation-custom-metrics-prompt-formats-schema">Specifying an output schema (rating scale)</a>.</p>
    * @public
    */
   ratingScale?: RatingScaleItem[] | undefined;
@@ -876,8 +1624,7 @@ export namespace AutomatedEvaluationCustomMetricSource {
  */
 export interface CustomMetricBedrockEvaluatorModel {
   /**
-   * <p>The Amazon Resource Name (ARN) of the evaluator model for custom metrics. For a list of supported evaluator models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-judge.html">Evaluate model performance
-   *          using another LLM as a judge</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-kb.html">Evaluate the performance of RAG sources using Amazon Bedrock evaluations</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the evaluator model for custom metrics. For a list of supported evaluator models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-judge.html">Evaluate model performance using another LLM as a judge</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-kb.html">Evaluate the performance of RAG sources using Amazon Bedrock evaluations</a>.</p>
    * @public
    */
   modelIdentifier: string | undefined;
@@ -896,9 +1643,7 @@ export interface CustomMetricEvaluatorModelConfig {
 }
 
 /**
- * <p>Defines the configuration of custom metrics to be used in an evaluation job. To learn more about using custom metrics
- *          in Amazon Bedrock evaluation jobs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-custom-metrics-prompt-formats.html">Create a prompt for a custom metrics (LLM-as-a-judge model evaluations)</a> and
- *          <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-evaluation-custom-metrics-prompt-formats.html">Create a prompt for a custom metrics (RAG evaluations)</a>.</p>
+ * <p>Defines the configuration of custom metrics to be used in an evaluation job. To learn more about using custom metrics in Amazon Bedrock evaluation jobs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-custom-metrics-prompt-formats.html">Create a prompt for a custom metrics (LLM-as-a-judge model evaluations)</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-evaluation-custom-metrics-prompt-formats.html">Create a prompt for a custom metrics (RAG evaluations)</a>.</p>
  * @public
  */
 export interface AutomatedEvaluationCustomMetricConfig {
@@ -996,8 +1741,7 @@ export type EvaluationTaskType = (typeof EvaluationTaskType)[keyof typeof Evalua
  */
 export interface EvaluationDatasetMetricConfig {
   /**
-   * <p>The the type of task you want to evaluate for your evaluation job. This applies only
-   *          to model evaluation jobs and is ignored for knowledge base evaluation jobs.</p>
+   * <p>The the type of task you want to evaluate for your evaluation job. This applies only to model evaluation jobs and is ignored for knowledge base evaluation jobs.</p>
    * @public
    */
   taskType: EvaluationTaskType | undefined;
@@ -1009,17 +1753,7 @@ export interface EvaluationDatasetMetricConfig {
   dataset: EvaluationDataset | undefined;
 
   /**
-   * <p>The names of the metrics you want to use for your evaluation job.</p>
-   *          <p>For knowledge base evaluation jobs that evaluate retrieval only, valid values are
-   *          "<code>Builtin.ContextRelevance</code>", "<code>Builtin.ContextCoverage</code>".</p>
-   *          <p>For knowledge base evaluation jobs that evaluate retrieval with response generation,
-   *          valid values are  "<code>Builtin.Correctness</code>", "<code>Builtin.Completeness</code>",
-   *          "<code>Builtin.Helpfulness</code>", "<code>Builtin.LogicalCoherence</code>",
-   *          "<code>Builtin.Faithfulness</code>", "<code>Builtin.Harmfulness</code>",
-   *          "<code>Builtin.Stereotyping</code>", "<code>Builtin.Refusal</code>".</p>
-   *          <p>For automated model evaluation jobs, valid values are "<code>Builtin.Accuracy</code>", "<code>Builtin.Robustness</code>", and "<code>Builtin.Toxicity</code>". In model evaluation jobs that use a LLM as judge you can specify "<code>Builtin.Correctness</code>", "<code>Builtin.Completeness"</code>, "<code>Builtin.Faithfulness"</code>, "<code>Builtin.Helpfulness</code>", "<code>Builtin.Coherence</code>", "<code>Builtin.Relevance</code>", "<code>Builtin.FollowingInstructions</code>", "<code>Builtin.ProfessionalStyleAndTone</code>", You can also specify the following responsible AI related metrics only for model evaluation job that use a LLM as judge "<code>Builtin.Harmfulness</code>", "<code>Builtin.Stereotyping</code>", and "<code>Builtin.Refusal</code>".</p>
-   *          <p>For human-based model evaluation jobs, the list of strings must match the
-   *          <code>name</code> parameter specified in <code>HumanEvaluationCustomMetric</code>.</p>
+   * <p>The names of the metrics you want to use for your evaluation job.</p> <p>For knowledge base evaluation jobs that evaluate retrieval only, valid values are "<code>Builtin.ContextRelevance</code>", "<code>Builtin.ContextCoverage</code>".</p> <p>For knowledge base evaluation jobs that evaluate retrieval with response generation, valid values are "<code>Builtin.Correctness</code>", "<code>Builtin.Completeness</code>", "<code>Builtin.Helpfulness</code>", "<code>Builtin.LogicalCoherence</code>", "<code>Builtin.Faithfulness</code>", "<code>Builtin.Harmfulness</code>", "<code>Builtin.Stereotyping</code>", "<code>Builtin.Refusal</code>".</p> <p>For automated model evaluation jobs, valid values are "<code>Builtin.Accuracy</code>", "<code>Builtin.Robustness</code>", and "<code>Builtin.Toxicity</code>". In model evaluation jobs that use a LLM as judge you can specify "<code>Builtin.Correctness</code>", "<code>Builtin.Completeness"</code>, "<code>Builtin.Faithfulness"</code>, "<code>Builtin.Helpfulness</code>", "<code>Builtin.Coherence</code>", "<code>Builtin.Relevance</code>", "<code>Builtin.FollowingInstructions</code>", "<code>Builtin.ProfessionalStyleAndTone</code>", You can also specify the following responsible AI related metrics only for model evaluation job that use a LLM as judge "<code>Builtin.Harmfulness</code>", "<code>Builtin.Stereotyping</code>", and "<code>Builtin.Refusal</code>".</p> <p>For human-based model evaluation jobs, the list of strings must match the <code>name</code> parameter specified in <code>HumanEvaluationCustomMetric</code>.</p>
    * @public
    */
   metricNames: string[] | undefined;
@@ -1078,8 +1812,7 @@ export namespace EvaluatorModelConfig {
 }
 
 /**
- * <p>The configuration details of an automated evaluation job. The <code>EvaluationDatasetMetricConfig</code> object
- *          is used to specify the prompt datasets, task type, and metric names.</p>
+ * <p>The configuration details of an automated evaluation job. The <code>EvaluationDatasetMetricConfig</code> object is used to specify the prompt datasets, task type, and metric names.</p>
  * @public
  */
 export interface AutomatedEvaluationConfig {
@@ -1103,9 +1836,7 @@ export interface AutomatedEvaluationConfig {
 }
 
 /**
- * <p>In a model evaluation job that uses human workers you must
- *          define the name of the metric, and how you want that metric rated
- *          <code>ratingMethod</code>, and an optional description of the metric.</p>
+ * <p>In a model evaluation job that uses human workers you must define the name of the metric, and how you want that metric rated <code>ratingMethod</code>, and an optional description of the metric.</p>
  * @public
  */
 export interface HumanEvaluationCustomMetric {
@@ -1122,8 +1853,7 @@ export interface HumanEvaluationCustomMetric {
   description?: string | undefined;
 
   /**
-   * <p>Choose how you want your human workers to evaluation your model. Valid values for rating methods are <code>ThumbsUpDown</code>, <code>IndividualLikertScale</code>,<code>ComparisonLikertScale</code>, <code>ComparisonChoice</code>, and <code>ComparisonRank</code>
-   *          </p>
+   * <p>Choose how you want your human workers to evaluation your model. Valid values for rating methods are <code>ThumbsUpDown</code>, <code>IndividualLikertScale</code>,<code>ComparisonLikertScale</code>, <code>ComparisonChoice</code>, and <code>ComparisonRank</code> </p>
    * @public
    */
   ratingMethod: string | undefined;
@@ -1148,8 +1878,7 @@ export interface HumanWorkflowConfig {
 }
 
 /**
- * <p>Specifies the custom metrics, how tasks will be rated, the flow definition ARN, and your custom prompt datasets. Model evaluation jobs use human workers <i>only</i> support the use of custom prompt datasets. To learn more about custom prompt datasets and the required format, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-prompt-datasets-custom.html">Custom prompt datasets</a>.</p>
- *          <p>When you create custom metrics in <code>HumanEvaluationCustomMetric</code> you must specify the metric's <code>name</code>. The list of <code>names</code> specified in the <code>HumanEvaluationCustomMetric</code> array, must match the <code>metricNames</code> array of strings specified in <code>EvaluationDatasetMetricConfig</code>. For example, if in the <code>HumanEvaluationCustomMetric</code> array your specified the names <code>"accuracy", "toxicity", "readability"</code> as custom metrics <i>then</i> the <code>metricNames</code> array would need to look like the following <code>["accuracy", "toxicity", "readability"]</code> in <code>EvaluationDatasetMetricConfig</code>.</p>
+ * <p>Specifies the custom metrics, how tasks will be rated, the flow definition ARN, and your custom prompt datasets. Model evaluation jobs use human workers <i>only</i> support the use of custom prompt datasets. To learn more about custom prompt datasets and the required format, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-prompt-datasets-custom.html">Custom prompt datasets</a>.</p> <p>When you create custom metrics in <code>HumanEvaluationCustomMetric</code> you must specify the metric's <code>name</code>. The list of <code>names</code> specified in the <code>HumanEvaluationCustomMetric</code> array, must match the <code>metricNames</code> array of strings specified in <code>EvaluationDatasetMetricConfig</code>. For example, if in the <code>HumanEvaluationCustomMetric</code> array your specified the names <code>"accuracy", "toxicity", "readability"</code> as custom metrics <i>then</i> the <code>metricNames</code> array would need to look like the following <code>["accuracy", "toxicity", "readability"]</code> in <code>EvaluationDatasetMetricConfig</code>.</p>
  * @public
  */
 export interface HumanEvaluationConfig {
@@ -1254,8 +1983,7 @@ export interface PerformanceConfiguration {
 }
 
 /**
- * <p>Contains the ARN of the Amazon Bedrock model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> specified in your evaluation job. Each Amazon Bedrock model supports different <code>inferenceParams</code>. To learn more about supported inference parameters for Amazon Bedrock models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
- *          <p>The <code>inferenceParams</code> are specified using JSON. To successfully insert JSON as string make sure that all quotations are properly escaped. For example, <code>"temperature":"0.25"</code> key value pair would need to be formatted as <code>\"temperature\":\"0.25\"</code> to successfully accepted in the request.</p>
+ * <p>Contains the ARN of the Amazon Bedrock model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> specified in your evaluation job. Each Amazon Bedrock model supports different <code>inferenceParams</code>. To learn more about supported inference parameters for Amazon Bedrock models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p> <p>The <code>inferenceParams</code> are specified using JSON. To successfully insert JSON as string make sure that all quotations are properly escaped. For example, <code>"temperature":"0.25"</code> key value pair would need to be formatted as <code>\"temperature\":\"0.25\"</code> to successfully accepted in the request.</p>
  * @public
  */
 export interface EvaluationBedrockModel {
@@ -1365,42 +2093,30 @@ export interface GuardrailConfiguration {
 }
 
 /**
- * <p>The configuration details for text generation using a language model via the
- *             <code>RetrieveAndGenerate</code> function.</p>
+ * <p>The configuration details for text generation using a language model via the <code>RetrieveAndGenerate</code> function.</p>
  * @public
  */
 export interface TextInferenceConfig {
   /**
-   * <p>Controls the random-ness of text generated by the language model, influencing how
-   *             much the model sticks to the most predictable next words versus exploring more
-   *             surprising options. A lower temperature value (e.g. 0.2 or 0.3) makes model outputs
-   *             more deterministic or predictable, while a higher temperature (e.g. 0.8 or 0.9) makes
-   *             the outputs more creative or unpredictable.</p>
+   * <p>Controls the random-ness of text generated by the language model, influencing how much the model sticks to the most predictable next words versus exploring more surprising options. A lower temperature value (e.g. 0.2 or 0.3) makes model outputs more deterministic or predictable, while a higher temperature (e.g. 0.8 or 0.9) makes the outputs more creative or unpredictable.</p>
    * @public
    */
   temperature?: number | undefined;
 
   /**
-   * <p>A probability distribution threshold which controls what the model considers for
-   *             the set of possible next tokens. The model will only consider the top p% of the
-   *             probability distribution when generating the next token.</p>
+   * <p>A probability distribution threshold which controls what the model considers for the set of possible next tokens. The model will only consider the top p% of the probability distribution when generating the next token.</p>
    * @public
    */
   topP?: number | undefined;
 
   /**
-   * <p>The maximum number of tokens to generate in the output text. Do not use the minimum of 0
-   *             or the maximum of 65536. The limit values described here are arbitrary values, for actual
-   *             values consult the limits defined by your specific model.</p>
+   * <p>The maximum number of tokens to generate in the output text. Do not use the minimum of 0 or the maximum of 65536. The limit values described here are arbitrary values, for actual values consult the limits defined by your specific model.</p>
    * @public
    */
   maxTokens?: number | undefined;
 
   /**
-   * <p>A list of sequences of characters that, if generated, will cause the model to stop
-   *             generating further tokens. Do not use a minimum length of 1 or a maximum length of 1000.
-   *             The limit values described here are arbitrary values, for actual values consult the
-   *             limits defined by your specific model.</p>
+   * <p>A list of sequences of characters that, if generated, will cause the model to stop generating further tokens. Do not use a minimum length of 1 or a maximum length of 1000. The limit values described here are arbitrary values, for actual values consult the limits defined by your specific model.</p>
    * @public
    */
   stopSequences?: string[] | undefined;
@@ -1412,8 +2128,7 @@ export interface TextInferenceConfig {
  */
 export interface KbInferenceConfig {
   /**
-   * <p>Contains configuration details for text generation using a language model via the
-   *             <code>RetrieveAndGenerate</code> function.</p>
+   * <p>Contains configuration details for text generation using a language model via the <code>RetrieveAndGenerate</code> function.</p>
    * @public
    */
   textInferenceConfig?: TextInferenceConfig | undefined;
@@ -1425,12 +2140,7 @@ export interface KbInferenceConfig {
  */
 export interface PromptTemplate {
   /**
-   * <p>The template for the prompt that's sent to the model for response generation. You can include
-   *             prompt placeholders, which become replaced before the prompt is sent to the model to provide
-   *             instructions and context to the model. In addition, you can include XML tags to delineate
-   *             meaningful sections of the prompt template.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Knowledge base prompt template</a> and
-   *             <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/use-xml-tags">Use XML tags with Anthropic Claude models</a>.</p>
+   * <p>The template for the prompt that's sent to the model for response generation. You can include prompt placeholders, which become replaced before the prompt is sent to the model to provide instructions and context to the model. In addition, you can include XML tags to delineate meaningful sections of the prompt template.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Knowledge base prompt template</a> and <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/use-xml-tags">Use XML tags with Anthropic Claude models</a>.</p>
    * @public
    */
   textPromptTemplate?: string | undefined;
@@ -1454,16 +2164,13 @@ export interface ExternalSourcesGenerationConfiguration {
   guardrailConfiguration?: GuardrailConfiguration | undefined;
 
   /**
-   * <p>Configuration details for inference when using <code>RetrieveAndGenerate</code> to generate
-   *             responses while using an external source.</p>
+   * <p>Configuration details for inference when using <code>RetrieveAndGenerate</code> to generate responses while using an external source.</p>
    * @public
    */
   kbInferenceConfig?: KbInferenceConfig | undefined;
 
   /**
-   * <p>Additional model parameters and their corresponding values not included in the
-   *             text inference configuration for an external source. Takes in custom model parameters
-   *             specific to the language model being used.</p>
+   * <p>Additional model parameters and their corresponding values not included in the text inference configuration for an external source. Takes in custom model parameters specific to the language model being used.</p>
    * @public
    */
   additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
@@ -1544,15 +2251,12 @@ export interface ExternalSource {
 }
 
 /**
- * <p>The configuration of the external source wrapper object in the <code>retrieveAndGenerate</code>
- *             function.</p>
+ * <p>The configuration of the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
  * @public
  */
 export interface ExternalSourcesRetrieveAndGenerateConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a>
-   *             used to generate responses.
-   *         </p>
+   * <p>The Amazon Resource Name (ARN) of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> used to generate responses. </p>
    * @public
    */
   modelArn: string | undefined;
@@ -1594,10 +2298,7 @@ export interface GenerationConfiguration {
   kbInferenceConfig?: KbInferenceConfig | undefined;
 
   /**
-   * <p>Additional model parameters and corresponding values not included in the
-   *             <code>textInferenceConfig</code> structure for a knowledge base. This allows
-   *             you to provide custom model parameters specific to the language model being
-   *             used.</p>
+   * <p>Additional model parameters and corresponding values not included in the <code>textInferenceConfig</code> structure for a knowledge base. This allows you to provide custom model parameters specific to the language model being used.</p>
    * @public
    */
   additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
@@ -1641,14 +2342,12 @@ export interface OrchestrationConfiguration {
 }
 
 /**
- * <p>Specifies the name of the metadata attribute/field to apply filters.
- *             You must match the name of the attribute/field in your data source/document metadata.</p>
+ * <p>Specifies the name of the metadata attribute/field to apply filters. You must match the name of the attribute/field in your data source/document metadata.</p>
  * @public
  */
 export interface FilterAttribute {
   /**
-   * <p>The name of metadata attribute/field, which must match the name in your
-   *             data source/document metadata.</p>
+   * <p>The name of metadata attribute/field, which must match the name in your data source/document metadata.</p>
    * @public
    */
   key: string | undefined;
@@ -1769,7 +2468,7 @@ export namespace EvaluationPrecomputedRagSourceConfig {
 }
 
 /**
- * <p>The  Amazon S3 location where the results of your evaluation job are saved.</p>
+ * <p>The Amazon S3 location where the results of your evaluation job are saved.</p>
  * @public
  */
 export interface EvaluationOutputDataConfig {
@@ -1831,20 +2530,6 @@ export type SortJobsBy = (typeof SortJobsBy)[keyof typeof SortJobsBy];
 
 /**
  * @public
- * @enum
- */
-export const SortOrder = {
-  ASCENDING: "Ascending",
-  DESCENDING: "Descending",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
-
-/**
- * @public
  */
 export interface ListEvaluationJobsRequest {
   /**
@@ -1903,8 +2588,7 @@ export interface ListEvaluationJobsRequest {
 }
 
 /**
- * <p>A summary of the models used in an Amazon Bedrock model evaluation job. These resources can be models in Amazon Bedrock
- *          or models outside of Amazon Bedrock that you use to generate your own inference response data.</p>
+ * <p>A summary of the models used in an Amazon Bedrock model evaluation job. These resources can be models in Amazon Bedrock or models outside of Amazon Bedrock that you use to generate your own inference response data.</p>
  * @public
  */
 export interface EvaluationModelConfigSummary {
@@ -1922,8 +2606,7 @@ export interface EvaluationModelConfigSummary {
 }
 
 /**
- * <p>A summary of the RAG resources used in an Amazon Bedrock Knowledge Base evaluation job. These resources can be Knowledge Bases in Amazon Bedrock
- *          or RAG sources outside of Amazon Bedrock that you use to generate your own inference response data.</p>
+ * <p>A summary of the RAG resources used in an Amazon Bedrock Knowledge Base evaluation job. These resources can be Knowledge Bases in Amazon Bedrock or RAG sources outside of Amazon Bedrock that you use to generate your own inference response data.</p>
  * @public
  */
 export interface EvaluationRagConfigSummary {
@@ -1946,15 +2629,13 @@ export interface EvaluationRagConfigSummary {
  */
 export interface EvaluationInferenceConfigSummary {
   /**
-   * <p>A summary of the models used in an Amazon Bedrock model evaluation job. These resources can be models in Amazon Bedrock
-   *          or models outside of Amazon Bedrock that you use to generate your own inference response data.</p>
+   * <p>A summary of the models used in an Amazon Bedrock model evaluation job. These resources can be models in Amazon Bedrock or models outside of Amazon Bedrock that you use to generate your own inference response data.</p>
    * @public
    */
   modelConfigSummary?: EvaluationModelConfigSummary | undefined;
 
   /**
-   * <p>A summary of the RAG resources used in an Amazon Bedrock Knowledge Base evaluation job. These resources can be Knowledge Bases in
-   *          Amazon Bedrock or RAG sources outside of Amazon Bedrock that you use to generate your own inference response data.</p>
+   * <p>A summary of the RAG resources used in an Amazon Bedrock Knowledge Base evaluation job. These resources can be Knowledge Bases in Amazon Bedrock or RAG sources outside of Amazon Bedrock that you use to generate your own inference response data.</p>
    * @public
    */
   ragConfigSummary?: EvaluationRagConfigSummary | undefined;
@@ -2139,34 +2820,7 @@ export const GuardrailContentFilterType = {
 export type GuardrailContentFilterType = (typeof GuardrailContentFilterType)[keyof typeof GuardrailContentFilterType];
 
 /**
- * <p>Contains filter strengths for harmful content. Guardrails support the following content filters to detect and filter harmful user inputs and FM-generated outputs.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Hate</b> – Describes language or a statement that discriminates, criticizes, insults, denounces, or dehumanizes a person or group on the basis of an identity (such as race, ethnicity, gender, religion, sexual orientation, ability, and national origin).</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Insults</b> – Describes language or a statement that includes demeaning, humiliating, mocking, insulting, or belittling language. This type of language is also labeled as bullying.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Sexual</b> – Describes language or a statement that indicates sexual interest, activity, or arousal using direct or indirect references to body parts, physical traits, or sex.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Violence</b> – Describes language or a statement that includes glorification of or threats to inflict physical pain, hurt, or injury toward a person, group or thing.</p>
- *             </li>
- *          </ul>
- *          <p>Content filtering depends on the confidence classification of user inputs and FM
- *          responses across each of the four harmful categories. All input and output statements are
- *          classified into one of four confidence levels (NONE, LOW, MEDIUM, HIGH) for each
- *          harmful category. For example, if a statement is classified as
- *          <i>Hate</i> with HIGH confidence, the likelihood of the statement
- *          representing hateful content is high. A single statement can be classified across
- *          multiple categories with varying confidence levels. For example, a single statement
- *          can be classified as <i>Hate</i> with HIGH confidence, <i>Insults</i> with LOW confidence, <i>Sexual</i> with NONE confidence, and <i>Violence</i> with MEDIUM confidence.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters.html">Guardrails content filters</a>.</p>
+ * <p>Contains filter strengths for harmful content. Guardrails support the following content filters to detect and filter harmful user inputs and FM-generated outputs.</p> <ul> <li> <p> <b>Hate</b> – Describes language or a statement that discriminates, criticizes, insults, denounces, or dehumanizes a person or group on the basis of an identity (such as race, ethnicity, gender, religion, sexual orientation, ability, and national origin).</p> </li> <li> <p> <b>Insults</b> – Describes language or a statement that includes demeaning, humiliating, mocking, insulting, or belittling language. This type of language is also labeled as bullying.</p> </li> <li> <p> <b>Sexual</b> – Describes language or a statement that indicates sexual interest, activity, or arousal using direct or indirect references to body parts, physical traits, or sex.</p> </li> <li> <p> <b>Violence</b> – Describes language or a statement that includes glorification of or threats to inflict physical pain, hurt, or injury toward a person, group or thing.</p> </li> </ul> <p>Content filtering depends on the confidence classification of user inputs and FM responses across each of the four harmful categories. All input and output statements are classified into one of four confidence levels (NONE, LOW, MEDIUM, HIGH) for each harmful category. For example, if a statement is classified as <i>Hate</i> with HIGH confidence, the likelihood of the statement representing hateful content is high. A single statement can be classified across multiple categories with varying confidence levels. For example, a single statement can be classified as <i>Hate</i> with HIGH confidence, <i>Insults</i> with LOW confidence, <i>Sexual</i> with NONE confidence, and <i>Violence</i> with MEDIUM confidence.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters.html">Guardrails content filters</a>.</p>
  * @public
  */
 export interface GuardrailContentFilterConfig {
@@ -2177,17 +2831,13 @@ export interface GuardrailContentFilterConfig {
   type: GuardrailContentFilterType | undefined;
 
   /**
-   * <p>The strength of the content filter to apply to prompts. As you
-   *          increase the filter strength, the likelihood of filtering harmful content increases
-   *          and the probability of seeing harmful content in your application reduces.</p>
+   * <p>The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.</p>
    * @public
    */
   inputStrength: GuardrailFilterStrength | undefined;
 
   /**
-   * <p>The strength of the content filter to apply to model responses. As you
-   *          increase the filter strength, the likelihood of filtering harmful content increases
-   *          and the probability of seeing harmful content in your application reduces.</p>
+   * <p>The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.</p>
    * @public
    */
   outputStrength: GuardrailFilterStrength | undefined;
@@ -2205,51 +2855,25 @@ export interface GuardrailContentFilterConfig {
   outputModalities?: GuardrailModality[] | undefined;
 
   /**
-   * <p>Specifies the action to take when harmful content is detected. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the
-   *                trace response.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies the action to take when harmful content is detected. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   inputAction?: GuardrailContentFilterAction | undefined;
 
   /**
-   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   outputAction?: GuardrailContentFilterAction | undefined;
 
   /**
-   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't
-   *          charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   inputEnabled?: boolean | undefined;
 
   /**
-   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you
-   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   outputEnabled?: boolean | undefined;
@@ -2315,19 +2939,7 @@ export interface GuardrailContextualGroundingFilterConfig {
   threshold: number | undefined;
 
   /**
-   * <p>Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   action?: GuardrailContextualGroundingAction | undefined;
@@ -2352,8 +2964,7 @@ export interface GuardrailContextualGroundingPolicyConfig {
 }
 
 /**
- * <p>The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination Amazon Web Services Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.</p>
- *          <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
+ * <p>The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination Amazon Web Services Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
  * @public
  */
 export interface GuardrailCrossRegionConfig {
@@ -2429,330 +3040,7 @@ export type GuardrailPiiEntityType = (typeof GuardrailPiiEntityType)[keyof typeo
  */
 export interface GuardrailPiiEntityConfig {
   /**
-   * <p>Configure guardrail type when the PII entity is detected.</p>
-   *          <p>The following PIIs are used to block or mask sensitive information:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>General</b>
-   *                </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <b>ADDRESS</b>
-   *                      </p>
-   *                      <p>A physical address, such as "100 Main Street, Anytown, USA"
-   *                      or "Suite #12, Building 123". An address can include information
-   *                      such as the street, building, location, city, state, country, county,
-   *                      zip code, precinct, and neighborhood. </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>AGE</b>
-   *                      </p>
-   *                      <p>An individual's age, including the quantity and unit of time. For
-   *                      example, in the phrase "I am 40 years old," Guardrails recognizes "40 years"
-   *                      as an age.
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>NAME</b>
-   *                      </p>
-   *                      <p>An individual's name. This entity type does not include titles, such as
-   *                      Dr., Mr., Mrs., or Miss. guardrails doesn't apply this entity type to names that
-   *                      are part of organizations or addresses. For example, guardrails recognizes
-   *                      the "John Doe Organization" as an organization, and it recognizes "Jane Doe
-   *                      Street" as an address.
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>EMAIL</b>
-   *                      </p>
-   *                      <p>An email address, such as <i>marymajor@email.com</i>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>PHONE</b>
-   *                      </p>
-   *                      <p>A phone number. This entity type also includes fax and pager numbers.
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>USERNAME</b>
-   *                      </p>
-   *                      <p>A user name that identifies an account, such as a login name, screen name,
-   *                      nick name, or handle.
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>PASSWORD</b>
-   *                      </p>
-   *                      <p>An alphanumeric string that is used as a password, such as
-   *                      "*<i>very20special#pass*</i>".
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>DRIVER_ID</b>
-   *                      </p>
-   *                      <p>The number assigned to a driver's license, which is an official
-   *                      document permitting an individual to operate one or more motorized
-   *                      vehicles on a public road. A driver's license number consists of
-   *                      alphanumeric characters.
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>LICENSE_PLATE</b>
-   *                      </p>
-   *                      <p>A license plate for a vehicle is issued by the state or country where
-   *                      the vehicle is registered. The format for passenger vehicles is typically
-   *                      five to eight digits, consisting of upper-case letters and numbers. The
-   *                      format varies depending on the location of the issuing state or country.
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>VEHICLE_IDENTIFICATION_NUMBER</b>
-   *                      </p>
-   *                      <p>A Vehicle Identification Number (VIN) uniquely identifies a vehicle.
-   *                      VIN content and format are defined in the <i>ISO 3779</i> specification.
-   *                      Each country has specific codes and formats for VINs.
-   *                   </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Finance</b>
-   *                </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <b>CREDIT_DEBIT_CARD_CVV</b>
-   *                      </p>
-   *                      <p>A three-digit card verification code (CVV) that is present on VISA,
-   *                   MasterCard, and Discover credit and debit cards. For American Express
-   *                   credit or debit cards, the CVV is a four-digit numeric code.
-   *                </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>CREDIT_DEBIT_CARD_EXPIRY</b>
-   *                      </p>
-   *                      <p>The expiration date for a credit or debit card. This number is usually
-   *                      four digits long and is often formatted as <i>month/year</i> or
-   *                      <i>MM/YY</i>. Guardrails recognizes expiration dates such as
-   *                      <i>01/21</i>, <i>01/2021</i>, and <i>Jan 2021</i>.
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>CREDIT_DEBIT_CARD_NUMBER</b>
-   *                      </p>
-   *                      <p>The number for a credit or debit card. These numbers can vary from 13 to 16
-   *                      digits in length. However, Amazon Comprehend also recognizes credit or debit
-   *                      card numbers when only the last four digits are present.
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>PIN</b>
-   *                      </p>
-   *                      <p>A four-digit personal identification number (PIN) with which you can
-   *                      access your bank account.
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>INTERNATIONAL_BANK_ACCOUNT_NUMBER</b>
-   *                      </p>
-   *                      <p>An International Bank Account Number has specific formats in each country.
-   *                      For more information, see <a href="https://www.iban.com/structure">www.iban.com/structure</a>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>SWIFT_CODE</b>
-   *                      </p>
-   *                      <p>A SWIFT code is a standard format of Bank Identifier Code (BIC) used to specify
-   *                      a particular bank or branch. Banks use these codes for money transfers such as
-   *                      international wire transfers.</p>
-   *                      <p>SWIFT codes consist of eight or 11 characters. The 11-digit codes refer to specific
-   *                      branches, while eight-digit codes (or 11-digit codes ending in 'XXX') refer to the
-   *                      head or primary office.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>IT</b>
-   *                </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <b>IP_ADDRESS</b>
-   *                      </p>
-   *                      <p>An IPv4 address, such as <i>198.51.100.0</i>.
-   *                </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>MAC_ADDRESS</b>
-   *                      </p>
-   *                      <p>A <i>media access control</i> (MAC) address is a unique identifier
-   *                      assigned to a network interface controller (NIC).
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>URL</b>
-   *                      </p>
-   *                      <p>A web address, such as <i>www.example.com</i>.
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>AWS_ACCESS_KEY</b>
-   *                      </p>
-   *                      <p>A unique identifier that's associated with a secret access key;
-   *                      you use the access key ID and secret access key to sign programmatic
-   *                      Amazon Web Services requests cryptographically.
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>AWS_SECRET_KEY</b>
-   *                      </p>
-   *                      <p>A unique identifier that's associated with an access key. You use the
-   *                      access key ID and secret access key to sign programmatic Amazon Web Services
-   *                      requests cryptographically.
-   *                   </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>USA specific</b>
-   *                </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <b>US_BANK_ACCOUNT_NUMBER</b>
-   *                      </p>
-   *                      <p>A US bank account number, which is typically 10 to 12 digits long.
-   *                </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>US_BANK_ROUTING_NUMBER</b>
-   *                      </p>
-   *                      <p>A US bank account routing number. These are typically nine digits long,
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER</b>
-   *                      </p>
-   *                      <p>A US Individual Taxpayer Identification Number (ITIN) is a nine-digit number
-   *                      that starts with a "9" and contain a "7" or "8" as the fourth digit. An ITIN
-   *                      can be formatted with a space or a dash after the third and forth digits.
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>US_PASSPORT_NUMBER</b>
-   *                      </p>
-   *                      <p>A US passport number. Passport numbers range from six to nine alphanumeric
-   *                      characters.
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>US_SOCIAL_SECURITY_NUMBER</b>
-   *                      </p>
-   *                      <p>A US Social Security Number (SSN) is a nine-digit number that is issued to
-   *                      US citizens, permanent residents, and temporary working residents.
-   *                   </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Canada specific</b>
-   *                </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <b>CA_HEALTH_NUMBER</b>
-   *                      </p>
-   *                      <p>A Canadian Health Service Number is a 10-digit unique identifier,
-   *                   required for individuals to access healthcare benefits.
-   *                </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>CA_SOCIAL_INSURANCE_NUMBER</b>
-   *                      </p>
-   *                      <p>A Canadian Social Insurance Number (SIN) is a nine-digit unique identifier,
-   *                      required for individuals to access government programs and benefits.</p>
-   *                      <p>The SIN is formatted as three groups of three digits, such as
-   *                      <i>123-456-789</i>. A SIN can be validated through a simple
-   *                      check-digit process called the <a href="https://www.wikipedia.org/wiki/Luhn_algorithm">Luhn algorithm</a>.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>UK Specific</b>
-   *                </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <b>UK_NATIONAL_HEALTH_SERVICE_NUMBER</b>
-   *                      </p>
-   *                      <p>A UK National Health Service Number is a 10-17 digit number,
-   *                   such as <i>485 777 3456</i>. The current system formats the 10-digit
-   *                   number with spaces after the third and sixth digits. The final digit is an
-   *                   error-detecting checksum.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>UK_NATIONAL_INSURANCE_NUMBER</b>
-   *                      </p>
-   *                      <p>A UK National Insurance Number (NINO) provides individuals with access to National
-   *                      Insurance (social security) benefits. It is also used for some purposes in the UK
-   *                      tax system.</p>
-   *                      <p>The number is nine digits long and starts with two letters, followed by six
-   *                      numbers and one letter. A NINO can be formatted with a space or a dash after
-   *                      the two letters and after the second, forth, and sixth digits.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER</b>
-   *                      </p>
-   *                      <p>A UK Unique Taxpayer Reference (UTR) is a 10-digit number that identifies a taxpayer or a business.
-   *                   </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Custom</b>
-   *                </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <b>Regex filter</b> - You can use
-   *                   a regular expressions to define patterns for a guardrail to recognize
-   *                   and act upon such as serial number, booking ID etc..</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
+   * <p>Configure guardrail type when the PII entity is detected.</p> <p>The following PIIs are used to block or mask sensitive information:</p> <ul> <li> <p> <b>General</b> </p> <ul> <li> <p> <b>ADDRESS</b> </p> <p>A physical address, such as "100 Main Street, Anytown, USA" or "Suite #12, Building 123". An address can include information such as the street, building, location, city, state, country, county, zip code, precinct, and neighborhood. </p> </li> <li> <p> <b>AGE</b> </p> <p>An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guardrails recognizes "40 years" as an age. </p> </li> <li> <p> <b>NAME</b> </p> <p>An individual's name. This entity type does not include titles, such as Dr., Mr., Mrs., or Miss. guardrails doesn't apply this entity type to names that are part of organizations or addresses. For example, guardrails recognizes the "John Doe Organization" as an organization, and it recognizes "Jane Doe Street" as an address. </p> </li> <li> <p> <b>EMAIL</b> </p> <p>An email address, such as <i>marymajor@email.com</i>.</p> </li> <li> <p> <b>PHONE</b> </p> <p>A phone number. This entity type also includes fax and pager numbers. </p> </li> <li> <p> <b>USERNAME</b> </p> <p>A user name that identifies an account, such as a login name, screen name, nick name, or handle. </p> </li> <li> <p> <b>PASSWORD</b> </p> <p>An alphanumeric string that is used as a password, such as "*<i>very20special#pass*</i>". </p> </li> <li> <p> <b>DRIVER_ID</b> </p> <p>The number assigned to a driver's license, which is an official document permitting an individual to operate one or more motorized vehicles on a public road. A driver's license number consists of alphanumeric characters. </p> </li> <li> <p> <b>LICENSE_PLATE</b> </p> <p>A license plate for a vehicle is issued by the state or country where the vehicle is registered. The format for passenger vehicles is typically five to eight digits, consisting of upper-case letters and numbers. The format varies depending on the location of the issuing state or country. </p> </li> <li> <p> <b>VEHICLE_IDENTIFICATION_NUMBER</b> </p> <p>A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined in the <i>ISO 3779</i> specification. Each country has specific codes and formats for VINs. </p> </li> </ul> </li> <li> <p> <b>Finance</b> </p> <ul> <li> <p> <b>CREDIT_DEBIT_CARD_CVV</b> </p> <p>A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code. </p> </li> <li> <p> <b>CREDIT_DEBIT_CARD_EXPIRY</b> </p> <p>The expiration date for a credit or debit card. This number is usually four digits long and is often formatted as <i>month/year</i> or <i>MM/YY</i>. Guardrails recognizes expiration dates such as <i>01/21</i>, <i>01/2021</i>, and <i>Jan 2021</i>. </p> </li> <li> <p> <b>CREDIT_DEBIT_CARD_NUMBER</b> </p> <p>The number for a credit or debit card. These numbers can vary from 13 to 16 digits in length. However, Amazon Comprehend also recognizes credit or debit card numbers when only the last four digits are present. </p> </li> <li> <p> <b>PIN</b> </p> <p>A four-digit personal identification number (PIN) with which you can access your bank account. </p> </li> <li> <p> <b>INTERNATIONAL_BANK_ACCOUNT_NUMBER</b> </p> <p>An International Bank Account Number has specific formats in each country. For more information, see <a href="https://www.iban.com/structure">www.iban.com/structure</a>.</p> </li> <li> <p> <b>SWIFT_CODE</b> </p> <p>A SWIFT code is a standard format of Bank Identifier Code (BIC) used to specify a particular bank or branch. Banks use these codes for money transfers such as international wire transfers.</p> <p>SWIFT codes consist of eight or 11 characters. The 11-digit codes refer to specific branches, while eight-digit codes (or 11-digit codes ending in 'XXX') refer to the head or primary office.</p> </li> </ul> </li> <li> <p> <b>IT</b> </p> <ul> <li> <p> <b>IP_ADDRESS</b> </p> <p>An IPv4 address, such as <i>198.51.100.0</i>. </p> </li> <li> <p> <b>MAC_ADDRESS</b> </p> <p>A <i>media access control</i> (MAC) address is a unique identifier assigned to a network interface controller (NIC). </p> </li> <li> <p> <b>URL</b> </p> <p>A web address, such as <i>www.example.com</i>. </p> </li> <li> <p> <b>AWS_ACCESS_KEY</b> </p> <p>A unique identifier that's associated with a secret access key; you use the access key ID and secret access key to sign programmatic Amazon Web Services requests cryptographically. </p> </li> <li> <p> <b>AWS_SECRET_KEY</b> </p> <p>A unique identifier that's associated with an access key. You use the access key ID and secret access key to sign programmatic Amazon Web Services requests cryptographically. </p> </li> </ul> </li> <li> <p> <b>USA specific</b> </p> <ul> <li> <p> <b>US_BANK_ACCOUNT_NUMBER</b> </p> <p>A US bank account number, which is typically 10 to 12 digits long. </p> </li> <li> <p> <b>US_BANK_ROUTING_NUMBER</b> </p> <p>A US bank account routing number. These are typically nine digits long, </p> </li> <li> <p> <b>US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER</b> </p> <p>A US Individual Taxpayer Identification Number (ITIN) is a nine-digit number that starts with a "9" and contain a "7" or "8" as the fourth digit. An ITIN can be formatted with a space or a dash after the third and forth digits. </p> </li> <li> <p> <b>US_PASSPORT_NUMBER</b> </p> <p>A US passport number. Passport numbers range from six to nine alphanumeric characters. </p> </li> <li> <p> <b>US_SOCIAL_SECURITY_NUMBER</b> </p> <p>A US Social Security Number (SSN) is a nine-digit number that is issued to US citizens, permanent residents, and temporary working residents. </p> </li> </ul> </li> <li> <p> <b>Canada specific</b> </p> <ul> <li> <p> <b>CA_HEALTH_NUMBER</b> </p> <p>A Canadian Health Service Number is a 10-digit unique identifier, required for individuals to access healthcare benefits. </p> </li> <li> <p> <b>CA_SOCIAL_INSURANCE_NUMBER</b> </p> <p>A Canadian Social Insurance Number (SIN) is a nine-digit unique identifier, required for individuals to access government programs and benefits.</p> <p>The SIN is formatted as three groups of three digits, such as <i>123-456-789</i>. A SIN can be validated through a simple check-digit process called the <a href="https://www.wikipedia.org/wiki/Luhn_algorithm">Luhn algorithm</a>.</p> </li> </ul> </li> <li> <p> <b>UK Specific</b> </p> <ul> <li> <p> <b>UK_NATIONAL_HEALTH_SERVICE_NUMBER</b> </p> <p>A UK National Health Service Number is a 10-17 digit number, such as <i>485 777 3456</i>. The current system formats the 10-digit number with spaces after the third and sixth digits. The final digit is an error-detecting checksum.</p> </li> <li> <p> <b>UK_NATIONAL_INSURANCE_NUMBER</b> </p> <p>A UK National Insurance Number (NINO) provides individuals with access to National Insurance (social security) benefits. It is also used for some purposes in the UK tax system.</p> <p>The number is nine digits long and starts with two letters, followed by six numbers and one letter. A NINO can be formatted with a space or a dash after the two letters and after the second, forth, and sixth digits.</p> </li> <li> <p> <b>UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER</b> </p> <p>A UK Unique Taxpayer Reference (UTR) is a 10-digit number that identifies a taxpayer or a business. </p> </li> </ul> </li> <li> <p> <b>Custom</b> </p> <ul> <li> <p> <b>Regex filter</b> - You can use a regular expressions to define patterns for a guardrail to recognize and act upon such as serial number, booking ID etc..</p> </li> </ul> </li> </ul>
    * @public
    */
   type: GuardrailPiiEntityType | undefined;
@@ -2764,61 +3052,25 @@ export interface GuardrailPiiEntityConfig {
   action: GuardrailSensitiveInformationAction | undefined;
 
   /**
-   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ANONYMIZE</code> – Mask the content and replace it with identifier
-   *                tags.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the
-   *                trace response.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>ANONYMIZE</code> – Mask the content and replace it with identifier tags.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   inputAction?: GuardrailSensitiveInformationAction | undefined;
 
   /**
-   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ANONYMIZE</code> – Mask the content and replace it with identifier
-   *                tags.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the
-   *                trace response.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>ANONYMIZE</code> – Mask the content and replace it with identifier tags.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   outputAction?: GuardrailSensitiveInformationAction | undefined;
 
   /**
-   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't
-   *          charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   inputEnabled?: boolean | undefined;
 
   /**
-   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you
-   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   outputEnabled?: boolean | undefined;
@@ -2854,51 +3106,25 @@ export interface GuardrailRegexConfig {
   action: GuardrailSensitiveInformationAction | undefined;
 
   /**
-   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   inputAction?: GuardrailSensitiveInformationAction | undefined;
 
   /**
-   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   outputAction?: GuardrailSensitiveInformationAction | undefined;
 
   /**
-   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't
-   *          charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   inputEnabled?: boolean | undefined;
 
   /**
-   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you
-   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   outputEnabled?: boolean | undefined;
@@ -2979,51 +3205,25 @@ export interface GuardrailTopicConfig {
   type: GuardrailTopicType | undefined;
 
   /**
-   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   inputAction?: GuardrailTopicAction | undefined;
 
   /**
-   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   outputAction?: GuardrailTopicAction | undefined;
 
   /**
-   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't
-   *          charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   inputEnabled?: boolean | undefined;
 
   /**
-   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you
-   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   outputEnabled?: boolean | undefined;
@@ -3080,51 +3280,25 @@ export interface GuardrailManagedWordsConfig {
   type: GuardrailManagedWordsType | undefined;
 
   /**
-   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   inputAction?: GuardrailWordAction | undefined;
 
   /**
-   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   outputAction?: GuardrailWordAction | undefined;
 
   /**
-   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you
-   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   inputEnabled?: boolean | undefined;
 
   /**
-   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you
-   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   outputEnabled?: boolean | undefined;
@@ -3142,51 +3316,25 @@ export interface GuardrailWordConfig {
   text: string | undefined;
 
   /**
-   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   inputAction?: GuardrailWordAction | undefined;
 
   /**
-   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   outputAction?: GuardrailWordAction | undefined;
 
   /**
-   * <p>Specifies whether to enable guardrail evaluation on the intput. When disabled, you
-   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Specifies whether to enable guardrail evaluation on the intput. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   inputEnabled?: boolean | undefined;
 
   /**
-   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you
-   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   outputEnabled?: boolean | undefined;
@@ -3257,8 +3405,7 @@ export interface CreateGuardrailRequest {
   contextualGroundingPolicyConfig?: GuardrailContextualGroundingPolicyConfig | undefined;
 
   /**
-   * <p>The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination Amazon Web Services Regions where guardrail inference requests can be automatically routed.</p>
-   *          <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
+   * <p>The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination Amazon Web Services Regions where guardrail inference requests can be automatically routed.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
    * @public
    */
   crossRegionConfig?: GuardrailCrossRegionConfig | undefined;
@@ -3288,11 +3435,7 @@ export interface CreateGuardrailRequest {
   tags?: Tag[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request
-   *          completes no more than once. If this token matches a previous request,
-   *          Amazon Bedrock ignores the request, but does not return an error.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *             idempotency</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than once. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
   clientRequestToken?: string | undefined;
@@ -3315,8 +3458,7 @@ export interface CreateGuardrailResponse {
   guardrailArn: string | undefined;
 
   /**
-   * <p>The version of the guardrail that was created.
-   *          This value will always be <code>DRAFT</code>.</p>
+   * <p>The version of the guardrail that was created. This value will always be <code>DRAFT</code>.</p>
    * @public
    */
   version: string | undefined;
@@ -3326,34 +3468,6 @@ export interface CreateGuardrailResponse {
    * @public
    */
   createdAt: Date | undefined;
-}
-
-/**
- * <p>The request contains more tags than can be associated with a resource (50 tags per resource).
- *          The maximum number of tags includes both existing tags and those included in your current request. </p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The name of the resource with too many tags.</p>
-   * @public
-   */
-  resourceName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.resourceName = opts.resourceName;
-  }
 }
 
 /**
@@ -3373,11 +3487,7 @@ export interface CreateGuardrailVersionRequest {
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request
-   *          completes no more than once. If this token matches a previous request,
-   *          Amazon Bedrock ignores the request, but does not return an error.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *             idempotency</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than once. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
   clientRequestToken?: string | undefined;
@@ -3405,7 +3515,7 @@ export interface CreateGuardrailVersionResponse {
  */
 export interface DeleteGuardrailRequest {
   /**
-   * <p>The unique identifier of the guardrail.  This can be an ID or the ARN.</p>
+   * <p>The unique identifier of the guardrail. This can be an ID or the ARN.</p>
    * @public
    */
   guardrailIdentifier: string | undefined;
@@ -3427,7 +3537,7 @@ export interface DeleteGuardrailResponse {}
  */
 export interface GetGuardrailRequest {
   /**
-   * <p>The unique identifier of the guardrail for which to get details.  This can be an ID or the ARN.</p>
+   * <p>The unique identifier of the guardrail for which to get details. This can be an ID or the ARN.</p>
    * @public
    */
   guardrailIdentifier: string | undefined;
@@ -3440,42 +3550,7 @@ export interface GetGuardrailRequest {
 }
 
 /**
- * <p>Contains filter strengths for harmful content. Guardrails support the following content filters to detect and filter harmful user inputs and FM-generated outputs.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Hate</b> – Describes language or a statement that discriminates, criticizes, insults, denounces, or dehumanizes a person or group on the basis of an identity (such as race, ethnicity, gender, religion, sexual orientation, ability, and national origin).</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Insults</b> – Describes language or a statement that includes demeaning, humiliating, mocking, insulting, or belittling language. This type of language is also labeled as bullying.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Sexual</b> – Describes language or a statement that indicates sexual interest, activity, or arousal using direct or indirect references to body parts, physical traits, or sex.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Violence</b> – Describes language or a statement that includes glorification of or threats to inflict physical pain, hurt, or injury toward a person, group or thing.</p>
- *             </li>
- *          </ul>
- *          <p>Content filtering depends on the confidence classification of user inputs and FM
- *          responses across each of the four harmful categories. All input and output statements are
- *          classified into one of four confidence levels (NONE, LOW, MEDIUM, HIGH) for each
- *          harmful category. For example, if a statement is classified as
- *          <i>Hate</i> with HIGH confidence, the likelihood of the statement
- *          representing hateful content is high. A single statement can be classified across
- *          multiple categories with varying confidence levels. For example, a single statement
- *          can be classified as <i>Hate</i> with HIGH confidence, <i>Insults</i> with LOW confidence, <i>Sexual</i> with NONE confidence, and <i>Violence</i> with MEDIUM confidence.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters.html">Guardrails content filters</a>.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Contains filter strengths for harmful content. Guardrails support the following content filters to detect and filter harmful user inputs and FM-generated outputs.</p> <ul> <li> <p> <b>Hate</b> – Describes language or a statement that discriminates, criticizes, insults, denounces, or dehumanizes a person or group on the basis of an identity (such as race, ethnicity, gender, religion, sexual orientation, ability, and national origin).</p> </li> <li> <p> <b>Insults</b> – Describes language or a statement that includes demeaning, humiliating, mocking, insulting, or belittling language. This type of language is also labeled as bullying.</p> </li> <li> <p> <b>Sexual</b> – Describes language or a statement that indicates sexual interest, activity, or arousal using direct or indirect references to body parts, physical traits, or sex.</p> </li> <li> <p> <b>Violence</b> – Describes language or a statement that includes glorification of or threats to inflict physical pain, hurt, or injury toward a person, group or thing.</p> </li> </ul> <p>Content filtering depends on the confidence classification of user inputs and FM responses across each of the four harmful categories. All input and output statements are classified into one of four confidence levels (NONE, LOW, MEDIUM, HIGH) for each harmful category. For example, if a statement is classified as <i>Hate</i> with HIGH confidence, the likelihood of the statement representing hateful content is high. A single statement can be classified across multiple categories with varying confidence levels. For example, a single statement can be classified as <i>Hate</i> with HIGH confidence, <i>Insults</i> with LOW confidence, <i>Sexual</i> with NONE confidence, and <i>Violence</i> with MEDIUM confidence.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters.html">Guardrails content filters</a>.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a> </p> </li> </ul>
  * @public
  */
 export interface GuardrailContentFilter {
@@ -3486,17 +3561,13 @@ export interface GuardrailContentFilter {
   type: GuardrailContentFilterType | undefined;
 
   /**
-   * <p>The strength of the content filter to apply to prompts. As you
-   *          increase the filter strength, the likelihood of filtering harmful content increases
-   *          and the probability of seeing harmful content in your application reduces.</p>
+   * <p>The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.</p>
    * @public
    */
   inputStrength: GuardrailFilterStrength | undefined;
 
   /**
-   * <p>The strength of the content filter to apply to model responses. As you
-   *          increase the filter strength, the likelihood of filtering harmful content increases
-   *          and the probability of seeing harmful content in your application reduces.</p>
+   * <p>The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.</p>
    * @public
    */
   outputStrength: GuardrailFilterStrength | undefined;
@@ -3514,66 +3585,32 @@ export interface GuardrailContentFilter {
   outputModalities?: GuardrailModality[] | undefined;
 
   /**
-   * <p>The action to take when harmful content is detected in the input. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the
-   *                trace response.</p>
-   *             </li>
-   *          </ul>
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   inputAction?: GuardrailContentFilterAction | undefined;
 
   /**
-   * <p>The action to take when harmful content is detected in the output. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   outputAction?: GuardrailContentFilterAction | undefined;
 
   /**
-   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't
-   *          charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   inputEnabled?: boolean | undefined;
 
   /**
-   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you
-   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   outputEnabled?: boolean | undefined;
 }
 
 /**
- * <p>Contains details about how to handle harmful content.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Contains details about how to handle harmful content.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a> </p> </li> </ul>
  * @public
  */
 export interface GuardrailContentPolicy {
@@ -3602,19 +3639,7 @@ export interface GuardrailContextualGroundingFilter {
   threshold: number | undefined;
 
   /**
-   * <p>The action to take when content fails the contextual grounding evaluation. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>The action to take when content fails the contextual grounding evaluation. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   action?: GuardrailContextualGroundingAction | undefined;
@@ -3639,14 +3664,12 @@ export interface GuardrailContextualGroundingPolicy {
 }
 
 /**
- * <p>Contains details about the system-defined guardrail profile that you're using with your guardrail for cross-Region inference.</p>
- *          <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
+ * <p>Contains details about the system-defined guardrail profile that you're using with your guardrail for cross-Region inference.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
  * @public
  */
 export interface GuardrailCrossRegionDetails {
   /**
-   * <p>The ID of the guardrail profile that your guardrail is using. Profile availability
-   *          depends on your current Amazon Web Services Region. For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html">Amazon Bedrock User Guide</a>.</p>
+   * <p>The ID of the guardrail profile that your guardrail is using. Profile availability depends on your current Amazon Web Services Region. For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html">Amazon Bedrock User Guide</a>.</p>
    * @public
    */
   guardrailProfileId?: string | undefined;
@@ -3676,61 +3699,25 @@ export interface GuardrailPiiEntity {
   action: GuardrailSensitiveInformationAction | undefined;
 
   /**
-   * <p>The action to take when harmful content is detected in the input. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ANONYMIZE</code> – Mask the content and replace it with identifier
-   *                tags.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the
-   *                trace response.</p>
-   *             </li>
-   *          </ul>
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>ANONYMIZE</code> – Mask the content and replace it with identifier tags.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   inputAction?: GuardrailSensitiveInformationAction | undefined;
 
   /**
-   * <p>The action to take when harmful content is detected in the output. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ANONYMIZE</code> – Mask the content and replace it with identifier
-   *                tags.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the
-   *                trace response.</p>
-   *             </li>
-   *          </ul>
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>ANONYMIZE</code> – Mask the content and replace it with identifier tags.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   outputAction?: GuardrailSensitiveInformationAction | undefined;
 
   /**
-   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't
-   *          charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   inputEnabled?: boolean | undefined;
 
   /**
-   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you
-   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   outputEnabled?: boolean | undefined;
@@ -3766,51 +3753,25 @@ export interface GuardrailRegex {
   action: GuardrailSensitiveInformationAction | undefined;
 
   /**
-   * <p>The action to take when harmful content is detected in the input. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   inputAction?: GuardrailSensitiveInformationAction | undefined;
 
   /**
-   * <p>The action to take when harmful content is detected in the output. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   outputAction?: GuardrailSensitiveInformationAction | undefined;
 
   /**
-   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't
-   *          charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   inputEnabled?: boolean | undefined;
 
   /**
-   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you
-   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   outputEnabled?: boolean | undefined;
@@ -3853,15 +3814,7 @@ export const GuardrailStatus = {
 export type GuardrailStatus = (typeof GuardrailStatus)[keyof typeof GuardrailStatus];
 
 /**
- * <p>Details about topics for the guardrail to identify and deny.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Details about topics for the guardrail to identify and deny.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a> </p> </li> </ul>
  * @public
  */
 export interface GuardrailTopic {
@@ -3890,66 +3843,32 @@ export interface GuardrailTopic {
   type?: GuardrailTopicType | undefined;
 
   /**
-   * <p>The action to take when harmful content is detected in the input. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   inputAction?: GuardrailTopicAction | undefined;
 
   /**
-   * <p>The action to take when harmful content is detected in the output. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   outputAction?: GuardrailTopicAction | undefined;
 
   /**
-   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you
-   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   inputEnabled?: boolean | undefined;
 
   /**
-   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you
-   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   outputEnabled?: boolean | undefined;
 }
 
 /**
- * <p>Contains details about topics that the guardrail should identify and deny.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Contains details about topics that the guardrail should identify and deny.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a> </p> </li> </ul>
  * @public
  */
 export interface GuardrailTopicPolicy {
@@ -3961,65 +3880,36 @@ export interface GuardrailTopicPolicy {
 }
 
 /**
- * <p>The managed word list that was configured for the guardrail.
- *          (This is a list of words that are pre-defined and managed by guardrails only.)</p>
+ * <p>The managed word list that was configured for the guardrail. (This is a list of words that are pre-defined and managed by guardrails only.)</p>
  * @public
  */
 export interface GuardrailManagedWords {
   /**
-   * <p>ManagedWords$type
-   *          The managed word type that was configured for the guardrail.
-   *          (For now, we only offer profanity word list)</p>
+   * <p>ManagedWords$type The managed word type that was configured for the guardrail. (For now, we only offer profanity word list)</p>
    * @public
    */
   type: GuardrailManagedWordsType | undefined;
 
   /**
-   * <p>The action to take when harmful content is detected in the input. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   inputAction?: GuardrailWordAction | undefined;
 
   /**
-   * <p>The action to take when harmful content is detected in the output. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   outputAction?: GuardrailWordAction | undefined;
 
   /**
-   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't
-   *          charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   inputEnabled?: boolean | undefined;
 
   /**
-   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you
-   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   outputEnabled?: boolean | undefined;
@@ -4037,51 +3927,25 @@ export interface GuardrailWord {
   text: string | undefined;
 
   /**
-   * <p>The action to take when harmful content is detected in the input. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   inputAction?: GuardrailWordAction | undefined;
 
   /**
-   * <p>The action to take when harmful content is detected in the output. Supported values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> – Block the content and replace it with blocked
-   *                messaging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Take no action but return detection information in the trace
-   *                response.</p>
-   *             </li>
-   *          </ul>
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
    * @public
    */
   outputAction?: GuardrailWordAction | undefined;
 
   /**
-   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't
-   *          charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   inputEnabled?: boolean | undefined;
 
   /**
-   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you
-   *          aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
    * @public
    */
   outputEnabled?: boolean | undefined;
@@ -4229,7 +4093,7 @@ export interface GetGuardrailResponse {
  */
 export interface ListGuardrailsRequest {
   /**
-   * <p>The unique identifier of the guardrail.  This can be an ID or the ARN.</p>
+   * <p>The unique identifier of the guardrail. This can be an ID or the ARN.</p>
    * @public
    */
   guardrailIdentifier?: string | undefined;
@@ -4248,15 +4112,7 @@ export interface ListGuardrailsRequest {
 }
 
 /**
- * <p>Contains details about a guardrail.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListGuardrails.html#API_ListGuardrails_ResponseSyntax">ListGuardrails response body</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Contains details about a guardrail.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListGuardrails.html#API_ListGuardrails_ResponseSyntax">ListGuardrails response body</a> </p> </li> </ul>
  * @public
  */
 export interface GuardrailSummary {
@@ -4337,7 +4193,7 @@ export interface ListGuardrailsResponse {
  */
 export interface UpdateGuardrailRequest {
   /**
-   * <p>The unique identifier of the guardrail.  This can be an ID or the ARN.</p>
+   * <p>The unique identifier of the guardrail. This can be an ID or the ARN.</p>
    * @public
    */
   guardrailIdentifier: string | undefined;
@@ -4385,8 +4241,7 @@ export interface UpdateGuardrailRequest {
   contextualGroundingPolicyConfig?: GuardrailContextualGroundingPolicyConfig | undefined;
 
   /**
-   * <p>The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination Amazon Web Services Regions where guardrail inference requests can be automatically routed.</p>
-   *          <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
+   * <p>The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination Amazon Web Services Regions where guardrail inference requests can be automatically routed.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
    * @public
    */
   crossRegionConfig?: GuardrailCrossRegionConfig | undefined;
@@ -4496,8 +4351,7 @@ export interface CreateInferenceProfileRequest {
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientRequestToken?: string | undefined;
@@ -4509,7 +4363,7 @@ export interface CreateInferenceProfileRequest {
   modelSource: InferenceProfileModelSource | undefined;
 
   /**
-   * <p>An array of objects, each of which contains a tag and its value. For more information, see  <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Tagging resources</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+   * <p>An array of objects, each of which contains a tag and its value. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Tagging resources</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -4651,17 +4505,7 @@ export interface GetInferenceProfileResponse {
   status: InferenceProfileStatus | undefined;
 
   /**
-   * <p>The type of the inference profile. The following types are possible:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SYSTEM_DEFINED</code> – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>APPLICATION</code> – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.</p>
-   *             </li>
-   *          </ul>
+   * <p>The type of the inference profile. The following types are possible:</p> <ul> <li> <p> <code>SYSTEM_DEFINED</code> – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.</p> </li> <li> <p> <code>APPLICATION</code> – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.</p> </li> </ul>
    * @public
    */
   type: InferenceProfileType | undefined;
@@ -4684,17 +4528,7 @@ export interface ListInferenceProfilesRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>Filters for inference profiles that match the type you specify.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SYSTEM_DEFINED</code> – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>APPLICATION</code> – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.</p>
-   *             </li>
-   *          </ul>
+   * <p>Filters for inference profiles that match the type you specify.</p> <ul> <li> <p> <code>SYSTEM_DEFINED</code> – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.</p> </li> <li> <p> <code>APPLICATION</code> – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.</p> </li> </ul>
    * @public
    */
   typeEquals?: InferenceProfileType | undefined;
@@ -4754,17 +4588,7 @@ export interface InferenceProfileSummary {
   status: InferenceProfileStatus | undefined;
 
   /**
-   * <p>The type of the inference profile. The following types are possible:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SYSTEM_DEFINED</code> – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>APPLICATION</code> – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.</p>
-   *             </li>
-   *          </ul>
+   * <p>The type of the inference profile. The following types are possible:</p> <ul> <li> <p> <code>SYSTEM_DEFINED</code> – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.</p> </li> <li> <p> <code>APPLICATION</code> – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.</p> </li> </ul>
    * @public
    */
   type: InferenceProfileType | undefined;
@@ -4942,8 +4766,7 @@ export interface CreateModelCopyJobRequest {
   targetModelTags?: Tag[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientRequestToken?: string | undefined;
@@ -5123,15 +4946,7 @@ export interface ListModelCopyJobsRequest {
 }
 
 /**
- * <p>Contains details about each model copy job.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListModelCopyJobs.html#API_ListModelCopyJobs_ResponseSyntax">ListModelCopyJobs response</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Contains details about each model copy job.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListModelCopyJobs.html#API_ListModelCopyJobs_ResponseSyntax">ListModelCopyJobs response</a> </p> </li> </ul>
  * @public
  */
 export interface ModelCopyJobSummary {
@@ -5220,56 +5035,6 @@ export interface ListModelCopyJobsResponse {
 }
 
 /**
- * <p>The Amazon S3 data source of the imported job.</p>
- * @public
- */
-export interface S3DataSource {
-  /**
-   * <p>The URI of the Amazon S3 data source.</p>
-   * @public
-   */
-  s3Uri: string | undefined;
-}
-
-/**
- * <p>Data source for the imported model.</p>
- * @public
- */
-export type ModelDataSource = ModelDataSource.S3DataSourceMember | ModelDataSource.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ModelDataSource {
-  /**
-   * <p>The Amazon S3 data source of the imported model.</p>
-   * @public
-   */
-  export interface S3DataSourceMember {
-    s3DataSource: S3DataSource;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3DataSource?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    s3DataSource: (value: S3DataSource) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: ModelDataSource, visitor: Visitor<T>): T => {
-    if (value.s3DataSource !== undefined) return visitor.s3DataSource(value.s3DataSource);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
  * @public
  */
 export interface CreateModelImportJobRequest {
@@ -5310,16 +5075,13 @@ export interface CreateModelImportJobRequest {
   importedModelTags?: Tag[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *         Amazon Bedrock ignores the request, but does not return an error. For more information,
-   *         see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientRequestToken?: string | undefined;
 
   /**
-   * <p>VPC configuration parameters for the
-   *         private Virtual Private Cloud (VPC) that contains the resources you are using for the import job.</p>
+   * <p>VPC configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for the import job.</p>
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
@@ -5370,15 +5132,7 @@ export interface GetImportedModelRequest {
 }
 
 /**
- * <p>A <code>CustomModelUnit</code> (CMU) is an abstract view of the hardware utilization that
- *      Amazon Bedrock needs to host a single copy of your custom model. A model copy represents a
- *      single instance of your imported model that is ready to serve inference requests. Amazon Bedrock
- *      determines the number of custom model units that a model copy needs when you import the custom model.
- *  </p>
- *          <p>You can use <code>CustomModelUnits</code> to estimate the cost of running
- *      your custom model. For more information, see Calculate the cost of running a custom model in the
- *      Amazon Bedrock user guide.
- *  </p>
+ * <p>A <code>CustomModelUnit</code> (CMU) is an abstract view of the hardware utilization that Amazon Bedrock needs to host a single copy of your custom model. A model copy represents a single instance of your imported model that is ready to serve inference requests. Amazon Bedrock determines the number of custom model units that a model copy needs when you import the custom model. </p> <p>You can use <code>CustomModelUnits</code> to estimate the cost of running your custom model. For more information, see Calculate the cost of running a custom model in the Amazon Bedrock user guide. </p>
  * @public
  */
 export interface CustomModelUnits {
@@ -5527,8 +5281,7 @@ export interface GetModelImportJobResponse {
   modelDataSource?: ModelDataSource | undefined;
 
   /**
-   * <p>The status of the job. A successful job transitions from in-progress to completed when the imported model is ready to use.
-   *         If the job failed, the failure message contains information about why the job failed.</p>
+   * <p>The status of the job. A successful job transitions from in-progress to completed when the imported model is ready to use. If the job failed, the failure message contains information about why the job failed.</p>
    * @public
    */
   status?: ModelImportJobStatus | undefined;
@@ -5569,19 +5322,6 @@ export interface GetModelImportJobResponse {
    */
   importedModelKmsKeyArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SortModelsBy = {
-  CREATION_TIME: "CreationTime",
-} as const;
-
-/**
- * @public
- */
-export type SortModelsBy = (typeof SortModelsBy)[keyof typeof SortModelsBy];
 
 /**
  * @public
@@ -5965,8 +5705,7 @@ export interface CreateModelInvocationJobRequest {
   roleArn: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientRequestToken?: string | undefined;
@@ -6075,8 +5814,7 @@ export interface GetModelInvocationJobResponse {
   modelId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientRequestToken?: string | undefined;
@@ -6088,51 +5826,7 @@ export interface GetModelInvocationJobResponse {
   roleArn: string | undefined;
 
   /**
-   * <p>The status of the batch inference job.</p>
-   *          <p>The following statuses are possible:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Submitted – This job has been submitted to a queue for validation.</p>
-   *             </li>
-   *             <li>
-   *                <p>Validating – This job is being validated for the requirements described in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data.html">Format and upload your batch inference data</a>. The criteria include the following:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Your IAM service role has access to the Amazon S3 buckets containing your files.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Your files are .jsonl files and each individual record is a JSON object in the correct format. Note that validation doesn't check if the <code>modelInput</code> value matches the request body for the model.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Your files fulfill the requirements for file size and number of records. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html">Quotas for Amazon Bedrock</a>.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>Scheduled – This job has been validated and is now in a queue. The job will automatically start when it reaches its turn.</p>
-   *             </li>
-   *             <li>
-   *                <p>Expired – This job timed out because it was scheduled but didn't begin before the set timeout duration. Submit a new job request.</p>
-   *             </li>
-   *             <li>
-   *                <p>InProgress – This job has begun. You can start viewing the results in the output S3 location.</p>
-   *             </li>
-   *             <li>
-   *                <p>Completed – This job has successfully completed. View the output files in the output S3 location.</p>
-   *             </li>
-   *             <li>
-   *                <p>PartiallyCompleted – This job has partially completed. Not all of your records could be processed in time. View the output files in the output S3 location.</p>
-   *             </li>
-   *             <li>
-   *                <p>Failed – This job has failed. Check the failure message for any further details. For further assistance, reach out to the <a href="https://console.aws.amazon.com/support/home/">Amazon Web ServicesSupport Center</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Stopped – This job was stopped by a user.</p>
-   *             </li>
-   *             <li>
-   *                <p>Stopping – This job is being stopped by a user.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the batch inference job.</p> <p>The following statuses are possible:</p> <ul> <li> <p>Submitted – This job has been submitted to a queue for validation.</p> </li> <li> <p>Validating – This job is being validated for the requirements described in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data.html">Format and upload your batch inference data</a>. The criteria include the following:</p> <ul> <li> <p>Your IAM service role has access to the Amazon S3 buckets containing your files.</p> </li> <li> <p>Your files are .jsonl files and each individual record is a JSON object in the correct format. Note that validation doesn't check if the <code>modelInput</code> value matches the request body for the model.</p> </li> <li> <p>Your files fulfill the requirements for file size and number of records. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html">Quotas for Amazon Bedrock</a>.</p> </li> </ul> </li> <li> <p>Scheduled – This job has been validated and is now in a queue. The job will automatically start when it reaches its turn.</p> </li> <li> <p>Expired – This job timed out because it was scheduled but didn't begin before the set timeout duration. Submit a new job request.</p> </li> <li> <p>InProgress – This job has begun. You can start viewing the results in the output S3 location.</p> </li> <li> <p>Completed – This job has successfully completed. View the output files in the output S3 location.</p> </li> <li> <p>PartiallyCompleted – This job has partially completed. Not all of your records could be processed in time. View the output files in the output S3 location.</p> </li> <li> <p>Failed – This job has failed. Check the failure message for any further details. For further assistance, reach out to the <a href="https://console.aws.amazon.com/support/home/">Amazon Web ServicesSupport Center</a>.</p> </li> <li> <p>Stopped – This job was stopped by a user.</p> </li> <li> <p>Stopping – This job is being stopped by a user.</p> </li> </ul>
    * @public
    */
   status?: ModelInvocationJobStatus | undefined;
@@ -6209,51 +5903,7 @@ export interface ListModelInvocationJobsRequest {
   submitTimeBefore?: Date | undefined;
 
   /**
-   * <p>Specify a status to filter for batch inference jobs whose statuses match the string you specify.</p>
-   *          <p>The following statuses are possible:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Submitted – This job has been submitted to a queue for validation.</p>
-   *             </li>
-   *             <li>
-   *                <p>Validating – This job is being validated for the requirements described in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data.html">Format and upload your batch inference data</a>. The criteria include the following:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Your IAM service role has access to the Amazon S3 buckets containing your files.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Your files are .jsonl files and each individual record is a JSON object in the correct format. Note that validation doesn't check if the <code>modelInput</code> value matches the request body for the model.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Your files fulfill the requirements for file size and number of records. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html">Quotas for Amazon Bedrock</a>.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>Scheduled – This job has been validated and is now in a queue. The job will automatically start when it reaches its turn.</p>
-   *             </li>
-   *             <li>
-   *                <p>Expired – This job timed out because it was scheduled but didn't begin before the set timeout duration. Submit a new job request.</p>
-   *             </li>
-   *             <li>
-   *                <p>InProgress – This job has begun. You can start viewing the results in the output S3 location.</p>
-   *             </li>
-   *             <li>
-   *                <p>Completed – This job has successfully completed. View the output files in the output S3 location.</p>
-   *             </li>
-   *             <li>
-   *                <p>PartiallyCompleted – This job has partially completed. Not all of your records could be processed in time. View the output files in the output S3 location.</p>
-   *             </li>
-   *             <li>
-   *                <p>Failed – This job has failed. Check the failure message for any further details. For further assistance, reach out to the <a href="https://console.aws.amazon.com/support/home/">Amazon Web ServicesSupport Center</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Stopped – This job was stopped by a user.</p>
-   *             </li>
-   *             <li>
-   *                <p>Stopping – This job is being stopped by a user.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specify a status to filter for batch inference jobs whose statuses match the string you specify.</p> <p>The following statuses are possible:</p> <ul> <li> <p>Submitted – This job has been submitted to a queue for validation.</p> </li> <li> <p>Validating – This job is being validated for the requirements described in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data.html">Format and upload your batch inference data</a>. The criteria include the following:</p> <ul> <li> <p>Your IAM service role has access to the Amazon S3 buckets containing your files.</p> </li> <li> <p>Your files are .jsonl files and each individual record is a JSON object in the correct format. Note that validation doesn't check if the <code>modelInput</code> value matches the request body for the model.</p> </li> <li> <p>Your files fulfill the requirements for file size and number of records. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html">Quotas for Amazon Bedrock</a>.</p> </li> </ul> </li> <li> <p>Scheduled – This job has been validated and is now in a queue. The job will automatically start when it reaches its turn.</p> </li> <li> <p>Expired – This job timed out because it was scheduled but didn't begin before the set timeout duration. Submit a new job request.</p> </li> <li> <p>InProgress – This job has begun. You can start viewing the results in the output S3 location.</p> </li> <li> <p>Completed – This job has successfully completed. View the output files in the output S3 location.</p> </li> <li> <p>PartiallyCompleted – This job has partially completed. Not all of your records could be processed in time. View the output files in the output S3 location.</p> </li> <li> <p>Failed – This job has failed. Check the failure message for any further details. For further assistance, reach out to the <a href="https://console.aws.amazon.com/support/home/">Amazon Web ServicesSupport Center</a>.</p> </li> <li> <p>Stopped – This job was stopped by a user.</p> </li> <li> <p>Stopping – This job is being stopped by a user.</p> </li> </ul>
    * @public
    */
   statusEquals?: ModelInvocationJobStatus | undefined;
@@ -6271,11 +5921,7 @@ export interface ListModelInvocationJobsRequest {
   maxResults?: number | undefined;
 
   /**
-   * <p>If there were more results than the value you specified
-   *             in the <code>maxResults</code> field in a previous <code>ListModelInvocationJobs</code> request, the response would have returned a <code>nextToken</code>
-   *             value. To see the next batch of results, send the
-   *             <code>nextToken</code> value in another
-   *             request.</p>
+   * <p>If there were more results than the value you specified in the <code>maxResults</code> field in a previous <code>ListModelInvocationJobs</code> request, the response would have returned a <code>nextToken</code> value. To see the next batch of results, send the <code>nextToken</code> value in another request.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -6317,8 +5963,7 @@ export interface ModelInvocationJobSummary {
   modelId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientRequestToken?: string | undefined;
@@ -6330,51 +5975,7 @@ export interface ModelInvocationJobSummary {
   roleArn: string | undefined;
 
   /**
-   * <p>The status of the batch inference job.</p>
-   *          <p>The following statuses are possible:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Submitted – This job has been submitted to a queue for validation.</p>
-   *             </li>
-   *             <li>
-   *                <p>Validating – This job is being validated for the requirements described in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data.html">Format and upload your batch inference data</a>. The criteria include the following:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Your IAM service role has access to the Amazon S3 buckets containing your files.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Your files are .jsonl files and each individual record is a JSON object in the correct format. Note that validation doesn't check if the <code>modelInput</code> value matches the request body for the model.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Your files fulfill the requirements for file size and number of records. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html">Quotas for Amazon Bedrock</a>.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>Scheduled – This job has been validated and is now in a queue. The job will automatically start when it reaches its turn.</p>
-   *             </li>
-   *             <li>
-   *                <p>Expired – This job timed out because it was scheduled but didn't begin before the set timeout duration. Submit a new job request.</p>
-   *             </li>
-   *             <li>
-   *                <p>InProgress – This job has begun. You can start viewing the results in the output S3 location.</p>
-   *             </li>
-   *             <li>
-   *                <p>Completed – This job has successfully completed. View the output files in the output S3 location.</p>
-   *             </li>
-   *             <li>
-   *                <p>PartiallyCompleted – This job has partially completed. Not all of your records could be processed in time. View the output files in the output S3 location.</p>
-   *             </li>
-   *             <li>
-   *                <p>Failed – This job has failed. Check the failure message for any further details. For further assistance, reach out to the <a href="https://console.aws.amazon.com/support/home/">Amazon Web ServicesSupport Center</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Stopped – This job was stopped by a user.</p>
-   *             </li>
-   *             <li>
-   *                <p>Stopping – This job is being stopped by a user.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the batch inference job.</p> <p>The following statuses are possible:</p> <ul> <li> <p>Submitted – This job has been submitted to a queue for validation.</p> </li> <li> <p>Validating – This job is being validated for the requirements described in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data.html">Format and upload your batch inference data</a>. The criteria include the following:</p> <ul> <li> <p>Your IAM service role has access to the Amazon S3 buckets containing your files.</p> </li> <li> <p>Your files are .jsonl files and each individual record is a JSON object in the correct format. Note that validation doesn't check if the <code>modelInput</code> value matches the request body for the model.</p> </li> <li> <p>Your files fulfill the requirements for file size and number of records. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html">Quotas for Amazon Bedrock</a>.</p> </li> </ul> </li> <li> <p>Scheduled – This job has been validated and is now in a queue. The job will automatically start when it reaches its turn.</p> </li> <li> <p>Expired – This job timed out because it was scheduled but didn't begin before the set timeout duration. Submit a new job request.</p> </li> <li> <p>InProgress – This job has begun. You can start viewing the results in the output S3 location.</p> </li> <li> <p>Completed – This job has successfully completed. View the output files in the output S3 location.</p> </li> <li> <p>PartiallyCompleted – This job has partially completed. Not all of your records could be processed in time. View the output files in the output S3 location.</p> </li> <li> <p>Failed – This job has failed. Check the failure message for any further details. For further assistance, reach out to the <a href="https://console.aws.amazon.com/support/home/">Amazon Web ServicesSupport Center</a>.</p> </li> <li> <p>Stopped – This job was stopped by a user.</p> </li> <li> <p>Stopping – This job is being stopped by a user.</p> </li> </ul>
    * @public
    */
   status?: ModelInvocationJobStatus | undefined;
@@ -6466,462 +6067,6 @@ export interface StopModelInvocationJobRequest {
  * @public
  */
 export interface StopModelInvocationJobResponse {}
-
-/**
- * @public
- */
-export interface DeleteCustomModelRequest {
-  /**
-   * <p>Name of the model to delete.</p>
-   * @public
-   */
-  modelIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteCustomModelResponse {}
-
-/**
- * @public
- */
-export interface GetCustomModelRequest {
-  /**
-   * <p>Name or Amazon Resource Name (ARN) of the custom model.</p>
-   * @public
-   */
-  modelIdentifier: string | undefined;
-}
-
-/**
- * <p>Details about a teacher model used for model customization.</p>
- * @public
- */
-export interface TeacherModelConfig {
-  /**
-   * <p>The identifier of the teacher model.</p>
-   * @public
-   */
-  teacherModelIdentifier: string | undefined;
-
-  /**
-   * <p>The maximum number of tokens requested when the customization job invokes the teacher model.</p>
-   * @public
-   */
-  maxResponseLengthForInference?: number | undefined;
-}
-
-/**
- * <p>Settings for distilling a foundation model into a smaller and more efficient model.</p>
- * @public
- */
-export interface DistillationConfig {
-  /**
-   * <p>The teacher model configuration.</p>
-   * @public
-   */
-  teacherModelConfig: TeacherModelConfig | undefined;
-}
-
-/**
- * <p>A model customization configuration</p>
- * @public
- */
-export type CustomizationConfig = CustomizationConfig.DistillationConfigMember | CustomizationConfig.$UnknownMember;
-
-/**
- * @public
- */
-export namespace CustomizationConfig {
-  /**
-   * <p>The Distillation configuration for the custom model.</p>
-   * @public
-   */
-  export interface DistillationConfigMember {
-    distillationConfig: DistillationConfig;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    distillationConfig?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    distillationConfig: (value: DistillationConfig) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: CustomizationConfig, visitor: Visitor<T>): T => {
-    if (value.distillationConfig !== undefined) return visitor.distillationConfig(value.distillationConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- * @enum
- */
-export const CustomizationType = {
-  CONTINUED_PRE_TRAINING: "CONTINUED_PRE_TRAINING",
-  DISTILLATION: "DISTILLATION",
-  FINE_TUNING: "FINE_TUNING",
-} as const;
-
-/**
- * @public
- */
-export type CustomizationType = (typeof CustomizationType)[keyof typeof CustomizationType];
-
-/**
- * <p>S3 Location of the output data.</p>
- * @public
- */
-export interface OutputDataConfig {
-  /**
-   * <p>The S3 URI where the output data is stored.</p>
-   * @public
-   */
-  s3Uri: string | undefined;
-}
-
-/**
- * <p>A storage location for invocation logs.</p>
- * @public
- */
-export type InvocationLogSource = InvocationLogSource.S3UriMember | InvocationLogSource.$UnknownMember;
-
-/**
- * @public
- */
-export namespace InvocationLogSource {
-  /**
-   * <p>The URI of an invocation log in a bucket.</p>
-   * @public
-   */
-  export interface S3UriMember {
-    s3Uri: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3Uri?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    s3Uri: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: InvocationLogSource, visitor: Visitor<T>): T => {
-    if (value.s3Uri !== undefined) return visitor.s3Uri(value.s3Uri);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>A mapping of a metadata key to a value that it should or should not equal.</p>
- * @public
- */
-export interface RequestMetadataBaseFilters {
-  /**
-   * <p>Include results where the key equals the value.</p>
-   * @public
-   */
-  equals?: Record<string, string> | undefined;
-
-  /**
-   * <p>Include results where the key does not equal the value.</p>
-   * @public
-   */
-  notEquals?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Rules for filtering invocation logs. A filter can be a mapping of a metadata
- *       key to a value that it should or should not equal (a base filter), or a list of base filters
- *       that are all applied with <code>AND</code> or <code>OR</code> logical operators</p>
- * @public
- */
-export type RequestMetadataFilters =
-  | RequestMetadataFilters.AndAllMember
-  | RequestMetadataFilters.EqualsMember
-  | RequestMetadataFilters.NotEqualsMember
-  | RequestMetadataFilters.OrAllMember
-  | RequestMetadataFilters.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RequestMetadataFilters {
-  /**
-   * <p>Include results where the key equals the value.</p>
-   * @public
-   */
-  export interface EqualsMember {
-    equals: Record<string, string>;
-    notEquals?: never;
-    andAll?: never;
-    orAll?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Include results where the key does not equal the value.</p>
-   * @public
-   */
-  export interface NotEqualsMember {
-    equals?: never;
-    notEquals: Record<string, string>;
-    andAll?: never;
-    orAll?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Include results where all of the based filters match.</p>
-   * @public
-   */
-  export interface AndAllMember {
-    equals?: never;
-    notEquals?: never;
-    andAll: RequestMetadataBaseFilters[];
-    orAll?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Include results where any of the base filters match.</p>
-   * @public
-   */
-  export interface OrAllMember {
-    equals?: never;
-    notEquals?: never;
-    andAll?: never;
-    orAll: RequestMetadataBaseFilters[];
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    equals?: never;
-    notEquals?: never;
-    andAll?: never;
-    orAll?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    equals: (value: Record<string, string>) => T;
-    notEquals: (value: Record<string, string>) => T;
-    andAll: (value: RequestMetadataBaseFilters[]) => T;
-    orAll: (value: RequestMetadataBaseFilters[]) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: RequestMetadataFilters, visitor: Visitor<T>): T => {
-    if (value.equals !== undefined) return visitor.equals(value.equals);
-    if (value.notEquals !== undefined) return visitor.notEquals(value.notEquals);
-    if (value.andAll !== undefined) return visitor.andAll(value.andAll);
-    if (value.orAll !== undefined) return visitor.orAll(value.orAll);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>Settings for using invocation logs to customize a model.</p>
- * @public
- */
-export interface InvocationLogsConfig {
-  /**
-   * <p>Whether to use the model's response for training, or just the prompt. The default value is <code>False</code>.</p>
-   * @public
-   */
-  usePromptResponse?: boolean | undefined;
-
-  /**
-   * <p>The source of the invocation logs.</p>
-   * @public
-   */
-  invocationLogSource: InvocationLogSource | undefined;
-
-  /**
-   * <p>Rules for filtering invocation logs based on request metadata.</p>
-   * @public
-   */
-  requestMetadataFilters?: RequestMetadataFilters | undefined;
-}
-
-/**
- * <p>S3 Location of the training data.</p>
- * @public
- */
-export interface TrainingDataConfig {
-  /**
-   * <p>The S3 URI where the training data is stored.</p>
-   * @public
-   */
-  s3Uri?: string | undefined;
-
-  /**
-   * <p>Settings for using invocation logs to customize a model.</p>
-   * @public
-   */
-  invocationLogsConfig?: InvocationLogsConfig | undefined;
-}
-
-/**
- * <p>Metrics associated with the custom job.</p>
- * @public
- */
-export interface TrainingMetrics {
-  /**
-   * <p>Loss metric associated with the custom job.</p>
-   * @public
-   */
-  trainingLoss?: number | undefined;
-}
-
-/**
- * <p>Information about a validator.</p>
- * @public
- */
-export interface Validator {
-  /**
-   * <p>The S3 URI where the validation data is stored.</p>
-   * @public
-   */
-  s3Uri: string | undefined;
-}
-
-/**
- * <p>Array of up to 10 validators.</p>
- * @public
- */
-export interface ValidationDataConfig {
-  /**
-   * <p>Information about the validators.</p>
-   * @public
-   */
-  validators: Validator[] | undefined;
-}
-
-/**
- * <p>The metric for the validator.</p>
- * @public
- */
-export interface ValidatorMetric {
-  /**
-   * <p>The validation loss associated with this validator.</p>
-   * @public
-   */
-  validationLoss?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCustomModelResponse {
-  /**
-   * <p>Amazon Resource Name (ARN) associated with this model.</p>
-   * @public
-   */
-  modelArn: string | undefined;
-
-  /**
-   * <p>Model name associated with this model.</p>
-   * @public
-   */
-  modelName: string | undefined;
-
-  /**
-   * <p>Job name associated with this model.</p>
-   * @public
-   */
-  jobName?: string | undefined;
-
-  /**
-   * <p>Job Amazon Resource Name (ARN) associated with this model.</p>
-   * @public
-   */
-  jobArn: string | undefined;
-
-  /**
-   * <p>Amazon Resource Name (ARN) of the base model.</p>
-   * @public
-   */
-  baseModelArn: string | undefined;
-
-  /**
-   * <p>The type of model customization.</p>
-   * @public
-   */
-  customizationType?: CustomizationType | undefined;
-
-  /**
-   * <p>The custom model is encrypted at rest using this key.</p>
-   * @public
-   */
-  modelKmsKeyArn?: string | undefined;
-
-  /**
-   * <p>Hyperparameter values associated with this model. For details on the format for different models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html">Custom model hyperparameters</a>.</p>
-   * @public
-   */
-  hyperParameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>Contains information about the training dataset.</p>
-   * @public
-   */
-  trainingDataConfig: TrainingDataConfig | undefined;
-
-  /**
-   * <p>Contains information about the validation dataset.</p>
-   * @public
-   */
-  validationDataConfig?: ValidationDataConfig | undefined;
-
-  /**
-   * <p>Output data configuration associated with this custom model.</p>
-   * @public
-   */
-  outputDataConfig: OutputDataConfig | undefined;
-
-  /**
-   * <p>Contains training metrics from the job creation.</p>
-   * @public
-   */
-  trainingMetrics?: TrainingMetrics | undefined;
-
-  /**
-   * <p>The validation metrics from the job creation.</p>
-   * @public
-   */
-  validationMetrics?: ValidatorMetric[] | undefined;
-
-  /**
-   * <p>Creation time of the model.</p>
-   * @public
-   */
-  creationTime: Date | undefined;
-
-  /**
-   * <p>The customization configuration for the custom model.</p>
-   * @public
-   */
-  customizationConfig?: CustomizationConfig | undefined;
-}
 
 /**
  * @public
@@ -7085,136 +6230,6 @@ export interface GetFoundationModelResponse {
 /**
  * @public
  */
-export interface ListCustomModelsRequest {
-  /**
-   * <p>Return custom models created before the specified time. </p>
-   * @public
-   */
-  creationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Return custom models created after the specified time. </p>
-   * @public
-   */
-  creationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Return custom models only if the job name contains these characters.</p>
-   * @public
-   */
-  nameContains?: string | undefined;
-
-  /**
-   * <p>Return custom models only if the base model Amazon Resource Name (ARN) matches this parameter.</p>
-   * @public
-   */
-  baseModelArnEquals?: string | undefined;
-
-  /**
-   * <p>Return custom models only if the foundation model Amazon Resource Name (ARN) matches this parameter.</p>
-   * @public
-   */
-  foundationModelArnEquals?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The field to sort by in the returned list of models.</p>
-   * @public
-   */
-  sortBy?: SortModelsBy | undefined;
-
-  /**
-   * <p>The sort order of the results.</p>
-   * @public
-   */
-  sortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>Return custom models depending on if the current account owns them (<code>true</code>) or if they were shared with the current account (<code>false</code>).</p>
-   * @public
-   */
-  isOwned?: boolean | undefined;
-}
-
-/**
- * <p>Summary information for a custom model.</p>
- * @public
- */
-export interface CustomModelSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the custom model.</p>
-   * @public
-   */
-  modelArn: string | undefined;
-
-  /**
-   * <p>The name of the custom model.</p>
-   * @public
-   */
-  modelName: string | undefined;
-
-  /**
-   * <p>Creation time of the model.</p>
-   * @public
-   */
-  creationTime: Date | undefined;
-
-  /**
-   * <p>The base model Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  baseModelArn: string | undefined;
-
-  /**
-   * <p>The base model name.</p>
-   * @public
-   */
-  baseModelName: string | undefined;
-
-  /**
-   * <p>Specifies whether to carry out continued pre-training of a model or whether to fine-tune it. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a>.</p>
-   * @public
-   */
-  customizationType?: CustomizationType | undefined;
-
-  /**
-   * <p>The unique identifier of the account that owns the model.</p>
-   * @public
-   */
-  ownerAccountId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCustomModelsResponse {
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>Model summaries.</p>
-   * @public
-   */
-  modelSummaries?: CustomModelSummary[] | undefined;
-}
-
-/**
- * @public
- */
 export interface ListFoundationModelsRequest {
   /**
    * <p>Return models belonging to the model provider that you specify.</p>
@@ -7347,8 +6362,7 @@ export interface RoutingCriteria {
  */
 export interface CreatePromptRouterRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure idempotency of your requests. If not specified, the Amazon Web Services SDK
-   *             automatically generates one for you.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure idempotency of your requests. If not specified, the Amazon Web Services SDK automatically generates one for you.</p>
    * @public
    */
   clientRequestToken?: string | undefined;
@@ -7645,16 +6659,13 @@ export type CommitmentDuration = (typeof CommitmentDuration)[keyof typeof Commit
  */
 export interface CreateProvisionedModelThroughputRequest {
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *          Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a> in the Amazon S3 User Guide.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a> in the Amazon S3 User Guide.</p>
    * @public
    */
   clientRequestToken?: string | undefined;
 
   /**
-   * <p>Number of model units to allocate. A model unit delivers a specific throughput level for the specified model. The throughput level of a model unit specifies the total number of input and output tokens that it can process and generate within a span of one minute. By default, your account has no model units for purchasing Provisioned Throughputs with commitment. You must first visit the <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase">Amazon Web Services support center</a> to request MUs.</p>
-   *          <p>For model unit quotas, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html#prov-thru-quotas">Provisioned Throughput quotas</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
-   *          <p>For more information about what an MU specifies, contact your Amazon Web Services account manager.</p>
+   * <p>Number of model units to allocate. A model unit delivers a specific throughput level for the specified model. The throughput level of a model unit specifies the total number of input and output tokens that it can process and generate within a span of one minute. By default, your account has no model units for purchasing Provisioned Throughputs with commitment. You must first visit the <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase">Amazon Web Services support center</a> to request MUs.</p> <p>For model unit quotas, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html#prov-thru-quotas">Provisioned Throughput quotas</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p> <p>For more information about what an MU specifies, contact your Amazon Web Services account manager.</p>
    * @public
    */
   modelUnits: number | undefined;
@@ -7672,9 +6683,7 @@ export interface CreateProvisionedModelThroughputRequest {
   modelId: string | undefined;
 
   /**
-   * <p>The commitment duration requested for the Provisioned Throughput. Billing occurs hourly and is discounted for longer commitment terms. To request a no-commit Provisioned Throughput, omit this field.</p>
-   *          <p>Custom models support all levels of commitment. To see which base models support no commitment, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/pt-supported.html">Supported regions and models for Provisioned Throughput</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>
-   *          </p>
+   * <p>The commitment duration requested for the Provisioned Throughput. Billing occurs hourly and is discounted for longer commitment terms. To request a no-commit Provisioned Throughput, omit this field.</p> <p>Custom models support all levels of commitment. To see which base models support no commitment, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/pt-supported.html">Supported regions and models for Provisioned Throughput</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a> </p>
    * @public
    */
   commitmentDuration?: CommitmentDuration | undefined;
@@ -7871,15 +6880,13 @@ export interface ListProvisionedModelThroughputsRequest {
   nameContains?: string | undefined;
 
   /**
-   * <p>THe maximum number of results to return in the response. If there are more results than the number you specified, the response returns a <code>nextToken</code>
-   *          value. To see the next batch of results, send the <code>nextToken</code> value in another list request.</p>
+   * <p>THe maximum number of results to return in the response. If there are more results than the number you specified, the response returns a <code>nextToken</code> value. To see the next batch of results, send the <code>nextToken</code> value in another list request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If there are more results than the number you specified in the <code>maxResults</code> field, the response returns a <code>nextToken</code>
-   *          value. To see the next batch of results, specify the <code>nextToken</code> value in this field.</p>
+   * <p>If there are more results than the number you specified in the <code>maxResults</code> field, the response returns a <code>nextToken</code> value. To see the next batch of results, specify the <code>nextToken</code> value in this field.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7898,15 +6905,7 @@ export interface ListProvisionedModelThroughputsRequest {
 }
 
 /**
- * <p>A summary of information about a Provisioned Throughput.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListProvisionedModelThroughputs.html#API_ListProvisionedModelThroughputs_ResponseSyntax">ListProvisionedThroughputs response</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>A summary of information about a Provisioned Throughput.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListProvisionedModelThroughputs.html#API_ListProvisionedModelThroughputs_ResponseSyntax">ListProvisionedThroughputs response</a> </p> </li> </ul>
  * @public
  */
 export interface ProvisionedModelSummary {
@@ -8017,16 +7016,7 @@ export interface UpdateProvisionedModelThroughputRequest {
   desiredProvisionedModelName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the new model to associate with this Provisioned Throughput. You can't specify this field if this Provisioned Throughput is associated with a base model.</p>
-   *          <p>If this Provisioned Throughput is associated with a custom model, you can specify one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The base model from which the custom model was customized.</p>
-   *             </li>
-   *             <li>
-   *                <p>Another custom model that was customized from the same base model as the custom model.</p>
-   *             </li>
-   *          </ul>
+   * <p>The Amazon Resource Name (ARN) of the new model to associate with this Provisioned Throughput. You can't specify this field if this Provisioned Throughput is associated with a base model.</p> <p>If this Provisioned Throughput is associated with a custom model, you can specify one of the following options:</p> <ul> <li> <p>The base model from which the custom model was customized.</p> </li> <li> <p>Another custom model that was customized from the same base model as the custom model.</p> </li> </ul>
    * @public
    */
   desiredModelId?: string | undefined;
@@ -8120,17 +7110,13 @@ export interface CreateModelCustomizationJobRequest {
   customModelName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM service role that Amazon Bedrock can assume to perform tasks on your behalf.
-   *          For example, during model training, Amazon Bedrock needs your permission to read input data from an S3 bucket, write model artifacts to an S3 bucket.
-   *          To pass this role to Amazon Bedrock, the caller of this API must have the <code>iam:PassRole</code> permission.
-   *       </p>
+   * <p>The Amazon Resource Name (ARN) of an IAM service role that Amazon Bedrock can assume to perform tasks on your behalf. For example, during model training, Amazon Bedrock needs your permission to read input data from an S3 bucket, write model artifacts to an S3 bucket. To pass this role to Amazon Bedrock, the caller of this API must have the <code>iam:PassRole</code> permission. </p>
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *          Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientRequestToken?: string | undefined;
@@ -8333,27 +7319,7 @@ export interface ValidationDetails {
 }
 
 /**
- * <p>For a Distillation job, the status details for sub-tasks of the job. Possible statuses for each sub-task include the following:</p>
- *          <ul>
- *             <li>
- *                <p>NotStarted</p>
- *             </li>
- *             <li>
- *                <p>InProgress</p>
- *             </li>
- *             <li>
- *                <p>Completed</p>
- *             </li>
- *             <li>
- *                <p>Stopping</p>
- *             </li>
- *             <li>
- *                <p>Stopped</p>
- *             </li>
- *             <li>
- *                <p>Failed</p>
- *             </li>
- *          </ul>
+ * <p>For a Distillation job, the status details for sub-tasks of the job. Possible statuses for each sub-task include the following:</p> <ul> <li> <p>NotStarted</p> </li> <li> <p>InProgress</p> </li> <li> <p>Completed</p> </li> <li> <p>Stopping</p> </li> <li> <p>Stopped</p> </li> <li> <p>Failed</p> </li> </ul>
  * @public
  */
 export interface StatusDetails {
@@ -8417,23 +7383,22 @@ export interface GetModelCustomizationJobResponse {
   roleArn: string | undefined;
 
   /**
-   * <p>The status of the job. A successful job transitions from in-progress to completed when the output model is ready to use.
-   *       If the job failed, the failure message contains information about why the job failed.</p>
+   * <p>The status of the job. A successful job transitions from in-progress to completed when the output model is ready to use. If the job failed, the failure message contains information about why the job failed.</p>
    * @public
    */
   status?: ModelCustomizationJobStatus | undefined;
-
-  /**
-   * <p>Information about why the job failed.</p>
-   * @public
-   */
-  failureMessage?: string | undefined;
 
   /**
    * <p>For a Distillation job, the details about the statuses of the sub-tasks of the customization job. </p>
    * @public
    */
   statusDetails?: StatusDetails | undefined;
+
+  /**
+   * <p>Information about why the job failed.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
 
   /**
    * <p>Time that the resource was created.</p>
@@ -8620,16 +7585,16 @@ export interface ModelCustomizationJobSummary {
   status: ModelCustomizationJobStatus | undefined;
 
   /**
-   * <p>Time that the customization job was last modified.</p>
-   * @public
-   */
-  lastModifiedTime?: Date | undefined;
-
-  /**
    * <p>Details about the status of the data processing sub-task of the job.</p>
    * @public
    */
   statusDetails?: StatusDetails | undefined;
+
+  /**
+   * <p>Time that the customization job was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
 
   /**
    * <p>Creation time of the custom model. </p>
@@ -8696,8 +7661,7 @@ export interface StopModelCustomizationJobRequest {
 export interface StopModelCustomizationJobResponse {}
 
 /**
- * <p>Specifies the filters to use on the metadata attributes/fields in the knowledge base data
- *             sources before returning results.</p>
+ * <p>Specifies the filters to use on the metadata attributes/fields in the knowledge base data sources before returning results.</p>
  * @public
  */
 export type RetrievalFilter =
@@ -8721,11 +7685,7 @@ export type RetrievalFilter =
  */
 export namespace RetrievalFilter {
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose
-   *             name matches the key and whose value matches the value in this object.</p>
-   *          <p>The following example would return data sources with an animal attribute whose value is 'cat':
-   *             <code>"equals": \{ "key": "animal", "value": "cat" \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value matches the value in this object.</p> <p>The following example would return data sources with an animal attribute whose value is 'cat': <code>"equals": \{ "key": "animal", "value": "cat" \}</code> </p>
    * @public
    */
   export interface EqualsMember {
@@ -8746,11 +7706,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the key and whose value
-   *             doesn't match the value in this object are returned.</p>
-   *          <p>The following example would return data sources that don't contain an animal attribute whose value is 'cat':
-   *             <code>"notEquals": \{ "key": "animal", "value": "cat" \}</code>
-   *          </p>
+   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the key and whose value doesn't match the value in this object are returned.</p> <p>The following example would return data sources that don't contain an animal attribute whose value is 'cat': <code>"notEquals": \{ "key": "animal", "value": "cat" \}</code> </p>
    * @public
    */
   export interface NotEqualsMember {
@@ -8771,11 +7727,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name
-   *             matches the key and whose value is greater than the value in this object.</p>
-   *          <p>The following example would return data sources with an year attribute whose value is
-   *             greater than '1989': <code>"greaterThan": \{ "key": "year", "value": 1989 \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value is greater than the value in this object.</p> <p>The following example would return data sources with an year attribute whose value is greater than '1989': <code>"greaterThan": \{ "key": "year", "value": 1989 \}</code> </p>
    * @public
    */
   export interface GreaterThanMember {
@@ -8796,11 +7748,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name
-   *             matches the key and whose value is greater than or equal to the value in this object.</p>
-   *          <p>The following example would return data sources with an year attribute whose value is
-   *             greater than or equal to '1989': <code>"greaterThanOrEquals": \{ "key": "year", "value": 1989 \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value is greater than or equal to the value in this object.</p> <p>The following example would return data sources with an year attribute whose value is greater than or equal to '1989': <code>"greaterThanOrEquals": \{ "key": "year", "value": 1989 \}</code> </p>
    * @public
    */
   export interface GreaterThanOrEqualsMember {
@@ -8821,11 +7769,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the
-   *             key and whose value is less than the value in this object.</p>
-   *          <p>The following example would return data sources with an year attribute whose value is less than to '1989':
-   *             <code>"lessThan": \{ "key": "year", "value": 1989 \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value is less than the value in this object.</p> <p>The following example would return data sources with an year attribute whose value is less than to '1989': <code>"lessThan": \{ "key": "year", "value": 1989 \}</code> </p>
    * @public
    */
   export interface LessThanMember {
@@ -8846,11 +7790,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key
-   *             and whose value is less than or equal to the value in this object.</p>
-   *          <p>The following example would return data sources with an year attribute whose value is less than or equal
-   *             to '1989': <code>"lessThanOrEquals": \{ "key": "year", "value": 1989 \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value is less than or equal to the value in this object.</p> <p>The following example would return data sources with an year attribute whose value is less than or equal to '1989': <code>"lessThanOrEquals": \{ "key": "year", "value": 1989 \}</code> </p>
    * @public
    */
   export interface LessThanOrEqualsMember {
@@ -8871,11 +7811,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose
-   *             name matches the key and whose value is in the list specified in the value in this object.</p>
-   *          <p>The following example would return data sources with an animal attribute that is either 'cat' or 'dog':
-   *             <code>"in": \{ "key": "animal", "value": ["cat", "dog"] \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value is in the list specified in the value in this object.</p> <p>The following example would return data sources with an animal attribute that is either 'cat' or 'dog': <code>"in": \{ "key": "animal", "value": ["cat", "dog"] \}</code> </p>
    * @public
    */
   export interface InMember {
@@ -8896,11 +7832,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key
-   *             and whose value isn't in the list specified in the value in this object.</p>
-   *          <p>The following example would return data sources whose animal attribute is neither 'cat' nor 'dog':
-   *             <code>"notIn": \{ "key": "animal", "value": ["cat", "dog"] \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value isn't in the list specified in the value in this object.</p> <p>The following example would return data sources whose animal attribute is neither 'cat' nor 'dog': <code>"notIn": \{ "key": "animal", "value": ["cat", "dog"] \}</code> </p>
    * @public
    */
   export interface NotInMember {
@@ -8921,12 +7853,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key
-   *             and whose value starts with the value in this object. This filter is currently only supported for
-   *             Amazon OpenSearch Serverless vector stores.</p>
-   *          <p>The following example would return data sources with an animal attribute starts with 'ca' (for example, 'cat' or 'camel').
-   *             <code>"startsWith": \{ "key": "animal", "value": "ca" \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value starts with the value in this object. This filter is currently only supported for Amazon OpenSearch Serverless vector stores.</p> <p>The following example would return data sources with an animal attribute starts with 'ca' (for example, 'cat' or 'camel'). <code>"startsWith": \{ "key": "animal", "value": "ca" \}</code> </p>
    * @public
    */
   export interface StartsWithMember {
@@ -8947,11 +7874,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key
-   *             and whose value is a list that contains the value as one of its members.</p>
-   *          <p>The following example would return data sources with an animals attribute that is a list containing a cat
-   *             member (for example, <code>["dog", "cat"]</code>): <code>"listContains": \{ "key": "animals", "value": "cat" \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value is a list that contains the value as one of its members.</p> <p>The following example would return data sources with an animals attribute that is a list containing a cat member (for example, <code>["dog", "cat"]</code>): <code>"listContains": \{ "key": "animals", "value": "cat" \}</code> </p>
    * @public
    */
   export interface ListContainsMember {
@@ -8972,16 +7895,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key
-   *             and whose value is one of the following:</p>
-   *          <p>A string that contains the value as a substring. The following example would return data sources with an
-   *             animal attribute that contains the substring at (for example, 'cat'):
-   *             <code>"stringContains": \{ "key": "animal", "value": "at" \}</code>
-   *          </p>
-   *          <p>A list with a member that contains the value as a substring. The following example would return data
-   *             sources with an animals attribute that is a list containing a member that contains the substring at
-   *             (for example, <code>["dog", "cat"]</code>): <code>"stringContains": \{ "key": "animals", "value": "at" \}</code>
-   *          </p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value is one of the following:</p> <p>A string that contains the value as a substring. The following example would return data sources with an animal attribute that contains the substring at (for example, 'cat'): <code>"stringContains": \{ "key": "animal", "value": "at" \}</code> </p> <p>A list with a member that contains the value as a substring. The following example would return data sources with an animals attribute that is a list containing a member that contains the substring at (for example, <code>["dog", "cat"]</code>): <code>"stringContains": \{ "key": "animals", "value": "at" \}</code> </p>
    * @public
    */
   export interface StringContainsMember {
@@ -9002,8 +7916,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if their metadata attributes fulfill all the
-   *             filter conditions inside this list.</p>
+   * <p>Knowledge base data sources are returned if their metadata attributes fulfill all the filter conditions inside this list.</p>
    * @public
    */
   export interface AndAllMember {
@@ -9024,8 +7937,7 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources are returned if their metadata attributes fulfill at least one of the filter
-   *             conditions inside this list.</p>
+   * <p>Knowledge base data sources are returned if their metadata attributes fulfill at least one of the filter conditions inside this list.</p>
    * @public
    */
   export interface OrAllMember {
@@ -9112,12 +8024,7 @@ export interface KnowledgeBaseVectorSearchConfiguration {
   numberOfResults?: number | undefined;
 
   /**
-   * <p>By default, Amazon Bedrock decides a search strategy for you. If you're using an
-   *             Amazon OpenSearch Serverless vector store that contains a filterable text field, you
-   *             can specify whether to query the knowledge base with a <code>HYBRID</code> search
-   *             using both vector embeddings and raw text, or <code>SEMANTIC</code> search using
-   *             only vector embeddings. For other vector store configurations, only <code>SEMANTIC</code>
-   *             search is available.</p>
+   * <p>By default, Amazon Bedrock decides a search strategy for you. If you're using an Amazon OpenSearch Serverless vector store that contains a filterable text field, you can specify whether to query the knowledge base with a <code>HYBRID</code> search using both vector embeddings and raw text, or <code>SEMANTIC</code> search using only vector embeddings. For other vector store configurations, only <code>SEMANTIC</code> search is available.</p>
    * @public
    */
   overrideSearchType?: SearchType | undefined;
@@ -9153,8 +8060,7 @@ export interface KnowledgeBaseRetrieveAndGenerateConfiguration {
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a>
-   *             used to generate responses.</p>
+   * <p>The Amazon Resource Name (ARN) of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> used to generate responses.</p>
    * @public
    */
   modelArn: string | undefined;
@@ -9202,8 +8108,7 @@ export interface RetrieveConfig {
  */
 export interface RetrieveAndGenerateConfiguration {
   /**
-   * <p>The type of resource that contains your data for retrieving information and generating responses.</p>
-   *          <p>If you choose to use <code>EXTERNAL_SOURCES</code>, then currently only Claude 3 Sonnet models for knowledge bases are supported.</p>
+   * <p>The type of resource that contains your data for retrieving information and generating responses.</p> <p>If you choose to use <code>EXTERNAL_SOURCES</code>, then currently only Claude 3 Sonnet models for knowledge bases are supported.</p>
    * @public
    */
   type: RetrieveAndGenerateType | undefined;
@@ -9215,8 +8120,7 @@ export interface RetrieveAndGenerateConfiguration {
   knowledgeBaseConfiguration?: KnowledgeBaseRetrieveAndGenerateConfiguration | undefined;
 
   /**
-   * <p>The configuration for the external source wrapper object in the
-   *             <code>retrieveAndGenerate</code> function.</p>
+   * <p>The configuration for the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
    * @public
    */
   externalSourcesConfiguration?: ExternalSourcesRetrieveAndGenerateConfiguration | undefined;
@@ -9279,194 +8183,56 @@ export namespace KnowledgeBaseConfig {
 }
 
 /**
- * <p>Contains configuration details for retrieval of information and response generation.</p>
- * @public
+ * @internal
  */
-export type RAGConfig =
-  | RAGConfig.KnowledgeBaseConfigMember
-  | RAGConfig.PrecomputedRagSourceConfigMember
-  | RAGConfig.$UnknownMember;
+export const RequestMetadataBaseFiltersFilterSensitiveLog = (obj: RequestMetadataBaseFilters): any => ({
+  ...obj,
+  ...(obj.equals && { equals: SENSITIVE_STRING }),
+  ...(obj.notEquals && { notEquals: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export namespace RAGConfig {
-  /**
-   * <p>Contains configuration details for knowledge base retrieval and response generation.</p>
-   * @public
-   */
-  export interface KnowledgeBaseConfigMember {
-    knowledgeBaseConfig: KnowledgeBaseConfig;
-    precomputedRagSourceConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains configuration details about the RAG source used to generate inference response data for a Knowledge Base evaluation job.</p>
-   * @public
-   */
-  export interface PrecomputedRagSourceConfigMember {
-    knowledgeBaseConfig?: never;
-    precomputedRagSourceConfig: EvaluationPrecomputedRagSourceConfig;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    knowledgeBaseConfig?: never;
-    precomputedRagSourceConfig?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    knowledgeBaseConfig: (value: KnowledgeBaseConfig) => T;
-    precomputedRagSourceConfig: (value: EvaluationPrecomputedRagSourceConfig) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: RAGConfig, visitor: Visitor<T>): T => {
-    if (value.knowledgeBaseConfig !== undefined) return visitor.knowledgeBaseConfig(value.knowledgeBaseConfig);
-    if (value.precomputedRagSourceConfig !== undefined)
-      return visitor.precomputedRagSourceConfig(value.precomputedRagSourceConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
+export const RequestMetadataFiltersFilterSensitiveLog = (obj: RequestMetadataFilters): any => {
+  if (obj.equals !== undefined) return { equals: SENSITIVE_STRING };
+  if (obj.notEquals !== undefined) return { notEquals: SENSITIVE_STRING };
+  if (obj.andAll !== undefined)
+    return { andAll: obj.andAll.map((item) => RequestMetadataBaseFiltersFilterSensitiveLog(item)) };
+  if (obj.orAll !== undefined)
+    return { orAll: obj.orAll.map((item) => RequestMetadataBaseFiltersFilterSensitiveLog(item)) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
 
 /**
- * <p>The configuration details of the inference model for an evaluation job.</p>
- *          <p>For automated model evaluation jobs, only a single model is supported.</p>
- *          <p>For human-based model evaluation jobs, your annotator can compare the responses for up to two different models.</p>
- * @public
+ * @internal
  */
-export type EvaluationInferenceConfig =
-  | EvaluationInferenceConfig.ModelsMember
-  | EvaluationInferenceConfig.RagConfigsMember
-  | EvaluationInferenceConfig.$UnknownMember;
+export const InvocationLogsConfigFilterSensitiveLog = (obj: InvocationLogsConfig): any => ({
+  ...obj,
+  ...(obj.invocationLogSource && { invocationLogSource: obj.invocationLogSource }),
+  ...(obj.requestMetadataFilters && {
+    requestMetadataFilters: RequestMetadataFiltersFilterSensitiveLog(obj.requestMetadataFilters),
+  }),
+});
 
 /**
- * @public
+ * @internal
  */
-export namespace EvaluationInferenceConfig {
-  /**
-   * <p>Specifies the inference models.</p>
-   * @public
-   */
-  export interface ModelsMember {
-    models: EvaluationModelConfig[];
-    ragConfigs?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains the configuration details of the inference for a knowledge base evaluation
-   *          job, including either the retrieval only configuration or the retrieval with response
-   *          generation configuration.</p>
-   * @public
-   */
-  export interface RagConfigsMember {
-    models?: never;
-    ragConfigs: RAGConfig[];
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    models?: never;
-    ragConfigs?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    models: (value: EvaluationModelConfig[]) => T;
-    ragConfigs: (value: RAGConfig[]) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: EvaluationInferenceConfig, visitor: Visitor<T>): T => {
-    if (value.models !== undefined) return visitor.models(value.models);
-    if (value.ragConfigs !== undefined) return visitor.ragConfigs(value.ragConfigs);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
+export const TrainingDataConfigFilterSensitiveLog = (obj: TrainingDataConfig): any => ({
+  ...obj,
+  ...(obj.invocationLogsConfig && {
+    invocationLogsConfig: InvocationLogsConfigFilterSensitiveLog(obj.invocationLogsConfig),
+  }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface CreateEvaluationJobRequest {
-  /**
-   * <p>A name for the evaluation job. Names must unique with your Amazon Web Services account,
-   *          and your account's Amazon Web Services region.</p>
-   * @public
-   */
-  jobName: string | undefined;
-
-  /**
-   * <p>A description of the evaluation job.</p>
-   * @public
-   */
-  jobDescription?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientRequestToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM service role that Amazon Bedrock can
-   *          assume to perform tasks on your behalf. To learn more about the required permissions,
-   *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-security.html">Required
-   *             permissions for model evaluations</a>.</p>
-   * @public
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>Specify your customer managed encryption key Amazon Resource Name (ARN) that will be used to encrypt your evaluation job.</p>
-   * @public
-   */
-  customerEncryptionKeyId?: string | undefined;
-
-  /**
-   * <p>Tags to attach to the model evaluation job.</p>
-   * @public
-   */
-  jobTags?: Tag[] | undefined;
-
-  /**
-   * <p>Specifies whether the evaluation job is for evaluating a model or evaluating a knowledge base
-   *          (retrieval and response generation).</p>
-   * @public
-   */
-  applicationType?: ApplicationType | undefined;
-
-  /**
-   * <p>Contains the configuration details of either an automated or human-based evaluation job.</p>
-   * @public
-   */
-  evaluationConfig: EvaluationConfig | undefined;
-
-  /**
-   * <p>Contains the configuration details of the inference model for the evaluation job.</p>
-   *          <p>For model evaluation jobs, automated jobs support a single model or
-   *          <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a>, and jobs that use human workers support
-   *          two models or inference profiles.</p>
-   * @public
-   */
-  inferenceConfig: EvaluationInferenceConfig | undefined;
-
-  /**
-   * <p>Contains the configuration details of the Amazon S3 bucket for storing the results
-   *          of the evaluation job.</p>
-   * @public
-   */
-  outputDataConfig: EvaluationOutputDataConfig | undefined;
-}
+export const GetCustomModelResponseFilterSensitiveLog = (obj: GetCustomModelResponse): any => ({
+  ...obj,
+  ...(obj.trainingDataConfig && { trainingDataConfig: TrainingDataConfigFilterSensitiveLog(obj.trainingDataConfig) }),
+  ...(obj.customizationConfig && { customizationConfig: obj.customizationConfig }),
+});
 
 /**
  * @internal
@@ -10041,58 +8807,6 @@ export const ListModelInvocationJobsResponseFilterSensitiveLog = (obj: ListModel
 /**
  * @internal
  */
-export const RequestMetadataBaseFiltersFilterSensitiveLog = (obj: RequestMetadataBaseFilters): any => ({
-  ...obj,
-  ...(obj.equals && { equals: SENSITIVE_STRING }),
-  ...(obj.notEquals && { notEquals: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RequestMetadataFiltersFilterSensitiveLog = (obj: RequestMetadataFilters): any => {
-  if (obj.equals !== undefined) return { equals: SENSITIVE_STRING };
-  if (obj.notEquals !== undefined) return { notEquals: SENSITIVE_STRING };
-  if (obj.andAll !== undefined)
-    return { andAll: obj.andAll.map((item) => RequestMetadataBaseFiltersFilterSensitiveLog(item)) };
-  if (obj.orAll !== undefined)
-    return { orAll: obj.orAll.map((item) => RequestMetadataBaseFiltersFilterSensitiveLog(item)) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const InvocationLogsConfigFilterSensitiveLog = (obj: InvocationLogsConfig): any => ({
-  ...obj,
-  ...(obj.invocationLogSource && { invocationLogSource: obj.invocationLogSource }),
-  ...(obj.requestMetadataFilters && {
-    requestMetadataFilters: RequestMetadataFiltersFilterSensitiveLog(obj.requestMetadataFilters),
-  }),
-});
-
-/**
- * @internal
- */
-export const TrainingDataConfigFilterSensitiveLog = (obj: TrainingDataConfig): any => ({
-  ...obj,
-  ...(obj.invocationLogsConfig && {
-    invocationLogsConfig: InvocationLogsConfigFilterSensitiveLog(obj.invocationLogsConfig),
-  }),
-});
-
-/**
- * @internal
- */
-export const GetCustomModelResponseFilterSensitiveLog = (obj: GetCustomModelResponse): any => ({
-  ...obj,
-  ...(obj.trainingDataConfig && { trainingDataConfig: TrainingDataConfigFilterSensitiveLog(obj.trainingDataConfig) }),
-  ...(obj.customizationConfig && { customizationConfig: obj.customizationConfig }),
-});
-
-/**
- * @internal
- */
 export const CreatePromptRouterRequestFilterSensitiveLog = (obj: CreatePromptRouterRequest): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
@@ -10239,35 +8953,3 @@ export const KnowledgeBaseConfigFilterSensitiveLog = (obj: KnowledgeBaseConfig):
     };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
-
-/**
- * @internal
- */
-export const RAGConfigFilterSensitiveLog = (obj: RAGConfig): any => {
-  if (obj.knowledgeBaseConfig !== undefined)
-    return { knowledgeBaseConfig: KnowledgeBaseConfigFilterSensitiveLog(obj.knowledgeBaseConfig) };
-  if (obj.precomputedRagSourceConfig !== undefined)
-    return { precomputedRagSourceConfig: obj.precomputedRagSourceConfig };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const EvaluationInferenceConfigFilterSensitiveLog = (obj: EvaluationInferenceConfig): any => {
-  if (obj.models !== undefined)
-    return { models: obj.models.map((item) => EvaluationModelConfigFilterSensitiveLog(item)) };
-  if (obj.ragConfigs !== undefined)
-    return { ragConfigs: obj.ragConfigs.map((item) => RAGConfigFilterSensitiveLog(item)) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateEvaluationJobRequestFilterSensitiveLog = (obj: CreateEvaluationJobRequest): any => ({
-  ...obj,
-  ...(obj.jobDescription && { jobDescription: SENSITIVE_STRING }),
-  ...(obj.evaluationConfig && { evaluationConfig: EvaluationConfigFilterSensitiveLog(obj.evaluationConfig) }),
-  ...(obj.inferenceConfig && { inferenceConfig: EvaluationInferenceConfigFilterSensitiveLog(obj.inferenceConfig) }),
-});
