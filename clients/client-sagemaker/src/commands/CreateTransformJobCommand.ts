@@ -51,7 +51,7 @@ export interface CreateTransformJobCommandOutput extends CreateTransformJobRespo
  *   TransformInput: { // TransformInput
  *     DataSource: { // TransformDataSource
  *       S3DataSource: { // TransformS3DataSource
- *         S3DataType: "ManifestFile" || "S3Prefix" || "AugmentedManifestFile", // required
+ *         S3DataType: "ManifestFile" || "S3Prefix" || "AugmentedManifestFile" || "Converse", // required
  *         S3Uri: "STRING_VALUE", // required
  *       },
  *     },
