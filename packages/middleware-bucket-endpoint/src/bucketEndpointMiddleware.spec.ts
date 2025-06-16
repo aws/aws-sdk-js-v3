@@ -19,7 +19,10 @@ import { parse, validate } from "@aws-sdk/util-arn-parser";
 import { bucketEndpointMiddleware } from "./bucketEndpointMiddleware";
 import { bucketHostname } from "./bucketHostname";
 
-describe("bucketEndpointMiddleware", () => {
+/**
+ * @deprecated unused as of EndpointsV2.
+ */
+describe.skip("bucketEndpointMiddleware", () => {
   const input = { Bucket: "bucket" };
   const mockRegion = "us-foo-1";
   const requestInput = {

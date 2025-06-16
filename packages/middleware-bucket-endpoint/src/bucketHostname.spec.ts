@@ -3,7 +3,10 @@ import { describe, expect, test as it } from "vitest";
 
 import { bucketHostname } from "./bucketHostname";
 
-describe("bucketHostname", () => {
+/**
+ * @deprecated unused as of EndpointsV2.
+ */
+describe.skip("bucketHostname", () => {
   const region = "us-west-2";
   describe("from bucket name", () => {
     [

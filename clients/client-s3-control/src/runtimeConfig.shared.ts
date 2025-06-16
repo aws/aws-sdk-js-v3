@@ -33,6 +33,7 @@ export const getRuntimeConfig = (config: S3ControlClientConfig) => {
     serviceId: config?.serviceId ?? "S3 Control",
     signingEscapePath: config?.signingEscapePath ?? false,
     urlParser: config?.urlParser ?? parseUrl,
+    useArnRegion: config?.useArnRegion ?? undefined,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,
     utf8Encoder: config?.utf8Encoder ?? toUtf8,
   };
