@@ -2901,6 +2901,8 @@ const de_AwsEcrContainerImageDetails = (output: any, context: __SerdeContext): A
     author: __expectString,
     imageHash: __expectString,
     imageTags: _json,
+    inUseCount: __expectLong,
+    lastInUseAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     platform: __expectString,
     pushedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     registry: __expectString,

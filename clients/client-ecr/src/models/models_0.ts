@@ -836,7 +836,7 @@ export interface CreatePullThroughCacheRuleRequest {
    *          <ul>
    *             <li>
    *                <p>Amazon ECR (<code>ecr</code>) –
-   *                     <code>dkr.ecr.<region>.amazonaws.com</code>
+   *                     <code><accountId>.dkr.ecr.<region>.amazonaws.com</code>
    *                </p>
    *             </li>
    *             <li>
@@ -1534,8 +1534,8 @@ export interface RepositoryCreationTemplate {
 
   /**
    * <p>The tag mutability setting for the repository. If this parameter is omitted, the
-   *             default setting of MUTABLE will be used which will allow image tags to be overwritten.
-   *             If IMMUTABLE is specified, all image tags within the repository will be immutable which
+   *             default setting of <code>MUTABLE</code> will be used which will allow image tags to be overwritten.
+   *             If <code>IMMUTABLE</code> is specified, all image tags within the repository will be immutable which
    *             will prevent them from being overwritten.</p>
    * @public
    */
@@ -2308,7 +2308,7 @@ export interface ImageDetail {
    *             <p>Starting with Docker version 1.9, the Docker client compresses image layers before
    *                 pushing them to a V2 Docker registry. The output of the <code>docker images</code>
    *                 command shows the uncompressed image size. Therefore, Docker might return a larger
-   *                 image than the image sizes returned by <a>DescribeImages</a>.</p>
+   *                 image than the image shown in the Amazon Web Services Management Console.</p>
    *          </note>
    * @public
    */
@@ -2659,6 +2659,19 @@ export interface AwsEcrContainerImageDetails {
    * @public
    */
   pushedAt?: Date | undefined;
+
+  /**
+   * <p>The most recent date and time a cluster was running the image.</p>
+   * @public
+   */
+  lastInUseAt?: Date | undefined;
+
+  /**
+   * <p>The number of Amazon ECS or Amazon EKS clusters currently running the
+   *             image.</p>
+   * @public
+   */
+  inUseCount?: number | undefined;
 
   /**
    * <p>The registry the Amazon ECR container image belongs to.</p>
@@ -3518,6 +3531,10 @@ export interface GetAuthorizationTokenResponse {
   /**
    * <p>A list of authorization token data objects that correspond to the
    *                 <code>registryIds</code> values in the request.</p>
+   *          <note>
+   *             <p>The size of the authorization token returned by Amazon ECR is not fixed. We recommend
+   *                 that you don't make assumptions about the maximum size.</p>
+   *          </note>
    * @public
    */
   authorizationData?: AuthorizationData[] | undefined;
@@ -3728,8 +3745,8 @@ export interface GetLifecyclePolicyPreviewRequest {
    *             <code>nextToken</code>  response element. The remaining results of the initial request
    *             can be seen by sending  another <code>GetLifecyclePolicyPreviewRequest</code> request
    *             with the returned <code>nextToken</code>  value. This value can be between
-   *             1 and 1000. If this  parameter is not used, then
-   *                 <code>GetLifecyclePolicyPreviewRequest</code> returns up to  100
+   *             1 and 100. If this  parameter is not used, then
+   *                 <code>GetLifecyclePolicyPreviewRequest</code> returns up to 100
    *             results and a <code>nextToken</code> value, if  applicable. This option cannot be used
    *             when you specify images with <code>imageIds</code>.</p>
    * @public

@@ -138,6 +138,8 @@ export interface DescribeImageScanFindingsCommandOutput extends DescribeImageSca
  * //                 ],
  * //                 platform: "STRING_VALUE",
  * //                 pushedAt: new Date("TIMESTAMP"),
+ * //                 lastInUseAt: new Date("TIMESTAMP"),
+ * //                 inUseCount: Number("long"),
  * //                 registry: "STRING_VALUE",
  * //                 repositoryName: "STRING_VALUE",
  * //               },
