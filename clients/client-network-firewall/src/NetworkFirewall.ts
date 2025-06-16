@@ -3,6 +3,16 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  AcceptNetworkFirewallTransitGatewayAttachmentCommand,
+  AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
+  AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput,
+} from "./commands/AcceptNetworkFirewallTransitGatewayAttachmentCommand";
+import {
+  AssociateAvailabilityZonesCommand,
+  AssociateAvailabilityZonesCommandInput,
+  AssociateAvailabilityZonesCommandOutput,
+} from "./commands/AssociateAvailabilityZonesCommand";
+import {
   AssociateFirewallPolicyCommand,
   AssociateFirewallPolicyCommandInput,
   AssociateFirewallPolicyCommandOutput,
@@ -47,6 +57,11 @@ import {
   DeleteFirewallPolicyCommandInput,
   DeleteFirewallPolicyCommandOutput,
 } from "./commands/DeleteFirewallPolicyCommand";
+import {
+  DeleteNetworkFirewallTransitGatewayAttachmentCommand,
+  DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
+  DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput,
+} from "./commands/DeleteNetworkFirewallTransitGatewayAttachmentCommand";
 import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyCommandInput,
@@ -118,6 +133,11 @@ import {
   DescribeVpcEndpointAssociationCommandOutput,
 } from "./commands/DescribeVpcEndpointAssociationCommand";
 import {
+  DisassociateAvailabilityZonesCommand,
+  DisassociateAvailabilityZonesCommandInput,
+  DisassociateAvailabilityZonesCommandOutput,
+} from "./commands/DisassociateAvailabilityZonesCommand";
+import {
   DisassociateSubnetsCommand,
   DisassociateSubnetsCommandInput,
   DisassociateSubnetsCommandOutput,
@@ -178,6 +198,11 @@ import {
   PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  RejectNetworkFirewallTransitGatewayAttachmentCommand,
+  RejectNetworkFirewallTransitGatewayAttachmentCommandInput,
+  RejectNetworkFirewallTransitGatewayAttachmentCommandOutput,
+} from "./commands/RejectNetworkFirewallTransitGatewayAttachmentCommand";
+import {
   StartAnalysisReportCommand,
   StartAnalysisReportCommandInput,
   StartAnalysisReportCommandOutput,
@@ -198,6 +223,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateAvailabilityZoneChangeProtectionCommand,
+  UpdateAvailabilityZoneChangeProtectionCommandInput,
+  UpdateAvailabilityZoneChangeProtectionCommandOutput,
+} from "./commands/UpdateAvailabilityZoneChangeProtectionCommand";
 import {
   UpdateFirewallAnalysisSettingsCommand,
   UpdateFirewallAnalysisSettingsCommandInput,
@@ -251,6 +281,8 @@ import {
 import { NetworkFirewallClient, NetworkFirewallClientConfig } from "./NetworkFirewallClient";
 
 const commands = {
+  AcceptNetworkFirewallTransitGatewayAttachmentCommand,
+  AssociateAvailabilityZonesCommand,
   AssociateFirewallPolicyCommand,
   AssociateSubnetsCommand,
   CreateFirewallCommand,
@@ -260,6 +292,7 @@ const commands = {
   CreateVpcEndpointAssociationCommand,
   DeleteFirewallCommand,
   DeleteFirewallPolicyCommand,
+  DeleteNetworkFirewallTransitGatewayAttachmentCommand,
   DeleteResourcePolicyCommand,
   DeleteRuleGroupCommand,
   DeleteTLSInspectionConfigurationCommand,
@@ -274,6 +307,7 @@ const commands = {
   DescribeRuleGroupMetadataCommand,
   DescribeTLSInspectionConfigurationCommand,
   DescribeVpcEndpointAssociationCommand,
+  DisassociateAvailabilityZonesCommand,
   DisassociateSubnetsCommand,
   GetAnalysisReportResultsCommand,
   ListAnalysisReportsCommand,
@@ -286,11 +320,13 @@ const commands = {
   ListTLSInspectionConfigurationsCommand,
   ListVpcEndpointAssociationsCommand,
   PutResourcePolicyCommand,
+  RejectNetworkFirewallTransitGatewayAttachmentCommand,
   StartAnalysisReportCommand,
   StartFlowCaptureCommand,
   StartFlowFlushCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAvailabilityZoneChangeProtectionCommand,
   UpdateFirewallAnalysisSettingsCommand,
   UpdateFirewallDeleteProtectionCommand,
   UpdateFirewallDescriptionCommand,
@@ -304,6 +340,40 @@ const commands = {
 };
 
 export interface NetworkFirewall {
+  /**
+   * @see {@link AcceptNetworkFirewallTransitGatewayAttachmentCommand}
+   */
+  acceptNetworkFirewallTransitGatewayAttachment(
+    args: AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput>;
+  acceptNetworkFirewallTransitGatewayAttachment(
+    args: AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
+    cb: (err: any, data?: AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput) => void
+  ): void;
+  acceptNetworkFirewallTransitGatewayAttachment(
+    args: AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateAvailabilityZonesCommand}
+   */
+  associateAvailabilityZones(
+    args: AssociateAvailabilityZonesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateAvailabilityZonesCommandOutput>;
+  associateAvailabilityZones(
+    args: AssociateAvailabilityZonesCommandInput,
+    cb: (err: any, data?: AssociateAvailabilityZonesCommandOutput) => void
+  ): void;
+  associateAvailabilityZones(
+    args: AssociateAvailabilityZonesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateAvailabilityZonesCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link AssociateFirewallPolicyCommand}
    */
@@ -448,6 +518,23 @@ export interface NetworkFirewall {
     args: DeleteFirewallPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteFirewallPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteNetworkFirewallTransitGatewayAttachmentCommand}
+   */
+  deleteNetworkFirewallTransitGatewayAttachment(
+    args: DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput>;
+  deleteNetworkFirewallTransitGatewayAttachment(
+    args: DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
+    cb: (err: any, data?: DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput) => void
+  ): void;
+  deleteNetworkFirewallTransitGatewayAttachment(
+    args: DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput) => void
   ): void;
 
   /**
@@ -695,6 +782,23 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link DisassociateAvailabilityZonesCommand}
+   */
+  disassociateAvailabilityZones(
+    args: DisassociateAvailabilityZonesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateAvailabilityZonesCommandOutput>;
+  disassociateAvailabilityZones(
+    args: DisassociateAvailabilityZonesCommandInput,
+    cb: (err: any, data?: DisassociateAvailabilityZonesCommandOutput) => void
+  ): void;
+  disassociateAvailabilityZones(
+    args: DisassociateAvailabilityZonesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateAvailabilityZonesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateSubnetsCommand}
    */
   disassociateSubnets(
@@ -896,6 +1000,23 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link RejectNetworkFirewallTransitGatewayAttachmentCommand}
+   */
+  rejectNetworkFirewallTransitGatewayAttachment(
+    args: RejectNetworkFirewallTransitGatewayAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectNetworkFirewallTransitGatewayAttachmentCommandOutput>;
+  rejectNetworkFirewallTransitGatewayAttachment(
+    args: RejectNetworkFirewallTransitGatewayAttachmentCommandInput,
+    cb: (err: any, data?: RejectNetworkFirewallTransitGatewayAttachmentCommandOutput) => void
+  ): void;
+  rejectNetworkFirewallTransitGatewayAttachment(
+    args: RejectNetworkFirewallTransitGatewayAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RejectNetworkFirewallTransitGatewayAttachmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartAnalysisReportCommand}
    */
   startAnalysisReport(
@@ -963,6 +1084,23 @@ export interface NetworkFirewall {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAvailabilityZoneChangeProtectionCommand}
+   */
+  updateAvailabilityZoneChangeProtection(
+    args: UpdateAvailabilityZoneChangeProtectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAvailabilityZoneChangeProtectionCommandOutput>;
+  updateAvailabilityZoneChangeProtection(
+    args: UpdateAvailabilityZoneChangeProtectionCommandInput,
+    cb: (err: any, data?: UpdateAvailabilityZoneChangeProtectionCommandOutput) => void
+  ): void;
+  updateAvailabilityZoneChangeProtection(
+    args: UpdateAvailabilityZoneChangeProtectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAvailabilityZoneChangeProtectionCommandOutput) => void
   ): void;
 
   /**

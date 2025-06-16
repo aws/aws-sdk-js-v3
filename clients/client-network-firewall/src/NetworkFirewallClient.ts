@@ -54,6 +54,14 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
+  AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput,
+} from "./commands/AcceptNetworkFirewallTransitGatewayAttachmentCommand";
+import {
+  AssociateAvailabilityZonesCommandInput,
+  AssociateAvailabilityZonesCommandOutput,
+} from "./commands/AssociateAvailabilityZonesCommand";
+import {
   AssociateFirewallPolicyCommandInput,
   AssociateFirewallPolicyCommandOutput,
 } from "./commands/AssociateFirewallPolicyCommand";
@@ -77,6 +85,10 @@ import {
   DeleteFirewallPolicyCommandInput,
   DeleteFirewallPolicyCommandOutput,
 } from "./commands/DeleteFirewallPolicyCommand";
+import {
+  DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
+  DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput,
+} from "./commands/DeleteNetworkFirewallTransitGatewayAttachmentCommand";
 import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
@@ -125,6 +137,10 @@ import {
   DescribeVpcEndpointAssociationCommandOutput,
 } from "./commands/DescribeVpcEndpointAssociationCommand";
 import {
+  DisassociateAvailabilityZonesCommandInput,
+  DisassociateAvailabilityZonesCommandOutput,
+} from "./commands/DisassociateAvailabilityZonesCommand";
+import {
   DisassociateSubnetsCommandInput,
   DisassociateSubnetsCommandOutput,
 } from "./commands/DisassociateSubnetsCommand";
@@ -161,6 +177,10 @@ import {
 } from "./commands/ListVpcEndpointAssociationsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import {
+  RejectNetworkFirewallTransitGatewayAttachmentCommandInput,
+  RejectNetworkFirewallTransitGatewayAttachmentCommandOutput,
+} from "./commands/RejectNetworkFirewallTransitGatewayAttachmentCommand";
+import {
   StartAnalysisReportCommandInput,
   StartAnalysisReportCommandOutput,
 } from "./commands/StartAnalysisReportCommand";
@@ -168,6 +188,10 @@ import { StartFlowCaptureCommandInput, StartFlowCaptureCommandOutput } from "./c
 import { StartFlowFlushCommandInput, StartFlowFlushCommandOutput } from "./commands/StartFlowFlushCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateAvailabilityZoneChangeProtectionCommandInput,
+  UpdateAvailabilityZoneChangeProtectionCommandOutput,
+} from "./commands/UpdateAvailabilityZoneChangeProtectionCommand";
 import {
   UpdateFirewallAnalysisSettingsCommandInput,
   UpdateFirewallAnalysisSettingsCommandOutput,
@@ -220,6 +244,8 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AcceptNetworkFirewallTransitGatewayAttachmentCommandInput
+  | AssociateAvailabilityZonesCommandInput
   | AssociateFirewallPolicyCommandInput
   | AssociateSubnetsCommandInput
   | CreateFirewallCommandInput
@@ -229,6 +255,7 @@ export type ServiceInputTypes =
   | CreateVpcEndpointAssociationCommandInput
   | DeleteFirewallCommandInput
   | DeleteFirewallPolicyCommandInput
+  | DeleteNetworkFirewallTransitGatewayAttachmentCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteRuleGroupCommandInput
   | DeleteTLSInspectionConfigurationCommandInput
@@ -243,6 +270,7 @@ export type ServiceInputTypes =
   | DescribeRuleGroupMetadataCommandInput
   | DescribeTLSInspectionConfigurationCommandInput
   | DescribeVpcEndpointAssociationCommandInput
+  | DisassociateAvailabilityZonesCommandInput
   | DisassociateSubnetsCommandInput
   | GetAnalysisReportResultsCommandInput
   | ListAnalysisReportsCommandInput
@@ -255,11 +283,13 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListVpcEndpointAssociationsCommandInput
   | PutResourcePolicyCommandInput
+  | RejectNetworkFirewallTransitGatewayAttachmentCommandInput
   | StartAnalysisReportCommandInput
   | StartFlowCaptureCommandInput
   | StartFlowFlushCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAvailabilityZoneChangeProtectionCommandInput
   | UpdateFirewallAnalysisSettingsCommandInput
   | UpdateFirewallDeleteProtectionCommandInput
   | UpdateFirewallDescriptionCommandInput
@@ -275,6 +305,8 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput
+  | AssociateAvailabilityZonesCommandOutput
   | AssociateFirewallPolicyCommandOutput
   | AssociateSubnetsCommandOutput
   | CreateFirewallCommandOutput
@@ -284,6 +316,7 @@ export type ServiceOutputTypes =
   | CreateVpcEndpointAssociationCommandOutput
   | DeleteFirewallCommandOutput
   | DeleteFirewallPolicyCommandOutput
+  | DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteRuleGroupCommandOutput
   | DeleteTLSInspectionConfigurationCommandOutput
@@ -298,6 +331,7 @@ export type ServiceOutputTypes =
   | DescribeRuleGroupMetadataCommandOutput
   | DescribeTLSInspectionConfigurationCommandOutput
   | DescribeVpcEndpointAssociationCommandOutput
+  | DisassociateAvailabilityZonesCommandOutput
   | DisassociateSubnetsCommandOutput
   | GetAnalysisReportResultsCommandOutput
   | ListAnalysisReportsCommandOutput
@@ -310,11 +344,13 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListVpcEndpointAssociationsCommandOutput
   | PutResourcePolicyCommandOutput
+  | RejectNetworkFirewallTransitGatewayAttachmentCommandOutput
   | StartAnalysisReportCommandOutput
   | StartFlowCaptureCommandOutput
   | StartFlowFlushCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAvailabilityZoneChangeProtectionCommandOutput
   | UpdateFirewallAnalysisSettingsCommandOutput
   | UpdateFirewallDeleteProtectionCommandOutput
   | UpdateFirewallDescriptionCommandOutput

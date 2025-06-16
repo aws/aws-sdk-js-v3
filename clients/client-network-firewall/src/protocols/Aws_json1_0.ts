@@ -21,6 +21,14 @@ import {
 } from "@smithy/types";
 
 import {
+  AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
+  AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput,
+} from "../commands/AcceptNetworkFirewallTransitGatewayAttachmentCommand";
+import {
+  AssociateAvailabilityZonesCommandInput,
+  AssociateAvailabilityZonesCommandOutput,
+} from "../commands/AssociateAvailabilityZonesCommand";
+import {
   AssociateFirewallPolicyCommandInput,
   AssociateFirewallPolicyCommandOutput,
 } from "../commands/AssociateFirewallPolicyCommand";
@@ -44,6 +52,10 @@ import {
   DeleteFirewallPolicyCommandInput,
   DeleteFirewallPolicyCommandOutput,
 } from "../commands/DeleteFirewallPolicyCommand";
+import {
+  DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
+  DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput,
+} from "../commands/DeleteNetworkFirewallTransitGatewayAttachmentCommand";
 import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
@@ -92,6 +104,10 @@ import {
   DescribeVpcEndpointAssociationCommandOutput,
 } from "../commands/DescribeVpcEndpointAssociationCommand";
 import {
+  DisassociateAvailabilityZonesCommandInput,
+  DisassociateAvailabilityZonesCommandOutput,
+} from "../commands/DisassociateAvailabilityZonesCommand";
+import {
   DisassociateSubnetsCommandInput,
   DisassociateSubnetsCommandOutput,
 } from "../commands/DisassociateSubnetsCommand";
@@ -128,6 +144,10 @@ import {
 } from "../commands/ListVpcEndpointAssociationsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import {
+  RejectNetworkFirewallTransitGatewayAttachmentCommandInput,
+  RejectNetworkFirewallTransitGatewayAttachmentCommandOutput,
+} from "../commands/RejectNetworkFirewallTransitGatewayAttachmentCommand";
+import {
   StartAnalysisReportCommandInput,
   StartAnalysisReportCommandOutput,
 } from "../commands/StartAnalysisReportCommand";
@@ -135,6 +155,10 @@ import { StartFlowCaptureCommandInput, StartFlowCaptureCommandOutput } from "../
 import { StartFlowFlushCommandInput, StartFlowFlushCommandOutput } from "../commands/StartFlowFlushCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateAvailabilityZoneChangeProtectionCommandInput,
+  UpdateAvailabilityZoneChangeProtectionCommandOutput,
+} from "../commands/UpdateAvailabilityZoneChangeProtectionCommand";
 import {
   UpdateFirewallAnalysisSettingsCommandInput,
   UpdateFirewallAnalysisSettingsCommandOutput,
@@ -173,12 +197,15 @@ import {
   UpdateTLSInspectionConfigurationCommandOutput,
 } from "../commands/UpdateTLSInspectionConfigurationCommand";
 import {
+  AcceptNetworkFirewallTransitGatewayAttachmentRequest,
   ActionDefinition,
   Address,
   AnalysisReport,
   AnalysisTypeReportResult,
+  AssociateAvailabilityZonesRequest,
   AssociateFirewallPolicyRequest,
   AssociateSubnetsRequest,
+  AvailabilityZoneMapping,
   CheckCertificateRevocationStatusActions,
   CreateFirewallPolicyRequest,
   CreateFirewallPolicyResponse,
@@ -192,6 +219,7 @@ import {
   DeleteFirewallPolicyRequest,
   DeleteFirewallPolicyResponse,
   DeleteFirewallRequest,
+  DeleteNetworkFirewallTransitGatewayAttachmentRequest,
   DeleteResourcePolicyRequest,
   DeleteRuleGroupRequest,
   DeleteRuleGroupResponse,
@@ -214,6 +242,7 @@ import {
   DescribeTLSInspectionConfigurationResponse,
   DescribeVpcEndpointAssociationRequest,
   Dimension,
+  DisassociateAvailabilityZonesRequest,
   DisassociateSubnetsRequest,
   EnabledAnalysisType,
   EncryptionConfiguration,
@@ -256,6 +285,7 @@ import {
   PublishMetricAction,
   PutResourcePolicyRequest,
   ReferenceSets,
+  RejectNetworkFirewallTransitGatewayAttachmentRequest,
   ResourceNotFoundException,
   ResourceOwnerCheckException,
   RuleDefinition,
@@ -291,6 +321,7 @@ import {
   TLSInspectionConfigurationResponse,
   UnsupportedOperationException,
   UntagResourceRequest,
+  UpdateAvailabilityZoneChangeProtectionRequest,
   UpdateFirewallAnalysisSettingsRequest,
   UpdateFirewallDeleteProtectionRequest,
   UpdateFirewallDescriptionRequest,
@@ -306,6 +337,32 @@ import {
   UpdateTLSInspectionConfigurationResponse,
 } from "../models/models_0";
 import { NetworkFirewallServiceException as __BaseException } from "../models/NetworkFirewallServiceException";
+
+/**
+ * serializeAws_json1_0AcceptNetworkFirewallTransitGatewayAttachmentCommand
+ */
+export const se_AcceptNetworkFirewallTransitGatewayAttachmentCommand = async (
+  input: AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("AcceptNetworkFirewallTransitGatewayAttachment");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0AssociateAvailabilityZonesCommand
+ */
+export const se_AssociateAvailabilityZonesCommand = async (
+  input: AssociateAvailabilityZonesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("AssociateAvailabilityZones");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 /**
  * serializeAws_json1_0AssociateFirewallPolicyCommand
@@ -419,6 +476,19 @@ export const se_DeleteFirewallPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteFirewallPolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DeleteNetworkFirewallTransitGatewayAttachmentCommand
+ */
+export const se_DeleteNetworkFirewallTransitGatewayAttachmentCommand = async (
+  input: DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteNetworkFirewallTransitGatewayAttachment");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -607,6 +677,19 @@ export const se_DescribeVpcEndpointAssociationCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DisassociateAvailabilityZonesCommand
+ */
+export const se_DisassociateAvailabilityZonesCommand = async (
+  input: DisassociateAvailabilityZonesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DisassociateAvailabilityZones");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DisassociateSubnetsCommand
  */
 export const se_DisassociateSubnetsCommand = async (
@@ -763,6 +846,19 @@ export const se_PutResourcePolicyCommand = async (
 };
 
 /**
+ * serializeAws_json1_0RejectNetworkFirewallTransitGatewayAttachmentCommand
+ */
+export const se_RejectNetworkFirewallTransitGatewayAttachmentCommand = async (
+  input: RejectNetworkFirewallTransitGatewayAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("RejectNetworkFirewallTransitGatewayAttachment");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0StartAnalysisReportCommand
  */
 export const se_StartAnalysisReportCommand = async (
@@ -822,6 +918,19 @@ export const se_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0UpdateAvailabilityZoneChangeProtectionCommand
+ */
+export const se_UpdateAvailabilityZoneChangeProtectionCommand = async (
+  input: UpdateAvailabilityZoneChangeProtectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateAvailabilityZoneChangeProtection");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -955,6 +1064,46 @@ export const se_UpdateTLSInspectionConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_0AcceptNetworkFirewallTransitGatewayAttachmentCommand
+ */
+export const de_AcceptNetworkFirewallTransitGatewayAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0AssociateAvailabilityZonesCommand
+ */
+export const de_AssociateAvailabilityZonesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateAvailabilityZonesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: AssociateAvailabilityZonesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
 };
 
 /**
@@ -1131,6 +1280,26 @@ export const de_DeleteFirewallPolicyCommand = async (
   let contents: any = {};
   contents = de_DeleteFirewallPolicyResponse(data, context);
   const response: DeleteFirewallPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteNetworkFirewallTransitGatewayAttachmentCommand
+ */
+export const de_DeleteNetworkFirewallTransitGatewayAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1418,6 +1587,26 @@ export const de_DescribeVpcEndpointAssociationCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0DisassociateAvailabilityZonesCommand
+ */
+export const de_DisassociateAvailabilityZonesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateAvailabilityZonesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisassociateAvailabilityZonesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0DisassociateSubnetsCommand
  */
 export const de_DisassociateSubnetsCommand = async (
@@ -1658,6 +1847,26 @@ export const de_PutResourcePolicyCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0RejectNetworkFirewallTransitGatewayAttachmentCommand
+ */
+export const de_RejectNetworkFirewallTransitGatewayAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RejectNetworkFirewallTransitGatewayAttachmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RejectNetworkFirewallTransitGatewayAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0StartAnalysisReportCommand
  */
 export const de_StartAnalysisReportCommand = async (
@@ -1751,6 +1960,26 @@ export const de_UntagResourceCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateAvailabilityZoneChangeProtectionCommand
+ */
+export const de_UpdateAvailabilityZoneChangeProtectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAvailabilityZoneChangeProtectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateAvailabilityZoneChangeProtectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1970,15 +2199,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
       throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.networkfirewall#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidTokenException":
-    case "com.amazonaws.networkfirewall#InvalidTokenException":
-      throw await de_InvalidTokenExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -1988,6 +2211,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InsufficientCapacityException":
     case "com.amazonaws.networkfirewall#InsufficientCapacityException":
       throw await de_InsufficientCapacityExceptionRes(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.networkfirewall#InvalidOperationException":
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
+    case "InvalidTokenException":
+    case "com.amazonaws.networkfirewall#InvalidTokenException":
+      throw await de_InvalidTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.networkfirewall#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
@@ -2199,15 +2428,23 @@ const de_UnsupportedOperationExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
+// se_AcceptNetworkFirewallTransitGatewayAttachmentRequest omitted.
+
 // se_ActionDefinition omitted.
 
 // se_Address omitted.
 
 // se_Addresses omitted.
 
+// se_AssociateAvailabilityZonesRequest omitted.
+
 // se_AssociateFirewallPolicyRequest omitted.
 
 // se_AssociateSubnetsRequest omitted.
+
+// se_AvailabilityZoneMapping omitted.
+
+// se_AvailabilityZoneMappings omitted.
 
 // se_AzSubnets omitted.
 
@@ -2248,6 +2485,8 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 
 // se_DeleteFirewallRequest omitted.
 
+// se_DeleteNetworkFirewallTransitGatewayAttachmentRequest omitted.
+
 // se_DeleteResourcePolicyRequest omitted.
 
 // se_DeleteRuleGroupRequest omitted.
@@ -2279,6 +2518,8 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 // se_Dimension omitted.
 
 // se_Dimensions omitted.
+
+// se_DisassociateAvailabilityZonesRequest omitted.
 
 // se_DisassociateSubnetsRequest omitted.
 
@@ -2355,6 +2596,8 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 // se_PutResourcePolicyRequest omitted.
 
 // se_ReferenceSets omitted.
+
+// se_RejectNetworkFirewallTransitGatewayAttachmentRequest omitted.
 
 // se_RuleDefinition omitted.
 
@@ -2444,6 +2687,8 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 
 // se_UntagResourceRequest omitted.
 
+// se_UpdateAvailabilityZoneChangeProtectionRequest omitted.
+
 // se_UpdateFirewallAnalysisSettingsRequest omitted.
 
 // se_UpdateFirewallDeleteProtectionRequest omitted.
@@ -2484,6 +2729,8 @@ const se_UpdateRuleGroupRequest = (input: UpdateRuleGroupRequest, context: __Ser
 // se_VariableDefinitionList omitted.
 
 // se_VpcIds omitted.
+
+// de_AcceptNetworkFirewallTransitGatewayAttachmentResponse omitted.
 
 // de_ActionDefinition omitted.
 
@@ -2545,6 +2792,8 @@ const de_AnalysisTypeReportResult = (output: any, context: __SerdeContext): Anal
   }) as any;
 };
 
+// de_AssociateAvailabilityZonesResponse omitted.
+
 // de_AssociateFirewallPolicyResponse omitted.
 
 // de_AssociateSubnetsResponse omitted.
@@ -2552,6 +2801,10 @@ const de_AnalysisTypeReportResult = (output: any, context: __SerdeContext): Anal
 // de_AssociationSyncState omitted.
 
 // de_Attachment omitted.
+
+// de_AvailabilityZoneMapping omitted.
+
+// de_AvailabilityZoneMappings omitted.
 
 // de_AvailabilityZoneMetadata omitted.
 
@@ -2616,6 +2869,8 @@ const de_DeleteFirewallPolicyResponse = (output: any, context: __SerdeContext): 
 };
 
 // de_DeleteFirewallResponse omitted.
+
+// de_DeleteNetworkFirewallTransitGatewayAttachmentResponse omitted.
 
 // de_DeleteResourcePolicyResponse omitted.
 
@@ -2727,6 +2982,8 @@ const de_DescribeTLSInspectionConfigurationResponse = (
 // de_Dimension omitted.
 
 // de_Dimensions omitted.
+
+// de_DisassociateAvailabilityZonesResponse omitted.
 
 // de_DisassociateSubnetsResponse omitted.
 
@@ -2940,6 +3197,8 @@ const de_ListFlowOperationsResponse = (output: any, context: __SerdeContext): Li
 
 // de_ReferenceSets omitted.
 
+// de_RejectNetworkFirewallTransitGatewayAttachmentResponse omitted.
+
 // de_ResourceNotFoundException omitted.
 
 // de_ResourceOwnerCheckException omitted.
@@ -3095,11 +3354,15 @@ const de_TLSInspectionConfigurationResponse = (
 
 // de_TLSInspectionConfigurations omitted.
 
+// de_TransitGatewayAttachmentSyncState omitted.
+
 // de_UniqueSources omitted.
 
 // de_UnsupportedOperationException omitted.
 
 // de_UntagResourceResponse omitted.
+
+// de_UpdateAvailabilityZoneChangeProtectionResponse omitted.
 
 // de_UpdateFirewallAnalysisSettingsResponse omitted.
 

@@ -51,6 +51,7 @@ export interface DescribeFirewallMetadataCommandOutput extends DescribeFirewallM
  * //       IPAddressType: "DUALSTACK" || "IPV4" || "IPV6",
  * //     },
  * //   },
+ * //   TransitGatewayAttachmentId: "STRING_VALUE",
  * // };
  *
  * ```

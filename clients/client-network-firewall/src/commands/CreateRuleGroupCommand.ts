@@ -79,7 +79,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *         { // StatefulRule
  *           Action: "PASS" || "DROP" || "ALERT" || "REJECT", // required
  *           Header: { // Header
- *             Protocol: "IP" || "TCP" || "UDP" || "ICMP" || "HTTP" || "FTP" || "TLS" || "SMB" || "DNS" || "DCERPC" || "SSH" || "SMTP" || "IMAP" || "MSN" || "KRB5" || "IKEV2" || "TFTP" || "NTP" || "DHCP", // required
+ *             Protocol: "IP" || "TCP" || "UDP" || "ICMP" || "HTTP" || "FTP" || "TLS" || "SMB" || "DNS" || "DCERPC" || "SSH" || "SMTP" || "IMAP" || "MSN" || "KRB5" || "IKEV2" || "TFTP" || "NTP" || "DHCP" || "HTTP2" || "QUIC", // required
  *             Source: "STRING_VALUE", // required
  *             SourcePort: "STRING_VALUE", // required
  *             Direction: "FORWARD" || "ANY", // required

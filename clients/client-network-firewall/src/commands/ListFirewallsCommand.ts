@@ -53,6 +53,7 @@ export interface ListFirewallsCommandOutput extends ListFirewallsResponse, __Met
  * //     { // FirewallMetadata
  * //       FirewallName: "STRING_VALUE",
  * //       FirewallArn: "STRING_VALUE",
+ * //       TransitGatewayAttachmentId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

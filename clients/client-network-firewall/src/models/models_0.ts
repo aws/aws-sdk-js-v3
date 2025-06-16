@@ -4,6 +4,196 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { NetworkFirewallServiceException as __BaseException } from "./NetworkFirewallServiceException";
 
 /**
+ * @public
+ */
+export interface AcceptNetworkFirewallTransitGatewayAttachmentRequest {
+  /**
+   * <p>Required. The unique identifier of the transit gateway attachment to accept. This ID is returned in the response when creating a transit gateway-attached firewall.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TransitGatewayAttachmentStatus = {
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  FAILED: "FAILED",
+  PENDING_ACCEPTANCE: "PENDING_ACCEPTANCE",
+  READY: "READY",
+  REJECTED: "REJECTED",
+  REJECTING: "REJECTING",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitGatewayAttachmentStatus =
+  (typeof TransitGatewayAttachmentStatus)[keyof typeof TransitGatewayAttachmentStatus];
+
+/**
+ * @public
+ */
+export interface AcceptNetworkFirewallTransitGatewayAttachmentResponse {
+  /**
+   * <p>The unique identifier of the transit gateway attachment that was accepted.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>The current status of the transit gateway attachment. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> - The attachment is being created</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> - The attachment is being deleted</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code> - The attachment has been deleted</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The attachment creation has failed and cannot be recovered</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ERROR</code> - The attachment is in an error state that might be recoverable</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READY</code> - The attachment is active and processing traffic</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING_ACCEPTANCE</code> - The attachment is waiting to be accepted</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECTING</code> - The attachment is in the process of being rejected</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECTED</code> - The attachment has been rejected</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TransitGatewayAttachmentStatus: TransitGatewayAttachmentStatus | undefined;
+}
+
+/**
+ * <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
+ *          system problem. Retry your request. </p>
+ * @public
+ */
+export class InternalServerError extends __BaseException {
+  readonly name: "InternalServerError" = "InternalServerError";
+  readonly $fault: "server" = "server";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerError, __BaseException>) {
+    super({
+      name: "InternalServerError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerError.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The operation failed because of a problem with your request. Examples include: </p>
+ *          <ul>
+ *             <li>
+ *                <p>You specified an unsupported parameter name or value.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a property with a value that isn't among the available
+ *                types.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your request references an ARN that is malformed, or corresponds to a resource
+ *                that isn't valid in the context of the request.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Unable to locate a resource using the parameters that you provided.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Unable to process the request due to throttling limitations.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The value to use in an Amazon CloudWatch custom metric dimension. This is used in the
  *             <code>PublishMetrics</code>
  *             <a>CustomAction</a>. A CloudWatch custom metric dimension is a name/value pair that's
@@ -53,8 +243,7 @@ export interface ActionDefinition {
 }
 
 /**
- * <p>A single IP address specification. This is used in the <a>MatchAttributes</a>
- *          source and destination specifications.</p>
+ * <p>A single IP address specification. This is used in the <a>MatchAttributes</a> source and destination specifications.</p>
  * @public
  */
 export interface Address {
@@ -260,6 +449,151 @@ export interface AnalysisResult {
 }
 
 /**
+ * <p>Defines the mapping between an Availability Zone and a firewall endpoint for a transit gateway-attached firewall. Each mapping represents where the firewall can process traffic. You use these mappings when calling <a>CreateFirewall</a>, <a>AssociateAvailabilityZones</a>, and <a>DisassociateAvailabilityZones</a>.</p>
+ *          <p>To retrieve the current Availability Zone mappings for a firewall, use <a>DescribeFirewall</a>.</p>
+ * @public
+ */
+export interface AvailabilityZoneMapping {
+  /**
+   * <p>The ID of the Availability Zone where the firewall endpoint is located. For example, <code>us-east-2a</code>. The Availability Zone must be in the same Region as the transit gateway.</p>
+   * @public
+   */
+  AvailabilityZone: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateAvailabilityZonesRequest {
+  /**
+   * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
+   *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
+   *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   * @public
+   */
+  UpdateToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallName?: string | undefined;
+
+  /**
+   * <p>Required. The Availability Zones where you want to create firewall endpoints. You must specify at least one Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneMappings: AvailabilityZoneMapping[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateAvailabilityZonesResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
+   * @public
+   */
+  FirewallName?: string | undefined;
+
+  /**
+   * <p>The Availability Zones where Network Firewall created firewall endpoints. Each mapping specifies an Availability Zone where the firewall processes traffic.</p>
+   * @public
+   */
+  AvailabilityZoneMappings?: AvailabilityZoneMapping[] | undefined;
+
+  /**
+   * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
+   *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
+   *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   * @public
+   */
+  UpdateToken?: string | undefined;
+}
+
+/**
+ * <p>Amazon Web Services doesn't currently have enough available capacity to fulfill your request. Try your
+ *          request later. </p>
+ * @public
+ */
+export class InsufficientCapacityException extends __BaseException {
+  readonly name: "InsufficientCapacityException" = "InsufficientCapacityException";
+  readonly $fault: "server" = "server";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientCapacityException, __BaseException>) {
+    super({
+      name: "InsufficientCapacityException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientCapacityException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The operation failed because it's not valid. For example, you might have tried to delete
+ *          a rule group or firewall policy that's in use.</p>
+ * @public
+ */
+export class InvalidOperationException extends __BaseException {
+  readonly name: "InvalidOperationException" = "InvalidOperationException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOperationException, __BaseException>) {
+    super({
+      name: "InvalidOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOperationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The token you provided is stale or isn't valid for the operation. </p>
+ * @public
+ */
+export class InvalidTokenException extends __BaseException {
+  readonly name: "InvalidTokenException" = "InvalidTokenException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTokenException, __BaseException>) {
+    super({
+      name: "InvalidTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTokenException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * @public
  */
 export interface AssociateFirewallPolicyRequest {
@@ -321,153 +655,6 @@ export interface AssociateFirewallPolicyResponse {
    * @public
    */
   UpdateToken?: string | undefined;
-}
-
-/**
- * <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
- *          system problem. Retry your request. </p>
- * @public
- */
-export class InternalServerError extends __BaseException {
-  readonly name: "InternalServerError" = "InternalServerError";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerError, __BaseException>) {
-    super({
-      name: "InternalServerError",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerError.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The operation failed because it's not valid. For example, you might have tried to delete
- *          a rule group or firewall policy that's in use.</p>
- * @public
- */
-export class InvalidOperationException extends __BaseException {
-  readonly name: "InvalidOperationException" = "InvalidOperationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidOperationException, __BaseException>) {
-    super({
-      name: "InvalidOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidOperationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The operation failed because of a problem with your request. Examples include: </p>
- *          <ul>
- *             <li>
- *                <p>You specified an unsupported parameter name or value.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a property with a value that isn't among the available
- *                types.</p>
- *             </li>
- *             <li>
- *                <p>Your request references an ARN that is malformed, or corresponds to a resource
- *                that isn't valid in the context of the request.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The token you provided is stale or isn't valid for the operation. </p>
- * @public
- */
-export class InvalidTokenException extends __BaseException {
-  readonly name: "InvalidTokenException" = "InvalidTokenException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTokenException, __BaseException>) {
-    super({
-      name: "InvalidTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTokenException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Unable to locate a resource using the parameters that you provided.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Unable to process the request due to throttling limitations.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -571,29 +758,6 @@ export interface AssociateSubnetsResponse {
 }
 
 /**
- * <p>Amazon Web Services doesn't currently have enough available capacity to fulfill your request. Try your
- *          request later. </p>
- * @public
- */
-export class InsufficientCapacityException extends __BaseException {
-  readonly name: "InsufficientCapacityException" = "InsufficientCapacityException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InsufficientCapacityException, __BaseException>) {
-    super({
-      name: "InsufficientCapacityException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InsufficientCapacityException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  * @enum
  */
@@ -649,7 +813,9 @@ export interface Attachment {
   Status?: AttachmentStatus | undefined;
 
   /**
-   * <p>If Network Firewall fails to create or delete the firewall endpoint in the subnet, it populates this with the reason for the error or failure and how to resolve it. A <code>FAILED</code> status indicates a non-recoverable state, and a <code>ERROR</code> status indicates an issue that you can fix. Depending on the error, it can take as many as 15 minutes to populate this field. For more information about the causes for failiure or errors and solutions available for this field, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-troubleshooting-endpoint-failures.html">Troubleshooting firewall endpoint failures</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   * <p>If Network Firewall fails to create or delete the firewall endpoint in the subnet, it populates this with the reason for the error or failure and how to resolve it.
+   *          A <code>FAILED</code> status indicates a non-recoverable state, and a <code>ERROR</code> status indicates an issue that you can fix.
+   *          Depending on the error, it can take as many as 15 minutes to populate this field. For more information about the causes for failiure or errors and solutions available for this field, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-troubleshooting-endpoint-failures.html">Troubleshooting firewall endpoint failures</a> in the <i>Network Firewall Developer Guide</i>.</p>
    * @public
    */
   StatusMessage?: string | undefined;
@@ -978,6 +1144,31 @@ export interface CreateFirewallRequest {
    * @public
    */
   EnabledAnalysisTypes?: EnabledAnalysisType[] | undefined;
+
+  /**
+   * <p>Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through Resource Access Manager.</p>
+   *          <important>
+   *             <p>After creating the firewall, you cannot change the transit gateway association. To use a different transit gateway, you must create a new firewall.</p>
+   *          </important>
+   *          <p>For information about creating firewalls, see <a>CreateFirewall</a>. For specific guidance about transit gateway-attached firewalls, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tgw-firewall-considerations.html">Considerations for transit gateway-attached firewalls</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   * @public
+   */
+  TransitGatewayId?: string | undefined;
+
+  /**
+   * <p>Required. The Availability Zones where you want to create firewall endpoints for a transit gateway-attached firewall. You must specify at least one Availability Zone. Consider enabling the firewall in every Availability Zone where you have workloads to maintain Availability Zone independence.</p>
+   *          <p>You can modify Availability Zones later using <a>AssociateAvailabilityZones</a> or <a>DisassociateAvailabilityZones</a>, but this may briefly disrupt traffic. The <code>AvailabilityZoneChangeProtection</code> setting controls whether you can make these modifications.</p>
+   * @public
+   */
+  AvailabilityZoneMappings?: AvailabilityZoneMapping[] | undefined;
+
+  /**
+   * <p>Optional. A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to <code>TRUE</code>, you cannot add or remove Availability Zones without first disabling this protection using <a>UpdateAvailabilityZoneChangeProtection</a>.</p>
+   *          <p>Default value: <code>FALSE</code>
+   *          </p>
+   * @public
+   */
+  AvailabilityZoneChangeProtection?: boolean | undefined;
 }
 
 /**
@@ -1083,6 +1274,30 @@ export interface Firewall {
    * @public
    */
   EnabledAnalysisTypes?: EnabledAnalysisType[] | undefined;
+
+  /**
+   * <p>The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.</p>
+   * @public
+   */
+  TransitGatewayId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the transit gateway. This may be different from the firewall owner's account ID when using a shared transit gateway.</p>
+   * @public
+   */
+  TransitGatewayOwnerAccountId?: string | undefined;
+
+  /**
+   * <p>The Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall. Each mapping specifies an Availability Zone where the firewall processes traffic.</p>
+   * @public
+   */
+  AvailabilityZoneMappings?: AvailabilityZoneMapping[] | undefined;
+
+  /**
+   * <p>A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to <code>TRUE</code>, you must first disable this protection before adding or removing Availability Zones.</p>
+   * @public
+   */
+  AvailabilityZoneChangeProtection?: boolean | undefined;
 }
 
 /**
@@ -1175,6 +1390,109 @@ export interface SyncState {
 }
 
 /**
+ * <p>Contains information about the synchronization state of a transit gateway attachment, including its current status and any error messages. Network Firewall uses this to track the state of your transit gateway configuration changes.</p>
+ * @public
+ */
+export interface TransitGatewayAttachmentSyncState {
+  /**
+   * <p>The unique identifier of the transit gateway attachment.</p>
+   * @public
+   */
+  AttachmentId?: string | undefined;
+
+  /**
+   * <p>The current status of the transit gateway attachment.</p>
+   *          <p>Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> - The attachment is being created</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> - The attachment is being deleted</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code> - The attachment has been deleted</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The attachment creation has failed and cannot be recovered</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ERROR</code> - The attachment is in an error state that might be recoverable</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READY</code> - The attachment is active and processing traffic</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING_ACCEPTANCE</code> - The attachment is waiting to be accepted</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECTING</code> - The attachment is in the process of being rejected</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECTED</code> - The attachment has been rejected</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TransitGatewayAttachmentStatus?: TransitGatewayAttachmentStatus | undefined;
+
+  /**
+   * <p>A message providing additional information about the current status, particularly useful when the transit gateway attachment is in a non-<code>READY</code> state.</p>
+   *          <p>Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> - The attachment is being created</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> - The attachment is being deleted</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code> - The attachment has been deleted</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The attachment creation has failed and cannot be recovered</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ERROR</code> - The attachment is in an error state that might be recoverable</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READY</code> - The attachment is active and processing traffic</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING_ACCEPTANCE</code> - The attachment is waiting to be accepted</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECTING</code> - The attachment is in the process of being rejected</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECTED</code> - The attachment has been rejected</p>
+   *             </li>
+   *          </ul>
+   *          <p>For information about troubleshooting endpoint failures, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-troubleshooting-endpoint-failures.html">Troubleshooting firewall endpoint failures</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+}
+
+/**
  * <p>Detailed information about the current status of a <a>Firewall</a>. You can retrieve this for a firewall by calling <a>DescribeFirewall</a> and providing the firewall name and ARN.</p>
  *          <p>The firewall status indicates a combined status. It indicates whether all subnets are up-to-date with the latest firewall configurations, which is based on the sync states config values, and also whether all subnets have their endpoints fully enabled, based on their sync states attachment values. </p>
  * @public
@@ -1219,6 +1537,12 @@ export interface FirewallStatus {
    * @public
    */
   CapacityUsageSummary?: CapacityUsageSummary | undefined;
+
+  /**
+   * <p>The synchronization state of the transit gateway attachment. This indicates whether the firewall's transit gateway configuration is properly synchronized and operational. Use this to verify that your transit gateway configuration changes have been applied.</p>
+   * @public
+   */
+  TransitGatewayAttachmentSyncState?: TransitGatewayAttachmentSyncState | undefined;
 }
 
 /**
@@ -1341,9 +1665,15 @@ export type StreamExceptionPolicy = (typeof StreamExceptionPolicy)[keyof typeof 
  */
 export interface StatefulEngineOptions {
   /**
-   * <p>Indicates how to manage the order of stateful rule evaluation for the policy. <code>STRICT_ORDER</code> is
-   *          the default and recommended option. With <code>STRICT_ORDER</code>, provide your rules in the order that you want them to be evaluated. You can then choose one or more default actions for packets that don't match any rules. Choose <code>STRICT_ORDER</code> to have the stateful rules engine determine the evaluation order of your rules. The default action for this rule order is <code>PASS</code>, followed by <code>DROP</code>, <code>REJECT</code>, and <code>ALERT</code> actions. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them
-   *          based on your settings. For more information, see
+   * <p>Indicates how to manage the order of stateful rule evaluation for the policy. <code>STRICT_ORDER</code> is the
+   *          recommended option, but <code>DEFAULT_ACTION_ORDER</code> is the default option.
+   *          With <code>STRICT_ORDER</code>, provide your rules in the order that you want them to be evaluated.
+   *          You can then choose one or more default actions for packets that don't match any rules.
+   *          Choose <code>STRICT_ORDER</code> to have the stateful rules engine determine the evaluation order of your rules.
+   *          The default action for this rule order is
+   *          <code>PASS</code>, followed by <code>DROP</code>, <code>REJECT</code>, and <code>ALERT</code> actions.
+   *          Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on your settings.
+   *          For more information, see
    *          <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>.
    *       </p>
    * @public
@@ -1891,12 +2221,14 @@ export const StatefulRuleProtocol = {
   DNS: "DNS",
   FTP: "FTP",
   HTTP: "HTTP",
+  HTTP2: "HTTP2",
   ICMP: "ICMP",
   IKEV2: "IKEV2",
   IMAP: "IMAP",
   KRB5: "KRB5",
   MSN: "MSN",
   NTP: "NTP",
+  QUIC: "QUIC",
   SMB: "SMB",
   SMTP: "SMTP",
   SSH: "SSH",
@@ -2362,7 +2694,7 @@ export interface PortSet {
 
 /**
  * <p>Settings that are available for use in the rules in the <a>RuleGroup</a>
- *          where this is defined. </p>
+ *          where this is defined. See <a>CreateRuleGroup</a> or <a>UpdateRuleGroup</a> for usage.</p>
  * @public
  */
 export interface RuleVariables {
@@ -2677,7 +3009,7 @@ export interface RuleGroupResponse {
   SourceMetadata?: SourceMetadata | undefined;
 
   /**
-   * <p>The Amazon resource name (ARN) of the Amazon Simple Notification Service SNS topic that's
+   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service SNS topic that's
    * used to record changes to the managed rule group. You can subscribe to the SNS topic to receive
    * notifications when the managed rule group is modified, such as for new versions and for version
    * expiration. For more information, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/welcome.html">Amazon Simple Notification Service Developer Guide.</a>.</p>
@@ -2801,7 +3133,7 @@ export interface ServerCertificateConfiguration {
    *                <p>You can't use certificates issued by Private Certificate Authority.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information about configuring certificates for outbound inspection, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html">Using SSL/TLS certificates with certificates with TLS inspection configurations</a> in the <i>Network Firewall Developer Guide</i>. </p>
+   *          <p>For more information about configuring certificates for outbound inspection, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html">Using SSL/TLS certificates with TLS inspection configurations</a> in the <i>Network Firewall Developer Guide</i>. </p>
    *          <p>For information about working with certificates in ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing certificates</a> in the <i>Certificate Manager User Guide</i>.</p>
    * @public
    */
@@ -3208,6 +3540,73 @@ export interface DeleteFirewallPolicyResponse {
 /**
  * @public
  */
+export interface DeleteNetworkFirewallTransitGatewayAttachmentRequest {
+  /**
+   * <p>Required. The unique identifier of the transit gateway attachment to delete.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkFirewallTransitGatewayAttachmentResponse {
+  /**
+   * <p>The ID of the transit gateway attachment that was deleted.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>The current status of the transit gateway attachment deletion process.</p>
+   *          <p>Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> - The attachment is being created</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> - The attachment is being deleted</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code> - The attachment has been deleted</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The attachment creation has failed and cannot be recovered</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ERROR</code> - The attachment is in an error state that might be recoverable</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READY</code> - The attachment is active and processing traffic</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING_ACCEPTANCE</code> - The attachment is waiting to be accepted</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECTING</code> - The attachment is in the process of being rejected</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECTED</code> - The attachment has been rejected</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TransitGatewayAttachmentStatus: TransitGatewayAttachmentStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the rule group or firewall policy whose resource policy you want to delete. </p>
@@ -3437,6 +3836,12 @@ export interface DescribeFirewallMetadataResponse {
    * @public
    */
   SupportedAvailabilityZones?: Record<string, AvailabilityZoneMetadata> | undefined;
+
+  /**
+   * <p>The unique identifier of the transit gateway attachment associated with this firewall. This field is only present for transit gateway-attached firewalls.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
 }
 
 /**
@@ -3524,15 +3929,13 @@ export interface DescribeFlowOperationRequest {
  */
 export interface FlowFilter {
   /**
-   * <p>A single IP address specification. This is used in the <a>MatchAttributes</a>
-   *          source and destination specifications.</p>
+   * <p>A single IP address specification. This is used in the <a>MatchAttributes</a> source and destination specifications.</p>
    * @public
    */
   SourceAddress?: Address | undefined;
 
   /**
-   * <p>A single IP address specification. This is used in the <a>MatchAttributes</a>
-   *          source and destination specifications.</p>
+   * <p>A single IP address specification. This is used in the <a>MatchAttributes</a> source and destination specifications.</p>
    * @public
    */
   DestinationAddress?: Address | undefined;
@@ -4010,7 +4413,7 @@ export interface DescribeRuleGroupMetadataResponse {
   StatefulRuleOptions?: StatefulRuleOptions | undefined;
 
   /**
-   * <p>The last time that the rule group was changed.</p>
+   * <p>A timestamp indicating when the rule group was last modified.</p>
    * @public
    */
   LastModifiedTime?: Date | undefined;
@@ -4095,6 +4498,70 @@ export interface DescribeVpcEndpointAssociationResponse {
 /**
  * @public
  */
+export interface DisassociateAvailabilityZonesRequest {
+  /**
+   * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
+   *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
+   *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   * @public
+   */
+  UpdateToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallName?: string | undefined;
+
+  /**
+   * <p>Required. The Availability Zones to remove from the firewall's configuration.</p>
+   * @public
+   */
+  AvailabilityZoneMappings: AvailabilityZoneMapping[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateAvailabilityZonesResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
+   * @public
+   */
+  FirewallName?: string | undefined;
+
+  /**
+   * <p>The remaining Availability Zones where the firewall has endpoints after the disassociation.</p>
+   * @public
+   */
+  AvailabilityZoneMappings?: AvailabilityZoneMapping[] | undefined;
+
+  /**
+   * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
+   *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
+   *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   * @public
+   */
+  UpdateToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DisassociateSubnetsRequest {
   /**
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
@@ -4174,6 +4641,12 @@ export interface FirewallMetadata {
    * @public
    */
   FirewallArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the transit gateway attachment associated with this firewall. This field is only present for transit gateway-attached firewalls.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
 }
 
 /**
@@ -4203,15 +4676,13 @@ export interface FirewallPolicyMetadata {
  */
 export interface Flow {
   /**
-   * <p>A single IP address specification. This is used in the <a>MatchAttributes</a>
-   *          source and destination specifications.</p>
+   * <p>A single IP address specification. This is used in the <a>MatchAttributes</a> source and destination specifications.</p>
    * @public
    */
   SourceAddress?: Address | undefined;
 
   /**
-   * <p>A single IP address specification. This is used in the <a>MatchAttributes</a>
-   *          source and destination specifications.</p>
+   * <p>A single IP address specification. This is used in the <a>MatchAttributes</a> source and destination specifications.</p>
    * @public
    */
   DestinationAddress?: Address | undefined;
@@ -5081,6 +5552,73 @@ export interface PutResourcePolicyResponse {}
 /**
  * @public
  */
+export interface RejectNetworkFirewallTransitGatewayAttachmentRequest {
+  /**
+   * <p>Required. The unique identifier of the transit gateway attachment to reject. This ID is returned in the response when creating a transit gateway-attached firewall.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectNetworkFirewallTransitGatewayAttachmentResponse {
+  /**
+   * <p>The unique identifier of the transit gateway attachment that was rejected.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>The current status of the transit gateway attachment. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> - The attachment is being created</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> - The attachment is being deleted</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code> - The attachment has been deleted</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The attachment creation has failed and cannot be recovered</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ERROR</code> - The attachment is in an error state that might be recoverable</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READY</code> - The attachment is active and processing traffic</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING_ACCEPTANCE</code> - The attachment is waiting to be accepted</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECTING</code> - The attachment is in the process of being rejected</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECTED</code> - The attachment has been rejected</p>
+   *             </li>
+   *          </ul>
+   *          <p>For information about troubleshooting endpoint failures, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-troubleshooting-endpoint-failures.html">Troubleshooting firewall endpoint failures</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   * @public
+   */
+  TransitGatewayAttachmentStatus: TransitGatewayAttachmentStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StartAnalysisReportRequest {
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
@@ -5298,6 +5836,96 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
+ * <p>Unable to change the resource because your account doesn't own it. </p>
+ * @public
+ */
+export class ResourceOwnerCheckException extends __BaseException {
+  readonly name: "ResourceOwnerCheckException" = "ResourceOwnerCheckException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceOwnerCheckException, __BaseException>) {
+    super({
+      name: "ResourceOwnerCheckException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceOwnerCheckException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface UpdateAvailabilityZoneChangeProtectionRequest {
+  /**
+   * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
+   *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
+   *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   * @public
+   */
+  UpdateToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallName?: string | undefined;
+
+  /**
+   * <p>A setting indicating whether the firewall is protected against changes to the subnet associations.
+   *          Use this setting to protect against
+   *          accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>
+   * @public
+   */
+  AvailabilityZoneChangeProtection: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAvailabilityZoneChangeProtectionResponse {
+  /**
+   * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
+   *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
+   *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   * @public
+   */
+  UpdateToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
+   * @public
+   */
+  FirewallName?: string | undefined;
+
+  /**
+   * <p>A setting indicating whether the firewall is protected against changes to the subnet associations.
+   *          Use this setting to protect against
+   *          accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>
+   * @public
+   */
+  AvailabilityZoneChangeProtection?: boolean | undefined;
+}
+
+/**
  * @public
  */
 export interface UpdateFirewallAnalysisSettingsRequest {
@@ -5361,28 +5989,6 @@ export interface UpdateFirewallAnalysisSettingsResponse {
    * @public
    */
   UpdateToken?: string | undefined;
-}
-
-/**
- * <p>Unable to change the resource because your account doesn't own it. </p>
- * @public
- */
-export class ResourceOwnerCheckException extends __BaseException {
-  readonly name: "ResourceOwnerCheckException" = "ResourceOwnerCheckException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceOwnerCheckException, __BaseException>) {
-    super({
-      name: "ResourceOwnerCheckException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceOwnerCheckException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**

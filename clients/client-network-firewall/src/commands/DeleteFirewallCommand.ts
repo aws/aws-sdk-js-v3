@@ -82,6 +82,14 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * //     EnabledAnalysisTypes: [ // EnabledAnalysisTypes
  * //       "TLS_SNI" || "HTTP_HOST",
  * //     ],
+ * //     TransitGatewayId: "STRING_VALUE",
+ * //     TransitGatewayOwnerAccountId: "STRING_VALUE",
+ * //     AvailabilityZoneMappings: [ // AvailabilityZoneMappings
+ * //       { // AvailabilityZoneMapping
+ * //         AvailabilityZone: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     AvailabilityZoneChangeProtection: true || false,
  * //   },
  * //   FirewallStatus: { // FirewallStatus
  * //     Status: "PROVISIONING" || "DELETING" || "READY", // required
@@ -112,6 +120,11 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * //           },
  * //         },
  * //       },
+ * //     },
+ * //     TransitGatewayAttachmentSyncState: { // TransitGatewayAttachmentSyncState
+ * //       AttachmentId: "STRING_VALUE",
+ * //       TransitGatewayAttachmentStatus: "CREATING" || "DELETING" || "DELETED" || "FAILED" || "ERROR" || "READY" || "PENDING_ACCEPTANCE" || "REJECTING" || "REJECTED",
+ * //       StatusMessage: "STRING_VALUE",
  * //     },
  * //   },
  * // };
