@@ -121,7 +121,8 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
  *                     the required pattern.</p>
  *             </li>
  *             <li>
- *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
  *             </li>
  *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name

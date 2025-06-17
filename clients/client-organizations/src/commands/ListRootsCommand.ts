@@ -38,7 +38,7 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  * when there are no more results to display.</p>
  *          </note>
  *          <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
+ * management account or by a member account that is a delegated administrator.</p>
  *          <note>
  *             <p>Policy types can be enabled and disabled in roots. This is distinct from whether
  *                 they're available in the organization. When you enable all features, you make policy
@@ -66,7 +66,7 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  * //       Name: "STRING_VALUE",
  * //       PolicyTypes: [ // PolicyTypes
  * //         { // PolicyTypeSummary
- * //           Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2",
+ * //           Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY",
  * //           Status: "ENABLED" || "PENDING_ENABLE" || "PENDING_DISABLE",
  * //         },
  * //       ],
@@ -148,7 +148,8 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  *                     the required pattern.</p>
  *             </li>
  *             <li>
- *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
  *             </li>
  *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name

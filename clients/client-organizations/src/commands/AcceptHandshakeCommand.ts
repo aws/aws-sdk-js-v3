@@ -179,10 +179,8 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  *             </li>
  *             <li>
  *                <p>ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD: The request failed because the
- *                     account is from a different marketplace than the accounts in the organization.
- *                     For example, accounts with India addresses must be associated with the AISPL
- *                     marketplace. All accounts in an organization must be from the same
- *                     marketplace.</p>
+ *                     account is from a different marketplace than the accounts in the
+ *                     organization.</p>
  *             </li>
  *             <li>
  *                <p>ORGANIZATION_MEMBERSHIP_CHANGE_RATE_LIMIT_EXCEEDED: You attempted to change
@@ -258,7 +256,8 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  *                     the required pattern.</p>
  *             </li>
  *             <li>
- *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
  *             </li>
  *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name

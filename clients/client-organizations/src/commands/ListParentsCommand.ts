@@ -40,7 +40,7 @@ export interface ListParentsCommandOutput extends ListParentsResponse, __Metadat
  * when there are no more results to display.</p>
  *          </note>
  *          <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
+ * management account or by a member account that is a delegated administrator.</p>
  *          <note>
  *             <p>In the current release, a child can have only a single parent.</p>
  *          </note>
@@ -144,7 +144,8 @@ export interface ListParentsCommandOutput extends ListParentsResponse, __Metadat
  *                     the required pattern.</p>
  *             </li>
  *             <li>
- *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
  *             </li>
  *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name

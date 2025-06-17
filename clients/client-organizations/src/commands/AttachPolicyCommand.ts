@@ -67,9 +67,14 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a>
  *                </p>
  *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
+ *                </p>
+ *             </li>
  *          </ul>
  *          <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
+ * management account or by a member account that is a delegated administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -155,9 +160,11 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  *                </important>
  *             </li>
  *             <li>
- *                <p>ALL_FEATURES_MIGRATION_ORGANIZATION_SIZE_LIMIT_EXCEEDED:
- *                     Your organization has more than 5000 accounts, and you can only use the standard migration process for organizations with less than 5000 accounts.
- *                     Use the assisted migration process to enable all features mode, or create a support case for assistance if you are unable to use assisted migration.</p>
+ *                <p>ALL_FEATURES_MIGRATION_ORGANIZATION_SIZE_LIMIT_EXCEEDED: Your organization has
+ *                     more than 5000 accounts, and you can only use the standard migration process for
+ *                     organizations with less than 5000 accounts. Use the assisted migration process
+ *                     to enable all features mode, or create a support case for assistance if you are
+ *                     unable to use assisted migration.</p>
  *             </li>
  *             <li>
  *                <p>CANNOT_REGISTER_SUSPENDED_ACCOUNT_AS_DELEGATED_ADMINISTRATOR: You cannot
@@ -292,17 +299,32 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  *                     that you can have in an organization.</p>
  *             </li>
  *             <li>
- *                <p>SERVICE_ACCESS_NOT_ENABLED: You attempted to register a delegated
- *                     administrator before you enabled service access. Call the
- *                         <code>EnableAWSServiceAccess</code> API first.</p>
+ *                <p>POLICY_TYPE_ENABLED_FOR_THIS_SERVICE: You attempted to disable service access
+ *                     before you disabled the policy type (for example, SECURITYHUB_POLICY). To
+ *                     complete this operation, you must first disable the policy type.</p>
+ *             </li>
+ *             <li>
+ *                <p>SERVICE_ACCESS_NOT_ENABLED:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>You attempted to register a delegated administrator before you enabled
+ *                             service access. Call the <code>EnableAWSServiceAccess</code> API
+ *                             first.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>You attempted to enable a policy type before you enabled service
+ *                             access. Call the <code>EnableAWSServiceAccess</code> API first.</p>
+ *                   </li>
+ *                </ul>
  *             </li>
  *             <li>
  *                <p>TAG_POLICY_VIOLATION: You attempted to create or update a resource with tags
  *                     that are not compliant with the tag policy requirements for this account.</p>
  *             </li>
  *             <li>
- *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at least seven days after the account was created.
- *                     Invited accounts aren't subject to this waiting period.</p>
+ *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at
+ *                     least seven days after the account was created. Invited accounts aren't subject
+ *                     to this waiting period.</p>
  *             </li>
  *          </ul>
  *
@@ -364,7 +386,8 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  *                     the required pattern.</p>
  *             </li>
  *             <li>
- *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
  *             </li>
  *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
