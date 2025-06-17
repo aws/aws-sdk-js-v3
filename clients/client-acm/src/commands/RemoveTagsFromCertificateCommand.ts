@@ -28,12 +28,7 @@ export interface RemoveTagsFromCertificateCommandInput extends RemoveTagsFromCer
 export interface RemoveTagsFromCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Remove one or more tags from an ACM certificate. A tag consists of a key-value pair. If
- *       you do not specify the value portion of the tag when calling this function, the tag will be
- *       removed regardless of value. If you specify a value, the tag is removed only if it is
- *       associated with the specified value. </p>
- *          <p>To add tags to a certificate, use the <a>AddTagsToCertificate</a> action. To
- *       view all of the tags that have been applied to a specific ACM certificate, use the <a>ListTagsForCertificate</a> action. </p>
+ * <p>Remove one or more tags from an ACM certificate. A tag consists of a key-value pair. If you do not specify the value portion of the tag when calling this function, the tag will be removed regardless of value. If you specify a value, the tag is removed only if it is associated with the specified value. </p> <p>To add tags to a certificate, use the <a>AddTagsToCertificate</a> action. To view all of the tags that have been applied to a specific ACM certificate, use the <a>ListTagsForCertificate</a> action. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,12 +63,10 @@ export interface RemoveTagsFromCertificateCommandOutput extends __MetadataBearer
  *  <p>An input parameter was invalid.</p>
  *
  * @throws {@link InvalidTagException} (client fault)
- *  <p>One or both of the values that make up the key-value pair is not valid. For example, you
- *       cannot specify a tag value that begins with <code>aws:</code>.</p>
+ *  <p>One or both of the values that make up the key-value pair is not valid. For example, you cannot specify a tag value that begins with <code>aws:</code>.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified certificate cannot be found in the caller's account or the caller's account
- *       cannot be found.</p>
+ *  <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
  *
  * @throws {@link TagPolicyException} (client fault)
  *  <p>A specified tag did not comply with an existing tag policy and was rejected.</p>

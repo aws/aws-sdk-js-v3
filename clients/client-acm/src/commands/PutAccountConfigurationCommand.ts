@@ -28,12 +28,7 @@ export interface PutAccountConfigurationCommandInput extends PutAccountConfigura
 export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds or modifies account-level configurations in ACM. </p>
- *          <p>The supported configuration option is <code>DaysBeforeExpiry</code>. This option specifies
- *       the number of days prior to certificate expiration when ACM starts generating
- *         <code>EventBridge</code> events. ACM sends one event per day per certificate until the
- *       certificate expires. By default, accounts receive events starting 45 days before certificate
- *       expiration.</p>
+ * <p>Adds or modifies account-level configurations in ACM. </p> <p>The supported configuration option is <code>DaysBeforeExpiry</code>. This option specifies the number of days prior to certificate expiration when ACM starts generating <code>EventBridge</code> events. ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +57,7 @@ export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {
  *  <p>You do not have access required to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You are trying to update a resource or configuration that is already being created or
- *       updated. Wait for the previous operation to finish and try again.</p>
+ *  <p>You are trying to update a resource or configuration that is already being created or updated. Wait for the previous operation to finish and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied because it exceeded a quota.</p>

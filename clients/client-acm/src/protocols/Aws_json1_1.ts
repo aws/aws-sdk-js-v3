@@ -55,6 +55,7 @@ import {
   ResendValidationEmailCommandInput,
   ResendValidationEmailCommandOutput,
 } from "../commands/ResendValidationEmailCommand";
+import { RevokeCertificateCommandInput, RevokeCertificateCommandOutput } from "../commands/RevokeCertificateCommand";
 import {
   UpdateCertificateOptionsCommandInput,
   UpdateCertificateOptionsCommandOutput,
@@ -99,6 +100,7 @@ import {
   ResendValidationEmailRequest,
   ResourceInUseException,
   ResourceNotFoundException,
+  RevokeCertificateRequest,
   Tag,
   TagPolicyException,
   ThrottlingException,
@@ -283,6 +285,19 @@ export const se_ResendValidationEmailCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ResendValidationEmail");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1RevokeCertificateCommand
+ */
+export const se_RevokeCertificateCommand = async (
+  input: RevokeCertificateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("RevokeCertificate");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -559,6 +574,26 @@ export const de_ResendValidationEmailCommand = async (
   await collectBody(output.body, context);
   const response: ResendValidationEmailCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RevokeCertificateCommand
+ */
+export const de_RevokeCertificateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RevokeCertificateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RevokeCertificateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -951,6 +986,8 @@ const se_ImportCertificateRequest = (input: ImportCertificateRequest, context: _
 
 // se_ResendValidationEmailRequest omitted.
 
+// se_RevokeCertificateRequest omitted.
+
 // se_Tag omitted.
 
 // se_TagList omitted.
@@ -1004,6 +1041,7 @@ const de_CertificateSummary = (output: any, context: __SerdeContext): Certificat
     CertificateArn: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DomainName: __expectString,
+    ExportOption: __expectString,
     Exported: __expectBoolean,
     ExtendedKeyUsages: _json,
     HasAdditionalSubjectAlternativeNames: __expectBoolean,
@@ -1125,6 +1163,8 @@ const de_RenewalSummary = (output: any, context: __SerdeContext): RenewalSummary
 // de_ResourceNotFoundException omitted.
 
 // de_ResourceRecord omitted.
+
+// de_RevokeCertificateResponse omitted.
 
 // de_Tag omitted.
 

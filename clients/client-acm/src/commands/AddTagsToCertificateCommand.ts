@@ -28,20 +28,7 @@ export interface AddTagsToCertificateCommandInput extends AddTagsToCertificateRe
 export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds one or more tags to an ACM certificate. Tags are labels that you can use to
- *       identify and organize your Amazon Web Services resources. Each tag consists of a <code>key</code> and an
- *       optional <code>value</code>. You specify the certificate on input by its Amazon Resource Name
- *       (ARN). You specify the tag by using a key-value pair. </p>
- *          <p>You can apply a tag to just one certificate if you want to identify a specific
- *       characteristic of that certificate, or you can apply the same tag to multiple certificates if
- *       you want to filter for a common relationship among those certificates. Similarly, you can
- *       apply the same tag to multiple resources if you want to specify a relationship among those
- *       resources. For example, you can add the same tag to an ACM certificate and an Elastic Load
- *       Balancing load balancer to indicate that they are both used by the same website. For more
- *       information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/tags.html">Tagging ACM
- *         certificates</a>. </p>
- *          <p>To remove one or more tags, use the <a>RemoveTagsFromCertificate</a> action. To
- *       view all of the tags that have been applied to the certificate, use the <a>ListTagsForCertificate</a> action. </p>
+ * <p>Adds one or more tags to an ACM certificate. Tags are labels that you can use to identify and organize your Amazon Web Services resources. Each tag consists of a <code>key</code> and an optional <code>value</code>. You specify the certificate on input by its Amazon Resource Name (ARN). You specify the tag by using a key-value pair. </p> <p>You can apply a tag to just one certificate if you want to identify a specific characteristic of that certificate, or you can apply the same tag to multiple certificates if you want to filter for a common relationship among those certificates. Similarly, you can apply the same tag to multiple resources if you want to specify a relationship among those resources. For example, you can add the same tag to an ACM certificate and an Elastic Load Balancing load balancer to indicate that they are both used by the same website. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/tags.html">Tagging ACM certificates</a>. </p> <p>To remove one or more tags, use the <a>RemoveTagsFromCertificate</a> action. To view all of the tags that have been applied to the certificate, use the <a>ListTagsForCertificate</a> action. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,12 +63,10 @@ export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
  *  <p>An input parameter was invalid.</p>
  *
  * @throws {@link InvalidTagException} (client fault)
- *  <p>One or both of the values that make up the key-value pair is not valid. For example, you
- *       cannot specify a tag value that begins with <code>aws:</code>.</p>
+ *  <p>One or both of the values that make up the key-value pair is not valid. For example, you cannot specify a tag value that begins with <code>aws:</code>.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified certificate cannot be found in the caller's account or the caller's account
- *       cannot be found.</p>
+ *  <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
  *
  * @throws {@link TagPolicyException} (client fault)
  *  <p>A specified tag did not comply with an existing tag policy and was rejected.</p>

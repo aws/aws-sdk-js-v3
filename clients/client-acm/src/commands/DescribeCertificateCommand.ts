@@ -28,9 +28,7 @@ export interface DescribeCertificateCommandInput extends DescribeCertificateRequ
 export interface DescribeCertificateCommandOutput extends DescribeCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Returns detailed metadata about the specified ACM certificate.</p>
- *          <p>If you have just created a certificate using the <code>RequestCertificate</code> action,
- *       there is a delay of several seconds before you can retrieve information about it.</p>
+ * <p>Returns detailed metadata about the specified ACM certificate.</p> <p>If you have just created a certificate using the <code>RequestCertificate</code> action, there is a delay of several seconds before you can retrieve information about it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -128,6 +126,7 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * //     RenewalEligibility: "ELIGIBLE" || "INELIGIBLE",
  * //     Options: { // CertificateOptions
  * //       CertificateTransparencyLoggingPreference: "ENABLED" || "DISABLED",
+ * //       Export: "ENABLED" || "DISABLED",
  * //     },
  * //   },
  * // };
@@ -144,8 +143,7 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified certificate cannot be found in the caller's account or the caller's account
- *       cannot be found.</p>
+ *  <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
  *
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>

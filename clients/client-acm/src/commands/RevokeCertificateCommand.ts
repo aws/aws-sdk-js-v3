@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteCertificateRequest } from "../models/models_0";
-import { de_DeleteCertificateCommand, se_DeleteCertificateCommand } from "../protocols/Aws_json1_1";
+import { RevokeCertificateRequest, RevokeCertificateResponse } from "../models/models_0";
+import { de_RevokeCertificateCommand, se_RevokeCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -17,37 +17,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteCertificateCommand}.
+ * The input for {@link RevokeCertificateCommand}.
  */
-export interface DeleteCertificateCommandInput extends DeleteCertificateRequest {}
+export interface RevokeCertificateCommandInput extends RevokeCertificateRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteCertificateCommand}.
+ * The output of {@link RevokeCertificateCommand}.
  */
-export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
+export interface RevokeCertificateCommandOutput extends RevokeCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a certificate and its associated private key. If this action succeeds, the certificate no longer appears in the list that can be displayed by calling the <a>ListCertificates</a> action or be retrieved by calling the <a>GetCertificate</a> action. The certificate will not be available for use by Amazon Web Services services integrated with ACM. </p> <note> <p>You cannot delete an ACM certificate that is being used by another Amazon Web Services service. To delete a certificate that is in use, the certificate association must first be removed.</p> </note>
+ * <p>Revokes a public ACM certificate. You can only revoke certificates that have been previously exported.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMClient, DeleteCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
- * // const { ACMClient, DeleteCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * import { ACMClient, RevokeCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
+ * // const { ACMClient, RevokeCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
- * const input = { // DeleteCertificateRequest
+ * const input = { // RevokeCertificateRequest
  *   CertificateArn: "STRING_VALUE", // required
+ *   RevocationReason: "UNSPECIFIED" || "KEY_COMPROMISE" || "CA_COMPROMISE" || "AFFILIATION_CHANGED" || "SUPERCEDED" || "SUPERSEDED" || "CESSATION_OF_OPERATION" || "CERTIFICATE_HOLD" || "REMOVE_FROM_CRL" || "PRIVILEGE_WITHDRAWN" || "A_A_COMPROMISE", // required
  * };
- * const command = new DeleteCertificateCommand(input);
+ * const command = new RevokeCertificateCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // RevokeCertificateResponse
+ * //   CertificateArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param DeleteCertificateCommandInput - {@link DeleteCertificateCommandInput}
- * @returns {@link DeleteCertificateCommandOutput}
- * @see {@link DeleteCertificateCommandInput} for command's `input` shape.
- * @see {@link DeleteCertificateCommandOutput} for command's `response` shape.
+ * @param RevokeCertificateCommandInput - {@link RevokeCertificateCommandInput}
+ * @returns {@link RevokeCertificateCommandOutput}
+ * @see {@link RevokeCertificateCommandInput} for command's `input` shape.
+ * @see {@link RevokeCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -74,10 +77,10 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteCertificateCommand extends $Command
+export class RevokeCertificateCommand extends $Command
   .classBuilder<
-    DeleteCertificateCommandInput,
-    DeleteCertificateCommandOutput,
+    RevokeCertificateCommandInput,
+    RevokeCertificateCommandOutput,
     ACMClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -89,21 +92,21 @@ export class DeleteCertificateCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("CertificateManager", "DeleteCertificate", {})
-  .n("ACMClient", "DeleteCertificateCommand")
+  .s("CertificateManager", "RevokeCertificate", {})
+  .n("ACMClient", "RevokeCertificateCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteCertificateCommand)
-  .de(de_DeleteCertificateCommand)
+  .ser(se_RevokeCertificateCommand)
+  .de(de_RevokeCertificateCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteCertificateRequest;
-      output: {};
+      input: RevokeCertificateRequest;
+      output: RevokeCertificateResponse;
     };
     sdk: {
-      input: DeleteCertificateCommandInput;
-      output: DeleteCertificateCommandOutput;
+      input: RevokeCertificateCommandInput;
+      output: RevokeCertificateCommandOutput;
     };
   };
 }

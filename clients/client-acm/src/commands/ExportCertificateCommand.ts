@@ -33,13 +33,7 @@ export interface ExportCertificateCommandInput extends ExportCertificateRequest 
 export interface ExportCertificateCommandOutput extends ExportCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Exports a private certificate issued by a private certificate authority (CA) for use
- *       anywhere. The exported file contains the certificate, the certificate chain, and the encrypted
- *       private 2048-bit RSA key associated with the public key that is embedded in the certificate.
- *       For security, you must assign a passphrase for the private key when exporting it. </p>
- *          <p>For information about exporting and formatting a certificate using the ACM console or
- *       CLI, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-export-private.html">Export a
- *         Private Certificate</a>.</p>
+ * <p>Exports a private certificate issued by a private certificate authority (CA) or public certificate for use anywhere. The exported file contains the certificate, the certificate chain, and the encrypted private key associated with the public key that is embedded in the certificate. For security, you must assign a passphrase for the private key when exporting it. </p> <p>For information about exporting and formatting a certificate using the ACM console or CLI, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/export-private.html">Export a private certificate</a> and <a href="https://docs.aws.amazon.com/acm/latest/userguide/export-public-certificate">Export a public certificate</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,12 +64,10 @@ export interface ExportCertificateCommandOutput extends ExportCertificateRespons
  *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  *
  * @throws {@link RequestInProgressException} (client fault)
- *  <p>The certificate request is in process and the certificate in your account has not yet been
- *       issued.</p>
+ *  <p>The certificate request is in process and the certificate in your account has not yet been issued.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified certificate cannot be found in the caller's account or the caller's account
- *       cannot be found.</p>
+ *  <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
  *
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>

@@ -74,6 +74,11 @@ import {
   ResendValidationEmailCommandOutput,
 } from "./commands/ResendValidationEmailCommand";
 import {
+  RevokeCertificateCommand,
+  RevokeCertificateCommandInput,
+  RevokeCertificateCommandOutput,
+} from "./commands/RevokeCertificateCommand";
+import {
   UpdateCertificateOptionsCommand,
   UpdateCertificateOptionsCommandInput,
   UpdateCertificateOptionsCommandOutput,
@@ -94,6 +99,7 @@ const commands = {
   RenewCertificateCommand,
   RequestCertificateCommand,
   ResendValidationEmailCommand,
+  RevokeCertificateCommand,
   UpdateCertificateOptionsCommand,
 };
 
@@ -336,6 +342,23 @@ export interface ACM {
   ): void;
 
   /**
+   * @see {@link RevokeCertificateCommand}
+   */
+  revokeCertificate(
+    args: RevokeCertificateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RevokeCertificateCommandOutput>;
+  revokeCertificate(
+    args: RevokeCertificateCommandInput,
+    cb: (err: any, data?: RevokeCertificateCommandOutput) => void
+  ): void;
+  revokeCertificate(
+    args: RevokeCertificateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RevokeCertificateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateCertificateOptionsCommand}
    */
   updateCertificateOptions(
@@ -354,9 +377,7 @@ export interface ACM {
 }
 
 /**
- * <fullname>Certificate Manager</fullname>
- *          <p>You can use Certificate Manager (ACM) to manage SSL/TLS certificates for your Amazon Web Services-based websites
- *       and applications. For more information about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User Guide</a>.</p>
+ * <fullname>Certificate Manager</fullname> <p>You can use Certificate Manager (ACM) to manage SSL/TLS certificates for your Amazon Web Services-based websites and applications. For more information about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User Guide</a>.</p>
  * @public
  */
 export class ACM extends ACMClient implements ACM {}
