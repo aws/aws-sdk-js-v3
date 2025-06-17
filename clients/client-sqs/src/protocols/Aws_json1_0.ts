@@ -883,33 +883,40 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
       throw await de_OverLimitRes(parsedOutput, context);
     case "QueueDoesNotExist":
     case "com.amazonaws.sqs#QueueDoesNotExist":
+    case "AWS.SimpleQueueService.NonExistentQueue":
       throw await de_QueueDoesNotExistRes(parsedOutput, context);
     case "RequestThrottled":
     case "com.amazonaws.sqs#RequestThrottled":
       throw await de_RequestThrottledRes(parsedOutput, context);
     case "UnsupportedOperation":
     case "com.amazonaws.sqs#UnsupportedOperation":
+    case "AWS.SimpleQueueService.UnsupportedOperation":
       throw await de_UnsupportedOperationRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sqs#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "MessageNotInflight":
     case "com.amazonaws.sqs#MessageNotInflight":
+    case "AWS.SimpleQueueService.MessageNotInflight":
       throw await de_MessageNotInflightRes(parsedOutput, context);
     case "ReceiptHandleIsInvalid":
     case "com.amazonaws.sqs#ReceiptHandleIsInvalid":
       throw await de_ReceiptHandleIsInvalidRes(parsedOutput, context);
     case "BatchEntryIdsNotDistinct":
     case "com.amazonaws.sqs#BatchEntryIdsNotDistinct":
+    case "AWS.SimpleQueueService.BatchEntryIdsNotDistinct":
       throw await de_BatchEntryIdsNotDistinctRes(parsedOutput, context);
     case "EmptyBatchRequest":
     case "com.amazonaws.sqs#EmptyBatchRequest":
+    case "AWS.SimpleQueueService.EmptyBatchRequest":
       throw await de_EmptyBatchRequestRes(parsedOutput, context);
     case "InvalidBatchEntryId":
     case "com.amazonaws.sqs#InvalidBatchEntryId":
+    case "AWS.SimpleQueueService.InvalidBatchEntryId":
       throw await de_InvalidBatchEntryIdRes(parsedOutput, context);
     case "TooManyEntriesInBatchRequest":
     case "com.amazonaws.sqs#TooManyEntriesInBatchRequest":
+    case "AWS.SimpleQueueService.TooManyEntriesInBatchRequest":
       throw await de_TooManyEntriesInBatchRequestRes(parsedOutput, context);
     case "InvalidAttributeName":
     case "com.amazonaws.sqs#InvalidAttributeName":
@@ -919,42 +926,53 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
       throw await de_InvalidAttributeValueRes(parsedOutput, context);
     case "QueueDeletedRecently":
     case "com.amazonaws.sqs#QueueDeletedRecently":
+    case "AWS.SimpleQueueService.QueueDeletedRecently":
       throw await de_QueueDeletedRecentlyRes(parsedOutput, context);
     case "QueueNameExists":
     case "com.amazonaws.sqs#QueueNameExists":
+    case "QueueAlreadyExists":
       throw await de_QueueNameExistsRes(parsedOutput, context);
     case "InvalidIdFormat":
     case "com.amazonaws.sqs#InvalidIdFormat":
       throw await de_InvalidIdFormatRes(parsedOutput, context);
     case "PurgeQueueInProgress":
     case "com.amazonaws.sqs#PurgeQueueInProgress":
+    case "AWS.SimpleQueueService.PurgeQueueInProgress":
       throw await de_PurgeQueueInProgressRes(parsedOutput, context);
     case "KmsAccessDenied":
     case "com.amazonaws.sqs#KmsAccessDenied":
+    case "KMS.AccessDeniedException":
       throw await de_KmsAccessDeniedRes(parsedOutput, context);
     case "KmsDisabled":
     case "com.amazonaws.sqs#KmsDisabled":
+    case "KMS.DisabledException":
       throw await de_KmsDisabledRes(parsedOutput, context);
     case "KmsInvalidKeyUsage":
     case "com.amazonaws.sqs#KmsInvalidKeyUsage":
+    case "KMS.InvalidKeyUsageException":
       throw await de_KmsInvalidKeyUsageRes(parsedOutput, context);
     case "KmsInvalidState":
     case "com.amazonaws.sqs#KmsInvalidState":
+    case "KMS.InvalidStateException":
       throw await de_KmsInvalidStateRes(parsedOutput, context);
     case "KmsNotFound":
     case "com.amazonaws.sqs#KmsNotFound":
+    case "KMS.NotFoundException":
       throw await de_KmsNotFoundRes(parsedOutput, context);
     case "KmsOptInRequired":
     case "com.amazonaws.sqs#KmsOptInRequired":
+    case "KMS.OptInRequired":
       throw await de_KmsOptInRequiredRes(parsedOutput, context);
     case "KmsThrottled":
     case "com.amazonaws.sqs#KmsThrottled":
+    case "KMS.ThrottlingException":
       throw await de_KmsThrottledRes(parsedOutput, context);
     case "InvalidMessageContents":
     case "com.amazonaws.sqs#InvalidMessageContents":
       throw await de_InvalidMessageContentsRes(parsedOutput, context);
     case "BatchRequestTooLong":
     case "com.amazonaws.sqs#BatchRequestTooLong":
+    case "AWS.SimpleQueueService.BatchRequestTooLong":
       throw await de_BatchRequestTooLongRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
@@ -2094,8 +2112,17 @@ function sharedHeaders(operation: string): __HeaderBag {
 const populateBodyWithQueryCompatibility = (parsedOutput: any, headers: __HeaderBag) => {
   const queryErrorHeader = headers["x-amzn-query-error"];
   if (parsedOutput.body !== undefined && queryErrorHeader != null) {
-    const codeAndType = queryErrorHeader.split(";");
-    parsedOutput.body.Code = codeAndType[0];
-    parsedOutput.body.Type = codeAndType[1];
+    const [Code, Type] = queryErrorHeader.split(";");
+    const entries = Object.entries(parsedOutput.body);
+    const Error = {
+      Type,
+      Code,
+    } as any;
+    Object.assign(parsedOutput.body, Error);
+    for (const [k, v] of entries) {
+      Error[k] = v;
+    }
+    delete Error.__type;
+    parsedOutput.body.Error = Error;
   }
 };
