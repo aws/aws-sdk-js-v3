@@ -18,11 +18,16 @@ package software.amazon.smithy.aws.typescript.codegen;
 import static software.amazon.smithy.model.knowledge.HttpBinding.Location.DOCUMENT;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 import software.amazon.smithy.aws.traits.auth.UnsignedPayloadTrait;
+import software.amazon.smithy.aws.traits.protocols.AwsQueryCompatibleTrait;
+import software.amazon.smithy.aws.traits.protocols.AwsQueryErrorTrait;
 import software.amazon.smithy.model.knowledge.HttpBindingIndex;
 import software.amazon.smithy.model.knowledge.NeighborProviderIndex;
 import software.amazon.smithy.model.neighbor.Walker;
@@ -30,6 +35,7 @@ import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.shapes.ShapeVisitor;
 import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
@@ -298,6 +304,29 @@ final class AwsProtocolUtils {
                 generator,
                 AwsProtocolUtils::filterProtocolTests,
                 AwsProtocolUtils::filterMalformedRequestTests).run();
+    }
+
+    /**
+     * @return map of error full shape id to alias strings having AwsQueryCompat error code.
+     */
+    static Map<String, TreeSet<String>> getErrorAliases(GenerationContext context,
+                                                        Collection<OperationShape> operations) {
+        Map<String, TreeSet<String>> aliases = new HashMap<>();
+        ServiceShape service = context.getService();
+        boolean awsQueryCompatible = service.hasTrait(AwsQueryCompatibleTrait.class);
+        if (awsQueryCompatible) {
+            for (OperationShape operation : operations) {
+                List<ShapeId> errors = operation.getErrors();
+                for (ShapeId error : errors) {
+                    Shape errorShape = context.getModel().expectShape(error);
+                    if (errorShape.hasTrait(AwsQueryErrorTrait.class)) {
+                        String alias = errorShape.expectTrait(AwsQueryErrorTrait.class).getCode();
+                        aliases.computeIfAbsent(error.toString(), k -> new TreeSet<>()).add(alias);
+                    }
+                }
+            }
+        }
+        return aliases;
     }
 
     private static boolean filterProtocolTests(
