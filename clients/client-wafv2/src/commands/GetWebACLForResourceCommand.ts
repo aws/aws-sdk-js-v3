@@ -1359,6 +1359,16 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //     OnSourceDDoSProtectionConfig: { // OnSourceDDoSProtectionConfig
  * //       ALBLowReputationMode: "ACTIVE_UNDER_DDOS" || "ALWAYS_ON", // required
  * //     },
+ * //     ApplicationConfig: { // ApplicationConfig
+ * //       Attributes: [ // ApplicationAttributes
+ * //         { // ApplicationAttribute
+ * //           Name: "STRING_VALUE",
+ * //           Values: [ // AttributeValues
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

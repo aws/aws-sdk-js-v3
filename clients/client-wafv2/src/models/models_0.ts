@@ -3463,6 +3463,36 @@ export interface APIKeySummary {
 }
 
 /**
+ * <p>Application details defined during the web ACL creation process. Application attributes help WAF give recommendations for protection packs.</p>
+ * @public
+ */
+export interface ApplicationAttribute {
+  /**
+   * <p>Specifies the attribute name.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Specifies the attribute value.</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+}
+
+/**
+ * <p>A list of <code>ApplicationAttribute</code>s that contains information about the application.</p>
+ * @public
+ */
+export interface ApplicationConfig {
+  /**
+   * <p>Contains the attribute name and a list of values for that attribute.</p>
+   * @public
+   */
+  Attributes?: ApplicationAttribute[] | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -9206,6 +9236,12 @@ export interface CreateWebACLRequest {
    * @public
    */
   OnSourceDDoSProtectionConfig?: OnSourceDDoSProtectionConfig | undefined;
+
+  /**
+   * <p>Configures the ability for the WAF console to store and retrieve application attributes during the web ACL creation process. Application attributes help WAF give recommendations for protection packs.</p>
+   * @public
+   */
+  ApplicationConfig?: ApplicationConfig | undefined;
 }
 
 /**
@@ -9707,6 +9743,12 @@ export interface WebACL {
    * @public
    */
   OnSourceDDoSProtectionConfig?: OnSourceDDoSProtectionConfig | undefined;
+
+  /**
+   * <p>Returns a list of <code>ApplicationAttribute</code>s.</p>
+   * @public
+   */
+  ApplicationConfig?: ApplicationConfig | undefined;
 }
 
 /**

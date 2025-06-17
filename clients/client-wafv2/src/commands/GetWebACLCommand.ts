@@ -1352,6 +1352,16 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //     OnSourceDDoSProtectionConfig: { // OnSourceDDoSProtectionConfig
  * //       ALBLowReputationMode: "ACTIVE_UNDER_DDOS" || "ALWAYS_ON", // required
  * //     },
+ * //     ApplicationConfig: { // ApplicationConfig
+ * //       Attributes: [ // ApplicationAttributes
+ * //         { // ApplicationAttribute
+ * //           Name: "STRING_VALUE",
+ * //           Values: [ // AttributeValues
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   LockToken: "STRING_VALUE",
  * //   ApplicationIntegrationURL: "STRING_VALUE",

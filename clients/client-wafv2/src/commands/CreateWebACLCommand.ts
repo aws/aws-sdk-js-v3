@@ -1121,6 +1121,16 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *   OnSourceDDoSProtectionConfig: { // OnSourceDDoSProtectionConfig
  *     ALBLowReputationMode: "ACTIVE_UNDER_DDOS" || "ALWAYS_ON", // required
  *   },
+ *   ApplicationConfig: { // ApplicationConfig
+ *     Attributes: [ // ApplicationAttributes
+ *       { // ApplicationAttribute
+ *         Name: "STRING_VALUE",
+ *         Values: [ // AttributeValues
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new CreateWebACLCommand(input);
  * const response = await client.send(command);

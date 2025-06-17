@@ -165,6 +165,8 @@ import {
   AllQueryArguments,
   AndStatement,
   APIKeySummary,
+  ApplicationAttribute,
+  ApplicationConfig,
   AsnMatchStatement,
   AssociatedResourceType,
   AssociateWebACLRequest,
@@ -2552,6 +2554,12 @@ const se_AndStatement = (input: AndStatement, context: __SerdeContext): any => {
 
 // se_APIKeyTokenDomains omitted.
 
+// se_ApplicationAttribute omitted.
+
+// se_ApplicationAttributes omitted.
+
+// se_ApplicationConfig omitted.
+
 // se_AsnList omitted.
 
 // se_AsnMatchStatement omitted.
@@ -2559,6 +2567,8 @@ const se_AndStatement = (input: AndStatement, context: __SerdeContext): any => {
 // se_AssociateWebACLRequest omitted.
 
 // se_AssociationConfig omitted.
+
+// se_AttributeValues omitted.
 
 // se_AWSManagedRulesACFPRuleSet omitted.
 
@@ -2647,6 +2657,7 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
  */
 const se_CreateWebACLRequest = (input: CreateWebACLRequest, context: __SerdeContext): any => {
   return take(input, {
+    ApplicationConfig: _json,
     AssociationConfig: _json,
     CaptchaConfig: _json,
     ChallengeConfig: _json,
@@ -3198,6 +3209,12 @@ const de_APIKeySummary = (output: any, context: __SerdeContext): APIKeySummary =
   }) as any;
 };
 
+// de_ApplicationAttribute omitted.
+
+// de_ApplicationAttributes omitted.
+
+// de_ApplicationConfig omitted.
+
 // de_AsnList omitted.
 
 // de_AsnMatchStatement omitted.
@@ -3205,6 +3222,8 @@ const de_APIKeySummary = (output: any, context: __SerdeContext): APIKeySummary =
 // de_AssociateWebACLResponse omitted.
 
 // de_AssociationConfig omitted.
+
+// de_AttributeValues omitted.
 
 // de_AWSManagedRulesACFPRuleSet omitted.
 
@@ -4068,6 +4087,7 @@ const de_UpdateManagedRuleSetVersionExpiryDateResponse = (
 const de_WebACL = (output: any, context: __SerdeContext): WebACL => {
   return take(output, {
     ARN: __expectString,
+    ApplicationConfig: _json,
     AssociationConfig: _json,
     Capacity: __expectLong,
     CaptchaConfig: _json,
