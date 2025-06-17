@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.831.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.830.0...v3.831.0) (2025-06-17)
+
+
+### Features
+
+* **client-acm:** Adds support for Exportable Public Certificates ([6c01059](https://github.com/aws/aws-sdk-js-v3/commit/6c01059e4c7ddf0c71d47e23b96a0b0c41321fa4))
+
+
+
+
+
 # [3.830.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.829.0...v3.830.0) (2025-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-acm

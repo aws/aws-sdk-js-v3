@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.831.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.830.0...v3.831.0) (2025-06-17)
+
+
+### Bug Fixes
+
+* **codegen:** awsQueryCompat error matching and error shape ([#7133](https://github.com/aws/aws-sdk-js-v3/issues/7133)) ([c4fe747](https://github.com/aws/aws-sdk-js-v3/commit/c4fe74731f734f1344618af4f601dd4d007d6e56))
+
+
+
+
+
 # [3.830.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.829.0...v3.830.0) (2025-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-sqs

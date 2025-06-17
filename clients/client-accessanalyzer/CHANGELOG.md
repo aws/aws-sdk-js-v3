@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.831.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.830.0...v3.831.0) (2025-06-17)
+
+
+### Features
+
+* **client-accessanalyzer:** We are launching a new analyzer type, internal access analyzer. The new analyzer will generate internal access findings, which help customers understand who within their AWS organization or AWS Account has access to their critical AWS resources. ([cc61f23](https://github.com/aws/aws-sdk-js-v3/commit/cc61f234c831de7f0aaaceed23f473d9819f0457))
+
+
+
+
+
 # [3.830.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.829.0...v3.830.0) (2025-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-accessanalyzer

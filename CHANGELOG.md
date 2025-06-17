@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.831.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.830.0...v3.831.0) (2025-06-17)
+
+
+### Bug Fixes
+
+* **codegen:** awsQueryCompat error matching and error shape ([#7133](https://github.com/aws/aws-sdk-js-v3/issues/7133)) ([c4fe747](https://github.com/aws/aws-sdk-js-v3/commit/c4fe74731f734f1344618af4f601dd4d007d6e56))
+
+
+### Features
+
+* **client-accessanalyzer:** We are launching a new analyzer type, internal access analyzer. The new analyzer will generate internal access findings, which help customers understand who within their AWS organization or AWS Account has access to their critical AWS resources. ([cc61f23](https://github.com/aws/aws-sdk-js-v3/commit/cc61f234c831de7f0aaaceed23f473d9819f0457))
+* **client-acm:** Adds support for Exportable Public Certificates ([6c01059](https://github.com/aws/aws-sdk-js-v3/commit/6c01059e4c7ddf0c71d47e23b96a0b0c41321fa4))
+* **client-backup:** AWS Backup is adding support for integration of its logically air-gapped vaults with the AWS Organizations Multi-party approval capability. ([5702df1](https://github.com/aws/aws-sdk-js-v3/commit/5702df1a9c67aab5d43af84ff1f6140ad1f64673))
+* **client-database-migration-service:** Add "Virtual" field to Data Provider as well as "S3Path" and "S3AccessRoleArn" fields to DataProvider settings ([c569004](https://github.com/aws/aws-sdk-js-v3/commit/c569004e01e224af40f9ac17ca1bf1ce1bc55a00))
+* **client-guardduty:** Adding support for extended threat detection for EKS Audit Logs and EKS Runtime Monitoring. ([60477da](https://github.com/aws/aws-sdk-js-v3/commit/60477da19fe871b0bcf315cbae9807a0cf6682bc))
+* **client-inspector2:** Add Code Repository Scanning as part of AWS InspectorV2 ([88ce9ca](https://github.com/aws/aws-sdk-js-v3/commit/88ce9ca4ea9ae6f2e2a698ca6fa663f8d6483889))
+* **client-mpa:** This release enables customers to create Multi-party approval teams and approval requests to protect supported operations. ([95f166d](https://github.com/aws/aws-sdk-js-v3/commit/95f166d2e4ea6765415e738816630baa36d2d662))
+* **client-network-firewall:** Release of Active Threat Defense in Network Firewall ([d41fa29](https://github.com/aws/aws-sdk-js-v3/commit/d41fa2930e577a9bebd47ba48d97742d5114eeee))
+* **client-organizations:** Add support for policy operations on the SECURITYHUB_POLICY policy type. ([25f59c2](https://github.com/aws/aws-sdk-js-v3/commit/25f59c2f96187c6ade11e2f698db5e259d6b0f0d))
+* **client-securityhub:** Adds operations, structures, and exceptions required for public preview release of Security Hub V2. ([4d9c0e2](https://github.com/aws/aws-sdk-js-v3/commit/4d9c0e23b6ecd37f8158878772d7250e743a4570))
+* **client-sts:** The AWS Security Token Service APIs AssumeRoleWithSAML and AssumeRoleWithWebIdentity can now be invoked without pre-configured AWS credentials in the SDK configuration. ([afd6565](https://github.com/aws/aws-sdk-js-v3/commit/afd6565a04c84fc7c023e0861fccf19eca04da87))
+* **client-wafv2:** AWS WAF can now suggest protection packs for you based on the application information you provide when you create a webACL. ([b615870](https://github.com/aws/aws-sdk-js-v3/commit/b615870fc3f0137cbbb26af9dd143c8bc75034a8))
+* **clients:** update client endpoints as of 2025-06-17 ([51c6650](https://github.com/aws/aws-sdk-js-v3/commit/51c66503da7274813b2037e133047d3a7f647156))
+
+
+
+
+
 # [3.830.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.829.0...v3.830.0) (2025-06-16)
 
 

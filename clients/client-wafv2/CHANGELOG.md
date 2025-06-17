@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.831.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.830.0...v3.831.0) (2025-06-17)
+
+
+### Features
+
+* **client-wafv2:** AWS WAF can now suggest protection packs for you based on the application information you provide when you create a webACL. ([b615870](https://github.com/aws/aws-sdk-js-v3/commit/b615870fc3f0137cbbb26af9dd143c8bc75034a8))
+
+
+
+
+
 # [3.830.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.829.0...v3.830.0) (2025-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-wafv2

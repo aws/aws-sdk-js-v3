@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.831.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.830.0...v3.831.0) (2025-06-17)
+
+
+### Features
+
+* **client-network-firewall:** Release of Active Threat Defense in Network Firewall ([d41fa29](https://github.com/aws/aws-sdk-js-v3/commit/d41fa2930e577a9bebd47ba48d97742d5114eeee))
+
+
+
+
+
 # [3.830.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.829.0...v3.830.0) (2025-06-16)
 
 

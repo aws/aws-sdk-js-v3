@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.831.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.830.0...v3.831.0) (2025-06-17)
+
+
+### Features
+
+* **client-guardduty:** Adding support for extended threat detection for EKS Audit Logs and EKS Runtime Monitoring. ([60477da](https://github.com/aws/aws-sdk-js-v3/commit/60477da19fe871b0bcf315cbae9807a0cf6682bc))
+
+
+
+
+
 # [3.830.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.829.0...v3.830.0) (2025-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-guardduty
