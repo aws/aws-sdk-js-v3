@@ -55,6 +55,14 @@ import {
 } from "./auth/httpAuthSchemeProvider";
 import { AssociateMemberCommandInput, AssociateMemberCommandOutput } from "./commands/AssociateMemberCommand";
 import {
+  BatchAssociateCodeSecurityScanConfigurationCommandInput,
+  BatchAssociateCodeSecurityScanConfigurationCommandOutput,
+} from "./commands/BatchAssociateCodeSecurityScanConfigurationCommand";
+import {
+  BatchDisassociateCodeSecurityScanConfigurationCommandInput,
+  BatchDisassociateCodeSecurityScanConfigurationCommandOutput,
+} from "./commands/BatchDisassociateCodeSecurityScanConfigurationCommand";
+import {
   BatchGetAccountStatusCommandInput,
   BatchGetAccountStatusCommandOutput,
 } from "./commands/BatchGetAccountStatusCommand";
@@ -87,6 +95,14 @@ import {
   CreateCisScanConfigurationCommandInput,
   CreateCisScanConfigurationCommandOutput,
 } from "./commands/CreateCisScanConfigurationCommand";
+import {
+  CreateCodeSecurityIntegrationCommandInput,
+  CreateCodeSecurityIntegrationCommandOutput,
+} from "./commands/CreateCodeSecurityIntegrationCommand";
+import {
+  CreateCodeSecurityScanConfigurationCommandInput,
+  CreateCodeSecurityScanConfigurationCommandOutput,
+} from "./commands/CreateCodeSecurityScanConfigurationCommand";
 import { CreateFilterCommandInput, CreateFilterCommandOutput } from "./commands/CreateFilterCommand";
 import {
   CreateFindingsReportCommandInput,
@@ -97,6 +113,14 @@ import {
   DeleteCisScanConfigurationCommandInput,
   DeleteCisScanConfigurationCommandOutput,
 } from "./commands/DeleteCisScanConfigurationCommand";
+import {
+  DeleteCodeSecurityIntegrationCommandInput,
+  DeleteCodeSecurityIntegrationCommandOutput,
+} from "./commands/DeleteCodeSecurityIntegrationCommand";
+import {
+  DeleteCodeSecurityScanConfigurationCommandInput,
+  DeleteCodeSecurityScanConfigurationCommandOutput,
+} from "./commands/DeleteCodeSecurityScanConfigurationCommand";
 import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "./commands/DeleteFilterCommand";
 import {
   DescribeOrganizationConfigurationCommandInput,
@@ -122,6 +146,18 @@ import {
   GetClustersForImageCommandInput,
   GetClustersForImageCommandOutput,
 } from "./commands/GetClustersForImageCommand";
+import {
+  GetCodeSecurityIntegrationCommandInput,
+  GetCodeSecurityIntegrationCommandOutput,
+} from "./commands/GetCodeSecurityIntegrationCommand";
+import {
+  GetCodeSecurityScanCommandInput,
+  GetCodeSecurityScanCommandOutput,
+} from "./commands/GetCodeSecurityScanCommand";
+import {
+  GetCodeSecurityScanConfigurationCommandInput,
+  GetCodeSecurityScanConfigurationCommandOutput,
+} from "./commands/GetCodeSecurityScanConfigurationCommand";
 import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
 import {
   GetDelegatedAdminAccountCommandInput,
@@ -155,6 +191,18 @@ import {
   ListCisScanResultsAggregatedByTargetResourceCommandOutput,
 } from "./commands/ListCisScanResultsAggregatedByTargetResourceCommand";
 import { ListCisScansCommandInput, ListCisScansCommandOutput } from "./commands/ListCisScansCommand";
+import {
+  ListCodeSecurityIntegrationsCommandInput,
+  ListCodeSecurityIntegrationsCommandOutput,
+} from "./commands/ListCodeSecurityIntegrationsCommand";
+import {
+  ListCodeSecurityScanConfigurationAssociationsCommandInput,
+  ListCodeSecurityScanConfigurationAssociationsCommandOutput,
+} from "./commands/ListCodeSecurityScanConfigurationAssociationsCommand";
+import {
+  ListCodeSecurityScanConfigurationsCommandInput,
+  ListCodeSecurityScanConfigurationsCommandOutput,
+} from "./commands/ListCodeSecurityScanConfigurationsCommand";
 import { ListCoverageCommandInput, ListCoverageCommandOutput } from "./commands/ListCoverageCommand";
 import {
   ListCoverageStatisticsCommandInput,
@@ -190,6 +238,10 @@ import {
   SendCisSessionTelemetryCommandOutput,
 } from "./commands/SendCisSessionTelemetryCommand";
 import { StartCisSessionCommandInput, StartCisSessionCommandOutput } from "./commands/StartCisSessionCommand";
+import {
+  StartCodeSecurityScanCommandInput,
+  StartCodeSecurityScanCommandOutput,
+} from "./commands/StartCodeSecurityScanCommand";
 import { StopCisSessionCommandInput, StopCisSessionCommandOutput } from "./commands/StopCisSessionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -197,6 +249,14 @@ import {
   UpdateCisScanConfigurationCommandInput,
   UpdateCisScanConfigurationCommandOutput,
 } from "./commands/UpdateCisScanConfigurationCommand";
+import {
+  UpdateCodeSecurityIntegrationCommandInput,
+  UpdateCodeSecurityIntegrationCommandOutput,
+} from "./commands/UpdateCodeSecurityIntegrationCommand";
+import {
+  UpdateCodeSecurityScanConfigurationCommandInput,
+  UpdateCodeSecurityScanConfigurationCommandOutput,
+} from "./commands/UpdateCodeSecurityScanConfigurationCommand";
 import {
   UpdateConfigurationCommandInput,
   UpdateConfigurationCommandOutput,
@@ -234,6 +294,8 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateMemberCommandInput
+  | BatchAssociateCodeSecurityScanConfigurationCommandInput
+  | BatchDisassociateCodeSecurityScanConfigurationCommandInput
   | BatchGetAccountStatusCommandInput
   | BatchGetCodeSnippetCommandInput
   | BatchGetFindingDetailsCommandInput
@@ -243,10 +305,14 @@ export type ServiceInputTypes =
   | CancelFindingsReportCommandInput
   | CancelSbomExportCommandInput
   | CreateCisScanConfigurationCommandInput
+  | CreateCodeSecurityIntegrationCommandInput
+  | CreateCodeSecurityScanConfigurationCommandInput
   | CreateFilterCommandInput
   | CreateFindingsReportCommandInput
   | CreateSbomExportCommandInput
   | DeleteCisScanConfigurationCommandInput
+  | DeleteCodeSecurityIntegrationCommandInput
+  | DeleteCodeSecurityScanConfigurationCommandInput
   | DeleteFilterCommandInput
   | DescribeOrganizationConfigurationCommandInput
   | DisableCommandInput
@@ -257,6 +323,9 @@ export type ServiceInputTypes =
   | GetCisScanReportCommandInput
   | GetCisScanResultDetailsCommandInput
   | GetClustersForImageCommandInput
+  | GetCodeSecurityIntegrationCommandInput
+  | GetCodeSecurityScanCommandInput
+  | GetCodeSecurityScanConfigurationCommandInput
   | GetConfigurationCommandInput
   | GetDelegatedAdminAccountCommandInput
   | GetEc2DeepInspectionConfigurationCommandInput
@@ -269,6 +338,9 @@ export type ServiceInputTypes =
   | ListCisScanResultsAggregatedByChecksCommandInput
   | ListCisScanResultsAggregatedByTargetResourceCommandInput
   | ListCisScansCommandInput
+  | ListCodeSecurityIntegrationsCommandInput
+  | ListCodeSecurityScanConfigurationAssociationsCommandInput
+  | ListCodeSecurityScanConfigurationsCommandInput
   | ListCoverageCommandInput
   | ListCoverageStatisticsCommandInput
   | ListDelegatedAdminAccountsCommandInput
@@ -283,10 +355,13 @@ export type ServiceInputTypes =
   | SendCisSessionHealthCommandInput
   | SendCisSessionTelemetryCommandInput
   | StartCisSessionCommandInput
+  | StartCodeSecurityScanCommandInput
   | StopCisSessionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateCisScanConfigurationCommandInput
+  | UpdateCodeSecurityIntegrationCommandInput
+  | UpdateCodeSecurityScanConfigurationCommandInput
   | UpdateConfigurationCommandInput
   | UpdateEc2DeepInspectionConfigurationCommandInput
   | UpdateEncryptionKeyCommandInput
@@ -299,6 +374,8 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AssociateMemberCommandOutput
+  | BatchAssociateCodeSecurityScanConfigurationCommandOutput
+  | BatchDisassociateCodeSecurityScanConfigurationCommandOutput
   | BatchGetAccountStatusCommandOutput
   | BatchGetCodeSnippetCommandOutput
   | BatchGetFindingDetailsCommandOutput
@@ -308,10 +385,14 @@ export type ServiceOutputTypes =
   | CancelFindingsReportCommandOutput
   | CancelSbomExportCommandOutput
   | CreateCisScanConfigurationCommandOutput
+  | CreateCodeSecurityIntegrationCommandOutput
+  | CreateCodeSecurityScanConfigurationCommandOutput
   | CreateFilterCommandOutput
   | CreateFindingsReportCommandOutput
   | CreateSbomExportCommandOutput
   | DeleteCisScanConfigurationCommandOutput
+  | DeleteCodeSecurityIntegrationCommandOutput
+  | DeleteCodeSecurityScanConfigurationCommandOutput
   | DeleteFilterCommandOutput
   | DescribeOrganizationConfigurationCommandOutput
   | DisableCommandOutput
@@ -322,6 +403,9 @@ export type ServiceOutputTypes =
   | GetCisScanReportCommandOutput
   | GetCisScanResultDetailsCommandOutput
   | GetClustersForImageCommandOutput
+  | GetCodeSecurityIntegrationCommandOutput
+  | GetCodeSecurityScanCommandOutput
+  | GetCodeSecurityScanConfigurationCommandOutput
   | GetConfigurationCommandOutput
   | GetDelegatedAdminAccountCommandOutput
   | GetEc2DeepInspectionConfigurationCommandOutput
@@ -334,6 +418,9 @@ export type ServiceOutputTypes =
   | ListCisScanResultsAggregatedByChecksCommandOutput
   | ListCisScanResultsAggregatedByTargetResourceCommandOutput
   | ListCisScansCommandOutput
+  | ListCodeSecurityIntegrationsCommandOutput
+  | ListCodeSecurityScanConfigurationAssociationsCommandOutput
+  | ListCodeSecurityScanConfigurationsCommandOutput
   | ListCoverageCommandOutput
   | ListCoverageStatisticsCommandOutput
   | ListDelegatedAdminAccountsCommandOutput
@@ -348,10 +435,13 @@ export type ServiceOutputTypes =
   | SendCisSessionHealthCommandOutput
   | SendCisSessionTelemetryCommandOutput
   | StartCisSessionCommandOutput
+  | StartCodeSecurityScanCommandOutput
   | StopCisSessionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateCisScanConfigurationCommandOutput
+  | UpdateCodeSecurityIntegrationCommandOutput
+  | UpdateCodeSecurityScanConfigurationCommandOutput
   | UpdateConfigurationCommandOutput
   | UpdateEc2DeepInspectionConfigurationCommandOutput
   | UpdateEncryptionKeyCommandOutput

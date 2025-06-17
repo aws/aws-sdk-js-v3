@@ -186,6 +186,8 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * //             lowerInclusive: Number("double"),
  * //           },
  * //         ],
+ * //         codeRepositoryProjectName: "<StringFilterList>",
+ * //         codeRepositoryProviderType: "<StringFilterList>",
  * //       },
  * //       action: "STRING_VALUE", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
@@ -210,6 +212,8 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>

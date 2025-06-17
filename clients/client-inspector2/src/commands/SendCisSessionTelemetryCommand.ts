@@ -28,11 +28,9 @@ export interface SendCisSessionTelemetryCommandInput extends SendCisSessionTelem
 export interface SendCisSessionTelemetryCommandOutput extends SendCisSessionTelemetryResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Sends a CIS session telemetry.
- *          This API is used by the Amazon Inspector SSM plugin to communicate with the Amazon Inspector service.
- *          The Amazon Inspector SSM plugin calls this API to start a CIS scan session for the scan ID supplied by the service.
- *       </p>
+ * <p> Sends a CIS session telemetry. This API is used by the Amazon Inspector SSM plugin to
+ *          communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin calls
+ *          this API to start a CIS scan session for the scan ID supplied by the service. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,9 +62,12 @@ export interface SendCisSessionTelemetryCommandOutput extends SendCisSessionTele
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflict occurred.</p>
+ *  <p>A conflict occurred. This exception occurs when the same resource is being modified by
+ *          concurrent requests.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>

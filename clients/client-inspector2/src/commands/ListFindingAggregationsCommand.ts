@@ -164,6 +164,13 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  *       sortOrder: "STRING_VALUE",
  *       sortBy: "STRING_VALUE",
  *     },
+ *     codeRepositoryAggregation: { // CodeRepositoryAggregation
+ *       projectNames: "<StringFilterList>",
+ *       providerTypes: "<StringFilterList>",
+ *       sortOrder: "STRING_VALUE",
+ *       sortBy: "STRING_VALUE",
+ *       resourceIds: "<StringFilterList>",
+ *     },
  *   },
  * };
  * const command = new ListFindingAggregationsCommand(input);
@@ -280,6 +287,15 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  * //         accountId: "STRING_VALUE",
  * //         severityCounts: "<SeverityCounts>",
  * //         lastModifiedAt: new Date("TIMESTAMP"),
+ * //       },
+ * //       codeRepositoryAggregation: { // CodeRepositoryAggregationResponse
+ * //         projectNames: "STRING_VALUE", // required
+ * //         providerType: "STRING_VALUE",
+ * //         severityCounts: "<SeverityCounts>",
+ * //         exploitAvailableActiveFindingsCount: Number("long"),
+ * //         fixAvailableActiveFindingsCount: Number("long"),
+ * //         accountId: "STRING_VALUE",
+ * //         resourceId: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

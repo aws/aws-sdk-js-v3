@@ -36,7 +36,8 @@ export interface UpdateEc2DeepInspectionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Activates, deactivates Amazon Inspector deep inspection, or updates custom paths for your account. </p>
+ * <p>Activates, deactivates Amazon Inspector deep inspection, or updates custom paths for your account.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,6 +73,8 @@ export interface UpdateEc2DeepInspectionConfigurationCommandOutput
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>

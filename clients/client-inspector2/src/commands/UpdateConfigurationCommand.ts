@@ -28,7 +28,9 @@ export interface UpdateConfigurationCommandInput extends UpdateConfigurationRequ
 export interface UpdateConfigurationCommandOutput extends UpdateConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates setting configurations for your Amazon Inspector account. When you use this API as an Amazon Inspector delegated administrator this updates the setting for all accounts you manage. Member accounts in an organization cannot update this setting.</p>
+ * <p>Updates setting configurations for your Amazon Inspector account. When you use this API as an Amazon Inspector
+ *          delegated administrator this updates the setting for all accounts you manage. Member
+ *          accounts in an organization cannot update this setting.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +61,8 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>

@@ -1,10 +1,12 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { Inspector2ServiceException as __BaseException } from "./Inspector2ServiceException";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -65,11 +67,17 @@ export interface ResourceStatus {
   lambda?: Status | undefined;
 
   /**
-   * <p>The status of Amazon Inspector scanning for custom application code for Amazon Web Services Lambda functions.
-   *       </p>
+   * <p>The status of Amazon Inspector scanning for custom application code for Amazon Web Services Lambda
+   *          functions. </p>
    * @public
    */
   lambdaCode?: Status | undefined;
+
+  /**
+   * <p>The status of Amazon Inspector scanning for code repositories.</p>
+   * @public
+   */
+  codeRepository?: Status | undefined;
 }
 
 /**
@@ -234,17 +242,13 @@ export interface AccountAggregationResponse {
   severityCounts?: SeverityCounts | undefined;
 
   /**
-   * <p>
-   *          The number of findings that have an exploit available.
-   *       </p>
+   * <p> The number of findings that have an exploit available. </p>
    * @public
    */
   exploitAvailableCount?: number | undefined;
 
   /**
-   * <p>
-   *          Details about the number of fixes.
-   *       </p>
+   * <p> Details about the number of fixes. </p>
    * @public
    */
   fixAvailableCount?: number | undefined;
@@ -363,10 +367,17 @@ export interface ResourceState {
    * @public
    */
   lambdaCode?: State | undefined;
+
+  /**
+   * <p>An object that described the state of Amazon Inspector scans for an account.</p>
+   * @public
+   */
+  codeRepository?: State | undefined;
 }
 
 /**
- * <p>An object with details the status of an Amazon Web Services account within your Amazon Inspector environment.</p>
+ * <p>An object with details the status of an Amazon Web Services account within your Amazon Inspector
+ *          environment.</p>
  * @public
  */
 export interface AccountState {
@@ -561,7 +572,8 @@ export interface AwsEcrContainerAggregation {
   sortBy?: AwsEcrContainerSortBy | undefined;
 
   /**
-   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or Amazon EKS pod.</p>
+   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or
+   *             Amazon EKS pod.</p>
    * @public
    */
   lastInUseAt?: DateFilter[] | undefined;
@@ -571,6 +583,58 @@ export interface AwsEcrContainerAggregation {
    * @public
    */
   inUseCount?: NumberFilter[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CodeRepositorySortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
+
+/**
+ * @public
+ */
+export type CodeRepositorySortBy = (typeof CodeRepositorySortBy)[keyof typeof CodeRepositorySortBy];
+
+/**
+ * <p>The details that define an aggregation based on code repositories.</p>
+ * @public
+ */
+export interface CodeRepositoryAggregation {
+  /**
+   * <p>The project names to include in the aggregation results.</p>
+   * @public
+   */
+  projectNames?: StringFilter[] | undefined;
+
+  /**
+   * <p>The repository provider types to include in the aggregation results.</p>
+   * @public
+   */
+  providerTypes?: StringFilter[] | undefined;
+
+  /**
+   * <p>The order to sort results by (ascending or descending) in the code repository
+   *          aggregation.</p>
+   * @public
+   */
+  sortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The value to sort results by in the code repository aggregation.</p>
+   * @public
+   */
+  sortBy?: CodeRepositorySortBy | undefined;
+
+  /**
+   * <p>The resource IDs to include in the aggregation results.</p>
+   * @public
+   */
+  resourceIds?: StringFilter[] | undefined;
 }
 
 /**
@@ -640,7 +704,7 @@ export interface Ec2InstanceAggregation {
   /**
    * <p>The operating system types to aggregate findings for. Valid values must be uppercase and
    *          underscore separated, examples are <code>ORACLE_LINUX_7</code> and
-   *          <code>ALPINE_LINUX_3_8</code>.</p>
+   *             <code>ALPINE_LINUX_3_8</code>.</p>
    * @public
    */
   operatingSystems?: StringFilter[] | undefined;
@@ -782,7 +846,8 @@ export const LambdaFunctionSortBy = {
 export type LambdaFunctionSortBy = (typeof LambdaFunctionSortBy)[keyof typeof LambdaFunctionSortBy];
 
 /**
- * <p>The details that define a findings aggregation based on Amazon Web Services Lambda functions.</p>
+ * <p>The details that define a findings aggregation based on Amazon Web Services Lambda
+ *          functions.</p>
  * @public
  */
 export interface LambdaFunctionAggregation {
@@ -793,13 +858,15 @@ export interface LambdaFunctionAggregation {
   resourceIds?: StringFilter[] | undefined;
 
   /**
-   * <p>The Amazon Web Services Lambda function names to include in the aggregation results.</p>
+   * <p>The Amazon Web Services Lambda function names to include in the aggregation
+   *          results.</p>
    * @public
    */
   functionNames?: StringFilter[] | undefined;
 
   /**
-   * <p>Returns findings aggregated by Amazon Web Services Lambda function runtime environments.</p>
+   * <p>Returns findings aggregated by Amazon Web Services Lambda function runtime
+   *          environments.</p>
    * @public
    */
   runtimes?: StringFilter[] | undefined;
@@ -839,7 +906,8 @@ export const LambdaLayerSortBy = {
 export type LambdaLayerSortBy = (typeof LambdaLayerSortBy)[keyof typeof LambdaLayerSortBy];
 
 /**
- * <p>The details that define a findings aggregation based on an Amazon Web Services Lambda function's layers.</p>
+ * <p>The details that define a findings aggregation based on an Amazon Web Services Lambda
+ *          function's layers.</p>
  * @public
  */
 export interface LambdaLayerAggregation {
@@ -856,8 +924,7 @@ export interface LambdaLayerAggregation {
   resourceIds?: StringFilter[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Lambda function layer.
-   *       </p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Lambda function layer. </p>
    * @public
    */
   layerArns?: StringFilter[] | undefined;
@@ -1019,6 +1086,7 @@ export type AggregationRequest =
   | AggregationRequest.AccountAggregationMember
   | AggregationRequest.AmiAggregationMember
   | AggregationRequest.AwsEcrContainerAggregationMember
+  | AggregationRequest.CodeRepositoryAggregationMember
   | AggregationRequest.Ec2InstanceAggregationMember
   | AggregationRequest.FindingTypeAggregationMember
   | AggregationRequest.ImageLayerAggregationMember
@@ -1050,6 +1118,7 @@ export namespace AggregationRequest {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
@@ -1070,6 +1139,7 @@ export namespace AggregationRequest {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
@@ -1090,6 +1160,7 @@ export namespace AggregationRequest {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
@@ -1110,11 +1181,13 @@ export namespace AggregationRequest {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>An object that contains details about an aggregation request based on finding types.</p>
+   * <p>An object that contains details about an aggregation request based on finding
+   *          types.</p>
    * @public
    */
   export interface FindingTypeAggregationMember {
@@ -1129,6 +1202,7 @@ export namespace AggregationRequest {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
@@ -1149,6 +1223,7 @@ export namespace AggregationRequest {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
@@ -1169,11 +1244,13 @@ export namespace AggregationRequest {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>An object that contains details about an aggregation request based on Amazon ECR repositories.</p>
+   * <p>An object that contains details about an aggregation request based on Amazon ECR
+   *          repositories.</p>
    * @public
    */
   export interface RepositoryAggregationMember {
@@ -1188,11 +1265,13 @@ export namespace AggregationRequest {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>An object that contains details about an aggregation request based on finding title.</p>
+   * <p>An object that contains details about an aggregation request based on finding
+   *          title.</p>
    * @public
    */
   export interface TitleAggregationMember {
@@ -1207,6 +1286,7 @@ export namespace AggregationRequest {
     titleAggregation: TitleAggregation;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
@@ -1226,6 +1306,7 @@ export namespace AggregationRequest {
     titleAggregation?: never;
     lambdaLayerAggregation: LambdaLayerAggregation;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
@@ -1245,6 +1326,28 @@ export namespace AggregationRequest {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation: LambdaFunctionAggregation;
+    codeRepositoryAggregation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that contains details about an aggregation request based on code
+   *          repositories.</p>
+   * @public
+   */
+  export interface CodeRepositoryAggregationMember {
+    accountAggregation?: never;
+    amiAggregation?: never;
+    awsEcrContainerAggregation?: never;
+    ec2InstanceAggregation?: never;
+    findingTypeAggregation?: never;
+    imageLayerAggregation?: never;
+    packageAggregation?: never;
+    repositoryAggregation?: never;
+    titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation: CodeRepositoryAggregation;
     $unknown?: never;
   }
 
@@ -1263,6 +1366,7 @@ export namespace AggregationRequest {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown: [string, any];
   }
 
@@ -1278,6 +1382,7 @@ export namespace AggregationRequest {
     titleAggregation: (value: TitleAggregation) => T;
     lambdaLayerAggregation: (value: LambdaLayerAggregation) => T;
     lambdaFunctionAggregation: (value: LambdaFunctionAggregation) => T;
+    codeRepositoryAggregation: (value: CodeRepositoryAggregation) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1295,6 +1400,8 @@ export namespace AggregationRequest {
     if (value.lambdaLayerAggregation !== undefined) return visitor.lambdaLayerAggregation(value.lambdaLayerAggregation);
     if (value.lambdaFunctionAggregation !== undefined)
       return visitor.lambdaFunctionAggregation(value.lambdaFunctionAggregation);
+    if (value.codeRepositoryAggregation !== undefined)
+      return visitor.codeRepositoryAggregation(value.codeRepositoryAggregation);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1377,7 +1484,8 @@ export interface AwsEcrContainerAggregationResponse {
   severityCounts?: SeverityCounts | undefined;
 
   /**
-   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or Amazon EKS pod.</p>
+   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or
+   *             Amazon EKS pod.</p>
    * @public
    */
   lastInUseAt?: Date | undefined;
@@ -1387,6 +1495,55 @@ export interface AwsEcrContainerAggregationResponse {
    * @public
    */
   inUseCount?: number | undefined;
+}
+
+/**
+ * <p>A response that contains the results of a finding aggregation by code repository.</p>
+ * @public
+ */
+export interface CodeRepositoryAggregationResponse {
+  /**
+   * <p>The names of the projects associated with the code repository.</p>
+   * @public
+   */
+  projectNames: string | undefined;
+
+  /**
+   * <p>The type of repository provider for the code repository.</p>
+   * @public
+   */
+  providerType?: string | undefined;
+
+  /**
+   * <p>An object that contains the counts of aggregated finding per severity.</p>
+   * @public
+   */
+  severityCounts?: SeverityCounts | undefined;
+
+  /**
+   * <p>The number of active findings that have an exploit available for the code
+   *          repository.</p>
+   * @public
+   */
+  exploitAvailableActiveFindingsCount?: number | undefined;
+
+  /**
+   * <p>The number of active findings that have a fix available for the code repository.</p>
+   * @public
+   */
+  fixAvailableActiveFindingsCount?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID associated with the code repository.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+
+  /**
+   * <p>The resource ID of the code repository.</p>
+   * @public
+   */
+  resourceId?: string | undefined;
 }
 
 /**
@@ -1461,9 +1618,7 @@ export interface FindingTypeAggregationResponse {
   exploitAvailableCount?: number | undefined;
 
   /**
-   * <p>
-   *          Details about the number of fixes.
-   *       </p>
+   * <p> Details about the number of fixes. </p>
    * @public
    */
   fixAvailableCount?: number | undefined;
@@ -1493,7 +1648,8 @@ export interface ImageLayerAggregationResponse {
   layerHash: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the container image hosting the layer image.</p>
+   * <p>The ID of the Amazon Web Services account that owns the container image hosting the layer
+   *          image.</p>
    * @public
    */
   accountId: string | undefined;
@@ -1506,7 +1662,8 @@ export interface ImageLayerAggregationResponse {
 }
 
 /**
- * <p>A response that contains the results of an Amazon Web Services Lambda function finding aggregation.</p>
+ * <p>A response that contains the results of an Amazon Web Services Lambda function finding
+ *          aggregation.</p>
  * @public
  */
 export interface LambdaFunctionAggregationResponse {
@@ -1535,8 +1692,8 @@ export interface LambdaFunctionAggregationResponse {
   lambdaTags?: Record<string, string> | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the Amazon Web Services Lambda function.
-   *       </p>
+   * <p>The ID of the Amazon Web Services account that owns the Amazon Web Services Lambda
+   *          function. </p>
    * @public
    */
   accountId?: string | undefined;
@@ -1548,14 +1705,16 @@ export interface LambdaFunctionAggregationResponse {
   severityCounts?: SeverityCounts | undefined;
 
   /**
-   * <p>The date that the Amazon Web Services Lambda function included in the aggregation results was last changed.</p>
+   * <p>The date that the Amazon Web Services Lambda function included in the aggregation results
+   *          was last changed.</p>
    * @public
    */
   lastModifiedAt?: Date | undefined;
 }
 
 /**
- * <p>A response that contains the results of an Amazon Web Services Lambda function layer finding aggregation.</p>
+ * <p>A response that contains the results of an Amazon Web Services Lambda function layer
+ *          finding aggregation.</p>
  * @public
  */
 export interface LambdaLayerAggregationResponse {
@@ -1615,7 +1774,8 @@ export interface PackageAggregationResponse {
 }
 
 /**
- * <p>A response that contains details on the results of a finding aggregation by repository.</p>
+ * <p>A response that contains details on the results of a finding aggregation by
+ *          repository.</p>
  * @public
  */
 export interface RepositoryAggregationResponse {
@@ -1645,7 +1805,8 @@ export interface RepositoryAggregationResponse {
 }
 
 /**
- * <p>A response that contains details on the results of a finding aggregation by title.</p>
+ * <p>A response that contains details on the results of a finding aggregation by
+ *          title.</p>
  * @public
  */
 export interface TitleAggregationResponse {
@@ -1682,6 +1843,7 @@ export type AggregationResponse =
   | AggregationResponse.AccountAggregationMember
   | AggregationResponse.AmiAggregationMember
   | AggregationResponse.AwsEcrContainerAggregationMember
+  | AggregationResponse.CodeRepositoryAggregationMember
   | AggregationResponse.Ec2InstanceAggregationMember
   | AggregationResponse.FindingTypeAggregationMember
   | AggregationResponse.ImageLayerAggregationMember
@@ -1713,6 +1875,7 @@ export namespace AggregationResponse {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
@@ -1733,6 +1896,7 @@ export namespace AggregationResponse {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
@@ -1753,6 +1917,7 @@ export namespace AggregationResponse {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
@@ -1773,11 +1938,13 @@ export namespace AggregationResponse {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>An object that contains details about an aggregation response based on finding types.</p>
+   * <p>An object that contains details about an aggregation response based on finding
+   *          types.</p>
    * @public
    */
   export interface FindingTypeAggregationMember {
@@ -1792,6 +1959,7 @@ export namespace AggregationResponse {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
@@ -1812,6 +1980,7 @@ export namespace AggregationResponse {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
@@ -1832,6 +2001,7 @@ export namespace AggregationResponse {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
@@ -1852,11 +2022,13 @@ export namespace AggregationResponse {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>An object that contains details about an aggregation response based on finding title.</p>
+   * <p>An object that contains details about an aggregation response based on finding
+   *          title.</p>
    * @public
    */
   export interface TitleAggregationMember {
@@ -1871,6 +2043,7 @@ export namespace AggregationResponse {
     titleAggregation: TitleAggregationResponse;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
@@ -1890,6 +2063,7 @@ export namespace AggregationResponse {
     titleAggregation?: never;
     lambdaLayerAggregation: LambdaLayerAggregationResponse;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown?: never;
   }
 
@@ -1909,6 +2083,28 @@ export namespace AggregationResponse {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation: LambdaFunctionAggregationResponse;
+    codeRepositoryAggregation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that contains details about an aggregation response based on code
+   *          repositories.</p>
+   * @public
+   */
+  export interface CodeRepositoryAggregationMember {
+    accountAggregation?: never;
+    amiAggregation?: never;
+    awsEcrContainerAggregation?: never;
+    ec2InstanceAggregation?: never;
+    findingTypeAggregation?: never;
+    imageLayerAggregation?: never;
+    packageAggregation?: never;
+    repositoryAggregation?: never;
+    titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation: CodeRepositoryAggregationResponse;
     $unknown?: never;
   }
 
@@ -1927,6 +2123,7 @@ export namespace AggregationResponse {
     titleAggregation?: never;
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
     $unknown: [string, any];
   }
 
@@ -1942,6 +2139,7 @@ export namespace AggregationResponse {
     titleAggregation: (value: TitleAggregationResponse) => T;
     lambdaLayerAggregation: (value: LambdaLayerAggregationResponse) => T;
     lambdaFunctionAggregation: (value: LambdaFunctionAggregationResponse) => T;
+    codeRepositoryAggregation: (value: CodeRepositoryAggregationResponse) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1959,6 +2157,8 @@ export namespace AggregationResponse {
     if (value.lambdaLayerAggregation !== undefined) return visitor.lambdaLayerAggregation(value.lambdaLayerAggregation);
     if (value.lambdaFunctionAggregation !== undefined)
       return visitor.lambdaFunctionAggregation(value.lambdaFunctionAggregation);
+    if (value.codeRepositoryAggregation !== undefined)
+      return visitor.codeRepositoryAggregation(value.codeRepositoryAggregation);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1973,6 +2173,7 @@ export const AggregationType = {
   AWS_EC2_INSTANCE: "AWS_EC2_INSTANCE",
   AWS_ECR_CONTAINER: "AWS_ECR_CONTAINER",
   AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
+  CODE_REPOSITORY: "CODE_REPOSITORY",
   FINDING_TYPE: "FINDING_TYPE",
   IMAGE_LAYER: "IMAGE_LAYER",
   LAMBDA_LAYER: "LAMBDA_LAYER",
@@ -1999,6 +2200,63 @@ export const Architecture = {
  * @public
  */
 export type Architecture = (typeof Architecture)[keyof typeof Architecture];
+
+/**
+ * <p>Identifies a specific resource in a code repository that will be scanned.</p>
+ * @public
+ */
+export type CodeSecurityResource = CodeSecurityResource.ProjectIdMember | CodeSecurityResource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CodeSecurityResource {
+  /**
+   * <p>The unique identifier of the project in the code repository.</p>
+   * @public
+   */
+  export interface ProjectIdMember {
+    projectId: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    projectId?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    projectId: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: CodeSecurityResource, visitor: Visitor<T>): T => {
+    if (value.projectId !== undefined) return visitor.projectId(value.projectId);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains details about a request to associate a code repository with a scan
+ *          configuration.</p>
+ * @public
+ */
+export interface AssociateConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the scan configuration.</p>
+   * @public
+   */
+  scanConfigurationArn: string | undefined;
+
+  /**
+   * <p>Identifies a specific resource in a code repository that will be scanned.</p>
+   * @public
+   */
+  resource: CodeSecurityResource | undefined;
+}
 
 /**
  * @public
@@ -2177,7 +2435,27 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The Amazon Web Services Threat Intel Group (ATIG) details for a specific vulnerability.</p>
+ * @public
+ * @enum
+ */
+export const AssociationResultStatusCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_INPUT: "INVALID_INPUT",
+  QUOTA_EXCEEDED: "QUOTA_EXCEEDED",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+  SCAN_CONFIGURATION_NOT_FOUND: "SCAN_CONFIGURATION_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationResultStatusCode =
+  (typeof AssociationResultStatusCode)[keyof typeof AssociationResultStatusCode];
+
+/**
+ * <p>The Amazon Web Services Threat Intel Group (ATIG) details for a specific
+ *          vulnerability.</p>
  * @public
  */
 export interface AtigData {
@@ -2200,14 +2478,16 @@ export interface AtigData {
   targets?: string[] | undefined;
 
   /**
-   * <p>The <a href="https://attack.mitre.org/">MITRE ATT&amp;CK</a> tactics, techniques, and procedures (TTPs) associated with vulnerability.</p>
+   * <p>The <a href="https://attack.mitre.org/">MITRE ATT&amp;CK</a> tactics, techniques,
+   *          and procedures (TTPs) associated with vulnerability.</p>
    * @public
    */
   ttps?: string[] | undefined;
 }
 
 /**
- * <p>Represents which scan types are automatically enabled for new members of your Amazon Inspector organization.</p>
+ * <p>Represents which scan types are automatically enabled for new members of your Amazon Inspector
+ *          organization.</p>
  * @public
  */
 export interface AutoEnable {
@@ -2226,19 +2506,25 @@ export interface AutoEnable {
   ecr: boolean | undefined;
 
   /**
-   * <p>Represents whether Amazon Web Services Lambda standard scans are automatically enabled for new members of your Amazon Inspector organization.
-   *       </p>
+   * <p>Represents whether Amazon Web Services Lambda standard scans are automatically enabled
+   *          for new members of your Amazon Inspector organization. </p>
    * @public
    */
   lambda?: boolean | undefined;
 
   /**
-   * <p>Represents whether Lambda code scans are automatically enabled for new members of your Amazon Inspector organization.
-   *
-   *       </p>
+   * <p>Represents whether Lambda code scans are automatically enabled for new members of your
+   *          Amazon Inspector organization. </p>
    * @public
    */
   lambdaCode?: boolean | undefined;
+
+  /**
+   * <p>Represents whether code repository scans are automatically enabled for new members of
+   *          your Amazon Inspector organization.</p>
+   * @public
+   */
+  codeRepository?: boolean | undefined;
 }
 
 /**
@@ -2361,7 +2647,8 @@ export interface AwsEcrContainerImageDetails {
   platform?: string | undefined;
 
   /**
-   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or Amazon EKS pod.</p>
+   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or
+   *             Amazon EKS pod.</p>
    * @public
    */
   lastInUseAt?: Date | undefined;
@@ -2410,7 +2697,8 @@ export interface AwsEksWorkloadInfo {
 }
 
 /**
- * <p>The metadata for an Amazon EKS pod where an Amazon ECR image is in use.</p>
+ * <p>The metadata for an Amazon EKS pod where an Amazon ECR image is in
+ *          use.</p>
  * @public
  */
 export interface AwsEksMetadataDetails {
@@ -2475,7 +2763,8 @@ export const Runtime = {
 export type Runtime = (typeof Runtime)[keyof typeof Runtime];
 
 /**
- * <p>The VPC security groups and subnets that are attached to an Amazon Web Services Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+ * <p>The VPC security groups and subnets that are attached to an Amazon Web Services Lambda
+ *          function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
  * @public
  */
 export interface LambdaVpcConfig {
@@ -2486,7 +2775,8 @@ export interface LambdaVpcConfig {
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>The VPC security groups and subnets that are attached to an Amazon Web Services Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+   * <p>The VPC security groups and subnets that are attached to an Amazon Web Services Lambda
+   *          function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
    * @public
    */
   securityGroupIds?: string[] | undefined;
@@ -2534,8 +2824,8 @@ export interface AwsLambdaFunctionDetails {
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Lambda function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
-   *          layers</a>. A Lambda function can have up to five layers.</p>
+   * <p>The Amazon Web Services Lambda function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html"> layers</a>. A
+   *          Lambda function can have up to five layers.</p>
    * @public
    */
   layers?: string[] | undefined;
@@ -2547,20 +2837,23 @@ export interface AwsLambdaFunctionDetails {
   vpcConfig?: LambdaVpcConfig | undefined;
 
   /**
-   * <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
+   * <p>The type of deployment package. Set to <code>Image</code> for container image and set
+   *             <code>Zip</code> for .zip file archive.</p>
    * @public
    */
   packageType?: PackageType | undefined;
 
   /**
-   * <p>The instruction set architecture that the Amazon Web Services Lambda function supports. Architecture is a string array with one of the
-   *          valid values. The default architecture value is <code>x86_64</code>.</p>
+   * <p>The instruction set architecture that the Amazon Web Services Lambda function supports.
+   *          Architecture is a string array with one of the valid values. The default architecture value
+   *          is <code>x86_64</code>.</p>
    * @public
    */
   architectures?: Architecture[] | undefined;
 
   /**
-   * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>
+   * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601
+   *          format</a>
    *          </p>
    * @public
    */
@@ -2585,6 +2878,195 @@ export class BadRequestException extends __BaseException {
     });
     Object.setPrototypeOf(this, BadRequestException.prototype);
   }
+}
+
+/**
+ * @public
+ */
+export interface BatchAssociateCodeSecurityScanConfigurationRequest {
+  /**
+   * <p>A list of code repositories to associate with the specified scan configuration.</p>
+   * @public
+   */
+  associateConfigurationRequests: AssociateConfigurationRequest[] | undefined;
+}
+
+/**
+ * <p>Details about a failed attempt to associate or disassociate a code repository with a
+ *          scan configuration.</p>
+ * @public
+ */
+export interface FailedAssociationResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the scan configuration that failed to be associated or
+   *          disassociated.</p>
+   * @public
+   */
+  scanConfigurationArn?: string | undefined;
+
+  /**
+   * <p>Identifies a specific resource in a code repository that will be scanned.</p>
+   * @public
+   */
+  resource?: CodeSecurityResource | undefined;
+
+  /**
+   * <p>The status code indicating why the association or disassociation failed.</p>
+   * @public
+   */
+  statusCode?: AssociationResultStatusCode | undefined;
+
+  /**
+   * <p>A message explaining why the association or disassociation failed.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+}
+
+/**
+ * <p>Details about a successful association or disassociation between a code repository and a
+ *          scan configuration.</p>
+ * @public
+ */
+export interface SuccessfulAssociationResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the scan configuration that was successfully
+   *          associated or disassociated.</p>
+   * @public
+   */
+  scanConfigurationArn?: string | undefined;
+
+  /**
+   * <p>Identifies a specific resource in a code repository that will be scanned.</p>
+   * @public
+   */
+  resource?: CodeSecurityResource | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchAssociateCodeSecurityScanConfigurationResponse {
+  /**
+   * <p>Details of any code repositories that failed to be associated with the scan
+   *          configuration.</p>
+   * @public
+   */
+  failedAssociations?: FailedAssociationResult[] | undefined;
+
+  /**
+   * <p>Details of code repositories that were successfully associated with the scan
+   *          configuration.</p>
+   * @public
+   */
+  successfulAssociations?: SuccessfulAssociationResult[] | undefined;
+}
+
+/**
+ * <p>A conflict occurred. This exception occurs when the same resource is being modified by
+ *          concurrent requests.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * The ID of the conflicting resource.
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * The type of the conflicting resource.
+   * @public
+   */
+  resourceType: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
+}
+
+/**
+ * <p>The operation tried to access an invalid resource. Make sure the resource is specified
+ *          correctly.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * <p>Contains details about a request to disassociate a code repository from a scan
+ *          configuration.</p>
+ * @public
+ */
+export interface DisassociateConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the scan configuration to disassociate from a code
+   *          repository.</p>
+   * @public
+   */
+  scanConfigurationArn: string | undefined;
+
+  /**
+   * <p>Identifies a specific resource in a code repository that will be scanned.</p>
+   * @public
+   */
+  resource: CodeSecurityResource | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDisassociateCodeSecurityScanConfigurationRequest {
+  /**
+   * <p>A list of code repositories to disassociate from the specified scan
+   *          configuration.</p>
+   * @public
+   */
+  disassociateConfigurationRequests: DisassociateConfigurationRequest[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDisassociateCodeSecurityScanConfigurationResponse {
+  /**
+   * <p>Details of any code repositories that failed to be disassociated from the scan
+   *          configuration.</p>
+   * @public
+   */
+  failedAssociations?: FailedAssociationResult[] | undefined;
+
+  /**
+   * <p>Details of code repositories that were successfully disassociated from the scan
+   *          configuration.</p>
+   * @public
+   */
+  successfulAssociations?: SuccessfulAssociationResult[] | undefined;
 }
 
 /**
@@ -2639,7 +3121,8 @@ export interface FailedAccount {
  */
 export interface BatchGetAccountStatusResponse {
   /**
-   * <p>An array of objects that provide details on the status of Amazon Inspector for each of the requested accounts.</p>
+   * <p>An array of objects that provide details on the status of Amazon Inspector for each of the
+   *          requested accounts.</p>
    * @public
    */
   accounts: AccountState[] | undefined;
@@ -2652,31 +3135,12 @@ export interface BatchGetAccountStatusResponse {
 }
 
 /**
- * <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface BatchGetCodeSnippetRequest {
   /**
-   * <p>An array of finding ARNs for the findings you want to retrieve code snippets from.</p>
+   * <p>An array of finding ARNs for the findings you want to retrieve code snippets
+   *          from.</p>
    * @public
    */
   findingArns: string[] | undefined;
@@ -2719,7 +3183,8 @@ export interface SuggestedFix {
 }
 
 /**
- * <p>Contains information on a code snippet retrieved by Amazon Inspector from a code vulnerability finding.</p>
+ * <p>Contains information on a code snippet retrieved by Amazon Inspector from a code vulnerability
+ *          finding.</p>
  * @public
  */
 export interface CodeSnippetResult {
@@ -2771,7 +3236,8 @@ export const CodeSnippetErrorCode = {
 export type CodeSnippetErrorCode = (typeof CodeSnippetErrorCode)[keyof typeof CodeSnippetErrorCode];
 
 /**
- * <p>Contains information about any errors encountered while trying to retrieve a code snippet.</p>
+ * <p>Contains information about any errors encountered while trying to retrieve a code
+ *          snippet.</p>
  * @public
  */
 export interface CodeSnippetError {
@@ -2805,7 +3271,8 @@ export interface BatchGetCodeSnippetResponse {
   codeSnippetResults?: CodeSnippetResult[] | undefined;
 
   /**
-   * <p>Any errors Amazon Inspector encountered while trying to retrieve the requested code snippets.</p>
+   * <p>Any errors Amazon Inspector encountered while trying to retrieve the requested code
+   *          snippets.</p>
    * @public
    */
   errors?: CodeSnippetError[] | undefined;
@@ -2839,7 +3306,8 @@ export const FindingDetailsErrorCode = {
 export type FindingDetailsErrorCode = (typeof FindingDetailsErrorCode)[keyof typeof FindingDetailsErrorCode];
 
 /**
- * <p>Details about an error encountered when trying to return vulnerability data for a finding.</p>
+ * <p>Details about an error encountered when trying to return vulnerability data for a
+ *          finding.</p>
  * @public
  */
 export interface FindingDetailsError {
@@ -2863,7 +3331,8 @@ export interface FindingDetailsError {
 }
 
 /**
- * <p>The Cybersecurity and Infrastructure Security Agency (CISA) details for a specific vulnerability.</p>
+ * <p>The Cybersecurity and Infrastructure Security Agency (CISA) details for a specific
+ *          vulnerability.</p>
  * @public
  */
 export interface CisaData {
@@ -2940,7 +3409,8 @@ export interface FindingDetail {
   findingArn?: string | undefined;
 
   /**
-   * <p>The Cybersecurity and Infrastructure Security Agency (CISA) details for a specific vulnerability.</p>
+   * <p>The Cybersecurity and Infrastructure Security Agency (CISA) details for a specific
+   *          vulnerability.</p>
    * @public
    */
   cisaData?: CisaData | undefined;
@@ -2958,7 +3428,8 @@ export interface FindingDetail {
   evidences?: Evidence[] | undefined;
 
   /**
-   * <p>The MITRE adversary tactics, techniques, or procedures (TTPs) associated with the vulnerability.</p>
+   * <p>The MITRE adversary tactics, techniques, or procedures (TTPs) associated with the
+   *          vulnerability.</p>
    * @public
    */
   ttps?: string[] | undefined;
@@ -3041,6 +3512,7 @@ export type FreeTrialStatus = (typeof FreeTrialStatus)[keyof typeof FreeTrialSta
  * @enum
  */
 export const FreeTrialType = {
+  CODE_REPOSITORY: "CODE_REPOSITORY",
   EC2: "EC2",
   ECR: "ECR",
   LAMBDA: "LAMBDA",
@@ -3115,7 +3587,8 @@ export const FreeTrialInfoErrorCode = {
 export type FreeTrialInfoErrorCode = (typeof FreeTrialInfoErrorCode)[keyof typeof FreeTrialInfoErrorCode];
 
 /**
- * <p>Information about an error received while accessing free trail data for an account.</p>
+ * <p>Information about an error received while accessing free trail data for an
+ *          account.</p>
  * @public
  */
 export interface FreeTrialInfoError {
@@ -3143,14 +3616,15 @@ export interface FreeTrialInfoError {
  */
 export interface BatchGetFreeTrialInfoResponse {
   /**
-   * <p>An array of objects that provide Amazon Inspector free trial details for each of the requested accounts.
-   *       </p>
+   * <p>An array of objects that provide Amazon Inspector free trial details for each of the requested
+   *          accounts. </p>
    * @public
    */
   accounts: FreeTrialAccountInfo[] | undefined;
 
   /**
-   * <p>An array of objects detailing any accounts that free trial data could not be returned for.</p>
+   * <p>An array of objects detailing any accounts that free trial data could not be returned
+   *          for.</p>
    * @public
    */
   failedAccounts: FreeTrialInfoError[] | undefined;
@@ -3161,9 +3635,8 @@ export interface BatchGetFreeTrialInfoResponse {
  */
 export interface BatchGetMemberEc2DeepInspectionStatusRequest {
   /**
-   * <p>The unique identifiers for the Amazon Web Services accounts to retrieve Amazon Inspector deep inspection activation status for.
-   *
-   *       </p>
+   * <p>The unique identifiers for the Amazon Web Services accounts to retrieve Amazon Inspector deep inspection
+   *          activation status for. </p>
    * @public
    */
   accountIds?: string[] | undefined;
@@ -3186,7 +3659,8 @@ export const Ec2DeepInspectionStatus = {
 export type Ec2DeepInspectionStatus = (typeof Ec2DeepInspectionStatus)[keyof typeof Ec2DeepInspectionStatus];
 
 /**
- * <p>An object that contains details about the state of Amazon Inspector deep inspection for a member account.</p>
+ * <p>An object that contains details about the state of Amazon Inspector deep inspection for a member
+ *          account.</p>
  * @public
  */
 export interface MemberAccountEc2DeepInspectionStatusState {
@@ -3203,31 +3677,36 @@ export interface MemberAccountEc2DeepInspectionStatusState {
   status?: Ec2DeepInspectionStatus | undefined;
 
   /**
-   * <p>The error message explaining why the account failed to activate Amazon Inspector deep inspection.</p>
+   * <p>The error message explaining why the account failed to activate Amazon Inspector deep
+   *          inspection.</p>
    * @public
    */
   errorMessage?: string | undefined;
 }
 
 /**
- * <p>An object that contains details about a member account in your organization that failed to activate Amazon Inspector deep inspection.</p>
+ * <p>An object that contains details about a member account in your organization that failed
+ *          to activate Amazon Inspector deep inspection.</p>
  * @public
  */
 export interface FailedMemberAccountEc2DeepInspectionStatusState {
   /**
-   * <p>The unique identifier for the Amazon Web Services account of the organization member that failed to activate Amazon Inspector deep inspection.</p>
+   * <p>The unique identifier for the Amazon Web Services account of the organization member that failed to
+   *          activate Amazon Inspector deep inspection.</p>
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * <p>The status of EC2 scanning in the account that failed to activate Amazon Inspector deep inspection.</p>
+   * <p>The status of EC2 scanning in the account that failed to activate Amazon Inspector deep
+   *          inspection.</p>
    * @public
    */
   ec2ScanStatus?: Status | undefined;
 
   /**
-   * <p>The error message explaining why the account failed to activate Amazon Inspector deep inspection.</p>
+   * <p>The error message explaining why the account failed to activate Amazon Inspector deep
+   *          inspection.</p>
    * @public
    */
   errorMessage?: string | undefined;
@@ -3238,24 +3717,23 @@ export interface FailedMemberAccountEc2DeepInspectionStatusState {
  */
 export interface BatchGetMemberEc2DeepInspectionStatusResponse {
   /**
-   * <p>An array of objects that provide details on the activation status of Amazon Inspector deep inspection for each of the requested accounts.
-   *
-   *          </p>
+   * <p>An array of objects that provide details on the activation status of Amazon Inspector deep
+   *          inspection for each of the requested accounts. </p>
    * @public
    */
   accountIds?: MemberAccountEc2DeepInspectionStatusState[] | undefined;
 
   /**
-   * <p>An array of objects that provide details on any accounts that failed to activate Amazon Inspector deep inspection and why.
-   *
-   *       </p>
+   * <p>An array of objects that provide details on any accounts that failed to activate Amazon Inspector
+   *          deep inspection and why. </p>
    * @public
    */
   failedAccountIds?: FailedMemberAccountEc2DeepInspectionStatusState[] | undefined;
 }
 
 /**
- * <p>An object that contains details about the status of Amazon Inspector deep inspection for a member account in your organization.</p>
+ * <p>An object that contains details about the status of Amazon Inspector deep inspection for a member
+ *          account in your organization.</p>
  * @public
  */
 export interface MemberAccountEc2DeepInspectionStatus {
@@ -3266,7 +3744,8 @@ export interface MemberAccountEc2DeepInspectionStatus {
   accountId: string | undefined;
 
   /**
-   * <p>Whether Amazon Inspector deep inspection is active in the account.  If <code>TRUE</code> Amazon Inspector deep inspection is active, if <code>FALSE</code> it is not active.</p>
+   * <p>Whether Amazon Inspector deep inspection is active in the account. If <code>TRUE</code> Amazon Inspector deep
+   *          inspection is active, if <code>FALSE</code> it is not active.</p>
    * @public
    */
   activateDeepInspection: boolean | undefined;
@@ -3277,7 +3756,8 @@ export interface MemberAccountEc2DeepInspectionStatus {
  */
 export interface BatchUpdateMemberEc2DeepInspectionStatusRequest {
   /**
-   * <p>The unique identifiers for the Amazon Web Services accounts to change Amazon Inspector deep inspection status for.</p>
+   * <p>The unique identifiers for the Amazon Web Services accounts to change Amazon Inspector deep inspection status
+   *          for.</p>
    * @public
    */
   accountIds: MemberAccountEc2DeepInspectionStatus[] | undefined;
@@ -3288,15 +3768,15 @@ export interface BatchUpdateMemberEc2DeepInspectionStatusRequest {
  */
 export interface BatchUpdateMemberEc2DeepInspectionStatusResponse {
   /**
-   * <p>An array of objects that provide details for each of the accounts that Amazon Inspector deep inspection status was successfully changed for.
-   *       </p>
+   * <p>An array of objects that provide details for each of the accounts that Amazon Inspector deep
+   *          inspection status was successfully changed for. </p>
    * @public
    */
   accountIds?: MemberAccountEc2DeepInspectionStatusState[] | undefined;
 
   /**
-   * <p>An array of objects that provide details for each of the accounts that Amazon Inspector deep inspection status could not be successfully changed for.
-   *       </p>
+   * <p>An array of objects that provide details for each of the accounts that Amazon Inspector deep
+   *          inspection status could not be successfully changed for. </p>
    * @public
    */
   failedAccountIds?: FailedMemberAccountEc2DeepInspectionStatusState[] | undefined;
@@ -3708,10 +4188,8 @@ export interface CisScan {
   scheduledBy?: string | undefined;
 
   /**
-   * <p>
-   *          The security level for the CIS scan.
-   *          Security level refers to the Benchmark levels that CIS assigns to a profile.
-   *       </p>
+   * <p> The security level for the CIS scan. Security level refers to the Benchmark levels that
+   *          CIS assigns to a profile. </p>
    * @public
    */
   securityLevel?: CisSecurityLevel | undefined;
@@ -4054,10 +4532,8 @@ export const CisSecurityLevelComparison = {
 export type CisSecurityLevelComparison = (typeof CisSecurityLevelComparison)[keyof typeof CisSecurityLevelComparison];
 
 /**
- * <p>
- *          The CIS security level filter.
- *          Security level refers to the Benchmark levels that CIS assigns to a profile.
- *       </p>
+ * <p> The CIS security level filter. Security level refers to the Benchmark levels that CIS
+ *          assigns to a profile. </p>
  * @public
  */
 export interface CisSecurityLevelFilter {
@@ -4098,10 +4574,8 @@ export interface CisScanResultDetailsFilterCriteria {
   titleFilters?: CisStringFilter[] | undefined;
 
   /**
-   * <p>
-   *          The criteria's security level filters. .
-   *          Security level refers to the Benchmark levels that CIS assigns to a profile.
-   *       </p>
+   * <p> The criteria's security level filters. . Security level refers to the Benchmark levels
+   *          that CIS assigns to a profile. </p>
    * @public
    */
   securityLevelFilters?: CisSecurityLevelFilter[] | undefined;
@@ -4566,7 +5040,8 @@ export namespace ClusterMetadata {
  */
 export interface ClusterDetails {
   /**
-   * <p>The last timestamp when Amazon Inspector recorded the image in use in the task or pod in the cluster.</p>
+   * <p>The last timestamp when Amazon Inspector recorded the image in use in the task or pod
+   *          in the cluster.</p>
    * @public
    */
   lastInUse: Date | undefined;
@@ -4578,7 +5053,8 @@ export interface ClusterDetails {
   runningUnitCount?: number | undefined;
 
   /**
-   * <p>The number of tasks or pods where an image was stopped on the cluster in the last 24 hours.</p>
+   * <p>The number of tasks or pods where an image was stopped on the cluster in the last 24
+   *          hours.</p>
    * @public
    */
   stoppedUnitCount?: number | undefined;
@@ -4621,7 +5097,8 @@ export interface ClusterInformation {
 }
 
 /**
- * <p>Contains information on where a code vulnerability is located in your Lambda function.</p>
+ * <p>Contains information on where a code vulnerability is located in your Lambda
+ *          function.</p>
  * @public
  */
 export interface CodeFilePath {
@@ -4651,7 +5128,661 @@ export interface CodeFilePath {
 }
 
 /**
- * <p>Contains information on the code vulnerability identified in your Lambda function.</p>
+ * @public
+ * @enum
+ */
+export const CodeRepositoryProviderType = {
+  GITHUB: "GITHUB",
+  GITLAB_SELF_MANAGED: "GITLAB_SELF_MANAGED",
+} as const;
+
+/**
+ * @public
+ */
+export type CodeRepositoryProviderType = (typeof CodeRepositoryProviderType)[keyof typeof CodeRepositoryProviderType];
+
+/**
+ * <p>Contains details about a code repository associated with a finding.</p>
+ * @public
+ */
+export interface CodeRepositoryDetails {
+  /**
+   * <p>The name of the project in the code repository.</p>
+   * @public
+   */
+  projectName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the code security integration associated with the
+   *          repository.</p>
+   * @public
+   */
+  integrationArn?: string | undefined;
+
+  /**
+   * <p>The type of repository provider (such as GitHub, GitLab, etc.).</p>
+   * @public
+   */
+  providerType?: CodeRepositoryProviderType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ScanStatusReason = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  ACCESS_DENIED_TO_ENCRYPTION_KEY: "ACCESS_DENIED_TO_ENCRYPTION_KEY",
+  AGENTLESS_INSTANCE_COLLECTION_TIME_LIMIT_EXCEEDED: "AGENTLESS_INSTANCE_COLLECTION_TIME_LIMIT_EXCEEDED",
+  AGENTLESS_INSTANCE_STORAGE_LIMIT_EXCEEDED: "AGENTLESS_INSTANCE_STORAGE_LIMIT_EXCEEDED",
+  DEEP_INSPECTION_COLLECTION_TIME_LIMIT_EXCEEDED: "DEEP_INSPECTION_COLLECTION_TIME_LIMIT_EXCEEDED",
+  DEEP_INSPECTION_DAILY_SSM_INVENTORY_LIMIT_EXCEEDED: "DEEP_INSPECTION_DAILY_SSM_INVENTORY_LIMIT_EXCEEDED",
+  DEEP_INSPECTION_NO_INVENTORY: "DEEP_INSPECTION_NO_INVENTORY",
+  DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED: "DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED",
+  EC2_INSTANCE_STOPPED: "EC2_INSTANCE_STOPPED",
+  EXCLUDED_BY_TAG: "EXCLUDED_BY_TAG",
+  IMAGE_SIZE_EXCEEDED: "IMAGE_SIZE_EXCEEDED",
+  INTEGRATION_CONNECTION_LOST: "INTEGRATION_CONNECTION_LOST",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  NO_INVENTORY: "NO_INVENTORY",
+  NO_RESOURCES_FOUND: "NO_RESOURCES_FOUND",
+  NO_SCAN_CONFIGURATION_ASSOCIATED: "NO_SCAN_CONFIGURATION_ASSOCIATED",
+  PENDING_DISABLE: "PENDING_DISABLE",
+  PENDING_INITIAL_SCAN: "PENDING_INITIAL_SCAN",
+  PENDING_REVIVAL_SCAN: "PENDING_REVIVAL_SCAN",
+  RESOURCE_TERMINATED: "RESOURCE_TERMINATED",
+  SCAN_ELIGIBILITY_EXPIRED: "SCAN_ELIGIBILITY_EXPIRED",
+  SCAN_FREQUENCY_MANUAL: "SCAN_FREQUENCY_MANUAL",
+  SCAN_FREQUENCY_SCAN_ON_PUSH: "SCAN_FREQUENCY_SCAN_ON_PUSH",
+  SCAN_IN_PROGRESS: "SCAN_IN_PROGRESS",
+  STALE_INVENTORY: "STALE_INVENTORY",
+  SUCCESSFUL: "SUCCESSFUL",
+  UNMANAGED_EC2_INSTANCE: "UNMANAGED_EC2_INSTANCE",
+  UNSUPPORTED_CONFIG_FILE: "UNSUPPORTED_CONFIG_FILE",
+  UNSUPPORTED_LANGUAGE: "UNSUPPORTED_LANGUAGE",
+  UNSUPPORTED_MEDIA_TYPE: "UNSUPPORTED_MEDIA_TYPE",
+  UNSUPPORTED_OS: "UNSUPPORTED_OS",
+  UNSUPPORTED_RUNTIME: "UNSUPPORTED_RUNTIME",
+} as const;
+
+/**
+ * @public
+ */
+export type ScanStatusReason = (typeof ScanStatusReason)[keyof typeof ScanStatusReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScanStatusCode = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type ScanStatusCode = (typeof ScanStatusCode)[keyof typeof ScanStatusCode];
+
+/**
+ * <p>The status of the scan.</p>
+ * @public
+ */
+export interface ScanStatus {
+  /**
+   * <p>The status code of the scan.</p>
+   * @public
+   */
+  statusCode: ScanStatusCode | undefined;
+
+  /**
+   * <p>The scan status. Possible return values and descriptions are: </p>
+   *          <p>
+   *             <code>ACCESS_DENIED</code> - Resource access policy restricting Amazon Inspector access. Please
+   *          update the IAM policy.</p>
+   *          <p>
+   *             <code>ACCESS_DENIED_TO_ENCRYPTION_KEY</code> - The KMS key policy doesn't allow Amazon Inspector
+   *          access. Update the key policy.</p>
+   *          <p>
+   *             <code>DEEP_INSPECTION_COLLECTION_TIME_LIMIT_EXCEEDED</code> - Amazon Inspector failed to extract
+   *          the package inventory because the package collection time exceeding the maximum threshold
+   *          of 15 minutes.</p>
+   *          <p>
+   *             <code>DEEP_INSPECTION_DAILY_SSM_INVENTORY_LIMIT_EXCEEDED</code> - The SSM agent couldn't
+   *          send inventory to Amazon Inspector because the SSM quota for Inventory data collected per instance per
+   *          day has already been reached for this instance.</p>
+   *          <p>
+   *             <code>DEEP_INSPECTION_NO_INVENTORY</code> - The Amazon Inspector plugin hasn't yet been able to
+   *          collect an inventory of packages for this instance. This is usually the result of a pending
+   *          scan, however, if this status persists after 6 hours, use SSM to ensure that
+   *          the required Amazon Inspector associations exist and are running for the instance.</p>
+   *          <p>
+   *             <code>DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED</code> - The instance has
+   *          exceeded the 5000 package limit for Amazon Inspector Deep inspection. To resume Deep inspection for
+   *          this instance you can try to adjust the custom paths associated with the account.</p>
+   *          <p>
+   *             <code>EC2_INSTANCE_STOPPED</code> - This EC2 instance is in a stopped state, therefore,
+   *          Amazon Inspector will pause scanning. The existing findings will continue to exist until the instance
+   *          is terminated. Once the instance is re-started, Inspector will automatically start scanning
+   *          the instance again. Please note that you will not be charged for this instance while it's
+   *          in a stopped state.</p>
+   *          <p>
+   *             <code>EXCLUDED_BY_TAG</code> - This resource was not scanned because it has been
+   *          excluded by a tag.</p>
+   *          <p>
+   *             <code>IMAGE_SIZE_EXCEEDED</code> - Reserved for future use.</p>
+   *          <p>
+   *             <code>INTEGRATION_CONNNECTION_LOST</code> - Amazon Inspector couldn't communicate with the source
+   *          code management platform.</p>
+   *          <p>
+   *             <code>INTERNAL_ERROR</code> - Amazon Inspector has encountered an internal error for this resource.
+   *          Amazon Inspector service will automatically resolve the issue and resume the scanning. No action
+   *          required from the user.</p>
+   *          <p>
+   *             <code>NO INVENTORY</code> - Amazon Inspector couldn't find software application inventory to scan
+   *          for vulnerabilities. This might be caused due to required Amazon Inspector associations being deleted
+   *          or failing to run on your resource. Please verify the status of
+   *          <code>InspectorInventoryCollection-do-not-delete</code> association in the SSM console
+   *          for the resource. Additionally, you can verify the instance's inventory in the SSM Fleet
+   *          Manager console.</p>
+   *          <p>
+   *             <code>NO_RESOURCES_FOUND</code> - Reserved for future use.</p>
+   *          <p>
+   *             <code>NO_SCAN_CONFIGURATION_ASSOCIATED</code> - The code repository resource doesn't
+   *          have an associated scan configuration.</p>
+   *          <p>
+   *             <code>PENDING_DISABLE</code> - This resource is pending cleanup during disablement. The
+   *          customer will not be billed while a resource is in the pending disable status.</p>
+   *          <p>
+   *             <code>PENDING_INITIAL_SCAN</code> - This resource has been identified for scanning,
+   *          results will be available soon.</p>
+   *          <p>
+   *             <code>RESOURCE_TERMINATED</code> - This resource has been terminated. The findings and
+   *          coverage associated with this resource are in the process of being cleaned up.</p>
+   *          <p>
+   *             <code>SCAN_ELIGIBILITY_EXPIRED</code> - The configured scan duration has lapsed for this
+   *          image.</p>
+   *          <p>
+   *             <code>SCAN_FREQUENCY_MANUAL</code> - This image will not be covered by Amazon Inspector due to the
+   *          repository scan frequency configuration.</p>
+   *          <p>
+   *             <code>SCAN_FREQUENCY_SCAN_ON_PUSH</code> - This image will be scanned one time and will
+   *          not new findings because of the scan frequency configuration.</p>
+   *          <p>
+   *             <code>SCAN_IN_PROGRESS</code> - The resource is currently being scanned.</p>
+   *          <p>
+   *             <code>STALE_INVENTORY</code> - Amazon Inspector wasn't able to collect an updated software
+   *          application inventory in the last 7 days. Please confirm the required Amazon Inspector associations
+   *          still exist and you can still see an updated inventory in the SSM console.</p>
+   *          <p>
+   *             <code>SUCCESSFUL</code> - The scan was successful.</p>
+   *          <p>
+   *             <code>UNMANAGED_EC2_INSTANCE</code> - The EC2 instance is not managed by SSM, please use
+   *          the following SSM automation to remediate the issue: <a href="https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshoot-managed-instance.html">https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshoot-managed-instance.html</a>.
+   *          Once the instance becomes managed by SSM, Inspector will automatically begin scanning this
+   *          instance. </p>
+   *          <p>
+   *             <code>UNSUPPORTED_CONFIG_FILE</code> - Reserved for future use.</p>
+   *          <p>
+   *             <code>UNSUPPORTED_LANGUAGE</code> - The scan was unsuccessful because the repository
+   *          contains files in an unsupported programming language.</p>
+   *          <p>
+   *             <code>UNSUPPORTED_MEDIA_TYPE </code>- The ECR image has an unsupported media
+   *          type.</p>
+   *          <p>
+   *             <code>UNSUPPORTED_OS</code> - Amazon Inspector does not support this OS, architecture, or image
+   *          manifest type at this time. To see a complete list of supported operating systems see:
+   *          <a href=" https://docs.aws.amazon.com/inspector/latest/user/supported.html">https://docs.aws.amazon.com/inspector/latest/user/supported.html</a>.</p>
+   *          <p>
+   *             <code>UNSUPPORTED_RUNTIME</code> - The function was not scanned because it has an
+   *          unsupported runtime. To see a complete list of supported runtimes see: <a href=" https://docs.aws.amazon.com/inspector/latest/user/supported.html">https://docs.aws.amazon.com/inspector/latest/user/supported.html</a>.</p>
+   * @public
+   */
+  reason: ScanStatusReason | undefined;
+}
+
+/**
+ * <p>Contains information about on-demand scans performed on a code repository.</p>
+ * @public
+ */
+export interface CodeRepositoryOnDemandScan {
+  /**
+   * <p>The ID of the last commit that was scanned during an on-demand scan.</p>
+   * @public
+   */
+  lastScannedCommitId?: string | undefined;
+
+  /**
+   * <p>The timestamp when the last on-demand scan was performed.</p>
+   * @public
+   */
+  lastScanAt?: Date | undefined;
+
+  /**
+   * <p>The status of the scan.</p>
+   * @public
+   */
+  scanStatus?: ScanStatus | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleSetCategory = {
+  IAC: "IAC",
+  SAST: "SAST",
+  SCA: "SCA",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleSetCategory = (typeof RuleSetCategory)[keyof typeof RuleSetCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContinuousIntegrationScanEvent = {
+  PULL_REQUEST: "PULL_REQUEST",
+  PUSH: "PUSH",
+} as const;
+
+/**
+ * @public
+ */
+export type ContinuousIntegrationScanEvent =
+  (typeof ContinuousIntegrationScanEvent)[keyof typeof ContinuousIntegrationScanEvent];
+
+/**
+ * <p>Contains the continuous integration scan configuration settings applied to a specific
+ *          project.</p>
+ * @public
+ */
+export interface ProjectContinuousIntegrationScanConfiguration {
+  /**
+   * <p>The repository event that triggers continuous integration scans for the project.</p>
+   * @public
+   */
+  supportedEvent?: ContinuousIntegrationScanEvent | undefined;
+
+  /**
+   * <p>The categories of security rules applied during continuous integration scans for the
+   *          project.</p>
+   * @public
+   */
+  ruleSetCategories?: RuleSetCategory[] | undefined;
+}
+
+/**
+ * <p>Contains the periodic scan configuration settings applied to a specific project.</p>
+ * @public
+ */
+export interface ProjectPeriodicScanConfiguration {
+  /**
+   * <p>The schedule expression for periodic scans, in cron format, applied to the
+   *          project.</p>
+   * @public
+   */
+  frequencyExpression?: string | undefined;
+
+  /**
+   * <p>The categories of security rules applied during periodic scans for the project.</p>
+   * @public
+   */
+  ruleSetCategories?: RuleSetCategory[] | undefined;
+}
+
+/**
+ * <p>Contains the scan configuration settings applied to a specific project in a code
+ *          repository.</p>
+ * @public
+ */
+export interface ProjectCodeSecurityScanConfiguration {
+  /**
+   * <p>The periodic scan configurations applied to the project.</p>
+   * @public
+   */
+  periodicScanConfigurations?: ProjectPeriodicScanConfiguration[] | undefined;
+
+  /**
+   * <p>The continuous integration scan configurations applied to the project.</p>
+   * @public
+   */
+  continuousIntegrationScanConfigurations?: ProjectContinuousIntegrationScanConfiguration[] | undefined;
+}
+
+/**
+ * <p>Contains metadata information about a code repository that is being scanned by Amazon
+ *          Inspector.</p>
+ * @public
+ */
+export interface CodeRepositoryMetadata {
+  /**
+   * <p>The name of the project in the code repository.</p>
+   * @public
+   */
+  projectName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the code security integration associated with the
+   *          repository.</p>
+   * @public
+   */
+  integrationArn?: string | undefined;
+
+  /**
+   * <p>The type of repository provider (such as GitHub, GitLab, etc.).</p>
+   * @public
+   */
+  providerType: string | undefined;
+
+  /**
+   * <p>The visibility setting of the repository (public or private).</p>
+   * @public
+   */
+  providerTypeVisibility: string | undefined;
+
+  /**
+   * <p>The ID of the last commit that was scanned in the repository.</p>
+   * @public
+   */
+  lastScannedCommitId?: string | undefined;
+
+  /**
+   * <p>The scan configuration settings applied to the code repository.</p>
+   * @public
+   */
+  scanConfiguration?: ProjectCodeSecurityScanConfiguration | undefined;
+
+  /**
+   * <p>Information about on-demand scans performed on the repository.</p>
+   * @public
+   */
+  onDemandScan?: CodeRepositoryOnDemandScan | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CodeScanStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SKIPPED: "SKIPPED",
+  SUCCESSFUL: "SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type CodeScanStatus = (typeof CodeScanStatus)[keyof typeof CodeScanStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const IntegrationStatus = {
+  ACTIVE: "ACTIVE",
+  DISABLING: "DISABLING",
+  INACTIVE: "INACTIVE",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type IntegrationStatus = (typeof IntegrationStatus)[keyof typeof IntegrationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const IntegrationType = {
+  GITHUB: "GITHUB",
+  GITLAB_SELF_MANAGED: "GITLAB_SELF_MANAGED",
+} as const;
+
+/**
+ * @public
+ */
+export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationType];
+
+/**
+ * <p>A summary of information about a code security integration.</p>
+ * @public
+ */
+export interface CodeSecurityIntegrationSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the code security integration.</p>
+   * @public
+   */
+  integrationArn: string | undefined;
+
+  /**
+   * <p>The name of the code security integration.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of repository provider for the integration.</p>
+   * @public
+   */
+  type: IntegrationType | undefined;
+
+  /**
+   * <p>The current status of the code security integration.</p>
+   * @public
+   */
+  status: IntegrationStatus | undefined;
+
+  /**
+   * <p>The reason for the current status of the code security integration.</p>
+   * @public
+   */
+  statusReason: string | undefined;
+
+  /**
+   * <p>The timestamp when the code security integration was created.</p>
+   * @public
+   */
+  createdOn: Date | undefined;
+
+  /**
+   * <p>The timestamp when the code security integration was last updated.</p>
+   * @public
+   */
+  lastUpdateOn: Date | undefined;
+
+  /**
+   * <p>The tags associated with the code security integration.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Configuration settings for continuous integration scans that run automatically when code
+ *          changes are made.</p>
+ * @public
+ */
+export interface ContinuousIntegrationScanConfiguration {
+  /**
+   * <p>The repository events that trigger continuous integration scans, such as pull requests
+   *          or commits.</p>
+   * @public
+   */
+  supportedEvents: ContinuousIntegrationScanEvent[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PeriodicScanFrequency = {
+  MONTHLY: "MONTHLY",
+  NEVER: "NEVER",
+  WEEKLY: "WEEKLY",
+} as const;
+
+/**
+ * @public
+ */
+export type PeriodicScanFrequency = (typeof PeriodicScanFrequency)[keyof typeof PeriodicScanFrequency];
+
+/**
+ * <p>Configuration settings for periodic scans that run on a scheduled basis.</p>
+ * @public
+ */
+export interface PeriodicScanConfiguration {
+  /**
+   * <p>The frequency at which periodic scans are performed (such as weekly or monthly).</p>
+   *          <p>If you don't provide the <code>frequencyExpression</code> Amazon Inspector chooses day for the scan
+   *          to run. If you provide the <code>frequencyExpression</code>, the schedule must match the
+   *          specified <code>frequency</code>.</p>
+   * @public
+   */
+  frequency?: PeriodicScanFrequency | undefined;
+
+  /**
+   * <p>The schedule expression for periodic scans, in cron format.</p>
+   * @public
+   */
+  frequencyExpression?: string | undefined;
+}
+
+/**
+ * <p>Contains the configuration settings for code security scans.</p>
+ * @public
+ */
+export interface CodeSecurityScanConfiguration {
+  /**
+   * <p>Configuration settings for periodic scans that run on a scheduled basis.</p>
+   * @public
+   */
+  periodicScanConfiguration?: PeriodicScanConfiguration | undefined;
+
+  /**
+   * <p>Configuration settings for continuous integration scans that run automatically when code
+   *          changes are made.</p>
+   * @public
+   */
+  continuousIntegrationScanConfiguration?: ContinuousIntegrationScanConfiguration | undefined;
+
+  /**
+   * <p>The categories of security rules to be applied during the scan.</p>
+   * @public
+   */
+  ruleSetCategories: RuleSetCategory[] | undefined;
+}
+
+/**
+ * <p>A summary of an association between a code repository and a scan configuration.</p>
+ * @public
+ */
+export interface CodeSecurityScanConfigurationAssociationSummary {
+  /**
+   * <p>Identifies a specific resource in a code repository that will be scanned.</p>
+   * @public
+   */
+  resource?: CodeSecurityResource | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProjectSelectionScope = {
+  ALL: "ALL",
+} as const;
+
+/**
+ * @public
+ */
+export type ProjectSelectionScope = (typeof ProjectSelectionScope)[keyof typeof ProjectSelectionScope];
+
+/**
+ * <p>Defines the scope of repositories to be included in code security scans.</p>
+ * @public
+ */
+export interface ScopeSettings {
+  /**
+   * <p>The scope of projects to be selected for scanning within the integrated repositories.
+   *          Setting the value to <code>ALL</code> applies the scope settings to all existing and future
+   *          projects imported into Amazon Inspector.</p>
+   * @public
+   */
+  projectSelectionScope?: ProjectSelectionScope | undefined;
+}
+
+/**
+ * <p>A summary of information about a code security scan configuration.</p>
+ * @public
+ */
+export interface CodeSecurityScanConfigurationSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the scan configuration.</p>
+   * @public
+   */
+  scanConfigurationArn: string | undefined;
+
+  /**
+   * <p>The name of the scan configuration.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the scan configuration.</p>
+   * @public
+   */
+  ownerAccountId: string | undefined;
+
+  /**
+   * <p>The frequency at which periodic scans are performed.</p>
+   * @public
+   */
+  periodicScanFrequency?: PeriodicScanFrequency | undefined;
+
+  /**
+   * <p>The schedule expression for periodic scans, in cron format.</p>
+   * @public
+   */
+  frequencyExpression?: string | undefined;
+
+  /**
+   * <p>The repository events that trigger continuous integration scans.</p>
+   * @public
+   */
+  continuousIntegrationScanSupportedEvents?: ContinuousIntegrationScanEvent[] | undefined;
+
+  /**
+   * <p>The categories of security rules applied during the scan.</p>
+   * @public
+   */
+  ruleSetCategories: RuleSetCategory[] | undefined;
+
+  /**
+   * <p>The scope settings that define which repositories will be scanned. If the
+   *             <code>ScopeSetting</code> parameter is <code>ALL</code> the scan configuration applies
+   *          to all existing and future projects imported into Amazon Inspector.</p>
+   * @public
+   */
+  scopeSettings?: ScopeSettings | undefined;
+
+  /**
+   * <p>The tags associated with the scan configuration.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Contains information on the code vulnerability identified in your Lambda
+ *          function.</p>
  * @public
  */
 export interface CodeVulnerabilityDetails {
@@ -4662,7 +5793,10 @@ export interface CodeVulnerabilityDetails {
   filePath: CodeFilePath | undefined;
 
   /**
-   * <p>The detector tag associated with the vulnerability. Detector tags group related vulnerabilities by common themes or tactics. For a list of available tags by programming language, see <a href="https://docs.aws.amazon.com/codeguru/detector-library/java/tags/">Java tags</a>, or <a href="https://docs.aws.amazon.com/codeguru/detector-library/python/tags/">Python tags</a>. </p>
+   * <p>The detector tag associated with the vulnerability. Detector tags group related
+   *          vulnerabilities by common themes or tactics. For a list of available tags by programming
+   *          language, see <a href="https://docs.aws.amazon.com/codeguru/detector-library/java/tags/">Java
+   *             tags</a>, or <a href="https://docs.aws.amazon.com/codeguru/detector-library/python/tags/">Python tags</a>. </p>
    * @public
    */
   detectorTags?: string[] | undefined;
@@ -4680,26 +5814,30 @@ export interface CodeVulnerabilityDetails {
   ruleId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda layer that the code vulnerability was detected in.</p>
+   * <p>The Amazon Resource Name (ARN) of the Lambda layer that the code vulnerability was
+   *          detected in.</p>
    * @public
    */
   sourceLambdaLayerArn?: string | undefined;
 
   /**
-   * <p>The ID for the Amazon CodeGuru detector associated with the finding. For more information on detectors see <a href="https://docs.aws.amazon.com/codeguru/detector-library">Amazon CodeGuru
-   *          Detector Library</a>.</p>
+   * <p>The ID for the Amazon CodeGuru detector associated with the finding. For more
+   *          information on detectors see <a href="https://docs.aws.amazon.com/codeguru/detector-library">Amazon CodeGuru Detector Library</a>.</p>
    * @public
    */
   detectorId: string | undefined;
 
   /**
-   * <p>The name of the detector used to identify the code vulnerability. For more information on detectors see <a href="https://docs.aws.amazon.com/codeguru/detector-library">CodeGuru Detector Library</a>.</p>
+   * <p>The name of the detector used to identify the code vulnerability. For more information
+   *          on detectors see <a href="https://docs.aws.amazon.com/codeguru/detector-library">CodeGuru
+   *             Detector Library</a>.</p>
    * @public
    */
   detectorName: string | undefined;
 
   /**
-   * <p>The Common Weakness Enumeration (CWE) item associated with the detected vulnerability.</p>
+   * <p>The Common Weakness Enumeration (CWE) item associated with the detected
+   *          vulnerability.</p>
    * @public
    */
   cwes: string[] | undefined;
@@ -4730,38 +5868,18 @@ export interface ComputePlatform {
 }
 
 /**
- * <p>A conflict occurred.</p>
+ * @public
+ * @enum
+ */
+export const ConfigurationLevel = {
+  ACCOUNT: "ACCOUNT",
+  ORGANIZATION: "ORGANIZATION",
+} as const;
+
+/**
  * @public
  */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the conflicting resource.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the conflicting resource.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
+export type ConfigurationLevel = (typeof ConfigurationLevel)[keyof typeof ConfigurationLevel];
 
 /**
  * @public
@@ -4904,12 +6022,15 @@ export interface CoverageNumberFilter {
 }
 
 /**
- * <p>A structure that identifies filter criteria for <code>GetCoverageStatistics</code>.</p>
+ * <p>A structure that identifies filter criteria for
+ *          <code>GetCoverageStatistics</code>.</p>
  * @public
  */
 export interface CoverageFilterCriteria {
   /**
-   * <p>The scan status code to filter on. Valid values are: <code>ValidationException</code>, <code>InternalServerException</code>, <code>ResourceNotFoundException</code>, <code>BadRequestException</code>, and <code>ThrottlingException</code>.</p>
+   * <p>The scan status code to filter on. Valid values are: <code>ValidationException</code>,
+   *             <code>InternalServerException</code>, <code>ResourceNotFoundException</code>,
+   *             <code>BadRequestException</code>, and <code>ThrottlingException</code>.</p>
    * @public
    */
   scanStatusCode?: CoverageStringFilter[] | undefined;
@@ -4933,7 +6054,10 @@ export interface CoverageFilterCriteria {
   resourceId?: CoverageStringFilter[] | undefined;
 
   /**
-   * <p>An array of Amazon Web Services resource types to return coverage statistics for. The values can be <code>AWS_EC2_INSTANCE</code>, <code>AWS_LAMBDA_FUNCTION</code>, <code>AWS_ECR_CONTAINER_IMAGE</code>,  <code>AWS_ECR_REPOSITORY</code> or <code>AWS_ACCOUNT</code>.</p>
+   * <p>An array of Amazon Web Services resource types to return coverage statistics for. The values can be
+   *             <code>AWS_EC2_INSTANCE</code>, <code>AWS_LAMBDA_FUNCTION</code>,
+   *             <code>AWS_ECR_CONTAINER_IMAGE</code>, <code>AWS_ECR_REPOSITORY</code> or
+   *             <code>AWS_ACCOUNT</code>.</p>
    * @public
    */
   resourceType?: CoverageStringFilter[] | undefined;
@@ -4963,31 +6087,36 @@ export interface CoverageFilterCriteria {
   ec2InstanceTags?: CoverageMapFilter[] | undefined;
 
   /**
-   * <p>Returns coverage statistics for Amazon Web Services Lambda functions filtered by function names.</p>
+   * <p>Returns coverage statistics for Amazon Web Services Lambda functions filtered by function
+   *          names.</p>
    * @public
    */
   lambdaFunctionName?: CoverageStringFilter[] | undefined;
 
   /**
-   * <p>Returns coverage statistics for Amazon Web Services Lambda functions filtered by tag.</p>
+   * <p>Returns coverage statistics for Amazon Web Services Lambda functions filtered by
+   *          tag.</p>
    * @public
    */
   lambdaFunctionTags?: CoverageMapFilter[] | undefined;
 
   /**
-   * <p>Returns coverage statistics for Amazon Web Services Lambda functions filtered by runtime.</p>
+   * <p>Returns coverage statistics for Amazon Web Services Lambda functions filtered by
+   *          runtime.</p>
    * @public
    */
   lambdaFunctionRuntime?: CoverageStringFilter[] | undefined;
 
   /**
-   * <p>Filters Amazon Web Services resources based on whether Amazon Inspector has checked them for vulnerabilities within the specified time range.</p>
+   * <p>Filters Amazon Web Services resources based on whether Amazon Inspector has checked them for vulnerabilities
+   *          within the specified time range.</p>
    * @public
    */
   lastScannedAt?: CoverageDateFilter[] | undefined;
 
   /**
-   * <p>The filter to search for Amazon EC2 instance coverage by scan mode. Valid values are <code>EC2_SSM_AGENT_BASED</code> and <code>EC2_AGENTLESS</code>.</p>
+   * <p>The filter to search for Amazon EC2 instance coverage by scan mode. Valid values are
+   *             <code>EC2_SSM_AGENT_BASED</code> and <code>EC2_AGENTLESS</code>.</p>
    * @public
    */
   scanMode?: CoverageStringFilter[] | undefined;
@@ -5009,6 +6138,32 @@ export interface CoverageFilterCriteria {
    * @public
    */
   ecrImageInUseCount?: CoverageNumberFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for code repositories based on project name.</p>
+   * @public
+   */
+  codeRepositoryProjectName?: CoverageStringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for code repositories based on provider type (such as GitHub, GitLab,
+   *          etc.).</p>
+   * @public
+   */
+  codeRepositoryProviderType?: CoverageStringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for code repositories based on visibility setting (public or
+   *          private).</p>
+   * @public
+   */
+  codeRepositoryProviderTypeVisibility?: CoverageStringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for code repositories based on the ID of the last scanned commit.</p>
+   * @public
+   */
+  lastScannedCommitId?: CoverageStringFilter[] | undefined;
 }
 
 /**
@@ -5020,6 +6175,7 @@ export const CoverageResourceType = {
   AWS_ECR_CONTAINER_IMAGE: "AWS_ECR_CONTAINER_IMAGE",
   AWS_ECR_REPOSITORY: "AWS_ECR_REPOSITORY",
   AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
+  CODE_REPOSITORY: "CODE_REPOSITORY",
 } as const;
 
 /**
@@ -5085,7 +6241,8 @@ export interface EcrContainerImageMetadata {
   imagePulledAt?: Date | undefined;
 
   /**
-   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or Amazon EKS pod.</p>
+   * <p>The last time an Amazon ECR image was used in an Amazon ECS task or
+   *             Amazon EKS pod.</p>
    * @public
    */
   lastInUseAt?: Date | undefined;
@@ -5142,7 +6299,8 @@ export interface LambdaFunctionMetadata {
   functionTags?: Record<string, string> | undefined;
 
   /**
-   * <p>The layers for an Amazon Web Services Lambda function. A Lambda function can have up to five layers.</p>
+   * <p>The layers for an Amazon Web Services Lambda function. A Lambda function can have up to
+   *          five layers.</p>
    * @public
    */
   layers?: string[] | undefined;
@@ -5184,10 +6342,17 @@ export interface ResourceScanMetadata {
   ec2?: Ec2Metadata | undefined;
 
   /**
-   * <p>An object that contains metadata details for an Amazon Web Services Lambda function.</p>
+   * <p>An object that contains metadata details for an Amazon Web Services Lambda
+   *          function.</p>
    * @public
    */
   lambdaFunction?: LambdaFunctionMetadata | undefined;
+
+  /**
+   * <p>Contains metadata about scan coverage for a code repository resource.</p>
+   * @public
+   */
+  codeRepository?: CodeRepositoryMetadata | undefined;
 }
 
 /**
@@ -5203,126 +6368,6 @@ export const ScanMode = {
  * @public
  */
 export type ScanMode = (typeof ScanMode)[keyof typeof ScanMode];
-
-/**
- * @public
- * @enum
- */
-export const ScanStatusReason = {
-  ACCESS_DENIED: "ACCESS_DENIED",
-  AGENTLESS_INSTANCE_COLLECTION_TIME_LIMIT_EXCEEDED: "AGENTLESS_INSTANCE_COLLECTION_TIME_LIMIT_EXCEEDED",
-  AGENTLESS_INSTANCE_STORAGE_LIMIT_EXCEEDED: "AGENTLESS_INSTANCE_STORAGE_LIMIT_EXCEEDED",
-  DEEP_INSPECTION_COLLECTION_TIME_LIMIT_EXCEEDED: "DEEP_INSPECTION_COLLECTION_TIME_LIMIT_EXCEEDED",
-  DEEP_INSPECTION_DAILY_SSM_INVENTORY_LIMIT_EXCEEDED: "DEEP_INSPECTION_DAILY_SSM_INVENTORY_LIMIT_EXCEEDED",
-  DEEP_INSPECTION_NO_INVENTORY: "DEEP_INSPECTION_NO_INVENTORY",
-  DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED: "DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED",
-  EC2_INSTANCE_STOPPED: "EC2_INSTANCE_STOPPED",
-  EXCLUDED_BY_TAG: "EXCLUDED_BY_TAG",
-  IMAGE_SIZE_EXCEEDED: "IMAGE_SIZE_EXCEEDED",
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-  NO_INVENTORY: "NO_INVENTORY",
-  NO_RESOURCES_FOUND: "NO_RESOURCES_FOUND",
-  PENDING_DISABLE: "PENDING_DISABLE",
-  PENDING_INITIAL_SCAN: "PENDING_INITIAL_SCAN",
-  PENDING_REVIVAL_SCAN: "PENDING_REVIVAL_SCAN",
-  RESOURCE_TERMINATED: "RESOURCE_TERMINATED",
-  SCAN_ELIGIBILITY_EXPIRED: "SCAN_ELIGIBILITY_EXPIRED",
-  SCAN_FREQUENCY_MANUAL: "SCAN_FREQUENCY_MANUAL",
-  SCAN_FREQUENCY_SCAN_ON_PUSH: "SCAN_FREQUENCY_SCAN_ON_PUSH",
-  STALE_INVENTORY: "STALE_INVENTORY",
-  SUCCESSFUL: "SUCCESSFUL",
-  UNMANAGED_EC2_INSTANCE: "UNMANAGED_EC2_INSTANCE",
-  UNSUPPORTED_CONFIG_FILE: "UNSUPPORTED_CONFIG_FILE",
-  UNSUPPORTED_MEDIA_TYPE: "UNSUPPORTED_MEDIA_TYPE",
-  UNSUPPORTED_OS: "UNSUPPORTED_OS",
-  UNSUPPORTED_RUNTIME: "UNSUPPORTED_RUNTIME",
-} as const;
-
-/**
- * @public
- */
-export type ScanStatusReason = (typeof ScanStatusReason)[keyof typeof ScanStatusReason];
-
-/**
- * @public
- * @enum
- */
-export const ScanStatusCode = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type ScanStatusCode = (typeof ScanStatusCode)[keyof typeof ScanStatusCode];
-
-/**
- * <p>The status of the scan.</p>
- * @public
- */
-export interface ScanStatus {
-  /**
-   * <p>The status code of the scan.</p>
-   * @public
-   */
-  statusCode: ScanStatusCode | undefined;
-
-  /**
-   * <p>The scan status. Possible return values and descriptions are: </p>
-   *          <p>
-   *             <code>PENDING_INITIAL_SCAN</code> - This resource has been identified for scanning, results will be available soon.</p>
-   *          <p>
-   *             <code>ACCESS_DENIED</code> - Resource access policy restricting Amazon Inspector access. Please update the IAM policy.</p>
-   *          <p>
-   *             <code>INTERNAL_ERROR</code> - Amazon Inspector has encountered an internal error for this resource. Amazon Inspector service will automatically resolve the issue and resume the scanning. No action required from the user.</p>
-   *          <p>
-   *             <code>UNMANAGED_EC2_INSTANCE</code> - The EC2 instance is not managed by SSM, please use the following SSM automation to remediate the issue: <a href="https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshoot-managed-instance.html">https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshoot-managed-instance.html</a>. Once the instance becomes managed by SSM, Inspector will automatically begin scanning this instance. </p>
-   *          <p>
-   *             <code>UNSUPPORTED_OS</code> - Amazon Inspector does not support this OS, architecture, or image manifest type at this time. To see a complete list of supported operating systems see: <a href=" https://docs.aws.amazon.com/inspector/latest/user/supported.html">https://docs.aws.amazon.com/inspector/latest/user/supported.html</a>.</p>
-   *          <p>
-   *             <code>SCAN_ELIGIBILITY_EXPIRED</code> - The configured scan duration has lapsed for this image.</p>
-   *          <p>
-   *             <code>RESOURCE_TERMINATED</code> - This resource has been terminated. The findings and coverage associated with this resource are in the process of being cleaned up.</p>
-   *          <p>
-   *             <code>SUCCESSFUL</code> - The scan was successful.</p>
-   *          <p>
-   *             <code>NO_RESOURCES_FOUND</code> - Reserved for future use.</p>
-   *          <p>
-   *             <code>IMAGE_SIZE_EXCEEDED</code> - Reserved for future use.</p>
-   *          <p>
-   *             <code>SCAN_FREQUENCY_MANUAL</code> - This image will not be covered by Amazon Inspector due to the repository scan frequency configuration.</p>
-   *          <p>
-   *             <code>SCAN_FREQUENCY_SCAN_ON_PUSH </code>- This image will be scanned one time and will not new findings because of the scan frequency configuration.</p>
-   *          <p>
-   *             <code>EC2_INSTANCE_STOPPED</code> - This EC2 instance is in a stopped state, therefore, Amazon Inspector will pause scanning. The existing findings will continue to exist until the instance is terminated. Once the instance is re-started, Inspector will automatically start scanning the instance again. Please note that you will not be charged for this instance while it’s in a stopped state.</p>
-   *          <p>
-   *             <code>PENDING_DISABLE</code> - This resource is pending cleanup during disablement. The customer will not be billed while a resource is in the pending disable status.</p>
-   *          <p>
-   *             <code>NO INVENTORY</code> - Amazon Inspector couldn’t find software application inventory to scan for vulnerabilities. This might be caused due to required Amazon Inspector associations being deleted or failing to run on your resource. Please verify the status of <code>InspectorInventoryCollection-do-not-delete</code>  association in the SSM console for the resource. Additionally, you can verify the instance’s inventory in the SSM Fleet Manager console.</p>
-   *          <p>
-   *             <code>STALE_INVENTORY</code> - Amazon Inspector wasn’t able to collect an updated software application inventory in the last 7 days. Please confirm the required Amazon Inspector associations still exist and you can still see an updated inventory in the SSM console.</p>
-   *          <p>
-   *             <code>EXCLUDED_BY_TAG</code> - This resource was not scanned because it has been excluded by a tag.</p>
-   *          <p>
-   *             <code>UNSUPPORTED_RUNTIME</code> - The function was not scanned because it has an unsupported runtime. To see a complete list of supported runtimes see: <a href=" https://docs.aws.amazon.com/inspector/latest/user/supported.html">https://docs.aws.amazon.com/inspector/latest/user/supported.html</a>.</p>
-   *          <p>
-   *             <code>UNSUPPORTED_MEDIA_TYPE </code>- The ECR image has an unsupported media type.</p>
-   *          <p>
-   *             <code>UNSUPPORTED_CONFIG_FILE</code> - Reserved for future use.</p>
-   *          <p>
-   *             <code>DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED</code> - The instance has exceeded the 5000 package limit for Amazon Inspector Deep inspection. To resume Deep inspection for this instance you can try to adjust the custom paths associated with the account.</p>
-   *          <p>
-   *             <code>DEEP_INSPECTION_DAILY_SSM_INVENTORY_LIMIT_EXCEEDED</code> - The SSM agent couldn't send inventory to Amazon Inspector because the SSM quota for Inventory data collected per instance per day has already been reached for this instance.</p>
-   *          <p>
-   *             <code>DEEP_INSPECTION_COLLECTION_TIME_LIMIT_EXCEEDED</code> - Amazon Inspector failed to extract the package inventory because the package collection time exceeding the maximum threshold of 15 minutes.</p>
-   *          <p>
-   *             <code>DEEP_INSPECTION_NO_INVENTORY</code>  The Amazon Inspector plugin hasn't yet been able to collect an inventory of packages for this instance. This is usually the result of a pending scan, however, if this status persists after 6 hours, use SSM to ensure that the required Amazon Inspector associations exist and are running for the instance.</p>
-   *          <p/>
-   * @public
-   */
-  reason: ScanStatusReason | undefined;
-}
 
 /**
  * @public
@@ -5422,10 +6467,8 @@ export interface CreateCisScanConfigurationRequest {
   scanName: string | undefined;
 
   /**
-   * <p>
-   *          The security level for the CIS scan configuration.
-   *          Security level refers to the Benchmark levels that CIS assigns to a profile.
-   *       </p>
+   * <p> The security level for the CIS scan configuration. Security level refers to the
+   *          Benchmark levels that CIS assigns to a profile. </p>
    * @public
    */
   securityLevel: CisSecurityLevel | undefined;
@@ -5458,6 +6501,170 @@ export interface CreateCisScanConfigurationResponse {
    * @public
    */
   scanConfigurationArn?: string | undefined;
+}
+
+/**
+ * <p>Contains details required to create an integration with a self-managed GitLab
+ *          instance.</p>
+ * @public
+ */
+export interface CreateGitLabSelfManagedIntegrationDetail {
+  /**
+   * <p>The URL of the self-managed GitLab instance.</p>
+   * @public
+   */
+  instanceUrl: string | undefined;
+
+  /**
+   * <p>The personal access token used to authenticate with the self-managed GitLab
+   *          instance.</p>
+   * @public
+   */
+  accessToken: string | undefined;
+}
+
+/**
+ * <p>Contains details required to create a code security integration with a specific
+ *          repository provider.</p>
+ * @public
+ */
+export type CreateIntegrationDetail =
+  | CreateIntegrationDetail.GitlabSelfManagedMember
+  | CreateIntegrationDetail.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CreateIntegrationDetail {
+  /**
+   * <p>Details specific to creating an integration with a self-managed GitLab instance.</p>
+   * @public
+   */
+  export interface GitlabSelfManagedMember {
+    gitlabSelfManaged: CreateGitLabSelfManagedIntegrationDetail;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    gitlabSelfManaged?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    gitlabSelfManaged: (value: CreateGitLabSelfManagedIntegrationDetail) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: CreateIntegrationDetail, visitor: Visitor<T>): T => {
+    if (value.gitlabSelfManaged !== undefined) return visitor.gitlabSelfManaged(value.gitlabSelfManaged);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateCodeSecurityIntegrationRequest {
+  /**
+   * <p>The name of the code security integration.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of repository provider for the integration.</p>
+   * @public
+   */
+  type: IntegrationType | undefined;
+
+  /**
+   * <p>The integration details specific to the repository provider type.</p>
+   * @public
+   */
+  details?: CreateIntegrationDetail | undefined;
+
+  /**
+   * <p>The tags to apply to the code security integration.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCodeSecurityIntegrationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created code security integration.</p>
+   * @public
+   */
+  integrationArn: string | undefined;
+
+  /**
+   * <p>The current status of the code security integration.</p>
+   * @public
+   */
+  status: IntegrationStatus | undefined;
+
+  /**
+   * <p>The URL used to authorize the integration with the repository provider.</p>
+   * @public
+   */
+  authorizationUrl?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCodeSecurityScanConfigurationRequest {
+  /**
+   * <p>The name of the scan configuration.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The security level for the scan configuration.</p>
+   * @public
+   */
+  level: ConfigurationLevel | undefined;
+
+  /**
+   * <p>The configuration settings for the code security scan.</p>
+   * @public
+   */
+  configuration: CodeSecurityScanConfiguration | undefined;
+
+  /**
+   * <p>The scope settings that define which repositories will be scanned. Include this
+   *          parameter to create a default scan configuration. Otherwise Amazon Inspector creates a general scan
+   *          configuration. </p>
+   *          <p>A default scan configuration automatically applies to all existing and future projects
+   *          imported into Amazon Inspector. Use the <code>BatchAssociateCodeSecurityScanConfiguration</code>
+   *          operation to associate a general scan configuration with projects.</p>
+   * @public
+   */
+  scopeSettings?: ScopeSettings | undefined;
+
+  /**
+   * <p>The tags to apply to the scan configuration.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCodeSecurityScanConfigurationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created scan configuration.</p>
+   * @public
+   */
+  scanConfigurationArn: string | undefined;
 }
 
 /**
@@ -5588,7 +6795,8 @@ export interface FilterCriteria {
   lastObservedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>Details on the date and time a finding was last updated at used to filter findings.</p>
+   * <p>Details on the date and time a finding was last updated at used to filter
+   *          findings.</p>
    * @public
    */
   updatedAt?: DateFilter[] | undefined;
@@ -5690,7 +6898,8 @@ export interface FilterCriteria {
   ecrImageLastInUseAt?: DateFilter[] | undefined;
 
   /**
-   * <p>Filter criteria indicating when details for an Amazon ECR image include when an Amazon ECR image is in use.</p>
+   * <p>Filter criteria indicating when details for an Amazon ECR image include when an
+   *             Amazon ECR image is in use.</p>
    * @public
    */
   ecrImageInUseCount?: NumberFilter[] | undefined;
@@ -5750,32 +6959,39 @@ export interface FilterCriteria {
   relatedVulnerabilities?: StringFilter[] | undefined;
 
   /**
-   * <p>Details on whether a fix is available through a version update. This value can be <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>.  A <code>PARTIAL</code> fix means that some, but not all, of the packages identified in the finding have fixes available through updated versions.</p>
+   * <p>Details on whether a fix is available through a version update. This value can be
+   *             <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>. A <code>PARTIAL</code> fix
+   *          means that some, but not all, of the packages identified in the finding have fixes
+   *          available through updated versions.</p>
    * @public
    */
   fixAvailable?: StringFilter[] | undefined;
 
   /**
-   * <p>Filters the list of Amazon Web Services Lambda functions by the name of the function.</p>
+   * <p>Filters the list of Amazon Web Services Lambda functions by the name of the
+   *          function.</p>
    * @public
    */
   lambdaFunctionName?: StringFilter[] | undefined;
 
   /**
-   * <p>Filters the list of Amazon Web Services Lambda functions by the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
-   *          layers</a>. A Lambda function can have up to five layers.</p>
+   * <p>Filters the list of Amazon Web Services Lambda functions by the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html"> layers</a>. A
+   *          Lambda function can have up to five layers.</p>
    * @public
    */
   lambdaFunctionLayers?: StringFilter[] | undefined;
 
   /**
-   * <p>Filters the list of Amazon Web Services Lambda functions by the runtime environment for the Lambda function.</p>
+   * <p>Filters the list of Amazon Web Services Lambda functions by the runtime environment for
+   *          the Lambda function.</p>
    * @public
    */
   lambdaFunctionRuntime?: StringFilter[] | undefined;
 
   /**
-   * <p>Filters the list of Amazon Web Services Lambda functions by the date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>
+   * <p>Filters the list of Amazon Web Services Lambda functions by the date and time that a user
+   *          last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601
+   *          format</a>
    *          </p>
    * @public
    */
@@ -5788,25 +7004,31 @@ export interface FilterCriteria {
   lambdaFunctionExecutionRoleArn?: StringFilter[] | undefined;
 
   /**
-   * <p>Filters the list of Amazon Web Services Lambda findings by the availability of exploits.</p>
+   * <p>Filters the list of Amazon Web Services Lambda findings by the availability of
+   *          exploits.</p>
    * @public
    */
   exploitAvailable?: StringFilter[] | undefined;
 
   /**
-   * <p>The name of the detector used to identify a code vulnerability in a Lambda function used to filter findings.</p>
+   * <p>The name of the detector used to identify a code vulnerability in a Lambda function used
+   *          to filter findings.</p>
    * @public
    */
   codeVulnerabilityDetectorName?: StringFilter[] | undefined;
 
   /**
-   * <p>The detector type tag associated with the vulnerability used to filter findings. Detector tags group related vulnerabilities by common themes or tactics. For a list of available tags by programming language, see <a href="https://docs.aws.amazon.com/codeguru/detector-library/java/tags/">Java tags</a>, or <a href="https://docs.aws.amazon.com/codeguru/detector-library/python/tags/">Python tags</a>. </p>
+   * <p>The detector type tag associated with the vulnerability used to filter findings.
+   *          Detector tags group related vulnerabilities by common themes or tactics. For a list of
+   *          available tags by programming language, see <a href="https://docs.aws.amazon.com/codeguru/detector-library/java/tags/">Java tags</a>, or <a href="https://docs.aws.amazon.com/codeguru/detector-library/python/tags/">Python tags</a>.
+   *       </p>
    * @public
    */
   codeVulnerabilityDetectorTags?: StringFilter[] | undefined;
 
   /**
-   * <p>The file path to the file in a Lambda function that contains a code vulnerability used to filter findings.</p>
+   * <p>The file path to the file in a Lambda function that contains a code vulnerability used
+   *          to filter findings.</p>
    * @public
    */
   codeVulnerabilityFilePath?: StringFilter[] | undefined;
@@ -5816,6 +7038,19 @@ export interface FilterCriteria {
    * @public
    */
   epssScore?: NumberFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for findings based on the project name in a code repository.</p>
+   * @public
+   */
+  codeRepositoryProjectName?: StringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for findings based on the repository provider type (such as GitHub,
+   *          GitLab, etc.).</p>
+   * @public
+   */
+  codeRepositoryProviderType?: StringFilter[] | undefined;
 }
 
 /**
@@ -6129,7 +7364,8 @@ export const Currency = {
 export type Currency = (typeof Currency)[keyof typeof Currency];
 
 /**
- * <p>The Common Vulnerability Scoring System (CVSS) version 2 details for the vulnerability.</p>
+ * <p>The Common Vulnerability Scoring System (CVSS) version 2 details for the
+ *          vulnerability.</p>
  * @public
  */
 export interface Cvss2 {
@@ -6147,7 +7383,8 @@ export interface Cvss2 {
 }
 
 /**
- * <p>The Common Vulnerability Scoring System (CVSS) version 3 details for the vulnerability.</p>
+ * <p>The Common Vulnerability Scoring System (CVSS) version 3 details for the
+ *          vulnerability.</p>
  * @public
  */
 export interface Cvss3 {
@@ -6353,6 +7590,50 @@ export interface DeleteCisScanConfigurationResponse {
 /**
  * @public
  */
+export interface DeleteCodeSecurityIntegrationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the code security integration to delete.</p>
+   * @public
+   */
+  integrationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCodeSecurityIntegrationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted code security integration.</p>
+   * @public
+   */
+  integrationArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCodeSecurityScanConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the scan configuration to delete.</p>
+   * @public
+   */
+  scanConfigurationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCodeSecurityScanConfigurationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted scan configuration.</p>
+   * @public
+   */
+  scanConfigurationArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteFilterRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the filter to be deleted.</p>
@@ -6388,7 +7669,8 @@ export interface DescribeOrganizationConfigurationResponse {
   autoEnable?: AutoEnable | undefined;
 
   /**
-   * <p>Represents whether your organization has reached the maximum Amazon Web Services account limit for Amazon Inspector.</p>
+   * <p>Represents whether your organization has reached the maximum Amazon Web Services account limit for
+   *          Amazon Inspector.</p>
    * @public
    */
   maxAccountLimitReached?: boolean | undefined;
@@ -6399,6 +7681,7 @@ export interface DescribeOrganizationConfigurationResponse {
  * @enum
  */
 export const ResourceScanType = {
+  CODE_REPOSITORY: "CODE_REPOSITORY",
   EC2: "EC2",
   ECR: "ECR",
   LAMBDA: "LAMBDA",
@@ -6649,14 +7932,16 @@ export const EcrRescanDurationStatus = {
 export type EcrRescanDurationStatus = (typeof EcrRescanDurationStatus)[keyof typeof EcrRescanDurationStatus];
 
 /**
- * <p>Details about the state of your ECR re-scan duration settings. The ECR re-scan duration defines how long an ECR image will be actively scanned by Amazon Inspector. When the number of days since an image was last pushed exceeds the duration configured for image pull date, and the duration configured for image pull date, the monitoring state of that image becomes <code>inactive</code> and all associated findings are scheduled for closure.</p>
+ * <p>Details about the state of your ECR re-scan duration settings. The ECR re-scan duration
+ *          defines how long an ECR image will be actively scanned by Amazon Inspector. When the number of days
+ *          since an image was last pushed exceeds the duration configured for image pull date, and the
+ *          duration configured for image pull date, the monitoring state of that image becomes
+ *             <code>inactive</code> and all associated findings are scheduled for closure.</p>
  * @public
  */
 export interface EcrRescanDurationState {
   /**
-   * <p>The rescan duration configured for image push date.
-   *
-   *          </p>
+   * <p>The rescan duration configured for image push date. </p>
    * @public
    */
   rescanDuration?: EcrRescanDuration | undefined;
@@ -6668,7 +7953,8 @@ export interface EcrRescanDurationState {
   status?: EcrRescanDurationStatus | undefined;
 
   /**
-   * <p>A timestamp representing when the last time the ECR scan duration setting was changed.</p>
+   * <p>A timestamp representing when the last time the ECR scan duration setting was
+   *          changed.</p>
    * @public
    */
   updatedAt?: Date | undefined;
@@ -6781,1092 +8067,41 @@ export interface Epss {
 }
 
 /**
- * <p>Details about the Exploit Prediction Scoring System (EPSS) score for a finding.</p>
- * @public
+ * @internal
  */
-export interface EpssDetails {
-  /**
-   * <p>The EPSS score.</p>
-   * @public
-   */
-  score?: number | undefined;
-}
+export const CreateGitLabSelfManagedIntegrationDetailFilterSensitiveLog = (
+  obj: CreateGitLabSelfManagedIntegrationDetail
+): any => ({
+  ...obj,
+  ...(obj.instanceUrl && { instanceUrl: SENSITIVE_STRING }),
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+});
 
 /**
- * <p>The details of an exploit available for a finding discovered in your environment.</p>
- * @public
+ * @internal
  */
-export interface ExploitabilityDetails {
-  /**
-   * <p>The date and time of the last exploit associated with a finding discovered in your environment.</p>
-   * @public
-   */
-  lastKnownExploitAt?: Date | undefined;
-}
+export const CreateIntegrationDetailFilterSensitiveLog = (obj: CreateIntegrationDetail): any => {
+  if (obj.gitlabSelfManaged !== undefined)
+    return { gitlabSelfManaged: CreateGitLabSelfManagedIntegrationDetailFilterSensitiveLog(obj.gitlabSelfManaged) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const ExploitAvailable = {
-  NO: "NO",
-  YES: "YES",
-} as const;
+export const CreateCodeSecurityIntegrationRequestFilterSensitiveLog = (
+  obj: CreateCodeSecurityIntegrationRequest
+): any => ({
+  ...obj,
+  ...(obj.details && { details: CreateIntegrationDetailFilterSensitiveLog(obj.details) }),
+});
 
 /**
- * @public
+ * @internal
  */
-export type ExploitAvailable = (typeof ExploitAvailable)[keyof typeof ExploitAvailable];
-
-/**
- * @public
- * @enum
- */
-export const ExternalReportStatus = {
-  CANCELLED: "CANCELLED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ExternalReportStatus = (typeof ExternalReportStatus)[keyof typeof ExternalReportStatus];
-
-/**
- * <p>Details about a filter.</p>
- * @public
- */
-export interface Filter {
-  /**
-   * <p>The Amazon Resource Number (ARN) associated with this filter.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID of the account that created the filter.</p>
-   * @public
-   */
-  ownerId: string | undefined;
-
-  /**
-   * <p>The name of the filter.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>Details on the filter criteria associated with this filter.</p>
-   * @public
-   */
-  criteria: FilterCriteria | undefined;
-
-  /**
-   * <p>The action that is to be applied to the findings that match the filter.</p>
-   * @public
-   */
-  action: FilterAction | undefined;
-
-  /**
-   * <p>The date and time this filter was created at.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The date and time the filter was last updated at.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>A description of the filter.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The reason for the filter.</p>
-   * @public
-   */
-  reason?: string | undefined;
-
-  /**
-   * <p>The tags attached to the filter.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const FixAvailable = {
-  NO: "NO",
-  PARTIAL: "PARTIAL",
-  YES: "YES",
-} as const;
-
-/**
- * @public
- */
-export type FixAvailable = (typeof FixAvailable)[keyof typeof FixAvailable];
-
-/**
- * <p>Information about the Amazon Inspector score given to a finding.</p>
- * @public
- */
-export interface InspectorScoreDetails {
-  /**
-   * <p>An object that contains details about the CVSS score given to a finding.</p>
-   * @public
-   */
-  adjustedCvss?: CvssScoreDetails | undefined;
-}
-
-/**
- * <p>Details about the step associated with a finding.</p>
- * @public
- */
-export interface Step {
-  /**
-   * <p>The component ID.</p>
-   * @public
-   */
-  componentId: string | undefined;
-
-  /**
-   * <p>The component type.</p>
-   * @public
-   */
-  componentType: string | undefined;
-
-  /**
-   * <p>The component ARN. The ARN can be null and is not displayed in the Amazon Web Services console.</p>
-   * @public
-   */
-  componentArn?: string | undefined;
-}
-
-/**
- * <p>Information on the network path associated with a finding.</p>
- * @public
- */
-export interface NetworkPath {
-  /**
-   * <p>The details on the steps in the network path.</p>
-   * @public
-   */
-  steps?: Step[] | undefined;
-}
-
-/**
- * <p>Details about the port range associated with a finding.</p>
- * @public
- */
-export interface PortRange {
-  /**
-   * <p>The beginning port in a port range.</p>
-   * @public
-   */
-  begin: number | undefined;
-
-  /**
-   * <p>The ending port in a port range.</p>
-   * @public
-   */
-  end: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const NetworkProtocol = {
-  TCP: "TCP",
-  UDP: "UDP",
-} as const;
-
-/**
- * @public
- */
-export type NetworkProtocol = (typeof NetworkProtocol)[keyof typeof NetworkProtocol];
-
-/**
- * <p>Contains the details of a network reachability finding.</p>
- * @public
- */
-export interface NetworkReachabilityDetails {
-  /**
-   * <p>An object that contains details about the open port range associated with a finding.</p>
-   * @public
-   */
-  openPortRange: PortRange | undefined;
-
-  /**
-   * <p>The protocol associated with a finding.</p>
-   * @public
-   */
-  protocol: NetworkProtocol | undefined;
-
-  /**
-   * <p>An object that contains details about a network path associated with a finding.</p>
-   * @public
-   */
-  networkPath: NetworkPath | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const PackageManager = {
-  BUNDLER: "BUNDLER",
-  CARGO: "CARGO",
-  COMPOSER: "COMPOSER",
-  DOTNET_CORE: "DOTNET_CORE",
-  GEMSPEC: "GEMSPEC",
-  GOBINARY: "GOBINARY",
-  GOMOD: "GOMOD",
-  JAR: "JAR",
-  NODEPKG: "NODEPKG",
-  NPM: "NPM",
-  NUGET: "NUGET",
-  OS: "OS",
-  PIP: "PIP",
-  PIPENV: "PIPENV",
-  POETRY: "POETRY",
-  POM: "POM",
-  PYTHONPKG: "PYTHONPKG",
-  YARN: "YARN",
-} as const;
-
-/**
- * @public
- */
-export type PackageManager = (typeof PackageManager)[keyof typeof PackageManager];
-
-/**
- * <p>Information on the vulnerable package identified by a finding.</p>
- * @public
- */
-export interface VulnerablePackage {
-  /**
-   * <p>The name of the vulnerable package.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The version of the vulnerable package.</p>
-   * @public
-   */
-  version: string | undefined;
-
-  /**
-   * <p>The source layer hash of the vulnerable package.</p>
-   * @public
-   */
-  sourceLayerHash?: string | undefined;
-
-  /**
-   * <p>The epoch of the vulnerable package.</p>
-   * @public
-   */
-  epoch?: number | undefined;
-
-  /**
-   * <p>The release of the vulnerable package.</p>
-   * @public
-   */
-  release?: string | undefined;
-
-  /**
-   * <p>The architecture of the vulnerable package.</p>
-   * @public
-   */
-  arch?: string | undefined;
-
-  /**
-   * <p>The package manager of the vulnerable package.</p>
-   * @public
-   */
-  packageManager?: PackageManager | undefined;
-
-  /**
-   * <p>The file path of the vulnerable package.</p>
-   * @public
-   */
-  filePath?: string | undefined;
-
-  /**
-   * <p>The version of the package that contains the vulnerability fix.</p>
-   * @public
-   */
-  fixedInVersion?: string | undefined;
-
-  /**
-   * <p>The code to run in your environment to update packages with a fix available.</p>
-   * @public
-   */
-  remediation?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Number (ARN) of the Amazon Web Services Lambda function affected by a finding.</p>
-   * @public
-   */
-  sourceLambdaLayerArn?: string | undefined;
-}
-
-/**
- * <p>Information about a package vulnerability finding.</p>
- * @public
- */
-export interface PackageVulnerabilityDetails {
-  /**
-   * <p>The ID given to this vulnerability.</p>
-   * @public
-   */
-  vulnerabilityId: string | undefined;
-
-  /**
-   * <p>The packages impacted by this vulnerability.</p>
-   * @public
-   */
-  vulnerablePackages?: VulnerablePackage[] | undefined;
-
-  /**
-   * <p>The source of the vulnerability information.</p>
-   * @public
-   */
-  source: string | undefined;
-
-  /**
-   * <p>An object that contains details about the CVSS score of a finding.</p>
-   * @public
-   */
-  cvss?: CvssScore[] | undefined;
-
-  /**
-   * <p>One or more vulnerabilities related to the one identified in this finding.</p>
-   * @public
-   */
-  relatedVulnerabilities?: string[] | undefined;
-
-  /**
-   * <p>A URL to the source of the vulnerability information.</p>
-   * @public
-   */
-  sourceUrl?: string | undefined;
-
-  /**
-   * <p>The severity the vendor has given to this vulnerability type.</p>
-   * @public
-   */
-  vendorSeverity?: string | undefined;
-
-  /**
-   * <p>The date and time that this vulnerability was first added to the vendor's database.</p>
-   * @public
-   */
-  vendorCreatedAt?: Date | undefined;
-
-  /**
-   * <p>The date and time the vendor last updated this vulnerability in their database.</p>
-   * @public
-   */
-  vendorUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>One or more URLs that contain details about this vulnerability type.</p>
-   * @public
-   */
-  referenceUrls?: string[] | undefined;
-}
-
-/**
- * <p>Details about the recommended course of action to remediate the finding.</p>
- * @public
- */
-export interface Recommendation {
-  /**
-   * <p>The recommended course of action to remediate the finding.</p>
-   * @public
-   */
-  text?: string | undefined;
-
-  /**
-   * <p>The URL address to the CVE remediation recommendations.</p>
-   * @public
-   */
-  Url?: string | undefined;
-}
-
-/**
- * <p>Information on how to remediate a finding.</p>
- * @public
- */
-export interface Remediation {
-  /**
-   * <p>An object that contains information about the recommended course of action to remediate the finding.</p>
-   * @public
-   */
-  recommendation?: Recommendation | undefined;
-}
-
-/**
- * <p>Contains details about the resource involved in the finding.</p>
- * @public
- */
-export interface ResourceDetails {
-  /**
-   * <p>An object that contains details about the Amazon EC2 instance involved in the finding.</p>
-   * @public
-   */
-  awsEc2Instance?: AwsEc2InstanceDetails | undefined;
-
-  /**
-   * <p>An object that contains details about the Amazon ECR container image involved in the finding.</p>
-   * @public
-   */
-  awsEcrContainerImage?: AwsEcrContainerImageDetails | undefined;
-
-  /**
-   * <p>A summary of the information about an Amazon Web Services Lambda function affected by a finding.</p>
-   * @public
-   */
-  awsLambdaFunction?: AwsLambdaFunctionDetails | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  AWS_EC2_INSTANCE: "AWS_EC2_INSTANCE",
-  AWS_ECR_CONTAINER_IMAGE: "AWS_ECR_CONTAINER_IMAGE",
-  AWS_ECR_REPOSITORY: "AWS_ECR_REPOSITORY",
-  AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * <p>Details about the resource involved in a finding.</p>
- * @public
- */
-export interface Resource {
-  /**
-   * <p>The type of resource.</p>
-   * @public
-   */
-  type: ResourceType | undefined;
-
-  /**
-   * <p>The ID of the resource.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The partition of the resource.</p>
-   * @public
-   */
-  partition?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region the impacted resource is located in.</p>
-   * @public
-   */
-  region?: string | undefined;
-
-  /**
-   * <p>The tags attached to the resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>An object that contains details about the resource involved in a finding.</p>
-   * @public
-   */
-  details?: ResourceDetails | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const Severity = {
-  CRITICAL: "CRITICAL",
-  HIGH: "HIGH",
-  INFORMATIONAL: "INFORMATIONAL",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-  UNTRIAGED: "UNTRIAGED",
-} as const;
-
-/**
- * @public
- */
-export type Severity = (typeof Severity)[keyof typeof Severity];
-
-/**
- * @public
- * @enum
- */
-export const FindingStatus = {
-  ACTIVE: "ACTIVE",
-  CLOSED: "CLOSED",
-  SUPPRESSED: "SUPPRESSED",
-} as const;
-
-/**
- * @public
- */
-export type FindingStatus = (typeof FindingStatus)[keyof typeof FindingStatus];
-
-/**
- * @public
- * @enum
- */
-export const FindingType = {
-  CODE_VULNERABILITY: "CODE_VULNERABILITY",
-  NETWORK_REACHABILITY: "NETWORK_REACHABILITY",
-  PACKAGE_VULNERABILITY: "PACKAGE_VULNERABILITY",
-} as const;
-
-/**
- * @public
- */
-export type FindingType = (typeof FindingType)[keyof typeof FindingType];
-
-/**
- * <p>Details about an Amazon Inspector finding.</p>
- * @public
- */
-export interface Finding {
-  /**
-   * <p>The Amazon Resource Number (ARN) of the finding.</p>
-   * @public
-   */
-  findingArn: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID associated with the finding.</p>
-   * @public
-   */
-  awsAccountId: string | undefined;
-
-  /**
-   * <p>The type of the finding. The <code>type</code> value determines the valid values for <code>resource</code> in your request. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-types.html">Finding types</a> in the Amazon Inspector user guide.</p>
-   * @public
-   */
-  type: FindingType | undefined;
-
-  /**
-   * <p>The description of the finding.</p>
-   * @public
-   */
-  description: string | undefined;
-
-  /**
-   * <p>The title of the finding.</p>
-   * @public
-   */
-  title?: string | undefined;
-
-  /**
-   * <p>An object that contains the details about how to remediate a finding.</p>
-   * @public
-   */
-  remediation: Remediation | undefined;
-
-  /**
-   * <p>The severity of the finding. <code>UNTRIAGED</code> applies to <code>PACKAGE_VULNERABILITY</code> type findings that the vendor has not assigned a severity yet. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html">Severity levels for findings</a> in the Amazon Inspector user guide.</p>
-   * @public
-   */
-  severity: Severity | undefined;
-
-  /**
-   * <p>The date and time that the finding was first observed.</p>
-   * @public
-   */
-  firstObservedAt: Date | undefined;
-
-  /**
-   * <p>
-   *          The date and time the finding was last observed.
-   *          This timestamp for this field remains unchanged until a finding is updated.
-   *       </p>
-   * @public
-   */
-  lastObservedAt: Date | undefined;
-
-  /**
-   * <p>The date and time the finding was last updated at.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The status of the finding.</p>
-   * @public
-   */
-  status: FindingStatus | undefined;
-
-  /**
-   * <p>Contains information on the resources involved in a finding. The <code>resource</code> value determines the valid values for <code>type</code> in your request. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-types.html">Finding types</a> in the Amazon Inspector user guide.</p>
-   * @public
-   */
-  resources: Resource[] | undefined;
-
-  /**
-   * <p>The Amazon Inspector score given to the finding.</p>
-   * @public
-   */
-  inspectorScore?: number | undefined;
-
-  /**
-   * <p>An object that contains details of the Amazon Inspector score.</p>
-   * @public
-   */
-  inspectorScoreDetails?: InspectorScoreDetails | undefined;
-
-  /**
-   * <p>An object that contains the details of a network reachability finding.</p>
-   * @public
-   */
-  networkReachabilityDetails?: NetworkReachabilityDetails | undefined;
-
-  /**
-   * <p>An object that contains the details of a package vulnerability finding.</p>
-   * @public
-   */
-  packageVulnerabilityDetails?: PackageVulnerabilityDetails | undefined;
-
-  /**
-   * <p>Details on whether a fix is available through a version update. This value can be <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>.  A <code>PARTIAL</code> fix means that some, but not all, of the packages identified in the finding have fixes available through updated versions.</p>
-   * @public
-   */
-  fixAvailable?: FixAvailable | undefined;
-
-  /**
-   * <p>If a finding discovered in your environment has an exploit available.</p>
-   * @public
-   */
-  exploitAvailable?: ExploitAvailable | undefined;
-
-  /**
-   * <p>The details of an exploit available for a finding discovered in your environment.</p>
-   * @public
-   */
-  exploitabilityDetails?: ExploitabilityDetails | undefined;
-
-  /**
-   * <p>Details about the code vulnerability identified in a Lambda function used to filter findings.</p>
-   * @public
-   */
-  codeVulnerabilityDetails?: CodeVulnerabilityDetails | undefined;
-
-  /**
-   * <p>The finding's EPSS score.</p>
-   * @public
-   */
-  epss?: EpssDetails | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCisScanReportRequest {
-  /**
-   * <p>The scan ARN.</p>
-   * @public
-   */
-  scanArn: string | undefined;
-
-  /**
-   * <p>The target accounts.</p>
-   * @public
-   */
-  targetAccounts?: string[] | undefined;
-
-  /**
-   * <p>
-   *          The format of the report.
-   *          Valid values are <code>PDF</code> and <code>CSV</code>.
-   *          If no value is specified, the report format defaults to <code>PDF</code>.
-   *       </p>
-   * @public
-   */
-  reportFormat?: CisReportFormat | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCisScanReportResponse {
-  /**
-   * <p>
-   *          The URL where a PDF or CSV of the CIS scan report can be downloaded.
-   *       </p>
-   * @public
-   */
-  url?: string | undefined;
-
-  /**
-   * <p>The status.</p>
-   * @public
-   */
-  status?: CisReportStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCisScanResultDetailsRequest {
-  /**
-   * <p>The scan ARN.</p>
-   * @public
-   */
-  scanArn: string | undefined;
-
-  /**
-   * <p>The target resource ID.</p>
-   * @public
-   */
-  targetResourceId: string | undefined;
-
-  /**
-   * <p>The account ID.</p>
-   * @public
-   */
-  accountId: string | undefined;
-
-  /**
-   * <p>The filter criteria.</p>
-   * @public
-   */
-  filterCriteria?: CisScanResultDetailsFilterCriteria | undefined;
-
-  /**
-   * <p>The sort by order.</p>
-   * @public
-   */
-  sortBy?: CisScanResultDetailsSortBy | undefined;
-
-  /**
-   * <p>The sort order.</p>
-   * @public
-   */
-  sortOrder?: CisSortOrder | undefined;
-
-  /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of CIS scan result details to be returned in a single page of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCisScanResultDetailsResponse {
-  /**
-   * <p>The scan result details.</p>
-   * @public
-   */
-  scanResultDetails?: CisScanResultDetails[] | undefined;
-
-  /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetClustersForImageRequest {
-  /**
-   * <p>The resource Id for the Amazon ECR image.</p>
-   * @public
-   */
-  filter: ClusterForImageFilterCriteria | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned in a single page of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The pagination token from a previous request used to retrieve the next page of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetClustersForImageResponse {
-  /**
-   * <p>A unit of work inside of a cluster, which can include metadata about the cluster.</p>
-   * @public
-   */
-  cluster: ClusterInformation[] | undefined;
-
-  /**
-   * <p>The pagination token from a previous request used to retrieve the next page of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetConfigurationRequest {}
-
-/**
- * @public
- */
-export interface GetConfigurationResponse {
-  /**
-   * <p>Specifies how the ECR automated re-scan duration is currently configured for your environment.</p>
-   * @public
-   */
-  ecrConfiguration?: EcrConfigurationState | undefined;
-
-  /**
-   * <p>Specifies how the Amazon EC2 automated scan mode is currently configured for your environment.</p>
-   * @public
-   */
-  ec2Configuration?: Ec2ConfigurationState | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDelegatedAdminAccountRequest {}
-
-/**
- * @public
- */
-export interface GetDelegatedAdminAccountResponse {
-  /**
-   * <p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator.</p>
-   * @public
-   */
-  delegatedAdmin?: DelegatedAdmin | undefined;
-}
-
-/**
- * @public
- */
-export interface GetEc2DeepInspectionConfigurationRequest {}
-
-/**
- * @public
- */
-export interface GetEc2DeepInspectionConfigurationResponse {
-  /**
-   * <p>The Amazon Inspector deep inspection custom paths for your account.</p>
-   * @public
-   */
-  packagePaths?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Inspector deep inspection custom paths for your organization.</p>
-   * @public
-   */
-  orgPackagePaths?: string[] | undefined;
-
-  /**
-   * <p>The activation status of Amazon Inspector deep inspection in your account.</p>
-   * @public
-   */
-  status?: Ec2DeepInspectionStatus | undefined;
-
-  /**
-   * <p>An error message explaining why Amazon Inspector deep inspection configurations could not be retrieved for your account.</p>
-   * @public
-   */
-  errorMessage?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetEncryptionKeyRequest {
-  /**
-   * <p>The scan type the key encrypts.</p>
-   * @public
-   */
-  scanType: ScanType | undefined;
-
-  /**
-   * <p>The resource type the key encrypts.</p>
-   * @public
-   */
-  resourceType: ResourceType | undefined;
-}
-
-/**
- * @public
- */
-export interface GetEncryptionKeyResponse {
-  /**
-   * <p>A kms key ID.</p>
-   * @public
-   */
-  kmsKeyId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetFindingsReportStatusRequest {
-  /**
-   * <p>The ID of the report to retrieve the status of.</p>
-   * @public
-   */
-  reportId?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ReportingErrorCode = {
-  BUCKET_NOT_FOUND: "BUCKET_NOT_FOUND",
-  INCOMPATIBLE_BUCKET_REGION: "INCOMPATIBLE_BUCKET_REGION",
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-  INVALID_PERMISSIONS: "INVALID_PERMISSIONS",
-  MALFORMED_KMS_KEY: "MALFORMED_KMS_KEY",
-  NO_FINDINGS_FOUND: "NO_FINDINGS_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type ReportingErrorCode = (typeof ReportingErrorCode)[keyof typeof ReportingErrorCode];
-
-/**
- * @public
- */
-export interface GetFindingsReportStatusResponse {
-  /**
-   * <p>The ID of the report.</p>
-   * @public
-   */
-  reportId?: string | undefined;
-
-  /**
-   * <p>The status of the report.</p>
-   * @public
-   */
-  status?: ExternalReportStatus | undefined;
-
-  /**
-   * <p>The error code of the report.</p>
-   * @public
-   */
-  errorCode?: ReportingErrorCode | undefined;
-
-  /**
-   * <p>The error message of the report.</p>
-   * @public
-   */
-  errorMessage?: string | undefined;
-
-  /**
-   * <p>The destination of the report.</p>
-   * @public
-   */
-  destination?: Destination | undefined;
-
-  /**
-   * <p>The filter criteria associated with the report.</p>
-   * @public
-   */
-  filterCriteria?: FilterCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMemberRequest {
-  /**
-   * <p>The Amazon Web Services account ID of the member account to retrieve information on.</p>
-   * @public
-   */
-  accountId: string | undefined;
-}
-
-/**
- * <p>Details on a member account in your organization.</p>
- * @public
- */
-export interface Member {
-  /**
-   * <p>The Amazon Web Services account ID of the member account.</p>
-   * @public
-   */
-  accountId?: string | undefined;
-
-  /**
-   * <p>The status of the member account.</p>
-   * @public
-   */
-  relationshipStatus?: RelationshipStatus | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator for this member account.</p>
-   * @public
-   */
-  delegatedAdminAccountId?: string | undefined;
-
-  /**
-   * <p>A timestamp showing when the status of this member was last updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMemberResponse {
-  /**
-   * <p>Details of the retrieved member account.</p>
-   * @public
-   */
-  member?: Member | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSbomExportRequest {
-  /**
-   * <p>The report ID of the SBOM export to get details for.</p>
-   * @public
-   */
-  reportId: string | undefined;
-}
+export const CreateCodeSecurityIntegrationResponseFilterSensitiveLog = (
+  obj: CreateCodeSecurityIntegrationResponse
+): any => ({
+  ...obj,
+  ...(obj.authorizationUrl && { authorizationUrl: SENSITIVE_STRING }),
+});

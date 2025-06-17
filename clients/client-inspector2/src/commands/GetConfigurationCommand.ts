@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { GetConfigurationRequest, GetConfigurationResponse } from "../models/models_0";
+import { GetConfigurationRequest, GetConfigurationResponse } from "../models/models_1";
 import { de_GetConfigurationCommand, se_GetConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -68,7 +68,8 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+ *  <p>The operation tried to access an invalid resource. Make sure the resource is specified
+ *          correctly.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>

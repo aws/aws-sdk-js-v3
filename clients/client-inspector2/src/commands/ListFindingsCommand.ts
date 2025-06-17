@@ -173,6 +173,8 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *         lowerInclusive: Number("double"),
  *       },
  *     ],
+ *     codeRepositoryProjectName: "<StringFilterList>",
+ *     codeRepositoryProviderType: "<StringFilterList>",
  *   },
  *   sortCriteria: { // SortCriteria
  *     field: "STRING_VALUE", // required
@@ -264,6 +266,11 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * //                 "STRING_VALUE",
  * //               ],
  * //               lastModifiedAt: new Date("TIMESTAMP"),
+ * //             },
+ * //             codeRepository: { // CodeRepositoryDetails
+ * //               projectName: "STRING_VALUE",
+ * //               integrationArn: "STRING_VALUE",
+ * //               providerType: "STRING_VALUE",
  * //             },
  * //           },
  * //         },

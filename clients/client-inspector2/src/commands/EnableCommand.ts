@@ -56,6 +56,7 @@ export interface EnableCommandOutput extends EnableResponse, __MetadataBearer {}
  * //         ecr: "STRING_VALUE", // required
  * //         lambda: "STRING_VALUE",
  * //         lambdaCode: "STRING_VALUE",
+ * //         codeRepository: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],
@@ -68,6 +69,7 @@ export interface EnableCommandOutput extends EnableResponse, __MetadataBearer {}
  * //         ecr: "STRING_VALUE", // required
  * //         lambda: "STRING_VALUE",
  * //         lambdaCode: "STRING_VALUE",
+ * //         codeRepository: "STRING_VALUE",
  * //       },
  * //       errorCode: "STRING_VALUE", // required
  * //       errorMessage: "STRING_VALUE", // required
@@ -85,12 +87,15 @@ export interface EnableCommandOutput extends EnableResponse, __MetadataBearer {}
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+ *  <p>The operation tried to access an invalid resource. Make sure the resource is specified
+ *          correctly.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
