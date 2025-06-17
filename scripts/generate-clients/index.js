@@ -14,7 +14,6 @@ const {
   TEMP_CODE_GEN_INPUT_DIR,
 } = require("./code-gen-dir");
 const { prettifyCode } = require("./code-prettify");
-const { eslintFixCode } = require("./code-eslint-fix");
 const { buildSmithyTypeScript } = require("./build-smithy-typescript");
 const { SMITHY_TS_COMMIT } = require("./config");
 const { spawnProcess } = require("../utils/spawn-process");
@@ -86,7 +85,6 @@ const {
 
     if (serverOnly === true) {
       await generateProtocolTests();
-      await eslintFixCode();
       await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
       await copyServerTests(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);
 
@@ -107,7 +105,6 @@ const {
       await generateProtocolTests();
     }
 
-    await eslintFixCode();
     if (!protocolTestsOnly) {
       await codeOrdering(CODE_GEN_SDK_OUTPUT_DIR);
       await prettifyCode(CODE_GEN_SDK_OUTPUT_DIR);

@@ -3,7 +3,6 @@ import { exec } from "child_process";
 import decomment from "decomment";
 import { access, readFile, writeFile } from "fs/promises";
 import { join } from "path";
-import prettier from "prettier";
 import { promisify } from "util";
 
 import { getAllFiles } from "./getAllFiles.mjs";
@@ -42,7 +41,8 @@ export const downlevelWorkspace = async (workspacesDir, workspaceName) => {
         const content = await readFile(downlevelTypesFilepath, "utf8");
         const decommentedContent = decomment(content);
         try {
-          const formatted = prettier.format(decommentedContent, { parser: "typescript" });
+          const { formatCode } = await import("../biome/biome.mjs");
+          const formatted = await formatCode(decommentedContent, downlevelTypesFilepath);
           await writeFile(downlevelTypesFilepath, formatted);
         } catch (error) {
           console.warn(`Failed to format "${downlevelTypesFilepath}". Skipping...`);

@@ -152,9 +152,8 @@ const paths = [
         fs.rmSync(path.join(folder, `jest.config.${testType}.js`));
       }
       if (pkgJson.scripts[`test:${script}`]) {
-        pkgJson.scripts[
-          `test:${script}:watch`
-        ] = `npx yarn g:vitest watch -c vitest.config.${testType}.${configExtension}`;
+        pkgJson.scripts[`test:${script}:watch`] =
+          `npx yarn g:vitest watch -c vitest.config.${testType}.${configExtension}`;
         if (
           pkgJson.scripts[`test:${script}`].includes("jest") ||
           pkgJson.scripts[`test:${script}`].includes("vitest")

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
+  "files": {
+    "maxSize": 16000000,
+    "includes": [
+      "{clients,private}/**/*.{mjs,js,ts,json}",
+      "!**/dist-{cjs,es,types}/**",
+      "!**/ruleset.ts"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "lineWidth": 120,
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "bracketSpacing": true,
+    "bracketSameLine": false
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
+  "linter": {
+    "rules": {
+      "recommended": true,
+      "complexity": {
+        "noForEach": "off"
+      },
+      "correctness": {
+        "noUndeclaredVariables": "off",
+        "noUnusedVariables": "off",
+        "noInvalidBuiltinInstantiation": "error"
+      },
+      "style": {
+        "noNamespace": "error",
+        "useConsistentArrayType": {
+          "level": "off",
+          "options": {
+            "syntax": "shorthand"
+          }
+        },
+        "noParameterAssign": "off",
+        "useAsConstAssertion": "off",
+        "useDefaultParameterLast": "off",
+        "useEnumInitializers": "error",
+        "useSingleVarDeclarator": "off",
+        "noUnusedTemplateLiteral": "off",
+        "useNumberNamespace": "off",
+        "noInferrableTypes": "off",
+        "noUselessElse": "off"
+      },
+      "nursery": {
+        "useIterableCallbackReturn": "off"
+      },
+      "suspicious": {
+        "noEmptyBlockStatements": "off",
+        "noExplicitAny": "off",
+        "noImplicitAnyLet": "off",
+        "noEmptyBlock": "off",
+        "noEmptyInterface": "off",
+        "noAssignInExpressions": "off",
+        "noSparseArray": "off"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "trailingCommas": "es5"
+    }
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  }
+}

@@ -40,20 +40,9 @@ async function generateNestedClients() {
     // post-generation transforms
     const clientFolder = join(NESTED_SDK_CLIENTS_DIR, `client-${name}`);
 
-    console.log("================ starting eslint ================", "\n", new Date().toString(), name);
-    try {
-      await spawnProcess("npx", ["eslint", "--quiet", "--fix", `${clientFolder}/src/**/*`]);
-    } catch (ignored) {}
-
-    console.log("================ starting prettier ================", "\n", new Date().toString(), name);
-    await spawnProcess("npx", [
-      "prettier",
-      "--write",
-      "--loglevel",
-      "warn",
-      `${clientFolder}/src/**/*.{md,js,ts,json}`,
-    ]);
-    await spawnProcess("npx", ["prettier", "--write", "--loglevel", "warn", `${clientFolder}/README.md`]);
+    console.log("================ starting biome ================", "\n", new Date().toString(), name);
+    const { checkDir } = await import("../../biome/biome.mjs");
+    await checkDir(clientFolder);
 
     await compressRuleset(name, join(NESTED_SDK_CLIENTS_DIR, `client-${name}`, "src", "endpoint", "ruleset.ts"));
 

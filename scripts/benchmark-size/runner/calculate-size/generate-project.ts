@@ -1,7 +1,6 @@
 import { execa as exec } from "execa";
 import { promises as fsPromise } from "fs";
 import { join } from "path";
-import prettier from "prettier";
 
 import { PackageContext } from "../load-test-scope";
 import type { PackageSizeReportOptions } from "./index";
@@ -14,9 +13,9 @@ export const generateProject = async (projectDir: string, options: PackageSizeRe
   };
   for (const [name, template] of Object.entries(options.templates)) {
     const filePath = join(projectDir, name);
-    const file = prettier.format(template(contextWithPeerDep), {
-      filepath: filePath,
-    });
+    const { formatCode } = await import("../../../biome/biome.mjs");
+    const file = await formatCode(template(contextWithPeerDep), filePath);
+
     await fsPromise.writeFile(filePath, file);
   }
 
