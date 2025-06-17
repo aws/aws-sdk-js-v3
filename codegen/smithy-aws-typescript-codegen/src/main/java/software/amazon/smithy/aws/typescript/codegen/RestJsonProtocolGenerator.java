@@ -68,7 +68,8 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    public Map<String, TreeSet<String>> getErrorAliases(GenerationContext context, Collection<OperationShape> operations) {
+    public Map<String, TreeSet<String>> getErrorAliases(GenerationContext context,
+                                                        Collection<OperationShape> operations) {
         return AwsProtocolUtils.getErrorAliases(context, operations);
     }
 

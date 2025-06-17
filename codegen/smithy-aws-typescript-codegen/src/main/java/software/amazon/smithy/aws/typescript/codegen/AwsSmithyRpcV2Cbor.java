@@ -34,7 +34,8 @@ public final class AwsSmithyRpcV2Cbor extends SmithyRpcV2Cbor {
     }
 
     @Override
-    public Map<String, TreeSet<String>> getErrorAliases(GenerationContext context, Collection<OperationShape> operations) {
+    public Map<String, TreeSet<String>> getErrorAliases(GenerationContext context,
+                                                        Collection<OperationShape> operations) {
         return AwsProtocolUtils.getErrorAliases(context, operations);
     }
 

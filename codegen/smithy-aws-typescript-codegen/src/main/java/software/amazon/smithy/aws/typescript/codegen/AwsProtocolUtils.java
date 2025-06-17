@@ -309,7 +309,8 @@ final class AwsProtocolUtils {
     /**
      * @return map of error full shape id to alias strings having AwsQueryCompat error code.
      */
-    static Map<String, TreeSet<String>> getErrorAliases(GenerationContext context, Collection<OperationShape> operations) {
+    static Map<String, TreeSet<String>> getErrorAliases(GenerationContext context,
+                                                        Collection<OperationShape> operations) {
         Map<String, TreeSet<String>> aliases = new HashMap<>();
         ServiceShape service = context.getService();
         boolean awsQueryCompatible = service.hasTrait(AwsQueryCompatibleTrait.class);
