@@ -203,7 +203,10 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                     .build())
                 .putDefaultSigner(LanguageTarget.SHARED, w -> w
                     .addDependency(AwsDependency.AWS_SDK_CORE)
-                    .addImport("AwsSdkSigV4Signer", null, AwsDependency.AWS_SDK_CORE)
+                    .addImportSubmodule(
+                        "AwsSdkSigV4Signer", null,
+                        AwsDependency.AWS_SDK_CORE, "/httpAuthSchemes"
+                    )
                     .write("new AwsSdkSigV4Signer()"))
                 .build();
             supportedHttpAuthSchemesIndex.putHttpAuthScheme(authScheme.getSchemeId(), authScheme);
@@ -237,7 +240,10 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                         .build())
                     .putDefaultSigner(LanguageTarget.SHARED, w -> w
                         .addDependency(AwsDependency.AWS_SDK_CORE)
-                        .addImport("AwsSdkSigV4ASigner", null, AwsDependency.AWS_SDK_CORE)
+                        .addImportSubmodule(
+                            "AwsSdkSigV4ASigner", null,
+                            AwsDependency.AWS_SDK_CORE, "/httpAuthSchemes"
+                        )
                         .write("new AwsSdkSigV4ASigner()"))
                     .build();
                 supportedHttpAuthSchemesIndex.putHttpAuthScheme(authSchemeSigV4a.getSchemeId(), authSchemeSigV4a);

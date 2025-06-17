@@ -112,7 +112,10 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         writer.addUseImports(getApplicationProtocol().getResponseType());
         writer.addImport("take", null, TypeScriptDependency.AWS_SMITHY_CLIENT);
         writer.addDependency(AwsDependency.AWS_SDK_CORE);
-        writer.addImport("loadRestJsonErrorCode", null, AwsDependency.AWS_SDK_CORE);
+        writer.addImportSubmodule(
+            "loadRestJsonErrorCode", null,
+            AwsDependency.AWS_SDK_CORE, "/protocols"
+        );
 
         writer.write(
             context.getStringStore().flushVariableDeclarationCode()
@@ -122,7 +125,10 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     @Override
     protected void importUnionDeserializer(TypeScriptWriter writer) {
         writer.addDependency(AwsDependency.AWS_SDK_CORE);
-        writer.addImport("awsExpectUnion", "__expectUnion", AwsDependency.AWS_SDK_CORE);
+        writer.addImportSubmodule(
+            "awsExpectUnion", "__expectUnion",
+            AwsDependency.AWS_SDK_CORE, "/protocols"
+        );
     }
 
     @Override

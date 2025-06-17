@@ -162,7 +162,10 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
     ) {
         if (isAwsService(settings, model) && target.equals(LanguageTarget.NODE)) {
             writer.addDependency(AwsDependency.AWS_SDK_CORE);
-            writer.addImport("emitWarningIfUnsupportedVersion", "awsCheckVersion", AwsDependency.AWS_SDK_CORE);
+            writer.addImportSubmodule(
+                "emitWarningIfUnsupportedVersion", "awsCheckVersion",
+                AwsDependency.AWS_SDK_CORE, "/client"
+            );
             writer.write("awsCheckVersion(process.version);");
         }
         if (target.equals(LanguageTarget.NODE)) {
