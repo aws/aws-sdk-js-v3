@@ -5585,6 +5585,7 @@ const de_DataProvider = (output: any, context: __SerdeContext): DataProvider => 
     Description: __expectString,
     Engine: __expectString,
     Settings: (_: any) => _json(__expectUnion(_)),
+    Virtual: __expectBoolean,
   }) as any;
 };
 

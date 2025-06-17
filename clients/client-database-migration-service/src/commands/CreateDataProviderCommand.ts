@@ -44,11 +44,14 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  *   DataProviderName: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   Engine: "STRING_VALUE", // required
+ *   Virtual: true || false,
  *   Settings: { // DataProviderSettings Union: only one key present
  *     RedshiftSettings: { // RedshiftDataProviderSettings
  *       ServerName: "STRING_VALUE",
  *       Port: Number("int"),
  *       DatabaseName: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     PostgreSqlSettings: { // PostgreSqlDataProviderSettings
  *       ServerName: "STRING_VALUE",
@@ -56,12 +59,16 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  *       DatabaseName: "STRING_VALUE",
  *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
  *       CertificateArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     MySqlSettings: { // MySqlDataProviderSettings
  *       ServerName: "STRING_VALUE",
  *       Port: Number("int"),
  *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
  *       CertificateArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     OracleSettings: { // OracleDataProviderSettings
  *       ServerName: "STRING_VALUE",
@@ -74,6 +81,8 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  *       SecretsManagerOracleAsmAccessRoleArn: "STRING_VALUE",
  *       SecretsManagerSecurityDbEncryptionSecretId: "STRING_VALUE",
  *       SecretsManagerSecurityDbEncryptionAccessRoleArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     MicrosoftSqlServerSettings: { // MicrosoftSqlServerDataProviderSettings
  *       ServerName: "STRING_VALUE",
@@ -81,6 +90,8 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  *       DatabaseName: "STRING_VALUE",
  *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
  *       CertificateArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     DocDbSettings: { // DocDbDataProviderSettings
  *       ServerName: "STRING_VALUE",
@@ -94,6 +105,8 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  *       Port: Number("int"),
  *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
  *       CertificateArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     IbmDb2LuwSettings: { // IbmDb2LuwDataProviderSettings
  *       ServerName: "STRING_VALUE",
@@ -101,6 +114,8 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  *       DatabaseName: "STRING_VALUE",
  *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
  *       CertificateArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     IbmDb2zOsSettings: { // IbmDb2zOsDataProviderSettings
  *       ServerName: "STRING_VALUE",
@@ -108,6 +123,8 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  *       DatabaseName: "STRING_VALUE",
  *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
  *       CertificateArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     MongoDbSettings: { // MongoDbDataProviderSettings
  *       ServerName: "STRING_VALUE",
@@ -137,11 +154,14 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * //     DataProviderCreationTime: new Date("TIMESTAMP"),
  * //     Description: "STRING_VALUE",
  * //     Engine: "STRING_VALUE",
+ * //     Virtual: true || false,
  * //     Settings: { // DataProviderSettings Union: only one key present
  * //       RedshiftSettings: { // RedshiftDataProviderSettings
  * //         ServerName: "STRING_VALUE",
  * //         Port: Number("int"),
  * //         DatabaseName: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       PostgreSqlSettings: { // PostgreSqlDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -149,12 +169,16 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * //         DatabaseName: "STRING_VALUE",
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       MySqlSettings: { // MySqlDataProviderSettings
  * //         ServerName: "STRING_VALUE",
  * //         Port: Number("int"),
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       OracleSettings: { // OracleDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -167,6 +191,8 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * //         SecretsManagerOracleAsmAccessRoleArn: "STRING_VALUE",
  * //         SecretsManagerSecurityDbEncryptionSecretId: "STRING_VALUE",
  * //         SecretsManagerSecurityDbEncryptionAccessRoleArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       MicrosoftSqlServerSettings: { // MicrosoftSqlServerDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -174,6 +200,8 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * //         DatabaseName: "STRING_VALUE",
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       DocDbSettings: { // DocDbDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -187,6 +215,8 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * //         Port: Number("int"),
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       IbmDb2LuwSettings: { // IbmDb2LuwDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -194,6 +224,8 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * //         DatabaseName: "STRING_VALUE",
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       IbmDb2zOsSettings: { // IbmDb2zOsDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -201,6 +233,8 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * //         DatabaseName: "STRING_VALUE",
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       MongoDbSettings: { // MongoDbDataProviderSettings
  * //         ServerName: "STRING_VALUE",

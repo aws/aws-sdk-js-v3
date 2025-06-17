@@ -1175,6 +1175,18 @@ export interface IbmDb2LuwDataProviderSettings {
    * @public
    */
   CertificateArn?: string | undefined;
+
+  /**
+   * <p>The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.</p>
+   * @public
+   */
+  S3Path?: string | undefined;
+
+  /**
+   * <p>The ARN for the role the application uses to access its Amazon S3 bucket.</p>
+   * @public
+   */
+  S3AccessRoleArn?: string | undefined;
 }
 
 /**
@@ -1212,6 +1224,18 @@ export interface IbmDb2zOsDataProviderSettings {
    * @public
    */
   CertificateArn?: string | undefined;
+
+  /**
+   * <p>The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.</p>
+   * @public
+   */
+  S3Path?: string | undefined;
+
+  /**
+   * <p>The ARN for the role the application uses to access its Amazon S3 bucket.</p>
+   * @public
+   */
+  S3AccessRoleArn?: string | undefined;
 }
 
 /**
@@ -1243,6 +1267,18 @@ export interface MariaDbDataProviderSettings {
    * @public
    */
   CertificateArn?: string | undefined;
+
+  /**
+   * <p>The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.</p>
+   * @public
+   */
+  S3Path?: string | undefined;
+
+  /**
+   * <p>The ARN for the role the application uses to access its Amazon S3 bucket.</p>
+   * @public
+   */
+  S3AccessRoleArn?: string | undefined;
 }
 
 /**
@@ -1280,6 +1316,18 @@ export interface MicrosoftSqlServerDataProviderSettings {
    * @public
    */
   CertificateArn?: string | undefined;
+
+  /**
+   * <p>The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.</p>
+   * @public
+   */
+  S3Path?: string | undefined;
+
+  /**
+   * <p>The ARN for the role the application uses to access its Amazon S3 bucket.</p>
+   * @public
+   */
+  S3AccessRoleArn?: string | undefined;
 }
 
 /**
@@ -1397,6 +1445,18 @@ export interface MySqlDataProviderSettings {
    * @public
    */
   CertificateArn?: string | undefined;
+
+  /**
+   * <p>The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.</p>
+   * @public
+   */
+  S3Path?: string | undefined;
+
+  /**
+   * <p>The ARN for the role the application uses to access its Amazon S3 bucket.</p>
+   * @public
+   */
+  S3AccessRoleArn?: string | undefined;
 }
 
 /**
@@ -1472,6 +1532,18 @@ export interface OracleDataProviderSettings {
    * @public
    */
   SecretsManagerSecurityDbEncryptionAccessRoleArn?: string | undefined;
+
+  /**
+   * <p>The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.</p>
+   * @public
+   */
+  S3Path?: string | undefined;
+
+  /**
+   * <p>The ARN for the role the application uses to access its Amazon S3 bucket.</p>
+   * @public
+   */
+  S3AccessRoleArn?: string | undefined;
 }
 
 /**
@@ -1509,6 +1581,18 @@ export interface PostgreSqlDataProviderSettings {
    * @public
    */
   CertificateArn?: string | undefined;
+
+  /**
+   * <p>The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.</p>
+   * @public
+   */
+  S3Path?: string | undefined;
+
+  /**
+   * <p>The ARN for the role the application uses to access its Amazon S3 bucket.</p>
+   * @public
+   */
+  S3AccessRoleArn?: string | undefined;
 }
 
 /**
@@ -1533,6 +1617,18 @@ export interface RedshiftDataProviderSettings {
    * @public
    */
   DatabaseName?: string | undefined;
+
+  /**
+   * <p>The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.</p>
+   * @public
+   */
+  S3Path?: string | undefined;
+
+  /**
+   * <p>The ARN for the role the application uses to access its Amazon S3 bucket.</p>
+   * @public
+   */
+  S3AccessRoleArn?: string | undefined;
 }
 
 /**
@@ -1808,6 +1904,12 @@ export interface CreateDataProviderMessage {
   Engine: string | undefined;
 
   /**
+   * <p>Indicates whether the data provider is virtual.</p>
+   * @public
+   */
+  Virtual?: boolean | undefined;
+
+  /**
    * <p>The settings in JSON format for a data provider.</p>
    * @public
    */
@@ -1858,6 +1960,12 @@ export interface DataProvider {
    * @public
    */
   Engine?: string | undefined;
+
+  /**
+   * <p>Indicates whether the data provider is virtual.</p>
+   * @public
+   */
+  Virtual?: boolean | undefined;
 
   /**
    * <p>The settings in JSON format for a data provider.</p>
@@ -5124,16 +5232,9 @@ export interface S3Settings {
   Rfc4180?: boolean | undefined;
 
   /**
-   * <p>When creating an S3 target endpoint, set <code>DatePartitionTimezone</code> to convert
-   *          the current UTC time into a specified time zone. The conversion occurs when a date
-   *          partition folder is created and a CDC filename is generated. The time zone format is
-   *          Area/Location. Use this parameter when <code>DatePartitionedEnabled</code> is set to
-   *             <code>true</code>, as shown in the following example.</p>
+   * <p>When creating an S3 target endpoint, set <code>DatePartitionTimezone</code> to convert the current UTC time into a specified time zone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The time zone format is Area/Location. Use this parameter when <code>DatePartitionedEnabled</code> is set to true, as shown in the following example:</p>
    *          <p>
-   *             <code>s3-settings='\{"DatePartitionEnabled": true, "DatePartitionSequence": "YYYYMMDDHH",
-   *             "DatePartitionDelimiter": "SLASH",
-   *                "DatePartitionTimezone":"<i>Asia/Seoul</i>", "BucketName":
-   *             "dms-nattarat-test"\}'</code>
+   *             <code>s3-settings='\{"DatePartitionEnabled": true, "DatePartitionSequence": "YYYYMMDDHH", "DatePartitionDelimiter": "SLASH", "DatePartitionTimezone":"Asia/Seoul", "BucketName": "dms-nattarat-test"\}'</code>
    *          </p>
    * @public
    */
@@ -7697,7 +7798,9 @@ export interface CreateReplicationSubnetGroupMessage {
   ReplicationSubnetGroupIdentifier: string | undefined;
 
   /**
-   * <p>The description for the subnet group.</p>
+   * <p>The description for the subnet group.
+   *       </p>
+   *          <p>Constraints: This parameter Must not contain non-printable control characters.</p>
    * @public
    */
   ReplicationSubnetGroupDescription: string | undefined;
@@ -10511,7 +10614,12 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryRequest {
   Filters?: Filter[] | undefined;
 
   /**
-   * <p>Sets the maximum number of records returned in the response.</p>
+   * <important>
+   *             <p>
+   * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html">Amazon Web Services DMS Fleet Advisor end of support</a>.
+   * </p>
+   *          </important>
+   *          <p>Sets the maximum number of records returned in the response.</p>
    * @public
    */
   MaxRecords?: number | undefined;
