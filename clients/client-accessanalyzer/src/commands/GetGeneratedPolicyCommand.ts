@@ -28,8 +28,7 @@ export interface GetGeneratedPolicyCommandInput extends GetGeneratedPolicyReques
 export interface GetGeneratedPolicyCommandOutput extends GetGeneratedPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the policy that was generated using <code>StartPolicyGeneration</code>.
- *       </p>
+ * <p>Retrieves the policy that was generated using <code>StartPolicyGeneration</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

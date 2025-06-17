@@ -28,8 +28,7 @@ export interface ListAnalyzedResourcesCommandInput extends ListAnalyzedResources
 export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of resources of the specified type that have been analyzed by the
- *          specified analyzer.</p>
+ * <p>Retrieves a list of resources of the specified type that have been analyzed by the specified analyzer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

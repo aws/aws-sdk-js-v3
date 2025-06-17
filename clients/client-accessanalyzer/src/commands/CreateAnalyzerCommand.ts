@@ -79,6 +79,23 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  *         ],
  *       },
  *     },
+ *     internalAccess: { // InternalAccessConfiguration
+ *       analysisRule: { // InternalAccessAnalysisRule
+ *         inclusions: [ // InternalAccessAnalysisRuleCriteriaList
+ *           { // InternalAccessAnalysisRuleCriteria
+ *             accountIds: [
+ *               "STRING_VALUE",
+ *             ],
+ *             resourceTypes: [ // ResourceTypeList
+ *               "STRING_VALUE",
+ *             ],
+ *             resourceArns: [ // ResourceArnsList
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     },
  *   },
  * };
  * const command = new CreateAnalyzerCommand(input);

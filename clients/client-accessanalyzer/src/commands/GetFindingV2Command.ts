@@ -28,10 +28,7 @@ export interface GetFindingV2CommandInput extends GetFindingV2Request {}
 export interface GetFindingV2CommandOutput extends GetFindingV2Response, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the specified finding. GetFinding and GetFindingV2 both use
- *             <code>access-analyzer:GetFinding</code> in the <code>Action</code> element of an IAM
- *          policy statement. You must have permission to perform the
- *             <code>access-analyzer:GetFinding</code> action.</p>
+ * <p>Retrieves information about the specified finding. GetFinding and GetFindingV2 both use <code>access-analyzer:GetFinding</code> in the <code>Action</code> element of an IAM policy statement. You must have permission to perform the <code>access-analyzer:GetFinding</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,21 +56,46 @@ export interface GetFindingV2CommandOutput extends GetFindingV2Response, __Metad
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * //   findingDetails: [ // FindingDetailsList // required
  * //     { // FindingDetails Union: only one key present
- * //       externalAccessDetails: { // ExternalAccessDetails
+ * //       internalAccessDetails: { // InternalAccessDetails
  * //         action: [ // ActionList
  * //           "STRING_VALUE",
  * //         ],
- * //         condition: { // ConditionKeyMap // required
+ * //         condition: { // ConditionKeyMap
  * //           "<keys>": "STRING_VALUE",
  * //         },
- * //         isPublic: true || false,
  * //         principal: { // PrincipalMap
  * //           "<keys>": "STRING_VALUE",
  * //         },
+ * //         principalOwnerAccount: "STRING_VALUE",
+ * //         accessType: "STRING_VALUE",
+ * //         principalType: "STRING_VALUE",
  * //         sources: [ // FindingSourceList
  * //           { // FindingSource
  * //             type: "STRING_VALUE", // required
  * //             detail: { // FindingSourceDetail
+ * //               accessPointArn: "STRING_VALUE",
+ * //               accessPointAccount: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         ],
+ * //         resourceControlPolicyRestriction: "STRING_VALUE",
+ * //         serviceControlPolicyRestriction: "STRING_VALUE",
+ * //       },
+ * //       externalAccessDetails: { // ExternalAccessDetails
+ * //         action: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         condition: { // required
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         isPublic: true || false,
+ * //         principal: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         sources: [
+ * //           {
+ * //             type: "STRING_VALUE", // required
+ * //             detail: {
  * //               accessPointArn: "STRING_VALUE",
  * //               accessPointAccount: "STRING_VALUE",
  * //             },

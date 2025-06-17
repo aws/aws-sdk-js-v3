@@ -28,8 +28,7 @@ export interface GetFindingsStatisticsCommandInput extends GetFindingsStatistics
 export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatisticsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of aggregated finding statistics for an external access or unused
- *          access analyzer.</p>
+ * <p>Retrieves a list of aggregated finding statistics for an external access or unused access analyzer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,6 +48,18 @@ export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatistic
  * //           "<keys>": { // ResourceTypeDetails
  * //             totalActivePublic: Number("int"),
  * //             totalActiveCrossAccount: Number("int"),
+ * //           },
+ * //         },
+ * //         totalActiveFindings: Number("int"),
+ * //         totalArchivedFindings: Number("int"),
+ * //         totalResolvedFindings: Number("int"),
+ * //       },
+ * //       internalAccessFindingsStatistics: { // InternalAccessFindingsStatistics
+ * //         resourceTypeStatistics: { // InternalAccessResourceTypeStatisticsMap
+ * //           "<keys>": { // InternalAccessResourceTypeDetails
+ * //             totalActiveFindings: Number("int"),
+ * //             totalResolvedFindings: Number("int"),
+ * //             totalArchivedFindings: Number("int"),
  * //           },
  * //         },
  * //         totalActiveFindings: Number("int"),

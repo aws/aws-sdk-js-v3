@@ -4,23 +4,18 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { AccessAnalyzerServiceException as __BaseException } from "./AccessAnalyzerServiceException";
 
 /**
- * <p>Contains information about actions and resources that define permissions to check
- *          against a policy.</p>
+ * <p>Contains information about actions and resources that define permissions to check against a policy.</p>
  * @public
  */
 export interface Access {
   /**
-   * <p>A list of actions for the access permissions. Any strings that can be used as an action
-   *          in an IAM policy can be used in the list of actions to check.</p>
+   * <p>A list of actions for the access permissions. Any strings that can be used as an action in an IAM policy can be used in the list of actions to check.</p>
    * @public
    */
   actions?: string[] | undefined;
 
   /**
-   * <p>A list of resources for the access permissions. Any strings that can be used as an
-   *          Amazon Resource Name (ARN) in an IAM policy can be used in the list of resources to
-   *          check. You can only use a wildcard in the portion of the ARN that specifies the resource
-   *          ID.</p>
+   * <p>A list of resources for the access permissions. Any strings that can be used as an Amazon Resource Name (ARN) in an IAM policy can be used in the list of resources to check. You can only use a wildcard in the portion of the ARN that specifies the resource ID.</p>
    * @public
    */
   resources?: string[] | undefined;
@@ -81,9 +76,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The criteria to use in the filter that defines the archive rule. For more information on
- *          available filter keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter
- *             keys</a>.</p>
+ * <p>The criteria to use in the filter that defines the archive rule. For more information on available filter keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a>.</p>
  * @public
  */
 export interface Criterion {
@@ -380,8 +373,7 @@ export interface GetArchiveRuleRequest {
 }
 
 /**
- * <p>Contains information about an archive rule. Archive rules automatically archive new
- *          findings that meet the criteria you define when you create the rule.</p>
+ * <p>Contains information about an archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.</p>
  * @public
  */
 export interface ArchiveRuleSummary {
@@ -416,8 +408,7 @@ export interface ArchiveRuleSummary {
  */
 export interface GetArchiveRuleResponse {
   /**
-   * <p>Contains information about an archive rule. Archive rules automatically archive new
-   *          findings that meet the criteria you define when you create the rule.</p>
+   * <p>Contains information about an archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.</p>
    * @public
    */
   archiveRule: ArchiveRuleSummary | undefined;
@@ -483,8 +474,7 @@ export interface UpdateArchiveRuleRequest {
   ruleName: string | undefined;
 
   /**
-   * <p>A filter to match for the rules to update. Only rules that match the filter are
-   *          updated.</p>
+   * <p>A filter to match for the rules to update. Only rules that match the filter are updated.</p>
    * @public
    */
   filter: Record<string, Criterion> | undefined;
@@ -497,8 +487,7 @@ export interface UpdateArchiveRuleRequest {
 }
 
 /**
- * <p>An criterion statement in an archive rule. Each archive rule may have multiple
- *          criteria.</p>
+ * <p>An criterion statement in an archive rule. Each archive rule may have multiple criteria.</p>
  * @public
  */
 export interface InlineArchiveRule {
@@ -516,44 +505,100 @@ export interface InlineArchiveRule {
 }
 
 /**
- * <p>The criteria for an analysis rule for an analyzer. The criteria determine which entities
- *          will generate findings.</p>
  * @public
  */
-export interface AnalysisRuleCriteria {
+export type ResourceType =
+  | "AWS::DynamoDB::Stream"
+  | "AWS::DynamoDB::Table"
+  | "AWS::EC2::Snapshot"
+  | "AWS::ECR::Repository"
+  | "AWS::EFS::FileSystem"
+  | "AWS::IAM::Role"
+  | "AWS::IAM::User"
+  | "AWS::KMS::Key"
+  | "AWS::Lambda::Function"
+  | "AWS::Lambda::LayerVersion"
+  | "AWS::RDS::DBClusterSnapshot"
+  | "AWS::RDS::DBSnapshot"
+  | "AWS::S3::Bucket"
+  | "AWS::S3Express::DirectoryBucket"
+  | "AWS::SNS::Topic"
+  | "AWS::SQS::Queue"
+  | "AWS::SecretsManager::Secret";
+
+/**
+ * <p>The criteria for an analysis rule for an internal access analyzer.</p>
+ * @public
+ */
+export interface InternalAccessAnalysisRuleCriteria {
   /**
-   * <p>A list of Amazon Web Services account IDs to apply to the analysis rule criteria. The accounts cannot
-   *          include the organization analyzer owner account. Account IDs can only be applied to the
-   *          analysis rule criteria for organization-level analyzers. The list cannot include more than
-   *          2,000 account IDs.</p>
+   * <p>A list of Amazon Web Services account IDs to apply to the internal access analysis rule criteria. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.</p>
    * @public
    */
   accountIds?: string[] | undefined;
 
   /**
-   * <p>An array of key-value pairs to match for your resources. You can use the set of Unicode
-   *          letters, digits, whitespace, <code>_</code>, <code>.</code>, <code>/</code>,
-   *          <code>=</code>, <code>+</code>, and <code>-</code>.</p>
-   *          <p>For the tag key, you can specify a value that is 1 to 128 characters in length and
-   *          cannot be prefixed with <code>aws:</code>.</p>
-   *          <p>For the tag value, you can specify a value that is 0 to 256 characters in length. If the
-   *          specified tag value is 0 characters, the rule is applied to all principals with the
-   *          specified tag key.</p>
+   * <p>A list of resource types to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources of these types. These resource types are currently supported for internal access analyzers:</p> <ul> <li> <p> <code>AWS::S3::Bucket</code> </p> </li> <li> <p> <code>AWS::RDS::DBSnapshot</code> </p> </li> <li> <p> <code>AWS::RDS::DBClusterSnapshot</code> </p> </li> <li> <p> <code>AWS::S3Express::DirectoryBucket</code> </p> </li> <li> <p> <code>AWS::DynamoDB::Table</code> </p> </li> <li> <p> <code>AWS::DynamoDB::Stream</code> </p> </li> </ul>
+   * @public
+   */
+  resourceTypes?: ResourceType[] | undefined;
+
+  /**
+   * <p>A list of resource ARNs to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources that match these ARNs.</p>
+   * @public
+   */
+  resourceArns?: string[] | undefined;
+}
+
+/**
+ * <p>Contains information about analysis rules for the internal access analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule.</p>
+ * @public
+ */
+export interface InternalAccessAnalysisRule {
+  /**
+   * <p>A list of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings.</p>
+   * @public
+   */
+  inclusions?: InternalAccessAnalysisRuleCriteria[] | undefined;
+}
+
+/**
+ * <p>Specifies the configuration of an internal access analyzer for an Amazon Web Services organization or account. This configuration determines how the analyzer evaluates internal access within your Amazon Web Services environment.</p>
+ * @public
+ */
+export interface InternalAccessConfiguration {
+  /**
+   * <p>Contains information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed.</p>
+   * @public
+   */
+  analysisRule?: InternalAccessAnalysisRule | undefined;
+}
+
+/**
+ * <p>The criteria for an analysis rule for an analyzer. The criteria determine which entities will generate findings.</p>
+ * @public
+ */
+export interface AnalysisRuleCriteria {
+  /**
+   * <p>A list of Amazon Web Services account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers. The list cannot include more than 2,000 account IDs.</p>
+   * @public
+   */
+  accountIds?: string[] | undefined;
+
+  /**
+   * <p>An array of key-value pairs to match for your resources. You can use the set of Unicode letters, digits, whitespace, <code>_</code>, <code>.</code>, <code>/</code>, <code>=</code>, <code>+</code>, and <code>-</code>.</p> <p>For the tag key, you can specify a value that is 1 to 128 characters in length and cannot be prefixed with <code>aws:</code>.</p> <p>For the tag value, you can specify a value that is 0 to 256 characters in length. If the specified tag value is 0 characters, the rule is applied to all principals with the specified tag key.</p>
    * @public
    */
   resourceTags?: Record<string, string>[] | undefined;
 }
 
 /**
- * <p>Contains information about analysis rules for the analyzer. Analysis rules determine
- *          which entities will generate findings based on the criteria you define when you create the
- *          rule.</p>
+ * <p>Contains information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule.</p>
  * @public
  */
 export interface AnalysisRule {
   /**
-   * <p>A list of rules for the analyzer containing criteria to exclude from analysis. Entities
-   *          that meet the rule criteria will not generate findings.</p>
+   * <p>A list of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings.</p>
    * @public
    */
   exclusions?: AnalysisRuleCriteria[] | undefined;
@@ -565,42 +610,48 @@ export interface AnalysisRule {
  */
 export interface UnusedAccessConfiguration {
   /**
-   * <p>The specified access age in days for which to generate findings for unused access. For
-   *          example, if you specify 90 days, the analyzer will generate findings for IAM entities
-   *          within the accounts of the selected organization for any access that hasn't been used in 90
-   *          or more days since the analyzer's last scan. You can choose a value between 1 and 365
-   *          days.</p>
+   * <p>The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 365 days.</p>
    * @public
    */
   unusedAccessAge?: number | undefined;
 
   /**
-   * <p>Contains information about analysis rules for the analyzer. Analysis rules determine
-   *          which entities will generate findings based on the criteria you define when you create the
-   *          rule.</p>
+   * <p>Contains information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule.</p>
    * @public
    */
   analysisRule?: AnalysisRule | undefined;
 }
 
 /**
- * <p>Contains information about the configuration of an analyzer for an Amazon Web Services organization or
- *          account.</p>
+ * <p>Contains information about the configuration of an analyzer for an Amazon Web Services organization or account.</p>
  * @public
  */
-export type AnalyzerConfiguration = AnalyzerConfiguration.UnusedAccessMember | AnalyzerConfiguration.$UnknownMember;
+export type AnalyzerConfiguration =
+  | AnalyzerConfiguration.InternalAccessMember
+  | AnalyzerConfiguration.UnusedAccessMember
+  | AnalyzerConfiguration.$UnknownMember;
 
 /**
  * @public
  */
 export namespace AnalyzerConfiguration {
   /**
-   * <p>Specifies the configuration of an unused access analyzer for an Amazon Web Services organization or
-   *          account.</p>
+   * <p>Specifies the configuration of an unused access analyzer for an Amazon Web Services organization or account.</p>
    * @public
    */
   export interface UnusedAccessMember {
     unusedAccess: UnusedAccessConfiguration;
+    internalAccess?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Specifies the configuration of an internal access analyzer for an Amazon Web Services organization or account. This configuration determines how the analyzer evaluates access within your Amazon Web Services environment.</p>
+   * @public
+   */
+  export interface InternalAccessMember {
+    unusedAccess?: never;
+    internalAccess: InternalAccessConfiguration;
     $unknown?: never;
   }
 
@@ -609,16 +660,19 @@ export namespace AnalyzerConfiguration {
    */
   export interface $UnknownMember {
     unusedAccess?: never;
+    internalAccess?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     unusedAccess: (value: UnusedAccessConfiguration) => T;
+    internalAccess: (value: InternalAccessConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: AnalyzerConfiguration, visitor: Visitor<T>): T => {
     if (value.unusedAccess !== undefined) return visitor.unusedAccess(value.unusedAccess);
+    if (value.internalAccess !== undefined) return visitor.internalAccess(value.internalAccess);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -626,7 +680,13 @@ export namespace AnalyzerConfiguration {
 /**
  * @public
  */
-export type Type = "ACCOUNT" | "ACCOUNT_UNUSED_ACCESS" | "ORGANIZATION" | "ORGANIZATION_UNUSED_ACCESS";
+export type Type =
+  | "ACCOUNT"
+  | "ACCOUNT_INTERNAL_ACCESS"
+  | "ACCOUNT_UNUSED_ACCESS"
+  | "ORGANIZATION"
+  | "ORGANIZATION_INTERNAL_ACCESS"
+  | "ORGANIZATION_UNUSED_ACCESS";
 
 /**
  * <p>Creates an analyzer.</p>
@@ -640,28 +700,19 @@ export interface CreateAnalyzerRequest {
   analyzerName: string | undefined;
 
   /**
-   * <p>The type of analyzer to create. Only <code>ACCOUNT</code>, <code>ORGANIZATION</code>,
-   *             <code>ACCOUNT_UNUSED_ACCESS</code>, and <code>ORGANIZATION_UNUSED_ACCESS</code>
-   *          analyzers are supported. You can create only one analyzer per account per Region. You can
-   *          create up to 5 analyzers per organization per Region.</p>
+   * <p>The type of analyzer to create. You can create only one analyzer per account per Region. You can create up to 5 analyzers per organization per Region.</p>
    * @public
    */
   type: Type | undefined;
 
   /**
-   * <p>Specifies the archive rules to add for the analyzer. Archive rules automatically archive
-   *          findings that meet the criteria you define for the rule.</p>
+   * <p>Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.</p>
    * @public
    */
   archiveRules?: InlineArchiveRule[] | undefined;
 
   /**
-   * <p>An array of key-value pairs to apply to the analyzer. You can use the set of Unicode
-   *          letters, digits, whitespace, <code>_</code>, <code>.</code>, <code>/</code>,
-   *          <code>=</code>, <code>+</code>, and <code>-</code>.</p>
-   *          <p>For the tag key, you can specify a value that is 1 to 128 characters in length and
-   *          cannot be prefixed with <code>aws:</code>.</p>
-   *          <p>For the tag value, you can specify a value that is 0 to 256 characters in length.</p>
+   * <p>An array of key-value pairs to apply to the analyzer. You can use the set of Unicode letters, digits, whitespace, <code>_</code>, <code>.</code>, <code>/</code>, <code>=</code>, <code>+</code>, and <code>-</code>.</p> <p>For the tag key, you can specify a value that is 1 to 128 characters in length and cannot be prefixed with <code>aws:</code>.</p> <p>For the tag value, you can specify a value that is 0 to 256 characters in length.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -673,8 +724,7 @@ export interface CreateAnalyzerRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>Specifies the configuration of the analyzer. If the analyzer is an unused access
-   *          analyzer, the specified scope of unused access is used for the configuration.</p>
+   * <p>Specifies the configuration of the analyzer. If the analyzer is an unused access analyzer, the specified scope of unused access is used for the configuration. If the analyzer is an internal access analyzer, the specified internal access analysis rules are used for the configuration.</p>
    * @public
    */
   configuration?: AnalyzerConfiguration | undefined;
@@ -737,10 +787,7 @@ export type ReasonCode =
   | "SERVICE_LINKED_ROLE_CREATION_FAILED";
 
 /**
- * <p>Provides more details about the current status of the analyzer. For example, if the
- *          creation for the analyzer fails, a <code>Failed</code> status is returned. For an analyzer
- *          with organization as the type, this failure can be due to an issue with creating the
- *          service-linked roles required in the member accounts of the Amazon Web Services organization.</p>
+ * <p>Provides more details about the current status of the analyzer. For example, if the creation for the analyzer fails, a <code>Failed</code> status is returned. For an analyzer with organization as the type, this failure can be due to an issue with creating the service-linked roles required in the member accounts of the Amazon Web Services organization.</p>
  * @public
  */
 export interface StatusReason {
@@ -769,8 +816,7 @@ export interface AnalyzerSummary {
   name: string | undefined;
 
   /**
-   * <p>The type of analyzer, which corresponds to the zone of trust chosen for the
-   *          analyzer.</p>
+   * <p>The type of analyzer, which corresponds to the zone of trust chosen for the analyzer.</p>
    * @public
    */
   type: Type | undefined;
@@ -800,28 +846,19 @@ export interface AnalyzerSummary {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The status of the analyzer. An <code>Active</code> analyzer successfully monitors
-   *          supported resources and generates new findings. The analyzer is <code>Disabled</code> when
-   *          a user action, such as removing trusted access for Identity and Access Management Access Analyzer from Organizations, causes
-   *          the analyzer to stop generating new findings. The status is <code>Creating</code> when the
-   *          analyzer creation is in progress and <code>Failed</code> when the analyzer creation has
-   *          failed. </p>
+   * <p>The status of the analyzer. An <code>Active</code> analyzer successfully monitors supported resources and generates new findings. The analyzer is <code>Disabled</code> when a user action, such as removing trusted access for Identity and Access Management Access Analyzer from Organizations, causes the analyzer to stop generating new findings. The status is <code>Creating</code> when the analyzer creation is in progress and <code>Failed</code> when the analyzer creation has failed. </p>
    * @public
    */
   status: AnalyzerStatus | undefined;
 
   /**
-   * <p>The <code>statusReason</code> provides more details about the current status of the
-   *          analyzer. For example, if the creation for the analyzer fails, a <code>Failed</code> status
-   *          is returned. For an analyzer with organization as the type, this failure can be due to an
-   *          issue with creating the service-linked roles required in the member accounts of the Amazon Web Services
-   *          organization.</p>
+   * <p>The <code>statusReason</code> provides more details about the current status of the analyzer. For example, if the creation for the analyzer fails, a <code>Failed</code> status is returned. For an analyzer with organization as the type, this failure can be due to an issue with creating the service-linked roles required in the member accounts of the Amazon Web Services organization.</p>
    * @public
    */
   statusReason?: StatusReason | undefined;
 
   /**
-   * <p>Specifies whether the analyzer is an external access or unused access analyzer.</p>
+   * <p>Specifies if the analyzer is an external access, unused access, or internal access analyzer.</p>
    * @public
    */
   configuration?: AnalyzerConfiguration | undefined;
@@ -833,8 +870,7 @@ export interface AnalyzerSummary {
  */
 export interface GetAnalyzerResponse {
   /**
-   * <p>An <code>AnalyzerSummary</code> object that contains information about the
-   *          analyzer.</p>
+   * <p>An <code>AnalyzerSummary</code> object that contains information about the analyzer.</p>
    * @public
    */
   analyzer: AnalyzerSummary | undefined;
@@ -893,8 +929,7 @@ export interface UpdateAnalyzerRequest {
   analyzerName: string | undefined;
 
   /**
-   * <p>Contains information about the configuration of an analyzer for an Amazon Web Services organization or
-   *          account.</p>
+   * <p>Contains information about the configuration of an analyzer for an Amazon Web Services organization or account.</p>
    * @public
    */
   configuration?: AnalyzerConfiguration | undefined;
@@ -905,8 +940,7 @@ export interface UpdateAnalyzerRequest {
  */
 export interface UpdateAnalyzerResponse {
   /**
-   * <p>Contains information about the configuration of an analyzer for an Amazon Web Services organization or
-   *          account.</p>
+   * <p>Contains information about the configuration of an analyzer for an Amazon Web Services organization or account.</p>
    * @public
    */
   configuration?: AnalyzerConfiguration | undefined;
@@ -941,10 +975,7 @@ export interface ApplyArchiveRuleRequest {
  */
 export interface CancelPolicyGenerationRequest {
   /**
-   * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code>
-   *          operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to
-   *          retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel
-   *          the policy generation request.</p>
+   * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.</p>
    * @public
    */
   jobId: string | undefined;
@@ -980,21 +1011,13 @@ export interface CheckAccessNotGrantedRequest {
   policyDocument: string | undefined;
 
   /**
-   * <p>An access object containing the permissions that shouldn't be granted by the specified
-   *          policy. If only actions are specified, IAM Access Analyzer checks for access to peform at least
-   *          one of the actions on any resource in the policy. If only resources are specified, then
-   *          IAM Access Analyzer checks for access to perform any action on at least one of the resources. If
-   *          both actions and resources are specified, IAM Access Analyzer checks for access to perform at
-   *          least one of the specified actions on at least one of the specified resources.</p>
+   * <p>An access object containing the permissions that shouldn't be granted by the specified policy. If only actions are specified, IAM Access Analyzer checks for access to peform at least one of the actions on any resource in the policy. If only resources are specified, then IAM Access Analyzer checks for access to perform any action on at least one of the resources. If both actions and resources are specified, IAM Access Analyzer checks for access to perform at least one of the specified actions on at least one of the specified resources.</p>
    * @public
    */
   access: Access[] | undefined;
 
   /**
-   * <p>The type of policy. Identity policies grant permissions to IAM principals. Identity
-   *          policies include managed and inline policies for IAM roles, users, and groups.</p>
-   *          <p>Resource policies grant permissions on Amazon Web Services resources. Resource policies include trust
-   *          policies for IAM roles and bucket policies for Amazon S3 buckets.</p>
+   * <p>The type of policy. Identity policies grant permissions to IAM principals. Identity policies include managed and inline policies for IAM roles, users, and groups.</p> <p>Resource policies grant permissions on Amazon Web Services resources. Resource policies include trust policies for IAM roles and bucket policies for Amazon S3 buckets.</p>
    * @public
    */
   policyType: AccessCheckPolicyType | undefined;
@@ -1044,10 +1067,7 @@ export type CheckAccessNotGrantedResult =
  */
 export interface CheckAccessNotGrantedResponse {
   /**
-   * <p>The result of the check for whether the access is allowed. If the result is
-   *             <code>PASS</code>, the specified policy doesn't allow any of the specified permissions
-   *          in the access object. If the result is <code>FAIL</code>, the specified policy might allow
-   *          some or all of the permissions in the access object.</p>
+   * <p>The result of the check for whether the access is allowed. If the result is <code>PASS</code>, the specified policy doesn't allow any of the specified permissions in the access object. If the result is <code>FAIL</code>, the specified policy might allow some or all of the permissions in the access object.</p>
    * @public
    */
   result?: CheckAccessNotGrantedResult | undefined;
@@ -1123,13 +1143,7 @@ export interface CheckNoNewAccessRequest {
   existingPolicyDocument: string | undefined;
 
   /**
-   * <p>The type of policy to compare. Identity policies grant permissions to IAM principals.
-   *          Identity policies include managed and inline policies for IAM roles, users, and
-   *          groups.</p>
-   *          <p>Resource policies grant permissions on Amazon Web Services resources. Resource policies include trust
-   *          policies for IAM roles and bucket policies for Amazon S3 buckets. You can provide a generic
-   *          input such as identity policy or resource policy or a specific input such as managed policy
-   *          or Amazon S3 bucket policy.</p>
+   * <p>The type of policy to compare. Identity policies grant permissions to IAM principals. Identity policies include managed and inline policies for IAM roles, users, and groups.</p> <p>Resource policies grant permissions on Amazon Web Services resources. Resource policies include trust policies for IAM roles and bucket policies for Amazon S3 buckets. You can provide a generic input such as identity policy or resource policy or a specific input such as managed policy or Amazon S3 bucket policy.</p>
    * @public
    */
   policyType: AccessCheckPolicyType | undefined;
@@ -1154,9 +1168,7 @@ export type CheckNoNewAccessResult = (typeof CheckNoNewAccessResult)[keyof typeo
  */
 export interface CheckNoNewAccessResponse {
   /**
-   * <p>The result of the check for new access. If the result is <code>PASS</code>, no new
-   *          access is allowed by the updated policy. If the result is <code>FAIL</code>, the updated
-   *          policy might allow new access.</p>
+   * <p>The result of the check for new access. If the result is <code>PASS</code>, no new access is allowed by the updated policy. If the result is <code>FAIL</code>, the updated policy might allow new access.</p>
    * @public
    */
   result?: CheckNoNewAccessResult | undefined;
@@ -1223,11 +1235,7 @@ export interface CheckNoPublicAccessRequest {
   policyDocument: string | undefined;
 
   /**
-   * <p>The type of resource to evaluate for public access. For example, to check for public
-   *          access to Amazon S3 buckets, you can choose <code>AWS::S3::Bucket</code> for the resource
-   *          type.</p>
-   *          <p>For resource types not supported as valid values, IAM Access Analyzer will return an
-   *          error.</p>
+   * <p>The type of resource to evaluate for public access. For example, to check for public access to Amazon S3 buckets, you can choose <code>AWS::S3::Bucket</code> for the resource type.</p> <p>For resource types not supported as valid values, IAM Access Analyzer will return an error.</p>
    * @public
    */
   resourceType: AccessCheckResourceType | undefined;
@@ -1252,48 +1260,26 @@ export type CheckNoPublicAccessResult = (typeof CheckNoPublicAccessResult)[keyof
  */
 export interface CheckNoPublicAccessResponse {
   /**
-   * <p>The result of the check for public access to the specified resource type. If the result
-   *          is <code>PASS</code>, the policy doesn't allow public access to the specified resource
-   *          type. If the result is <code>FAIL</code>, the policy might allow public access to the
-   *          specified resource type.</p>
+   * <p>The result of the check for public access to the specified resource type. If the result is <code>PASS</code>, the policy doesn't allow public access to the specified resource type. If the result is <code>FAIL</code>, the policy might allow public access to the specified resource type.</p>
    * @public
    */
   result?: CheckNoPublicAccessResult | undefined;
 
   /**
-   * <p>The message indicating whether the specified policy allows public access to
-   *          resources.</p>
+   * <p>The message indicating whether the specified policy allows public access to resources.</p>
    * @public
    */
   message?: string | undefined;
 
   /**
-   * <p>A list of reasons why the specified resource policy grants public access for the
-   *          resource type.</p>
+   * <p>A list of reasons why the specified resource policy grants public access for the resource type.</p>
    * @public
    */
   reasons?: ReasonSummary[] | undefined;
 }
 
 /**
- * <p>The proposed access control configuration for a DynamoDB stream. You can propose a
- *          configuration for a new DynamoDB stream or an existing DynamoDB stream that you own by specifying
- *          the policy for the DynamoDB stream. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutResourcePolicy.html">PutResourcePolicy</a>.</p>
- *          <ul>
- *             <li>
- *                <p>If the configuration is for an existing DynamoDB stream and you do not specify the
- *                DynamoDB policy, then the access preview uses the existing DynamoDB policy for the
- *                stream.</p>
- *             </li>
- *             <li>
- *                <p>If the access preview is for a new resource and you do not specify the policy,
- *                then the access preview assumes a DynamoDB stream without a policy.</p>
- *             </li>
- *             <li>
- *                <p>To propose deletion of an existing DynamoDB stream policy, you can specify an empty
- *                string for the DynamoDB policy.</p>
- *             </li>
- *          </ul>
+ * <p>The proposed access control configuration for a DynamoDB stream. You can propose a configuration for a new DynamoDB stream or an existing DynamoDB stream that you own by specifying the policy for the DynamoDB stream. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutResourcePolicy.html">PutResourcePolicy</a>.</p> <ul> <li> <p>If the configuration is for an existing DynamoDB stream and you do not specify the DynamoDB policy, then the access preview uses the existing DynamoDB policy for the stream.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the policy, then the access preview assumes a DynamoDB stream without a policy.</p> </li> <li> <p>To propose deletion of an existing DynamoDB stream policy, you can specify an empty string for the DynamoDB policy.</p> </li> </ul>
  * @public
  */
 export interface DynamodbStreamConfiguration {
@@ -1305,24 +1291,7 @@ export interface DynamodbStreamConfiguration {
 }
 
 /**
- * <p>The proposed access control configuration for a DynamoDB table or index. You can propose a
- *          configuration for a new DynamoDB table or index or an existing DynamoDB table or index that you
- *          own by specifying the policy for the DynamoDB table or index. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutResourcePolicy.html">PutResourcePolicy</a>.</p>
- *          <ul>
- *             <li>
- *                <p>If the configuration is for an existing DynamoDB table or index and you do not
- *                specify the DynamoDB policy, then the access preview uses the existing DynamoDB policy for
- *                the table or index.</p>
- *             </li>
- *             <li>
- *                <p>If the access preview is for a new resource and you do not specify the policy,
- *                then the access preview assumes a DynamoDB table without a policy.</p>
- *             </li>
- *             <li>
- *                <p>To propose deletion of an existing DynamoDB table or index policy, you can specify an
- *                empty string for the DynamoDB policy.</p>
- *             </li>
- *          </ul>
+ * <p>The proposed access control configuration for a DynamoDB table or index. You can propose a configuration for a new DynamoDB table or index or an existing DynamoDB table or index that you own by specifying the policy for the DynamoDB table or index. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutResourcePolicy.html">PutResourcePolicy</a>.</p> <ul> <li> <p>If the configuration is for an existing DynamoDB table or index and you do not specify the DynamoDB policy, then the access preview uses the existing DynamoDB policy for the table or index.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the policy, then the access preview assumes a DynamoDB table without a policy.</p> </li> <li> <p>To propose deletion of an existing DynamoDB table or index policy, you can specify an empty string for the DynamoDB policy.</p> </li> </ul>
  * @public
  */
 export interface DynamodbTableConfiguration {
@@ -1334,148 +1303,55 @@ export interface DynamodbTableConfiguration {
 }
 
 /**
- * <p>The proposed access control configuration for an Amazon EBS volume snapshot. You can propose
- *          a configuration for a new Amazon EBS volume snapshot or an Amazon EBS volume snapshot that you own by
- *          specifying the user IDs, groups, and optional KMS encryption key. For more information,
- *          see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifySnapshotAttribute.html">ModifySnapshotAttribute</a>.</p>
+ * <p>The proposed access control configuration for an Amazon EBS volume snapshot. You can propose a configuration for a new Amazon EBS volume snapshot or an Amazon EBS volume snapshot that you own by specifying the user IDs, groups, and optional KMS encryption key. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifySnapshotAttribute.html">ModifySnapshotAttribute</a>.</p>
  * @public
  */
 export interface EbsSnapshotConfiguration {
   /**
-   * <p>The IDs of the Amazon Web Services accounts that have access to the Amazon EBS volume snapshot.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If the configuration is for an existing Amazon EBS volume snapshot and you do not
-   *                specify the <code>userIds</code>, then the access preview uses the existing shared
-   *                   <code>userIds</code> for the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>If the access preview is for a new resource and you do not specify the
-   *                   <code>userIds</code>, then the access preview considers the snapshot without any
-   *                   <code>userIds</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To propose deletion of existing shared <code>accountIds</code>, you can specify an
-   *                empty list for <code>userIds</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The IDs of the Amazon Web Services accounts that have access to the Amazon EBS volume snapshot.</p> <ul> <li> <p>If the configuration is for an existing Amazon EBS volume snapshot and you do not specify the <code>userIds</code>, then the access preview uses the existing shared <code>userIds</code> for the snapshot.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the <code>userIds</code>, then the access preview considers the snapshot without any <code>userIds</code>.</p> </li> <li> <p>To propose deletion of existing shared <code>accountIds</code>, you can specify an empty list for <code>userIds</code>.</p> </li> </ul>
    * @public
    */
   userIds?: string[] | undefined;
 
   /**
-   * <p>The groups that have access to the Amazon EBS volume snapshot. If the value <code>all</code>
-   *          is specified, then the Amazon EBS volume snapshot is public.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If the configuration is for an existing Amazon EBS volume snapshot and you do not
-   *                specify the <code>groups</code>, then the access preview uses the existing shared
-   *                   <code>groups</code> for the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>If the access preview is for a new resource and you do not specify the
-   *                   <code>groups</code>, then the access preview considers the snapshot without any
-   *                   <code>groups</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To propose deletion of existing shared <code>groups</code>, you can specify an
-   *                empty list for <code>groups</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The groups that have access to the Amazon EBS volume snapshot. If the value <code>all</code> is specified, then the Amazon EBS volume snapshot is public.</p> <ul> <li> <p>If the configuration is for an existing Amazon EBS volume snapshot and you do not specify the <code>groups</code>, then the access preview uses the existing shared <code>groups</code> for the snapshot.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the <code>groups</code>, then the access preview considers the snapshot without any <code>groups</code>.</p> </li> <li> <p>To propose deletion of existing shared <code>groups</code>, you can specify an empty list for <code>groups</code>.</p> </li> </ul>
    * @public
    */
   groups?: string[] | undefined;
 
   /**
-   * <p>The KMS key identifier for an encrypted Amazon EBS volume snapshot. The KMS key
-   *          identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If the configuration is for an existing Amazon EBS volume snapshot and you do not
-   *                specify the <code>kmsKeyId</code>, or you specify an empty string, then the access
-   *                preview uses the existing <code>kmsKeyId</code> of the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>If the access preview is for a new resource and you do not specify the
-   *                   <code>kmsKeyId</code>, the access preview considers the snapshot as
-   *                unencrypted.</p>
-   *             </li>
-   *          </ul>
+   * <p>The KMS key identifier for an encrypted Amazon EBS volume snapshot. The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p> <ul> <li> <p>If the configuration is for an existing Amazon EBS volume snapshot and you do not specify the <code>kmsKeyId</code>, or you specify an empty string, then the access preview uses the existing <code>kmsKeyId</code> of the snapshot.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the <code>kmsKeyId</code>, the access preview considers the snapshot as unencrypted.</p> </li> </ul>
    * @public
    */
   kmsKeyId?: string | undefined;
 }
 
 /**
- * <p>The proposed access control configuration for an Amazon ECR repository. You can propose a
- *          configuration for a new Amazon ECR repository or an existing Amazon ECR repository that you own by
- *          specifying the Amazon ECR policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_Repository.html">Repository</a>.</p>
- *          <ul>
- *             <li>
- *                <p>If the configuration is for an existing Amazon ECR repository and you do not specify
- *                the Amazon ECR policy, then the access preview uses the existing Amazon ECR policy for the
- *                repository.</p>
- *             </li>
- *             <li>
- *                <p>If the access preview is for a new resource and you do not specify the policy,
- *                then the access preview assumes an Amazon ECR repository without a policy.</p>
- *             </li>
- *             <li>
- *                <p>To propose deletion of an existing Amazon ECR repository policy, you can specify an
- *                empty string for the Amazon ECR policy.</p>
- *             </li>
- *          </ul>
+ * <p>The proposed access control configuration for an Amazon ECR repository. You can propose a configuration for a new Amazon ECR repository or an existing Amazon ECR repository that you own by specifying the Amazon ECR policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_Repository.html">Repository</a>.</p> <ul> <li> <p>If the configuration is for an existing Amazon ECR repository and you do not specify the Amazon ECR policy, then the access preview uses the existing Amazon ECR policy for the repository.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the policy, then the access preview assumes an Amazon ECR repository without a policy.</p> </li> <li> <p>To propose deletion of an existing Amazon ECR repository policy, you can specify an empty string for the Amazon ECR policy.</p> </li> </ul>
  * @public
  */
 export interface EcrRepositoryConfiguration {
   /**
-   * <p>The JSON repository policy text to apply to the Amazon ECR repository. For more information,
-   *          see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html">Private repository
-   *             policy examples</a> in the <i>Amazon ECR User Guide</i>.</p>
+   * <p>The JSON repository policy text to apply to the Amazon ECR repository. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html">Private repository policy examples</a> in the <i>Amazon ECR User Guide</i>.</p>
    * @public
    */
   repositoryPolicy?: string | undefined;
 }
 
 /**
- * <p>The proposed access control configuration for an Amazon EFS file system. You can propose a
- *          configuration for a new Amazon EFS file system or an existing Amazon EFS file system that you own by
- *          specifying the Amazon EFS policy. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/using-fs.html">Using file systems in Amazon EFS</a>.</p>
- *          <ul>
- *             <li>
- *                <p>If the configuration is for an existing Amazon EFS file system and you do not specify
- *                the Amazon EFS policy, then the access preview uses the existing Amazon EFS policy for the file
- *                system.</p>
- *             </li>
- *             <li>
- *                <p>If the access preview is for a new resource and you do not specify the policy,
- *                then the access preview assumes an Amazon EFS file system without a policy.</p>
- *             </li>
- *             <li>
- *                <p>To propose deletion of an existing Amazon EFS file system policy, you can specify an
- *                empty string for the Amazon EFS policy.</p>
- *             </li>
- *          </ul>
+ * <p>The proposed access control configuration for an Amazon EFS file system. You can propose a configuration for a new Amazon EFS file system or an existing Amazon EFS file system that you own by specifying the Amazon EFS policy. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/using-fs.html">Using file systems in Amazon EFS</a>.</p> <ul> <li> <p>If the configuration is for an existing Amazon EFS file system and you do not specify the Amazon EFS policy, then the access preview uses the existing Amazon EFS policy for the file system.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the policy, then the access preview assumes an Amazon EFS file system without a policy.</p> </li> <li> <p>To propose deletion of an existing Amazon EFS file system policy, you can specify an empty string for the Amazon EFS policy.</p> </li> </ul>
  * @public
  */
 export interface EfsFileSystemConfiguration {
   /**
-   * <p>The JSON policy definition to apply to the Amazon EFS file system. For more information on
-   *          the elements that make up a file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies">Amazon EFS Resource-based policies</a>.</p>
+   * <p>The JSON policy definition to apply to the Amazon EFS file system. For more information on the elements that make up a file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies">Amazon EFS Resource-based policies</a>.</p>
    * @public
    */
   fileSystemPolicy?: string | undefined;
 }
 
 /**
- * <p>The proposed access control configuration for an IAM role. You can propose a
- *          configuration for a new IAM role or an existing IAM role that you own by specifying the
- *          trust policy. If the configuration is for a new IAM role, you must specify the trust
- *          policy. If the configuration is for an existing IAM role that you own and you do not
- *          propose the trust policy, the access preview uses the existing trust policy for the role.
- *          The proposed trust policy cannot be an empty string. For more information about role trust
- *          policy limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS
- *          quotas</a>.</p>
+ * <p>The proposed access control configuration for an IAM role. You can propose a configuration for a new IAM role or an existing IAM role that you own by specifying the trust policy. If the configuration is for a new IAM role, you must specify the trust policy. If the configuration is for an existing IAM role that you own and you do not propose the trust policy, the access preview uses the existing trust policy for the role. The proposed trust policy cannot be an empty string. For more information about role trust policy limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS quotas</a>.</p>
  * @public
  */
 export interface IamRoleConfiguration {
@@ -1487,28 +1363,18 @@ export interface IamRoleConfiguration {
 }
 
 /**
- * <p>Use this structure to propose allowing <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
- *             operations</a> in the grant only when the operation request includes the specified
- *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption
- *          context</a>. You can specify only one type of encryption context. An empty map is
- *          treated as not specified. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GrantConstraints.html">GrantConstraints</a>.</p>
+ * <p>Use this structure to propose allowing <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> in the grant only when the operation request includes the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption context</a>. You can specify only one type of encryption context. An empty map is treated as not specified. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GrantConstraints.html">GrantConstraints</a>.</p>
  * @public
  */
 export interface KmsGrantConstraints {
   /**
-   * <p>A list of key-value pairs that must match the encryption context in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
-   *             operation</a> request. The grant allows the operation only when the encryption
-   *          context in the request is the same as the encryption context specified in this
-   *          constraint.</p>
+   * <p>A list of key-value pairs that must match the encryption context in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operation</a> request. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint.</p>
    * @public
    */
   encryptionContextEquals?: Record<string, string> | undefined;
 
   /**
-   * <p>A list of key-value pairs that must be included in the encryption context of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
-   *             operation</a> request. The grant allows the cryptographic operation only when the
-   *          encryption context in the request includes the key-value pairs specified in this
-   *          constraint, although it can include additional key-value pairs.</p>
+   * <p>A list of key-value pairs that must be included in the encryption context of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operation</a> request. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs.</p>
    * @public
    */
   encryptionContextSubset?: Record<string, string> | undefined;
@@ -1552,8 +1418,7 @@ export interface KmsGrantConfiguration {
   operations: KmsGrantOperation[] | undefined;
 
   /**
-   * <p>The principal that is given permission to perform the operations that the grant
-   *          permits.</p>
+   * <p>The principal that is given permission to perform the operations that the grant permits.</p>
    * @public
    */
   granteePrincipal: string | undefined;
@@ -1565,49 +1430,31 @@ export interface KmsGrantConfiguration {
   retiringPrincipal?: string | undefined;
 
   /**
-   * <p>Use this structure to propose allowing <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
-   *             operations</a> in the grant only when the operation request includes the specified
-   *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption
-   *          context</a>.</p>
+   * <p>Use this structure to propose allowing <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> in the grant only when the operation request includes the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption context</a>.</p>
    * @public
    */
   constraints?: KmsGrantConstraints | undefined;
 
   /**
-   * <p> The Amazon Web Services account under which the grant was issued. The account is used to propose
-   *          KMS grants issued by accounts other than the owner of the key.</p>
+   * <p> The Amazon Web Services account under which the grant was issued. The account is used to propose KMS grants issued by accounts other than the owner of the key.</p>
    * @public
    */
   issuingAccount: string | undefined;
 }
 
 /**
- * <p>Proposed access control configuration for a KMS key. You can propose a configuration
- *          for a new KMS key or an existing KMS key that you own by specifying the key policy and
- *          KMS grant configuration. If the configuration is for an existing key and you do not
- *          specify the key policy, the access preview uses the existing policy for the key. If the
- *          access preview is for a new resource and you do not specify the key policy, then the access
- *          preview uses the default key policy. The proposed key policy cannot be an empty string. For
- *          more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default key
- *             policy</a>. For more information about key policy limits, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html">Resource
- *             quotas</a>.</p>
- *          <p/>
+ * <p>Proposed access control configuration for a KMS key. You can propose a configuration for a new KMS key or an existing KMS key that you own by specifying the key policy and KMS grant configuration. If the configuration is for an existing key and you do not specify the key policy, the access preview uses the existing policy for the key. If the access preview is for a new resource and you do not specify the key policy, then the access preview uses the default key policy. The proposed key policy cannot be an empty string. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default key policy</a>. For more information about key policy limits, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html">Resource quotas</a>.</p> <p/>
  * @public
  */
 export interface KmsKeyConfiguration {
   /**
-   * <p>Resource policy configuration for the KMS key. The only valid value for the name of
-   *          the key policy is <code>default</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default key
-   *             policy</a>.</p>
+   * <p>Resource policy configuration for the KMS key. The only valid value for the name of the key policy is <code>default</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default key policy</a>.</p>
    * @public
    */
   keyPolicies?: Record<string, string> | undefined;
 
   /**
-   * <p>A list of proposed grant configurations for the KMS key. If the proposed grant
-   *          configuration is for an existing key, the access preview uses the proposed list of grant
-   *          configurations in place of the existing grants. Otherwise, the access preview uses the
-   *          existing grants for the key.</p>
+   * <p>A list of proposed grant configurations for the KMS key. If the proposed grant configuration is for an existing key, the access preview uses the proposed list of grant configurations in place of the existing grants. Otherwise, the access preview uses the existing grants for the key.</p>
    * @public
    */
   grants?: KmsGrantConfiguration[] | undefined;
@@ -1626,27 +1473,7 @@ export type RdsDbClusterSnapshotAttributeValue =
  */
 export namespace RdsDbClusterSnapshotAttributeValue {
   /**
-   * <p>The Amazon Web Services account IDs that have access to the manual Amazon RDS DB cluster snapshot. If the
-   *          value <code>all</code> is specified, then the Amazon RDS DB cluster snapshot is public and can
-   *          be copied or restored by all Amazon Web Services accounts.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If the configuration is for an existing Amazon RDS DB cluster snapshot and you do not
-   *                specify the <code>accountIds</code> in
-   *                   <code>RdsDbClusterSnapshotAttributeValue</code>, then the access preview uses the
-   *                existing shared <code>accountIds</code> for the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>If the access preview is for a new resource and you do not specify the specify the
-   *                   <code>accountIds</code> in <code>RdsDbClusterSnapshotAttributeValue</code>, then
-   *                the access preview considers the snapshot without any attributes.</p>
-   *             </li>
-   *             <li>
-   *                <p>To propose deletion of existing shared <code>accountIds</code>, you can specify an
-   *                empty list for <code>accountIds</code> in the
-   *                   <code>RdsDbClusterSnapshotAttributeValue</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The Amazon Web Services account IDs that have access to the manual Amazon RDS DB cluster snapshot. If the value <code>all</code> is specified, then the Amazon RDS DB cluster snapshot is public and can be copied or restored by all Amazon Web Services accounts.</p> <ul> <li> <p>If the configuration is for an existing Amazon RDS DB cluster snapshot and you do not specify the <code>accountIds</code> in <code>RdsDbClusterSnapshotAttributeValue</code>, then the access preview uses the existing shared <code>accountIds</code> for the snapshot.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the specify the <code>accountIds</code> in <code>RdsDbClusterSnapshotAttributeValue</code>, then the access preview considers the snapshot without any attributes.</p> </li> <li> <p>To propose deletion of existing shared <code>accountIds</code>, you can specify an empty list for <code>accountIds</code> in the <code>RdsDbClusterSnapshotAttributeValue</code>.</p> </li> </ul>
    * @public
    */
   export interface AccountIdsMember {
@@ -1674,47 +1501,25 @@ export namespace RdsDbClusterSnapshotAttributeValue {
 }
 
 /**
- * <p>The proposed access control configuration for an Amazon RDS DB cluster snapshot. You can
- *          propose a configuration for a new Amazon RDS DB cluster snapshot or an Amazon RDS DB cluster snapshot
- *          that you own by specifying the <code>RdsDbClusterSnapshotAttributeValue</code> and optional
- *          KMS encryption key. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBClusterSnapshotAttribute.html">ModifyDBClusterSnapshotAttribute</a>.</p>
+ * <p>The proposed access control configuration for an Amazon RDS DB cluster snapshot. You can propose a configuration for a new Amazon RDS DB cluster snapshot or an Amazon RDS DB cluster snapshot that you own by specifying the <code>RdsDbClusterSnapshotAttributeValue</code> and optional KMS encryption key. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBClusterSnapshotAttribute.html">ModifyDBClusterSnapshotAttribute</a>.</p>
  * @public
  */
 export interface RdsDbClusterSnapshotConfiguration {
   /**
-   * <p>The names and values of manual DB cluster snapshot attributes. Manual DB cluster
-   *          snapshot attributes are used to authorize other Amazon Web Services accounts to restore a manual DB
-   *          cluster snapshot. The only valid value for <code>AttributeName</code> for the attribute map
-   *          is <code>restore</code>
-   *          </p>
+   * <p>The names and values of manual DB cluster snapshot attributes. Manual DB cluster snapshot attributes are used to authorize other Amazon Web Services accounts to restore a manual DB cluster snapshot. The only valid value for <code>AttributeName</code> for the attribute map is <code>restore</code> </p>
    * @public
    */
   attributes?: Record<string, RdsDbClusterSnapshotAttributeValue> | undefined;
 
   /**
-   * <p>The KMS key identifier for an encrypted Amazon RDS DB cluster snapshot. The KMS key
-   *          identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If the configuration is for an existing Amazon RDS DB cluster snapshot and you do not
-   *                specify the <code>kmsKeyId</code>, or you specify an empty string, then the access
-   *                preview uses the existing <code>kmsKeyId</code> of the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>If the access preview is for a new resource and you do not specify the specify the
-   *                   <code>kmsKeyId</code>, then the access preview considers the snapshot as
-   *                unencrypted.</p>
-   *             </li>
-   *          </ul>
+   * <p>The KMS key identifier for an encrypted Amazon RDS DB cluster snapshot. The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p> <ul> <li> <p>If the configuration is for an existing Amazon RDS DB cluster snapshot and you do not specify the <code>kmsKeyId</code>, or you specify an empty string, then the access preview uses the existing <code>kmsKeyId</code> of the snapshot.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the specify the <code>kmsKeyId</code>, then the access preview considers the snapshot as unencrypted.</p> </li> </ul>
    * @public
    */
   kmsKeyId?: string | undefined;
 }
 
 /**
- * <p>The name and values of a manual Amazon RDS DB snapshot attribute. Manual DB snapshot
- *          attributes are used to authorize other Amazon Web Services accounts to restore a manual DB
- *          snapshot.</p>
+ * <p>The name and values of a manual Amazon RDS DB snapshot attribute. Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts to restore a manual DB snapshot.</p>
  * @public
  */
 export type RdsDbSnapshotAttributeValue =
@@ -1726,27 +1531,7 @@ export type RdsDbSnapshotAttributeValue =
  */
 export namespace RdsDbSnapshotAttributeValue {
   /**
-   * <p>The Amazon Web Services account IDs that have access to the manual Amazon RDS DB snapshot. If the value
-   *             <code>all</code> is specified, then the Amazon RDS DB snapshot is public and can be copied or
-   *          restored by all Amazon Web Services accounts.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If the configuration is for an existing Amazon RDS DB snapshot and you do not specify
-   *                the <code>accountIds</code> in <code>RdsDbSnapshotAttributeValue</code>, then the
-   *                access preview uses the existing shared <code>accountIds</code> for the
-   *                snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>If the access preview is for a new resource and you do not specify the specify the
-   *                   <code>accountIds</code> in <code>RdsDbSnapshotAttributeValue</code>, then the
-   *                access preview considers the snapshot without any attributes.</p>
-   *             </li>
-   *             <li>
-   *                <p>To propose deletion of an existing shared <code>accountIds</code>, you can specify
-   *                an empty list for <code>accountIds</code> in the
-   *                   <code>RdsDbSnapshotAttributeValue</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The Amazon Web Services account IDs that have access to the manual Amazon RDS DB snapshot. If the value <code>all</code> is specified, then the Amazon RDS DB snapshot is public and can be copied or restored by all Amazon Web Services accounts.</p> <ul> <li> <p>If the configuration is for an existing Amazon RDS DB snapshot and you do not specify the <code>accountIds</code> in <code>RdsDbSnapshotAttributeValue</code>, then the access preview uses the existing shared <code>accountIds</code> for the snapshot.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the specify the <code>accountIds</code> in <code>RdsDbSnapshotAttributeValue</code>, then the access preview considers the snapshot without any attributes.</p> </li> <li> <p>To propose deletion of an existing shared <code>accountIds</code>, you can specify an empty list for <code>accountIds</code> in the <code>RdsDbSnapshotAttributeValue</code>.</p> </li> </ul>
    * @public
    */
   export interface AccountIdsMember {
@@ -1774,70 +1559,43 @@ export namespace RdsDbSnapshotAttributeValue {
 }
 
 /**
- * <p>The proposed access control configuration for an Amazon RDS DB snapshot. You can propose a
- *          configuration for a new Amazon RDS DB snapshot or an Amazon RDS DB snapshot that you own by
- *          specifying the <code>RdsDbSnapshotAttributeValue</code> and optional KMS encryption key.
- *          For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBSnapshotAttribute.html">ModifyDBSnapshotAttribute</a>.</p>
+ * <p>The proposed access control configuration for an Amazon RDS DB snapshot. You can propose a configuration for a new Amazon RDS DB snapshot or an Amazon RDS DB snapshot that you own by specifying the <code>RdsDbSnapshotAttributeValue</code> and optional KMS encryption key. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBSnapshotAttribute.html">ModifyDBSnapshotAttribute</a>.</p>
  * @public
  */
 export interface RdsDbSnapshotConfiguration {
   /**
-   * <p>The names and values of manual DB snapshot attributes. Manual DB snapshot attributes are
-   *          used to authorize other Amazon Web Services accounts to restore a manual DB snapshot. The only valid
-   *          value for <code>attributeName</code> for the attribute map is restore.</p>
+   * <p>The names and values of manual DB snapshot attributes. Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts to restore a manual DB snapshot. The only valid value for <code>attributeName</code> for the attribute map is restore.</p>
    * @public
    */
   attributes?: Record<string, RdsDbSnapshotAttributeValue> | undefined;
 
   /**
-   * <p>The KMS key identifier for an encrypted Amazon RDS DB snapshot. The KMS key identifier is
-   *          the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If the configuration is for an existing Amazon RDS DB snapshot and you do not specify
-   *                the <code>kmsKeyId</code>, or you specify an empty string, then the access preview
-   *                uses the existing <code>kmsKeyId</code> of the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>If the access preview is for a new resource and you do not specify the specify the
-   *                   <code>kmsKeyId</code>, then the access preview considers the snapshot as
-   *                unencrypted.</p>
-   *             </li>
-   *          </ul>
+   * <p>The KMS key identifier for an encrypted Amazon RDS DB snapshot. The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p> <ul> <li> <p>If the configuration is for an existing Amazon RDS DB snapshot and you do not specify the <code>kmsKeyId</code>, or you specify an empty string, then the access preview uses the existing <code>kmsKeyId</code> of the snapshot.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the specify the <code>kmsKeyId</code>, then the access preview considers the snapshot as unencrypted.</p> </li> </ul>
    * @public
    */
   kmsKeyId?: string | undefined;
 }
 
 /**
- * <p>This configuration sets the network origin for the Amazon S3 access point or multi-region
- *          access point to <code>Internet</code>.</p>
+ * <p>This configuration sets the network origin for the Amazon S3 access point or multi-region access point to <code>Internet</code>.</p>
  * @public
  */
 export interface InternetConfiguration {}
 
 /**
- * <p>The proposed virtual private cloud (VPC) configuration for the Amazon S3 access point. VPC
- *          configuration does not apply to multi-region access points. For more information, see
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_VpcConfiguration.html">VpcConfiguration</a>. </p>
+ * <p>The proposed virtual private cloud (VPC) configuration for the Amazon S3 access point. VPC configuration does not apply to multi-region access points. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_VpcConfiguration.html">VpcConfiguration</a>. </p>
  * @public
  */
 export interface VpcConfiguration {
   /**
-   * <p> If this field is specified, this access point will only allow connections from the
-   *          specified VPC ID. </p>
+   * <p> If this field is specified, this access point will only allow connections from the specified VPC ID. </p>
    * @public
    */
   vpcId: string | undefined;
 }
 
 /**
- * <p>The proposed <code>InternetConfiguration</code> or <code>VpcConfiguration</code> to
- *          apply to the Amazon S3 access point. You can make the access point accessible from the internet,
- *          or you can specify that all requests made through that access point must originate from a
- *          specific virtual private cloud (VPC). You can specify only one type of network
- *          configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html">Creating access
- *          points</a>.</p>
+ * <p>The proposed <code>InternetConfiguration</code> or <code>VpcConfiguration</code> to apply to the Amazon S3 access point. You can make the access point accessible from the internet, or you can specify that all requests made through that access point must originate from a specific virtual private cloud (VPC). You can specify only one type of network configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html">Creating access points</a>.</p>
  * @public
  */
 export type NetworkOriginConfiguration =
@@ -1850,9 +1608,7 @@ export type NetworkOriginConfiguration =
  */
 export namespace NetworkOriginConfiguration {
   /**
-   * <p>The proposed virtual private cloud (VPC) configuration for the Amazon S3 access point. VPC
-   *          configuration does not apply to multi-region access points. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_VpcConfiguration.html">VpcConfiguration</a>. </p>
+   * <p>The proposed virtual private cloud (VPC) configuration for the Amazon S3 access point. VPC configuration does not apply to multi-region access points. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_VpcConfiguration.html">VpcConfiguration</a>. </p>
    * @public
    */
   export interface VpcConfigurationMember {
@@ -1862,8 +1618,7 @@ export namespace NetworkOriginConfiguration {
   }
 
   /**
-   * <p>The configuration for the Amazon S3 access point or multi-region access point with an
-   *             <code>Internet</code> origin.</p>
+   * <p>The configuration for the Amazon S3 access point or multi-region access point with an <code>Internet</code> origin.</p>
    * @public
    */
   export interface InternetConfigurationMember {
@@ -1895,19 +1650,12 @@ export namespace NetworkOriginConfiguration {
 }
 
 /**
- * <p>The <code>PublicAccessBlock</code> configuration to apply to this Amazon S3 bucket. If the
- *          proposed configuration is for an existing Amazon S3 bucket and the configuration is not
- *          specified, the access preview uses the existing setting. If the proposed configuration is
- *          for a new bucket and the configuration is not specified, the access preview uses
- *             <code>false</code>. If the proposed configuration is for a new access point or
- *          multi-region access point and the access point BPA configuration is not specified, the
- *          access preview uses <code>true</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html">PublicAccessBlockConfiguration</a>. </p>
+ * <p>The <code>PublicAccessBlock</code> configuration to apply to this Amazon S3 bucket. If the proposed configuration is for an existing Amazon S3 bucket and the configuration is not specified, the access preview uses the existing setting. If the proposed configuration is for a new bucket and the configuration is not specified, the access preview uses <code>false</code>. If the proposed configuration is for a new access point or multi-region access point and the access point BPA configuration is not specified, the access preview uses <code>true</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html">PublicAccessBlockConfiguration</a>. </p>
  * @public
  */
 export interface S3PublicAccessBlockConfiguration {
   /**
-   * <p> Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this
-   *          bucket. </p>
+   * <p> Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. </p>
    * @public
    */
   ignorePublicAcls: boolean | undefined;
@@ -1920,14 +1668,7 @@ export interface S3PublicAccessBlockConfiguration {
 }
 
 /**
- * <p>The configuration for an Amazon S3 access point or multi-region access point for the bucket.
- *          You can propose up to 10 access points or multi-region access points per bucket. If the
- *          proposed Amazon S3 access point configuration is for an existing bucket, the access preview uses
- *          the proposed access point configuration in place of the existing access points. To propose
- *          an access point without a policy, you can provide an empty string as the access point
- *          policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html">Creating access points</a>.
- *          For more information about access point policy limits, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points-restrictions-limitations.html">Access points
- *             restrictions and limitations</a>.</p>
+ * <p>The configuration for an Amazon S3 access point or multi-region access point for the bucket. You can propose up to 10 access points or multi-region access points per bucket. If the proposed Amazon S3 access point configuration is for an existing bucket, the access preview uses the proposed access point configuration in place of the existing access points. To propose an access point without a policy, you can provide an empty string as the access point policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html">Creating access points</a>. For more information about access point policy limits, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points-restrictions-limitations.html">Access points restrictions and limitations</a>.</p>
  * @public
  */
 export interface S3AccessPointConfiguration {
@@ -1938,27 +1679,20 @@ export interface S3AccessPointConfiguration {
   accessPointPolicy?: string | undefined;
 
   /**
-   * <p>The proposed <code>S3PublicAccessBlock</code> configuration to apply to this Amazon S3 access
-   *          point or multi-region access point.</p>
+   * <p>The proposed <code>S3PublicAccessBlock</code> configuration to apply to this Amazon S3 access point or multi-region access point.</p>
    * @public
    */
   publicAccessBlock?: S3PublicAccessBlockConfiguration | undefined;
 
   /**
-   * <p>The proposed <code>Internet</code> and <code>VpcConfiguration</code> to apply to this
-   *          Amazon S3 access point. <code>VpcConfiguration</code> does not apply to multi-region access
-   *          points. If the access preview is for a new resource and neither is specified, the access
-   *          preview uses <code>Internet</code> for the network origin. If the access preview is for an
-   *          existing resource and neither is specified, the access preview uses the existing network
-   *          origin.</p>
+   * <p>The proposed <code>Internet</code> and <code>VpcConfiguration</code> to apply to this Amazon S3 access point. <code>VpcConfiguration</code> does not apply to multi-region access points. If the access preview is for a new resource and neither is specified, the access preview uses <code>Internet</code> for the network origin. If the access preview is for an existing resource and neither is specified, the access preview uses the existing network origin.</p>
    * @public
    */
   networkOrigin?: NetworkOriginConfiguration | undefined;
 }
 
 /**
- * <p>You specify each grantee as a type-value pair using one of these types. You can specify
- *          only one type of grantee. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAcl.html">PutBucketAcl</a>.</p>
+ * <p>You specify each grantee as a type-value pair using one of these types. You can specify only one type of grantee. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAcl.html">PutBucketAcl</a>.</p>
  * @public
  */
 export type AclGrantee = AclGrantee.IdMember | AclGrantee.UriMember | AclGrantee.$UnknownMember;
@@ -2027,9 +1761,7 @@ export const AclPermission = {
 export type AclPermission = (typeof AclPermission)[keyof typeof AclPermission];
 
 /**
- * <p>A proposed access control list grant configuration for an Amazon S3 bucket. For more
- *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#setting-acls">How to Specify an
- *          ACL</a>.</p>
+ * <p>A proposed access control list grant configuration for an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#setting-acls">How to Specify an ACL</a>.</p>
  * @public
  */
 export interface S3BucketAclGrantConfiguration {
@@ -2047,16 +1779,7 @@ export interface S3BucketAclGrantConfiguration {
 }
 
 /**
- * <p>Proposed access control configuration for an Amazon S3 bucket. You can propose a
- *          configuration for a new Amazon S3 bucket or an existing Amazon S3 bucket that you own by specifying
- *          the Amazon S3 bucket policy, bucket ACLs, bucket BPA settings, Amazon S3 access points, and
- *          multi-region access points attached to the bucket. If the configuration is for an existing
- *          Amazon S3 bucket and you do not specify the Amazon S3 bucket policy, the access preview uses the
- *          existing policy attached to the bucket. If the access preview is for a new resource and you
- *          do not specify the Amazon S3 bucket policy, the access preview assumes a bucket without a
- *          policy. To propose deletion of an existing bucket policy, you can specify an empty string.
- *          For more information about bucket policy limits, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html">Bucket Policy
- *          Examples</a>.</p>
+ * <p>Proposed access control configuration for an Amazon S3 bucket. You can propose a configuration for a new Amazon S3 bucket or an existing Amazon S3 bucket that you own by specifying the Amazon S3 bucket policy, bucket ACLs, bucket BPA settings, Amazon S3 access points, and multi-region access points attached to the bucket. If the configuration is for an existing Amazon S3 bucket and you do not specify the Amazon S3 bucket policy, the access preview uses the existing policy attached to the bucket. If the access preview is for a new resource and you do not specify the Amazon S3 bucket policy, the access preview assumes a bucket without a policy. To propose deletion of an existing bucket policy, you can specify an empty string. For more information about bucket policy limits, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html">Bucket Policy Examples</a>.</p>
  * @public
  */
 export interface S3BucketConfiguration {
@@ -2067,10 +1790,7 @@ export interface S3BucketConfiguration {
   bucketPolicy?: string | undefined;
 
   /**
-   * <p>The proposed list of ACL grants for the Amazon S3 bucket. You can propose up to 100 ACL
-   *          grants per bucket. If the proposed grant configuration is for an existing bucket, the
-   *          access preview uses the proposed list of grant configurations in place of the existing
-   *          grants. Otherwise, the access preview uses the existing grants for the bucket.</p>
+   * <p>The proposed list of ACL grants for the Amazon S3 bucket. You can propose up to 100 ACL grants per bucket. If the proposed grant configuration is for an existing bucket, the access preview uses the proposed list of grant configurations in place of the existing grants. Otherwise, the access preview uses the existing grants for the bucket.</p>
    * @public
    */
   bucketAclGrants?: S3BucketAclGrantConfiguration[] | undefined;
@@ -2082,21 +1802,14 @@ export interface S3BucketConfiguration {
   bucketPublicAccessBlock?: S3PublicAccessBlockConfiguration | undefined;
 
   /**
-   * <p>The configuration of Amazon S3 access points or multi-region access points for the bucket.
-   *          You can propose up to 10 new access points per bucket.</p>
+   * <p>The configuration of Amazon S3 access points or multi-region access points for the bucket. You can propose up to 10 new access points per bucket.</p>
    * @public
    */
   accessPoints?: Record<string, S3AccessPointConfiguration> | undefined;
 }
 
 /**
- * <p>Proposed configuration for an access point attached to an Amazon S3 directory bucket. You can
- *          propose up to 10 access points per bucket. If the proposed access point configuration is
- *          for an existing Amazon S3 directory bucket, the access preview uses the proposed access point
- *          configuration in place of the existing access points. To propose an access point without a
- *          policy, you can provide an empty string as the access point policy. For more information
- *          about access points for Amazon S3 directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html">Managing access to
- *             directory buckets with access points</a> in the Amazon Simple Storage Service User Guide.</p>
+ * <p>Proposed configuration for an access point attached to an Amazon S3 directory bucket. You can propose up to 10 access points per bucket. If the proposed access point configuration is for an existing Amazon S3 directory bucket, the access preview uses the proposed access point configuration in place of the existing access points. To propose an access point without a policy, you can provide an empty string as the access point policy. For more information about access points for Amazon S3 directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html">Managing access to directory buckets with access points</a> in the Amazon Simple Storage Service User Guide.</p>
  * @public
  */
 export interface S3ExpressDirectoryAccessPointConfiguration {
@@ -2107,28 +1820,14 @@ export interface S3ExpressDirectoryAccessPointConfiguration {
   accessPointPolicy?: string | undefined;
 
   /**
-   * <p>The proposed <code>InternetConfiguration</code> or <code>VpcConfiguration</code> to
-   *          apply to the Amazon S3 access point. You can make the access point accessible from the internet,
-   *          or you can specify that all requests made through that access point must originate from a
-   *          specific virtual private cloud (VPC). You can specify only one type of network
-   *          configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html">Creating access
-   *          points</a>.</p>
+   * <p>The proposed <code>InternetConfiguration</code> or <code>VpcConfiguration</code> to apply to the Amazon S3 access point. You can make the access point accessible from the internet, or you can specify that all requests made through that access point must originate from a specific virtual private cloud (VPC). You can specify only one type of network configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html">Creating access points</a>.</p>
    * @public
    */
   networkOrigin?: NetworkOriginConfiguration | undefined;
 }
 
 /**
- * <p>Proposed access control configuration for an Amazon S3 directory bucket. You can propose a
- *          configuration for a new Amazon S3 directory bucket or an existing Amazon S3 directory bucket that you
- *          own by specifying the Amazon S3 bucket policy. If the configuration is for an existing Amazon S3
- *          directory bucket and you do not specify the Amazon S3 bucket policy, the access preview uses the
- *          existing policy attached to the directory bucket. If the access preview is for a new
- *          resource and you do not specify the Amazon S3 bucket policy, the access preview assumes an
- *          directory bucket without a policy. To propose deletion of an existing bucket policy, you
- *          can specify an empty string. For more information about Amazon S3 directory bucket policies, see
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html">Example bucket policies for directory buckets</a> in the Amazon Simple Storage Service User
- *          Guide.</p>
+ * <p>Proposed access control configuration for an Amazon S3 directory bucket. You can propose a configuration for a new Amazon S3 directory bucket or an existing Amazon S3 directory bucket that you own by specifying the Amazon S3 bucket policy. If the configuration is for an existing Amazon S3 directory bucket and you do not specify the Amazon S3 bucket policy, the access preview uses the existing policy attached to the directory bucket. If the access preview is for a new resource and you do not specify the Amazon S3 bucket policy, the access preview assumes an directory bucket without a policy. To propose deletion of an existing bucket policy, you can specify an empty string. For more information about Amazon S3 directory bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html">Example bucket policies for directory buckets</a> in the Amazon Simple Storage Service User Guide.</p>
  * @public
  */
 export interface S3ExpressDirectoryBucketConfiguration {
@@ -2146,18 +1845,7 @@ export interface S3ExpressDirectoryBucketConfiguration {
 }
 
 /**
- * <p>The configuration for a Secrets Manager secret. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html">CreateSecret</a>.</p>
- *          <p>You can propose a configuration for a new secret or an existing secret that you own by
- *          specifying the secret policy and optional KMS encryption key. If the configuration is for
- *          an existing secret and you do not specify the secret policy, the access preview uses the
- *          existing policy for the secret. If the access preview is for a new resource and you do not
- *          specify the policy, the access preview assumes a secret without a policy. To propose
- *          deletion of an existing policy, you can specify an empty string. If the proposed
- *          configuration is for a new secret and you do not specify the KMS key ID, the access
- *          preview uses the Amazon Web Services managed key <code>aws/secretsmanager</code>. If you specify an empty
- *          string for the KMS key ID, the access preview uses the Amazon Web Services managed key of the
- *          Amazon Web Services account. For more information about secret policy limits, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_limits.html">Quotas
- *             for Secrets Manager.</a>.</p>
+ * <p>The configuration for a Secrets Manager secret. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html">CreateSecret</a>.</p> <p>You can propose a configuration for a new secret or an existing secret that you own by specifying the secret policy and optional KMS encryption key. If the configuration is for an existing secret and you do not specify the secret policy, the access preview uses the existing policy for the secret. If the access preview is for a new resource and you do not specify the policy, the access preview assumes a secret without a policy. To propose deletion of an existing policy, you can specify an empty string. If the proposed configuration is for a new secret and you do not specify the KMS key ID, the access preview uses the Amazon Web Services managed key <code>aws/secretsmanager</code>. If you specify an empty string for the KMS key ID, the access preview uses the Amazon Web Services managed key of the Amazon Web Services account. For more information about secret policy limits, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_limits.html">Quotas for Secrets Manager.</a>.</p>
  * @public
  */
 export interface SecretsManagerSecretConfiguration {
@@ -2175,36 +1863,19 @@ export interface SecretsManagerSecretConfiguration {
 }
 
 /**
- * <p>The proposed access control configuration for an Amazon SNS topic. You can propose a
- *          configuration for a new Amazon SNS topic or an existing Amazon SNS topic that you own by specifying
- *          the policy. If the configuration is for an existing Amazon SNS topic and you do not specify the
- *          Amazon SNS policy, then the access preview uses the existing Amazon SNS policy for the topic. If the
- *          access preview is for a new resource and you do not specify the policy, then the access
- *          preview assumes an Amazon SNS topic without a policy. To propose deletion of an existing Amazon SNS
- *          topic policy, you can specify an empty string for the Amazon SNS policy. For more information,
- *          see <a href="https://docs.aws.amazon.com/sns/latest/api/API_Topic.html">Topic</a>.</p>
+ * <p>The proposed access control configuration for an Amazon SNS topic. You can propose a configuration for a new Amazon SNS topic or an existing Amazon SNS topic that you own by specifying the policy. If the configuration is for an existing Amazon SNS topic and you do not specify the Amazon SNS policy, then the access preview uses the existing Amazon SNS policy for the topic. If the access preview is for a new resource and you do not specify the policy, then the access preview assumes an Amazon SNS topic without a policy. To propose deletion of an existing Amazon SNS topic policy, you can specify an empty string for the Amazon SNS policy. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_Topic.html">Topic</a>.</p>
  * @public
  */
 export interface SnsTopicConfiguration {
   /**
-   * <p>The JSON policy text that defines who can access an Amazon SNS topic. For more information,
-   *          see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-access-policy-use-cases.html">Example cases for Amazon SNS access control</a> in the <i>Amazon SNS Developer
-   *             Guide</i>.</p>
+   * <p>The JSON policy text that defines who can access an Amazon SNS topic. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-access-policy-use-cases.html">Example cases for Amazon SNS access control</a> in the <i>Amazon SNS Developer Guide</i>.</p>
    * @public
    */
   topicPolicy?: string | undefined;
 }
 
 /**
- * <p>The proposed access control configuration for an Amazon SQS queue. You can propose a
- *          configuration for a new Amazon SQS queue or an existing Amazon SQS queue that you own by specifying
- *          the Amazon SQS policy. If the configuration is for an existing Amazon SQS queue and you do not
- *          specify the Amazon SQS policy, the access preview uses the existing Amazon SQS policy for the queue.
- *          If the access preview is for a new resource and you do not specify the policy, the access
- *          preview assumes an Amazon SQS queue without a policy. To propose deletion of an existing Amazon SQS
- *          queue policy, you can specify an empty string for the Amazon SQS policy. For more information
- *          about Amazon SQS policy limits, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-policies.html">Quotas related
- *             to policies</a>.</p>
+ * <p>The proposed access control configuration for an Amazon SQS queue. You can propose a configuration for a new Amazon SQS queue or an existing Amazon SQS queue that you own by specifying the Amazon SQS policy. If the configuration is for an existing Amazon SQS queue and you do not specify the Amazon SQS policy, the access preview uses the existing Amazon SQS policy for the queue. If the access preview is for a new resource and you do not specify the policy, the access preview assumes an Amazon SQS queue without a policy. To propose deletion of an existing Amazon SQS queue policy, you can specify an empty string for the Amazon SQS policy. For more information about Amazon SQS policy limits, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-policies.html">Quotas related to policies</a>.</p>
  * @public
  */
 export interface SqsQueueConfiguration {
@@ -2216,8 +1887,7 @@ export interface SqsQueueConfiguration {
 }
 
 /**
- * <p>Access control configuration structures for your resource. You specify the configuration
- *          as a type-value pair. You can specify only one type of access control configuration.</p>
+ * <p>Access control configuration structures for your resource. You specify the configuration as a type-value pair. You can specify only one type of access control configuration.</p>
  * @public
  */
 export type Configuration =
@@ -2613,19 +2283,13 @@ export namespace Configuration {
  */
 export interface CreateAccessPreviewRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-   *             the account analyzer</a> used to generate the access preview. You can only create an
-   *          access preview for analyzers with an <code>Account</code> type and <code>Active</code>
-   *          status.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the account analyzer</a> used to generate the access preview. You can only create an access preview for analyzers with an <code>Account</code> type and <code>Active</code> status.</p>
    * @public
    */
   analyzerArn: string | undefined;
 
   /**
-   * <p>Access control configuration for your resource that is used to generate the access
-   *          preview. The access preview includes findings for external access allowed to the resource
-   *          with the proposed access control configuration. The configuration must contain exactly one
-   *          element.</p>
+   * <p>Access control configuration for your resource that is used to generate the access preview. The access preview includes findings for external access allowed to the resource with the proposed access control configuration. The configuration must contain exactly one element.</p>
    * @public
    */
   configurations: Record<string, Configuration> | undefined;
@@ -2653,8 +2317,7 @@ export interface CreateAccessPreviewResponse {
  */
 export interface GenerateFindingRecommendationRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-   *             the analyzer</a> used to generate the finding recommendation.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> used to generate the finding recommendation.</p>
    * @public
    */
   analyzerArn: string | undefined;
@@ -2677,8 +2340,7 @@ export interface GetAccessPreviewRequest {
   accessPreviewId: string | undefined;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-   *             the analyzer</a> used to generate the access preview.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> used to generate the access preview.</p>
    * @public
    */
   analyzerArn: string | undefined;
@@ -2715,10 +2377,7 @@ export type AccessPreviewStatusReasonCode =
   (typeof AccessPreviewStatusReasonCode)[keyof typeof AccessPreviewStatusReasonCode];
 
 /**
- * <p>Provides more details about the current status of the access preview. For example, if
- *          the creation of the access preview fails, a <code>Failed</code> status is returned. This
- *          failure can be due to an internal issue with the analysis or due to an invalid proposed
- *          resource configuration.</p>
+ * <p>Provides more details about the current status of the access preview. For example, if the creation of the access preview fails, a <code>Failed</code> status is returned. This failure can be due to an internal issue with the analysis or due to an invalid proposed resource configuration.</p>
  * @public
  */
 export interface AccessPreviewStatusReason {
@@ -2759,31 +2418,13 @@ export interface AccessPreview {
   createdAt: Date | undefined;
 
   /**
-   * <p>The status of the access preview.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Creating</code> - The access preview creation is in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Completed</code> - The access preview is complete. You can preview findings
-   *                for external access to the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Failed</code> - The access preview creation has failed.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the access preview.</p> <ul> <li> <p> <code>Creating</code> - The access preview creation is in progress.</p> </li> <li> <p> <code>Completed</code> - The access preview is complete. You can preview findings for external access to the resource.</p> </li> <li> <p> <code>Failed</code> - The access preview creation has failed.</p> </li> </ul>
    * @public
    */
   status: AccessPreviewStatus | undefined;
 
   /**
-   * <p>Provides more details about the current status of the access preview.</p>
-   *          <p>For example, if the creation of the access preview fails, a <code>Failed</code> status
-   *          is returned. This failure can be due to an internal issue with the analysis or due to an
-   *          invalid resource configuration.</p>
+   * <p>Provides more details about the current status of the access preview.</p> <p>For example, if the creation of the access preview fails, a <code>Failed</code> status is returned. This failure can be due to an internal issue with the analysis or due to an invalid resource configuration.</p>
    * @public
    */
   statusReason?: AccessPreviewStatusReason | undefined;
@@ -2806,8 +2447,7 @@ export interface GetAccessPreviewResponse {
  */
 export interface GetAnalyzedResourceRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-   *             the analyzer</a> to retrieve information from.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> to retrieve information from.</p>
    * @public
    */
   analyzerArn: string | undefined;
@@ -2818,28 +2458,6 @@ export interface GetAnalyzedResourceRequest {
    */
   resourceArn: string | undefined;
 }
-
-/**
- * @public
- */
-export type ResourceType =
-  | "AWS::DynamoDB::Stream"
-  | "AWS::DynamoDB::Table"
-  | "AWS::EC2::Snapshot"
-  | "AWS::ECR::Repository"
-  | "AWS::EFS::FileSystem"
-  | "AWS::IAM::Role"
-  | "AWS::IAM::User"
-  | "AWS::KMS::Key"
-  | "AWS::Lambda::Function"
-  | "AWS::Lambda::LayerVersion"
-  | "AWS::RDS::DBClusterSnapshot"
-  | "AWS::RDS::DBSnapshot"
-  | "AWS::S3::Bucket"
-  | "AWS::S3Express::DirectoryBucket"
-  | "AWS::SNS::Topic"
-  | "AWS::SQS::Queue"
-  | "AWS::SecretsManager::Secret";
 
 /**
  * @public
@@ -2882,22 +2500,19 @@ export interface AnalyzedResource {
   updatedAt: Date | undefined;
 
   /**
-   * <p>Indicates whether the policy that generated the finding grants public access to the
-   *          resource.</p>
+   * <p>Indicates whether the policy that generated the finding grants public access to the resource.</p>
    * @public
    */
   isPublic: boolean | undefined;
 
   /**
-   * <p>The actions that an external principal is granted permission to use by the policy that
-   *          generated the finding.</p>
+   * <p>The actions that an external principal is granted permission to use by the policy that generated the finding.</p>
    * @public
    */
   actions?: string[] | undefined;
 
   /**
-   * <p>Indicates how the access that generated the finding is granted. This is populated for
-   *          Amazon S3 bucket findings.</p>
+   * <p>Indicates how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.</p>
    * @public
    */
   sharedVia?: string[] | undefined;
@@ -2927,8 +2542,7 @@ export interface AnalyzedResource {
  */
 export interface GetAnalyzedResourceResponse {
   /**
-   * <p>An <code>AnalyzedResource</code> object that contains information that IAM Access Analyzer
-   *          found when it analyzed the resource.</p>
+   * <p>An <code>AnalyzedResource</code> object that contains information that IAM Access Analyzer found when it analyzed the resource.</p>
    * @public
    */
   resource?: AnalyzedResource | undefined;
@@ -2940,8 +2554,7 @@ export interface GetAnalyzedResourceResponse {
  */
 export interface GetFindingRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-   *             the analyzer</a> that generated the finding.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> that generated the finding.</p>
    * @public
    */
   analyzerArn: string | undefined;
@@ -2959,6 +2572,7 @@ export interface GetFindingRequest {
  */
 export const ResourceControlPolicyRestriction = {
   APPLICABLE: "APPLICABLE",
+  APPLIED: "APPLIED",
   FAILED_TO_EVALUATE_RCP: "FAILED_TO_EVALUATE_RCP",
   NOT_APPLICABLE: "NOT_APPLICABLE",
 } as const;
@@ -2970,14 +2584,12 @@ export type ResourceControlPolicyRestriction =
   (typeof ResourceControlPolicyRestriction)[keyof typeof ResourceControlPolicyRestriction];
 
 /**
- * <p>Includes details about how the access that generated the finding is granted. This is
- *          populated for Amazon S3 bucket findings.</p>
+ * <p>Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.</p>
  * @public
  */
 export interface FindingSourceDetail {
   /**
-   * <p>The ARN of the access point that generated the finding. The ARN format depends on
-   *          whether the ARN represents an access point or a multi-region access point.</p>
+   * <p>The ARN of the access point that generated the finding. The ARN format depends on whether the ARN represents an access point or a multi-region access point.</p>
    * @public
    */
   accessPointArn?: string | undefined;
@@ -2995,8 +2607,7 @@ export interface FindingSourceDetail {
 export type FindingSourceType = "BUCKET_ACL" | "POLICY" | "S3_ACCESS_POINT" | "S3_ACCESS_POINT_ACCOUNT";
 
 /**
- * <p>The source of the finding. This indicates how the access that generated the finding is
- *          granted. It is populated for Amazon S3 bucket findings.</p>
+ * <p>The source of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.</p>
  * @public
  */
 export interface FindingSource {
@@ -3007,8 +2618,7 @@ export interface FindingSource {
   type: FindingSourceType | undefined;
 
   /**
-   * <p>Includes details about how the access that generated the finding is granted. This is
-   *          populated for Amazon S3 bucket findings.</p>
+   * <p>Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.</p>
    * @public
    */
   detail?: FindingSourceDetail | undefined;
@@ -3032,8 +2642,7 @@ export interface Finding {
   principal?: Record<string, string> | undefined;
 
   /**
-   * <p>The action in the analyzed policy statement that an external principal has permission to
-   *          use.</p>
+   * <p>The action in the analyzed policy statement that an external principal has permission to use.</p>
    * @public
    */
   action?: string[] | undefined;
@@ -3045,8 +2654,7 @@ export interface Finding {
   resource?: string | undefined;
 
   /**
-   * <p>Indicates whether the policy that generated the finding allows public access to the
-   *          resource.</p>
+   * <p>Indicates whether the policy that generated the finding allows public access to the resource.</p>
    * @public
    */
   isPublic?: boolean | undefined;
@@ -3100,15 +2708,13 @@ export interface Finding {
   error?: string | undefined;
 
   /**
-   * <p>The sources of the finding. This indicates how the access that generated the finding is
-   *          granted. It is populated for Amazon S3 bucket findings.</p>
+   * <p>The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.</p>
    * @public
    */
   sources?: FindingSource[] | undefined;
 
   /**
-   * <p>The type of restriction applied to the finding by the resource owner with an Organizations
-   *          resource control policy (RCP).</p>
+   * <p>The type of restriction applied to the finding by the resource owner with an Organizations resource control policy (RCP).</p>
    * @public
    */
   resourceControlPolicyRestriction?: ResourceControlPolicyRestriction | undefined;
@@ -3131,8 +2737,7 @@ export interface GetFindingResponse {
  */
 export interface GetFindingRecommendationRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-   *             the analyzer</a> used to generate the finding recommendation.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> used to generate the finding recommendation.</p>
    * @public
    */
   analyzerArn: string | undefined;
@@ -3157,8 +2762,7 @@ export interface GetFindingRecommendationRequest {
 }
 
 /**
- * <p>Contains information about the reason that the retrieval of a recommendation for a
- *          finding failed.</p>
+ * <p>Contains information about the reason that the retrieval of a recommendation for a finding failed.</p>
  * @public
  */
 export interface RecommendationError {
@@ -3204,44 +2808,37 @@ export type RecommendedRemediationAction =
   (typeof RecommendedRemediationAction)[keyof typeof RecommendedRemediationAction];
 
 /**
- * <p>Contains information about the action to take for a policy in an unused permissions
- *          finding.</p>
+ * <p>Contains information about the action to take for a policy in an unused permissions finding.</p>
  * @public
  */
 export interface UnusedPermissionsRecommendedStep {
   /**
-   * <p>The time at which the existing policy for the unused permissions finding was last
-   *          updated.</p>
+   * <p>The time at which the existing policy for the unused permissions finding was last updated.</p>
    * @public
    */
   policyUpdatedAt?: Date | undefined;
 
   /**
-   * <p>A recommendation of whether to create or detach a policy for an unused permissions
-   *          finding.</p>
+   * <p>A recommendation of whether to create or detach a policy for an unused permissions finding.</p>
    * @public
    */
   recommendedAction: RecommendedRemediationAction | undefined;
 
   /**
-   * <p>If the recommended action for the unused permissions finding is to replace the existing
-   *          policy, the contents of the recommended policy to replace the policy specified in the
-   *             <code>existingPolicyId</code> field.</p>
+   * <p>If the recommended action for the unused permissions finding is to replace the existing policy, the contents of the recommended policy to replace the policy specified in the <code>existingPolicyId</code> field.</p>
    * @public
    */
   recommendedPolicy?: string | undefined;
 
   /**
-   * <p>If the recommended action for the unused permissions finding is to detach a policy, the
-   *          ID of an existing policy to be detached.</p>
+   * <p>If the recommended action for the unused permissions finding is to detach a policy, the ID of an existing policy to be detached.</p>
    * @public
    */
   existingPolicyId?: string | undefined;
 }
 
 /**
- * <p>Contains information about a recommended step for an unused access analyzer
- *          finding.</p>
+ * <p>Contains information about a recommended step for an unused access analyzer finding.</p>
  * @public
  */
 export type RecommendedStep = RecommendedStep.UnusedPermissionsRecommendedStepMember | RecommendedStep.$UnknownMember;
@@ -3317,8 +2914,7 @@ export interface GetFindingRecommendationResponse {
   nextToken?: string | undefined;
 
   /**
-   * <p>Detailed information about the reason that the retrieval of a recommendation for the
-   *          finding failed.</p>
+   * <p>Detailed information about the reason that the retrieval of a recommendation for the finding failed.</p>
    * @public
    */
   error?: RecommendationError | undefined;
@@ -3353,16 +2949,14 @@ export interface GetFindingRecommendationResponse {
  */
 export interface GetFindingsStatisticsRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-   *             the analyzer</a> used to generate the statistics.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> used to generate the statistics.</p>
    * @public
    */
   analyzerArn: string | undefined;
 }
 
 /**
- * <p>Contains information about the total number of active cross-account and public findings
- *          for a resource type of an external access analyzer.</p>
+ * <p>Contains information about the total number of active cross-account and public findings for a resource type of an external access analyzer.</p>
  * @public
  */
 export interface ResourceTypeDetails {
@@ -3380,14 +2974,12 @@ export interface ResourceTypeDetails {
 }
 
 /**
- * <p>Provides aggregate statistics about the findings for the specified external access
- *          analyzer.</p>
+ * <p>Provides aggregate statistics about the findings for the specified external access analyzer.</p>
  * @public
  */
 export interface ExternalAccessFindingsStatistics {
   /**
-   * <p>The total number of active cross-account and public findings for each resource type of
-   *          the specified external access analyzer.</p>
+   * <p>The total number of active cross-account and public findings for each resource type of the specified external access analyzer.</p>
    * @public
    */
   resourceTypeStatistics?: Partial<Record<ResourceType, ResourceTypeDetails>> | undefined;
@@ -3412,8 +3004,61 @@ export interface ExternalAccessFindingsStatistics {
 }
 
 /**
- * <p>Contains information about the findings for an Amazon Web Services account in an organization unused
- *          access analyzer.</p>
+ * <p>Contains information about the total number of active, archived, and resolved findings for a resource type of an internal access analyzer.</p>
+ * @public
+ */
+export interface InternalAccessResourceTypeDetails {
+  /**
+   * <p>The total number of active findings for the resource type in the internal access analyzer.</p>
+   * @public
+   */
+  totalActiveFindings?: number | undefined;
+
+  /**
+   * <p>The total number of resolved findings for the resource type in the internal access analyzer.</p>
+   * @public
+   */
+  totalResolvedFindings?: number | undefined;
+
+  /**
+   * <p>The total number of archived findings for the resource type in the internal access analyzer.</p>
+   * @public
+   */
+  totalArchivedFindings?: number | undefined;
+}
+
+/**
+ * <p>Provides aggregate statistics about the findings for the specified internal access analyzer. This includes counts of active, archived, and resolved findings.</p>
+ * @public
+ */
+export interface InternalAccessFindingsStatistics {
+  /**
+   * <p>The total number of active findings for each resource type of the specified internal access analyzer.</p>
+   * @public
+   */
+  resourceTypeStatistics?: Partial<Record<ResourceType, InternalAccessResourceTypeDetails>> | undefined;
+
+  /**
+   * <p>The number of active findings for the specified internal access analyzer.</p>
+   * @public
+   */
+  totalActiveFindings?: number | undefined;
+
+  /**
+   * <p>The number of archived findings for the specified internal access analyzer.</p>
+   * @public
+   */
+  totalArchivedFindings?: number | undefined;
+
+  /**
+   * <p>The number of resolved findings for the specified internal access analyzer.</p>
+   * @public
+   */
+  totalResolvedFindings?: number | undefined;
+}
+
+/**
+ * <p>Contains information about the findings for an Amazon Web Services account in an organization unused access analyzer.</p>
  * @public
  */
 export interface FindingAggregationAccountDetails {
@@ -3430,16 +3075,14 @@ export interface FindingAggregationAccountDetails {
   numberOfActiveFindings?: number | undefined;
 
   /**
-   * <p>Provides the number of active findings for each type of unused access for the specified
-   *          Amazon Web Services account.</p>
+   * <p>Provides the number of active findings for each type of unused access for the specified Amazon Web Services account.</p>
    * @public
    */
   details?: Record<string, number> | undefined;
 }
 
 /**
- * <p>Contains information about the total number of findings for a type of unused
- *          access.</p>
+ * <p>Contains information about the total number of findings for a type of unused access.</p>
  * @public
  */
 export interface UnusedAccessTypeStatistics {
@@ -3457,21 +3100,18 @@ export interface UnusedAccessTypeStatistics {
 }
 
 /**
- * <p>Provides aggregate statistics about the findings for the specified unused access
- *          analyzer.</p>
+ * <p>Provides aggregate statistics about the findings for the specified unused access analyzer.</p>
  * @public
  */
 export interface UnusedAccessFindingsStatistics {
   /**
-   * <p>A list of details about the total number of findings for each type of unused access for
-   *          the analyzer. </p>
+   * <p>A list of details about the total number of findings for each type of unused access for the analyzer. </p>
    * @public
    */
   unusedAccessTypeStatistics?: UnusedAccessTypeStatistics[] | undefined;
 
   /**
-   * <p>A list of one to ten Amazon Web Services accounts that have the most active findings for the unused
-   *          access analyzer.</p>
+   * <p>A list of one to ten Amazon Web Services accounts that have the most active findings for the unused access analyzer.</p>
    * @public
    */
   topAccounts?: FindingAggregationAccountDetails[] | undefined;
@@ -3496,13 +3136,12 @@ export interface UnusedAccessFindingsStatistics {
 }
 
 /**
- * <p>Contains information about the aggregate statistics for an external or unused access
- *          analyzer. Only one parameter can be used in a <code>FindingsStatistics</code>
- *          object.</p>
+ * <p>Contains information about the aggregate statistics for an external or unused access analyzer. Only one parameter can be used in a <code>FindingsStatistics</code> object.</p>
  * @public
  */
 export type FindingsStatistics =
   | FindingsStatistics.ExternalAccessFindingsStatisticsMember
+  | FindingsStatistics.InternalAccessFindingsStatisticsMember
   | FindingsStatistics.UnusedAccessFindingsStatisticsMember
   | FindingsStatistics.$UnknownMember;
 
@@ -3516,6 +3155,18 @@ export namespace FindingsStatistics {
    */
   export interface ExternalAccessFindingsStatisticsMember {
     externalAccessFindingsStatistics: ExternalAccessFindingsStatistics;
+    internalAccessFindingsStatistics?: never;
+    unusedAccessFindingsStatistics?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The aggregate statistics for an internal access analyzer. This includes information about active, archived, and resolved findings related to internal access within your Amazon Web Services organization or account.</p>
+   * @public
+   */
+  export interface InternalAccessFindingsStatisticsMember {
+    externalAccessFindingsStatistics?: never;
+    internalAccessFindingsStatistics: InternalAccessFindingsStatistics;
     unusedAccessFindingsStatistics?: never;
     $unknown?: never;
   }
@@ -3526,6 +3177,7 @@ export namespace FindingsStatistics {
    */
   export interface UnusedAccessFindingsStatisticsMember {
     externalAccessFindingsStatistics?: never;
+    internalAccessFindingsStatistics?: never;
     unusedAccessFindingsStatistics: UnusedAccessFindingsStatistics;
     $unknown?: never;
   }
@@ -3535,12 +3187,14 @@ export namespace FindingsStatistics {
    */
   export interface $UnknownMember {
     externalAccessFindingsStatistics?: never;
+    internalAccessFindingsStatistics?: never;
     unusedAccessFindingsStatistics?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     externalAccessFindingsStatistics: (value: ExternalAccessFindingsStatistics) => T;
+    internalAccessFindingsStatistics: (value: InternalAccessFindingsStatistics) => T;
     unusedAccessFindingsStatistics: (value: UnusedAccessFindingsStatistics) => T;
     _: (name: string, value: any) => T;
   }
@@ -3548,6 +3202,8 @@ export namespace FindingsStatistics {
   export const visit = <T>(value: FindingsStatistics, visitor: Visitor<T>): T => {
     if (value.externalAccessFindingsStatistics !== undefined)
       return visitor.externalAccessFindingsStatistics(value.externalAccessFindingsStatistics);
+    if (value.internalAccessFindingsStatistics !== undefined)
+      return visitor.internalAccessFindingsStatistics(value.internalAccessFindingsStatistics);
     if (value.unusedAccessFindingsStatistics !== undefined)
       return visitor.unusedAccessFindingsStatistics(value.unusedAccessFindingsStatistics);
     return visitor._(value.$unknown[0], value.$unknown[1]);
@@ -3565,9 +3221,7 @@ export interface GetFindingsStatisticsResponse {
   findingsStatistics?: FindingsStatistics[] | undefined;
 
   /**
-   * <p>The time at which the retrieval of the findings statistics was last updated. If the
-   *          findings statistics have not been previously retrieved for the specified analyzer, this
-   *          field will not be populated.</p>
+   * <p>The time at which the retrieval of the findings statistics was last updated. If the findings statistics have not been previously retrieved for the specified analyzer, this field will not be populated.</p>
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -3578,8 +3232,7 @@ export interface GetFindingsStatisticsResponse {
  */
 export interface GetFindingV2Request {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-   *             the analyzer</a> that generated the finding.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> that generated the finding.</p>
    * @public
    */
   analyzerArn: string | undefined;
@@ -3609,15 +3262,13 @@ export interface GetFindingV2Request {
  */
 export interface ExternalAccessDetails {
   /**
-   * <p>The action in the analyzed policy statement that an external principal has permission to
-   *          use.</p>
+   * <p>The action in the analyzed policy statement that an external principal has permission to use.</p>
    * @public
    */
   action?: string[] | undefined;
 
   /**
-   * <p>The condition in the analyzed policy statement that resulted in an external access
-   *          finding.</p>
+   * <p>The condition in the analyzed policy statement that resulted in an external access finding.</p>
    * @public
    */
   condition: Record<string, string> | undefined;
@@ -3635,25 +3286,125 @@ export interface ExternalAccessDetails {
   principal?: Record<string, string> | undefined;
 
   /**
-   * <p>The sources of the external access finding. This indicates how the access that generated
-   *          the finding is granted. It is populated for Amazon S3 bucket findings.</p>
+   * <p>The sources of the external access finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.</p>
    * @public
    */
   sources?: FindingSource[] | undefined;
 
   /**
-   * <p>The type of restriction applied to the finding by the resource owner with an Organizations
-   *          resource control policy (RCP).</p>
+   * <p>The type of restriction applied to the finding by the resource owner with an Organizations resource control policy (RCP).</p> <ul> <li> <p> <code>APPLICABLE</code>: There is an RCP present in the organization but IAM Access Analyzer does not include it in the evaluation of effective permissions. For example, if <code>s3:DeleteObject</code> is blocked by the RCP and the restriction is <code>APPLICABLE</code>, then <code>s3:DeleteObject</code> would still be included in the list of actions for the finding.</p> </li> <li> <p> <code>FAILED_TO_EVALUATE_RCP</code>: There was an error evaluating the RCP.</p> </li> <li> <p> <code>NOT_APPLICABLE</code>: There was no RCP present in the organization, or there was no RCP applicable to the resource. For example, the resource being analyzed is an Amazon RDS snapshot and there is an RCP in the organization, but the RCP only impacts Amazon S3 buckets.</p> </li> <li> <p> <code>APPLIED</code>: This restriction is not currently available for external access findings. </p> </li> </ul>
    * @public
    */
   resourceControlPolicyRestriction?: ResourceControlPolicyRestriction | undefined;
 }
 
 /**
- * <p>Contains information about an unused access finding for an IAM role. IAM Access Analyzer
- *          charges for unused access analysis based on the number of IAM roles and users analyzed
- *          per month. For more details on pricing, see <a href="https://aws.amazon.com/iam/access-analyzer/pricing">IAM Access Analyzer
- *          pricing</a>.</p>
+ * @public
+ * @enum
+ */
+export const InternalAccessType = {
+  INTRA_ACCOUNT: "INTRA_ACCOUNT",
+  INTRA_ORG: "INTRA_ORG",
+} as const;
+
+/**
+ * @public
+ */
+export type InternalAccessType = (typeof InternalAccessType)[keyof typeof InternalAccessType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PrincipalType = {
+  IAM_ROLE: "IAM_ROLE",
+  IAM_USER: "IAM_USER",
+} as const;
+
+/**
+ * @public
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceControlPolicyRestriction = {
+  APPLICABLE: "APPLICABLE",
+  APPLIED: "APPLIED",
+  FAILED_TO_EVALUATE_SCP: "FAILED_TO_EVALUATE_SCP",
+  NOT_APPLICABLE: "NOT_APPLICABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceControlPolicyRestriction =
+  (typeof ServiceControlPolicyRestriction)[keyof typeof ServiceControlPolicyRestriction];
+
+/**
+ * <p>Contains information about an internal access finding. This includes details about the access that was identified within your Amazon Web Services organization or account.</p>
+ * @public
+ */
+export interface InternalAccessDetails {
+  /**
+   * <p>The action in the analyzed policy statement that has internal access permission to use.</p>
+   * @public
+   */
+  action?: string[] | undefined;
+
+  /**
+   * <p>The condition in the analyzed policy statement that resulted in an internal access finding.</p>
+   * @public
+   */
+  condition?: Record<string, string> | undefined;
+
+  /**
+   * <p>The principal that has access to a resource within the internal environment.</p>
+   * @public
+   */
+  principal?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the principal identified in the internal access finding.</p>
+   * @public
+   */
+  principalOwnerAccount?: string | undefined;
+
+  /**
+   * <p>The type of internal access identified in the finding. This indicates how the access is granted within your Amazon Web Services environment.</p>
+   * @public
+   */
+  accessType?: InternalAccessType | undefined;
+
+  /**
+   * <p>The type of principal identified in the internal access finding, such as IAM role or IAM user.</p>
+   * @public
+   */
+  principalType?: PrincipalType | undefined;
+
+  /**
+   * <p>The sources of the internal access finding. This indicates how the access that generated the finding is granted within your Amazon Web Services environment.</p>
+   * @public
+   */
+  sources?: FindingSource[] | undefined;
+
+  /**
+   * <p>The type of restriction applied to the finding by the resource owner with an Organizations resource control policy (RCP).</p> <ul> <li> <p> <code>APPLICABLE</code>: There is an RCP present in the organization but IAM Access Analyzer does not include it in the evaluation of effective permissions. For example, if <code>s3:DeleteObject</code> is blocked by the RCP and the restriction is <code>APPLICABLE</code>, then <code>s3:DeleteObject</code> would still be included in the list of actions for the finding. Only applicable to internal access findings with the account as the zone of trust. </p> </li> <li> <p> <code>FAILED_TO_EVALUATE_RCP</code>: There was an error evaluating the RCP.</p> </li> <li> <p> <code>NOT_APPLICABLE</code>: There was no RCP present in the organization. For internal access findings with the account as the zone of trust, <code>NOT_APPLICABLE</code> could also indicate that there was no RCP applicable to the resource.</p> </li> <li> <p> <code>APPLIED</code>: An RCP is present in the organization and IAM Access Analyzer included it in the evaluation of effective permissions. For example, if <code>s3:DeleteObject</code> is blocked by the RCP and the restriction is <code>APPLIED</code>, then <code>s3:DeleteObject</code> would not be included in the list of actions for the finding. Only applicable to internal access findings with the organization as the zone of trust. </p> </li> </ul>
+   * @public
+   */
+  resourceControlPolicyRestriction?: ResourceControlPolicyRestriction | undefined;
+
+  /**
+   * <p>The type of restriction applied to the finding by an Organizations service control policy (SCP).</p> <ul> <li> <p> <code>APPLICABLE</code>: There is an SCP present in the organization but IAM Access Analyzer does not include it in the evaluation of effective permissions. Only applicable to internal access findings with the account as the zone of trust. </p> </li> <li> <p> <code>FAILED_TO_EVALUATE_SCP</code>: There was an error evaluating the SCP.</p> </li> <li> <p> <code>NOT_APPLICABLE</code>: There was no SCP present in the organization. For internal access findings with the account as the zone of trust, <code>NOT_APPLICABLE</code> could also indicate that there was no SCP applicable to the principal.</p> </li> <li> <p> <code>APPLIED</code>: An SCP is present in the organization and IAM Access Analyzer included it in the evaluation of effective permissions. Only applicable to internal access findings with the organization as the zone of trust. </p> </li> </ul>
+   * @public
+   */
+  serviceControlPolicyRestriction?: ServiceControlPolicyRestriction | undefined;
+}
+
+/**
+ * <p>Contains information about an unused access finding for an IAM role. IAM Access Analyzer charges for unused access analysis based on the number of IAM roles and users analyzed per month. For more details on pricing, see <a href="https://aws.amazon.com/iam/access-analyzer/pricing">IAM Access Analyzer pricing</a>.</p>
  * @public
  */
 export interface UnusedIamRoleDetails {
@@ -3665,10 +3416,7 @@ export interface UnusedIamRoleDetails {
 }
 
 /**
- * <p>Contains information about an unused access finding for an IAM user access key.
- *          IAM Access Analyzer charges for unused access analysis based on the number of IAM roles and
- *          users analyzed per month. For more details on pricing, see <a href="https://aws.amazon.com/iam/access-analyzer/pricing">IAM Access Analyzer
- *          pricing</a>.</p>
+ * <p>Contains information about an unused access finding for an IAM user access key. IAM Access Analyzer charges for unused access analysis based on the number of IAM roles and users analyzed per month. For more details on pricing, see <a href="https://aws.amazon.com/iam/access-analyzer/pricing">IAM Access Analyzer pricing</a>.</p>
  * @public
  */
 export interface UnusedIamUserAccessKeyDetails {
@@ -3686,10 +3434,7 @@ export interface UnusedIamUserAccessKeyDetails {
 }
 
 /**
- * <p>Contains information about an unused access finding for an IAM user password.
- *          IAM Access Analyzer charges for unused access analysis based on the number of IAM roles and
- *          users analyzed per month. For more details on pricing, see <a href="https://aws.amazon.com/iam/access-analyzer/pricing">IAM Access Analyzer
- *          pricing</a>.</p>
+ * <p>Contains information about an unused access finding for an IAM user password. IAM Access Analyzer charges for unused access analysis based on the number of IAM roles and users analyzed per month. For more details on pricing, see <a href="https://aws.amazon.com/iam/access-analyzer/pricing">IAM Access Analyzer pricing</a>.</p>
  * @public
  */
 export interface UnusedIamUserPasswordDetails {
@@ -3701,10 +3446,7 @@ export interface UnusedIamUserPasswordDetails {
 }
 
 /**
- * <p>Contains information about an unused access finding for an action. IAM Access Analyzer charges
- *          for unused access analysis based on the number of IAM roles and users analyzed per month.
- *          For more details on pricing, see <a href="https://aws.amazon.com/iam/access-analyzer/pricing">IAM Access Analyzer
- *          pricing</a>.</p>
+ * <p>Contains information about an unused access finding for an action. IAM Access Analyzer charges for unused access analysis based on the number of IAM roles and users analyzed per month. For more details on pricing, see <a href="https://aws.amazon.com/iam/access-analyzer/pricing">IAM Access Analyzer pricing</a>.</p>
  * @public
  */
 export interface UnusedAction {
@@ -3722,10 +3464,7 @@ export interface UnusedAction {
 }
 
 /**
- * <p>Contains information about an unused access finding for a permission. IAM Access Analyzer
- *          charges for unused access analysis based on the number of IAM roles and users analyzed
- *          per month. For more details on pricing, see <a href="https://aws.amazon.com/iam/access-analyzer/pricing">IAM Access Analyzer
- *          pricing</a>.</p>
+ * <p>Contains information about an unused access finding for a permission. IAM Access Analyzer charges for unused access analysis based on the number of IAM roles and users analyzed per month. For more details on pricing, see <a href="https://aws.amazon.com/iam/access-analyzer/pricing">IAM Access Analyzer pricing</a>.</p>
  * @public
  */
 export interface UnusedPermissionDetails {
@@ -3749,12 +3488,12 @@ export interface UnusedPermissionDetails {
 }
 
 /**
- * <p>Contains information about an external access or unused access finding. Only one
- *          parameter can be used in a <code>FindingDetails</code> object.</p>
+ * <p>Contains information about an external access or unused access finding. Only one parameter can be used in a <code>FindingDetails</code> object.</p>
  * @public
  */
 export type FindingDetails =
   | FindingDetails.ExternalAccessDetailsMember
+  | FindingDetails.InternalAccessDetailsMember
   | FindingDetails.UnusedIamRoleDetailsMember
   | FindingDetails.UnusedIamUserAccessKeyDetailsMember
   | FindingDetails.UnusedIamUserPasswordDetailsMember
@@ -3766,10 +3505,25 @@ export type FindingDetails =
  */
 export namespace FindingDetails {
   /**
+   * <p>The details for an internal access analyzer finding. This contains information about access patterns identified within your Amazon Web Services organization or account.</p>
+   * @public
+   */
+  export interface InternalAccessDetailsMember {
+    internalAccessDetails: InternalAccessDetails;
+    externalAccessDetails?: never;
+    unusedPermissionDetails?: never;
+    unusedIamUserAccessKeyDetails?: never;
+    unusedIamRoleDetails?: never;
+    unusedIamUserPasswordDetails?: never;
+    $unknown?: never;
+  }
+
+  /**
    * <p>The details for an external access analyzer finding.</p>
    * @public
    */
   export interface ExternalAccessDetailsMember {
+    internalAccessDetails?: never;
     externalAccessDetails: ExternalAccessDetails;
     unusedPermissionDetails?: never;
     unusedIamUserAccessKeyDetails?: never;
@@ -3779,11 +3533,11 @@ export namespace FindingDetails {
   }
 
   /**
-   * <p>The details for an unused access analyzer finding with an unused permission finding
-   *          type.</p>
+   * <p>The details for an unused access analyzer finding with an unused permission finding type.</p>
    * @public
    */
   export interface UnusedPermissionDetailsMember {
+    internalAccessDetails?: never;
     externalAccessDetails?: never;
     unusedPermissionDetails: UnusedPermissionDetails;
     unusedIamUserAccessKeyDetails?: never;
@@ -3793,11 +3547,11 @@ export namespace FindingDetails {
   }
 
   /**
-   * <p>The details for an unused access analyzer finding with an unused IAM user access key
-   *          finding type.</p>
+   * <p>The details for an unused access analyzer finding with an unused IAM user access key finding type.</p>
    * @public
    */
   export interface UnusedIamUserAccessKeyDetailsMember {
+    internalAccessDetails?: never;
     externalAccessDetails?: never;
     unusedPermissionDetails?: never;
     unusedIamUserAccessKeyDetails: UnusedIamUserAccessKeyDetails;
@@ -3807,11 +3561,11 @@ export namespace FindingDetails {
   }
 
   /**
-   * <p>The details for an unused access analyzer finding with an unused IAM role finding
-   *          type.</p>
+   * <p>The details for an unused access analyzer finding with an unused IAM role finding type.</p>
    * @public
    */
   export interface UnusedIamRoleDetailsMember {
+    internalAccessDetails?: never;
     externalAccessDetails?: never;
     unusedPermissionDetails?: never;
     unusedIamUserAccessKeyDetails?: never;
@@ -3821,11 +3575,11 @@ export namespace FindingDetails {
   }
 
   /**
-   * <p>The details for an unused access analyzer finding with an unused IAM user password
-   *          finding type.</p>
+   * <p>The details for an unused access analyzer finding with an unused IAM user password finding type.</p>
    * @public
    */
   export interface UnusedIamUserPasswordDetailsMember {
+    internalAccessDetails?: never;
     externalAccessDetails?: never;
     unusedPermissionDetails?: never;
     unusedIamUserAccessKeyDetails?: never;
@@ -3838,6 +3592,7 @@ export namespace FindingDetails {
    * @public
    */
   export interface $UnknownMember {
+    internalAccessDetails?: never;
     externalAccessDetails?: never;
     unusedPermissionDetails?: never;
     unusedIamUserAccessKeyDetails?: never;
@@ -3847,6 +3602,7 @@ export namespace FindingDetails {
   }
 
   export interface Visitor<T> {
+    internalAccessDetails: (value: InternalAccessDetails) => T;
     externalAccessDetails: (value: ExternalAccessDetails) => T;
     unusedPermissionDetails: (value: UnusedPermissionDetails) => T;
     unusedIamUserAccessKeyDetails: (value: UnusedIamUserAccessKeyDetails) => T;
@@ -3856,6 +3612,7 @@ export namespace FindingDetails {
   }
 
   export const visit = <T>(value: FindingDetails, visitor: Visitor<T>): T => {
+    if (value.internalAccessDetails !== undefined) return visitor.internalAccessDetails(value.internalAccessDetails);
     if (value.externalAccessDetails !== undefined) return visitor.externalAccessDetails(value.externalAccessDetails);
     if (value.unusedPermissionDetails !== undefined)
       return visitor.unusedPermissionDetails(value.unusedPermissionDetails);
@@ -3874,6 +3631,7 @@ export namespace FindingDetails {
  */
 export const FindingType = {
   EXTERNAL_ACCESS: "ExternalAccess",
+  INTERNAL_ACCESS: "InternalAccess",
   UNUSED_IAM_ROLE: "UnusedIAMRole",
   UNUSED_IAM_USER_ACCESS_KEY: "UnusedIAMUserAccessKey",
   UNUSED_IAM_USER_PASSWORD: "UnusedIAMUserPassword",
@@ -3890,8 +3648,7 @@ export type FindingType = (typeof FindingType)[keyof typeof FindingType];
  */
 export interface GetFindingV2Response {
   /**
-   * <p>The time at which the resource-based policy or IAM entity that generated the finding
-   *          was analyzed.</p>
+   * <p>The time at which the resource-based policy or IAM entity that generated the finding was analyzed.</p>
    * @public
    */
   analyzedAt: Date | undefined;
@@ -3951,17 +3708,13 @@ export interface GetFindingV2Response {
   updatedAt: Date | undefined;
 
   /**
-   * <p>A localized message that explains the finding and provides guidance on how to address
-   *          it.</p>
+   * <p>A localized message that explains the finding and provides guidance on how to address it.</p>
    * @public
    */
   findingDetails: FindingDetails[] | undefined;
 
   /**
-   * <p>The type of the finding. For external access analyzers, the type is
-   *             <code>ExternalAccess</code>. For unused access analyzers, the type can be
-   *             <code>UnusedIAMRole</code>, <code>UnusedIAMUserAccessKey</code>,
-   *             <code>UnusedIAMUserPassword</code>, or <code>UnusedPermission</code>.</p>
+   * <p>The type of the finding. For external access analyzers, the type is <code>ExternalAccess</code>. For unused access analyzers, the type can be <code>UnusedIAMRole</code>, <code>UnusedIAMUserAccessKey</code>, <code>UnusedIAMUserPassword</code>, or <code>UnusedPermission</code>. For internal access analyzers, the type is <code>InternalAccess</code>.</p>
    * @public
    */
   findingType?: FindingType | undefined;
@@ -3972,29 +3725,19 @@ export interface GetFindingV2Response {
  */
 export interface GetGeneratedPolicyRequest {
   /**
-   * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code>
-   *          operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to
-   *          retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel
-   *          the policy generation request.</p>
+   * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.</p>
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The level of detail that you want to generate. You can specify whether to generate
-   *          policies with placeholders for resource ARNs for actions that support resource level
-   *          granularity in policies.</p>
-   *          <p>For example, in the resource section of a policy, you can receive a placeholder such as
-   *             <code>"Resource":"arn:aws:s3:::$\{BucketName\}"</code> instead of <code>"*"</code>.</p>
+   * <p>The level of detail that you want to generate. You can specify whether to generate policies with placeholders for resource ARNs for actions that support resource level granularity in policies.</p> <p>For example, in the resource section of a policy, you can receive a placeholder such as <code>"Resource":"arn:aws:s3:::$\{BucketName\}"</code> instead of <code>"*"</code>.</p>
    * @public
    */
   includeResourcePlaceholders?: boolean | undefined;
 
   /**
-   * <p>The level of detail that you want to generate. You can specify whether to generate
-   *          service-level policies. </p>
-   *          <p>IAM Access Analyzer uses <code>iam:servicelastaccessed</code> to identify services that have
-   *          been used recently to create this service-level template.</p>
+   * <p>The level of detail that you want to generate. You can specify whether to generate service-level policies. </p> <p>IAM Access Analyzer uses <code>iam:servicelastaccessed</code> to identify services that have been used recently to create this service-level template.</p>
    * @public
    */
   includeServiceLevelTemplate?: boolean | undefined;
@@ -4006,8 +3749,7 @@ export interface GetGeneratedPolicyRequest {
  */
 export interface GeneratedPolicy {
   /**
-   * <p>The text to use as the content for the new policy. The policy is created using the
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">CreatePolicy</a> action.</p>
+   * <p>The text to use as the content for the new policy. The policy is created using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">CreatePolicy</a> action.</p>
    * @public
    */
   policy: string | undefined;
@@ -4019,8 +3761,7 @@ export interface GeneratedPolicy {
  */
 export interface TrailProperties {
   /**
-   * <p>Specifies the ARN of the trail. The format of a trail ARN is
-   *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>.</p>
+   * <p>Specifies the ARN of the trail. The format of a trail ARN is <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>.</p>
    * @public
    */
   cloudTrailArn: string | undefined;
@@ -4032,9 +3773,7 @@ export interface TrailProperties {
   regions?: string[] | undefined;
 
   /**
-   * <p>Possible values are <code>true</code> or <code>false</code>. If set to
-   *          <code>true</code>, IAM Access Analyzer retrieves CloudTrail data from all regions to analyze and
-   *          generate a policy.</p>
+   * <p>Possible values are <code>true</code> or <code>false</code>. If set to <code>true</code>, IAM Access Analyzer retrieves CloudTrail data from all regions to analyze and generate a policy.</p>
    * @public
    */
   allRegions?: boolean | undefined;
@@ -4046,23 +3785,19 @@ export interface TrailProperties {
  */
 export interface CloudTrailProperties {
   /**
-   * <p>A <code>TrailProperties</code> object that contains settings for trail
-   *          properties.</p>
+   * <p>A <code>TrailProperties</code> object that contains settings for trail properties.</p>
    * @public
    */
   trailProperties: TrailProperties[] | undefined;
 
   /**
-   * <p>The start of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events
-   *          with a timestamp before this time are not considered to generate a policy.</p>
+   * <p>The start of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events with a timestamp before this time are not considered to generate a policy.</p>
    * @public
    */
   startTime: Date | undefined;
 
   /**
-   * <p>The end of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events with
-   *          a timestamp after this time are not considered to generate a policy. If this is not
-   *          included in the request, the default value is the current time.</p>
+   * <p>The end of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events with a timestamp after this time are not considered to generate a policy. If this is not included in the request, the default value is the current time.</p>
    * @public
    */
   endTime: Date | undefined;
@@ -4074,9 +3809,7 @@ export interface CloudTrailProperties {
  */
 export interface GeneratedPolicyProperties {
   /**
-   * <p>This value is set to <code>true</code> if the generated policy contains all possible
-   *          actions for a service that IAM Access Analyzer identified from the CloudTrail trail that you specified,
-   *          and <code>false</code> otherwise.</p>
+   * <p>This value is set to <code>true</code> if the generated policy contains all possible actions for a service that IAM Access Analyzer identified from the CloudTrail trail that you specified, and <code>false</code> otherwise.</p>
    * @public
    */
   isComplete?: boolean | undefined;
@@ -4100,15 +3833,13 @@ export interface GeneratedPolicyProperties {
  */
 export interface GeneratedPolicyResult {
   /**
-   * <p>A <code>GeneratedPolicyProperties</code> object that contains properties of the
-   *          generated policy.</p>
+   * <p>A <code>GeneratedPolicyProperties</code> object that contains properties of the generated policy.</p>
    * @public
    */
   properties: GeneratedPolicyProperties | undefined;
 
   /**
-   * <p>The text to use as the content for the new policy. The policy is created using the
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">CreatePolicy</a> action.</p>
+   * <p>The text to use as the content for the new policy. The policy is created using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">CreatePolicy</a> action.</p>
    * @public
    */
   generatedPolicies?: GeneratedPolicy[] | undefined;
@@ -4142,8 +3873,7 @@ export interface JobError {
   code: JobErrorCode | undefined;
 
   /**
-   * <p>Specific information about the error. For example, which service quota was exceeded or
-   *          which resource was not found.</p>
+   * <p>Specific information about the error. For example, which service quota was exceeded or which resource was not found.</p>
    * @public
    */
   message: string | undefined;
@@ -4171,10 +3901,7 @@ export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
  */
 export interface JobDetails {
   /**
-   * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code>
-   *          operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to
-   *          retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel
-   *          the policy generation request.</p>
+   * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.</p>
    * @public
    */
   jobId: string | undefined;
@@ -4209,15 +3936,13 @@ export interface JobDetails {
  */
 export interface GetGeneratedPolicyResponse {
   /**
-   * <p>A <code>GeneratedPolicyDetails</code> object that contains details about the generated
-   *          policy.</p>
+   * <p>A <code>GeneratedPolicyDetails</code> object that contains details about the generated policy.</p>
    * @public
    */
   jobDetails: JobDetails | undefined;
 
   /**
-   * <p>A <code>GeneratedPolicyResult</code> object that contains the generated policies and
-   *          associated details.</p>
+   * <p>A <code>GeneratedPolicyResult</code> object that contains the generated policies and associated details.</p>
    * @public
    */
   generatedPolicyResult: GeneratedPolicyResult | undefined;
@@ -4234,8 +3959,7 @@ export interface ListAccessPreviewFindingsRequest {
   accessPreviewId: string | undefined;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-   *             the analyzer</a> used to generate the access.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> used to generate the access.</p>
    * @public
    */
   analyzerArn: string | undefined;
@@ -4280,16 +4004,13 @@ export type FindingChangeType = (typeof FindingChangeType)[keyof typeof FindingC
  */
 export interface AccessPreviewFinding {
   /**
-   * <p>The ID of the access preview finding. This ID uniquely identifies the element in the
-   *          list of access preview findings and is not related to the finding ID in Access
-   *          Analyzer.</p>
+   * <p>The ID of the access preview finding. This ID uniquely identifies the element in the list of access preview findings and is not related to the finding ID in Access Analyzer.</p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The existing ID of the finding in IAM Access Analyzer, provided only for existing
-   *          findings.</p>
+   * <p>The existing ID of the finding in IAM Access Analyzer, provided only for existing findings.</p>
    * @public
    */
   existingFindingId?: string | undefined;
@@ -4307,8 +4028,7 @@ export interface AccessPreviewFinding {
   principal?: Record<string, string> | undefined;
 
   /**
-   * <p>The action in the analyzed policy statement that an external principal has permission to
-   *          perform.</p>
+   * <p>The action in the analyzed policy statement that an external principal has permission to perform.</p>
    * @public
    */
   action?: string[] | undefined;
@@ -4320,15 +4040,13 @@ export interface AccessPreviewFinding {
   condition?: Record<string, string> | undefined;
 
   /**
-   * <p>The resource that an external principal has access to. This is the resource associated
-   *          with the access preview.</p>
+   * <p>The resource that an external principal has access to. This is the resource associated with the access preview.</p>
    * @public
    */
   resource?: string | undefined;
 
   /**
-   * <p>Indicates whether the policy that generated the finding allows public access to the
-   *          resource.</p>
+   * <p>Indicates whether the policy that generated the finding allows public access to the resource.</p>
    * @public
    */
   isPublic?: boolean | undefined;
@@ -4346,44 +4064,19 @@ export interface AccessPreviewFinding {
   createdAt: Date | undefined;
 
   /**
-   * <p>Provides context on how the access preview finding compares to existing access
-   *          identified in IAM Access Analyzer.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>New</code> - The finding is for newly-introduced access.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unchanged</code> - The preview finding is an existing finding that would
-   *                remain unchanged.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Changed</code> - The preview finding is an existing finding with a change in
-   *                status.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For example, a <code>Changed</code> finding with preview status <code>Resolved</code>
-   *          and existing status <code>Active</code> indicates the existing <code>Active</code> finding
-   *          would become <code>Resolved</code> as a result of the proposed permissions change.</p>
+   * <p>Provides context on how the access preview finding compares to existing access identified in IAM Access Analyzer.</p> <ul> <li> <p> <code>New</code> - The finding is for newly-introduced access.</p> </li> <li> <p> <code>Unchanged</code> - The preview finding is an existing finding that would remain unchanged.</p> </li> <li> <p> <code>Changed</code> - The preview finding is an existing finding with a change in status.</p> </li> </ul> <p>For example, a <code>Changed</code> finding with preview status <code>Resolved</code> and existing status <code>Active</code> indicates the existing <code>Active</code> finding would become <code>Resolved</code> as a result of the proposed permissions change.</p>
    * @public
    */
   changeType: FindingChangeType | undefined;
 
   /**
-   * <p>The preview status of the finding. This is what the status of the finding would be after
-   *          permissions deployment. For example, a <code>Changed</code> finding with preview status
-   *             <code>Resolved</code> and existing status <code>Active</code> indicates the existing
-   *             <code>Active</code> finding would become <code>Resolved</code> as a result of the
-   *          proposed permissions change.</p>
+   * <p>The preview status of the finding. This is what the status of the finding would be after permissions deployment. For example, a <code>Changed</code> finding with preview status <code>Resolved</code> and existing status <code>Active</code> indicates the existing <code>Active</code> finding would become <code>Resolved</code> as a result of the proposed permissions change.</p>
    * @public
    */
   status: FindingStatus | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID that owns the resource. For most Amazon Web Services resources, the owning
-   *          account is the account in which the resource was created.</p>
+   * <p>The Amazon Web Services account ID that owns the resource. For most Amazon Web Services resources, the owning account is the account in which the resource was created.</p>
    * @public
    */
   resourceOwnerAccount: string | undefined;
@@ -4395,15 +4088,13 @@ export interface AccessPreviewFinding {
   error?: string | undefined;
 
   /**
-   * <p>The sources of the finding. This indicates how the access that generated the finding is
-   *          granted. It is populated for Amazon S3 bucket findings.</p>
+   * <p>The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.</p>
    * @public
    */
   sources?: FindingSource[] | undefined;
 
   /**
-   * <p>The type of restriction applied to the finding by the resource owner with an Organizations
-   *          resource control policy (RCP).</p>
+   * <p>The type of restriction applied to the finding by the resource owner with an Organizations resource control policy (RCP).</p>
    * @public
    */
   resourceControlPolicyRestriction?: ResourceControlPolicyRestriction | undefined;
@@ -4431,8 +4122,7 @@ export interface ListAccessPreviewFindingsResponse {
  */
 export interface ListAccessPreviewsRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-   *             the analyzer</a> used to generate the access preview.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> used to generate the access preview.</p>
    * @public
    */
   analyzerArn: string | undefined;
@@ -4474,31 +4164,13 @@ export interface AccessPreviewSummary {
   createdAt: Date | undefined;
 
   /**
-   * <p>The status of the access preview.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Creating</code> - The access preview creation is in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Completed</code> - The access preview is complete and previews the findings
-   *                for external access to the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Failed</code> - The access preview creation has failed.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the access preview.</p> <ul> <li> <p> <code>Creating</code> - The access preview creation is in progress.</p> </li> <li> <p> <code>Completed</code> - The access preview is complete and previews the findings for external access to the resource.</p> </li> <li> <p> <code>Failed</code> - The access preview creation has failed.</p> </li> </ul>
    * @public
    */
   status: AccessPreviewStatus | undefined;
 
   /**
-   * <p>Provides more details about the current status of the access preview. For example, if
-   *          the creation of the access preview fails, a <code>Failed</code> status is returned. This
-   *          failure can be due to an internal issue with the analysis or due to an invalid proposed
-   *          resource configuration.</p>
+   * <p>Provides more details about the current status of the access preview. For example, if the creation of the access preview fails, a <code>Failed</code> status is returned. This failure can be due to an internal issue with the analysis or due to an invalid proposed resource configuration.</p>
    * @public
    */
   statusReason?: AccessPreviewStatusReason | undefined;
@@ -4527,8 +4199,7 @@ export interface ListAccessPreviewsResponse {
  */
 export interface ListAnalyzedResourcesRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-   *             the analyzer</a> to retrieve a list of analyzed resources from.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> to retrieve a list of analyzed resources from.</p>
    * @public
    */
   analyzerArn: string | undefined;
@@ -4623,8 +4294,7 @@ export interface SortCriteria {
  */
 export interface ListFindingsRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-   *             the analyzer</a> to retrieve findings from.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> to retrieve findings from.</p>
    * @public
    */
   analyzerArn: string | undefined;
@@ -4672,8 +4342,7 @@ export interface FindingSummary {
   principal?: Record<string, string> | undefined;
 
   /**
-   * <p>The action in the analyzed policy statement that an external principal has permission to
-   *          use.</p>
+   * <p>The action in the analyzed policy statement that an external principal has permission to use.</p>
    * @public
    */
   action?: string[] | undefined;
@@ -4685,8 +4354,7 @@ export interface FindingSummary {
   resource?: string | undefined;
 
   /**
-   * <p>Indicates whether the finding reports a resource that has a policy that allows public
-   *          access.</p>
+   * <p>Indicates whether the finding reports a resource that has a policy that allows public access.</p>
    * @public
    */
   isPublic?: boolean | undefined;
@@ -4710,8 +4378,7 @@ export interface FindingSummary {
   createdAt: Date | undefined;
 
   /**
-   * <p>The time at which the resource-based policy that generated the finding was
-   *          analyzed.</p>
+   * <p>The time at which the resource-based policy that generated the finding was analyzed.</p>
    * @public
    */
   analyzedAt: Date | undefined;
@@ -4741,15 +4408,13 @@ export interface FindingSummary {
   error?: string | undefined;
 
   /**
-   * <p>The sources of the finding. This indicates how the access that generated the finding is
-   *          granted. It is populated for Amazon S3 bucket findings.</p>
+   * <p>The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.</p>
    * @public
    */
   sources?: FindingSource[] | undefined;
 
   /**
-   * <p>The type of restriction applied to the finding by the resource owner with an Organizations
-   *          resource control policy (RCP).</p>
+   * <p>The type of restriction applied to the finding by the resource owner with an Organizations resource control policy (RCP).</p>
    * @public
    */
   resourceControlPolicyRestriction?: ResourceControlPolicyRestriction | undefined;
@@ -4761,8 +4426,7 @@ export interface FindingSummary {
  */
 export interface ListFindingsResponse {
   /**
-   * <p>A list of findings retrieved from the analyzer that match the filter criteria specified,
-   *          if any.</p>
+   * <p>A list of findings retrieved from the analyzer that match the filter criteria specified, if any.</p>
    * @public
    */
   findings: FindingSummary[] | undefined;
@@ -4779,8 +4443,7 @@ export interface ListFindingsResponse {
  */
 export interface ListFindingsV2Request {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-   *             the analyzer</a> to retrieve findings from.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> to retrieve findings from.</p>
    * @public
    */
   analyzerArn: string | undefined;
@@ -4816,8 +4479,7 @@ export interface ListFindingsV2Request {
  */
 export interface FindingSummaryV2 {
   /**
-   * <p>The time at which the resource-based policy or IAM entity that generated the finding
-   *          was analyzed.</p>
+   * <p>The time at which the resource-based policy or IAM entity that generated the finding was analyzed.</p>
    * @public
    */
   analyzedAt: Date | undefined;
@@ -4871,7 +4533,7 @@ export interface FindingSummaryV2 {
   updatedAt: Date | undefined;
 
   /**
-   * <p>The type of the external access or unused access finding.</p>
+   * <p>The type of the access finding. For external access analyzers, the type is <code>ExternalAccess</code>. For unused access analyzers, the type can be <code>UnusedIAMRole</code>, <code>UnusedIAMUserAccessKey</code>, <code>UnusedIAMUserPassword</code>, or <code>UnusedPermission</code>. For internal access analyzers, the type is <code>InternalAccess</code>.</p>
    * @public
    */
   findingType?: FindingType | undefined;
@@ -4882,8 +4544,7 @@ export interface FindingSummaryV2 {
  */
 export interface ListFindingsV2Response {
   /**
-   * <p>A list of findings retrieved from the analyzer that match the filter criteria specified,
-   *          if any.</p>
+   * <p>A list of findings retrieved from the analyzer that match the filter criteria specified, if any.</p>
    * @public
    */
   findings: FindingSummaryV2[] | undefined;
@@ -4900,9 +4561,7 @@ export interface ListFindingsV2Response {
  */
 export interface ListPolicyGenerationsRequest {
   /**
-   * <p>The ARN of the IAM entity (user or role) for which you are generating a policy. Use
-   *          this with <code>ListGeneratedPolicies</code> to filter the results to only include results
-   *          for a specific principal.</p>
+   * <p>The ARN of the IAM entity (user or role) for which you are generating a policy. Use this with <code>ListGeneratedPolicies</code> to filter the results to only include results for a specific principal.</p>
    * @public
    */
   principalArn?: string | undefined;
@@ -4926,10 +4585,7 @@ export interface ListPolicyGenerationsRequest {
  */
 export interface PolicyGeneration {
   /**
-   * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code>
-   *          operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to
-   *          retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel
-   *          the policy generation request.</p>
+   * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.</p>
    * @public
    */
   jobId: string | undefined;
@@ -4964,8 +4620,7 @@ export interface PolicyGeneration {
  */
 export interface ListPolicyGenerationsResponse {
   /**
-   * <p>A <code>PolicyGeneration</code> object that contains details about the generated
-   *          policy.</p>
+   * <p>A <code>PolicyGeneration</code> object that contains details about the generated policy.</p>
    * @public
    */
   policyGenerations: PolicyGeneration[] | undefined;
@@ -5007,8 +4662,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface Trail {
   /**
-   * <p>Specifies the ARN of the trail. The format of a trail ARN is
-   *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>.</p>
+   * <p>Specifies the ARN of the trail. The format of a trail ARN is <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>.</p>
    * @public
    */
   cloudTrailArn: string | undefined;
@@ -5020,9 +4674,7 @@ export interface Trail {
   regions?: string[] | undefined;
 
   /**
-   * <p>Possible values are <code>true</code> or <code>false</code>. If set to
-   *          <code>true</code>, IAM Access Analyzer retrieves CloudTrail data from all regions to analyze and
-   *          generate a policy.</p>
+   * <p>Possible values are <code>true</code> or <code>false</code>. If set to <code>true</code>, IAM Access Analyzer retrieves CloudTrail data from all regions to analyze and generate a policy.</p>
    * @public
    */
   allRegions?: boolean | undefined;
@@ -5040,31 +4692,26 @@ export interface CloudTrailDetails {
   trails: Trail[] | undefined;
 
   /**
-   * <p>The ARN of the service role that IAM Access Analyzer uses to access your CloudTrail trail and
-   *          service last accessed information.</p>
+   * <p>The ARN of the service role that IAM Access Analyzer uses to access your CloudTrail trail and service last accessed information.</p>
    * @public
    */
   accessRole: string | undefined;
 
   /**
-   * <p>The start of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events
-   *          with a timestamp before this time are not considered to generate a policy.</p>
+   * <p>The start of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events with a timestamp before this time are not considered to generate a policy.</p>
    * @public
    */
   startTime: Date | undefined;
 
   /**
-   * <p>The end of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events with
-   *          a timestamp after this time are not considered to generate a policy. If this is not
-   *          included in the request, the default value is the current time.</p>
+   * <p>The end of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events with a timestamp after this time are not considered to generate a policy. If this is not included in the request, the default value is the current time.</p>
    * @public
    */
   endTime?: Date | undefined;
 }
 
 /**
- * <p>Contains the ARN details about the IAM entity for which the policy is
- *          generated.</p>
+ * <p>Contains the ARN details about the IAM entity for which the policy is generated.</p>
  * @public
  */
 export interface PolicyGenerationDetails {
@@ -5080,27 +4727,19 @@ export interface PolicyGenerationDetails {
  */
 export interface StartPolicyGenerationRequest {
   /**
-   * <p>Contains the ARN of the IAM entity (user or role) for which you are generating a
-   *          policy.</p>
+   * <p>Contains the ARN of the IAM entity (user or role) for which you are generating a policy.</p>
    * @public
    */
   policyGenerationDetails: PolicyGenerationDetails | undefined;
 
   /**
-   * <p>A <code>CloudTrailDetails</code> object that contains details about a <code>Trail</code>
-   *          that you want to analyze to generate policies.</p>
+   * <p>A <code>CloudTrailDetails</code> object that contains details about a <code>Trail</code> that you want to analyze to generate policies.</p>
    * @public
    */
   cloudTrailDetails?: CloudTrailDetails | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          request. Idempotency ensures that an API request completes only once. With an idempotent
-   *          request, if the original request completes successfully, the subsequent retries with the
-   *          same client token return the result from the original successful request and they have no
-   *          additional effect.</p>
-   *          <p>If you do not specify a client token, one is automatically generated by the Amazon Web Services
-   *          SDK.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you do not specify a client token, one is automatically generated by the Amazon Web Services SDK.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -5111,10 +4750,7 @@ export interface StartPolicyGenerationRequest {
  */
 export interface StartPolicyGenerationResponse {
   /**
-   * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code>
-   *          operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to
-   *          retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel
-   *          the policy generation request.</p>
+   * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.</p>
    * @public
    */
   jobId: string | undefined;
@@ -5126,9 +4762,7 @@ export interface StartPolicyGenerationResponse {
  */
 export interface StartResourceScanRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-   *             the analyzer</a> to use to scan the policies applied to the specified
-   *          resource.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> to use to scan the policies applied to the specified resource.</p>
    * @public
    */
   analyzerArn: string | undefined;
@@ -5140,8 +4774,7 @@ export interface StartResourceScanRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID that owns the resource. For most Amazon Web Services resources, the owning
-   *          account is the account in which the resource was created.</p>
+   * <p>The Amazon Web Services account ID that owns the resource. For most Amazon Web Services resources, the owning account is the account in which the resource was created.</p>
    * @public
    */
   resourceOwnerAccount?: string | undefined;
@@ -5206,16 +4839,13 @@ export type FindingStatusUpdate = "ACTIVE" | "ARCHIVED";
  */
 export interface UpdateFindingsRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-   *             the analyzer</a> that generated the findings to update.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> that generated the findings to update.</p>
    * @public
    */
   analyzerArn: string | undefined;
 
   /**
-   * <p>The state represents the action to take to update the finding Status. Use
-   *             <code>ARCHIVE</code> to change an Active finding to an Archived finding. Use
-   *             <code>ACTIVE</code> to change an Archived finding to an Active finding.</p>
+   * <p>The state represents the action to take to update the finding Status. Use <code>ARCHIVE</code> to change an Active finding to an Archived finding. Use <code>ACTIVE</code> to change an Archived finding to an Active finding.</p>
    * @public
    */
   status: FindingStatusUpdate | undefined;
@@ -5324,28 +4954,13 @@ export interface ValidatePolicyRequest {
   policyDocument: string | undefined;
 
   /**
-   * <p>The type of policy to validate. Identity policies grant permissions to IAM principals.
-   *          Identity policies include managed and inline policies for IAM roles, users, and
-   *          groups.</p>
-   *          <p>Resource policies grant permissions on Amazon Web Services resources. Resource policies include trust
-   *          policies for IAM roles and bucket policies for Amazon S3 buckets. You can provide a generic
-   *          input such as identity policy or resource policy or a specific input such as managed policy
-   *          or Amazon S3 bucket policy. </p>
-   *          <p>Service control policies (SCPs) are a type of organization policy attached to an Amazon Web Services
-   *          organization, organizational unit (OU), or an account.</p>
+   * <p>The type of policy to validate. Identity policies grant permissions to IAM principals. Identity policies include managed and inline policies for IAM roles, users, and groups.</p> <p>Resource policies grant permissions on Amazon Web Services resources. Resource policies include trust policies for IAM roles and bucket policies for Amazon S3 buckets. You can provide a generic input such as identity policy or resource policy or a specific input such as managed policy or Amazon S3 bucket policy. </p> <p>Service control policies (SCPs) are a type of organization policy attached to an Amazon Web Services organization, organizational unit (OU), or an account.</p>
    * @public
    */
   policyType: PolicyType | undefined;
 
   /**
-   * <p>The type of resource to attach to your resource policy. Specify a value for the policy
-   *          validation resource type only if the policy type is <code>RESOURCE_POLICY</code>. For
-   *          example, to validate a resource policy to attach to an Amazon S3 bucket, you can choose
-   *             <code>AWS::S3::Bucket</code> for the policy validation resource type.</p>
-   *          <p>For resource types not supported as valid values, IAM Access Analyzer runs policy checks that
-   *          apply to all resource policies. For example, to validate a resource policy to attach to a
-   *          KMS key, do not specify a value for the policy validation resource type and IAM Access Analyzer
-   *          will run policy checks that apply to all resource policies.</p>
+   * <p>The type of resource to attach to your resource policy. Specify a value for the policy validation resource type only if the policy type is <code>RESOURCE_POLICY</code>. For example, to validate a resource policy to attach to an Amazon S3 bucket, you can choose <code>AWS::S3::Bucket</code> for the policy validation resource type.</p> <p>For resource types not supported as valid values, IAM Access Analyzer runs policy checks that apply to all resource policies. For example, to validate a resource policy to attach to a KMS key, do not specify a value for the policy validation resource type and IAM Access Analyzer will run policy checks that apply to all resource policies.</p>
    * @public
    */
   validatePolicyResourceType?: ValidatePolicyResourceType | undefined;
@@ -5501,8 +5116,7 @@ export interface Position {
 }
 
 /**
- * <p>A span in a policy. The span consists of a start position (inclusive) and end position
- *          (exclusive).</p>
+ * <p>A span in a policy. The span consists of a start position (inclusive) and end position (exclusive).</p>
  * @public
  */
 export interface Span {
@@ -5520,8 +5134,7 @@ export interface Span {
 }
 
 /**
- * <p>A location in a policy that is represented as a path through the JSON representation and
- *          a corresponding span.</p>
+ * <p>A location in a policy that is represented as a path through the JSON representation and a corresponding span.</p>
  * @public
  */
 export interface Location {
@@ -5539,27 +5152,18 @@ export interface Location {
 }
 
 /**
- * <p>A finding in a policy. Each finding is an actionable recommendation that can be used to
- *          improve the policy.</p>
+ * <p>A finding in a policy. Each finding is an actionable recommendation that can be used to improve the policy.</p>
  * @public
  */
 export interface ValidatePolicyFinding {
   /**
-   * <p>A localized message that explains the finding and provides guidance on how to address
-   *          it.</p>
+   * <p>A localized message that explains the finding and provides guidance on how to address it.</p>
    * @public
    */
   findingDetails: string | undefined;
 
   /**
-   * <p>The impact of the finding.</p>
-   *          <p>Security warnings report when the policy allows access that we consider overly
-   *          permissive.</p>
-   *          <p>Errors report when a part of the policy is not functional.</p>
-   *          <p>Warnings report non-security issues when a policy does not conform to policy writing
-   *          best practices.</p>
-   *          <p>Suggestions recommend stylistic improvements in the policy that do not impact
-   *          access.</p>
+   * <p>The impact of the finding.</p> <p>Security warnings report when the policy allows access that we consider overly permissive.</p> <p>Errors report when a part of the policy is not functional.</p> <p>Warnings report non-security issues when a policy does not conform to policy writing best practices.</p> <p>Suggestions recommend stylistic improvements in the policy that do not impact access.</p>
    * @public
    */
   findingType: ValidatePolicyFindingType | undefined;
@@ -5577,8 +5181,7 @@ export interface ValidatePolicyFinding {
   learnMoreLink: string | undefined;
 
   /**
-   * <p>The list of locations in the policy document that are related to the finding. The issue
-   *          code provides a summary of an issue identified by the finding.</p>
+   * <p>The list of locations in the policy document that are related to the finding. The issue code provides a summary of an issue identified by the finding.</p>
    * @public
    */
   locations: Location[] | undefined;
@@ -5589,8 +5192,7 @@ export interface ValidatePolicyFinding {
  */
 export interface ValidatePolicyResponse {
   /**
-   * <p>The list of findings in a policy returned by IAM Access Analyzer based on its suite of policy
-   *          checks.</p>
+   * <p>The list of findings in a policy returned by IAM Access Analyzer based on its suite of policy checks.</p>
    * @public
    */
   findings: ValidatePolicyFinding[] | undefined;

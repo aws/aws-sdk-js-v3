@@ -32,12 +32,7 @@ export interface CheckNoNewAccessCommandInput extends CheckNoNewAccessRequest {}
 export interface CheckNoNewAccessCommandOutput extends CheckNoNewAccessResponse, __MetadataBearer {}
 
 /**
- * <p>Checks whether new access is allowed for an updated policy when compared to the existing
- *          policy.</p>
- *          <p>You can find examples for reference policies and learn how to set up and run a custom
- *          policy check for new access in the <a href="https://github.com/aws-samples/iam-access-analyzer-custom-policy-check-samples">IAM Access Analyzer custom policy checks samples</a> repository on GitHub. The reference
- *          policies in this repository are meant to be passed to the
- *             <code>existingPolicyDocument</code> request parameter.</p>
+ * <p>Checks whether new access is allowed for an updated policy when compared to the existing policy.</p> <p>You can find examples for reference policies and learn how to set up and run a custom policy check for new access in the <a href="https://github.com/aws-samples/iam-access-analyzer-custom-policy-check-samples">IAM Access Analyzer custom policy checks samples</a> repository on GitHub. The reference policies in this repository are meant to be passed to the <code>existingPolicyDocument</code> request parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

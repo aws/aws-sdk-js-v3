@@ -55,6 +55,23 @@ export interface UpdateAnalyzerCommandOutput extends UpdateAnalyzerResponse, __M
  *         ],
  *       },
  *     },
+ *     internalAccess: { // InternalAccessConfiguration
+ *       analysisRule: { // InternalAccessAnalysisRule
+ *         inclusions: [ // InternalAccessAnalysisRuleCriteriaList
+ *           { // InternalAccessAnalysisRuleCriteria
+ *             accountIds: [
+ *               "STRING_VALUE",
+ *             ],
+ *             resourceTypes: [ // ResourceTypeList
+ *               "STRING_VALUE",
+ *             ],
+ *             resourceArns: [ // ResourceArnsList
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     },
  *   },
  * };
  * const command = new UpdateAnalyzerCommand(input);
@@ -73,6 +90,23 @@ export interface UpdateAnalyzerCommandOutput extends UpdateAnalyzerResponse, __M
  * //               { // TagsMap
  * //                 "<keys>": "STRING_VALUE",
  * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //     internalAccess: { // InternalAccessConfiguration
+ * //       analysisRule: { // InternalAccessAnalysisRule
+ * //         inclusions: [ // InternalAccessAnalysisRuleCriteriaList
+ * //           { // InternalAccessAnalysisRuleCriteria
+ * //             accountIds: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             resourceTypes: [ // ResourceTypeList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             resourceArns: [ // ResourceArnsList
+ * //               "STRING_VALUE",
  * //             ],
  * //           },
  * //         ],

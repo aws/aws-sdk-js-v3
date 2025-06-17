@@ -32,8 +32,7 @@ export interface CheckNoPublicAccessCommandInput extends CheckNoPublicAccessRequ
 export interface CheckNoPublicAccessCommandOutput extends CheckNoPublicAccessResponse, __MetadataBearer {}
 
 /**
- * <p>Checks whether a resource policy can grant public access to the specified resource
- *          type.</p>
+ * <p>Checks whether a resource policy can grant public access to the specified resource type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

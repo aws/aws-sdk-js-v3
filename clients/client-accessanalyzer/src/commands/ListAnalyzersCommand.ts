@@ -76,6 +76,23 @@ export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __Met
  * //             ],
  * //           },
  * //         },
+ * //         internalAccess: { // InternalAccessConfiguration
+ * //           analysisRule: { // InternalAccessAnalysisRule
+ * //             inclusions: [ // InternalAccessAnalysisRuleCriteriaList
+ * //               { // InternalAccessAnalysisRuleCriteria
+ * //                 accountIds: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 resourceTypes: [ // ResourceTypeList
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 resourceArns: [ // ResourceArnsList
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
  * //       },
  * //     },
  * //   ],
