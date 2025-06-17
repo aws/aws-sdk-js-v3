@@ -28,6 +28,10 @@ import {
 } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import {
+  AssociateBackupVaultMpaApprovalTeamCommandInput,
+  AssociateBackupVaultMpaApprovalTeamCommandOutput,
+} from "../commands/AssociateBackupVaultMpaApprovalTeamCommand";
 import { CancelLegalHoldCommandInput, CancelLegalHoldCommandOutput } from "../commands/CancelLegalHoldCommand";
 import { CreateBackupPlanCommandInput, CreateBackupPlanCommandOutput } from "../commands/CreateBackupPlanCommand";
 import {
@@ -42,6 +46,10 @@ import {
   CreateLogicallyAirGappedBackupVaultCommandOutput,
 } from "../commands/CreateLogicallyAirGappedBackupVaultCommand";
 import { CreateReportPlanCommandInput, CreateReportPlanCommandOutput } from "../commands/CreateReportPlanCommand";
+import {
+  CreateRestoreAccessBackupVaultCommandInput,
+  CreateRestoreAccessBackupVaultCommandOutput,
+} from "../commands/CreateRestoreAccessBackupVaultCommand";
 import {
   CreateRestoreTestingPlanCommandInput,
   CreateRestoreTestingPlanCommandOutput,
@@ -108,6 +116,10 @@ import {
 import { DescribeReportJobCommandInput, DescribeReportJobCommandOutput } from "../commands/DescribeReportJobCommand";
 import { DescribeReportPlanCommandInput, DescribeReportPlanCommandOutput } from "../commands/DescribeReportPlanCommand";
 import { DescribeRestoreJobCommandInput, DescribeRestoreJobCommandOutput } from "../commands/DescribeRestoreJobCommand";
+import {
+  DisassociateBackupVaultMpaApprovalTeamCommandInput,
+  DisassociateBackupVaultMpaApprovalTeamCommandOutput,
+} from "../commands/DisassociateBackupVaultMpaApprovalTeamCommand";
 import {
   DisassociateRecoveryPointCommandInput,
   DisassociateRecoveryPointCommandOutput,
@@ -220,6 +232,10 @@ import {
 import { ListReportJobsCommandInput, ListReportJobsCommandOutput } from "../commands/ListReportJobsCommand";
 import { ListReportPlansCommandInput, ListReportPlansCommandOutput } from "../commands/ListReportPlansCommand";
 import {
+  ListRestoreAccessBackupVaultsCommandInput,
+  ListRestoreAccessBackupVaultsCommandOutput,
+} from "../commands/ListRestoreAccessBackupVaultsCommand";
+import {
   ListRestoreJobsByProtectedResourceCommandInput,
   ListRestoreJobsByProtectedResourceCommandOutput,
 } from "../commands/ListRestoreJobsByProtectedResourceCommand";
@@ -253,6 +269,10 @@ import {
   PutRestoreValidationResultCommandInput,
   PutRestoreValidationResultCommandOutput,
 } from "../commands/PutRestoreValidationResultCommand";
+import {
+  RevokeRestoreAccessBackupVaultCommandInput,
+  RevokeRestoreAccessBackupVaultCommandOutput,
+} from "../commands/RevokeRestoreAccessBackupVaultCommand";
 import { StartBackupJobCommandInput, StartBackupJobCommandOutput } from "../commands/StartBackupJobCommand";
 import { StartCopyJobCommandInput, StartCopyJobCommandOutput } from "../commands/StartCopyJobCommand";
 import { StartReportJobCommandInput, StartReportJobCommandOutput } from "../commands/StartReportJobCommand";
@@ -320,6 +340,8 @@ import {
   InvalidRequestException,
   InvalidResourceStateException,
   KeyValue,
+  LatestMpaApprovalTeamUpdate,
+  LatestRevokeRequest,
   LegalHold,
   Lifecycle,
   LimitExceededException,
@@ -334,6 +356,7 @@ import {
   ReportPlan,
   ReportSetting,
   ResourceNotFoundException,
+  RestoreAccessBackupVaultListMember,
   RestoreJobsListMember,
   RestoreJobSummary,
   RestoreTestingPlanForCreate,
@@ -348,6 +371,30 @@ import {
   RestoreTestingSelectionForUpdate,
   ServiceUnavailableException,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1AssociateBackupVaultMpaApprovalTeamCommand
+ */
+export const se_AssociateBackupVaultMpaApprovalTeamCommand = async (
+  input: AssociateBackupVaultMpaApprovalTeamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/backup-vaults/{BackupVaultName}/mpaApprovalTeam");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      MpaApprovalTeamArn: [],
+      RequesterComment: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CancelLegalHoldCommand
@@ -386,7 +433,7 @@ export const se_CreateBackupPlanCommand = async (
     take(input, {
       BackupPlan: (_) => _json(_),
       BackupPlanTags: (_) => _json(_),
-      CreatorRequestId: [],
+      CreatorRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -410,7 +457,7 @@ export const se_CreateBackupSelectionCommand = async (
   body = JSON.stringify(
     take(input, {
       BackupSelection: (_) => _json(_),
-      CreatorRequestId: [],
+      CreatorRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -434,7 +481,7 @@ export const se_CreateBackupVaultCommand = async (
   body = JSON.stringify(
     take(input, {
       BackupVaultTags: (_) => _json(_),
-      CreatorRequestId: [],
+      CreatorRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
       EncryptionKeyArn: [],
     })
   );
@@ -484,7 +531,7 @@ export const se_CreateLegalHoldCommand = async (
   body = JSON.stringify(
     take(input, {
       Description: [],
-      IdempotencyToken: [],
+      IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
       RecoveryPointSelection: (_) => se_RecoveryPointSelection(_, context),
       Tags: (_) => _json(_),
       Title: [],
@@ -511,7 +558,7 @@ export const se_CreateLogicallyAirGappedBackupVaultCommand = async (
   body = JSON.stringify(
     take(input, {
       BackupVaultTags: (_) => _json(_),
-      CreatorRequestId: [],
+      CreatorRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
       MaxRetentionDays: [],
       MinRetentionDays: [],
     })
@@ -544,6 +591,32 @@ export const se_CreateReportPlanCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateRestoreAccessBackupVaultCommand
+ */
+export const se_CreateRestoreAccessBackupVaultCommand = async (
+  input: CreateRestoreAccessBackupVaultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/restore-access-backup-vaults");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      BackupVaultName: [],
+      BackupVaultTags: (_) => _json(_),
+      CreatorRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
+      RequesterComment: [],
+      SourceBackupVaultArn: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -952,6 +1025,32 @@ export const se_DescribeRestoreJobCommand = async (
   b.p("RestoreJobId", () => input.RestoreJobId!, "{RestoreJobId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DisassociateBackupVaultMpaApprovalTeamCommand
+ */
+export const se_DisassociateBackupVaultMpaApprovalTeamCommand = async (
+  input: DisassociateBackupVaultMpaApprovalTeamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/backup-vaults/{BackupVaultName}/mpaApprovalTeam");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
+  const query: any = map({
+    [_d]: [, ""],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      RequesterComment: [],
+    })
+  );
+  b.m("POST").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1669,6 +1768,26 @@ export const se_ListReportPlansCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListRestoreAccessBackupVaultsCommand
+ */
+export const se_ListRestoreAccessBackupVaultsCommand = async (
+  input: ListRestoreAccessBackupVaultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/logically-air-gapped-backup-vaults/{BackupVaultName}/restore-access-backup-vaults");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
+  const query: any = map({
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListRestoreJobsCommand
  */
 export const se_ListRestoreJobsCommand = async (
@@ -1903,6 +2022,28 @@ export const se_PutRestoreValidationResultCommand = async (
 };
 
 /**
+ * serializeAws_restJson1RevokeRestoreAccessBackupVaultCommand
+ */
+export const se_RevokeRestoreAccessBackupVaultCommand = async (
+  input: RevokeRestoreAccessBackupVaultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp(
+    "/logically-air-gapped-backup-vaults/{BackupVaultName}/restore-access-backup-vaults/{RestoreAccessBackupVaultArn}"
+  );
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
+  b.p("RestoreAccessBackupVaultArn", () => input.RestoreAccessBackupVaultArn!, "{RestoreAccessBackupVaultArn}", false);
+  const query: any = map({
+    [_rC]: [, input[_RC]!],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StartBackupJobCommand
  */
 export const se_StartBackupJobCommand = async (
@@ -1921,7 +2062,7 @@ export const se_StartBackupJobCommand = async (
       BackupVaultName: [],
       CompleteWindowMinutes: [],
       IamRoleArn: [],
-      IdempotencyToken: [],
+      IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Index: [],
       Lifecycle: (_) => _json(_),
       RecoveryPointTags: (_) => _json(_),
@@ -1950,7 +2091,7 @@ export const se_StartCopyJobCommand = async (
     take(input, {
       DestinationBackupVaultArn: [],
       IamRoleArn: [],
-      IdempotencyToken: [],
+      IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Lifecycle: (_) => _json(_),
       RecoveryPointArn: [],
       SourceBackupVaultName: [],
@@ -2000,7 +2141,7 @@ export const se_StartRestoreJobCommand = async (
     take(input, {
       CopySourceTagsToRestoredResource: [],
       IamRoleArn: [],
-      IdempotencyToken: [],
+      IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Metadata: (_) => _json(_),
       RecoveryPointArn: [],
       ResourceType: [],
@@ -2288,6 +2429,23 @@ export const se_UpdateRestoreTestingSelectionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1AssociateBackupVaultMpaApprovalTeamCommand
+ */
+export const de_AssociateBackupVaultMpaApprovalTeamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateBackupVaultMpaApprovalTeamCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CancelLegalHoldCommand
  */
 export const de_CancelLegalHoldCommand = async (
@@ -2466,6 +2624,30 @@ export const de_CreateReportPlanCommand = async (
     CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ReportPlanArn: __expectString,
     ReportPlanName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateRestoreAccessBackupVaultCommand
+ */
+export const de_CreateRestoreAccessBackupVaultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRestoreAccessBackupVaultCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RestoreAccessBackupVaultArn: __expectString,
+    RestoreAccessBackupVaultName: __expectString,
+    VaultState: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2779,11 +2961,15 @@ export const de_DescribeBackupVaultCommand = async (
     CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     CreatorRequestId: __expectString,
     EncryptionKeyArn: __expectString,
+    LatestMpaApprovalTeamUpdate: (_) => de_LatestMpaApprovalTeamUpdate(_, context),
     LockDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Locked: __expectBoolean,
     MaxRetentionDays: __expectLong,
     MinRetentionDays: __expectLong,
+    MpaApprovalTeamArn: __expectString,
+    MpaSessionArn: __expectString,
     NumberOfRecoveryPoints: __expectLong,
+    SourceBackupVaultArn: __expectString,
     VaultState: __expectString,
     VaultType: __expectString,
   });
@@ -2918,6 +3104,7 @@ export const de_DescribeRecoveryPointCommand = async (
     IamRoleArn: __expectString,
     IndexStatus: __expectString,
     IndexStatusMessage: __expectString,
+    InitiationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     IsEncrypted: __expectBoolean,
     IsParent: __expectBoolean,
     LastRestoreTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -3037,6 +3224,23 @@ export const de_DescribeRestoreJobCommand = async (
     ValidationStatusMessage: __expectString,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DisassociateBackupVaultMpaApprovalTeamCommand
+ */
+export const de_DisassociateBackupVaultMpaApprovalTeamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateBackupVaultMpaApprovalTeamCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -3848,6 +4052,28 @@ export const de_ListReportPlansCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListRestoreAccessBackupVaultsCommand
+ */
+export const de_ListRestoreAccessBackupVaultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRestoreAccessBackupVaultsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RestoreAccessBackupVaults: (_) => de_RestoreAccessBackupVaultList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListRestoreJobsCommand
  */
 export const de_ListRestoreJobsCommand = async (
@@ -4039,6 +4265,23 @@ export const de_PutRestoreValidationResultCommand = async (
   context: __SerdeContext
 ): Promise<PutRestoreValidationResultCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1RevokeRestoreAccessBackupVaultCommand
+ */
+export const de_RevokeRestoreAccessBackupVaultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RevokeRestoreAccessBackupVaultCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -4403,9 +4646,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.backup#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
       throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
@@ -4415,15 +4658,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "InvalidResourceStateException":
+    case "com.amazonaws.backup#InvalidResourceStateException":
+      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
     case "AlreadyExistsException":
     case "com.amazonaws.backup#AlreadyExistsException":
       throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.backup#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
@@ -5169,6 +5412,32 @@ const de_IndexedRecoveryPointList = (output: any, context: __SerdeContext): Inde
 // de_KeyValueList omitted.
 
 /**
+ * deserializeAws_restJson1LatestMpaApprovalTeamUpdate
+ */
+const de_LatestMpaApprovalTeamUpdate = (output: any, context: __SerdeContext): LatestMpaApprovalTeamUpdate => {
+  return take(output, {
+    ExpiryDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InitiationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MpaSessionArn: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1LatestRevokeRequest
+ */
+const de_LatestRevokeRequest = (output: any, context: __SerdeContext): LatestRevokeRequest => {
+  return take(output, {
+    ExpiryDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InitiationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MpaSessionArn: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1LegalHold
  */
 const de_LegalHold = (output: any, context: __SerdeContext): LegalHold => {
@@ -5246,6 +5515,7 @@ const de_RecoveryPointByBackupVault = (output: any, context: __SerdeContext): Re
     IamRoleArn: __expectString,
     IndexStatus: __expectString,
     IndexStatusMessage: __expectString,
+    InitiationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     IsEncrypted: __expectBoolean,
     IsParent: __expectBoolean,
     LastRestoreTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -5398,6 +5668,37 @@ const de_ReportPlanList = (output: any, context: __SerdeContext): ReportPlan[] =
 // de_ResourceTypeOptInPreference omitted.
 
 // de_ResourceTypes omitted.
+
+/**
+ * deserializeAws_restJson1RestoreAccessBackupVaultList
+ */
+const de_RestoreAccessBackupVaultList = (
+  output: any,
+  context: __SerdeContext
+): RestoreAccessBackupVaultListMember[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RestoreAccessBackupVaultListMember(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1RestoreAccessBackupVaultListMember
+ */
+const de_RestoreAccessBackupVaultListMember = (
+  output: any,
+  context: __SerdeContext
+): RestoreAccessBackupVaultListMember => {
+  return take(output, {
+    ApprovalDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LatestRevokeRequest: (_: any) => de_LatestRevokeRequest(_, context),
+    RestoreAccessBackupVaultArn: __expectString,
+    VaultState: __expectString,
+  }) as any;
+};
 
 // de_RestoreJobCreator omitted.
 
@@ -5621,6 +5922,7 @@ const _MBAWSBO = "ManagedByAWSBackupOnly";
 const _MC = "MessageCategory";
 const _MR = "MaxResults";
 const _NT = "NextToken";
+const _RC = "RequesterComment";
 const _RPA = "RecoveryPointArn";
 const _RPN = "ReportPlanName";
 const _RRID = "RetainRecordInDays";
@@ -5638,6 +5940,7 @@ const _cAo = "completeAfter";
 const _cB = "createdBefore";
 const _cBo = "completeBefore";
 const _cD = "cancelDescription";
+const _d = "delete";
 const _dVA = "destinationVaultArn";
 const _iD = "includeDeleted";
 const _iS = "indexStatus";
@@ -5648,6 +5951,7 @@ const _nT = "nextToken";
 const _pJI = "parentJobId";
 const _pRPA = "parentRecoveryPointArn";
 const _rA = "resourceArn";
+const _rC = "requesterComment";
 const _rPCDA = "recoveryPointCreationDateAfter";
 const _rPCDB = "recoveryPointCreationDateBefore";
 const _rRID = "retainRecordInDays";

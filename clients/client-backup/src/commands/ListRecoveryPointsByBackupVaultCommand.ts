@@ -74,6 +74,7 @@ export interface ListRecoveryPointsByBackupVaultCommandOutput
  * //       Status: "COMPLETED" || "PARTIAL" || "DELETING" || "EXPIRED" || "AVAILABLE" || "STOPPED" || "CREATING",
  * //       StatusMessage: "STRING_VALUE",
  * //       CreationDate: new Date("TIMESTAMP"),
+ * //       InitiationDate: new Date("TIMESTAMP"),
  * //       CompletionDate: new Date("TIMESTAMP"),
  * //       BackupSizeInBytes: Number("long"),
  * //       CalculatedLifecycle: { // CalculatedLifecycle
@@ -92,7 +93,7 @@ export interface ListRecoveryPointsByBackupVaultCommandOutput
  * //       CompositeMemberIdentifier: "STRING_VALUE",
  * //       IsParent: true || false,
  * //       ResourceName: "STRING_VALUE",
- * //       VaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
+ * //       VaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT" || "RESTORE_ACCESS_BACKUP_VAULT",
  * //       IndexStatus: "PENDING" || "ACTIVE" || "FAILED" || "DELETING",
  * //       IndexStatusMessage: "STRING_VALUE",
  * //     },

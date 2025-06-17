@@ -53,6 +53,10 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import {
+  AssociateBackupVaultMpaApprovalTeamCommandInput,
+  AssociateBackupVaultMpaApprovalTeamCommandOutput,
+} from "./commands/AssociateBackupVaultMpaApprovalTeamCommand";
 import { CancelLegalHoldCommandInput, CancelLegalHoldCommandOutput } from "./commands/CancelLegalHoldCommand";
 import { CreateBackupPlanCommandInput, CreateBackupPlanCommandOutput } from "./commands/CreateBackupPlanCommand";
 import {
@@ -67,6 +71,10 @@ import {
   CreateLogicallyAirGappedBackupVaultCommandOutput,
 } from "./commands/CreateLogicallyAirGappedBackupVaultCommand";
 import { CreateReportPlanCommandInput, CreateReportPlanCommandOutput } from "./commands/CreateReportPlanCommand";
+import {
+  CreateRestoreAccessBackupVaultCommandInput,
+  CreateRestoreAccessBackupVaultCommandOutput,
+} from "./commands/CreateRestoreAccessBackupVaultCommand";
 import {
   CreateRestoreTestingPlanCommandInput,
   CreateRestoreTestingPlanCommandOutput,
@@ -133,6 +141,10 @@ import {
 import { DescribeReportJobCommandInput, DescribeReportJobCommandOutput } from "./commands/DescribeReportJobCommand";
 import { DescribeReportPlanCommandInput, DescribeReportPlanCommandOutput } from "./commands/DescribeReportPlanCommand";
 import { DescribeRestoreJobCommandInput, DescribeRestoreJobCommandOutput } from "./commands/DescribeRestoreJobCommand";
+import {
+  DisassociateBackupVaultMpaApprovalTeamCommandInput,
+  DisassociateBackupVaultMpaApprovalTeamCommandOutput,
+} from "./commands/DisassociateBackupVaultMpaApprovalTeamCommand";
 import {
   DisassociateRecoveryPointCommandInput,
   DisassociateRecoveryPointCommandOutput,
@@ -245,6 +257,10 @@ import {
 import { ListReportJobsCommandInput, ListReportJobsCommandOutput } from "./commands/ListReportJobsCommand";
 import { ListReportPlansCommandInput, ListReportPlansCommandOutput } from "./commands/ListReportPlansCommand";
 import {
+  ListRestoreAccessBackupVaultsCommandInput,
+  ListRestoreAccessBackupVaultsCommandOutput,
+} from "./commands/ListRestoreAccessBackupVaultsCommand";
+import {
   ListRestoreJobsByProtectedResourceCommandInput,
   ListRestoreJobsByProtectedResourceCommandOutput,
 } from "./commands/ListRestoreJobsByProtectedResourceCommand";
@@ -278,6 +294,10 @@ import {
   PutRestoreValidationResultCommandInput,
   PutRestoreValidationResultCommandOutput,
 } from "./commands/PutRestoreValidationResultCommand";
+import {
+  RevokeRestoreAccessBackupVaultCommandInput,
+  RevokeRestoreAccessBackupVaultCommandOutput,
+} from "./commands/RevokeRestoreAccessBackupVaultCommand";
 import { StartBackupJobCommandInput, StartBackupJobCommandOutput } from "./commands/StartBackupJobCommand";
 import { StartCopyJobCommandInput, StartCopyJobCommandOutput } from "./commands/StartCopyJobCommand";
 import { StartReportJobCommandInput, StartReportJobCommandOutput } from "./commands/StartReportJobCommand";
@@ -327,6 +347,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateBackupVaultMpaApprovalTeamCommandInput
   | CancelLegalHoldCommandInput
   | CreateBackupPlanCommandInput
   | CreateBackupSelectionCommandInput
@@ -335,6 +356,7 @@ export type ServiceInputTypes =
   | CreateLegalHoldCommandInput
   | CreateLogicallyAirGappedBackupVaultCommandInput
   | CreateReportPlanCommandInput
+  | CreateRestoreAccessBackupVaultCommandInput
   | CreateRestoreTestingPlanCommandInput
   | CreateRestoreTestingSelectionCommandInput
   | DeleteBackupPlanCommandInput
@@ -359,6 +381,7 @@ export type ServiceInputTypes =
   | DescribeReportJobCommandInput
   | DescribeReportPlanCommandInput
   | DescribeRestoreJobCommandInput
+  | DisassociateBackupVaultMpaApprovalTeamCommandInput
   | DisassociateRecoveryPointCommandInput
   | DisassociateRecoveryPointFromParentCommandInput
   | ExportBackupPlanTemplateCommandInput
@@ -395,6 +418,7 @@ export type ServiceInputTypes =
   | ListRecoveryPointsByResourceCommandInput
   | ListReportJobsCommandInput
   | ListReportPlansCommandInput
+  | ListRestoreAccessBackupVaultsCommandInput
   | ListRestoreJobSummariesCommandInput
   | ListRestoreJobsByProtectedResourceCommandInput
   | ListRestoreJobsCommandInput
@@ -405,6 +429,7 @@ export type ServiceInputTypes =
   | PutBackupVaultLockConfigurationCommandInput
   | PutBackupVaultNotificationsCommandInput
   | PutRestoreValidationResultCommandInput
+  | RevokeRestoreAccessBackupVaultCommandInput
   | StartBackupJobCommandInput
   | StartCopyJobCommandInput
   | StartReportJobCommandInput
@@ -426,6 +451,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateBackupVaultMpaApprovalTeamCommandOutput
   | CancelLegalHoldCommandOutput
   | CreateBackupPlanCommandOutput
   | CreateBackupSelectionCommandOutput
@@ -434,6 +460,7 @@ export type ServiceOutputTypes =
   | CreateLegalHoldCommandOutput
   | CreateLogicallyAirGappedBackupVaultCommandOutput
   | CreateReportPlanCommandOutput
+  | CreateRestoreAccessBackupVaultCommandOutput
   | CreateRestoreTestingPlanCommandOutput
   | CreateRestoreTestingSelectionCommandOutput
   | DeleteBackupPlanCommandOutput
@@ -458,6 +485,7 @@ export type ServiceOutputTypes =
   | DescribeReportJobCommandOutput
   | DescribeReportPlanCommandOutput
   | DescribeRestoreJobCommandOutput
+  | DisassociateBackupVaultMpaApprovalTeamCommandOutput
   | DisassociateRecoveryPointCommandOutput
   | DisassociateRecoveryPointFromParentCommandOutput
   | ExportBackupPlanTemplateCommandOutput
@@ -494,6 +522,7 @@ export type ServiceOutputTypes =
   | ListRecoveryPointsByResourceCommandOutput
   | ListReportJobsCommandOutput
   | ListReportPlansCommandOutput
+  | ListRestoreAccessBackupVaultsCommandOutput
   | ListRestoreJobSummariesCommandOutput
   | ListRestoreJobsByProtectedResourceCommandOutput
   | ListRestoreJobsCommandOutput
@@ -504,6 +533,7 @@ export type ServiceOutputTypes =
   | PutBackupVaultLockConfigurationCommandOutput
   | PutBackupVaultNotificationsCommandOutput
   | PutRestoreValidationResultCommandOutput
+  | RevokeRestoreAccessBackupVaultCommandOutput
   | StartBackupJobCommandOutput
   | StartCopyJobCommandOutput
   | StartReportJobCommandOutput

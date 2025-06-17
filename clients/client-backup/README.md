@@ -210,6 +210,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AssociateBackupVaultMpaApprovalTeam
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/AssociateBackupVaultMpaApprovalTeamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/AssociateBackupVaultMpaApprovalTeamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/AssociateBackupVaultMpaApprovalTeamCommandOutput/)
+
+</details>
+<details>
+<summary>
 CancelLegalHold
 </summary>
 
@@ -270,6 +278,14 @@ CreateReportPlan
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/CreateReportPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/CreateReportPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/CreateReportPlanCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateRestoreAccessBackupVault
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/CreateRestoreAccessBackupVaultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/CreateRestoreAccessBackupVaultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/CreateRestoreAccessBackupVaultCommandOutput/)
 
 </details>
 <details>
@@ -462,6 +478,14 @@ DescribeRestoreJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/DescribeRestoreJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/DescribeRestoreJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/DescribeRestoreJobCommandOutput/)
+
+</details>
+<details>
+<summary>
+DisassociateBackupVaultMpaApprovalTeam
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/DisassociateBackupVaultMpaApprovalTeamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/DisassociateBackupVaultMpaApprovalTeamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/DisassociateBackupVaultMpaApprovalTeamCommandOutput/)
 
 </details>
 <details>
@@ -754,6 +778,14 @@ ListReportPlans
 </details>
 <details>
 <summary>
+ListRestoreAccessBackupVaults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/ListRestoreAccessBackupVaultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/ListRestoreAccessBackupVaultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/ListRestoreAccessBackupVaultsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListRestoreJobs
 </summary>
 
@@ -830,6 +862,14 @@ PutRestoreValidationResult
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/PutRestoreValidationResultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/PutRestoreValidationResultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/PutRestoreValidationResultCommandOutput/)
+
+</details>
+<details>
+<summary>
+RevokeRestoreAccessBackupVault
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/RevokeRestoreAccessBackupVaultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/RevokeRestoreAccessBackupVaultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/RevokeRestoreAccessBackupVaultCommandOutput/)
 
 </details>
 <details>

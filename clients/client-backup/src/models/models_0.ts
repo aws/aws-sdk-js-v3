@@ -102,6 +102,216 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
+ */
+export interface AssociateBackupVaultMpaApprovalTeamInput {
+  /**
+   * <p>The name of the backup vault to associate with the MPA approval team.</p>
+   * @public
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault.</p>
+   * @public
+   */
+  MpaApprovalTeamArn: string | undefined;
+
+  /**
+   * <p>A comment provided by the requester explaining the association request.</p>
+   * @public
+   */
+  RequesterComment?: string | undefined;
+}
+
+/**
+ * <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ * @public
+ */
+export class InvalidParameterValueException extends __BaseException {
+  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
+  readonly $fault: "client" = "client";
+  Code?: string | undefined;
+  Message?: string | undefined;
+  /**
+   * <p></p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  Context?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
+}
+
+/**
+ * <p>Indicates that something is wrong with the input to the request. For example, a
+ *          parameter is of the wrong type.</p>
+ * @public
+ */
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
+  Code?: string | undefined;
+  Message?: string | undefined;
+  /**
+   * <p></p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  Context?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
+}
+
+/**
+ * <p>Indicates that a required parameter is missing.</p>
+ * @public
+ */
+export class MissingParameterValueException extends __BaseException {
+  readonly name: "MissingParameterValueException" = "MissingParameterValueException";
+  readonly $fault: "client" = "client";
+  Code?: string | undefined;
+  Message?: string | undefined;
+  /**
+   * <p></p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  Context?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MissingParameterValueException, __BaseException>) {
+    super({
+      name: "MissingParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MissingParameterValueException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
+}
+
+/**
+ * <p>A resource that is required for the action doesn't exist.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Code?: string | undefined;
+  Message?: string | undefined;
+  /**
+   * <p></p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  Context?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
+}
+
+/**
+ * <p>The request failed due to a temporary failure of the server.</p>
+ * @public
+ */
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
+  Code?: string | undefined;
+  Message?: string | undefined;
+  /**
+   * <p></p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  Context?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
+}
+
+/**
  * <p>Contains information about the backup plan and rule that Backup used to
  *          initiate the recovery point backup.</p>
  * @public
@@ -1198,6 +1408,7 @@ export const BackupVaultEvent = {
   BACKUP_JOB_SUCCESSFUL: "BACKUP_JOB_SUCCESSFUL",
   BACKUP_PLAN_CREATED: "BACKUP_PLAN_CREATED",
   BACKUP_PLAN_MODIFIED: "BACKUP_PLAN_MODIFIED",
+  CONTINUOUS_BACKUP_INTERRUPTED: "CONTINUOUS_BACKUP_INTERRUPTED",
   COPY_JOB_FAILED: "COPY_JOB_FAILED",
   COPY_JOB_STARTED: "COPY_JOB_STARTED",
   COPY_JOB_SUCCESSFUL: "COPY_JOB_SUCCESSFUL",
@@ -1240,6 +1451,7 @@ export type VaultState = (typeof VaultState)[keyof typeof VaultState];
 export const VaultType = {
   BACKUP_VAULT: "BACKUP_VAULT",
   LOGICALLY_AIR_GAPPED_BACKUP_VAULT: "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
+  RESTORE_ACCESS_BACKUP_VAULT: "RESTORE_ACCESS_BACKUP_VAULT",
 } as const;
 
 /**
@@ -1424,44 +1636,6 @@ export interface CancelLegalHoldInput {
 export interface CancelLegalHoldOutput {}
 
 /**
- * <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
- * @public
- */
-export class InvalidParameterValueException extends __BaseException {
-  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p></p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Context?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
-    super({
-      name: "InvalidParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
-}
-
-/**
  * <p>Backup is already performing an action on this recovery point. It can't
  *          perform the action you requested until the first action finishes. Try again later.</p>
  * @public
@@ -1492,117 +1666,6 @@ export class InvalidResourceStateException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidResourceStateException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
-}
-
-/**
- * <p>Indicates that a required parameter is missing.</p>
- * @public
- */
-export class MissingParameterValueException extends __BaseException {
-  readonly name: "MissingParameterValueException" = "MissingParameterValueException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p></p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Context?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MissingParameterValueException, __BaseException>) {
-    super({
-      name: "MissingParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MissingParameterValueException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
-}
-
-/**
- * <p>A resource that is required for the action doesn't exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p></p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Context?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
-}
-
-/**
- * <p>The request failed due to a temporary failure of the server.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p></p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Context?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
     this.Code = opts.Code;
     this.Message = opts.Message;
     this.Type = opts.Type;
@@ -2549,44 +2612,6 @@ export interface CreateLogicallyAirGappedBackupVaultOutput {
 }
 
 /**
- * <p>Indicates that something is wrong with the input to the request. For example, a
- *          parameter is of the wrong type.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p></p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Context?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
-}
-
-/**
  * <p>Contains information from your report plan about where to deliver your reports,
  *          specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your
  *          reports.</p>
@@ -2744,6 +2769,70 @@ export interface CreateReportPlanOutput {
    * @public
    */
   CreationTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRestoreAccessBackupVaultInput {
+  /**
+   * <p>The ARN of the source backup vault containing the recovery points to which temporary access is requested.</p>
+   * @public
+   */
+  SourceBackupVaultArn: string | undefined;
+
+  /**
+   * <p>The name of the backup vault to associate with an MPA approval team.</p>
+   * @public
+   */
+  BackupVaultName?: string | undefined;
+
+  /**
+   * <p>Optional tags to assign to the restore access backup vault.</p>
+   * @public
+   */
+  BackupVaultTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique string that identifies the request and allows failed requests to be retried without the risk of executing the operation twice.</p>
+   * @public
+   */
+  CreatorRequestId?: string | undefined;
+
+  /**
+   * <p>A comment explaining the reason for requesting restore access to the backup vault.</p>
+   * @public
+   */
+  RequesterComment?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRestoreAccessBackupVaultOutput {
+  /**
+   * <p>The ARN that uniquely identifies the created restore access backup vault.</p>
+   * @public
+   */
+  RestoreAccessBackupVaultArn?: string | undefined;
+
+  /**
+   * <p>The current state of the restore access backup vault.</p>
+   * @public
+   */
+  VaultState?: VaultState | undefined;
+
+  /**
+   * <p>The name of the created restore access backup vault.</p>
+   * @public
+   */
+  RestoreAccessBackupVaultName?: string | undefined;
+
+  /**
+   * <p>>The date and time when the restore access backup vault was created, in Unix format and Coordinated Universal Time </p>
+   * @public
+   */
+  CreationDate?: Date | undefined;
 }
 
 /**
@@ -3741,6 +3830,57 @@ export interface DescribeBackupVaultInput {
 
 /**
  * @public
+ * @enum
+ */
+export const MpaSessionStatus = {
+  APPROVED: "APPROVED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type MpaSessionStatus = (typeof MpaSessionStatus)[keyof typeof MpaSessionStatus];
+
+/**
+ * <p>Contains information about the latest update to an MPA approval team association.</p>
+ * @public
+ */
+export interface LatestMpaApprovalTeamUpdate {
+  /**
+   * <p>The ARN of the MPA session associated with this update.</p>
+   * @public
+   */
+  MpaSessionArn?: string | undefined;
+
+  /**
+   * <p>The current status of the MPA approval team update.</p>
+   * @public
+   */
+  Status?: MpaSessionStatus | undefined;
+
+  /**
+   * <p>A message describing the current status of the MPA approval team update.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The date and time when the MPA approval team update was initiated.</p>
+   * @public
+   */
+  InitiationDate?: Date | undefined;
+
+  /**
+   * <p>The date and time when the MPA approval team update will expire.</p>
+   * @public
+   */
+  ExpiryDate?: Date | undefined;
+}
+
+/**
+ * @public
  */
 export interface DescribeBackupVaultOutput {
   /**
@@ -3853,6 +3993,30 @@ export interface DescribeBackupVaultOutput {
    * @public
    */
   LockDate?: Date | undefined;
+
+  /**
+   * <p>The ARN of the source backup vault from which this restore access backup vault was created.</p>
+   * @public
+   */
+  SourceBackupVaultArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the MPA approval team associated with this backup vault.</p>
+   * @public
+   */
+  MpaApprovalTeamArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the MPA session associated with this backup vault.</p>
+   * @public
+   */
+  MpaSessionArn?: string | undefined;
+
+  /**
+   * <p>Information about the latest update to the MPA approval team association for this backup vault.</p>
+   * @public
+   */
+  LatestMpaApprovalTeamUpdate?: LatestMpaApprovalTeamUpdate | undefined;
 }
 
 /**
@@ -4287,6 +4451,13 @@ export interface DescribeRecoveryPointOutput {
    * @public
    */
   CreationDate?: Date | undefined;
+
+  /**
+   * <p>The date and time when the backup job that created this recovery point was initiated, in
+   *          Unix format and Coordinated Universal Time (UTC).</p>
+   * @public
+   */
+  InitiationDate?: Date | undefined;
 
   /**
    * <p>The date and time that a job to create a recovery point is completed, in Unix format and
@@ -4871,6 +5042,23 @@ export interface DescribeRestoreJobOutput {
    * @public
    */
   DeletionStatusMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateBackupVaultMpaApprovalTeamInput {
+  /**
+   * <p>The name of the backup vault from which to disassociate the MPA approval team.</p>
+   * @public
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * <p>An optional comment explaining the reason for disassociating the MPA approval team from the backup vault.</p>
+   * @public
+   */
+  RequesterComment?: string | undefined;
 }
 
 /**
@@ -7505,6 +7693,13 @@ export interface RecoveryPointByBackupVault {
   CreationDate?: Date | undefined;
 
   /**
+   * <p>The date and time when the backup job that created this recovery point was initiated, in
+   *          Unix format and Coordinated Universal Time (UTC).</p>
+   * @public
+   */
+  InitiationDate?: Date | undefined;
+
+  /**
    * <p>The date and time a job to restore a recovery point is completed, in Unix format and
    *          Coordinated Universal Time (UTC). The value of <code>CompletionDate</code> is accurate to
    *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
@@ -7996,6 +8191,132 @@ export interface ListReportPlansOutput {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRestoreAccessBackupVaultsInput {
+  /**
+   * <p>The name of the backup vault for which to list associated restore access backup vaults.</p>
+   * @public
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * <p>The pagination token from a previous request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MpaRevokeSessionStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type MpaRevokeSessionStatus = (typeof MpaRevokeSessionStatus)[keyof typeof MpaRevokeSessionStatus];
+
+/**
+ * <p>Contains information about the latest request to revoke access to a backup vault.</p>
+ * @public
+ */
+export interface LatestRevokeRequest {
+  /**
+   * <p>The ARN of the MPA session associated with this revoke request.</p>
+   * @public
+   */
+  MpaSessionArn?: string | undefined;
+
+  /**
+   * <p>The current status of the revoke request.</p>
+   * @public
+   */
+  Status?: MpaRevokeSessionStatus | undefined;
+
+  /**
+   * <p>A message describing the current status of the revoke request.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The date and time when the revoke request was initiated.</p>
+   * @public
+   */
+  InitiationDate?: Date | undefined;
+
+  /**
+   * <p>The date and time when the revoke request will expire.</p>
+   * @public
+   */
+  ExpiryDate?: Date | undefined;
+}
+
+/**
+ * <p>Contains information about a restore access backup vault.</p>
+ * @public
+ */
+export interface RestoreAccessBackupVaultListMember {
+  /**
+   * <p>The ARN of the restore access backup vault.</p>
+   * @public
+   */
+  RestoreAccessBackupVaultArn?: string | undefined;
+
+  /**
+   * <p>The date and time when the restore access backup vault was created.</p>
+   * @public
+   */
+  CreationDate?: Date | undefined;
+
+  /**
+   * <p>The date and time when the restore access backup vault was approved.</p>
+   * @public
+   */
+  ApprovalDate?: Date | undefined;
+
+  /**
+   * <p>The current state of the restore access backup vault.</p>
+   * @public
+   */
+  VaultState?: VaultState | undefined;
+
+  /**
+   * <p>Information about the latest request to revoke access to this backup vault.</p>
+   * @public
+   */
+  LatestRevokeRequest?: LatestRevokeRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRestoreAccessBackupVaultsOutput {
+  /**
+   * <p>The pagination token to use in a subsequent request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of restore access backup vaults associated with the specified backup vault.</p>
+   * @public
+   */
+  RestoreAccessBackupVaults?: RestoreAccessBackupVaultListMember[] | undefined;
 }
 
 /**
@@ -8948,45 +9269,8 @@ export interface PutBackupVaultNotificationsInput {
 
   /**
    * <p>An array of events that indicate the status of jobs to back up resources to the backup
-   *          vault.</p>
-   *          <p>For common use cases and code samples, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/sns-notifications.html">Using Amazon SNS to
-   *             track Backup events</a>.</p>
-   *          <p>The following events are supported:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BACKUP_JOB_STARTED</code> | <code>BACKUP_JOB_COMPLETED</code> | <code>BACKUP_JOB_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COPY_JOB_STARTED</code> | <code>COPY_JOB_SUCCESSFUL</code> |
-   *                   <code>COPY_JOB_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESTORE_JOB_STARTED</code> | <code>RESTORE_JOB_COMPLETED</code> |
-   *                   <code>RECOVERY_POINT_MODIFIED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>S3_BACKUP_OBJECT_FAILED</code> | <code>S3_RESTORE_OBJECT_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RECOVERY_POINT_INDEX_COMPLETED</code> | <code>RECOVERY_POINT_INDEX_DELETED</code> |
-   *                <code>RECOVERY_POINT_INDEXING_FAILED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>The list below includes both supported events and deprecated events that are no longer
-   *             in use (for reference). Deprecated events do not return statuses or notifications.
-   *             Refer to the list above for the supported events.</p>
-   *          </note>
+   *          vault. For the list of supported events, common use cases, and code samples, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-notifications.html">Notification options
+   *             with Backup</a>.</p>
    * @public
    */
   BackupVaultEvents: BackupVaultEvent[] | undefined;
@@ -9014,6 +9298,29 @@ export interface PutRestoreValidationResultInput {
    * @public
    */
   ValidationStatusMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RevokeRestoreAccessBackupVaultInput {
+  /**
+   * <p>The name of the source backup vault associated with the restore access backup vault to be revoked.</p>
+   * @public
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * <p>The ARN of the restore access backup vault to revoke.</p>
+   * @public
+   */
+  RestoreAccessBackupVaultArn: string | undefined;
+
+  /**
+   * <p>A comment explaining the reason for revoking access to the restore access backup vault.</p>
+   * @public
+   */
+  RequesterComment?: string | undefined;
 }
 
 /**
@@ -10155,6 +10462,16 @@ export interface UpdateRestoreTestingSelectionOutput {
 /**
  * @internal
  */
+export const AssociateBackupVaultMpaApprovalTeamInputFilterSensitiveLog = (
+  obj: AssociateBackupVaultMpaApprovalTeamInput
+): any => ({
+  ...obj,
+  ...(obj.RequesterComment && { RequesterComment: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const BackupRuleFilterSensitiveLog = (obj: BackupRule): any => ({
   ...obj,
   ...(obj.RecoveryPointTags && { RecoveryPointTags: SENSITIVE_STRING }),
@@ -10222,6 +10539,17 @@ export const CreateLogicallyAirGappedBackupVaultInputFilterSensitiveLog = (
 /**
  * @internal
  */
+export const CreateRestoreAccessBackupVaultInputFilterSensitiveLog = (
+  obj: CreateRestoreAccessBackupVaultInput
+): any => ({
+  ...obj,
+  ...(obj.BackupVaultTags && { BackupVaultTags: SENSITIVE_STRING }),
+  ...(obj.RequesterComment && { RequesterComment: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const CreateRestoreTestingPlanInputFilterSensitiveLog = (obj: CreateRestoreTestingPlanInput): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
@@ -10243,6 +10571,16 @@ export const CreateRestoreTestingSelectionInputFilterSensitiveLog = (obj: Create
   ...(obj.RestoreTestingSelection && {
     RestoreTestingSelection: RestoreTestingSelectionForCreateFilterSensitiveLog(obj.RestoreTestingSelection),
   }),
+});
+
+/**
+ * @internal
+ */
+export const DisassociateBackupVaultMpaApprovalTeamInputFilterSensitiveLog = (
+  obj: DisassociateBackupVaultMpaApprovalTeamInput
+): any => ({
+  ...obj,
+  ...(obj.RequesterComment && { RequesterComment: SENSITIVE_STRING }),
 });
 
 /**
@@ -10311,6 +10649,16 @@ export const GetRestoreTestingSelectionOutputFilterSensitiveLog = (obj: GetResto
 export const ListTagsOutputFilterSensitiveLog = (obj: ListTagsOutput): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RevokeRestoreAccessBackupVaultInputFilterSensitiveLog = (
+  obj: RevokeRestoreAccessBackupVaultInput
+): any => ({
+  ...obj,
+  ...(obj.RequesterComment && { RequesterComment: SENSITIVE_STRING }),
 });
 
 /**

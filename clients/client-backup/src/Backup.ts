@@ -4,6 +4,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { BackupClient, BackupClientConfig } from "./BackupClient";
 import {
+  AssociateBackupVaultMpaApprovalTeamCommand,
+  AssociateBackupVaultMpaApprovalTeamCommandInput,
+  AssociateBackupVaultMpaApprovalTeamCommandOutput,
+} from "./commands/AssociateBackupVaultMpaApprovalTeamCommand";
+import {
   CancelLegalHoldCommand,
   CancelLegalHoldCommandInput,
   CancelLegalHoldCommandOutput,
@@ -43,6 +48,11 @@ import {
   CreateReportPlanCommandInput,
   CreateReportPlanCommandOutput,
 } from "./commands/CreateReportPlanCommand";
+import {
+  CreateRestoreAccessBackupVaultCommand,
+  CreateRestoreAccessBackupVaultCommandInput,
+  CreateRestoreAccessBackupVaultCommandOutput,
+} from "./commands/CreateRestoreAccessBackupVaultCommand";
 import {
   CreateRestoreTestingPlanCommand,
   CreateRestoreTestingPlanCommandInput,
@@ -163,6 +173,11 @@ import {
   DescribeRestoreJobCommandInput,
   DescribeRestoreJobCommandOutput,
 } from "./commands/DescribeRestoreJobCommand";
+import {
+  DisassociateBackupVaultMpaApprovalTeamCommand,
+  DisassociateBackupVaultMpaApprovalTeamCommandInput,
+  DisassociateBackupVaultMpaApprovalTeamCommandOutput,
+} from "./commands/DisassociateBackupVaultMpaApprovalTeamCommand";
 import {
   DisassociateRecoveryPointCommand,
   DisassociateRecoveryPointCommandInput,
@@ -344,6 +359,11 @@ import {
   ListReportPlansCommandOutput,
 } from "./commands/ListReportPlansCommand";
 import {
+  ListRestoreAccessBackupVaultsCommand,
+  ListRestoreAccessBackupVaultsCommandInput,
+  ListRestoreAccessBackupVaultsCommandOutput,
+} from "./commands/ListRestoreAccessBackupVaultsCommand";
+import {
   ListRestoreJobsByProtectedResourceCommand,
   ListRestoreJobsByProtectedResourceCommandInput,
   ListRestoreJobsByProtectedResourceCommandOutput,
@@ -389,6 +409,11 @@ import {
   PutRestoreValidationResultCommandInput,
   PutRestoreValidationResultCommandOutput,
 } from "./commands/PutRestoreValidationResultCommand";
+import {
+  RevokeRestoreAccessBackupVaultCommand,
+  RevokeRestoreAccessBackupVaultCommandInput,
+  RevokeRestoreAccessBackupVaultCommandOutput,
+} from "./commands/RevokeRestoreAccessBackupVaultCommand";
 import {
   StartBackupJobCommand,
   StartBackupJobCommandInput,
@@ -467,6 +492,7 @@ import {
 } from "./commands/UpdateRestoreTestingSelectionCommand";
 
 const commands = {
+  AssociateBackupVaultMpaApprovalTeamCommand,
   CancelLegalHoldCommand,
   CreateBackupPlanCommand,
   CreateBackupSelectionCommand,
@@ -475,6 +501,7 @@ const commands = {
   CreateLegalHoldCommand,
   CreateLogicallyAirGappedBackupVaultCommand,
   CreateReportPlanCommand,
+  CreateRestoreAccessBackupVaultCommand,
   CreateRestoreTestingPlanCommand,
   CreateRestoreTestingSelectionCommand,
   DeleteBackupPlanCommand,
@@ -499,6 +526,7 @@ const commands = {
   DescribeReportJobCommand,
   DescribeReportPlanCommand,
   DescribeRestoreJobCommand,
+  DisassociateBackupVaultMpaApprovalTeamCommand,
   DisassociateRecoveryPointCommand,
   DisassociateRecoveryPointFromParentCommand,
   ExportBackupPlanTemplateCommand,
@@ -535,6 +563,7 @@ const commands = {
   ListRecoveryPointsByResourceCommand,
   ListReportJobsCommand,
   ListReportPlansCommand,
+  ListRestoreAccessBackupVaultsCommand,
   ListRestoreJobsCommand,
   ListRestoreJobsByProtectedResourceCommand,
   ListRestoreJobSummariesCommand,
@@ -545,6 +574,7 @@ const commands = {
   PutBackupVaultLockConfigurationCommand,
   PutBackupVaultNotificationsCommand,
   PutRestoreValidationResultCommand,
+  RevokeRestoreAccessBackupVaultCommand,
   StartBackupJobCommand,
   StartCopyJobCommand,
   StartReportJobCommand,
@@ -564,6 +594,23 @@ const commands = {
 };
 
 export interface Backup {
+  /**
+   * @see {@link AssociateBackupVaultMpaApprovalTeamCommand}
+   */
+  associateBackupVaultMpaApprovalTeam(
+    args: AssociateBackupVaultMpaApprovalTeamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateBackupVaultMpaApprovalTeamCommandOutput>;
+  associateBackupVaultMpaApprovalTeam(
+    args: AssociateBackupVaultMpaApprovalTeamCommandInput,
+    cb: (err: any, data?: AssociateBackupVaultMpaApprovalTeamCommandOutput) => void
+  ): void;
+  associateBackupVaultMpaApprovalTeam(
+    args: AssociateBackupVaultMpaApprovalTeamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateBackupVaultMpaApprovalTeamCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CancelLegalHoldCommand}
    */
@@ -689,6 +736,23 @@ export interface Backup {
     args: CreateReportPlanCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateReportPlanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRestoreAccessBackupVaultCommand}
+   */
+  createRestoreAccessBackupVault(
+    args: CreateRestoreAccessBackupVaultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRestoreAccessBackupVaultCommandOutput>;
+  createRestoreAccessBackupVault(
+    args: CreateRestoreAccessBackupVaultCommandInput,
+    cb: (err: any, data?: CreateRestoreAccessBackupVaultCommandOutput) => void
+  ): void;
+  createRestoreAccessBackupVault(
+    args: CreateRestoreAccessBackupVaultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRestoreAccessBackupVaultCommandOutput) => void
   ): void;
 
   /**
@@ -1093,6 +1157,23 @@ export interface Backup {
     args: DescribeRestoreJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeRestoreJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateBackupVaultMpaApprovalTeamCommand}
+   */
+  disassociateBackupVaultMpaApprovalTeam(
+    args: DisassociateBackupVaultMpaApprovalTeamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateBackupVaultMpaApprovalTeamCommandOutput>;
+  disassociateBackupVaultMpaApprovalTeam(
+    args: DisassociateBackupVaultMpaApprovalTeamCommandInput,
+    cb: (err: any, data?: DisassociateBackupVaultMpaApprovalTeamCommandOutput) => void
+  ): void;
+  disassociateBackupVaultMpaApprovalTeam(
+    args: DisassociateBackupVaultMpaApprovalTeamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateBackupVaultMpaApprovalTeamCommandOutput) => void
   ): void;
 
   /**
@@ -1686,6 +1767,23 @@ export interface Backup {
   ): void;
 
   /**
+   * @see {@link ListRestoreAccessBackupVaultsCommand}
+   */
+  listRestoreAccessBackupVaults(
+    args: ListRestoreAccessBackupVaultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRestoreAccessBackupVaultsCommandOutput>;
+  listRestoreAccessBackupVaults(
+    args: ListRestoreAccessBackupVaultsCommandInput,
+    cb: (err: any, data?: ListRestoreAccessBackupVaultsCommandOutput) => void
+  ): void;
+  listRestoreAccessBackupVaults(
+    args: ListRestoreAccessBackupVaultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRestoreAccessBackupVaultsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListRestoreJobsCommand}
    */
   listRestoreJobs(): Promise<ListRestoreJobsCommandOutput>;
@@ -1847,6 +1945,23 @@ export interface Backup {
     args: PutRestoreValidationResultCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutRestoreValidationResultCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RevokeRestoreAccessBackupVaultCommand}
+   */
+  revokeRestoreAccessBackupVault(
+    args: RevokeRestoreAccessBackupVaultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RevokeRestoreAccessBackupVaultCommandOutput>;
+  revokeRestoreAccessBackupVault(
+    args: RevokeRestoreAccessBackupVaultCommandInput,
+    cb: (err: any, data?: RevokeRestoreAccessBackupVaultCommandOutput) => void
+  ): void;
+  revokeRestoreAccessBackupVault(
+    args: RevokeRestoreAccessBackupVaultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RevokeRestoreAccessBackupVaultCommandOutput) => void
   ): void;
 
   /**

@@ -37,7 +37,7 @@ export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, _
  * // const { BackupClient, ListBackupVaultsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // ListBackupVaultsInput
- *   ByVaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
+ *   ByVaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT" || "RESTORE_ACCESS_BACKUP_VAULT",
  *   ByShared: true || false,
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
@@ -49,7 +49,7 @@ export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, _
  * //     { // BackupVaultListMember
  * //       BackupVaultName: "STRING_VALUE",
  * //       BackupVaultArn: "STRING_VALUE",
- * //       VaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
+ * //       VaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT" || "RESTORE_ACCESS_BACKUP_VAULT",
  * //       VaultState: "CREATING" || "AVAILABLE" || "FAILED",
  * //       CreationDate: new Date("TIMESTAMP"),
  * //       EncryptionKeyArn: "STRING_VALUE",

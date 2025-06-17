@@ -19,6 +19,7 @@ export * from "./ListRecoveryPointsByLegalHoldPaginator";
 export * from "./ListRecoveryPointsByResourcePaginator";
 export * from "./ListReportJobsPaginator";
 export * from "./ListReportPlansPaginator";
+export * from "./ListRestoreAccessBackupVaultsPaginator";
 export * from "./ListRestoreJobSummariesPaginator";
 export * from "./ListRestoreJobsByProtectedResourcePaginator";
 export * from "./ListRestoreJobsPaginator";

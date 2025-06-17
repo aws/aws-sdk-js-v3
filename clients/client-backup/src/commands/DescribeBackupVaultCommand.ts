@@ -44,7 +44,7 @@ export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOut
  * // { // DescribeBackupVaultOutput
  * //   BackupVaultName: "STRING_VALUE",
  * //   BackupVaultArn: "STRING_VALUE",
- * //   VaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
+ * //   VaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT" || "RESTORE_ACCESS_BACKUP_VAULT",
  * //   VaultState: "CREATING" || "AVAILABLE" || "FAILED",
  * //   EncryptionKeyArn: "STRING_VALUE",
  * //   CreationDate: new Date("TIMESTAMP"),
@@ -54,6 +54,16 @@ export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOut
  * //   MinRetentionDays: Number("long"),
  * //   MaxRetentionDays: Number("long"),
  * //   LockDate: new Date("TIMESTAMP"),
+ * //   SourceBackupVaultArn: "STRING_VALUE",
+ * //   MpaApprovalTeamArn: "STRING_VALUE",
+ * //   MpaSessionArn: "STRING_VALUE",
+ * //   LatestMpaApprovalTeamUpdate: { // LatestMpaApprovalTeamUpdate
+ * //     MpaSessionArn: "STRING_VALUE",
+ * //     Status: "PENDING" || "APPROVED" || "FAILED",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     InitiationDate: new Date("TIMESTAMP"),
+ * //     ExpiryDate: new Date("TIMESTAMP"),
+ * //   },
  * // };
  *
  * ```
