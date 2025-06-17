@@ -78,6 +78,11 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * //         AnalysisDetail: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SummaryConfiguration: { // SummaryConfiguration
+ * //       RuleOptions: [ // SummaryRuleOptions
+ * //         "SID" || "MSG" || "METADATA",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

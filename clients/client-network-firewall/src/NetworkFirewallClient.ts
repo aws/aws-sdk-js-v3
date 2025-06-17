@@ -129,6 +129,10 @@ import {
   DescribeRuleGroupMetadataCommandOutput,
 } from "./commands/DescribeRuleGroupMetadataCommand";
 import {
+  DescribeRuleGroupSummaryCommandInput,
+  DescribeRuleGroupSummaryCommandOutput,
+} from "./commands/DescribeRuleGroupSummaryCommand";
+import {
   DescribeTLSInspectionConfigurationCommandInput,
   DescribeTLSInspectionConfigurationCommandOutput,
 } from "./commands/DescribeTLSInspectionConfigurationCommand";
@@ -268,6 +272,7 @@ export type ServiceInputTypes =
   | DescribeResourcePolicyCommandInput
   | DescribeRuleGroupCommandInput
   | DescribeRuleGroupMetadataCommandInput
+  | DescribeRuleGroupSummaryCommandInput
   | DescribeTLSInspectionConfigurationCommandInput
   | DescribeVpcEndpointAssociationCommandInput
   | DisassociateAvailabilityZonesCommandInput
@@ -329,6 +334,7 @@ export type ServiceOutputTypes =
   | DescribeResourcePolicyCommandOutput
   | DescribeRuleGroupCommandOutput
   | DescribeRuleGroupMetadataCommandOutput
+  | DescribeRuleGroupSummaryCommandOutput
   | DescribeTLSInspectionConfigurationCommandOutput
   | DescribeVpcEndpointAssociationCommandOutput
   | DisassociateAvailabilityZonesCommandOutput

@@ -204,6 +204,11 @@ export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupRespons
  * //         AnalysisDetail: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SummaryConfiguration: { // SummaryConfiguration
+ * //       RuleOptions: [ // SummaryRuleOptions
+ * //         "SID" || "MSG" || "METADATA",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

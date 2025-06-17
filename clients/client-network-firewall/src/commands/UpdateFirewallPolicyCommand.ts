@@ -73,6 +73,7 @@ export interface UpdateFirewallPolicyCommandOutput extends UpdateFirewallPolicyR
  *         Override: { // StatefulRuleGroupOverride
  *           Action: "DROP_TO_ALERT",
  *         },
+ *         DeepThreatInspection: true || false,
  *       },
  *     ],
  *     StatefulDefaultActions: [ // StatefulActions

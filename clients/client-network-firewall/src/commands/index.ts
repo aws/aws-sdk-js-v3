@@ -23,6 +23,7 @@ export * from "./DescribeLoggingConfigurationCommand";
 export * from "./DescribeResourcePolicyCommand";
 export * from "./DescribeRuleGroupCommand";
 export * from "./DescribeRuleGroupMetadataCommand";
+export * from "./DescribeRuleGroupSummaryCommand";
 export * from "./DescribeTLSInspectionConfigurationCommand";
 export * from "./DescribeVpcEndpointAssociationCommand";
 export * from "./DisassociateAvailabilityZonesCommand";

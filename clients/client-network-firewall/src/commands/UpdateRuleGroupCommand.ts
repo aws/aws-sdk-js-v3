@@ -181,6 +181,11 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *     SourceUpdateToken: "STRING_VALUE",
  *   },
  *   AnalyzeRuleGroup: true || false,
+ *   SummaryConfiguration: { // SummaryConfiguration
+ *     RuleOptions: [ // SummaryRuleOptions
+ *       "SID" || "MSG" || "METADATA",
+ *     ],
+ *   },
  * };
  * const command = new UpdateRuleGroupCommand(input);
  * const response = await client.send(command);
@@ -221,6 +226,11 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * //         AnalysisDetail: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SummaryConfiguration: { // SummaryConfiguration
+ * //       RuleOptions: [ // SummaryRuleOptions
+ * //         "SID" || "MSG" || "METADATA",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

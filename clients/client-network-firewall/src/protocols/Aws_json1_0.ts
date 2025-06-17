@@ -96,6 +96,10 @@ import {
   DescribeRuleGroupMetadataCommandOutput,
 } from "../commands/DescribeRuleGroupMetadataCommand";
 import {
+  DescribeRuleGroupSummaryCommandInput,
+  DescribeRuleGroupSummaryCommandOutput,
+} from "../commands/DescribeRuleGroupSummaryCommand";
+import {
   DescribeTLSInspectionConfigurationCommandInput,
   DescribeTLSInspectionConfigurationCommandOutput,
 } from "../commands/DescribeTLSInspectionConfigurationCommand";
@@ -238,6 +242,7 @@ import {
   DescribeRuleGroupMetadataResponse,
   DescribeRuleGroupRequest,
   DescribeRuleGroupResponse,
+  DescribeRuleGroupSummaryRequest,
   DescribeTLSInspectionConfigurationRequest,
   DescribeTLSInspectionConfigurationResponse,
   DescribeVpcEndpointAssociationRequest,
@@ -311,6 +316,8 @@ import {
   StatelessRuleGroupReference,
   StatelessRulesAndCustomActions,
   SubnetMapping,
+  SummaryConfiguration,
+  SummaryRuleOption,
   Tag,
   TagResourceRequest,
   TargetType,
@@ -645,6 +652,19 @@ export const se_DescribeRuleGroupMetadataCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeRuleGroupMetadata");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DescribeRuleGroupSummaryCommand
+ */
+export const se_DescribeRuleGroupSummaryCommand = async (
+  input: DescribeRuleGroupSummaryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeRuleGroupSummary");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1540,6 +1560,26 @@ export const de_DescribeRuleGroupMetadataCommand = async (
   let contents: any = {};
   contents = de_DescribeRuleGroupMetadataResponse(data, context);
   const response: DescribeRuleGroupMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeRuleGroupSummaryCommand
+ */
+export const de_DescribeRuleGroupSummaryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRuleGroupSummaryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeRuleGroupSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2468,6 +2508,7 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
     RuleGroupName: [],
     Rules: [],
     SourceMetadata: _json,
+    SummaryConfiguration: _json,
     Tags: _json,
     Type: [],
   });
@@ -2510,6 +2551,8 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 // se_DescribeRuleGroupMetadataRequest omitted.
 
 // se_DescribeRuleGroupRequest omitted.
+
+// se_DescribeRuleGroupSummaryRequest omitted.
 
 // se_DescribeTLSInspectionConfigurationRequest omitted.
 
@@ -2669,6 +2712,10 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 
 // se_SubnetMappings omitted.
 
+// se_SummaryConfiguration omitted.
+
+// se_SummaryRuleOptions omitted.
+
 // se_Tag omitted.
 
 // se_TagKeyList omitted.
@@ -2717,6 +2764,7 @@ const se_UpdateRuleGroupRequest = (input: UpdateRuleGroupRequest, context: __Ser
     RuleGroupName: [],
     Rules: [],
     SourceMetadata: _json,
+    SummaryConfiguration: _json,
     Type: [],
     UpdateToken: [],
   });
@@ -2962,6 +3010,8 @@ const de_DescribeRuleGroupResponse = (output: any, context: __SerdeContext): Des
     UpdateToken: __expectString,
   }) as any;
 };
+
+// de_DescribeRuleGroupSummaryResponse omitted.
 
 /**
  * deserializeAws_json1_0DescribeTLSInspectionConfigurationResponse
@@ -3227,6 +3277,7 @@ const de_RuleGroupResponse = (output: any, context: __SerdeContext): RuleGroupRe
     RuleGroupStatus: __expectString,
     SnsTopic: __expectString,
     SourceMetadata: _json,
+    SummaryConfiguration: _json,
     Tags: _json,
     Type: __expectString,
   }) as any;
@@ -3243,6 +3294,10 @@ const de_RuleGroupResponse = (output: any, context: __SerdeContext): RuleGroupRe
 // de_RulesSource omitted.
 
 // de_RulesSourceList omitted.
+
+// de_RuleSummaries omitted.
+
+// de_RuleSummary omitted.
 
 // de_RuleTargets omitted.
 
@@ -3301,6 +3356,12 @@ const de_RuleGroupResponse = (output: any, context: __SerdeContext): RuleGroupRe
 // de_SubnetMapping omitted.
 
 // de_SubnetMappings omitted.
+
+// de_Summary omitted.
+
+// de_SummaryConfiguration omitted.
+
+// de_SummaryRuleOptions omitted.
 
 // de_SupportedAvailabilityZones omitted.
 

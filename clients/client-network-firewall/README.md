@@ -483,6 +483,14 @@ DescribeRuleGroupMetadata
 </details>
 <details>
 <summary>
+DescribeRuleGroupSummary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/DescribeRuleGroupSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/DescribeRuleGroupSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/DescribeRuleGroupSummaryCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeTLSInspectionConfiguration
 </summary>
 

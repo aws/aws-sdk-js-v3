@@ -1765,6 +1765,16 @@ export interface StatefulRuleGroupReference {
    * @public
    */
   Override?: StatefulRuleGroupOverride | undefined;
+
+  /**
+   * <p>Network Firewall plans to augment the active threat defense managed rule group with an additional deep threat inspection capability. When this capability is released, Amazon Web Services will analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers.
+   *          Amazon Web Services will use these threat indicators to improve the active threat defense managed rule groups and protect the security of Amazon Web Services customers and services.</p>
+   *          <note>
+   *             <p>Customers can opt-out of deep threat inspection at any time through the Network Firewall console or API. When customers opt out, Network Firewall  will not use the network traffic processed by those customers' active threat defense rule groups for rule group improvement.</p>
+   *          </note>
+   * @public
+   */
+  DeepThreatInspection?: boolean | undefined;
 }
 
 /**
@@ -2786,6 +2796,40 @@ export interface SourceMetadata {
  * @public
  * @enum
  */
+export const SummaryRuleOption = {
+  METADATA: "METADATA",
+  MSG: "MSG",
+  SID: "SID",
+} as const;
+
+/**
+ * @public
+ */
+export type SummaryRuleOption = (typeof SummaryRuleOption)[keyof typeof SummaryRuleOption];
+
+/**
+ * <p>A complex type that specifies which Suricata rule metadata fields to use when displaying threat information. Contains:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>RuleOptions</code> - The Suricata rule options fields to extract and display</p>
+ *             </li>
+ *          </ul>
+ *          <p>These settings affect how threat information appears in both the console and API responses. Summaries are available for rule groups you manage and for active threat defense Amazon Web Services managed rule groups.</p>
+ * @public
+ */
+export interface SummaryConfiguration {
+  /**
+   * <p>Specifies the selected rule options returned by <a>DescribeRuleGroupSummary</a>.</p>
+   * @public
+   */
+  RuleOptions?: SummaryRuleOption[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const RuleGroupType = {
   STATEFUL: "STATEFUL",
   STATELESS: "STATELESS",
@@ -2919,6 +2963,29 @@ export interface CreateRuleGroupRequest {
    * @public
    */
   AnalyzeRuleGroup?: boolean | undefined;
+
+  /**
+   * <p>An object that contains a <code>RuleOptions</code> array of strings.
+   *          You use <code>RuleOptions</code> to determine which of the following <a>RuleSummary</a> values are returned in response to <code>DescribeRuleGroupSummary</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Metadata</code> - returns</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Msg</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SID</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SummaryConfiguration?: SummaryConfiguration | undefined;
 }
 
 /**
@@ -3028,6 +3095,21 @@ export interface RuleGroupResponse {
    * @public
    */
   AnalysisResults?: AnalysisResult[] | undefined;
+
+  /**
+   * <p>A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by <a>DescribeRuleGroupSummary</a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>The <code>RuleOptions</code> specified in <a>SummaryConfiguration</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Rule metadata organization preferences</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SummaryConfiguration?: SummaryConfiguration | undefined;
 }
 
 /**
@@ -4422,6 +4504,123 @@ export interface DescribeRuleGroupMetadataResponse {
 /**
  * @public
  */
+export interface DescribeRuleGroupSummaryRequest {
+  /**
+   * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  RuleGroupName?: string | undefined;
+
+  /**
+   * <p>Required. The Amazon Resource Name (ARN) of the rule group.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  RuleGroupArn?: string | undefined;
+
+  /**
+   * <p>The type of rule group you want a summary for. This is a required field.</p>
+   *          <p>Valid value: <code>STATEFUL</code>
+   *          </p>
+   *          <p>Note that <code>STATELESS</code> exists but is not currently supported. If you provide <code>STATELESS</code>, an exception is returned.</p>
+   * @public
+   */
+  Type?: RuleGroupType | undefined;
+}
+
+/**
+ * <p>A complex type containing details about a Suricata rule. Contains:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>SID</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Msg</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Metadata</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>Summaries are available for rule groups you manage and for active threat defense Amazon Web Services managed rule groups.</p>
+ * @public
+ */
+export interface RuleSummary {
+  /**
+   * <p>The unique identifier (Signature ID) of the Suricata rule.</p>
+   * @public
+   */
+  SID?: string | undefined;
+
+  /**
+   * <p>The contents taken from the rule's msg field.</p>
+   * @public
+   */
+  Msg?: string | undefined;
+
+  /**
+   * <p>The contents of the rule's metadata.</p>
+   * @public
+   */
+  Metadata?: string | undefined;
+}
+
+/**
+ * <p>A complex type containing summaries of security protections provided by a rule group.</p>
+ *          <p>Network Firewall extracts this information from selected fields in the rule group's Suricata rules, based on your <a>SummaryConfiguration</a> settings.</p>
+ * @public
+ */
+export interface Summary {
+  /**
+   * <p>An array of <a>RuleSummary</a> objects containing individual rule details that had been configured by the rulegroup's SummaryConfiguration.</p>
+   * @public
+   */
+  RuleSummaries?: RuleSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRuleGroupSummaryResponse {
+  /**
+   * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
+   * @public
+   */
+  RuleGroupName: string | undefined;
+
+  /**
+   * <p>A description of the rule group. </p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A complex type that contains rule information based on the rule group's configured summary settings. The content varies depending on the fields that you specified to extract in your SummaryConfiguration. When you haven't configured any summary settings, this returns an empty array. The response might include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Rule identifiers</p>
+   *             </li>
+   *             <li>
+   *                <p>Rule descriptions</p>
+   *             </li>
+   *             <li>
+   *                <p>Any metadata fields that you specified in your SummaryConfiguration</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Summary?: Summary | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeTLSInspectionConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the TLS inspection configuration.</p>
@@ -5199,6 +5398,7 @@ export interface ListFlowOperationsResponse {
  * @enum
  */
 export const ResourceManagedType = {
+  ACTIVE_THREAT_DEFENSE: "ACTIVE_THREAT_DEFENSE",
   AWS_MANAGED_DOMAIN_LISTS: "AWS_MANAGED_DOMAIN_LISTS",
   AWS_MANAGED_THREAT_SIGNATURES: "AWS_MANAGED_THREAT_SIGNATURES",
 } as const;
@@ -6488,6 +6688,13 @@ export interface UpdateRuleGroupRequest {
    * @public
    */
   AnalyzeRuleGroup?: boolean | undefined;
+
+  /**
+   * <p>Updates the selected summary configuration for a rule group.</p>
+   *          <p>Changes affect subsequent responses from <a>DescribeRuleGroupSummary</a>.</p>
+   * @public
+   */
+  SummaryConfiguration?: SummaryConfiguration | undefined;
 }
 
 /**

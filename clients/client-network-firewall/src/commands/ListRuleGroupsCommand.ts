@@ -41,7 +41,7 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   Scope: "MANAGED" || "ACCOUNT",
- *   ManagedType: "AWS_MANAGED_THREAT_SIGNATURES" || "AWS_MANAGED_DOMAIN_LISTS",
+ *   ManagedType: "AWS_MANAGED_THREAT_SIGNATURES" || "AWS_MANAGED_DOMAIN_LISTS" || "ACTIVE_THREAT_DEFENSE",
  *   Type: "STATELESS" || "STATEFUL",
  * };
  * const command = new ListRuleGroupsCommand(input);

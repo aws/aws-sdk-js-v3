@@ -74,6 +74,7 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
  *         Override: { // StatefulRuleGroupOverride
  *           Action: "DROP_TO_ALERT",
  *         },
+ *         DeepThreatInspection: true || false,
  *       },
  *     ],
  *     StatefulDefaultActions: [ // StatefulActions

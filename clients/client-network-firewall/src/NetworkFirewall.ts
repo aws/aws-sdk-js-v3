@@ -123,6 +123,11 @@ import {
   DescribeRuleGroupMetadataCommandOutput,
 } from "./commands/DescribeRuleGroupMetadataCommand";
 import {
+  DescribeRuleGroupSummaryCommand,
+  DescribeRuleGroupSummaryCommandInput,
+  DescribeRuleGroupSummaryCommandOutput,
+} from "./commands/DescribeRuleGroupSummaryCommand";
+import {
   DescribeTLSInspectionConfigurationCommand,
   DescribeTLSInspectionConfigurationCommandInput,
   DescribeTLSInspectionConfigurationCommandOutput,
@@ -305,6 +310,7 @@ const commands = {
   DescribeResourcePolicyCommand,
   DescribeRuleGroupCommand,
   DescribeRuleGroupMetadataCommand,
+  DescribeRuleGroupSummaryCommand,
   DescribeTLSInspectionConfigurationCommand,
   DescribeVpcEndpointAssociationCommand,
   DisassociateAvailabilityZonesCommand,
@@ -744,6 +750,24 @@ export interface NetworkFirewall {
     args: DescribeRuleGroupMetadataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeRuleGroupMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeRuleGroupSummaryCommand}
+   */
+  describeRuleGroupSummary(): Promise<DescribeRuleGroupSummaryCommandOutput>;
+  describeRuleGroupSummary(
+    args: DescribeRuleGroupSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRuleGroupSummaryCommandOutput>;
+  describeRuleGroupSummary(
+    args: DescribeRuleGroupSummaryCommandInput,
+    cb: (err: any, data?: DescribeRuleGroupSummaryCommandOutput) => void
+  ): void;
+  describeRuleGroupSummary(
+    args: DescribeRuleGroupSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRuleGroupSummaryCommandOutput) => void
   ): void;
 
   /**
