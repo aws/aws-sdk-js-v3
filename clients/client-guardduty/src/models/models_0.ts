@@ -269,6 +269,34 @@ export interface AccountDetail {
 
   /**
    * <p>The email address of the member account.</p>
+   *          <p>The rules for a valid email address:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The email address must be a minimum of 6 and a maximum of 64 characters long.</p>
+   *             </li>
+   *             <li>
+   *                <p>All characters must be 7-bit ASCII characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>There must be one and only one @ symbol, which separates the local name from the domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>The local name can't contain any of the following characters:</p>
+   *                <p>whitespace, " ' ( ) < > [ ] : ' , \ | % &</p>
+   *             </li>
+   *             <li>
+   *                <p>The local name can't begin with a dot (.).</p>
+   *             </li>
+   *             <li>
+   *                <p>The domain name can consist of only the characters [a-z], [A-Z], [0-9], hyphen (-), or dot (.).</p>
+   *             </li>
+   *             <li>
+   *                <p>The domain name can't begin or end with a dot (.) or hyphen (-).</p>
+   *             </li>
+   *             <li>
+   *                <p>The domain name must contain at least one dot. </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Email: string | undefined;
@@ -1175,6 +1203,32 @@ export interface Action {
 }
 
 /**
+ * <p>Contains information about a process involved in a GuardDuty finding, including process identification,
+ *       execution details, and file information.</p>
+ * @public
+ */
+export interface ActorProcess {
+  /**
+   * <p>The name of the process as it appears in the system.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The full file path to the process executable on the system.</p>
+   * @public
+   */
+  Path: string | undefined;
+
+  /**
+   * <p>The SHA256 hash of the process executable file, which can be used for identification
+   *       and verification purposes.</p>
+   * @public
+   */
+  Sha256?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1279,6 +1333,14 @@ export interface Actor {
    * @public
    */
   Session?: Session | undefined;
+
+  /**
+   * <p>Contains information about the process associated with the threat actor.
+   *       This includes details such as process name, path, execution time, and
+   *       unique identifiers that help track the actor's activities within the system.</p>
+   * @public
+   */
+  Process?: ActorProcess | undefined;
 }
 
 /**
@@ -1602,6 +1664,24 @@ export interface CloudTrailConfigurationResult {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ClusterStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
+
+/**
  * <p>Contains information about the condition.</p>
  * @public
  */
@@ -1822,6 +1902,27 @@ export interface Container {
    * @public
    */
   SecurityContext?: SecurityContext | undefined;
+}
+
+/**
+ * <p>Contains information about container resources involved in a GuardDuty finding.
+ *       This structure provides details about containers that were identified as part of
+ *       suspicious or malicious activity.</p>
+ * @public
+ */
+export interface ContainerFindingResource {
+  /**
+   * <p>The container image information, including the image name and tag used to run the container
+   *       that was involved in the finding.</p>
+   * @public
+   */
+  Image: string | undefined;
+
+  /**
+   * <p>The unique ID associated with the container image.</p>
+   * @public
+   */
+  ImageUid?: string | undefined;
 }
 
 /**
@@ -3939,10 +4040,6 @@ export interface FilterCriterion {
   /**
    * <p>An enum value representing possible scan properties to match with given scan
    *       entries.</p>
-   *          <note>
-   *             <p>Replace the enum value <code>CLUSTER_NAME</code> with <code>EKS_CLUSTER_NAME</code>.
-   *       <code>CLUSTER_NAME</code> has been deprecated.</p>
-   *          </note>
    * @public
    */
   CriterionKey?: CriterionKey | undefined;
@@ -5021,6 +5118,88 @@ export interface Ec2NetworkInterface {
 }
 
 /**
+ * <p>Contains information about the Amazon EKS cluster involved in a GuardDuty finding,
+ *       including cluster identification, status, and network configuration.</p>
+ * @public
+ */
+export interface EksCluster {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the Amazon EKS cluster involved in the finding.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The timestamp indicating when the Amazon EKS cluster was created, in UTC format.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The current status of the Amazon EKS cluster.</p>
+   * @public
+   */
+  Status?: ClusterStatus | undefined;
+
+  /**
+   * <p>The ID of the Amazon Virtual Private Cloud (Amazon VPC) associated with the Amazon EKS cluster.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>A list of unique identifiers for the Amazon EC2 instances that serve as worker nodes in the Amazon EKS cluster.</p>
+   * @public
+   */
+  Ec2InstanceUids?: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const KubernetesResourcesTypes = {
+  CRONJOBS: "CRONJOBS",
+  DAEMONSETS: "DAEMONSETS",
+  DEPLOYMENTS: "DEPLOYMENTS",
+  JOBS: "JOBS",
+  PODS: "PODS",
+  REPLICASETS: "REPLICASETS",
+  REPLICATIONCONTROLLERS: "REPLICATIONCONTROLLERS",
+  STATEFULSETS: "STATEFULSETS",
+} as const;
+
+/**
+ * @public
+ */
+export type KubernetesResourcesTypes = (typeof KubernetesResourcesTypes)[keyof typeof KubernetesResourcesTypes];
+
+/**
+ * <p>Contains information about Kubernetes workloads involved in a GuardDuty finding,
+ *       including pods, deployments, and other Kubernetes resources.</p>
+ * @public
+ */
+export interface KubernetesWorkload {
+  /**
+   * <p>A list of unique identifiers for the containers that are part of the Kubernetes workload.</p>
+   * @public
+   */
+  ContainerUids?: string[] | undefined;
+
+  /**
+   * <p>The Kubernetes namespace in which the workload is running, providing logical isolation within the cluster.</p>
+   * @public
+   */
+  Namespace?: string | undefined;
+
+  /**
+   * <p>The types of Kubernetes resources involved in the workload.</p>
+   * @public
+   */
+  KubernetesResourcesTypes?: KubernetesResourcesTypes | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -5225,6 +5404,27 @@ export interface ResourceData {
    * @public
    */
   S3Object?: S3Object | undefined;
+
+  /**
+   * <p>Contains detailed information about the Amazon EKS cluster associated with the activity that
+   *       prompted GuardDuty to generate a finding.</p>
+   * @public
+   */
+  EksCluster?: EksCluster | undefined;
+
+  /**
+   * <p>Contains detailed information about the Kubernetes workload associated with the activity that
+   *       prompted GuardDuty to generate a finding.</p>
+   * @public
+   */
+  KubernetesWorkload?: KubernetesWorkload | undefined;
+
+  /**
+   * <p>Contains detailed information about the container associated with the activity that
+   *       prompted GuardDuty to generate a finding.</p>
+   * @public
+   */
+  Container?: ContainerFindingResource | undefined;
 }
 
 /**
@@ -5233,8 +5433,11 @@ export interface ResourceData {
  */
 export const FindingResourceType = {
   ACCESS_KEY: "ACCESS_KEY",
+  CONTAINER: "CONTAINER",
   EC2_INSTANCE: "EC2_INSTANCE",
   EC2_NETWORK_INTERFACE: "EC2_NETWORK_INTERFACE",
+  EKS_CLUSTER: "EKS_CLUSTER",
+  KUBERNETES_WORKLOAD: "KUBERNETES_WORKLOAD",
   S3_BUCKET: "S3_BUCKET",
   S3_OBJECT: "S3_OBJECT",
 } as const;
@@ -5330,9 +5533,15 @@ export interface ResourceV2 {
 export const IndicatorType = {
   ATTACK_TACTIC: "ATTACK_TACTIC",
   ATTACK_TECHNIQUE: "ATTACK_TECHNIQUE",
+  CRYPTOMINING_DOMAIN: "CRYPTOMINING_DOMAIN",
+  CRYPTOMINING_IP: "CRYPTOMINING_IP",
+  CRYPTOMINING_PROCESS: "CRYPTOMINING_PROCESS",
   HIGH_RISK_API: "HIGH_RISK_API",
+  MALICIOUS_DOMAIN: "MALICIOUS_DOMAIN",
   MALICIOUS_IP: "MALICIOUS_IP",
+  MALICIOUS_PROCESS: "MALICIOUS_PROCESS",
   SUSPICIOUS_NETWORK: "SUSPICIOUS_NETWORK",
+  SUSPICIOUS_PROCESS: "SUSPICIOUS_PROCESS",
   SUSPICIOUS_USER_AGENT: "SUSPICIOUS_USER_AGENT",
   TOR_IP: "TOR_IP",
   UNUSUAL_API_FOR_ACCOUNT: "UNUSUAL_API_FOR_ACCOUNT",
@@ -5379,7 +5588,11 @@ export interface Indicator {
  */
 export const SignalType = {
   CLOUD_TRAIL: "CLOUD_TRAIL",
+  DNS_LOGS: "DNS_LOGS",
+  EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
   FINDING: "FINDING",
+  FLOW_LOGS: "FLOW_LOGS",
+  RUNTIME_MONITORING: "RUNTIME_MONITORING",
   S3_DATA_EVENTS: "S3_DATA_EVENTS",
 } as const;
 
@@ -5550,6 +5763,13 @@ export interface Sequence {
    * @public
    */
   SequenceIndicators?: Indicator[] | undefined;
+
+  /**
+   * <p>Additional types of sequences that may be associated with the attack sequence finding,
+   *       providing further context about the nature of the detected threat.</p>
+   * @public
+   */
+  AdditionalSequenceTypes?: string[] | undefined;
 }
 
 /**
@@ -7585,7 +7805,11 @@ export interface Finding {
   Partition?: string | undefined;
 
   /**
-   * <p>The Region where the finding was generated.</p>
+   * <p>The Region where the finding was generated. For findings generated
+   *       from <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-global-service-events">Global Service Events</a>, the Region value in the finding might differ from the Region where
+   *       GuardDuty identifies the potential threat. For more information,
+   *       see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_data-sources.html#cloudtrail_global">How GuardDuty
+   *         handles Amazon Web Services CloudTrail global events</a> in the <i>Amazon GuardDuty User Guide</i>.</p>
    * @public
    */
   Region: string | undefined;
@@ -8049,117 +8273,6 @@ export interface GetFindingsRequest {
 }
 
 /**
- * @public
- */
-export interface GetFindingsResponse {
-  /**
-   * <p>A list of findings.</p>
-   * @public
-   */
-  Findings: Finding[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const GroupByType = {
-  ACCOUNT: "ACCOUNT",
-  DATE: "DATE",
-  FINDING_TYPE: "FINDING_TYPE",
-  RESOURCE: "RESOURCE",
-  SEVERITY: "SEVERITY",
-} as const;
-
-/**
- * @public
- */
-export type GroupByType = (typeof GroupByType)[keyof typeof GroupByType];
-
-/**
- * @public
- */
-export interface GetFindingsStatisticsRequest {
-  /**
-   * <p>The ID of the detector whose findings statistics you
-   *       want to retrieve.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>The types of finding statistics to retrieve.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  FindingStatisticTypes?: FindingStatisticType[] | undefined;
-
-  /**
-   * <p>Represents the criteria that is used for querying findings.</p>
-   * @public
-   */
-  FindingCriteria?: FindingCriteria | undefined;
-
-  /**
-   * <p>Displays the findings statistics grouped by one of the listed valid values.</p>
-   * @public
-   */
-  GroupBy?: GroupByType | undefined;
-
-  /**
-   * <p>Displays the sorted findings in the requested order. The default
-   *       value of <code>orderBy</code> is <code>DESC</code>.</p>
-   *          <p>You can use this parameter only with the <code>groupBy</code> parameter.</p>
-   * @public
-   */
-  OrderBy?: OrderBy | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned in the response. The default value is 25.</p>
-   *          <p>You can use this parameter only with the <code>groupBy</code> parameter.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetFindingsStatisticsResponse {
-  /**
-   * <p>The finding statistics object.</p>
-   * @public
-   */
-  FindingStatistics: FindingStatistics | undefined;
-
-  /**
-   * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
-   *          <p>This parameter is currently not supported.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInvitationsCountRequest {}
-
-/**
- * @public
- */
-export interface GetInvitationsCountResponse {
-  /**
-   * <p>The number of received invitations.</p>
-   * @public
-   */
-  InvitationsCount?: number | undefined;
-}
-
-/**
  * @internal
  */
 export const AccountDetailFilterSensitiveLog = (obj: AccountDetail): any => ({
@@ -8357,12 +8470,4 @@ export const ServiceFilterSensitiveLog = (obj: Service): any => ({
 export const FindingFilterSensitiveLog = (obj: Finding): any => ({
   ...obj,
   ...(obj.Service && { Service: ServiceFilterSensitiveLog(obj.Service) }),
-});
-
-/**
- * @internal
- */
-export const GetFindingsResponseFilterSensitiveLog = (obj: GetFindingsResponse): any => ({
-  ...obj,
-  ...(obj.Findings && { Findings: obj.Findings.map((item) => FindingFilterSensitiveLog(item)) }),
 });

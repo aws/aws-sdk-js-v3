@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetFindingsRequest, GetFindingsResponse, GetFindingsResponseFilterSensitiveLog } from "../models/models_0";
+import { GetFindingsRequest } from "../models/models_0";
+import { GetFindingsResponse, GetFindingsResponseFilterSensitiveLog } from "../models/models_1";
 import { de_GetFindingsCommand, se_GetFindingsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -835,6 +836,11 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                   CreatedTime: new Date("TIMESTAMP"),
  * //                   Issuer: "STRING_VALUE",
  * //                 },
+ * //                 Process: { // ActorProcess
+ * //                   Name: "STRING_VALUE", // required
+ * //                   Path: "STRING_VALUE", // required
+ * //                   Sha256: "STRING_VALUE",
+ * //                 },
  * //               },
  * //             ],
  * //             Resources: [ // Resources
@@ -842,7 +848,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 Uid: "STRING_VALUE", // required
  * //                 Name: "STRING_VALUE",
  * //                 AccountId: "STRING_VALUE",
- * //                 ResourceType: "EC2_INSTANCE" || "EC2_NETWORK_INTERFACE" || "S3_BUCKET" || "S3_OBJECT" || "ACCESS_KEY", // required
+ * //                 ResourceType: "EC2_INSTANCE" || "EC2_NETWORK_INTERFACE" || "S3_BUCKET" || "S3_OBJECT" || "ACCESS_KEY" || "EKS_CLUSTER" || "KUBERNETES_WORKLOAD" || "CONTAINER", // required
  * //                 Region: "STRING_VALUE",
  * //                 Service: "STRING_VALUE",
  * //                 CloudPartition: "STRING_VALUE",
@@ -918,6 +924,26 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                     Key: "STRING_VALUE",
  * //                     VersionId: "STRING_VALUE",
  * //                   },
+ * //                   EksCluster: { // EksCluster
+ * //                     Arn: "STRING_VALUE",
+ * //                     CreatedAt: new Date("TIMESTAMP"),
+ * //                     Status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED" || "UPDATING" || "PENDING",
+ * //                     VpcId: "STRING_VALUE",
+ * //                     Ec2InstanceUids: [ // Ec2InstanceUids
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                   },
+ * //                   KubernetesWorkload: { // KubernetesWorkload
+ * //                     ContainerUids: [ // ContainerUids
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                     Namespace: "STRING_VALUE",
+ * //                     KubernetesResourcesTypes: "PODS" || "JOBS" || "CRONJOBS" || "DEPLOYMENTS" || "DAEMONSETS" || "STATEFULSETS" || "REPLICASETS" || "REPLICATIONCONTROLLERS",
+ * //                   },
+ * //                   Container: { // ContainerFindingResource
+ * //                     Image: "STRING_VALUE", // required
+ * //                     ImageUid: "STRING_VALUE",
+ * //                   },
  * //                 },
  * //               },
  * //             ],
@@ -945,7 +971,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             Signals: [ // Signals // required
  * //               { // Signal
  * //                 Uid: "STRING_VALUE", // required
- * //                 Type: "FINDING" || "CLOUD_TRAIL" || "S3_DATA_EVENTS", // required
+ * //                 Type: "FINDING" || "CLOUD_TRAIL" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "FLOW_LOGS" || "DNS_LOGS" || "RUNTIME_MONITORING", // required
  * //                 Description: "STRING_VALUE",
  * //                 Name: "STRING_VALUE", // required
  * //                 CreatedAt: new Date("TIMESTAMP"), // required
@@ -965,7 +991,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 ],
  * //                 SignalIndicators: [ // Indicators
  * //                   { // Indicator
- * //                     Key: "SUSPICIOUS_USER_AGENT" || "SUSPICIOUS_NETWORK" || "MALICIOUS_IP" || "TOR_IP" || "ATTACK_TACTIC" || "HIGH_RISK_API" || "ATTACK_TECHNIQUE" || "UNUSUAL_API_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_USER", // required
+ * //                     Key: "SUSPICIOUS_USER_AGENT" || "SUSPICIOUS_NETWORK" || "MALICIOUS_IP" || "TOR_IP" || "ATTACK_TACTIC" || "HIGH_RISK_API" || "ATTACK_TECHNIQUE" || "UNUSUAL_API_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_USER" || "SUSPICIOUS_PROCESS" || "MALICIOUS_DOMAIN" || "MALICIOUS_PROCESS" || "CRYPTOMINING_IP" || "CRYPTOMINING_DOMAIN" || "CRYPTOMINING_PROCESS", // required
  * //                     Values: [ // IndicatorValues
  * //                       "STRING_VALUE",
  * //                     ],
@@ -976,12 +1002,15 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             ],
  * //             SequenceIndicators: [
  * //               {
- * //                 Key: "SUSPICIOUS_USER_AGENT" || "SUSPICIOUS_NETWORK" || "MALICIOUS_IP" || "TOR_IP" || "ATTACK_TACTIC" || "HIGH_RISK_API" || "ATTACK_TECHNIQUE" || "UNUSUAL_API_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_USER", // required
+ * //                 Key: "SUSPICIOUS_USER_AGENT" || "SUSPICIOUS_NETWORK" || "MALICIOUS_IP" || "TOR_IP" || "ATTACK_TACTIC" || "HIGH_RISK_API" || "ATTACK_TECHNIQUE" || "UNUSUAL_API_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_USER" || "SUSPICIOUS_PROCESS" || "MALICIOUS_DOMAIN" || "MALICIOUS_PROCESS" || "CRYPTOMINING_IP" || "CRYPTOMINING_DOMAIN" || "CRYPTOMINING_PROCESS", // required
  * //                 Values: [
  * //                   "STRING_VALUE",
  * //                 ],
  * //                 Title: "STRING_VALUE",
  * //               },
+ * //             ],
+ * //             AdditionalSequenceTypes: [ // AdditionalSequenceTypes
+ * //               "STRING_VALUE",
  * //             ],
  * //           },
  * //         },

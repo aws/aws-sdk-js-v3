@@ -19,10 +19,15 @@ import {
   FeatureStatus,
   Feedback,
   FilterAction,
+  Finding,
   FindingCriteria,
+  FindingFilterSensitiveLog,
   FindingPublishingFrequency,
+  FindingStatistics,
+  FindingStatisticType,
   IpSetFormat,
   MalwareProtectionPlanActions,
+  OrderBy,
   OrgFeature,
   OrgFeatureAdditionalConfiguration,
   OrgFeatureStatus,
@@ -30,6 +35,117 @@ import {
   ThreatIntelSetFormat,
   UnprocessedAccount,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetFindingsResponse {
+  /**
+   * <p>A list of findings.</p>
+   * @public
+   */
+  Findings: Finding[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GroupByType = {
+  ACCOUNT: "ACCOUNT",
+  DATE: "DATE",
+  FINDING_TYPE: "FINDING_TYPE",
+  RESOURCE: "RESOURCE",
+  SEVERITY: "SEVERITY",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupByType = (typeof GroupByType)[keyof typeof GroupByType];
+
+/**
+ * @public
+ */
+export interface GetFindingsStatisticsRequest {
+  /**
+   * <p>The ID of the detector whose findings statistics you
+   *       want to retrieve.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The types of finding statistics to retrieve.</p>
+   *
+   * @deprecated
+   * @public
+   */
+  FindingStatisticTypes?: FindingStatisticType[] | undefined;
+
+  /**
+   * <p>Represents the criteria that is used for querying findings.</p>
+   * @public
+   */
+  FindingCriteria?: FindingCriteria | undefined;
+
+  /**
+   * <p>Displays the findings statistics grouped by one of the listed valid values.</p>
+   * @public
+   */
+  GroupBy?: GroupByType | undefined;
+
+  /**
+   * <p>Displays the sorted findings in the requested order. The default
+   *       value of <code>orderBy</code> is <code>DESC</code>.</p>
+   *          <p>You can use this parameter only with the <code>groupBy</code> parameter.</p>
+   * @public
+   */
+  OrderBy?: OrderBy | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned in the response. The default value is 25.</p>
+   *          <p>You can use this parameter only with the <code>groupBy</code> parameter.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFindingsStatisticsResponse {
+  /**
+   * <p>The finding statistics object.</p>
+   * @public
+   */
+  FindingStatistics: FindingStatistics | undefined;
+
+  /**
+   * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
+   *          <p>This parameter is currently not supported.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInvitationsCountRequest {}
+
+/**
+ * @public
+ */
+export interface GetInvitationsCountResponse {
+  /**
+   * <p>The number of received invitations.</p>
+   * @public
+   */
+  InvitationsCount?: number | undefined;
+}
 
 /**
  * @public
@@ -2790,6 +2906,14 @@ export interface UpdateThreatIntelSetRequest {
  * @public
  */
 export interface UpdateThreatIntelSetResponse {}
+
+/**
+ * @internal
+ */
+export const GetFindingsResponseFilterSensitiveLog = (obj: GetFindingsResponse): any => ({
+  ...obj,
+  ...(obj.Findings && { Findings: obj.Findings.map((item) => FindingFilterSensitiveLog(item)) }),
+});
 
 /**
  * @internal

@@ -229,6 +229,7 @@ import {
   AccountStatistics,
   Action,
   Actor,
+  ActorProcess,
   AddonDetails,
   AdminAccount,
   Administrator,
@@ -247,6 +248,7 @@ import {
   Condition,
   ConflictException,
   Container,
+  ContainerFindingResource,
   ContainerInstanceDetails,
   Country,
   CoverageEc2InstanceDetails,
@@ -286,6 +288,7 @@ import {
   Ec2NetworkInterface,
   EcsClusterDetails,
   EcsTaskDetails,
+  EksCluster,
   EksClusterDetails,
   Evidence,
   FargateDetails,
@@ -319,6 +322,7 @@ import {
   KubernetesRoleBindingDetails,
   KubernetesRoleDetails,
   KubernetesUserDetails,
+  KubernetesWorkload,
   KubernetesWorkloadDetails,
   LambdaDetails,
   LineageObject,
@@ -4415,12 +4419,24 @@ const de_Action = (output: any, context: __SerdeContext): Action => {
 const de_Actor = (output: any, context: __SerdeContext): Actor => {
   return take(output, {
     Id: [, __expectString, `id`],
+    Process: [, (_: any) => de_ActorProcess(_, context), `process`],
     Session: [, (_: any) => de_Session(_, context), `session`],
     User: [, (_: any) => de_User(_, context), `user`],
   }) as any;
 };
 
 // de_ActorIds omitted.
+
+/**
+ * deserializeAws_restJson1ActorProcess
+ */
+const de_ActorProcess = (output: any, context: __SerdeContext): ActorProcess => {
+  return take(output, {
+    Name: [, __expectString, `name`],
+    Path: [, __expectString, `path`],
+    Sha256: [, __expectString, `sha256`],
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1Actors
@@ -4433,6 +4449,8 @@ const de_Actors = (output: any, context: __SerdeContext): Actor[] => {
     });
   return retVal;
 };
+
+// de_AdditionalSequenceTypes omitted.
 
 /**
  * deserializeAws_restJson1AddonDetails
@@ -4703,6 +4721,16 @@ const de_Container = (output: any, context: __SerdeContext): Container => {
 };
 
 /**
+ * deserializeAws_restJson1ContainerFindingResource
+ */
+const de_ContainerFindingResource = (output: any, context: __SerdeContext): ContainerFindingResource => {
+  return take(output, {
+    Image: [, __expectString, `image`],
+    ImageUid: [, __expectString, `imageUid`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ContainerInstanceDetails
  */
 const de_ContainerInstanceDetails = (output: any, context: __SerdeContext): ContainerInstanceDetails => {
@@ -4723,6 +4751,8 @@ const de_Containers = (output: any, context: __SerdeContext): Container[] => {
     });
   return retVal;
 };
+
+// de_ContainerUids omitted.
 
 // de_CountByCoverageStatus omitted.
 
@@ -5107,6 +5137,8 @@ const de_Ec2Instance = (output: any, context: __SerdeContext): Ec2Instance => {
   }) as any;
 };
 
+// de_Ec2InstanceUids omitted.
+
 /**
  * deserializeAws_restJson1Ec2NetworkInterface
  */
@@ -5155,6 +5187,19 @@ const de_EcsTaskDetails = (output: any, context: __SerdeContext): EcsTaskDetails
     TaskCreatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
     Version: [, __expectString, `version`],
     Volumes: [, (_: any) => de_Volumes(_, context), `volumes`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EksCluster
+ */
+const de_EksCluster = (output: any, context: __SerdeContext): EksCluster => {
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
+    Ec2InstanceUids: [, _json, `ec2InstanceUids`],
+    Status: [, __expectString, `status`],
+    VpcId: [, __expectString, `vpcId`],
   }) as any;
 };
 
@@ -5640,6 +5685,17 @@ const de_KubernetesUserDetails = (output: any, context: __SerdeContext): Kuberne
     SessionName: [, _json, `sessionName`],
     Uid: [, __expectString, `uid`],
     Username: [, __expectString, `username`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1KubernetesWorkload
+ */
+const de_KubernetesWorkload = (output: any, context: __SerdeContext): KubernetesWorkload => {
+  return take(output, {
+    ContainerUids: [, _json, `containerUids`],
+    KubernetesResourcesTypes: [, __expectString, `kubernetesResourcesTypes`],
+    Namespace: [, __expectString, `namespace`],
   }) as any;
 };
 
@@ -6607,8 +6663,11 @@ const de_Resource = (output: any, context: __SerdeContext): Resource => {
 const de_ResourceData = (output: any, context: __SerdeContext): ResourceData => {
   return take(output, {
     AccessKey: [, (_: any) => de_AccessKey(_, context), `accessKey`],
+    Container: [, (_: any) => de_ContainerFindingResource(_, context), `container`],
     Ec2Instance: [, (_: any) => de_Ec2Instance(_, context), `ec2Instance`],
     Ec2NetworkInterface: [, (_: any) => de_Ec2NetworkInterface(_, context), `ec2NetworkInterface`],
+    EksCluster: [, (_: any) => de_EksCluster(_, context), `eksCluster`],
+    KubernetesWorkload: [, (_: any) => de_KubernetesWorkload(_, context), `kubernetesWorkload`],
     S3Bucket: [, (_: any) => de_S3Bucket(_, context), `s3Bucket`],
     S3Object: [, (_: any) => de_S3Object(_, context), `s3Object`],
   }) as any;
@@ -7010,6 +7069,7 @@ const de_SecurityGroups = (output: any, context: __SerdeContext): SecurityGroup[
 const de_Sequence = (output: any, context: __SerdeContext): Sequence => {
   return take(output, {
     Actors: [, (_: any) => de_Actors(_, context), `actors`],
+    AdditionalSequenceTypes: [, _json, `additionalSequenceTypes`],
     Description: [, __expectString, `description`],
     Endpoints: [, (_: any) => de_NetworkEndpoints(_, context), `endpoints`],
     Resources: [, (_: any) => de_Resources(_, context), `resources`],
