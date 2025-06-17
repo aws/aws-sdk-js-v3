@@ -9,14 +9,358 @@ import {
   AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails,
   AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails,
   AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails,
   RelatedFinding,
   SeverityLabel,
 } from "./models_0";
+
+/**
+ * <p>The container health check command and associated configuration parameters for the container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails {
+  /**
+   * <p>The command that the container runs to determine whether it is healthy.</p>
+   * @public
+   */
+  Command?: string[] | undefined;
+
+  /**
+   * <p>The time period in seconds between each health check execution. The default value is 30 seconds.</p>
+   * @public
+   */
+  Interval?: number | undefined;
+
+  /**
+   * <p>The number of times to retry a failed health check before the container is considered unhealthy. The default value is 3.</p>
+   * @public
+   */
+  Retries?: number | undefined;
+
+  /**
+   * <p>The optional grace period in seconds that allows containers time to bootstrap before failed health checks count towards the maximum number of retries.</p>
+   * @public
+   */
+  StartPeriod?: number | undefined;
+
+  /**
+   * <p>The time period in seconds to wait for a health check to succeed before it is considered a failure. The default value is 5.</p>
+   * @public
+   */
+  Timeout?: number | undefined;
+}
+
+/**
+ * <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails {
+  /**
+   * <p>The Linux capabilities for the container that are added to the default configuration provided by Docker. Valid values are as follows:</p>
+   *          <p>Valid values: <code>"ALL"</code> | <code>"AUDIT_CONTROL"</code> |<code> "AUDIT_WRITE"</code> |
+   *    		<code>"BLOCK_SUSPEND"</code> | <code>"CHOWN"</code> | <code>"DAC_OVERRIDE"</code> |
+   *    		<code>"DAC_READ_SEARCH"</code> | <code>"FOWNER"</code> | <code>"FSETID"</code> |
+   *    		<code>"IPC_LOCK"</code> | <code>"IPC_OWNER"</code> | <code>"KILL"</code> |
+   *    		<code>"LEASE"</code> | <code>"LINUX_IMMUTABLE"</code> | <code>"MAC_ADMIN"</code> |<code>
+   *    			"MAC_OVERRIDE"</code> | <code>"MKNOD"</code> | <code>"NET_ADMIN"</code> |
+   *    		<code>"NET_BIND_SERVICE"</code> | <code>"NET_BROADCAST"</code> | <code>"NET_RAW"</code> |
+   *    		<code>"SETFCAP"</code> | <code>"SETGID"</code> | <code>"SETPCAP"</code> |
+   *    		<code>"SETUID"</code> | <code>"SYS_ADMIN"</code> | <code>"SYS_BOOT"</code> |
+   *    		<code>"SYS_CHROOT"</code> | <code>"SYS_MODULE"</code> | <code>"SYS_NICE"</code> |
+   *    		<code>"SYS_PACCT"</code> | <code>"SYS_PTRACE"</code> | <code>"SYS_RAWIO"</code> |
+   *    		<code>"SYS_RESOURCE"</code> | <code>"SYS_TIME"</code> | <code>"SYS_TTY_CONFIG"</code> |
+   *    		<code>"SYSLOG"</code> | <code>"WAKE_ALARM"</code>
+   *          </p>
+   * @public
+   */
+  Add?: string[] | undefined;
+
+  /**
+   * <p>The Linux capabilities for the container that are dropped from the default configuration provided by Docker.</p>
+   *          <p>Valid values: <code>"ALL"</code> | <code>"AUDIT_CONTROL"</code> |<code> "AUDIT_WRITE"</code> |
+   *    		<code>"BLOCK_SUSPEND"</code> | <code>"CHOWN"</code> | <code>"DAC_OVERRIDE"</code> |
+   *    		<code>"DAC_READ_SEARCH"</code> | <code>"FOWNER"</code> | <code>"FSETID"</code> |
+   *    		<code>"IPC_LOCK"</code> | <code>"IPC_OWNER"</code> | <code>"KILL"</code> |
+   *    		<code>"LEASE"</code> | <code>"LINUX_IMMUTABLE"</code> | <code>"MAC_ADMIN"</code> |<code>
+   *    			"MAC_OVERRIDE"</code> | <code>"MKNOD"</code> | <code>"NET_ADMIN"</code> |
+   *    		<code>"NET_BIND_SERVICE"</code> | <code>"NET_BROADCAST"</code> | <code>"NET_RAW"</code> |
+   *    		<code>"SETFCAP"</code> | <code>"SETGID"</code> | <code>"SETPCAP"</code> |
+   *    		<code>"SETUID"</code> | <code>"SYS_ADMIN"</code> | <code>"SYS_BOOT"</code> |
+   *    		<code>"SYS_CHROOT"</code> | <code>"SYS_MODULE"</code> | <code>"SYS_NICE"</code> |
+   *    		<code>"SYS_PACCT"</code> | <code>"SYS_PTRACE"</code> | <code>"SYS_RAWIO"</code> |
+   *    		<code>"SYS_RESOURCE"</code> | <code>"SYS_TIME"</code> | <code>"SYS_TTY_CONFIG"</code> |
+   *    		<code>"SYSLOG"</code> | <code>"WAKE_ALARM"</code>
+   *          </p>
+   * @public
+   */
+  Drop?: string[] | undefined;
+}
+
+/**
+ * <p>A host device to expose to the container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails {
+  /**
+   * <p>The path inside the container at which to expose the host device.</p>
+   * @public
+   */
+  ContainerPath?: string | undefined;
+
+  /**
+   * <p>The path for the device on the host container instance.</p>
+   * @public
+   */
+  HostPath?: string | undefined;
+
+  /**
+   * <p>The explicit permissions to provide to the container for the device. By default, the container has permissions for read, write, and <code>mknod</code> for the device.</p>
+   * @public
+   */
+  Permissions?: string[] | undefined;
+}
+
+/**
+ * <p>The container path, mount options, and size (in MiB) of a tmpfs mount.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails {
+  /**
+   * <p>The absolute file path where the tmpfs volume is to be mounted.</p>
+   * @public
+   */
+  ContainerPath?: string | undefined;
+
+  /**
+   * <p>The list of tmpfs volume mount options.</p>
+   *          <p>Valid values: <code>"defaults"</code> | <code>"ro"</code> | <code>"rw"</code> | <code>"suid"</code> |
+   *    		<code>"nosuid"</code> | <code>"dev"</code> | <code>"nodev"</code> |<code> "exec"</code> |
+   *    		<code>"noexec"</code> | <code>"sync"</code> | <code>"async"</code> | <code>"dirsync"</code>
+   *    		| <code>"remount"</code> | <code>"mand"</code> | <code>"nomand"</code> | <code>"atime"</code>
+   *    		| <code>"noatime"</code> | <code>"diratime"</code> | <code>"nodiratime"</code> |
+   *    		<code>"bind"</code> | <code>"rbind"</code> | <code>"unbindable"</code> |
+   *    		<code>"runbindable"</code> | <code>"private"</code> | <code>"rprivate"</code> |
+   *    		<code>"shared"</code> | <code>"rshared"</code> | <code>"slave"</code> |
+   *    		<code>"rslave"</code> | <code>"relatime"</code> | <code>"norelatime"</code> |
+   *    		<code>"strictatime"</code> | <code>"nostrictatime"</code> |<code> "mode"</code> |
+   *    		<code>"uid"</code> | <code>"gid"</code> | <code>"nr_inodes"</code> |<code>
+   *    			"nr_blocks"</code> | <code>"mpol"</code>
+   *          </p>
+   * @public
+   */
+  MountOptions?: string[] | undefined;
+
+  /**
+   * <p>The maximum size (in MiB) of the tmpfs volume.</p>
+   * @public
+   */
+  Size?: number | undefined;
+}
+
+/**
+ * <p>>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails {
+  /**
+   * <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.</p>
+   * @public
+   */
+  Capabilities?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails | undefined;
+
+  /**
+   * <p>The host devices to expose to the container.</p>
+   * @public
+   */
+  Devices?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails[] | undefined;
+
+  /**
+   * <p>Whether to run an <code>init</code> process inside the container that forwards signals and reaps processes. </p>
+   * @public
+   */
+  InitProcessEnabled?: boolean | undefined;
+
+  /**
+   * <p>The total amount of swap memory (in MiB) that a container can use.</p>
+   * @public
+   */
+  MaxSwap?: number | undefined;
+
+  /**
+   * <p>The value for the size (in MiB) of the <b>/dev/shm</b> volume.</p>
+   * @public
+   */
+  SharedMemorySize?: number | undefined;
+
+  /**
+   * <p>Configures the container's memory swappiness behavior. Determines how aggressively pages are swapped. The higher the value, the more aggressive the swappiness. The default is 60.</p>
+   * @public
+   */
+  Swappiness?: number | undefined;
+
+  /**
+   * <p>The container path, mount options, and size (in MiB) of the tmpfs mount.</p>
+   * @public
+   */
+  Tmpfs?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails[] | undefined;
+}
+
+/**
+ * <p>A secret to pass to the log configuration.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails {
+  /**
+   * <p>The name of the secret.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The secret to expose to the container.</p>
+   *          <p>The value is either the full ARN of the Secrets Manager secret or the full ARN of the
+   *          parameter in the Systems Manager Parameter Store.</p>
+   * @public
+   */
+  ValueFrom?: string | undefined;
+}
+
+/**
+ * <p>The log configuration specification for the container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails {
+  /**
+   * <p>The log driver to use for the container.</p>
+   *          <p>Valid values on Fargate are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>awsfirelens</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>awslogs</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>splunk</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Valid values on Amazon EC2 are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>awsfirelens</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>awslogs</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fluentd</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>gelf</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>journald</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>json-file</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>logentries</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>splunk</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>syslog</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  LogDriver?: string | undefined;
+
+  /**
+   * <p>The configuration options to send to the log driver. Requires version 1.19 of the Docker Remote API or greater on your container instance.</p>
+   * @public
+   */
+  Options?: Record<string, string> | undefined;
+
+  /**
+   * <p>The secrets to pass to the log configuration.</p>
+   * @public
+   */
+  SecretOptions?: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails[] | undefined;
+}
+
+/**
+ * <p>A mount point for the data volumes in the container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails {
+  /**
+   * <p>The path on the container to mount the host volume at.</p>
+   * @public
+   */
+  ContainerPath?: string | undefined;
+
+  /**
+   * <p>Whether the container has read-only access to the volume.</p>
+   * @public
+   */
+  ReadOnly?: boolean | undefined;
+
+  /**
+   * <p>The name of the volume to mount. Must match the name of a volume listed in <code>VolumeDetails</code> for the task definition.</p>
+   * @public
+   */
+  SourceVolume?: string | undefined;
+}
+
+/**
+ * <p>A port mapping for the container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails {
+  /**
+   * <p>The port number on the container that is bound to the user-specified or automatically assigned host port.</p>
+   * @public
+   */
+  ContainerPort?: number | undefined;
+
+  /**
+   * <p>The port number on the container instance to reserve for the container.</p>
+   * @public
+   */
+  HostPort?: number | undefined;
+
+  /**
+   * <p>The protocol used for the port mapping. The default is <code>tcp</code>.</p>
+   * @public
+   */
+  Protocol?: string | undefined;
+}
 
 /**
  * <p>The private repository authentication credentials to use.</p>
@@ -10853,389 +11197,4 @@ export interface ClassificationResult {
    * @public
    */
   CustomDataIdentifiers?: CustomDataIdentifiersResult | undefined;
-}
-
-/**
- * <p>Provides details about sensitive data that was detected on a resource.</p>
- * @public
- */
-export interface DataClassificationDetails {
-  /**
-   * <p>The path to the folder or file that contains the sensitive data.</p>
-   * @public
-   */
-  DetailedResultsLocation?: string | undefined;
-
-  /**
-   * <p>The details about the sensitive data that was detected on the resource.</p>
-   * @public
-   */
-  Result?: ClassificationResult | undefined;
-}
-
-/**
- * <p>A wrapper type for the attributes of an Amazon SNS subscription.</p>
- * @public
- */
-export interface AwsSnsTopicSubscription {
-  /**
-   * <p>The subscription's endpoint (format depends on the protocol).</p>
-   * @public
-   */
-  Endpoint?: string | undefined;
-
-  /**
-   * <p>The subscription's protocol.</p>
-   * @public
-   */
-  Protocol?: string | undefined;
-}
-
-/**
- * <p>Provides information about an Amazon SNS topic to which notifications can be published.</p>
- * @public
- */
-export interface AwsSnsTopicDetails {
-  /**
-   * <p>The ID of an Amazon Web Services managed key for Amazon SNS or a customer managed key.</p>
-   * @public
-   */
-  KmsMasterKeyId?: string | undefined;
-
-  /**
-   * <p>Subscription is an embedded property that describes the subscription endpoints of an Amazon SNS topic.</p>
-   * @public
-   */
-  Subscription?: AwsSnsTopicSubscription[] | undefined;
-
-  /**
-   * <p>The name of the Amazon SNS topic.</p>
-   * @public
-   */
-  TopicName?: string | undefined;
-
-  /**
-   * <p>The subscription's owner.</p>
-   * @public
-   */
-  Owner?: string | undefined;
-
-  /**
-   * <p>Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an Amazon SQS endpoint.
-   *       </p>
-   * @public
-   */
-  SqsSuccessFeedbackRoleArn?: string | undefined;
-
-  /**
-   * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an Amazon SQS endpoint.
-   *       </p>
-   * @public
-   */
-  SqsFailureFeedbackRoleArn?: string | undefined;
-
-  /**
-   * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to a platform application endpoint.
-   *       </p>
-   * @public
-   */
-  ApplicationSuccessFeedbackRoleArn?: string | undefined;
-
-  /**
-   * <p>Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an Amazon Kinesis Data Firehose endpoint.
-   *       </p>
-   * @public
-   */
-  FirehoseSuccessFeedbackRoleArn?: string | undefined;
-
-  /**
-   * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an Amazon Kinesis Data Firehose endpoint.
-   *       </p>
-   * @public
-   */
-  FirehoseFailureFeedbackRoleArn?: string | undefined;
-
-  /**
-   * <p>Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an HTTP endpoint.
-   *       </p>
-   * @public
-   */
-  HttpSuccessFeedbackRoleArn?: string | undefined;
-
-  /**
-   * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an HTTP endpoint. </p>
-   * @public
-   */
-  HttpFailureFeedbackRoleArn?: string | undefined;
-}
-
-/**
- * <p>Data about a queue.</p>
- * @public
- */
-export interface AwsSqsQueueDetails {
-  /**
-   * <p>The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling KMS again.</p>
-   * @public
-   */
-  KmsDataKeyReusePeriodSeconds?: number | undefined;
-
-  /**
-   * <p>The ID of an Amazon Web Services managed key for Amazon SQS or a custom
-   *          KMS key.</p>
-   * @public
-   */
-  KmsMasterKeyId?: string | undefined;
-
-  /**
-   * <p>The name of the new queue.</p>
-   * @public
-   */
-  QueueName?: string | undefined;
-
-  /**
-   * <p>The ARN of the dead-letter queue to which Amazon SQS moves
-   *          messages after the value of <code>maxReceiveCount</code> is exceeded. </p>
-   * @public
-   */
-  DeadLetterTargetArn?: string | undefined;
-}
-
-/**
- * <p>Provides the details about the compliance status for a patch.</p>
- * @public
- */
-export interface AwsSsmComplianceSummary {
-  /**
-   * <p>The current patch compliance status. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>COMPLIANT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NON_COMPLIANT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNSPECIFIED_DATA</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>For the patches that are compliant, the number that have a severity of
-   *             <code>CRITICAL</code>.</p>
-   * @public
-   */
-  CompliantCriticalCount?: number | undefined;
-
-  /**
-   * <p>For the patches that are compliant, the number that have a severity of
-   *          <code>HIGH</code>.</p>
-   * @public
-   */
-  CompliantHighCount?: number | undefined;
-
-  /**
-   * <p>For the patches that are compliant, the number that have a severity of
-   *             <code>MEDIUM</code>.</p>
-   * @public
-   */
-  CompliantMediumCount?: number | undefined;
-
-  /**
-   * <p>The type of execution that was used determine compliance.</p>
-   * @public
-   */
-  ExecutionType?: string | undefined;
-
-  /**
-   * <p>For the patch items that are noncompliant, the number of items that have a severity of
-   *             <code>CRITICAL</code>.</p>
-   * @public
-   */
-  NonCompliantCriticalCount?: number | undefined;
-
-  /**
-   * <p>For the patches that are compliant, the number that have a severity of
-   *             <code>INFORMATIONAL</code>.</p>
-   * @public
-   */
-  CompliantInformationalCount?: number | undefined;
-
-  /**
-   * <p>For the patches that are noncompliant, the number that have a severity of
-   *             <code>INFORMATIONAL</code>.</p>
-   * @public
-   */
-  NonCompliantInformationalCount?: number | undefined;
-
-  /**
-   * <p>For the patches that are compliant, the number that have a severity of
-   *             <code>UNSPECIFIED</code>.</p>
-   * @public
-   */
-  CompliantUnspecifiedCount?: number | undefined;
-
-  /**
-   * <p>For the patches that are noncompliant, the number that have a severity of
-   *             <code>LOW</code>.</p>
-   * @public
-   */
-  NonCompliantLowCount?: number | undefined;
-
-  /**
-   * <p>For the patches that are noncompliant, the number that have a severity of
-   *             <code>HIGH</code>.</p>
-   * @public
-   */
-  NonCompliantHighCount?: number | undefined;
-
-  /**
-   * <p>For the patches that are compliant, the number that have a severity of
-   *          <code>LOW</code>.</p>
-   * @public
-   */
-  CompliantLowCount?: number | undefined;
-
-  /**
-   * <p>The type of resource for which the compliance was determined. For
-   *             <code>AwsSsmPatchCompliance</code>, <code>ComplianceType</code> is <code>Patch</code>. </p>
-   * @public
-   */
-  ComplianceType?: string | undefined;
-
-  /**
-   * <p>The identifier of the patch baseline. The patch baseline lists the patches that are
-   *          approved for installation.</p>
-   * @public
-   */
-  PatchBaselineId?: string | undefined;
-
-  /**
-   * <p>The highest severity for the patches. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CRITICAL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HIGH</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MEDIUM</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LOW</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INFORMATIONAL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNSPECIFIED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  OverallSeverity?: string | undefined;
-
-  /**
-   * <p>For the patches that are noncompliant, the number that have a severity of
-   *             <code>MEDIUM</code>.</p>
-   * @public
-   */
-  NonCompliantMediumCount?: number | undefined;
-
-  /**
-   * <p>For the patches that are noncompliant, the number that have a severity of
-   *             <code>UNSPECIFIED</code>.</p>
-   * @public
-   */
-  NonCompliantUnspecifiedCount?: number | undefined;
-
-  /**
-   * <p>The identifier of the patch group for which compliance was determined. A patch group
-   *          uses tags to group EC2 instances that should have the same patch compliance.</p>
-   * @public
-   */
-  PatchGroup?: string | undefined;
-}
-
-/**
- * <p>Provides details about the compliance for a patch.</p>
- * @public
- */
-export interface AwsSsmPatch {
-  /**
-   * <p>The compliance status details for the patch.</p>
-   * @public
-   */
-  ComplianceSummary?: AwsSsmComplianceSummary | undefined;
-}
-
-/**
- * <p>Provides information about the state of a patch on an instance based on the patch
- *          baseline that was used to patch the instance.</p>
- * @public
- */
-export interface AwsSsmPatchComplianceDetails {
-  /**
-   * <p>Information about the status of a patch.</p>
-   * @public
-   */
-  Patch?: AwsSsmPatch | undefined;
-}
-
-/**
- * <p>
- *             An object describing a CloudWatch log group. For more information, see
- *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html">
- *                 Amazon Web Services::Logs::LogGroup</a> in the <i>CloudFormation User Guide</i>.
- *         </p>
- * @public
- */
-export interface AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails {
-  /**
-   * <p>The ARN (ends with <code>:*</code>) of the CloudWatch Logs log group to which you want your logs emitted.</p>
-   * @public
-   */
-  LogGroupArn?: string | undefined;
-}
-
-/**
- * <p>
- *             An array of objects that describes where your execution history events will be logged.
- *         </p>
- * @public
- */
-export interface AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails {
-  /**
-   * <p>
-   *             An object describing a CloudWatch Logs log group. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html">
-   *                 Amazon Web Services::Logs::LogGroup</a> in the <i>CloudFormation User Guide</i>.
-   *         </p>
-   * @public
-   */
-  CloudWatchLogsLogGroup?:
-    | AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails
-    | undefined;
 }

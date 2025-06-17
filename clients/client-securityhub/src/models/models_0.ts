@@ -1209,6 +1209,32 @@ export interface AdminAccount {
 }
 
 /**
+ * <p>Specifies a cross-Region data aggregation configuration, including the aggregation Region and any linked Regions.</p>
+ * @public
+ */
+export interface AggregatorV2 {
+  /**
+   * <p>The ARN of the aggregatorV2.</p>
+   * @public
+   */
+  AggregatorV2Arn?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AllowedOperators = {
+  AND: "AND",
+  OR: "OR",
+} as const;
+
+/**
+ * @public
+ */
+export type AllowedOperators = (typeof AllowedOperators)[keyof typeof AllowedOperators];
+
+/**
  * <p>
  *          Information about an enabled security standard in which a security control is enabled.
  *       </p>
@@ -1397,11 +1423,99 @@ export const AutoEnableStandards = {
 export type AutoEnableStandards = (typeof AutoEnableStandards)[keyof typeof AutoEnableStandards];
 
 /**
+ * <p>Defines the settings and parameters required for integrating external security tools and services.</p>
+ * @public
+ */
+export interface ExternalIntegrationConfiguration {
+  /**
+   * <p>The ARN of the connector that establishes the integration.</p>
+   * @public
+   */
+  ConnectorArn?: string | undefined;
+}
+
+/**
+ * <p>Allows you to define the structure for modifying specific fields in security findings.</p>
+ * @public
+ */
+export interface AutomationRulesFindingFieldsUpdateV2 {
+  /**
+   * <p>The severity level to be assigned to findings that match the automation rule criteria.</p>
+   * @public
+   */
+  SeverityId?: number | undefined;
+
+  /**
+   * <p>Notes or contextual information for findings that are modified by the automation rule.</p>
+   * @public
+   */
+  Comment?: string | undefined;
+
+  /**
+   * <p>The status to be applied to findings that match automation rule criteria.</p>
+   * @public
+   */
+  StatusId?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AutomationRulesActionTypeV2 = {
+  EXTERNAL_INTEGRATION: "EXTERNAL_INTEGRATION",
+  FINDING_FIELDS_UPDATE: "FINDING_FIELDS_UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type AutomationRulesActionTypeV2 =
+  (typeof AutomationRulesActionTypeV2)[keyof typeof AutomationRulesActionTypeV2];
+
+/**
+ * <p>Allows you to configure automated responses.</p>
+ * @public
+ */
+export interface AutomationRulesActionV2 {
+  /**
+   * <p>The category of action to be executed by the automation rule.</p>
+   * @public
+   */
+  Type: AutomationRulesActionTypeV2 | undefined;
+
+  /**
+   * <p>The changes to be applied to fields in a security finding when an automation rule is triggered.</p>
+   * @public
+   */
+  FindingFieldsUpdate?: AutomationRulesFindingFieldsUpdateV2 | undefined;
+
+  /**
+   * <p>The settings for integrating automation rule actions with external systems or service.</p>
+   * @public
+   */
+  ExternalIntegrationConfiguration?: ExternalIntegrationConfiguration | undefined;
+}
+
+/**
+ * <p>Allows you to customize security response workflows.</p>
+ * @public
+ */
+export interface AutomationRulesActionTypeObjectV2 {
+  /**
+   * <p>The category of action to be executed by the automation rule.</p>
+   * @public
+   */
+  Type?: AutomationRulesActionTypeV2 | undefined;
+}
+
+/**
  * @public
  * @enum
  */
 export const StringFilterComparison = {
   CONTAINS: "CONTAINS",
+  CONTAINS_WORD: "CONTAINS_WORD",
   EQUALS: "EQUALS",
   NOT_CONTAINS: "NOT_CONTAINS",
   NOT_EQUALS: "NOT_EQUALS",
@@ -1509,8 +1623,9 @@ export interface StringFilter {
    *             </li>
    *          </ul>
    *          <p>
-   *             <code>CONTAINS</code> and <code>NOT_CONTAINS</code> operators can be used only with automation rules. For more information,
-   *            see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html">Automation rules</a> in the <i>Security Hub User Guide</i>.</p>
+   *             <code>CONTAINS</code> and <code>NOT_CONTAINS</code> operators can be used only with automation rules V1.
+   *           <code>CONTAINS_WORD</code> operator is only supported in <code>GetFindingsV2</code>, <code>GetFindingStatisticsV2</code>, <code>GetResourcesV2</code>, and <code>GetResourceStatisticsV2</code> APIs.
+   *           For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html">Automation rules</a> in the <i>Security Hub User Guide</i>.</p>
    * @public
    */
   Comparison?: StringFilterComparison | undefined;
@@ -2356,6 +2471,80 @@ export interface AutomationRulesMetadata {
    * @public
    */
   CreatedBy?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleStatusV2 = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleStatusV2 = (typeof RuleStatusV2)[keyof typeof RuleStatusV2];
+
+/**
+ * <p>Includes essential metadata information about automation rules.</p>
+ * @public
+ */
+export interface AutomationRulesMetadataV2 {
+  /**
+   * <p>The ARN of the automation rule.</p>
+   * @public
+   */
+  RuleArn?: string | undefined;
+
+  /**
+   * <p>The ID of the automation rule.</p>
+   * @public
+   */
+  RuleId?: string | undefined;
+
+  /**
+   * <p>The value for the rule priority.</p>
+   * @public
+   */
+  RuleOrder?: number | undefined;
+
+  /**
+   * <p>The name of the automation rule.</p>
+   * @public
+   */
+  RuleName?: string | undefined;
+
+  /**
+   * <p>The status of the automation rule.</p>
+   * @public
+   */
+  RuleStatus?: RuleStatusV2 | undefined;
+
+  /**
+   * <p>An explanation for the purpose and funcitonality of the automation rule.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The list of action to be performed when the rule criteria is met.</p>
+   * @public
+   */
+  Actions?: AutomationRulesActionTypeObjectV2[] | undefined;
+
+  /**
+   * <p>The timestamp for when the automation rule was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp for the most recent modification to the automation rule.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -12231,353 +12420,4 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDe
    * @public
    */
   Type?: string | undefined;
-}
-
-/**
- * <p>The container health check command and associated configuration parameters for the container.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails {
-  /**
-   * <p>The command that the container runs to determine whether it is healthy.</p>
-   * @public
-   */
-  Command?: string[] | undefined;
-
-  /**
-   * <p>The time period in seconds between each health check execution. The default value is 30 seconds.</p>
-   * @public
-   */
-  Interval?: number | undefined;
-
-  /**
-   * <p>The number of times to retry a failed health check before the container is considered unhealthy. The default value is 3.</p>
-   * @public
-   */
-  Retries?: number | undefined;
-
-  /**
-   * <p>The optional grace period in seconds that allows containers time to bootstrap before failed health checks count towards the maximum number of retries.</p>
-   * @public
-   */
-  StartPeriod?: number | undefined;
-
-  /**
-   * <p>The time period in seconds to wait for a health check to succeed before it is considered a failure. The default value is 5.</p>
-   * @public
-   */
-  Timeout?: number | undefined;
-}
-
-/**
- * <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails {
-  /**
-   * <p>The Linux capabilities for the container that are added to the default configuration provided by Docker. Valid values are as follows:</p>
-   *          <p>Valid values: <code>"ALL"</code> | <code>"AUDIT_CONTROL"</code> |<code> "AUDIT_WRITE"</code> |
-   *    		<code>"BLOCK_SUSPEND"</code> | <code>"CHOWN"</code> | <code>"DAC_OVERRIDE"</code> |
-   *    		<code>"DAC_READ_SEARCH"</code> | <code>"FOWNER"</code> | <code>"FSETID"</code> |
-   *    		<code>"IPC_LOCK"</code> | <code>"IPC_OWNER"</code> | <code>"KILL"</code> |
-   *    		<code>"LEASE"</code> | <code>"LINUX_IMMUTABLE"</code> | <code>"MAC_ADMIN"</code> |<code>
-   *    			"MAC_OVERRIDE"</code> | <code>"MKNOD"</code> | <code>"NET_ADMIN"</code> |
-   *    		<code>"NET_BIND_SERVICE"</code> | <code>"NET_BROADCAST"</code> | <code>"NET_RAW"</code> |
-   *    		<code>"SETFCAP"</code> | <code>"SETGID"</code> | <code>"SETPCAP"</code> |
-   *    		<code>"SETUID"</code> | <code>"SYS_ADMIN"</code> | <code>"SYS_BOOT"</code> |
-   *    		<code>"SYS_CHROOT"</code> | <code>"SYS_MODULE"</code> | <code>"SYS_NICE"</code> |
-   *    		<code>"SYS_PACCT"</code> | <code>"SYS_PTRACE"</code> | <code>"SYS_RAWIO"</code> |
-   *    		<code>"SYS_RESOURCE"</code> | <code>"SYS_TIME"</code> | <code>"SYS_TTY_CONFIG"</code> |
-   *    		<code>"SYSLOG"</code> | <code>"WAKE_ALARM"</code>
-   *          </p>
-   * @public
-   */
-  Add?: string[] | undefined;
-
-  /**
-   * <p>The Linux capabilities for the container that are dropped from the default configuration provided by Docker.</p>
-   *          <p>Valid values: <code>"ALL"</code> | <code>"AUDIT_CONTROL"</code> |<code> "AUDIT_WRITE"</code> |
-   *    		<code>"BLOCK_SUSPEND"</code> | <code>"CHOWN"</code> | <code>"DAC_OVERRIDE"</code> |
-   *    		<code>"DAC_READ_SEARCH"</code> | <code>"FOWNER"</code> | <code>"FSETID"</code> |
-   *    		<code>"IPC_LOCK"</code> | <code>"IPC_OWNER"</code> | <code>"KILL"</code> |
-   *    		<code>"LEASE"</code> | <code>"LINUX_IMMUTABLE"</code> | <code>"MAC_ADMIN"</code> |<code>
-   *    			"MAC_OVERRIDE"</code> | <code>"MKNOD"</code> | <code>"NET_ADMIN"</code> |
-   *    		<code>"NET_BIND_SERVICE"</code> | <code>"NET_BROADCAST"</code> | <code>"NET_RAW"</code> |
-   *    		<code>"SETFCAP"</code> | <code>"SETGID"</code> | <code>"SETPCAP"</code> |
-   *    		<code>"SETUID"</code> | <code>"SYS_ADMIN"</code> | <code>"SYS_BOOT"</code> |
-   *    		<code>"SYS_CHROOT"</code> | <code>"SYS_MODULE"</code> | <code>"SYS_NICE"</code> |
-   *    		<code>"SYS_PACCT"</code> | <code>"SYS_PTRACE"</code> | <code>"SYS_RAWIO"</code> |
-   *    		<code>"SYS_RESOURCE"</code> | <code>"SYS_TIME"</code> | <code>"SYS_TTY_CONFIG"</code> |
-   *    		<code>"SYSLOG"</code> | <code>"WAKE_ALARM"</code>
-   *          </p>
-   * @public
-   */
-  Drop?: string[] | undefined;
-}
-
-/**
- * <p>A host device to expose to the container.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails {
-  /**
-   * <p>The path inside the container at which to expose the host device.</p>
-   * @public
-   */
-  ContainerPath?: string | undefined;
-
-  /**
-   * <p>The path for the device on the host container instance.</p>
-   * @public
-   */
-  HostPath?: string | undefined;
-
-  /**
-   * <p>The explicit permissions to provide to the container for the device. By default, the container has permissions for read, write, and <code>mknod</code> for the device.</p>
-   * @public
-   */
-  Permissions?: string[] | undefined;
-}
-
-/**
- * <p>The container path, mount options, and size (in MiB) of a tmpfs mount.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails {
-  /**
-   * <p>The absolute file path where the tmpfs volume is to be mounted.</p>
-   * @public
-   */
-  ContainerPath?: string | undefined;
-
-  /**
-   * <p>The list of tmpfs volume mount options.</p>
-   *          <p>Valid values: <code>"defaults"</code> | <code>"ro"</code> | <code>"rw"</code> | <code>"suid"</code> |
-   *    		<code>"nosuid"</code> | <code>"dev"</code> | <code>"nodev"</code> |<code> "exec"</code> |
-   *    		<code>"noexec"</code> | <code>"sync"</code> | <code>"async"</code> | <code>"dirsync"</code>
-   *    		| <code>"remount"</code> | <code>"mand"</code> | <code>"nomand"</code> | <code>"atime"</code>
-   *    		| <code>"noatime"</code> | <code>"diratime"</code> | <code>"nodiratime"</code> |
-   *    		<code>"bind"</code> | <code>"rbind"</code> | <code>"unbindable"</code> |
-   *    		<code>"runbindable"</code> | <code>"private"</code> | <code>"rprivate"</code> |
-   *    		<code>"shared"</code> | <code>"rshared"</code> | <code>"slave"</code> |
-   *    		<code>"rslave"</code> | <code>"relatime"</code> | <code>"norelatime"</code> |
-   *    		<code>"strictatime"</code> | <code>"nostrictatime"</code> |<code> "mode"</code> |
-   *    		<code>"uid"</code> | <code>"gid"</code> | <code>"nr_inodes"</code> |<code>
-   *    			"nr_blocks"</code> | <code>"mpol"</code>
-   *          </p>
-   * @public
-   */
-  MountOptions?: string[] | undefined;
-
-  /**
-   * <p>The maximum size (in MiB) of the tmpfs volume.</p>
-   * @public
-   */
-  Size?: number | undefined;
-}
-
-/**
- * <p>>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails {
-  /**
-   * <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.</p>
-   * @public
-   */
-  Capabilities?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails | undefined;
-
-  /**
-   * <p>The host devices to expose to the container.</p>
-   * @public
-   */
-  Devices?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails[] | undefined;
-
-  /**
-   * <p>Whether to run an <code>init</code> process inside the container that forwards signals and reaps processes. </p>
-   * @public
-   */
-  InitProcessEnabled?: boolean | undefined;
-
-  /**
-   * <p>The total amount of swap memory (in MiB) that a container can use.</p>
-   * @public
-   */
-  MaxSwap?: number | undefined;
-
-  /**
-   * <p>The value for the size (in MiB) of the <b>/dev/shm</b> volume.</p>
-   * @public
-   */
-  SharedMemorySize?: number | undefined;
-
-  /**
-   * <p>Configures the container's memory swappiness behavior. Determines how aggressively pages are swapped. The higher the value, the more aggressive the swappiness. The default is 60.</p>
-   * @public
-   */
-  Swappiness?: number | undefined;
-
-  /**
-   * <p>The container path, mount options, and size (in MiB) of the tmpfs mount.</p>
-   * @public
-   */
-  Tmpfs?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails[] | undefined;
-}
-
-/**
- * <p>A secret to pass to the log configuration.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails {
-  /**
-   * <p>The name of the secret.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The secret to expose to the container.</p>
-   *          <p>The value is either the full ARN of the Secrets Manager secret or the full ARN of the
-   *          parameter in the Systems Manager Parameter Store.</p>
-   * @public
-   */
-  ValueFrom?: string | undefined;
-}
-
-/**
- * <p>The log configuration specification for the container.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails {
-  /**
-   * <p>The log driver to use for the container.</p>
-   *          <p>Valid values on Fargate are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>awsfirelens</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>awslogs</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>splunk</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>Valid values on Amazon EC2 are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>awsfirelens</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>awslogs</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fluentd</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>gelf</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>journald</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>json-file</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>logentries</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>splunk</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>syslog</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  LogDriver?: string | undefined;
-
-  /**
-   * <p>The configuration options to send to the log driver. Requires version 1.19 of the Docker Remote API or greater on your container instance.</p>
-   * @public
-   */
-  Options?: Record<string, string> | undefined;
-
-  /**
-   * <p>The secrets to pass to the log configuration.</p>
-   * @public
-   */
-  SecretOptions?: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails[] | undefined;
-}
-
-/**
- * <p>A mount point for the data volumes in the container.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails {
-  /**
-   * <p>The path on the container to mount the host volume at.</p>
-   * @public
-   */
-  ContainerPath?: string | undefined;
-
-  /**
-   * <p>Whether the container has read-only access to the volume.</p>
-   * @public
-   */
-  ReadOnly?: boolean | undefined;
-
-  /**
-   * <p>The name of the volume to mount. Must match the name of a volume listed in <code>VolumeDetails</code> for the task definition.</p>
-   * @public
-   */
-  SourceVolume?: string | undefined;
-}
-
-/**
- * <p>A port mapping for the container.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails {
-  /**
-   * <p>The port number on the container that is bound to the user-specified or automatically assigned host port.</p>
-   * @public
-   */
-  ContainerPort?: number | undefined;
-
-  /**
-   * <p>The port number on the container instance to reserve for the container.</p>
-   * @public
-   */
-  HostPort?: number | undefined;
-
-  /**
-   * <p>The protocol used for the port mapping. The default is <code>tcp</code>.</p>
-   * @public
-   */
-  Protocol?: string | undefined;
 }

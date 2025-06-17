@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateConfigurationPolicyRequest, UpdateConfigurationPolicyResponse } from "../models/models_2";
+import { UpdateConfigurationPolicyRequest, UpdateConfigurationPolicyResponse } from "../models/models_3";
 import { de_UpdateConfigurationPolicyCommand, se_UpdateConfigurationPolicyCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 

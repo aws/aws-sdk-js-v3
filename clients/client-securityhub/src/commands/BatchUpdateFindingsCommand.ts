@@ -28,14 +28,13 @@ export interface BatchUpdateFindingsCommandInput extends BatchUpdateFindingsRequ
 export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsResponse, __MetadataBearer {}
 
 /**
- * <p>Used by Security Hub customers to update information about their investigation into a finding.
- *          Requested by administrator accounts or member accounts. Administrator accounts can update findings for
- *          their account and their member accounts. Member accounts can update findings for their
- *          account.</p>
- *          <p>Updates from <code>BatchUpdateFindings</code> don't affect the value of
- *             <code>UpdatedAt</code> for a finding.</p>
- *          <p>Administrator and member accounts can use <code>BatchUpdateFindings</code> to update the
- *          following finding fields and objects.</p>
+ * <p>
+ *          Used by Security Hub customers to update information about their investigation into one or more findings.
+ *          Requested by administrator accounts or member accounts.
+ *          Administrator accounts can update findings for their account and their member accounts.
+ *          A member account can update findings only for their own account.
+ *          Administrator and member accounts can use this operation to update the following fields and objects for one or more findings:
+ *       </p>
  *          <ul>
  *             <li>
  *                <p>
@@ -83,10 +82,15 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
  *                </p>
  *             </li>
  *          </ul>
- *          <p>You can configure IAM policies to restrict access to fields and field values. For
- *          example, you might not want member accounts to be able to suppress findings or change the
- *          finding severity. See <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access">Configuring access to BatchUpdateFindings</a> in the
- *          <i>Security Hub User Guide</i>.</p>
+ *          <p>
+ *          If you use this operation to update a finding, your updates don’t affect the value for the <code>UpdatedAt</code> field of the finding.
+ *          Also note that it can take several minutes for Security Hub to process your request and update each finding specified in the request.
+ *       </p>
+ *          <p>
+ *          You can configure IAM policies to restrict access to fields and field values.
+ *          For example, you might not want member accounts to be able to suppress findings or change the finding severity.
+ *          For more information see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access">Configuring access to BatchUpdateFindings</a> in the <i>Security Hub User Guide</i>.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

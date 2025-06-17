@@ -1,20 +1,19 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   AccountDetails,
   Action,
   ActionTarget,
   Adjustment,
-  AdminAccount,
-  AssociationFilters,
+  AllowedOperators,
   AssociationStatus,
   AssociationType,
   AutoEnableStandards,
   AutomationRulesAction,
+  AutomationRulesActionV2,
   AutomationRulesConfig,
   AutomationRulesFindingFilters,
-  AutomationRulesMetadata,
   AwsAmazonMqBrokerDetails,
   AwsApiGatewayRestApiDetails,
   AwsApiGatewayStageDetails,
@@ -64,6 +63,7 @@ import {
   NumberFilter,
   RelatedFinding,
   RuleStatus,
+  RuleStatusV2,
   SeverityLabel,
   SeverityUpdate,
   StringFilter,
@@ -113,12 +113,8 @@ import {
   AwsS3ObjectDetails,
   AwsSageMakerNotebookInstanceDetails,
   AwsSecretsManagerSecretDetails,
-  AwsSnsTopicDetails,
-  AwsSqsQueueDetails,
-  AwsSsmPatchComplianceDetails,
-  AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails,
+  ClassificationResult,
   Compliance,
-  DataClassificationDetails,
   Detection,
   FindingProviderFields,
   GeneratorDetails,
@@ -133,6 +129,391 @@ import {
 } from "./models_1";
 
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
+
+/**
+ * <p>Provides details about sensitive data that was detected on a resource.</p>
+ * @public
+ */
+export interface DataClassificationDetails {
+  /**
+   * <p>The path to the folder or file that contains the sensitive data.</p>
+   * @public
+   */
+  DetailedResultsLocation?: string | undefined;
+
+  /**
+   * <p>The details about the sensitive data that was detected on the resource.</p>
+   * @public
+   */
+  Result?: ClassificationResult | undefined;
+}
+
+/**
+ * <p>A wrapper type for the attributes of an Amazon SNS subscription.</p>
+ * @public
+ */
+export interface AwsSnsTopicSubscription {
+  /**
+   * <p>The subscription's endpoint (format depends on the protocol).</p>
+   * @public
+   */
+  Endpoint?: string | undefined;
+
+  /**
+   * <p>The subscription's protocol.</p>
+   * @public
+   */
+  Protocol?: string | undefined;
+}
+
+/**
+ * <p>Provides information about an Amazon SNS topic to which notifications can be published.</p>
+ * @public
+ */
+export interface AwsSnsTopicDetails {
+  /**
+   * <p>The ID of an Amazon Web Services managed key for Amazon SNS or a customer managed key.</p>
+   * @public
+   */
+  KmsMasterKeyId?: string | undefined;
+
+  /**
+   * <p>Subscription is an embedded property that describes the subscription endpoints of an Amazon SNS topic.</p>
+   * @public
+   */
+  Subscription?: AwsSnsTopicSubscription[] | undefined;
+
+  /**
+   * <p>The name of the Amazon SNS topic.</p>
+   * @public
+   */
+  TopicName?: string | undefined;
+
+  /**
+   * <p>The subscription's owner.</p>
+   * @public
+   */
+  Owner?: string | undefined;
+
+  /**
+   * <p>Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an Amazon SQS endpoint.
+   *       </p>
+   * @public
+   */
+  SqsSuccessFeedbackRoleArn?: string | undefined;
+
+  /**
+   * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an Amazon SQS endpoint.
+   *       </p>
+   * @public
+   */
+  SqsFailureFeedbackRoleArn?: string | undefined;
+
+  /**
+   * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to a platform application endpoint.
+   *       </p>
+   * @public
+   */
+  ApplicationSuccessFeedbackRoleArn?: string | undefined;
+
+  /**
+   * <p>Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an Amazon Kinesis Data Firehose endpoint.
+   *       </p>
+   * @public
+   */
+  FirehoseSuccessFeedbackRoleArn?: string | undefined;
+
+  /**
+   * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an Amazon Kinesis Data Firehose endpoint.
+   *       </p>
+   * @public
+   */
+  FirehoseFailureFeedbackRoleArn?: string | undefined;
+
+  /**
+   * <p>Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an HTTP endpoint.
+   *       </p>
+   * @public
+   */
+  HttpSuccessFeedbackRoleArn?: string | undefined;
+
+  /**
+   * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an HTTP endpoint. </p>
+   * @public
+   */
+  HttpFailureFeedbackRoleArn?: string | undefined;
+}
+
+/**
+ * <p>Data about a queue.</p>
+ * @public
+ */
+export interface AwsSqsQueueDetails {
+  /**
+   * <p>The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling KMS again.</p>
+   * @public
+   */
+  KmsDataKeyReusePeriodSeconds?: number | undefined;
+
+  /**
+   * <p>The ID of an Amazon Web Services managed key for Amazon SQS or a custom
+   *          KMS key.</p>
+   * @public
+   */
+  KmsMasterKeyId?: string | undefined;
+
+  /**
+   * <p>The name of the new queue.</p>
+   * @public
+   */
+  QueueName?: string | undefined;
+
+  /**
+   * <p>The ARN of the dead-letter queue to which Amazon SQS moves
+   *          messages after the value of <code>maxReceiveCount</code> is exceeded. </p>
+   * @public
+   */
+  DeadLetterTargetArn?: string | undefined;
+}
+
+/**
+ * <p>Provides the details about the compliance status for a patch.</p>
+ * @public
+ */
+export interface AwsSsmComplianceSummary {
+  /**
+   * <p>The current patch compliance status. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLIANT</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NON_COMPLIANT</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNSPECIFIED_DATA</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>For the patches that are compliant, the number that have a severity of
+   *             <code>CRITICAL</code>.</p>
+   * @public
+   */
+  CompliantCriticalCount?: number | undefined;
+
+  /**
+   * <p>For the patches that are compliant, the number that have a severity of
+   *          <code>HIGH</code>.</p>
+   * @public
+   */
+  CompliantHighCount?: number | undefined;
+
+  /**
+   * <p>For the patches that are compliant, the number that have a severity of
+   *             <code>MEDIUM</code>.</p>
+   * @public
+   */
+  CompliantMediumCount?: number | undefined;
+
+  /**
+   * <p>The type of execution that was used determine compliance.</p>
+   * @public
+   */
+  ExecutionType?: string | undefined;
+
+  /**
+   * <p>For the patch items that are noncompliant, the number of items that have a severity of
+   *             <code>CRITICAL</code>.</p>
+   * @public
+   */
+  NonCompliantCriticalCount?: number | undefined;
+
+  /**
+   * <p>For the patches that are compliant, the number that have a severity of
+   *             <code>INFORMATIONAL</code>.</p>
+   * @public
+   */
+  CompliantInformationalCount?: number | undefined;
+
+  /**
+   * <p>For the patches that are noncompliant, the number that have a severity of
+   *             <code>INFORMATIONAL</code>.</p>
+   * @public
+   */
+  NonCompliantInformationalCount?: number | undefined;
+
+  /**
+   * <p>For the patches that are compliant, the number that have a severity of
+   *             <code>UNSPECIFIED</code>.</p>
+   * @public
+   */
+  CompliantUnspecifiedCount?: number | undefined;
+
+  /**
+   * <p>For the patches that are noncompliant, the number that have a severity of
+   *             <code>LOW</code>.</p>
+   * @public
+   */
+  NonCompliantLowCount?: number | undefined;
+
+  /**
+   * <p>For the patches that are noncompliant, the number that have a severity of
+   *             <code>HIGH</code>.</p>
+   * @public
+   */
+  NonCompliantHighCount?: number | undefined;
+
+  /**
+   * <p>For the patches that are compliant, the number that have a severity of
+   *          <code>LOW</code>.</p>
+   * @public
+   */
+  CompliantLowCount?: number | undefined;
+
+  /**
+   * <p>The type of resource for which the compliance was determined. For
+   *             <code>AwsSsmPatchCompliance</code>, <code>ComplianceType</code> is <code>Patch</code>. </p>
+   * @public
+   */
+  ComplianceType?: string | undefined;
+
+  /**
+   * <p>The identifier of the patch baseline. The patch baseline lists the patches that are
+   *          approved for installation.</p>
+   * @public
+   */
+  PatchBaselineId?: string | undefined;
+
+  /**
+   * <p>The highest severity for the patches. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CRITICAL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIGH</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LOW</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INFORMATIONAL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNSPECIFIED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  OverallSeverity?: string | undefined;
+
+  /**
+   * <p>For the patches that are noncompliant, the number that have a severity of
+   *             <code>MEDIUM</code>.</p>
+   * @public
+   */
+  NonCompliantMediumCount?: number | undefined;
+
+  /**
+   * <p>For the patches that are noncompliant, the number that have a severity of
+   *             <code>UNSPECIFIED</code>.</p>
+   * @public
+   */
+  NonCompliantUnspecifiedCount?: number | undefined;
+
+  /**
+   * <p>The identifier of the patch group for which compliance was determined. A patch group
+   *          uses tags to group EC2 instances that should have the same patch compliance.</p>
+   * @public
+   */
+  PatchGroup?: string | undefined;
+}
+
+/**
+ * <p>Provides details about the compliance for a patch.</p>
+ * @public
+ */
+export interface AwsSsmPatch {
+  /**
+   * <p>The compliance status details for the patch.</p>
+   * @public
+   */
+  ComplianceSummary?: AwsSsmComplianceSummary | undefined;
+}
+
+/**
+ * <p>Provides information about the state of a patch on an instance based on the patch
+ *          baseline that was used to patch the instance.</p>
+ * @public
+ */
+export interface AwsSsmPatchComplianceDetails {
+  /**
+   * <p>Information about the status of a patch.</p>
+   * @public
+   */
+  Patch?: AwsSsmPatch | undefined;
+}
+
+/**
+ * <p>
+ *             An object describing a CloudWatch log group. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html">
+ *                 Amazon Web Services::Logs::LogGroup</a> in the <i>CloudFormation User Guide</i>.
+ *         </p>
+ * @public
+ */
+export interface AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails {
+  /**
+   * <p>The ARN (ends with <code>:*</code>) of the CloudWatch Logs log group to which you want your logs emitted.</p>
+   * @public
+   */
+  LogGroupArn?: string | undefined;
+}
+
+/**
+ * <p>
+ *             An array of objects that describes where your execution history events will be logged.
+ *         </p>
+ * @public
+ */
+export interface AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails {
+  /**
+   * <p>
+   *             An object describing a CloudWatch Logs log group. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html">
+   *                 Amazon Web Services::Logs::LogGroup</a> in the <i>CloudFormation User Guide</i>.
+   *         </p>
+   * @public
+   */
+  CloudWatchLogsLogGroup?:
+    | AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails
+    | undefined;
+}
 
 /**
  * <p>
@@ -5873,6 +6254,255 @@ export interface BatchUpdateFindingsResponse {
 }
 
 /**
+ * <p>Provides a standard to identify security findings using OCSF.</p>
+ * @public
+ */
+export interface OcsfFindingIdentifier {
+  /**
+   * <p>Finding cloud.account.uid, which is a unique identifier in the Amazon Web Services account..</p>
+   * @public
+   */
+  CloudAccountUid: string | undefined;
+
+  /**
+   * <p>Finding finding_info.uid, which is a unique identifier for the finding from the finding provider.</p>
+   * @public
+   */
+  FindingInfoUid: string | undefined;
+
+  /**
+   * <p>Finding metadata.product.uid, which is a unique identifier for the product.</p>
+   * @public
+   */
+  MetadataProductUid: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateFindingsV2Request {
+  /**
+   * <p>The list of finding <code>metadata.uid</code> to indicate findings to update.
+   *          Finding <code>metadata.uid</code> is a globally unique identifier associated with the finding.
+   *          Customers cannot use <code>MetadataUids</code> together with <code>FindingIdentifiers</code>.</p>
+   * @public
+   */
+  MetadataUids?: string[] | undefined;
+
+  /**
+   * <p>Provides information to identify a specific V2 finding.</p>
+   * @public
+   */
+  FindingIdentifiers?: OcsfFindingIdentifier[] | undefined;
+
+  /**
+   * <p>The updated value for a user provided comment about the finding.
+   *          Minimum character length 1.
+   *          Maximum character length 512.</p>
+   * @public
+   */
+  Comment?: string | undefined;
+
+  /**
+   * <p>The updated value for the normalized severity identifier.
+   *          The severity ID is an integer with the allowed enum values [0, 1, 2, 3, 4, 5, 99].
+   *          When customer provides the updated severity ID, the string sibling severity will automatically be updated in the finding.</p>
+   * @public
+   */
+  SeverityId?: number | undefined;
+
+  /**
+   * <p>The updated value for the normalized status identifier.
+   *          The status ID is an integer with the allowed enum values [0, 1, 2, 3, 4, 5, 6, 99].
+   *          When customer provides the updated status ID, the string sibling status will automatically be updated in the finding.</p>
+   * @public
+   */
+  StatusId?: number | undefined;
+}
+
+/**
+ * <p>The list of findings that were updated.</p>
+ * @public
+ */
+export interface BatchUpdateFindingsV2ProcessedFinding {
+  /**
+   * <p>The finding identifier of a processed finding.</p>
+   * @public
+   */
+  FindingIdentifier?: OcsfFindingIdentifier | undefined;
+
+  /**
+   * <p>The metadata.uid of a processed finding.</p>
+   * @public
+   */
+  MetadataUid?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BatchUpdateFindingsV2UnprocessedFindingErrorCode = {
+  ConflictException: "ConflictException",
+  InternalServerException: "InternalServerException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+  ValidationException: "ValidationException",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchUpdateFindingsV2UnprocessedFindingErrorCode =
+  (typeof BatchUpdateFindingsV2UnprocessedFindingErrorCode)[keyof typeof BatchUpdateFindingsV2UnprocessedFindingErrorCode];
+
+/**
+ * <p>The list of findings that were not updated.</p>
+ * @public
+ */
+export interface BatchUpdateFindingsV2UnprocessedFinding {
+  /**
+   * <p>The finding identifier of an unprocessed finding.</p>
+   * @public
+   */
+  FindingIdentifier?: OcsfFindingIdentifier | undefined;
+
+  /**
+   * <p>The metadata.uid of an unprocessed finding.</p>
+   * @public
+   */
+  MetadataUid?: string | undefined;
+
+  /**
+   * <p>Indicates the specific type of error preventing successful processing of a finding during a batch update operation.</p>
+   * @public
+   */
+  ErrorCode?: BatchUpdateFindingsV2UnprocessedFindingErrorCode | undefined;
+
+  /**
+   * <p>A detailed description of why a finding could not be processed during a batch update operation.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateFindingsV2Response {
+  /**
+   * <p>The list of findings that were updated successfully.</p>
+   * @public
+   */
+  ProcessedFindings: BatchUpdateFindingsV2ProcessedFinding[] | undefined;
+
+  /**
+   * <p>The list of V2 findings that were not updated.</p>
+   * @public
+   */
+  UnprocessedFindings: BatchUpdateFindingsV2UnprocessedFinding[] | undefined;
+}
+
+/**
+ * <p>The request causes conflict with the current state of the service resource.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  Code?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
+}
+
+/**
+ * <p>
+ *          The request has failed due to an internal failure of the service.
+ *       </p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  Message?: string | undefined;
+  Code?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
+}
+
+/**
+ * <p>
+ *          The limit on the number of requests per second was exceeded.
+ *       </p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  Code?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
+}
+
+/**
+ * <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  Code?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
+}
+
+/**
  * <p>An array of requested updates to the enablement status of controls in specified
  *          standards. The objects in the array include a security control ID, the Amazon Resource Name (ARN) of the standard, the requested
  *          enablement status, and the reason for updating the enablement status.</p>
@@ -5978,6 +6608,245 @@ export interface BooleanConfigurationOptions {
    * @public
    */
   DefaultValue?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OcsfBooleanField = {
+  COMPLIANCE_ASSESSMENTS_MEETS_CRITERIA: "compliance.assessments.meets_criteria",
+  VULNERABILITIES_IS_EXPLOIT_AVAILABLE: "vulnerabilities.is_exploit_available",
+  VULNERABILITIES_IS_FIX_AVAILABLE: "vulnerabilities.is_fix_available",
+} as const;
+
+/**
+ * @public
+ */
+export type OcsfBooleanField = (typeof OcsfBooleanField)[keyof typeof OcsfBooleanField];
+
+/**
+ * <p>Enables filtering of security findings based on boolean field values in OCSF.</p>
+ * @public
+ */
+export interface OcsfBooleanFilter {
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  FieldName?: OcsfBooleanField | undefined;
+
+  /**
+   * <p>Boolean filter for querying findings.</p>
+   * @public
+   */
+  Filter?: BooleanFilter | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OcsfDateField = {
+  FINDING_INFO_CREATED_TIME_DT: "finding_info.created_time_dt",
+  FINDING_INFO_FIRST_SEEN_TIME_DT: "finding_info.first_seen_time_dt",
+  FINDING_INFO_LAST_SEEN_TIME_DT: "finding_info.last_seen_time_dt",
+  FINDING_INFO_MODIFIED_TIME_DT: "finding_info.modified_time_dt",
+} as const;
+
+/**
+ * @public
+ */
+export type OcsfDateField = (typeof OcsfDateField)[keyof typeof OcsfDateField];
+
+/**
+ * <p>Enables filtering of security findings based on date and timestamp fields in OCSF.</p>
+ * @public
+ */
+export interface OcsfDateFilter {
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  FieldName?: OcsfDateField | undefined;
+
+  /**
+   * <p>A date filter for querying findings.</p>
+   * @public
+   */
+  Filter?: DateFilter | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OcsfMapField = {
+  RESOURCES_TAGS: "resources.tags",
+} as const;
+
+/**
+ * @public
+ */
+export type OcsfMapField = (typeof OcsfMapField)[keyof typeof OcsfMapField];
+
+/**
+ * <p>Enables filtering of security findings based on map field values in OCSF.</p>
+ * @public
+ */
+export interface OcsfMapFilter {
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  FieldName?: OcsfMapField | undefined;
+
+  /**
+   * <p>A map filter for filtering Security Hub findings. Each map filter provides the field to check for, the
+   *          value to check for, and the comparison operator.</p>
+   * @public
+   */
+  Filter?: MapFilter | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OcsfNumberField = {
+  ACTIVITY_ID: "activity_id",
+  COMPLIANCE_STATUS_ID: "compliance.status_id",
+  CONFIDENCE_SCORE: "confidence_score",
+  FINDING_INFO_RELATED_EVENTS_COUNT: "finding_info.related_events_count",
+  SEVERITY_ID: "severity_id",
+  STATUS_ID: "status_id",
+} as const;
+
+/**
+ * @public
+ */
+export type OcsfNumberField = (typeof OcsfNumberField)[keyof typeof OcsfNumberField];
+
+/**
+ * <p>Enables filtering of security findings based on numerical field values in OCSF.</p>
+ * @public
+ */
+export interface OcsfNumberFilter {
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  FieldName?: OcsfNumberField | undefined;
+
+  /**
+   * <p>A number filter for querying findings.</p>
+   * @public
+   */
+  Filter?: NumberFilter | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OcsfStringField = {
+  ACTIVITY_NAME: "activity_name",
+  CLASS_NAME: "class_name",
+  CLOUD_ACCOUNT_UID: "cloud.account.uid",
+  CLOUD_PROVIDER: "cloud.provider",
+  CLOUD_REGION: "cloud.region",
+  COMMENT: "comment",
+  COMPLIANCE_ASSESSMENTS_CATEGORY: "compliance.assessments.category",
+  COMPLIANCE_ASSESSMENTS_NAME: "compliance.assessments.name",
+  COMPLIANCE_CONTROL: "compliance.control",
+  COMPLIANCE_STANDARDS: "compliance.standards",
+  COMPLIANCE_STATUS: "compliance.status",
+  FINDING_INFO_DESC: "finding_info.desc",
+  FINDING_INFO_RELATED_EVENTS_PRODUCT_UID: "finding_info.related_events.product.uid",
+  FINDING_INFO_RELATED_EVENTS_TITLE: "finding_info.related_events.title",
+  FINDING_INFO_RELATED_EVENTS_UID: "finding_info.related_events.uid",
+  FINDING_INFO_SRC_URL: "finding_info.src_url",
+  FINDING_INFO_TITLE: "finding_info.title",
+  FINDING_INFO_TYPES: "finding_info.types",
+  FINDING_INFO_UID: "finding_info.uid",
+  METADATA_PRODUCT_NAME: "metadata.product.name",
+  METADATA_PRODUCT_UID: "metadata.product.uid",
+  METADATA_PRODUCT_VENDOR_NAME: "metadata.product.vendor_name",
+  METADATA_UID: "metadata.uid",
+  REMEDIATION_DESC: "remediation.desc",
+  REMEDIATION_REFERENCES: "remediation.references",
+  RESOURCES_CLOUD_PARTITION: "resources.cloud_partition",
+  RESOURCES_REGION: "resources.region",
+  RESOURCES_TYPE: "resources.type",
+  RESOURCES_UID: "resources.uid",
+  SEVERITY: "severity",
+  STATUS: "status",
+  VULNERABILITIES_FIX_COVERAGE: "vulnerabilities.fix_coverage",
+} as const;
+
+/**
+ * @public
+ */
+export type OcsfStringField = (typeof OcsfStringField)[keyof typeof OcsfStringField];
+
+/**
+ * <p>Enables filtering of security findings based on string field values in OCSF.</p>
+ * @public
+ */
+export interface OcsfStringFilter {
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  FieldName?: OcsfStringField | undefined;
+
+  /**
+   * <p>A string filter for filtering Security Hub findings.</p>
+   * @public
+   */
+  Filter?: StringFilter | undefined;
+}
+
+/**
+ * <p>Enables the creation of filtering criteria for security findings.</p>
+ * @public
+ */
+export interface CompositeFilter {
+  /**
+   * <p>Enables filtering based on string field values.</p>
+   * @public
+   */
+  StringFilters?: OcsfStringFilter[] | undefined;
+
+  /**
+   * <p>Enables filtering based on date and timestamp fields.</p>
+   * @public
+   */
+  DateFilters?: OcsfDateFilter[] | undefined;
+
+  /**
+   * <p>Enables filtering  based on boolean field values.</p>
+   * @public
+   */
+  BooleanFilters?: OcsfBooleanFilter[] | undefined;
+
+  /**
+   * <p>Enables filtering based on numerical field values.</p>
+   * @public
+   */
+  NumberFilters?: OcsfNumberFilter[] | undefined;
+
+  /**
+   * <p>Enables filtering based on map field values.</p>
+   * @public
+   */
+  MapFilters?: OcsfMapFilter[] | undefined;
+
+  /**
+   * <p>The logical operator used to combine multiple filter conditions.</p>
+   * @public
+   */
+  Operator?: AllowedOperators | undefined;
 }
 
 /**
@@ -6481,6 +7350,144 @@ export interface ConfigurationPolicySummary {
  * @public
  * @enum
  */
+export const ConnectorAuthStatus = {
+  ACTIVE: "ACTIVE",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectorAuthStatus = (typeof ConnectorAuthStatus)[keyof typeof ConnectorAuthStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorProviderName = {
+  JIRA_CLOUD: "JIRA_CLOUD",
+  SERVICENOW: "SERVICENOW",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectorProviderName = (typeof ConnectorProviderName)[keyof typeof ConnectorProviderName];
+
+/**
+ * @public
+ */
+export interface ConnectorRegistrationsV2Request {
+  /**
+   * <p>The authCode retrieved from authUrl to complete the OAuth 2.0 authorization code flow.</p>
+   * @public
+   */
+  AuthCode: string | undefined;
+
+  /**
+   * <p>The authState retrieved from authUrl to complete the OAuth 2.0 authorization code flow.</p>
+   * @public
+   */
+  AuthState: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ConnectorRegistrationsV2Response {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connectorV2.</p>
+   * @public
+   */
+  ConnectorArn?: string | undefined;
+
+  /**
+   * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorStatus = {
+  CONNECTED: "CONNECTED",
+  FAILED_TO_CONNECT: "FAILED_TO_CONNECT",
+  PENDING_AUTHORIZATION: "PENDING_AUTHORIZATION",
+  PENDING_CONFIGURATION: "PENDING_CONFIGURATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectorStatus = (typeof ConnectorStatus)[keyof typeof ConnectorStatus];
+
+/**
+ * <p>The connectorV2 third-party provider configuration summary.</p>
+ * @public
+ */
+export interface ProviderSummary {
+  /**
+   * <p>The name of the provider.</p>
+   * @public
+   */
+  ProviderName?: ConnectorProviderName | undefined;
+
+  /**
+   * <p>The status for the connectorV2.</p>
+   * @public
+   */
+  ConnectorStatus?: ConnectorStatus | undefined;
+}
+
+/**
+ * <p>A condensed overview of the connectorV2..</p>
+ * @public
+ */
+export interface ConnectorSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connectorV2.</p>
+   * @public
+   */
+  ConnectorArn?: string | undefined;
+
+  /**
+   * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+
+  /**
+   * <p>The Name field contains the user-defined name assigned to the integration connector. This helps identify and manage multiple connectors within Security Hub.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the connectorV2.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The connectorV2 third party provider configuration summary.</p>
+   * @public
+   */
+  ProviderSummary: ProviderSummary | undefined;
+
+  /**
+   * <p>ISO 8601 UTC timestamp for the time create the connectorV2.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ControlFindingGenerator = {
   SECURITY_CONTROL: "SECURITY_CONTROL",
   STANDARD_CONTROL: "STANDARD_CONTROL",
@@ -6547,6 +7554,64 @@ export class ResourceConflictException extends __BaseException {
     this.Message = opts.Message;
     this.Code = opts.Code;
   }
+}
+
+/**
+ * @public
+ */
+export interface CreateAggregatorV2Request {
+  /**
+   * <p>Determines how Regions are linked to an Aggregator V2.</p>
+   * @public
+   */
+  RegionLinkingMode: string | undefined;
+
+  /**
+   * <p>The list of Regions that are linked to the aggregation Region.</p>
+   * @public
+   */
+  LinkedRegions?: string[] | undefined;
+
+  /**
+   * <p>A list of key-value pairs to be applied to the AggregatorV2.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique identifier used to ensure idempotency.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAggregatorV2Response {
+  /**
+   * <p>The ARN of the AggregatorV2.</p>
+   * @public
+   */
+  AggregatorV2Arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where data is aggregated.</p>
+   * @public
+   */
+  AggregationRegion?: string | undefined;
+
+  /**
+   * <p>Determines how Regions are linked to an Aggregator V2.</p>
+   * @public
+   */
+  RegionLinkingMode?: string | undefined;
+
+  /**
+   * <p>The list of Regions that are linked to the aggregation Region.</p>
+   * @public
+   */
+  LinkedRegions?: string[] | undefined;
 }
 
 /**
@@ -6638,6 +7703,132 @@ export interface CreateAutomationRuleResponse {
    * @public
    */
   RuleArn?: string | undefined;
+}
+
+/**
+ * <p>Specifies the filtering criteria for security findings using OCSF.</p>
+ * @public
+ */
+export interface OcsfFindingFilters {
+  /**
+   * <p>Enables the creation of complex filtering conditions by combining filter criteria.</p>
+   * @public
+   */
+  CompositeFilters?: CompositeFilter[] | undefined;
+
+  /**
+   * <p>The logical operators used to combine the filtering on multiple <code>CompositeFilters</code>.</p>
+   * @public
+   */
+  CompositeOperator?: AllowedOperators | undefined;
+}
+
+/**
+ * <p>Defines the parameters and conditions used to evaluate and filter security findings.</p>
+ * @public
+ */
+export type Criteria = Criteria.OcsfFindingCriteriaMember | Criteria.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Criteria {
+  /**
+   * <p>The filtering conditions that align with OCSF standards.</p>
+   * @public
+   */
+  export interface OcsfFindingCriteriaMember {
+    OcsfFindingCriteria: OcsfFindingFilters;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    OcsfFindingCriteria?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    OcsfFindingCriteria: (value: OcsfFindingFilters) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Criteria, visitor: Visitor<T>): T => {
+    if (value.OcsfFindingCriteria !== undefined) return visitor.OcsfFindingCriteria(value.OcsfFindingCriteria);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateAutomationRuleV2Request {
+  /**
+   * <p>The name of the V2 automation rule.</p>
+   * @public
+   */
+  RuleName: string | undefined;
+
+  /**
+   * <p>The status of the V2 automation rule.</p>
+   * @public
+   */
+  RuleStatus?: RuleStatusV2 | undefined;
+
+  /**
+   * <p>A description of the V2 automation rule.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The value for the rule priority.</p>
+   * @public
+   */
+  RuleOrder: number | undefined;
+
+  /**
+   * <p>The filtering type and configuration of the automation rule.</p>
+   * @public
+   */
+  Criteria: Criteria | undefined;
+
+  /**
+   * <p>A list of actions to be performed when the rule criteria is met.</p>
+   * @public
+   */
+  Actions: AutomationRulesActionV2[] | undefined;
+
+  /**
+   * <p>A list of key-value pairs associated with the V2 automation rule.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique identifier used to ensure idempotency.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAutomationRuleV2Response {
+  /**
+   * <p>The ARN of the V2 automation rule.</p>
+   * @public
+   */
+  RuleArn?: string | undefined;
+
+  /**
+   * <p>The ID of the V2 automation rule.</p>
+   * @public
+   */
+  RuleId?: string | undefined;
 }
 
 /**
@@ -6894,6 +8085,161 @@ export interface CreateConfigurationPolicyResponse {
 }
 
 /**
+ * <p>The initial configuration settings required to establish an integration between Security Hub and Jira Cloud.</p>
+ * @public
+ */
+export interface JiraCloudProviderConfiguration {
+  /**
+   * <p>The project key for a JiraCloud instance.</p>
+   * @public
+   */
+  ProjectKey?: string | undefined;
+}
+
+/**
+ * <p>The initial configuration settings required to establish an integration between Security Hub and ServiceNow ITSM.</p>
+ * @public
+ */
+export interface ServiceNowProviderConfiguration {
+  /**
+   * <p>The instance name of ServiceNow ITSM.</p>
+   * @public
+   */
+  InstanceName: string | undefined;
+
+  /**
+   * <p>The client ID of ServiceNow ITSM.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>The client secret of ServiceNow ITSM.</p>
+   * @public
+   */
+  ClientSecret: string | undefined;
+}
+
+/**
+ * <p>The initial configuration settings required to establish an integration between Security Hub and third-party provider.</p>
+ * @public
+ */
+export type ProviderConfiguration =
+  | ProviderConfiguration.JiraCloudMember
+  | ProviderConfiguration.ServiceNowMember
+  | ProviderConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProviderConfiguration {
+  /**
+   * <p>The configuration settings required to establish an integration with Jira Cloud.</p>
+   * @public
+   */
+  export interface JiraCloudMember {
+    JiraCloud: JiraCloudProviderConfiguration;
+    ServiceNow?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings required to establish an integration with ServiceNow ITSM.</p>
+   * @public
+   */
+  export interface ServiceNowMember {
+    JiraCloud?: never;
+    ServiceNow: ServiceNowProviderConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    JiraCloud?: never;
+    ServiceNow?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    JiraCloud: (value: JiraCloudProviderConfiguration) => T;
+    ServiceNow: (value: ServiceNowProviderConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ProviderConfiguration, visitor: Visitor<T>): T => {
+    if (value.JiraCloud !== undefined) return visitor.JiraCloud(value.JiraCloud);
+    if (value.ServiceNow !== undefined) return visitor.ServiceNow(value.ServiceNow);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectorV2Request {
+  /**
+   * <p>The unique name of the connectorV2.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the connectorV2.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The third-party provider’s service configuration.</p>
+   * @public
+   */
+  Provider: ProviderConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of KMS key used to encrypt secrets for the connectorV2.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The tags to add to the connectorV2 when you create.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique identifier used to ensure idempotency.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectorV2Response {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connectorV2.</p>
+   * @public
+   */
+  ConnectorArn?: string | undefined;
+
+  /**
+   * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+
+  /**
+   * <p>The Url provide to customers for OAuth auth code flow.</p>
+   * @public
+   */
+  AuthUrl?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateFindingAggregatorRequest {
@@ -7049,6 +8395,46 @@ export interface CreateMembersResponse {
 
 /**
  * @public
+ */
+export interface CreateTicketV2Request {
+  /**
+   * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+
+  /**
+   * <p>The the unique ID for the finding.</p>
+   * @public
+   */
+  FindingMetadataUid: string | undefined;
+
+  /**
+   * <p>The client idempotency token.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTicketV2Response {
+  /**
+   * <p>The ID for the ticketv2.</p>
+   * @public
+   */
+  TicketId: string | undefined;
+
+  /**
+   * <p>The url to the created ticket.</p>
+   * @public
+   */
+  TicketSrcUrl?: string | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const SecurityControlProperty = {
@@ -7108,6 +8494,38 @@ export interface DeleteActionTargetResponse {
 /**
  * @public
  */
+export interface DeleteAggregatorV2Request {
+  /**
+   * <p>The ARN of the Aggregator V2.</p>
+   * @public
+   */
+  AggregatorV2Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAggregatorV2Response {}
+
+/**
+ * @public
+ */
+export interface DeleteAutomationRuleV2Request {
+  /**
+   * <p>The ARN of the V2 automation rule.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAutomationRuleV2Response {}
+
+/**
+ * @public
+ */
 export interface DeleteConfigurationPolicyRequest {
   /**
    * <p>
@@ -7122,6 +8540,22 @@ export interface DeleteConfigurationPolicyRequest {
  * @public
  */
 export interface DeleteConfigurationPolicyResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteConnectorV2Request {
+  /**
+   * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConnectorV2Response {}
 
 /**
  * @public
@@ -7578,6 +9012,128 @@ export interface DescribeProductsResponse {
 /**
  * @public
  */
+export interface DescribeProductsV2Request {
+  /**
+   * <p>The token required for pagination.
+   *          On your first call, set the value of this parameter to <code>NULL</code>.
+   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IntegrationV2Type = {
+  RECEIVE_FINDINGS_FROM_SECURITY_HUB: "RECEIVE_FINDINGS_FROM_SECURITY_HUB",
+  SEND_FINDINGS_TO_SECURITY_HUB: "SEND_FINDINGS_TO_SECURITY_HUB",
+  UPDATE_FINDINGS_IN_SECURITY_HUB: "UPDATE_FINDINGS_IN_SECURITY_HUB",
+} as const;
+
+/**
+ * @public
+ */
+export type IntegrationV2Type = (typeof IntegrationV2Type)[keyof typeof IntegrationV2Type];
+
+/**
+ * <p>Defines the structure for the productV2.</p>
+ * @public
+ */
+export interface ProductV2 {
+  /**
+   * <p>The name of the productV2.</p>
+   * @public
+   */
+  ProductV2Name?: string | undefined;
+
+  /**
+   * <p>The name of the organization or vendor that provides the productV2.</p>
+   * @public
+   */
+  CompanyName?: string | undefined;
+
+  /**
+   * <p>Detailed information about the productV2.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The domains or functional areas the productV2 addresses.</p>
+   * @public
+   */
+  Categories?: string[] | undefined;
+
+  /**
+   * <p>The type of integration.</p>
+   * @public
+   */
+  IntegrationV2Types?: IntegrationV2Type[] | undefined;
+
+  /**
+   * <p>The console URL where you can purchase or subscribe to products.</p>
+   * @public
+   */
+  MarketplaceUrl?: string | undefined;
+
+  /**
+   * <p>The URL to the serviceV@ or productV2 documentation about the integration, which includes how to activate the integration.</p>
+   * @public
+   */
+  ActivationUrl?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeProductsV2Response {
+  /**
+   * <p>Gets information about the product integration.</p>
+   * @public
+   */
+  ProductsV2: ProductV2[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.
+   *       Otherwise, this parameter is null.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSecurityHubV2Request {}
+
+/**
+ * @public
+ */
+export interface DescribeSecurityHubV2Response {
+  /**
+   * <p>The ARN of the service resource.</p>
+   * @public
+   */
+  HubV2Arn?: string | undefined;
+
+  /**
+   * <p>The date and time when the service was enabled in the account.</p>
+   * @public
+   */
+  SubscribedAt?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeStandardsRequest {
   /**
    * <p>The token that is required for pagination. On your first call to the
@@ -7811,6 +9367,20 @@ export interface DisableImportFindingsForProductResponse {}
 
 /**
  * @public
+ * @enum
+ */
+export const SecurityHubFeature = {
+  SECURITY_HUB: "SecurityHub",
+  SECURITY_HUB_V2: "SecurityHubV2",
+} as const;
+
+/**
+ * @public
+ */
+export type SecurityHubFeature = (typeof SecurityHubFeature)[keyof typeof SecurityHubFeature];
+
+/**
+ * @public
  */
 export interface DisableOrganizationAdminAccountRequest {
   /**
@@ -7818,6 +9388,13 @@ export interface DisableOrganizationAdminAccountRequest {
    * @public
    */
   AdminAccountId: string | undefined;
+
+  /**
+   * <p>The feature for which the delegated admin account is disabled.
+   *          Defaults to Security Hub if not specified.</p>
+   * @public
+   */
+  Feature?: SecurityHubFeature | undefined;
 }
 
 /**
@@ -7834,6 +9411,16 @@ export interface DisableSecurityHubRequest {}
  * @public
  */
 export interface DisableSecurityHubResponse {}
+
+/**
+ * @public
+ */
+export interface DisableSecurityHubV2Request {}
+
+/**
+ * @public
+ */
+export interface DisableSecurityHubV2Response {}
 
 /**
  * @public
@@ -7903,12 +9490,32 @@ export interface EnableOrganizationAdminAccountRequest {
    * @public
    */
   AdminAccountId: string | undefined;
+
+  /**
+   * <p>The feature for which the delegated admin account is enabled.
+   *          Defaults to Security Hub if not specified.</p>
+   * @public
+   */
+  Feature?: SecurityHubFeature | undefined;
 }
 
 /**
  * @public
  */
-export interface EnableOrganizationAdminAccountResponse {}
+export interface EnableOrganizationAdminAccountResponse {
+  /**
+   * <p>The Amazon Web Services account identifier of the account to designate as the Security Hub administrator account.</p>
+   * @public
+   */
+  AdminAccountId?: string | undefined;
+
+  /**
+   * <p>The feature where the delegated administrator is enabled.
+   *       The default is Security Hub CSPM if no delegated administrator is specified in the request.</p>
+   * @public
+   */
+  Feature?: SecurityHubFeature | undefined;
+}
 
 /**
  * @public
@@ -7949,6 +9556,28 @@ export interface EnableSecurityHubRequest {
  * @public
  */
 export interface EnableSecurityHubResponse {}
+
+/**
+ * @public
+ */
+export interface EnableSecurityHubV2Request {
+  /**
+   * <p>The tags to add to the hub V2 resource when you enable Security Hub.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableSecurityHubV2Response {
+  /**
+   * <p>The ARN of the V2 resource that was created.</p>
+   * @public
+   */
+  HubV2Arn?: string | undefined;
+}
 
 /**
  * <p>A finding aggregator is a Security Hub resource that specifies cross-Region aggregation settings, including the
@@ -8155,6 +9784,122 @@ export interface GetAdministratorAccountResponse {
 /**
  * @public
  */
+export interface GetAggregatorV2Request {
+  /**
+   * <p>The ARN of the Aggregator V2.</p>
+   * @public
+   */
+  AggregatorV2Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAggregatorV2Response {
+  /**
+   * <p>The ARN of the Aggregator V2.</p>
+   * @public
+   */
+  AggregatorV2Arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where data is aggregated.</p>
+   * @public
+   */
+  AggregationRegion?: string | undefined;
+
+  /**
+   * <p>Determines how Regions are linked to an Aggregator V2.</p>
+   * @public
+   */
+  RegionLinkingMode?: string | undefined;
+
+  /**
+   * <p>The list of Regions that are linked to the aggregation Region.</p>
+   * @public
+   */
+  LinkedRegions?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAutomationRuleV2Request {
+  /**
+   * <p>The ARN of the V2 automation rule.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAutomationRuleV2Response {
+  /**
+   * <p>The ARN of the V2 automation rule.</p>
+   * @public
+   */
+  RuleArn?: string | undefined;
+
+  /**
+   * <p>The ID of the V2 automation rule.</p>
+   * @public
+   */
+  RuleId?: string | undefined;
+
+  /**
+   * <p>The value for the rule priority.</p>
+   * @public
+   */
+  RuleOrder?: number | undefined;
+
+  /**
+   * <p>The name of the V2 automation rule.</p>
+   * @public
+   */
+  RuleName?: string | undefined;
+
+  /**
+   * <p>The status of the V2 automation automation rule.</p>
+   * @public
+   */
+  RuleStatus?: RuleStatusV2 | undefined;
+
+  /**
+   * <p>A description of the automation rule.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The filtering type and configuration of the V2 automation rule.</p>
+   * @public
+   */
+  Criteria?: Criteria | undefined;
+
+  /**
+   * <p>A list of actions performed when the rule criteria is met.</p>
+   * @public
+   */
+  Actions?: AutomationRulesActionV2[] | undefined;
+
+  /**
+   * <p>The timestamp when the V2 automation rule was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the V2 automation rule was updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetConfigurationPolicyRequest {
   /**
    * <p>
@@ -8304,6 +10049,215 @@ export interface GetConfigurationPolicyAssociationResponse {
    * @public
    */
   AssociationStatusMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConnectorV2Request {
+  /**
+   * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+}
+
+/**
+ * <p>Information about the operational status and health of a connectorV2.</p>
+ * @public
+ */
+export interface HealthCheck {
+  /**
+   * <p>The status of the connectorV2.</p>
+   * @public
+   */
+  ConnectorStatus: ConnectorStatus | undefined;
+
+  /**
+   * <p>The message for the reason of connectorStatus change.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>ISO 8601 UTC timestamp for the time check the health status of the connectorV2.</p>
+   * @public
+   */
+  LastCheckedAt: Date | undefined;
+}
+
+/**
+ * <p>Information about the configuration and status of a Jira Cloud integration.</p>
+ * @public
+ */
+export interface JiraCloudDetail {
+  /**
+   * <p>The cloud id of the Jira Cloud.</p>
+   * @public
+   */
+  CloudId?: string | undefined;
+
+  /**
+   * <p>The projectKey of Jira Cloud.</p>
+   * @public
+   */
+  ProjectKey?: string | undefined;
+
+  /**
+   * <p>The URL domain of your Jira Cloud instance.</p>
+   * @public
+   */
+  Domain?: string | undefined;
+
+  /**
+   * <p>The URL to provide to customers for OAuth auth code flow.</p>
+   * @public
+   */
+  AuthUrl?: string | undefined;
+
+  /**
+   * <p>The status of the authorization between Jira Cloud and the service.</p>
+   * @public
+   */
+  AuthStatus?: ConnectorAuthStatus | undefined;
+}
+
+/**
+ * <p>Information about a ServiceNow ITSM integration.</p>
+ * @public
+ */
+export interface ServiceNowDetail {
+  /**
+   * <p>The instanceName of ServiceNow ITSM.</p>
+   * @public
+   */
+  InstanceName?: string | undefined;
+
+  /**
+   * <p>The clientId of ServiceNow ITSM.</p>
+   * @public
+   */
+  ClientId?: string | undefined;
+
+  /**
+   * <p>The status of the authorization between Jira Cloud and the service.</p>
+   * @public
+   */
+  AuthStatus: ConnectorAuthStatus | undefined;
+}
+
+/**
+ * <p>The third-party provider detail for a service configuration.</p>
+ * @public
+ */
+export type ProviderDetail =
+  | ProviderDetail.JiraCloudMember
+  | ProviderDetail.ServiceNowMember
+  | ProviderDetail.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProviderDetail {
+  /**
+   * <p>Details about a Jira Cloud integration.</p>
+   * @public
+   */
+  export interface JiraCloudMember {
+    JiraCloud: JiraCloudDetail;
+    ServiceNow?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about a ServiceNow ITSM integration.</p>
+   * @public
+   */
+  export interface ServiceNowMember {
+    JiraCloud?: never;
+    ServiceNow: ServiceNowDetail;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    JiraCloud?: never;
+    ServiceNow?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    JiraCloud: (value: JiraCloudDetail) => T;
+    ServiceNow: (value: ServiceNowDetail) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ProviderDetail, visitor: Visitor<T>): T => {
+    if (value.JiraCloud !== undefined) return visitor.JiraCloud(value.JiraCloud);
+    if (value.ServiceNow !== undefined) return visitor.ServiceNow(value.ServiceNow);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface GetConnectorV2Response {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connectorV2.</p>
+   * @public
+   */
+  ConnectorArn?: string | undefined;
+
+  /**
+   * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+
+  /**
+   * <p>The name of the connectorV2.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the connectorV2.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of KMS key used for the connectorV2.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+
+  /**
+   * <p>ISO 8601 UTC timestamp for the time create the connectorV2.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>ISO 8601 UTC timestamp for the time update the connectorV2 connectorStatus.</p>
+   * @public
+   */
+  LastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The current health status for connectorV2</p>
+   * @public
+   */
+  Health: HealthCheck | undefined;
+
+  /**
+   * <p>The third-party provider detail for a service configuration.</p>
+   * @public
+   */
+  ProviderDetail: ProviderDetail | undefined;
 }
 
 /**
@@ -8546,1660 +10500,27 @@ export interface GetFindingsRequest {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface GetFindingsResponse {
-  /**
-   * <p>The findings that matched the filters specified in the request.</p>
-   * @public
-   */
-  Findings: AwsSecurityFinding[] | undefined;
+export const ServiceNowProviderConfigurationFilterSensitiveLog = (obj: ServiceNowProviderConfiguration): any => ({
+  ...obj,
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
 
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInsightResultsRequest {
-  /**
-   * <p>The ARN of the insight for which to return results.</p>
-   * @public
-   */
-  InsightArn: string | undefined;
-}
-
-/**
- * <p>The insight result values returned by the <code>GetInsightResults</code>
- *          operation.</p>
- * @public
- */
-export interface InsightResultValue {
-  /**
-   * <p>The value of the attribute that the findings are grouped by for the insight whose
-   *          results are returned by the <code>GetInsightResults</code> operation.</p>
-   * @public
-   */
-  GroupByAttributeValue: string | undefined;
-
-  /**
-   * <p>The number of findings returned for each <code>GroupByAttributeValue</code>.</p>
-   * @public
-   */
-  Count: number | undefined;
-}
-
-/**
- * <p>The insight results returned by the <code>GetInsightResults</code> operation.</p>
- * @public
- */
-export interface InsightResults {
-  /**
-   * <p>The ARN of the insight whose results are returned by the <code>GetInsightResults</code>
-   *          operation.</p>
-   * @public
-   */
-  InsightArn: string | undefined;
-
-  /**
-   * <p>The attribute that the findings are grouped by for the insight whose results are
-   *          returned by the <code>GetInsightResults</code> operation.</p>
-   * @public
-   */
-  GroupByAttribute: string | undefined;
-
-  /**
-   * <p>The list of insight result values returned by the <code>GetInsightResults</code>
-   *          operation.</p>
-   * @public
-   */
-  ResultValues: InsightResultValue[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInsightResultsResponse {
-  /**
-   * <p>The insight results returned by the operation.</p>
-   * @public
-   */
-  InsightResults: InsightResults | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInsightsRequest {
-  /**
-   * <p>The ARNs of the insights to describe. If you don't provide any insight ARNs, then
-   *             <code>GetInsights</code> returns all of your custom insights. It does not return any
-   *          managed insights.</p>
-   * @public
-   */
-  InsightArns?: string[] | undefined;
-
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>GetInsights</code> operation, set the value of this parameter to
-   *          <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Contains information about a Security Hub insight.</p>
- * @public
- */
-export interface Insight {
-  /**
-   * <p>The ARN of a Security Hub insight.</p>
-   * @public
-   */
-  InsightArn: string | undefined;
-
-  /**
-   * <p>The name of a Security Hub insight.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>One or more attributes used to filter the findings included in the insight. You can filter by up to ten finding attributes. For each attribute, you can provide up to 20 filter values.
-   *             The insight only includes findings that match the criteria defined in the filters.</p>
-   * @public
-   */
-  Filters: AwsSecurityFindingFilters | undefined;
-
-  /**
-   * <p>The grouping attribute for the insight's findings. Indicates how to group the matching
-   *          findings, and identifies the type of item that the insight applies to. For example, if an
-   *          insight is grouped by resource identifier, then the insight produces a list of resource
-   *          identifiers.</p>
-   * @public
-   */
-  GroupByAttribute: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInsightsResponse {
-  /**
-   * <p>The insights returned by the operation.</p>
-   * @public
-   */
-  Insights: Insight[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInvitationsCountRequest {}
-
-/**
- * @public
- */
-export interface GetInvitationsCountResponse {
-  /**
-   * <p>The number of all membership invitations sent to this Security Hub member account, not
-   *          including the currently accepted invitation.</p>
-   * @public
-   */
-  InvitationsCount?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMasterAccountRequest {}
-
-/**
- * @public
- */
-export interface GetMasterAccountResponse {
-  /**
-   * <p>A list of details about the Security Hub administrator account for the current member account.
-   *       </p>
-   * @public
-   */
-  Master?: Invitation | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMembersRequest {
-  /**
-   * <p>The list of account IDs for the Security Hub member accounts to return the details for. </p>
-   * @public
-   */
-  AccountIds: string[] | undefined;
-}
-
-/**
- * <p>The details about a member account.</p>
- * @public
- */
-export interface Member {
-  /**
-   * <p>The Amazon Web Services account ID of the member account.</p>
-   * @public
-   */
-  AccountId?: string | undefined;
-
-  /**
-   * <p>The email address of the member account.</p>
-   * @public
-   */
-  Email?: string | undefined;
-
-  /**
-   * <p>This is replaced by <code>AdministratorID</code>.</p>
-   *          <p>The Amazon Web Services account ID of the Security Hub administrator account associated with this member account.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  MasterId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID of the Security Hub administrator account associated with this member account.</p>
-   * @public
-   */
-  AdministratorId?: string | undefined;
-
-  /**
-   * <p>The status of the relationship between the member account and its administrator account.
-   *       </p>
-   *          <p>The status can have one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Created</code> - Indicates that the administrator account added the member account,
-   *                but has not yet invited the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Invited</code> - Indicates that the administrator account invited the member
-   *                account. The member account has not yet responded to the invitation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Enabled</code> - Indicates that the member account is currently active. For
-   *                manually invited member accounts, indicates that the member account accepted the
-   *                invitation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Removed</code> - Indicates that the administrator account disassociated the member
-   *                account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Resigned</code> - Indicates that the member account disassociated themselves
-   *                from the administrator account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Deleted</code> - Indicates that the administrator account deleted the member
-   *                account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AccountSuspended</code> - Indicates that an organization account was suspended from Amazon Web Services at the same time that the administrator account tried to enable the organization account as a member account.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  MemberStatus?: string | undefined;
-
-  /**
-   * <p>A timestamp for the date and time when the invitation was sent to the member
-   *          account.</p>
-   * @public
-   */
-  InvitedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp for the date and time when the member account was updated.</p>
-   * @public
-   */
-  UpdatedAt?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMembersResponse {
-  /**
-   * <p>The list of details about the Security Hub member accounts.</p>
-   * @public
-   */
-  Members?: Member[] | undefined;
-
-  /**
-   * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
-   *          includes the account ID and the email address.</p>
-   * @public
-   */
-  UnprocessedAccounts?: Result[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSecurityControlDefinitionRequest {
-  /**
-   * <p>
-   *             The ID of the security control to retrieve the definition for. This field doesn’t accept an Amazon Resource Name (ARN).
-   *         </p>
-   * @public
-   */
-  SecurityControlId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const RegionAvailabilityStatus = {
-  AVAILABLE: "AVAILABLE",
-  UNAVAILABLE: "UNAVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type RegionAvailabilityStatus = (typeof RegionAvailabilityStatus)[keyof typeof RegionAvailabilityStatus];
-
-/**
- * <p>
- *             An object that describes a security control parameter and the options for customizing it.
- *         </p>
- * @public
- */
-export interface ParameterDefinition {
-  /**
-   * <p>
-   *             Description of a control parameter.
-   *         </p>
-   * @public
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>
-   *             The options for customizing a control parameter. Customization options vary based on the data type of the parameter.
-   *         </p>
-   * @public
-   */
-  ConfigurationOptions: ConfigurationOptions | undefined;
-}
-
-/**
- * <p>
- *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
- *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
- *       </p>
- * @public
- */
-export interface SecurityControlDefinition {
-  /**
-   * <p>
-   *          The unique identifier of a security control across standards. Values for this field typically consist of an
-   *          Amazon Web Services service name and a number (for example, APIGateway.3). This parameter differs from
-   *          <code>SecurityControlArn</code>, which is a unique Amazon Resource Name (ARN) assigned to a control. The
-   *          ARN references the security control ID (for example, arn:aws:securityhub:eu-central-1:123456789012:security-control/APIGateway.3).
-   *       </p>
-   * @public
-   */
-  SecurityControlId: string | undefined;
-
-  /**
-   * <p>
-   *          The title of a security control.
-   *       </p>
-   * @public
-   */
-  Title: string | undefined;
-
-  /**
-   * <p> The description of a security control across standards. This typically summarizes how
-   *             Security Hub evaluates the control and the conditions under which it produces a
-   *          failed finding. This parameter doesn't reference a specific standard. </p>
-   * @public
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>
-   *          A link to Security Hub documentation that explains how to remediate a failed finding for a security control.
-   *       </p>
-   * @public
-   */
-  RemediationUrl: string | undefined;
-
-  /**
-   * <p>
-   *          The severity of a security control. For more information about how Security Hub determines control severity,
-   *          see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity">Assigning severity to control findings</a> in the
-   *          <i>Security Hub User Guide</i>.
-   *       </p>
-   * @public
-   */
-  SeverityRating: SeverityRating | undefined;
-
-  /**
-   * <p>
-   *          Specifies whether a security control is available in the current Amazon Web Services Region.
-   *       </p>
-   * @public
-   */
-  CurrentRegionAvailability: RegionAvailabilityStatus | undefined;
-
-  /**
-   * <p>
-   *             Security control properties that you can customize. Currently, only parameter customization is supported for select
-   *             controls. An empty array is returned for controls that don’t support custom properties.
-   *         </p>
-   * @public
-   */
-  CustomizableProperties?: SecurityControlProperty[] | undefined;
-
-  /**
-   * <p>
-   *             An object that provides a security control parameter name, description, and the options for customizing it. This
-   * object is excluded for a control that doesn't support custom parameters.
-   *         </p>
-   * @public
-   */
-  ParameterDefinitions?: Record<string, ParameterDefinition> | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSecurityControlDefinitionResponse {
-  /**
-   * <p>
-   *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
-   *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
-   *       </p>
-   * @public
-   */
-  SecurityControlDefinition: SecurityControlDefinition | undefined;
-}
-
-/**
- * @public
- */
-export interface InviteMembersRequest {
-  /**
-   * <p>The list of account IDs of the Amazon Web Services accounts to invite to Security Hub as members. </p>
-   * @public
-   */
-  AccountIds: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface InviteMembersResponse {
-  /**
-   * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
-   *          includes the account ID and the email address.</p>
-   * @public
-   */
-  UnprocessedAccounts?: Result[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAutomationRulesRequest {
-  /**
-   * <p>
-   *          A token to specify where to start paginating the response. This is the <code>NextToken</code>
-   *          from a previously truncated response. On your first call to the <code>ListAutomationRules</code>
-   *          API, set the value of this parameter to <code>NULL</code>.
-   *       </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p> The maximum number of rules to return in the response. This currently ranges from 1 to
-   *          100. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAutomationRulesResponse {
-  /**
-   * <p>
-   *          Metadata for rules in the calling account. The response includes rules with a
-   *          <code>RuleStatus</code> of <code>ENABLED</code> and <code>DISABLED</code>.
-   *       </p>
-   * @public
-   */
-  AutomationRulesMetadata?: AutomationRulesMetadata[] | undefined;
-
-  /**
-   * <p>
-   *          A pagination token for the response.
-   *       </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListConfigurationPoliciesRequest {
-  /**
-   * <p>
-   *             The NextToken value that's returned from a previous paginated <code>ListConfigurationPolicies</code> request where
-   *             <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the
-   *             <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the
-   *             end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code> when
-   *             there are no more results to return.
-   *         </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>
-   *             The maximum number of results that's returned by <code>ListConfigurationPolicies</code> in each page of the response.
-   *             When this parameter is used, <code>ListConfigurationPolicies</code> returns the specified number of results in a
-   *             single page and a <code>NextToken</code> response element. You can see the remaining results of the initial request
-   *             by sending another <code>ListConfigurationPolicies</code> request with the returned <code>NextToken</code> value. A
-   *             valid range for <code>MaxResults</code> is between 1 and 100.
-   *         </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListConfigurationPoliciesResponse {
-  /**
-   * <p>
-   *             Provides metadata for each of your configuration policies.
-   *         </p>
-   * @public
-   */
-  ConfigurationPolicySummaries?: ConfigurationPolicySummary[] | undefined;
-
-  /**
-   * <p>
-   *             The <code>NextToken</code> value to include in the next <code>ListConfigurationPolicies</code> request. When the
-   *             results of a <code>ListConfigurationPolicies</code> request exceed <code>MaxResults</code>, this value can be used to
-   *             retrieve the next page of results. This value is <code>null</code> when there are no more results to return.
-   *         </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListConfigurationPolicyAssociationsRequest {
-  /**
-   * <p>
-   *             The <code>NextToken</code> value that's returned from a previous paginated <code>ListConfigurationPolicyAssociations</code>
-   *             request where <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination
-   *             continues from the end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code>
-   *             when there are no more results to return.
-   *         </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>
-   *             The maximum number of results that's returned by <code>ListConfigurationPolicies</code> in each page of the response.
-   *             When this parameter is used, <code>ListConfigurationPolicyAssociations</code> returns the specified number of results
-   *             in a single page and a <code>NextToken</code> response element. You can see the remaining results of the initial
-   *             request by sending another <code>ListConfigurationPolicyAssociations</code> request with the returned <code>NextToken</code>
-   *             value. A valid range for <code>MaxResults</code> is between 1 and 100.
-   *         </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>
-   *             Options for filtering the <code>ListConfigurationPolicyAssociations</code> response. You can filter by the Amazon Resource Name (ARN) or
-   *             universally unique identifier (UUID) of a configuration, <code>AssociationType</code>, or <code>AssociationStatus</code>.
-   *         </p>
-   * @public
-   */
-  Filters?: AssociationFilters | undefined;
-}
-
-/**
- * @public
- */
-export interface ListConfigurationPolicyAssociationsResponse {
-  /**
-   * <p>
-   *             An object that contains the details of each configuration policy association that’s returned in a
-   *             <code>ListConfigurationPolicyAssociations</code> request.
-   *         </p>
-   * @public
-   */
-  ConfigurationPolicyAssociationSummaries?: ConfigurationPolicyAssociationSummary[] | undefined;
-
-  /**
-   * <p>
-   *             The <code>NextToken</code> value to include in the next <code>ListConfigurationPolicyAssociations</code> request. When
-   *             the results of a <code>ListConfigurationPolicyAssociations</code> request exceed <code>MaxResults</code>, this value
-   *             can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.
-   *         </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEnabledProductsForImportRequest {
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>ListEnabledProductsForImport</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEnabledProductsForImportResponse {
-  /**
-   * <p>The list of ARNs for the resources that represent your subscriptions to products. </p>
-   * @public
-   */
-  ProductSubscriptions?: string[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFindingAggregatorsRequest {
-  /**
-   * <p>The token returned with the previous set of results. Identifies the next set of results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return. This operation currently only returns a single result.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFindingAggregatorsResponse {
-  /**
-   * <p>The list of finding aggregators. This operation currently only returns a single result.</p>
-   * @public
-   */
-  FindingAggregators?: FindingAggregator[] | undefined;
-
-  /**
-   * <p>If there are more results, this is the token to provide in the next call to <code>ListFindingAggregators</code>.</p>
-   *          <p>This operation currently only returns a single result.
-   *       </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInvitationsRequest {
-  /**
-   * <p>The maximum number of items to return in the response. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>ListInvitations</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInvitationsResponse {
-  /**
-   * <p>The details of the invitations returned by the operation.</p>
-   * @public
-   */
-  Invitations?: Invitation[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMembersRequest {
-  /**
-   * <p>Specifies which member accounts to include in the response based on their relationship
-   *          status with the administrator account. The default value is <code>TRUE</code>.</p>
-   *          <p>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes member
-   *          accounts whose relationship status with the administrator account is set to <code>ENABLED</code>.</p>
-   *          <p>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes all
-   *          existing member accounts. </p>
-   * @public
-   */
-  OnlyAssociated?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of items to return in the response. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>ListMembers</code> operation, set the value of this parameter to
-   *          <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMembersResponse {
-  /**
-   * <p>Member details returned by the operation.</p>
-   * @public
-   */
-  Members?: Member[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListOrganizationAdminAccountsRequest {
-  /**
-   * <p>The maximum number of items to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>ListOrganizationAdminAccounts</code> operation, set the value of this parameter to
-   *             <code>NULL</code>. For subsequent calls to the operation, to continue listing data, set
-   *          the value of this parameter to the value returned from the previous response. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
 /**
- * @public
+ * @internal
  */
-export interface ListOrganizationAdminAccountsResponse {
-  /**
-   * <p>The list of Security Hub administrator accounts.</p>
-   * @public
-   */
-  AdminAccounts?: AdminAccount[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSecurityControlDefinitionsRequest {
-  /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the standard that you want to view controls for.
-   *       </p>
-   * @public
-   */
-  StandardsArn?: string | undefined;
-
-  /**
-   * <p>
-   *          Optional pagination parameter.
-   *       </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p> An optional parameter that limits the total results of the API response to the
-   *          specified number. If this parameter isn't provided in the request, the results include the
-   *          first 25 security controls that apply to the specified standard. The results also include a
-   *             <code>NextToken</code> parameter that you can use in a subsequent API call to get the
-   *          next 25 controls. This repeats until all controls for the standard are returned. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSecurityControlDefinitionsResponse {
-  /**
-   * <p>
-   *          An array of controls that apply to the specified standard.
-   *       </p>
-   * @public
-   */
-  SecurityControlDefinitions: SecurityControlDefinition[] | undefined;
-
-  /**
-   * <p> A pagination parameter that's included in the response only if it was included in the
-   *          request. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStandardsControlAssociationsRequest {
-  /**
-   * <p>
-   *          The identifier of the control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) that you
-   *          want to determine the enablement status of in each enabled standard.
-   *       </p>
-   * @public
-   */
-  SecurityControlId: string | undefined;
-
-  /**
-   * <p>
-   *          Optional pagination parameter.
-   *       </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p> An optional parameter that limits the total results of the API response to the
-   *          specified number. If this parameter isn't provided in the request, the results include the
-   *          first 25 standard and control associations. The results also include a
-   *             <code>NextToken</code> parameter that you can use in a subsequent API call to get the
-   *          next 25 associations. This repeats until all associations for the specified control are
-   *          returned. The number of results is limited by the number of supported Security Hub
-   *          standards that you've enabled in the calling account. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p> An array that provides the enablement status and other details for each control that
- *          applies to each enabled standard. </p>
- * @public
- */
-export interface StandardsControlAssociationSummary {
-  /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of a standard.
-   *       </p>
-   * @public
-   */
-  StandardsArn: string | undefined;
-
-  /**
-   * <p>
-   *          A unique standard-agnostic identifier for a control. Values for this field typically consist of an
-   *          Amazon Web Services service and a number, such as APIGateway.5. This field doesn't reference a specific standard.
-   *       </p>
-   * @public
-   */
-  SecurityControlId: string | undefined;
-
-  /**
-   * <p> The ARN of a control, such as
-   *             <code>arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1</code>. This
-   *          parameter doesn't mention a specific standard. </p>
-   * @public
-   */
-  SecurityControlArn: string | undefined;
-
-  /**
-   * <p>
-   *          The enablement status of a control in a specific standard.
-   *       </p>
-   * @public
-   */
-  AssociationStatus: AssociationStatus | undefined;
-
-  /**
-   * <p>
-   *          The requirement that underlies this control in the compliance framework related to the standard.
-   *       </p>
-   * @public
-   */
-  RelatedRequirements?: string[] | undefined;
-
-  /**
-   * <p>The last time that a control's enablement status in a specified standard was updated.</p>
-   * @public
-   */
-  UpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The reason for updating a control's enablement status in a specified standard.</p>
-   * @public
-   */
-  UpdatedReason?: string | undefined;
-
-  /**
-   * <p>
-   *          The title of a control.
-   *       </p>
-   * @public
-   */
-  StandardsControlTitle?: string | undefined;
-
-  /**
-   * <p>
-   *          The description of a control. This typically summarizes how Security Hub evaluates the control and the
-   *          conditions under which it produces a failed finding. The parameter may reference a specific standard.
-   *       </p>
-   * @public
-   */
-  StandardsControlDescription?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStandardsControlAssociationsResponse {
-  /**
-   * <p> An array that provides the enablement status and other details for each security
-   *          control that applies to each enabled standard. </p>
-   * @public
-   */
-  StandardsControlAssociationSummaries: StandardsControlAssociationSummary[] | undefined;
-
-  /**
-   * <p> A pagination parameter that's included in the response only if it was included in the
-   *          request. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The ARN of the resource to retrieve tags for.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>The tags associated with a resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>
- *             The request was rejected because it conflicts with the resource's availability. For example, you tried
- *             to update a security control that's currently in the <code>UPDATING</code> state.
- *         </p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * @public
- */
-export interface StartConfigurationPolicyAssociationRequest {
-  /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of a configuration policy, the universally unique identifier (UUID) of a
-   *             configuration policy, or a value of <code>SELF_MANAGED_SECURITY_HUB</code> for a self-managed configuration.
-   *         </p>
-   * @public
-   */
-  ConfigurationPolicyIdentifier: string | undefined;
-
-  /**
-   * <p>
-   *             The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
-   *         </p>
-   * @public
-   */
-  Target: Target | undefined;
-}
-
-/**
- * @public
- */
-export interface StartConfigurationPolicyAssociationResponse {
-  /**
-   * <p>
-   *             The UUID of the configuration policy.
-   *         </p>
-   * @public
-   */
-  ConfigurationPolicyId?: string | undefined;
-
-  /**
-   * <p>
-   *             The identifier of the target account, organizational unit, or the organization root with which the configuration is associated.
-   *         </p>
-   * @public
-   */
-  TargetId?: string | undefined;
-
-  /**
-   * <p>
-   *             Indicates whether the target is an Amazon Web Services account, organizational unit, or the organization root.
-   *         </p>
-   * @public
-   */
-  TargetType?: TargetType | undefined;
-
-  /**
-   * <p>
-   *             Indicates whether the association between the specified target and the configuration was directly applied by the
-   *             Security Hub delegated administrator or inherited from a parent.
-   *         </p>
-   * @public
-   */
-  AssociationType?: AssociationType | undefined;
-
-  /**
-   * <p>
-   *             The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
-   *         </p>
-   * @public
-   */
-  UpdatedAt?: Date | undefined;
-
-  /**
-   * <p>
-   *             The current status of the association between the specified target and the configuration.
-   *         </p>
-   * @public
-   */
-  AssociationStatus?: ConfigurationPolicyAssociationStatus | undefined;
-
-  /**
-   * <p>
-   *             An explanation for a <code>FAILED</code> value for <code>AssociationStatus</code>.
-   *         </p>
-   * @public
-   */
-  AssociationStatusMessage?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartConfigurationPolicyDisassociationRequest {
-  /**
-   * <p>
-   *             The identifier of the target account, organizational unit, or the root to disassociate from the specified configuration.
-   *         </p>
-   * @public
-   */
-  Target?: Target | undefined;
-
-  /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of a configuration policy, the universally unique identifier (UUID) of a
-   *             configuration policy, or a value of <code>SELF_MANAGED_SECURITY_HUB</code> for a self-managed configuration.
-   *         </p>
-   * @public
-   */
-  ConfigurationPolicyIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartConfigurationPolicyDisassociationResponse {}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The ARN of the resource to apply the tags to.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>The tags to add to the resource. You can add up to 50 tags at a time. The tag keys can be no longer than 128 characters. The tag values can be no longer than 256 characters.</p>
-   * @public
-   */
-  Tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>The ARN of the resource to remove the tags from.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>The tag keys associated with the tags to remove from the resource. You can remove up to 50 tags at a time.</p>
-   * @public
-   */
-  TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceResponse {}
-
-/**
- * @public
- */
-export interface UpdateActionTargetRequest {
-  /**
-   * <p>The ARN of the custom action target to update.</p>
-   * @public
-   */
-  ActionTargetArn: string | undefined;
-
-  /**
-   * <p>The updated name of the custom action target.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The updated description for the custom action target.</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateActionTargetResponse {}
-
-/**
- * @public
- */
-export interface UpdateConfigurationPolicyRequest {
-  /**
-   * <p>
-   *             The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
-   *         </p>
-   * @public
-   */
-  Identifier: string | undefined;
-
-  /**
-   * <p>
-   *             The name of the configuration policy. Alphanumeric characters and the following ASCII characters are permitted:
-   *             <code>-, ., !, *, /</code>.
-   *         </p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>
-   *             The description of the configuration policy.
-   *         </p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>
-   *             The reason for updating the configuration policy.
-   *         </p>
-   * @public
-   */
-  UpdatedReason?: string | undefined;
-
-  /**
-   * <p>
-   *             An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or
-   *             disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls.
-   *             If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly
-   *             released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub
-   *             enables all other controls (including newly released controls).
-   *         </p>
-   *          <p>When updating a configuration policy, provide a complete list of standards that you want to enable and a complete list
-   *             of controls that you want to enable or disable. The updated configuration replaces the current configuration.</p>
-   * @public
-   */
-  ConfigurationPolicy?: Policy | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateConfigurationPolicyResponse {
-  /**
-   * <p>
-   *             The ARN of the configuration policy.
-   *         </p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>
-   *             The UUID of the configuration policy.
-   *         </p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>
-   *             The name of the configuration policy.
-   *         </p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>
-   *             The description of the configuration policy.
-   *         </p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>
-   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was last updated.
-   *         </p>
-   * @public
-   */
-  UpdatedAt?: Date | undefined;
-
-  /**
-   * <p>
-   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was created.
-   *         </p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>
-   *             An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or
-   *             disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If the request included a
-   *             list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including
-   *             newly released controls). If the request included a list of security controls that are disabled in the configuration policy,
-   *             Security Hub enables all other controls (including newly released controls).
-   *         </p>
-   * @public
-   */
-  ConfigurationPolicy?: Policy | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFindingAggregatorRequest {
-  /**
-   * <p>The ARN of the finding aggregator. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
-   * @public
-   */
-  FindingAggregatorArn: string | undefined;
-
-  /**
-   * <p>Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.</p>
-   *          <p>The selected option also determines how to use the Regions provided in the Regions list.</p>
-   *          <p>The options are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_REGIONS</code> - Aggregates findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Aggregates findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the <code>Regions</code> parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SPECIFIED_REGIONS</code> - Aggregates findings only from the Regions listed in the <code>Regions</code> parameter. Security Hub does not automatically aggregate findings from new Regions.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NO_REGIONS</code> - Aggregates no data because no Regions are selected as linked Regions.
-   *           </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  RegionLinkingMode: string | undefined;
-
-  /**
-   * <p>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then this is a space-separated list of Regions that don't replicate and send findings to the home Region.</p>
-   *          <p>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is a space-separated list of Regions that do replicate and send findings to the home Region.</p>
-   *          <p>An <code>InvalidInputException</code> error results if you populate this field while <code>RegionLinkingMode</code> is
-   *         <code>NO_REGIONS</code>.</p>
-   * @public
-   */
-  Regions?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFindingAggregatorResponse {
-  /**
-   * <p>The ARN of the finding aggregator.</p>
-   * @public
-   */
-  FindingAggregatorArn?: string | undefined;
-
-  /**
-   * <p>The home Region. Findings generated in linked Regions are replicated and sent to the home Region.</p>
-   * @public
-   */
-  FindingAggregationRegion?: string | undefined;
-
-  /**
-   * <p>Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.</p>
-   * @public
-   */
-  RegionLinkingMode?: string | undefined;
-
-  /**
-   * <p>The list of excluded Regions or included Regions.</p>
-   * @public
-   */
-  Regions?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFindingsRequest {
-  /**
-   * <p>A collection of attributes that specify which findings you want to update.</p>
-   * @public
-   */
-  Filters: AwsSecurityFindingFilters | undefined;
-
-  /**
-   * <p>The updated note for the finding.</p>
-   * @public
-   */
-  Note?: NoteUpdate | undefined;
-
-  /**
-   * <p>The updated record state for the finding.</p>
-   * @public
-   */
-  RecordState?: RecordState | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFindingsResponse {}
-
-/**
- * @public
- */
-export interface UpdateInsightRequest {
-  /**
-   * <p>The ARN of the insight that you want to update.</p>
-   * @public
-   */
-  InsightArn: string | undefined;
-
-  /**
-   * <p>The updated name for the insight.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The updated filters that define this insight.</p>
-   * @public
-   */
-  Filters?: AwsSecurityFindingFilters | undefined;
-
-  /**
-   * <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
-   * @public
-   */
-  GroupByAttribute?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateInsightResponse {}
-
-/**
- * @public
- */
-export interface UpdateOrganizationConfigurationRequest {
-  /**
-   * <p>Whether to automatically enable Security Hub in new member accounts when they join the organization.</p>
-   *          <p>If set to <code>true</code>, then Security Hub is automatically enabled in new accounts. If set to <code>false</code>,
-   *            then Security Hub isn't enabled in new accounts automatically. The default value is <code>false</code>.</p>
-   *          <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set
-   *            to <code>false</code> and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration
-   *             policy in which Security Hub is enabled and associate the policy with new organization accounts.</p>
-   * @public
-   */
-  AutoEnable: boolean | undefined;
-
-  /**
-   * <p>Whether to automatically enable Security Hub <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default standards</a>
-   *            in new member accounts when they join the organization.</p>
-   *          <p>The default value of this parameter is equal to <code>DEFAULT</code>.</p>
-   *          <p>If equal to <code>DEFAULT</code>, then Security Hub default standards are automatically enabled for new member
-   *            accounts. If equal to <code>NONE</code>, then default standards are not automatically enabled for new member
-   *            accounts.</p>
-   *          <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set
-   *            to <code>NONE</code> and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration
-   *             policy in which specific security standards are enabled and associate the policy with new organization accounts.</p>
-   * @public
-   */
-  AutoEnableStandards?: AutoEnableStandards | undefined;
-
-  /**
-   * <p>
-   *             Provides information about the way an organization is configured in Security Hub.
-   *         </p>
-   * @public
-   */
-  OrganizationConfiguration?: OrganizationConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateOrganizationConfigurationResponse {}
-
-/**
- * @public
- */
-export interface UpdateSecurityControlRequest {
-  /**
-   * <p>
-   *             The Amazon Resource Name (ARN) or ID of the control to update.
-   *         </p>
-   * @public
-   */
-  SecurityControlId: string | undefined;
-
-  /**
-   * <p>
-   *             An object that specifies which security control parameters to update.
-   *         </p>
-   * @public
-   */
-  Parameters: Record<string, ParameterConfiguration> | undefined;
-
-  /**
-   * <p>
-   *             The most recent reason for updating the properties of the security control. This field accepts alphanumeric
-   * characters in addition to white spaces, dashes, and underscores.
-   *         </p>
-   * @public
-   */
-  LastUpdateReason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSecurityControlResponse {}
-
-/**
- * @public
- */
-export interface UpdateSecurityHubConfigurationRequest {
-  /**
-   * <p>Whether to automatically enable new controls when they are added to standards that are
-   *          enabled.</p>
-   *          <p>By default, this is set to <code>true</code>, and new controls are enabled
-   *          automatically. To not automatically enable new controls, set this to <code>false</code>.
-   *       </p>
-   *          <p>When you automatically enable new controls, you can interact with the controls in
-   *            the console and programmatically immediately after release. However, automatically enabled controls have a temporary default status of
-   *            <code>DISABLED</code>. It can take up to several days for Security Hub to process the control release and designate the
-   *            control as <code>ENABLED</code> in your account. During the processing period, you can manually enable or disable a
-   *            control, and Security Hub will maintain that designation regardless of whether you have <code>AutoEnableControls</code> set to
-   *            <code>true</code>.</p>
-   * @public
-   */
-  AutoEnableControls?: boolean | undefined;
-
-  /**
-   * <p>Updates whether the calling account has consolidated control findings turned on.
-   *       If the value for this field is set to
-   *       <code>SECURITY_CONTROL</code>, Security Hub generates a single finding for a control check even when the check
-   *       applies to multiple enabled standards.</p>
-   *          <p>If the value for this field is set to <code>STANDARD_CONTROL</code>, Security Hub generates separate findings
-   *       for a control check when the check applies to multiple enabled standards.</p>
-   *          <p>For accounts that are part of an organization, this value can only be updated in the administrator account.</p>
-   * @public
-   */
-  ControlFindingGenerator?: ControlFindingGenerator | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSecurityHubConfigurationResponse {}
-
-/**
- * @public
- */
-export interface UpdateStandardsControlRequest {
-  /**
-   * <p>The ARN of the security standard control to enable or disable.</p>
-   * @public
-   */
-  StandardsControlArn: string | undefined;
-
-  /**
-   * <p>The updated status of the security standard control.</p>
-   * @public
-   */
-  ControlStatus?: ControlStatus | undefined;
-
-  /**
-   * <p>A description of the reason why you are disabling a security standard control. If you
-   *          are disabling a control, then this is required.</p>
-   * @public
-   */
-  DisabledReason?: string | undefined;
-}
+export const ProviderConfigurationFilterSensitiveLog = (obj: ProviderConfiguration): any => {
+  if (obj.JiraCloud !== undefined) return { JiraCloud: obj.JiraCloud };
+  if (obj.ServiceNow !== undefined)
+    return { ServiceNow: ServiceNowProviderConfigurationFilterSensitiveLog(obj.ServiceNow) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
 
 /**
- * @public
+ * @internal
  */
-export interface UpdateStandardsControlResponse {}
+export const CreateConnectorV2RequestFilterSensitiveLog = (obj: CreateConnectorV2Request): any => ({
+  ...obj,
+  ...(obj.Provider && { Provider: ProviderConfigurationFilterSensitiveLog(obj.Provider) }),
+});

@@ -43,6 +43,7 @@ export interface DisableOrganizationAdminAccountCommandOutput
  * const client = new SecurityHubClient(config);
  * const input = { // DisableOrganizationAdminAccountRequest
  *   AdminAccountId: "STRING_VALUE", // required
+ *   Feature: "SecurityHub" || "SecurityHubV2",
  * };
  * const command = new DisableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);

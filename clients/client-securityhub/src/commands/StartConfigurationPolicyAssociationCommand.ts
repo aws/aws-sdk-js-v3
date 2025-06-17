@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartConfigurationPolicyAssociationRequest,
   StartConfigurationPolicyAssociationResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   de_StartConfigurationPolicyAssociationCommand,
   se_StartConfigurationPolicyAssociationCommand,

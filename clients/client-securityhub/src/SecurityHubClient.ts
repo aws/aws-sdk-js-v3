@@ -99,30 +99,51 @@ import {
   BatchUpdateFindingsCommandOutput,
 } from "./commands/BatchUpdateFindingsCommand";
 import {
+  BatchUpdateFindingsV2CommandInput,
+  BatchUpdateFindingsV2CommandOutput,
+} from "./commands/BatchUpdateFindingsV2Command";
+import {
   BatchUpdateStandardsControlAssociationsCommandInput,
   BatchUpdateStandardsControlAssociationsCommandOutput,
 } from "./commands/BatchUpdateStandardsControlAssociationsCommand";
+import {
+  ConnectorRegistrationsV2CommandInput,
+  ConnectorRegistrationsV2CommandOutput,
+} from "./commands/ConnectorRegistrationsV2Command";
 import { CreateActionTargetCommandInput, CreateActionTargetCommandOutput } from "./commands/CreateActionTargetCommand";
+import { CreateAggregatorV2CommandInput, CreateAggregatorV2CommandOutput } from "./commands/CreateAggregatorV2Command";
 import {
   CreateAutomationRuleCommandInput,
   CreateAutomationRuleCommandOutput,
 } from "./commands/CreateAutomationRuleCommand";
 import {
+  CreateAutomationRuleV2CommandInput,
+  CreateAutomationRuleV2CommandOutput,
+} from "./commands/CreateAutomationRuleV2Command";
+import {
   CreateConfigurationPolicyCommandInput,
   CreateConfigurationPolicyCommandOutput,
 } from "./commands/CreateConfigurationPolicyCommand";
+import { CreateConnectorV2CommandInput, CreateConnectorV2CommandOutput } from "./commands/CreateConnectorV2Command";
 import {
   CreateFindingAggregatorCommandInput,
   CreateFindingAggregatorCommandOutput,
 } from "./commands/CreateFindingAggregatorCommand";
 import { CreateInsightCommandInput, CreateInsightCommandOutput } from "./commands/CreateInsightCommand";
 import { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand";
+import { CreateTicketV2CommandInput, CreateTicketV2CommandOutput } from "./commands/CreateTicketV2Command";
 import { DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput } from "./commands/DeclineInvitationsCommand";
 import { DeleteActionTargetCommandInput, DeleteActionTargetCommandOutput } from "./commands/DeleteActionTargetCommand";
+import { DeleteAggregatorV2CommandInput, DeleteAggregatorV2CommandOutput } from "./commands/DeleteAggregatorV2Command";
+import {
+  DeleteAutomationRuleV2CommandInput,
+  DeleteAutomationRuleV2CommandOutput,
+} from "./commands/DeleteAutomationRuleV2Command";
 import {
   DeleteConfigurationPolicyCommandInput,
   DeleteConfigurationPolicyCommandOutput,
 } from "./commands/DeleteConfigurationPolicyCommand";
+import { DeleteConnectorV2CommandInput, DeleteConnectorV2CommandOutput } from "./commands/DeleteConnectorV2Command";
 import {
   DeleteFindingAggregatorCommandInput,
   DeleteFindingAggregatorCommandOutput,
@@ -140,6 +161,11 @@ import {
   DescribeOrganizationConfigurationCommandOutput,
 } from "./commands/DescribeOrganizationConfigurationCommand";
 import { DescribeProductsCommandInput, DescribeProductsCommandOutput } from "./commands/DescribeProductsCommand";
+import { DescribeProductsV2CommandInput, DescribeProductsV2CommandOutput } from "./commands/DescribeProductsV2Command";
+import {
+  DescribeSecurityHubV2CommandInput,
+  DescribeSecurityHubV2CommandOutput,
+} from "./commands/DescribeSecurityHubV2Command";
 import { DescribeStandardsCommandInput, DescribeStandardsCommandOutput } from "./commands/DescribeStandardsCommand";
 import {
   DescribeStandardsControlsCommandInput,
@@ -154,6 +180,10 @@ import {
   DisableOrganizationAdminAccountCommandOutput,
 } from "./commands/DisableOrganizationAdminAccountCommand";
 import { DisableSecurityHubCommandInput, DisableSecurityHubCommandOutput } from "./commands/DisableSecurityHubCommand";
+import {
+  DisableSecurityHubV2CommandInput,
+  DisableSecurityHubV2CommandOutput,
+} from "./commands/DisableSecurityHubV2Command";
 import {
   DisassociateFromAdministratorAccountCommandInput,
   DisassociateFromAdministratorAccountCommandOutput,
@@ -176,9 +206,18 @@ import {
 } from "./commands/EnableOrganizationAdminAccountCommand";
 import { EnableSecurityHubCommandInput, EnableSecurityHubCommandOutput } from "./commands/EnableSecurityHubCommand";
 import {
+  EnableSecurityHubV2CommandInput,
+  EnableSecurityHubV2CommandOutput,
+} from "./commands/EnableSecurityHubV2Command";
+import {
   GetAdministratorAccountCommandInput,
   GetAdministratorAccountCommandOutput,
 } from "./commands/GetAdministratorAccountCommand";
+import { GetAggregatorV2CommandInput, GetAggregatorV2CommandOutput } from "./commands/GetAggregatorV2Command";
+import {
+  GetAutomationRuleV2CommandInput,
+  GetAutomationRuleV2CommandOutput,
+} from "./commands/GetAutomationRuleV2Command";
 import {
   GetConfigurationPolicyAssociationCommandInput,
   GetConfigurationPolicyAssociationCommandOutput,
@@ -187,6 +226,7 @@ import {
   GetConfigurationPolicyCommandInput,
   GetConfigurationPolicyCommandOutput,
 } from "./commands/GetConfigurationPolicyCommand";
+import { GetConnectorV2CommandInput, GetConnectorV2CommandOutput } from "./commands/GetConnectorV2Command";
 import {
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput,
@@ -197,6 +237,11 @@ import {
 } from "./commands/GetFindingAggregatorCommand";
 import { GetFindingHistoryCommandInput, GetFindingHistoryCommandOutput } from "./commands/GetFindingHistoryCommand";
 import { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
+import {
+  GetFindingStatisticsV2CommandInput,
+  GetFindingStatisticsV2CommandOutput,
+} from "./commands/GetFindingStatisticsV2Command";
+import { GetFindingsV2CommandInput, GetFindingsV2CommandOutput } from "./commands/GetFindingsV2Command";
 import { GetInsightResultsCommandInput, GetInsightResultsCommandOutput } from "./commands/GetInsightResultsCommand";
 import { GetInsightsCommandInput, GetInsightsCommandOutput } from "./commands/GetInsightsCommand";
 import {
@@ -206,14 +251,24 @@ import {
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
 import {
+  GetResourcesStatisticsV2CommandInput,
+  GetResourcesStatisticsV2CommandOutput,
+} from "./commands/GetResourcesStatisticsV2Command";
+import { GetResourcesV2CommandInput, GetResourcesV2CommandOutput } from "./commands/GetResourcesV2Command";
+import {
   GetSecurityControlDefinitionCommandInput,
   GetSecurityControlDefinitionCommandOutput,
 } from "./commands/GetSecurityControlDefinitionCommand";
 import { InviteMembersCommandInput, InviteMembersCommandOutput } from "./commands/InviteMembersCommand";
+import { ListAggregatorsV2CommandInput, ListAggregatorsV2CommandOutput } from "./commands/ListAggregatorsV2Command";
 import {
   ListAutomationRulesCommandInput,
   ListAutomationRulesCommandOutput,
 } from "./commands/ListAutomationRulesCommand";
+import {
+  ListAutomationRulesV2CommandInput,
+  ListAutomationRulesV2CommandOutput,
+} from "./commands/ListAutomationRulesV2Command";
 import {
   ListConfigurationPoliciesCommandInput,
   ListConfigurationPoliciesCommandOutput,
@@ -222,6 +277,7 @@ import {
   ListConfigurationPolicyAssociationsCommandInput,
   ListConfigurationPolicyAssociationsCommandOutput,
 } from "./commands/ListConfigurationPolicyAssociationsCommand";
+import { ListConnectorsV2CommandInput, ListConnectorsV2CommandOutput } from "./commands/ListConnectorsV2Command";
 import {
   ListEnabledProductsForImportCommandInput,
   ListEnabledProductsForImportCommandOutput,
@@ -259,10 +315,16 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateActionTargetCommandInput, UpdateActionTargetCommandOutput } from "./commands/UpdateActionTargetCommand";
+import { UpdateAggregatorV2CommandInput, UpdateAggregatorV2CommandOutput } from "./commands/UpdateAggregatorV2Command";
+import {
+  UpdateAutomationRuleV2CommandInput,
+  UpdateAutomationRuleV2CommandOutput,
+} from "./commands/UpdateAutomationRuleV2Command";
 import {
   UpdateConfigurationPolicyCommandInput,
   UpdateConfigurationPolicyCommandOutput,
 } from "./commands/UpdateConfigurationPolicyCommand";
+import { UpdateConnectorV2CommandInput, UpdateConnectorV2CommandOutput } from "./commands/UpdateConnectorV2Command";
 import {
   UpdateFindingAggregatorCommandInput,
   UpdateFindingAggregatorCommandOutput,
@@ -312,16 +374,25 @@ export type ServiceInputTypes =
   | BatchImportFindingsCommandInput
   | BatchUpdateAutomationRulesCommandInput
   | BatchUpdateFindingsCommandInput
+  | BatchUpdateFindingsV2CommandInput
   | BatchUpdateStandardsControlAssociationsCommandInput
+  | ConnectorRegistrationsV2CommandInput
   | CreateActionTargetCommandInput
+  | CreateAggregatorV2CommandInput
   | CreateAutomationRuleCommandInput
+  | CreateAutomationRuleV2CommandInput
   | CreateConfigurationPolicyCommandInput
+  | CreateConnectorV2CommandInput
   | CreateFindingAggregatorCommandInput
   | CreateInsightCommandInput
   | CreateMembersCommandInput
+  | CreateTicketV2CommandInput
   | DeclineInvitationsCommandInput
   | DeleteActionTargetCommandInput
+  | DeleteAggregatorV2CommandInput
+  | DeleteAutomationRuleV2CommandInput
   | DeleteConfigurationPolicyCommandInput
+  | DeleteConnectorV2CommandInput
   | DeleteFindingAggregatorCommandInput
   | DeleteInsightCommandInput
   | DeleteInvitationsCommandInput
@@ -330,34 +401,48 @@ export type ServiceInputTypes =
   | DescribeHubCommandInput
   | DescribeOrganizationConfigurationCommandInput
   | DescribeProductsCommandInput
+  | DescribeProductsV2CommandInput
+  | DescribeSecurityHubV2CommandInput
   | DescribeStandardsCommandInput
   | DescribeStandardsControlsCommandInput
   | DisableImportFindingsForProductCommandInput
   | DisableOrganizationAdminAccountCommandInput
   | DisableSecurityHubCommandInput
+  | DisableSecurityHubV2CommandInput
   | DisassociateFromAdministratorAccountCommandInput
   | DisassociateFromMasterAccountCommandInput
   | DisassociateMembersCommandInput
   | EnableImportFindingsForProductCommandInput
   | EnableOrganizationAdminAccountCommandInput
   | EnableSecurityHubCommandInput
+  | EnableSecurityHubV2CommandInput
   | GetAdministratorAccountCommandInput
+  | GetAggregatorV2CommandInput
+  | GetAutomationRuleV2CommandInput
   | GetConfigurationPolicyAssociationCommandInput
   | GetConfigurationPolicyCommandInput
+  | GetConnectorV2CommandInput
   | GetEnabledStandardsCommandInput
   | GetFindingAggregatorCommandInput
   | GetFindingHistoryCommandInput
+  | GetFindingStatisticsV2CommandInput
   | GetFindingsCommandInput
+  | GetFindingsV2CommandInput
   | GetInsightResultsCommandInput
   | GetInsightsCommandInput
   | GetInvitationsCountCommandInput
   | GetMasterAccountCommandInput
   | GetMembersCommandInput
+  | GetResourcesStatisticsV2CommandInput
+  | GetResourcesV2CommandInput
   | GetSecurityControlDefinitionCommandInput
   | InviteMembersCommandInput
+  | ListAggregatorsV2CommandInput
   | ListAutomationRulesCommandInput
+  | ListAutomationRulesV2CommandInput
   | ListConfigurationPoliciesCommandInput
   | ListConfigurationPolicyAssociationsCommandInput
+  | ListConnectorsV2CommandInput
   | ListEnabledProductsForImportCommandInput
   | ListFindingAggregatorsCommandInput
   | ListInvitationsCommandInput
@@ -371,7 +456,10 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateActionTargetCommandInput
+  | UpdateAggregatorV2CommandInput
+  | UpdateAutomationRuleV2CommandInput
   | UpdateConfigurationPolicyCommandInput
+  | UpdateConnectorV2CommandInput
   | UpdateFindingAggregatorCommandInput
   | UpdateFindingsCommandInput
   | UpdateInsightCommandInput
@@ -396,16 +484,25 @@ export type ServiceOutputTypes =
   | BatchImportFindingsCommandOutput
   | BatchUpdateAutomationRulesCommandOutput
   | BatchUpdateFindingsCommandOutput
+  | BatchUpdateFindingsV2CommandOutput
   | BatchUpdateStandardsControlAssociationsCommandOutput
+  | ConnectorRegistrationsV2CommandOutput
   | CreateActionTargetCommandOutput
+  | CreateAggregatorV2CommandOutput
   | CreateAutomationRuleCommandOutput
+  | CreateAutomationRuleV2CommandOutput
   | CreateConfigurationPolicyCommandOutput
+  | CreateConnectorV2CommandOutput
   | CreateFindingAggregatorCommandOutput
   | CreateInsightCommandOutput
   | CreateMembersCommandOutput
+  | CreateTicketV2CommandOutput
   | DeclineInvitationsCommandOutput
   | DeleteActionTargetCommandOutput
+  | DeleteAggregatorV2CommandOutput
+  | DeleteAutomationRuleV2CommandOutput
   | DeleteConfigurationPolicyCommandOutput
+  | DeleteConnectorV2CommandOutput
   | DeleteFindingAggregatorCommandOutput
   | DeleteInsightCommandOutput
   | DeleteInvitationsCommandOutput
@@ -414,34 +511,48 @@ export type ServiceOutputTypes =
   | DescribeHubCommandOutput
   | DescribeOrganizationConfigurationCommandOutput
   | DescribeProductsCommandOutput
+  | DescribeProductsV2CommandOutput
+  | DescribeSecurityHubV2CommandOutput
   | DescribeStandardsCommandOutput
   | DescribeStandardsControlsCommandOutput
   | DisableImportFindingsForProductCommandOutput
   | DisableOrganizationAdminAccountCommandOutput
   | DisableSecurityHubCommandOutput
+  | DisableSecurityHubV2CommandOutput
   | DisassociateFromAdministratorAccountCommandOutput
   | DisassociateFromMasterAccountCommandOutput
   | DisassociateMembersCommandOutput
   | EnableImportFindingsForProductCommandOutput
   | EnableOrganizationAdminAccountCommandOutput
   | EnableSecurityHubCommandOutput
+  | EnableSecurityHubV2CommandOutput
   | GetAdministratorAccountCommandOutput
+  | GetAggregatorV2CommandOutput
+  | GetAutomationRuleV2CommandOutput
   | GetConfigurationPolicyAssociationCommandOutput
   | GetConfigurationPolicyCommandOutput
+  | GetConnectorV2CommandOutput
   | GetEnabledStandardsCommandOutput
   | GetFindingAggregatorCommandOutput
   | GetFindingHistoryCommandOutput
+  | GetFindingStatisticsV2CommandOutput
   | GetFindingsCommandOutput
+  | GetFindingsV2CommandOutput
   | GetInsightResultsCommandOutput
   | GetInsightsCommandOutput
   | GetInvitationsCountCommandOutput
   | GetMasterAccountCommandOutput
   | GetMembersCommandOutput
+  | GetResourcesStatisticsV2CommandOutput
+  | GetResourcesV2CommandOutput
   | GetSecurityControlDefinitionCommandOutput
   | InviteMembersCommandOutput
+  | ListAggregatorsV2CommandOutput
   | ListAutomationRulesCommandOutput
+  | ListAutomationRulesV2CommandOutput
   | ListConfigurationPoliciesCommandOutput
   | ListConfigurationPolicyAssociationsCommandOutput
+  | ListConnectorsV2CommandOutput
   | ListEnabledProductsForImportCommandOutput
   | ListFindingAggregatorsCommandOutput
   | ListInvitationsCommandOutput
@@ -455,7 +566,10 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateActionTargetCommandOutput
+  | UpdateAggregatorV2CommandOutput
+  | UpdateAutomationRuleV2CommandOutput
   | UpdateConfigurationPolicyCommandOutput
+  | UpdateConnectorV2CommandOutput
   | UpdateFindingAggregatorCommandOutput
   | UpdateFindingsCommandOutput
   | UpdateInsightCommandOutput

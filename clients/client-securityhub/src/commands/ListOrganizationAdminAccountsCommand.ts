@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListOrganizationAdminAccountsRequest, ListOrganizationAdminAccountsResponse } from "../models/models_2";
+import { ListOrganizationAdminAccountsRequest, ListOrganizationAdminAccountsResponse } from "../models/models_3";
 import {
   de_ListOrganizationAdminAccountsCommand,
   se_ListOrganizationAdminAccountsCommand,
@@ -44,6 +44,7 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * const input = { // ListOrganizationAdminAccountsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   Feature: "SecurityHub" || "SecurityHubV2",
  * };
  * const command = new ListOrganizationAdminAccountsCommand(input);
  * const response = await client.send(command);
@@ -55,6 +56,7 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
+ * //   Feature: "SecurityHub" || "SecurityHubV2",
  * // };
  *
  * ```

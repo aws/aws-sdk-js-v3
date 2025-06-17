@@ -43,10 +43,14 @@ export interface EnableOrganizationAdminAccountCommandOutput
  * const client = new SecurityHubClient(config);
  * const input = { // EnableOrganizationAdminAccountRequest
  *   AdminAccountId: "STRING_VALUE", // required
+ *   Feature: "SecurityHub" || "SecurityHubV2",
  * };
  * const command = new EnableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // EnableOrganizationAdminAccountResponse
+ * //   AdminAccountId: "STRING_VALUE",
+ * //   Feature: "SecurityHub" || "SecurityHubV2",
+ * // };
  *
  * ```
  *
@@ -117,7 +121,7 @@ export class EnableOrganizationAdminAccountCommand extends $Command
   protected declare static __types: {
     api: {
       input: EnableOrganizationAdminAccountRequest;
-      output: {};
+      output: EnableOrganizationAdminAccountResponse;
     };
     sdk: {
       input: EnableOrganizationAdminAccountCommandInput;
