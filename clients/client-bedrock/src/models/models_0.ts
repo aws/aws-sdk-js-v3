@@ -600,7 +600,7 @@ export interface UpdateMarketplaceModelEndpointResponse {
 }
 
 /**
- * <p>The Amazon S3 data source of the model to import. For the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateCustomModel.html">CreateCustomModel</a> API operation, you must specify the Amazon S3 URI for the Amazon-managed Amazon S3 bucket containing your model artifacts. SageMaker AI creates this bucket when you run your first SageMaker AI training job.</p>
+ * <p>The Amazon S3 data source of the model to import. </p>
  * @public
  */
 export interface S3DataSource {
@@ -660,7 +660,7 @@ export interface CreateCustomModelRequest {
   modelName: string | undefined;
 
   /**
-   * <p>The data source for the model. The Amazon S3 URI in the model source must be for the Amazon-managed Amazon S3 bucket containing your model artifacts. SageMaker AI creates this bucket when you run your first SageMaker AI training job.</p>
+   * <p>The data source for the model. The Amazon S3 URI in the model source must be for the Amazon-managed Amazon S3 bucket containing your model artifacts.</p>
    * @public
    */
   modelSourceConfig: ModelDataSource | undefined;
