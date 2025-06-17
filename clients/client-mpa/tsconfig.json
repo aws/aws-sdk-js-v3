@@ -1,0 +1,13 @@
+{
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "compilerOptions": {
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "incremental": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "rootDir": "src",
+    "useUnknownInCatchVariables": false
+  },
+  "exclude": ["test/"]
+}
