@@ -3205,6 +3205,14 @@ export interface AutoScalingGroupNamesType {
   AutoScalingGroupNames?: string[] | undefined;
 
   /**
+   * <p>
+   *             Specifies whether to include information about Amazon EC2 instances in the response. When set to <code>true</code> (default), the response includes instance details.
+   *         </p>
+   * @public
+   */
+  IncludeInstances?: boolean | undefined;
+
+  /**
    * <p>The token for the next set of items to return. (You received this token from a
    *             previous call.)</p>
    * @public

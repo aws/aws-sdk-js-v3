@@ -3223,6 +3223,9 @@ const se_AutoScalingGroupNamesType = (input: AutoScalingGroupNamesType, context:
       entries[loc] = value;
     });
   }
+  if (input[_IIn] != null) {
+    entries[_IIn] = input[_IIn];
+  }
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
   }
@@ -3557,8 +3560,8 @@ const se_CompleteLifecycleActionType = (input: CompleteLifecycleActionType, cont
   if (input[_LAR] != null) {
     entries[_LAR] = input[_LAR];
   }
-  if (input[_IIn] != null) {
-    entries[_IIn] = input[_IIn];
+  if (input[_IIns] != null) {
+    entries[_IIns] = input[_IIns];
   }
   return entries;
 };
@@ -3622,8 +3625,8 @@ const se_CreateAutoScalingGroupType = (input: CreateAutoScalingGroupType, contex
       entries[loc] = value;
     });
   }
-  if (input[_IIn] != null) {
-    entries[_IIn] = input[_IIn];
+  if (input[_IIns] != null) {
+    entries[_IIns] = input[_IIns];
   }
   if (input[_MS] != null) {
     entries[_MS] = input[_MS];
@@ -3814,8 +3817,8 @@ const se_CreateLaunchConfigurationType = (input: CreateLaunchConfigurationType, 
   if (input[_UD] != null) {
     entries[_UD] = input[_UD];
   }
-  if (input[_IIn] != null) {
-    entries[_IIn] = input[_IIn];
+  if (input[_IIns] != null) {
+    entries[_IIns] = input[_IIns];
   }
   if (input[_IT] != null) {
     entries[_IT] = input[_IT];
@@ -5947,8 +5950,8 @@ const se_RecordLifecycleActionHeartbeatType = (
   if (input[_LAT] != null) {
     entries[_LAT] = input[_LAT];
   }
-  if (input[_IIn] != null) {
-    entries[_IIn] = input[_IIn];
+  if (input[_IIns] != null) {
+    entries[_IIns] = input[_IIns];
   }
   return entries;
 };
@@ -6148,8 +6151,8 @@ const se_SetDesiredCapacityType = (input: SetDesiredCapacityType, context: __Ser
  */
 const se_SetInstanceHealthQuery = (input: SetInstanceHealthQuery, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input[_IIn] != null) {
-    entries[_IIn] = input[_IIn];
+  if (input[_IIns] != null) {
+    entries[_IIns] = input[_IIns];
   }
   if (input[_HS] != null) {
     entries[_HS] = input[_HS];
@@ -6415,8 +6418,8 @@ const se_TerminateInstanceInAutoScalingGroupType = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input[_IIn] != null) {
-    entries[_IIn] = input[_IIn];
+  if (input[_IIns] != null) {
+    entries[_IIns] = input[_IIns];
   }
   if (input[_SDDC] != null) {
     entries[_SDDC] = input[_SDDC];
@@ -7093,8 +7096,8 @@ const de_AutoScalingGroupsType = (output: any, context: __SerdeContext): AutoSca
  */
 const de_AutoScalingInstanceDetails = (output: any, context: __SerdeContext): AutoScalingInstanceDetails => {
   const contents: any = {};
-  if (output[_IIn] != null) {
-    contents[_IIn] = __expectString(output[_IIn]);
+  if (output[_IIns] != null) {
+    contents[_IIns] = __expectString(output[_IIns]);
   }
   if (output[_IT] != null) {
     contents[_IT] = __expectString(output[_IT]);
@@ -7912,8 +7915,8 @@ const de_GetPredictiveScalingForecastAnswer = (
  */
 const de_Instance = (output: any, context: __SerdeContext): Instance => {
   const contents: any = {};
-  if (output[_IIn] != null) {
-    contents[_IIn] = __expectString(output[_IIn]);
+  if (output[_IIns] != null) {
+    contents[_IIns] = __expectString(output[_IIns]);
   }
   if (output[_IT] != null) {
     contents[_IT] = __expectString(output[_IT]);
@@ -9962,7 +9965,8 @@ const _IG = "InstanceGenerations";
 const _II = "InstanceIds";
 const _IIP = "IamInstanceProfile";
 const _IIm = "ImageId";
-const _IIn = "InstanceId";
+const _IIn = "IncludeInstances";
+const _IIns = "InstanceId";
 const _IM = "InstanceMonitoring";
 const _IMP = "InstanceMaintenancePolicy";
 const _IR = "InstanceRequirements";
