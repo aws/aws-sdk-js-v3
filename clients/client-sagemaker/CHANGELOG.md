@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.832.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.831.0...v3.832.0) (2025-06-18)
+
+
+### Features
+
+* **client-sagemaker:** Add support for p6-b200 instance type for SageMaker Hyperpod ([f0f582b](https://github.com/aws/aws-sdk-js-v3/commit/f0f582b7685b8ce04466c22f3747c7445fcd0ab2))
+
+
+
+
+
 # [3.830.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.829.0...v3.830.0) (2025-06-16)
 
 

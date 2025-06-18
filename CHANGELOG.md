@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.832.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.831.0...v3.832.0) (2025-06-18)
+
+
+### Features
+
+* **client-aiops:** This is the initial SDK release for Amazon AI Operations (AIOps). AIOps is a generative AI-powered assistant that helps you respond to incidents in your system by scanning your system's telemetry and quickly surface suggestions that might be related to your issue. ([3161916](https://github.com/aws/aws-sdk-js-v3/commit/3161916fdd109ab3d6695835f1e3158f44ab778d))
+* **client-auto-scaling:** Add IncludeInstances parameter to DescribeAutoScalingGroups API ([864dcb0](https://github.com/aws/aws-sdk-js-v3/commit/864dcb00be03d51c612c4dca3b2abd76a761085e))
+* **client-cloudwatch-logs:** Added CloudWatch Logs Transformer support for converting CloudTrail, VPC Flow, EKS Audit, AWS WAF and Route53 Resolver logs to OCSF v1.1 format. ([f0b2fa1](https://github.com/aws/aws-sdk-js-v3/commit/f0b2fa15953c77a98ca781bcdf55f4a4ff565f44))
+* **client-s3:** Added support for renaming objects within the same bucket using the new RenameObject API. ([a3d0c1b](https://github.com/aws/aws-sdk-js-v3/commit/a3d0c1b1e9db53b5ff437070d3b1224ac01659a1))
+* **client-sagemaker:** Add support for p6-b200 instance type for SageMaker Hyperpod ([f0f582b](https://github.com/aws/aws-sdk-js-v3/commit/f0f582b7685b8ce04466c22f3747c7445fcd0ab2))
+* **clients:** update client endpoints as of 2025-06-18 ([8a84e0c](https://github.com/aws/aws-sdk-js-v3/commit/8a84e0cd9a935dea522699f8509af560a3017575))
+
+
+
+
+
 # [3.831.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.830.0...v3.831.0) (2025-06-17)
 
 
