@@ -23,7 +23,7 @@ export function marshallValue<T = unknown>(
   options: marshallOptions = {}
 ): AttributeValue | undefined {
   if (value === undefined && typeof schema.defaultProvider === "function") {
-    value = schema.defaultProvider();
+    value = schema.defaultProvider() as T;
   }
   if (value === undefined || value === null) {
     return { NULL: true };

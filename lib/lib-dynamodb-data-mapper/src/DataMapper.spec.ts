@@ -7,6 +7,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { DataMapper } from "./DataMapper";
 import { DataMarshaller } from "./marshaller";
 import { DynamoDbSchema, ItemSchema } from "./schema";
+import { attribute, hashKey, table } from "./schema/decorators";
 
 class Placeholder {
   id!: string;
@@ -19,8 +20,13 @@ class UserDefinedClass {
     return `${this.id} ${this.name}`;
   }
 }
+
+@table("Decorated")
 class DecoratedClass {
+  @hashKey()
   id!: string;
+
+  @attribute()
   name!: string;
 }
 
@@ -77,7 +83,7 @@ const useCases = [
     tableName: "test",
     document: { id: "123", name: "Alice" },
     instance: Object.assign(new DecoratedClass(), { id: "123", name: "Alice" }),
-    skip: true,
+    skip: false,
   },
 ];
 

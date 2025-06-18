@@ -4,6 +4,11 @@ import { marshallOptions } from "@aws-sdk/util-dynamodb";
 import { ItemSchema } from "./itemSchema";
 
 /**
+ * A mutable record type used for marshalling and unmarshalling operations.
+ */
+export type MutableRecord = Record<string, unknown>;
+
+/**
  * The enumeration of types supported by this marshaller package.
  */
 export const TypeTags = {
@@ -32,7 +37,7 @@ export type TypeTag = keyof typeof TypeTags;
 /**
  * An abstract base type defining the common characteristics of all SchemaTypes
  */
-export interface BaseType<T = any> {
+export interface BaseType<T = unknown> {
   /**
    * The type of node represented by this object.
    */
@@ -53,13 +58,13 @@ export interface BaseType<T = any> {
   defaultProvider?: () => T;
 }
 
-function isBaseType(arg: any): arg is BaseType {
+function isBaseType(arg: unknown): arg is BaseType {
   return (
     Boolean(arg) &&
     typeof arg === "object" &&
-    typeof arg.type === "string" &&
-    arg.type in TypeTags &&
-    ["string", "undefined"].indexOf(typeof arg.attributeName) > -1
+    typeof (arg as BaseType).type === "string" &&
+    (arg as BaseType).type in TypeTags &&
+    ["string", "undefined"].indexOf(typeof (arg as BaseType).attributeName) > -1
   );
 }
 
@@ -93,7 +98,7 @@ export interface KeyableType {
 }
 
 function isKeyableType(arg: object): boolean {
-  const { keyType, indexKeyConfigurations } = arg as any;
+  const { keyType, indexKeyConfigurations } = arg as KeyableType;
 
   if (!(keyType === undefined || keyType in KeyTypes)) {
     return false;
@@ -145,7 +150,7 @@ export interface BooleanType extends BaseType<boolean> {
  * node will be marshalled using run-time type detection and may not be exactly
  * the same when unmarshalled.
  */
-export interface CollectionType extends BaseType<Array<any>>, marshallOptions {
+export interface CollectionType extends BaseType<Array<unknown>>, marshallOptions {
   type: "Collection";
 }
 
@@ -205,7 +210,10 @@ export interface ZeroArgumentsConstructor<T> {
 /**
  * A node represented by its own full Schema. Marshalled as an embedded map.
  */
-export interface DocumentType<T = { [key: string]: any }> extends BaseType<T> {
+export interface DocumentType<
+  T extends object = MutableRecord,
+  Ctor extends ZeroArgumentsConstructor<T> = ZeroArgumentsConstructor<T>
+> extends BaseType<T> {
   type: "Document";
 
   /**
@@ -219,7 +227,7 @@ export interface DocumentType<T = { [key: string]: any }> extends BaseType<T> {
    * members will be unmarshalled. If not provided, `Object.create(null)` will
    * be used.
    */
-  valueConstructor?: ZeroArgumentsConstructor<T>;
+  valueConstructor?: Ctor;
 }
 
 /**
@@ -227,7 +235,7 @@ export interface DocumentType<T = { [key: string]: any }> extends BaseType<T> {
  * Values provided for this node will be marshalled using run-time type
  * detection and may not be exactly the same when unmarshalled.
  */
-export interface HashType extends BaseType<{ [key: string]: any }>, marshallOptions {
+export interface HashType extends BaseType<MutableRecord>, marshallOptions {
   type: "Hash";
 }
 
@@ -238,7 +246,7 @@ export interface HashType extends BaseType<{ [key: string]: any }>, marshallOpti
  * @see CollectionType For untyped or mixed lists
  * @see TupleType For tuples
  */
-export interface ListType<E = any> extends BaseType<Array<E>> {
+export interface ListType<E = unknown> extends BaseType<Array<E>> {
   type: "List";
 
   /**
@@ -255,7 +263,7 @@ export interface ListType<E = any> extends BaseType<Array<E>> {
  * @see HashType For untyped of mixed hashes
  * @see DocumentType For strongly-typed documents
  */
-export interface MapType<E = any> extends BaseType<Map<string, E>> {
+export interface MapType<E = unknown> extends BaseType<Map<string, E>> {
   type: "Map";
   memberType: ItemSchemaType;
 }
@@ -277,7 +285,7 @@ export interface NumberType extends BaseType<number>, KeyableType {
   versionAttribute?: boolean;
 }
 
-export interface SetType extends BaseType<Set<any>> {
+export interface SetType extends BaseType<Set<unknown>> {
   type: "Set";
   memberType: "String" | "Number" | "Binary";
 }
@@ -293,7 +301,7 @@ export interface StringType extends BaseType<string>, KeyableType {
  * A node used to store a fixed-length list of items, each of which may be of
  * a different type, e.g., `[boolean, string]`.
  */
-export interface TupleType<T extends Array<any> = Array<any>> extends BaseType<T> {
+export interface TupleType<T extends Array<unknown> = Array<unknown>> extends BaseType<T> {
   type: "Tuple";
   members: Array<ItemSchemaType>;
 }
@@ -305,10 +313,10 @@ export type ItemSchemaType =
   | AnyType
   | BinaryType
   | BooleanType
-  | CustomType<any>
+  | CustomType<unknown>
   | CollectionType
   | DateType
-  | DocumentType<any>
+  | DocumentType<object>
   | HashType
   | ListType
   | MapType
@@ -318,7 +326,7 @@ export type ItemSchemaType =
   | StringType
   | TupleType;
 
-export function isSchemaType(arg: any, alreadyVisited: Set<any> = new Set()): arg is ItemSchemaType {
+export function isSchemaType(arg: unknown, alreadyVisited: Set<unknown> = new Set()): arg is ItemSchemaType {
   if (isBaseType(arg)) {
     if (alreadyVisited.has(arg)) {
       return true;
@@ -354,7 +362,7 @@ export function isSchemaType(arg: any, alreadyVisited: Set<any> = new Set()): ar
   return false;
 }
 
-function isDocumentType(arg: BaseType, alreadyVisited: Set<any>): arg is DocumentType {
+function isDocumentType(arg: BaseType, alreadyVisited: Set<unknown>): arg is DocumentType {
   const { valueConstructor, members } = arg as DocumentType;
   if (!members || typeof members !== "object") {
     return false;
@@ -369,7 +377,7 @@ function isDocumentType(arg: BaseType, alreadyVisited: Set<any>): arg is Documen
   return ["function", "undefined"].indexOf(typeof valueConstructor) > -1;
 }
 
-function isTupleType(arg: BaseType, alreadyVisited: Set<any>): arg is TupleType {
+function isTupleType(arg: BaseType, alreadyVisited: Set<unknown>): arg is TupleType {
   const { members } = arg as TupleType;
   if (!Array.isArray(members)) {
     return false;

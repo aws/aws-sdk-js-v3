@@ -27,7 +27,7 @@ export interface ItemDocumentTypeOptions<T extends object> {
 export function embed<T extends object>(
   documentConstructor: ZeroArgumentsConstructor<T>,
   { attributeName, defaultProvider }: ItemDocumentTypeOptions<T> = {}
-): DocumentType {
+): DocumentType<T> {
   return {
     type: "Document",
     members: (documentConstructor.prototype as any)[DynamoDbSchema] || {},

@@ -9,7 +9,7 @@ class Profile {
   age!: number;
 }
 
-const schema: DocumentType = {
+const schema: DocumentType<Profile> = {
   type: "Document",
   members: {
     bio: { type: "String" },
