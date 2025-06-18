@@ -92,6 +92,7 @@ export * from "./PutObjectLockConfigurationCommand";
 export * from "./PutObjectRetentionCommand";
 export * from "./PutObjectTaggingCommand";
 export * from "./PutPublicAccessBlockCommand";
+export * from "./RenameObjectCommand";
 export * from "./RestoreObjectCommand";
 export * from "./SelectObjectContentCommand";
 export * from "./UploadPartCommand";

@@ -436,6 +436,11 @@ import {
   PutPublicAccessBlockCommandOutput,
 } from "./commands/PutPublicAccessBlockCommand";
 import {
+  RenameObjectCommand,
+  RenameObjectCommandInput,
+  RenameObjectCommandOutput,
+} from "./commands/RenameObjectCommand";
+import {
   RestoreObjectCommand,
   RestoreObjectCommandInput,
   RestoreObjectCommandOutput,
@@ -552,6 +557,7 @@ const commands = {
   PutObjectRetentionCommand,
   PutObjectTaggingCommand,
   PutPublicAccessBlockCommand,
+  RenameObjectCommand,
   RestoreObjectCommand,
   SelectObjectContentCommand,
   UploadPartCommand,
@@ -2015,6 +2021,17 @@ export interface S3 {
     args: PutPublicAccessBlockCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutPublicAccessBlockCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RenameObjectCommand}
+   */
+  renameObject(args: RenameObjectCommandInput, options?: __HttpHandlerOptions): Promise<RenameObjectCommandOutput>;
+  renameObject(args: RenameObjectCommandInput, cb: (err: any, data?: RenameObjectCommandOutput) => void): void;
+  renameObject(
+    args: RenameObjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RenameObjectCommandOutput) => void
   ): void;
 
   /**

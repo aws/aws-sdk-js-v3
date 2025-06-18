@@ -36,6 +36,7 @@ import {
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
   AbortMultipartUploadCommandInput,
@@ -292,6 +293,7 @@ import {
   PutPublicAccessBlockCommandInput,
   PutPublicAccessBlockCommandOutput,
 } from "../commands/PutPublicAccessBlockCommand";
+import { RenameObjectCommandInput, RenameObjectCommandOutput } from "../commands/RenameObjectCommand";
 import { RestoreObjectCommandInput, RestoreObjectCommandOutput } from "../commands/RestoreObjectCommand";
 import {
   SelectObjectContentCommandInput,
@@ -440,6 +442,7 @@ import {
   EncryptionTypeMismatch,
   EndEvent,
   GlacierJobParameters,
+  IdempotencyParameterMismatch,
   InputSerialization,
   InvalidRequest,
   InvalidWriteOffset,
@@ -835,7 +838,9 @@ export const se_DeleteBucketIntelligentTieringConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_xaebo]: input[_EBO]!,
+  });
   b.bp("/");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
@@ -1260,7 +1265,9 @@ export const se_GetBucketIntelligentTieringConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_xaebo]: input[_EBO]!,
+  });
   b.bp("/");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
@@ -1911,7 +1918,9 @@ export const se_ListBucketIntelligentTieringConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_xaebo]: input[_EBO]!,
+  });
   b.bp("/");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
@@ -2322,9 +2331,10 @@ export const se_PutBucketIntelligentTieringConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-  };
+    [_xaebo]: input[_EBO]!,
+  });
   b.bp("/");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
@@ -2992,6 +3002,37 @@ export const se_PutPublicAccessBlockCommand = async (
 };
 
 /**
+ * serializeAws_restXmlRenameObjectCommand
+ */
+export const se_RenameObjectCommand = async (
+  input: RenameObjectCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_xars]: input[_RS]!,
+    [_im]: input[_DIM]!,
+    [_inm]: input[_DINM]!,
+    [_ims]: [() => isSerializableHeaderValue(input[_DIMS]), () => __dateToUtcString(input[_DIMS]!).toString()],
+    [_ius]: [() => isSerializableHeaderValue(input[_DIUS]), () => __dateToUtcString(input[_DIUS]!).toString()],
+    [_xarsim]: input[_SIM]!,
+    [_xarsinm]: input[_SINM]!,
+    [_xarsims]: [() => isSerializableHeaderValue(input[_SIMS]), () => __dateToUtcString(input[_SIMS]!).toString()],
+    [_xarsius]: [() => isSerializableHeaderValue(input[_SIUS]), () => __dateToUtcString(input[_SIUS]!).toString()],
+    [_xact_]: input[_CTl] ?? generateIdempotencyToken(),
+  });
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
+  const query: any = map({
+    [_rO]: [, ""],
+  });
+  let body: any;
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlRestoreObjectCommand
  */
 export const se_RestoreObjectCommand = async (
@@ -3196,7 +3237,7 @@ export const se_WriteGetObjectResponseCommand = async (
       () => __serializeDateTime(input[_OLRUD]!).toString(),
     ],
     [_xafhxampc]: [() => isSerializableHeaderValue(input[_PC]), () => input[_PC]!.toString()],
-    [_xafhxars]: input[_RS]!,
+    [_xafhxars]: input[_RSe]!,
     [_xafhxarc]: input[_RC]!,
     [_xafhxar]: input[_Re]!,
     [_xafhxasse]: input[_SSE]!,
@@ -4235,7 +4276,7 @@ export const de_GetObjectCommand = async (
     [_BKE]: [() => void 0 !== output.headers[_xassebke], () => __parseBoolean(output.headers[_xassebke])],
     [_SC]: [, output.headers[_xasc]],
     [_RC]: [, output.headers[_xarc]],
-    [_RS]: [, output.headers[_xars]],
+    [_RSe]: [, output.headers[_xars_]],
     [_PC]: [() => void 0 !== output.headers[_xampc], () => __strictParseInt32(output.headers[_xampc])],
     [_TC]: [() => void 0 !== output.headers[_xatc], () => __strictParseInt32(output.headers[_xatc])],
     [_OLM]: [, output.headers[_xaolm]],
@@ -4502,8 +4543,9 @@ export const de_HeadObjectCommand = async (
     [_BKE]: [() => void 0 !== output.headers[_xassebke], () => __parseBoolean(output.headers[_xassebke])],
     [_SC]: [, output.headers[_xasc]],
     [_RC]: [, output.headers[_xarc]],
-    [_RS]: [, output.headers[_xars]],
+    [_RSe]: [, output.headers[_xars_]],
     [_PC]: [() => void 0 !== output.headers[_xampc], () => __strictParseInt32(output.headers[_xampc])],
+    [_TC]: [() => void 0 !== output.headers[_xatc], () => __strictParseInt32(output.headers[_xatc])],
     [_OLM]: [, output.headers[_xaolm]],
     [_OLRUD]: [
       () => void 0 !== output.headers[_xaolrud],
@@ -5448,6 +5490,23 @@ export const de_PutPublicAccessBlockCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlRenameObjectCommand
+ */
+export const de_RenameObjectCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RenameObjectCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlRestoreObjectCommand
  */
 export const de_RestoreObjectCommand = async (
@@ -5601,6 +5660,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TooManyParts":
     case "com.amazonaws.s3#TooManyParts":
       throw await de_TooManyPartsRes(parsedOutput, context);
+    case "IdempotencyParameterMismatch":
+    case "com.amazonaws.s3#IdempotencyParameterMismatch":
+      throw await de_IdempotencyParameterMismatchRes(parsedOutput, context);
     case "ObjectAlreadyInActiveTierError":
     case "com.amazonaws.s3#ObjectAlreadyInActiveTierError":
       throw await de_ObjectAlreadyInActiveTierErrorRes(parsedOutput, context);
@@ -5654,6 +5716,22 @@ const de_EncryptionTypeMismatchRes = async (
   const contents: any = map({});
   const data: any = parsedOutput.body;
   const exception = new EncryptionTypeMismatch({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restXmlIdempotencyParameterMismatchRes
+ */
+const de_IdempotencyParameterMismatchRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IdempotencyParameterMismatch> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const exception = new IdempotencyParameterMismatch({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -9105,8 +9183,8 @@ const de__Object = (output: any, context: __SerdeContext): _Object => {
   if (output[_O] != null) {
     contents[_O] = de_Owner(output[_O], context);
   }
-  if (output[_RSe] != null) {
-    contents[_RSe] = de_RestoreStatus(output[_RSe], context);
+  if (output[_RSes] != null) {
+    contents[_RSes] = de_RestoreStatus(output[_RSes], context);
   }
   return contents;
 };
@@ -9238,8 +9316,8 @@ const de_ObjectVersion = (output: any, context: __SerdeContext): ObjectVersion =
   if (output[_O] != null) {
     contents[_O] = de_Owner(output[_O], context);
   }
-  if (output[_RSe] != null) {
-    contents[_RSe] = de_RestoreStatus(output[_RSe], context);
+  if (output[_RSes] != null) {
+    contents[_RSes] = de_RestoreStatus(output[_RSes], context);
   }
   return contents;
 };
@@ -10120,6 +10198,7 @@ const _CSVI = "CopySourceVersionId";
 const _CSVIn = "CSVInput";
 const _CSVO = "CSVOutput";
 const _CT = "ChecksumType";
+const _CTl = "ClientToken";
 const _CTo = "ContentType";
 const _CTom = "CompressionType";
 const _CTon = "ContinuationToken";
@@ -10131,6 +10210,10 @@ const _Con = "Condition";
 const _D = "Delimiter";
 const _DAI = "DaysAfterInitiation";
 const _DE = "DataExport";
+const _DIM = "DestinationIfMatch";
+const _DIMS = "DestinationIfModifiedSince";
+const _DINM = "DestinationIfNoneMatch";
+const _DIUS = "DestinationIfUnmodifiedSince";
 const _DM = "DeleteMarker";
 const _DMR = "DeleteMarkerReplication";
 const _DMRS = "DeleteMarkerReplicationStatus";
@@ -10396,8 +10479,9 @@ const _RRe = "ReplicationRule";
 const _RRes = "RestoreRequest";
 const _RRo = "RoutingRules";
 const _RRou = "RoutingRule";
-const _RS = "ReplicationStatus";
-const _RSe = "RestoreStatus";
+const _RS = "RenameSource";
+const _RSe = "ReplicationStatus";
+const _RSes = "RestoreStatus";
 const _RT = "RequestToken";
 const _RTS = "ReplicationTimeStatus";
 const _RTV = "ReplicationTimeValue";
@@ -10418,6 +10502,10 @@ const _SCADE = "StorageClassAnalysisDataExport";
 const _SCASV = "StorageClassAnalysisSchemaVersion";
 const _SCt = "StatusCode";
 const _SDV = "SkipDestinationValidation";
+const _SIM = "SourceIfMatch";
+const _SIMS = "SourceIfModifiedSince";
+const _SINM = "SourceIfNoneMatch";
+const _SIUS = "SourceIfUnmodifiedSince";
 const _SK = "SSE-KMS";
 const _SKEO = "SseKmsEncryptedObjects";
 const _SKEOS = "SseKmsEncryptedObjectsStatus";
@@ -10558,6 +10646,7 @@ const _pS = "policyStatus";
 const _pnm = "part-number-marker";
 const _pr = "prefix";
 const _r = "replication";
+const _rO = "renameObject";
 const _rP = "requestPayment";
 const _ra = "range";
 const _rcc = "response-cache-control";
@@ -10615,6 +10704,7 @@ const _xacssseck = "x-amz-copy-source-server-side-encryption-customer-key";
 const _xacssseckm = "x-amz-copy-source-server-side-encryption-customer-key-md5";
 const _xacsvi = "x-amz-copy-source-version-id";
 const _xact = "x-amz-checksum-type";
+const _xact_ = "x-amz-client-token";
 const _xadm = "x-amz-delete-marker";
 const _xae = "x-amz-expiration";
 const _xaebo = "x-amz-expected-bucket-owner";
@@ -10681,7 +10771,12 @@ const _xarc = "x-amz-request-charged";
 const _xarop = "x-amz-restore-output-path";
 const _xarp = "x-amz-request-payer";
 const _xarr = "x-amz-request-route";
-const _xars = "x-amz-replication-status";
+const _xars = "x-amz-rename-source";
+const _xars_ = "x-amz-replication-status";
+const _xarsim = "x-amz-rename-source-if-match";
+const _xarsims = "x-amz-rename-source-if-modified-since";
+const _xarsinm = "x-amz-rename-source-if-none-match";
+const _xarsius = "x-amz-rename-source-if-unmodified-since";
 const _xart = "x-amz-request-token";
 const _xasc = "x-amz-storage-class";
 const _xasca = "x-amz-sdk-checksum-algorithm";

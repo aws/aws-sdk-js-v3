@@ -29,7 +29,14 @@ export interface ListObjectVersionsCommandInput extends ListObjectVersionsReques
 export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutput, __MetadataBearer {}
 
 /**
- * <note>
+ * <important>
+ *             <p>End of support notice: Beginning October 1, 2025, Amazon S3 will stop returning <code>DisplayName</code>. Update your applications to use canonical IDs (unique identifier for
+ *  Amazon Web Services accounts), Amazon Web Services account ID (12 digit identifier) or IAM ARNs (full resource naming) as a direct replacement of <code>DisplayName</code>.
+ * </p>
+ *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
+ *  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São Paulo) Region.</p>
+ *          </important>
+ *          <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns metadata about all versions of the objects in a bucket. You can also use request

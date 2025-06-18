@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import { StreamingBlobTypes } from "@smithy/types";
 
 import {
@@ -40,6 +41,7 @@ import {
   Tag,
   TransitionDefaultMinimumObjectSize,
 } from "./models_0";
+
 import { S3ServiceException as __BaseException } from "./S3ServiceException";
 
 /**
@@ -188,6 +190,12 @@ export interface PutBucketIntelligentTieringConfigurationRequest {
    * @public
    */
   Id: string | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
 
   /**
    * <p>Container for S3 Intelligent-Tiering configuration.</p>
@@ -2345,6 +2353,144 @@ export interface PutPublicAccessBlockRequest {
    * @public
    */
   ExpectedBucketOwner?: string | undefined;
+}
+
+/**
+ * <p>Parameters on this idempotent request are inconsistent with parameters used in previous request(s).
+ *          </p>
+ *          <p>For a list of error codes and more information on Amazon S3 errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">Error
+ *             codes</a>.</p>
+ *          <note>
+ *             <p>Idempotency ensures that an API request completes no more than one time. With an idempotent request, if the original request completes successfully, any subsequent retries complete successfully without performing any further actions.</p>
+ *          </note>
+ * @public
+ */
+export class IdempotencyParameterMismatch extends __BaseException {
+  readonly name: "IdempotencyParameterMismatch" = "IdempotencyParameterMismatch";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotencyParameterMismatch, __BaseException>) {
+    super({
+      name: "IdempotencyParameterMismatch",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotencyParameterMismatch.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface RenameObjectOutput {}
+
+/**
+ * @public
+ */
+export interface RenameObjectRequest {
+  /**
+   * <p>The bucket name of the directory bucket containing the object.</p>
+   *          <p> You must use virtual-hosted-style requests in the format
+   *          <code>Bucket-name.s3express-zone-id.region-code.amazonaws.com</code>. Path-style requests are not supported.
+   *          Directory bucket names must be unique in the chosen
+   *          Availability Zone. Bucket names must follow the format  <code>bucket-base-name--zone-id--x-s3 </code> (for example,
+   *          <code>amzn-s3-demo-bucket--usw2-az1--x-s3</code>). For information about bucket naming
+   *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket
+   *             naming rules</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Key name of the object to rename.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>Specifies the source for the rename operation. The value must be URL encoded.</p>
+   * @public
+   */
+  RenameSource: string | undefined;
+
+  /**
+   * <p>Renames the object only if the ETag (entity tag) value provided during the operation
+   *          matches the ETag of the object in S3. The <code>If-Match</code> header field makes the
+   *          request method conditional on ETags. If the ETag values do not match, the operation returns
+   *          a <code>412 Precondition Failed</code> error.</p>
+   *          <p>Expects the ETag value as a string.</p>
+   * @public
+   */
+  DestinationIfMatch?: string | undefined;
+
+  /**
+   * <p> Renames the object only if the destination does not already exist in the specified
+   *          directory bucket. If the object does exist when you send a request with
+   *          <code>If-None-Match:*</code>, the S3 API will return a <code>412 Precondition
+   *             Failed</code> error, preventing an overwrite. The <code>If-None-Match</code> header
+   *          prevents overwrites of existing data by validating that there's not an object with the same
+   *          key name already in your directory bucket.</p>
+   *          <p> Expects the <code>*</code> character (asterisk).</p>
+   * @public
+   */
+  DestinationIfNoneMatch?: string | undefined;
+
+  /**
+   * <p>Renames the object if the destination exists and if it has been modified since the
+   *          specified time.</p>
+   * @public
+   */
+  DestinationIfModifiedSince?: Date | undefined;
+
+  /**
+   * <p>Renames the object if it hasn't been modified since the specified time.</p>
+   * @public
+   */
+  DestinationIfUnmodifiedSince?: Date | undefined;
+
+  /**
+   * <p>Renames the object if the source exists and if its entity tag (ETag) matches the
+   *          specified ETag. </p>
+   * @public
+   */
+  SourceIfMatch?: string | undefined;
+
+  /**
+   * <p>Renames the object if the source exists and if its entity tag (ETag) is different than
+   *          the specified ETag. If an asterisk (<code>*</code>) character is provided, the operation
+   *          will fail and return a <code>412 Precondition Failed</code> error. </p>
+   * @public
+   */
+  SourceIfNoneMatch?: string | undefined;
+
+  /**
+   * <p>Renames the object if the source exists and if it has been modified since the specified time.</p>
+   * @public
+   */
+  SourceIfModifiedSince?: Date | undefined;
+
+  /**
+   * <p>Renames the object if the source exists and hasn't been modified since the specified time.</p>
+   * @public
+   */
+  SourceIfUnmodifiedSince?: Date | undefined;
+
+  /**
+   * <p> A unique string with a max of 64 ASCII characters in the ASCII range of 33 - 126.
+   *             <code>RenameObject</code> supports idempotency using a client token. To make an
+   *          idempotent API request using <code>RenameObject</code>, specify a client token in the
+   *          request. You should not reuse the same client token for other API requests. If you retry a
+   *          request that completed successfully using the same client token and the same parameters,
+   *          the retry succeeds without performing any further actions. If you retry a successful
+   *          request using the same client token, but one or more of the parameters are different, the
+   *          retry fails and an <code>IdempotentParameterMismatch</code> error is returned. </p>
+   * @public
+   */
+  ClientToken?: string | undefined;
 }
 
 /**

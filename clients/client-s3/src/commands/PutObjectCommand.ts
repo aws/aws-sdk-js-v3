@@ -39,7 +39,15 @@ export interface PutObjectCommandInput extends Omit<PutObjectRequest, "Body"> {
 export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBearer {}
 
 /**
- * <p>Adds an object to a bucket.</p>
+ * <important>
+ *             <p>End of support notice: Beginning October 1, 2025, Amazon S3 will discontinue support for creating new Email Grantee Access Control Lists (ACL).
+ *  Email Grantee ACLs created prior to this date will continue to work and remain accessible through the Amazon Web Services Management Console, Command Line Interface (CLI), SDKs,
+ *  and REST API. However, you will no longer be able to create new Email Grantee ACLs.
+ * </p>
+ *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
+ *  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São Paulo) Region.</p>
+ *          </important>
+ *          <p>Adds an object to a bucket.</p>
  *          <note>
  *             <ul>
  *                <li>

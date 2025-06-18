@@ -66,6 +66,7 @@ export interface DeleteBucketIntelligentTieringConfigurationCommandOutput extend
  * const input = { // DeleteBucketIntelligentTieringConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
  *   Id: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
  * };
  * const command = new DeleteBucketIntelligentTieringConfigurationCommand(input);
  * const response = await client.send(command);

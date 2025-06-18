@@ -949,6 +949,14 @@ PutPublicAccessBlock
 </details>
 <details>
 <summary>
+RenameObject
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/RenameObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/RenameObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/RenameObjectCommandOutput/)
+
+</details>
+<details>
+<summary>
 RestoreObject
 </summary>
 

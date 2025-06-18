@@ -35,7 +35,15 @@ export interface CopyObjectCommandInput extends CopyObjectRequest {}
 export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a copy of an object that is already stored in Amazon S3.</p>
+ * <important>
+ *             <p>End of support notice: Beginning October 1, 2025, Amazon S3 will discontinue support for creating new Email Grantee Access Control Lists (ACL).
+ *  Email Grantee ACLs created prior to this date will continue to work and remain accessible through the Amazon Web Services Management Console, Command Line Interface (CLI), SDKs,
+ *  and REST API. However, you will no longer be able to create new Email Grantee ACLs.
+ * </p>
+ *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
+ *  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São Paulo) Region.</p>
+ *          </important>
+ *          <p>Creates a copy of an object that is already stored in Amazon S3.</p>
  *          <note>
  *             <p>You can store individual objects of up to 5 TB in Amazon S3. You create a copy of your
  *             object up to 5 GB in size in a single atomic action using this API. However, to copy an

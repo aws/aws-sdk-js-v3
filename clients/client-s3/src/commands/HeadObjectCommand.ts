@@ -267,6 +267,7 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  * //   RequestCharged: "requester",
  * //   ReplicationStatus: "COMPLETE" || "PENDING" || "FAILED" || "REPLICA" || "COMPLETED",
  * //   PartsCount: Number("int"),
+ * //   TagCount: Number("int"),
  * //   ObjectLockMode: "GOVERNANCE" || "COMPLIANCE",
  * //   ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
  * //   ObjectLockLegalHoldStatus: "ON" || "OFF",

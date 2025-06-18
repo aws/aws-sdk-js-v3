@@ -30,7 +30,14 @@ export interface ListPartsCommandInput extends ListPartsRequest {}
 export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the parts that have been uploaded for a specific multipart upload.</p>
+ * <important>
+ *             <p>End of support notice: Beginning October 1, 2025, Amazon S3 will stop returning <code>DisplayName</code>. Update your applications to use canonical IDs (unique identifier for
+ *  Amazon Web Services accounts), Amazon Web Services account ID (12 digit identifier) or IAM ARNs (full resource naming) as a direct replacement of <code>DisplayName</code>.
+ * </p>
+ *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
+ *  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São Paulo) Region.</p>
+ *          </important>
+ *          <p>Lists the parts that have been uploaded for a specific multipart upload.</p>
  *          <p>To use this operation, you must provide the <code>upload ID</code> in the request. You
  *          obtain this uploadID by sending the initiate multipart upload request through <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>.</p>
  *          <p>The <code>ListParts</code> request returns a maximum of 1,000 uploaded parts. The limit

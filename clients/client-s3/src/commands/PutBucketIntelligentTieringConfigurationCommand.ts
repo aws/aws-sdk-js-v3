@@ -99,6 +99,7 @@ export interface PutBucketIntelligentTieringConfigurationCommandOutput extends _
  * const input = { // PutBucketIntelligentTieringConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
  *   Id: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
  *   IntelligentTieringConfiguration: { // IntelligentTieringConfiguration
  *     Id: "STRING_VALUE", // required
  *     Filter: { // IntelligentTieringFilter

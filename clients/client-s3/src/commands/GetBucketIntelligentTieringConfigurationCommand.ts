@@ -72,6 +72,7 @@ export interface GetBucketIntelligentTieringConfigurationCommandOutput
  * const input = { // GetBucketIntelligentTieringConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
  *   Id: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
  * };
  * const command = new GetBucketIntelligentTieringConfigurationCommand(input);
  * const response = await client.send(command);

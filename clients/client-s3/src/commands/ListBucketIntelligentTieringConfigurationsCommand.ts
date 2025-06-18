@@ -72,6 +72,7 @@ export interface ListBucketIntelligentTieringConfigurationsCommandOutput
  * const input = { // ListBucketIntelligentTieringConfigurationsRequest
  *   Bucket: "STRING_VALUE", // required
  *   ContinuationToken: "STRING_VALUE",
+ *   ExpectedBucketOwner: "STRING_VALUE",
  * };
  * const command = new ListBucketIntelligentTieringConfigurationsCommand(input);
  * const response = await client.send(command);

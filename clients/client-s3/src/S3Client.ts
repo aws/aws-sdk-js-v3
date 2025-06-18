@@ -339,6 +339,7 @@ import {
   PutPublicAccessBlockCommandInput,
   PutPublicAccessBlockCommandOutput,
 } from "./commands/PutPublicAccessBlockCommand";
+import { RenameObjectCommandInput, RenameObjectCommandOutput } from "./commands/RenameObjectCommand";
 import { RestoreObjectCommandInput, RestoreObjectCommandOutput } from "./commands/RestoreObjectCommand";
 import {
   SelectObjectContentCommandInput,
@@ -458,6 +459,7 @@ export type ServiceInputTypes =
   | PutObjectRetentionCommandInput
   | PutObjectTaggingCommandInput
   | PutPublicAccessBlockCommandInput
+  | RenameObjectCommandInput
   | RestoreObjectCommandInput
   | SelectObjectContentCommandInput
   | UploadPartCommandInput
@@ -561,6 +563,7 @@ export type ServiceOutputTypes =
   | PutObjectRetentionCommandOutput
   | PutObjectTaggingCommandOutput
   | PutPublicAccessBlockCommandOutput
+  | RenameObjectCommandOutput
   | RestoreObjectCommandOutput
   | SelectObjectContentCommandOutput
   | UploadPartCommandOutput

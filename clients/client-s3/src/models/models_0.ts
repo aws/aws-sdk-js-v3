@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { S3ServiceException as __BaseException } from "./S3ServiceException";
@@ -300,7 +301,14 @@ export interface Grant {
 }
 
 /**
- * <p>Container for the owner's display name and ID.</p>
+ * <important>
+ *             <p>End of support notice: Beginning October 1, 2025, Amazon S3 will stop returning <code>DisplayName</code>. Update your applications to use canonical IDs (unique identifier for
+ *  Amazon Web Services accounts), Amazon Web Services account ID (12 digit identifier) or IAM ARNs (full resource naming) as a direct replacement of <code>DisplayName</code>.
+ * </p>
+ *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
+ *  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São Paulo) Region.</p>
+ *          </important>
+ *          <p>Container for the owner's display name and ID.</p>
  * @public
  */
 export interface Owner {
@@ -3443,6 +3451,12 @@ export interface DeleteBucketIntelligentTieringConfigurationRequest {
    * @public
    */
   Id: string | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -6918,6 +6932,12 @@ export interface GetBucketIntelligentTieringConfigurationRequest {
    * @public
    */
   Id: string | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -10709,18 +10729,18 @@ export interface GetObjectAttributesParts {
    *                <li>
    *                   <p>
    *                      <b>General purpose buckets</b> - For
-   *                      <code>GetObjectAttributes</code>, if a additional checksum (including
-   *                      <code>x-amz-checksum-crc32</code>, <code>x-amz-checksum-crc32c</code>,
-   *                      <code>x-amz-checksum-sha1</code>, or <code>x-amz-checksum-sha256</code>) isn't
+   *                   <code>GetObjectAttributes</code>, if an additional checksum (including
+   *                   <code>x-amz-checksum-crc32</code>, <code>x-amz-checksum-crc32c</code>,
+   *                   <code>x-amz-checksum-sha1</code>, or <code>x-amz-checksum-sha256</code>) isn't
    *                   applied to the object specified in the request, the response doesn't return
-   *                      <code>Part</code>.</p>
+   *                   the <code>Part</code> element.</p>
    *                </li>
    *                <li>
    *                   <p>
    *                      <b>Directory buckets</b> - For
-   *                      <code>GetObjectAttributes</code>, no matter whether a additional checksum is
+   *                   <code>GetObjectAttributes</code>, regardless of whether an additional checksum is
    *                   applied to the object specified in the request, the response returns
-   *                      <code>Part</code>.</p>
+   *                   the <code>Part</code> element.</p>
    *                </li>
    *             </ul>
    *          </note>
@@ -11908,6 +11928,18 @@ export interface HeadObjectOutput {
   PartsCount?: number | undefined;
 
   /**
+   * <p>The number of tags, if any, on the object, when you have the relevant permission to read
+   *          object tags.</p>
+   *          <p>You can use <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a> to retrieve
+   *          the tag set associated with an object.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  TagCount?: number | undefined;
+
+  /**
    * <p>The Object Lock mode, if any, that's in effect for this object. This header is only
    *          returned if the requester has the <code>s3:GetObjectRetention</code> permission. For more
    *          information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object Lock</a>. </p>
@@ -12306,6 +12338,12 @@ export interface ListBucketIntelligentTieringConfigurationsRequest {
    * @public
    */
   ContinuationToken?: string | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -13499,8 +13537,7 @@ export interface ListObjectsV2Output {
   /**
    * <p> If <code>ContinuationToken</code> was sent with the request, it is included in the
    *          response. You can use the returned <code>ContinuationToken</code> for pagination of the
-   *          list response. You can use this <code>ContinuationToken</code> for pagination of the list
-   *          results. </p>
+   *          list response.</p>
    * @public
    */
   ContinuationToken?: string | undefined;
