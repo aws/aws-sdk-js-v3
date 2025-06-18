@@ -328,6 +328,7 @@ import {
   ParseKeyValue,
   ParsePostgres,
   ParseRoute53,
+  ParseToOCSF,
   ParseVPC,
   ParseWAF,
   Processor,
@@ -3935,6 +3936,8 @@ const se_MetricTransformations = (input: MetricTransformation[], context: __Serd
 
 // se_ParseRoute53 omitted.
 
+// se_ParseToOCSF omitted.
+
 // se_ParseVPC omitted.
 
 // se_ParseWAF omitted.
@@ -4440,6 +4443,8 @@ const de_MetricTransformations = (output: any, context: __SerdeContext): MetricT
 // de_ParsePostgres omitted.
 
 // de_ParseRoute53 omitted.
+
+// de_ParseToOCSF omitted.
 
 // de_ParseVPC omitted.
 

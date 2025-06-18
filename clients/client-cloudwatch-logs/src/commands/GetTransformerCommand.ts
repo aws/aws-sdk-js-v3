@@ -135,6 +135,11 @@ export interface GetTransformerCommandOutput extends GetTransformerResponse, __M
  * //       parseRoute53: { // ParseRoute53
  * //         source: "STRING_VALUE",
  * //       },
+ * //       parseToOCSF: { // ParseToOCSF
+ * //         source: "STRING_VALUE",
+ * //         eventSource: "CloudTrail" || "Route53Resolver" || "VPCFlow" || "EKSAudit" || "AWSWAF", // required
+ * //         ocsfVersion: "V1.1", // required
+ * //       },
  * //       parsePostgres: { // ParsePostgres
  * //         source: "STRING_VALUE",
  * //       },

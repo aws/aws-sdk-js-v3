@@ -3650,6 +3650,23 @@ export const EntityRejectionErrorType = {
 export type EntityRejectionErrorType = (typeof EntityRejectionErrorType)[keyof typeof EntityRejectionErrorType];
 
 /**
+ * @public
+ * @enum
+ */
+export const EventSource = {
+  AWSWAF: "AWSWAF",
+  CLOUD_TRAIL: "CloudTrail",
+  EKS_AUDIT: "EKSAudit",
+  ROUTE53_RESOLVER: "Route53Resolver",
+  VPC_FLOW: "VPCFlow",
+} as const;
+
+/**
+ * @public
+ */
+export type EventSource = (typeof EventSource)[keyof typeof EventSource];
+
+/**
  * <p>Represents a matched event.</p>
  * @public
  */
@@ -5124,6 +5141,45 @@ export interface ParseRoute53 {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const OCSFVersion = {
+  V1_1: "V1.1",
+} as const;
+
+/**
+ * @public
+ */
+export type OCSFVersion = (typeof OCSFVersion)[keyof typeof OCSFVersion];
+
+/**
+ * <p>This processor converts logs into <a href="https://ocsf.io">Open Cybersecurity Schema Framework (OCSF)</a> events.</p>
+ *          <p>For more information about this processor including examples, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseToOCSF">
+ *       parseToOSCF</a> in the <i>CloudWatch Logs User Guide</i>.</p>
+ * @public
+ */
+export interface ParseToOCSF {
+  /**
+   * <p>The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.</p>
+   * @public
+   */
+  source?: string | undefined;
+
+  /**
+   * <p>Specify the service or process that produces the log events that will be converted with this processor.</p>
+   * @public
+   */
+  eventSource: EventSource | undefined;
+
+  /**
+   * <p>Specify which version of the OCSF schema to use for the transformed log events.</p>
+   * @public
+   */
+  ocsfVersion: OCSFVersion | undefined;
+}
+
+/**
  * <p>Use this processor to parse Amazon VPC vended logs, extract fields, and and convert them into a JSON format. This processor always
  *        processes the entire log event message.</p>
  *          <p>This processor doesn't support custom log formats, such as NAT gateway logs. For more information about custom log formats in Amazon VPC, see
@@ -5458,6 +5514,12 @@ export interface Processor {
    * @public
    */
   parseRoute53?: ParseRoute53 | undefined;
+
+  /**
+   * <p>Use this processor to convert logs into Open Cybersecurity Schema Framework (OCSF) format</p>
+   * @public
+   */
+  parseToOCSF?: ParseToOCSF | undefined;
 
   /**
    * <p>Use this parameter to include the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parsePostGres">
@@ -6447,6 +6509,10 @@ export interface PutDeliverySourceRequest {
    *          <code>AD_DECISION_SERVER_LOGS</code>, <code>MANIFEST_SERVICE_LOGS</code>, and <code>TRANSCODE_LOGS</code>.</p>
    *             </li>
    *             <li>
+   *                <p>For Entity Resolution, the valid value is
+   *          <code>WORKFLOW_LOGS</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>For IAM Identity Center, the valid value is
    *          <code>ERROR_LOGS</code>.</p>
    *             </li>
@@ -6455,8 +6521,8 @@ export interface PutDeliverySourceRequest {
    *          <code>EVENT_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon SES mail manager, the valid value is
-   *          <code>APPLICATION_LOG</code>.</p>
+   *                <p>For Amazon SES mail manager, the valid values are
+   *          <code>APPLICATION_LOG</code> and <code>TRAFFIC_POLICY_DEBUG_LOGS</code>.</p>
    *             </li>
    *             <li>
    *                <p>For Amazon WorkMail, the valid values are
