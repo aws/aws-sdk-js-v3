@@ -9,18 +9,16 @@ export interface ItemSchema {
 }
 
 /**
- * Evaluates whether the provided argument is a Schema object
+ * Evaluates whether the provided value is a valid ItemSchema object.
+ *
+ * A valid ItemSchema:
+ * - Is a non-null object
+ * - Has string keys
+ * - Each value is a valid ItemSchemaType (validated via isSchemaType)
  */
-export function isSchema(arg: any): arg is ItemSchema {
-  if (!Boolean(arg) || typeof arg !== "object") {
-    return false;
-  }
+export function isSchema(value: unknown): value is ItemSchema {
+  if (typeof value !== "object" || value === null) return false;
 
-  for (const key of Object.keys(arg)) {
-    if (!isSchemaType(arg[key])) {
-      return false;
-    }
-  }
-
-  return true;
+  const record = value as Record<string, unknown>;
+  return Object.values(record).every((value) => isSchemaType(value));
 }

@@ -54,17 +54,17 @@ import { METADATA_TYPE_KEY } from "./constants";
 export function attribute(): PropertyDecorator;
 export function attribute(params: Partial<ItemSchemaType>): PropertyDecorator;
 export function attribute(params: Partial<ItemSchemaType> = {}): PropertyDecorator {
-  return (target: any, propertyKey: string | symbol) => {
+  return (target: Object, propertyKey: string | symbol) => {
     const reflectedType = Reflect.getMetadata(METADATA_TYPE_KEY, target, propertyKey);
-    console.log(`[attribute] '${String(propertyKey)}' => reflectedType:`, reflectedType?.name ?? "undefined");
     const schemaType = metadataToItemSchemaType(reflectedType, params);
 
     validateSchemaDefinition(schemaType, propertyKey);
     enforceKeyConstraints(schemaType);
     enforceKeyTypeCompatibility(schemaType, propertyKey);
-    initializeSchemaContainer(target);
+    initializeSchemaContainer(target as ItemSchema);
 
-    target[DynamoDbSchema][propertyKey] = schemaType;
+    const schemaContainer = target as Record<symbol, Record<string | symbol, ItemSchemaType>>;
+    schemaContainer[DynamoDbSchema][propertyKey] = schemaType;
   };
 }
 
@@ -265,7 +265,7 @@ export function enforceKeyTypeCompatibility(schemaType: ItemSchemaType, property
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/ArrayBufferView
  */
-function isBinaryType(ctor: any): boolean {
+function isBinaryType(ctor: Function): boolean {
   return (
     ctor === Uint8Array ||
     ctor.prototype instanceof Uint8Array ||

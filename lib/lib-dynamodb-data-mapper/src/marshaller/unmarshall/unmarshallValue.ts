@@ -1,6 +1,5 @@
 import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 
-import type { AttributeValueMap } from "../../internal/AttributeValueMap";
 import type {
   CollectionType,
   CustomType,
@@ -12,9 +11,19 @@ import type {
   SetType,
   TupleType,
 } from "../../schema";
+import type { AttributeValueMap, MutableRecord, UnmarshallHandler } from "../types";
 import { unmarshallDocument } from "./unmarshallDocument";
 
-type UnmarshallHandler = (schema: ItemSchemaType, value: AttributeValue) => unknown;
+export function unmarshallValue<T = unknown>(schema: ItemSchemaType, value: AttributeValue): T | undefined {
+  if (value === undefined) {
+    return undefined;
+  }
+  const handler = typeUnmarshallers[schema.type];
+  if (!handler) {
+    throw new Error(`Unsupported schema type for unmarshalling: ${schema.type}`);
+  }
+  return handler(schema, value) as T;
+}
 
 const typeUnmarshallers: Record<ItemSchemaType["type"], UnmarshallHandler> = {
   String: (_schema, value) => {
@@ -118,38 +127,26 @@ const typeUnmarshallers: Record<ItemSchemaType["type"], UnmarshallHandler> = {
   },
 };
 
-export function unmarshallValue(schema: ItemSchemaType, value: AttributeValue): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  const handler = typeUnmarshallers[schema.type];
-  if (!handler) {
-    throw new Error(`Unsupported schema type for unmarshalling: ${schema.type}`);
-  }
-  return handler(schema, value);
+function unmarshallTuple<T = unknown>(schema: TupleType, input: AttributeValue[]): T[] {
+  return schema.members.map((member, i) => unmarshallValue(member, input[i])) as T[];
 }
 
-
-const unmarshallTuple = (schema: TupleType, input: AttributeValue[]): any[] => {
-  return schema.members.map((member, i) => unmarshallValue(member, input[i]));
-};
-
-const unmarshallStringSet = (input: string[]): Set<string> => {
+function unmarshallStringSet(input: string[]): Set<string> {
   return new Set(input);
-};
+}
 
-const unmarshallNumberSet = (input: string[]): Set<number> => {
+function unmarshallNumberSet(input: string[]): Set<number> {
   return new Set(input.map(Number));
-};
+}
 
-const unmarshallMap = (
+function unmarshallMap<T extends MutableRecord = MutableRecord>(
   rawMap: AttributeValueMap | undefined,
   getSchema: (key: string) => ItemSchemaType,
-  targetFactory: () => any = () => Object.create(null)
-): Record<string, any> | undefined => {
+  targetFactory: () => T = () => Object.create(null)
+): T | undefined {
   if (!rawMap) return undefined;
 
-  const target = targetFactory();
+  const target = targetFactory() as MutableRecord;
 
   for (const key of Object.keys(rawMap)) {
     const schema = getSchema(key);
@@ -160,12 +157,12 @@ const unmarshallMap = (
     }
   }
 
-  return target;
-};
+  return target as T;
+}
 
 /**
  * Returns true if the given AttributeValue represents a DynamoDB NULL value.
  */
-const isNullValue = (value: AttributeValue): boolean => {
+function isNullValue(value: AttributeValue): boolean {
   return typeof value === "object" && value !== null && "NULL" in value && value.NULL === true;
-};
+}

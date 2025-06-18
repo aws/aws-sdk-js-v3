@@ -2,6 +2,7 @@ import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import type { ItemSchemaType, ZeroArgumentsConstructor } from "../../schema";
 import type { ItemSchema } from "../../schema";
+import type { MutableRecord } from "../types";
 import { unmarshallValue } from "./unmarshallValue";
 
 /**
@@ -28,7 +29,7 @@ import { unmarshallValue } from "./unmarshallValue";
  * expect(result).toBeInstanceOf(User);
  * ```
  */
-export function unmarshallItem<T extends object = Record<string, any>>(
+export function unmarshallItem<T extends object = MutableRecord>(
   schema: ItemSchema,
   input: Record<string, AttributeValue>,
   valueConstructor?: ZeroArgumentsConstructor<T>
@@ -40,7 +41,7 @@ export function unmarshallItem<T extends object = Record<string, any>>(
     const attrName = field.attributeName ?? key;
     const attr = input[attrName];
 
-    let value: any;
+    let value: unknown;
 
     if (attr !== undefined) {
       value = unmarshallValue(field, attr);
@@ -49,7 +50,7 @@ export function unmarshallItem<T extends object = Record<string, any>>(
     }
 
     if (value !== undefined) {
-      (target as Record<string, any>)[key] = value;
+      (target as MutableRecord)[key] = value;
     }
   }
 

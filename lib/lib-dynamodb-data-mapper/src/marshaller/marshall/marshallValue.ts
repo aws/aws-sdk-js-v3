@@ -2,7 +2,6 @@ import { AttributeValue } from "@aws-sdk/client-dynamodb";
 import { marshallOptions } from "@aws-sdk/util-dynamodb";
 import { TextEncoder } from "util";
 
-import type { AttributeValueMap } from "../../internal/AttributeValueMap";
 import type {
   AnyType,
   CollectionType,
@@ -15,11 +14,12 @@ import type {
   TupleType,
 } from "../../schema";
 import { ItemSchemaType } from "../../schema";
+import type { AttributeValueMap, MarshallHandler, MutableRecord } from "../types";
 import { marshallDocument } from "./marshallDocument";
 
-export function marshallValue(
+export function marshallValue<T = unknown>(
   schema: ItemSchemaType,
-  value: any,
+  value: T,
   options: marshallOptions = {}
 ): AttributeValue | undefined {
   if (value === undefined && typeof schema.defaultProvider === "function") {
@@ -34,8 +34,6 @@ export function marshallValue(
   }
   return handler(schema, value, options);
 }
-
-type MarshallHandler = (schema: ItemSchemaType, value: any, options: marshallOptions) => AttributeValue | undefined;
 
 const typeMarshallers: Record<ItemSchemaType["type"], MarshallHandler> = {
   String: (_schema, value, options) => {
@@ -68,7 +66,7 @@ const typeMarshallers: Record<ItemSchemaType["type"], MarshallHandler> = {
 
   List: (schema, value, options) => {
     const listSchema = schema as ListType;
-    const items = (value as any[]).map((v) => marshallValue(listSchema.memberType, v, options));
+    const items = (value as unknown[]).map((v) => marshallValue(listSchema.memberType, v, options));
     return {
       L: options.removeUndefinedValues
         ? items.filter((v): v is AttributeValue => v !== undefined)
@@ -84,7 +82,7 @@ const typeMarshallers: Record<ItemSchemaType["type"], MarshallHandler> = {
       value !== null &&
       value.constructor !== Object
     ) {
-      value = { ...value };
+      value = { ...(value as MutableRecord) };
     }
     return marshallMap(Object.entries(value), () => mapSchema.memberType, options);
   },
@@ -108,7 +106,7 @@ const typeMarshallers: Record<ItemSchemaType["type"], MarshallHandler> = {
 
   Collection: (schema, value, options) => {
     const collectionSchema = schema as CollectionType;
-    const items = (value as any[]).map((item) => marshallValue(collectionSchema, item, options));
+    const items = (value as unknown[]).map((item) => marshallValue(collectionSchema, item, options));
     return {
       L: options.removeUndefinedValues
         ? items.filter((v): v is AttributeValue => v !== undefined)
@@ -166,8 +164,7 @@ const typeMarshallers: Record<ItemSchemaType["type"], MarshallHandler> = {
     if (typeof value === "boolean") return { BOOL: value };
     if (Array.isArray(value)) {
       return {
-        L: value.map((v) => marshallValue(schema, v, anySchema))
-                .filter((v): v is AttributeValue => v !== undefined),
+        L: value.map((v) => marshallValue(schema, v, anySchema)).filter((v): v is AttributeValue => v !== undefined),
       };
     }
     if (typeof value === "object") {
@@ -178,7 +175,7 @@ const typeMarshallers: Record<ItemSchemaType["type"], MarshallHandler> = {
 };
 
 const marshallMap = (
-  entries: Iterable<[string, any]>,
+  entries: Iterable<[string, unknown]>,
   getSchema: (key: string) => ItemSchemaType,
   options: marshallOptions
 ): { M: AttributeValueMap } => {

@@ -2,11 +2,12 @@ import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 import { marshallOptions } from "@aws-sdk/util-dynamodb";
 
 import { ItemSchema } from "../../schema";
+import type { MutableRecord } from "../types";
 import { marshallValue } from "./marshallValue";
 
-export function marshallItem(
+export function marshallItem<T extends object = MutableRecord>(
   schema: ItemSchema,
-  input: Record<string, any>,
+  input: T,
   options: marshallOptions = {}
 ): Record<string, AttributeValue> {
   const output: Record<string, AttributeValue> = {};
@@ -14,7 +15,7 @@ export function marshallItem(
   for (const key of Object.keys(schema)) {
     const field = schema[key];
     const attrName = field.attributeName ?? key;
-    const value = input[key];
+    const value = input[key as keyof T];
     if (value === undefined) {
       continue;
     }

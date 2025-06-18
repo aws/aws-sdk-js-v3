@@ -32,8 +32,8 @@ describe("unmarshallDocument", () => {
 
     const result = unmarshallDocument(input, schema);
     expect(result).toBeInstanceOf(Profile);
-    expect(result.bio).toBe("engineer");
-    expect(result.age).toBe(42);
+    expect(result?.bio).toBe("engineer");
+    expect(result?.age).toBe(42);
   });
 });
 

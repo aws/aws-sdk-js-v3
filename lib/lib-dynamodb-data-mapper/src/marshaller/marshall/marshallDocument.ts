@@ -8,7 +8,11 @@ import { marshallItem } from "./marshallItem";
  * Marshalls a nested object according to a DocumentType schema.
  * Produces a DynamoDB M (Map) attribute.
  */
-export function marshallDocument(value: any, schema: DocumentType, options?: marshallOptions): AttributeValue {
+export function marshallDocument<T extends object>(
+  value: T,
+  schema: DocumentType,
+  options?: marshallOptions
+): AttributeValue {
   const M = marshallItem(schema.members, value, options);
   return { M };
 }
