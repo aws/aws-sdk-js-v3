@@ -11,10 +11,8 @@ const run = async () => {
 
   const DEFAULTS_MODE_CONFIG_DIR = normalize(join(__dirname, "..", "..", "packages", "smithy-client", "src"));
   // defaults-mode.ts in smithy-client is generated together with clients
-  await spawnProcess(join(__dirname, "..", "..", "node_modules", ".bin", "pprettier"), [
-    "--write",
-    `${DEFAULTS_MODE_CONFIG_DIR}/**/*.ts`,
-  ]);
+  const { checkDir } = await import("../biome/biome.mjs");
+  await checkDir(DEFAULTS_MODE_CONFIG_DIR);
 };
 
 (async () => {

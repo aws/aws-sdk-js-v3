@@ -1,7 +1,6 @@
 // @ts-check
 const { join } = require("path");
 const { copySync, removeSync } = require("fs-extra");
-const prettier = require("prettier");
 const semver = require("semver");
 const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("fs");
 
@@ -173,12 +172,11 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
         const modelFile = join(__dirname, "..", "..", "codegen", "sdk-codegen", "aws-models", serviceName + ".json");
 
         if (existsSync(modelFile)) {
-          mergedManifest.scripts[
-            "generate:client"
-          ] = `node ../../scripts/generate-clients/single-service --solo ${serviceName}`;
+          mergedManifest.scripts["generate:client"] =
+            `node ../../scripts/generate-clients/single-service --solo ${serviceName}`;
         }
 
-        writeFileSync(destSubPath, prettier.format(JSON.stringify(mergedManifest), { parser: "json-stringify" }));
+        writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2));
       } else if (packageSub === "typedoc.json") {
         // Skip writing typedoc.json
         // ToDo: Remove if typedoc.json is config driven or removed in smithy-typescript.
@@ -235,7 +233,7 @@ const copyServerTests = async (sourceDir, destinationDir) => {
           // don't generate documentation for private packages
           delete mergedManifest.scripts["build:docs"];
         }
-        writeFileSync(destSubPath, prettier.format(JSON.stringify(mergedManifest), { parser: "json-stringify" }));
+        writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2));
       } else if (packageSub === "typedoc.json") {
         // Skip writing typedoc.json
         // ToDo: Remove if typedoc.json is config driven or removed in smithy-typescript.
