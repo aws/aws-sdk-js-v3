@@ -3,4 +3,4 @@ export * from "./item";
 export * from "./key";
 export * from "./metadata";
 export * from "./symbols";
-export * from "./tableNameResolver";
+export * from "./tableNameOverride";

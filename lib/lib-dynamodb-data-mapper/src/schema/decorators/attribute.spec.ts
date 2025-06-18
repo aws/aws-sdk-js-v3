@@ -11,6 +11,8 @@ describe("attribute", () => {
   it("should create a document schema compatible with the DynamoDbSchema protocol", () => {
     const decorator = attribute();
     const target = Object.create(null);
+    console.log("decorator is", decorator);
+
     decorator(target, "property");
 
     expect(isSchema(target[DynamoDbSchema])).toBe(true);
@@ -52,9 +54,7 @@ describe("attribute", () => {
     expect(() => decorator(Object.create(null), "property")).toThrow();
   });
 
-  // skip for now as i could not configure vitest to run with compiler flags required for decorators
-  // reflect.metadata returns undefined
-  it.skip("should support branching inheritance", () => {
+  it("should support branching inheritance", () => {
     abstract class Foo {
       @attribute()
       prop?: string;
@@ -83,9 +83,7 @@ describe("attribute", () => {
     });
   });
 
-  // skip for now as i could not configure vitest to run with compiler flags required for decorators
-  // reflect.metadata returns undefined
-  it.skip("should support multiple inheritance levels", () => {
+  it("should support multiple inheritance levels", () => {
     class Foo {
       @attribute()
       prop?: string;
@@ -391,25 +389,6 @@ describe("attribute", () => {
       decorator(target, "property");
 
       expect(target[DynamoDbSchema].property).toEqual({ type: "Any" });
-    });
-
-    // skip for now as i could not configure vitest to run with compiler flags required for decorators
-    // reflect.metadata returns undefined
-    it.skip("should attach correct schema metadata from class decorators", () => {
-      class Example {
-        @attribute()
-        name!: string;
-
-        @attribute()
-        age!: number;
-      }
-
-      const schema = (new Example() as any)[DynamoDbSchema];
-
-      expect(schema).toEqual({
-        name: { type: "String" },
-        age: { type: "Number" },
-      });
     });
   });
 });

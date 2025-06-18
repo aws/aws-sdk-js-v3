@@ -1,1 +1,1 @@
-export * from "./resolveItemSchema";
+export * from "./resolveModelMetadata";

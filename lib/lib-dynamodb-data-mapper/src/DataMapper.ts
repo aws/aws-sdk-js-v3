@@ -13,8 +13,8 @@ import { marshall as awsMarshall, unmarshall as awsUnmarshall } from "@aws-sdk/u
 import { HttpHandlerOptions } from "@smithy/types";
 
 import { DataMarshaller } from "./marshaller";
-import { getSchema, getTableName, ItemSchema } from "./schema";
-import { DefaultTableNameResolver, TableNameResolver } from "./schema";
+import { ConfigurableTableNameOverride, ItemSchema, resolveModelMetadata } from "./schema";
+import { TableNameOverride } from "./schema";
 
 /**
  * Configuration for binding a specific table and model type.
@@ -59,19 +59,19 @@ export interface DataMapperConfig {
 
   /**
    * Optional table name resolver used to dynamically determine table names
-   * based on the model class. If not provided, a {@link DefaultTableNameResolver}
+   * based on the model class. If not provided, a {@link ConfigurableTableNameOverride}
    * will be used.
    *
    * @example
    * ```ts
-   * const resolver = new DefaultTableNameResolver({ prefix: 'dev_' });
+   * const resolver = ConfigurableTableNameOverride.withConfig({ prefix: 'dev_' });
    * const mapper = DataMapper.from(User, {
    *   client,
-   *   tableNameResolver: resolver,
+   *   TableNameOverride: resolver,
    * });
    * ```
    */
-  tableNameResolver?: TableNameResolver;
+  tableNameOverride?: TableNameOverride;
 }
 
 /**
@@ -91,33 +91,38 @@ export class DataMapper<D extends object, T = D> {
   private readonly toDocument: (data: T) => D;
   private readonly documentClass?: Function;
   private readonly translateConfig?: marshallOptions;
-  private readonly tableNameResolver: TableNameResolver;
+  private readonly tableNameOverride: TableNameOverride;
 
   /**
-   * Constructor is private to enforce usage of factory methods like `forModel()`.
+   * Constructor is private to enforce usage of factory methods
    */
   private constructor(config: DataMapperConfig, binding: TableBindingConfig<D, T>) {
-    const pass = (x: any) => x;
+    const pass = (_: any) => _;
     this.fromDocument = binding.fromDocument ?? pass;
     this.toDocument = binding.toDocument ?? pass;
+    this.documentClass = binding.documentClass ?? pass;
     this.client = config.client;
     this.translateConfig = config.translateConfig;
-    this.schema = binding.schema;
-    if (!this.schema && binding.documentClass) {
-      try {
-        this.schema = getSchema(binding.documentClass);
-      } catch {
-        this.schema = undefined; // fall back to schema-less mode
-      }
-    }
+    this.tableNameOverride = config.tableNameOverride ?? ConfigurableTableNameOverride.withConfig();
 
-    this.tableNameResolver = config.tableNameResolver ?? new DefaultTableNameResolver();
+    this.schema = binding.schema;
     this.tableName = binding.tableName;
-    if (!this.tableName && binding.documentClass) {
+
+    if ((!this.schema || !this.tableName) && binding.documentClass) {
       try {
-        this.tableName = this.tableNameResolver.resolve(binding.documentClass);
-      } catch {
-        this.tableName = binding.documentClass.name; // fall back to schema-less mode
+        // Prefer protocol-based metadata (via prototype)
+        const { schema, tableName } = resolveModelMetadata(binding.documentClass, this.tableNameOverride);
+
+        if (!this.schema) this.schema = schema;
+        if (!this.tableName) this.tableName = tableName;
+      } catch (err) {
+        // Protocol metadata not found
+        if (!this.schema) this.schema = undefined;
+
+        if (!this.tableName) {
+          // Fallback to class name if table name is not found
+          this.tableName = binding.documentClass.name;
+        }
       }
     }
 

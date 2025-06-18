@@ -19,7 +19,6 @@ describe("decorator and metadata environment", () => {
     }
 
     const metadata = Reflect.getMetadata("custom:marker", Sample.prototype, "field");
-    console.log(metadata); // Should log the metadata type
     expect(metadata).toBe(String);
   });
 });

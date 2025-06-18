@@ -1,11 +1,13 @@
+import "reflect-metadata";
+
 import { GetItemCommand, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { marshall as awsMarshall, unmarshall as awsUnmarshall } from "@aws-sdk/util-dynamodb";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { DataMapper } from "./DataMapper";
 import { DataMarshaller } from "./marshaller";
+import { attribute, hashKey, table } from "./schema/decorators";
 
-// 🔁 Common mocks
 const mockSend = vi.fn();
 const mockClient = { send: mockSend } as any;
 
@@ -195,7 +197,7 @@ describe("DataMapper - all usage variations", () => {
       name: { type: "String" },
     };
 
-    Object.defineProperty(UserDefinedClass, Symbol.for("DynamoDbSchema"), {
+    Object.defineProperty(UserDefinedClass.prototype, DynamoDbSchema, {
       value: schema,
     });
 
@@ -228,61 +230,58 @@ describe("DataMapper - all usage variations", () => {
     expect(loaded.name).toBe("Alice");
   });
 
-  it.skip("class with decorators", async () => {
+  it("class with decorators", async () => {
     type UserDefinedDocument = {
       id: string;
       name: string;
     };
 
-    // @dynamodbDocument()
-    // class UserDefinedClass {
-    //   @hashKey()
-    //   id!: string;
+    @table("UserDefinedClass")
+    class UserDefinedClass {
+      @hashKey()
+      id!: string;
 
-    //   @attribute()
-    //   name!: string;
+      @attribute()
+      name!: string;
 
-    //   public exampleMethod() {
-    //     return `${this.id} ${this.name}`;
-    //   }
-    // }
+      public exampleMethod() {
+        return `${this.id} ${this.name}`;
+      }
+    }
 
-    // const doc: UserDefinedDocument = { id: "123", name: "Alice" };
-    // const instance = Object.assign(new UserDefinedClass(), doc);
+    const doc: UserDefinedDocument = { id: "123", name: "Alice" };
+    const instance = Object.assign(new UserDefinedClass(), doc);
 
-    // // Expected schema based on decorator behavior
-    // const expectedSchema = {
-    //   id: { type: "String", keyType: "HASH" },
-    //   name: { type: "String" },
-    // };
+    // Expected schema based on decorator behavior
+    const expectedSchema = {
+      id: { type: "String", keyType: "HASH" },
+      name: { type: "String" },
+    } as ItemSchema;
 
-    // const marshalled = DataMarshaller.marshall(doc, expectedSchema);
+    const marshalled = DataMarshaller.marshall(doc, expectedSchema);
 
-    // const mapper = DataMapper.from<UserDefinedDocument, UserDefinedClass>(
-    //   UserDefinedClass,
-    //   {
-    //     client: mockClient,
-    //     tableName: "test",
-    //   }
-    // );
+    const mapper = DataMapper.from<UserDefinedDocument, UserDefinedClass>(UserDefinedClass, {
+      client: mockClient,
+      tableName: "test",
+    });
 
-    // // Expected once decorators populate schema and table
-    // expect(mapper["schema"]).toEqual(expectedSchema);
-    // expect(mapper["tableName"]).toBe("test");
+    // Expected once decorators populate schema and table
+    expect(mapper["schema"]).toEqual(expectedSchema);
+    expect(mapper["tableName"]).toBe("test");
 
-    // // --- PUT ---
-    // mockSend.mockResolvedValueOnce({ Attributes: marshalled });
+    // --- PUT ---
+    mockSend.mockResolvedValueOnce({ Attributes: marshalled });
 
-    // const saved = await mapper.put(instance);
-    // expect(saved).toBeInstanceOf(UserDefinedClass);
-    // expect(saved.id).toBe("123");
+    const saved = await mapper.put(instance);
+    expect(saved).toBeInstanceOf(UserDefinedClass);
+    expect(saved.id).toBe("123");
 
-    // // --- GET ---
-    // mockSend.mockResolvedValueOnce({ Item: marshalled });
+    // --- GET ---
+    mockSend.mockResolvedValueOnce({ Item: marshalled });
 
-    // const loaded = await mapper.get({ id: "123" });
-    // expect(loaded).toBeInstanceOf(UserDefinedClass);
-    // expect(loaded.id).toBe("123");
-    // expect(loaded.name).toBe("Alice");
+    const loaded = (await mapper.get({ id: "123" })) as UserDefinedClass;
+    expect(loaded).toBeInstanceOf(UserDefinedClass);
+    expect(loaded.id).toBe("123");
+    expect(loaded.name).toBe("Alice");
   });
 });

@@ -300,11 +300,3 @@ type MapSchema = Extract<ItemSchemaType, { type: "Map" }>;
 type ListSchema = Extract<ItemSchemaType, { type: "List" }>;
 type TupleSchema = Extract<ItemSchemaType, { type: "Tuple" }>;
 type DocumentSchema = Extract<ItemSchemaType, { type: "Document" }>;
-
-type ValidExplicitSchema =
-  | Extract<ItemSchemaType, { type: "String" | "Number" | "Boolean" | "Date" | "Binary" | "Any" | "Null" | "Custom" }>
-  | (SetSchema & Required<Pick<SetSchema, "memberType">>)
-  | (MapSchema & Required<Pick<MapSchema, "memberType">>)
-  | (ListSchema & Required<Pick<ListSchema, "memberType">>)
-  | (TupleSchema & Required<Pick<TupleSchema, "members">>)
-  | (DocumentSchema & Required<Pick<DocumentSchema, "members">>);
