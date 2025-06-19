@@ -31,10 +31,7 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface Alias {
   /**
-   * <p>A friendly name that you can use to refer to a key. The value must begin with <code>alias/</code>.</p>
-   *          <important>
-   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-   *          </important>
+   * <p>A friendly name that you can use to refer to a key. The value must begin with <code>alias/</code>.</p> <important> <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important>
    * @public
    */
   AliasName: string | undefined;
@@ -73,10 +70,7 @@ export class ConflictException extends __BaseException {
  */
 export interface CreateAliasInput {
   /**
-   * <p>A friendly name that you can use to refer to a key. An alias must begin with <code>alias/</code> followed by a name, for example <code>alias/ExampleAlias</code>. It can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-).</p>
-   *          <important>
-   *             <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-   *          </important>
+   * <p>A friendly name that you can use to refer to a key. An alias must begin with <code>alias/</code> followed by a name, for example <code>alias/ExampleAlias</code>. It can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-).</p> <important> <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important>
    * @public
    */
   AliasName: string | undefined;
@@ -290,8 +284,7 @@ export interface ListAliasesInput {
   NextToken?: string | undefined;
 
   /**
-   * <p>Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer.</p>
-   *          <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
+   * <p>Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer.</p> <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -384,6 +377,10 @@ export const KeyAlgorithm = {
   ECC_NIST_P256: "ECC_NIST_P256",
   ECC_NIST_P384: "ECC_NIST_P384",
   ECC_NIST_P521: "ECC_NIST_P521",
+  HMAC_SHA224: "HMAC_SHA224",
+  HMAC_SHA256: "HMAC_SHA256",
+  HMAC_SHA384: "HMAC_SHA384",
+  HMAC_SHA512: "HMAC_SHA512",
   RSA_2048: "RSA_2048",
   RSA_3072: "RSA_3072",
   RSA_4096: "RSA_4096",
@@ -525,8 +522,7 @@ export interface KeyAttributes {
   KeyClass: KeyClass | undefined;
 
   /**
-   * <p>The key algorithm to be use during creation of an Amazon Web Services Payment Cryptography key.</p>
-   *          <p>For symmetric keys, Amazon Web Services Payment Cryptography supports <code>AES</code> and <code>TDES</code> algorithms. For asymmetric keys, Amazon Web Services Payment Cryptography supports <code>RSA</code> and <code>ECC_NIST</code> algorithms.</p>
+   * <p>The key algorithm to be use during creation of an Amazon Web Services Payment Cryptography key.</p> <p>For symmetric keys, Amazon Web Services Payment Cryptography supports <code>AES</code> and <code>TDES</code> algorithms. For asymmetric keys, Amazon Web Services Payment Cryptography supports <code>RSA</code> and <code>ECC_NIST</code> algorithms.</p>
    * @public
    */
   KeyAlgorithm: KeyAlgorithm | undefined;
@@ -545,6 +541,7 @@ export interface KeyAttributes {
 export const KeyCheckValueAlgorithm = {
   ANSI_X9_24: "ANSI_X9_24",
   CMAC: "CMAC",
+  HMAC: "HMAC",
 } as const;
 
 /**
@@ -581,8 +578,7 @@ export interface CreateKeyInput {
   KeyAttributes: KeyAttributes | undefined;
 
   /**
-   * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.</p>
-   *          <p>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</p>
+   * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.</p> <p>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</p>
    * @public
    */
   KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm | undefined;
@@ -600,20 +596,13 @@ export interface CreateKeyInput {
   Enabled?: boolean | undefined;
 
   /**
-   * <p>Assigns one or more tags to the Amazon Web Services Payment Cryptography key. Use this parameter to tag a key when it is created. To tag an existing Amazon Web Services Payment Cryptography key, use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a> operation.</p>
-   *          <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You can't have more than one tag on an Amazon Web Services Payment Cryptography key with the same tag key. </p>
-   *          <important>
-   *             <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-   *          </important>
-   *          <note>
-   *             <p>Tagging or untagging an Amazon Web Services Payment Cryptography key can allow or deny permission to the key.</p>
-   *          </note>
+   * <p>Assigns one or more tags to the Amazon Web Services Payment Cryptography key. Use this parameter to tag a key when it is created. To tag an existing Amazon Web Services Payment Cryptography key, use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a> operation.</p> <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You can't have more than one tag on an Amazon Web Services Payment Cryptography key with the same tag key. </p> <important> <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important> <note> <p>Tagging or untagging an Amazon Web Services Payment Cryptography key can allow or deny permission to the key.</p> </note>
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.</p>
+   * <p>The intended cryptographic usage of keys derived from the ECC key pair to be created.</p> <p>After creating an ECC key pair, you cannot change the intended cryptographic usage of keys derived from it using ECDH.</p>
    * @public
    */
   DeriveKeyUsage?: DeriveKeyUsage | undefined;
@@ -673,8 +662,7 @@ export interface Key {
   KeyCheckValue: string | undefined;
 
   /**
-   * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.</p>
-   *          <p>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</p>
+   * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.</p> <p>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</p>
    * @public
    */
   KeyCheckValueAlgorithm: KeyCheckValueAlgorithm | undefined;
@@ -780,7 +768,7 @@ export interface DeleteKeyOutput {
 }
 
 /**
- * <p>Derivation data used to derive an ECDH key.</p>
+ * <p>The shared information used when deriving a key using ECDH.</p>
  * @public
  */
 export type DiffieHellmanDerivationData =
@@ -792,8 +780,7 @@ export type DiffieHellmanDerivationData =
  */
 export namespace DiffieHellmanDerivationData {
   /**
-   * <p>A byte string containing information that binds the ECDH derived key to the two parties involved or to the context of the key.</p>
-   *          <p>It may include details like identities of the two parties deriving the key, context of the operation, session IDs, and optionally a nonce. It must not contain zero bytes, and re-using shared information for multiple ECDH key derivations is not recommended.</p>
+   * <p>A string containing information that binds the ECDH derived key to the two parties involved or to the context of the key.</p> <p>It may include details like identities of the two parties deriving the key, context of the operation, session IDs, and optionally a nonce. It must not contain zero bytes. It is not recommended to reuse shared information for multiple ECDH key derivations, as it could result in derived key material being the same across different derivations.</p>
    * @public
    */
   export interface SharedInformationMember {
@@ -826,8 +813,7 @@ export namespace DiffieHellmanDerivationData {
  */
 export interface ExportDukptInitialKey {
   /**
-   * <p>The KSN for IPEK generation using DUKPT. </p>
-   *          <p>KSN must be padded before sending to Amazon Web Services Payment Cryptography. KSN hex length should be 20 for a TDES_2KEY key or 24 for an AES key.</p>
+   * <p>The KSN for IPEK generation using DUKPT. </p> <p>KSN must be padded before sending to Amazon Web Services Payment Cryptography. KSN hex length should be 20 for a TDES_2KEY key or 24 for an AES key.</p>
    * @public
    */
   KeySerialNumber: string | undefined;
@@ -845,8 +831,7 @@ export interface ExportAttributes {
   ExportDukptInitialKey?: ExportDukptInitialKey | undefined;
 
   /**
-   * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity. Specify KCV for IPEK export only.</p>
-   *          <p>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</p>
+   * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity. Specify KCV for IPEK export only.</p> <p>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</p>
    * @public
    */
   KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm | undefined;
@@ -860,6 +845,10 @@ export const SymmetricKeyAlgorithm = {
   AES_128: "AES_128",
   AES_192: "AES_192",
   AES_256: "AES_256",
+  HMAC_SHA224: "HMAC_SHA224",
+  HMAC_SHA256: "HMAC_SHA256",
+  HMAC_SHA384: "HMAC_SHA384",
+  HMAC_SHA512: "HMAC_SHA512",
   TDES_2KEY: "TDES_2KEY",
   TDES_3KEY: "TDES_3KEY",
 } as const;
@@ -896,8 +885,7 @@ export interface KeyBlockHeaders {
   KeyModesOfUse?: KeyModesOfUse | undefined;
 
   /**
-   * <p>Specifies subsequent exportability of the key within the key block after it is received by the receiving party. It can be used to further restrict exportability of the key after export from Amazon Web Services Payment Cryptography.</p>
-   *          <p>When set to <code>EXPORTABLE</code>, the key can be subsequently exported by the receiver under a KEK using TR-31 or TR-34 key block export only. When set to <code>NON_EXPORTABLE</code>, the key cannot be subsequently exported by the receiver. When set to <code>SENSITIVE</code>, the key can be exported by the receiver under a KEK using TR-31, TR-34, RSA wrap and unwrap cryptogram or using a symmetric cryptogram key export method. For further information refer to <a href="https://webstore.ansi.org/standards/ascx9/ansix91432022">ANSI X9.143-2022</a>.</p>
+   * <p>Specifies subsequent exportability of the key within the key block after it is received by the receiving party. It can be used to further restrict exportability of the key after export from Amazon Web Services Payment Cryptography.</p> <p>When set to <code>EXPORTABLE</code>, the key can be subsequently exported by the receiver under a KEK using TR-31 or TR-34 key block export only. When set to <code>NON_EXPORTABLE</code>, the key cannot be subsequently exported by the receiver. When set to <code>SENSITIVE</code>, the key can be exported by the receiver under a KEK using TR-31, TR-34, RSA wrap and unwrap cryptogram or using a symmetric cryptogram key export method. For further information refer to <a href="https://webstore.ansi.org/standards/ascx9/ansix91432022">ANSI X9.143-2022</a>.</p>
    * @public
    */
   KeyExportability?: KeyExportability | undefined;
@@ -909,8 +897,7 @@ export interface KeyBlockHeaders {
   KeyVersion?: string | undefined;
 
   /**
-   * <p>Parameter used to indicate the type of optional data in key block headers. Refer to <a href="https://webstore.ansi.org/standards/ascx9/ansix91432022">ANSI X9.143-2022</a> for information on allowed data type for optional blocks.</p>
-   *          <p>Optional block character limit is 112 characters. For each optional block, 2 characters are reserved for optional block ID and 2 characters reserved for optional block length. More than one optional blocks can be included as long as the combined length does not increase 112 characters.</p>
+   * <p>Parameter used to indicate the type of optional data in key block headers. Refer to <a href="https://webstore.ansi.org/standards/ascx9/ansix91432022">ANSI X9.143-2022</a> for information on allowed data type for optional blocks.</p> <p>Optional block character limit is 112 characters. For each optional block, 2 characters are reserved for optional block ID and 2 characters reserved for optional block length. More than one optional blocks can be included as long as the combined length does not increase 112 characters.</p>
    * @public
    */
   OptionalBlocks?: Record<string, string> | undefined;
@@ -946,48 +933,48 @@ export const KeyDerivationHashAlgorithm = {
 export type KeyDerivationHashAlgorithm = (typeof KeyDerivationHashAlgorithm)[keyof typeof KeyDerivationHashAlgorithm];
 
 /**
- * <p>Parameter information for key material export using the asymmetric ECDH key exchange method.</p>
+ * <p>Key derivation parameter information for key material export using asymmetric ECDH key exchange method.</p>
  * @public
  */
 export interface ExportDiffieHellmanTr31KeyBlock {
   /**
-   * <p>The <code>keyARN</code> of the asymmetric ECC key.</p>
+   * <p>The <code>keyARN</code> of the asymmetric ECC key created within Amazon Web Services Payment Cryptography.</p>
    * @public
    */
   PrivateKeyIdentifier: string | undefined;
 
   /**
-   * <p>The <code>keyARN</code> of the certificate that signed the client's <code>PublicKeyCertificate</code>.</p>
+   * <p>The <code>keyARN</code> of the CA that signed the <code>PublicKeyCertificate</code> for the client's receiving ECC key pair.</p>
    * @public
    */
   CertificateAuthorityPublicKeyIdentifier: string | undefined;
 
   /**
-   * <p>The client's public key certificate in PEM format (base64 encoded) to use for ECDH key derivation.</p>
+   * <p>The public key certificate of the client's receiving ECC key pair, in PEM format (base64 encoded), to use for ECDH key derivation.</p>
    * @public
    */
   PublicKeyCertificate: string | undefined;
 
   /**
-   * <p>The key algorithm of the derived ECDH key.</p>
+   * <p>The key algorithm of the shared derived ECDH key.</p>
    * @public
    */
   DeriveKeyAlgorithm: SymmetricKeyAlgorithm | undefined;
 
   /**
-   * <p>The key derivation function to use for deriving a key using ECDH.</p>
+   * <p>The key derivation function to use when deriving a key using ECDH.</p>
    * @public
    */
   KeyDerivationFunction: KeyDerivationFunction | undefined;
 
   /**
-   * <p>The hash type to use for deriving a key using ECDH.</p>
+   * <p>The hash type to use when deriving a key using ECDH.</p>
    * @public
    */
   KeyDerivationHashAlgorithm: KeyDerivationHashAlgorithm | undefined;
 
   /**
-   * <p>Derivation data used to derive an ECDH key.</p>
+   * <p>The shared information used when deriving a key using ECDH.</p>
    * @public
    */
   DerivationData: DiffieHellmanDerivationData | undefined;
@@ -1086,7 +1073,7 @@ export interface ExportTr34KeyBlock {
   WrappingKeyCertificate: string | undefined;
 
   /**
-   * <p>The export token to initiate key export from Amazon Web Services Payment Cryptography. It also contains the signing key certificate that will sign the wrapped key during TR-34 key block generation. Call <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForExport.html">GetParametersForExport</a> to receive an export token. It expires after 7 days. You can use the same export token to export multiple keys from the same service account.</p>
+   * <p>The export token to initiate key export from Amazon Web Services Payment Cryptography. It also contains the signing key certificate that will sign the wrapped key during TR-34 key block generation. Call <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForExport.html">GetParametersForExport</a> to receive an export token. It expires after 30 days. You can use the same export token to export multiple keys from the same service account.</p>
    * @public
    */
   ExportToken: string | undefined;
@@ -1162,7 +1149,7 @@ export namespace ExportKeyMaterial {
   }
 
   /**
-   * <p>Parameter information for key material export using the asymmetric ECDH key exchange method.</p>
+   * <p>Key derivation parameter information for key material export using asymmetric ECDH key exchange method.</p>
    * @public
    */
   export interface DiffieHellmanTr31KeyBlockMember {
@@ -1270,8 +1257,7 @@ export interface WrappedKey {
   KeyCheckValue?: string | undefined;
 
   /**
-   * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.</p>
-   *          <p>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</p>
+   * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.</p> <p>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</p>
    * @public
    */
   KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm | undefined;
@@ -1349,7 +1335,7 @@ export interface GetParametersForExportInput {
  */
 export interface GetParametersForExportOutput {
   /**
-   * <p>The signing key certificate in PEM format (base64 encoded) of the public key for signature within the TR-34 key block. The certificate expires after 7 days.</p>
+   * <p>The signing key certificate in PEM format (base64 encoded) of the public key for signature within the TR-34 key block. The certificate expires after 30 days.</p>
    * @public
    */
   SigningKeyCertificate: string | undefined;
@@ -1367,7 +1353,7 @@ export interface GetParametersForExportOutput {
   SigningKeyAlgorithm: KeyAlgorithm | undefined;
 
   /**
-   * <p>The export token to initiate key export from Amazon Web Services Payment Cryptography. The export token expires after 7 days. You can use the same export token to export multiple keys from the same service account.</p>
+   * <p>The export token to initiate key export from Amazon Web Services Payment Cryptography. The export token expires after 30 days. You can use the same export token to export multiple keys from the same service account.</p>
    * @public
    */
   ExportToken: string | undefined;
@@ -1384,15 +1370,13 @@ export interface GetParametersForExportOutput {
  */
 export interface GetParametersForImportInput {
   /**
-   * <p>The method to use for key material import. Import token is only required for TR-34 WrappedKeyBlock (<code>TR34_KEY_BLOCK</code>) and RSA WrappedKeyCryptogram (<code>KEY_CRYPTOGRAM</code>).</p>
-   *          <p>Import token is not required for TR-31, root public key cerificate or trusted public key certificate.</p>
+   * <p>The method to use for key material import. Import token is only required for TR-34 WrappedKeyBlock (<code>TR34_KEY_BLOCK</code>) and RSA WrappedKeyCryptogram (<code>KEY_CRYPTOGRAM</code>).</p> <p>Import token is not required for TR-31, root public key cerificate or trusted public key certificate.</p>
    * @public
    */
   KeyMaterialType: KeyMaterialType | undefined;
 
   /**
-   * <p>The wrapping key algorithm to generate a wrapping key certificate. This certificate wraps the key under import.</p>
-   *          <p>At this time, <code>RSA_2048</code> is the allowed algorithm for TR-34 WrappedKeyBlock import. Additionally, <code>RSA_2048</code>, <code>RSA_3072</code>, <code>RSA_4096</code> are the allowed algorithms for RSA WrappedKeyCryptogram import.</p>
+   * <p>The wrapping key algorithm to generate a wrapping key certificate. This certificate wraps the key under import.</p> <p>At this time, <code>RSA_2048</code> is the allowed algorithm for TR-34 WrappedKeyBlock import. Additionally, <code>RSA_2048</code>, <code>RSA_3072</code>, <code>RSA_4096</code> are the allowed algorithms for RSA WrappedKeyCryptogram import.</p>
    * @public
    */
   WrappingKeyAlgorithm: KeyAlgorithm | undefined;
@@ -1403,7 +1387,7 @@ export interface GetParametersForImportInput {
  */
 export interface GetParametersForImportOutput {
   /**
-   * <p>The wrapping key certificate in PEM format (base64 encoded) of the wrapping key for use within the TR-34 key block. The certificate expires in 7 days.</p>
+   * <p>The wrapping key certificate in PEM format (base64 encoded) of the wrapping key for use within the TR-34 key block. The certificate expires in 30 days.</p>
    * @public
    */
   WrappingKeyCertificate: string | undefined;
@@ -1421,7 +1405,7 @@ export interface GetParametersForImportOutput {
   WrappingKeyAlgorithm: KeyAlgorithm | undefined;
 
   /**
-   * <p>The import token to initiate key import into Amazon Web Services Payment Cryptography. The import token expires after 7 days. You can use the same import token to import multiple keys to the same service account.</p>
+   * <p>The import token to initiate key import into Amazon Web Services Payment Cryptography. The import token expires after 30 days. You can use the same import token to import multiple keys to the same service account.</p>
    * @public
    */
   ImportToken: string | undefined;
@@ -1462,48 +1446,48 @@ export interface GetPublicKeyCertificateOutput {
 }
 
 /**
- * <p>Parameter information for key material import using the asymmetric ECDH key exchange method.</p>
+ * <p>Key derivation parameter information for key material import using asymmetric ECDH key exchange method.</p>
  * @public
  */
 export interface ImportDiffieHellmanTr31KeyBlock {
   /**
-   * <p>The <code>keyARN</code> of the asymmetric ECC key.</p>
+   * <p>The <code>keyARN</code> of the asymmetric ECC key created within Amazon Web Services Payment Cryptography.</p>
    * @public
    */
   PrivateKeyIdentifier: string | undefined;
 
   /**
-   * <p>The <code>keyARN</code> of the certificate that signed the client's <code>PublicKeyCertificate</code>.</p>
+   * <p>The <code>keyARN</code> of the CA that signed the <code>PublicKeyCertificate</code> for the client's receiving ECC key pair.</p>
    * @public
    */
   CertificateAuthorityPublicKeyIdentifier: string | undefined;
 
   /**
-   * <p>The client's public key certificate in PEM format (base64 encoded) to use for ECDH key derivation.</p>
+   * <p>The public key certificate of the client's receiving ECC key pair, in PEM format (base64 encoded), to use for ECDH key derivation.</p>
    * @public
    */
   PublicKeyCertificate: string | undefined;
 
   /**
-   * <p>The key algorithm of the derived ECDH key.</p>
+   * <p>The key algorithm of the shared derived ECDH key.</p>
    * @public
    */
   DeriveKeyAlgorithm: SymmetricKeyAlgorithm | undefined;
 
   /**
-   * <p>The key derivation function to use for deriving a key using ECDH.</p>
+   * <p>The key derivation function to use when deriving a key using ECDH.</p>
    * @public
    */
   KeyDerivationFunction: KeyDerivationFunction | undefined;
 
   /**
-   * <p>The hash type to use for deriving a key using ECDH.</p>
+   * <p>The hash type to use when deriving a key using ECDH.</p>
    * @public
    */
   KeyDerivationHashAlgorithm: KeyDerivationHashAlgorithm | undefined;
 
   /**
-   * <p>Derivation data used to derive an ECDH key.</p>
+   * <p>The shared information used when deriving a key using ECDH.</p>
    * @public
    */
   DerivationData: DiffieHellmanDerivationData | undefined;
@@ -1539,7 +1523,7 @@ export interface ImportKeyCryptogram {
   WrappedKeyCryptogram: string | undefined;
 
   /**
-   * <p>The import token that initiates key import using the asymmetric RSA wrap and unwrap key exchange method into AWS Payment Cryptography. It expires after 7 days. You can use the same import token to import multiple keys to the same service account.</p>
+   * <p>The import token that initiates key import using the asymmetric RSA wrap and unwrap key exchange method into AWS Payment Cryptography. It expires after 30 days. You can use the same import token to import multiple keys to the same service account.</p>
    * @public
    */
   ImportToken: string | undefined;
@@ -1605,7 +1589,7 @@ export interface ImportTr34KeyBlock {
   SigningKeyCertificate: string | undefined;
 
   /**
-   * <p>The import token that initiates key import using the asymmetric TR-34 key exchange method into Amazon Web Services Payment Cryptography. It expires after 7 days. You can use the same import token to import multiple keys to the same service account.</p>
+   * <p>The import token that initiates key import using the asymmetric TR-34 key exchange method into Amazon Web Services Payment Cryptography. It expires after 30 days. You can use the same import token to import multiple keys to the same service account.</p>
    * @public
    */
   ImportToken: string | undefined;
@@ -1741,7 +1725,7 @@ export namespace ImportKeyMaterial {
   }
 
   /**
-   * <p>Parameter information for key material import using the asymmetric ECDH key exchange method.</p>
+   * <p>Key derivation parameter information for key material import using asymmetric ECDH key exchange method.</p>
    * @public
    */
   export interface DiffieHellmanTr31KeyBlockMember {
@@ -1802,8 +1786,7 @@ export interface ImportKeyInput {
   KeyMaterial: ImportKeyMaterial | undefined;
 
   /**
-   * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.</p>
-   *          <p>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</p>
+   * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.</p> <p>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</p>
    * @public
    */
   KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm | undefined;
@@ -1815,14 +1798,7 @@ export interface ImportKeyInput {
   Enabled?: boolean | undefined;
 
   /**
-   * <p>Assigns one or more tags to the Amazon Web Services Payment Cryptography key. Use this parameter to tag a key when it is imported. To tag an existing Amazon Web Services Payment Cryptography key, use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a> operation.</p>
-   *          <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You can't have more than one tag on an Amazon Web Services Payment Cryptography key with the same tag key. If you specify an existing tag key with a different tag value, Amazon Web Services Payment Cryptography replaces the current tag value with the specified one.</p>
-   *          <important>
-   *             <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-   *          </important>
-   *          <note>
-   *             <p>Tagging or untagging an Amazon Web Services Payment Cryptography key can allow or deny permission to the key.</p>
-   *          </note>
+   * <p>Assigns one or more tags to the Amazon Web Services Payment Cryptography key. Use this parameter to tag a key when it is imported. To tag an existing Amazon Web Services Payment Cryptography key, use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a> operation.</p> <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You can't have more than one tag on an Amazon Web Services Payment Cryptography key with the same tag key. If you specify an existing tag key with a different tag value, Amazon Web Services Payment Cryptography replaces the current tag value with the specified one.</p> <important> <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important> <note> <p>Tagging or untagging an Amazon Web Services Payment Cryptography key can allow or deny permission to the key.</p> </note>
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -1856,8 +1832,7 @@ export interface ListKeysInput {
   NextToken?: string | undefined;
 
   /**
-   * <p>Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer.</p>
-   *          <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
+   * <p>Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer.</p> <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2005,8 +1980,7 @@ export interface ListTagsForResourceInput {
   NextToken?: string | undefined;
 
   /**
-   * <p>Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer.</p>
-   *          <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
+   * <p>Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer.</p> <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2040,14 +2014,7 @@ export interface TagResourceInput {
   ResourceArn: string | undefined;
 
   /**
-   * <p>One or more tags. Each tag consists of a tag key and a tag value. The tag value can be an empty (null) string. You can't have more than one tag on an Amazon Web Services Payment Cryptography key with the same tag key. If you specify an existing tag key with a different tag value, Amazon Web Services Payment Cryptography replaces the current tag value with the new one.</p>
-   *          <important>
-   *             <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-   *          </important>
-   *          <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a> permission in an IAM policy.</p>
-   *          <important>
-   *             <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-   *          </important>
+   * <p>One or more tags. Each tag consists of a tag key and a tag value. The tag value can be an empty (null) string. You can't have more than one tag on an Amazon Web Services Payment Cryptography key with the same tag key. If you specify an existing tag key with a different tag value, Amazon Web Services Payment Cryptography replaces the current tag value with the new one.</p> <important> <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important> <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a> permission in an IAM policy.</p> <important> <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important>
    * @public
    */
   Tags: Tag[] | undefined;
@@ -2069,8 +2036,7 @@ export interface UntagResourceInput {
   ResourceArn: string | undefined;
 
   /**
-   * <p>One or more tag keys. Don't include the tag values.</p>
-   *          <p>If the Amazon Web Services Payment Cryptography key doesn't have the specified tag key, Amazon Web Services Payment Cryptography doesn't throw an exception or return a response. To confirm that the operation succeeded, use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a> operation.</p>
+   * <p>One or more tag keys. Don't include the tag values.</p> <p>If the Amazon Web Services Payment Cryptography key doesn't have the specified tag key, Amazon Web Services Payment Cryptography doesn't throw an exception or return a response. To confirm that the operation succeeded, use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a> operation.</p>
    * @public
    */
   TagKeys: string[] | undefined;
