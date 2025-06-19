@@ -37,31 +37,7 @@ export interface GenerateMacEmvPinChangeCommandInput extends GenerateMacEmvPinCh
 export interface GenerateMacEmvPinChangeCommandOutput extends GenerateMacEmvPinChangeOutput, __MetadataBearer {}
 
 /**
- * <p>Generates an issuer script mac for EMV payment cards that use offline PINs as the cardholder verification method (CVM).</p>
- *          <p>This operation generates an authenticated issuer script response by appending the incoming message data (APDU command) with the target encrypted PIN block in ISO2 format. The command structure and method to send the issuer script update to the card is not defined by this operation and is typically determined by the applicable payment card scheme.</p>
- *          <p>The primary inputs to this operation include the incoming new encrypted pinblock, PIN encryption key (PEK), issuer master key (IMK), primary account number (PAN), and the payment card derivation method.</p>
- *          <p>The operation uses two issuer master keys - secure messaging for confidentiality (IMK-SMC) and secure messaging for integrity (IMK-SMI). The SMC key is used to internally derive a key to secure the pin, while SMI key is used to internally derive a key to authenticate the script reponse as per the <a href="https://www.emvco.com/specifications/">EMV 4.4 - Book 2 - Security and Key Management</a> specification. </p>
- *          <p>This operation supports Amex, EMV2000, EMVCommon, Mastercard and Visa derivation methods, each requiring specific input parameters. Users must follow the specific derivation method and input parameters defined by the respective payment card scheme.</p>
- *          <note>
- *             <p>Use <a>GenerateMac</a> operation when sending a script update to an EMV card that does not involve PIN change. When assigning IAM permissions, it is important to understand that <a>EncryptData</a> using EMV keys and <a>GenerateMac</a> perform similar functions to this command.</p>
- *          </note>
- *          <p>
- *             <b>Cross-account use</b>: This operation can't be used across different Amazon Web Services accounts.</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>EncryptData</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GenerateMac</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Generates an issuer script mac for EMV payment cards that use offline PINs as the cardholder verification method (CVM).</p> <p>This operation generates an authenticated issuer script response by appending the incoming message data (APDU command) with the target encrypted PIN block in ISO2 format. The command structure and method to send the issuer script update to the card is not defined by this operation and is typically determined by the applicable payment card scheme.</p> <p>The primary inputs to this operation include the incoming new encrypted pinblock, PIN encryption key (PEK), issuer master key (IMK), primary account number (PAN), and the payment card derivation method.</p> <p>The operation uses two issuer master keys - secure messaging for confidentiality (IMK-SMC) and secure messaging for integrity (IMK-SMI). The SMC key is used to internally derive a key to secure the pin, while SMI key is used to internally derive a key to authenticate the script reponse as per the <a href="https://www.emvco.com/specifications/">EMV 4.4 - Book 2 - Security and Key Management</a> specification. </p> <p>This operation supports Amex, EMV2000, EMVCommon, Mastercard and Visa derivation methods, each requiring specific input parameters. Users must follow the specific derivation method and input parameters defined by the respective payment card scheme.</p> <note> <p>Use <a>GenerateMac</a> operation when sending a script update to an EMV card that does not involve PIN change. When assigning IAM permissions, it is important to understand that <a>EncryptData</a> using EMV keys and <a>GenerateMac</a> perform similar functions to this command.</p> </note> <p> <b>Cross-account use</b>: This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a>EncryptData</a> </p> </li> <li> <p> <a>GenerateMac</a> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
