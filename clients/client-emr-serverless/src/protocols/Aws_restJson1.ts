@@ -66,6 +66,7 @@ import {
   ConfigurationOverrides,
   ConflictException,
   Hive,
+  IdentityCenterConfigurationInput,
   ImageConfigurationInput,
   InitialCapacityConfig,
   InteractiveConfiguration,
@@ -132,6 +133,7 @@ export const se_CreateApplicationCommand = async (
       autoStartConfiguration: (_) => _json(_),
       autoStopConfiguration: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      identityCenterConfiguration: (_) => _json(_),
       imageConfiguration: (_) => _json(_),
       initialCapacity: (_) => _json(_),
       interactiveConfiguration: (_) => _json(_),
@@ -431,6 +433,7 @@ export const se_UpdateApplicationCommand = async (
       autoStartConfiguration: (_) => _json(_),
       autoStopConfiguration: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      identityCenterConfiguration: (_) => _json(_),
       imageConfiguration: (_) => _json(_),
       initialCapacity: (_) => _json(_),
       interactiveConfiguration: (_) => _json(_),
@@ -943,6 +946,8 @@ const se_ConfigurationOverrides = (input: ConfigurationOverrides, context: __Ser
 
 // se_Hive omitted.
 
+// se_IdentityCenterConfigurationInput omitted.
+
 // se_ImageConfigurationInput omitted.
 
 // se_InitialCapacityConfig omitted.
@@ -1004,6 +1009,7 @@ const de_Application = (output: any, context: __SerdeContext): Application => {
     autoStartConfiguration: _json,
     autoStopConfiguration: _json,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    identityCenterConfiguration: _json,
     imageConfiguration: _json,
     initialCapacity: _json,
     interactiveConfiguration: _json,
@@ -1095,6 +1101,8 @@ const de_ConfigurationOverrides = (output: any, context: __SerdeContext): Config
 // de_EntryPointArguments omitted.
 
 // de_Hive omitted.
+
+// de_IdentityCenterConfiguration omitted.
 
 // de_ImageConfiguration omitted.
 

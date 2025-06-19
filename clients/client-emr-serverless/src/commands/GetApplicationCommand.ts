@@ -151,6 +151,10 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //       queueTimeoutMinutes: Number("int"),
  * //       maxConcurrentRuns: Number("int"),
  * //     },
+ * //     identityCenterConfiguration: { // IdentityCenterConfiguration
+ * //       identityCenterInstanceArn: "STRING_VALUE",
+ * //       identityCenterApplicationArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

@@ -135,6 +135,9 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *     queueTimeoutMinutes: Number("int"),
  *     maxConcurrentRuns: Number("int"),
  *   },
+ *   identityCenterConfiguration: { // IdentityCenterConfigurationInput
+ *     identityCenterInstanceArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
@@ -244,6 +247,10 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //     schedulerConfiguration: { // SchedulerConfiguration
  * //       queueTimeoutMinutes: Number("int"),
  * //       maxConcurrentRuns: Number("int"),
+ * //     },
+ * //     identityCenterConfiguration: { // IdentityCenterConfiguration
+ * //       identityCenterInstanceArn: "STRING_VALUE",
+ * //       identityCenterApplicationArn: "STRING_VALUE",
  * //     },
  * //   },
  * // };

@@ -48,6 +48,24 @@ export interface AutoStopConfig {
 }
 
 /**
+ * <p>The IAM Identity Center Configuration that includes the Identify Center instance and application ARNs that provide trusted-identity propagation.</p>
+ * @public
+ */
+export interface IdentityCenterConfiguration {
+  /**
+   * <p>The ARN of the IAM Identity Center instance.</p>
+   * @public
+   */
+  identityCenterInstanceArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the EMR Serverless created IAM Identity Center Application that provides trusted-identity propagation.</p>
+   * @public
+   */
+  identityCenterApplicationArn?: string | undefined;
+}
+
+/**
  * <p>The applied image configuration.</p>
  * @public
  */
@@ -420,6 +438,18 @@ export class ConflictException extends __BaseException {
     });
     Object.setPrototypeOf(this, ConflictException.prototype);
   }
+}
+
+/**
+ * <p>Specifies the IAM Identity Center configuration used to enable or disable trusted identity propagation. When provided, this configuration determines how the application interacts with IAM Identity Center for user authentication and access control.</p>
+ * @public
+ */
+export interface IdentityCenterConfigurationInput {
+  /**
+   * <p>The ARN of the IAM Identity Center instance.</p>
+   * @public
+   */
+  identityCenterInstanceArn?: string | undefined;
 }
 
 /**
@@ -1527,6 +1557,12 @@ export interface Application {
    * @public
    */
   schedulerConfiguration?: SchedulerConfiguration | undefined;
+
+  /**
+   * <p>The IAM Identity Center configuration applied to enable trusted identity propagation. </p>
+   * @public
+   */
+  identityCenterConfiguration?: IdentityCenterConfiguration | undefined;
 }
 
 /**
@@ -1652,6 +1688,12 @@ export interface CreateApplicationRequest {
    * @public
    */
   schedulerConfiguration?: SchedulerConfiguration | undefined;
+
+  /**
+   * <p>The IAM Identity Center Configuration accepts the Identity Center instance parameter required to enable trusted identity propagation. This configuration allows identity propagation between integrated services and the Identity Center instance.</p>
+   * @public
+   */
+  identityCenterConfiguration?: IdentityCenterConfigurationInput | undefined;
 }
 
 /**
@@ -1747,6 +1789,12 @@ export interface UpdateApplicationRequest {
    * @public
    */
   schedulerConfiguration?: SchedulerConfiguration | undefined;
+
+  /**
+   * <p>Specifies the IAM Identity Center configuration used to enable or disable trusted identity propagation. When provided, this configuration determines how the application interacts with IAM Identity Center for user authentication and access control.</p>
+   * @public
+   */
+  identityCenterConfiguration?: IdentityCenterConfigurationInput | undefined;
 }
 
 /**

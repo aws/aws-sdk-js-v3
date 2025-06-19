@@ -138,6 +138,9 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *     queueTimeoutMinutes: Number("int"),
  *     maxConcurrentRuns: Number("int"),
  *   },
+ *   identityCenterConfiguration: { // IdentityCenterConfigurationInput
+ *     identityCenterInstanceArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
