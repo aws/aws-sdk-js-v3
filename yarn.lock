@@ -24927,7 +24927,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@biomejs/biome@npm:^2.0.0":
+"@biomejs/biome@npm:2.0.0":
   version: 2.0.0
   resolution: "@biomejs/biome@npm:2.0.0"
   dependencies:
@@ -24962,7 +24962,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@biomejs/cli-darwin-arm64@npm:2.0.0, @biomejs/cli-darwin-arm64@npm:^2.0.0":
+"@biomejs/cli-darwin-arm64@npm:2.0.0":
   version: 2.0.0
   resolution: "@biomejs/cli-darwin-arm64@npm:2.0.0"
   checksum: 10c0/764c0c31fd9d3f7f6c865747dc21cfb41a18489ef9a0ee46ad77e90cb06c29d42c4e8c33a00287c61f20cf192a91977a83c66785f34a3fe537c828147737f4d9
@@ -24991,7 +24991,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@biomejs/cli-linux-x64-musl@npm:2.0.0, @biomejs/cli-linux-x64-musl@npm:^2.0.0":
+"@biomejs/cli-linux-x64-musl@npm:2.0.0":
   version: 2.0.0
   resolution: "@biomejs/cli-linux-x64-musl@npm:2.0.0"
   checksum: 10c0/a40735fe8d2f450415615abd8269057b93c1e2845b08b86df147621bb520c1c706d4b6d1cfb1efcf3d0f2ec7d97c5170a2e9a25cb50784b2bddecf4bfb81f5a6
@@ -30724,9 +30724,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "aws-sdk-js-v3@workspace:."
   dependencies:
-    "@biomejs/biome": "npm:^2.0.0"
-    "@biomejs/cli-darwin-arm64": "npm:^2.0.0"
-    "@biomejs/cli-linux-x64-musl": "npm:^2.0.0"
+    "@biomejs/biome": "npm:2.0.0"
+    "@biomejs/cli-darwin-arm64": "npm:2.0.0"
+    "@biomejs/cli-linux-x64-musl": "npm:2.0.0"
     "@commitlint/cli": "npm:17.0.2"
     "@commitlint/config-conventional": "npm:17.0.2"
     "@cucumber/cucumber": "npm:8.5.3"
