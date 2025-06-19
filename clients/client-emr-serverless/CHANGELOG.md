@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.833.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.832.0...v3.833.0) (2025-06-19)
+
+
+### Features
+
+* **client-emr-serverless:** This release adds the capability to enable IAM IdentityCenter Trusted Identity Propagation for users running Interactive Sessions on EMR Serverless Applications. ([60a7e91](https://github.com/aws/aws-sdk-js-v3/commit/60a7e91d7a5be4e4149890632121b86fb10feb0e))
+
+
+
+
+
 # [3.830.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.829.0...v3.830.0) (2025-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-emr-serverless

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.833.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.832.0...v3.833.0) (2025-06-19)
+
+
+### Features
+
+* **client-sagemaker:** This release introduces alternative support for utilizing CFN templates from S3 for SageMaker Projects. ([49f6cc2](https://github.com/aws/aws-sdk-js-v3/commit/49f6cc2f2d3968aa24d2e84f2f5f4237c8b65562))
+
+
+
+
+
 # [3.832.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.831.0...v3.832.0) (2025-06-18)
 
 

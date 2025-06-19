@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.833.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.832.0...v3.833.0) (2025-06-19)
+
+
+### Features
+
+* **client-payment-cryptography:** Additional support for managing HMAC keys that adheres to changes documented in X9.143-2021 and provides better interoperability for key import/export ([cfa33df](https://github.com/aws/aws-sdk-js-v3/commit/cfa33dfa9a97c0e9071a45f0932a07a04b3b803a))
+
+
+
+
+
 # [3.830.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.829.0...v3.830.0) (2025-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-payment-cryptography

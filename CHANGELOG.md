@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.833.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.832.0...v3.833.0) (2025-06-19)
+
+
+### Features
+
+* **client-bedrock:** This release of the SDK has the API and documentation for the createcustommodel API. This feature lets you copy a trained model into Amazon Bedrock for inference. ([4b11c84](https://github.com/aws/aws-sdk-js-v3/commit/4b11c8446d61cd0a3196ffe691c9d40489b1504e))
+* **client-emr-serverless:** This release adds the capability to enable IAM IdentityCenter Trusted Identity Propagation for users running Interactive Sessions on EMR Serverless Applications. ([60a7e91](https://github.com/aws/aws-sdk-js-v3/commit/60a7e91d7a5be4e4149890632121b86fb10feb0e))
+* **client-lambda:** Support Schema Registry feature for Kafka Event Source Mapping. Customers can now configure a Schema Registry to enable schema validation and filtering for Avro, Protobuf, and JSON-formatted events in Lambda for Kafka Event Source. ([fdd8bd3](https://github.com/aws/aws-sdk-js-v3/commit/fdd8bd3fc2e1d3fb5964f00ff4e1d803384ebc20))
+* **client-payment-cryptography-data:** Additional support for managing HMAC keys that adheres to changes documented in X9.143-2021 and provides better interoperability for key import/export ([ba9270e](https://github.com/aws/aws-sdk-js-v3/commit/ba9270e673e00422f27ff0a9c18d0b434ddbc373))
+* **client-payment-cryptography:** Additional support for managing HMAC keys that adheres to changes documented in X9.143-2021 and provides better interoperability for key import/export ([cfa33df](https://github.com/aws/aws-sdk-js-v3/commit/cfa33dfa9a97c0e9071a45f0932a07a04b3b803a))
+* **client-sagemaker:** This release introduces alternative support for utilizing CFN templates from S3 for SageMaker Projects. ([49f6cc2](https://github.com/aws/aws-sdk-js-v3/commit/49f6cc2f2d3968aa24d2e84f2f5f4237c8b65562))
+
+
+
+
+
 # [3.832.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.831.0...v3.832.0) (2025-06-18)
 
 
