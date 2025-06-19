@@ -1,5 +1,6 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const { listFolders } = require("../utils/list-folders");
 
 const root = path.join(__dirname, "..", "..");
 const packages = path.join(root, "packages");
@@ -26,7 +27,6 @@ const clients = path.join(root, "clients");
 
     if (pkgJson.private !== true) {
       throw new Error("package in reserved folder is not marked private:", folder);
-    } else {
     }
   }
 }
@@ -36,16 +36,13 @@ const clients = path.join(root, "clients");
  */
 {
   const hasPkgJson = (subfolder, pkg) => fs.existsSync(path.join(subfolder, pkg, "package.json"));
-  const packagesData = fs
-    .readdirSync(packages)
+  const packagesData = listFolders(packages)
     .filter(hasPkgJson.bind(null, "packages"))
     .map((pkg) => require(path.join(packages, pkg, "package.json")));
-  const libsData = fs
-    .readdirSync(libs)
+  const libsData = listFolders(libs)
     .filter(hasPkgJson.bind(null, "libs"))
     .map((pkg) => require(path.join(libs, pkg, "package.json")));
-  const clientsData = fs
-    .readdirSync(clients)
+  const clientsData = listFolders(clients)
     .filter(hasPkgJson.bind(null, "clients"))
     .map((pkg) => require(path.join(clients, pkg, "package.json")));
 

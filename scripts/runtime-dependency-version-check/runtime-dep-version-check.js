@@ -22,27 +22,21 @@
 
 const fs = require("fs");
 const path = require("path");
+const { listFolders } = require("../utils/list-folders");
 
 const root = path.join(__dirname, "..", "..");
 
-const clients = fs.readdirSync(path.join(root, "clients"));
-const lib = fs.readdirSync(path.join(root, "lib"));
-const packages = fs.readdirSync(path.join(root, "packages"));
-const _private = fs.readdirSync(path.join(root, "private"));
+const clients = listFolders(path.join(root, "clients"), false);
+const lib = listFolders(path.join(root, "lib"), false);
+const packages = listFolders(path.join(root, "packages"), false);
+const _private = listFolders(path.join(root, "private"), false);
 
 const setCanonicalVersion = process.argv.includes("--set-smithy-version");
 const colocatedSmithy = fs.existsSync(path.join(root, "..", "smithy-typescript", "packages"));
 
-const clientPackages = [
-  ...clients.map((c) => path.join(root, "clients", c)),
-  ..._private.filter((p) => !p.endsWith("-test")).map((p) => path.join(root, "private", p)),
-];
+const clientPackages = [...clients, ..._private.filter((p) => !p.endsWith("-test"))];
 
-const nonClientPackages = [
-  ...lib.map((l) => path.join(root, "lib", l)),
-  ...packages.map((p) => path.join(root, "packages", p)),
-  ..._private.filter((p) => p.endsWith("-test")).map((p) => path.join(root, "private", p)),
-];
+const nonClientPackages = [...lib, ...packages, ..._private.filter((p) => p.endsWith("-test"))];
 
 const deps = {
   /* @namespace/name: {

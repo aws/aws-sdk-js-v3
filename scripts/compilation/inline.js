@@ -7,17 +7,18 @@
 const fs = require("fs");
 const path = require("path");
 const Inliner = require("./Inliner");
+const { listFolders } = require("../utils/list-folders");
 
 const root = path.join(__dirname, "..", "..");
 
-const package = process.argv[2];
+const _package = process.argv[2];
 
-if (!package) {
+if (!_package) {
   /**
    * If no package is selected, this script sets build:cjs scripts to
    * use this inliner script instead of only tsc.
    */
-  const packages = fs.readdirSync(path.join(root, "packages")).map((pkg) => ({
+  const packages = listFolders(path.join(root, "packages")).map((pkg) => ({
     pkgJsonFilePath: path.join(root, "packages", pkg, "package.json"),
     pkg,
   }));
@@ -30,7 +31,7 @@ if (!package) {
   );
 
   packages.push(
-    ...fs.readdirSync(path.join(root, "clients")).map((pkg) => ({
+    ...listFolders(path.join(root, "clients")).map((pkg) => ({
       pkgJsonFilePath: path.join(root, "clients", pkg, "package.json"),
       pkg,
     }))
@@ -43,7 +44,7 @@ if (!package) {
   }
 } else {
   (async () => {
-    const inliner = new Inliner(package);
+    const inliner = new Inliner(_package);
     await inliner.clean();
     await inliner.tsc();
     await inliner.discoverVariants();

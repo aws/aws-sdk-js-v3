@@ -13,9 +13,10 @@ const _private = path.join(root, "private");
 const topLevelFolders = [packages, _private];
 const packageFolders = [];
 const walk = require("../utils/walk");
+const { listFolders } = require("../utils/list-folders");
 
 for (const topLevelFolder of topLevelFolders) {
-  packageFolders.push(...fs.readdirSync(topLevelFolder));
+  packageFolders.push(...listFolders(topLevelFolder));
 }
 
 const node_libraries = [

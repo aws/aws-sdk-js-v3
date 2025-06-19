@@ -1,13 +1,14 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const { listFolders } = require("../utils/list-folders");
 
 const root = path.join(__dirname, "..", "..");
 
 for (const packageFolder of [
-  ...fs.readdirSync(path.join(root, "lib")).map((f) => path.join(root, "lib", f)),
-  ...fs.readdirSync(path.join(root, "packages")).map((f) => path.join(root, "packages", f)),
-  ...fs.readdirSync(path.join(root, "clients")).map((f) => path.join(root, "clients", f)),
-  ...fs.readdirSync(path.join(root, "private")).map((f) => path.join(root, "private", f)),
+  ...listFolders(path.join(root, "lib"), false),
+  ...listFolders(path.join(root, "packages"), false),
+  ...listFolders(path.join(root, "clients"), false),
+  ...listFolders(path.join(root, "private"), false),
 ]) {
   console.log(packageFolder);
 
