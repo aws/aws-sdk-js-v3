@@ -8,6 +8,7 @@ import {
   AppNetworkAccessType,
   AppSecurityGroupManagement,
   BooleanOperator,
+  CfnUpdateTemplateProvider,
   ClusterInstanceGroupSpecification,
   ClusterNodeRecovery,
   CodeEditorAppImageConfig,
@@ -49,7 +50,6 @@ import {
 
 import {
   CrossAccountFilterOption,
-  FeatureParameter,
   HubContentType,
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
@@ -79,12 +79,14 @@ import {
   DesiredWeightAndCapacity,
   Device,
   DomainSettingsForUpdate,
+  FeatureParameter,
   Filter,
   GitConfigForUpdate,
   HubContentSupportStatus,
   InferenceComponentDeploymentConfig,
   InferenceExperimentStopDesiredState,
   ResourceType,
+  SelectiveExecutionConfig,
   Workforce,
   Workteam,
 } from "./models_3";
@@ -93,12 +95,148 @@ import {
   ModelVariantAction,
   NestedFilters,
   OnlineStoreConfigUpdate,
+  Parameter,
   ProfilerConfigForUpdate,
   RemoteDebugConfigForUpdate,
   ResourceConfigForUpdate,
   SearchSortOrder,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface StartInferenceExperimentRequest {
+  /**
+   * <p>The name of the inference experiment to start.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartInferenceExperimentResponse {
+  /**
+   * <p>The ARN of the started inference experiment to start.</p>
+   * @public
+   */
+  InferenceExperimentArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMlflowTrackingServerRequest {
+  /**
+   * <p>The name of the tracking server to start.</p>
+   * @public
+   */
+  TrackingServerName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMlflowTrackingServerResponse {
+  /**
+   * <p>The ARN of the started tracking server.</p>
+   * @public
+   */
+  TrackingServerArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMonitoringScheduleRequest {
+  /**
+   * <p>The name of the schedule to start.</p>
+   * @public
+   */
+  MonitoringScheduleName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNotebookInstanceInput {
+  /**
+   * <p>The name of the notebook instance to start.</p>
+   * @public
+   */
+  NotebookInstanceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartPipelineExecutionRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the pipeline.</p>
+   * @public
+   */
+  PipelineName: string | undefined;
+
+  /**
+   * <p>The display name of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionDisplayName?: string | undefined;
+
+  /**
+   * <p>Contains a list of pipeline parameters. This list can be empty. </p>
+   * @public
+   */
+  PipelineParameters?: Parameter[] | undefined;
+
+  /**
+   * <p>The description of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionDescription?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than once.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>This configuration, if specified, overrides the parallelism configuration of the parent pipeline for this specific run.</p>
+   * @public
+   */
+  ParallelismConfiguration?: ParallelismConfiguration | undefined;
+
+  /**
+   * <p>The selective execution configuration applied to the pipeline run.</p>
+   * @public
+   */
+  SelectiveExecutionConfig?: SelectiveExecutionConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartPipelineExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopAutoMLJobRequest {
+  /**
+   * <p>The name of the object you are requesting.</p>
+   * @public
+   */
+  AutoMLJobName: string | undefined;
+}
 
 /**
  * @public
@@ -2023,6 +2161,18 @@ export interface ServiceCatalogProvisioningUpdateDetails {
 }
 
 /**
+ * <p> Contains configuration details for updating an existing template provider in the project. </p>
+ * @public
+ */
+export interface UpdateTemplateProvider {
+  /**
+   * <p> The CloudFormation template provider configuration to update. </p>
+   * @public
+   */
+  CfnTemplateProvider?: CfnUpdateTemplateProvider | undefined;
+}
+
+/**
  * @public
  */
 export interface UpdateProjectInput {
@@ -2049,6 +2199,12 @@ export interface UpdateProjectInput {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p> The template providers to update in the project. </p>
+   * @public
+   */
+  TemplateProvidersToUpdate?: UpdateTemplateProvider[] | undefined;
 }
 
 /**

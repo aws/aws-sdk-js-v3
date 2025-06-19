@@ -53,6 +53,20 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   TemplateProvidersToUpdate: [ // UpdateTemplateProviderList
+ *     { // UpdateTemplateProvider
+ *       CfnTemplateProvider: { // CfnUpdateTemplateProvider
+ *         TemplateName: "STRING_VALUE", // required
+ *         TemplateURL: "STRING_VALUE", // required
+ *         Parameters: [ // CfnStackUpdateParameters
+ *           { // CfnStackUpdateParameter
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);

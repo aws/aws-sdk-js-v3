@@ -1053,6 +1053,13 @@ import {
   CategoricalParameter,
   CategoricalParameterRange,
   CategoricalParameterRangeSpecification,
+  CfnCreateTemplateProvider,
+  CfnStackCreateParameter,
+  CfnStackDetail,
+  CfnStackParameter,
+  CfnStackUpdateParameter,
+  CfnTemplateProviderDetail,
+  CfnUpdateTemplateProvider,
   Channel,
   ChannelSpecification,
   CheckpointConfig,
@@ -1090,8 +1097,6 @@ import {
   ComputeQuotaResourceConfig,
   ComputeQuotaSummary,
   ComputeQuotaTarget,
-  ConditionStepMetadata,
-  ConflictException,
   ContainerConfig,
   CustomImage,
   DataSource,
@@ -1112,7 +1117,6 @@ import {
   IdentityProviderOAuthSetting,
   IdleSettings,
   ImageClassificationJobConfig,
-  ImageConfig,
   InferenceHubAccessConfig,
   InferenceSpecification,
   InstanceGroup,
@@ -1135,7 +1139,6 @@ import {
   OutputDataConfig,
   OutputParameter,
   ProductionVariantInstanceType,
-  RepositoryAuthConfig,
   ResourceConfig,
   ResourceLimitExceeded,
   ResourceNotFound,
@@ -1176,6 +1179,8 @@ import {
   WorkspaceSettings,
 } from "../models/models_0";
 import {
+  ConditionStepMetadata,
+  ConflictException,
   ContainerDefinition,
   ContentClassifier,
   ContextSource,
@@ -1261,11 +1266,8 @@ import {
   CreateModelInput,
   CreateModelOutput,
   CreateModelPackageGroupInput,
-  CreateModelPackageGroupOutput,
   CreateModelPackageInput,
   CreateModelPackageOutput,
-  CreateModelQualityJobDefinitionRequest,
-  CreateModelQualityJobDefinitionResponse,
   CustomFileSystemConfig,
   CustomPosixUserConfig,
   DataCaptureConfig,
@@ -1318,6 +1320,7 @@ import {
   HyperParameterTuningJobStrategyConfig,
   HyperParameterTuningJobWarmStartConfig,
   HyperParameterTuningResourceConfig,
+  ImageConfig,
   InferenceComponentComputeResourceRequirements,
   InferenceComponentContainerSpecification,
   InferenceComponentRuntimeConfig,
@@ -1362,9 +1365,6 @@ import {
   ModelPackageValidationProfile,
   ModelPackageValidationSpecification,
   ModelQuality,
-  ModelQualityAppSpecification,
-  ModelQualityBaselineConfig,
-  ModelQualityJobInput,
   ModelVariantConfig,
   MonitoringClusterConfig,
   MonitoringConstraintsResource,
@@ -1403,6 +1403,7 @@ import {
   RecommendationJobResourceLimit,
   RecommendationJobStoppingConditions,
   RecommendationJobVpcConfig,
+  RepositoryAuthConfig,
   ResourceInUse,
   ResourceLimits,
   RetryStrategy,
@@ -1433,6 +1434,9 @@ import {
   UserSettings,
 } from "../models/models_1";
 import {
+  CreateModelPackageGroupOutput,
+  CreateModelQualityJobDefinitionRequest,
+  CreateModelQualityJobDefinitionResponse,
   CreateMonitoringScheduleRequest,
   CreateMonitoringScheduleResponse,
   CreateNotebookInstanceInput,
@@ -1461,6 +1465,7 @@ import {
   CreateSpaceResponse,
   CreateStudioLifecycleConfigRequest,
   CreateStudioLifecycleConfigResponse,
+  CreateTemplateProvider,
   CreateTrainingJobRequest,
   CreateTrainingJobResponse,
   CreateTrainingPlanRequest,
@@ -1611,10 +1616,6 @@ import {
   DescribeExperimentRequest,
   DescribeExperimentResponse,
   DescribeFeatureGroupRequest,
-  DescribeFeatureGroupResponse,
-  DescribeFeatureMetadataRequest,
-  DescribeFeatureMetadataResponse,
-  DescribeFlowDefinitionRequest,
   EbsStorageSettings,
   Ec2CapacityReservation,
   EdgeDeploymentStatus,
@@ -1623,7 +1624,6 @@ import {
   EFSFileSystem,
   ExperimentConfig,
   ExperimentSource,
-  FeatureParameter,
   FSxLustreFileSystem,
   IamPolicyConstraints,
   InfraCheckConfig,
@@ -1635,6 +1635,9 @@ import {
   ModelCompilationConfig,
   ModelDeployResult,
   ModelDigests,
+  ModelQualityAppSpecification,
+  ModelQualityBaselineConfig,
+  ModelQualityJobInput,
   ModelQuantizationConfig,
   ModelShardingConfig,
   MonitoringAppSpecification,
@@ -1646,7 +1649,6 @@ import {
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
-  OfflineStoreStatus,
   OidcConfig,
   OidcMemberDefinition,
   OptimizationConfig,
@@ -1695,7 +1697,6 @@ import {
   SpaceSharingSettings,
   SpaceStorageSettings,
   TensorBoardOutputConfig,
-  ThroughputConfigDescription,
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
@@ -1703,6 +1704,10 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeFeatureGroupResponse,
+  DescribeFeatureMetadataRequest,
+  DescribeFeatureMetadataResponse,
+  DescribeFlowDefinitionRequest,
   DescribeFlowDefinitionResponse,
   DescribeHubContentRequest,
   DescribeHubContentResponse,
@@ -1823,6 +1828,7 @@ import {
   FeatureGroup,
   FeatureGroupSummary,
   FeatureMetadata,
+  FeatureParameter,
   Filter,
   FinalHyperParameterTuningJobObjectiveMetric,
   FlowDefinitionSummary,
@@ -1888,14 +1894,6 @@ import {
   ListAssociationsResponse,
   ListAutoMLJobsRequest,
   ListAutoMLJobsResponse,
-  ListCandidatesForAutoMLJobRequest,
-  ListCandidatesForAutoMLJobResponse,
-  ListClusterNodesRequest,
-  ListClusterNodesResponse,
-  ListClusterSchedulerConfigsRequest,
-  ListClusterSchedulerConfigsResponse,
-  ListClustersRequest,
-  ListClustersResponse,
   MetricData,
   MetricSpecification,
   ModelCardExportArtifacts,
@@ -1906,6 +1904,7 @@ import {
   MonitoringExecutionSummary,
   MonitoringSchedule,
   ObjectiveStatusCounters,
+  OfflineStoreStatus,
   OidcConfigForResponse,
   OptimizationOutput,
   PipelineExperimentConfig,
@@ -1929,6 +1928,8 @@ import {
   SubscribedWorkteam,
   SuggestionQuery,
   TargetTrackingScalingPolicyConfiguration,
+  TemplateProviderDetail,
+  ThroughputConfigDescription,
   TrainingJobStatusCounters,
   TrialComponentMetricSummary,
   TrialComponentSource,
@@ -1940,6 +1941,14 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListCandidatesForAutoMLJobRequest,
+  ListCandidatesForAutoMLJobResponse,
+  ListClusterNodesRequest,
+  ListClusterNodesResponse,
+  ListClusterSchedulerConfigsRequest,
+  ListClusterSchedulerConfigsResponse,
+  ListClustersRequest,
+  ListClustersResponse,
   ListCodeRepositoriesInput,
   ListCodeRepositoriesOutput,
   ListCompilationJobsRequest,
@@ -2155,15 +2164,6 @@ import {
   SpaceSettingsSummary,
   SpaceSharingSettingsSummary,
   StartEdgeDeploymentStageRequest,
-  StartInferenceExperimentRequest,
-  StartInferenceExperimentResponse,
-  StartMlflowTrackingServerRequest,
-  StartMlflowTrackingServerResponse,
-  StartMonitoringScheduleRequest,
-  StartNotebookInstanceInput,
-  StartPipelineExecutionRequest,
-  StartPipelineExecutionResponse,
-  StopAutoMLJobRequest,
   StudioLifecycleConfigDetails,
   TotalHits,
   TrackingServerSummary,
@@ -2191,6 +2191,15 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  StartInferenceExperimentRequest,
+  StartInferenceExperimentResponse,
+  StartMlflowTrackingServerRequest,
+  StartMlflowTrackingServerResponse,
+  StartMonitoringScheduleRequest,
+  StartNotebookInstanceInput,
+  StartPipelineExecutionRequest,
+  StartPipelineExecutionResponse,
+  StopAutoMLJobRequest,
   StopCompilationJobRequest,
   StopEdgeDeploymentStageRequest,
   StopEdgePackagingJobRequest,
@@ -2282,6 +2291,7 @@ import {
   UpdateProjectOutput,
   UpdateSpaceRequest,
   UpdateSpaceResponse,
+  UpdateTemplateProvider,
   UpdateTrainingJobRequest,
   UpdateTrainingJobResponse,
   UpdateTrialComponentRequest,
@@ -14208,6 +14218,18 @@ const se_BatchTransformInput = (input: BatchTransformInput, context: __SerdeCont
 
 // se_CategoricalParameters omitted.
 
+// se_CfnCreateTemplateProvider omitted.
+
+// se_CfnStackCreateParameter omitted.
+
+// se_CfnStackCreateParameters omitted.
+
+// se_CfnStackUpdateParameter omitted.
+
+// se_CfnStackUpdateParameters omitted.
+
+// se_CfnUpdateTemplateProvider omitted.
+
 // se_Channel omitted.
 
 // se_ChannelSpecification omitted.
@@ -14692,6 +14714,10 @@ const se_CreatePipelineRequest = (input: CreatePipelineRequest, context: __Serde
 // se_CreateSpaceRequest omitted.
 
 // se_CreateStudioLifecycleConfigRequest omitted.
+
+// se_CreateTemplateProvider omitted.
+
+// se_CreateTemplateProviderList omitted.
 
 // se_CreateTrainingJobRequest omitted.
 
@@ -17609,6 +17635,10 @@ const se_UpdatePartnerAppRequest = (input: UpdatePartnerAppRequest, context: __S
 
 // se_UpdateSpaceRequest omitted.
 
+// se_UpdateTemplateProvider omitted.
+
+// se_UpdateTemplateProviderList omitted.
+
 // se_UpdateTrainingJobRequest omitted.
 
 /**
@@ -19092,6 +19122,52 @@ const de_CategoricalParameters = (output: any, context: __SerdeContext): Categor
       return de_CategoricalParameter(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_json1_1CfnStackDetail
+ */
+const de_CfnStackDetail = (output: any, context: __SerdeContext): CfnStackDetail => {
+  return take(output, {
+    Id: __expectString,
+    Name: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CfnStackParameter
+ */
+const de_CfnStackParameter = (output: any, context: __SerdeContext): CfnStackParameter => {
+  return take(output, {
+    Key: __expectString,
+    Value: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CfnStackParameters
+ */
+const de_CfnStackParameters = (output: any, context: __SerdeContext): CfnStackParameter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CfnStackParameter(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1CfnTemplateProviderDetail
+ */
+const de_CfnTemplateProviderDetail = (output: any, context: __SerdeContext): CfnTemplateProviderDetail => {
+  return take(output, {
+    Parameters: (_: any) => de_CfnStackParameters(_, context),
+    RoleARN: __expectString,
+    StackDetail: (_: any) => de_CfnStackDetail(_, context),
+    TemplateName: __expectString,
+    TemplateURL: __expectString,
+  }) as any;
 };
 
 /**
@@ -22405,6 +22481,7 @@ const de_DescribeProjectOutput = (output: any, context: __SerdeContext): Describ
     ProjectStatus: __expectString,
     ServiceCatalogProvisionedProductDetails: (_: any) => de_ServiceCatalogProvisionedProductDetails(_, context),
     ServiceCatalogProvisioningDetails: (_: any) => de_ServiceCatalogProvisioningDetails(_, context),
+    TemplateProviderDetails: (_: any) => de_TemplateProviderDetailList(_, context),
   }) as any;
 };
 
@@ -29325,6 +29402,7 @@ const de_Project = (output: any, context: __SerdeContext): Project => {
     ServiceCatalogProvisionedProductDetails: (_: any) => de_ServiceCatalogProvisionedProductDetails(_, context),
     ServiceCatalogProvisioningDetails: (_: any) => de_ServiceCatalogProvisioningDetails(_, context),
     Tags: (_: any) => de_TagList(_, context),
+    TemplateProviderDetails: (_: any) => de_TemplateProviderDetailList(_, context),
   }) as any;
 };
 
@@ -30800,6 +30878,27 @@ const de_TaskKeywords = (output: any, context: __SerdeContext): string[] => {
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1TemplateProviderDetail
+ */
+const de_TemplateProviderDetail = (output: any, context: __SerdeContext): TemplateProviderDetail => {
+  return take(output, {
+    CfnTemplateProviderDetail: (_: any) => de_CfnTemplateProviderDetail(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1TemplateProviderDetailList
+ */
+const de_TemplateProviderDetailList = (output: any, context: __SerdeContext): TemplateProviderDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TemplateProviderDetail(entry, context);
     });
   return retVal;
 };

@@ -40,6 +40,7 @@ import {
   BatchTransformInput,
   CapacityReservationPreference,
   CaptureStatus,
+  CfnCreateTemplateProvider,
   Channel,
   CheckpointConfig,
   ClusterInstanceGroupDetails,
@@ -94,22 +95,19 @@ import {
   EdgePresetDeploymentType,
   EndpointInput,
   ExplainerConfig,
-  FeatureDefinition,
-  FeatureType,
   InputConfig,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
   MetadataProperties,
   ModelDeployConfig,
   MonitoringConstraintsResource,
+  MonitoringGroundTruthS3Input,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
   MonitoringStatisticsResource,
   MonitoringStoppingCondition,
   NeoVpcConfig,
-  OfflineStoreConfig,
-  OnlineStoreConfig,
   OutputConfig,
   ProcessingInstanceType,
   ProcessingS3UploadMode,
@@ -121,10 +119,201 @@ import {
   RetryStrategy,
   SchedulerConfig,
   TagPropagation,
-  ThroughputMode,
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateModelPackageGroupOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model group.</p>
+   * @public
+   */
+  ModelPackageGroupArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MonitoringProblemType = {
+  BINARY_CLASSIFICATION: "BinaryClassification",
+  MULTICLASS_CLASSIFICATION: "MulticlassClassification",
+  REGRESSION: "Regression",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitoringProblemType = (typeof MonitoringProblemType)[keyof typeof MonitoringProblemType];
+
+/**
+ * <p>Container image configuration object for the monitoring job.</p>
+ * @public
+ */
+export interface ModelQualityAppSpecification {
+  /**
+   * <p>The address of the container image that the monitoring job runs.</p>
+   * @public
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * <p>Specifies the entrypoint for a container that the monitoring job runs.</p>
+   * @public
+   */
+  ContainerEntrypoint?: string[] | undefined;
+
+  /**
+   * <p>An array of arguments for the container used to run the monitoring job.</p>
+   * @public
+   */
+  ContainerArguments?: string[] | undefined;
+
+  /**
+   * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flattened JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.</p>
+   * @public
+   */
+  RecordPreprocessorSourceUri?: string | undefined;
+
+  /**
+   * <p>An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.</p>
+   * @public
+   */
+  PostAnalyticsProcessorSourceUri?: string | undefined;
+
+  /**
+   * <p>The machine learning problem type of the model that the monitoring job monitors.</p>
+   * @public
+   */
+  ProblemType?: MonitoringProblemType | undefined;
+
+  /**
+   * <p>Sets the environment variables in the container that the monitoring job runs.</p>
+   * @public
+   */
+  Environment?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.</p>
+ * @public
+ */
+export interface ModelQualityBaselineConfig {
+  /**
+   * <p>The name of the job that performs baselining for the monitoring job.</p>
+   * @public
+   */
+  BaseliningJobName?: string | undefined;
+
+  /**
+   * <p>The constraints resource for a monitoring job.</p>
+   * @public
+   */
+  ConstraintsResource?: MonitoringConstraintsResource | undefined;
+}
+
+/**
+ * <p>The input for the model quality monitoring job. Currently endpoints are supported for input for model quality monitoring jobs.</p>
+ * @public
+ */
+export interface ModelQualityJobInput {
+  /**
+   * <p>Input object for the endpoint</p>
+   * @public
+   */
+  EndpointInput?: EndpointInput | undefined;
+
+  /**
+   * <p>Input object for the batch transform job.</p>
+   * @public
+   */
+  BatchTransformInput?: BatchTransformInput | undefined;
+
+  /**
+   * <p>The ground truth label provided for the model.</p>
+   * @public
+   */
+  GroundTruthS3Input: MonitoringGroundTruthS3Input | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelQualityJobDefinitionRequest {
+  /**
+   * <p>The name of the monitoring job definition.</p>
+   * @public
+   */
+  JobDefinitionName: string | undefined;
+
+  /**
+   * <p>Specifies the constraints and baselines for the monitoring job.</p>
+   * @public
+   */
+  ModelQualityBaselineConfig?: ModelQualityBaselineConfig | undefined;
+
+  /**
+   * <p>The container that runs the monitoring job.</p>
+   * @public
+   */
+  ModelQualityAppSpecification: ModelQualityAppSpecification | undefined;
+
+  /**
+   * <p>A list of the inputs that are monitored. Currently endpoints are supported.</p>
+   * @public
+   */
+  ModelQualityJobInput: ModelQualityJobInput | undefined;
+
+  /**
+   * <p>The output configuration for monitoring jobs.</p>
+   * @public
+   */
+  ModelQualityJobOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources to deploy for a monitoring job.</p>
+   * @public
+   */
+  JobResources: MonitoringResources | undefined;
+
+  /**
+   * <p>Specifies the network configuration for the monitoring job.</p>
+   * @public
+   */
+  NetworkConfig?: MonitoringNetworkConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+   * @public
+   */
+  StoppingCondition?: MonitoringStoppingCondition | undefined;
+
+  /**
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL"> Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelQualityJobDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model quality monitoring job.</p>
+   * @public
+   */
+  JobDefinitionArn: string | undefined;
+}
 
 /**
  * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.</p>
@@ -1894,6 +2083,18 @@ export interface ServiceCatalogProvisioningDetails {
 }
 
 /**
+ * <p> Contains configuration details for a template provider. Only one type of template provider can be specified. </p>
+ * @public
+ */
+export interface CreateTemplateProvider {
+  /**
+   * <p> The CloudFormation template provider configuration for creating infrastructure resources. </p>
+   * @public
+   */
+  CfnTemplateProvider?: CfnCreateTemplateProvider | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateProjectInput {
@@ -1920,6 +2121,12 @@ export interface CreateProjectInput {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p> An array of template provider configurations for creating infrastructure resources for the project. </p>
+   * @public
+   */
+  TemplateProviders?: CreateTemplateProvider[] | undefined;
 }
 
 /**
@@ -7499,275 +7706,6 @@ export interface LastUpdateStatus {
    * @public
    */
   FailureReason?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const OfflineStoreStatusValue = {
-  ACTIVE: "Active",
-  BLOCKED: "Blocked",
-  DISABLED: "Disabled",
-} as const;
-
-/**
- * @public
- */
-export type OfflineStoreStatusValue = (typeof OfflineStoreStatusValue)[keyof typeof OfflineStoreStatusValue];
-
-/**
- * <p>The status of <code>OfflineStore</code>.</p>
- * @public
- */
-export interface OfflineStoreStatus {
-  /**
-   * <p>An <code>OfflineStore</code> status.</p>
-   * @public
-   */
-  Status: OfflineStoreStatusValue | undefined;
-
-  /**
-   * <p>The justification for why the OfflineStoreStatus is Blocked (if applicable).</p>
-   * @public
-   */
-  BlockedReason?: string | undefined;
-}
-
-/**
- * <p>Active throughput configuration of the feature group. There are two modes: <code>ON_DEMAND</code> and <code>PROVISIONED</code>. With on-demand mode, you are charged for data reads and writes that your application performs on your feature group. You do not need to specify read and write throughput because Feature Store accommodates your workloads as they ramp up and down. You can switch a feature group to on-demand only once in a 24 hour period. With provisioned throughput mode, you specify the read and write capacity per second that you expect your application to require, and you are billed based on those limits. Exceeding provisioned throughput will result in your requests being throttled. </p> <p>Note: <code>PROVISIONED</code> throughput mode is supported only for feature groups that are offline-only, or use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType"> <code>Standard</code> </a> tier online store. </p>
- * @public
- */
-export interface ThroughputConfigDescription {
-  /**
-   * <p>The mode used for your feature group throughput: <code>ON_DEMAND</code> or <code>PROVISIONED</code>. </p>
-   * @public
-   */
-  ThroughputMode: ThroughputMode | undefined;
-
-  /**
-   * <p> For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling. </p> <p>This field is not applicable for on-demand feature groups. </p>
-   * @public
-   */
-  ProvisionedReadCapacityUnits?: number | undefined;
-
-  /**
-   * <p> For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling. </p> <p>This field is not applicable for on-demand feature groups. </p>
-   * @public
-   */
-  ProvisionedWriteCapacityUnits?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFeatureGroupResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the <code>FeatureGroup</code>. </p>
-   * @public
-   */
-  FeatureGroupArn: string | undefined;
-
-  /**
-   * <p>he name of the <code>FeatureGroup</code>.</p>
-   * @public
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>The name of the <code>Feature</code> used for <code>RecordIdentifier</code>, whose value uniquely identifies a record stored in the feature store.</p>
-   * @public
-   */
-  RecordIdentifierFeatureName: string | undefined;
-
-  /**
-   * <p>The name of the feature that stores the <code>EventTime</code> of a Record in a <code>FeatureGroup</code>.</p> <p> An <code>EventTime</code> is a point in time when a new event occurs that corresponds to the creation or update of a <code>Record</code> in a <code>FeatureGroup</code>. All <code>Records</code> in the <code>FeatureGroup</code> have a corresponding <code>EventTime</code>.</p>
-   * @public
-   */
-  EventTimeFeatureName: string | undefined;
-
-  /**
-   * <p>A list of the <code>Features</code> in the <code>FeatureGroup</code>. Each feature is defined by a <code>FeatureName</code> and <code>FeatureType</code>.</p>
-   * @public
-   */
-  FeatureDefinitions: FeatureDefinition[] | undefined;
-
-  /**
-   * <p>A timestamp indicating when SageMaker created the <code>FeatureGroup</code>.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>A timestamp indicating when the feature group was last updated.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The configuration for the <code>OnlineStore</code>.</p>
-   * @public
-   */
-  OnlineStoreConfig?: OnlineStoreConfig | undefined;
-
-  /**
-   * <p>The configuration of the offline store. It includes the following configurations:</p> <ul> <li> <p>Amazon S3 location of the offline store.</p> </li> <li> <p>Configuration of the Glue data catalog.</p> </li> <li> <p>Table format of the offline store.</p> </li> <li> <p>Option to disable the automatic creation of a Glue table for the offline store.</p> </li> <li> <p>Encryption configuration.</p> </li> </ul>
-   * @public
-   */
-  OfflineStoreConfig?: OfflineStoreConfig | undefined;
-
-  /**
-   * <p>Active throughput configuration of the feature group. There are two modes: <code>ON_DEMAND</code> and <code>PROVISIONED</code>. With on-demand mode, you are charged for data reads and writes that your application performs on your feature group. You do not need to specify read and write throughput because Feature Store accommodates your workloads as they ramp up and down. You can switch a feature group to on-demand only once in a 24 hour period. With provisioned throughput mode, you specify the read and write capacity per second that you expect your application to require, and you are billed based on those limits. Exceeding provisioned throughput will result in your requests being throttled. </p> <p>Note: <code>PROVISIONED</code> throughput mode is supported only for feature groups that are offline-only, or use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType"> <code>Standard</code> </a> tier online store. </p>
-   * @public
-   */
-  ThroughputConfig?: ThroughputConfigDescription | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the OfflineStore if an OfflineStoreConfig is provided.</p>
-   * @public
-   */
-  RoleArn?: string | undefined;
-
-  /**
-   * <p>The status of the feature group.</p>
-   * @public
-   */
-  FeatureGroupStatus?: FeatureGroupStatus | undefined;
-
-  /**
-   * <p>The status of the <code>OfflineStore</code>. Notifies you if replicating data into the <code>OfflineStore</code> has failed. Returns either: <code>Active</code> or <code>Blocked</code> </p>
-   * @public
-   */
-  OfflineStoreStatus?: OfflineStoreStatus | undefined;
-
-  /**
-   * <p>A value indicating whether the update made to the feature group was successful.</p>
-   * @public
-   */
-  LastUpdateStatus?: LastUpdateStatus | undefined;
-
-  /**
-   * <p>The reason that the <code>FeatureGroup</code> failed to be replicated in the <code>OfflineStore</code>. This is failure can occur because:</p> <ul> <li> <p>The <code>FeatureGroup</code> could not be created in the <code>OfflineStore</code>.</p> </li> <li> <p>The <code>FeatureGroup</code> could not be deleted from the <code>OfflineStore</code>.</p> </li> </ul>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>A free form description of the feature group.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A token to resume pagination of the list of <code>Features</code> (<code>FeatureDefinitions</code>).</p>
-   * @public
-   */
-  NextToken: string | undefined;
-
-  /**
-   * <p>The size of the <code>OnlineStore</code> in bytes.</p>
-   * @public
-   */
-  OnlineStoreTotalSizeBytes?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFeatureMetadataRequest {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the feature group containing the feature.</p>
-   * @public
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>The name of the feature.</p>
-   * @public
-   */
-  FeatureName: string | undefined;
-}
-
-/**
- * <p>A key-value pair that you specify to describe the feature.</p>
- * @public
- */
-export interface FeatureParameter {
-  /**
-   * <p>A key that must contain a value to describe the feature.</p>
-   * @public
-   */
-  Key?: string | undefined;
-
-  /**
-   * <p>The value that belongs to a key.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFeatureMetadataResponse {
-  /**
-   * <p>The Amazon Resource Number (ARN) of the feature group that contains the feature.</p>
-   * @public
-   */
-  FeatureGroupArn: string | undefined;
-
-  /**
-   * <p>The name of the feature group that you've specified.</p>
-   * @public
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>The name of the feature that you've specified.</p>
-   * @public
-   */
-  FeatureName: string | undefined;
-
-  /**
-   * <p>The data type of the feature.</p>
-   * @public
-   */
-  FeatureType: FeatureType | undefined;
-
-  /**
-   * <p>A timestamp indicating when the feature was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>A timestamp indicating when the metadata for the feature group was modified. For example, if you add a parameter describing the feature, the timestamp changes to reflect the last time you </p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The description you added to describe the feature.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The key-value pairs that you added to describe the feature.</p>
-   * @public
-   */
-  Parameters?: FeatureParameter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFlowDefinitionRequest {
-  /**
-   * <p>The name of the flow definition.</p>
-   * @public
-   */
-  FlowDefinitionName: string | undefined;
 }
 
 /**

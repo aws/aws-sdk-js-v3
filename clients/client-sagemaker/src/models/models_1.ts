@@ -64,18 +64,16 @@ import {
   CompleteOnConvergence,
   ComputeQuotaConfig,
   ComputeQuotaTarget,
-  ContainerMode,
+  ConditionOutcome,
   CustomImage,
   FeatureStatus,
   GitConfig,
-  ImageConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
   MetricDefinition,
   MetricsSource,
   ModelApprovalStatus,
-  ModelCacheSetting,
   ModelDataSource,
   OutputDataConfig,
   ProblemType,
@@ -97,6 +95,112 @@ import {
 } from "./models_0";
 
 import { SageMakerServiceException as __BaseException } from "./SageMakerServiceException";
+
+/**
+ * <p>Metadata for a Condition step.</p>
+ * @public
+ */
+export interface ConditionStepMetadata {
+  /**
+   * <p>The outcome of the Condition step evaluation.</p>
+   * @public
+   */
+  Outcome?: ConditionOutcome | undefined;
+}
+
+/**
+ * <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RepositoryAccessMode = {
+  PLATFORM: "Platform",
+  VPC: "Vpc",
+} as const;
+
+/**
+ * @public
+ */
+export type RepositoryAccessMode = (typeof RepositoryAccessMode)[keyof typeof RepositoryAccessMode];
+
+/**
+ * <p>Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified <code>Vpc</code> as the value for the <code>RepositoryAccessMode</code> field of the <code>ImageConfig</code> object that you passed to a call to <code>CreateModel</code> and the private Docker registry where the model image is hosted requires authentication.</p>
+ * @public
+ */
+export interface RepositoryAuthConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an Amazon Web Services Lambda function, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html">Create a Lambda function with the console</a> in the <i>Amazon Web Services Lambda Developer Guide</i>.</p>
+   * @public
+   */
+  RepositoryCredentialsProviderArn: string | undefined;
+}
+
+/**
+ * <p>Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC).</p>
+ * @public
+ */
+export interface ImageConfig {
+  /**
+   * <p>Set this to one of the following values:</p> <ul> <li> <p> <code>Platform</code> - The model image is hosted in Amazon ECR.</p> </li> <li> <p> <code>Vpc</code> - The model image is hosted in a private Docker registry in your VPC.</p> </li> </ul>
+   * @public
+   */
+  RepositoryAccessMode: RepositoryAccessMode | undefined;
+
+  /**
+   * <p>(Optional) Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified <code>Vpc</code> as the value for the <code>RepositoryAccessMode</code> field, and the private Docker registry where the model image is hosted requires authentication.</p>
+   * @public
+   */
+  RepositoryAuthConfig?: RepositoryAuthConfig | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ContainerMode = {
+  MULTI_MODEL: "MultiModel",
+  SINGLE_MODEL: "SingleModel",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerMode = (typeof ContainerMode)[keyof typeof ContainerMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelCacheSetting = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelCacheSetting = (typeof ModelCacheSetting)[keyof typeof ModelCacheSetting];
 
 /**
  * <p>Specifies additional configuration for hosting multi-model endpoints.</p>
@@ -7851,198 +7955,6 @@ export interface CreateModelPackageGroupInput {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateModelPackageGroupOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model group.</p>
-   * @public
-   */
-  ModelPackageGroupArn: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MonitoringProblemType = {
-  BINARY_CLASSIFICATION: "BinaryClassification",
-  MULTICLASS_CLASSIFICATION: "MulticlassClassification",
-  REGRESSION: "Regression",
-} as const;
-
-/**
- * @public
- */
-export type MonitoringProblemType = (typeof MonitoringProblemType)[keyof typeof MonitoringProblemType];
-
-/**
- * <p>Container image configuration object for the monitoring job.</p>
- * @public
- */
-export interface ModelQualityAppSpecification {
-  /**
-   * <p>The address of the container image that the monitoring job runs.</p>
-   * @public
-   */
-  ImageUri: string | undefined;
-
-  /**
-   * <p>Specifies the entrypoint for a container that the monitoring job runs.</p>
-   * @public
-   */
-  ContainerEntrypoint?: string[] | undefined;
-
-  /**
-   * <p>An array of arguments for the container used to run the monitoring job.</p>
-   * @public
-   */
-  ContainerArguments?: string[] | undefined;
-
-  /**
-   * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flattened JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.</p>
-   * @public
-   */
-  RecordPreprocessorSourceUri?: string | undefined;
-
-  /**
-   * <p>An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.</p>
-   * @public
-   */
-  PostAnalyticsProcessorSourceUri?: string | undefined;
-
-  /**
-   * <p>The machine learning problem type of the model that the monitoring job monitors.</p>
-   * @public
-   */
-  ProblemType?: MonitoringProblemType | undefined;
-
-  /**
-   * <p>Sets the environment variables in the container that the monitoring job runs.</p>
-   * @public
-   */
-  Environment?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.</p>
- * @public
- */
-export interface ModelQualityBaselineConfig {
-  /**
-   * <p>The name of the job that performs baselining for the monitoring job.</p>
-   * @public
-   */
-  BaseliningJobName?: string | undefined;
-
-  /**
-   * <p>The constraints resource for a monitoring job.</p>
-   * @public
-   */
-  ConstraintsResource?: MonitoringConstraintsResource | undefined;
-}
-
-/**
- * <p>The input for the model quality monitoring job. Currently endpoints are supported for input for model quality monitoring jobs.</p>
- * @public
- */
-export interface ModelQualityJobInput {
-  /**
-   * <p>Input object for the endpoint</p>
-   * @public
-   */
-  EndpointInput?: EndpointInput | undefined;
-
-  /**
-   * <p>Input object for the batch transform job.</p>
-   * @public
-   */
-  BatchTransformInput?: BatchTransformInput | undefined;
-
-  /**
-   * <p>The ground truth label provided for the model.</p>
-   * @public
-   */
-  GroundTruthS3Input: MonitoringGroundTruthS3Input | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateModelQualityJobDefinitionRequest {
-  /**
-   * <p>The name of the monitoring job definition.</p>
-   * @public
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * <p>Specifies the constraints and baselines for the monitoring job.</p>
-   * @public
-   */
-  ModelQualityBaselineConfig?: ModelQualityBaselineConfig | undefined;
-
-  /**
-   * <p>The container that runs the monitoring job.</p>
-   * @public
-   */
-  ModelQualityAppSpecification: ModelQualityAppSpecification | undefined;
-
-  /**
-   * <p>A list of the inputs that are monitored. Currently endpoints are supported.</p>
-   * @public
-   */
-  ModelQualityJobInput: ModelQualityJobInput | undefined;
-
-  /**
-   * <p>The output configuration for monitoring jobs.</p>
-   * @public
-   */
-  ModelQualityJobOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
-   * @public
-   */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Specifies the network configuration for the monitoring job.</p>
-   * @public
-   */
-  NetworkConfig?: MonitoringNetworkConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   * @public
-   */
-  StoppingCondition?: MonitoringStoppingCondition | undefined;
-
-  /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL"> Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateModelQualityJobDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model quality monitoring job.</p>
-   * @public
-   */
-  JobDefinitionArn: string | undefined;
 }
 
 /**

@@ -55,6 +55,21 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   TemplateProviders: [ // CreateTemplateProviderList
+ *     { // CreateTemplateProvider
+ *       CfnTemplateProvider: { // CfnCreateTemplateProvider
+ *         TemplateName: "STRING_VALUE", // required
+ *         TemplateURL: "STRING_VALUE", // required
+ *         RoleARN: "STRING_VALUE",
+ *         Parameters: [ // CfnStackCreateParameters
+ *           { // CfnStackCreateParameter
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);

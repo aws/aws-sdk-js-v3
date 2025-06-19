@@ -17,7 +17,6 @@ import {
   ArtifactSummary,
   AssociationEdgeType,
   AssociationSummary,
-  AutoMLCandidate,
   AutoMLJobStatus,
   AutoMLJobSummary,
   AutoMLSortBy,
@@ -26,14 +25,9 @@ import {
   Autotune,
   BatchDataCaptureConfig,
   BatchStrategy,
-  CandidateSortBy,
-  CandidateStatus,
+  CfnTemplateProviderDetail,
   Channel,
   CheckpointConfig,
-  ClusterNodeSummary,
-  ClusterSchedulerConfigSummary,
-  ClusterSortBy,
-  ClusterSummary,
   CognitoConfig,
   InferenceSpecification,
   ModelApprovalStatus,
@@ -44,7 +38,6 @@ import {
   ProductionVariantInstanceType,
   ResourceConfig,
   ResourceSpec,
-  SchedulerResourceStatus,
   StoppingCondition,
   Tag,
   TransformInput,
@@ -103,9 +96,6 @@ import {
   ModelPackageModelCardFilterSensitiveLog,
   ModelPackageSecurityConfig,
   ModelPackageValidationSpecification,
-  ModelQualityAppSpecification,
-  ModelQualityBaselineConfig,
-  ModelQualityJobInput,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
@@ -122,6 +112,7 @@ import {
   ShadowModeConfig,
   SkipModelValidation,
   SourceAlgorithmSpecification,
+  ThroughputMode,
   TrackingServerSize,
   UnifiedStudioSettings,
   UserSettings,
@@ -144,7 +135,6 @@ import {
   ExperimentConfig,
   ExperimentSource,
   FeatureGroupStatus,
-  FeatureParameter,
   HubContentType,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
@@ -152,13 +142,15 @@ import {
   MemberDefinition,
   ModelArtifacts,
   ModelClientConfig,
+  ModelQualityAppSpecification,
+  ModelQualityBaselineConfig,
+  ModelQualityJobInput,
   MonitoringScheduleConfig,
   MonitoringType,
   NetworkConfig,
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
-  OfflineStoreStatus,
   OptimizationConfig,
   OptimizationJobDeploymentInstanceType,
   OptimizationJobModelSource,
@@ -191,6 +183,275 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const OfflineStoreStatusValue = {
+  ACTIVE: "Active",
+  BLOCKED: "Blocked",
+  DISABLED: "Disabled",
+} as const;
+
+/**
+ * @public
+ */
+export type OfflineStoreStatusValue = (typeof OfflineStoreStatusValue)[keyof typeof OfflineStoreStatusValue];
+
+/**
+ * <p>The status of <code>OfflineStore</code>.</p>
+ * @public
+ */
+export interface OfflineStoreStatus {
+  /**
+   * <p>An <code>OfflineStore</code> status.</p>
+   * @public
+   */
+  Status: OfflineStoreStatusValue | undefined;
+
+  /**
+   * <p>The justification for why the OfflineStoreStatus is Blocked (if applicable).</p>
+   * @public
+   */
+  BlockedReason?: string | undefined;
+}
+
+/**
+ * <p>Active throughput configuration of the feature group. There are two modes: <code>ON_DEMAND</code> and <code>PROVISIONED</code>. With on-demand mode, you are charged for data reads and writes that your application performs on your feature group. You do not need to specify read and write throughput because Feature Store accommodates your workloads as they ramp up and down. You can switch a feature group to on-demand only once in a 24 hour period. With provisioned throughput mode, you specify the read and write capacity per second that you expect your application to require, and you are billed based on those limits. Exceeding provisioned throughput will result in your requests being throttled. </p> <p>Note: <code>PROVISIONED</code> throughput mode is supported only for feature groups that are offline-only, or use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType"> <code>Standard</code> </a> tier online store. </p>
+ * @public
+ */
+export interface ThroughputConfigDescription {
+  /**
+   * <p>The mode used for your feature group throughput: <code>ON_DEMAND</code> or <code>PROVISIONED</code>. </p>
+   * @public
+   */
+  ThroughputMode: ThroughputMode | undefined;
+
+  /**
+   * <p> For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling. </p> <p>This field is not applicable for on-demand feature groups. </p>
+   * @public
+   */
+  ProvisionedReadCapacityUnits?: number | undefined;
+
+  /**
+   * <p> For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling. </p> <p>This field is not applicable for on-demand feature groups. </p>
+   * @public
+   */
+  ProvisionedWriteCapacityUnits?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFeatureGroupResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the <code>FeatureGroup</code>. </p>
+   * @public
+   */
+  FeatureGroupArn: string | undefined;
+
+  /**
+   * <p>he name of the <code>FeatureGroup</code>.</p>
+   * @public
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the <code>Feature</code> used for <code>RecordIdentifier</code>, whose value uniquely identifies a record stored in the feature store.</p>
+   * @public
+   */
+  RecordIdentifierFeatureName: string | undefined;
+
+  /**
+   * <p>The name of the feature that stores the <code>EventTime</code> of a Record in a <code>FeatureGroup</code>.</p> <p> An <code>EventTime</code> is a point in time when a new event occurs that corresponds to the creation or update of a <code>Record</code> in a <code>FeatureGroup</code>. All <code>Records</code> in the <code>FeatureGroup</code> have a corresponding <code>EventTime</code>.</p>
+   * @public
+   */
+  EventTimeFeatureName: string | undefined;
+
+  /**
+   * <p>A list of the <code>Features</code> in the <code>FeatureGroup</code>. Each feature is defined by a <code>FeatureName</code> and <code>FeatureType</code>.</p>
+   * @public
+   */
+  FeatureDefinitions: FeatureDefinition[] | undefined;
+
+  /**
+   * <p>A timestamp indicating when SageMaker created the <code>FeatureGroup</code>.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp indicating when the feature group was last updated.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The configuration for the <code>OnlineStore</code>.</p>
+   * @public
+   */
+  OnlineStoreConfig?: OnlineStoreConfig | undefined;
+
+  /**
+   * <p>The configuration of the offline store. It includes the following configurations:</p> <ul> <li> <p>Amazon S3 location of the offline store.</p> </li> <li> <p>Configuration of the Glue data catalog.</p> </li> <li> <p>Table format of the offline store.</p> </li> <li> <p>Option to disable the automatic creation of a Glue table for the offline store.</p> </li> <li> <p>Encryption configuration.</p> </li> </ul>
+   * @public
+   */
+  OfflineStoreConfig?: OfflineStoreConfig | undefined;
+
+  /**
+   * <p>Active throughput configuration of the feature group. There are two modes: <code>ON_DEMAND</code> and <code>PROVISIONED</code>. With on-demand mode, you are charged for data reads and writes that your application performs on your feature group. You do not need to specify read and write throughput because Feature Store accommodates your workloads as they ramp up and down. You can switch a feature group to on-demand only once in a 24 hour period. With provisioned throughput mode, you specify the read and write capacity per second that you expect your application to require, and you are billed based on those limits. Exceeding provisioned throughput will result in your requests being throttled. </p> <p>Note: <code>PROVISIONED</code> throughput mode is supported only for feature groups that are offline-only, or use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType"> <code>Standard</code> </a> tier online store. </p>
+   * @public
+   */
+  ThroughputConfig?: ThroughputConfigDescription | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the OfflineStore if an OfflineStoreConfig is provided.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The status of the feature group.</p>
+   * @public
+   */
+  FeatureGroupStatus?: FeatureGroupStatus | undefined;
+
+  /**
+   * <p>The status of the <code>OfflineStore</code>. Notifies you if replicating data into the <code>OfflineStore</code> has failed. Returns either: <code>Active</code> or <code>Blocked</code> </p>
+   * @public
+   */
+  OfflineStoreStatus?: OfflineStoreStatus | undefined;
+
+  /**
+   * <p>A value indicating whether the update made to the feature group was successful.</p>
+   * @public
+   */
+  LastUpdateStatus?: LastUpdateStatus | undefined;
+
+  /**
+   * <p>The reason that the <code>FeatureGroup</code> failed to be replicated in the <code>OfflineStore</code>. This is failure can occur because:</p> <ul> <li> <p>The <code>FeatureGroup</code> could not be created in the <code>OfflineStore</code>.</p> </li> <li> <p>The <code>FeatureGroup</code> could not be deleted from the <code>OfflineStore</code>.</p> </li> </ul>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>A free form description of the feature group.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A token to resume pagination of the list of <code>Features</code> (<code>FeatureDefinitions</code>).</p>
+   * @public
+   */
+  NextToken: string | undefined;
+
+  /**
+   * <p>The size of the <code>OnlineStore</code> in bytes.</p>
+   * @public
+   */
+  OnlineStoreTotalSizeBytes?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFeatureMetadataRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the feature group containing the feature.</p>
+   * @public
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the feature.</p>
+   * @public
+   */
+  FeatureName: string | undefined;
+}
+
+/**
+ * <p>A key-value pair that you specify to describe the feature.</p>
+ * @public
+ */
+export interface FeatureParameter {
+  /**
+   * <p>A key that must contain a value to describe the feature.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The value that belongs to a key.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFeatureMetadataResponse {
+  /**
+   * <p>The Amazon Resource Number (ARN) of the feature group that contains the feature.</p>
+   * @public
+   */
+  FeatureGroupArn: string | undefined;
+
+  /**
+   * <p>The name of the feature group that you've specified.</p>
+   * @public
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the feature that you've specified.</p>
+   * @public
+   */
+  FeatureName: string | undefined;
+
+  /**
+   * <p>The data type of the feature.</p>
+   * @public
+   */
+  FeatureType: FeatureType | undefined;
+
+  /**
+   * <p>A timestamp indicating when the feature was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp indicating when the metadata for the feature group was modified. For example, if you add a parameter describing the feature, the timestamp changes to reflect the last time you </p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The description you added to describe the feature.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The key-value pairs that you added to describe the feature.</p>
+   * @public
+   */
+  Parameters?: FeatureParameter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFlowDefinitionRequest {
+  /**
+   * <p>The name of the flow definition.</p>
+   * @public
+   */
+  FlowDefinitionName: string | undefined;
+}
 
 /**
  * @public
@@ -4521,6 +4782,18 @@ export interface ServiceCatalogProvisionedProductDetails {
 }
 
 /**
+ * <p> Details about a template provider configuration and associated provisioning information. </p>
+ * @public
+ */
+export interface TemplateProviderDetail {
+  /**
+   * <p> Details about a CloudFormation template provider configuration and associated provisioning information. </p>
+   * @public
+   */
+  CfnTemplateProviderDetail?: CfnTemplateProviderDetail | undefined;
+}
+
+/**
  * @public
  */
 export interface DescribeProjectOutput {
@@ -4565,6 +4838,12 @@ export interface DescribeProjectOutput {
    * @public
    */
   ProjectStatus: ProjectStatus | undefined;
+
+  /**
+   * <p> An array of template providers associated with the project. </p>
+   * @public
+   */
+  TemplateProviderDetails?: TemplateProviderDetail[] | undefined;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
@@ -10054,302 +10333,6 @@ export interface ListAutoMLJobsResponse {
 
   /**
    * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCandidatesForAutoMLJobRequest {
-  /**
-   * <p>List the candidates created for the job by providing the job's name.</p>
-   * @public
-   */
-  AutoMLJobName: string | undefined;
-
-  /**
-   * <p>List the candidates for the job and filter by status.</p>
-   * @public
-   */
-  StatusEquals?: CandidateStatus | undefined;
-
-  /**
-   * <p>List the candidates for the job and filter by candidate name.</p>
-   * @public
-   */
-  CandidateNameEquals?: string | undefined;
-
-  /**
-   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: AutoMLSortOrder | undefined;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortBy?: CandidateSortBy | undefined;
-
-  /**
-   * <p>List the job's candidates up to a specified limit.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCandidatesForAutoMLJobResponse {
-  /**
-   * <p>Summaries about the <code>AutoMLCandidates</code>.</p>
-   * @public
-   */
-  Candidates: AutoMLCandidate[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListClusterNodesRequest {
-  /**
-   * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster in which you want to retrieve the list of nodes.</p>
-   * @public
-   */
-  ClusterName: string | undefined;
-
-  /**
-   * <p>A filter that returns nodes in a SageMaker HyperPod cluster created after the specified time. Timestamps are formatted according to the ISO 8601 standard. </p> <p>Acceptable formats include:</p> <ul> <li> <p> <code>YYYY-MM-DDThh:mm:ss.sssTZD</code> (UTC), for example, <code>2014-10-01T20:30:00.000Z</code> </p> </li> <li> <p> <code>YYYY-MM-DDThh:mm:ss.sssTZD</code> (with offset), for example, <code>2014-10-01T12:30:00.000-08:00</code> </p> </li> <li> <p> <code>YYYY-MM-DD</code>, for example, <code>2014-10-01</code> </p> </li> <li> <p>Unix time in seconds, for example, <code>1412195400</code>. This is also referred to as Unix Epoch time and represents the number of seconds since midnight, January 1, 1970 UTC.</p> </li> </ul> <p>For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a> in the <i>Amazon Web Services Command Line Interface User Guide</i>.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns nodes in a SageMaker HyperPod cluster created before the specified time. The acceptable formats are the same as the timestamp formats for <code>CreationTimeAfter</code>. For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a> in the <i>Amazon Web Services Command Line Interface User Guide</i>.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns the instance groups whose name contain a specified string.</p>
-   * @public
-   */
-  InstanceGroupNameContains?: string | undefined;
-
-  /**
-   * <p>The maximum number of nodes to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListClusterNodes</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of cluster nodes, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The field by which to sort results. The default value is <code>CREATION_TIME</code>.</p>
-   * @public
-   */
-  SortBy?: ClusterSortBy | undefined;
-
-  /**
-   * <p>The sort order for results. The default value is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListClusterNodesResponse {
-  /**
-   * <p>The next token specified for listing instances in a SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The summaries of listed instances in a SageMaker HyperPod cluster</p>
-   * @public
-   */
-  ClusterNodeSummaries: ClusterNodeSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListClustersRequest {
-  /**
-   * <p>Set a start time for the time range during which you want to list SageMaker HyperPod clusters. Timestamps are formatted according to the ISO 8601 standard. </p> <p>Acceptable formats include:</p> <ul> <li> <p> <code>YYYY-MM-DDThh:mm:ss.sssTZD</code> (UTC), for example, <code>2014-10-01T20:30:00.000Z</code> </p> </li> <li> <p> <code>YYYY-MM-DDThh:mm:ss.sssTZD</code> (with offset), for example, <code>2014-10-01T12:30:00.000-08:00</code> </p> </li> <li> <p> <code>YYYY-MM-DD</code>, for example, <code>2014-10-01</code> </p> </li> <li> <p>Unix time in seconds, for example, <code>1412195400</code>. This is also referred to as Unix Epoch time and represents the number of seconds since midnight, January 1, 1970 UTC.</p> </li> </ul> <p>For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a> in the <i>Amazon Web Services Command Line Interface User Guide</i>.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Set an end time for the time range during which you want to list SageMaker HyperPod clusters. A filter that returns nodes in a SageMaker HyperPod cluster created before the specified time. The acceptable formats are the same as the timestamp formats for <code>CreationTimeAfter</code>. For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a> in the <i>Amazon Web Services Command Line Interface User Guide</i>.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Set the maximum number of SageMaker HyperPod clusters to list.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Set the maximum number of instances to print in the list.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>Set the next token to retrieve the list of SageMaker HyperPod clusters.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The field by which to sort results. The default value is <code>CREATION_TIME</code>.</p>
-   * @public
-   */
-  SortBy?: ClusterSortBy | undefined;
-
-  /**
-   * <p>The sort order for results. The default value is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN); of the training plan to filter clusters by. For more information about reserving GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
-   * @public
-   */
-  TrainingPlanArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListClustersResponse {
-  /**
-   * <p>If the result of the previous <code>ListClusters</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of clusters, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The summaries of listed SageMaker HyperPod clusters.</p>
-   * @public
-   */
-  ClusterSummaries: ClusterSummary[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SortClusterSchedulerConfigBy = {
-  CREATION_TIME: "CreationTime",
-  NAME: "Name",
-  STATUS: "Status",
-} as const;
-
-/**
- * @public
- */
-export type SortClusterSchedulerConfigBy =
-  (typeof SortClusterSchedulerConfigBy)[keyof typeof SortClusterSchedulerConfigBy];
-
-/**
- * @public
- */
-export interface ListClusterSchedulerConfigsRequest {
-  /**
-   * <p>Filter for after this creation time. The input for this parameter is a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>Filter for before this creation time. The input for this parameter is a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>Filter for name containing this string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>Filter for ARN of the cluster.</p>
-   * @public
-   */
-  ClusterArn?: string | undefined;
-
-  /**
-   * <p>Filter for status.</p>
-   * @public
-   */
-  Status?: SchedulerResourceStatus | undefined;
-
-  /**
-   * <p>Filter for sorting the list by a given value. For example, sort by name, creation time, or status.</p>
-   * @public
-   */
-  SortBy?: SortClusterSchedulerConfigBy | undefined;
-
-  /**
-   * <p>The order of the list. By default, listed in <code>Descending</code> order according to by <code>SortBy</code>. To change the list order, you can specify <code>SortOrder</code> to be <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of cluster policies to list.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListClusterSchedulerConfigsResponse {
-  /**
-   * <p>Summaries of the cluster policies.</p>
-   * @public
-   */
-  ClusterSchedulerConfigSummaries?: ClusterSchedulerConfigSummary[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
    * @public
    */
   NextToken?: string | undefined;

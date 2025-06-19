@@ -1754,7 +1754,7 @@ export interface InstanceGroup {
  */
 export interface ResourceConfig {
   /**
-   * <p>The ML compute instance type. </p> <note> <p>SageMaker Training on Amazon Elastic Compute Cloud (EC2) P4de instances is in preview release starting December 9th, 2022. </p> <p> <a href="http://aws.amazon.com/ec2/instance-types/p4/">Amazon EC2 P4de instances</a> (currently in preview) are powered by 8 NVIDIA A100 GPUs with 80GB high-performance HBM2e GPU memory, which accelerate the speed of training ML models that need to be trained on large datasets of high-resolution data. In this preview release, Amazon SageMaker supports ML training jobs on P4de instances (<code>ml.p4de.24xlarge</code>) to reduce model training time. The <code>ml.p4de.24xlarge</code> instances are available in the following Amazon Web Services Regions. </p> <ul> <li> <p>US East (N. Virginia) (us-east-1)</p> </li> <li> <p>US West (Oregon) (us-west-2)</p> </li> </ul> <p>To request quota limit increase and start using P4de instances, contact the SageMaker Training service team through your account team.</p> </note>
+   * <p>The ML compute instance type. </p>
    * @public
    */
   InstanceType?: TrainingInstanceType | undefined;
@@ -5779,6 +5779,174 @@ export interface CategoricalParameterRangeSpecification {
 }
 
 /**
+ * <p> A key-value pair that represents a parameter for the CloudFormation stack. </p>
+ * @public
+ */
+export interface CfnStackCreateParameter {
+  /**
+   * <p> The name of the CloudFormation parameter. </p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p> The value of the CloudFormation parameter. </p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p> The CloudFormation template provider configuration for creating infrastructure resources. </p>
+ * @public
+ */
+export interface CfnCreateTemplateProvider {
+  /**
+   * <p> A unique identifier for the template within the project. </p>
+   * @public
+   */
+  TemplateName: string | undefined;
+
+  /**
+   * <p> The Amazon S3 URL of the CloudFormation template. </p>
+   * @public
+   */
+  TemplateURL: string | undefined;
+
+  /**
+   * <p> The IAM role that CloudFormation assumes when creating the stack. </p>
+   * @public
+   */
+  RoleARN?: string | undefined;
+
+  /**
+   * <p> An array of CloudFormation stack parameters.</p>
+   * @public
+   */
+  Parameters?: CfnStackCreateParameter[] | undefined;
+}
+
+/**
+ * <p> Details about the CloudFormation stack. </p>
+ * @public
+ */
+export interface CfnStackDetail {
+  /**
+   * <p> The name of the CloudFormation stack. </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p> The unique identifier of the CloudFormation stack. </p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p> A human-readable message about the stack's current status. </p>
+   * @public
+   */
+  StatusMessage: string | undefined;
+}
+
+/**
+ * <p> A key-value pair representing a parameter used in the CloudFormation stack. </p>
+ * @public
+ */
+export interface CfnStackParameter {
+  /**
+   * <p> The name of the CloudFormation parameter. </p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p> The value of the CloudFormation parameter. </p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p> A key-value pair representing a parameter used in the CloudFormation stack. </p>
+ * @public
+ */
+export interface CfnStackUpdateParameter {
+  /**
+   * <p> The name of the CloudFormation parameter. </p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p> The value of the CloudFormation parameter. </p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p> Details about a CloudFormation template provider configuration and associated provisioning information. </p>
+ * @public
+ */
+export interface CfnTemplateProviderDetail {
+  /**
+   * <p> The unique identifier of the template within the project. </p>
+   * @public
+   */
+  TemplateName: string | undefined;
+
+  /**
+   * <p> The Amazon S3 URL of the CloudFormation template. </p>
+   * @public
+   */
+  TemplateURL: string | undefined;
+
+  /**
+   * <p> The IAM role used by CloudFormation to create the stack. </p>
+   * @public
+   */
+  RoleARN?: string | undefined;
+
+  /**
+   * <p> An array of CloudFormation stack parameters.</p>
+   * @public
+   */
+  Parameters?: CfnStackParameter[] | undefined;
+
+  /**
+   * <p> Information about the CloudFormation stack created by the template provider. </p>
+   * @public
+   */
+  StackDetail?: CfnStackDetail | undefined;
+}
+
+/**
+ * <p> Contains configuration details for updating an existing CloudFormation template provider in the project. </p>
+ * @public
+ */
+export interface CfnUpdateTemplateProvider {
+  /**
+   * <p> The unique identifier of the template to update within the project. </p>
+   * @public
+   */
+  TemplateName: string | undefined;
+
+  /**
+   * <p> The Amazon S3 URL of the CloudFormation template.</p>
+   * @public
+   */
+  TemplateURL: string | undefined;
+
+  /**
+   * <p> An array of CloudFormation stack parameters. </p>
+   * @public
+   */
+  Parameters?: CfnStackUpdateParameter[] | undefined;
+}
+
+/**
  * <p>Defines a named input source, called a channel, to be used by an algorithm.</p>
  * @public
  */
@@ -7666,109 +7834,3 @@ export const ConditionOutcome = {
  * @public
  */
 export type ConditionOutcome = (typeof ConditionOutcome)[keyof typeof ConditionOutcome];
-
-/**
- * <p>Metadata for a Condition step.</p>
- * @public
- */
-export interface ConditionStepMetadata {
-  /**
-   * <p>The outcome of the Condition step evaluation.</p>
-   * @public
-   */
-  Outcome?: ConditionOutcome | undefined;
-}
-
-/**
- * <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const RepositoryAccessMode = {
-  PLATFORM: "Platform",
-  VPC: "Vpc",
-} as const;
-
-/**
- * @public
- */
-export type RepositoryAccessMode = (typeof RepositoryAccessMode)[keyof typeof RepositoryAccessMode];
-
-/**
- * <p>Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified <code>Vpc</code> as the value for the <code>RepositoryAccessMode</code> field of the <code>ImageConfig</code> object that you passed to a call to <code>CreateModel</code> and the private Docker registry where the model image is hosted requires authentication.</p>
- * @public
- */
-export interface RepositoryAuthConfig {
-  /**
-   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an Amazon Web Services Lambda function, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html">Create a Lambda function with the console</a> in the <i>Amazon Web Services Lambda Developer Guide</i>.</p>
-   * @public
-   */
-  RepositoryCredentialsProviderArn: string | undefined;
-}
-
-/**
- * <p>Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC).</p>
- * @public
- */
-export interface ImageConfig {
-  /**
-   * <p>Set this to one of the following values:</p> <ul> <li> <p> <code>Platform</code> - The model image is hosted in Amazon ECR.</p> </li> <li> <p> <code>Vpc</code> - The model image is hosted in a private Docker registry in your VPC.</p> </li> </ul>
-   * @public
-   */
-  RepositoryAccessMode: RepositoryAccessMode | undefined;
-
-  /**
-   * <p>(Optional) Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified <code>Vpc</code> as the value for the <code>RepositoryAccessMode</code> field, and the private Docker registry where the model image is hosted requires authentication.</p>
-   * @public
-   */
-  RepositoryAuthConfig?: RepositoryAuthConfig | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ContainerMode = {
-  MULTI_MODEL: "MultiModel",
-  SINGLE_MODEL: "SingleModel",
-} as const;
-
-/**
- * @public
- */
-export type ContainerMode = (typeof ContainerMode)[keyof typeof ContainerMode];
-
-/**
- * @public
- * @enum
- */
-export const ModelCacheSetting = {
-  DISABLED: "Disabled",
-  ENABLED: "Enabled",
-} as const;
-
-/**
- * @public
- */
-export type ModelCacheSetting = (typeof ModelCacheSetting)[keyof typeof ModelCacheSetting];

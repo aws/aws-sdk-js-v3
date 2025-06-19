@@ -6,22 +6,29 @@ import {
   AlgorithmSpecification,
   AppSpecification,
   AppType,
+  AutoMLCandidate,
   AutoMLJobStepMetadata,
+  AutoMLSortOrder,
   BatchDataCaptureConfig,
   BatchStrategy,
   BatchTransformInput,
   CacheHitResult,
   CallbackStepMetadata,
+  CandidateSortBy,
+  CandidateStatus,
   Channel,
   CheckpointConfig,
   ClarifyCheckStepMetadata,
+  ClusterNodeSummary,
+  ClusterSchedulerConfigSummary,
+  ClusterSortBy,
+  ClusterSummary,
   CodeRepositorySortBy,
   CodeRepositorySortOrder,
   CodeRepositorySummary,
   CompilationJobStatus,
   CompilationJobSummary,
   ComputeQuotaSummary,
-  ConditionStepMetadata,
   InferenceSpecification,
   ModelApprovalStatus,
   ModelPackageStatus,
@@ -40,6 +47,7 @@ import {
 
 import {
   _InstanceType,
+  ConditionStepMetadata,
   ContainerDefinition,
   ContextSummary,
   DriftCheckBaselines,
@@ -78,7 +86,6 @@ import {
   MonitoringScheduleConfig,
   MonitoringType,
   NetworkConfig,
-  OfflineStoreStatusValue,
   OptimizationJobDeploymentInstanceType,
   ParallelismConfiguration,
   PartnerAppType,
@@ -162,6 +169,7 @@ import {
   ModelPackageStatusDetails,
   MonitoringExecutionSummary,
   NotebookInstanceStatus,
+  OfflineStoreStatusValue,
   OptimizationJobStatus,
   PartnerAppStatus,
   PipelineExecutionStatus,
@@ -182,6 +190,7 @@ import {
   SortOrder,
   SpaceStatus,
   SubscribedWorkteam,
+  TemplateProviderDetail,
   TrackingServerStatus,
   TrainingJobStatus,
   TrainingPlanStatus,
@@ -195,6 +204,302 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListCandidatesForAutoMLJobRequest {
+  /**
+   * <p>List the candidates created for the job by providing the job's name.</p>
+   * @public
+   */
+  AutoMLJobName: string | undefined;
+
+  /**
+   * <p>List the candidates for the job and filter by status.</p>
+   * @public
+   */
+  StatusEquals?: CandidateStatus | undefined;
+
+  /**
+   * <p>List the candidates for the job and filter by candidate name.</p>
+   * @public
+   */
+  CandidateNameEquals?: string | undefined;
+
+  /**
+   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: AutoMLSortOrder | undefined;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is <code>Descending</code>.</p>
+   * @public
+   */
+  SortBy?: CandidateSortBy | undefined;
+
+  /**
+   * <p>List the job's candidates up to a specified limit.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCandidatesForAutoMLJobResponse {
+  /**
+   * <p>Summaries about the <code>AutoMLCandidates</code>.</p>
+   * @public
+   */
+  Candidates: AutoMLCandidate[] | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListClusterNodesRequest {
+  /**
+   * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster in which you want to retrieve the list of nodes.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * <p>A filter that returns nodes in a SageMaker HyperPod cluster created after the specified time. Timestamps are formatted according to the ISO 8601 standard. </p> <p>Acceptable formats include:</p> <ul> <li> <p> <code>YYYY-MM-DDThh:mm:ss.sssTZD</code> (UTC), for example, <code>2014-10-01T20:30:00.000Z</code> </p> </li> <li> <p> <code>YYYY-MM-DDThh:mm:ss.sssTZD</code> (with offset), for example, <code>2014-10-01T12:30:00.000-08:00</code> </p> </li> <li> <p> <code>YYYY-MM-DD</code>, for example, <code>2014-10-01</code> </p> </li> <li> <p>Unix time in seconds, for example, <code>1412195400</code>. This is also referred to as Unix Epoch time and represents the number of seconds since midnight, January 1, 1970 UTC.</p> </li> </ul> <p>For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a> in the <i>Amazon Web Services Command Line Interface User Guide</i>.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns nodes in a SageMaker HyperPod cluster created before the specified time. The acceptable formats are the same as the timestamp formats for <code>CreationTimeAfter</code>. For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a> in the <i>Amazon Web Services Command Line Interface User Guide</i>.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns the instance groups whose name contain a specified string.</p>
+   * @public
+   */
+  InstanceGroupNameContains?: string | undefined;
+
+  /**
+   * <p>The maximum number of nodes to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListClusterNodes</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of cluster nodes, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The field by which to sort results. The default value is <code>CREATION_TIME</code>.</p>
+   * @public
+   */
+  SortBy?: ClusterSortBy | undefined;
+
+  /**
+   * <p>The sort order for results. The default value is <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListClusterNodesResponse {
+  /**
+   * <p>The next token specified for listing instances in a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The summaries of listed instances in a SageMaker HyperPod cluster</p>
+   * @public
+   */
+  ClusterNodeSummaries: ClusterNodeSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListClustersRequest {
+  /**
+   * <p>Set a start time for the time range during which you want to list SageMaker HyperPod clusters. Timestamps are formatted according to the ISO 8601 standard. </p> <p>Acceptable formats include:</p> <ul> <li> <p> <code>YYYY-MM-DDThh:mm:ss.sssTZD</code> (UTC), for example, <code>2014-10-01T20:30:00.000Z</code> </p> </li> <li> <p> <code>YYYY-MM-DDThh:mm:ss.sssTZD</code> (with offset), for example, <code>2014-10-01T12:30:00.000-08:00</code> </p> </li> <li> <p> <code>YYYY-MM-DD</code>, for example, <code>2014-10-01</code> </p> </li> <li> <p>Unix time in seconds, for example, <code>1412195400</code>. This is also referred to as Unix Epoch time and represents the number of seconds since midnight, January 1, 1970 UTC.</p> </li> </ul> <p>For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a> in the <i>Amazon Web Services Command Line Interface User Guide</i>.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Set an end time for the time range during which you want to list SageMaker HyperPod clusters. A filter that returns nodes in a SageMaker HyperPod cluster created before the specified time. The acceptable formats are the same as the timestamp formats for <code>CreationTimeAfter</code>. For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a> in the <i>Amazon Web Services Command Line Interface User Guide</i>.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Set the maximum number of SageMaker HyperPod clusters to list.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Set the maximum number of instances to print in the list.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>Set the next token to retrieve the list of SageMaker HyperPod clusters.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The field by which to sort results. The default value is <code>CREATION_TIME</code>.</p>
+   * @public
+   */
+  SortBy?: ClusterSortBy | undefined;
+
+  /**
+   * <p>The sort order for results. The default value is <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN); of the training plan to filter clusters by. For more information about reserving GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
+   * @public
+   */
+  TrainingPlanArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListClustersResponse {
+  /**
+   * <p>If the result of the previous <code>ListClusters</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of clusters, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The summaries of listed SageMaker HyperPod clusters.</p>
+   * @public
+   */
+  ClusterSummaries: ClusterSummary[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SortClusterSchedulerConfigBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type SortClusterSchedulerConfigBy =
+  (typeof SortClusterSchedulerConfigBy)[keyof typeof SortClusterSchedulerConfigBy];
+
+/**
+ * @public
+ */
+export interface ListClusterSchedulerConfigsRequest {
+  /**
+   * <p>Filter for after this creation time. The input for this parameter is a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
+   * @public
+   */
+  CreatedAfter?: Date | undefined;
+
+  /**
+   * <p>Filter for before this creation time. The input for this parameter is a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
+   * @public
+   */
+  CreatedBefore?: Date | undefined;
+
+  /**
+   * <p>Filter for name containing this string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>Filter for ARN of the cluster.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>Filter for status.</p>
+   * @public
+   */
+  Status?: SchedulerResourceStatus | undefined;
+
+  /**
+   * <p>Filter for sorting the list by a given value. For example, sort by name, creation time, or status.</p>
+   * @public
+   */
+  SortBy?: SortClusterSchedulerConfigBy | undefined;
+
+  /**
+   * <p>The order of the list. By default, listed in <code>Descending</code> order according to by <code>SortBy</code>. To change the list order, you can specify <code>SortOrder</code> to be <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of cluster policies to list.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListClusterSchedulerConfigsResponse {
+  /**
+   * <p>Summaries of the cluster policies.</p>
+   * @public
+   */
+  ClusterSchedulerConfigSummaries?: ClusterSchedulerConfigSummary[] | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -8800,6 +9105,12 @@ export interface Project {
   CreationTime?: Date | undefined;
 
   /**
+   * <p> An array of template providers associated with the project. </p>
+   * @public
+   */
+  TemplateProviderDetails?: TemplateProviderDetail[] | undefined;
+
+  /**
    * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    * @public
    */
@@ -10081,141 +10392,6 @@ export interface StartEdgeDeploymentStageRequest {
    * @public
    */
   StageName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartInferenceExperimentRequest {
-  /**
-   * <p>The name of the inference experiment to start.</p>
-   * @public
-   */
-  Name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartInferenceExperimentResponse {
-  /**
-   * <p>The ARN of the started inference experiment to start.</p>
-   * @public
-   */
-  InferenceExperimentArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartMlflowTrackingServerRequest {
-  /**
-   * <p>The name of the tracking server to start.</p>
-   * @public
-   */
-  TrackingServerName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartMlflowTrackingServerResponse {
-  /**
-   * <p>The ARN of the started tracking server.</p>
-   * @public
-   */
-  TrackingServerArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartMonitoringScheduleRequest {
-  /**
-   * <p>The name of the schedule to start.</p>
-   * @public
-   */
-  MonitoringScheduleName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartNotebookInstanceInput {
-  /**
-   * <p>The name of the notebook instance to start.</p>
-   * @public
-   */
-  NotebookInstanceName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartPipelineExecutionRequest {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the pipeline.</p>
-   * @public
-   */
-  PipelineName: string | undefined;
-
-  /**
-   * <p>The display name of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionDisplayName?: string | undefined;
-
-  /**
-   * <p>Contains a list of pipeline parameters. This list can be empty. </p>
-   * @public
-   */
-  PipelineParameters?: Parameter[] | undefined;
-
-  /**
-   * <p>The description of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionDescription?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than once.</p>
-   * @public
-   */
-  ClientRequestToken?: string | undefined;
-
-  /**
-   * <p>This configuration, if specified, overrides the parallelism configuration of the parent pipeline for this specific run.</p>
-   * @public
-   */
-  ParallelismConfiguration?: ParallelismConfiguration | undefined;
-
-  /**
-   * <p>The selective execution configuration applied to the pipeline run.</p>
-   * @public
-   */
-  SelectiveExecutionConfig?: SelectiveExecutionConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface StartPipelineExecutionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopAutoMLJobRequest {
-  /**
-   * <p>The name of the object you are requesting.</p>
-   * @public
-   */
-  AutoMLJobName: string | undefined;
 }
 
 /**

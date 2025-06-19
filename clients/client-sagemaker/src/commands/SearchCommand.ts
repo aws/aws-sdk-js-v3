@@ -1561,6 +1561,26 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //         ProjectStatus: "Pending" || "CreateInProgress" || "CreateCompleted" || "CreateFailed" || "DeleteInProgress" || "DeleteFailed" || "DeleteCompleted" || "UpdateInProgress" || "UpdateCompleted" || "UpdateFailed",
  * //         CreatedBy: "<UserContext>",
  * //         CreationTime: new Date("TIMESTAMP"),
+ * //         TemplateProviderDetails: [ // TemplateProviderDetailList
+ * //           { // TemplateProviderDetail
+ * //             CfnTemplateProviderDetail: { // CfnTemplateProviderDetail
+ * //               TemplateName: "STRING_VALUE", // required
+ * //               TemplateURL: "STRING_VALUE", // required
+ * //               RoleARN: "STRING_VALUE",
+ * //               Parameters: [ // CfnStackParameters
+ * //                 { // CfnStackParameter
+ * //                   Key: "STRING_VALUE", // required
+ * //                   Value: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //               StackDetail: { // CfnStackDetail
+ * //                 Name: "STRING_VALUE",
+ * //                 Id: "STRING_VALUE",
+ * //                 StatusMessage: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //           },
+ * //         ],
  * //         Tags: "<TagList>",
  * //         LastModifiedTime: new Date("TIMESTAMP"),
  * //         LastModifiedBy: "<UserContext>",

@@ -61,6 +61,26 @@ export interface DescribeProjectCommandOutput extends DescribeProjectOutput, __M
  * //     ProvisionedProductStatusMessage: "STRING_VALUE",
  * //   },
  * //   ProjectStatus: "Pending" || "CreateInProgress" || "CreateCompleted" || "CreateFailed" || "DeleteInProgress" || "DeleteFailed" || "DeleteCompleted" || "UpdateInProgress" || "UpdateCompleted" || "UpdateFailed", // required
+ * //   TemplateProviderDetails: [ // TemplateProviderDetailList
+ * //     { // TemplateProviderDetail
+ * //       CfnTemplateProviderDetail: { // CfnTemplateProviderDetail
+ * //         TemplateName: "STRING_VALUE", // required
+ * //         TemplateURL: "STRING_VALUE", // required
+ * //         RoleARN: "STRING_VALUE",
+ * //         Parameters: [ // CfnStackParameters
+ * //           { // CfnStackParameter
+ * //             Key: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         StackDetail: { // CfnStackDetail
+ * //           Name: "STRING_VALUE",
+ * //           Id: "STRING_VALUE",
+ * //           StatusMessage: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
  * //   CreatedBy: { // UserContext
  * //     UserProfileArn: "STRING_VALUE",
  * //     UserProfileName: "STRING_VALUE",
