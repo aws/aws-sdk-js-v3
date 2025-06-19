@@ -276,6 +276,9 @@ import {
   InvokeResponseStreamUpdate,
   InvokeWithResponseStreamCompleteEvent,
   InvokeWithResponseStreamResponseEvent,
+  KafkaSchemaRegistryAccessConfig,
+  KafkaSchemaRegistryConfig,
+  KafkaSchemaValidationConfig,
   KMSAccessDeniedException,
   KMSDisabledException,
   KMSInvalidStateException,
@@ -1687,6 +1690,7 @@ export const se_UpdateEventSourceMappingCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AmazonManagedKafkaEventSourceConfig: (_) => _json(_),
       BatchSize: [],
       BisectBatchOnFunctionError: [],
       DestinationConfig: (_) => _json(_),
@@ -1703,6 +1707,7 @@ export const se_UpdateEventSourceMappingCommand = async (
       ParallelizationFactor: [],
       ProvisionedPollerConfig: (_) => _json(_),
       ScalingConfig: (_) => _json(_),
+      SelfManagedKafkaEventSourceConfig: (_) => _json(_),
       SourceAccessConfigurations: (_) => _json(_),
       TumblingWindowInSeconds: [],
     })
@@ -4677,6 +4682,16 @@ const se_FunctionCode = (input: FunctionCode, context: __SerdeContext): any => {
 
 // se_ImageConfig omitted.
 
+// se_KafkaSchemaRegistryAccessConfig omitted.
+
+// se_KafkaSchemaRegistryAccessConfigList omitted.
+
+// se_KafkaSchemaRegistryConfig omitted.
+
+// se_KafkaSchemaValidationConfig omitted.
+
+// se_KafkaSchemaValidationConfigList omitted.
+
 // se_LayerList omitted.
 
 /**
@@ -4939,6 +4954,16 @@ const de_FunctionEventInvokeConfigList = (output: any, context: __SerdeContext):
 // de_ImageConfigResponse omitted.
 
 // de_InvokeWithResponseStreamCompleteEvent omitted.
+
+// de_KafkaSchemaRegistryAccessConfig omitted.
+
+// de_KafkaSchemaRegistryAccessConfigList omitted.
+
+// de_KafkaSchemaRegistryConfig omitted.
+
+// de_KafkaSchemaValidationConfig omitted.
+
+// de_KafkaSchemaValidationConfigList omitted.
 
 // de_Layer omitted.
 

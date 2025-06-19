@@ -97,8 +97,8 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>DestinationConfig</code> – Send discarded records to an Amazon SQS queue, Amazon SNS topic, or
- *             Amazon S3 bucket.</p>
+ *                   <code>OnFailure</code> – Send discarded records to an Amazon SQS queue, Amazon SNS topic, or
+ *             Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations">Adding a destination</a>.</p>
  *             </li>
  *          </ul>
  *          <p>For information about which configuration parameters apply to each event source, see the following topics.</p>
@@ -207,9 +207,39 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *   ],
  *   AmazonManagedKafkaEventSourceConfig: { // AmazonManagedKafkaEventSourceConfig
  *     ConsumerGroupId: "STRING_VALUE",
+ *     SchemaRegistryConfig: { // KafkaSchemaRegistryConfig
+ *       SchemaRegistryURI: "STRING_VALUE",
+ *       EventRecordFormat: "JSON" || "SOURCE",
+ *       AccessConfigs: [ // KafkaSchemaRegistryAccessConfigList
+ *         { // KafkaSchemaRegistryAccessConfig
+ *           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ *           URI: "STRING_VALUE",
+ *         },
+ *       ],
+ *       SchemaValidationConfigs: [ // KafkaSchemaValidationConfigList
+ *         { // KafkaSchemaValidationConfig
+ *           Attribute: "KEY" || "VALUE",
+ *         },
+ *       ],
+ *     },
  *   },
  *   SelfManagedKafkaEventSourceConfig: { // SelfManagedKafkaEventSourceConfig
  *     ConsumerGroupId: "STRING_VALUE",
+ *     SchemaRegistryConfig: {
+ *       SchemaRegistryURI: "STRING_VALUE",
+ *       EventRecordFormat: "JSON" || "SOURCE",
+ *       AccessConfigs: [
+ *         {
+ *           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ *           URI: "STRING_VALUE",
+ *         },
+ *       ],
+ *       SchemaValidationConfigs: [
+ *         {
+ *           Attribute: "KEY" || "VALUE",
+ *         },
+ *       ],
+ *     },
  *   },
  *   ScalingConfig: { // ScalingConfig
  *     MaximumConcurrency: Number("int"),
@@ -288,9 +318,39 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  * //   ],
  * //   AmazonManagedKafkaEventSourceConfig: { // AmazonManagedKafkaEventSourceConfig
  * //     ConsumerGroupId: "STRING_VALUE",
+ * //     SchemaRegistryConfig: { // KafkaSchemaRegistryConfig
+ * //       SchemaRegistryURI: "STRING_VALUE",
+ * //       EventRecordFormat: "JSON" || "SOURCE",
+ * //       AccessConfigs: [ // KafkaSchemaRegistryAccessConfigList
+ * //         { // KafkaSchemaRegistryAccessConfig
+ * //           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ * //           URI: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       SchemaValidationConfigs: [ // KafkaSchemaValidationConfigList
+ * //         { // KafkaSchemaValidationConfig
+ * //           Attribute: "KEY" || "VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   SelfManagedKafkaEventSourceConfig: { // SelfManagedKafkaEventSourceConfig
  * //     ConsumerGroupId: "STRING_VALUE",
+ * //     SchemaRegistryConfig: {
+ * //       SchemaRegistryURI: "STRING_VALUE",
+ * //       EventRecordFormat: "JSON" || "SOURCE",
+ * //       AccessConfigs: [
+ * //         {
+ * //           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ * //           URI: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       SchemaValidationConfigs: [
+ * //         {
+ * //           Attribute: "KEY" || "VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   ScalingConfig: { // ScalingConfig
  * //     MaximumConcurrency: Number("int"),

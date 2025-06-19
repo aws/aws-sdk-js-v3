@@ -535,6 +535,142 @@ export interface AllowedPublishers {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const KafkaSchemaRegistryAuthType = {
+  BASIC_AUTH: "BASIC_AUTH",
+  CLIENT_CERTIFICATE_TLS_AUTH: "CLIENT_CERTIFICATE_TLS_AUTH",
+  SERVER_ROOT_CA_CERTIFICATE: "SERVER_ROOT_CA_CERTIFICATE",
+} as const;
+
+/**
+ * @public
+ */
+export type KafkaSchemaRegistryAuthType =
+  (typeof KafkaSchemaRegistryAuthType)[keyof typeof KafkaSchemaRegistryAuthType];
+
+/**
+ * <p>Specific access configuration settings that tell Lambda how to authenticate with your schema registry.</p>
+ *          <p>If you're working with an Glue schema registry, don't provide authentication details in this object.
+ *       Instead, ensure that your execution role has the required permissions for Lambda to access your cluster.</p>
+ *          <p>If you're working with a Confluent schema registry, choose the authentication method in the <code>Type</code> field,
+ *       and provide the Secrets Manager secret ARN in the <code>URI</code> field.</p>
+ * @public
+ */
+export interface KafkaSchemaRegistryAccessConfig {
+  /**
+   * <p>
+   *       The type of authentication Lambda uses to access your schema registry.
+   *     </p>
+   * @public
+   */
+  Type?: KafkaSchemaRegistryAuthType | undefined;
+
+  /**
+   * <p>
+   *       The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
+   *     </p>
+   * @public
+   */
+  URI?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SchemaRegistryEventRecordFormat = {
+  JSON: "JSON",
+  SOURCE: "SOURCE",
+} as const;
+
+/**
+ * @public
+ */
+export type SchemaRegistryEventRecordFormat =
+  (typeof SchemaRegistryEventRecordFormat)[keyof typeof SchemaRegistryEventRecordFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const KafkaSchemaValidationAttribute = {
+  KEY: "KEY",
+  VALUE: "VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type KafkaSchemaValidationAttribute =
+  (typeof KafkaSchemaValidationAttribute)[keyof typeof KafkaSchemaValidationAttribute];
+
+/**
+ * <p>Specific schema validation configuration settings that tell Lambda the message
+ *   attributes you want to validate and filter using your schema registry.</p>
+ * @public
+ */
+export interface KafkaSchemaValidationConfig {
+  /**
+   * <p>
+   *       The attributes you want your schema registry to validate and filter for. If you selected <code>JSON</code> as the
+   *         <code>EventRecordFormat</code>, Lambda also deserializes the selected message attributes.
+   *     </p>
+   * @public
+   */
+  Attribute?: KafkaSchemaValidationAttribute | undefined;
+}
+
+/**
+ * <p>Specific configuration settings for a Kafka schema registry.</p>
+ * @public
+ */
+export interface KafkaSchemaRegistryConfig {
+  /**
+   * <p>The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For Glue schema registries, use the ARN of the registry.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Confluent schema registries, use the URL of the registry.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SchemaRegistryURI?: string | undefined;
+
+  /**
+   * <p>The record format that Lambda delivers to your function after schema validation.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Choose <code>JSON</code> to have Lambda deliver the record to your function as a standard JSON object.</p>
+   *             </li>
+   *             <li>
+   *                <p>Choose <code>SOURCE</code> to have Lambda deliver the record to your function in its original source format.
+   *           Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  EventRecordFormat?: SchemaRegistryEventRecordFormat | undefined;
+
+  /**
+   * <p>An array of access configuration objects that tell Lambda how to authenticate with your schema registry.</p>
+   * @public
+   */
+  AccessConfigs?: KafkaSchemaRegistryAccessConfig[] | undefined;
+
+  /**
+   * <p>An array of schema validation configuration objects, which tell Lambda the message
+   *   attributes you want to validate and filter using your schema registry.</p>
+   * @public
+   */
+  SchemaValidationConfigs?: KafkaSchemaValidationConfig[] | undefined;
+}
+
+/**
  * <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
  * @public
  */
@@ -546,6 +682,12 @@ export interface AmazonManagedKafkaEventSourceConfig {
    * @public
    */
   ConsumerGroupId?: string | undefined;
+
+  /**
+   * <p>Specific configuration settings for a Kafka schema registry.</p>
+   * @public
+   */
+  SchemaRegistryConfig?: KafkaSchemaRegistryConfig | undefined;
 }
 
 /**
@@ -749,7 +891,7 @@ export interface CreateCodeSigningConfigResponse {
 }
 
 /**
- * <p>A destination for events that failed processing.</p>
+ * <p>A destination for events that failed processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations">Adding a destination</a>.</p>
  * @public
  */
 export interface OnFailure {
@@ -772,6 +914,10 @@ export interface OnFailure {
  *          <p>To retain records of successful <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">asynchronous invocations</a>,
  *       you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function,
  *       or Amazon EventBridge event bus as the destination.</p>
+ *          <note>
+ *             <p>
+ *                <code>OnSuccess</code> is not supported in <code>CreateEventSourceMapping</code> or <code>UpdateEventSourceMapping</code> requests.</p>
+ *          </note>
  * @public
  */
 export interface OnSuccess {
@@ -783,12 +929,12 @@ export interface OnSuccess {
 }
 
 /**
- * <p>A configuration object that specifies the destination of an event after Lambda processes it.</p>
+ * <p>A configuration object that specifies the destination of an event after Lambda processes it. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations">Adding a destination</a>.</p>
  * @public
  */
 export interface DestinationConfig {
   /**
-   * <p>The destination configuration for successful invocations.</p>
+   * <p>The destination configuration for successful invocations. Not supported in <code>CreateEventSourceMapping</code> or <code>UpdateEventSourceMapping</code>.</p>
    * @public
    */
   OnSuccess?: OnSuccess | undefined;
@@ -988,12 +1134,18 @@ export interface SelfManagedEventSource {
  */
 export interface SelfManagedKafkaEventSourceConfig {
   /**
-   * <p>The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources.
-   *   After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see
-   *   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id">Customizable consumer group ID</a>.</p>
+   * <p> The identifier for the Kafka consumer group to join. The consumer group ID must be unique
+   *       among all your Kafka event sources. After creating a Kafka event source mapping with the
+   *       consumer group ID specified, you cannot update this value. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add">Customizable consumer group ID</a>.</p>
    * @public
    */
   ConsumerGroupId?: string | undefined;
+
+  /**
+   * <p>Specific configuration settings for a Kafka schema registry.</p>
+   * @public
+   */
+  SchemaRegistryConfig?: KafkaSchemaRegistryConfig | undefined;
 }
 
 /**
@@ -1452,7 +1604,7 @@ export interface EventSourceMappingConfiguration {
   LastModified?: Date | undefined;
 
   /**
-   * <p>The result of the last Lambda invocation of your function.</p>
+   * <p>The result of the event source mapping's last processing attempt.</p>
    * @public
    */
   LastProcessingResult?: string | undefined;
@@ -1717,7 +1869,7 @@ export interface FunctionCode {
 }
 
 /**
- * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">dead-letter queue</a> for
+ * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-dlq">dead-letter queue</a> for
  *       failed asynchronous invocations.</p>
  * @public
  */
@@ -7234,6 +7386,18 @@ export interface UpdateEventSourceMappingRequest {
    * @public
    */
   ScalingConfig?: ScalingConfig | undefined;
+
+  /**
+   * <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
+   * @public
+   */
+  AmazonManagedKafkaEventSourceConfig?: AmazonManagedKafkaEventSourceConfig | undefined;
+
+  /**
+   * <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
+   * @public
+   */
+  SelfManagedKafkaEventSourceConfig?: SelfManagedKafkaEventSourceConfig | undefined;
 
   /**
    * <p>Specific configuration settings for a DocumentDB event source.</p>

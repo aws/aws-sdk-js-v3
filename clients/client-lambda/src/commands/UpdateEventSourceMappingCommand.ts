@@ -98,8 +98,8 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>DestinationConfig</code> – Send discarded records to an Amazon SQS queue, Amazon SNS topic, or
- *             Amazon S3 bucket.</p>
+ *                   <code>OnFailure</code> – Send discarded records to an Amazon SQS queue, Amazon SNS topic, or
+ *             Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations">Adding a destination</a>.</p>
  *             </li>
  *          </ul>
  *          <p>For information about which configuration parameters apply to each event source, see the following topics.</p>
@@ -191,6 +191,42 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *   ScalingConfig: { // ScalingConfig
  *     MaximumConcurrency: Number("int"),
  *   },
+ *   AmazonManagedKafkaEventSourceConfig: { // AmazonManagedKafkaEventSourceConfig
+ *     ConsumerGroupId: "STRING_VALUE",
+ *     SchemaRegistryConfig: { // KafkaSchemaRegistryConfig
+ *       SchemaRegistryURI: "STRING_VALUE",
+ *       EventRecordFormat: "JSON" || "SOURCE",
+ *       AccessConfigs: [ // KafkaSchemaRegistryAccessConfigList
+ *         { // KafkaSchemaRegistryAccessConfig
+ *           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ *           URI: "STRING_VALUE",
+ *         },
+ *       ],
+ *       SchemaValidationConfigs: [ // KafkaSchemaValidationConfigList
+ *         { // KafkaSchemaValidationConfig
+ *           Attribute: "KEY" || "VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   SelfManagedKafkaEventSourceConfig: { // SelfManagedKafkaEventSourceConfig
+ *     ConsumerGroupId: "STRING_VALUE",
+ *     SchemaRegistryConfig: {
+ *       SchemaRegistryURI: "STRING_VALUE",
+ *       EventRecordFormat: "JSON" || "SOURCE",
+ *       AccessConfigs: [
+ *         {
+ *           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ *           URI: "STRING_VALUE",
+ *         },
+ *       ],
+ *       SchemaValidationConfigs: [
+ *         {
+ *           Attribute: "KEY" || "VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
  *   DocumentDBEventSourceConfig: { // DocumentDBEventSourceConfig
  *     DatabaseName: "STRING_VALUE",
  *     CollectionName: "STRING_VALUE",
@@ -265,9 +301,39 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  * //   ],
  * //   AmazonManagedKafkaEventSourceConfig: { // AmazonManagedKafkaEventSourceConfig
  * //     ConsumerGroupId: "STRING_VALUE",
+ * //     SchemaRegistryConfig: { // KafkaSchemaRegistryConfig
+ * //       SchemaRegistryURI: "STRING_VALUE",
+ * //       EventRecordFormat: "JSON" || "SOURCE",
+ * //       AccessConfigs: [ // KafkaSchemaRegistryAccessConfigList
+ * //         { // KafkaSchemaRegistryAccessConfig
+ * //           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ * //           URI: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       SchemaValidationConfigs: [ // KafkaSchemaValidationConfigList
+ * //         { // KafkaSchemaValidationConfig
+ * //           Attribute: "KEY" || "VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   SelfManagedKafkaEventSourceConfig: { // SelfManagedKafkaEventSourceConfig
  * //     ConsumerGroupId: "STRING_VALUE",
+ * //     SchemaRegistryConfig: {
+ * //       SchemaRegistryURI: "STRING_VALUE",
+ * //       EventRecordFormat: "JSON" || "SOURCE",
+ * //       AccessConfigs: [
+ * //         {
+ * //           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ * //           URI: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       SchemaValidationConfigs: [
+ * //         {
+ * //           Attribute: "KEY" || "VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   ScalingConfig: { // ScalingConfig
  * //     MaximumConcurrency: Number("int"),
@@ -324,6 +390,31 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To update a Lambda function event source mapping
+ * ```javascript
+ * // This operation updates a Lambda function event source mapping
+ * const input = {
+ *   BatchSize: 123,
+ *   Enabled: true,
+ *   FunctionName: "myFunction",
+ *   UUID: "1234xCy789012"
+ * };
+ * const command = new UpdateEventSourceMappingCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   BatchSize: 123,
+ *   EventSourceArn: "arn:aws:s3:::examplebucket/*",
+ *   FunctionArn: "arn:aws:lambda:us-west-2:123456789012:function:myFunction",
+ *   LastModified: "2016-11-21T19:49:20.006Z",
+ *   LastProcessingResult: "",
+ *   State: "",
+ *   StateTransitionReason: "",
+ *   UUID: "1234xCy789012"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

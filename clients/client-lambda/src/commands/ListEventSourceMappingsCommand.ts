@@ -103,9 +103,39 @@ export interface ListEventSourceMappingsCommandOutput extends ListEventSourceMap
  * //       ],
  * //       AmazonManagedKafkaEventSourceConfig: { // AmazonManagedKafkaEventSourceConfig
  * //         ConsumerGroupId: "STRING_VALUE",
+ * //         SchemaRegistryConfig: { // KafkaSchemaRegistryConfig
+ * //           SchemaRegistryURI: "STRING_VALUE",
+ * //           EventRecordFormat: "JSON" || "SOURCE",
+ * //           AccessConfigs: [ // KafkaSchemaRegistryAccessConfigList
+ * //             { // KafkaSchemaRegistryAccessConfig
+ * //               Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ * //               URI: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           SchemaValidationConfigs: [ // KafkaSchemaValidationConfigList
+ * //             { // KafkaSchemaValidationConfig
+ * //               Attribute: "KEY" || "VALUE",
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //       SelfManagedKafkaEventSourceConfig: { // SelfManagedKafkaEventSourceConfig
  * //         ConsumerGroupId: "STRING_VALUE",
+ * //         SchemaRegistryConfig: {
+ * //           SchemaRegistryURI: "STRING_VALUE",
+ * //           EventRecordFormat: "JSON" || "SOURCE",
+ * //           AccessConfigs: [
+ * //             {
+ * //               Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ * //               URI: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           SchemaValidationConfigs: [
+ * //             {
+ * //               Attribute: "KEY" || "VALUE",
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //       ScalingConfig: { // ScalingConfig
  * //         MaximumConcurrency: Number("int"),

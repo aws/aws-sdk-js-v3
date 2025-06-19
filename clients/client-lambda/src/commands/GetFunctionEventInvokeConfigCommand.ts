@@ -84,6 +84,31 @@ export interface GetFunctionEventInvokeConfigCommandOutput extends FunctionEvent
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  *
+ * @example To get an asynchronous invocation configuration
+ * ```javascript
+ * // The following example returns the asynchronous invocation configuration for the BLUE alias of a function named my-function.
+ * const input = {
+ *   FunctionName: "my-function",
+ *   Qualifier: "BLUE"
+ * };
+ * const command = new GetFunctionEventInvokeConfigCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DestinationConfig: {
+ *     OnFailure: {
+ *       Destination: "arn:aws:sqs:us-east-2:123456789012:failed-invocations"
+ *     },
+ *     OnSuccess:     { /* empty *\/ }
+ *   },
+ *   FunctionArn: "arn:aws:lambda:us-east-2:123456789012:function:my-function:BLUE",
+ *   LastModified: "2016-11-21T19:49:20.006Z",
+ *   MaximumEventAgeInSeconds: 3600,
+ *   MaximumRetryAttempts: 0
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetFunctionEventInvokeConfigCommand extends $Command
