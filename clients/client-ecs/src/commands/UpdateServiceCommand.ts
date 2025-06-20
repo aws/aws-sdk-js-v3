@@ -38,11 +38,11 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * 			constraints and strategies, and task definition. When you update any of these
  * 			parameters, Amazon ECS starts new tasks with the new configuration. </p>
  *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when starting or
- * 			running a task, or when creating or updating a service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. You can update
+ * 			running a task, or when creating or updating a service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. You can update
  * 			your volume configurations and trigger a new deployment.
  * 				<code>volumeConfigurations</code> is only supported for REPLICA service and not
  * 			DAEMON service. If you leave <code>volumeConfigurations</code>
- *             <code>null</code>, it doesn't trigger a new deployment. For more infomation on volumes,
+ *             <code>null</code>, it doesn't trigger a new deployment. For more information on volumes,
  * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>For services using the blue/green (<code>CODE_DEPLOY</code>) deployment controller,
  * 			only the desired count, deployment configuration, health check grace period, task
@@ -59,7 +59,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * 			service by specifying the cluster that the service is running in and a new
  * 				<code>desiredCount</code> parameter.</p>
  *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when starting or
- * 			running a task, or when creating or updating a service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 			running a task, or when creating or updating a service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>If you have updated the container image of your application, you can create a new task
  * 			definition with that image and deploy it to your service. The service scheduler uses the
  * 			minimum healthy percent and maximum percent parameters (in the service's deployment

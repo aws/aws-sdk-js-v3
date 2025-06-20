@@ -44,7 +44,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service load balancing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when creating or
  * 			updating a service. <code>volumeConfigurations</code> is only supported for REPLICA
- * 			service and not DAEMON service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 			service and not DAEMON service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>Tasks for services that don't use a load balancer are considered healthy if they're in
  * 			the <code>RUNNING</code> state. Tasks for services that use a load balancer are
  * 			considered healthy if they're in the <code>RUNNING</code> state and are reported as

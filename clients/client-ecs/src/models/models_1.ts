@@ -445,20 +445,20 @@ export interface UpdateServiceRequest {
    *          <p>The following list provides the valid transitions:</p>
    *          <ul>
    *             <li>
-   *                <p>Update the Fargate launch type to an EC2 capacity provider.</p>
+   *                <p>Update the Fargate launch type to an Auto Scaling group capacity provider.</p>
    *             </li>
    *             <li>
    *                <p>Update the Amazon EC2 launch type to a Fargate capacity provider.</p>
    *             </li>
    *             <li>
-   *                <p>Update the Fargate capacity provider to an EC2 capacity provider.</p>
+   *                <p>Update the Fargate capacity provider to an Auto Scaling group capacity provider.</p>
    *             </li>
    *             <li>
    *                <p>Update the Amazon EC2 capacity provider to a Fargate capacity provider. </p>
    *             </li>
    *             <li>
-   *                <p>Update the EC2 or Fargate capacity provider back to the launch type.</p>
-   *                <p>Pass an empty list in the <code>capacityProvider</code> parameter.</p>
+   *                <p>Update the Auto Scaling group or Fargate capacity provider back to the launch type.</p>
+   *                <p>Pass an empty list in the <code>capacityProviderStrategy</code> parameter.</p>
    *             </li>
    *          </ul>
    *          <p>For information about Amazon Web Services CDK considerations, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/update-service-parameters.html">Amazon Web Services CDK considerations</a>.</p>

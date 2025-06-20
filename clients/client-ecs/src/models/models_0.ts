@@ -6000,7 +6000,7 @@ export interface ContainerDefinition {
    *                <i>repository-url</i>/<i>image</i>:<i>tag</i>
    *             </code> or <code>
    *                <i>repository-url</i>/<i>image</i>@<i>digest</i>
-   *             </code>. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to <code>Image</code> in the docker
+   *             </code>. For images using tags (repository-url/image:tag), up to 255 characters total are allowed, including letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs (#). For images using digests (repository-url/image@digest), the 255 character limit applies only to the repository URL and image name (everything before the @ sign). The only supported hash function is sha256, and the hash value after sha256: must be exactly 64 characters (only letters A-F, a-f, and numbers 0-9 are allowed). This parameter maps to <code>Image</code> in the docker
    * 			container create command and the <code>IMAGE</code> parameter of docker run.</p>
    *          <ul>
    *             <li>
@@ -6978,6 +6978,8 @@ export const OSFamily = {
   WINDOWS_SERVER_2019_FULL: "WINDOWS_SERVER_2019_FULL",
   WINDOWS_SERVER_2022_CORE: "WINDOWS_SERVER_2022_CORE",
   WINDOWS_SERVER_2022_FULL: "WINDOWS_SERVER_2022_FULL",
+  WINDOWS_SERVER_2025_CORE: "WINDOWS_SERVER_2025_CORE",
+  WINDOWS_SERVER_2025_FULL: "WINDOWS_SERVER_2025_FULL",
   WINDOWS_SERVER_20H2_CORE: "WINDOWS_SERVER_20H2_CORE",
 } as const;
 

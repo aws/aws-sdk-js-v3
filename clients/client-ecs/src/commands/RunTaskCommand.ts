@@ -41,7 +41,7 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *          <p>Alternatively, you can use <code>StartTask</code> to use your own scheduler or place
  * 			tasks manually on specific container instances.</p>
  *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when creating or
- * 			updating a service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 			updating a service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>The Amazon ECS API follows an eventual consistency model. This is because of the
  * 			distributed nature of the system supporting the API. This means that the result of an
  * 			API command you run that affects your Amazon ECS resources might not be immediately visible
