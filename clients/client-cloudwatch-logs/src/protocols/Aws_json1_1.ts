@@ -6,14 +6,14 @@ import {
   isValidHostname as __isValidHostname,
 } from "@smithy/protocol-http";
 import {
-  _json,
-  collectBody,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectLong as __expectLong,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
+  _json,
+  collectBody,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -3059,7 +3059,19 @@ export const de_StartLiveTailCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  const contents = { responseStream: de_StartLiveTailResponseStream(output.body, context) };
+
+  // new event stream deser paradigm
+  const contents: any = {
+    // http bindings go here, using HttpResponse.
+    // REST only, excludes body binding.
+  };
+  contents.responseStream = await context.eventStreamMarshaller.writeResponse(
+    contents,
+    // structure deserializer
+    // RPC JSON, RPC CBOR only
+    de_StartLiveTailResponseStream(output.body, context)
+  );
+
   const response: StartLiveTailCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3634,7 +3646,7 @@ const de_StartLiveTailResponseStream = (
         ),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 const de_LiveTailSessionStart_event = async (output: any, context: __SerdeContext): Promise<LiveTailSessionStart> => {
