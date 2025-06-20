@@ -145,7 +145,7 @@ This can cause your application to time out or the Node.js process to exit with 
 
 ```ts
 // example: response stream deadlock
-const s3 = new S3Client({
+const s3 = new S3({
   requestHandler: {
     httpsAgent: {
       maxSockets: 1,
@@ -174,7 +174,7 @@ In this example, reading of the body streams is done in a non-blocking way.
 
 ```ts
 // example: parallel streaming without deadlock
-const s3 = new S3Client({
+const s3 = new S3({
   requestHandler: {
     httpsAgent: {
       maxSockets: 1,
