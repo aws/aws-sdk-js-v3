@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.834.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.833.0...v3.834.0) (2025-06-20)
+
+
+### Bug Fixes
+
+* **docs:** update broken link for NodeProviderChain ([#7138](https://github.com/aws/aws-sdk-js-v3/issues/7138)) ([3cb0a72](https://github.com/aws/aws-sdk-js-v3/commit/3cb0a721e881b3957e7ea69a69702caf2c0a584d))
+
+
+
+
+
 # [3.830.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.829.0...v3.830.0) (2025-06-16)
 
 **Note:** Version bump only for package @aws-sdk/credential-providers

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.834.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.833.0...v3.834.0) (2025-06-20)
+
+
+### Features
+
+* **client-bedrock:** Add support for tiers in Content Filters and Denied Topics for Amazon Bedrock Guardrails. ([b57c4ac](https://github.com/aws/aws-sdk-js-v3/commit/b57c4acdc079c53be5251becf899cbbfbf0ba676))
+
+
+
+
+
 # [3.831.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.830.0...v3.831.0) (2025-06-17)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock

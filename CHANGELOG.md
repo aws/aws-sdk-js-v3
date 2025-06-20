@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.834.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.833.0...v3.834.0) (2025-06-20)
+
+
+### Bug Fixes
+
+* **docs:** update broken link for NodeProviderChain ([#7138](https://github.com/aws/aws-sdk-js-v3/issues/7138)) ([3cb0a72](https://github.com/aws/aws-sdk-js-v3/commit/3cb0a721e881b3957e7ea69a69702caf2c0a584d))
+
+
+### Features
+
+* **client-bedrock:** Add support for tiers in Content Filters and Denied Topics for Amazon Bedrock Guardrails. ([b57c4ac](https://github.com/aws/aws-sdk-js-v3/commit/b57c4acdc079c53be5251becf899cbbfbf0ba676))
+* **client-ecs:** Add ECS support for Windows Server 2025 ([c382ce6](https://github.com/aws/aws-sdk-js-v3/commit/c382ce6d1c0bcd32b66f9854c4b19b743c6cf2e5))
+* **client-geo-places:** Geocode, ReverseGeocode, and GetPlace APIs added Intersections and SecondaryAddresses. To use, add to the AdditionalFeatures list in your request. This provides info about nearby intersections and secondary addresses that are associated with a main address. Also added MainAddress and ParsedQuery. ([03a7a09](https://github.com/aws/aws-sdk-js-v3/commit/03a7a09d2bfb4ec50b14078b6d4e1ae0871409b4))
+* **client-glue:** AWS Glue Data Quality now provides aggregated metrics in evaluation results when publishAggregatedMetrics with row-level results are enabled. These metrics include summary statistics showing total counts of processed, passed, and failed rows and rules in a single view. ([b18e5aa](https://github.com/aws/aws-sdk-js-v3/commit/b18e5aadf9b84a41c966ce0282520fe6353722aa))
+* **client-mediaconvert:** This release adds a new SPECIFIED_OPTIMAL option for handling DDS when using DVB-Sub with high resolution video. ([fed23d7](https://github.com/aws/aws-sdk-js-v3/commit/fed23d70859622d6e031152f907a1e9c7eaba6a9))
+* **clients:** update client endpoints as of 2025-06-20 ([ed3e3fb](https://github.com/aws/aws-sdk-js-v3/commit/ed3e3fb2d8a5f9bf62308ba90c1c0c5e359b150a))
+
+
+
+
+
 # [3.833.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.832.0...v3.833.0) (2025-06-19)
 
 
