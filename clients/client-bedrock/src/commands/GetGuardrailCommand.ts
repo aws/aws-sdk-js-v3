@@ -63,6 +63,9 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //         outputEnabled: true || false,
  * //       },
  * //     ],
+ * //     tier: { // GuardrailTopicsTier
+ * //       tierName: "CLASSIC" || "STANDARD", // required
+ * //     },
  * //   },
  * //   contentPolicy: { // GuardrailContentPolicy
  * //     filters: [ // GuardrailContentFilters
@@ -82,6 +85,9 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //         outputEnabled: true || false,
  * //       },
  * //     ],
+ * //     tier: { // GuardrailContentFiltersTier
+ * //       tierName: "CLASSIC" || "STANDARD", // required
+ * //     },
  * //   },
  * //   wordPolicy: { // GuardrailWordPolicy
  * //     words: [ // GuardrailWords

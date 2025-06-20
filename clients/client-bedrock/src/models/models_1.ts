@@ -11,10 +11,186 @@ import {
   EvaluationModelConfigFilterSensitiveLog,
   EvaluationOutputDataConfig,
   EvaluationPrecomputedRagSourceConfig,
-  KnowledgeBaseConfig,
-  KnowledgeBaseConfigFilterSensitiveLog,
+  ExternalSourcesRetrieveAndGenerateConfiguration,
+  ExternalSourcesRetrieveAndGenerateConfigurationFilterSensitiveLog,
+  GenerationConfiguration,
+  GenerationConfigurationFilterSensitiveLog,
+  OrchestrationConfiguration,
+  RetrievalFilter,
+  RetrieveAndGenerateType,
+  SearchType,
   Tag,
 } from "./models_0";
+
+/**
+ * <p>The configuration details for returning the results from the knowledge base vector search.</p>
+ * @public
+ */
+export interface KnowledgeBaseVectorSearchConfiguration {
+  /**
+   * <p>The number of text chunks to retrieve; the number of results to return.</p>
+   * @public
+   */
+  numberOfResults?: number | undefined;
+
+  /**
+   * <p>By default, Amazon Bedrock decides a search strategy for you. If you're using an Amazon OpenSearch Serverless vector store that contains a filterable text field, you can specify whether to query the knowledge base with a <code>HYBRID</code> search using both vector embeddings and raw text, or <code>SEMANTIC</code> search using only vector embeddings. For other vector store configurations, only <code>SEMANTIC</code> search is available.</p>
+   * @public
+   */
+  overrideSearchType?: SearchType | undefined;
+
+  /**
+   * <p>Specifies the filters to use on the metadata fields in the knowledge base data sources before returning results.</p>
+   * @public
+   */
+  filter?: RetrievalFilter | undefined;
+}
+
+/**
+ * <p>Contains configuration details for retrieving information from a knowledge base.</p>
+ * @public
+ */
+export interface KnowledgeBaseRetrievalConfiguration {
+  /**
+   * <p>Contains configuration details for returning the results from the vector search.</p>
+   * @public
+   */
+  vectorSearchConfiguration: KnowledgeBaseVectorSearchConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configuration details for retrieving information from a knowledge base and generating responses.</p>
+ * @public
+ */
+export interface KnowledgeBaseRetrieveAndGenerateConfiguration {
+  /**
+   * <p>The unique identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> used to generate responses.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>Contains configuration details for retrieving text chunks.</p>
+   * @public
+   */
+  retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration | undefined;
+
+  /**
+   * <p>Contains configurations details for response generation based on retrieved text chunks.</p>
+   * @public
+   */
+  generationConfiguration?: GenerationConfiguration | undefined;
+
+  /**
+   * <p>Contains configuration details for the model to process the prompt prior to retrieval and response generation.</p>
+   * @public
+   */
+  orchestrationConfiguration?: OrchestrationConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration details for retrieving information from a knowledge base.</p>
+ * @public
+ */
+export interface RetrieveConfig {
+  /**
+   * <p>The unique identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>Contains configuration details for knowledge base retrieval.</p>
+   * @public
+   */
+  knowledgeBaseRetrievalConfiguration: KnowledgeBaseRetrievalConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configuration details for a knowledge base retrieval and response generation.</p>
+ * @public
+ */
+export interface RetrieveAndGenerateConfiguration {
+  /**
+   * <p>The type of resource that contains your data for retrieving information and generating responses.</p> <p>If you choose to use <code>EXTERNAL_SOURCES</code>, then currently only Claude 3 Sonnet models for knowledge bases are supported.</p>
+   * @public
+   */
+  type: RetrieveAndGenerateType | undefined;
+
+  /**
+   * <p>Contains configuration details for the knowledge base retrieval and response generation.</p>
+   * @public
+   */
+  knowledgeBaseConfiguration?: KnowledgeBaseRetrieveAndGenerateConfiguration | undefined;
+
+  /**
+   * <p>The configuration for the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
+   * @public
+   */
+  externalSourcesConfiguration?: ExternalSourcesRetrieveAndGenerateConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration details for retrieving information from a knowledge base and generating responses.</p>
+ * @public
+ */
+export type KnowledgeBaseConfig =
+  | KnowledgeBaseConfig.RetrieveAndGenerateConfigMember
+  | KnowledgeBaseConfig.RetrieveConfigMember
+  | KnowledgeBaseConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace KnowledgeBaseConfig {
+  /**
+   * <p>Contains configuration details for retrieving information from a knowledge base.</p>
+   * @public
+   */
+  export interface RetrieveConfigMember {
+    retrieveConfig: RetrieveConfig;
+    retrieveAndGenerateConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains configuration details for retrieving information from a knowledge base and generating responses.</p>
+   * @public
+   */
+  export interface RetrieveAndGenerateConfigMember {
+    retrieveConfig?: never;
+    retrieveAndGenerateConfig: RetrieveAndGenerateConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    retrieveConfig?: never;
+    retrieveAndGenerateConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    retrieveConfig: (value: RetrieveConfig) => T;
+    retrieveAndGenerateConfig: (value: RetrieveAndGenerateConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: KnowledgeBaseConfig, visitor: Visitor<T>): T => {
+    if (value.retrieveConfig !== undefined) return visitor.retrieveConfig(value.retrieveConfig);
+    if (value.retrieveAndGenerateConfig !== undefined)
+      return visitor.retrieveAndGenerateConfig(value.retrieveAndGenerateConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
 
 /**
  * <p>Contains configuration details for retrieval of information and response generation.</p>
@@ -280,6 +456,84 @@ export interface GetEvaluationJobResponse {
    */
   failureMessages?: string[] | undefined;
 }
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseVectorSearchConfigurationFilterSensitiveLog = (
+  obj: KnowledgeBaseVectorSearchConfiguration
+): any => ({
+  ...obj,
+  ...(obj.filter && { filter: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseRetrievalConfigurationFilterSensitiveLog = (
+  obj: KnowledgeBaseRetrievalConfiguration
+): any => ({
+  ...obj,
+  ...(obj.vectorSearchConfiguration && {
+    vectorSearchConfiguration: KnowledgeBaseVectorSearchConfigurationFilterSensitiveLog(obj.vectorSearchConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseRetrieveAndGenerateConfigurationFilterSensitiveLog = (
+  obj: KnowledgeBaseRetrieveAndGenerateConfiguration
+): any => ({
+  ...obj,
+  ...(obj.retrievalConfiguration && {
+    retrievalConfiguration: KnowledgeBaseRetrievalConfigurationFilterSensitiveLog(obj.retrievalConfiguration),
+  }),
+  ...(obj.generationConfiguration && {
+    generationConfiguration: GenerationConfigurationFilterSensitiveLog(obj.generationConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const RetrieveConfigFilterSensitiveLog = (obj: RetrieveConfig): any => ({
+  ...obj,
+  ...(obj.knowledgeBaseRetrievalConfiguration && {
+    knowledgeBaseRetrievalConfiguration: KnowledgeBaseRetrievalConfigurationFilterSensitiveLog(
+      obj.knowledgeBaseRetrievalConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const RetrieveAndGenerateConfigurationFilterSensitiveLog = (obj: RetrieveAndGenerateConfiguration): any => ({
+  ...obj,
+  ...(obj.knowledgeBaseConfiguration && {
+    knowledgeBaseConfiguration: KnowledgeBaseRetrieveAndGenerateConfigurationFilterSensitiveLog(
+      obj.knowledgeBaseConfiguration
+    ),
+  }),
+  ...(obj.externalSourcesConfiguration && {
+    externalSourcesConfiguration: ExternalSourcesRetrieveAndGenerateConfigurationFilterSensitiveLog(
+      obj.externalSourcesConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseConfigFilterSensitiveLog = (obj: KnowledgeBaseConfig): any => {
+  if (obj.retrieveConfig !== undefined) return { retrieveConfig: RetrieveConfigFilterSensitiveLog(obj.retrieveConfig) };
+  if (obj.retrieveAndGenerateConfig !== undefined)
+    return {
+      retrieveAndGenerateConfig: RetrieveAndGenerateConfigurationFilterSensitiveLog(obj.retrieveAndGenerateConfig),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
 
 /**
  * @internal

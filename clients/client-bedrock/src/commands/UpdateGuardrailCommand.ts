@@ -58,6 +58,9 @@ export interface UpdateGuardrailCommandOutput extends UpdateGuardrailResponse, _
  *         outputEnabled: true || false,
  *       },
  *     ],
+ *     tierConfig: { // GuardrailTopicsTierConfig
+ *       tierName: "CLASSIC" || "STANDARD", // required
+ *     },
  *   },
  *   contentPolicyConfig: { // GuardrailContentPolicyConfig
  *     filtersConfig: [ // GuardrailContentFiltersConfig // required
@@ -77,6 +80,9 @@ export interface UpdateGuardrailCommandOutput extends UpdateGuardrailResponse, _
  *         outputEnabled: true || false,
  *       },
  *     ],
+ *     tierConfig: { // GuardrailContentFiltersTierConfig
+ *       tierName: "CLASSIC" || "STANDARD", // required
+ *     },
  *   },
  *   wordPolicyConfig: { // GuardrailWordPolicyConfig
  *     wordsConfig: [ // GuardrailWordsConfig

@@ -2880,6 +2880,33 @@ export interface GuardrailContentFilterConfig {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const GuardrailContentFiltersTierName = {
+  CLASSIC: "CLASSIC",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContentFiltersTierName =
+  (typeof GuardrailContentFiltersTierName)[keyof typeof GuardrailContentFiltersTierName];
+
+/**
+ * <p>The tier that your guardrail uses for content filters. Consider using a tier that balances performance, accuracy, and compatibility with your existing generative AI workflows.</p>
+ * @public
+ */
+export interface GuardrailContentFiltersTierConfig {
+  /**
+   * <p>The tier that your guardrail uses for content filters. Valid values include:</p> <ul> <li> <p> <code>CLASSIC</code> tier – Provides established guardrails functionality supporting English, French, and Spanish languages.</p> </li> <li> <p> <code>STANDARD</code> tier – Provides a more robust solution than the <code>CLASSIC</code> tier and has more comprehensive language support. This tier requires that your guardrail use <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">cross-Region inference</a>.</p> </li> </ul>
+   * @public
+   */
+  tierName: GuardrailContentFiltersTierName | undefined;
+}
+
+/**
  * <p>Contains details about how to handle harmful content.</p>
  * @public
  */
@@ -2889,6 +2916,12 @@ export interface GuardrailContentPolicyConfig {
    * @public
    */
   filtersConfig: GuardrailContentFilterConfig[] | undefined;
+
+  /**
+   * <p>The tier that your guardrail uses for content filters.</p>
+   * @public
+   */
+  tierConfig?: GuardrailContentFiltersTierConfig | undefined;
 }
 
 /**
@@ -3152,6 +3185,32 @@ export interface GuardrailSensitiveInformationPolicyConfig {
  * @public
  * @enum
  */
+export const GuardrailTopicsTierName = {
+  CLASSIC: "CLASSIC",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailTopicsTierName = (typeof GuardrailTopicsTierName)[keyof typeof GuardrailTopicsTierName];
+
+/**
+ * <p>The tier that your guardrail uses for denied topic filters. Consider using a tier that balances performance, accuracy, and compatibility with your existing generative AI workflows.</p>
+ * @public
+ */
+export interface GuardrailTopicsTierConfig {
+  /**
+   * <p>The tier that your guardrail uses for denied topic filters. Valid values include:</p> <ul> <li> <p> <code>CLASSIC</code> tier – Provides established guardrails functionality supporting English, French, and Spanish languages.</p> </li> <li> <p> <code>STANDARD</code> tier – Provides a more robust solution than the <code>CLASSIC</code> tier and has more comprehensive language support. This tier requires that your guardrail use <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">cross-Region inference</a>.</p> </li> </ul>
+   * @public
+   */
+  tierName: GuardrailTopicsTierName | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const GuardrailTopicAction = {
   BLOCK: "BLOCK",
   NONE: "NONE",
@@ -3239,6 +3298,12 @@ export interface GuardrailTopicPolicyConfig {
    * @public
    */
   topicsConfig: GuardrailTopicConfig[] | undefined;
+
+  /**
+   * <p>The tier that your guardrail uses for denied topic filters.</p>
+   * @public
+   */
+  tierConfig?: GuardrailTopicsTierConfig | undefined;
 }
 
 /**
@@ -3610,6 +3675,18 @@ export interface GuardrailContentFilter {
 }
 
 /**
+ * <p>The tier that your guardrail uses for content filters.</p>
+ * @public
+ */
+export interface GuardrailContentFiltersTier {
+  /**
+   * <p>The tier that your guardrail uses for content filters. Valid values include:</p> <ul> <li> <p> <code>CLASSIC</code> tier – Provides established guardrails functionality supporting English, French, and Spanish languages.</p> </li> <li> <p> <code>STANDARD</code> tier – Provides a more robust solution than the <code>CLASSIC</code> tier and has more comprehensive language support. This tier requires that your guardrail use <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">cross-Region inference</a>.</p> </li> </ul>
+   * @public
+   */
+  tierName: GuardrailContentFiltersTierName | undefined;
+}
+
+/**
  * <p>Contains details about how to handle harmful content.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a> </p> </li> </ul>
  * @public
  */
@@ -3619,6 +3696,12 @@ export interface GuardrailContentPolicy {
    * @public
    */
   filters?: GuardrailContentFilter[] | undefined;
+
+  /**
+   * <p>The tier that your guardrail uses for content filters.</p>
+   * @public
+   */
+  tier?: GuardrailContentFiltersTier | undefined;
 }
 
 /**
@@ -3814,6 +3897,18 @@ export const GuardrailStatus = {
 export type GuardrailStatus = (typeof GuardrailStatus)[keyof typeof GuardrailStatus];
 
 /**
+ * <p>The tier that your guardrail uses for denied topic filters.</p>
+ * @public
+ */
+export interface GuardrailTopicsTier {
+  /**
+   * <p>The tier that your guardrail uses for denied topic filters. Valid values include:</p> <ul> <li> <p> <code>CLASSIC</code> tier – Provides established guardrails functionality supporting English, French, and Spanish languages.</p> </li> <li> <p> <code>STANDARD</code> tier – Provides a more robust solution than the <code>CLASSIC</code> tier and has more comprehensive language support. This tier requires that your guardrail use <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">cross-Region inference</a>.</p> </li> </ul>
+   * @public
+   */
+  tierName: GuardrailTopicsTierName | undefined;
+}
+
+/**
  * <p>Details about topics for the guardrail to identify and deny.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a> </p> </li> </ul>
  * @public
  */
@@ -3877,6 +3972,12 @@ export interface GuardrailTopicPolicy {
    * @public
    */
   topics: GuardrailTopic[] | undefined;
+
+  /**
+   * <p>The tier that your guardrail uses for denied topic filters.</p>
+   * @public
+   */
+  tier?: GuardrailTopicsTier | undefined;
 }
 
 /**
@@ -8013,176 +8114,6 @@ export namespace RetrievalFilter {
 }
 
 /**
- * <p>The configuration details for returning the results from the knowledge base vector search.</p>
- * @public
- */
-export interface KnowledgeBaseVectorSearchConfiguration {
-  /**
-   * <p>The number of text chunks to retrieve; the number of results to return.</p>
-   * @public
-   */
-  numberOfResults?: number | undefined;
-
-  /**
-   * <p>By default, Amazon Bedrock decides a search strategy for you. If you're using an Amazon OpenSearch Serverless vector store that contains a filterable text field, you can specify whether to query the knowledge base with a <code>HYBRID</code> search using both vector embeddings and raw text, or <code>SEMANTIC</code> search using only vector embeddings. For other vector store configurations, only <code>SEMANTIC</code> search is available.</p>
-   * @public
-   */
-  overrideSearchType?: SearchType | undefined;
-
-  /**
-   * <p>Specifies the filters to use on the metadata fields in the knowledge base data sources before returning results.</p>
-   * @public
-   */
-  filter?: RetrievalFilter | undefined;
-}
-
-/**
- * <p>Contains configuration details for retrieving information from a knowledge base.</p>
- * @public
- */
-export interface KnowledgeBaseRetrievalConfiguration {
-  /**
-   * <p>Contains configuration details for returning the results from the vector search.</p>
-   * @public
-   */
-  vectorSearchConfiguration: KnowledgeBaseVectorSearchConfiguration | undefined;
-}
-
-/**
- * <p>Contains configuration details for retrieving information from a knowledge base and generating responses.</p>
- * @public
- */
-export interface KnowledgeBaseRetrieveAndGenerateConfiguration {
-  /**
-   * <p>The unique identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> used to generate responses.</p>
-   * @public
-   */
-  modelArn: string | undefined;
-
-  /**
-   * <p>Contains configuration details for retrieving text chunks.</p>
-   * @public
-   */
-  retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration | undefined;
-
-  /**
-   * <p>Contains configurations details for response generation based on retrieved text chunks.</p>
-   * @public
-   */
-  generationConfiguration?: GenerationConfiguration | undefined;
-
-  /**
-   * <p>Contains configuration details for the model to process the prompt prior to retrieval and response generation.</p>
-   * @public
-   */
-  orchestrationConfiguration?: OrchestrationConfiguration | undefined;
-}
-
-/**
- * <p>The configuration details for retrieving information from a knowledge base.</p>
- * @public
- */
-export interface RetrieveConfig {
-  /**
-   * <p>The unique identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>Contains configuration details for knowledge base retrieval.</p>
-   * @public
-   */
-  knowledgeBaseRetrievalConfiguration: KnowledgeBaseRetrievalConfiguration | undefined;
-}
-
-/**
- * <p>Contains configuration details for a knowledge base retrieval and response generation.</p>
- * @public
- */
-export interface RetrieveAndGenerateConfiguration {
-  /**
-   * <p>The type of resource that contains your data for retrieving information and generating responses.</p> <p>If you choose to use <code>EXTERNAL_SOURCES</code>, then currently only Claude 3 Sonnet models for knowledge bases are supported.</p>
-   * @public
-   */
-  type: RetrieveAndGenerateType | undefined;
-
-  /**
-   * <p>Contains configuration details for the knowledge base retrieval and response generation.</p>
-   * @public
-   */
-  knowledgeBaseConfiguration?: KnowledgeBaseRetrieveAndGenerateConfiguration | undefined;
-
-  /**
-   * <p>The configuration for the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
-   * @public
-   */
-  externalSourcesConfiguration?: ExternalSourcesRetrieveAndGenerateConfiguration | undefined;
-}
-
-/**
- * <p>The configuration details for retrieving information from a knowledge base and generating responses.</p>
- * @public
- */
-export type KnowledgeBaseConfig =
-  | KnowledgeBaseConfig.RetrieveAndGenerateConfigMember
-  | KnowledgeBaseConfig.RetrieveConfigMember
-  | KnowledgeBaseConfig.$UnknownMember;
-
-/**
- * @public
- */
-export namespace KnowledgeBaseConfig {
-  /**
-   * <p>Contains configuration details for retrieving information from a knowledge base.</p>
-   * @public
-   */
-  export interface RetrieveConfigMember {
-    retrieveConfig: RetrieveConfig;
-    retrieveAndGenerateConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains configuration details for retrieving information from a knowledge base and generating responses.</p>
-   * @public
-   */
-  export interface RetrieveAndGenerateConfigMember {
-    retrieveConfig?: never;
-    retrieveAndGenerateConfig: RetrieveAndGenerateConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    retrieveConfig?: never;
-    retrieveAndGenerateConfig?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    retrieveConfig: (value: RetrieveConfig) => T;
-    retrieveAndGenerateConfig: (value: RetrieveAndGenerateConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: KnowledgeBaseConfig, visitor: Visitor<T>): T => {
-    if (value.retrieveConfig !== undefined) return visitor.retrieveConfig(value.retrieveConfig);
-    if (value.retrieveAndGenerateConfig !== undefined)
-      return visitor.retrieveAndGenerateConfig(value.retrieveAndGenerateConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
  * @internal
  */
 export const RequestMetadataBaseFiltersFilterSensitiveLog = (obj: RequestMetadataBaseFilters): any => ({
@@ -8479,11 +8410,20 @@ export const GuardrailContentFilterConfigFilterSensitiveLog = (obj: GuardrailCon
 /**
  * @internal
  */
+export const GuardrailContentFiltersTierConfigFilterSensitiveLog = (obj: GuardrailContentFiltersTierConfig): any => ({
+  ...obj,
+  ...(obj.tierName && { tierName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const GuardrailContentPolicyConfigFilterSensitiveLog = (obj: GuardrailContentPolicyConfig): any => ({
   ...obj,
   ...(obj.filtersConfig && {
     filtersConfig: obj.filtersConfig.map((item) => GuardrailContentFilterConfigFilterSensitiveLog(item)),
   }),
+  ...(obj.tierConfig && { tierConfig: GuardrailContentFiltersTierConfigFilterSensitiveLog(obj.tierConfig) }),
 });
 
 /**
@@ -8511,6 +8451,14 @@ export const GuardrailContextualGroundingPolicyConfigFilterSensitiveLog = (
 /**
  * @internal
  */
+export const GuardrailTopicsTierConfigFilterSensitiveLog = (obj: GuardrailTopicsTierConfig): any => ({
+  ...obj,
+  ...(obj.tierName && { tierName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const GuardrailTopicConfigFilterSensitiveLog = (obj: GuardrailTopicConfig): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
@@ -8528,6 +8476,7 @@ export const GuardrailTopicPolicyConfigFilterSensitiveLog = (obj: GuardrailTopic
   ...(obj.topicsConfig && {
     topicsConfig: obj.topicsConfig.map((item) => GuardrailTopicConfigFilterSensitiveLog(item)),
   }),
+  ...(obj.tierConfig && { tierConfig: GuardrailTopicsTierConfigFilterSensitiveLog(obj.tierConfig) }),
 });
 
 /**
@@ -8606,9 +8555,18 @@ export const GuardrailContentFilterFilterSensitiveLog = (obj: GuardrailContentFi
 /**
  * @internal
  */
+export const GuardrailContentFiltersTierFilterSensitiveLog = (obj: GuardrailContentFiltersTier): any => ({
+  ...obj,
+  ...(obj.tierName && { tierName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const GuardrailContentPolicyFilterSensitiveLog = (obj: GuardrailContentPolicy): any => ({
   ...obj,
   ...(obj.filters && { filters: obj.filters.map((item) => GuardrailContentFilterFilterSensitiveLog(item)) }),
+  ...(obj.tier && { tier: GuardrailContentFiltersTierFilterSensitiveLog(obj.tier) }),
 });
 
 /**
@@ -8632,6 +8590,14 @@ export const GuardrailContextualGroundingPolicyFilterSensitiveLog = (obj: Guardr
 /**
  * @internal
  */
+export const GuardrailTopicsTierFilterSensitiveLog = (obj: GuardrailTopicsTier): any => ({
+  ...obj,
+  ...(obj.tierName && { tierName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const GuardrailTopicFilterSensitiveLog = (obj: GuardrailTopic): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
@@ -8647,6 +8613,7 @@ export const GuardrailTopicFilterSensitiveLog = (obj: GuardrailTopic): any => ({
 export const GuardrailTopicPolicyFilterSensitiveLog = (obj: GuardrailTopicPolicy): any => ({
   ...obj,
   ...(obj.topics && { topics: obj.topics.map((item) => GuardrailTopicFilterSensitiveLog(item)) }),
+  ...(obj.tier && { tier: GuardrailTopicsTierFilterSensitiveLog(obj.tier) }),
 });
 
 /**
@@ -8873,83 +8840,5 @@ export const RetrievalFilterFilterSensitiveLog = (obj: RetrievalFilter): any => 
   if (obj.stringContains !== undefined) return { stringContains: obj.stringContains };
   if (obj.andAll !== undefined) return { andAll: SENSITIVE_STRING };
   if (obj.orAll !== undefined) return { orAll: SENSITIVE_STRING };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const KnowledgeBaseVectorSearchConfigurationFilterSensitiveLog = (
-  obj: KnowledgeBaseVectorSearchConfiguration
-): any => ({
-  ...obj,
-  ...(obj.filter && { filter: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const KnowledgeBaseRetrievalConfigurationFilterSensitiveLog = (
-  obj: KnowledgeBaseRetrievalConfiguration
-): any => ({
-  ...obj,
-  ...(obj.vectorSearchConfiguration && {
-    vectorSearchConfiguration: KnowledgeBaseVectorSearchConfigurationFilterSensitiveLog(obj.vectorSearchConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const KnowledgeBaseRetrieveAndGenerateConfigurationFilterSensitiveLog = (
-  obj: KnowledgeBaseRetrieveAndGenerateConfiguration
-): any => ({
-  ...obj,
-  ...(obj.retrievalConfiguration && {
-    retrievalConfiguration: KnowledgeBaseRetrievalConfigurationFilterSensitiveLog(obj.retrievalConfiguration),
-  }),
-  ...(obj.generationConfiguration && {
-    generationConfiguration: GenerationConfigurationFilterSensitiveLog(obj.generationConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const RetrieveConfigFilterSensitiveLog = (obj: RetrieveConfig): any => ({
-  ...obj,
-  ...(obj.knowledgeBaseRetrievalConfiguration && {
-    knowledgeBaseRetrievalConfiguration: KnowledgeBaseRetrievalConfigurationFilterSensitiveLog(
-      obj.knowledgeBaseRetrievalConfiguration
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const RetrieveAndGenerateConfigurationFilterSensitiveLog = (obj: RetrieveAndGenerateConfiguration): any => ({
-  ...obj,
-  ...(obj.knowledgeBaseConfiguration && {
-    knowledgeBaseConfiguration: KnowledgeBaseRetrieveAndGenerateConfigurationFilterSensitiveLog(
-      obj.knowledgeBaseConfiguration
-    ),
-  }),
-  ...(obj.externalSourcesConfiguration && {
-    externalSourcesConfiguration: ExternalSourcesRetrieveAndGenerateConfigurationFilterSensitiveLog(
-      obj.externalSourcesConfiguration
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const KnowledgeBaseConfigFilterSensitiveLog = (obj: KnowledgeBaseConfig): any => {
-  if (obj.retrieveConfig !== undefined) return { retrieveConfig: RetrieveConfigFilterSensitiveLog(obj.retrieveConfig) };
-  if (obj.retrieveAndGenerateConfig !== undefined)
-    return {
-      retrieveAndGenerateConfig: RetrieveAndGenerateConfigurationFilterSensitiveLog(obj.retrieveAndGenerateConfig),
-    };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };

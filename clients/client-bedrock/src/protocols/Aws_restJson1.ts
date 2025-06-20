@@ -238,6 +238,7 @@ import {
   GenerationConfiguration,
   GuardrailConfiguration,
   GuardrailContentFilterConfig,
+  GuardrailContentFiltersTierConfig,
   GuardrailContentPolicyConfig,
   GuardrailContextualGroundingFilter,
   GuardrailContextualGroundingFilterConfig,
@@ -252,6 +253,7 @@ import {
   GuardrailSummary,
   GuardrailTopicConfig,
   GuardrailTopicPolicyConfig,
+  GuardrailTopicsTierConfig,
   GuardrailWordConfig,
   GuardrailWordPolicyConfig,
   HumanEvaluationConfig,
@@ -264,10 +266,6 @@ import {
   InvocationLogsConfig,
   InvocationLogSource,
   KbInferenceConfig,
-  KnowledgeBaseConfig,
-  KnowledgeBaseRetrievalConfiguration,
-  KnowledgeBaseRetrieveAndGenerateConfiguration,
-  KnowledgeBaseVectorSearchConfiguration,
   LoggingConfig,
   MarketplaceModelEndpoint,
   MarketplaceModelEndpointSummary,
@@ -294,8 +292,6 @@ import {
   RequestMetadataFilters,
   ResourceNotFoundException,
   RetrievalFilter,
-  RetrieveAndGenerateConfiguration,
-  RetrieveConfig,
   RoutingCriteria,
   S3Config,
   S3DataSource,
@@ -319,7 +315,16 @@ import {
   ValidatorMetric,
   VpcConfig,
 } from "../models/models_0";
-import { EvaluationInferenceConfig, RAGConfig } from "../models/models_1";
+import {
+  EvaluationInferenceConfig,
+  KnowledgeBaseConfig,
+  KnowledgeBaseRetrievalConfiguration,
+  KnowledgeBaseRetrieveAndGenerateConfiguration,
+  KnowledgeBaseVectorSearchConfiguration,
+  RAGConfig,
+  RetrieveAndGenerateConfiguration,
+  RetrieveConfig,
+} from "../models/models_1";
 
 /**
  * serializeAws_restJson1BatchDeleteEvaluationJobCommand
@@ -3439,6 +3444,8 @@ const se_GenerationConfiguration = (input: GenerationConfiguration, context: __S
 
 // se_GuardrailContentFiltersConfig omitted.
 
+// se_GuardrailContentFiltersTierConfig omitted.
+
 // se_GuardrailContentPolicyConfig omitted.
 
 /**
@@ -3507,6 +3514,8 @@ const se_GuardrailContextualGroundingPolicyConfig = (
 // se_GuardrailTopicPolicyConfig omitted.
 
 // se_GuardrailTopicsConfig omitted.
+
+// se_GuardrailTopicsTierConfig omitted.
 
 // se_GuardrailWordConfig omitted.
 
@@ -4161,6 +4170,8 @@ const de_GenerationConfiguration = (output: any, context: __SerdeContext): Gener
 
 // de_GuardrailContentFilters omitted.
 
+// de_GuardrailContentFiltersTier omitted.
+
 // de_GuardrailContentPolicy omitted.
 
 /**
@@ -4263,6 +4274,8 @@ const de_GuardrailSummary = (output: any, context: __SerdeContext): GuardrailSum
 // de_GuardrailTopicPolicy omitted.
 
 // de_GuardrailTopics omitted.
+
+// de_GuardrailTopicsTier omitted.
 
 // de_GuardrailWord omitted.
 
