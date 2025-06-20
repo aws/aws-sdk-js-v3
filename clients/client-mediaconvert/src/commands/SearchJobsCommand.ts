@@ -956,7 +956,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                         ApplyFontColor: "WHITE_TEXT_ONLY" || "ALL_TEXT",
  * //                         BackgroundColor: "NONE" || "BLACK" || "WHITE" || "AUTO",
  * //                         BackgroundOpacity: Number("int"),
- * //                         DdsHandling: "NONE" || "SPECIFIED" || "NO_DISPLAY_WINDOW",
+ * //                         DdsHandling: "NONE" || "SPECIFIED" || "NO_DISPLAY_WINDOW" || "SPECIFIED_OPTIMAL",
  * //                         DdsXCoordinate: Number("int"),
  * //                         DdsYCoordinate: Number("int"),
  * //                         FallbackFont: "BEST_MATCH" || "MONOSPACED_SANSSERIF" || "MONOSPACED_SERIF" || "PROPORTIONAL_SANSSERIF" || "PROPORTIONAL_SERIF",
