@@ -2,11 +2,9 @@ import { defaultProvider, DefaultProviderInit } from "@aws-sdk/credential-provid
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
 /**
- * This is the same credential provider as {@link defaultProvider|the default provider for Node.js SDK},
+ * This is the same credential provider as {@link https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-credential-providers/#fromnodeproviderchain|the default provider for Node.js SDK},
  * but with default role assumers so you don't need to import them from
- * STS client and supply them manually.
- *
- * You normally don't need to use this explicitly in the client constructor.
+ * STS client and supply them manually. You normally don't need to use this explicitly in the client constructor.
  * It is useful for utility functions requiring credentials like S3 presigner,
  * or RDS signer.
  *
