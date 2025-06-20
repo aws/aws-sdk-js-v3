@@ -3380,6 +3380,8 @@
                 }
               ]
             },
+            "ap-southeast-5": {},
+            "ap-southeast-7": {},
             "ca-central-1": {
               "variants": [
                 {
@@ -3388,6 +3390,7 @@
                 }
               ]
             },
+            "ca-west-1": {},
             "eu-central-1": {
               "variants": [
                 {
@@ -17157,6 +17160,7 @@
                 }
               ]
             },
+            "ap-east-2": {},
             "ap-northeast-1": {
               "variants": [
                 {
