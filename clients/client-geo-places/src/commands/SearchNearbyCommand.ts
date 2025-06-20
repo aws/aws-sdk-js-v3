@@ -33,7 +33,7 @@ export interface SearchNearbyCommandInput extends SearchNearbyRequest {}
 export interface SearchNearbyCommandOutput extends SearchNearbyResponse, __MetadataBearer {}
 
 /**
- * <p>Search nearby a specified location.</p>
+ * <p> <code>SearchNearby</code> queries for points of interest within a radius from a central coordinates, returning place results with optional filters such as categories, business chains, food types and more. The API returns details such as a place name, address, phone, category, food type, contact, opening hours. Also, the API can return phonemes, time zones and more based on requested parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,7 +111,7 @@ export interface SearchNearbyCommandOutput extends SearchNearbyResponse, __Metad
  * //         PostalCode: "STRING_VALUE",
  * //         Block: "STRING_VALUE",
  * //         SubBlock: "STRING_VALUE",
- * //         Intersection: [ // IntersectionList
+ * //         Intersection: [ // IntersectionStreetList
  * //           "STRING_VALUE",
  * //         ],
  * //         Street: "STRING_VALUE",
@@ -129,6 +129,11 @@ export interface SearchNearbyCommandOutput extends SearchNearbyResponse, __Metad
  * //         ],
  * //         AddressNumber: "STRING_VALUE",
  * //         Building: "STRING_VALUE",
+ * //         SecondaryAddressComponents: [ // SecondaryAddressComponentList
+ * //           { // SecondaryAddressComponent
+ * //             Number: "STRING_VALUE", // required
+ * //           },
+ * //         ],
  * //       },
  * //       AddressNumberCorrected: true || false,
  * //       Position: [ // Position

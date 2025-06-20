@@ -33,8 +33,7 @@ export interface ReverseGeocodeCommandInput extends ReverseGeocodeRequest {}
 export interface ReverseGeocodeCommandOutput extends ReverseGeocodeResponse, __MetadataBearer {}
 
 /**
- * <p> The <code>ReverseGeocode</code> operation allows you to retrieve addresses and place
- *          information from coordinates.</p>
+ * <p> <code>ReverseGeocode</code> converts geographic coordinates into a human-readable address or place. You can obtain address component, and other related information such as place type, category, street information. The Reverse Geocode API supports filtering to on place type so that you can refine result based on your need. Also, The Reverse Geocode API can also provide additional features such as time zone information and the inclusion of political views.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,7 +89,7 @@ export interface ReverseGeocodeCommandOutput extends ReverseGeocodeResponse, __M
  * //         PostalCode: "STRING_VALUE",
  * //         Block: "STRING_VALUE",
  * //         SubBlock: "STRING_VALUE",
- * //         Intersection: [ // IntersectionList
+ * //         Intersection: [ // IntersectionStreetList
  * //           "STRING_VALUE",
  * //         ],
  * //         Street: "STRING_VALUE",
@@ -108,6 +107,11 @@ export interface ReverseGeocodeCommandOutput extends ReverseGeocodeResponse, __M
  * //         ],
  * //         AddressNumber: "STRING_VALUE",
  * //         Building: "STRING_VALUE",
+ * //         SecondaryAddressComponents: [ // SecondaryAddressComponentList
+ * //           { // SecondaryAddressComponent
+ * //             Number: "STRING_VALUE", // required
+ * //           },
+ * //         ],
  * //       },
  * //       AddressNumberCorrected: true || false,
  * //       PostalCodeDetails: [ // PostalCodeDetailsList
@@ -158,6 +162,70 @@ export interface ReverseGeocodeCommandOutput extends ReverseGeocodeResponse, __M
  * //         OffsetSeconds: Number("long"),
  * //       },
  * //       PoliticalView: "STRING_VALUE",
+ * //       Intersections: [ // IntersectionList
+ * //         { // Intersection
+ * //           PlaceId: "STRING_VALUE", // required
+ * //           Title: "STRING_VALUE", // required
+ * //           Address: {
+ * //             Label: "STRING_VALUE",
+ * //             Country: {
+ * //               Code2: "STRING_VALUE",
+ * //               Code3: "STRING_VALUE",
+ * //               Name: "STRING_VALUE",
+ * //             },
+ * //             Region: {
+ * //               Code: "STRING_VALUE",
+ * //               Name: "STRING_VALUE",
+ * //             },
+ * //             SubRegion: {
+ * //               Code: "STRING_VALUE",
+ * //               Name: "STRING_VALUE",
+ * //             },
+ * //             Locality: "STRING_VALUE",
+ * //             District: "STRING_VALUE",
+ * //             SubDistrict: "STRING_VALUE",
+ * //             PostalCode: "STRING_VALUE",
+ * //             Block: "STRING_VALUE",
+ * //             SubBlock: "STRING_VALUE",
+ * //             Intersection: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             Street: "STRING_VALUE",
+ * //             StreetComponents: [
+ * //               {
+ * //                 BaseName: "STRING_VALUE",
+ * //                 Type: "STRING_VALUE",
+ * //                 TypePlacement: "STRING_VALUE",
+ * //                 TypeSeparator: "STRING_VALUE",
+ * //                 Prefix: "STRING_VALUE",
+ * //                 Suffix: "STRING_VALUE",
+ * //                 Direction: "STRING_VALUE",
+ * //                 Language: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //             AddressNumber: "STRING_VALUE",
+ * //             Building: "STRING_VALUE",
+ * //             SecondaryAddressComponents: [
+ * //               {
+ * //                 Number: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //           Position: [
+ * //             Number("double"),
+ * //           ],
+ * //           Distance: Number("long"),
+ * //           RouteDistance: Number("long"),
+ * //           MapView: [
+ * //             Number("double"),
+ * //           ],
+ * //           AccessPoints: [
+ * //             {
+ * //               Position: "<Position>",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };

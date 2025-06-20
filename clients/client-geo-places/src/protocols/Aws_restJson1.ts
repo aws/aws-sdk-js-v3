@@ -48,7 +48,9 @@ import {
   GeocodeQueryComponents,
   GeocodeResultItem,
   InternalServerException,
+  Intersection,
   MatchScoreDetails,
+  RelatedPlace,
   ReverseGeocodeAdditionalFeature,
   ReverseGeocodeFilter,
   ReverseGeocodeFilterPlaceType,
@@ -59,6 +61,7 @@ import {
   SearchTextAdditionalFeature,
   SearchTextFilter,
   SearchTextResultItem,
+  SecondaryAddressComponentMatchScore,
   SuggestAdditionalFeature,
   SuggestFilter,
   SuggestPlaceResult,
@@ -357,6 +360,7 @@ export const de_GetPlaceCommand = async (
     Categories: _json,
     Contacts: _json,
     FoodTypes: _json,
+    MainAddress: (_) => de_RelatedPlace(_, context),
     MapView: (_) => de_BoundingBox(_, context),
     OpeningHours: _json,
     Phonemes: _json,
@@ -365,6 +369,7 @@ export const de_GetPlaceCommand = async (
     PoliticalView: __expectString,
     Position: (_) => de_Position(_, context),
     PostalCodeDetails: _json,
+    SecondaryAddresses: (_) => de_RelatedPlaceList(_, context),
     TimeZone: _json,
     Title: __expectString,
   });
@@ -727,6 +732,7 @@ const de_AddressComponentMatchScores = (output: any, context: __SerdeContext): A
     Locality: __limitedParseDouble,
     PostalCode: __limitedParseDouble,
     Region: __limitedParseDouble,
+    SecondaryAddressComponents: (_: any) => de_SecondaryAddressComponentMatchScoreList(_, context),
     SubBlock: __limitedParseDouble,
     SubDistrict: __limitedParseDouble,
     SubRegion: __limitedParseDouble,
@@ -787,6 +793,10 @@ const de_ComponentMatchScores = (output: any, context: __SerdeContext): Componen
 
 // de_FoodTypeList omitted.
 
+// de_GeocodeParsedQuery omitted.
+
+// de_GeocodeParsedQueryAddressComponents omitted.
+
 /**
  * deserializeAws_restJson1GeocodeResultItem
  */
@@ -798,13 +808,17 @@ const de_GeocodeResultItem = (output: any, context: __SerdeContext): GeocodeResu
     Categories: _json,
     Distance: __expectLong,
     FoodTypes: _json,
+    Intersections: (_: any) => de_IntersectionList(_, context),
+    MainAddress: (_: any) => de_RelatedPlace(_, context),
     MapView: (_: any) => de_BoundingBox(_, context),
     MatchScores: (_: any) => de_MatchScoreDetails(_, context),
+    ParsedQuery: _json,
     PlaceId: __expectString,
     PlaceType: __expectString,
     PoliticalView: __expectString,
     Position: (_: any) => de_Position(_, context),
     PostalCodeDetails: _json,
+    SecondaryAddresses: (_: any) => de_RelatedPlaceList(_, context),
     TimeZone: _json,
     Title: __expectString,
   }) as any;
@@ -826,9 +840,37 @@ const de_GeocodeResultItemList = (output: any, context: __SerdeContext): Geocode
 
 // de_HighlightList omitted.
 
+/**
+ * deserializeAws_restJson1Intersection
+ */
+const de_Intersection = (output: any, context: __SerdeContext): Intersection => {
+  return take(output, {
+    AccessPoints: (_: any) => de_AccessPointList(_, context),
+    Address: _json,
+    Distance: __expectLong,
+    MapView: (_: any) => de_BoundingBox(_, context),
+    PlaceId: __expectString,
+    Position: (_: any) => de_Position(_, context),
+    RouteDistance: __expectLong,
+    Title: __expectString,
+  }) as any;
+};
+
 // de_IntersectionHighlightsList omitted.
 
-// de_IntersectionList omitted.
+/**
+ * deserializeAws_restJson1IntersectionList
+ */
+const de_IntersectionList = (output: any, context: __SerdeContext): Intersection[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Intersection(entry, context);
+    });
+  return retVal;
+};
+
+// de_IntersectionStreetList omitted.
 
 /**
  * deserializeAws_restJson1MatchScoreDetails
@@ -862,6 +904,14 @@ const de_MatchScoreList = (output: any, context: __SerdeContext): number[] => {
 
 // de_OpeningHoursList omitted.
 
+// de_ParsedQueryComponent omitted.
+
+// de_ParsedQueryComponentList omitted.
+
+// de_ParsedQuerySecondaryAddressComponent omitted.
+
+// de_ParsedQuerySecondaryAddressComponentList omitted.
+
 // de_PhonemeDetails omitted.
 
 // de_PhonemeTranscription omitted.
@@ -893,6 +943,32 @@ const de_Position = (output: any, context: __SerdeContext): number[] => {
 // de_RegionHighlights omitted.
 
 /**
+ * deserializeAws_restJson1RelatedPlace
+ */
+const de_RelatedPlace = (output: any, context: __SerdeContext): RelatedPlace => {
+  return take(output, {
+    AccessPoints: (_: any) => de_AccessPointList(_, context),
+    Address: _json,
+    PlaceId: __expectString,
+    PlaceType: __expectString,
+    Position: (_: any) => de_Position(_, context),
+    Title: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RelatedPlaceList
+ */
+const de_RelatedPlaceList = (output: any, context: __SerdeContext): RelatedPlace[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RelatedPlace(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1ReverseGeocodeResultItem
  */
 const de_ReverseGeocodeResultItem = (output: any, context: __SerdeContext): ReverseGeocodeResultItem => {
@@ -903,6 +979,7 @@ const de_ReverseGeocodeResultItem = (output: any, context: __SerdeContext): Reve
     Categories: _json,
     Distance: __expectLong,
     FoodTypes: _json,
+    Intersections: (_: any) => de_IntersectionList(_, context),
     MapView: (_: any) => de_BoundingBox(_, context),
     PlaceId: __expectString,
     PlaceType: __expectString,
@@ -998,6 +1075,37 @@ const de_SearchTextResultItemList = (output: any, context: __SerdeContext): Sear
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_SearchTextResultItem(entry, context);
+    });
+  return retVal;
+};
+
+// de_SecondaryAddressComponent omitted.
+
+// de_SecondaryAddressComponentList omitted.
+
+/**
+ * deserializeAws_restJson1SecondaryAddressComponentMatchScore
+ */
+const de_SecondaryAddressComponentMatchScore = (
+  output: any,
+  context: __SerdeContext
+): SecondaryAddressComponentMatchScore => {
+  return take(output, {
+    Number: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SecondaryAddressComponentMatchScoreList
+ */
+const de_SecondaryAddressComponentMatchScoreList = (
+  output: any,
+  context: __SerdeContext
+): SecondaryAddressComponentMatchScore[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SecondaryAddressComponentMatchScore(entry, context);
     });
   return retVal;
 };

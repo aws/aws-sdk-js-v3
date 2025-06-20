@@ -6,7 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GeoPlacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoPlacesClient";
-import { AutocompleteRequest, AutocompleteRequestFilterSensitiveLog, AutocompleteResponse } from "../models/models_0";
+import {
+  AutocompleteRequest,
+  AutocompleteRequestFilterSensitiveLog,
+  AutocompleteResponse,
+  AutocompleteResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_AutocompleteCommand, se_AutocompleteCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -28,7 +33,7 @@ export interface AutocompleteCommandInput extends AutocompleteRequest {}
 export interface AutocompleteCommandOutput extends AutocompleteResponse, __MetadataBearer {}
 
 /**
- * <p>The autocomplete operation speeds up and increases the accuracy of entering addresses by providing a list of address candidates matching a partially entered address. Results are sorted from most to least matching. Filtering and biasing can be used to increase the relevance of the results if additional search context is known</p>
+ * <p> <code>Autocomplete</code> completes potential places and addresses as the user types, based on the partial input. The API enhances the efficiency and accuracy of address by completing query based on a few entered keystrokes. It helps you by completing partial queries with valid address completion. Also, the API supports the filtering of results based on geographic location, country, or specific place types, and can be tailored using optional parameters like language and political views.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,7 +102,7 @@ export interface AutocompleteCommandOutput extends AutocompleteResponse, __Metad
  * //         PostalCode: "STRING_VALUE",
  * //         Block: "STRING_VALUE",
  * //         SubBlock: "STRING_VALUE",
- * //         Intersection: [ // IntersectionList
+ * //         Intersection: [ // IntersectionStreetList
  * //           "STRING_VALUE",
  * //         ],
  * //         Street: "STRING_VALUE",
@@ -115,6 +120,11 @@ export interface AutocompleteCommandOutput extends AutocompleteResponse, __Metad
  * //         ],
  * //         AddressNumber: "STRING_VALUE",
  * //         Building: "STRING_VALUE",
+ * //         SecondaryAddressComponents: [ // SecondaryAddressComponentList
+ * //           { // SecondaryAddressComponent
+ * //             Number: "STRING_VALUE", // required
+ * //           },
+ * //         ],
  * //       },
  * //       Distance: Number("long"),
  * //       Language: "STRING_VALUE",
@@ -208,7 +218,7 @@ export class AutocompleteCommand extends $Command
   })
   .s("PlacesService", "Autocomplete", {})
   .n("GeoPlacesClient", "AutocompleteCommand")
-  .f(AutocompleteRequestFilterSensitiveLog, void 0)
+  .f(AutocompleteRequestFilterSensitiveLog, AutocompleteResponseFilterSensitiveLog)
   .ser(se_AutocompleteCommand)
   .de(de_AutocompleteCommand)
   .build() {

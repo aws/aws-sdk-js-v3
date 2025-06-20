@@ -33,9 +33,7 @@ export interface SuggestCommandInput extends SuggestRequest {}
 export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer {}
 
 /**
- * <p>The <code>Suggest</code> operation finds addresses or place candidates based on
- *          incomplete or misspelled queries. You then select the best query to submit based on the
- *          returned results.</p>
+ * <p> <code>Suggest</code> provides intelligent predictions or recommendations based on the user's input or context, such as relevant places, points of interest, query terms or search category. It is designed to help users find places or point of interests candidates or identify a follow on query based on incomplete or misspelled queries. It returns a list of possible matches or refinements that can be used to formulate a more accurate query. Users can select the most appropriate suggestion and use it for further searching. The API provides options for filtering results by location and other attributes, and allows for additional features like phonemes and timezones. The response includes refined query terms and detailed place information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,7 +101,7 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  * //           PostalCode: "STRING_VALUE",
  * //           Block: "STRING_VALUE",
  * //           SubBlock: "STRING_VALUE",
- * //           Intersection: [ // IntersectionList
+ * //           Intersection: [ // IntersectionStreetList
  * //             "STRING_VALUE",
  * //           ],
  * //           Street: "STRING_VALUE",
@@ -121,6 +119,11 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  * //           ],
  * //           AddressNumber: "STRING_VALUE",
  * //           Building: "STRING_VALUE",
+ * //           SecondaryAddressComponents: [ // SecondaryAddressComponentList
+ * //             { // SecondaryAddressComponent
+ * //               Number: "STRING_VALUE", // required
+ * //             },
+ * //           ],
  * //         },
  * //         Position: [ // Position
  * //           Number("double"),

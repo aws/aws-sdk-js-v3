@@ -33,8 +33,7 @@ export interface GeocodeCommandInput extends GeocodeRequest {}
 export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer {}
 
 /**
- * <p>The <code>Geocode</code> action allows you to obtain coordinates, addresses, and other
- *          information about places.</p>
+ * <p> <code>Geocode</code> converts a textual address or place into geographic coordinates. You can obtain geographic coordinates, address component, and other related information. It supports flexible queries, including free-form text or structured queries with components like street names, postal codes, and regions. The Geocode API can also provide additional features such as time zone information and the inclusion of political views.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,7 +102,7 @@ export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer 
  * //         PostalCode: "STRING_VALUE",
  * //         Block: "STRING_VALUE",
  * //         SubBlock: "STRING_VALUE",
- * //         Intersection: [ // IntersectionList
+ * //         Intersection: [ // IntersectionStreetList
  * //           "STRING_VALUE",
  * //         ],
  * //         Street: "STRING_VALUE",
@@ -121,6 +120,11 @@ export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer 
  * //         ],
  * //         AddressNumber: "STRING_VALUE",
  * //         Building: "STRING_VALUE",
+ * //         SecondaryAddressComponents: [ // SecondaryAddressComponentList
+ * //           { // SecondaryAddressComponent
+ * //             Number: "STRING_VALUE", // required
+ * //           },
+ * //         ],
  * //       },
  * //       AddressNumberCorrected: true || false,
  * //       PostalCodeDetails: [ // PostalCodeDetailsList
@@ -190,9 +194,157 @@ export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer 
  * //             ],
  * //             AddressNumber: Number("double"),
  * //             Building: Number("double"),
+ * //             SecondaryAddressComponents: [ // SecondaryAddressComponentMatchScoreList
+ * //               { // SecondaryAddressComponentMatchScore
+ * //                 Number: Number("double"),
+ * //               },
+ * //             ],
  * //           },
  * //         },
  * //       },
+ * //       ParsedQuery: { // GeocodeParsedQuery
+ * //         Title: [ // ParsedQueryComponentList
+ * //           { // ParsedQueryComponent
+ * //             StartIndex: Number("int"),
+ * //             EndIndex: Number("int"),
+ * //             Value: "STRING_VALUE",
+ * //             QueryComponent: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         Address: { // GeocodeParsedQueryAddressComponents
+ * //           Country: [
+ * //             {
+ * //               StartIndex: Number("int"),
+ * //               EndIndex: Number("int"),
+ * //               Value: "STRING_VALUE",
+ * //               QueryComponent: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           Region: [
+ * //             {
+ * //               StartIndex: Number("int"),
+ * //               EndIndex: Number("int"),
+ * //               Value: "STRING_VALUE",
+ * //               QueryComponent: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           SubRegion: [
+ * //             {
+ * //               StartIndex: Number("int"),
+ * //               EndIndex: Number("int"),
+ * //               Value: "STRING_VALUE",
+ * //               QueryComponent: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           Locality: [
+ * //             {
+ * //               StartIndex: Number("int"),
+ * //               EndIndex: Number("int"),
+ * //               Value: "STRING_VALUE",
+ * //               QueryComponent: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           District: "<ParsedQueryComponentList>",
+ * //           SubDistrict: "<ParsedQueryComponentList>",
+ * //           PostalCode: "<ParsedQueryComponentList>",
+ * //           Block: "<ParsedQueryComponentList>",
+ * //           SubBlock: "<ParsedQueryComponentList>",
+ * //           Street: "<ParsedQueryComponentList>",
+ * //           AddressNumber: "<ParsedQueryComponentList>",
+ * //           Building: "<ParsedQueryComponentList>",
+ * //           SecondaryAddressComponents: [ // ParsedQuerySecondaryAddressComponentList
+ * //             { // ParsedQuerySecondaryAddressComponent
+ * //               StartIndex: Number("int"), // required
+ * //               EndIndex: Number("int"), // required
+ * //               Value: "STRING_VALUE", // required
+ * //               Number: "STRING_VALUE", // required
+ * //               Designator: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       Intersections: [ // IntersectionList
+ * //         { // Intersection
+ * //           PlaceId: "STRING_VALUE", // required
+ * //           Title: "STRING_VALUE", // required
+ * //           Address: {
+ * //             Label: "STRING_VALUE",
+ * //             Country: {
+ * //               Code2: "STRING_VALUE",
+ * //               Code3: "STRING_VALUE",
+ * //               Name: "STRING_VALUE",
+ * //             },
+ * //             Region: {
+ * //               Code: "STRING_VALUE",
+ * //               Name: "STRING_VALUE",
+ * //             },
+ * //             SubRegion: {
+ * //               Code: "STRING_VALUE",
+ * //               Name: "STRING_VALUE",
+ * //             },
+ * //             Locality: "STRING_VALUE",
+ * //             District: "STRING_VALUE",
+ * //             SubDistrict: "STRING_VALUE",
+ * //             PostalCode: "STRING_VALUE",
+ * //             Block: "STRING_VALUE",
+ * //             SubBlock: "STRING_VALUE",
+ * //             Intersection: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             Street: "STRING_VALUE",
+ * //             StreetComponents: [
+ * //               {
+ * //                 BaseName: "STRING_VALUE",
+ * //                 Type: "STRING_VALUE",
+ * //                 TypePlacement: "STRING_VALUE",
+ * //                 TypeSeparator: "STRING_VALUE",
+ * //                 Prefix: "STRING_VALUE",
+ * //                 Suffix: "STRING_VALUE",
+ * //                 Direction: "STRING_VALUE",
+ * //                 Language: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //             AddressNumber: "STRING_VALUE",
+ * //             Building: "STRING_VALUE",
+ * //             SecondaryAddressComponents: [
+ * //               {
+ * //                 Number: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //           Position: [
+ * //             Number("double"),
+ * //           ],
+ * //           Distance: Number("long"),
+ * //           RouteDistance: Number("long"),
+ * //           MapView: [
+ * //             Number("double"),
+ * //           ],
+ * //           AccessPoints: [
+ * //             {
+ * //               Position: "<Position>",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       MainAddress: { // RelatedPlace
+ * //         PlaceId: "STRING_VALUE", // required
+ * //         PlaceType: "STRING_VALUE", // required
+ * //         Title: "STRING_VALUE", // required
+ * //         Address: "<Address>",
+ * //         Position: "<Position>",
+ * //         AccessPoints: "<AccessPointList>",
+ * //       },
+ * //       SecondaryAddresses: [ // RelatedPlaceList
+ * //         {
+ * //           PlaceId: "STRING_VALUE", // required
+ * //           PlaceType: "STRING_VALUE", // required
+ * //           Title: "STRING_VALUE", // required
+ * //           Address: "<Address>",
+ * //           Position: "<Position>",
+ * //           AccessPoints: "<AccessPointList>",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };

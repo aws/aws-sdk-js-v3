@@ -33,8 +33,7 @@ export interface GetPlaceCommandInput extends GetPlaceRequest {}
 export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBearer {}
 
 /**
- * <p>Finds a place by its unique ID. A <code>PlaceId</code> is returned by other place
- *          operations.</p>
+ * <p> <code>GetPlace</code> finds a place by its unique ID. A <code>PlaceId</code> is returned by other place operations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,7 +78,7 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * //     PostalCode: "STRING_VALUE",
  * //     Block: "STRING_VALUE",
  * //     SubBlock: "STRING_VALUE",
- * //     Intersection: [ // IntersectionList
+ * //     Intersection: [ // IntersectionStreetList
  * //       "STRING_VALUE",
  * //     ],
  * //     Street: "STRING_VALUE",
@@ -97,6 +96,11 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * //     ],
  * //     AddressNumber: "STRING_VALUE",
  * //     Building: "STRING_VALUE",
+ * //     SecondaryAddressComponents: [ // SecondaryAddressComponentList
+ * //       { // SecondaryAddressComponent
+ * //         Number: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * //   AddressNumberCorrected: true || false,
  * //   PostalCodeDetails: [ // PostalCodeDetailsList
@@ -276,6 +280,72 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * //       Street: "<PhonemeTranscriptionList>",
  * //     },
  * //   },
+ * //   MainAddress: { // RelatedPlace
+ * //     PlaceId: "STRING_VALUE", // required
+ * //     PlaceType: "STRING_VALUE", // required
+ * //     Title: "STRING_VALUE", // required
+ * //     Address: {
+ * //       Label: "STRING_VALUE",
+ * //       Country: {
+ * //         Code2: "STRING_VALUE",
+ * //         Code3: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //       Region: {
+ * //         Code: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //       SubRegion: {
+ * //         Code: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //       Locality: "STRING_VALUE",
+ * //       District: "STRING_VALUE",
+ * //       SubDistrict: "STRING_VALUE",
+ * //       PostalCode: "STRING_VALUE",
+ * //       Block: "STRING_VALUE",
+ * //       SubBlock: "STRING_VALUE",
+ * //       Intersection: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Street: "STRING_VALUE",
+ * //       StreetComponents: [
+ * //         {
+ * //           BaseName: "STRING_VALUE",
+ * //           Type: "STRING_VALUE",
+ * //           TypePlacement: "STRING_VALUE",
+ * //           TypeSeparator: "STRING_VALUE",
+ * //           Prefix: "STRING_VALUE",
+ * //           Suffix: "STRING_VALUE",
+ * //           Direction: "STRING_VALUE",
+ * //           Language: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       AddressNumber: "STRING_VALUE",
+ * //       Building: "STRING_VALUE",
+ * //       SecondaryAddressComponents: [
+ * //         {
+ * //           Number: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //     Position: "<Position>",
+ * //     AccessPoints: [
+ * //       {
+ * //         Position: "<Position>",
+ * //       },
+ * //     ],
+ * //   },
+ * //   SecondaryAddresses: [ // RelatedPlaceList
+ * //     {
+ * //       PlaceId: "STRING_VALUE", // required
+ * //       PlaceType: "STRING_VALUE", // required
+ * //       Title: "STRING_VALUE", // required
+ * //       Address: "<Address>",
+ * //       Position: "<Position>",
+ * //       AccessPoints: "<AccessPointList>",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

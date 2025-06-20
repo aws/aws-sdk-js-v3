@@ -33,9 +33,7 @@ export interface SearchTextCommandInput extends SearchTextRequest {}
 export interface SearchTextCommandOutput extends SearchTextResponse, __MetadataBearer {}
 
 /**
- * <p>Use the <code>SearchText</code> operation to search for geocode and place information.
- *          You can then complete a follow-up query suggested from the <code>Suggest</code> API via a
- *          query id.</p>
+ * <p> <code>SearchText</code> searches for geocode and place information. You can then complete a follow-up query suggested from the <code>Suggest</code> API via a query id.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,7 +100,7 @@ export interface SearchTextCommandOutput extends SearchTextResponse, __MetadataB
  * //         PostalCode: "STRING_VALUE",
  * //         Block: "STRING_VALUE",
  * //         SubBlock: "STRING_VALUE",
- * //         Intersection: [ // IntersectionList
+ * //         Intersection: [ // IntersectionStreetList
  * //           "STRING_VALUE",
  * //         ],
  * //         Street: "STRING_VALUE",
@@ -120,6 +118,11 @@ export interface SearchTextCommandOutput extends SearchTextResponse, __MetadataB
  * //         ],
  * //         AddressNumber: "STRING_VALUE",
  * //         Building: "STRING_VALUE",
+ * //         SecondaryAddressComponents: [ // SecondaryAddressComponentList
+ * //           { // SecondaryAddressComponent
+ * //             Number: "STRING_VALUE", // required
+ * //           },
+ * //         ],
  * //       },
  * //       AddressNumberCorrected: true || false,
  * //       Position: [ // Position

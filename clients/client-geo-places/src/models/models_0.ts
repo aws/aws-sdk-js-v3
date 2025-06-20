@@ -68,8 +68,7 @@ export interface Category {
 }
 
 /**
- * <p>Indicates if the access location is restricted. Index correlates to that of an access
- *          point and indicates if access through this point has some form of restriction. </p>
+ * <p>Indicates if the access location is restricted. Index correlates to that of an access point and indicates if access through this point has some form of restriction. </p>
  * @public
  */
 export interface AccessRestriction {
@@ -111,24 +110,33 @@ export interface Country {
 }
 
 /**
- * <p>The region or state results should be to be present in. </p>
- *          <p>Example: <code>North Rhine-Westphalia</code>. </p>
+ * <p>The region or state results should be to be present in. </p> <p>Example: <code>North Rhine-Westphalia</code>. </p>
  * @public
  */
 export interface Region {
   /**
-   * <p>Abbreviated code for a the state, province or region of the country. </p>
-   *          <p>Example: <code>BC</code>.</p>
+   * <p>Abbreviated code for a the state, province or region of the country. </p> <p>Example: <code>BC</code>.</p>
    * @public
    */
   Code?: string | undefined;
 
   /**
-   * <p>Name for a the state, province, or region of the country. </p>
-   *          <p>Example: <code>British Columbia</code>. </p>
+   * <p>Name for a the state, province, or region of the country. </p> <p>Example: <code>British Columbia</code>. </p>
    * @public
    */
   Name?: string | undefined;
+}
+
+/**
+ * <p>Components that correspond to secondary identifiers on an address. The only component type supported currently is Unit.</p>
+ * @public
+ */
+export interface SecondaryAddressComponent {
+  /**
+   * <p>Number that uniquely identifies a secondary address.</p>
+   * @public
+   */
+  Number: string | undefined;
 }
 
 /**
@@ -151,15 +159,13 @@ export type TypePlacement = (typeof TypePlacement)[keyof typeof TypePlacement];
  */
 export interface StreetComponents {
   /**
-   * <p>Base name part of the street name. </p>
-   *          <p>Example: Younge from the “Younge street".</p>
+   * <p>Base name part of the street name. </p> <p>Example: Younge from the "Younge street".</p>
    * @public
    */
   BaseName?: string | undefined;
 
   /**
-   * <p>Street type part of the street name. </p>
-   *          <p>Example: <code>“avenue"</code>.</p>
+   * <p>Street type part of the street name. </p> <p>Example: <code>"avenue"</code>.</p>
    * @public
    */
   Type?: string | undefined;
@@ -171,23 +177,19 @@ export interface StreetComponents {
   TypePlacement?: TypePlacement | undefined;
 
   /**
-   * <p>What character(s) separates the string from its type. </p>
+   * <p>Defines a separator character such as <code>""</code> or <code>" "</code> between the base name and type.</p>
    * @public
    */
   TypeSeparator?: string | undefined;
 
   /**
-   * <p>A prefix is a directional identifier that precedes, but is not included in, the base
-   *          name of a road. </p>
-   *          <p>Example: E for East.</p>
+   * <p>A prefix is a directional identifier that precedes, but is not included in, the base name of a road. </p> <p>Example: E for East.</p>
    * @public
    */
   Prefix?: string | undefined;
 
   /**
-   * <p>A suffix is a directional identifier that follows, but is not included in, the base name
-   *          of a road. </p>
-   *          <p>Example W for West.</p>
+   * <p>A suffix is a directional identifier that follows, but is not included in, the base name of a road. </p> <p>Example W for West.</p>
    * @public
    */
   Suffix?: string | undefined;
@@ -229,8 +231,7 @@ export interface SubRegion {
  */
 export interface Address {
   /**
-   * <p>Assembled address value built out of the address components, according to the regional
-   *          postal rules. This is the correctly formatted address.</p>
+   * <p>Assembled address value built out of the address components, according to the regional postal rules. This is the correctly formatted address.</p>
    * @public
    */
   Label?: string | undefined;
@@ -242,8 +243,7 @@ export interface Address {
   Country?: Country | undefined;
 
   /**
-   * <p>The region or state results should be present in. </p>
-   *          <p>Example: <code>North Rhine-Westphalia</code>.</p>
+   * <p>The region or state results should be present in. </p> <p>Example: <code>North Rhine-Westphalia</code>.</p>
    * @public
    */
   Region?: Region | undefined;
@@ -255,8 +255,7 @@ export interface Address {
   SubRegion?: SubRegion | undefined;
 
   /**
-   * <p>The locality or city of the address.</p>
-   *          <p>Example: <code>Vancouver</code>.</p>
+   * <p>The city or locality of the address.</p> <p>Example: <code>Vancouver</code>.</p>
    * @public
    */
   Locality?: string | undefined;
@@ -268,39 +267,31 @@ export interface Address {
   District?: string | undefined;
 
   /**
-   * <p>A subdivision of a district. </p>
-   *          <p>Example: <code>Minden-Lübbecke</code>.</p>
+   * <p>A subdivision of a district. </p> <p>Example: <code>Minden-Lübbecke</code>.</p>
    * @public
    */
   SubDistrict?: string | undefined;
 
   /**
-   * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as
-   *          post code, postcode, or ZIP code, for which the result should posses. </p>
+   * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code, for which the result should possess. </p>
    * @public
    */
   PostalCode?: string | undefined;
 
   /**
-   * <p>Name of the block. </p>
-   *          <p>Example: <code>Sunny Mansion 203 block: 2 Chome</code>
-   *          </p>
+   * <p>Name of the block. </p> <p>Example: <code>Sunny Mansion 203 block: 2 Chome</code> </p>
    * @public
    */
   Block?: string | undefined;
 
   /**
-   * <p>Name of sub-block. </p>
-   *          <p>Example: <code>Sunny Mansion 203 sub-block: 4</code>
-   *          </p>
+   * <p>Name of sub-block. </p> <p>Example: <code>Sunny Mansion 203 sub-block: 4</code> </p>
    * @public
    */
   SubBlock?: string | undefined;
 
   /**
-   * <p>Name of the streets in the intersection. </p>
-   *          <p>Example: <code>["Friedrichstraße","Unter den Linden"]</code>
-   *          </p>
+   * <p>Name of the streets in the intersection. </p> <p>Example: <code>["Friedrichstraße","Unter den Linden"]</code> </p>
    * @public
    */
   Intersection?: string[] | undefined;
@@ -312,8 +303,7 @@ export interface Address {
   Street?: string | undefined;
 
   /**
-   * <p>Components of the street. </p>
-   *          <p>Example: Younge from the "Younge street".</p>
+   * <p>Components of the street. </p> <p>Example: Younge from the "Younge street".</p>
    * @public
    */
   StreetComponents?: StreetComponents[] | undefined;
@@ -329,11 +319,28 @@ export interface Address {
    * @public
    */
   Building?: string | undefined;
+
+  /**
+   * <p>Components that correspond to secondary identifiers on an Address. Secondary address components include information such as Suite or Unit Number, Building, or Floor.</p>
+   * @public
+   */
+  SecondaryAddressComponents?: SecondaryAddressComponent[] | undefined;
 }
 
 /**
- * <p>Indicates how well the entire input matches the returned. It is equal to 1 if all input
- *          tokens are recognized and matched.</p>
+ * <p>Match score for a secondary address component in the result.</p>
+ * @public
+ */
+export interface SecondaryAddressComponentMatchScore {
+  /**
+   * <p>Match score for the secondary address number.</p>
+   * @public
+   */
+  Number?: number | undefined;
+}
+
+/**
+ * <p>Indicates how well the entire input matches the returned. It is equal to 1 if all input tokens are recognized and matched.</p>
  * @public
  */
 export interface AddressComponentMatchScores {
@@ -344,8 +351,7 @@ export interface AddressComponentMatchScores {
   Country?: number | undefined;
 
   /**
-   * <p>The region or state results should be to be present in. </p>
-   *          <p>Example: <code>North Rhine-Westphalia</code>.</p>
+   * <p>The region or state results should be to be present in. </p> <p>Example: <code>North Rhine-Westphalia</code>.</p>
    * @public
    */
   Region?: number | undefined;
@@ -357,8 +363,7 @@ export interface AddressComponentMatchScores {
   SubRegion?: number | undefined;
 
   /**
-   * <p>The city or locality results should be present in. </p>
-   *          <p>Example: <code>Vancouver</code>.</p>
+   * <p>The city or locality results should be present in. </p> <p>Example: <code>Vancouver</code>.</p>
    * @public
    */
   Locality?: number | undefined;
@@ -370,40 +375,31 @@ export interface AddressComponentMatchScores {
   District?: number | undefined;
 
   /**
-   * <p>A subdivision of a district. </p>
-   *          <p>Example: <code>Minden-Lübbecke</code>
-   *          </p>
+   * <p>A subdivision of a district. </p> <p>Example: <code>Minden-Lübbecke</code> </p>
    * @public
    */
   SubDistrict?: number | undefined;
 
   /**
-   * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as
-   *          post code, postcode, or ZIP code, for which the result should posses. </p>
+   * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code, for which the result should possess. </p>
    * @public
    */
   PostalCode?: number | undefined;
 
   /**
-   * <p>Name of the block. </p>
-   *          <p>Example: <code>Sunny Mansion 203 block: 2 Chome</code>
-   *          </p>
+   * <p>Name of the block. </p> <p>Example: <code>Sunny Mansion 203 block: 2 Chome</code> </p>
    * @public
    */
   Block?: number | undefined;
 
   /**
-   * <p>Name of sub-block. </p>
-   *          <p>Example: <code>Sunny Mansion 203 sub-block: 4</code>
-   *          </p>
+   * <p>Name of sub-block. </p> <p>Example: <code>Sunny Mansion 203 sub-block: 4</code> </p>
    * @public
    */
   SubBlock?: number | undefined;
 
   /**
-   * <p>Name of the streets in the intersection. </p>
-   *          <p>Example: <code>["Friedrichstraße","Unter den Linden"]</code>
-   *          </p>
+   * <p>Name of the streets in the intersection. </p> <p>Example: <code>["Friedrichstraße","Unter den Linden"]</code> </p>
    * @public
    */
   Intersection?: number[] | undefined;
@@ -419,6 +415,12 @@ export interface AddressComponentMatchScores {
    * @public
    */
   Building?: number | undefined;
+
+  /**
+   * <p>Match scores for the secondary address components in the result.</p>
+   * @public
+   */
+  SecondaryAddressComponents?: SecondaryAddressComponentMatchScore[] | undefined;
 }
 
 /**
@@ -469,8 +471,7 @@ export interface AddressComponentPhonemes {
   SubRegion?: PhonemeTranscription[] | undefined;
 
   /**
-   * <p>How to pronounce the city or locality results should be present in. </p>
-   *          <p>Example: <code>Vancouver</code>.</p>
+   * <p>How to pronounce the city or locality results should be present in. </p> <p>Example: <code>Vancouver</code>.</p>
    * @public
    */
   Locality?: PhonemeTranscription[] | undefined;
@@ -482,8 +483,7 @@ export interface AddressComponentPhonemes {
   District?: PhonemeTranscription[] | undefined;
 
   /**
-   * <p>How to pronounce the sub-district or division of a city results should be present
-   *          in.</p>
+   * <p>How to pronounce the sub-district or division of a city results should be present in.</p>
    * @public
    */
   SubDistrict?: PhonemeTranscription[] | undefined;
@@ -555,15 +555,12 @@ export type AutocompleteFilterPlaceType =
   (typeof AutocompleteFilterPlaceType)[keyof typeof AutocompleteFilterPlaceType];
 
 /**
- * <p>Autocomplete structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result.</p>
+ * <p>Autocomplete structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
  * @public
  */
 export interface AutocompleteFilter {
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p>
-   *          <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\},
-   *             \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code>
-   *          </p>
+   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
    * @public
    */
   BoundingBox?: number[] | undefined;
@@ -622,7 +619,7 @@ export type PostalCodeMode = (typeof PostalCodeMode)[keyof typeof PostalCodeMode
  */
 export interface AutocompleteRequest {
   /**
-   * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p>
+   * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p> <note> <p>The fields <code>QueryText</code>, and <code>QueryID</code> are mutually exclusive.</p> </note>
    * @public
    */
   QueryText: string | undefined;
@@ -634,35 +631,25 @@ export interface AutocompleteRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>The position in longitude and latitude that the results should be close to. Typically,
-   *          place results returned are ranked higher the closer they are to this position. Stored in
-   *             <code>[lng, lat]</code> and in the WSG84 format.</p>
-   *          <note>
-   *             <p>The fields <code>BiasPosition</code>, <code>FilterBoundingBox</code>, and
-   *                <code>FilterCircle</code> are mutually exclusive.</p>
-   *          </note>
+   * <p>The position in longitude and latitude that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in <code>[lng, lat]</code> and in the WSG84 format.</p> <note> <p>The fields <code>BiasPosition</code>, <code>FilterBoundingBox</code>, and <code>FilterCircle</code> are mutually exclusive.</p> </note>
    * @public
    */
   BiasPosition?: number[] | undefined;
 
   /**
-   * <p>A structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result.</p>
+   * <p>A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
    * @public
    */
   Filter?: AutocompleteFilter | undefined;
 
   /**
-   * <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a
-   *          postal code spans multiple localities and this value is empty,
-   *          partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>cityLookup</code>, all cities in that
-   *          postal code are returned.</p>
+   * <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned.</p>
    * @public
    */
   PostalCodeMode?: PostalCodeMode | undefined;
 
   /**
-   * <p>A list of optional additional parameters that can be requested for
-   *          each result.</p>
+   * <p>A list of optional additional parameters that can be requested for each result.</p>
    * @public
    */
   AdditionalFeatures?: AutocompleteAdditionalFeature[] | undefined;
@@ -674,28 +661,26 @@ export interface AutocompleteRequest {
   Language?: string | undefined;
 
   /**
-   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
+   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p> <p>The following political views are currently supported:</p> <ul> <li> <p> <code>ARG</code>: Argentina's view on the Southern Patagonian Ice Field and Tierra Del Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands</p> </li> <li> <p> <code>EGY</code>: Egypt's view on Bir Tawil</p> </li> <li> <p> <code>IND</code>: India's view on Gilgit-Baltistan</p> </li> <li> <p> <code>KEN</code>: Kenya's view on the Ilemi Triangle</p> </li> <li> <p> <code>MAR</code>: Morocco's view on Western Sahara</p> </li> <li> <p> <code>RUS</code>: Russia's view on Crimea</p> </li> <li> <p> <code>SDN</code>: Sudan's view on the Halaib Triangle</p> </li> <li> <p> <code>SRB</code>: Serbia's view on Kosovo, Vukovar, and Sarengrad Islands</p> </li> <li> <p> <code>SUR</code>: Suriname's view on the Courantyne Headwaters and Lawa Headwaters</p> </li> <li> <p> <code>SYR</code>: Syria's view on the Golan Heights</p> </li> <li> <p> <code>TUR</code>: Turkey's view on Cyprus and Northern Cyprus</p> </li> <li> <p> <code>TZA</code>: Tanzania's view on Lake Malawi</p> </li> <li> <p> <code>URY</code>: Uruguay's view on Rincon de Artigas</p> </li> <li> <p> <code>VNM</code>: Vietnam's view on the Paracel Islands and Spratly Islands</p> </li> </ul>
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left
-   *          empty.</p>
+   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p>
    * @public
    */
   IntendedUse?: AutocompleteIntendedUse | undefined;
 
   /**
-   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
-   *          signature must be provided when making a request.</p>
+   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.</p>
    * @public
    */
   Key?: string | undefined;
 }
 
 /**
- * <p>Describes how parts of the result response match the input query.</p>
+ * <p>Indicates the starting and ending index of the text query that match the found title.</p>
  * @public
  */
 export interface Highlight {
@@ -755,14 +740,12 @@ export interface RegionHighlights {
 }
 
 /**
- * <p>Indicates the starting and ending index of the sub-region in the text query that match
- *          the found title. </p>
+ * <p>Indicates the starting and ending index of the sub-region in the text query that match the found title. </p>
  * @public
  */
 export interface SubRegionHighlights {
   /**
-   * <p>Indicates the starting and ending index of the sub-region in the text query that match
-   *          the found title. </p>
+   * <p>Indicates the starting and ending index of the sub-region in the text query that match the found title. </p>
    * @public
    */
   Code?: Highlight[] | undefined;
@@ -780,8 +763,7 @@ export interface SubRegionHighlights {
  */
 export interface AutocompleteAddressHighlights {
   /**
-   * <p>Indicates the starting and ending indexes for result items where they are identified to match the input query.
-   *           This should be used to provide emphasis to output display to make selecting the correct result from a list easier for end users.</p>
+   * <p>Indicates the starting and ending indexes for result items where they are identified to match the input query. This should be used to provide emphasis to output display to make selecting the correct result from a list easier for end users.</p>
    * @public
    */
   Label?: Highlight[] | undefined;
@@ -793,8 +775,7 @@ export interface AutocompleteAddressHighlights {
   Country?: CountryHighlights | undefined;
 
   /**
-   * <p>The region or state results should be to be present in. </p>
-   *          <p>Example: <code>North Rhine-Westphalia</code>.</p>
+   * <p>The region or state results should be to be present in. </p> <p>Example: <code>North Rhine-Westphalia</code>.</p>
    * @public
    */
   Region?: RegionHighlights | undefined;
@@ -806,8 +787,7 @@ export interface AutocompleteAddressHighlights {
   SubRegion?: SubRegionHighlights | undefined;
 
   /**
-   * <p>The city or locality results should be present in. </p>
-   *          <p>Example: <code>Vancouver</code>.</p>
+   * <p>The city or locality results should be present in. </p> <p>Example: <code>Vancouver</code>.</p>
    * @public
    */
   Locality?: Highlight[] | undefined;
@@ -831,14 +811,13 @@ export interface AutocompleteAddressHighlights {
   Street?: Highlight[] | undefined;
 
   /**
-   * <p>Name of the block. Example: Sunny Mansion 203
-   * block: 2 Chome</p>
+   * <p>Name of the block. </p> <p>Example: <code>Sunny Mansion 203 block: 2 Chome</code> </p>
    * @public
    */
   Block?: Highlight[] | undefined;
 
   /**
-   * <p>Name of sub-block. Example Sunny Mansion 203 sub-block: 4</p>
+   * <p>Name of sub-block. </p> <p>Example: <code>Sunny Mansion 203 sub-block: 4</code> </p>
    * @public
    */
   SubBlock?: Highlight[] | undefined;
@@ -850,7 +829,7 @@ export interface AutocompleteAddressHighlights {
   Intersection?: Highlight[][] | undefined;
 
   /**
-   * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code for which the result should posses. </p>
+   * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code for which the result should possess. </p>
    * @public
    */
   PostalCode?: Highlight[] | undefined;
@@ -901,6 +880,7 @@ export const PlaceType = {
   POINT_OF_INTEREST: "PointOfInterest",
   POSTAL_CODE: "PostalCode",
   REGION: "Region",
+  SECONDARY_ADDRESS: "SecondaryAddress",
   STREET: "Street",
   SUB_BLOCK: "SubBlock",
   SUB_DISTRICT: "SubDistrict",
@@ -971,8 +951,7 @@ export interface AutocompleteResultItem {
  */
 export interface AutocompleteResponse {
   /**
-   * <p>The pricing bucket for which the query is charged at.</p>
-   *          <p>For more inforamtion on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
+   * <p>The pricing bucket for which the query is charged at.</p> <p>For more information on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
    * @public
    */
   PricingBucket: string | undefined;
@@ -1142,13 +1121,12 @@ export interface BusinessChain {
 }
 
 /**
- * <p>Indicates how well the input matches the returned element.
- *        It is equal to 1 if all input tokens are recognized and matched to the title in the result.</p>
+ * <p>Indicates how well the returned title and address components matches the input TextQuery. For each component a score is provied with 1 indicating all tokens were matched and 0 indicating no tokens were matched.</p>
  * @public
  */
 export interface ComponentMatchScores {
   /**
-   * <p>Indicates the starting and ending index of the title in the text query that match the found title. </p>
+   * <p>Indicates the match score of the title in the text query that match the found title. </p>
    * @public
    */
   Title?: number | undefined;
@@ -1232,9 +1210,7 @@ export interface FoodType {
   Id?: string | undefined;
 
   /**
-   * <p>Boolean which indicates if this food type is the primary offered by the place. For
-   *          example, if a location serves fast food, but also dessert, he primary would likely be fast
-   *          food.</p>
+   * <p>Boolean which indicates if this food type is the primary offered by the place. For example, if a location serves fast food, but also dessert, he primary would likely be fast food.</p>
    * @public
    */
   Primary?: boolean | undefined;
@@ -1246,6 +1222,8 @@ export interface FoodType {
  */
 export const GeocodeAdditionalFeature = {
   ACCESS: "Access",
+  INTERSECTIONS: "Intersections",
+  SECONDARY_ADDRESSES: "SecondaryAddresses",
   TIME_ZONE: "TimeZone",
 } as const;
 
@@ -1273,7 +1251,7 @@ export const GeocodeFilterPlaceType = {
 export type GeocodeFilterPlaceType = (typeof GeocodeFilterPlaceType)[keyof typeof GeocodeFilterPlaceType];
 
 /**
- * <p>Geocode structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result.</p>
+ * <p>Geocode structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
  * @public
  */
 export interface GeocodeFilter {
@@ -1322,8 +1300,7 @@ export interface GeocodeQueryComponents {
   Country?: string | undefined;
 
   /**
-   * <p>The region or state results should be to be present in. </p>
-   *          <p>Example: <code>North Rhine-Westphalia</code>.</p>
+   * <p>The region or state results should be to be present in. </p> <p>Example: <code>North Rhine-Westphalia</code>.</p>
    * @public
    */
   Region?: string | undefined;
@@ -1335,8 +1312,7 @@ export interface GeocodeQueryComponents {
   SubRegion?: string | undefined;
 
   /**
-   * <p>City or locality results should be present in. </p>
-   *          <p>Example: <code>Vancouver</code>.</p>
+   * <p>The city or locality results should be present in. </p> <p>Example: <code>Vancouver</code>.</p>
    * @public
    */
   Locality?: string | undefined;
@@ -1360,7 +1336,7 @@ export interface GeocodeQueryComponents {
   AddressNumber?: string | undefined;
 
   /**
-   * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code for which the result should posses. </p>
+   * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code for which the result should possess. </p>
    * @public
    */
   PostalCode?: string | undefined;
@@ -1371,7 +1347,7 @@ export interface GeocodeQueryComponents {
  */
 export interface GeocodeRequest {
   /**
-   * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p>
+   * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p> <note> <p>The fields <code>QueryText</code>, and <code>QueryID</code> are mutually exclusive.</p> </note>
    * @public
    */
   QueryText?: string | undefined;
@@ -1389,26 +1365,19 @@ export interface GeocodeRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>The position, in longitude and latitude, that the results should be close to. Typically,
-   *          place results returned are ranked higher the closer they are to this position. Stored in
-   *             <code>[lng, lat]</code> and in the WSG84 format.</p>
-   *          <note>
-   *             <p>The fields <code>BiasPosition</code>, <code>FilterBoundingBox</code>, and
-   *                <code>FilterCircle</code> are mutually exclusive.</p>
-   *          </note>
+   * <p>The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in <code>[lng, lat]</code> and in the WSG84 format.</p> <note> <p>The fields <code>BiasPosition</code>, <code>FilterBoundingBox</code>, and <code>FilterCircle</code> are mutually exclusive.</p> </note>
    * @public
    */
   BiasPosition?: number[] | undefined;
 
   /**
-   * <p>A structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result.</p>
+   * <p>A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
    * @public
    */
   Filter?: GeocodeFilter | undefined;
 
   /**
-   * <p>A list of optional additional parameters, such as time zone, that can be requested for
-   *          each result.</p>
+   * <p>A list of optional additional parameters, such as time zone, that can be requested for each result.</p>
    * @public
    */
   AdditionalFeatures?: GeocodeAdditionalFeature[] | undefined;
@@ -1420,25 +1389,118 @@ export interface GeocodeRequest {
   Language?: string | undefined;
 
   /**
-   * <p>The alpha-2 or alpha-3 character code for the political view of a country.
-   *       The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
+   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left
-   *          empty.</p>
+   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p> <note> <p>Storing the response of an Geocode query is required to comply with service terms, but charged at a higher cost per request. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
    * @public
    */
   IntendedUse?: GeocodeIntendedUse | undefined;
 
   /**
-   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
-   *          signature must be provided when making a request.</p>
+   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.</p>
    * @public
    */
   Key?: string | undefined;
+}
+
+/**
+ * <p>All Intersections that are near the provided address.</p>
+ * @public
+ */
+export interface Intersection {
+  /**
+   * <p>The <code>PlaceId</code> of the place result.</p>
+   * @public
+   */
+  PlaceId: string | undefined;
+
+  /**
+   * <p>The localized display name of this result item based on request parameter <code>language</code>.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The place address.</p>
+   * @public
+   */
+  Address?: Address | undefined;
+
+  /**
+   * <p>The position, in longitude and latitude.</p>
+   * @public
+   */
+  Position?: number[] | undefined;
+
+  /**
+   * <p>The distance in meters from the QueryPosition.</p>
+   * @public
+   */
+  Distance?: number | undefined;
+
+  /**
+   * <p>The distance from the routing position of the nearby address to the street result.</p>
+   * @public
+   */
+  RouteDistance?: number | undefined;
+
+  /**
+   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set of four coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
+   * @public
+   */
+  MapView?: number[] | undefined;
+
+  /**
+   * <p>Position of the access point represented by longitude and latitude.</p>
+   * @public
+   */
+  AccessPoints?: AccessPoint[] | undefined;
+}
+
+/**
+ * <p>Place that is related to the result item.</p>
+ * @public
+ */
+export interface RelatedPlace {
+  /**
+   * <p>The <code>PlaceId</code> of the place result.</p>
+   * @public
+   */
+  PlaceId: string | undefined;
+
+  /**
+   * <p>A <code>PlaceType</code> is a category that the result place must belong to.</p>
+   * @public
+   */
+  PlaceType: PlaceType | undefined;
+
+  /**
+   * <p>The localized display name of this result item based on request parameter <code>language</code>.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The place address.</p>
+   * @public
+   */
+  Address?: Address | undefined;
+
+  /**
+   * <p>The position, in longitude and latitude.</p>
+   * @public
+   */
+  Position?: number[] | undefined;
+
+  /**
+   * <p>Position of the access point represented by longitude and latitude.</p>
+   * @public
+   */
+  AccessPoints?: AccessPoint[] | undefined;
 }
 
 /**
@@ -1453,11 +1515,178 @@ export interface MatchScoreDetails {
   Overall?: number | undefined;
 
   /**
-   * <p>Indicates how well the component input matches the returned. It is equal to 1 if all
-   *          input tokens are recognized and matched.</p>
+   * <p>Indicates how well the component input matches the returned. It is equal to 1 if all input tokens are recognized and matched.</p>
    * @public
    */
   Components?: ComponentMatchScores | undefined;
+}
+
+/**
+ * <p>Parsed components in the provided QueryText.</p>
+ * @public
+ */
+export interface ParsedQueryComponent {
+  /**
+   * <p>Start index of the parsed query component.</p>
+   * @public
+   */
+  StartIndex?: number | undefined;
+
+  /**
+   * <p>End index of the parsed query component.</p>
+   * @public
+   */
+  EndIndex?: number | undefined;
+
+  /**
+   * <p>Value of the parsed query component.</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>The address component that the parsed query component corresponds to.</p>
+   * @public
+   */
+  QueryComponent?: string | undefined;
+}
+
+/**
+ * <p>Information about a secondary address component parsed from the query text.</p>
+ * @public
+ */
+export interface ParsedQuerySecondaryAddressComponent {
+  /**
+   * <p>Start index of the parsed secondary address component in the query text.</p>
+   * @public
+   */
+  StartIndex: number | undefined;
+
+  /**
+   * <p>End index of the parsed secondary address component in the query text.</p>
+   * @public
+   */
+  EndIndex: number | undefined;
+
+  /**
+   * <p>Value of the parsed secondary address component.</p>
+   * @public
+   */
+  Value: string | undefined;
+
+  /**
+   * <p>Secondary address number provided in the query.</p>
+   * @public
+   */
+  Number: string | undefined;
+
+  /**
+   * <p>Secondary address designator provided in the query.</p>
+   * @public
+   */
+  Designator: string | undefined;
+}
+
+/**
+ * <p>Parsed address components in the provided QueryText.</p>
+ * @public
+ */
+export interface GeocodeParsedQueryAddressComponents {
+  /**
+   * <p>The alpha-2 or alpha-3 character code for the country that the results will be present in.</p>
+   * @public
+   */
+  Country?: ParsedQueryComponent[] | undefined;
+
+  /**
+   * <p>The region or state results should be present in. </p> <p>Example: <code>North Rhine-Westphalia</code>.</p>
+   * @public
+   */
+  Region?: ParsedQueryComponent[] | undefined;
+
+  /**
+   * <p>The sub-region or county for which results should be present in. </p>
+   * @public
+   */
+  SubRegion?: ParsedQueryComponent[] | undefined;
+
+  /**
+   * <p>The city or locality of the address.</p> <p>Example: <code>Vancouver</code>.</p>
+   * @public
+   */
+  Locality?: ParsedQueryComponent[] | undefined;
+
+  /**
+   * <p>The district or division of a city the results should be present in.</p>
+   * @public
+   */
+  District?: ParsedQueryComponent[] | undefined;
+
+  /**
+   * <p>A subdivision of a district. </p> <p>Example: <code>Minden-Lübbecke</code>.</p>
+   * @public
+   */
+  SubDistrict?: ParsedQueryComponent[] | undefined;
+
+  /**
+   * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code, for which the result should possess. </p>
+   * @public
+   */
+  PostalCode?: ParsedQueryComponent[] | undefined;
+
+  /**
+   * <p>Name of the block. </p> <p>Example: <code>Sunny Mansion 203 block: 2 Chome</code> </p>
+   * @public
+   */
+  Block?: ParsedQueryComponent[] | undefined;
+
+  /**
+   * <p>Name of sub-block. </p> <p>Example: <code>Sunny Mansion 203 sub-block: 4</code> </p>
+   * @public
+   */
+  SubBlock?: ParsedQueryComponent[] | undefined;
+
+  /**
+   * <p>The name of the street results should be present in.</p>
+   * @public
+   */
+  Street?: ParsedQueryComponent[] | undefined;
+
+  /**
+   * <p>The number that identifies an address within a street.</p>
+   * @public
+   */
+  AddressNumber?: ParsedQueryComponent[] | undefined;
+
+  /**
+   * <p>The name of the building at the address.</p>
+   * @public
+   */
+  Building?: ParsedQueryComponent[] | undefined;
+
+  /**
+   * <p>Parsed secondary address components from the provided query text.</p>
+   * @public
+   */
+  SecondaryAddressComponents?: ParsedQuerySecondaryAddressComponent[] | undefined;
+}
+
+/**
+ * <p>Parsed components in the provided QueryText.</p>
+ * @public
+ */
+export interface GeocodeParsedQuery {
+  /**
+   * <p>The localized display name of this result item based on request parameter <code>language</code>.</p>
+   * @public
+   */
+  Title?: ParsedQueryComponent[] | undefined;
+
+  /**
+   * <p>The place address.</p>
+   * @public
+   */
+  Address?: GeocodeParsedQueryAddressComponents | undefined;
 }
 
 /**
@@ -1550,7 +1779,7 @@ export interface UspsZipPlus4 {
  */
 export interface PostalCodeDetails {
   /**
-   * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code for which the result should posses. </p>
+   * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code for which the result should possess. </p>
    * @public
    */
   PostalCode?: string | undefined;
@@ -1610,7 +1839,7 @@ export interface TimeZone {
  */
 export interface GeocodeResultItem {
   /**
-   * <p>The <code>PlaceId</code> of the place you wish to receive the information for.</p>
+   * <p>The <code>PlaceId</code> of the place result.</p>
    * @public
    */
   PlaceId: string | undefined;
@@ -1658,10 +1887,7 @@ export interface GeocodeResultItem {
   Distance?: number | undefined;
 
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p>
-   *          <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\},
-   *             \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code>
-   *          </p>
+   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
    * @public
    */
   MapView?: number[] | undefined;
@@ -1679,7 +1905,7 @@ export interface GeocodeResultItem {
   FoodTypes?: FoodType[] | undefined;
 
   /**
-   * <p>Position of the access point represent by longitude and latitude.</p>
+   * <p>Position of the access point represented by longitude and latitude.</p>
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
@@ -1697,11 +1923,34 @@ export interface GeocodeResultItem {
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Indicates how well the entire input matches the returned. It is equal to 1 if all input
-   *          tokens are recognized and matched.</p>
+   * <p>Indicates how well the entire input matches the returned. It is equal to 1 if all input tokens are recognized and matched.</p>
    * @public
    */
   MatchScores?: MatchScoreDetails | undefined;
+
+  /**
+   * <p>Free-form text query.</p>
+   * @public
+   */
+  ParsedQuery?: GeocodeParsedQuery | undefined;
+
+  /**
+   * <p>All Intersections that are near the provided address.</p>
+   * @public
+   */
+  Intersections?: Intersection[] | undefined;
+
+  /**
+   * <p>The main address corresponding to a place of type Secondary Address.</p>
+   * @public
+   */
+  MainAddress?: RelatedPlace | undefined;
+
+  /**
+   * <p>All secondary addresses that are associated with a main address. A secondary address is one that includes secondary designators, such as a Suite or Unit Number, Building, or Floor information.</p>
+   * @public
+   */
+  SecondaryAddresses?: RelatedPlace[] | undefined;
 }
 
 /**
@@ -1709,8 +1958,7 @@ export interface GeocodeResultItem {
  */
 export interface GeocodeResponse {
   /**
-   * <p>The pricing bucket for which the query is charged at.</p>
-   *          <p>For more inforamtion on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
+   * <p>The pricing bucket for which the query is charged at.</p> <p>For more information on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
    * @public
    */
   PricingBucket: string | undefined;
@@ -1730,6 +1978,7 @@ export const GetPlaceAdditionalFeature = {
   ACCESS: "Access",
   CONTACT: "Contact",
   PHONEMES: "Phonemes",
+  SECONDARY_ADDRESSES: "SecondaryAddresses",
   TIME_ZONE: "TimeZone",
 } as const;
 
@@ -1769,8 +2018,7 @@ export interface GetPlaceRequest {
   PlaceId: string | undefined;
 
   /**
-   * <p>A list of optional additional parameters such as time zone that can be requested for
-   *          each result.</p>
+   * <p>A list of optional additional parameters such as time zone that can be requested for each result.</p>
    * @public
    */
   AdditionalFeatures?: GetPlaceAdditionalFeature[] | undefined;
@@ -1788,14 +2036,13 @@ export interface GetPlaceRequest {
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p>
+   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p> <note> <p>Storing the response of an GetPlace query is required to comply with service terms, but charged at a higher cost per request. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
    * @public
    */
   IntendedUse?: GetPlaceIntendedUse | undefined;
 
   /**
-   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
-   *          signature must be provided when making a request.</p>
+   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.</p>
    * @public
    */
   Key?: string | undefined;
@@ -1813,16 +2060,13 @@ export interface OpeningHoursComponents {
   OpenTime?: string | undefined;
 
   /**
-   * <p>String which represents the duration of the opening period, such as
-   *             <code>"PT12H00M"</code>.</p>
+   * <p>String which represents the duration of the opening period, such as <code>"PT12H00M"</code>.</p>
    * @public
    */
   OpenDuration?: string | undefined;
 
   /**
-   * <p>Days or periods when the provided opening hours are in affect. </p>
-   *          <p>Example: <code>FREQ:DAILY;BYDAY:MO,TU,WE,TH,SU</code>
-   *          </p>
+   * <p>Days or periods when the provided opening hours are in affect. </p> <p>Example: <code>FREQ:DAILY;BYDAY:MO,TU,WE,TH,SU</code> </p>
    * @public
    */
   Recurrence?: string | undefined;
@@ -1834,8 +2078,7 @@ export interface OpeningHoursComponents {
  */
 export interface OpeningHours {
   /**
-   * <p>List of opening hours in the format they are displayed in. This can vary by result and
-   *          in most cases represents how the result uniquely formats their opening hours. </p>
+   * <p>List of opening hours in the format they are displayed in. This can vary by result and in most cases represents how the result uniquely formats their opening hours. </p>
    * @public
    */
   Display?: string[] | undefined;
@@ -1865,8 +2108,7 @@ export interface OpeningHours {
  */
 export interface PhonemeDetails {
   /**
-   * <p>List of <code>PhonemeTranscription</code>. See <code>PhonemeTranscription</code> for
-   *          fields.</p>
+   * <p>List of <code>PhonemeTranscription</code>. See <code>PhonemeTranscription</code> for fields.</p>
    * @public
    */
   Title?: PhonemeTranscription[] | undefined;
@@ -1895,14 +2137,13 @@ export interface GetPlaceResponse {
   PlaceType: PlaceType | undefined;
 
   /**
-   * <p>The localized display name of this result item based on request parameter <code>language</code>. </p>
+   * <p>The localized display name of this result item based on request parameter <code>language</code>.</p>
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>The pricing bucket for which the query is charged at.</p>
-   *          <p>For more inforamtion on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
+   * <p>The pricing bucket for which the query is charged at.</p> <p>For more information on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
    * @public
    */
   PricingBucket: string | undefined;
@@ -1932,10 +2173,7 @@ export interface GetPlaceResponse {
   Position?: number[] | undefined;
 
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p>
-   *          <p>The bounding box formed is defined as a set of four coordinates: <code>[\{westward lng\},
-   *             \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code>
-   *          </p>
+   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set of four coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
    * @public
    */
   MapView?: number[] | undefined;
@@ -1995,11 +2233,22 @@ export interface GetPlaceResponse {
   PoliticalView?: string | undefined;
 
   /**
-   * <p>How the various components of the result's address are pronounced in various
-   *          languages.</p>
+   * <p>How the various components of the result's address are pronounced in various languages.</p>
    * @public
    */
   Phonemes?: PhonemeDetails | undefined;
+
+  /**
+   * <p>The main address corresponding to a place of type Secondary Address.</p>
+   * @public
+   */
+  MainAddress?: RelatedPlace | undefined;
+
+  /**
+   * <p>All secondary addresses that are associated with a main address. A secondary address is one that includes secondary designators, such as a Suite or Unit Number, Building, or Floor information.</p>
+   * @public
+   */
+  SecondaryAddresses?: RelatedPlace[] | undefined;
 }
 
 /**
@@ -2008,6 +2257,7 @@ export interface GetPlaceResponse {
  */
 export const ReverseGeocodeAdditionalFeature = {
   ACCESS: "Access",
+  INTERSECTIONS: "Intersections",
   TIME_ZONE: "TimeZone",
 } as const;
 
@@ -2072,7 +2322,7 @@ export type ReverseGeocodeIntendedUse = (typeof ReverseGeocodeIntendedUse)[keyof
  */
 export interface ReverseGeocodeRequest {
   /**
-   * <p>The position, in <code>[lng, lat]</code> for which you are querying nearby resultsfor. Results closer to the position will be ranked higher then results further away from the position</p>
+   * <p>The position, in <code>[lng, lat]</code> for which you are querying nearby results for. Results closer to the position will be ranked higher then results further away from the position</p>
    * @public
    */
   QueryPosition: number[] | undefined;
@@ -2090,14 +2340,13 @@ export interface ReverseGeocodeRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>A structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result.</p>
+   * <p>A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
    * @public
    */
   Filter?: ReverseGeocodeFilter | undefined;
 
   /**
-   * <p>A list of optional additional parameters, such as time zone that can be requested for
-   *          each result.</p>
+   * <p>A list of optional additional parameters, such as time zone that can be requested for each result.</p>
    * @public
    */
   AdditionalFeatures?: ReverseGeocodeAdditionalFeature[] | undefined;
@@ -2115,14 +2364,13 @@ export interface ReverseGeocodeRequest {
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p>
+   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p> <note> <p>Storing the response of an ReverseGeocode query is required to comply with service terms, but charged at a higher cost per request. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
    * @public
    */
   IntendedUse?: ReverseGeocodeIntendedUse | undefined;
 
   /**
-   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
-   *          signature must be provided when making a request.</p>
+   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.</p>
    * @public
    */
   Key?: string | undefined;
@@ -2182,10 +2430,7 @@ export interface ReverseGeocodeResultItem {
   Distance?: number | undefined;
 
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p>
-   *          <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\},
-   *             \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code>
-   *          </p>
+   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
    * @public
    */
   MapView?: number[] | undefined;
@@ -2203,7 +2448,7 @@ export interface ReverseGeocodeResultItem {
   FoodTypes?: FoodType[] | undefined;
 
   /**
-   * <p>Position of the access point represent by longitude and latitude.</p>
+   * <p>Position of the access point represented by longitude and latitude.</p>
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
@@ -2219,6 +2464,12 @@ export interface ReverseGeocodeResultItem {
    * @public
    */
   PoliticalView?: string | undefined;
+
+  /**
+   * <p>All Intersections that are near the provided address.</p>
+   * @public
+   */
+  Intersections?: Intersection[] | undefined;
 }
 
 /**
@@ -2226,8 +2477,7 @@ export interface ReverseGeocodeResultItem {
  */
 export interface ReverseGeocodeResponse {
   /**
-   * <p>The pricing bucket for which the query is charged at.</p>
-   *          <p>For more inforamtion on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
+   * <p>The pricing bucket for which the query is charged at.</p> <p>For more information on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
    * @public
    */
   PricingBucket: string | undefined;
@@ -2257,15 +2507,12 @@ export type SearchNearbyAdditionalFeature =
   (typeof SearchNearbyAdditionalFeature)[keyof typeof SearchNearbyAdditionalFeature];
 
 /**
- * <p>SearchNearby structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result.</p>
+ * <p>SearchNearby structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
  * @public
  */
 export interface SearchNearbyFilter {
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p>
-   *          <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\},
-   *             \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code>
-   *          </p>
+   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
    * @public
    */
   BoundingBox?: number[] | undefined;
@@ -2338,13 +2585,13 @@ export type SearchNearbyIntendedUse = (typeof SearchNearbyIntendedUse)[keyof typ
  */
 export interface SearchNearbyRequest {
   /**
-   * <p>The position, in <code>[lng, lat]</code> for which you are querying nearby resultsfor. Results closer to the position will be ranked higher then results further away from the position</p>
+   * <p>The position, in <code>[lng, lat]</code> for which you are querying nearby results for. Results closer to the position will be ranked higher then results further away from the position</p>
    * @public
    */
   QueryPosition: number[] | undefined;
 
   /**
-   * <p>The maximum distance in meters from the QueryPosition from which a result will be returned.</p>
+   * <p>The maximum distance in meters from the QueryPosition from which a result will be returned.</p> <note> <p>The fields <code>QueryText</code>, and <code>QueryID</code> are mutually exclusive.</p> </note>
    * @public
    */
   QueryRadius?: number | undefined;
@@ -2356,14 +2603,13 @@ export interface SearchNearbyRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>A structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result.</p>
+   * <p>A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
    * @public
    */
   Filter?: SearchNearbyFilter | undefined;
 
   /**
-   * <p>A list of optional additional parameters, such as time zone, that can be requested for
-   *          each result.</p>
+   * <p>A list of optional additional parameters, such as time zone, that can be requested for each result.</p>
    * @public
    */
   AdditionalFeatures?: SearchNearbyAdditionalFeature[] | undefined;
@@ -2381,21 +2627,19 @@ export interface SearchNearbyRequest {
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p>
+   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p> <note> <p>Storing the response of an SearchNearby query is required to comply with service terms, but charged at a higher cost per request. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
    * @public
    */
   IntendedUse?: SearchNearbyIntendedUse | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned,
-   *          there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. </p>
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. </p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
-   *          signature must be provided when making a request.</p>
+   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.</p>
    * @public
    */
   Key?: string | undefined;
@@ -2449,10 +2693,7 @@ export interface SearchNearbyResultItem {
   Distance?: number | undefined;
 
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p>
-   *          <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\},
-   *             \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code>
-   *          </p>
+   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
    * @public
    */
   MapView?: number[] | undefined;
@@ -2512,8 +2753,7 @@ export interface SearchNearbyResultItem {
   PoliticalView?: string | undefined;
 
   /**
-   * <p>How the various components of the result's address are pronounced in various
-   *          languages.</p>
+   * <p>How the various components of the result's address are pronounced in various languages.</p>
    * @public
    */
   Phonemes?: PhonemeDetails | undefined;
@@ -2524,8 +2764,7 @@ export interface SearchNearbyResultItem {
  */
 export interface SearchNearbyResponse {
   /**
-   * <p>The pricing bucket for which the query is charged at.</p>
-   *          <p>For more inforamtion on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
+   * <p>The pricing bucket for which the query is charged at.</p> <p>For more information on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
    * @public
    */
   PricingBucket: string | undefined;
@@ -2537,8 +2776,7 @@ export interface SearchNearbyResponse {
   ResultItems?: SearchNearbyResultItem[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned,
-   *          there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. </p>
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2562,15 +2800,12 @@ export type SearchTextAdditionalFeature =
   (typeof SearchTextAdditionalFeature)[keyof typeof SearchTextAdditionalFeature];
 
 /**
- * <p>SearchText structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result.</p>
+ * <p>SearchText structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
  * @public
  */
 export interface SearchTextFilter {
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p>
-   *          <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\},
-   *             \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code>
-   *          </p>
+   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
    * @public
    */
   BoundingBox?: number[] | undefined;
@@ -2613,13 +2848,13 @@ export type SearchTextIntendedUse = (typeof SearchTextIntendedUse)[keyof typeof 
  */
 export interface SearchTextRequest {
   /**
-   * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p>
+   * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p> <note> <p>The fields <code>QueryText</code>, and <code>QueryID</code> are mutually exclusive.</p> </note>
    * @public
    */
   QueryText?: string | undefined;
 
   /**
-   * <p>The query Id.</p>
+   * <p>The query Id returned by the suggest API. If passed in the request, the SearchText API will preform a SearchText query with the improved query terms for the original query made to the suggest API.</p> <note> <p>The fields <code>QueryText</code>, and <code>QueryID</code> are mutually exclusive.</p> </note>
    * @public
    */
   QueryId?: string | undefined;
@@ -2631,25 +2866,19 @@ export interface SearchTextRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>The position, in longitude and latitude, that the results should be close to. Typically,
-   *          place results returned are ranked higher the closer they are to this position. Stored in
-   *             <code>[lng, lat]</code> and in the WSG84 format.</p>
-   *          <note>
-   *             <p>The fields <code>BiasPosition</code>, <code>FilterBoundingBox</code>, and <code>FilterCircle</code> are mutually exclusive.</p>
-   *          </note>
+   * <p>The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in <code>[lng, lat]</code> and in the WSG84 format.</p> <note> <p>The fields <code>BiasPosition</code>, <code>FilterBoundingBox</code>, and <code>FilterCircle</code> are mutually exclusive.</p> </note>
    * @public
    */
   BiasPosition?: number[] | undefined;
 
   /**
-   * <p>A structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result.</p>
+   * <p>A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
    * @public
    */
   Filter?: SearchTextFilter | undefined;
 
   /**
-   * <p>A list of optional additional parameters, such as time zone, that can be requested for
-   *          each result.</p>
+   * <p>A list of optional additional parameters, such as time zone, that can be requested for each result.</p>
    * @public
    */
   AdditionalFeatures?: SearchTextAdditionalFeature[] | undefined;
@@ -2667,21 +2896,19 @@ export interface SearchTextRequest {
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p>
+   * <p>Indicates if the results will be stored. Defaults to <code>SingleUse</code>, if left empty.</p> <note> <p>Storing the response of an SearchText query is required to comply with service terms, but charged at a higher cost per request. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
    * @public
    */
   IntendedUse?: SearchTextIntendedUse | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned,
-   *          there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. </p>
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. </p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
-   *          signature must be provided when making a request.</p>
+   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.</p>
    * @public
    */
   Key?: string | undefined;
@@ -2735,10 +2962,7 @@ export interface SearchTextResultItem {
   Distance?: number | undefined;
 
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p>
-   *          <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\},
-   *             \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code>
-   *          </p>
+   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
    * @public
    */
   MapView?: number[] | undefined;
@@ -2798,8 +3022,7 @@ export interface SearchTextResultItem {
   PoliticalView?: string | undefined;
 
   /**
-   * <p>How the various components of the result's address are pronounced in various
-   *          languages.</p>
+   * <p>How the various components of the result's address are pronounced in various languages.</p>
    * @public
    */
   Phonemes?: PhonemeDetails | undefined;
@@ -2810,8 +3033,7 @@ export interface SearchTextResultItem {
  */
 export interface SearchTextResponse {
   /**
-   * <p>The pricing bucket for which the query is charged at.</p>
-   *          <p>For more inforamtion on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
+   * <p>The pricing bucket for which the query is charged at.</p> <p>For more information on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
    * @public
    */
   PricingBucket: string | undefined;
@@ -2823,8 +3045,7 @@ export interface SearchTextResponse {
   ResultItems?: SearchTextResultItem[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned,
-   *          there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. </p>
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2847,15 +3068,12 @@ export const SuggestAdditionalFeature = {
 export type SuggestAdditionalFeature = (typeof SuggestAdditionalFeature)[keyof typeof SuggestAdditionalFeature];
 
 /**
- * <p>SuggestFilter structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result.</p>
+ * <p>SuggestFilter structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
  * @public
  */
 export interface SuggestFilter {
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p>
-   *          <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\},
-   *             \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code>
-   *          </p>
+   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
    * @public
    */
   BoundingBox?: number[] | undefined;
@@ -2894,7 +3112,7 @@ export type SuggestIntendedUse = (typeof SuggestIntendedUse)[keyof typeof Sugges
  */
 export interface SuggestRequest {
   /**
-   * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p>
+   * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p> <note> <p>The fields <code>QueryText</code>, and <code>QueryID</code> are mutually exclusive.</p> </note>
    * @public
    */
   QueryText: string | undefined;
@@ -2912,25 +3130,19 @@ export interface SuggestRequest {
   MaxQueryRefinements?: number | undefined;
 
   /**
-   * <p>The position, in longitude and latitude, that the results should be close to. Typically,
-   *          place results returned are ranked higher the closer they are to this position. Stored in
-   *             <code>[lng, lat]</code> and in the WSG84 format.</p>
-   *          <note>
-   *             <p>The fields <code>BiasPosition</code>, <code>FilterBoundingBox</code>, and <code>FilterCircle</code> are mutually exclusive.</p>
-   *          </note>
+   * <p>The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in <code>[lng, lat]</code> and in the WSG84 format.</p> <note> <p>The fields <code>BiasPosition</code>, <code>FilterBoundingBox</code>, and <code>FilterCircle</code> are mutually exclusive.</p> </note>
    * @public
    */
   BiasPosition?: number[] | undefined;
 
   /**
-   * <p>A structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result.</p>
+   * <p>A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
    * @public
    */
   Filter?: SuggestFilter | undefined;
 
   /**
-   * <p>A list of optional additional parameters, such as time zone, that can be requested for
-   *          each result.</p>
+   * <p>A list of optional additional parameters, such as time zone, that can be requested for each result.</p>
    * @public
    */
   AdditionalFeatures?: SuggestAdditionalFeature[] | undefined;
@@ -2954,16 +3166,14 @@ export interface SuggestRequest {
   IntendedUse?: SuggestIntendedUse | undefined;
 
   /**
-   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
-   *          signature must be provided when making a request.</p>
+   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.</p>
    * @public
    */
   Key?: string | undefined;
 }
 
 /**
- * <p>Suggestions for refining individual query terms. Suggestions are returned as objects
- *          which note the term, suggested replacement, and its index in the query. </p>
+ * <p>Suggestions for refining individual query terms. Suggestions are returned as objects which note the term, suggested replacement, and its index in the query. </p>
  * @public
  */
 export interface QueryRefinement {
@@ -3058,10 +3268,7 @@ export interface SuggestPlaceResult {
   Distance?: number | undefined;
 
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p>
-   *          <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\},
-   *             \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code>
-   *          </p>
+   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
    * @public
    */
   MapView?: number[] | undefined;
@@ -3109,8 +3316,7 @@ export interface SuggestPlaceResult {
   PoliticalView?: string | undefined;
 
   /**
-   * <p>How the various components of the result's address are pronounced in various
-   *          languages.</p>
+   * <p>How the various components of the result's address are pronounced in various languages.</p>
    * @public
    */
   Phonemes?: PhonemeDetails | undefined;
@@ -3136,13 +3342,13 @@ export type QueryType = (typeof QueryType)[keyof typeof QueryType];
  */
 export interface SuggestQueryResult {
   /**
-   * <p>QueryId can be used to complete a follow up query through the SearchText API. The QueryId retains context from the original Suggest request such as filters, political view and language. See the SearchText API documentation for more details <a href="https://docs.aws.amazon.com/latest/APIReference/API_geoplaces_SearchText.html">SearchText API docs</a>.</p>
+   * <p>QueryId can be used to complete a follow up query through the SearchText API. The QueryId retains context from the original Suggest request such as filters, political view and language. See the SearchText API documentation for more details <a href="https://docs.aws.amazon.com/latest/APIReference/API_geoplaces_SearchText.html">SearchText API docs</a>.</p> <note> <p>The fields <code>QueryText</code>, and <code>QueryID</code> are mutually exclusive.</p> </note>
    * @public
    */
   QueryId?: string | undefined;
 
   /**
-   * <p>The query type. Category qeuries will search for places which have an entry matching the given category, for example "doctor office". BusinessChain queries will search for instances of a given business.</p>
+   * <p>The query type. Category queries will search for places which have an entry matching the given category, for example "doctor office". BusinessChain queries will search for instances of a given business.</p>
    * @public
    */
   QueryType?: QueryType | undefined;
@@ -3203,8 +3409,7 @@ export interface SuggestResultItem {
  */
 export interface SuggestResponse {
   /**
-   * <p>The pricing bucket for which the query is charged at.</p>
-   *          <p>For more inforamtion on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
+   * <p>The pricing bucket for which the query is charged at.</p> <p>For more information on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
    * @public
    */
   PricingBucket: string | undefined;
@@ -3233,9 +3438,131 @@ export const AccessPointFilterSensitiveLog = (obj: AccessPoint): any => ({
 /**
  * @internal
  */
+export const CategoryFilterSensitiveLog = (obj: Category): any => ({
+  ...obj,
+  ...(obj.Id && { Id: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.LocalizedName && { LocalizedName: SENSITIVE_STRING }),
+  ...(obj.Primary && { Primary: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AccessRestrictionFilterSensitiveLog = (obj: AccessRestriction): any => ({
+  ...obj,
+  ...(obj.Restricted && { Restricted: SENSITIVE_STRING }),
+  ...(obj.Categories && { Categories: obj.Categories.map((item) => CategoryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CountryFilterSensitiveLog = (obj: Country): any => ({
+  ...obj,
+  ...(obj.Code2 && { Code2: SENSITIVE_STRING }),
+  ...(obj.Code3 && { Code3: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RegionFilterSensitiveLog = (obj: Region): any => ({
+  ...obj,
+  ...(obj.Code && { Code: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SecondaryAddressComponentFilterSensitiveLog = (obj: SecondaryAddressComponent): any => ({
+  ...obj,
+  ...(obj.Number && { Number: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StreetComponentsFilterSensitiveLog = (obj: StreetComponents): any => ({
+  ...obj,
+  ...(obj.BaseName && { BaseName: SENSITIVE_STRING }),
+  ...(obj.Type && { Type: SENSITIVE_STRING }),
+  ...(obj.Prefix && { Prefix: SENSITIVE_STRING }),
+  ...(obj.Suffix && { Suffix: SENSITIVE_STRING }),
+  ...(obj.Direction && { Direction: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SubRegionFilterSensitiveLog = (obj: SubRegion): any => ({
+  ...obj,
+  ...(obj.Code && { Code: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AddressFilterSensitiveLog = (obj: Address): any => ({
+  ...obj,
+  ...(obj.Label && { Label: SENSITIVE_STRING }),
+  ...(obj.Country && { Country: CountryFilterSensitiveLog(obj.Country) }),
+  ...(obj.Region && { Region: RegionFilterSensitiveLog(obj.Region) }),
+  ...(obj.SubRegion && { SubRegion: SubRegionFilterSensitiveLog(obj.SubRegion) }),
+  ...(obj.Locality && { Locality: SENSITIVE_STRING }),
+  ...(obj.District && { District: SENSITIVE_STRING }),
+  ...(obj.SubDistrict && { SubDistrict: SENSITIVE_STRING }),
+  ...(obj.PostalCode && { PostalCode: SENSITIVE_STRING }),
+  ...(obj.Block && { Block: SENSITIVE_STRING }),
+  ...(obj.SubBlock && { SubBlock: SENSITIVE_STRING }),
+  ...(obj.Street && { Street: SENSITIVE_STRING }),
+  ...(obj.StreetComponents && {
+    StreetComponents: obj.StreetComponents.map((item) => StreetComponentsFilterSensitiveLog(item)),
+  }),
+  ...(obj.AddressNumber && { AddressNumber: SENSITIVE_STRING }),
+  ...(obj.Building && { Building: SENSITIVE_STRING }),
+  ...(obj.SecondaryAddressComponents && {
+    SecondaryAddressComponents: obj.SecondaryAddressComponents.map((item) =>
+      SecondaryAddressComponentFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const PhonemeTranscriptionFilterSensitiveLog = (obj: PhonemeTranscription): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+  ...(obj.Preferred && { Preferred: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AddressComponentPhonemesFilterSensitiveLog = (obj: AddressComponentPhonemes): any => ({
+  ...obj,
+  ...(obj.Country && { Country: obj.Country.map((item) => PhonemeTranscriptionFilterSensitiveLog(item)) }),
+  ...(obj.Region && { Region: obj.Region.map((item) => PhonemeTranscriptionFilterSensitiveLog(item)) }),
+  ...(obj.SubRegion && { SubRegion: obj.SubRegion.map((item) => PhonemeTranscriptionFilterSensitiveLog(item)) }),
+  ...(obj.Locality && { Locality: obj.Locality.map((item) => PhonemeTranscriptionFilterSensitiveLog(item)) }),
+  ...(obj.District && { District: obj.District.map((item) => PhonemeTranscriptionFilterSensitiveLog(item)) }),
+  ...(obj.SubDistrict && { SubDistrict: obj.SubDistrict.map((item) => PhonemeTranscriptionFilterSensitiveLog(item)) }),
+  ...(obj.Block && { Block: obj.Block.map((item) => PhonemeTranscriptionFilterSensitiveLog(item)) }),
+  ...(obj.SubBlock && { SubBlock: obj.SubBlock.map((item) => PhonemeTranscriptionFilterSensitiveLog(item)) }),
+  ...(obj.Street && { Street: obj.Street.map((item) => PhonemeTranscriptionFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const FilterCircleFilterSensitiveLog = (obj: FilterCircle): any => ({
   ...obj,
   ...(obj.Center && { Center: SENSITIVE_STRING }),
+  ...(obj.Radius && { Radius: SENSITIVE_STRING }),
 });
 
 /**
@@ -3245,6 +3572,7 @@ export const AutocompleteFilterFilterSensitiveLog = (obj: AutocompleteFilter): a
   ...obj,
   ...(obj.BoundingBox && { BoundingBox: SENSITIVE_STRING }),
   ...(obj.Circle && { Circle: SENSITIVE_STRING }),
+  ...(obj.IncludeCountries && { IncludeCountries: SENSITIVE_STRING }),
 });
 
 /**
@@ -3255,7 +3583,148 @@ export const AutocompleteRequestFilterSensitiveLog = (obj: AutocompleteRequest):
   ...(obj.QueryText && { QueryText: SENSITIVE_STRING }),
   ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
   ...(obj.Filter && { Filter: AutocompleteFilterFilterSensitiveLog(obj.Filter) }),
+  ...(obj.PoliticalView && { PoliticalView: SENSITIVE_STRING }),
   ...(obj.Key && { Key: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const HighlightFilterSensitiveLog = (obj: Highlight): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CountryHighlightsFilterSensitiveLog = (obj: CountryHighlights): any => ({
+  ...obj,
+  ...(obj.Code && { Code: obj.Code.map((item) => HighlightFilterSensitiveLog(item)) }),
+  ...(obj.Name && { Name: obj.Name.map((item) => HighlightFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const RegionHighlightsFilterSensitiveLog = (obj: RegionHighlights): any => ({
+  ...obj,
+  ...(obj.Code && { Code: obj.Code.map((item) => HighlightFilterSensitiveLog(item)) }),
+  ...(obj.Name && { Name: obj.Name.map((item) => HighlightFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SubRegionHighlightsFilterSensitiveLog = (obj: SubRegionHighlights): any => ({
+  ...obj,
+  ...(obj.Code && { Code: obj.Code.map((item) => HighlightFilterSensitiveLog(item)) }),
+  ...(obj.Name && { Name: obj.Name.map((item) => HighlightFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const AutocompleteAddressHighlightsFilterSensitiveLog = (obj: AutocompleteAddressHighlights): any => ({
+  ...obj,
+  ...(obj.Label && { Label: obj.Label.map((item) => HighlightFilterSensitiveLog(item)) }),
+  ...(obj.Country && { Country: CountryHighlightsFilterSensitiveLog(obj.Country) }),
+  ...(obj.Region && { Region: RegionHighlightsFilterSensitiveLog(obj.Region) }),
+  ...(obj.SubRegion && { SubRegion: SubRegionHighlightsFilterSensitiveLog(obj.SubRegion) }),
+  ...(obj.Locality && { Locality: obj.Locality.map((item) => HighlightFilterSensitiveLog(item)) }),
+  ...(obj.District && { District: obj.District.map((item) => HighlightFilterSensitiveLog(item)) }),
+  ...(obj.SubDistrict && { SubDistrict: obj.SubDistrict.map((item) => HighlightFilterSensitiveLog(item)) }),
+  ...(obj.Street && { Street: obj.Street.map((item) => HighlightFilterSensitiveLog(item)) }),
+  ...(obj.Block && { Block: obj.Block.map((item) => HighlightFilterSensitiveLog(item)) }),
+  ...(obj.SubBlock && { SubBlock: obj.SubBlock.map((item) => HighlightFilterSensitiveLog(item)) }),
+  ...(obj.Intersection && {
+    Intersection: obj.Intersection.map((item) => item.map((item) => HighlightFilterSensitiveLog(item))),
+  }),
+  ...(obj.PostalCode && { PostalCode: obj.PostalCode.map((item) => HighlightFilterSensitiveLog(item)) }),
+  ...(obj.AddressNumber && { AddressNumber: obj.AddressNumber.map((item) => HighlightFilterSensitiveLog(item)) }),
+  ...(obj.Building && { Building: obj.Building.map((item) => HighlightFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const AutocompleteHighlightsFilterSensitiveLog = (obj: AutocompleteHighlights): any => ({
+  ...obj,
+  ...(obj.Title && { Title: obj.Title.map((item) => HighlightFilterSensitiveLog(item)) }),
+  ...(obj.Address && { Address: AutocompleteAddressHighlightsFilterSensitiveLog(obj.Address) }),
+});
+
+/**
+ * @internal
+ */
+export const AutocompleteResultItemFilterSensitiveLog = (obj: AutocompleteResultItem): any => ({
+  ...obj,
+  ...(obj.PlaceId && { PlaceId: SENSITIVE_STRING }),
+  ...(obj.PlaceType && { PlaceType: SENSITIVE_STRING }),
+  ...(obj.Title && { Title: SENSITIVE_STRING }),
+  ...(obj.Address && { Address: AddressFilterSensitiveLog(obj.Address) }),
+  ...(obj.Distance && { Distance: SENSITIVE_STRING }),
+  ...(obj.PoliticalView && { PoliticalView: SENSITIVE_STRING }),
+  ...(obj.Highlights && { Highlights: AutocompleteHighlightsFilterSensitiveLog(obj.Highlights) }),
+});
+
+/**
+ * @internal
+ */
+export const AutocompleteResponseFilterSensitiveLog = (obj: AutocompleteResponse): any => ({
+  ...obj,
+  ...(obj.ResultItems && {
+    ResultItems: obj.ResultItems.map((item) => AutocompleteResultItemFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BusinessChainFilterSensitiveLog = (obj: BusinessChain): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Id && { Id: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ContactDetailsFilterSensitiveLog = (obj: ContactDetails): any => ({
+  ...obj,
+  ...(obj.Label && { Label: SENSITIVE_STRING }),
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+  ...(obj.Categories && { Categories: obj.Categories.map((item) => CategoryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ContactsFilterSensitiveLog = (obj: Contacts): any => ({
+  ...obj,
+  ...(obj.Phones && { Phones: obj.Phones.map((item) => ContactDetailsFilterSensitiveLog(item)) }),
+  ...(obj.Faxes && { Faxes: obj.Faxes.map((item) => ContactDetailsFilterSensitiveLog(item)) }),
+  ...(obj.Websites && { Websites: obj.Websites.map((item) => ContactDetailsFilterSensitiveLog(item)) }),
+  ...(obj.Emails && { Emails: obj.Emails.map((item) => ContactDetailsFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const FoodTypeFilterSensitiveLog = (obj: FoodType): any => ({
+  ...obj,
+  ...(obj.LocalizedName && { LocalizedName: SENSITIVE_STRING }),
+  ...(obj.Id && { Id: SENSITIVE_STRING }),
+  ...(obj.Primary && { Primary: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GeocodeFilterFilterSensitiveLog = (obj: GeocodeFilter): any => ({
+  ...obj,
+  ...(obj.IncludeCountries && { IncludeCountries: SENSITIVE_STRING }),
+  ...(obj.IncludePlaceTypes && { IncludePlaceTypes: SENSITIVE_STRING }),
 });
 
 /**
@@ -3281,7 +3750,133 @@ export const GeocodeRequestFilterSensitiveLog = (obj: GeocodeRequest): any => ({
   ...(obj.QueryText && { QueryText: SENSITIVE_STRING }),
   ...(obj.QueryComponents && { QueryComponents: GeocodeQueryComponentsFilterSensitiveLog(obj.QueryComponents) }),
   ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
+  ...(obj.Filter && { Filter: GeocodeFilterFilterSensitiveLog(obj.Filter) }),
+  ...(obj.PoliticalView && { PoliticalView: SENSITIVE_STRING }),
   ...(obj.Key && { Key: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IntersectionFilterSensitiveLog = (obj: Intersection): any => ({
+  ...obj,
+  ...(obj.PlaceId && { PlaceId: SENSITIVE_STRING }),
+  ...(obj.Title && { Title: SENSITIVE_STRING }),
+  ...(obj.Address && { Address: AddressFilterSensitiveLog(obj.Address) }),
+  ...(obj.Position && { Position: SENSITIVE_STRING }),
+  ...(obj.Distance && { Distance: SENSITIVE_STRING }),
+  ...(obj.RouteDistance && { RouteDistance: SENSITIVE_STRING }),
+  ...(obj.MapView && { MapView: SENSITIVE_STRING }),
+  ...(obj.AccessPoints && { AccessPoints: obj.AccessPoints.map((item) => AccessPointFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const RelatedPlaceFilterSensitiveLog = (obj: RelatedPlace): any => ({
+  ...obj,
+  ...(obj.PlaceId && { PlaceId: SENSITIVE_STRING }),
+  ...(obj.PlaceType && { PlaceType: SENSITIVE_STRING }),
+  ...(obj.Title && { Title: SENSITIVE_STRING }),
+  ...(obj.Address && { Address: AddressFilterSensitiveLog(obj.Address) }),
+  ...(obj.Position && { Position: SENSITIVE_STRING }),
+  ...(obj.AccessPoints && { AccessPoints: obj.AccessPoints.map((item) => AccessPointFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ParsedQueryComponentFilterSensitiveLog = (obj: ParsedQueryComponent): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+  ...(obj.QueryComponent && { QueryComponent: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ParsedQuerySecondaryAddressComponentFilterSensitiveLog = (
+  obj: ParsedQuerySecondaryAddressComponent
+): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+  ...(obj.Number && { Number: SENSITIVE_STRING }),
+  ...(obj.Designator && { Designator: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GeocodeParsedQueryAddressComponentsFilterSensitiveLog = (
+  obj: GeocodeParsedQueryAddressComponents
+): any => ({
+  ...obj,
+  ...(obj.Country && { Country: obj.Country.map((item) => ParsedQueryComponentFilterSensitiveLog(item)) }),
+  ...(obj.Region && { Region: obj.Region.map((item) => ParsedQueryComponentFilterSensitiveLog(item)) }),
+  ...(obj.SubRegion && { SubRegion: obj.SubRegion.map((item) => ParsedQueryComponentFilterSensitiveLog(item)) }),
+  ...(obj.Locality && { Locality: obj.Locality.map((item) => ParsedQueryComponentFilterSensitiveLog(item)) }),
+  ...(obj.District && { District: obj.District.map((item) => ParsedQueryComponentFilterSensitiveLog(item)) }),
+  ...(obj.SubDistrict && { SubDistrict: obj.SubDistrict.map((item) => ParsedQueryComponentFilterSensitiveLog(item)) }),
+  ...(obj.PostalCode && { PostalCode: obj.PostalCode.map((item) => ParsedQueryComponentFilterSensitiveLog(item)) }),
+  ...(obj.Block && { Block: obj.Block.map((item) => ParsedQueryComponentFilterSensitiveLog(item)) }),
+  ...(obj.SubBlock && { SubBlock: obj.SubBlock.map((item) => ParsedQueryComponentFilterSensitiveLog(item)) }),
+  ...(obj.Street && { Street: obj.Street.map((item) => ParsedQueryComponentFilterSensitiveLog(item)) }),
+  ...(obj.AddressNumber && {
+    AddressNumber: obj.AddressNumber.map((item) => ParsedQueryComponentFilterSensitiveLog(item)),
+  }),
+  ...(obj.Building && { Building: obj.Building.map((item) => ParsedQueryComponentFilterSensitiveLog(item)) }),
+  ...(obj.SecondaryAddressComponents && {
+    SecondaryAddressComponents: obj.SecondaryAddressComponents.map((item) =>
+      ParsedQuerySecondaryAddressComponentFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GeocodeParsedQueryFilterSensitiveLog = (obj: GeocodeParsedQuery): any => ({
+  ...obj,
+  ...(obj.Title && { Title: obj.Title.map((item) => ParsedQueryComponentFilterSensitiveLog(item)) }),
+  ...(obj.Address && { Address: GeocodeParsedQueryAddressComponentsFilterSensitiveLog(obj.Address) }),
+});
+
+/**
+ * @internal
+ */
+export const UspsZipFilterSensitiveLog = (obj: UspsZip): any => ({
+  ...obj,
+  ...(obj.ZipClassificationCode && { ZipClassificationCode: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UspsZipPlus4FilterSensitiveLog = (obj: UspsZipPlus4): any => ({
+  ...obj,
+  ...(obj.RecordTypeCode && { RecordTypeCode: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PostalCodeDetailsFilterSensitiveLog = (obj: PostalCodeDetails): any => ({
+  ...obj,
+  ...(obj.PostalCode && { PostalCode: SENSITIVE_STRING }),
+  ...(obj.PostalAuthority && { PostalAuthority: SENSITIVE_STRING }),
+  ...(obj.PostalCodeType && { PostalCodeType: SENSITIVE_STRING }),
+  ...(obj.UspsZip && { UspsZip: UspsZipFilterSensitiveLog(obj.UspsZip) }),
+  ...(obj.UspsZipPlus4 && { UspsZipPlus4: UspsZipPlus4FilterSensitiveLog(obj.UspsZipPlus4) }),
+});
+
+/**
+ * @internal
+ */
+export const TimeZoneFilterSensitiveLog = (obj: TimeZone): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Offset && { Offset: SENSITIVE_STRING }),
+  ...(obj.OffsetSeconds && { OffsetSeconds: SENSITIVE_STRING }),
 });
 
 /**
@@ -3289,9 +3884,28 @@ export const GeocodeRequestFilterSensitiveLog = (obj: GeocodeRequest): any => ({
  */
 export const GeocodeResultItemFilterSensitiveLog = (obj: GeocodeResultItem): any => ({
   ...obj,
+  ...(obj.PlaceId && { PlaceId: SENSITIVE_STRING }),
+  ...(obj.PlaceType && { PlaceType: SENSITIVE_STRING }),
+  ...(obj.Title && { Title: SENSITIVE_STRING }),
+  ...(obj.Address && { Address: AddressFilterSensitiveLog(obj.Address) }),
+  ...(obj.AddressNumberCorrected && { AddressNumberCorrected: SENSITIVE_STRING }),
+  ...(obj.PostalCodeDetails && {
+    PostalCodeDetails: obj.PostalCodeDetails.map((item) => PostalCodeDetailsFilterSensitiveLog(item)),
+  }),
   ...(obj.Position && { Position: SENSITIVE_STRING }),
+  ...(obj.Distance && { Distance: SENSITIVE_STRING }),
   ...(obj.MapView && { MapView: SENSITIVE_STRING }),
+  ...(obj.Categories && { Categories: obj.Categories.map((item) => CategoryFilterSensitiveLog(item)) }),
+  ...(obj.FoodTypes && { FoodTypes: obj.FoodTypes.map((item) => FoodTypeFilterSensitiveLog(item)) }),
   ...(obj.AccessPoints && { AccessPoints: obj.AccessPoints.map((item) => AccessPointFilterSensitiveLog(item)) }),
+  ...(obj.TimeZone && { TimeZone: TimeZoneFilterSensitiveLog(obj.TimeZone) }),
+  ...(obj.PoliticalView && { PoliticalView: SENSITIVE_STRING }),
+  ...(obj.ParsedQuery && { ParsedQuery: GeocodeParsedQueryFilterSensitiveLog(obj.ParsedQuery) }),
+  ...(obj.Intersections && { Intersections: obj.Intersections.map((item) => IntersectionFilterSensitiveLog(item)) }),
+  ...(obj.MainAddress && { MainAddress: RelatedPlaceFilterSensitiveLog(obj.MainAddress) }),
+  ...(obj.SecondaryAddresses && {
+    SecondaryAddresses: obj.SecondaryAddresses.map((item) => RelatedPlaceFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -3308,7 +3922,38 @@ export const GeocodeResponseFilterSensitiveLog = (obj: GeocodeResponse): any => 
 export const GetPlaceRequestFilterSensitiveLog = (obj: GetPlaceRequest): any => ({
   ...obj,
   ...(obj.PlaceId && { PlaceId: SENSITIVE_STRING }),
+  ...(obj.PoliticalView && { PoliticalView: SENSITIVE_STRING }),
   ...(obj.Key && { Key: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const OpeningHoursComponentsFilterSensitiveLog = (obj: OpeningHoursComponents): any => ({
+  ...obj,
+  ...(obj.OpenTime && { OpenTime: SENSITIVE_STRING }),
+  ...(obj.OpenDuration && { OpenDuration: SENSITIVE_STRING }),
+  ...(obj.Recurrence && { Recurrence: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const OpeningHoursFilterSensitiveLog = (obj: OpeningHours): any => ({
+  ...obj,
+  ...(obj.Display && { Display: SENSITIVE_STRING }),
+  ...(obj.OpenNow && { OpenNow: SENSITIVE_STRING }),
+  ...(obj.Components && { Components: obj.Components.map((item) => OpeningHoursComponentsFilterSensitiveLog(item)) }),
+  ...(obj.Categories && { Categories: obj.Categories.map((item) => CategoryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const PhonemeDetailsFilterSensitiveLog = (obj: PhonemeDetails): any => ({
+  ...obj,
+  ...(obj.Title && { Title: obj.Title.map((item) => PhonemeTranscriptionFilterSensitiveLog(item)) }),
+  ...(obj.Address && { Address: AddressComponentPhonemesFilterSensitiveLog(obj.Address) }),
 });
 
 /**
@@ -3316,9 +3961,34 @@ export const GetPlaceRequestFilterSensitiveLog = (obj: GetPlaceRequest): any => 
  */
 export const GetPlaceResponseFilterSensitiveLog = (obj: GetPlaceResponse): any => ({
   ...obj,
+  ...(obj.PlaceId && { PlaceId: SENSITIVE_STRING }),
+  ...(obj.PlaceType && { PlaceType: SENSITIVE_STRING }),
+  ...(obj.Title && { Title: SENSITIVE_STRING }),
+  ...(obj.Address && { Address: AddressFilterSensitiveLog(obj.Address) }),
+  ...(obj.AddressNumberCorrected && { AddressNumberCorrected: SENSITIVE_STRING }),
+  ...(obj.PostalCodeDetails && {
+    PostalCodeDetails: obj.PostalCodeDetails.map((item) => PostalCodeDetailsFilterSensitiveLog(item)),
+  }),
   ...(obj.Position && { Position: SENSITIVE_STRING }),
   ...(obj.MapView && { MapView: SENSITIVE_STRING }),
+  ...(obj.Categories && { Categories: obj.Categories.map((item) => CategoryFilterSensitiveLog(item)) }),
+  ...(obj.FoodTypes && { FoodTypes: obj.FoodTypes.map((item) => FoodTypeFilterSensitiveLog(item)) }),
+  ...(obj.BusinessChains && {
+    BusinessChains: obj.BusinessChains.map((item) => BusinessChainFilterSensitiveLog(item)),
+  }),
+  ...(obj.Contacts && { Contacts: ContactsFilterSensitiveLog(obj.Contacts) }),
+  ...(obj.OpeningHours && { OpeningHours: obj.OpeningHours.map((item) => OpeningHoursFilterSensitiveLog(item)) }),
   ...(obj.AccessPoints && { AccessPoints: obj.AccessPoints.map((item) => AccessPointFilterSensitiveLog(item)) }),
+  ...(obj.AccessRestrictions && {
+    AccessRestrictions: obj.AccessRestrictions.map((item) => AccessRestrictionFilterSensitiveLog(item)),
+  }),
+  ...(obj.TimeZone && { TimeZone: TimeZoneFilterSensitiveLog(obj.TimeZone) }),
+  ...(obj.PoliticalView && { PoliticalView: SENSITIVE_STRING }),
+  ...(obj.Phonemes && { Phonemes: PhonemeDetailsFilterSensitiveLog(obj.Phonemes) }),
+  ...(obj.MainAddress && { MainAddress: RelatedPlaceFilterSensitiveLog(obj.MainAddress) }),
+  ...(obj.SecondaryAddresses && {
+    SecondaryAddresses: obj.SecondaryAddresses.map((item) => RelatedPlaceFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -3327,6 +3997,8 @@ export const GetPlaceResponseFilterSensitiveLog = (obj: GetPlaceResponse): any =
 export const ReverseGeocodeRequestFilterSensitiveLog = (obj: ReverseGeocodeRequest): any => ({
   ...obj,
   ...(obj.QueryPosition && { QueryPosition: SENSITIVE_STRING }),
+  ...(obj.QueryRadius && { QueryRadius: SENSITIVE_STRING }),
+  ...(obj.PoliticalView && { PoliticalView: SENSITIVE_STRING }),
   ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
@@ -3335,9 +4007,23 @@ export const ReverseGeocodeRequestFilterSensitiveLog = (obj: ReverseGeocodeReque
  */
 export const ReverseGeocodeResultItemFilterSensitiveLog = (obj: ReverseGeocodeResultItem): any => ({
   ...obj,
+  ...(obj.PlaceId && { PlaceId: SENSITIVE_STRING }),
+  ...(obj.PlaceType && { PlaceType: SENSITIVE_STRING }),
+  ...(obj.Title && { Title: SENSITIVE_STRING }),
+  ...(obj.Address && { Address: AddressFilterSensitiveLog(obj.Address) }),
+  ...(obj.AddressNumberCorrected && { AddressNumberCorrected: SENSITIVE_STRING }),
+  ...(obj.PostalCodeDetails && {
+    PostalCodeDetails: obj.PostalCodeDetails.map((item) => PostalCodeDetailsFilterSensitiveLog(item)),
+  }),
   ...(obj.Position && { Position: SENSITIVE_STRING }),
+  ...(obj.Distance && { Distance: SENSITIVE_STRING }),
   ...(obj.MapView && { MapView: SENSITIVE_STRING }),
+  ...(obj.Categories && { Categories: obj.Categories.map((item) => CategoryFilterSensitiveLog(item)) }),
+  ...(obj.FoodTypes && { FoodTypes: obj.FoodTypes.map((item) => FoodTypeFilterSensitiveLog(item)) }),
   ...(obj.AccessPoints && { AccessPoints: obj.AccessPoints.map((item) => AccessPointFilterSensitiveLog(item)) }),
+  ...(obj.TimeZone && { TimeZone: TimeZoneFilterSensitiveLog(obj.TimeZone) }),
+  ...(obj.PoliticalView && { PoliticalView: SENSITIVE_STRING }),
+  ...(obj.Intersections && { Intersections: obj.Intersections.map((item) => IntersectionFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -3356,6 +4042,13 @@ export const ReverseGeocodeResponseFilterSensitiveLog = (obj: ReverseGeocodeResp
 export const SearchNearbyFilterFilterSensitiveLog = (obj: SearchNearbyFilter): any => ({
   ...obj,
   ...(obj.BoundingBox && { BoundingBox: SENSITIVE_STRING }),
+  ...(obj.IncludeCountries && { IncludeCountries: SENSITIVE_STRING }),
+  ...(obj.IncludeCategories && { IncludeCategories: SENSITIVE_STRING }),
+  ...(obj.ExcludeCategories && { ExcludeCategories: SENSITIVE_STRING }),
+  ...(obj.IncludeBusinessChains && { IncludeBusinessChains: SENSITIVE_STRING }),
+  ...(obj.ExcludeBusinessChains && { ExcludeBusinessChains: SENSITIVE_STRING }),
+  ...(obj.IncludeFoodTypes && { IncludeFoodTypes: SENSITIVE_STRING }),
+  ...(obj.ExcludeFoodTypes && { ExcludeFoodTypes: SENSITIVE_STRING }),
 });
 
 /**
@@ -3364,7 +4057,9 @@ export const SearchNearbyFilterFilterSensitiveLog = (obj: SearchNearbyFilter): a
 export const SearchNearbyRequestFilterSensitiveLog = (obj: SearchNearbyRequest): any => ({
   ...obj,
   ...(obj.QueryPosition && { QueryPosition: SENSITIVE_STRING }),
+  ...(obj.QueryRadius && { QueryRadius: SENSITIVE_STRING }),
   ...(obj.Filter && { Filter: SearchNearbyFilterFilterSensitiveLog(obj.Filter) }),
+  ...(obj.PoliticalView && { PoliticalView: SENSITIVE_STRING }),
   ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
@@ -3373,9 +4068,28 @@ export const SearchNearbyRequestFilterSensitiveLog = (obj: SearchNearbyRequest):
  */
 export const SearchNearbyResultItemFilterSensitiveLog = (obj: SearchNearbyResultItem): any => ({
   ...obj,
+  ...(obj.PlaceId && { PlaceId: SENSITIVE_STRING }),
+  ...(obj.PlaceType && { PlaceType: SENSITIVE_STRING }),
+  ...(obj.Title && { Title: SENSITIVE_STRING }),
+  ...(obj.Address && { Address: AddressFilterSensitiveLog(obj.Address) }),
+  ...(obj.AddressNumberCorrected && { AddressNumberCorrected: SENSITIVE_STRING }),
   ...(obj.Position && { Position: SENSITIVE_STRING }),
+  ...(obj.Distance && { Distance: SENSITIVE_STRING }),
   ...(obj.MapView && { MapView: SENSITIVE_STRING }),
+  ...(obj.Categories && { Categories: obj.Categories.map((item) => CategoryFilterSensitiveLog(item)) }),
+  ...(obj.FoodTypes && { FoodTypes: obj.FoodTypes.map((item) => FoodTypeFilterSensitiveLog(item)) }),
+  ...(obj.BusinessChains && {
+    BusinessChains: obj.BusinessChains.map((item) => BusinessChainFilterSensitiveLog(item)),
+  }),
+  ...(obj.Contacts && { Contacts: ContactsFilterSensitiveLog(obj.Contacts) }),
+  ...(obj.OpeningHours && { OpeningHours: obj.OpeningHours.map((item) => OpeningHoursFilterSensitiveLog(item)) }),
   ...(obj.AccessPoints && { AccessPoints: obj.AccessPoints.map((item) => AccessPointFilterSensitiveLog(item)) }),
+  ...(obj.AccessRestrictions && {
+    AccessRestrictions: obj.AccessRestrictions.map((item) => AccessRestrictionFilterSensitiveLog(item)),
+  }),
+  ...(obj.TimeZone && { TimeZone: TimeZoneFilterSensitiveLog(obj.TimeZone) }),
+  ...(obj.PoliticalView && { PoliticalView: SENSITIVE_STRING }),
+  ...(obj.Phonemes && { Phonemes: PhonemeDetailsFilterSensitiveLog(obj.Phonemes) }),
 });
 
 /**
@@ -3395,6 +4109,7 @@ export const SearchTextFilterFilterSensitiveLog = (obj: SearchTextFilter): any =
   ...obj,
   ...(obj.BoundingBox && { BoundingBox: SENSITIVE_STRING }),
   ...(obj.Circle && { Circle: SENSITIVE_STRING }),
+  ...(obj.IncludeCountries && { IncludeCountries: SENSITIVE_STRING }),
 });
 
 /**
@@ -3406,6 +4121,7 @@ export const SearchTextRequestFilterSensitiveLog = (obj: SearchTextRequest): any
   ...(obj.QueryId && { QueryId: SENSITIVE_STRING }),
   ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
   ...(obj.Filter && { Filter: SearchTextFilterFilterSensitiveLog(obj.Filter) }),
+  ...(obj.PoliticalView && { PoliticalView: SENSITIVE_STRING }),
   ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
@@ -3414,9 +4130,28 @@ export const SearchTextRequestFilterSensitiveLog = (obj: SearchTextRequest): any
  */
 export const SearchTextResultItemFilterSensitiveLog = (obj: SearchTextResultItem): any => ({
   ...obj,
+  ...(obj.PlaceId && { PlaceId: SENSITIVE_STRING }),
+  ...(obj.PlaceType && { PlaceType: SENSITIVE_STRING }),
+  ...(obj.Title && { Title: SENSITIVE_STRING }),
+  ...(obj.Address && { Address: AddressFilterSensitiveLog(obj.Address) }),
+  ...(obj.AddressNumberCorrected && { AddressNumberCorrected: SENSITIVE_STRING }),
   ...(obj.Position && { Position: SENSITIVE_STRING }),
+  ...(obj.Distance && { Distance: SENSITIVE_STRING }),
   ...(obj.MapView && { MapView: SENSITIVE_STRING }),
+  ...(obj.Categories && { Categories: obj.Categories.map((item) => CategoryFilterSensitiveLog(item)) }),
+  ...(obj.FoodTypes && { FoodTypes: obj.FoodTypes.map((item) => FoodTypeFilterSensitiveLog(item)) }),
+  ...(obj.BusinessChains && {
+    BusinessChains: obj.BusinessChains.map((item) => BusinessChainFilterSensitiveLog(item)),
+  }),
+  ...(obj.Contacts && { Contacts: ContactsFilterSensitiveLog(obj.Contacts) }),
+  ...(obj.OpeningHours && { OpeningHours: obj.OpeningHours.map((item) => OpeningHoursFilterSensitiveLog(item)) }),
   ...(obj.AccessPoints && { AccessPoints: obj.AccessPoints.map((item) => AccessPointFilterSensitiveLog(item)) }),
+  ...(obj.AccessRestrictions && {
+    AccessRestrictions: obj.AccessRestrictions.map((item) => AccessRestrictionFilterSensitiveLog(item)),
+  }),
+  ...(obj.TimeZone && { TimeZone: TimeZoneFilterSensitiveLog(obj.TimeZone) }),
+  ...(obj.PoliticalView && { PoliticalView: SENSITIVE_STRING }),
+  ...(obj.Phonemes && { Phonemes: PhonemeDetailsFilterSensitiveLog(obj.Phonemes) }),
 });
 
 /**
@@ -3434,6 +4169,7 @@ export const SuggestFilterFilterSensitiveLog = (obj: SuggestFilter): any => ({
   ...obj,
   ...(obj.BoundingBox && { BoundingBox: SENSITIVE_STRING }),
   ...(obj.Circle && { Circle: SENSITIVE_STRING }),
+  ...(obj.IncludeCountries && { IncludeCountries: SENSITIVE_STRING }),
 });
 
 /**
@@ -3444,7 +4180,34 @@ export const SuggestRequestFilterSensitiveLog = (obj: SuggestRequest): any => ({
   ...(obj.QueryText && { QueryText: SENSITIVE_STRING }),
   ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
   ...(obj.Filter && { Filter: SuggestFilterFilterSensitiveLog(obj.Filter) }),
+  ...(obj.PoliticalView && { PoliticalView: SENSITIVE_STRING }),
   ...(obj.Key && { Key: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const QueryRefinementFilterSensitiveLog = (obj: QueryRefinement): any => ({
+  ...obj,
+  ...(obj.RefinedTerm && { RefinedTerm: SENSITIVE_STRING }),
+  ...(obj.OriginalTerm && { OriginalTerm: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SuggestAddressHighlightsFilterSensitiveLog = (obj: SuggestAddressHighlights): any => ({
+  ...obj,
+  ...(obj.Label && { Label: obj.Label.map((item) => HighlightFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SuggestHighlightsFilterSensitiveLog = (obj: SuggestHighlights): any => ({
+  ...obj,
+  ...(obj.Title && { Title: obj.Title.map((item) => HighlightFilterSensitiveLog(item)) }),
+  ...(obj.Address && { Address: SuggestAddressHighlightsFilterSensitiveLog(obj.Address) }),
 });
 
 /**
@@ -3452,9 +4215,32 @@ export const SuggestRequestFilterSensitiveLog = (obj: SuggestRequest): any => ({
  */
 export const SuggestPlaceResultFilterSensitiveLog = (obj: SuggestPlaceResult): any => ({
   ...obj,
+  ...(obj.PlaceId && { PlaceId: SENSITIVE_STRING }),
+  ...(obj.PlaceType && { PlaceType: SENSITIVE_STRING }),
+  ...(obj.Address && { Address: AddressFilterSensitiveLog(obj.Address) }),
   ...(obj.Position && { Position: SENSITIVE_STRING }),
+  ...(obj.Distance && { Distance: SENSITIVE_STRING }),
   ...(obj.MapView && { MapView: SENSITIVE_STRING }),
+  ...(obj.Categories && { Categories: obj.Categories.map((item) => CategoryFilterSensitiveLog(item)) }),
+  ...(obj.FoodTypes && { FoodTypes: obj.FoodTypes.map((item) => FoodTypeFilterSensitiveLog(item)) }),
+  ...(obj.BusinessChains && {
+    BusinessChains: obj.BusinessChains.map((item) => BusinessChainFilterSensitiveLog(item)),
+  }),
   ...(obj.AccessPoints && { AccessPoints: obj.AccessPoints.map((item) => AccessPointFilterSensitiveLog(item)) }),
+  ...(obj.AccessRestrictions && {
+    AccessRestrictions: obj.AccessRestrictions.map((item) => AccessRestrictionFilterSensitiveLog(item)),
+  }),
+  ...(obj.TimeZone && { TimeZone: TimeZoneFilterSensitiveLog(obj.TimeZone) }),
+  ...(obj.PoliticalView && { PoliticalView: SENSITIVE_STRING }),
+  ...(obj.Phonemes && { Phonemes: PhonemeDetailsFilterSensitiveLog(obj.Phonemes) }),
+});
+
+/**
+ * @internal
+ */
+export const SuggestQueryResultFilterSensitiveLog = (obj: SuggestQueryResult): any => ({
+  ...obj,
+  ...(obj.QueryId && { QueryId: SENSITIVE_STRING }),
 });
 
 /**
@@ -3462,7 +4248,10 @@ export const SuggestPlaceResultFilterSensitiveLog = (obj: SuggestPlaceResult): a
  */
 export const SuggestResultItemFilterSensitiveLog = (obj: SuggestResultItem): any => ({
   ...obj,
+  ...(obj.Title && { Title: SENSITIVE_STRING }),
   ...(obj.Place && { Place: SuggestPlaceResultFilterSensitiveLog(obj.Place) }),
+  ...(obj.Query && { Query: SuggestQueryResultFilterSensitiveLog(obj.Query) }),
+  ...(obj.Highlights && { Highlights: SuggestHighlightsFilterSensitiveLog(obj.Highlights) }),
 });
 
 /**
@@ -3471,4 +4260,7 @@ export const SuggestResultItemFilterSensitiveLog = (obj: SuggestResultItem): any
 export const SuggestResponseFilterSensitiveLog = (obj: SuggestResponse): any => ({
   ...obj,
   ...(obj.ResultItems && { ResultItems: obj.ResultItems.map((item) => SuggestResultItemFilterSensitiveLog(item)) }),
+  ...(obj.QueryRefinements && {
+    QueryRefinements: obj.QueryRefinements.map((item) => QueryRefinementFilterSensitiveLog(item)),
+  }),
 });
