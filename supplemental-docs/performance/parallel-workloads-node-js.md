@@ -130,7 +130,71 @@ and usage scenario.
     operating system. This can manifest as `Error: EMFILE, too many open files`
     in Node.js.
 
-## Example Scenario
+## Avoiding Streaming Deadlock
+
+Because streaming responses stay open until you completely read or abandon the open stream connection, 
+the socket limit which you configure and how you handle streams can lead to a deadlock scenario.
+
+#### Example deadlock
+
+In this example, the max socket count is 1. When the Promise concurrency tries to `await`
+two simultaneous `getObject` requests, it fails because the streaming response of the first request
+is **not** read to completion, while the second `getObject` request is blocked indefinitely. 
+
+This can cause your application to time out or the Node.js process to exit with code 13.
+
+```ts
+// example: response stream deadlock
+const s3 = new S3({
+  requestHandler: {
+    httpsAgent: {
+      maxSockets: 1,
+    },
+  },
+});
+
+// opens connection in parallel,
+// but this await is dangerously placed.
+const responses = await Promise.all([
+  s3.getObject({ Bucket, Key: "1" }),
+  s3.getObject({ Bucket, Key: "2" }),
+]);
+
+// reads streaming body in parallel
+await responses.map(get => get.Body.transformToByteArray());
+```
+
+#### Recommendation
+
+This doesn't necessarily mean you need to de-parallelize your program.
+You can continue to use a socket count lower than your maxmimum parallel load, as long
+as the requests do not block each other.
+
+In this example, reading of the body streams is done in a non-blocking way.
+
+```ts
+// example: parallel streaming without deadlock
+const s3 = new S3({
+  requestHandler: {
+    httpsAgent: {
+      maxSockets: 1,
+    },
+  },
+});
+
+const responses = ([
+  s3.getObject({ Bucket, Key: "1" }),
+  s3.getObject({ Bucket, Key: "2" }),
+]);
+const objects = responses.map(get => get.Body.transformToByteArray());
+
+// `await` is placed after the stream-handling pipeline has been established.
+// because of the socket limit of 1, the two streams will be handled
+// sequentially via queueing.
+await Promise.all(objects);
+```
+
+## Batch Workload Example Scenario
 
 You have 10,000 files to upload to S3.
 
