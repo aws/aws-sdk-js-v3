@@ -136,6 +136,7 @@ import {
   ColumnRowFilter,
   DataQualityEvaluationRunAdditionalRunOptions,
   FederatedTable,
+  JobBookmarkEntry,
   ResourceAction,
   ResourceShareType,
   ResourceState,
@@ -143,6 +144,17 @@ import {
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface ResetJobBookmarkResponse {
+  /**
+   * <p>The reset bookmark entry.</p>
+   * @public
+   */
+  JobBookmarkEntry?: JobBookmarkEntry | undefined;
+}
 
 /**
  * <p>Too many jobs are being run concurrently.</p>
@@ -633,6 +645,7 @@ export interface StartCrawlerScheduleRequest {
 export interface StartCrawlerScheduleResponse {}
 
 /**
+ * <p>The request of the Data Quality rule recommendation request.</p>
  * @public
  */
 export interface StartDataQualityRuleRecommendationRunRequest {

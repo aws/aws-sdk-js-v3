@@ -659,6 +659,7 @@ import {
   CrawlerNodeDetails,
   CrawlerTargets,
   CustomCode,
+  DataQualityAggregatedMetrics,
   DataQualityAnalyzerResult,
   DataQualityMetricValues,
   DataQualityObservation,
@@ -816,7 +817,6 @@ import {
   TransformConfigParameter,
   Union,
   UpsertRedshiftTargetOptions,
-  Workflow,
   WorkflowGraph,
   WorkflowRun,
 } from "../models/models_0";
@@ -1014,6 +1014,7 @@ import {
   ValidationException,
   ViewDefinitionInput,
   ViewRepresentationInput,
+  Workflow,
   XMLClassifier,
 } from "../models/models_1";
 import {
@@ -14030,6 +14031,20 @@ const de_DatabaseList = (output: any, context: __SerdeContext): Database[] => {
 // de_DataOperations omitted.
 
 /**
+ * deserializeAws_json1_1DataQualityAggregatedMetrics
+ */
+const de_DataQualityAggregatedMetrics = (output: any, context: __SerdeContext): DataQualityAggregatedMetrics => {
+  return take(output, {
+    TotalRowsFailed: __limitedParseDouble,
+    TotalRowsPassed: __limitedParseDouble,
+    TotalRowsProcessed: __limitedParseDouble,
+    TotalRulesFailed: __limitedParseDouble,
+    TotalRulesPassed: __limitedParseDouble,
+    TotalRulesProcessed: __limitedParseDouble,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1DataQualityAnalyzerResult
  */
 const de_DataQualityAnalyzerResult = (output: any, context: __SerdeContext): DataQualityAnalyzerResult => {
@@ -14096,6 +14111,7 @@ const de_DataQualityObservations = (output: any, context: __SerdeContext): DataQ
  */
 const de_DataQualityResult = (output: any, context: __SerdeContext): DataQualityResult => {
   return take(output, {
+    AggregatedMetrics: (_: any) => de_DataQualityAggregatedMetrics(_, context),
     AnalyzerResults: (_: any) => de_DataQualityAnalyzerResults(_, context),
     CompletedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DataSource: _json,
@@ -14195,6 +14211,7 @@ const de_DataQualityRuleResult = (output: any, context: __SerdeContext): DataQua
     EvaluationMessage: __expectString,
     Name: __expectString,
     Result: __expectString,
+    RuleMetrics: (_: any) => de_RuleMetricsMap(_, context),
   }) as any;
 };
 
@@ -14924,6 +14941,7 @@ const de_GetDataQualityModelResultResponse = (
  */
 const de_GetDataQualityResultResponse = (output: any, context: __SerdeContext): GetDataQualityResultResponse => {
   return take(output, {
+    AggregatedMetrics: (_: any) => de_DataQualityAggregatedMetrics(_, context),
     AnalyzerResults: (_: any) => de_DataQualityAnalyzerResults(_, context),
     CompletedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DataSource: _json,
@@ -16427,6 +16445,19 @@ const de_RetentionMetrics = (output: any, context: __SerdeContext): RetentionMet
   return take(output, {
     IcebergMetrics: (_: any) => de_IcebergRetentionMetrics(_, context),
   }) as any;
+};
+
+/**
+ * deserializeAws_json1_1RuleMetricsMap
+ */
+const de_RuleMetricsMap = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = __limitedParseDouble(value) as any;
+    return acc;
+  }, {} as Record<string, number>);
 };
 
 // de_RulesetNames omitted.

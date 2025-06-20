@@ -10,6 +10,7 @@ import {
   AuthenticationConfiguration,
   Crawler,
   CustomEntityType,
+  DataQualityAggregatedMetrics,
   DataQualityAnalyzerResult,
   DataQualityAnalyzerResultFilterSensitiveLog,
   DataQualityObservation,
@@ -33,7 +34,6 @@ import {
   TimestampedInclusionAnnotation,
   Trigger,
   WorkerType,
-  Workflow,
   WorkflowRun,
 } from "./models_0";
 
@@ -42,7 +42,6 @@ import {
   CodeGenEdge,
   CodeGenNode,
   CodeGenNodeArg,
-  ColumnStatisticsState,
   Compatibility,
   ComputationType,
   ComputeEnvironment,
@@ -78,7 +77,25 @@ import {
   TransformParameters,
   TransformType,
   ViewDialect,
+  Workflow,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const ColumnStatisticsState = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnStatisticsState = (typeof ColumnStatisticsState)[keyof typeof ColumnStatisticsState];
 
 /**
  * <p>The object that shows the details of the column stats run.</p>
@@ -1536,6 +1553,7 @@ export interface GetDataQualityResultRequest {
 }
 
 /**
+ * <p>The response for the data quality result.</p>
  * @public
  */
 export interface GetDataQualityResultResponse {
@@ -1622,6 +1640,12 @@ export interface GetDataQualityResultResponse {
    * @public
    */
   Observations?: DataQualityObservation[] | undefined;
+
+  /**
+   * <p> A summary of <code>DataQualityAggregatedMetrics</code> objects showing the total counts of processed rows and rules, including their pass/fail statistics based on row-level results. </p>
+   * @public
+   */
+  AggregatedMetrics?: DataQualityAggregatedMetrics | undefined;
 }
 
 /**
@@ -1636,6 +1660,7 @@ export interface GetDataQualityRuleRecommendationRunRequest {
 }
 
 /**
+ * <p>The response for the Data Quality rule recommendation run.</p>
  * @public
  */
 export interface GetDataQualityRuleRecommendationRunResponse {
@@ -1736,6 +1761,7 @@ export interface GetDataQualityRulesetRequest {
 }
 
 /**
+ * <p>Returns the data quality ruleset response.</p>
  * @public
  */
 export interface GetDataQualityRulesetResponse {
@@ -8715,17 +8741,6 @@ export interface ResetJobBookmarkRequest {
    * @public
    */
   RunId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetJobBookmarkResponse {
-  /**
-   * <p>The reset bookmark entry.</p>
-   * @public
-   */
-  JobBookmarkEntry?: JobBookmarkEntry | undefined;
 }
 
 /**

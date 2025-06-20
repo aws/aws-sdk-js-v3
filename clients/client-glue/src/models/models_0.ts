@@ -2787,6 +2787,48 @@ export interface BatchGetDataQualityResultRequest {
 }
 
 /**
+ * <p>A summary of metrics showing the total counts of processed rows and rules, including their pass/fail statistics based on row-level results.</p>
+ * @public
+ */
+export interface DataQualityAggregatedMetrics {
+  /**
+   * <p>The total number of rows that were processed during the data quality evaluation.</p>
+   * @public
+   */
+  TotalRowsProcessed?: number | undefined;
+
+  /**
+   * <p>The total number of rows that passed all applicable data quality rules.</p>
+   * @public
+   */
+  TotalRowsPassed?: number | undefined;
+
+  /**
+   * <p>The total number of rows that failed one or more data quality rules.</p>
+   * @public
+   */
+  TotalRowsFailed?: number | undefined;
+
+  /**
+   * <p>The total number of data quality rules that were evaluated.</p>
+   * @public
+   */
+  TotalRulesProcessed?: number | undefined;
+
+  /**
+   * <p>The total number of data quality rules that passed their evaluation criteria.</p>
+   * @public
+   */
+  TotalRulesPassed?: number | undefined;
+
+  /**
+   * <p>The total number of data quality rules that failed their evaluation criteria.</p>
+   * @public
+   */
+  TotalRulesFailed?: number | undefined;
+}
+
+/**
  * <p>Describes the result of the evaluation of a data quality analyzer.</p>
  * @public
  */
@@ -3008,6 +3050,12 @@ export interface DataQualityRuleResult {
    * @public
    */
   EvaluatedRule?: string | undefined;
+
+  /**
+   * <p>A map containing metrics associated with the evaluation of the rule based on row-level results. </p>
+   * @public
+   */
+  RuleMetrics?: Record<string, number> | undefined;
 }
 
 /**
@@ -3098,6 +3146,12 @@ export interface DataQualityResult {
    * @public
    */
   Observations?: DataQualityObservation[] | undefined;
+
+  /**
+   * <p> A summary of <code>DataQualityAggregatedMetrics</code> objects showing the total counts of processed rows and rules, including their pass/fail statistics based on row-level results. </p>
+   * @public
+   */
+  AggregatedMetrics?: DataQualityAggregatedMetrics | undefined;
 }
 
 /**
@@ -9474,71 +9528,6 @@ export interface WorkflowRun {
 }
 
 /**
- * <p>A workflow is a collection of multiple dependent Glue
- *       jobs and crawlers that are run to complete a complex ETL task. A
- *       workflow manages the execution and monitoring of all its jobs and crawlers.</p>
- * @public
- */
-export interface Workflow {
-  /**
-   * <p>The name of the workflow.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A description of the workflow.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A collection of properties to be used as part of each execution of the workflow.
-   *     The run properties are made available to each job in the workflow. A job can modify
-   *     the properties for the next jobs in the flow.</p>
-   * @public
-   */
-  DefaultRunProperties?: Record<string, string> | undefined;
-
-  /**
-   * <p>The date and time when the workflow was created.</p>
-   * @public
-   */
-  CreatedOn?: Date | undefined;
-
-  /**
-   * <p>The date and time when the workflow was last modified.</p>
-   * @public
-   */
-  LastModifiedOn?: Date | undefined;
-
-  /**
-   * <p>The information about the last execution of the workflow.</p>
-   * @public
-   */
-  LastRun?: WorkflowRun | undefined;
-
-  /**
-   * <p>The graph representing all the Glue components that belong to the workflow as nodes and directed
-   *       connections between them as edges.</p>
-   * @public
-   */
-  Graph?: WorkflowGraph | undefined;
-
-  /**
-   * <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
-   * @public
-   */
-  MaxConcurrentRuns?: number | undefined;
-
-  /**
-   * <p>This structure indicates the details of the blueprint that this particular workflow is created from.</p>
-   * @public
-   */
-  BlueprintDetails?: BlueprintDetails | undefined;
-}
-
-/**
  * @internal
  */
 export const BasicAuthenticationCredentialsFilterSensitiveLog = (obj: BasicAuthenticationCredentials): any => ({
@@ -9617,6 +9606,7 @@ export const DataQualityRuleResultFilterSensitiveLog = (obj: DataQualityRuleResu
   ...(obj.EvaluationMessage && { EvaluationMessage: SENSITIVE_STRING }),
   ...(obj.EvaluatedMetrics && { EvaluatedMetrics: SENSITIVE_STRING }),
   ...(obj.EvaluatedRule && { EvaluatedRule: SENSITIVE_STRING }),
+  ...(obj.RuleMetrics && { RuleMetrics: SENSITIVE_STRING }),
 });
 
 /**

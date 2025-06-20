@@ -76,6 +76,9 @@ export interface GetDataQualityResultCommandOutput extends GetDataQualityResultR
  * //         "<keys>": Number("double"),
  * //       },
  * //       EvaluatedRule: "STRING_VALUE",
+ * //       RuleMetrics: { // RuleMetricsMap
+ * //         "<keys>": Number("double"),
+ * //       },
  * //     },
  * //   ],
  * //   AnalyzerResults: [ // DataQualityAnalyzerResults
@@ -106,6 +109,14 @@ export interface GetDataQualityResultCommandOutput extends GetDataQualityResultR
  * //       },
  * //     },
  * //   ],
+ * //   AggregatedMetrics: { // DataQualityAggregatedMetrics
+ * //     TotalRowsProcessed: Number("double"),
+ * //     TotalRowsPassed: Number("double"),
+ * //     TotalRowsFailed: Number("double"),
+ * //     TotalRulesProcessed: Number("double"),
+ * //     TotalRulesPassed: Number("double"),
+ * //     TotalRulesFailed: Number("double"),
+ * //   },
  * // };
  *
  * ```

@@ -12,6 +12,7 @@ import {
   AuthenticationConfigurationInputFilterSensitiveLog,
   AuthenticationType,
   Blueprint,
+  BlueprintDetails,
   Column,
   ConnectionsList,
   CrawlerTargets,
@@ -33,8 +34,74 @@ import {
   TableOptimizerType,
   TriggerType,
   WorkerType,
-  Workflow,
+  WorkflowGraph,
+  WorkflowRun,
 } from "./models_0";
+
+/**
+ * <p>A workflow is a collection of multiple dependent Glue
+ *       jobs and crawlers that are run to complete a complex ETL task. A
+ *       workflow manages the execution and monitoring of all its jobs and crawlers.</p>
+ * @public
+ */
+export interface Workflow {
+  /**
+   * <p>The name of the workflow.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A description of the workflow.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A collection of properties to be used as part of each execution of the workflow.
+   *     The run properties are made available to each job in the workflow. A job can modify
+   *     the properties for the next jobs in the flow.</p>
+   * @public
+   */
+  DefaultRunProperties?: Record<string, string> | undefined;
+
+  /**
+   * <p>The date and time when the workflow was created.</p>
+   * @public
+   */
+  CreatedOn?: Date | undefined;
+
+  /**
+   * <p>The date and time when the workflow was last modified.</p>
+   * @public
+   */
+  LastModifiedOn?: Date | undefined;
+
+  /**
+   * <p>The information about the last execution of the workflow.</p>
+   * @public
+   */
+  LastRun?: WorkflowRun | undefined;
+
+  /**
+   * <p>The graph representing all the Glue components that belong to the workflow as nodes and directed
+   *       connections between them as edges.</p>
+   * @public
+   */
+  Graph?: WorkflowGraph | undefined;
+
+  /**
+   * <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
+   * @public
+   */
+  MaxConcurrentRuns?: number | undefined;
+
+  /**
+   * <p>This structure indicates the details of the blueprint that this particular workflow is created from.</p>
+   * @public
+   */
+  BlueprintDetails?: BlueprintDetails | undefined;
+}
 
 /**
  * @public
@@ -1847,6 +1914,7 @@ export interface DataQualityTargetTable {
 }
 
 /**
+ * <p>A request to create a data quality ruleset.</p>
  * @public
  */
 export interface CreateDataQualityRulesetRequest {
@@ -7891,23 +7959,6 @@ export const ComputationType = {
  * @public
  */
 export type ComputationType = (typeof ComputationType)[keyof typeof ComputationType];
-
-/**
- * @public
- * @enum
- */
-export const ColumnStatisticsState = {
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ColumnStatisticsState = (typeof ColumnStatisticsState)[keyof typeof ColumnStatisticsState];
 
 /**
  * @internal

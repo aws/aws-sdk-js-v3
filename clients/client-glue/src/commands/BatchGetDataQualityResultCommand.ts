@@ -80,6 +80,9 @@ export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQual
  * //             "<keys>": Number("double"),
  * //           },
  * //           EvaluatedRule: "STRING_VALUE",
+ * //           RuleMetrics: { // RuleMetricsMap
+ * //             "<keys>": Number("double"),
+ * //           },
  * //         },
  * //       ],
  * //       AnalyzerResults: [ // DataQualityAnalyzerResults
@@ -110,6 +113,14 @@ export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQual
  * //           },
  * //         },
  * //       ],
+ * //       AggregatedMetrics: { // DataQualityAggregatedMetrics
+ * //         TotalRowsProcessed: Number("double"),
+ * //         TotalRowsPassed: Number("double"),
+ * //         TotalRowsFailed: Number("double"),
+ * //         TotalRulesProcessed: Number("double"),
+ * //         TotalRulesPassed: Number("double"),
+ * //         TotalRulesFailed: Number("double"),
+ * //       },
  * //     },
  * //   ],
  * //   ResultsNotFound: [ // DataQualityResultIds
