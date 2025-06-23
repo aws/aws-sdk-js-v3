@@ -1,9 +1,35 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.0.5/schema.json",
   "files": {
     "maxSize": 16000000,
-    "includes": ["{packages,lib,scripts,tests}/**/*.{mjs,js,ts,json}", "!**/dist-{cjs,es,types}/**", "!**/ruleset.ts"]
+    "includes": [
+      "{packages,lib,scripts,tests,private,clients}/**/*.{mjs,js,ts,json}",
+      "!**/dist-{cjs,es,types}/**",
+      "!**/ruleset.ts"
+    ]
   },
+  "overrides": [
+    {
+      "includes": ["{private,clients}/**/*.{mjs,js,ts,json}"],
+      "linter": {
+        "rules": {
+          "recommended": true,
+          "complexity": {
+            "noForEach": "off"
+          },
+          "correctness": {
+            "noUndeclaredVariables": "off",
+            "noUnusedVariables": "off",
+            "noInvalidBuiltinInstantiation": "error",
+            "noSwitchDeclarations": "off"
+          },
+          "style": "off",
+          "nursery": "off",
+          "suspicious": "off"
+        }
+      }
+    }
+  ],
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
