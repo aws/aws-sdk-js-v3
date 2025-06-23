@@ -1,13 +1,9 @@
 const _ = "";
 const _A = "Attribute";
-const _B = "Boolean";
-const _BL = "BooleanList";
-const _Ba = "Bar";
+const _B = "Bar";
+const _Ba = "Baz";
 const _Bam = "Bam";
-const _Baz = "Baz";
-const _Bl = "Blob";
 const _Bo = "Boo";
-const _By = "Byte";
 const _CCE = "CustomCodeError";
 const _CE = "ComplexError";
 const _CE_ = "Content-Encoding";
@@ -15,22 +11,16 @@ const _CLA = "ComplexListArg";
 const _CM = "ComplexMap";
 const _CMA = "ComplexMapArg";
 const _CNED = "ComplexNestedErrorData";
-const _D = "Double";
 const _DD = "DoubleDribble";
 const _DO = "DatetimeOffsets";
 const _DOO = "DatetimeOffsetsOutput";
-const _DT = "DateTime";
 const _EIAEO = "EmptyInputAndEmptyOutput";
 const _EIAEOI = "EmptyInputAndEmptyOutputInput";
 const _EIAEOO = "EmptyInputAndEmptyOutputOutput";
 const _EO = "EndpointOperation";
-const _ES = "EpochSeconds";
 const _EWHLO = "EndpointWithHostLabelOperation";
-const _F = "Float";
+const _F = "Foo";
 const _FE = "FooEnum";
-const _FEL = "FooEnumList";
-const _FEM = "FooEnumMap";
-const _FES = "FooEnumSet";
 const _FLA = "FlattenedListArg";
 const _FLAWXN = "FlattenedListArgWithXmlName";
 const _FM = "FlattenedMap";
@@ -46,28 +36,20 @@ const _FXMWXNOM = "FlattenedXmlMapWithXmlNameOutputMap";
 const _FXMWXNOMl = "FlattenedXmlMapWithXmlNamespaceOutputMap";
 const _FXMWXNOl = "FlattenedXmlMapWithXmlNamespaceOutput";
 const _FXMWXNl = "FlattenedXmlMapWithXmlNamespace";
-const _Fo = "Foo";
 const _GL = "GreetingList";
 const _GS = "GreetingStruct";
 const _GWE = "GreetingWithErrors";
 const _GWEO = "GreetingWithErrorsOutput";
 const _H = "Hi";
-const _HD = "HttpDate";
 const _HLI = "HostLabelInput";
 const _HWPO = "HostWithPathOperation";
-const _I = "Integer";
 const _IE = "IntegerEnum";
-const _IEL = "IntegerEnumList";
-const _IEM = "IntegerEnumMap";
-const _IES = "IntegerEnumSet";
 const _IG = "InvalidGreeting";
-const _IL = "IntegerList";
 const _IM = "IgnoreMe";
 const _IWXN = "IgnoresWrappingXmlName";
 const _IWXNO = "IgnoresWrappingXmlNameOutput";
 const _K = "K";
 const _KVP = "KVP";
-const _L = "Long";
 const _LA = "ListArg";
 const _LAWXNM = "ListArgWithXmlNameMember";
 const _LWMN = "ListWithMemberNamespace";
@@ -108,23 +90,16 @@ const _RXS = "RecursiveXmlShapes";
 const _RXSO = "RecursiveXmlShapesOutput";
 const _RXSON = "RecursiveXmlShapesOutputNested1";
 const _RXSONe = "RecursiveXmlShapesOutputNested2";
-const _S = "String";
+const _S = "Setting";
 const _SA = "StructArg";
 const _SAt = "StringArg";
 const _SIP = "SimpleInputParams";
 const _SIPI = "SimpleInputParamsInput";
-const _SL = "StringList";
+const _SL = "StructureList";
 const _SLM = "StructureListMember";
-const _SLt = "StructureList";
-const _SM = "StringMap";
-const _SS = "StringSet";
 const _SSXP = "SimpleScalarXmlProperties";
 const _SSXPO = "SimpleScalarXmlPropertiesOutput";
-const _Se = "Setting";
-const _Sh = "Short";
-const _T = "Timestamp";
-const _TL = "TimestampList";
-const _TLo = "TopLevel";
+const _TL = "TopLevel";
 const _V = "V";
 const _XB = "XmlBlobs";
 const _XBO = "XmlBlobsOutput";
@@ -256,12 +231,12 @@ export var ComplexError = error(
   {
     [_e]: _c,
   },
-  [_TLo, _N],
+  [_TL, _N],
   [0, () => ComplexNestedErrorData],
 
   __ComplexError
 );
-export var ComplexNestedErrorData = struct(n0, _CNED, 0, [_Fo], [0]);
+export var ComplexNestedErrorData = struct(n0, _CNED, 0, [_F], [0]);
 export var CustomCodeError = error(
   n0,
   _CCE,
@@ -315,9 +290,9 @@ export var FlattenedXmlMapWithXmlNamespaceOutput = struct(
     [
       () => FlattenedXmlMapWithXmlNamespaceOutputMap,
       {
+        [_xNm]: [_, _hm],
         [_xN]: _KVP,
         [_xF]: 1,
-        [_xNm]: [_, _hm],
       },
     ],
   ]
@@ -414,7 +389,7 @@ export var QueryMapsInput = struct(
     [
       128 | 0,
       {
-        [_xN]: _Fo,
+        [_xN]: _F,
       },
     ],
     () => ComplexMap,
@@ -456,7 +431,7 @@ export var SimpleInputParamsInput = struct(
   n0,
   _SIPI,
   0,
-  [_Fo, _Ba, _Baz, _Bam, _FV, _Bo, _Q, _FE, _IE],
+  [_F, _B, _Ba, _Bam, _FV, _Bo, _Q, _FE, _IE],
   [0, 0, 2, 1, 1, 1, 21, 0, 1]
 );
 export var SimpleScalarXmlPropertiesOutput = struct(
@@ -649,7 +624,7 @@ export var RenamedListMembers = list(n0, _RLM, 0, [
     [_xN]: _i,
   },
 ]);
-export var StructureList = list(n0, _SLt, 0, [
+export var StructureList = list(n0, _SL, 0, [
   () => StructureListMember,
   {
     [_xN]: _i,
@@ -750,7 +725,7 @@ export var XmlMapsXmlNameOutputMap = map(
   [
     () => GreetingStruct,
     {
-      [_xN]: _Se,
+      [_xN]: _S,
     },
   ]
 );

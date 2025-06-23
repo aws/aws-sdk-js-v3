@@ -88,7 +88,7 @@
     "@smithy/property-provider": "^4.0.4",
     "@smithy/protocol-http": "^5.1.2",
     "@smithy/signature-v4": "^5.1.2",
-    "@smithy/smithy-client": "^4.4.3",
+    "@smithy/smithy-client": "^4.4.4",
     "@smithy/types": "^4.3.1",
     "@smithy/util-base64": "^4.0.0",
     "@smithy/util-body-length-browser": "^4.0.0",

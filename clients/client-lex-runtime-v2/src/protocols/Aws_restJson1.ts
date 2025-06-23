@@ -733,7 +733,7 @@ const de_StartConversationResponseEventStream = (
         BadGatewayException: await de_BadGatewayException_event(event["BadGatewayException"], context),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 const de_AccessDeniedException_event = async (output: any, context: __SerdeContext): Promise<AccessDeniedException> => {

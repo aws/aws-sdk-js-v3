@@ -4572,7 +4572,7 @@ const de_InvokeWithResponseStreamResponseEvent = (
         InvokeComplete: await de_InvokeWithResponseStreamCompleteEvent_event(event["InvokeComplete"], context),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 const de_InvokeResponseStreamUpdate_event = async (

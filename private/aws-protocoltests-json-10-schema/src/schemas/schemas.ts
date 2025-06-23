@@ -1,6 +1,3 @@
-const _B = "Blob";
-const _Bo = "Boolean";
-const _By = "Byte";
 const _CE = "ComplexError";
 const _CE_ = "Content-Encoding";
 const _CNED = "ComplexNestedErrorData";
@@ -8,10 +5,9 @@ const _COD = "ClientOptionalDefaults";
 const _CTP = "ContentTypeParameters";
 const _CTPI = "ContentTypeParametersInput";
 const _CTPO = "ContentTypeParametersOutput";
-const _D = "Double";
+const _D = "Defaults";
 const _DL = "DialogList";
 const _DM = "DialogMap";
-const _De = "Defaults";
 const _Di = "Dialog";
 const _EIAEO = "EmptyInputAndEmptyOutput";
 const _EIAEOI = "EmptyInputAndEmptyOutputInput";
@@ -19,24 +15,19 @@ const _EIAEOO = "EmptyInputAndEmptyOutputOutput";
 const _EO = "EndpointOperation";
 const _EWHLO = "EndpointWithHostLabelOperation";
 const _EWHLOI = "EndpointWithHostLabelOperationInput";
-const _F = "Float";
-const _FE = "FooEnum";
-const _FEo = "FooError";
+const _F = "Foo";
+const _FE = "FooError";
 const _Fa = "Farewell";
-const _Fo = "Foo";
-const _Foo = "Fooooo";
+const _Fo = "Fooooo";
 const _GS = "GreetingStruct";
 const _GWE = "GreetingWithErrors";
 const _GWEI = "GreetingWithErrorsInput";
 const _GWEO = "GreetingWithErrorsOutput";
 const _HWPO = "HostWithPathOperation";
-const _I = "Integer";
-const _IE = "IntegerEnum";
 const _IG = "InvalidGreeting";
 const _JU = "JsonUnions";
 const _JUI = "JsonUnionsInput";
 const _JUO = "JsonUnionsOutput";
-const _L = "Long";
 const _M = "Message";
 const _MU = "MyUnion";
 const _N = "Nested";
@@ -55,23 +46,10 @@ const _OWRMWD = "OperationWithRequiredMembersWithDefaults";
 const _OWRMWDO = "OperationWithRequiredMembersWithDefaultsOutput";
 const _PWCE = "PutWithContentEncoding";
 const _PWCEI = "PutWithContentEncodingInput";
-const _RE = "RequiredEnum";
-const _RIE = "RequiredIntEnum";
-const _RSL = "RequiredStringList";
-const _RSM = "RequiredStringMap";
-const _S = "String";
-const _SL = "StringList";
-const _SM = "StringMap";
 const _SSP = "SimpleScalarProperties";
 const _SSPI = "SimpleScalarPropertiesInput";
 const _SSPO = "SimpleScalarPropertiesOutput";
-const _Sh = "Short";
-const _T = "Timestamp";
-const _TE = "TestEnum";
-const _TIE = "TestIntEnum";
 const _TL = "TopLevel";
-const _TSL = "TestStringList";
-const _TSM = "TestStringMap";
 const _bV = "booleanValue";
 const _bVl = "blobValue";
 const _c = "client";
@@ -183,12 +161,12 @@ export var ComplexNestedErrorData = struct(
   n0,
   _CNED,
   0,
-  [_Fo],
+  [_F],
   [
     [
       0,
       {
-        [_jN]: _Foo,
+        [_jN]: _Fo,
       },
     ],
   ]
@@ -197,7 +175,7 @@ export var ContentTypeParametersInput = struct(n0, _CTPI, 0, [_v], [1]);
 export var ContentTypeParametersOutput = struct(n0, _CTPO, 0, [], []);
 export var Defaults = struct(
   n0,
-  _De,
+  _D,
   0,
   [
     _dS,
@@ -251,7 +229,7 @@ export var EndpointWithHostLabelOperationInput = struct(
 export var Farewell = struct(n0, _Fa, 0, [_p], [0]);
 export var FooError = error(
   n0,
-  _FEo,
+  _FE,
   {
     [_e]: _s,
   },

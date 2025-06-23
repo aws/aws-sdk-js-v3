@@ -35,7 +35,14 @@ import {
   getHttpSigningPlugin,
 } from "@smithy/core";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
-import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import {
+  EndpointInputConfig,
+  EndpointRequiredInputConfig,
+  EndpointRequiredResolvedConfig,
+  EndpointResolvedConfig,
+  resolveEndpointConfig,
+  resolveEndpointRequiredConfig,
+} from "@smithy/middleware-endpoint";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@smithy/middleware-retry";
 import { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
 import {
@@ -204,6 +211,7 @@ export type EchoServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHa
   RetryInputConfig &
   HostHeaderInputConfig &
   EndpointInputConfig<EndpointParameters> &
+  EndpointRequiredInputConfig &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -223,6 +231,7 @@ export type EchoServiceClientResolvedConfigType = __SmithyResolvedConfiguration<
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &
+  EndpointRequiredResolvedConfig &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -255,9 +264,10 @@ export class EchoServiceClient extends __Client<
     let _config_3 = resolveRetryConfig(_config_2);
     let _config_4 = resolveHostHeaderConfig(_config_3);
     let _config_5 = resolveEndpointConfig(_config_4);
-    let _config_6 = resolveHttpAuthSchemeConfig(_config_5);
-    let _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
-    this.config = _config_7;
+    let _config_6 = resolveEndpointRequiredConfig(_config_5);
+    let _config_7 = resolveHttpAuthSchemeConfig(_config_6);
+    let _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    this.config = _config_8;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));

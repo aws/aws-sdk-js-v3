@@ -3634,7 +3634,7 @@ const de_StartLiveTailResponseStream = (
         ),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 const de_LiveTailSessionStart_event = async (output: any, context: __SerdeContext): Promise<LiveTailSessionStart> => {

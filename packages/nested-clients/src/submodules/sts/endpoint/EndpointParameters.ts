@@ -12,7 +12,7 @@ export interface ClientInputEndpointParameters {
   useGlobalEndpoint?: boolean | undefined | Provider<boolean | undefined>;
 }
 
-export type ClientResolvedEndpointParameters = ClientInputEndpointParameters & {
+export type ClientResolvedEndpointParameters = Omit<ClientInputEndpointParameters, "endpoint"> & {
   defaultSigningName: string;
 };
 

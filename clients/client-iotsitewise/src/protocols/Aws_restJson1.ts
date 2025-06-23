@@ -5507,7 +5507,7 @@ const de_ResponseStream = (
         throttlingException: await de_ThrottlingException_event(event["throttlingException"], context),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 const de_AccessDeniedException_event = async (output: any, context: __SerdeContext): Promise<AccessDeniedException> => {

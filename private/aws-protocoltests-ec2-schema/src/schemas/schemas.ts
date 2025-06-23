@@ -1,57 +1,38 @@
 const _ = "";
-const _B = "Boolean";
-const _BL = "BooleanList";
-const _Ba = "Bar";
+const _B = "Bar";
+const _Ba = "Baz";
 const _Bam = "Bam";
-const _Baz = "Baz";
-const _Bl = "Blob";
 const _Bo = "Boo";
-const _By = "Byte";
 const _CE = "ComplexError";
 const _CE_ = "Content-Encoding";
 const _CLA = "ComplexListArg";
 const _CNED = "ComplexNestedErrorData";
-const _D = "Double";
 const _DD = "DoubleDribble";
 const _DO = "DatetimeOffsets";
 const _DOO = "DatetimeOffsetsOutput";
-const _DT = "DateTime";
 const _EIAEO = "EmptyInputAndEmptyOutput";
 const _EIAEOI = "EmptyInputAndEmptyOutputInput";
 const _EIAEOO = "EmptyInputAndEmptyOutputOutput";
 const _EO = "EndpointOperation";
-const _ES = "EpochSeconds";
 const _EWHLO = "EndpointWithHostLabelOperation";
-const _F = "Float";
+const _F = "Foo";
 const _FE = "FooEnum";
-const _FEL = "FooEnumList";
-const _FEM = "FooEnumMap";
-const _FES = "FooEnumSet";
 const _FS = "FractionalSeconds";
 const _FSO = "FractionalSecondsOutput";
 const _FV = "FloatValue";
-const _Fo = "Foo";
 const _GL = "GreetingList";
 const _GS = "GreetingStruct";
 const _GWE = "GreetingWithErrors";
 const _GWEO = "GreetingWithErrorsOutput";
 const _H = "Hi";
-const _HD = "HttpDate";
 const _HLI = "HostLabelInput";
 const _HQAXN = "HasQueryAndXmlName";
 const _HQN = "HasQueryName";
 const _HWPO = "HostWithPathOperation";
-const _I = "Integer";
-const _IE = "IntegerEnum";
-const _IEL = "IntegerEnumList";
-const _IEM = "IntegerEnumMap";
-const _IES = "IntegerEnumSet";
 const _IG = "InvalidGreeting";
-const _IL = "IntegerList";
 const _IM = "IgnoreMe";
 const _IWXN = "IgnoresWrappingXmlName";
 const _IWXNO = "IgnoresWrappingXmlNameOutput";
-const _L = "Long";
 const _LA = "ListArg";
 const _LAWXN = "ListArgWithXmlName";
 const _LAWXNM = "ListArgWithXmlNameMember";
@@ -83,21 +64,15 @@ const _RXS = "RecursiveXmlShapes";
 const _RXSO = "RecursiveXmlShapesOutput";
 const _RXSON = "RecursiveXmlShapesOutputNested1";
 const _RXSONe = "RecursiveXmlShapesOutputNested2";
-const _S = "String";
 const _SA = "StructArg";
 const _SAt = "StringArg";
 const _SIP = "SimpleInputParams";
 const _SIPI = "SimpleInputParamsInput";
-const _SL = "StringList";
+const _SL = "StructureList";
 const _SLM = "StructureListMember";
-const _SLt = "StructureList";
-const _SS = "StringSet";
 const _SSXP = "SimpleScalarXmlProperties";
 const _SSXPO = "SimpleScalarXmlPropertiesOutput";
-const _Sh = "Short";
-const _T = "Timestamp";
-const _TL = "TimestampList";
-const _TLo = "TopLevel";
+const _TL = "TopLevel";
 const _UXN = "UsesXmlName";
 const _XB = "XmlBlobs";
 const _XBO = "XmlBlobsOutput";
@@ -215,12 +190,12 @@ export var ComplexError = error(
   {
     [_e]: _c,
   },
-  [_TLo, _N],
+  [_TL, _N],
   [0, () => ComplexNestedErrorData],
 
   __ComplexError
 );
-export var ComplexNestedErrorData = struct(n0, _CNED, 0, [_Fo], [0]);
+export var ComplexNestedErrorData = struct(n0, _CNED, 0, [_F], [0]);
 export var DatetimeOffsetsOutput = struct(n0, _DOO, 0, [_d], [5]);
 export var EmptyInputAndEmptyOutputInput = struct(n0, _EIAEOI, 0, [], []);
 export var EmptyInputAndEmptyOutputOutput = struct(n0, _EIAEOO, 0, [], []);
@@ -317,7 +292,7 @@ export var SimpleInputParamsInput = struct(
   n0,
   _SIPI,
   0,
-  [_Fo, _Ba, _Baz, _Bam, _FV, _Bo, _Q, _FE, _HQN, _HQAXN, _UXN],
+  [_F, _B, _Ba, _Bam, _FV, _Bo, _Q, _FE, _HQN, _HQAXN, _UXN],
   [
     0,
     0,
@@ -541,7 +516,7 @@ export var RenamedListMembers = list(n0, _RLM, 0, [
     [_xN]: _i,
   },
 ]);
-export var StructureList = list(n0, _SLt, 0, [
+export var StructureList = list(n0, _SL, 0, [
   () => StructureListMember,
   {
     [_xN]: _i,

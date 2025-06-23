@@ -950,7 +950,7 @@ const de_ConverseStreamOutput = (
         ),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 /**
@@ -1002,7 +1002,7 @@ const de_InvokeModelWithBidirectionalStreamOutput = (
         ),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 /**
@@ -1054,7 +1054,7 @@ const de_ResponseStream = (
         ),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 const de_BidirectionalOutputPayloadPart_event = async (

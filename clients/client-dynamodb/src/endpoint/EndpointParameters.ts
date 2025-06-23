@@ -13,7 +13,7 @@ export interface ClientInputEndpointParameters {
   accountIdEndpointMode?: string | undefined | Provider<string | undefined>;
 }
 
-export type ClientResolvedEndpointParameters = ClientInputEndpointParameters & {
+export type ClientResolvedEndpointParameters = Omit<ClientInputEndpointParameters, "endpoint"> & {
   defaultSigningName: string;
 };
 
