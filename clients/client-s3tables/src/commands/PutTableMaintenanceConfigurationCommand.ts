@@ -48,6 +48,7 @@ export interface PutTableMaintenanceConfigurationCommandOutput extends __Metadat
  *     settings: { // TableMaintenanceSettings Union: only one key present
  *       icebergCompaction: { // IcebergCompactionSettings
  *         targetFileSizeMB: Number("int"),
+ *         strategy: "auto" || "binpack" || "sort" || "z-order",
  *       },
  *       icebergSnapshotManagement: { // IcebergSnapshotManagementSettings
  *         minSnapshotsToKeep: Number("int"),

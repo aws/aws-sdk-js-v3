@@ -992,6 +992,22 @@ export const TableMaintenanceType = {
 export type TableMaintenanceType = (typeof TableMaintenanceType)[keyof typeof TableMaintenanceType];
 
 /**
+ * @public
+ * @enum
+ */
+export const IcebergCompactionStrategy = {
+  AUTO: "auto",
+  BINPACK: "binpack",
+  SORT: "sort",
+  ZORDER: "z-order",
+} as const;
+
+/**
+ * @public
+ */
+export type IcebergCompactionStrategy = (typeof IcebergCompactionStrategy)[keyof typeof IcebergCompactionStrategy];
+
+/**
  * <p>Contains details about the compaction settings for an Iceberg table.</p>
  * @public
  */
@@ -1001,6 +1017,12 @@ export interface IcebergCompactionSettings {
    * @public
    */
   targetFileSizeMB?: number | undefined;
+
+  /**
+   * <p>The compaction strategy to use for the table. This determines how files are selected and combined during compaction operations.</p>
+   * @public
+   */
+  strategy?: IcebergCompactionStrategy | undefined;
 }
 
 /**
