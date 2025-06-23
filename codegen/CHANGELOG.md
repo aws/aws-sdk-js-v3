@@ -1,5 +1,15 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.31.1 (2025-06-23)
+
+## Features
+- Upgraded to smithy-typescript 0.31.1 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0311-2025-06-23))
+
+## Bug Fixes
+- Updated codegen for endpoint configuration, event streams, and error classification ([#7143](https://github.com/aws/aws-sdk-js-v3/pull/7143))
+- Fixed awsQueryCompat error structure for backwards compatibility ([#7133](https://github.com/aws/aws-sdk-js-v3/pull/7133))
+- Allowed explicit undefined in EndpointParameters ([#7131](https://github.com/aws/aws-sdk-js-v3/pull/7131))
+
 ## 0.31.0 (2025-06-09)
 
 ## Features
