@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.835.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.834.0...v3.835.0) (2025-06-23)
+
+
+### Features
+
+* **client-s3tables:** S3 Tables now supports sort and z-order compaction strategies for Iceberg tables in addition to binpack. ([abce1d6](https://github.com/aws/aws-sdk-js-v3/commit/abce1d6c9ed9e7a5b1b63774ee6f50e3afd4dfa8))
+
+
+
+
+
 # [3.830.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.829.0...v3.830.0) (2025-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-s3tables

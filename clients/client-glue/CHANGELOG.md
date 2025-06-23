@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.835.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.834.0...v3.835.0) (2025-06-23)
+
+
+### Features
+
+* **client-glue:** AWS Glue now supports sort and z-order strategy for managed automated compaction for Iceberg tables in addition to binpack. ([19aaef4](https://github.com/aws/aws-sdk-js-v3/commit/19aaef440af7df26d38dc9bc15e8b8e520a8e7b9))
+
+
+
+
+
 # [3.834.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.833.0...v3.834.0) (2025-06-20)
 
 
