@@ -24,7 +24,7 @@ test-unit: bundles
 
 # typecheck for test code.
 test-types:
-	npx tsc -p tsconfig.test.json
+	npx tsgo -p tsconfig.test.json
 
 test-protocols: bundles
 	yarn g:vitest run -c vitest.config.protocols.integ.ts
