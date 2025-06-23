@@ -55,6 +55,11 @@ export interface GetTableOptimizerCommandOutput extends GetTableOptimizerRespons
  * //       vpcConfiguration: { // TableOptimizerVpcConfiguration Union: only one key present
  * //         glueConnectionName: "STRING_VALUE",
  * //       },
+ * //       compactionConfiguration: { // CompactionConfiguration
+ * //         icebergConfiguration: { // IcebergCompactionConfiguration
+ * //           strategy: "binpack" || "sort" || "z-order",
+ * //         },
+ * //       },
  * //       retentionConfiguration: { // RetentionConfiguration
  * //         icebergConfiguration: { // IcebergRetentionConfiguration
  * //           snapshotRetentionPeriodInDays: Number("int"),
@@ -89,6 +94,7 @@ export interface GetTableOptimizerCommandOutput extends GetTableOptimizerRespons
  * //           JobDurationInHour: Number("double"),
  * //         },
  * //       },
+ * //       compactionStrategy: "binpack" || "sort" || "z-order",
  * //       retentionMetrics: { // RetentionMetrics
  * //         IcebergMetrics: { // IcebergRetentionMetrics
  * //           NumberOfDataFilesDeleted: Number("long"),

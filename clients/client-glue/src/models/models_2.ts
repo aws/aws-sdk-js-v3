@@ -34,7 +34,6 @@ import {
   TimestampedInclusionAnnotation,
   Trigger,
   WorkerType,
-  WorkflowRun,
 } from "./models_0";
 
 import {
@@ -42,8 +41,9 @@ import {
   CodeGenEdge,
   CodeGenNode,
   CodeGenNodeArg,
+  ColumnError,
+  ColumnStatistics,
   Compatibility,
-  ComputationType,
   ComputeEnvironment,
   ConnectionPropertyKey,
   ConnectionStatus,
@@ -78,7 +78,50 @@ import {
   TransformType,
   ViewDialect,
   Workflow,
+  WorkflowRun,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetColumnStatisticsForTableResponse {
+  /**
+   * <p>List of ColumnStatistics.</p>
+   * @public
+   */
+  ColumnStatisticsList?: ColumnStatistics[] | undefined;
+
+  /**
+   * <p>List of ColumnStatistics that failed to be retrieved.</p>
+   * @public
+   */
+  Errors?: ColumnError[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetColumnStatisticsTaskRunRequest {
+  /**
+   * <p>The identifier for the particular column statistics task run.</p>
+   * @public
+   */
+  ColumnStatisticsTaskRunId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ComputationType = {
+  FULL: "FULL",
+  INCREMENTAL: "INCREMENTAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ComputationType = (typeof ComputationType)[keyof typeof ComputationType];
 
 /**
  * @public
@@ -8642,105 +8685,6 @@ export interface RegisterSchemaVersionResponse {
    * @public
    */
   Status?: SchemaVersionStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveSchemaVersionMetadataInput {
-  /**
-   * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  SchemaId?: SchemaId | undefined;
-
-  /**
-   * <p>The version number of the schema.</p>
-   * @public
-   */
-  SchemaVersionNumber?: SchemaVersionNumber | undefined;
-
-  /**
-   * <p>The unique version ID of the schema version.</p>
-   * @public
-   */
-  SchemaVersionId?: string | undefined;
-
-  /**
-   * <p>The value of the metadata key.</p>
-   * @public
-   */
-  MetadataKeyValue: MetadataKeyValuePair | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveSchemaVersionMetadataResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the schema.</p>
-   * @public
-   */
-  SchemaArn?: string | undefined;
-
-  /**
-   * <p>The name of the schema.</p>
-   * @public
-   */
-  SchemaName?: string | undefined;
-
-  /**
-   * <p>The name of the registry.</p>
-   * @public
-   */
-  RegistryName?: string | undefined;
-
-  /**
-   * <p>The latest version of the schema.</p>
-   * @public
-   */
-  LatestVersion?: boolean | undefined;
-
-  /**
-   * <p>The version number of the schema.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The version ID for the schema version.</p>
-   * @public
-   */
-  SchemaVersionId?: string | undefined;
-
-  /**
-   * <p>The metadata key.</p>
-   * @public
-   */
-  MetadataKey?: string | undefined;
-
-  /**
-   * <p>The value of the metadata key.</p>
-   * @public
-   */
-  MetadataValue?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetJobBookmarkRequest {
-  /**
-   * <p>The name of the job in question.</p>
-   * @public
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>The unique run identifier associated with this job run.</p>
-   * @public
-   */
-  RunId?: string | undefined;
 }
 
 /**

@@ -71,6 +71,7 @@ export interface ListTableOptimizerRunsCommandOutput extends ListTableOptimizerR
  * //           JobDurationInHour: Number("double"),
  * //         },
  * //       },
+ * //       compactionStrategy: "binpack" || "sort" || "z-order",
  * //       retentionMetrics: { // RetentionMetrics
  * //         IcebergMetrics: { // IcebergRetentionMetrics
  * //           NumberOfDataFilesDeleted: Number("long"),

@@ -29,14 +29,158 @@ import {
   RecrawlPolicy,
   SchemaChangePolicy,
   SchemaId,
+  StartingEventBatchCondition,
   StorageDescriptor,
   TableOptimizerConfiguration,
   TableOptimizerType,
   TriggerType,
   WorkerType,
   WorkflowGraph,
-  WorkflowRun,
 } from "./models_0";
+
+/**
+ * <p>Workflow run statistics provides statistics about the workflow run.</p>
+ * @public
+ */
+export interface WorkflowRunStatistics {
+  /**
+   * <p>Total number of Actions in the workflow run.</p>
+   * @public
+   */
+  TotalActions?: number | undefined;
+
+  /**
+   * <p>Total number of Actions that timed out.</p>
+   * @public
+   */
+  TimeoutActions?: number | undefined;
+
+  /**
+   * <p>Total number of Actions that have failed.</p>
+   * @public
+   */
+  FailedActions?: number | undefined;
+
+  /**
+   * <p>Total number of Actions that have stopped.</p>
+   * @public
+   */
+  StoppedActions?: number | undefined;
+
+  /**
+   * <p>Total number of Actions that have succeeded.</p>
+   * @public
+   */
+  SucceededActions?: number | undefined;
+
+  /**
+   * <p>Total number Actions in running state.</p>
+   * @public
+   */
+  RunningActions?: number | undefined;
+
+  /**
+   * <p>Indicates the count of job runs in the ERROR state in the workflow run.</p>
+   * @public
+   */
+  ErroredActions?: number | undefined;
+
+  /**
+   * <p>Indicates the count of job runs in WAITING state in the workflow run.</p>
+   * @public
+   */
+  WaitingActions?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowRunStatus = {
+  COMPLETED: "COMPLETED",
+  ERROR: "ERROR",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowRunStatus = (typeof WorkflowRunStatus)[keyof typeof WorkflowRunStatus];
+
+/**
+ * <p>A workflow run is an execution of a workflow providing all the runtime information.</p>
+ * @public
+ */
+export interface WorkflowRun {
+  /**
+   * <p>Name of the workflow that was run.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The ID of this workflow run.</p>
+   * @public
+   */
+  WorkflowRunId?: string | undefined;
+
+  /**
+   * <p>The ID of the previous workflow run.</p>
+   * @public
+   */
+  PreviousRunId?: string | undefined;
+
+  /**
+   * <p>The workflow run properties which were set during the run.</p>
+   * @public
+   */
+  WorkflowRunProperties?: Record<string, string> | undefined;
+
+  /**
+   * <p>The date and time when the workflow run was started.</p>
+   * @public
+   */
+  StartedOn?: Date | undefined;
+
+  /**
+   * <p>The date and time when the workflow run completed.</p>
+   * @public
+   */
+  CompletedOn?: Date | undefined;
+
+  /**
+   * <p>The status of the workflow run.</p>
+   * @public
+   */
+  Status?: WorkflowRunStatus | undefined;
+
+  /**
+   * <p>This error message describes any error that may have occurred in starting the workflow run. Currently the only error message is "Concurrent runs exceeded for workflow: <code>foo</code>."</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * <p>The statistics of the run.</p>
+   * @public
+   */
+  Statistics?: WorkflowRunStatistics | undefined;
+
+  /**
+   * <p>The graph representing all the Glue components that belong to the workflow as nodes and directed
+   *       connections between them as edges.</p>
+   * @public
+   */
+  Graph?: WorkflowGraph | undefined;
+
+  /**
+   * <p>The batch condition that started the workflow run.</p>
+   * @public
+   */
+  StartingEventBatchCondition?: StartingEventBatchCondition | undefined;
+}
 
 /**
  * <p>A workflow is a collection of multiple dependent Glue
@@ -7917,48 +8061,6 @@ export interface GetColumnStatisticsForTableRequest {
    */
   ColumnNames: string[] | undefined;
 }
-
-/**
- * @public
- */
-export interface GetColumnStatisticsForTableResponse {
-  /**
-   * <p>List of ColumnStatistics.</p>
-   * @public
-   */
-  ColumnStatisticsList?: ColumnStatistics[] | undefined;
-
-  /**
-   * <p>List of ColumnStatistics that failed to be retrieved.</p>
-   * @public
-   */
-  Errors?: ColumnError[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetColumnStatisticsTaskRunRequest {
-  /**
-   * <p>The identifier for the particular column statistics task run.</p>
-   * @public
-   */
-  ColumnStatisticsTaskRunId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ComputationType = {
-  FULL: "FULL",
-  INCREMENTAL: "INCREMENTAL",
-} as const;
-
-/**
- * @public
- */
-export type ComputationType = (typeof ComputationType)[keyof typeof ComputationType];
 
 /**
  * @internal

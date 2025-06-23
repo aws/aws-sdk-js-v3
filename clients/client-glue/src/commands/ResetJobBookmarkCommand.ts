@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { ResetJobBookmarkRequest } from "../models/models_2";
-import { ResetJobBookmarkResponse } from "../models/models_3";
+import { ResetJobBookmarkRequest, ResetJobBookmarkResponse } from "../models/models_3";
 import { de_ResetJobBookmarkCommand, se_ResetJobBookmarkCommand } from "../protocols/Aws_json1_1";
 
 /**

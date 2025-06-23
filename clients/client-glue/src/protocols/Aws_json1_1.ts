@@ -648,6 +648,7 @@ import {
   CatalogSource,
   CatalogTarget,
   Column,
+  CompactionConfiguration,
   CompactionMetrics,
   Condition,
   ConditionExpression,
@@ -700,6 +701,7 @@ import {
   GovernedCatalogSource,
   GovernedCatalogTarget,
   HudiTarget,
+  IcebergCompactionConfiguration,
   IcebergCompactionMetrics,
   IcebergOrphanFileDeletionConfiguration,
   IcebergOrphanFileDeletionMetrics,
@@ -818,7 +820,6 @@ import {
   Union,
   UpsertRedshiftTargetOptions,
   WorkflowGraph,
-  WorkflowRun,
 } from "../models/models_0";
 import {
   BatchGetWorkflowsResponse,
@@ -963,8 +964,6 @@ import {
   GetColumnStatisticsForPartitionRequest,
   GetColumnStatisticsForPartitionResponse,
   GetColumnStatisticsForTableRequest,
-  GetColumnStatisticsForTableResponse,
-  GetColumnStatisticsTaskRunRequest,
   GrokClassifier,
   IcebergInput,
   IdempotentParameterMismatchException,
@@ -1015,6 +1014,7 @@ import {
   ViewDefinitionInput,
   ViewRepresentationInput,
   Workflow,
+  WorkflowRun,
   XMLClassifier,
 } from "../models/models_1";
 import {
@@ -1043,6 +1043,8 @@ import {
   EvaluationMetrics,
   ExecutionAttempt,
   FindMatchesMetrics,
+  GetColumnStatisticsForTableResponse,
+  GetColumnStatisticsTaskRunRequest,
   GetColumnStatisticsTaskRunResponse,
   GetColumnStatisticsTaskRunsRequest,
   GetColumnStatisticsTaskRunsResponse,
@@ -1206,8 +1208,6 @@ import {
   QuerySchemaVersionMetadataInput,
   QuerySessionContext,
   RegisterSchemaVersionInput,
-  RemoveSchemaVersionMetadataInput,
-  ResetJobBookmarkRequest,
   SchemaColumn,
   SchemaVersionNumber,
   SecurityConfiguration,
@@ -1255,6 +1255,8 @@ import {
   MLTransformNotReadyException,
   NoScheduleException,
   PropertyPredicate,
+  RemoveSchemaVersionMetadataInput,
+  ResetJobBookmarkRequest,
   ResumeWorkflowRunRequest,
   RunStatementRequest,
   SchedulerNotRunningException,
@@ -10909,6 +10911,8 @@ const se_ColumnStatisticsData = (input: ColumnStatisticsData, context: __SerdeCo
 
 // se_ColumnValueStringList omitted.
 
+// se_CompactionConfiguration omitted.
+
 // se_ComputeEnvironmentList omitted.
 
 // se_Condition omitted.
@@ -11805,6 +11809,8 @@ const se_GetUnfilteredTableMetadataRequest = (
 // se_HudiTarget omitted.
 
 // se_HudiTargetList omitted.
+
+// se_IcebergCompactionConfiguration omitted.
 
 // se_IcebergInput omitted.
 
@@ -13575,6 +13581,8 @@ const de_ColumnStatisticsTaskSettings = (output: any, context: __SerdeContext): 
 // de_ColumnStatisticsTaskStoppingException omitted.
 
 // de_ColumnValueStringList omitted.
+
+// de_CompactionConfiguration omitted.
 
 /**
  * deserializeAws_json1_1CompactionMetrics
@@ -15507,6 +15515,8 @@ const de_GrokClassifier = (output: any, context: __SerdeContext): GrokClassifier
 
 // de_HudiTargetList omitted.
 
+// de_IcebergCompactionConfiguration omitted.
+
 /**
  * deserializeAws_json1_1IcebergCompactionMetrics
  */
@@ -16913,6 +16923,7 @@ const de_TableOptimizer = (output: any, context: __SerdeContext): TableOptimizer
 const de_TableOptimizerRun = (output: any, context: __SerdeContext): TableOptimizerRun => {
   return take(output, {
     compactionMetrics: (_: any) => de_CompactionMetrics(_, context),
+    compactionStrategy: __expectString,
     endTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     error: __expectString,
     eventType: __expectString,

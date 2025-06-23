@@ -8076,6 +8076,69 @@ export interface BatchGetTableOptimizerError {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const CompactionStrategy = {
+  BINPACK: "binpack",
+  SORT: "sort",
+  ZORDER: "z-order",
+} as const;
+
+/**
+ * @public
+ */
+export type CompactionStrategy = (typeof CompactionStrategy)[keyof typeof CompactionStrategy];
+
+/**
+ * <p>The configuration for an Iceberg compaction optimizer. This configuration defines parameters for optimizing the layout of data files in Iceberg tables.</p>
+ * @public
+ */
+export interface IcebergCompactionConfiguration {
+  /**
+   * <p>The strategy to use for compaction. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>binpack</code>: Combines small files into larger files, typically targeting sizes over 100MB, while applying any pending deletes.
+   *           This is the recommended compaction strategy for most use cases.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sort</code>: Organizes data based on specified columns which are sorted hierarchically during compaction, improving query
+   *         performance for filtered operations. This strategy is recommended when your queries frequently filter on specific columns. To use this strategy,
+   *         you must first define a sort order in your Iceberg table properties using the <code>sort_order</code> table property.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>z-order</code>: Optimizes data organization by blending multiple attributes into a single scalar value that can be used for sorting,
+   *           allowing efficient querying across multiple dimensions. This strategy is recommended when you need to query data across multiple dimensions
+   *           simultaneously. To use this strategy, you must first define a sort order in your Iceberg table properties using the
+   *           <code>sort_order</code> table property.
+   *         </p>
+   *             </li>
+   *          </ul>
+   *          <p>If an input is not provided, the default value 'binpack' will be used.</p>
+   * @public
+   */
+  strategy?: CompactionStrategy | undefined;
+}
+
+/**
+ * <p>The configuration for a compaction optimizer. This configuration defines how data files in your table will be compacted to improve
+ *       query performance and reduce storage costs.</p>
+ * @public
+ */
+export interface CompactionConfiguration {
+  /**
+   * <p>The configuration for an Iceberg compaction optimizer.</p>
+   * @public
+   */
+  icebergConfiguration?: IcebergCompactionConfiguration | undefined;
+}
+
+/**
  * <p>The configuration for an Iceberg orphan file deletion optimizer.</p>
  * @public
  */
@@ -8205,6 +8268,13 @@ export interface TableOptimizerConfiguration {
    * @public
    */
   vpcConfiguration?: TableOptimizerVpcConfiguration | undefined;
+
+  /**
+   * <p>The configuration for a compaction optimizer. This configuration defines how data files in your table will be compacted to
+   *       improve query performance and reduce storage costs.</p>
+   * @public
+   */
+  compactionConfiguration?: CompactionConfiguration | undefined;
 
   /**
    * <p>The configuration for a snapshot retention optimizer.</p>
@@ -8453,6 +8523,35 @@ export interface TableOptimizerRun {
    * @public
    */
   compactionMetrics?: CompactionMetrics | undefined;
+
+  /**
+   * <p>The strategy used for the compaction run. Indicates which algorithm was applied to determine how files were selected and combined during the
+   *       compaction process. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>binpack</code>: Combines small files into larger files, typically targeting sizes over 100MB, while applying any pending deletes.
+   *           This is the recommended compaction strategy for most use cases.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sort</code>: Organizes data based on specified columns which are sorted hierarchically during compaction, improving query
+   *           performance for filtered operations. This strategy is recommended when your queries frequently filter on specific columns. To use this strategy,
+   *           you must first define a sort order in your Iceberg table properties using the <code>sort_order</code> table property.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>z-order</code>: Optimizes data organization by blending multiple attributes into a single scalar value that can be used for sorting,
+   *           allowing efficient querying across multiple dimensions. This strategy is recommended when you need to query data across multiple dimensions
+   *           simultaneously. To use this strategy, you must first define a sort order in your Iceberg table properties using the
+   *           <code>sort_order</code> table property.
+   *         </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  compactionStrategy?: CompactionStrategy | undefined;
 
   /**
    * <p>A <code>RetentionMetrics</code> object containing metrics for the optimizer run.</p>
@@ -9381,150 +9480,6 @@ export interface StartingEventBatchCondition {
    * @public
    */
   BatchWindow?: number | undefined;
-}
-
-/**
- * <p>Workflow run statistics provides statistics about the workflow run.</p>
- * @public
- */
-export interface WorkflowRunStatistics {
-  /**
-   * <p>Total number of Actions in the workflow run.</p>
-   * @public
-   */
-  TotalActions?: number | undefined;
-
-  /**
-   * <p>Total number of Actions that timed out.</p>
-   * @public
-   */
-  TimeoutActions?: number | undefined;
-
-  /**
-   * <p>Total number of Actions that have failed.</p>
-   * @public
-   */
-  FailedActions?: number | undefined;
-
-  /**
-   * <p>Total number of Actions that have stopped.</p>
-   * @public
-   */
-  StoppedActions?: number | undefined;
-
-  /**
-   * <p>Total number of Actions that have succeeded.</p>
-   * @public
-   */
-  SucceededActions?: number | undefined;
-
-  /**
-   * <p>Total number Actions in running state.</p>
-   * @public
-   */
-  RunningActions?: number | undefined;
-
-  /**
-   * <p>Indicates the count of job runs in the ERROR state in the workflow run.</p>
-   * @public
-   */
-  ErroredActions?: number | undefined;
-
-  /**
-   * <p>Indicates the count of job runs in WAITING state in the workflow run.</p>
-   * @public
-   */
-  WaitingActions?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const WorkflowRunStatus = {
-  COMPLETED: "COMPLETED",
-  ERROR: "ERROR",
-  RUNNING: "RUNNING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowRunStatus = (typeof WorkflowRunStatus)[keyof typeof WorkflowRunStatus];
-
-/**
- * <p>A workflow run is an execution of a workflow providing all the runtime information.</p>
- * @public
- */
-export interface WorkflowRun {
-  /**
-   * <p>Name of the workflow that was run.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The ID of this workflow run.</p>
-   * @public
-   */
-  WorkflowRunId?: string | undefined;
-
-  /**
-   * <p>The ID of the previous workflow run.</p>
-   * @public
-   */
-  PreviousRunId?: string | undefined;
-
-  /**
-   * <p>The workflow run properties which were set during the run.</p>
-   * @public
-   */
-  WorkflowRunProperties?: Record<string, string> | undefined;
-
-  /**
-   * <p>The date and time when the workflow run was started.</p>
-   * @public
-   */
-  StartedOn?: Date | undefined;
-
-  /**
-   * <p>The date and time when the workflow run completed.</p>
-   * @public
-   */
-  CompletedOn?: Date | undefined;
-
-  /**
-   * <p>The status of the workflow run.</p>
-   * @public
-   */
-  Status?: WorkflowRunStatus | undefined;
-
-  /**
-   * <p>This error message describes any error that may have occurred in starting the workflow run. Currently the only error message is "Concurrent runs exceeded for workflow: <code>foo</code>."</p>
-   * @public
-   */
-  ErrorMessage?: string | undefined;
-
-  /**
-   * <p>The statistics of the run.</p>
-   * @public
-   */
-  Statistics?: WorkflowRunStatistics | undefined;
-
-  /**
-   * <p>The graph representing all the Glue components that belong to the workflow as nodes and directed
-   *       connections between them as edges.</p>
-   * @public
-   */
-  Graph?: WorkflowGraph | undefined;
-
-  /**
-   * <p>The batch condition that started the workflow run.</p>
-   * @public
-   */
-  StartingEventBatchCondition?: StartingEventBatchCondition | undefined;
 }
 
 /**
