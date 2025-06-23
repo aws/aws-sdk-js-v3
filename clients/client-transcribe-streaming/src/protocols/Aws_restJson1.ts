@@ -680,7 +680,7 @@ const de_CallAnalyticsTranscriptResultStream = (
         ),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 /**
@@ -724,7 +724,7 @@ const de_MedicalScribeResultStream = (
         ),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 /**
@@ -768,7 +768,7 @@ const de_MedicalTranscriptResultStream = (
         ),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 /**
@@ -812,7 +812,7 @@ const de_TranscriptResultStream = (
         ),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 const de_BadRequestException_event = async (output: any, context: __SerdeContext): Promise<BadRequestException> => {

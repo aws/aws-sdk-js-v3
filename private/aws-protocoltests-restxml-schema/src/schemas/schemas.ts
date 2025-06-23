@@ -7,7 +7,6 @@ const _B = "Byte";
 const _BL = "BooleanList";
 const _BWXN = "BodyWithXmlName";
 const _BWXNIO = "BodyWithXmlNameInputOutput";
-const _Bl = "Blob";
 const _Bo = "Boolean";
 const _CAVQS = "ConstantAndVariableQueryString";
 const _CAVQSI = "ConstantAndVariableQueryStringInput";
@@ -24,7 +23,6 @@ const _DD = "DoubleDribble";
 const _DL = "DoubleList";
 const _DO = "DatetimeOffsets";
 const _DOO = "DatetimeOffsetsOutput";
-const _DT = "DateTime";
 const _E = "Enum";
 const _EIAEO = "EmptyInputAndEmptyOutput";
 const _EIAEOI = "EmptyInputAndEmptyOutputInput";
@@ -32,17 +30,11 @@ const _EIAEOO = "EmptyInputAndEmptyOutputOutput";
 const _EL = "EnumList";
 const _EO = "EndpointOperation";
 const _EPI = "EnumPayloadInput";
-const _ES = "EpochSeconds";
 const _EWHLHO = "EndpointWithHostLabelHeaderOperation";
 const _EWHLO = "EndpointWithHostLabelOperation";
 const _EWHLOR = "EndpointWithHostLabelOperationRequest";
 const _Em = "Empty";
 const _F = "Float";
-const _FE = "FooEnum";
-const _FEL = "FooEnumList";
-const _FEM = "FooEnumMap";
-const _FES = "FooEnumSet";
-const _FPH = "FooPrefixHeaders";
 const _FS = "FractionalSeconds";
 const _FSO = "FractionalSecondsOutput";
 const _FXM = "FlattenedXmlMap";
@@ -60,7 +52,6 @@ const _GS = "GreetingStruct";
 const _GWE = "GreetingWithErrors";
 const _GWEO = "GreetingWithErrorsOutput";
 const _H = "Header";
-const _HD = "HttpDate";
 const _HEP = "HttpEnumPayload";
 const _HEPH = "HttpEmptyPrefixHeaders";
 const _HEPHI = "HttpEmptyPrefixHeadersInput";
@@ -102,8 +93,6 @@ const _IAOWH = "InputAndOutputWithHeaders";
 const _IAOWHIO = "InputAndOutputWithHeadersIO";
 const _IE = "IntegerEnum";
 const _IEL = "IntegerEnumList";
-const _IEM = "IntegerEnumMap";
-const _IES = "IntegerEnumSet";
 const _IG = "InvalidGreeting";
 const _IK = "InnerKey";
 const _IL = "IntegerList";
@@ -157,12 +146,10 @@ const _RSIONe = "RecursiveShapesInputOutputNested2";
 const _RSR = "RecursiveShapesRequest";
 const _RSRe = "RecursiveShapesResponse";
 const _S = "String";
-const _SE = "StringEnum";
 const _SL = "StringList";
 const _SLM = "StringListMap";
 const _SLMt = "StructureListMember";
 const _SLt = "StructureList";
-const _SM = "StringMap";
 const _SPI = "StringPayloadInput";
 const _SS = "StringSet";
 const _SSP = "SimpleScalarProperties";
@@ -736,9 +723,9 @@ export var FlattenedXmlMapWithXmlNamespaceOutput = struct(
     [
       () => FlattenedXmlMapWithXmlNamespaceOutputMap,
       {
+        [_xNm]: [_, _hm],
         [_xN]: _KVP,
         [_xF]: 1,
-        [_xNm]: [_, _hm],
       },
     ],
   ]

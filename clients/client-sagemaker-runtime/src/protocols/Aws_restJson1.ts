@@ -412,7 +412,7 @@ const de_ResponseStream = (
         InternalStreamFailure: await de_InternalStreamFailure_event(event["InternalStreamFailure"], context),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 const de_InternalStreamFailure_event = async (output: any, context: __SerdeContext): Promise<InternalStreamFailure> => {

@@ -1,38 +1,20 @@
-const _B = "Byte";
-const _BL = "BlobList";
-const _BLo = "BooleanList";
-const _Bl = "Blob";
-const _Bo = "Boolean";
 const _CE = "ComplexError";
 const _CNED = "ComplexNestedErrorData";
 const _COD = "ClientOptionalDefaults";
-const _D = "Double";
-const _DBM = "DenseBooleanMap";
-const _DNM = "DenseNumberMap";
-const _DSM = "DenseStringMap";
-const _DSMe = "DenseSetMap";
-const _DSMen = "DenseStructMap";
-const _DT = "DateTime";
-const _De = "Defaults";
+const _D = "Defaults";
+const _DSM = "DenseSetMap";
+const _DSMe = "DenseStructMap";
 const _EIO = "EmptyInputOutput";
 const _ES = "EmptyStructure";
-const _F = "Float";
-const _FE = "FooEnum";
-const _FEL = "FooEnumList";
+const _F = "Foo";
 const _FO = "Float16Output";
 const _FS = "FractionalSeconds";
 const _FSO = "FractionalSecondsOutput";
 const _Fl = "Float16";
-const _Fo = "Foo";
 const _GS = "GreetingStruct";
 const _GWE = "GreetingWithErrors";
 const _GWEO = "GreetingWithErrorsOutput";
-const _I = "Integer";
-const _IE = "IntegerEnum";
-const _IEL = "IntegerEnumList";
 const _IG = "InvalidGreeting";
-const _IL = "IntegerList";
-const _L = "Long";
 const _M = "Message";
 const _N = "Nested";
 const _NIO = "NoInputOutput";
@@ -51,30 +33,20 @@ const _RVCL = "RpcV2CborLists";
 const _RVCLIO = "RpcV2CborListInputOutput";
 const _RVCSM = "RpcV2CborSparseMaps";
 const _RVCSMIO = "RpcV2CborSparseMapsInputOutput";
-const _S = "String";
 const _SBM = "SparseBooleanMap";
-const _SL = "StringList";
+const _SL = "StructureList";
 const _SLM = "StructureListMember";
-const _SLt = "StructureList";
 const _SNM = "SparseNumberMap";
 const _SNO = "SparseNullsOperation";
 const _SNOIO = "SparseNullsOperationInputOutput";
-const _SS = "StringSet";
+const _SS = "SimpleStructure";
 const _SSL = "SparseStringList";
-const _SSM = "SparseStringMap";
-const _SSMp = "SparseSetMap";
-const _SSMpa = "SparseStructMap";
+const _SSM = "SparseSetMap";
+const _SSMp = "SparseStructMap";
+const _SSMpa = "SparseStringMap";
 const _SSP = "SimpleScalarProperties";
 const _SSS = "SimpleScalarStructure";
-const _SSi = "SimpleStructure";
-const _Sh = "Short";
-const _T = "Timestamp";
-const _TE = "TestEnum";
-const _TIE = "TestIntEnum";
-const _TL = "TimestampList";
-const _TLo = "TopLevel";
-const _TSL = "TestStringList";
-const _TSM = "TestStringMap";
+const _TL = "TopLevel";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
@@ -190,15 +162,15 @@ export var ComplexError = error(
   {
     [_e]: _c,
   },
-  [_TLo, _N],
+  [_TL, _N],
   [0, () => ComplexNestedErrorData],
 
   __ComplexError
 );
-export var ComplexNestedErrorData = struct(n1, _CNED, 0, [_Fo], [0]);
+export var ComplexNestedErrorData = struct(n1, _CNED, 0, [_F], [0]);
 export var Defaults = struct(
   n1,
-  _De,
+  _D,
   0,
   [
     _dS,
@@ -300,7 +272,7 @@ export var RpcV2CborDenseMapsInputOutput = struct(
   _RVCDMIO,
   0,
   [_dSM, _dNM, _dBM, _dSMe, _dSMen],
-  [() => DenseStructMap, 128 | 1, 128 | 2, 128 | 0, map(n1, _DSMe, 0, 0, 64 | 0)]
+  [() => DenseStructMap, 128 | 1, 128 | 2, 128 | 0, map(n1, _DSM, 0, 0, 64 | 0)]
 );
 export var RpcV2CborListInputOutput = struct(
   n1,
@@ -329,7 +301,7 @@ export var SimpleScalarStructure = struct(
   [_tBV, _fBV, _bV, _dV, _fV, _iV, _lV, _sV, _sVt, _bVl],
   [2, 2, 1, 1, 1, 1, 1, 1, 0, 21]
 );
-export var SimpleStructure = struct(n1, _SSi, 0, [_v], [0]);
+export var SimpleStructure = struct(n1, _SS, 0, [_v], [0]);
 export var SparseNullsOperationInputOutput = struct(
   n1,
   _SNOIO,
@@ -351,7 +323,7 @@ export var RpcV2ProtocolServiceException = error(
   __RpcV2ProtocolServiceException
 );
 export var ValidationExceptionFieldList = list(n0, _VEFL, 0, () => ValidationExceptionField);
-export var StructureList = list(n1, _SLt, 0, () => StructureListMember);
+export var StructureList = list(n1, _SL, 0, () => StructureListMember);
 export var TestStringList = 64 | 0;
 
 export var BlobList = 64 | 21;
@@ -383,10 +355,10 @@ export var DenseBooleanMap = 128 | 2;
 
 export var DenseNumberMap = 128 | 1;
 
-export var DenseSetMap = map(n1, _DSMe, 0, 0, 64 | 0);
+export var DenseSetMap = map(n1, _DSM, 0, 0, 64 | 0);
 export var DenseStringMap = 128 | 0;
 
-export var DenseStructMap = map(n1, _DSMen, 0, 0, () => GreetingStruct);
+export var DenseStructMap = map(n1, _DSMe, 0, 0, () => GreetingStruct);
 export var SparseBooleanMap = map(
   n1,
   _SBM,
@@ -407,7 +379,7 @@ export var SparseNumberMap = map(
 );
 export var SparseSetMap = map(
   n1,
-  _SSMp,
+  _SSM,
   {
     [_s]: 1,
   },
@@ -416,7 +388,7 @@ export var SparseSetMap = map(
 );
 export var SparseStructMap = map(
   n1,
-  _SSMpa,
+  _SSMp,
   {
     [_s]: 1,
   },
@@ -427,7 +399,7 @@ export var TestStringMap = 128 | 0;
 
 export var SparseStringMap = map(
   n2,
-  _SSM,
+  _SSMpa,
   {
     [_s]: 1,
   },

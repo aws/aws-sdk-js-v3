@@ -3,7 +3,6 @@ const _AQST = "AllQueryStringTypes";
 const _AQSTI = "AllQueryStringTypesInput";
 const _B = "Byte";
 const _BL = "BooleanList";
-const _Bl = "Blob";
 const _Bo = "Boolean";
 const _CAVQS = "ConstantAndVariableQueryString";
 const _CAVQSI = "ConstantAndVariableQueryStringInput";
@@ -18,25 +17,20 @@ const _CTP = "ContentTypeParameters";
 const _CTPI = "ContentTypeParametersInput";
 const _CTPO = "ContentTypeParametersOutput";
 const _D = "Double";
-const _DBM = "DenseBooleanMap";
 const _DD = "DoubleDribble";
 const _DL = "DoubleList";
 const _DLi = "DialogList";
 const _DM = "DialogMap";
-const _DNM = "DenseNumberMap";
 const _DO = "DatetimeOffsets";
 const _DOO = "DatetimeOffsetsOutput";
-const _DSM = "DenseStringMap";
-const _DSMe = "DenseSetMap";
-const _DSMen = "DenseStructMap";
-const _DT = "DateTime";
+const _DSM = "DenseSetMap";
+const _DSMe = "DenseStructMap";
+const _DT = "DocumentType";
 const _DTAMV = "DocumentTypeAsMapValue";
 const _DTAMVIO = "DocumentTypeAsMapValueInputOutput";
 const _DTAP = "DocumentTypeAsPayload";
 const _DTAPIO = "DocumentTypeAsPayloadInputOutput";
 const _DTIO = "DocumentTypeInputOutput";
-const _DTo = "DocumentType";
-const _DVM = "DocumentValuedMap";
 const _De = "Defaults";
 const _Di = "Dialog";
 const _E = "Enum";
@@ -46,15 +40,10 @@ const _EIAEOO = "EmptyInputAndEmptyOutputOutput";
 const _EL = "EnumList";
 const _EO = "EndpointOperation";
 const _EPI = "EnumPayloadInput";
-const _ES = "EpochSeconds";
 const _EWHLO = "EndpointWithHostLabelOperation";
 const _Em = "Empty";
 const _F = "Float";
-const _FE = "FooEnum";
-const _FEL = "FooEnumList";
-const _FEM = "FooEnumMap";
-const _FES = "FooEnumSet";
-const _FEo = "FooError";
+const _FE = "FooError";
 const _FOO = "FOO";
 const _FS = "FractionalSeconds";
 const _FSB = "FiniteStreamingBlob";
@@ -68,7 +57,6 @@ const _GWEO = "GreetingWithErrorsOutput";
 const _H = "Header";
 const _HCR = "HttpChecksumRequired";
 const _HCRIO = "HttpChecksumRequiredInputOutput";
-const _HD = "HttpDate";
 const _HEP = "HttpEnumPayload";
 const _HEPH = "HttpEmptyPrefixHeaders";
 const _HEPHI = "HttpEmptyPrefixHeadersInput";
@@ -107,8 +95,6 @@ const _IAOWH = "InputAndOutputWithHeaders";
 const _IAOWHIO = "InputAndOutputWithHeadersIO";
 const _IE = "IntegerEnum";
 const _IEL = "IntegerEnumList";
-const _IEM = "IntegerEnumMap";
-const _IES = "IntegerEnumSet";
 const _IG = "InvalidGreeting";
 const _IL = "IntegerList";
 const _IQPIR = "IgnoreQueryParamsInResponse";
@@ -246,7 +232,6 @@ const _RSIONe = "RecursiveShapesInputOutputNested2";
 const _S = "String";
 const _SB = "StreamingBlob";
 const _SBM = "SparseBooleanMap";
-const _SE = "StringEnum";
 const _SJL = "SparseJsonLists";
 const _SJLIO = "SparseJsonListsInputOutput";
 const _SJM = "SparseJsonMaps";
@@ -254,18 +239,15 @@ const _SJMIO = "SparseJsonMapsInputOutput";
 const _SL = "StringList";
 const _SLM = "StringListMap";
 const _SLMt = "StructureListMember";
-const _SLi = "SimpleList";
 const _SLt = "StructureList";
-const _SM = "StringMap";
-const _SMi = "SimpleMap";
 const _SNM = "SparseNumberMap";
 const _SPI = "StringPayloadInput";
 const _SS = "StringSet";
 const _SSL = "SparseShortList";
 const _SSLp = "SparseStringList";
-const _SSM = "SparseStringMap";
-const _SSMp = "SparseSetMap";
-const _SSMpa = "SparseStructMap";
+const _SSM = "SparseSetMap";
+const _SSMp = "SparseStructMap";
+const _SSMpa = "SparseStringMap";
 const _SSP = "SimpleScalarProperties";
 const _SSPIO = "SimpleScalarPropertiesInputOutput";
 const _ST = "StreamingTraits";
@@ -282,12 +264,10 @@ const _T = "Timestamp";
 const _TBS = "TestBodyStructure";
 const _TBSIO = "TestBodyStructureInputOutput";
 const _TC = "TestConfig";
-const _TE = "TestEnum";
 const _TFH = "TimestampFormatHeaders";
 const _TFHIO = "TimestampFormatHeadersIO";
 const _TGNINP = "TestGetNoInputNoPayload";
 const _TGNP = "TestGetNoPayload";
-const _TIE = "TestIntEnum";
 const _TL = "TimestampList";
 const _TLo = "TopLevel";
 const _TNPIO = "TestNoPayloadInputOutput";
@@ -298,8 +278,6 @@ const _TPNINP = "TestPostNoInputNoPayload";
 const _TPNP = "TestPostNoPayload";
 const _TPS = "TestPayloadStructure";
 const _TPSIO = "TestPayloadStructureInputOutput";
-const _TSL = "TestStringList";
-const _TSM = "TestStringMap";
 const _UIAO = "UnitInputAndOutput";
 const _UIO = "UnionInputOutput";
 const _UP = "UnionPayload";
@@ -438,6 +416,7 @@ const _g = "greeting";
 const _h = "hello";
 const _hB = "headerByte";
 const _hBL = "headerBooleanList";
+const _hCR = "httpChecksumRequired";
 const _hD = "headerDouble";
 const _hDOT = "httpDateOnTarget";
 const _hDt = "httpDate";
@@ -885,7 +864,7 @@ export var EnumPayloadInput = struct(n0, _EPI, 0, [_p], [[0, 16]]);
 export var Farewell = struct(n0, _Fa, 0, [_ph], [0]);
 export var FooError = error(
   n0,
-  _FEo,
+  _FE,
   {
     [_e]: _se,
     [_hE]: 500,
@@ -1289,7 +1268,7 @@ export var JsonMapsInputOutput = struct(
   _JMIO,
   0,
   [_dSM, _dNM, _dBM, _dSMe, _dSMen],
-  [() => DenseStructMap, 128 | 1, 128 | 2, 128 | 0, map(n0, _DSMe, 0, 0, 64 | 0)]
+  [() => DenseStructMap, 128 | 1, 128 | 2, 128 | 0, map(n0, _DSM, 0, 0, 64 | 0)]
 );
 export var JsonTimestampsInputOutput = struct(
   n0,
@@ -2128,12 +2107,13 @@ export var DenseBooleanMap = 128 | 2;
 
 export var DenseNumberMap = 128 | 1;
 
-export var DenseSetMap = map(n0, _DSMe, 0, 0, 64 | 0);
+export var DenseSetMap = map(n0, _DSM, 0, 0, 64 | 0);
 export var DenseStringMap = 128 | 0;
 
-export var DenseStructMap = map(n0, _DSMen, 0, 0, () => GreetingStruct_n1);
+export var DenseStructMap = map(n0, _DSMe, 0, 0, () => GreetingStruct_n1);
 export var DialogMap = map(n0, _DM, 0, 0, () => Dialog);
-export var DocumentValuedMap = map(n0, _DVM, 0, 0, 15);
+export var DocumentValuedMap = 128 | 15;
+
 export var SimpleMap = 128 | 0;
 
 export var SparseBooleanMap = map(
@@ -2156,7 +2136,7 @@ export var SparseNumberMap = map(
 );
 export var SparseSetMap = map(
   n0,
-  _SSMp,
+  _SSM,
   {
     [_sp]: 1,
   },
@@ -2165,7 +2145,7 @@ export var SparseSetMap = map(
 );
 export var SparseStructMap = map(
   n0,
-  _SSMpa,
+  _SSMp,
   {
     [_sp]: 1,
   },
@@ -2180,7 +2160,7 @@ export var IntegerEnumMap = 128 | 1;
 
 export var SparseStringMap = map(
   n1,
-  _SSM,
+  _SSMpa,
   {
     [_sp]: 1,
   },
@@ -2268,7 +2248,7 @@ export var DatetimeOffsets = op(
 );
 export var DocumentType = op(
   n0,
-  _DTo,
+  _DT,
   {
     [_ht]: ["PUT", "/DocumentType", 200],
   },
@@ -2354,6 +2334,7 @@ export var HttpChecksumRequired = op(
   _HCR,
   {
     [_ht]: ["POST", "/HttpChecksumRequired", 200],
+    [_hCR]: 1,
   },
   () => HttpChecksumRequiredInputOutput,
   () => HttpChecksumRequiredInputOutput

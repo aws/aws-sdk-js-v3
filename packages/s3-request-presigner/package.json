@@ -25,9 +25,9 @@
     "@aws-sdk/signature-v4-multi-region": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
-    "@smithy/middleware-endpoint": "^4.1.11",
+    "@smithy/middleware-endpoint": "^4.1.12",
     "@smithy/protocol-http": "^5.1.2",
-    "@smithy/smithy-client": "^4.4.3",
+    "@smithy/smithy-client": "^4.4.4",
     "@smithy/types": "^4.3.1",
     "tslib": "^2.6.2"
   },

@@ -4043,7 +4043,7 @@ const de_ChatOutputStream = (
         ),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 const de_ActionReviewEvent_event = async (output: any, context: __SerdeContext): Promise<ActionReviewEvent> => {

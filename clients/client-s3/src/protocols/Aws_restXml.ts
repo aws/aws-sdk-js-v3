@@ -5913,7 +5913,7 @@ const de_SelectObjectContentEventStream = (
         End: await de_EndEvent_event(event["End"], context),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 const de_ContinuationEvent_event = async (output: any, context: __SerdeContext): Promise<ContinuationEvent> => {

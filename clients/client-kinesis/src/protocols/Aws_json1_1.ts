@@ -1659,7 +1659,7 @@ const de_SubscribeToShardEventStream = (
         InternalFailureException: await de_InternalFailureException_event(event["InternalFailureException"], context),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 const de_InternalFailureException_event = async (

@@ -386,7 +386,7 @@ const de_LivenessResponseStream = (
         ),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 const de_ChallengeEvent_event = async (output: any, context: __SerdeContext): Promise<ChallengeEvent> => {

@@ -17,7 +17,7 @@ export interface ClientInputEndpointParameters {
   disableS3ExpressSessionAuth?: boolean | undefined | Provider<boolean | undefined>;
 }
 
-export type ClientResolvedEndpointParameters = ClientInputEndpointParameters & {
+export type ClientResolvedEndpointParameters = Omit<ClientInputEndpointParameters, "endpoint"> & {
   defaultSigningName: string;
 };
 

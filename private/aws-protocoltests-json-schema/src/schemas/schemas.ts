@@ -11,23 +11,18 @@ const _CTPO = "ContentTypeParametersOutput";
 const _D = "Double";
 const _DO = "DatetimeOffsets";
 const _DOO = "DatetimeOffsetsOutput";
-const _DT = "DateTime";
 const _EO = "EmptyOperation";
 const _EOn = "EndpointOperation";
 const _ES = "EmptyStruct";
 const _EWHLO = "EndpointWithHostLabelOperation";
 const _EWM = "ErrorWithMembers";
 const _EWMr = "ErrorWithoutMembers";
-const _F = "Float";
-const _FE = "FooEnum";
-const _FEL = "FooEnumList";
-const _FEM = "FooEnumMap";
-const _FES = "FooEnumSet";
-const _FEo = "FooError";
+const _F = "Foo";
+const _FE = "FooError";
 const _FS = "FractionalSeconds";
 const _FSO = "FractionalSecondsOutput";
-const _Fo = "Foo";
-const _Foo = "Fooooo";
+const _Fl = "Float";
+const _Fo = "Fooooo";
 const _GS = "GreetingStruct";
 const _GWE = "GreetingWithErrors";
 const _GWEO = "GreetingWithErrorsOutput";
@@ -35,10 +30,6 @@ const _HLI = "HostLabelInput";
 const _HT = "HttpdateTimestamp";
 const _HWPO = "HostWithPathOperation";
 const _I = "Integer";
-const _IE = "IntegerEnum";
-const _IEL = "IntegerEnumList";
-const _IEM = "IntegerEnumMap";
-const _IES = "IntegerEnumSet";
 const _IF = "IntegerField";
 const _IG = "InvalidGreeting";
 const _IT = "Iso8601Timestamp";
@@ -83,8 +74,6 @@ const _RMe = "RenamedMember";
 const _RS = "RecursiveStruct";
 const _S = "String";
 const _SF = "StringField";
-const _SL = "StringList";
-const _SM = "StringMap";
 const _SNO = "SparseNullsOperation";
 const _SNOIO = "SparseNullsOperationInputOutput";
 const _SS = "SimpleStruct";
@@ -178,12 +167,12 @@ export var ComplexNestedErrorData = struct(
   n0,
   _CNED,
   0,
-  [_Fo],
+  [_F],
   [
     [
       0,
       {
-        [_jN]: _Foo,
+        [_jN]: _Fo,
       },
     ],
   ]
@@ -216,7 +205,7 @@ export var ErrorWithoutMembers = error(
 );
 export var FooError = error(
   n0,
-  _FEo,
+  _FE,
   {
     [_e]: _s,
   },
@@ -275,7 +264,7 @@ export var KitchenSink = struct(
     _Bo,
     _D,
     _ES,
-    _F,
+    _Fl,
     _HT,
     _I,
     _IT,

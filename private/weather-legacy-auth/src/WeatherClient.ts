@@ -60,7 +60,14 @@ import {
 import { Credentials as __Credentials } from "@aws-sdk/types";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
-import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import {
+  EndpointInputConfig,
+  EndpointRequiredInputConfig,
+  EndpointRequiredResolvedConfig,
+  EndpointResolvedConfig,
+  resolveEndpointConfig,
+  resolveEndpointRequiredConfig,
+} from "@smithy/middleware-endpoint";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@smithy/middleware-retry";
 import { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
 import {
@@ -271,6 +278,7 @@ export type WeatherClientConfigType = Partial<__SmithyConfiguration<__HttpHandle
   HostHeaderInputConfig &
   SigV4AuthInputConfig &
   EndpointInputConfig<EndpointParameters> &
+  EndpointRequiredInputConfig &
   HttpApiKeyAuthInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -293,6 +301,7 @@ export type WeatherClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
   HostHeaderResolvedConfig &
   SigV4AuthResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &
+  EndpointRequiredResolvedConfig &
   HttpApiKeyAuthResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -328,9 +337,10 @@ export class WeatherClient extends __Client<
     let _config_6 = resolveHostHeaderConfig(_config_5);
     let _config_7 = resolveSigV4AuthConfig(_config_6);
     let _config_8 = resolveEndpointConfig(_config_7);
-    let _config_9 = resolveHttpApiKeyAuthConfig(_config_8);
-    let _config_10 = resolveRuntimeExtensions(_config_9, configuration?.extensions || []);
-    this.config = _config_10;
+    let _config_9 = resolveEndpointRequiredConfig(_config_8);
+    let _config_10 = resolveHttpApiKeyAuthConfig(_config_9);
+    let _config_11 = resolveRuntimeExtensions(_config_10, configuration?.extensions || []);
+    this.config = _config_11;
     this.middlewareStack.use(getTokenPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));

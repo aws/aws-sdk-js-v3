@@ -1977,7 +1977,7 @@ const de_FlowResponseStream = (
         ),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 /**
@@ -2062,7 +2062,7 @@ const de_InlineAgentResponseStream = (
         files: await de_InlineAgentFilePart_event(event["files"], context),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 /**
@@ -2116,7 +2116,7 @@ const de_OptimizedPromptStream = (
         badGatewayException: await de_BadGatewayException_event(event["badGatewayException"], context),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 /**
@@ -2206,7 +2206,7 @@ const de_ResponseStream = (
         files: await de_FilePart_event(event["files"], context),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 /**
@@ -2286,7 +2286,7 @@ const de_RetrieveAndGenerateStreamResponseOutput = (
         badGatewayException: await de_BadGatewayException_event(event["badGatewayException"], context),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 const de_AccessDeniedException_event = async (output: any, context: __SerdeContext): Promise<AccessDeniedException> => {
