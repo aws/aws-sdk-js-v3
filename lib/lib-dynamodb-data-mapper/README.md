@@ -1,132 +1,153 @@
-# Draft - WIP
+# Amazon DynamoDB DataMapper Library
 
-This is used for now to follow some lines
+[![Apache 2 License](@TBD)](http://aws.amazon.com/apache-2-0/)
 
-# Structure Based on @aws-sdk/lib-dynamodb
+This library provides a `DataMapper` class that enables seamless mapping between application domain models and their persisted representation in DynamoDB. You can define your schema using metadata protocol, decorators (upcoming), or static symbols, and interact with DynamoDB using clean, object-oriented methods.
 
-lib-dynamodb-datamapper/
-├── src/
-│ ├── baseCommands/ ← shared logic (optional: base class, marshalling utils)
-│ ├── commands/ ← put, get, update, delete, etc.
-│ ├── pagination/ ← support async iteration over scan/query
-│ ├── decorators/ ← @table, @attribute, @embed
-│ ├── DataMapper.ts ← the public-facing class
-│ └── index.ts ← exports DataMapper and decorators
+Built for modern async/await workflows and powered by a schema-aware marshalling engine, this library simplifies the data access layer with strong typing, flexibility, and DynamoDB idiomatic practices.
 
-⸻
+## Getting started
 
-## baseCommands/
+> Work in progress! The types and interface are subject to change as implementation and review progress.
 
-• Optional base class or shared logic reused across commands
-• Good for things like schema marshalling/unmarshalling, base command input types
+### Installation
 
-## commands/
-
-• Contains individual implementations: PutCommand.ts, GetCommand.ts, etc.
-• Each file encapsulates a single logical operation (like SDK Command classes)
-
-## pagination/
-
-• Will contain async iterator helpers for query and scan
-• Example: paginateQuery.ts, paginateScan.ts
-
-## decorators/
-
-• @table, @attribute, @embed decorators and related metadata helpers
-• Uses reflect-metadata to attach schema info to classes and properties
-
-⸻
-
-# Naming Consistency with lib-dynamodb
-
-Existing lib-dynamodb folder Your equivalent
-
-- commands/ commands/ for each operation
-- baseCommand/ baseCommands/ for schema logic
-- pagination/ pagination/ for async iterables
-- marshall/ In your case, part of baseCommands
-- middleware/ Not applicable yet (but possible in future)
-
-## commands/
-
-• Contains high-level, user-facing operations (e.g., PutCommand.ts, GetCommand.ts)
-• Each file typically implements the full logic for a specific public method (e.g., how to handle put() on an object)
-• Tied to concrete behaviors like:
-• invoking DynamoDB
-• validating inputs
-• handling marshalling
-
-> Think: “What the library does” (use case logic)
-
-## baseCommands/
-
-• Contains shared low-level logic or base classes that multiple commands rely on
-• Examples include:
-• abstract base classes
-• shared marshalling/unmarshalling logic
-• schema-to-DynamoDB conversions
-• decorators → command metadata extraction
-
-> Think: “How the library does it under the hood” (reusable building blocks)
-
-👇 Example
-
-```
-commands/PutCommand.ts
-
-import { buildPutInput } from "../baseCommands/buildPutInput";
-import { PutCommand } from "@aws-sdk/lib-dynamodb";
-
-export async function runPutCommand(...) {
-const input = buildPutInput(...);
-return client.send(new PutCommand(input));
-}
-
-baseCommands/buildPutInput.ts
-
-export function buildPutInput(item: object, metadata: TableMetadata): PutCommandInput {
-return {
-TableName: metadata.tableName,
-Item: item,
-};
-}
-
+```bash
+npm install @aws-sdk/lib-dynamodb-data-mapper
 ```
 
-# Data Marshaller
+> Other dependencies:
 
-## marshaller/
+```bash
+npm install @aws-sdk/client-dynamodb
+```
 
-### 1. DataMarshaller.ts
+---
 
-• Role: Main engine for schema-driven marshalling/unmarshalling
-• Responsibilities:
-• Uses getSchema() to retrieve schema
-• Uses sdkMarshall() / sdkUnmarshall() for low-level conversions
-• Iterates over fields defined in schema
-• Hydrates class instances via new model()
+## DataMapper Public Interface
 
-### 2. schema/Schema.ts
+```ts
+interface DataMapperConfig {
+  client: DynamoDBClient;
+  translateConfig?: marshallOptions;
+}
 
-• Role: Defines your schema structure and supported types
-• Key exports:
-• Schema = { [fieldName]: SchemaType }
-• SchemaType = discriminated union of supported types (String, Number, Date, Map, etc.)
-• Each type includes optional metadata like attributeName, versionAttribute, etc.
+class DataMapper<D extends object, T = D> {
+  static from(modelCtor: new () => T, config: DataMapperConfig & TableBindingConfig<D, T>): DataMapper<D, T>;
 
-### 3. schemaMetadata.ts
+  put(
+    item: T,
+    criteria?: Omit<Partial<PutItemCommandInput>, "TableName" | "Item">,
+    options?: HttpHandlerOptions
+  ): Promise<T>;
 
-• Role: Provides symbol-based metadata lookup
-• Key symbols:
-• DYNAMODB_SCHEMA – symbol to store or retrieve schema
-• DYNAMODB_TABLE – symbol for table name (optional)
-• getSchema(item) – returns schema (via function or object)
-• getTableName(item) – returns table name (via function or string)
-• Usage: Mirrors v2’s approach, used internally by DataMarshaller
+  get(key: Partial<D>, options?: HttpHandlerOptions): Promise<T | undefined>;
 
-### Summary: Your marshalling stack is composed of
+  delete(): Promise<void>; // Not yet implemented
+  query(): AsyncIterable<T>; // Not yet implemented
+  scan(): AsyncIterable<T>; // Not yet implemented
+}
+```
 
-- Component Role
-- DataMarshaller Core class to marshal/unmarshal based on schema
-- SchemaType.ts Describes schema structure
-- schemaMetadata.ts Gets schema at runtime via well-known symbols
+---
+
+## Supported Object Mapping Styles
+
+### 1. Plain Object (T = D)
+
+```ts
+type User = { id: string; name: string };
+const mapper = DataMapper.from(class Placeholder {}, { client });
+await mapper.put({ id: "123", name: "Alice" });
+```
+
+### 2. Class with Custom Transformers
+
+```ts
+class User {
+  id!: string;
+  name!: string;
+  static fromDocument(doc) {
+    return Object.assign(new User(), doc);
+  }
+  static toDocument(user) {
+    return { id: user.id, name: user.name };
+  }
+}
+
+const mapper = DataMapper.from(User, {
+  client,
+  tableName: "Users",
+  fromDocument: User.fromDocument,
+  toDocument: User.toDocument,
+});
+```
+
+### 3. Protocol Metadata Schema
+
+```ts
+class User {
+  id!: string;
+  name!: string;
+}
+
+Object.defineProperty(User.prototype, Symbol.for("DynamoDbSchema"), {
+  value: { id: { type: "String", keyType: "HASH" }, name: { type: "String" } },
+});
+
+Object.defineProperty(User.prototype, Symbol.for("DynamoDbTable"), {
+  value: "Users",
+});
+
+const mapper = DataMapper.from(User, { client });
+```
+
+### 4. Decorator-based Models _(planned)_
+
+```ts
+@Table("Users")
+class User {
+  @hashKey()
+  id!: string;
+
+  @attribute()
+  name!: string;
+}
+```
+
+> Not yet implemented — decorator support will be released in future iterations.
+
+---
+
+## Supported operations
+
+> This is a work in progress and will be updated as implementations are completed.
+
+T### `put`
+
+```ts
+await mapper.put({ id: "123", name: "Alice" });
+```
+
+### `get`
+
+```ts
+await mapper.get({ id: "123" });
+```
+
+### `delete`, `query`, `scan`
+
+> Not yet implemented — will be released in future iterations.
+
+---
+
+## Status
+
+- ✅ `put()` implemented and tested
+- ✅ `get()` implemented and tested
+- 🟡 `delete()` throws "not implemented"
+- 🟡 `query()` throws "not implemented"
+- 🟡 `scan()` throws "not implemented"
+- 🔜 Decorator-based mapping: not yet supported
+- 🔜 batching, and expression DSL: planned
+- Transactions defer for future releases

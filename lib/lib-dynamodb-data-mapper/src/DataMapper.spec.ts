@@ -1,50 +1,218 @@
-import type { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
-import { beforeEach,describe, expect, it, vi } from 'vitest';
+import "reflect-metadata";
 
-import { DataMapper } from './DataMapper';
+import { GetItemCommand, PutItemCommand } from "@aws-sdk/client-dynamodb";
+import { marshall as awsMarshall } from "@aws-sdk/util-dynamodb";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
-describe("DynamoDBDataMapper", () => {
-  let mockSend: ReturnType<typeof vi.fn>;
-  let mockClient: DynamoDBDocumentClient;
+import { DataMapper } from "./DataMapper";
+import { DataMarshaller } from "./marshaller";
+import { DynamoDbSchema, ItemSchema } from "./schema";
+import { attribute, hashKey, table } from "./schema/decorators";
 
-  class User {
-    id = '123';
-    name = 'Alice';
+class Placeholder {
+  id!: string;
+  name!: string;
+}
+class UserDefinedClass {
+  id!: string;
+  name!: string;
+  exampleMethod() {
+    return `${this.id} ${this.name}`;
   }
+}
+
+@table("Decorated")
+class DecoratedClass {
+  @hashKey()
+  id!: string;
+
+  @attribute()
+  name!: string;
+}
+
+const schema: ItemSchema = {
+  id: { type: "String", keyType: "HASH" },
+  name: { type: "String" },
+};
+
+const useCases = [
+  {
+    description: "plain typescript object, no class",
+    model: Placeholder,
+    tableName: "Placeholder",
+    document: { id: "123", name: "Alice" },
+    instance: { id: "123", name: "Alice" },
+  },
+  {
+    description: "class with no DynamoDB knowledge and custom transformers",
+    model: UserDefinedClass,
+    tableName: "Users",
+    document: { id: "123", name: "Alice" },
+    instance: Object.assign(new UserDefinedClass(), { id: "123", name: "Alice" }),
+    fromDocument: (doc: any) => Object.assign(new UserDefinedClass(), doc),
+    toDocument: (data: any) => ({ id: data.id, name: data.name }),
+  },
+  {
+    description: "class with static transformer methods",
+    document: { id: "123", name: "Alice" },
+    instance: Object.assign(new UserDefinedClass(), { id: "123", name: "Alice" }),
+    model: UserDefinedClass,
+    tableName: "test",
+    fromDocument:
+      "fromDocument" in UserDefinedClass
+        ? (UserDefinedClass as any).fromDocument
+        : (doc: any) => Object.assign(new UserDefinedClass(), doc),
+    toDocument:
+      "toDocument" in UserDefinedClass
+        ? (UserDefinedClass as any).toDocument
+        : (data: any) => ({ id: data.id, name: data.name }),
+  },
+  {
+    description: "class with schema metadata (protocol-based)",
+    model: UserDefinedClass,
+    schema,
+    tableName: "Users",
+    document: { id: "123", name: "Alice" },
+    instance: Object.assign(new UserDefinedClass(), { id: "123", name: "Alice" }),
+    fromDocument: (doc: any) => Object.assign(new UserDefinedClass(), doc),
+    toDocument: (data: any) => ({ id: data.id, name: data.name }),
+  },
+  {
+    description: "class with decorators",
+    model: DecoratedClass,
+    tableName: "test",
+    document: { id: "123", name: "Alice" },
+    instance: Object.assign(new DecoratedClass(), { id: "123", name: "Alice" }),
+    skip: false,
+  },
+];
+
+describe("DataMapper", () => {
+  const mockSend = vi.fn();
+  const mockClient = { send: mockSend } as any;
 
   beforeEach(() => {
-    mockSend = vi.fn();
-    mockClient = { send: mockSend } as any;
+    mockSend.mockReset();
   });
 
-  it("should be instantiated with a document client", () => {
-    const dummyClient = {} as any;
-    const mapper = new DataMapper({ docClient: dummyClient });
-    expect(mapper).toBeInstanceOf(DataMapper);
+  describe("from() factory", () => {
+    for (const { description, model, tableName, schema, fromDocument, toDocument, skip } of useCases) {
+      const run = skip ? it.skip : it;
+      run(`constructs correctly for ${description}`, () => {
+        if (schema) Object.defineProperty(model, DynamoDbSchema, { value: schema });
+
+        const mapper = DataMapper.from(model, {
+          client: mockClient,
+          schema,
+          tableName,
+          fromDocument,
+          toDocument,
+        });
+
+        expect(mapper).toBeInstanceOf(DataMapper);
+        expect(mapper["tableName"]).toBe(tableName);
+        expect(typeof mapper["fromDocument"]).toBe("function");
+        expect(typeof mapper["toDocument"]).toBe("function");
+        if (schema) expect(mapper["schema"]).toEqual(schema);
+      });
+    }
   });
 
-  it('calls DynamoDB put operation with item', async () => {
-    mockSend.mockResolvedValueOnce({});
-    const mapper = new DataMapper({ docClient: mockClient });
+  describe("put", () => {
+    for (const {
+      description,
+      model,
+      tableName,
+      document,
+      instance,
+      schema,
+      fromDocument,
+      toDocument,
+      skip,
+    } of useCases) {
+      const run = skip ? it.skip : it;
+      run(`put() works correctly for ${description}`, async () => {
+        if (schema) Object.defineProperty(model, DynamoDbSchema, { value: schema });
+        const marshalled = schema ? DataMarshaller.marshall(document, schema) : awsMarshall(document);
 
-    const result = await mapper.put(new User());
+        const mapper = DataMapper.from(model, {
+          client: mockClient,
+          schema,
+          tableName,
+          fromDocument,
+          toDocument,
+        });
 
-    expect(mockSend).toHaveBeenCalledTimes(1);
-    expect(mockSend.mock.calls[0][0].input.Item).toEqual({ id: '123', name: 'Alice' });
-    expect(result).toBeInstanceOf(User);
+        mockSend.mockResolvedValueOnce({ Attributes: marshalled });
+
+        const result = await mapper.put(instance);
+        expect(result).toMatchObject(document);
+
+        const cmd = mockSend.mock.calls[0][0];
+        expect(cmd).toBeInstanceOf(PutItemCommand);
+        expect(cmd.input.TableName).toBe(tableName);
+        expect(cmd.input.Item).toEqual(marshalled);
+      });
+    }
   });
 
-  it('calls DynamoDB get operation and hydrates object', async () => {
-    mockSend.mockResolvedValueOnce({
-      Item: { id: '123', name: 'Alice' }
+  describe("get", () => {
+    for (const {
+      description,
+      model,
+      tableName,
+      document,
+      instance,
+      schema,
+      fromDocument,
+      toDocument,
+      skip,
+    } of useCases) {
+      const run = skip ? it.skip : it;
+      run(`get() works correctly for ${description}`, async () => {
+        if (schema) Object.defineProperty(model, DynamoDbSchema, { value: schema });
+        const marshalled = schema ? DataMarshaller.marshall(document, schema) : awsMarshall(document);
+
+        const mapper = DataMapper.from(model, {
+          client: mockClient,
+          schema,
+          tableName,
+          fromDocument,
+          toDocument,
+        });
+
+        mockSend.mockResolvedValueOnce({ Item: marshalled });
+
+        const result = await mapper.get({ id: "123" });
+        expect(result).toMatchObject(document);
+
+        const cmd = mockSend.mock.calls[0][0];
+        expect(cmd).toBeInstanceOf(GetItemCommand);
+        expect(cmd.input.TableName).toBe(tableName);
+      });
+    }
+  });
+
+  describe("delete", () => {
+    it("throws not implemented", async () => {
+      const mapper = DataMapper.from(Placeholder, { client: mockClient, tableName: "test" });
+      await expect(mapper.delete()).rejects.toThrow("not implemented");
     });
-    const mapper = new DataMapper({ docClient: mockClient });
+  });
 
-    const result = await mapper.get({ id: '123' }, User);
+  describe("query", () => {
+    it("throws not implemented", async () => {
+      const mapper = DataMapper.from(Placeholder, { client: mockClient, tableName: "test" });
+      const iterator = mapper.query()[Symbol.asyncIterator]();
+      await expect(iterator.next()).rejects.toThrow("not implemented");
+    });
+  });
 
-    expect(mockSend).toHaveBeenCalledTimes(1);
-    expect(mockSend.mock.calls[0][0].input.Key).toEqual({ id: '123' });
-    expect(result).toBeInstanceOf(User);
-    expect(result.name).toBe('Alice');
+  describe("scan", () => {
+    it("throws not implemented", async () => {
+      const mapper = DataMapper.from(Placeholder, { client: mockClient, tableName: "test" });
+      const iter = mapper.scan()[Symbol.asyncIterator]();
+      await expect(iter.next()).rejects.toThrow("not implemented");
+    });
   });
 });

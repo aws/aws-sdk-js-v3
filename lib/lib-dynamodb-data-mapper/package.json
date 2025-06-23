@@ -2,12 +2,12 @@
   "name": "@aws-sdk/lib-dynamodb-data-mapper",
   "version": "0.1.0",
   "description": "Schema-based DataMapper for AWS SDK v3",
-  "main": "./dist/index.js",
+  "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist-types/index.d.ts",
   "scripts": {
-    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
-    "build:cjs": "node ../../scripts/compilation/inline lib-dynamodb",
+    "build": "concurrently 'yarn build:es && yarn build:cjs' 'yarn build:types'",
+    "build:cjs": "node ../../scripts/compilation/inline lib-dynamodb-data-mapper",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
@@ -17,7 +17,8 @@
     "test": "yarn g:vitest run",
     "test:e2e": "yarn g:vitest run -c vitest.config.e2e.ts --mode development",
     "test:watch": "yarn g:vitest watch",
-    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.ts"
+    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.ts",
+    "lint": "eslint 'src/**/*.{ts,tsx}'"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -28,25 +29,31 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "*",
     "@aws-sdk/core": "*",
     "@aws-sdk/util-dynamodb": "*",
-    "@smithy/core": "^3.2.0",
-    "@smithy/smithy-client": "^4.2.0",
+    "@smithy/core": "^3.3.1",
+    "@smithy/smithy-client": "^4.2.2",
     "@smithy/types": "^4.2.0",
-    "reflect-metadata": "^0.1.13",
+    "reflect-metadata": "^0.2.2",
     "tslib": "^2.6.2"
-  },
-  "peerDependencies": {
-    "@aws-sdk/client-dynamodb": "*"
   },
   "devDependencies": {
     "@aws-sdk/client-dynamodb": "*",
+    "@swc/core": "^1.12.1",
     "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^18.19.69",
+    "@typescript-eslint/eslint-plugin": "^8.33.1",
+    "@typescript-eslint/parser": "^8.33.1",
+    "@vitest/coverage-v8": "^3.2.4",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
+    "eslint": "^9.28.0",
+    "eslint-plugin-tsdoc": "^0.4.0",
     "rimraf": "3.0.2",
-    "typescript": "~5.2.2"
+    "typescript": "~5.8.3",
+    "unplugin-swc": "^1.5.4",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.4"
   },
   "typesVersions": {
     "<4.0": {
@@ -58,10 +65,13 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-dynamodb",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-dynamodb-data-mapper",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "lib/lib-dynamodb-data-mapper"
+  },
+  "exports": {
+    ".": "./index.js"
   }
 }

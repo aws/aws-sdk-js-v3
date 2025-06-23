@@ -7,5 +7,5 @@
 *.log
 package-lock.json
 
-# IDEs
+# IDE/editor-specific
 .vscode/
