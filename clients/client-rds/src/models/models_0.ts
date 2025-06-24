@@ -2459,6 +2459,33 @@ export interface CopyDBSnapshotMessage {
    * @public
    */
   CopyOptionGroup?: boolean | undefined;
+
+  /**
+   * <p>Specifies the name of the Availability Zone where RDS stores the DB snapshot. This value is valid only for snapshots that RDS stores on a Dedicated Local Zone.</p>
+   * @public
+   */
+  SnapshotAvailabilityZone?: string | undefined;
+
+  /**
+   * <p>Configures the location where RDS will store copied snapshots.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>local</code> (Dedicated Local Zone)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>outposts</code> (Amazon Web Services Outposts)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>region</code> (Amazon Web Services Region)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SnapshotTarget?: string | undefined;
 }
 
 /**
@@ -2761,7 +2788,7 @@ export interface DBSnapshot {
   SnapshotDatabaseTime?: Date | undefined;
 
   /**
-   * <p>Specifies where manual snapshots are stored: Amazon Web Services Outposts or the Amazon Web Services Region.</p>
+   * <p>Specifies where manual snapshots are stored: Dedicated Local Zones, Amazon Web Services Outposts or the Amazon Web Services Region.</p>
    * @public
    */
   SnapshotTarget?: string | undefined;
@@ -2791,6 +2818,12 @@ export interface DBSnapshot {
    * @public
    */
   MultiTenant?: boolean | undefined;
+
+  /**
+   * <p>Specifies the name of the Availability Zone where RDS stores the DB snapshot. This value is valid only for snapshots that RDS stores on a Dedicated Local Zone.</p>
+   * @public
+   */
+  SnapshotAvailabilityZone?: string | undefined;
 }
 
 /**
@@ -8605,6 +8638,10 @@ export interface CreateDBInstanceMessage {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>local</code> (Dedicated Local Zone)</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>outposts</code> (Amazon Web Services Outposts)</p>
    *             </li>
    *             <li>
@@ -9854,7 +9891,7 @@ export interface DBInstance {
   CustomIamInstanceProfile?: string | undefined;
 
   /**
-   * <p>The location where automated backups and manual snapshots are stored: Amazon Web Services Outposts or the Amazon Web Services Region.</p>
+   * <p>The location where automated backups and manual snapshots are stored: Dedicated Local Zones, Amazon Web Services Outposts or the Amazon Web Services Region.</p>
    * @public
    */
   BackupTarget?: string | undefined;
@@ -10723,6 +10760,23 @@ export interface CreateDBInstanceReadReplicaMessage {
    * @public
    */
   EnableCustomerOwnedIp?: boolean | undefined;
+
+  /**
+   * <p>The location where RDS stores automated backups and manual snapshots.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>local</code> for Dedicated Local Zones</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>region</code> for Amazon Web Services Region</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  BackupTarget?: string | undefined;
 
   /**
    * <p>The amount of storage (in gibibytes) to allocate initially for the read replica.
@@ -14421,7 +14475,7 @@ export interface DBInstanceAutomatedBackup {
   DBInstanceAutomatedBackupsReplications?: DBInstanceAutomatedBackupsReplication[] | undefined;
 
   /**
-   * <p>The location where automated backups are stored: Amazon Web Services Outposts or the Amazon Web Services Region.</p>
+   * <p>The location where automated backups are stored: Dedicated Local Zones, Amazon Web Services Outposts or the Amazon Web Services Region.</p>
    * @public
    */
   BackupTarget?: string | undefined;

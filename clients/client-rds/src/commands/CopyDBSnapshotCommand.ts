@@ -57,6 +57,8 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  *   OptionGroupName: "STRING_VALUE",
  *   TargetCustomAvailabilityZone: "STRING_VALUE",
  *   CopyOptionGroup: true || false,
+ *   SnapshotAvailabilityZone: "STRING_VALUE",
+ *   SnapshotTarget: "STRING_VALUE",
  * };
  * const command = new CopyDBSnapshotCommand(input);
  * const response = await client.send(command);
@@ -108,6 +110,7 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  * //     DBSystemId: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
  * //     MultiTenant: true || false,
+ * //     SnapshotAvailabilityZone: "STRING_VALUE",
  * //   },
  * // };
  *

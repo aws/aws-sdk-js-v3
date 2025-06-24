@@ -95,6 +95,7 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  * //     DBSystemId: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
  * //     MultiTenant: true || false,
+ * //     SnapshotAvailabilityZone: "STRING_VALUE",
  * //   },
  * // };
  *

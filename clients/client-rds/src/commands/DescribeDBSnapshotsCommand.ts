@@ -105,6 +105,7 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  * //       DBSystemId: "STRING_VALUE",
  * //       DedicatedLogVolume: true || false,
  * //       MultiTenant: true || false,
+ * //       SnapshotAvailabilityZone: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

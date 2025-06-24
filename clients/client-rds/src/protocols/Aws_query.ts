@@ -10256,6 +10256,12 @@ const se_CopyDBSnapshotMessage = (input: CopyDBSnapshotMessage, context: __Serde
   if (input[_COG] != null) {
     entries[_COG] = input[_COG];
   }
+  if (input[_SAZ] != null) {
+    entries[_SAZ] = input[_SAZ];
+  }
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
+  }
   return entries;
 };
 
@@ -10584,8 +10590,8 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
   if (input[_AS] != null) {
     entries[_AS] = input[_AS];
   }
-  if (input[_ST] != null) {
-    entries[_ST] = input[_ST];
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt];
   }
   if (input[_I] != null) {
     entries[_I] = input[_I];
@@ -10812,8 +10818,8 @@ const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __S
   if (input[_DBCI] != null) {
     entries[_DBCI] = input[_DBCI];
   }
-  if (input[_ST] != null) {
-    entries[_ST] = input[_ST];
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt];
   }
   if (input[_TCA] != null) {
     entries[_TCA] = input[_TCA];
@@ -10920,8 +10926,8 @@ const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __S
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
   }
-  if (input[_STt] != null) {
-    entries[_STt] = input[_STt];
+  if (input[_STto] != null) {
+    entries[_STto] = input[_STto];
   }
   if (input[_MMUP] != null) {
     entries[_MMUP] = input[_MMUP];
@@ -11011,8 +11017,8 @@ const se_CreateDBInstanceReadReplicaMessage = (
       entries[loc] = value;
     });
   }
-  if (input[_ST] != null) {
-    entries[_ST] = input[_ST];
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt];
   }
   if (input[_CTTS] != null) {
     entries[_CTTS] = input[_CTTS];
@@ -11107,11 +11113,14 @@ const se_CreateDBInstanceReadReplicaMessage = (
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
   }
-  if (input[_STt] != null) {
-    entries[_STt] = input[_STt];
+  if (input[_STto] != null) {
+    entries[_STto] = input[_STto];
   }
   if (input[_ECOI] != null) {
     entries[_ECOI] = input[_ECOI];
+  }
+  if (input[_BTa] != null) {
+    entries[_BTa] = input[_BTa];
   }
   if (input[_AS] != null) {
     entries[_AS] = input[_AS];
@@ -13788,8 +13797,8 @@ const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __Ser
   if (input[_AS] != null) {
     entries[_AS] = input[_AS];
   }
-  if (input[_ST] != null) {
-    entries[_ST] = input[_ST];
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt];
   }
   if (input[_I] != null) {
     entries[_I] = input[_I];
@@ -13995,8 +14004,8 @@ const se_ModifyDBInstanceMessage = (input: ModifyDBInstanceMessage, context: __S
   if (input[_NDBII] != null) {
     entries[_NDBII] = input[_NDBII];
   }
-  if (input[_ST] != null) {
-    entries[_ST] = input[_ST];
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt];
   }
   if (input[_TCA] != null) {
     entries[_TCA] = input[_TCA];
@@ -14115,8 +14124,8 @@ const se_ModifyDBInstanceMessage = (input: ModifyDBInstanceMessage, context: __S
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
   }
-  if (input[_STt] != null) {
-    entries[_STt] = input[_STt];
+  if (input[_STto] != null) {
+    entries[_STto] = input[_STto];
   }
   if (input[_MMUP] != null) {
     entries[_MMUP] = input[_MMUP];
@@ -15208,8 +15217,8 @@ const se_RestoreDBClusterFromS3Message = (input: RestoreDBClusterFromS3Message, 
   if (input[_MUSKKI] != null) {
     entries[_MUSKKI] = input[_MUSKKI];
   }
-  if (input[_ST] != null) {
-    entries[_ST] = input[_ST];
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt];
   }
   if (input[_ELS] != null) {
     entries[_ELS] = input[_ELS];
@@ -15326,8 +15335,8 @@ const se_RestoreDBClusterFromSnapshotMessage = (
   if (input[_DBCIC] != null) {
     entries[_DBCIC] = input[_DBCIC];
   }
-  if (input[_ST] != null) {
-    entries[_ST] = input[_ST];
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt];
   }
   if (input[_I] != null) {
     entries[_I] = input[_I];
@@ -15472,8 +15481,8 @@ const se_RestoreDBClusterToPointInTimeMessage = (
   if (input[_DBCIC] != null) {
     entries[_DBCIC] = input[_DBCIC];
   }
-  if (input[_ST] != null) {
-    entries[_ST] = input[_ST];
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt];
   }
   if (input[_PA] != null) {
     entries[_PA] = input[_PA];
@@ -15582,8 +15591,8 @@ const se_RestoreDBInstanceFromDBSnapshotMessage = (
       entries[loc] = value;
     });
   }
-  if (input[_ST] != null) {
-    entries[_ST] = input[_ST];
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt];
   }
   if (input[_TCA] != null) {
     entries[_TCA] = input[_TCA];
@@ -15673,8 +15682,8 @@ const se_RestoreDBInstanceFromDBSnapshotMessage = (
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
   }
-  if (input[_STt] != null) {
-    entries[_STt] = input[_STt];
+  if (input[_STto] != null) {
+    entries[_STto] = input[_STto];
   }
   if (input[_DBCSI] != null) {
     entries[_DBCSI] = input[_DBCSI];
@@ -15798,8 +15807,8 @@ const se_RestoreDBInstanceFromS3Message = (input: RestoreDBInstanceFromS3Message
       entries[loc] = value;
     });
   }
-  if (input[_ST] != null) {
-    entries[_ST] = input[_ST];
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt];
   }
   if (input[_SE] != null) {
     entries[_SE] = input[_SE];
@@ -15878,8 +15887,8 @@ const se_RestoreDBInstanceFromS3Message = (input: RestoreDBInstanceFromS3Message
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
   }
-  if (input[_STt] != null) {
-    entries[_STt] = input[_STt];
+  if (input[_STto] != null) {
+    entries[_STto] = input[_STto];
   }
   if (input[_MMUP] != null) {
     entries[_MMUP] = input[_MMUP];
@@ -15968,8 +15977,8 @@ const se_RestoreDBInstanceToPointInTimeMessage = (
       entries[loc] = value;
     });
   }
-  if (input[_ST] != null) {
-    entries[_ST] = input[_ST];
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt];
   }
   if (input[_TCA] != null) {
     entries[_TCA] = input[_TCA];
@@ -16065,8 +16074,8 @@ const se_RestoreDBInstanceToPointInTimeMessage = (
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
   }
-  if (input[_STt] != null) {
-    entries[_STt] = input[_STt];
+  if (input[_STto] != null) {
+    entries[_STto] = input[_STto];
   }
   if (input[_AS] != null) {
     entries[_AS] = input[_AS];
@@ -16964,8 +16973,8 @@ const de_ClusterPendingModifiedValues = (output: any, context: __SerdeContext): 
   if (output[_I] != null) {
     contents[_I] = __strictParseInt32(output[_I]) as number;
   }
-  if (output[_ST] != null) {
-    contents[_ST] = __expectString(output[_ST]);
+  if (output[_STt] != null) {
+    contents[_STt] = __expectString(output[_STt]);
   }
   if (output[_CD] != null) {
     contents[_CD] = de_CertificateDetails(output[_CD], context);
@@ -17560,8 +17569,8 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output[_DBCIC] != null) {
     contents[_DBCIC] = __expectString(output[_DBCIC]);
   }
-  if (output[_ST] != null) {
-    contents[_ST] = __expectString(output[_ST]);
+  if (output[_STt] != null) {
+    contents[_STt] = __expectString(output[_STt]);
   }
   if (output[_I] != null) {
     contents[_I] = __strictParseInt32(output[_I]) as number;
@@ -17614,8 +17623,8 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output[_LD] != null) {
     contents[_LD] = de_LimitlessDatabase(output[_LD], context);
   }
-  if (output[_STt] != null) {
-    contents[_STt] = __strictParseInt32(output[_STt]) as number;
+  if (output[_STto] != null) {
+    contents[_STto] = __strictParseInt32(output[_STto]) as number;
   }
   if (output[_CST] != null) {
     contents[_CST] = __expectString(output[_CST]);
@@ -17710,8 +17719,8 @@ const de_DBClusterAutomatedBackup = (output: any, context: __SerdeContext): DBCl
   if (output[_KKI] != null) {
     contents[_KKI] = __expectString(output[_KKI]);
   }
-  if (output[_ST] != null) {
-    contents[_ST] = __expectString(output[_ST]);
+  if (output[_STt] != null) {
+    contents[_STt] = __expectString(output[_STt]);
   }
   if (output[_I] != null) {
     contents[_I] = __strictParseInt32(output[_I]) as number;
@@ -17719,8 +17728,8 @@ const de_DBClusterAutomatedBackup = (output: any, context: __SerdeContext): DBCl
   if (output[_ABRPA] != null) {
     contents[_ABRPA] = __expectString(output[_ABRPA]);
   }
-  if (output[_STt] != null) {
-    contents[_STt] = __strictParseInt32(output[_STt]) as number;
+  if (output[_STto] != null) {
+    contents[_STto] = __strictParseInt32(output[_STto]) as number;
   }
   return contents;
 };
@@ -18310,14 +18319,14 @@ const de_DBClusterSnapshot = (output: any, context: __SerdeContext): DBClusterSn
   if (output[_DBSI] != null) {
     contents[_DBSI] = __expectString(output[_DBSI]);
   }
-  if (output[_ST] != null) {
-    contents[_ST] = __expectString(output[_ST]);
+  if (output[_STt] != null) {
+    contents[_STt] = __expectString(output[_STt]);
   }
   if (output[_DCRI] != null) {
     contents[_DCRI] = __expectString(output[_DCRI]);
   }
-  if (output[_STt] != null) {
-    contents[_STt] = __strictParseInt32(output[_STt]) as number;
+  if (output[_STto] != null) {
+    contents[_STto] = __strictParseInt32(output[_STto]) as number;
   }
   return contents;
 };
@@ -18728,8 +18737,8 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   if (output[_NCSN] != null) {
     contents[_NCSN] = __expectString(output[_NCSN]);
   }
-  if (output[_SAZ] != null) {
-    contents[_SAZ] = __expectString(output[_SAZ]);
+  if (output[_SAZe] != null) {
+    contents[_SAZe] = __expectString(output[_SAZe]);
   }
   if (output[_PA] != null) {
     contents[_PA] = __parseBoolean(output[_PA]);
@@ -18739,8 +18748,8 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   } else if (output[_SIt] != null && output[_SIt][_DBISI] != null) {
     contents[_SIt] = de_DBInstanceStatusInfoList(__getArrayIfSingleItem(output[_SIt][_DBISI]), context);
   }
-  if (output[_ST] != null) {
-    contents[_ST] = __expectString(output[_ST]);
+  if (output[_STt] != null) {
+    contents[_STt] = __expectString(output[_STt]);
   }
   if (output[_TCA] != null) {
     contents[_TCA] = __expectString(output[_TCA]);
@@ -18880,8 +18889,8 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   if (output[_ASPS] != null) {
     contents[_ASPS] = __expectString(output[_ASPS]);
   }
-  if (output[_STt] != null) {
-    contents[_STt] = __strictParseInt32(output[_STt]) as number;
+  if (output[_STto] != null) {
+    contents[_STto] = __strictParseInt32(output[_STto]) as number;
   }
   if (output[_DBSI] != null) {
     contents[_DBSI] = __expectString(output[_DBSI]);
@@ -18986,8 +18995,8 @@ const de_DBInstanceAutomatedBackup = (output: any, context: __SerdeContext): DBI
   if (output[_Enc] != null) {
     contents[_Enc] = __parseBoolean(output[_Enc]);
   }
-  if (output[_ST] != null) {
-    contents[_ST] = __expectString(output[_ST]);
+  if (output[_STt] != null) {
+    contents[_STt] = __expectString(output[_STt]);
   }
   if (output[_KKI] != null) {
     contents[_KKI] = __expectString(output[_KKI]);
@@ -19015,8 +19024,8 @@ const de_DBInstanceAutomatedBackup = (output: any, context: __SerdeContext): DBI
   if (output[_BTa] != null) {
     contents[_BTa] = __expectString(output[_BTa]);
   }
-  if (output[_STt] != null) {
-    contents[_STt] = __strictParseInt32(output[_STt]) as number;
+  if (output[_STto] != null) {
+    contents[_STto] = __strictParseInt32(output[_STto]) as number;
   }
   if (output[_ABRPA] != null) {
     contents[_ABRPA] = __expectString(output[_ABRPA]);
@@ -20126,8 +20135,8 @@ const de_DBSnapshot = (output: any, context: __SerdeContext): DBSnapshot => {
   if (output[_SDBSI] != null) {
     contents[_SDBSI] = __expectString(output[_SDBSI]);
   }
-  if (output[_ST] != null) {
-    contents[_ST] = __expectString(output[_ST]);
+  if (output[_STt] != null) {
+    contents[_STt] = __expectString(output[_STt]);
   }
   if (output[_TCA] != null) {
     contents[_TCA] = __expectString(output[_TCA]);
@@ -20166,11 +20175,11 @@ const de_DBSnapshot = (output: any, context: __SerdeContext): DBSnapshot => {
   if (output[_SDT] != null) {
     contents[_SDT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_SDT]));
   }
-  if (output[_STna] != null) {
-    contents[_STna] = __expectString(output[_STna]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
-  if (output[_STt] != null) {
-    contents[_STt] = __strictParseInt32(output[_STt]) as number;
+  if (output[_STto] != null) {
+    contents[_STto] = __strictParseInt32(output[_STto]) as number;
   }
   if (output[_DBSI] != null) {
     contents[_DBSI] = __expectString(output[_DBSI]);
@@ -20180,6 +20189,9 @@ const de_DBSnapshot = (output: any, context: __SerdeContext): DBSnapshot => {
   }
   if (output[_MT] != null) {
     contents[_MT] = __parseBoolean(output[_MT]);
+  }
+  if (output[_SAZ] != null) {
+    contents[_SAZ] = __expectString(output[_SAZ]);
   }
   return contents;
 };
@@ -21373,8 +21385,8 @@ const de_ExportTask = (output: any, context: __SerdeContext): ExportTask => {
   } else if (output[_EO] != null && output[_EO][_me] != null) {
     contents[_EO] = de_StringList(__getArrayIfSingleItem(output[_EO][_me]), context);
   }
-  if (output[_STnap] != null) {
-    contents[_STnap] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_STnap]));
+  if (output[_STna] != null) {
+    contents[_STna] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_STna]));
   }
   if (output[_TSTas] != null) {
     contents[_TSTas] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_TSTas]));
@@ -23098,8 +23110,8 @@ const de_OrderableDBInstanceOption = (output: any, context: __SerdeContext): Ord
   if (output[_SSE] != null) {
     contents[_SSE] = __parseBoolean(output[_SSE]);
   }
-  if (output[_ST] != null) {
-    contents[_ST] = __expectString(output[_ST]);
+  if (output[_STt] != null) {
+    contents[_STt] = __expectString(output[_STt]);
   }
   if (output[_SIupp] != null) {
     contents[_SIupp] = __parseBoolean(output[_SIupp]);
@@ -23402,8 +23414,8 @@ const de_PendingModifiedValues = (output: any, context: __SerdeContext): Pending
   if (output[_DBII] != null) {
     contents[_DBII] = __expectString(output[_DBII]);
   }
-  if (output[_ST] != null) {
-    contents[_ST] = __expectString(output[_ST]);
+  if (output[_STt] != null) {
+    contents[_STt] = __expectString(output[_STt]);
   }
   if (output[_CACI] != null) {
     contents[_CACI] = __expectString(output[_CACI]);
@@ -23428,8 +23440,8 @@ const de_PendingModifiedValues = (output: any, context: __SerdeContext): Pending
   if (output[_RFAMT] != null) {
     contents[_RFAMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_RFAMT]));
   }
-  if (output[_STt] != null) {
-    contents[_STt] = __strictParseInt32(output[_STt]) as number;
+  if (output[_STto] != null) {
+    contents[_STto] = __strictParseInt32(output[_STto]) as number;
   }
   if (output[_E] != null) {
     contents[_E] = __expectString(output[_E]);
@@ -25116,8 +25128,8 @@ const de_ValidDBInstanceModificationsMessage = (
  */
 const de_ValidStorageOptions = (output: any, context: __SerdeContext): ValidStorageOptions => {
   const contents: any = {};
-  if (output[_ST] != null) {
-    contents[_ST] = __expectString(output[_ST]);
+  if (output[_STt] != null) {
+    contents[_STt] = __expectString(output[_STt]);
   }
   if (output.StorageSize === "") {
     contents[_SSt] = [];
@@ -25956,7 +25968,8 @@ const _SAI = "SourceAccountId";
 const _SAS = "StartActivityStream";
 const _SASM = "SupportedActivityStreamModes";
 const _SASt = "StopActivityStream";
-const _SAZ = "SecondaryAvailabilityZone";
+const _SAZ = "SnapshotAvailabilityZone";
+const _SAZe = "SecondaryAvailabilityZone";
 const _SAZu = "SubnetAvailabilityZone";
 const _SAe = "SecretArn";
 const _SB = "SupportsBabelfish";
@@ -26053,16 +26066,16 @@ const _SST = "SupportsStorageThroughput";
 const _SSe = "SecretStatus";
 const _SSt = "StorageSize";
 const _SSu = "SubnetStatus";
-const _ST = "StorageType";
+const _ST = "SnapshotTarget";
 const _STA = "SnsTopicArn";
 const _STTIR = "StorageThroughputToIopsRatio";
 const _STn = "SnapshotType";
-const _STna = "SnapshotTarget";
-const _STnap = "SnapshotTime";
+const _STna = "SnapshotTime";
 const _STo = "SourceType";
-const _STt = "StorageThroughput";
+const _STt = "StorageType";
 const _STta = "StartTime";
 const _STtat = "StatusType";
+const _STto = "StorageThroughput";
 const _STu = "SupportedTimezones";
 const _STw = "SwitchoverTimeout";
 const _SUAP = "SecondsUntilAutoPause";

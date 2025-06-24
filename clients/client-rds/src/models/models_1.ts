@@ -13581,7 +13581,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
 
   /**
    * <p>Specifies where automated backups and manual snapshots are stored for the restored DB instance.</p>
-   *          <p>Possible values are <code>outposts</code> (Amazon Web Services Outposts) and <code>region</code> (Amazon Web Services Region). The default is <code>region</code>.</p>
+   *          <p>Possible values are <code>local</code> (Dedicated Local Zone), <code>outposts</code> (Amazon Web Services Outposts), and <code>region</code> (Amazon Web Services Region). The default is <code>region</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
    *             with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</p>
    * @public
@@ -15001,6 +15001,10 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    * <p>The location for storing automated backups and manual snapshots for the restored DB instance.</p>
    *          <p>Valid Values:</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>local</code> (Dedicated Local Zone)</p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>outposts</code> (Amazon Web Services Outposts)</p>

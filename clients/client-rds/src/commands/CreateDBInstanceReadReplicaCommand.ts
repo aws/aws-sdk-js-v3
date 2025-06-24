@@ -110,6 +110,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *   NetworkType: "STRING_VALUE",
  *   StorageThroughput: Number("int"),
  *   EnableCustomerOwnedIp: true || false,
+ *   BackupTarget: "STRING_VALUE",
  *   AllocatedStorage: Number("int"),
  *   SourceDBClusterIdentifier: "STRING_VALUE",
  *   DedicatedLogVolume: true || false,
