@@ -29,10 +29,10 @@ export interface DescribeGameServerInstancesCommandOutput extends DescribeGameSe
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Retrieves status
- *             information about the Amazon EC2 instances associated with a Amazon GameLift FleetIQ game server group.
+ *             information about the Amazon EC2 instances associated with a Amazon GameLift Servers FleetIQ game server group.
  *             Use this operation to detect when instances are active or not available to host new game
  *             servers.</p>
  *          <p>To request status for all instances in the game server group, provide a game server
@@ -48,7 +48,7 @@ export interface DescribeGameServerInstancesCommandOutput extends DescribeGameSe
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
  *                 Guide</a>
  *          </p>
  * @example

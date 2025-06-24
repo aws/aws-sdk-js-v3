@@ -29,7 +29,7 @@ export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlO
 
 /**
  * <p>Retrieves the location of stored game session logs for a specified game session on
- *             Amazon GameLift managed fleets. When a game session is terminated, Amazon GameLift automatically stores
+ *             Amazon GameLift Servers managed fleets. When a game session is terminated, Amazon GameLift Servers automatically stores
  *             the logs in Amazon S3 and retains them for 14 days. Use this URL to download the logs.</p>
  *          <note>
  *             <p>See the <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift">Amazon Web Services Service

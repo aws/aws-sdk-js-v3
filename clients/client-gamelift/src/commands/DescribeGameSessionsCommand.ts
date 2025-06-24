@@ -63,7 +63,7 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  *             queues. Continuously polling with <code>DescribeGameSessions</code> should only be used
  *             for games in development with low game session usage. </p>
  *          <p>
- *             <i>Available in Amazon GameLift Local.</i>
+ *             <i>Available in Amazon GameLift Servers Local.</i>
  *          </p>
  *          <p>
  *             <b>Learn more</b>

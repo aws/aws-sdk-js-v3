@@ -29,9 +29,9 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
  *          </p>
- *          <p>Updates information about a registered game server to help Amazon GameLift FleetIQ track game server
+ *          <p>Updates information about a registered game server to help Amazon GameLift Servers FleetIQ track game server
  *             availability. This operation is called by a game server process that is running on an
  *             instance in a game server group. </p>
  *          <p>Use this operation to update the following types of game server information. You can
@@ -62,7 +62,7 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
  *                 Guide</a>
  *          </p>
  * @example

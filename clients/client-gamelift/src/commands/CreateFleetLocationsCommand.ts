@@ -39,7 +39,7 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  *          <p>To add fleet locations, specify the fleet to be updated and provide a list of one or
  *             more locations. </p>
  *          <p>If successful, this operation returns the list of added locations with their status
- *             set to <code>NEW</code>. Amazon GameLift initiates the process of starting an instance in each
+ *             set to <code>NEW</code>. Amazon GameLift Servers initiates the process of starting an instance in each
  *             added location. You can track the status of each new location by monitoring location
  *             creation events using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html">DescribeFleetEvents</a>.</p>
  *          <p>
@@ -54,7 +54,7 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  *          </p>
  *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">
- *                 Amazon GameLift service locations</a> for managed hosting.</p>
+ *                 Amazon GameLift Servers service locations</a> for managed hosting.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -117,7 +117,7 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link NotReadyException} (client fault)
- *  <p> The operation failed because Amazon GameLift has not yet finished validating this compute. We
+ *  <p> The operation failed because Amazon GameLift Servers has not yet finished validating this compute. We
  *             recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href="http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/">exponential
  *                 backoffs and jitter</a>. </p>
  *

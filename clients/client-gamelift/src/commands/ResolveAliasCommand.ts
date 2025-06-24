@@ -30,7 +30,7 @@ export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __Metadat
 /**
  * <p>Attempts to retrieve a fleet ID that is associated with an alias. Specify a unique
  *             alias identifier.</p>
- *          <p>If the alias has a <code>SIMPLE</code> routing strategy, Amazon GameLift returns a fleet ID.
+ *          <p>If the alias has a <code>SIMPLE</code> routing strategy, Amazon GameLift Servers returns a fleet ID.
  *             If the alias has a <code>TERMINAL</code> routing strategy, the result is a
  *                 <code>TerminalRoutingStrategyException</code>.</p>
  *          <p>

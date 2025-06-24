@@ -34,7 +34,7 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  *             <b>Managed EC2 fleet</b>
  *          </p>
  *          <p>An EC2 fleet is a set of Amazon Elastic Compute Cloud (Amazon EC2) instances. Your game server build is
- *             deployed to each fleet instance. Amazon GameLift manages the fleet's instances and controls the
+ *             deployed to each fleet instance. Amazon GameLift Servers manages the fleet's instances and controls the
  *             lifecycle of game server processes, which host game sessions for players. EC2 fleets can
  *             have instances in multiple locations. Each instance in the fleet is designated a
  *                 <code>Compute</code>.</p>
@@ -75,7 +75,7 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  *             </li>
  *          </ul>
  *          <p>If successful, this operation creates a new fleet resource and places it in
- *                 <code>NEW</code> status while Amazon GameLift initiates the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-all.html#fleets-creation-workflow">fleet creation workflow</a>. To debug your fleet, fetch logs, view performance
+ *                 <code>NEW</code> status while Amazon GameLift Servers initiates the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-all.html#fleets-creation-workflow">fleet creation workflow</a>. To debug your fleet, fetch logs, view performance
  *             metrics or other actions on the fleet, create a development fleet with port 22/3389
  *             open. As a best practice, we recommend opening ports for remote access only when you
  *             need them and closing them when you're finished. </p>
@@ -85,7 +85,7 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  *             <b>Anywhere fleet</b>
  *          </p>
  *          <p>An Anywhere fleet represents compute resources that are not owned or managed by
- *             Amazon GameLift. You might create an Anywhere fleet with your local machine for testing, or use
+ *             Amazon GameLift Servers. You might create an Anywhere fleet with your local machine for testing, or use
  *             one to host game servers with on-premises hardware or other game hosting solutions. </p>
  *          <p>To create an Anywhere fleet, provide these required parameters:</p>
  *          <ul>
@@ -270,7 +270,7 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link NotReadyException} (client fault)
- *  <p> The operation failed because Amazon GameLift has not yet finished validating this compute. We
+ *  <p> The operation failed because Amazon GameLift Servers has not yet finished validating this compute. We
  *             recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href="http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/">exponential
  *                 backoffs and jitter</a>. </p>
  *

@@ -42,14 +42,14 @@ export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput,
  *                     provide a fleet ID, a location name, and the type of actions to resume. </p>
  *             </li>
  *          </ul>
- *          <p>If successful, Amazon GameLift once again initiates scaling events as triggered by the fleet's
+ *          <p>If successful, Amazon GameLift Servers once again initiates scaling events as triggered by the fleet's
  *             scaling policies. If actions on the fleet location were never stopped, this operation
  *             will have no effect.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift Servers
  *                 fleets</a>
  *          </p>
  * @example

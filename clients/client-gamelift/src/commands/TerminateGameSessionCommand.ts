@@ -36,9 +36,9 @@ export interface TerminateGameSessionCommandOutput extends TerminateGameSessionO
  *             game session that isn't in <code>ERROR</code> status. Terminating a game session is the
  *             most efficient way to free up a server process when it's hosting a game session that's
  *             in a bad state or not ending properly. You can use this action to terminate a game
- *             session that's being hosted on any type of Amazon GameLift fleet compute, including computes for
+ *             session that's being hosted on any type of Amazon GameLift Servers fleet compute, including computes for
  *             managed EC2, managed container, and Anywhere fleets. The game server must be integrated
- *             with Amazon GameLift server SDK 5.x or greater.</p>
+ *             with Amazon GameLift Servers server SDK 5.x or greater.</p>
  *          <p>
  *             <b>Request options</b>
  *          </p>
@@ -47,7 +47,7 @@ export interface TerminateGameSessionCommandOutput extends TerminateGameSessionO
  *          <ul>
  *             <li>
  *                <p>Initiate a graceful termination using the normal game session shutdown
- *                     sequence. With this mode, the Amazon GameLift service prompts the server process that's
+ *                     sequence. With this mode, the Amazon GameLift Servers service prompts the server process that's
  *                     hosting the game session by calling the server SDK callback method
  *                         <code>OnProcessTerminate()</code>. The callback implementation is part of
  *                     the custom game server code. It might involve a variety of actions to gracefully
@@ -55,7 +55,7 @@ export interface TerminateGameSessionCommandOutput extends TerminateGameSessionO
  *                     process.</p>
  *             </li>
  *             <li>
- *                <p>Force an immediate game session termination. With this mode, the Amazon GameLift
+ *                <p>Force an immediate game session termination. With this mode, the Amazon GameLift Servers
  *                     service takes action to stop the server process, which ends the game session
  *                     without the normal game session shutdown sequence. </p>
  *             </li>
@@ -73,9 +73,9 @@ export interface TerminateGameSessionCommandOutput extends TerminateGameSessionO
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html">Add Amazon GameLift to your game server</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html">Add Amazon GameLift Servers to your game server</a>
  *          </p>
- *          <p>Amazon GameLift server SDK 5 reference guide for <code>OnProcessTerminate()</code>
+ *          <p>Amazon GameLift Servers server SDK 5 reference guide for <code>OnProcessTerminate()</code>
  *             (<a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-server-sdk5-cpp-initsdk.html">C++</a>)
  *             (<a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-server-sdk5-csharp-initsdk.html">C#</a>)
  *             (<a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-server-sdk5-unreal-initsdk.html">Unreal</a>)
@@ -147,7 +147,7 @@ export interface TerminateGameSessionCommandOutput extends TerminateGameSessionO
  *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link NotReadyException} (client fault)
- *  <p> The operation failed because Amazon GameLift has not yet finished validating this compute. We
+ *  <p> The operation failed because Amazon GameLift Servers has not yet finished validating this compute. We
  *             recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href="http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/">exponential
  *                 backoffs and jitter</a>. </p>
  *

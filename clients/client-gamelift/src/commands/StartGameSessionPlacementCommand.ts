@@ -34,9 +34,9 @@ export interface StartGameSessionPlacementCommandOutput extends StartGameSession
 
 /**
  * <p>Makes a request to start a new game session using a game session queue. When
- *             processing a placement request, Amazon GameLift looks for the best possible available resource to
+ *             processing a placement request, Amazon GameLift Servers looks for the best possible available resource to
  *             host the game session, based on how the queue is configured to prioritize factors such
- *             as resource cost, latency, and location. After selecting an available resource, Amazon GameLift
+ *             as resource cost, latency, and location. After selecting an available resource, Amazon GameLift Servers
  *             prompts the resource to start a game session. A placement request can include a list of
  *             players to create a set of player sessions. The request can also include information to
  *             pass to the new game session, such as to specify a game map or other options.</p>
@@ -78,12 +78,12 @@ export interface StartGameSessionPlacementCommandOutput extends StartGameSession
  *                   <li>
  *                      <p>
  *                         <code>PlayerLatencies</code>. Include a set of latency values for
- *                             destinations in the queue. When a request includes latency data, Amazon GameLift
+ *                             destinations in the queue. When a request includes latency data, Amazon GameLift Servers
  *                             automatically reorder the queue's locations priority list based on
  *                             lowest available latency values. If a request includes latency data for
- *                             multiple players, Amazon GameLift calculates each location's average latency for
- *                             all players and reorders to find the lowest latency across all
- *                             players.</p>
+ *                             multiple players, Amazon GameLift Servers calculates each location's average latency for
+ *                             all players and reorders to find the lowest latency across all players.
+ *                                 </p>
  *                   </li>
  *                   <li>
  *                      <p>Don't include <code>PriorityConfigurationOverride</code>.</p>
@@ -95,9 +95,9 @@ export interface StartGameSessionPlacementCommandOutput extends StartGameSession
  *                             queue that's configured to prioritize location first (see <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_PriorityConfiguration.html">PriorityConfiguration</a> for game session queues), you can
  *                             optionally use the <i>PriorityConfigurationOverride</i>
  *                             parameter to substitute a different location priority list for this
- *                             placement request. Amazon GameLift searches each location on the priority
+ *                             placement request. Amazon GameLift Servers searches each location on the priority
  *                             override list to find an available hosting resource for the new game
- *                             session. Specify a fallback strategy to use in the event that Amazon GameLift
+ *                             session. Specify a fallback strategy to use in the event that Amazon GameLift Servers
  *                             fails to place the game session in any of the locations on the override
  *                             list. </p>
  *                   </li>
@@ -122,7 +122,7 @@ export interface StartGameSessionPlacementCommandOutput extends StartGameSession
  *             placement requests by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionPlacement.html">DescribeGameSessionPlacement</a> or by monitoring queue notifications. When the
  *             request status is <code>FULFILLED</code>, a new game session has started and the
  *             placement request is updated with connection information for the game session (IP
- *             address and port). If the request included player session data, Amazon GameLift creates a player
+ *             address and port). If the request included player session data, Amazon GameLift Servers creates a player
  *             session for each player ID in the request.</p>
  *          <p>The request results in a <code>InvalidRequestException</code> in the following
  *             situations:</p>
@@ -136,7 +136,7 @@ export interface StartGameSessionPlacementCommandOutput extends StartGameSession
  *                     parameter and specifies a queue that doesn't prioritize locations.</p>
  *             </li>
  *          </ul>
- *          <p>Amazon GameLift continues to retry each placement request until it reaches the queue's timeout
+ *          <p>Amazon GameLift Servers continues to retry each placement request until it reaches the queue's timeout
  *             setting. If a request times out, you can resubmit the request to the same queue or try a
  *             different queue. </p>
  * @example

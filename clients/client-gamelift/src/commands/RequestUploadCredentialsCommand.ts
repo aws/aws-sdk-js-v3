@@ -33,7 +33,7 @@ export interface RequestUploadCredentialsCommandOutput extends RequestUploadCred
 
 /**
  * <p>Retrieves a fresh set of credentials for use when uploading a new set of game build
- *             files to Amazon GameLift's Amazon S3. This is done as part of the build creation process; see
+ *             files to Amazon GameLift Servers's Amazon S3. This is done as part of the build creation process; see
  *                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateBuild.html">CreateBuild</a>.</p>
  *          <p>To request new credentials, specify the build ID as returned with an initial
  *                 <code>CreateBuild</code> request. If successful, a new set of credentials are

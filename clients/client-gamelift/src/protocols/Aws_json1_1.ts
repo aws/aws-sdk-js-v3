@@ -523,8 +523,6 @@ import {
   ListAliasesOutput,
   ListBuildsInput,
   ListBuildsOutput,
-  ListComputeInput,
-  ListComputeOutput,
   LocationConfiguration,
   LogConfiguration,
   MatchmakingConfiguration,
@@ -559,6 +557,8 @@ import {
   VpcPeeringAuthorization,
 } from "../models/models_0";
 import {
+  ListComputeInput,
+  ListComputeOutput,
   ListContainerFleetsInput,
   ListContainerFleetsOutput,
   ListContainerGroupDefinitionsInput,
@@ -6734,6 +6734,8 @@ const de_MatchmakingTicketList = (output: any, context: __SerdeContext): Matchma
 
 // de_OutOfCapacityException omitted.
 
+// de_PingBeacon omitted.
+
 // de_PlacedPlayerSession omitted.
 
 // de_PlacedPlayerSessionList omitted.
@@ -7084,6 +7086,8 @@ const de_TerminateGameSessionOutput = (output: any, context: __SerdeContext): Te
     GameSession: (_: any) => de_GameSession(_, context),
   }) as any;
 };
+
+// de_UDPEndpoint omitted.
 
 // de_UnauthorizedException omitted.
 

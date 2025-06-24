@@ -38,7 +38,7 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  *             for tickets that are in this status; calls for tickets not in this status result in an
  *             error.</p>
  *          <p>To register acceptance, specify the ticket ID, one or more players, and an acceptance response.
- *             When all players have accepted, Amazon GameLift advances the matchmaking tickets to status
+ *             When all players have accepted, Amazon GameLift Servers advances the matchmaking tickets to status
  *                 <code>PLACING</code>, and attempts to create a new game session for the match. </p>
  *          <p>If any player rejects the match, or if acceptances are not received before a specified
  *             timeout, the proposed match is dropped. Each matchmaking ticket in the failed match is handled as follows: </p>

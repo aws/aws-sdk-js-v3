@@ -46,14 +46,14 @@ export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, _
  *                     fleet ID, a location name, and the type of actions to suspend. </p>
  *             </li>
  *          </ul>
- *          <p>If successful, Amazon GameLift no longer initiates scaling events except in response to manual
+ *          <p>If successful, Amazon GameLift Servers no longer initiates scaling events except in response to manual
  *             changes using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html">UpdateFleetCapacity</a>. To restart fleet actions again, call
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartFleetActions.html">StartFleetActions</a>.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift Servers
  *             Fleets</a>
  *          </p>
  * @example

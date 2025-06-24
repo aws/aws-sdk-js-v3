@@ -29,13 +29,13 @@ export interface CreateGameServerGroupCommandOutput extends CreateGameServerGrou
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
  *          </p>
- *          <p>Creates a Amazon GameLift FleetIQ game server
+ *          <p>Creates a Amazon GameLift Servers FleetIQ game server
  *             group for managing game hosting on a collection of Amazon Elastic Compute Cloud instances for game hosting.
  *             This operation creates the game server group, creates an Auto Scaling group in your
  *             Amazon Web Services account, and establishes a link between the two groups. You can view the status of
- *             your game server groups in the Amazon GameLift console. Game server group metrics and events are
+ *             your game server groups in the Amazon GameLift Servers console. Game server group metrics and events are
  *             emitted to Amazon CloudWatch.</p>
  *          <p>Before creating a new game server group, you must have the following: </p>
  *          <ul>
@@ -45,29 +45,29 @@ export interface CreateGameServerGroupCommandOutput extends CreateGameServerGrou
  *                         <i>Amazon Elastic Compute Cloud User Guide</i>. </p>
  *             </li>
  *             <li>
- *                <p>An IAM role that extends limited access to your Amazon Web Services account to allow Amazon GameLift FleetIQ
+ *                <p>An IAM role that extends limited access to your Amazon Web Services account to allow Amazon GameLift Servers FleetIQ
  *                     to create and interact with the Auto Scaling group. For more information, see
  *                         <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-iam-permissions-roles.html">Create IAM
- *                         roles for cross-service interaction</a> in the <i>Amazon GameLift FleetIQ Developer
+ *                         roles for cross-service interaction</a> in the <i>Amazon GameLift Servers FleetIQ Developer
  *                         Guide</i>.</p>
  *             </li>
  *          </ul>
  *          <p>To create a new game server group, specify a unique group name, IAM role and Amazon Elastic Compute Cloud
  *             launch template, and provide a list of instance types that can be used in the group. You
  *             must also set initial maximum and minimum limits on the group's instance count. You can
- *             optionally set an Auto Scaling policy with target tracking based on a Amazon GameLift FleetIQ
+ *             optionally set an Auto Scaling policy with target tracking based on a Amazon GameLift Servers FleetIQ
  *             metric.</p>
  *          <p>Once the game server group and corresponding Auto Scaling group are created, you have
  *             full access to change the Auto Scaling group's configuration as needed. Several
  *             properties that are set when creating a game server group, including maximum/minimum
  *             size and auto-scaling policy settings, must be updated directly in the Auto Scaling
  *             group. Keep in mind that some Auto Scaling group properties are periodically updated by
- *             Amazon GameLift FleetIQ as part of its balancing activities to optimize for availability and cost.</p>
+ *             Amazon GameLift Servers FleetIQ as part of its balancing activities to optimize for availability and cost.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
  *                 Guide</a>
  *          </p>
  * @example

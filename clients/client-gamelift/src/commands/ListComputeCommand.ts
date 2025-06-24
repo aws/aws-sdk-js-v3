@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { ListComputeInput, ListComputeOutput, ListComputeOutputFilterSensitiveLog } from "../models/models_0";
+import { ListComputeInput, ListComputeOutput, ListComputeOutputFilterSensitiveLog } from "../models/models_1";
 import { de_ListComputeCommand, se_ListComputeCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -28,7 +28,7 @@ export interface ListComputeCommandInput extends ListComputeInput {}
 export interface ListComputeCommandOutput extends ListComputeOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves information on the compute resources in an Amazon GameLift fleet. Use the pagination
+ * <p>Retrieves information on the compute resources in an Amazon GameLift Servers fleet. Use the pagination
  *             parameters to retrieve results in a set of sequential pages.</p>
  *          <p>
  *             <b>Request options</b>

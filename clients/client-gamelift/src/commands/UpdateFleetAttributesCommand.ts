@@ -31,12 +31,12 @@ export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttribute
  * <p>Updates a fleet's mutable attributes, such as game session protection and resource
  *             creation limits.</p>
  *          <p>To update fleet attributes, specify the fleet ID and the property values that you want
- *             to change. If successful, Amazon GameLift returns the identifiers for the updated fleet.</p>
+ *             to change. If successful, Amazon GameLift Servers returns the identifiers for the updated fleet.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift Servers
  *                 fleets</a>
  *          </p>
  * @example

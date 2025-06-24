@@ -32,7 +32,7 @@ export interface DescribeComputeCommandInput extends DescribeComputeInput {}
 export interface DescribeComputeCommandOutput extends DescribeComputeOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves properties for a specific compute resource in an Amazon GameLift fleet. You can list
+ * <p>Retrieves properties for a specific compute resource in an Amazon GameLift Servers fleet. You can list
  *             all computes in a fleet by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html">ListCompute</a>. </p>
  *          <p>
  *             <b>Request options</b>

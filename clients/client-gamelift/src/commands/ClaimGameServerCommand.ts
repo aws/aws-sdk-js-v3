@@ -29,16 +29,16 @@ export interface ClaimGameServerCommandOutput extends ClaimGameServerOutput, __M
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Locates an available game server and
  *             temporarily reserves it to host gameplay and players. This operation is called from a
  *             game client or client service (such as a matchmaker) to request hosting resources for a
- *             new game session. In response, Amazon GameLift FleetIQ locates an available game server, places it in
+ *             new game session. In response, Amazon GameLift Servers FleetIQ locates an available game server, places it in
  *                 <code>CLAIMED</code> status for 60 seconds, and returns connection information that
  *             players can use to connect to the game server. </p>
  *          <p>To claim a game server, identify a game server group. You can also specify a game
- *             server ID, although this approach bypasses Amazon GameLift FleetIQ placement optimization. Optionally,
+ *             server ID, although this approach bypasses Amazon GameLift Servers FleetIQ placement optimization. Optionally,
  *             include game data to pass to the game server at the start of a game session, such as a
  *             game map or player information. Add filter options to further restrict how a
  *             game server is chosen, such as only allowing game servers on <code>ACTIVE</code> instances
@@ -68,7 +68,7 @@ export interface ClaimGameServerCommandOutput extends ClaimGameServerOutput, __M
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
  *                 Guide</a>
  *          </p>
  * @example

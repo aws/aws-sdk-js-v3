@@ -29,7 +29,7 @@ export interface SuspendGameServerGroupCommandOutput extends SuspendGameServerGr
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Temporarily stops activity on
  *             a game server group without terminating instances or the game server group. You can
@@ -55,7 +55,7 @@ export interface SuspendGameServerGroupCommandOutput extends SuspendGameServerGr
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
  *                 Guide</a>
  *          </p>
  * @example

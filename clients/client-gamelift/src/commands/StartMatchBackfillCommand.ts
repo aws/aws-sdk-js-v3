@@ -39,7 +39,7 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  *             provide matchmaking data for all players currently in the game session. FlexMatch uses
  *             this information to select new players so that backfilled match continues to meet the
  *             original match requirements. </p>
- *          <p>When using FlexMatch with Amazon GameLift managed hosting, you can request a backfill match from
+ *          <p>When using FlexMatch with Amazon GameLift Servers managed hosting, you can request a backfill match from
  *             a client service by calling this operation with a <code>GameSessions</code> ID. You also
  *             have the option of making backfill requests directly from your game server. In response
  *             to a request, FlexMatch creates player sessions for the new players, updates the
@@ -69,7 +69,7 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  *                 Matchmaking events</a> (reference)</p>
  *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
- *                 How Amazon GameLift FlexMatch works</a>
+ *                 How Amazon GameLift Servers FlexMatch works</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

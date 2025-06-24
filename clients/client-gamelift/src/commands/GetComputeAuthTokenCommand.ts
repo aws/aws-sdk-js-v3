@@ -28,9 +28,9 @@ export interface GetComputeAuthTokenCommandInput extends GetComputeAuthTokenInpu
 export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOutput, __MetadataBearer {}
 
 /**
- * <p>Requests an authentication token from Amazon GameLift for a compute resource in an Amazon GameLift
+ * <p>Requests an authentication token from Amazon GameLift Servers for a compute resource in an Amazon GameLift Servers
  *             fleet. Game servers that are running on the compute use this token to communicate
- *             with the Amazon GameLift service, such as when calling the Amazon GameLift server SDK action
+ *             with the Amazon GameLift Servers service, such as when calling the Amazon GameLift Servers server SDK action
  *                 <code>InitSDK()</code>. Authentication tokens are valid for a limited time span, so
  *             you need to request a fresh token before the current token expires.</p>
  *          <p>
@@ -44,7 +44,7 @@ export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOut
  *             </li>
  *             <li>
  *                <p>For Anywhere fleets (compute type <code>ANYWHERE</code>), if you're using the
- *                     Amazon GameLift Agent, auth token retrieval and refresh is handled automatically for any
+ *                     Amazon GameLift Servers Agent, auth token retrieval and refresh is handled automatically for any
  *                     compute where the Agent is running. If you're not using
  *                     the Agent, create a mechanism to retrieve and refresh auth tokens for computes
  *                     that are running game server processes.</p>

@@ -57,11 +57,11 @@ export interface DescribeFleetLocationAttributesCommandOutput
  *          </p>
  *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
- *                 up Amazon GameLift fleets</a>
+ *                 up Amazon GameLift Servers fleets</a>
  *          </p>
  *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">
- *                 Amazon GameLift service locations</a> for managed hosting</p>
+ *                 Amazon GameLift Servers service locations</a> for managed hosting</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

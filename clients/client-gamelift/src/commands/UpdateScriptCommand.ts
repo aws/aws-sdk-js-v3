@@ -36,13 +36,13 @@ export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __Metadat
  *             original script was uploaded. Use the <i>Version</i> parameter to track
  *             updates to the script.</p>
  *          <p>If the call is successful, the updated metadata is stored in the script record and a
- *             revised script is uploaded to the Amazon GameLift service. Once the script is updated and
+ *             revised script is uploaded to the Amazon GameLift Servers service. Once the script is updated and
  *             acquired by a fleet instance, the new version is used for all new game sessions. </p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Amazon GameLift Realtime</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Servers Amazon GameLift Servers Realtime</a>
  *          </p>
  *          <p>
  *             <b>Related actions</b>

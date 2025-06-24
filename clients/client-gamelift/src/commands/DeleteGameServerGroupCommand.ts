@@ -29,7 +29,7 @@ export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGrou
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Terminates a game server group
  *             and permanently deletes the game server group record. You have several options for how
@@ -52,15 +52,15 @@ export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGrou
  *          <p>If the delete request is successful, a series of operations are kicked off. The game
  *             server group status is changed to <code>DELETE_SCHEDULED</code>, which prevents new game
  *             servers from being registered and stops automatic scaling activity. Once all game
- *             servers in the game server group are deregistered, Amazon GameLift FleetIQ can begin deleting resources.
+ *             servers in the game server group are deregistered, Amazon GameLift Servers FleetIQ can begin deleting resources.
  *             If any of the delete operations fail, the game server group is placed in
  *                 <code>ERROR</code> status.</p>
- *          <p>Amazon GameLift FleetIQ emits delete events to Amazon CloudWatch.</p>
+ *          <p>Amazon GameLift Servers FleetIQ emits delete events to Amazon CloudWatch.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
  *                 Guide</a>
  *          </p>
  * @example

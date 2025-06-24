@@ -28,10 +28,10 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Assigns a tag to an Amazon GameLift resource. You can use tags to organize resources, create
+ * <p>Assigns a tag to an Amazon GameLift Servers resource. You can use tags to organize resources, create
  *             IAM permissions policies to manage access to groups of resources, customize Amazon Web Services cost
  *             breakdowns, and more. This operation handles the permissions necessary to manage tags
- *             for Amazon GameLift resources that support tagging.</p>
+ *             for Amazon GameLift Servers resources that support tagging.</p>
  *          <p>To add a tag to a resource, specify the unique ARN value for the resource and provide
  *             a tag list containing one or more tags. The operation succeeds even if the list includes
  *             tags that are already assigned to the resource. </p>

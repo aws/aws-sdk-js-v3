@@ -29,21 +29,21 @@ export interface UpdateGameServerGroupCommandOutput extends UpdateGameServerGrou
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
  *          </p>
- *          <p>Updates Amazon GameLift FleetIQ-specific
+ *          <p>Updates Amazon GameLift Servers FleetIQ-specific
  *             properties for a game server group. Many Auto Scaling group properties are updated on
  *             the Auto Scaling group directly, including the launch template, Auto Scaling policies,
  *             and maximum/minimum/desired instance counts.</p>
  *          <p>To update the game server group, specify the game server group ID and provide the
  *             updated values. Before applying the updates, the new values are validated to ensure that
- *             Amazon GameLift FleetIQ can continue to perform instance balancing activity. If successful, a
+ *             Amazon GameLift Servers FleetIQ can continue to perform instance balancing activity. If successful, a
  *                 <code>GameServerGroup</code> object is returned.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
  *                 Guide</a>
  *          </p>
  * @example

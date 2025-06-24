@@ -34,7 +34,7 @@ export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, _
 
 /**
  * <p>Uses FlexMatch to create a game match for a group of players based on custom matchmaking
- *             rules. With games that use Amazon GameLift managed hosting, this operation also triggers Amazon GameLift
+ *             rules. With games that use Amazon GameLift Servers managed hosting, this operation also triggers Amazon GameLift Servers
  *             to find hosting resources and start a new game session for the new match. Each
  *             matchmaking request includes information on one or more players and specifies the
  *             FlexMatch matchmaker to use. When a request is for multiple players, FlexMatch attempts to
@@ -61,7 +61,7 @@ export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, _
  *          </p>
  *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
- *                 How Amazon GameLift FlexMatch works</a>
+ *                 How Amazon GameLift Servers FlexMatch works</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

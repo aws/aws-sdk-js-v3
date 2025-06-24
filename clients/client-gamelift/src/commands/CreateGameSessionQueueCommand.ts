@@ -31,7 +31,7 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
  * <p>Creates a placement queue that processes requests for new game sessions. A queue uses
  *             FleetIQ algorithms to locate the best available placement locations for a new game
  *             session, and then prompts the game server process to start a new game session.</p>
- *          <p>A game session queue is configured with a set of destinations (Amazon GameLift fleets or
+ *          <p>A game session queue is configured with a set of destinations (Amazon GameLift Servers fleets or
  *             aliases) that determine where the queue can place new game sessions. These destinations
  *             can span multiple Amazon Web Services Regions, can use different instance types, and can include both
  *             Spot and On-Demand fleets. If the queue includes multi-location fleets, the queue can

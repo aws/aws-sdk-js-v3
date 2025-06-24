@@ -32,8 +32,8 @@ export interface DescribeEC2InstanceLimitsCommandOutput extends DescribeEC2Insta
  *             Instance limits control the number of instances, per instance type, per location, that
  *             your Amazon Web Services account can use. Learn more at <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>. The information
  *             returned includes the maximum number of instances allowed and your account's current
- *             usage across all fleets. This information can affect your ability to scale your Amazon GameLift
- *             fleets. You can request a limit increase for your account by using the <b>Service limits</b> page in the Amazon GameLift console.</p>
+ *             usage across all fleets. This information can affect your ability to scale your Amazon GameLift Servers
+ *             fleets. You can request a limit increase for your account by using the <b>Service limits</b> page in the Amazon GameLift Servers console.</p>
  *          <p>Instance limits differ based on whether the instances are deployed in a fleet's home
  *             Region or in a remote location. For remote locations, limits also differ based on the
  *             combination of home Region and remote location. All requests must specify an Amazon Web Services
@@ -81,7 +81,7 @@ export interface DescribeEC2InstanceLimitsCommandOutput extends DescribeEC2Insta
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift fleets</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift Servers fleets</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

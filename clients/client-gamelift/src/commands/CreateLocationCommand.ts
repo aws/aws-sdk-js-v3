@@ -50,6 +50,12 @@ export interface CreateLocationCommandOutput extends CreateLocationOutput, __Met
  * //   Location: { // LocationModel
  * //     LocationName: "STRING_VALUE",
  * //     LocationArn: "STRING_VALUE",
+ * //     PingBeacon: { // PingBeacon
+ * //       UDPEndpoint: { // UDPEndpoint
+ * //         Domain: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //       },
+ * //     },
  * //   },
  * // };
  *

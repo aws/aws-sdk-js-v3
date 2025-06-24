@@ -35,7 +35,7 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  * <p>Creates a multiplayer game session for players in a specific fleet location. This
  *             operation prompts an available server process to start a game session and retrieves
  *             connection information for the new game session. As an alternative, consider using the
- *             Amazon GameLift game session placement feature with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a>, which uses the FleetIQ algorithm and queues to
+ *             Amazon GameLift Servers game session placement feature with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a>, which uses the FleetIQ algorithm and queues to
  *             optimize the placement process.</p>
  *          <p>When creating a game session, you specify exactly where you want to place it and
  *             provide a set of game session configuration settings. The target fleet must be in
@@ -56,16 +56,16 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  *                     fleet's custom location.</p>
  *             </li>
  *          </ul>
- *          <p>If successful, Amazon GameLift initiates a workflow to start a new game session and returns a
+ *          <p>If successful, Amazon GameLift Servers initiates a workflow to start a new game session and returns a
  *                 <code>GameSession</code> object containing the game session configuration and
  *             status. When the game session status is <code>ACTIVE</code>, it is updated with
  *             connection information and you can create player sessions for the game session. By
  *             default, newly created game sessions are open to new players. You can restrict new
  *             player access by using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a> to change the game session's player session creation
  *             policy.</p>
- *          <p>Amazon GameLift retains logs for active for 14 days. To access the logs, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetGameSessionLogUrl.html">GetGameSessionLogUrl</a> to download the log files.</p>
+ *          <p>Amazon GameLift Servers retains logs for active for 14 days. To access the logs, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetGameSessionLogUrl.html">GetGameSessionLogUrl</a> to download the log files.</p>
  *          <p>
- *             <i>Available in Amazon GameLift Local.</i>
+ *             <i>Available in Amazon GameLift Servers Local.</i>
  *          </p>
  *          <p>
  *             <b>Learn more</b>

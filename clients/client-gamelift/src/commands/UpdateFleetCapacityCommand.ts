@@ -36,7 +36,7 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  *          <p>Use this operation to set these fleet capacity properties: </p>
  *          <ul>
  *             <li>
- *                <p>Minimum/maximum size: Set hard limits on the number of Amazon EC2 instances allowed. If Amazon GameLift receives a
+ *                <p>Minimum/maximum size: Set hard limits on the number of Amazon EC2 instances allowed. If Amazon GameLift Servers receives a
  *                     request--either through manual update or automatic scaling--it won't change the capacity
  *                     to a value outside of this range.</p>
  *             </li>
@@ -53,12 +53,12 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  *          <p>To update capacity for a fleet's remote location, set the
  *             <code>Location</code> parameter to the location to update. The location must be in
  *             <code>ACTIVE</code> status.</p>
- *          <p>If successful, Amazon GameLift updates the capacity settings and returns the identifiers for
+ *          <p>If successful, Amazon GameLift Servers updates the capacity settings and returns the identifiers for
  *             the updated fleet and/or location. If a requested change to desired capacity exceeds the
  *             instance type's limit, the <code>LimitExceeded</code> exception occurs. </p>
  *          <p>Updates often prompt an immediate change in fleet capacity, such as when current
  *             capacity is different than the new desired capacity or outside the new limits. In this
- *             scenario, Amazon GameLift automatically initiates steps to add or remove instances in the fleet
+ *             scenario, Amazon GameLift Servers automatically initiates steps to add or remove instances in the fleet
  *             location. You can track a fleet's current capacity by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html">DescribeFleetCapacity</a> or <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html">DescribeFleetLocationCapacity</a>. </p>
  *          <p>
  *             <b>Learn more</b>

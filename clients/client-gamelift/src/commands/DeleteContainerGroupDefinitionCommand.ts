@@ -56,7 +56,7 @@ export interface DeleteContainerGroupDefinitionCommandOutput
  *          <p>
  *             <b>Result</b>
  *          </p>
- *          <p>If successful, Amazon GameLift removes the container group definition versions that you request deletion for.
+ *          <p>If successful, Amazon GameLift Servers removes the container group definition versions that you request deletion for.
  *     This request will fail for any requested versions if the following is true: </p>
  *          <ul>
  *             <li>

@@ -36,14 +36,14 @@ export interface CreateContainerFleetCommandOutput extends CreateContainerFleetO
  * <p>Creates a managed fleet of Amazon Elastic Compute Cloud (Amazon EC2) instances to host your containerized game
  *             servers. Use this operation to define how to deploy a container architecture onto each
  *             fleet instance and configure fleet settings. You can create a container fleet in any
- *             Amazon Web Services Regions that Amazon GameLift supports for multi-location fleets. A container fleet can be
+ *             Amazon Web Services Regions that Amazon GameLift Servers supports for multi-location fleets. A container fleet can be
  *             deployed to a single location or multiple locations. Container fleets are deployed with
  *             Amazon Linux 2023 as the instance operating system.</p>
  *          <p>Define the fleet's container architecture using container group definitions. Each
  *             fleet can have one of the following container group types:</p>
  *          <ul>
  *             <li>
- *                <p>The game server container group runs your game server build and dependent software. Amazon GameLift
+ *                <p>The game server container group runs your game server build and dependent software. Amazon GameLift Servers
  *                     deploys one or more replicas of this container group to each fleet instance. The
  *                     number of replicas depends on the computing capabilities of the fleet instance
  *                     in use. </p>

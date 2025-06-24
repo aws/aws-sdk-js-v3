@@ -33,18 +33,18 @@ export interface RegisterComputeCommandInput extends RegisterComputeInput {}
 export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __MetadataBearer {}
 
 /**
- * <p>Registers a compute resource in an Amazon GameLift Anywhere fleet. </p>
- *          <p>For an Anywhere fleet that's running the Amazon GameLift Agent, the Agent
+ * <p>Registers a compute resource in an Amazon GameLift Servers Anywhere fleet. </p>
+ *          <p>For an Anywhere fleet that's running the Amazon GameLift Servers Agent, the Agent
  *             handles all compute registry tasks for you. For an Anywhere fleet that doesn't use the
  *             Agent, call this operation to register fleet computes.</p>
  *          <p>To register a compute, give the compute a name (must be unique within the
  *             fleet) and specify the compute resource's DNS name or IP address. Provide a
  *             fleet ID and a fleet location to associate with the compute being registered. You can
  *             optionally include the path to a TLS certificate on the compute resource.</p>
- *          <p>If successful, this operation returns compute details, including an Amazon GameLift SDK
+ *          <p>If successful, this operation returns compute details, including an Amazon GameLift Servers SDK
  *             endpoint or Agent endpoint. Game server processes running on the compute can use this
- *             endpoint to communicate with the Amazon GameLift service. Each server process includes the SDK
- *             endpoint in its call to the Amazon GameLift server SDK action <code>InitSDK()</code>. </p>
+ *             endpoint to communicate with the Amazon GameLift Servers service. Each server process includes the SDK
+ *             endpoint in its call to the Amazon GameLift Servers server SDK action <code>InitSDK()</code>. </p>
  *          <p>To view compute details, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeCompute.html">DescribeCompute</a> with the compute name. </p>
  *          <p>
  *             <b>Learn more</b>
@@ -137,7 +137,7 @@ export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __M
  *             Resolve the issue before retrying.</p>
  *
  * @throws {@link NotReadyException} (client fault)
- *  <p> The operation failed because Amazon GameLift has not yet finished validating this compute. We
+ *  <p> The operation failed because Amazon GameLift Servers has not yet finished validating this compute. We
  *             recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href="http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/">exponential
  *                 backoffs and jitter</a>. </p>
  *

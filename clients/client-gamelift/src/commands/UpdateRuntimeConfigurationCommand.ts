@@ -29,7 +29,7 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
 
 /**
  * <p>Updates the runtime configuration for the specified fleet. The runtime configuration
- *             tells Amazon GameLift how to launch server processes on computes in managed EC2 and Anywhere fleets. You
+ *             tells Amazon GameLift Servers how to launch server processes on computes in managed EC2 and Anywhere fleets. You
  *             can update a fleet's runtime configuration at any time after the fleet is created; it
  *             does not need to be in <code>ACTIVE</code> status.</p>
  *          <p>To update runtime configuration, specify the fleet ID and provide a
@@ -45,7 +45,7 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift Servers
  *                 fleets</a>
  *          </p>
  * @example

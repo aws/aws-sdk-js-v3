@@ -44,7 +44,7 @@ export interface CreatePlayerSessionsCommandOutput extends CreatePlayerSessionsO
  *                 <code>PlayerSession</code> objects are returned with player session IDs. Each player
  *             references their player session ID when sending a connection request to the game
  *             session, and the game server can use it to validate the player reservation with the
- *             Amazon GameLift service. Player sessions cannot be updated.</p>
+ *             Amazon GameLift Servers service. Player sessions cannot be updated.</p>
  *          <p>The maximum number of players per game session is 200. It is not adjustable. </p>
  *          <p>
  *             <b>Related actions</b>

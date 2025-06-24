@@ -28,7 +28,19 @@ export interface ListLocationsCommandInput extends ListLocationsInput {}
 export interface ListLocationsCommandOutput extends ListLocationsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all custom and Amazon Web Services locations.</p>
+ * <p>Lists all custom and Amazon Web Services locations where Amazon GameLift Servers can host game servers. </p>
+ *          <p>Note that if you call this API using a location that doesn't have a service endpoint,
+ *             such as one that can only be a remote location in a multi-location fleet, the API
+ *             returns an error.</p>
+ *          <p>Consult the table of supported locations in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">Amazon GameLift Servers service
+ *                 locations</a> to identify home Regions that support single and multi-location
+ *             fleets.</p>
+ *          <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">Service locations</a>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,6 +61,12 @@ export interface ListLocationsCommandOutput extends ListLocationsOutput, __Metad
  * //     { // LocationModel
  * //       LocationName: "STRING_VALUE",
  * //       LocationArn: "STRING_VALUE",
+ * //       PingBeacon: { // PingBeacon
+ * //         UDPEndpoint: { // UDPEndpoint
+ * //           Domain: "STRING_VALUE",
+ * //           Port: Number("int"),
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
