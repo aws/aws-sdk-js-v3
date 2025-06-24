@@ -44,6 +44,10 @@ import {
   CreateEvaluationJobCommandInput,
   CreateEvaluationJobCommandOutput,
 } from "../commands/CreateEvaluationJobCommand";
+import {
+  CreateFoundationModelAgreementCommandInput,
+  CreateFoundationModelAgreementCommandOutput,
+} from "../commands/CreateFoundationModelAgreementCommand";
 import { CreateGuardrailCommandInput, CreateGuardrailCommandOutput } from "../commands/CreateGuardrailCommand";
 import {
   CreateGuardrailVersionCommandInput,
@@ -76,6 +80,10 @@ import {
   CreateProvisionedModelThroughputCommandOutput,
 } from "../commands/CreateProvisionedModelThroughputCommand";
 import { DeleteCustomModelCommandInput, DeleteCustomModelCommandOutput } from "../commands/DeleteCustomModelCommand";
+import {
+  DeleteFoundationModelAgreementCommandInput,
+  DeleteFoundationModelAgreementCommandOutput,
+} from "../commands/DeleteFoundationModelAgreementCommand";
 import { DeleteGuardrailCommandInput, DeleteGuardrailCommandOutput } from "../commands/DeleteGuardrailCommand";
 import {
   DeleteImportedModelCommandInput,
@@ -104,6 +112,10 @@ import {
 } from "../commands/DeregisterMarketplaceModelEndpointCommand";
 import { GetCustomModelCommandInput, GetCustomModelCommandOutput } from "../commands/GetCustomModelCommand";
 import { GetEvaluationJobCommandInput, GetEvaluationJobCommandOutput } from "../commands/GetEvaluationJobCommand";
+import {
+  GetFoundationModelAvailabilityCommandInput,
+  GetFoundationModelAvailabilityCommandOutput,
+} from "../commands/GetFoundationModelAvailabilityCommand";
 import { GetFoundationModelCommandInput, GetFoundationModelCommandOutput } from "../commands/GetFoundationModelCommand";
 import { GetGuardrailCommandInput, GetGuardrailCommandOutput } from "../commands/GetGuardrailCommand";
 import { GetImportedModelCommandInput, GetImportedModelCommandOutput } from "../commands/GetImportedModelCommand";
@@ -134,8 +146,16 @@ import {
   GetProvisionedModelThroughputCommandInput,
   GetProvisionedModelThroughputCommandOutput,
 } from "../commands/GetProvisionedModelThroughputCommand";
+import {
+  GetUseCaseForModelAccessCommandInput,
+  GetUseCaseForModelAccessCommandOutput,
+} from "../commands/GetUseCaseForModelAccessCommand";
 import { ListCustomModelsCommandInput, ListCustomModelsCommandOutput } from "../commands/ListCustomModelsCommand";
 import { ListEvaluationJobsCommandInput, ListEvaluationJobsCommandOutput } from "../commands/ListEvaluationJobsCommand";
+import {
+  ListFoundationModelAgreementOffersCommandInput,
+  ListFoundationModelAgreementOffersCommandOutput,
+} from "../commands/ListFoundationModelAgreementOffersCommand";
 import {
   ListFoundationModelsCommandInput,
   ListFoundationModelsCommandOutput,
@@ -177,6 +197,10 @@ import {
   PutModelInvocationLoggingConfigurationCommandOutput,
 } from "../commands/PutModelInvocationLoggingConfigurationCommand";
 import {
+  PutUseCaseForModelAccessCommandInput,
+  PutUseCaseForModelAccessCommandOutput,
+} from "../commands/PutUseCaseForModelAccessCommand";
+import {
   RegisterMarketplaceModelEndpointCommandInput,
   RegisterMarketplaceModelEndpointCommandOutput,
 } from "../commands/RegisterMarketplaceModelEndpointCommand";
@@ -215,7 +239,6 @@ import {
   CustomMetricDefinition,
   CustomMetricEvaluatorModelConfig,
   CustomModelSummary,
-  DataProcessingDetails,
   DistillationConfig,
   EndpointConfig,
   EvaluationBedrockModel,
@@ -270,7 +293,6 @@ import {
   MarketplaceModelEndpoint,
   MarketplaceModelEndpointSummary,
   ModelCopyJobSummary,
-  ModelCustomizationJobSummary,
   ModelDataSource,
   ModelImportJobSummary,
   ModelInvocationJobInputDataConfig,
@@ -291,7 +313,6 @@ import {
   RequestMetadataBaseFilters,
   RequestMetadataFilters,
   ResourceNotFoundException,
-  RetrievalFilter,
   RoutingCriteria,
   S3Config,
   S3DataSource,
@@ -299,31 +320,34 @@ import {
   SageMakerEndpoint,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
-  StatusDetails,
   Tag,
   TeacherModelConfig,
   TextInferenceConfig,
   ThrottlingException,
   TooManyTagsException,
   TrainingDataConfig,
-  TrainingDetails,
   TrainingMetrics,
   ValidationDataConfig,
-  ValidationDetails,
   ValidationException,
   Validator,
   ValidatorMetric,
   VpcConfig,
 } from "../models/models_0";
 import {
+  DataProcessingDetails,
   EvaluationInferenceConfig,
   KnowledgeBaseConfig,
   KnowledgeBaseRetrievalConfiguration,
   KnowledgeBaseRetrieveAndGenerateConfiguration,
   KnowledgeBaseVectorSearchConfiguration,
+  ModelCustomizationJobSummary,
   RAGConfig,
+  RetrievalFilter,
   RetrieveAndGenerateConfiguration,
   RetrieveConfig,
+  StatusDetails,
+  TrainingDetails,
+  ValidationDetails,
 } from "../models/models_1";
 
 /**
@@ -400,6 +424,29 @@ export const se_CreateEvaluationJobCommand = async (
       jobTags: (_) => _json(_),
       outputDataConfig: (_) => _json(_),
       roleArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateFoundationModelAgreementCommand
+ */
+export const se_CreateFoundationModelAgreementCommand = async (
+  input: CreateFoundationModelAgreementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/create-foundation-model-agreement");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      modelId: [],
+      offerToken: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -711,6 +758,28 @@ export const se_DeleteCustomModelCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteFoundationModelAgreementCommand
+ */
+export const se_DeleteFoundationModelAgreementCommand = async (
+  input: DeleteFoundationModelAgreementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/delete-foundation-model-agreement");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      modelId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteGuardrailCommand
  */
 export const se_DeleteGuardrailCommand = async (
@@ -883,6 +952,22 @@ export const se_GetFoundationModelCommand = async (
   const headers: any = {};
   b.bp("/foundation-models/{modelIdentifier}");
   b.p("modelIdentifier", () => input.modelIdentifier!, "{modelIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetFoundationModelAvailabilityCommand
+ */
+export const se_GetFoundationModelAvailabilityCommand = async (
+  input: GetFoundationModelAvailabilityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/foundation-model-availability/{modelId}");
+  b.p("modelId", () => input.modelId!, "{modelId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -1067,6 +1152,21 @@ export const se_GetProvisionedModelThroughputCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetUseCaseForModelAccessCommand
+ */
+export const se_GetUseCaseForModelAccessCommand = async (
+  input: GetUseCaseForModelAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/use-case-for-model-access");
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListCustomModelsCommand
  */
 export const se_ListCustomModelsCommand = async (
@@ -1114,6 +1214,25 @@ export const se_ListEvaluationJobsCommand = async (
     [_nT]: [, input[_nT]!],
     [_sB]: [, input[_sB]!],
     [_sO]: [, input[_sO]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListFoundationModelAgreementOffersCommand
+ */
+export const se_ListFoundationModelAgreementOffersCommand = async (
+  input: ListFoundationModelAgreementOffersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/list-foundation-model-agreement-offers/{modelId}");
+  b.p("modelId", () => input.modelId!, "{modelId}", false);
+  const query: any = map({
+    [_oT]: [, input[_oT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1418,6 +1537,28 @@ export const se_PutModelInvocationLoggingConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1PutUseCaseForModelAccessCommand
+ */
+export const se_PutUseCaseForModelAccessCommand = async (
+  input: PutUseCaseForModelAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/use-case-for-model-access");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      formData: (_) => context.base64Encoder(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1RegisterMarketplaceModelEndpointCommand
  */
 export const se_RegisterMarketplaceModelEndpointCommand = async (
@@ -1680,6 +1821,27 @@ export const de_CreateEvaluationJobCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateFoundationModelAgreementCommand
+ */
+export const de_CreateFoundationModelAgreementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFoundationModelAgreementCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    modelId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateGuardrailCommand
  */
 export const de_CreateGuardrailCommand = async (
@@ -1912,6 +2074,23 @@ export const de_DeleteCustomModelCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteFoundationModelAgreementCommand
+ */
+export const de_DeleteFoundationModelAgreementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFoundationModelAgreementCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteGuardrailCommand
  */
 export const de_DeleteGuardrailCommand = async (
@@ -2134,6 +2313,31 @@ export const de_GetFoundationModelCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     modelDetails: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetFoundationModelAvailabilityCommand
+ */
+export const de_GetFoundationModelAvailabilityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFoundationModelAvailabilityCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    agreementAvailability: _json,
+    authorizationStatus: __expectString,
+    entitlementAvailability: __expectString,
+    modelId: __expectString,
+    regionAvailability: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2485,6 +2689,27 @@ export const de_GetProvisionedModelThroughputCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetUseCaseForModelAccessCommand
+ */
+export const de_GetUseCaseForModelAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetUseCaseForModelAccessCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    formData: context.base64Decoder,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListCustomModelsCommand
  */
 export const de_ListCustomModelsCommand = async (
@@ -2523,6 +2748,28 @@ export const de_ListEvaluationJobsCommand = async (
   const doc = take(data, {
     jobSummaries: (_) => de_EvaluationSummaries(_, context),
     nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListFoundationModelAgreementOffersCommand
+ */
+export const de_ListFoundationModelAgreementOffersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFoundationModelAgreementOffersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    modelId: __expectString,
+    offers: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2798,6 +3045,23 @@ export const de_PutModelInvocationLoggingConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutModelInvocationLoggingConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutUseCaseForModelAccessCommand
+ */
+export const de_PutUseCaseForModelAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutUseCaseForModelAccessCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -3818,6 +4082,8 @@ const de_AdditionalModelRequestFieldsValue = (output: any, context: __SerdeConte
   return output;
 };
 
+// de_AgreementAvailability omitted.
+
 /**
  * deserializeAws_restJson1AutomatedEvaluationConfig
  */
@@ -3956,6 +4222,8 @@ const de_DataProcessingDetails = (output: any, context: __SerdeContext): DataPro
     status: __expectString,
   }) as any;
 };
+
+// de_DimensionalPriceRate omitted.
 
 // de_DistillationConfig omitted.
 
@@ -4423,6 +4691,8 @@ const de_KnowledgeBaseVectorSearchConfiguration = (
   }) as any;
 };
 
+// de_LegalTerm omitted.
+
 // de_LoggingConfig omitted.
 
 /**
@@ -4612,11 +4882,17 @@ const de_ModelInvocationJobSummary = (output: any, context: __SerdeContext): Mod
 
 // de_ModelModalityList omitted.
 
+// de_Offer omitted.
+
+// de_Offers omitted.
+
 // de_OrchestrationConfiguration omitted.
 
 // de_OutputDataConfig omitted.
 
 // de_PerformanceConfiguration omitted.
+
+// de_PricingTerm omitted.
 
 /**
  * deserializeAws_restJson1PromptRouterSummaries
@@ -4718,6 +4994,8 @@ const de_RagConfigs = (output: any, context: __SerdeContext): RAGConfig[] => {
 };
 
 // de_RAGStopSequences omitted.
+
+// de_RateCard omitted.
 
 /**
  * deserializeAws_restJson1RatingScale
@@ -4902,11 +5180,15 @@ const de_StatusDetails = (output: any, context: __SerdeContext): StatusDetails =
 
 // de_SubnetIds omitted.
 
+// de_SupportTerm omitted.
+
 // de_Tag omitted.
 
 // de_TagList omitted.
 
 // de_TeacherModelConfig omitted.
+
+// de_TermDetails omitted.
 
 /**
  * deserializeAws_restJson1TextInferenceConfig
@@ -4980,6 +5262,8 @@ const de_ValidatorMetric = (output: any, context: __SerdeContext): ValidatorMetr
 
 // de_Validators omitted.
 
+// de_ValidityTerm omitted.
+
 // de_VpcConfig omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -5014,6 +5298,7 @@ const _mSI = "modelSourceIdentifier";
 const _nC = "nameContains";
 const _nT = "nextToken";
 const _oMNC = "outputModelNameContains";
+const _oT = "offerType";
 const _sAE = "sourceAccountEquals";
 const _sB = "sortBy";
 const _sE = "statusEquals";

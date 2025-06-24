@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/models_1";
-import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_restJson1";
+import { GetUseCaseForModelAccessRequest, GetUseCaseForModelAccessResponse } from "../models/models_0";
+import { de_GetUseCaseForModelAccessCommand, se_GetUseCaseForModelAccessCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,44 +17,38 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UntagResourceCommand}.
+ * The input for {@link GetUseCaseForModelAccessCommand}.
  */
-export interface UntagResourceCommandInput extends UntagResourceRequest {}
+export interface GetUseCaseForModelAccessCommandInput extends GetUseCaseForModelAccessRequest {}
 /**
  * @public
  *
- * The output of {@link UntagResourceCommand}.
+ * The output of {@link GetUseCaseForModelAccessCommand}.
  */
-export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
+export interface GetUseCaseForModelAccessCommandOutput extends GetUseCaseForModelAccessResponse, __MetadataBearer {}
 
 /**
- * <p>Remove one or more tags from a resource. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Tagging resources</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+ * <p>Get usecase for model access.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockClient, UntagResourceCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
- * // const { BedrockClient, UntagResourceCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * import { BedrockClient, GetUseCaseForModelAccessCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
+ * // const { BedrockClient, GetUseCaseForModelAccessCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
  * const client = new BedrockClient(config);
- * const input = { // UntagResourceRequest
- *   resourceARN: "STRING_VALUE", // required
- *   tagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
- *   ],
- * };
- * const command = new UntagResourceCommand(input);
+ * const input = {};
+ * const command = new GetUseCaseForModelAccessCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // GetUseCaseForModelAccessResponse
+ * //   formData: new Uint8Array(), // required
+ * // };
  *
  * ```
  *
- * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
- * @returns {@link UntagResourceCommandOutput}
- * @see {@link UntagResourceCommandInput} for command's `input` shape.
- * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @param GetUseCaseForModelAccessCommandInput - {@link GetUseCaseForModelAccessCommandInput}
+ * @returns {@link GetUseCaseForModelAccessCommandOutput}
+ * @see {@link GetUseCaseForModelAccessCommandInput} for command's `input` shape.
+ * @see {@link GetUseCaseForModelAccessCommandOutput} for command's `response` shape.
  * @see {@link BedrockClientResolvedConfig | config} for BedrockClient's `config` shape.
- *
- * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request is denied because of missing access permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal server error occurred. Retry your request.</p>
@@ -74,10 +68,10 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *
  * @public
  */
-export class UntagResourceCommand extends $Command
+export class GetUseCaseForModelAccessCommand extends $Command
   .classBuilder<
-    UntagResourceCommandInput,
-    UntagResourceCommandOutput,
+    GetUseCaseForModelAccessCommandInput,
+    GetUseCaseForModelAccessCommandOutput,
     BedrockClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -89,21 +83,21 @@ export class UntagResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockControlPlaneService", "UntagResource", {})
-  .n("BedrockClient", "UntagResourceCommand")
+  .s("AmazonBedrockControlPlaneService", "GetUseCaseForModelAccess", {})
+  .n("BedrockClient", "GetUseCaseForModelAccessCommand")
   .f(void 0, void 0)
-  .ser(se_UntagResourceCommand)
-  .de(de_UntagResourceCommand)
+  .ser(se_GetUseCaseForModelAccessCommand)
+  .de(de_GetUseCaseForModelAccessCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UntagResourceRequest;
-      output: {};
+      input: {};
+      output: GetUseCaseForModelAccessResponse;
     };
     sdk: {
-      input: UntagResourceCommandInput;
-      output: UntagResourceCommandOutput;
+      input: GetUseCaseForModelAccessCommandInput;
+      output: GetUseCaseForModelAccessCommandOutput;
     };
   };
 }

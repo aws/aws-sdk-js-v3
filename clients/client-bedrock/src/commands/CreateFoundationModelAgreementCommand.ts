@@ -6,8 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopModelCustomizationJobRequest, StopModelCustomizationJobResponse } from "../models/models_1";
-import { de_StopModelCustomizationJobCommand, se_StopModelCustomizationJobCommand } from "../protocols/Aws_restJson1";
+import { CreateFoundationModelAgreementRequest, CreateFoundationModelAgreementResponse } from "../models/models_0";
+import {
+  de_CreateFoundationModelAgreementCommand,
+  se_CreateFoundationModelAgreementCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,37 +20,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link StopModelCustomizationJobCommand}.
+ * The input for {@link CreateFoundationModelAgreementCommand}.
  */
-export interface StopModelCustomizationJobCommandInput extends StopModelCustomizationJobRequest {}
+export interface CreateFoundationModelAgreementCommandInput extends CreateFoundationModelAgreementRequest {}
 /**
  * @public
  *
- * The output of {@link StopModelCustomizationJobCommand}.
+ * The output of {@link CreateFoundationModelAgreementCommand}.
  */
-export interface StopModelCustomizationJobCommandOutput extends StopModelCustomizationJobResponse, __MetadataBearer {}
+export interface CreateFoundationModelAgreementCommandOutput
+  extends CreateFoundationModelAgreementResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Stops an active model customization job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+ * <p>Request a model access agreement for the specified model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockClient, StopModelCustomizationJobCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
- * // const { BedrockClient, StopModelCustomizationJobCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * import { BedrockClient, CreateFoundationModelAgreementCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
+ * // const { BedrockClient, CreateFoundationModelAgreementCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
  * const client = new BedrockClient(config);
- * const input = { // StopModelCustomizationJobRequest
- *   jobIdentifier: "STRING_VALUE", // required
+ * const input = { // CreateFoundationModelAgreementRequest
+ *   offerToken: "STRING_VALUE", // required
+ *   modelId: "STRING_VALUE", // required
  * };
- * const command = new StopModelCustomizationJobCommand(input);
+ * const command = new CreateFoundationModelAgreementCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // CreateFoundationModelAgreementResponse
+ * //   modelId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *
- * @param StopModelCustomizationJobCommandInput - {@link StopModelCustomizationJobCommandInput}
- * @returns {@link StopModelCustomizationJobCommandOutput}
- * @see {@link StopModelCustomizationJobCommandInput} for command's `input` shape.
- * @see {@link StopModelCustomizationJobCommandOutput} for command's `response` shape.
+ * @param CreateFoundationModelAgreementCommandInput - {@link CreateFoundationModelAgreementCommandInput}
+ * @returns {@link CreateFoundationModelAgreementCommandOutput}
+ * @see {@link CreateFoundationModelAgreementCommandInput} for command's `input` shape.
+ * @see {@link CreateFoundationModelAgreementCommandOutput} for command's `response` shape.
  * @see {@link BedrockClientResolvedConfig | config} for BedrockClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -74,10 +82,10 @@ export interface StopModelCustomizationJobCommandOutput extends StopModelCustomi
  *
  * @public
  */
-export class StopModelCustomizationJobCommand extends $Command
+export class CreateFoundationModelAgreementCommand extends $Command
   .classBuilder<
-    StopModelCustomizationJobCommandInput,
-    StopModelCustomizationJobCommandOutput,
+    CreateFoundationModelAgreementCommandInput,
+    CreateFoundationModelAgreementCommandOutput,
     BedrockClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -89,21 +97,21 @@ export class StopModelCustomizationJobCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockControlPlaneService", "StopModelCustomizationJob", {})
-  .n("BedrockClient", "StopModelCustomizationJobCommand")
+  .s("AmazonBedrockControlPlaneService", "CreateFoundationModelAgreement", {})
+  .n("BedrockClient", "CreateFoundationModelAgreementCommand")
   .f(void 0, void 0)
-  .ser(se_StopModelCustomizationJobCommand)
-  .de(de_StopModelCustomizationJobCommand)
+  .ser(se_CreateFoundationModelAgreementCommand)
+  .de(de_CreateFoundationModelAgreementCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: StopModelCustomizationJobRequest;
-      output: {};
+      input: CreateFoundationModelAgreementRequest;
+      output: CreateFoundationModelAgreementResponse;
     };
     sdk: {
-      input: StopModelCustomizationJobCommandInput;
-      output: StopModelCustomizationJobCommandOutput;
+      input: CreateFoundationModelAgreementCommandInput;
+      output: CreateFoundationModelAgreementCommandOutput;
     };
   };
 }

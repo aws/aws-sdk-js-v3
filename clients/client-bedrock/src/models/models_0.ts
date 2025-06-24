@@ -26,6 +26,152 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AgreementStatus = {
+  AVAILABLE: "AVAILABLE",
+  ERROR: "ERROR",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type AgreementStatus = (typeof AgreementStatus)[keyof typeof AgreementStatus];
+
+/**
+ * <p>Information about the agreement availability</p>
+ * @public
+ */
+export interface AgreementAvailability {
+  /**
+   * <p>Status of the agreement.</p>
+   * @public
+   */
+  status: AgreementStatus | undefined;
+
+  /**
+   * <p>Error message.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetUseCaseForModelAccessRequest {}
+
+/**
+ * @public
+ */
+export interface GetUseCaseForModelAccessResponse {
+  /**
+   * <p>Get customer profile Response.</p>
+   * @public
+   */
+  formData: Uint8Array | undefined;
+}
+
+/**
+ * <p>An internal server error occurred. Retry your request.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * <p>Input validation failed. Check your request parameters and retry the request.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface PutUseCaseForModelAccessRequest {
+  /**
+   * <p>Put customer profile Request.</p>
+   * @public
+   */
+  formData: Uint8Array | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutUseCaseForModelAccessResponse {}
+
+/**
  * <p>Error occurred because of a conflict while performing an operation.</p>
  * @public
  */
@@ -282,46 +428,6 @@ export interface CreateMarketplaceModelEndpointResponse {
 }
 
 /**
- * <p>An internal server error occurred. Retry your request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
  * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
  * @public
  */
@@ -338,46 +444,6 @@ export class ServiceQuotaExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>Input validation failed. Check your request parameters and retry the request.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
   }
 }
 
@@ -7131,986 +7197,272 @@ export interface UpdateProvisionedModelThroughputResponse {}
 /**
  * @public
  */
-export interface ListTagsForResourceRequest {
+export interface CreateFoundationModelAgreementRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * <p>An offer token encapsulates the information for an offer.</p>
    * @public
    */
-  resourceARN: string | undefined;
+  offerToken: string | undefined;
+
+  /**
+   * <p>Model Id of the model for the access request.</p>
+   * @public
+   */
+  modelId: string | undefined;
 }
 
 /**
  * @public
  */
-export interface ListTagsForResourceResponse {
+export interface CreateFoundationModelAgreementResponse {
   /**
-   * <p>An array of the tags associated with this resource.</p>
+   * <p>Model Id of the model for the access request.</p>
    * @public
    */
-  tags?: Tag[] | undefined;
+  modelId: string | undefined;
 }
 
 /**
  * @public
  */
-export interface TagResourceRequest {
+export interface DeleteFoundationModelAgreementRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
+   * <p>Model Id of the model access to delete.</p>
    * @public
    */
-  resourceARN: string | undefined;
-
-  /**
-   * <p>Tags to associate with the resource.</p>
-   * @public
-   */
-  tags: Tag[] | undefined;
+  modelId: string | undefined;
 }
 
 /**
  * @public
  */
-export interface TagResourceResponse {}
+export interface DeleteFoundationModelAgreementResponse {}
 
 /**
  * @public
  */
-export interface UntagResourceRequest {
+export interface GetFoundationModelAvailabilityRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to untag.</p>
+   * <p>The model Id of the foundation model.</p>
    * @public
    */
-  resourceARN: string | undefined;
-
-  /**
-   * <p>Tag keys of the tags to remove from the resource.</p>
-   * @public
-   */
-  tagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceResponse {}
-
-/**
- * @public
- */
-export interface CreateModelCustomizationJobRequest {
-  /**
-   * <p>A name for the fine-tuning job.</p>
-   * @public
-   */
-  jobName: string | undefined;
-
-  /**
-   * <p>A name for the resulting custom model.</p>
-   * @public
-   */
-  customModelName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM service role that Amazon Bedrock can assume to perform tasks on your behalf. For example, during model training, Amazon Bedrock needs your permission to read input data from an S3 bucket, write model artifacts to an S3 bucket. To pass this role to Amazon Bedrock, the caller of this API must have the <code>iam:PassRole</code> permission. </p>
-   * @public
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientRequestToken?: string | undefined;
-
-  /**
-   * <p>Name of the base model.</p>
-   * @public
-   */
-  baseModelIdentifier: string | undefined;
-
-  /**
-   * <p>The customization type.</p>
-   * @public
-   */
-  customizationType?: CustomizationType | undefined;
-
-  /**
-   * <p>The custom model is encrypted at rest using this key.</p>
-   * @public
-   */
-  customModelKmsKeyId?: string | undefined;
-
-  /**
-   * <p>Tags to attach to the job.</p>
-   * @public
-   */
-  jobTags?: Tag[] | undefined;
-
-  /**
-   * <p>Tags to attach to the resulting custom model.</p>
-   * @public
-   */
-  customModelTags?: Tag[] | undefined;
-
-  /**
-   * <p>Information about the training dataset.</p>
-   * @public
-   */
-  trainingDataConfig: TrainingDataConfig | undefined;
-
-  /**
-   * <p>Information about the validation dataset. </p>
-   * @public
-   */
-  validationDataConfig?: ValidationDataConfig | undefined;
-
-  /**
-   * <p>S3 location for the output data.</p>
-   * @public
-   */
-  outputDataConfig: OutputDataConfig | undefined;
-
-  /**
-   * <p>Parameters related to tuning the model. For details on the format for different models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html">Custom model hyperparameters</a>.</p>
-   * @public
-   */
-  hyperParameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>The configuration of the Virtual Private Cloud (VPC) that contains the resources that you're using for this job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-model-customization.html">Protect your model customization jobs using a VPC</a>.</p>
-   * @public
-   */
-  vpcConfig?: VpcConfig | undefined;
-
-  /**
-   * <p>The customization configuration for the model customization job.</p>
-   * @public
-   */
-  customizationConfig?: CustomizationConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateModelCustomizationJobResponse {
-  /**
-   * <p>Amazon Resource Name (ARN) of the fine tuning job</p>
-   * @public
-   */
-  jobArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetModelCustomizationJobRequest {
-  /**
-   * <p>Identifier for the customization job.</p>
-   * @public
-   */
-  jobIdentifier: string | undefined;
+  modelId: string | undefined;
 }
 
 /**
  * @public
  * @enum
  */
-export const ModelCustomizationJobStatus = {
-  COMPLETED: "Completed",
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  STOPPED: "Stopped",
-  STOPPING: "Stopping",
+export const AuthorizationStatus = {
+  AUTHORIZED: "AUTHORIZED",
+  NOT_AUTHORIZED: "NOT_AUTHORIZED",
 } as const;
 
 /**
  * @public
  */
-export type ModelCustomizationJobStatus =
-  (typeof ModelCustomizationJobStatus)[keyof typeof ModelCustomizationJobStatus];
+export type AuthorizationStatus = (typeof AuthorizationStatus)[keyof typeof AuthorizationStatus];
 
 /**
  * @public
  * @enum
  */
-export const JobStatusDetails = {
-  COMPLETED: "Completed",
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  NOT_STARTED: "NotStarted",
-  STOPPED: "Stopped",
-  STOPPING: "Stopping",
+export const EntitlementAvailability = {
+  AVAILABLE: "AVAILABLE",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
 } as const;
 
 /**
  * @public
  */
-export type JobStatusDetails = (typeof JobStatusDetails)[keyof typeof JobStatusDetails];
+export type EntitlementAvailability = (typeof EntitlementAvailability)[keyof typeof EntitlementAvailability];
 
 /**
- * <p>For a Distillation job, the status details for the data processing sub-task of the job.</p>
  * @public
+ * @enum
  */
-export interface DataProcessingDetails {
-  /**
-   * <p>The status of the data processing sub-task of the job.</p>
-   * @public
-   */
-  status?: JobStatusDetails | undefined;
-
-  /**
-   * <p>The start time of the data processing sub-task of the job.</p>
-   * @public
-   */
-  creationTime?: Date | undefined;
-
-  /**
-   * <p>The latest update to the data processing sub-task of the job.</p>
-   * @public
-   */
-  lastModifiedTime?: Date | undefined;
-}
-
-/**
- * <p>For a Distillation job, the status details for the training sub-task of the job.</p>
- * @public
- */
-export interface TrainingDetails {
-  /**
-   * <p>The status of the training sub-task of the job.</p>
-   * @public
-   */
-  status?: JobStatusDetails | undefined;
-
-  /**
-   * <p>The start time of the training sub-task of the job.</p>
-   * @public
-   */
-  creationTime?: Date | undefined;
-
-  /**
-   * <p>The latest update to the training sub-task of the job.</p>
-   * @public
-   */
-  lastModifiedTime?: Date | undefined;
-}
-
-/**
- * <p>For a Distillation job, the status details for the validation sub-task of the job.</p>
- * @public
- */
-export interface ValidationDetails {
-  /**
-   * <p>The status of the validation sub-task of the job.</p>
-   * @public
-   */
-  status?: JobStatusDetails | undefined;
-
-  /**
-   * <p>The start time of the validation sub-task of the job.</p>
-   * @public
-   */
-  creationTime?: Date | undefined;
-
-  /**
-   * <p>The latest update to the validation sub-task of the job.</p>
-   * @public
-   */
-  lastModifiedTime?: Date | undefined;
-}
-
-/**
- * <p>For a Distillation job, the status details for sub-tasks of the job. Possible statuses for each sub-task include the following:</p> <ul> <li> <p>NotStarted</p> </li> <li> <p>InProgress</p> </li> <li> <p>Completed</p> </li> <li> <p>Stopping</p> </li> <li> <p>Stopped</p> </li> <li> <p>Failed</p> </li> </ul>
- * @public
- */
-export interface StatusDetails {
-  /**
-   * <p>The status details for the validation sub-task of the job.</p>
-   * @public
-   */
-  validationDetails?: ValidationDetails | undefined;
-
-  /**
-   * <p>The status details for the data processing sub-task of the job.</p>
-   * @public
-   */
-  dataProcessingDetails?: DataProcessingDetails | undefined;
-
-  /**
-   * <p>The status details for the training sub-task of the job.</p>
-   * @public
-   */
-  trainingDetails?: TrainingDetails | undefined;
-}
+export const RegionAvailability = {
+  AVAILABLE: "AVAILABLE",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+} as const;
 
 /**
  * @public
  */
-export interface GetModelCustomizationJobResponse {
+export type RegionAvailability = (typeof RegionAvailability)[keyof typeof RegionAvailability];
+
+/**
+ * @public
+ */
+export interface GetFoundationModelAvailabilityResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the customization job.</p>
+   * <p>The model Id of the foundation model.</p>
    * @public
    */
-  jobArn: string | undefined;
+  modelId: string | undefined;
 
   /**
-   * <p>The name of the customization job.</p>
+   * <p>Agreement availability. </p>
    * @public
    */
-  jobName: string | undefined;
+  agreementAvailability: AgreementAvailability | undefined;
 
   /**
-   * <p>The name of the output model.</p>
+   * <p>Authorization status.</p>
    * @public
    */
-  outputModelName: string | undefined;
+  authorizationStatus: AuthorizationStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the output model.</p>
+   * <p>Entitlement availability. </p>
    * @public
    */
-  outputModelArn?: string | undefined;
+  entitlementAvailability: EntitlementAvailability | undefined;
 
   /**
-   * <p>The token that you specified in the <code>CreateCustomizationJob</code> request.</p>
+   * <p>Region availability. </p>
    * @public
    */
-  clientRequestToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role.</p>
-   * @public
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>The status of the job. A successful job transitions from in-progress to completed when the output model is ready to use. If the job failed, the failure message contains information about why the job failed.</p>
-   * @public
-   */
-  status?: ModelCustomizationJobStatus | undefined;
-
-  /**
-   * <p>For a Distillation job, the details about the statuses of the sub-tasks of the customization job. </p>
-   * @public
-   */
-  statusDetails?: StatusDetails | undefined;
-
-  /**
-   * <p>Information about why the job failed.</p>
-   * @public
-   */
-  failureMessage?: string | undefined;
-
-  /**
-   * <p>Time that the resource was created.</p>
-   * @public
-   */
-  creationTime: Date | undefined;
-
-  /**
-   * <p>Time that the resource was last modified.</p>
-   * @public
-   */
-  lastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Time that the resource transitioned to terminal state.</p>
-   * @public
-   */
-  endTime?: Date | undefined;
-
-  /**
-   * <p>Amazon Resource Name (ARN) of the base model.</p>
-   * @public
-   */
-  baseModelArn: string | undefined;
-
-  /**
-   * <p>The hyperparameter values for the job. For details on the format for different models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html">Custom model hyperparameters</a>.</p>
-   * @public
-   */
-  hyperParameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>Contains information about the training dataset.</p>
-   * @public
-   */
-  trainingDataConfig: TrainingDataConfig | undefined;
-
-  /**
-   * <p>Contains information about the validation dataset.</p>
-   * @public
-   */
-  validationDataConfig: ValidationDataConfig | undefined;
-
-  /**
-   * <p>Output data configuration </p>
-   * @public
-   */
-  outputDataConfig: OutputDataConfig | undefined;
-
-  /**
-   * <p>The type of model customization.</p>
-   * @public
-   */
-  customizationType?: CustomizationType | undefined;
-
-  /**
-   * <p>The custom model is encrypted at rest using this key.</p>
-   * @public
-   */
-  outputModelKmsKeyArn?: string | undefined;
-
-  /**
-   * <p>Contains training metrics from the job creation.</p>
-   * @public
-   */
-  trainingMetrics?: TrainingMetrics | undefined;
-
-  /**
-   * <p>The loss metric for each validator that you provided in the createjob request.</p>
-   * @public
-   */
-  validationMetrics?: ValidatorMetric[] | undefined;
-
-  /**
-   * <p>VPC configuration for the custom model job.</p>
-   * @public
-   */
-  vpcConfig?: VpcConfig | undefined;
-
-  /**
-   * <p>The customization configuration for the model customization job.</p>
-   * @public
-   */
-  customizationConfig?: CustomizationConfig | undefined;
+  regionAvailability: RegionAvailability | undefined;
 }
 
 /**
  * @public
  * @enum
  */
-export const FineTuningJobStatus = {
-  COMPLETED: "Completed",
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  STOPPED: "Stopped",
-  STOPPING: "Stopping",
+export const OfferType = {
+  ALL: "ALL",
+  PUBLIC: "PUBLIC",
 } as const;
 
 /**
  * @public
  */
-export type FineTuningJobStatus = (typeof FineTuningJobStatus)[keyof typeof FineTuningJobStatus];
+export type OfferType = (typeof OfferType)[keyof typeof OfferType];
 
 /**
  * @public
  */
-export interface ListModelCustomizationJobsRequest {
+export interface ListFoundationModelAgreementOffersRequest {
   /**
-   * <p>Return customization jobs created after the specified time. </p>
+   * <p>Model Id of the foundation model.</p>
    * @public
    */
-  creationTimeAfter?: Date | undefined;
+  modelId: string | undefined;
 
   /**
-   * <p>Return customization jobs created before the specified time. </p>
+   * <p>Type of offer associated with the model.</p>
    * @public
    */
-  creationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Return customization jobs with the specified status. </p>
-   * @public
-   */
-  statusEquals?: FineTuningJobStatus | undefined;
-
-  /**
-   * <p>Return customization jobs only if the job name contains these characters.</p>
-   * @public
-   */
-  nameContains?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The field to sort by in the returned list of jobs.</p>
-   * @public
-   */
-  sortBy?: SortJobsBy | undefined;
-
-  /**
-   * <p>The sort order of the results.</p>
-   * @public
-   */
-  sortOrder?: SortOrder | undefined;
+  offerType?: OfferType | undefined;
 }
 
 /**
- * <p>Information about one customization job</p>
+ * <p>The legal term of the agreement.</p>
  * @public
  */
-export interface ModelCustomizationJobSummary {
+export interface LegalTerm {
   /**
-   * <p>Amazon Resource Name (ARN) of the customization job.</p>
+   * <p>URL to the legal term document.</p>
    * @public
    */
-  jobArn: string | undefined;
-
-  /**
-   * <p>Amazon Resource Name (ARN) of the base model.</p>
-   * @public
-   */
-  baseModelArn: string | undefined;
-
-  /**
-   * <p>Name of the customization job.</p>
-   * @public
-   */
-  jobName: string | undefined;
-
-  /**
-   * <p>Status of the customization job. </p>
-   * @public
-   */
-  status: ModelCustomizationJobStatus | undefined;
-
-  /**
-   * <p>Details about the status of the data processing sub-task of the job.</p>
-   * @public
-   */
-  statusDetails?: StatusDetails | undefined;
-
-  /**
-   * <p>Time that the customization job was last modified.</p>
-   * @public
-   */
-  lastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Creation time of the custom model. </p>
-   * @public
-   */
-  creationTime: Date | undefined;
-
-  /**
-   * <p>Time that the customization job ended.</p>
-   * @public
-   */
-  endTime?: Date | undefined;
-
-  /**
-   * <p>Amazon Resource Name (ARN) of the custom model.</p>
-   * @public
-   */
-  customModelArn?: string | undefined;
-
-  /**
-   * <p>Name of the custom model.</p>
-   * @public
-   */
-  customModelName?: string | undefined;
-
-  /**
-   * <p>Specifies whether to carry out continued pre-training of a model or whether to fine-tune it. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a>.</p>
-   * @public
-   */
-  customizationType?: CustomizationType | undefined;
+  url?: string | undefined;
 }
 
 /**
+ * <p>Describes a support term.</p>
  * @public
  */
-export interface ListModelCustomizationJobsResponse {
+export interface SupportTerm {
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * <p>Describes the refund policy.</p>
    * @public
    */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>Job summaries.</p>
-   * @public
-   */
-  modelCustomizationJobSummaries?: ModelCustomizationJobSummary[] | undefined;
+  refundPolicyDescription?: string | undefined;
 }
 
 /**
+ * <p>Dimensional price rate.</p>
  * @public
  */
-export interface StopModelCustomizationJobRequest {
+export interface DimensionalPriceRate {
   /**
-   * <p>Job identifier of the job to stop.</p>
+   * <p>Dimension for the price rate.</p>
    * @public
    */
-  jobIdentifier: string | undefined;
+  dimension?: string | undefined;
+
+  /**
+   * <p>Single-dimensional rate information.</p>
+   * @public
+   */
+  price?: string | undefined;
+
+  /**
+   * <p>Description of the price rate.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Unit associated with the price.</p>
+   * @public
+   */
+  unit?: string | undefined;
 }
 
 /**
+ * <p>Describes the usage-based pricing term.</p>
  * @public
  */
-export interface StopModelCustomizationJobResponse {}
+export interface PricingTerm {
+  /**
+   * <p>Describes a usage price for each dimension.</p>
+   * @public
+   */
+  rateCard: DimensionalPriceRate[] | undefined;
+}
 
 /**
- * <p>Specifies the filters to use on the metadata attributes/fields in the knowledge base data sources before returning results.</p>
+ * <p>Describes the validity terms.</p>
  * @public
  */
-export type RetrievalFilter =
-  | RetrievalFilter.AndAllMember
-  | RetrievalFilter.EqualsMember
-  | RetrievalFilter.GreaterThanMember
-  | RetrievalFilter.GreaterThanOrEqualsMember
-  | RetrievalFilter.InMember
-  | RetrievalFilter.LessThanMember
-  | RetrievalFilter.LessThanOrEqualsMember
-  | RetrievalFilter.ListContainsMember
-  | RetrievalFilter.NotEqualsMember
-  | RetrievalFilter.NotInMember
-  | RetrievalFilter.OrAllMember
-  | RetrievalFilter.StartsWithMember
-  | RetrievalFilter.StringContainsMember
-  | RetrievalFilter.$UnknownMember;
+export interface ValidityTerm {
+  /**
+   * <p>Describes the agreement duration.</p>
+   * @public
+   */
+  agreementDuration?: string | undefined;
+}
 
 /**
+ * <p>Describes the usage terms of an offer.</p>
  * @public
  */
-export namespace RetrievalFilter {
+export interface TermDetails {
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value matches the value in this object.</p> <p>The following example would return data sources with an animal attribute whose value is 'cat': <code>"equals": \{ "key": "animal", "value": "cat" \}</code> </p>
+   * <p>Describes the usage-based pricing term.</p>
    * @public
    */
-  export interface EqualsMember {
-    equals: FilterAttribute;
-    notEquals?: never;
-    greaterThan?: never;
-    greaterThanOrEquals?: never;
-    lessThan?: never;
-    lessThanOrEquals?: never;
-    in?: never;
-    notIn?: never;
-    startsWith?: never;
-    listContains?: never;
-    stringContains?: never;
-    andAll?: never;
-    orAll?: never;
-    $unknown?: never;
-  }
+  usageBasedPricingTerm: PricingTerm | undefined;
 
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the key and whose value doesn't match the value in this object are returned.</p> <p>The following example would return data sources that don't contain an animal attribute whose value is 'cat': <code>"notEquals": \{ "key": "animal", "value": "cat" \}</code> </p>
+   * <p>Describes the legal terms.</p>
    * @public
    */
-  export interface NotEqualsMember {
-    equals?: never;
-    notEquals: FilterAttribute;
-    greaterThan?: never;
-    greaterThanOrEquals?: never;
-    lessThan?: never;
-    lessThanOrEquals?: never;
-    in?: never;
-    notIn?: never;
-    startsWith?: never;
-    listContains?: never;
-    stringContains?: never;
-    andAll?: never;
-    orAll?: never;
-    $unknown?: never;
-  }
+  legalTerm: LegalTerm | undefined;
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value is greater than the value in this object.</p> <p>The following example would return data sources with an year attribute whose value is greater than '1989': <code>"greaterThan": \{ "key": "year", "value": 1989 \}</code> </p>
+   * <p>Describes the support terms.</p>
    * @public
    */
-  export interface GreaterThanMember {
-    equals?: never;
-    notEquals?: never;
-    greaterThan: FilterAttribute;
-    greaterThanOrEquals?: never;
-    lessThan?: never;
-    lessThanOrEquals?: never;
-    in?: never;
-    notIn?: never;
-    startsWith?: never;
-    listContains?: never;
-    stringContains?: never;
-    andAll?: never;
-    orAll?: never;
-    $unknown?: never;
-  }
+  supportTerm: SupportTerm | undefined;
 
   /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value is greater than or equal to the value in this object.</p> <p>The following example would return data sources with an year attribute whose value is greater than or equal to '1989': <code>"greaterThanOrEquals": \{ "key": "year", "value": 1989 \}</code> </p>
+   * <p>Describes the validity terms.</p>
    * @public
    */
-  export interface GreaterThanOrEqualsMember {
-    equals?: never;
-    notEquals?: never;
-    greaterThan?: never;
-    greaterThanOrEquals: FilterAttribute;
-    lessThan?: never;
-    lessThanOrEquals?: never;
-    in?: never;
-    notIn?: never;
-    startsWith?: never;
-    listContains?: never;
-    stringContains?: never;
-    andAll?: never;
-    orAll?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value is less than the value in this object.</p> <p>The following example would return data sources with an year attribute whose value is less than to '1989': <code>"lessThan": \{ "key": "year", "value": 1989 \}</code> </p>
-   * @public
-   */
-  export interface LessThanMember {
-    equals?: never;
-    notEquals?: never;
-    greaterThan?: never;
-    greaterThanOrEquals?: never;
-    lessThan: FilterAttribute;
-    lessThanOrEquals?: never;
-    in?: never;
-    notIn?: never;
-    startsWith?: never;
-    listContains?: never;
-    stringContains?: never;
-    andAll?: never;
-    orAll?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value is less than or equal to the value in this object.</p> <p>The following example would return data sources with an year attribute whose value is less than or equal to '1989': <code>"lessThanOrEquals": \{ "key": "year", "value": 1989 \}</code> </p>
-   * @public
-   */
-  export interface LessThanOrEqualsMember {
-    equals?: never;
-    notEquals?: never;
-    greaterThan?: never;
-    greaterThanOrEquals?: never;
-    lessThan?: never;
-    lessThanOrEquals: FilterAttribute;
-    in?: never;
-    notIn?: never;
-    startsWith?: never;
-    listContains?: never;
-    stringContains?: never;
-    andAll?: never;
-    orAll?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value is in the list specified in the value in this object.</p> <p>The following example would return data sources with an animal attribute that is either 'cat' or 'dog': <code>"in": \{ "key": "animal", "value": ["cat", "dog"] \}</code> </p>
-   * @public
-   */
-  export interface InMember {
-    equals?: never;
-    notEquals?: never;
-    greaterThan?: never;
-    greaterThanOrEquals?: never;
-    lessThan?: never;
-    lessThanOrEquals?: never;
-    in: FilterAttribute;
-    notIn?: never;
-    startsWith?: never;
-    listContains?: never;
-    stringContains?: never;
-    andAll?: never;
-    orAll?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value isn't in the list specified in the value in this object.</p> <p>The following example would return data sources whose animal attribute is neither 'cat' nor 'dog': <code>"notIn": \{ "key": "animal", "value": ["cat", "dog"] \}</code> </p>
-   * @public
-   */
-  export interface NotInMember {
-    equals?: never;
-    notEquals?: never;
-    greaterThan?: never;
-    greaterThanOrEquals?: never;
-    lessThan?: never;
-    lessThanOrEquals?: never;
-    in?: never;
-    notIn: FilterAttribute;
-    startsWith?: never;
-    listContains?: never;
-    stringContains?: never;
-    andAll?: never;
-    orAll?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value starts with the value in this object. This filter is currently only supported for Amazon OpenSearch Serverless vector stores.</p> <p>The following example would return data sources with an animal attribute starts with 'ca' (for example, 'cat' or 'camel'). <code>"startsWith": \{ "key": "animal", "value": "ca" \}</code> </p>
-   * @public
-   */
-  export interface StartsWithMember {
-    equals?: never;
-    notEquals?: never;
-    greaterThan?: never;
-    greaterThanOrEquals?: never;
-    lessThan?: never;
-    lessThanOrEquals?: never;
-    in?: never;
-    notIn?: never;
-    startsWith: FilterAttribute;
-    listContains?: never;
-    stringContains?: never;
-    andAll?: never;
-    orAll?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value is a list that contains the value as one of its members.</p> <p>The following example would return data sources with an animals attribute that is a list containing a cat member (for example, <code>["dog", "cat"]</code>): <code>"listContains": \{ "key": "animals", "value": "cat" \}</code> </p>
-   * @public
-   */
-  export interface ListContainsMember {
-    equals?: never;
-    notEquals?: never;
-    greaterThan?: never;
-    greaterThanOrEquals?: never;
-    lessThan?: never;
-    lessThanOrEquals?: never;
-    in?: never;
-    notIn?: never;
-    startsWith?: never;
-    listContains: FilterAttribute;
-    stringContains?: never;
-    andAll?: never;
-    orAll?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key and whose value is one of the following:</p> <p>A string that contains the value as a substring. The following example would return data sources with an animal attribute that contains the substring at (for example, 'cat'): <code>"stringContains": \{ "key": "animal", "value": "at" \}</code> </p> <p>A list with a member that contains the value as a substring. The following example would return data sources with an animals attribute that is a list containing a member that contains the substring at (for example, <code>["dog", "cat"]</code>): <code>"stringContains": \{ "key": "animals", "value": "at" \}</code> </p>
-   * @public
-   */
-  export interface StringContainsMember {
-    equals?: never;
-    notEquals?: never;
-    greaterThan?: never;
-    greaterThanOrEquals?: never;
-    lessThan?: never;
-    lessThanOrEquals?: never;
-    in?: never;
-    notIn?: never;
-    startsWith?: never;
-    listContains?: never;
-    stringContains: FilterAttribute;
-    andAll?: never;
-    orAll?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Knowledge base data sources are returned if their metadata attributes fulfill all the filter conditions inside this list.</p>
-   * @public
-   */
-  export interface AndAllMember {
-    equals?: never;
-    notEquals?: never;
-    greaterThan?: never;
-    greaterThanOrEquals?: never;
-    lessThan?: never;
-    lessThanOrEquals?: never;
-    in?: never;
-    notIn?: never;
-    startsWith?: never;
-    listContains?: never;
-    stringContains?: never;
-    andAll: RetrievalFilter[];
-    orAll?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Knowledge base data sources are returned if their metadata attributes fulfill at least one of the filter conditions inside this list.</p>
-   * @public
-   */
-  export interface OrAllMember {
-    equals?: never;
-    notEquals?: never;
-    greaterThan?: never;
-    greaterThanOrEquals?: never;
-    lessThan?: never;
-    lessThanOrEquals?: never;
-    in?: never;
-    notIn?: never;
-    startsWith?: never;
-    listContains?: never;
-    stringContains?: never;
-    andAll?: never;
-    orAll: RetrievalFilter[];
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    equals?: never;
-    notEquals?: never;
-    greaterThan?: never;
-    greaterThanOrEquals?: never;
-    lessThan?: never;
-    lessThanOrEquals?: never;
-    in?: never;
-    notIn?: never;
-    startsWith?: never;
-    listContains?: never;
-    stringContains?: never;
-    andAll?: never;
-    orAll?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    equals: (value: FilterAttribute) => T;
-    notEquals: (value: FilterAttribute) => T;
-    greaterThan: (value: FilterAttribute) => T;
-    greaterThanOrEquals: (value: FilterAttribute) => T;
-    lessThan: (value: FilterAttribute) => T;
-    lessThanOrEquals: (value: FilterAttribute) => T;
-    in: (value: FilterAttribute) => T;
-    notIn: (value: FilterAttribute) => T;
-    startsWith: (value: FilterAttribute) => T;
-    listContains: (value: FilterAttribute) => T;
-    stringContains: (value: FilterAttribute) => T;
-    andAll: (value: RetrievalFilter[]) => T;
-    orAll: (value: RetrievalFilter[]) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: RetrievalFilter, visitor: Visitor<T>): T => {
-    if (value.equals !== undefined) return visitor.equals(value.equals);
-    if (value.notEquals !== undefined) return visitor.notEquals(value.notEquals);
-    if (value.greaterThan !== undefined) return visitor.greaterThan(value.greaterThan);
-    if (value.greaterThanOrEquals !== undefined) return visitor.greaterThanOrEquals(value.greaterThanOrEquals);
-    if (value.lessThan !== undefined) return visitor.lessThan(value.lessThan);
-    if (value.lessThanOrEquals !== undefined) return visitor.lessThanOrEquals(value.lessThanOrEquals);
-    if (value.in !== undefined) return visitor.in(value.in);
-    if (value.notIn !== undefined) return visitor.notIn(value.notIn);
-    if (value.startsWith !== undefined) return visitor.startsWith(value.startsWith);
-    if (value.listContains !== undefined) return visitor.listContains(value.listContains);
-    if (value.stringContains !== undefined) return visitor.stringContains(value.stringContains);
-    if (value.andAll !== undefined) return visitor.andAll(value.andAll);
-    if (value.orAll !== undefined) return visitor.orAll(value.orAll);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
+  validityTerm?: ValidityTerm | undefined;
 }
 
 /**
@@ -8804,41 +8156,3 @@ export const ListPromptRoutersResponseFilterSensitiveLog = (obj: ListPromptRoute
     promptRouterSummaries: obj.promptRouterSummaries.map((item) => PromptRouterSummaryFilterSensitiveLog(item)),
   }),
 });
-
-/**
- * @internal
- */
-export const CreateModelCustomizationJobRequestFilterSensitiveLog = (obj: CreateModelCustomizationJobRequest): any => ({
-  ...obj,
-  ...(obj.trainingDataConfig && { trainingDataConfig: TrainingDataConfigFilterSensitiveLog(obj.trainingDataConfig) }),
-  ...(obj.customizationConfig && { customizationConfig: obj.customizationConfig }),
-});
-
-/**
- * @internal
- */
-export const GetModelCustomizationJobResponseFilterSensitiveLog = (obj: GetModelCustomizationJobResponse): any => ({
-  ...obj,
-  ...(obj.trainingDataConfig && { trainingDataConfig: TrainingDataConfigFilterSensitiveLog(obj.trainingDataConfig) }),
-  ...(obj.customizationConfig && { customizationConfig: obj.customizationConfig }),
-});
-
-/**
- * @internal
- */
-export const RetrievalFilterFilterSensitiveLog = (obj: RetrievalFilter): any => {
-  if (obj.equals !== undefined) return { equals: obj.equals };
-  if (obj.notEquals !== undefined) return { notEquals: obj.notEquals };
-  if (obj.greaterThan !== undefined) return { greaterThan: obj.greaterThan };
-  if (obj.greaterThanOrEquals !== undefined) return { greaterThanOrEquals: obj.greaterThanOrEquals };
-  if (obj.lessThan !== undefined) return { lessThan: obj.lessThan };
-  if (obj.lessThanOrEquals !== undefined) return { lessThanOrEquals: obj.lessThanOrEquals };
-  if (obj.in !== undefined) return { in: obj.in };
-  if (obj.notIn !== undefined) return { notIn: obj.notIn };
-  if (obj.startsWith !== undefined) return { startsWith: obj.startsWith };
-  if (obj.listContains !== undefined) return { listContains: obj.listContains };
-  if (obj.stringContains !== undefined) return { stringContains: obj.stringContains };
-  if (obj.andAll !== undefined) return { andAll: SENSITIVE_STRING };
-  if (obj.orAll !== undefined) return { orAll: SENSITIVE_STRING };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};

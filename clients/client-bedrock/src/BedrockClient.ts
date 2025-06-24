@@ -62,6 +62,10 @@ import {
   CreateEvaluationJobCommandInput,
   CreateEvaluationJobCommandOutput,
 } from "./commands/CreateEvaluationJobCommand";
+import {
+  CreateFoundationModelAgreementCommandInput,
+  CreateFoundationModelAgreementCommandOutput,
+} from "./commands/CreateFoundationModelAgreementCommand";
 import { CreateGuardrailCommandInput, CreateGuardrailCommandOutput } from "./commands/CreateGuardrailCommand";
 import {
   CreateGuardrailVersionCommandInput,
@@ -94,6 +98,10 @@ import {
   CreateProvisionedModelThroughputCommandOutput,
 } from "./commands/CreateProvisionedModelThroughputCommand";
 import { DeleteCustomModelCommandInput, DeleteCustomModelCommandOutput } from "./commands/DeleteCustomModelCommand";
+import {
+  DeleteFoundationModelAgreementCommandInput,
+  DeleteFoundationModelAgreementCommandOutput,
+} from "./commands/DeleteFoundationModelAgreementCommand";
 import { DeleteGuardrailCommandInput, DeleteGuardrailCommandOutput } from "./commands/DeleteGuardrailCommand";
 import {
   DeleteImportedModelCommandInput,
@@ -122,6 +130,10 @@ import {
 } from "./commands/DeregisterMarketplaceModelEndpointCommand";
 import { GetCustomModelCommandInput, GetCustomModelCommandOutput } from "./commands/GetCustomModelCommand";
 import { GetEvaluationJobCommandInput, GetEvaluationJobCommandOutput } from "./commands/GetEvaluationJobCommand";
+import {
+  GetFoundationModelAvailabilityCommandInput,
+  GetFoundationModelAvailabilityCommandOutput,
+} from "./commands/GetFoundationModelAvailabilityCommand";
 import { GetFoundationModelCommandInput, GetFoundationModelCommandOutput } from "./commands/GetFoundationModelCommand";
 import { GetGuardrailCommandInput, GetGuardrailCommandOutput } from "./commands/GetGuardrailCommand";
 import { GetImportedModelCommandInput, GetImportedModelCommandOutput } from "./commands/GetImportedModelCommand";
@@ -152,8 +164,16 @@ import {
   GetProvisionedModelThroughputCommandInput,
   GetProvisionedModelThroughputCommandOutput,
 } from "./commands/GetProvisionedModelThroughputCommand";
+import {
+  GetUseCaseForModelAccessCommandInput,
+  GetUseCaseForModelAccessCommandOutput,
+} from "./commands/GetUseCaseForModelAccessCommand";
 import { ListCustomModelsCommandInput, ListCustomModelsCommandOutput } from "./commands/ListCustomModelsCommand";
 import { ListEvaluationJobsCommandInput, ListEvaluationJobsCommandOutput } from "./commands/ListEvaluationJobsCommand";
+import {
+  ListFoundationModelAgreementOffersCommandInput,
+  ListFoundationModelAgreementOffersCommandOutput,
+} from "./commands/ListFoundationModelAgreementOffersCommand";
 import {
   ListFoundationModelsCommandInput,
   ListFoundationModelsCommandOutput,
@@ -194,6 +214,10 @@ import {
   PutModelInvocationLoggingConfigurationCommandInput,
   PutModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/PutModelInvocationLoggingConfigurationCommand";
+import {
+  PutUseCaseForModelAccessCommandInput,
+  PutUseCaseForModelAccessCommandOutput,
+} from "./commands/PutUseCaseForModelAccessCommand";
 import {
   RegisterMarketplaceModelEndpointCommandInput,
   RegisterMarketplaceModelEndpointCommandOutput,
@@ -236,6 +260,7 @@ export type ServiceInputTypes =
   | BatchDeleteEvaluationJobCommandInput
   | CreateCustomModelCommandInput
   | CreateEvaluationJobCommandInput
+  | CreateFoundationModelAgreementCommandInput
   | CreateGuardrailCommandInput
   | CreateGuardrailVersionCommandInput
   | CreateInferenceProfileCommandInput
@@ -247,6 +272,7 @@ export type ServiceInputTypes =
   | CreatePromptRouterCommandInput
   | CreateProvisionedModelThroughputCommandInput
   | DeleteCustomModelCommandInput
+  | DeleteFoundationModelAgreementCommandInput
   | DeleteGuardrailCommandInput
   | DeleteImportedModelCommandInput
   | DeleteInferenceProfileCommandInput
@@ -257,6 +283,7 @@ export type ServiceInputTypes =
   | DeregisterMarketplaceModelEndpointCommandInput
   | GetCustomModelCommandInput
   | GetEvaluationJobCommandInput
+  | GetFoundationModelAvailabilityCommandInput
   | GetFoundationModelCommandInput
   | GetGuardrailCommandInput
   | GetImportedModelCommandInput
@@ -269,8 +296,10 @@ export type ServiceInputTypes =
   | GetModelInvocationLoggingConfigurationCommandInput
   | GetPromptRouterCommandInput
   | GetProvisionedModelThroughputCommandInput
+  | GetUseCaseForModelAccessCommandInput
   | ListCustomModelsCommandInput
   | ListEvaluationJobsCommandInput
+  | ListFoundationModelAgreementOffersCommandInput
   | ListFoundationModelsCommandInput
   | ListGuardrailsCommandInput
   | ListImportedModelsCommandInput
@@ -284,6 +313,7 @@ export type ServiceInputTypes =
   | ListProvisionedModelThroughputsCommandInput
   | ListTagsForResourceCommandInput
   | PutModelInvocationLoggingConfigurationCommandInput
+  | PutUseCaseForModelAccessCommandInput
   | RegisterMarketplaceModelEndpointCommandInput
   | StopEvaluationJobCommandInput
   | StopModelCustomizationJobCommandInput
@@ -301,6 +331,7 @@ export type ServiceOutputTypes =
   | BatchDeleteEvaluationJobCommandOutput
   | CreateCustomModelCommandOutput
   | CreateEvaluationJobCommandOutput
+  | CreateFoundationModelAgreementCommandOutput
   | CreateGuardrailCommandOutput
   | CreateGuardrailVersionCommandOutput
   | CreateInferenceProfileCommandOutput
@@ -312,6 +343,7 @@ export type ServiceOutputTypes =
   | CreatePromptRouterCommandOutput
   | CreateProvisionedModelThroughputCommandOutput
   | DeleteCustomModelCommandOutput
+  | DeleteFoundationModelAgreementCommandOutput
   | DeleteGuardrailCommandOutput
   | DeleteImportedModelCommandOutput
   | DeleteInferenceProfileCommandOutput
@@ -322,6 +354,7 @@ export type ServiceOutputTypes =
   | DeregisterMarketplaceModelEndpointCommandOutput
   | GetCustomModelCommandOutput
   | GetEvaluationJobCommandOutput
+  | GetFoundationModelAvailabilityCommandOutput
   | GetFoundationModelCommandOutput
   | GetGuardrailCommandOutput
   | GetImportedModelCommandOutput
@@ -334,8 +367,10 @@ export type ServiceOutputTypes =
   | GetModelInvocationLoggingConfigurationCommandOutput
   | GetPromptRouterCommandOutput
   | GetProvisionedModelThroughputCommandOutput
+  | GetUseCaseForModelAccessCommandOutput
   | ListCustomModelsCommandOutput
   | ListEvaluationJobsCommandOutput
+  | ListFoundationModelAgreementOffersCommandOutput
   | ListFoundationModelsCommandOutput
   | ListGuardrailsCommandOutput
   | ListImportedModelsCommandOutput
@@ -349,6 +384,7 @@ export type ServiceOutputTypes =
   | ListProvisionedModelThroughputsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutModelInvocationLoggingConfigurationCommandOutput
+  | PutUseCaseForModelAccessCommandOutput
   | RegisterMarketplaceModelEndpointCommandOutput
   | StopEvaluationJobCommandOutput
   | StopModelCustomizationJobCommandOutput

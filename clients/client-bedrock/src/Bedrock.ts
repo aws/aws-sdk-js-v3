@@ -19,6 +19,11 @@ import {
   CreateEvaluationJobCommandOutput,
 } from "./commands/CreateEvaluationJobCommand";
 import {
+  CreateFoundationModelAgreementCommand,
+  CreateFoundationModelAgreementCommandInput,
+  CreateFoundationModelAgreementCommandOutput,
+} from "./commands/CreateFoundationModelAgreementCommand";
+import {
   CreateGuardrailCommand,
   CreateGuardrailCommandInput,
   CreateGuardrailCommandOutput,
@@ -74,6 +79,11 @@ import {
   DeleteCustomModelCommandOutput,
 } from "./commands/DeleteCustomModelCommand";
 import {
+  DeleteFoundationModelAgreementCommand,
+  DeleteFoundationModelAgreementCommandInput,
+  DeleteFoundationModelAgreementCommandOutput,
+} from "./commands/DeleteFoundationModelAgreementCommand";
+import {
   DeleteGuardrailCommand,
   DeleteGuardrailCommandInput,
   DeleteGuardrailCommandOutput,
@@ -123,6 +133,11 @@ import {
   GetEvaluationJobCommandInput,
   GetEvaluationJobCommandOutput,
 } from "./commands/GetEvaluationJobCommand";
+import {
+  GetFoundationModelAvailabilityCommand,
+  GetFoundationModelAvailabilityCommandInput,
+  GetFoundationModelAvailabilityCommandOutput,
+} from "./commands/GetFoundationModelAvailabilityCommand";
 import {
   GetFoundationModelCommand,
   GetFoundationModelCommandInput,
@@ -184,6 +199,11 @@ import {
   GetProvisionedModelThroughputCommandOutput,
 } from "./commands/GetProvisionedModelThroughputCommand";
 import {
+  GetUseCaseForModelAccessCommand,
+  GetUseCaseForModelAccessCommandInput,
+  GetUseCaseForModelAccessCommandOutput,
+} from "./commands/GetUseCaseForModelAccessCommand";
+import {
   ListCustomModelsCommand,
   ListCustomModelsCommandInput,
   ListCustomModelsCommandOutput,
@@ -193,6 +213,11 @@ import {
   ListEvaluationJobsCommandInput,
   ListEvaluationJobsCommandOutput,
 } from "./commands/ListEvaluationJobsCommand";
+import {
+  ListFoundationModelAgreementOffersCommand,
+  ListFoundationModelAgreementOffersCommandInput,
+  ListFoundationModelAgreementOffersCommandOutput,
+} from "./commands/ListFoundationModelAgreementOffersCommand";
 import {
   ListFoundationModelsCommand,
   ListFoundationModelsCommandInput,
@@ -259,6 +284,11 @@ import {
   PutModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/PutModelInvocationLoggingConfigurationCommand";
 import {
+  PutUseCaseForModelAccessCommand,
+  PutUseCaseForModelAccessCommandInput,
+  PutUseCaseForModelAccessCommandOutput,
+} from "./commands/PutUseCaseForModelAccessCommand";
+import {
   RegisterMarketplaceModelEndpointCommand,
   RegisterMarketplaceModelEndpointCommandInput,
   RegisterMarketplaceModelEndpointCommandOutput,
@@ -304,6 +334,7 @@ const commands = {
   BatchDeleteEvaluationJobCommand,
   CreateCustomModelCommand,
   CreateEvaluationJobCommand,
+  CreateFoundationModelAgreementCommand,
   CreateGuardrailCommand,
   CreateGuardrailVersionCommand,
   CreateInferenceProfileCommand,
@@ -315,6 +346,7 @@ const commands = {
   CreatePromptRouterCommand,
   CreateProvisionedModelThroughputCommand,
   DeleteCustomModelCommand,
+  DeleteFoundationModelAgreementCommand,
   DeleteGuardrailCommand,
   DeleteImportedModelCommand,
   DeleteInferenceProfileCommand,
@@ -326,6 +358,7 @@ const commands = {
   GetCustomModelCommand,
   GetEvaluationJobCommand,
   GetFoundationModelCommand,
+  GetFoundationModelAvailabilityCommand,
   GetGuardrailCommand,
   GetImportedModelCommand,
   GetInferenceProfileCommand,
@@ -337,8 +370,10 @@ const commands = {
   GetModelInvocationLoggingConfigurationCommand,
   GetPromptRouterCommand,
   GetProvisionedModelThroughputCommand,
+  GetUseCaseForModelAccessCommand,
   ListCustomModelsCommand,
   ListEvaluationJobsCommand,
+  ListFoundationModelAgreementOffersCommand,
   ListFoundationModelsCommand,
   ListGuardrailsCommand,
   ListImportedModelsCommand,
@@ -352,6 +387,7 @@ const commands = {
   ListProvisionedModelThroughputsCommand,
   ListTagsForResourceCommand,
   PutModelInvocationLoggingConfigurationCommand,
+  PutUseCaseForModelAccessCommand,
   RegisterMarketplaceModelEndpointCommand,
   StopEvaluationJobCommand,
   StopModelCustomizationJobCommand,
@@ -413,6 +449,23 @@ export interface Bedrock {
     args: CreateEvaluationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEvaluationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateFoundationModelAgreementCommand}
+   */
+  createFoundationModelAgreement(
+    args: CreateFoundationModelAgreementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFoundationModelAgreementCommandOutput>;
+  createFoundationModelAgreement(
+    args: CreateFoundationModelAgreementCommandInput,
+    cb: (err: any, data?: CreateFoundationModelAgreementCommandOutput) => void
+  ): void;
+  createFoundationModelAgreement(
+    args: CreateFoundationModelAgreementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFoundationModelAgreementCommandOutput) => void
   ): void;
 
   /**
@@ -600,6 +653,23 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link DeleteFoundationModelAgreementCommand}
+   */
+  deleteFoundationModelAgreement(
+    args: DeleteFoundationModelAgreementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFoundationModelAgreementCommandOutput>;
+  deleteFoundationModelAgreement(
+    args: DeleteFoundationModelAgreementCommandInput,
+    cb: (err: any, data?: DeleteFoundationModelAgreementCommandOutput) => void
+  ): void;
+  deleteFoundationModelAgreement(
+    args: DeleteFoundationModelAgreementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFoundationModelAgreementCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteGuardrailCommand}
    */
   deleteGuardrail(
@@ -782,6 +852,23 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link GetFoundationModelAvailabilityCommand}
+   */
+  getFoundationModelAvailability(
+    args: GetFoundationModelAvailabilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFoundationModelAvailabilityCommandOutput>;
+  getFoundationModelAvailability(
+    args: GetFoundationModelAvailabilityCommandInput,
+    cb: (err: any, data?: GetFoundationModelAvailabilityCommandOutput) => void
+  ): void;
+  getFoundationModelAvailability(
+    args: GetFoundationModelAvailabilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFoundationModelAvailabilityCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetGuardrailCommand}
    */
   getGuardrail(args: GetGuardrailCommandInput, options?: __HttpHandlerOptions): Promise<GetGuardrailCommandOutput>;
@@ -958,6 +1045,24 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link GetUseCaseForModelAccessCommand}
+   */
+  getUseCaseForModelAccess(): Promise<GetUseCaseForModelAccessCommandOutput>;
+  getUseCaseForModelAccess(
+    args: GetUseCaseForModelAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUseCaseForModelAccessCommandOutput>;
+  getUseCaseForModelAccess(
+    args: GetUseCaseForModelAccessCommandInput,
+    cb: (err: any, data?: GetUseCaseForModelAccessCommandOutput) => void
+  ): void;
+  getUseCaseForModelAccess(
+    args: GetUseCaseForModelAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetUseCaseForModelAccessCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCustomModelsCommand}
    */
   listCustomModels(): Promise<ListCustomModelsCommandOutput>;
@@ -991,6 +1096,23 @@ export interface Bedrock {
     args: ListEvaluationJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEvaluationJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFoundationModelAgreementOffersCommand}
+   */
+  listFoundationModelAgreementOffers(
+    args: ListFoundationModelAgreementOffersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFoundationModelAgreementOffersCommandOutput>;
+  listFoundationModelAgreementOffers(
+    args: ListFoundationModelAgreementOffersCommandInput,
+    cb: (err: any, data?: ListFoundationModelAgreementOffersCommandOutput) => void
+  ): void;
+  listFoundationModelAgreementOffers(
+    args: ListFoundationModelAgreementOffersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFoundationModelAgreementOffersCommandOutput) => void
   ): void;
 
   /**
@@ -1220,6 +1342,23 @@ export interface Bedrock {
     args: PutModelInvocationLoggingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutModelInvocationLoggingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutUseCaseForModelAccessCommand}
+   */
+  putUseCaseForModelAccess(
+    args: PutUseCaseForModelAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutUseCaseForModelAccessCommandOutput>;
+  putUseCaseForModelAccess(
+    args: PutUseCaseForModelAccessCommandInput,
+    cb: (err: any, data?: PutUseCaseForModelAccessCommandOutput) => void
+  ): void;
+  putUseCaseForModelAccess(
+    args: PutUseCaseForModelAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutUseCaseForModelAccessCommandOutput) => void
   ): void;
 
   /**
