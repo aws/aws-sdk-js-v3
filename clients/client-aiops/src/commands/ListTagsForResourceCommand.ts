@@ -28,7 +28,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Displays the tags associated with a Amazon Q Developer operational investigations resource. Currently, investigation groups support tagging.</p>
+ * <p>Displays the tags associated with a CloudWatch investigations resource. Currently, investigation groups support tagging.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

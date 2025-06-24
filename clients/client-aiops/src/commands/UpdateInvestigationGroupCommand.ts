@@ -51,6 +51,11 @@ export interface UpdateInvestigationGroupCommandOutput extends UpdateInvestigati
  *     ],
  *   },
  *   isCloudTrailEventHistoryEnabled: true || false,
+ *   crossAccountConfigurations: [ // CrossAccountConfigurations
+ *     { // CrossAccountConfiguration
+ *       sourceRoleArn: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new UpdateInvestigationGroupCommand(input);
  * const response = await client.send(command);

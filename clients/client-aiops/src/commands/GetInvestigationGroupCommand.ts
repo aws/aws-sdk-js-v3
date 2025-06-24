@@ -62,6 +62,11 @@ export interface GetInvestigationGroupCommandOutput extends GetInvestigationGrou
  * //     "STRING_VALUE",
  * //   ],
  * //   isCloudTrailEventHistoryEnabled: true || false,
+ * //   crossAccountConfigurations: [ // CrossAccountConfigurations
+ * //     { // CrossAccountConfiguration
+ * //       sourceRoleArn: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

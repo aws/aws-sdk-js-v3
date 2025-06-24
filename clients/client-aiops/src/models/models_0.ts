@@ -84,6 +84,18 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * <p>This structure contains information about the cross-account configuration in the account. </p>
+ * @public
+ */
+export interface CrossAccountConfiguration {
+  /**
+   * <p>The ARN of an existing role which will be used to do investigations on your behalf. </p>
+   * @public
+   */
+  sourceRoleArn?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -121,19 +133,19 @@ export interface EncryptionConfiguration {
  */
 export interface CreateInvestigationGroupInput {
   /**
-   * <p>A name for the investigation group.</p>
+   * <p>Provides a name for the investigation group.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Specify the ARN of the IAM role that Amazon Q Developer operational investigations will use when it gathers investigation data. The permissions in this role determine which of your resources that Amazon Q Developer operational investigations will have access to during investigations.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-Security-Data">How to control what data Amazon Q has access to during investigations</a>.</p>
+   * <p>Specify the ARN of the IAM role that CloudWatch investigations will use when it gathers investigation data. The permissions in this role determine which of your resources that CloudWatch investigations will have access to during investigations.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-Security-Data">How to control what data Amazon Q has access to during investigations</a>.</p>
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>Use this structure if you want to use a customer managed KMS key to encrypt your investigation data. If you omit this parameter, Amazon Q Developer operational investigations will use an Amazon Web Services key to encrypt the data. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-KMS">Encryption of investigation data</a>.</p>
+   * <p>Use this structure if you want to use a customer managed KMS key to encrypt your investigation data. If you omit this parameter, CloudWatch investigations will use an Amazon Web Services key to encrypt the data. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-KMS">Encryption of investigation data</a>.</p>
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
@@ -157,16 +169,22 @@ export interface CreateInvestigationGroupInput {
   tagKeyBoundaries?: string[] | undefined;
 
   /**
-   * <p>Use this structure to integrate Amazon Q Developer operational investigations with Amazon Q in chat applications. This structure is a string array. For the first string, specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs of one or more Amazon Q in chat applications configurations that you want to associate with that topic. For more information about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting started with Amazon Q in chat applications</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies">Resource type defined by Amazon Web Services Chatbot</a>.</p>
+   * <p>Use this structure to integrate CloudWatch investigations with Amazon Q in chat applications. This structure is a string array. For the first string, specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs of one or more Amazon Q in chat applications configurations that you want to associate with that topic. For more information about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting started with Amazon Q in chat applications</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies">Resource type defined by Amazon Web Services Chatbot</a>.</p>
    * @public
    */
   chatbotNotificationChannel?: Record<string, string[]> | undefined;
 
   /**
-   * <p>Specify <code>true</code> to enable Amazon Q Developer operational investigations to have access to change events that are recorded by CloudTrail. The default is <code>true</code>.</p>
+   * <p>Specify <code>true</code> to enable CloudWatch investigations to have access to change events that are recorded by CloudTrail. The default is <code>true</code>.</p>
    * @public
    */
   isCloudTrailEventHistoryEnabled?: boolean | undefined;
+
+  /**
+   * <p>Number of <code>sourceAccountId</code> values that have been configured for cross-account access.</p>
+   * @public
+   */
+  crossAccountConfigurations?: CrossAccountConfiguration[] | undefined;
 }
 
 /**
@@ -381,10 +399,16 @@ export interface GetInvestigationGroupResponse {
   tagKeyBoundaries?: string[] | undefined;
 
   /**
-   * <p>Specifies whether Amazon Q Developer operational investigationshas access to change events that are recorded by CloudTrail.</p>
+   * <p>Specifies whether CloudWatch investigationshas access to change events that are recorded by CloudTrail.</p>
    * @public
    */
   isCloudTrailEventHistoryEnabled?: boolean | undefined;
+
+  /**
+   * <p>Lists the <code>AWSAccountId</code> of the accounts configured for cross-account access and the results of the last scan performed on each account.</p>
+   * @public
+   */
+  crossAccountConfigurations?: CrossAccountConfiguration[] | undefined;
 }
 
 /**
@@ -455,13 +479,13 @@ export interface UpdateInvestigationGroupRequest {
   identifier: string | undefined;
 
   /**
-   * <p>Specify this field if you want to change the IAM role that Amazon Q Developer operational investigations will use when it gathers investigation data. To do so, specify the ARN of the new role.</p> <p>The permissions in this role determine which of your resources that Amazon Q Developer operational investigations will have access to during investigations.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-Security-Data">EHow to control what data Amazon Q has access to during investigations</a>.</p>
+   * <p>Specify this field if you want to change the IAM role that CloudWatch investigations will use when it gathers investigation data. To do so, specify the ARN of the new role.</p> <p>The permissions in this role determine which of your resources that CloudWatch investigations will have access to during investigations.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-Security-Data">EHow to control what data Amazon Q has access to during investigations</a>.</p>
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>Use this structure if you want to use a customer managed KMS key to encrypt your investigation data. If you omit this parameter, Amazon Q Developer operational investigations will use an Amazon Web Services key to encrypt the data. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-KMS">Encryption of investigation data</a>.</p>
+   * <p>Use this structure if you want to use a customer managed KMS key to encrypt your investigation data. If you omit this parameter, CloudWatch investigations will use an Amazon Web Services key to encrypt the data. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-KMS">Encryption of investigation data</a>.</p>
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
@@ -473,16 +497,22 @@ export interface UpdateInvestigationGroupRequest {
   tagKeyBoundaries?: string[] | undefined;
 
   /**
-   * <p>Use this structure to integrate Amazon Q Developer operational investigations with Amazon Q in chat applications. This structure is a string array. For the first string, specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs of one or more Amazon Q in chat applications configurations that you want to associate with that topic. For more information about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting started with Amazon Q in chat applications</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies">Resource type defined by Amazon Web Services Chatbot</a>.</p>
+   * <p>Use this structure to integrate CloudWatch investigations with Amazon Q in chat applications. This structure is a string array. For the first string, specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs of one or more Amazon Q in chat applications configurations that you want to associate with that topic. For more information about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting started with Amazon Q in chat applications</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies">Resource type defined by Amazon Web Services Chatbot</a>.</p>
    * @public
    */
   chatbotNotificationChannel?: Record<string, string[]> | undefined;
 
   /**
-   * <p>Specify <code>true</code> to enable Amazon Q Developer operational investigations to have access to change events that are recorded by CloudTrail. The default is <code>true</code>.</p>
+   * <p>Specify <code>true</code> to enable CloudWatch investigations to have access to change events that are recorded by CloudTrail. The default is <code>true</code>.</p>
    * @public
    */
   isCloudTrailEventHistoryEnabled?: boolean | undefined;
+
+  /**
+   * <p>Used to configure cross-account access for an investigation group. It allows the investigation group to access resources in other accounts. </p>
+   * @public
+   */
+  crossAccountConfigurations?: CrossAccountConfiguration[] | undefined;
 }
 
 /**
@@ -573,7 +603,7 @@ export interface ListTagsForResourceOutput {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the Amazon Q Developer operational investigations resource that you want to view tags for. You can use the <a href="https://docs.aws.amazon.com/operationalinvestigations/latest/AmazonQDeveloperOperationalInvestigationsAPIReference/API_ListInvestigationGroups.html">ListInvestigationGroups</a> operation to find the ARNs of investigation groups.</p> <p>The ARN format for an investigation group is <code>arn:aws:aiops:<i>Region</i>:<i>account-id</i>:investigation-group:<i>investigation-group-id</i> </code>.</p>
+   * <p>The ARN of the CloudWatch investigations resource that you want to view tags for. You can use the <a href="https://docs.aws.amazon.com/operationalinvestigations/latest/AmazonQDeveloperOperationalInvestigationsAPIReference/API_ListInvestigationGroups.html">ListInvestigationGroups</a> operation to find the ARNs of investigation groups.</p> <p>The ARN format for an investigation group is <code>arn:aws:aiops:<i>Region</i>:<i>account-id</i>:investigation-group:<i>investigation-group-id</i> </code>.</p>
    * @public
    */
   resourceArn: string | undefined;

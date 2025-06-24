@@ -67,6 +67,7 @@ import { AIOpsServiceException as __BaseException } from "../models/AIOpsService
 import {
   AccessDeniedException,
   ConflictException,
+  CrossAccountConfiguration,
   EncryptionConfiguration,
   ForbiddenException,
   InternalServerException,
@@ -92,6 +93,7 @@ export const se_CreateInvestigationGroupCommand = async (
   body = JSON.stringify(
     take(input, {
       chatbotNotificationChannel: (_) => _json(_),
+      crossAccountConfigurations: (_) => _json(_),
       encryptionConfiguration: (_) => _json(_),
       isCloudTrailEventHistoryEnabled: [],
       name: [],
@@ -286,6 +288,7 @@ export const se_UpdateInvestigationGroupCommand = async (
   body = JSON.stringify(
     take(input, {
       chatbotNotificationChannel: (_) => _json(_),
+      crossAccountConfigurations: (_) => _json(_),
       encryptionConfiguration: (_) => _json(_),
       isCloudTrailEventHistoryEnabled: [],
       roleArn: [],
@@ -370,6 +373,7 @@ export const de_GetInvestigationGroupCommand = async (
     chatbotNotificationChannel: _json,
     createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     createdBy: __expectString,
+    crossAccountConfigurations: _json,
     encryptionConfiguration: _json,
     isCloudTrailEventHistoryEnabled: __expectBoolean,
     lastModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -721,6 +725,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ChatConfigurationArns omitted.
 
+// se_CrossAccountConfiguration omitted.
+
+// se_CrossAccountConfigurations omitted.
+
 // se_EncryptionConfiguration omitted.
 
 // se_TagKeyBoundaries omitted.
@@ -730,6 +738,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_ChatbotNotificationChannel omitted.
 
 // de_ChatConfigurationArns omitted.
+
+// de_CrossAccountConfiguration omitted.
+
+// de_CrossAccountConfigurations omitted.
 
 // de_EncryptionConfiguration omitted.
 
