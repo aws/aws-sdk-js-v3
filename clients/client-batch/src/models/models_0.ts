@@ -419,6 +419,22 @@ export interface Ec2Configuration {
    *           <code>P4</code> and <code>G4</code>) and can be used for all non Amazon Web Services Graviton-based
    *          instance types.</p>
    *                   </dd>
+   *                   <dt>EKS_AL2023</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html">Amazon
+   *           Linux 2023</a>: Batch supports Amazon Linux 2023.</p>
+   *                      <note>
+   *                         <p>Amazon Linux 2023 does not support <code>A1</code> instances.</p>
+   *                      </note>
+   *                   </dd>
+   *                   <dt>EKS_AL2023_NVIDIA</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html">Amazon
+   *           Linux 2023 (accelerated)</a>: GPU instance families and can be used for all non Amazon Web Services
+   *          Graviton-based instance types.</p>
+   *                   </dd>
    *                </dl>
    *             </dd>
    *          </dl>
@@ -449,6 +465,20 @@ export interface Ec2Configuration {
    */
   imageKubernetesVersion?: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const UserdataType = {
+  EKS_BOOTSTRAP_SH: "EKS_BOOTSTRAP_SH",
+  EKS_NODEADM: "EKS_NODEADM",
+} as const;
+
+/**
+ * @public
+ */
+export type UserdataType = (typeof UserdataType)[keyof typeof UserdataType];
 
 /**
  * <p>An object that represents a launch template to use in place of the default launch template. You must specify either the launch template ID or launch template name in the request, but not
@@ -532,6 +562,15 @@ export interface LaunchTemplateSpecificationOverride {
    * @public
    */
   targetInstanceTypes?: string[] | undefined;
+
+  /**
+   * <p>The EKS node initialization process to use. You only need to specify this value if you are
+   *    using a custom AMI. The default value is <code>EKS_BOOTSTRAP_SH</code>. If
+   *     <i>imageType</i> is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you
+   *    must choose <code>EKS_NODEADM</code>.</p>
+   * @public
+   */
+  userdataType?: UserdataType | undefined;
 }
 
 /**
@@ -593,6 +632,15 @@ export interface LaunchTemplateSpecification {
    * @public
    */
   overrides?: LaunchTemplateSpecificationOverride[] | undefined;
+
+  /**
+   * <p>The EKS node initialization process to use. You only need to specify this value if you are
+   *    using a custom AMI. The default value is <code>EKS_BOOTSTRAP_SH</code>. If
+   *     <i>imageType</i> is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you
+   *    must choose <code>EKS_NODEADM</code>.</p>
+   * @public
+   */
+  userdataType?: UserdataType | undefined;
 }
 
 /**
@@ -1635,7 +1683,7 @@ export type CEStatus = (typeof CEStatus)[keyof typeof CEStatus];
  */
 export interface UpdatePolicy {
   /**
-   * <p>Specifies whether jobs are automatically terminated when the computer environment
+   * <p>Specifies whether jobs are automatically terminated when the compute environment
    *    infrastructure is updated. The default value is <code>false</code>.</p>
    * @public
    */

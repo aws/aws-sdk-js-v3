@@ -102,8 +102,10 @@ export interface DescribeComputeEnvironmentsCommandOutput
  * //               targetInstanceTypes: [
  * //                 "STRING_VALUE",
  * //               ],
+ * //               userdataType: "EKS_BOOTSTRAP_SH" || "EKS_NODEADM",
  * //             },
  * //           ],
+ * //           userdataType: "EKS_BOOTSTRAP_SH" || "EKS_NODEADM",
  * //         },
  * //         ec2Configuration: [ // Ec2ConfigurationList
  * //           { // Ec2Configuration
