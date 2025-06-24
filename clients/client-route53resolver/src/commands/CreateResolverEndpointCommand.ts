@@ -51,7 +51,7 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  *   SecurityGroupIds: [ // SecurityGroupIds // required
  *     "STRING_VALUE",
  *   ],
- *   Direction: "INBOUND" || "OUTBOUND", // required
+ *   Direction: "INBOUND" || "OUTBOUND" || "INBOUND_DELEGATION", // required
  *   IpAddresses: [ // IpAddressesRequest // required
  *     { // IpAddressRequest
  *       SubnetId: "STRING_VALUE", // required
@@ -83,7 +83,7 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  * //     SecurityGroupIds: [ // SecurityGroupIds
  * //       "STRING_VALUE",
  * //     ],
- * //     Direction: "INBOUND" || "OUTBOUND",
+ * //     Direction: "INBOUND" || "OUTBOUND" || "INBOUND_DELEGATION",
  * //     IpAddressCount: Number("int"),
  * //     HostVPCId: "STRING_VALUE",
  * //     Status: "CREATING" || "OPERATIONAL" || "UPDATING" || "AUTO_RECOVERING" || "ACTION_NEEDED" || "DELETING",

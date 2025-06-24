@@ -458,6 +458,7 @@ export interface AssociateResolverEndpointIpAddressRequest {
  */
 export const ResolverEndpointDirection = {
   Inbound: "INBOUND",
+  InboundDelegation: "INBOUND_DELEGATION",
   Outbound: "OUTBOUND",
 } as const;
 
@@ -573,6 +574,10 @@ export interface ResolverEndpoint {
    *                <p>
    *                   <code>OUTBOUND</code>: allows DNS queries from your VPC to your network</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INBOUND_DELEGATION</code>: Resolver delegates queries to Route 53 private hosted zones from your network.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -681,7 +686,7 @@ export interface ResolverEndpoint {
 
   /**
    * <p>
-   * 			Protocols used for the endpoint. DoH-FIPS is applicable for inbound endpoints only.
+   * 			Protocols used for the endpoint. DoH-FIPS is applicable for a default inbound endpoints only.
    * 		</p>
    *          <p>For an inbound endpoint you can apply the protocols as follows:</p>
    *          <ul>
@@ -704,6 +709,7 @@ export interface ResolverEndpoint {
    *                <p>None, which is treated as Do53.</p>
    *             </li>
    *          </ul>
+   *          <p>For a delegation inbound endpoint you can use Do53 only.</p>
    *          <p>For an outbound endpoint you can apply the protocols as follows:</p>
    *          <ul>
    *             <li>
@@ -2136,11 +2142,15 @@ export interface CreateResolverEndpointRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>INBOUND</code>: Resolver forwards DNS queries to the DNS service for a VPC from your network</p>
+   *                   <code>INBOUND</code>: Resolver forwards DNS queries to the DNS service for a VPC from your network.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>OUTBOUND</code>: Resolver forwards DNS queries from the DNS service for a VPC to your network</p>
+   *                   <code>OUTBOUND</code>: Resolver forwards DNS queries from the DNS service for a VPC to your network.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INBOUND_DELEGATION</code>: Resolver delegates queries to Route 53 private hosted zones from your network.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2188,9 +2198,9 @@ export interface CreateResolverEndpointRequest {
 
   /**
    * <p>
-   * 			The protocols you want to use for the endpoint. DoH-FIPS is applicable for inbound endpoints only.
+   * 			The protocols you want to use for the endpoint. DoH-FIPS is applicable for default inbound endpoints only.
    * 		</p>
-   *          <p>For an inbound endpoint you can apply the protocols as follows:</p>
+   *          <p>For a default inbound endpoint you can apply the protocols as follows:</p>
    *          <ul>
    *             <li>
    *                <p> Do53  and DoH in combination.</p>
@@ -2211,6 +2221,7 @@ export interface CreateResolverEndpointRequest {
    *                <p>None, which is treated as Do53.</p>
    *             </li>
    *          </ul>
+   *          <p>For a delegation inbound endpoint you can use Do53 only.</p>
    *          <p>For an outbound endpoint you can apply the protocols as follows:</p>
    *          <ul>
    *             <li>
@@ -2438,6 +2449,7 @@ export interface CreateResolverQueryLogConfigResponse {
  * @enum
  */
 export const RuleTypeOption = {
+  Delegate: "DELEGATE",
   Forward: "FORWARD",
   Recursive: "RECURSIVE",
   System: "SYSTEM",
@@ -2511,7 +2523,7 @@ export interface CreateResolverRuleRequest {
   Name?: string | undefined;
 
   /**
-   * <p>When you want to forward DNS queries for specified domain name to resolvers on your network, specify <code>FORWARD</code>.</p>
+   * <p>When you want to forward DNS queries for specified domain name to resolvers on your network, specify <code>FORWARD</code> or <code>DELEGATE</code>.</p>
    *          <p>When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for
    * 			a subdomain of that domain, specify <code>SYSTEM</code>.</p>
    *          <p>For example, to forward DNS queries for example.com to resolvers on your network, you create a rule and specify <code>FORWARD</code>
@@ -2550,6 +2562,15 @@ export interface CreateResolverRuleRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>
+   * 			DNS queries with the delegation records that match this domain name are forwarded to the resolvers on your
+   * 			network.
+   * 		</p>
+   * @public
+   */
+  DelegationRecord?: string | undefined;
 }
 
 /**
@@ -2621,7 +2642,9 @@ export interface ResolverRule {
   StatusMessage?: string | undefined;
 
   /**
-   * <p>When you want to forward DNS queries for specified domain name to resolvers on your network, specify <code>FORWARD</code>.</p>
+   * <p>When you want to forward DNS queries for specified domain name to resolvers on your network, specify <code>FORWARD</code> or <code>DELEGATE</code>.
+   * 			If a query matches multiple Resolver rules (example.com and www.example.com), outbound DNS queries are routed using the Resolver rule that contains
+   * 			the most specific domain name (www.example.com).</p>
    *          <p>When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for
    * 			a subdomain of that domain, specify <code>SYSTEM</code>.</p>
    *          <p>For example, to forward DNS queries for example.com to resolvers on your network, you create a rule and specify <code>FORWARD</code>
@@ -2675,6 +2698,14 @@ export interface ResolverRule {
    * @public
    */
   ModificationTime?: string | undefined;
+
+  /**
+   * <p>
+   * 			DNS queries with delegation records that point to this domain name are forwarded to resolvers on your network.
+   * 		</p>
+   * @public
+   */
+  DelegationRecord?: string | undefined;
 }
 
 /**
@@ -3662,7 +3693,7 @@ export interface ResolverConfig {
   Id?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Virtual Private Cloud VPC that you're configuring Resolver for.</p>
+   * <p>The ID of the Amazon Virtual Private Cloud VPC or a Route 53 Profile that you're configuring Resolver for.</p>
    * @public
    */
   ResourceId?: string | undefined;
@@ -4115,6 +4146,7 @@ export const IpAddressStatus = {
   Detaching: "DETACHING",
   FailedCreation: "FAILED_CREATION",
   FailedResourceGone: "FAILED_RESOURCE_GONE",
+  Isolated: "ISOLATED",
   RemapAttaching: "REMAP_ATTACHING",
   RemapDetaching: "REMAP_DETACHING",
   UpdateFailed: "UPDATE_FAILED",
@@ -5966,7 +5998,7 @@ export interface UpdateOutpostResolverResponse {
  */
 export interface UpdateResolverConfigRequest {
   /**
-   * <p>Resource ID of the Amazon VPC that you want to update the Resolver configuration for.</p>
+   * <p>The ID of the Amazon Virtual Private Cloud VPC or a Route 53 Profile that you're configuring Resolver for.</p>
    * @public
    */
   ResourceId: string | undefined;
@@ -6102,9 +6134,9 @@ export interface UpdateResolverEndpointRequest {
 
   /**
    * <p>
-   * 			The protocols you want to use for the endpoint. DoH-FIPS is applicable for inbound endpoints only.
+   * 			The protocols you want to use for the endpoint. DoH-FIPS is applicable for default inbound endpoints only.
    * 		</p>
-   *          <p>For an inbound endpoint you can apply the protocols as follows:</p>
+   *          <p>For a default inbound endpoint you can apply the protocols as follows:</p>
    *          <ul>
    *             <li>
    *                <p> Do53  and DoH in combination.</p>
@@ -6125,6 +6157,7 @@ export interface UpdateResolverEndpointRequest {
    *                <p>None, which is treated as Do53.</p>
    *             </li>
    *          </ul>
+   *          <p>For a delegation inbound endpoint you can use Do53 only.</p>
    *          <p>For an outbound endpoint you can apply the protocols as follows:</p>
    *          <ul>
    *             <li>

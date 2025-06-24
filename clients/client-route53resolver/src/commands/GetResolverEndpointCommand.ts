@@ -50,7 +50,7 @@ export interface GetResolverEndpointCommandOutput extends GetResolverEndpointRes
  * //     SecurityGroupIds: [ // SecurityGroupIds
  * //       "STRING_VALUE",
  * //     ],
- * //     Direction: "INBOUND" || "OUTBOUND",
+ * //     Direction: "INBOUND" || "OUTBOUND" || "INBOUND_DELEGATION",
  * //     IpAddressCount: Number("int"),
  * //     HostVPCId: "STRING_VALUE",
  * //     Status: "CREATING" || "OPERATIONAL" || "UPDATING" || "AUTO_RECOVERING" || "ACTION_NEEDED" || "DELETING",

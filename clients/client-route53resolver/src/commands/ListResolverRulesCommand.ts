@@ -60,7 +60,7 @@ export interface ListResolverRulesCommandOutput extends ListResolverRulesRespons
  * //       DomainName: "STRING_VALUE",
  * //       Status: "COMPLETE" || "DELETING" || "UPDATING" || "FAILED",
  * //       StatusMessage: "STRING_VALUE",
- * //       RuleType: "FORWARD" || "SYSTEM" || "RECURSIVE",
+ * //       RuleType: "FORWARD" || "SYSTEM" || "RECURSIVE" || "DELEGATE",
  * //       Name: "STRING_VALUE",
  * //       TargetIps: [ // TargetList
  * //         { // TargetAddress
@@ -76,6 +76,7 @@ export interface ListResolverRulesCommandOutput extends ListResolverRulesRespons
  * //       ShareStatus: "NOT_SHARED" || "SHARED_WITH_ME" || "SHARED_BY_ME",
  * //       CreationTime: "STRING_VALUE",
  * //       ModificationTime: "STRING_VALUE",
+ * //       DelegationRecord: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
