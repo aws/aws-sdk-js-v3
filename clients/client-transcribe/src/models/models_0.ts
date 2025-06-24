@@ -247,6 +247,7 @@ export const LanguageCode = {
   EN_ZA: "en-ZA",
   ES_ES: "es-ES",
   ES_US: "es-US",
+  ET_EE: "et-EE",
   ET_ET: "et-ET",
   EU_ES: "eu-ES",
   FA_IR: "fa-IR",
