@@ -1,3 +1,5 @@
+export * from "./DescribeAccountLimitsPaginator";
+
 export * from "./DescribeListenerCertificatesPaginator";
 
 export * from "./DescribeListenersPaginator";

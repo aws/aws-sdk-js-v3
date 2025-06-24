@@ -39,8 +39,8 @@ export interface DescribeListenerCertificatesCommandOutput
  *          <p>If the default certificate is also in the certificate list, it appears twice in the
  *       results (once with <code>IsDefault</code> set to true and once with <code>IsDefault</code> set
  *       to false).</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#https-listener-certificates">SSL certificates</a> in the <i>Application Load Balancers Guide</i> or
- *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#tls-listener-certificate">Server certificates</a> in the <i>Network Load Balancers
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/https-listener-certificates.html">SSL certificates</a> in the <i>Application Load Balancers Guide</i> or
+ *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/tls-listener-certificates.html">Server certificates</a> in the <i>Network Load Balancers
  *       Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

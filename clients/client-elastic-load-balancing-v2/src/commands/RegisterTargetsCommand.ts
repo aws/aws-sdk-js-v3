@@ -39,9 +39,27 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  *       port for the target group. Alternatively, you can override the port for a target when you
  *       register it. You can register each EC2 instance or IP address with the same target group
  *       multiple times using different ports.</p>
- *          <p>With a Network Load Balancer, you can't register instances by instance ID if they have
- *       the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3,
- *       and T1. You can register instances of these types by IP address.</p>
+ *          <p>For more information, see the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-register-targets.html">Register
+ *           targets for your Application Load Balancer</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-register-targets.html">Register targets
+ *           for your Network Load Balancer</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-group-register-targets.html">Register targets for your
+ *           Gateway Load Balancer</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

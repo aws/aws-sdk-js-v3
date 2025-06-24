@@ -270,7 +270,8 @@ export interface TargetGroupStickinessConfig {
 
   /**
    * <p>The time period, in seconds, during which requests from a client should be routed to the
-   *       same target group. The range is 1-604800 seconds (7 days).</p>
+   *       same target group. The range is 1-604800 seconds (7 days). You must specify this value when
+   *       enabling target group stickiness.</p>
    * @public
    */
   DurationSeconds?: number | undefined;
@@ -1423,8 +1424,8 @@ export interface CreateListenerInput {
   /**
    * <p>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are
    *       supported.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security policies</a> in the <i>Application Load Balancers Guide</i> and
-   *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html">Security policies</a> in the <i>Application Load Balancers Guide</i> and
+   *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>
    * @public
    */
   SslPolicy?: string | undefined;
@@ -1473,7 +1474,7 @@ export interface CreateListenerInput {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies">ALPN
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html#alpn-policies">ALPN
    *         policies</a> in the <i>Network Load Balancers Guide</i>.</p>
    * @public
    */
@@ -2433,7 +2434,8 @@ export interface HostHeaderConditionConfig {
   /**
    * <p>The host names. The maximum size of each name is 128 characters. The comparison is
    *       case insensitive. The following wildcard characters are supported: * (matches 0 or more
-   *       characters) and ? (matches exactly 1 character).</p>
+   *       characters) and ? (matches exactly 1 character). You must include at least one "."
+   *       character. You can include only alphabetical characters after the final "." character.</p>
    *          <p>If you specify multiple strings, the condition is satisfied if one of the strings matches
    *       the host name.</p>
    * @public
@@ -2452,7 +2454,7 @@ export interface HttpHeaderConditionConfig {
    * <p>The name of the HTTP header field. The maximum size is 40 characters. The header name is
    *       case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not
    *       supported.</p>
-   *          <p>You can't use an HTTP header condition to specify the host header. Use <a>HostHeaderConditionConfig</a> to specify a host header condition.</p>
+   *          <p>You can't use an HTTP header condition to specify the host header. Instead, use a <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions">host condition</a>.</p>
    * @public
    */
   HttpHeaderName?: string | undefined;
@@ -2503,7 +2505,7 @@ export interface PathPatternConditionConfig {
    *       are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).</p>
    *          <p>If you specify multiple strings, the condition is satisfied if one of them matches the
    *       request URL. The path pattern is compared only to the path of the URL, not to its query
-   *       string. To compare against the query string, use <a>QueryStringConditionConfig</a>.</p>
+   *       string. To compare against the query string, use a <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#query-string-conditions">query string condition</a>.</p>
    * @public
    */
   Values?: string[] | undefined;
@@ -2563,7 +2565,7 @@ export interface SourceIpConditionConfig {
    *          <p>If you specify multiple addresses, the condition is satisfied if the source IP address of
    *       the request matches one of the CIDR blocks. This condition is not satisfied by the addresses
    *       in the X-Forwarded-For header. To search for addresses in the X-Forwarded-For header, use
-   *         <a>HttpHeaderConditionConfig</a>.</p>
+   *       an <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#http-header-conditions">HTTP header condition</a>.</p>
    *          <p>The total number of values must be less than, or equal to five.</p>
    * @public
    */
@@ -3818,7 +3820,7 @@ export interface DescribeCapacityReservationInput {
 }
 
 /**
- * <p>The capacity reservation status for each availability zone.</p>
+ * <p>The capacity reservation status for each Availability Zone.</p>
  * @public
  */
 export interface ZonalCapacityReservationState {
@@ -3829,7 +3831,7 @@ export interface ZonalCapacityReservationState {
   State?: CapacityReservationStatus | undefined;
 
   /**
-   * <p>Information about the availability zone.</p>
+   * <p>Information about the Availability Zone.</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
@@ -4630,7 +4632,7 @@ export interface TargetGroupAttribute {
    *           If the number of healthy targets is below this value, mark the zone as unhealthy
    *           in DNS, so that traffic is routed only to healthy zones. The possible values are
    *           <code>off</code> or an integer from 1 to the maximum number of targets.
-   *           The default is <code>off</code>.</p>
+   *           The default is 1.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5583,8 +5585,8 @@ export interface ModifyListenerInput {
   /**
    * <p>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are
    *       supported.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security policies</a> in the <i>Application Load Balancers Guide</i> or
-   *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html">Security policies</a> in the <i>Application Load Balancers Guide</i> or
+   *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>
    * @public
    */
   SslPolicy?: string | undefined;
@@ -5633,7 +5635,7 @@ export interface ModifyListenerInput {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies">ALPN
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html#alpn-policies">ALPN
    *         policies</a> in the <i>Network Load Balancers Guide</i>.</p>
    * @public
    */
