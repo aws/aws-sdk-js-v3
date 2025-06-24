@@ -34,7 +34,7 @@ export interface ModifyInstanceNetworkPerformanceOptionsCommandOutput
 
 /**
  * <p>Change the configuration of the network performance options for an existing
- *         	instance.</p>
+ *             instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,26 +28,29 @@ export interface CreateCapacityReservationCommandInput extends CreateCapacityRes
 export interface CreateCapacityReservationCommandOutput extends CreateCapacityReservationResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new Capacity Reservation with the specified attributes. Capacity Reservations enable
- * 			you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any
- * 			duration.</p>
- *          <p>You can create a Capacity Reservation at any time, and you can choose when it starts. You can create a
- * 			Capacity Reservation for immediate use or you can request a Capacity Reservation for a future date.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">
- * 			Reserve compute capacity with On-Demand Capacity Reservations</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * <p>Creates a new Capacity Reservation with the specified attributes. Capacity
+ * 			Reservations enable you to reserve capacity for your Amazon EC2 instances in a specific
+ * 			Availability Zone for any duration.</p>
+ *          <p>You can create a Capacity Reservation at any time, and you can choose when it starts.
+ * 			You can create a Capacity Reservation for immediate use or you can request a Capacity
+ * 			Reservation for a future date.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html"> Reserve compute
+ * 				capacity with On-Demand Capacity Reservations</a> in the
+ * 				<i>Amazon EC2 User Guide</i>.</p>
  *          <p>Your request to create a Capacity Reservation could fail if:</p>
  *          <ul>
  *             <li>
- *                <p>Amazon EC2 does not have sufficient capacity. In this case, try again at a later
- * 					time, try in a different Availability Zone, or request a smaller Capacity Reservation. If
- * 					your workload is flexible across instance types and sizes, try with different instance
- * 					attributes.</p>
+ *                <p>Amazon EC2 does not have sufficient capacity. In this case, try again
+ * 					at a later time, try in a different Availability Zone, or request a smaller
+ * 					Capacity Reservation. If your workload is flexible across instance types and
+ * 					sizes, try with different instance attributes.</p>
  *             </li>
  *             <li>
- *                <p>The requested quantity exceeds your On-Demand Instance quota. In this case, increase your
- * 					On-Demand Instance quota for the requested instance type and try again. For more information,
- * 					see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">
- * 						Amazon EC2 Service Quotas</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *                <p>The requested quantity exceeds your On-Demand Instance quota. In this case,
+ * 					increase your On-Demand Instance quota for the requested instance type and try
+ * 					again. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">
+ * 						Amazon EC2 Service Quotas</a> in the
+ * 						<i>Amazon EC2 User Guide</i>.</p>
  *             </li>
  *          </ul>
  * @example

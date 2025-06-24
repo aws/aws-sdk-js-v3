@@ -37,8 +37,8 @@ export interface DescribeCapacityBlockExtensionOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes Capacity Block extension offerings available for purchase in the Amazon Web Services Region
- * 			that you're currently using.</p>
+ * <p>Describes Capacity Block extension offerings available for purchase in the Amazon Web Services
+ * 			Region that you're currently using.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

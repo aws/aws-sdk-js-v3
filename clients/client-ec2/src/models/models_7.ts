@@ -3434,13 +3434,16 @@ export interface ModifyInstanceAttributeRequest {
 
 /**
  * <p>Describes an instance's Capacity Reservation targeting option. </p>
- *          <p>Use the <code>CapacityReservationPreference</code> parameter to configure the instance to
- * 			run as an On-Demand Instance, to run in any <code>open</code> Capacity Reservation that
- * 			has matching attributes, or to run only in a Capacity Reservation or Capacity
+ *          <p>Use the <code>CapacityReservationPreference</code> parameter to configure the instance
+ * 			to run as an On-Demand Instance, to run in any <code>open</code> Capacity Reservation
+ * 			that has matching attributes, or to run only in a Capacity Reservation or Capacity
  * 			Reservation group. Use the <code>CapacityReservationTarget</code> parameter to
  * 			explicitly target a specific Capacity Reservation or a Capacity Reservation
  * 			group.</p>
- *          <p>You can only specify <code>CapacityReservationPreference</code> and <code>CapacityReservationTarget</code> if the <code>CapacityReservationPreference</code> is <code>capacity-reservations-only</code>.</p>
+ *          <p>You can only specify <code>CapacityReservationPreference</code> and
+ * 				<code>CapacityReservationTarget</code> if the
+ * 				<code>CapacityReservationPreference</code> is
+ * 				<code>capacity-reservations-only</code>.</p>
  * @public
  */
 export interface CapacityReservationSpecification {
@@ -3451,20 +3454,20 @@ export interface CapacityReservationSpecification {
    *             <li>
    *                <p>
    *                   <code>capacity-reservations-only</code> - The instance will only run in a
-   * 					Capacity Reservation or Capacity Reservation group. If capacity isn't
-   * 					available, the instance will fail to launch.</p>
+   * 					Capacity Reservation or Capacity Reservation group. If capacity isn't available,
+   * 					the instance will fail to launch.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>open</code> - The instance can run in any <code>open</code> Capacity
-   * 					Reservation that has matching attributes (instance type, platform,
-   * 					Availability Zone, and tenancy). If capacity isn't available, the instance
-   * 					runs as an On-Demand Instance.</p>
+   * 					Reservation that has matching attributes (instance type, platform, Availability
+   * 					Zone, and tenancy). If capacity isn't available, the instance runs as an
+   * 					On-Demand Instance.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>none</code> - The instance doesn't run in a Capacity Reservation even if one is available. The
-   * 					instance runs as an On-Demand Instance.</p>
+   *                   <code>none</code> - The instance doesn't run in a Capacity Reservation even if
+   * 					one is available. The instance runs as an On-Demand Instance.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3472,7 +3475,8 @@ export interface CapacityReservationSpecification {
   CapacityReservationPreference?: CapacityReservationPreference | undefined;
 
   /**
-   * <p>Information about the target Capacity Reservation or Capacity Reservation group.</p>
+   * <p>Information about the target Capacity Reservation or Capacity Reservation
+   * 			group.</p>
    * @public
    */
   CapacityReservationTarget?: CapacityReservationTarget | undefined;
@@ -3861,7 +3865,7 @@ export interface ModifyInstanceMaintenanceOptionsRequest {
    *          </ul>
    *          <p>This setting only applies to supported instances that have a scheduled reboot event.
    *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/schedevents_actions_reboot.html#reboot-migration">Enable or disable reboot migration</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
+   *             <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   RebootMigration?: InstanceRebootMigrationState | undefined;
@@ -3870,7 +3874,7 @@ export interface ModifyInstanceMaintenanceOptionsRequest {
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
+   *             <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;
@@ -3913,7 +3917,7 @@ export interface ModifyInstanceMaintenanceOptionsResult {
    *          </ul>
    *          <p>This setting only applies to supported instances that have a scheduled reboot event.
    *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/schedevents_actions_reboot.html#reboot-migration">Enable or disable reboot migration</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
+   *             <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   RebootMigration?: InstanceRebootMigrationState | undefined;
@@ -4165,12 +4169,12 @@ export interface ModifyInstanceNetworkPerformanceRequest {
    *             <dt>vpc-1</dt>
    *             <dd>
    *                <p>This option boosts your networking baseline bandwidth and reduces your EBS
-   *     					baseline bandwidth.</p>
+   *                         baseline bandwidth.</p>
    *             </dd>
    *             <dt>ebs-1</dt>
    *             <dd>
    *                <p>This option boosts your EBS baseline bandwidth and reduces your networking
-   *     					baseline bandwidth.</p>
+   *                         baseline bandwidth.</p>
    *             </dd>
    *          </dl>
    * @public

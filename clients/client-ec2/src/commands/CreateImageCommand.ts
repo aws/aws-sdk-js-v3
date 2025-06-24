@@ -34,6 +34,18 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  *       to the root device volume, the new AMI contains block device mapping information for those
  *       volumes. When you launch an instance from this new AMI, the instance automatically launches
  *       with those additional volumes.</p>
+ *          <p>The location of the source instance determines where you can create the snapshots of the
+ *       AMI:</p>
+ *          <ul>
+ *             <li>
+ *                <p>If the source instance is in a Region, you must create the snapshots in the same
+ *           Region as the instance.</p>
+ *             </li>
+ *             <li>
+ *                <p>If the source instance is in a Local Zone, you can create the snapshots in the same
+ *           Local Zone or in its parent Region.</p>
+ *             </li>
+ *          </ul>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Create an Amazon EBS-backed AMI</a> in
  *       the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
@@ -54,6 +66,7 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  *       ],
  *     },
  *   ],
+ *   SnapshotLocation: "regional" || "local",
  *   DryRun: true || false,
  *   InstanceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
@@ -70,8 +83,10 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  *         KmsKeyId: "STRING_VALUE",
  *         Throughput: Number("int"),
  *         OutpostArn: "STRING_VALUE",
+ *         AvailabilityZone: "STRING_VALUE",
  *         Encrypted: true || false,
  *         VolumeInitializationRate: Number("int"),
+ *         AvailabilityZoneId: "STRING_VALUE",
  *       },
  *       NoDevice: "STRING_VALUE",
  *       DeviceName: "STRING_VALUE",

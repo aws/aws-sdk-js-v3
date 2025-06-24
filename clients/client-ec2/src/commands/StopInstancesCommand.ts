@@ -28,11 +28,10 @@ export interface StopInstancesCommandInput extends StopInstancesRequest {}
 export interface StopInstancesCommandOutput extends StopInstancesResult, __MetadataBearer {}
 
 /**
- * <p>Stops an Amazon EBS-backed instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop and start
- *                     Amazon EC2 instances</a> in the <i>Amazon EC2 User
- *                 Guide</i>.</p>
- *          <p>When you stop an instance, we shut it down. You can restart your instance at any
- *             time.</p>
+ * <p>Stops an Amazon EBS-backed instance. You can restart your instance at any time using
+ *             the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartInstances.html">StartInstances</a> API. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop and start Amazon EC2
+ *                 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>When you stop an instance, we shut it down.</p>
  *          <p>You can use the Stop operation together with the Hibernate parameter to hibernate an
  *             instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enabling-hibernation.html">enabled for
  *                 hibernation</a> and meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation

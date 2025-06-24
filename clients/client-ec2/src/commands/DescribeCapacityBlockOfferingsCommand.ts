@@ -36,7 +36,7 @@ export interface DescribeCapacityBlockOfferingsCommandOutput
  * <p>Describes Capacity Block offerings available for purchase in the Amazon Web Services Region that you're currently using. With Capacity Blocks, you purchase a
  * 			specific instance type for a period of time.</p>
  *          <p>To search for an available Capacity Block offering, you specify a reservation duration
- *                 and instance count.</p>
+ * 			and instance count.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

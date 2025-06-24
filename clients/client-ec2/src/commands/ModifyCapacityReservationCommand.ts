@@ -28,37 +28,41 @@ export interface ModifyCapacityReservationCommandInput extends ModifyCapacityRes
 export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityReservationResult, __MetadataBearer {}
 
 /**
- * <p>Modifies a Capacity Reservation's capacity, instance eligibility, and the conditions under
- * 			which it is to be released. You can't modify a Capacity Reservation's instance type, EBS
- * 			optimization, platform, instance store settings, Availability Zone, or tenancy. If you need
- * 			to modify any of these attributes, we recommend that you cancel the Capacity Reservation,
- * 			and then create a new one with the required attributes. For more information, see
- * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-modify.html">
- * 				Modify an active Capacity Reservation</a>.</p>
+ * <p>Modifies a Capacity Reservation's capacity, instance eligibility, and the conditions
+ * 			under which it is to be released. You can't modify a Capacity Reservation's instance
+ * 			type, EBS optimization, platform, instance store settings, Availability Zone, or
+ * 			tenancy. If you need to modify any of these attributes, we recommend that you cancel the
+ * 			Capacity Reservation, and then create a new one with the required attributes. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-modify.html"> Modify an active
+ * 				Capacity Reservation</a>.</p>
  *          <p>The allowed modifications depend on the state of the Capacity Reservation:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>assessing</code> or <code>scheduled</code> state - You can modify the tags only.</p>
+ *                   <code>assessing</code> or <code>scheduled</code> state - You can modify the
+ * 					tags only.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>pending</code> state - You can't modify the Capacity Reservation in any way.</p>
+ *                   <code>pending</code> state - You can't modify the Capacity Reservation in any
+ * 					way.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>active</code> state but still within the commitment duration - You can't decrease the instance
- * 					count or set an end date that is within the commitment duration. All other modifications are allowed.</p>
+ *                   <code>active</code> state but still within the commitment duration - You can't
+ * 					decrease the instance count or set an end date that is within the commitment
+ * 					duration. All other modifications are allowed.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>active</code> state with no commitment duration or elapsed commitment duration - All modifications
- * 					are allowed.</p>
+ *                   <code>active</code> state with no commitment duration or elapsed commitment
+ * 					duration - All modifications are allowed.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>expired</code>, <code>cancelled</code>, <code>unsupported</code>, or <code>failed</code> state -
- * 					You can't modify the Capacity Reservation in any way.</p>
+ *                   <code>expired</code>, <code>cancelled</code>, <code>unsupported</code>, or
+ * 						<code>failed</code> state - You can't modify the Capacity Reservation in any
+ * 					way.</p>
  *             </li>
  *          </ul>
  * @example

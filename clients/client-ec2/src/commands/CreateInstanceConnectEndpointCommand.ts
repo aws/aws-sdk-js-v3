@@ -32,8 +32,8 @@ export interface CreateInstanceConnectEndpointCommandOutput
 /**
  * <p>Creates an EC2 Instance Connect Endpoint.</p>
  *          <p>An EC2 Instance Connect Endpoint allows you to connect to an instance, without
- *             requiring the instance to have a public IPv4 address. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect-Endpoint.html">Connect to your instances without requiring a public IPv4 address using EC2
- *                 Instance Connect Endpoint</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *             requiring the instance to have a public IPv4 address. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect-Endpoint.html">Connect to your instances using EC2 Instance Connect Endpoint</a> in the
+ *                 <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

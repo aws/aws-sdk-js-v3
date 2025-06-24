@@ -50,7 +50,7 @@ import {
   LaunchTemplateCapacityReservationSpecificationResponse,
   LaunchTemplateCpuOptions,
   LaunchTemplateElasticInferenceAcceleratorResponse,
-  LaunchTemplateEnaSrdSpecification,
+  LaunchTemplateEnaSrdUdpSpecification,
   LaunchTemplateEnclaveOptions,
   LaunchTemplateHibernationOptions,
   LaunchTemplateIamInstanceProfileSpecification,
@@ -65,12 +65,38 @@ import {
   OperatorResponse,
   PrivateIpAddressSpecification,
   ShutdownBehavior,
+  SnapshotLocationEnum,
   Subnet,
   Tenancy,
   ValidationWarning,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the
+ * 			maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances.
+ * 			With ENA Express, you can communicate between two EC2 instances in the same subnet within the same
+ * 			account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p>
+ *          <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the
+ * 			receiving end by default. However, some UDP-based applications are designed to handle network packets
+ * 			that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express
+ * 			is enabled, you can specify whether UDP network traffic uses it.</p>
+ * @public
+ */
+export interface LaunchTemplateEnaSrdSpecification {
+  /**
+   * <p>Indicates whether ENA Express is enabled for the network interface.</p>
+   * @public
+   */
+  EnaSrdEnabled?: boolean | undefined;
+
+  /**
+   * <p>Configures ENA Express for UDP network traffic.</p>
+   * @public
+   */
+  EnaSrdUdpSpecification?: LaunchTemplateEnaSrdUdpSpecification | undefined;
+}
 
 /**
  * <p>Information about the IPv4 delegated prefixes assigned to a network interface.</p>
@@ -5431,20 +5457,6 @@ export interface CreateSecurityGroupResult {
 
 /**
  * @public
- * @enum
- */
-export const SnapshotLocationEnum = {
-  LOCAL: "local",
-  REGIONAL: "regional",
-} as const;
-
-/**
- * @public
- */
-export type SnapshotLocationEnum = (typeof SnapshotLocationEnum)[keyof typeof SnapshotLocationEnum];
-
-/**
- * @public
  */
 export interface CreateSnapshotRequest {
   /**
@@ -5868,7 +5880,7 @@ export interface CreateSnapshotsRequest {
    *           <code>local</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To create a regional snapshots in the parent Region of the Local Zone, specify
+   *                <p>To create regional snapshots in the parent Region of the Local Zone, specify
    *           <code>regional</code> or omit this parameter.</p>
    *             </li>
    *          </ul>

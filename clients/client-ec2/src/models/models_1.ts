@@ -481,10 +481,11 @@ export interface CreateCapacityReservationRequest {
   /**
    * <p>The instance type for which to reserve capacity.</p>
    *          <note>
-   *             <p>You can request future-dated Capacity Reservations for instance types in the C, M, R, I,
-   * 				and T instance families only.</p>
+   *             <p>You can request future-dated Capacity Reservations for instance types in the C, M,
+   * 				R, I, and T instance families only.</p>
    *          </note>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
+   * 				<i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   InstanceType: string | undefined;
@@ -529,10 +530,10 @@ export interface CreateCapacityReservationRequest {
   /**
    * <p>The number of instances for which to reserve capacity.</p>
    *          <note>
-   *             <p>You can request future-dated Capacity Reservations for an instance count
-   * 				with a minimum of 100 vCPUs. For example, if you request a future-dated Capacity
-   * 				Reservation for <code>m5.xlarge</code> instances, you must request at least
-   * 				25 instances (<i>25 * m5.xlarge = 100 vCPUs</i>).</p>
+   *             <p>You can request future-dated Capacity Reservations for an instance count with a
+   * 				minimum of 100 vCPUs. For example, if you request a future-dated Capacity
+   * 				Reservation for <code>m5.xlarge</code> instances, you must request at least 25
+   * 				instances (<i>25 * m5.xlarge = 100 vCPUs</i>).</p>
    *          </note>
    *          <p>Valid range: 1 - 1000</p>
    * @public
@@ -560,15 +561,15 @@ export interface CreateCapacityReservationRequest {
   /**
    * <p>The date and time at which the Capacity Reservation expires. When a Capacity
    * 			Reservation expires, the reserved capacity is released and you can no longer launch
-   * 			instances into it. The Capacity Reservation's state changes to <code>expired</code>
-   * 			when it reaches its end date and time.</p>
+   * 			instances into it. The Capacity Reservation's state changes to <code>expired</code> when
+   * 			it reaches its end date and time.</p>
    *          <p>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is
-   * 			<code>limited</code>. Omit <code>EndDate</code> if <code>EndDateType</code> is
-   * 			<code>unlimited</code>.</p>
-   *          <p>If the <code>EndDateType</code> is <code>limited</code>, the Capacity Reservation
-   * 			is cancelled within an hour from the specified time. For example, if you specify
-   * 			5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55
-   * 			and 14:30:55 on 5/31/2019.</p>
+   * 				<code>limited</code>. Omit <code>EndDate</code> if <code>EndDateType</code> is
+   * 				<code>unlimited</code>.</p>
+   *          <p>If the <code>EndDateType</code> is <code>limited</code>, the Capacity Reservation is
+   * 			cancelled within an hour from the specified time. For example, if you specify 5/31/2019,
+   * 			13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on
+   * 			5/31/2019.</p>
    *          <p>If you are requesting a future-dated Capacity Reservation, you can't specify an end
    * 			date and time that is within the commitment duration.</p>
    * @public
@@ -616,7 +617,8 @@ export interface CreateCapacityReservationRequest {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>If you are requesting a future-dated Capacity Reservation, you must specify <code>targeted</code>.</p>
+   *             <p>If you are requesting a future-dated Capacity Reservation, you must specify
+   * 					<code>targeted</code>.</p>
    *          </note>
    *          <p>Default: <code>open</code>
    *          </p>
@@ -650,11 +652,9 @@ export interface CreateCapacityReservationRequest {
    * <note>
    *             <p>Not supported for future-dated Capacity Reservations.</p>
    *          </note>
-   *          <p>The Amazon Resource Name (ARN) of the cluster placement group in which
-   * 			to create the Capacity Reservation. For more information, see
-   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html">
-   * 				Capacity Reservations for cluster placement groups</a> in the
-   * 			<i>Amazon EC2 User Guide</i>.</p>
+   *          <p>The Amazon Resource Name (ARN) of the cluster placement group in which to create the
+   * 			Capacity Reservation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html"> Capacity Reservations for cluster
+   * 				placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   PlacementGroupArn?: string | undefined;
@@ -662,11 +662,11 @@ export interface CreateCapacityReservationRequest {
   /**
    * <note>
    *             <p>Required for future-dated Capacity Reservations only. To create a Capacity
-   * 			Reservation for immediate use, omit this parameter. </p>
+   * 				Reservation for immediate use, omit this parameter. </p>
    *          </note>
    *          <p>The date and time at which the future-dated Capacity Reservation should become
    * 			available for use, in the ISO8601 format in the UTC time zone
-   * 			(<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   * 				(<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
    *          <p>You can request a future-dated Capacity Reservation between 5 and 120 days in
    * 			advance.</p>
    * @public
@@ -676,14 +676,15 @@ export interface CreateCapacityReservationRequest {
   /**
    * <note>
    *             <p>Required for future-dated Capacity Reservations only. To create a Capacity
-   * 			Reservation for immediate use, omit this parameter. </p>
+   * 				Reservation for immediate use, omit this parameter. </p>
    *          </note>
-   *          <p>Specify a commitment duration, in seconds, for the future-dated Capacity Reservation.</p>
+   *          <p>Specify a commitment duration, in seconds, for the future-dated Capacity
+   * 			Reservation.</p>
    *          <p>The commitment duration is a minimum duration for which you commit to having the
-   * 			future-dated Capacity Reservation in the <code>active</code> state in your account
-   * 			after it has been delivered.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-concepts.html#cr-commitment-duration">
-   * 			Commitment duration</a>.</p>
+   * 			future-dated Capacity Reservation in the <code>active</code> state in your account after
+   * 			it has been delivered.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-concepts.html#cr-commitment-duration"> Commitment
+   * 				duration</a>.</p>
    * @public
    */
   CommitmentDuration?: number | undefined;
@@ -691,11 +692,11 @@ export interface CreateCapacityReservationRequest {
   /**
    * <note>
    *             <p>Required for future-dated Capacity Reservations only. To create a Capacity
-   * 			Reservation for immediate use, omit this parameter. </p>
+   * 				Reservation for immediate use, omit this parameter. </p>
    *          </note>
-   *          <p>Indicates that the requested capacity will be delivered in addition to any
-   * 			running instances or reserved capacity that you have in your account at the
-   * 			requested date and time.</p>
+   *          <p>Indicates that the requested capacity will be delivered in addition to any running
+   * 			instances or reserved capacity that you have in your account at the requested date and
+   * 			time.</p>
    *          <p>The only supported value is <code>incremental</code>.</p>
    * @public
    */
@@ -736,8 +737,8 @@ export interface CapacityReservationCommitmentInfo {
   CommittedInstanceCount?: number | undefined;
 
   /**
-   * <p>The date and time at which the commitment duration expires, in the ISO8601 format
-   * 			in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>). You can't decrease the
+   * <p>The date and time at which the commitment duration expires, in the ISO8601 format in
+   * 			the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>). You can't decrease the
    * 			instance count or cancel the Capacity Reservation before this date and time.</p>
    * @public
    */
@@ -1067,7 +1068,8 @@ export interface CapacityReservation {
   /**
    * <p>The delivery method for a future-dated Capacity Reservation. <code>incremental</code>
    * 			indicates that the requested capacity is delivered in addition to any running instances
-   * 			and reserved capacity that you have in your account at the requested date and time.</p>
+   * 			and reserved capacity that you have in your account at the requested date and
+   * 			time.</p>
    * @public
    */
   DeliveryPreference?: CapacityReservationDeliveryPreference | undefined;
@@ -7928,6 +7930,17 @@ export interface EbsBlockDevice {
   OutpostArn?: string | undefined;
 
   /**
+   * <p>The Availability Zone where the EBS volume will be created (for example,
+   *         <code>us-east-1a</code>).</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified,
+   *       but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone within
+   *       the Region.</p>
+   *          <p>This parameter is not supported when using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
    * <p>Indicates whether the encryption state of an EBS volume is changed while being
    *             restored from a backing snapshot. The effect of setting the encryption state to <code>true</code> depends on
    * the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html#encryption-parameters">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
@@ -7997,6 +8010,17 @@ export interface EbsBlockDevice {
    * @public
    */
   VolumeInitializationRate?: number | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the EBS volume will be created (for example,
+   *         <code>use1-az1</code>).</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified,
+   *       but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone within
+   *       the Region.</p>
+   *          <p>This parameter is not supported when using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 }
 
 /**
@@ -8044,6 +8068,20 @@ export interface BlockDeviceMapping {
 
 /**
  * @public
+ * @enum
+ */
+export const SnapshotLocationEnum = {
+  LOCAL: "local",
+  REGIONAL: "regional",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapshotLocationEnum = (typeof SnapshotLocationEnum)[keyof typeof SnapshotLocationEnum];
+
+/**
+ * @public
  */
 export interface CreateImageRequest {
   /**
@@ -8066,6 +8104,28 @@ export interface CreateImageRequest {
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <note>
+   *             <p>Only supported for instances in Local Zones. If the source instance is not in a Local
+   *         Zone, omit this parameter.</p>
+   *          </note>
+   *          <p>The Amazon S3 location where the snapshots will be stored.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To create local snapshots in the same Local Zone as the source instance, specify
+   *           <code>local</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To create regional snapshots in the parent Region of the Local Zone, specify
+   *           <code>regional</code> or omit this parameter.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>regional</code>
+   *          </p>
+   * @public
+   */
+  SnapshotLocation?: SnapshotLocationEnum | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -12482,31 +12542,6 @@ export interface LaunchTemplateEnaSrdUdpSpecification {
    * @public
    */
   EnaSrdUdpEnabled?: boolean | undefined;
-}
-
-/**
- * <p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the
- * 			maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances.
- * 			With ENA Express, you can communicate between two EC2 instances in the same subnet within the same
- * 			account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p>
- *          <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the
- * 			receiving end by default. However, some UDP-based applications are designed to handle network packets
- * 			that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express
- * 			is enabled, you can specify whether UDP network traffic uses it.</p>
- * @public
- */
-export interface LaunchTemplateEnaSrdSpecification {
-  /**
-   * <p>Indicates whether ENA Express is enabled for the network interface.</p>
-   * @public
-   */
-  EnaSrdEnabled?: boolean | undefined;
-
-  /**
-   * <p>Configures ENA Express for UDP network traffic.</p>
-   * @public
-   */
-  EnaSrdUdpSpecification?: LaunchTemplateEnaSrdUdpSpecification | undefined;
 }
 
 /**

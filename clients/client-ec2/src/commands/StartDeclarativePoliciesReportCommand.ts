@@ -58,7 +58,7 @@ export interface StartDeclarativePoliciesReportCommandOutput
  *                <p>An S3 bucket must be available before generating the report (you can create a
  *                     new one or use an existing one), it must be in the same Region where the report
  *                     generation request is made, and it must have an appropriate bucket policy. For a
- *                     sample S3 policy, see <i>Sample Amazon S3 policy</i> under .</p>
+ *                     sample S3 policy, see <i>Sample Amazon S3 policy</i> under <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartDeclarativePoliciesReport.html#API_StartDeclarativePoliciesReport_Examples">Examples</a>.</p>
  *             </li>
  *             <li>
  *                <p>Trusted access must be enabled for the service for which the declarative

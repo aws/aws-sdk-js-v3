@@ -2777,7 +2777,6 @@ import {
   LaunchTemplateEbsBlockDeviceRequest,
   LaunchTemplateElasticInferenceAccelerator,
   LaunchTemplateElasticInferenceAcceleratorResponse,
-  LaunchTemplateEnaSrdSpecification,
   LaunchTemplateEnaSrdUdpSpecification,
   LaunchTemplateEnclaveOptions,
   LaunchTemplateEnclaveOptionsRequest,
@@ -2977,6 +2976,7 @@ import {
   Ipv6PrefixSpecification,
   Ipv6PrefixSpecificationResponse,
   LastError,
+  LaunchTemplateEnaSrdSpecification,
   LaunchTemplateInstanceNetworkInterfaceSpecification,
   LaunchTemplateNetworkPerformanceOptions,
   LaunchTemplatePlacement,
@@ -33099,6 +33099,9 @@ const se_CreateImageRequest = (input: CreateImageRequest, context: __SerdeContex
       entries[loc] = value;
     });
   }
+  if (input[_SL] != null) {
+    entries[_SL] = input[_SL];
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -34197,8 +34200,8 @@ const se_CreatePlacementGroupRequest = (input: CreatePlacementGroupRequest, cont
       entries[loc] = value;
     });
   }
-  if (input[_SL] != null) {
-    entries[_SL] = input[_SL];
+  if (input[_SLp] != null) {
+    entries[_SLp] = input[_SLp];
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
@@ -44096,11 +44099,17 @@ const se_EbsBlockDevice = (input: EbsBlockDevice, context: __SerdeContext): any 
   if (input[_OA] != null) {
     entries[_OA] = input[_OA];
   }
+  if (input[_AZ] != null) {
+    entries[_AZ] = input[_AZ];
+  }
   if (input[_Enc] != null) {
     entries[_Enc] = input[_Enc];
   }
   if (input[_VIR] != null) {
     entries[_VIR] = input[_VIR];
+  }
+  if (input[_AZI] != null) {
+    entries[_AZI] = input[_AZI];
   }
   return entries;
 };
@@ -69727,11 +69736,17 @@ const de_EbsBlockDevice = (output: any, context: __SerdeContext): EbsBlockDevice
   if (output[_oA] != null) {
     contents[_OA] = __expectString(output[_oA]);
   }
+  if (output[_aZ] != null) {
+    contents[_AZ] = __expectString(output[_aZ]);
+  }
   if (output[_enc] != null) {
     contents[_Enc] = __parseBoolean(output[_enc]);
   }
   if (output[_VIR] != null) {
     contents[_VIR] = __strictParseInt32(output[_VIR]) as number;
+  }
+  if (output[_AZI] != null) {
+    contents[_AZI] = __expectString(output[_AZI]);
   }
   return contents;
 };
@@ -81504,7 +81519,7 @@ const de_PlacementGroup = (output: any, context: __SerdeContext): PlacementGroup
     contents[_GA] = __expectString(output[_gA]);
   }
   if (output[_sLp] != null) {
-    contents[_SL] = __expectString(output[_sLp]);
+    contents[_SLp] = __expectString(output[_sLp]);
   }
   return contents;
 };
@@ -93331,13 +93346,14 @@ const _SIub = "SubnetId";
 const _SIubs = "SubsystemId";
 const _SK = "S3Key";
 const _SKo = "S3objectKey";
-const _SL = "SpreadLevel";
+const _SL = "SnapshotLocation";
 const _SLGR = "SearchLocalGatewayRoutes";
 const _SLVI = "ServiceLinkVirtualInterfaces";
 const _SLVIA = "ServiceLinkVirtualInterfaceArn";
 const _SLVII = "ServiceLinkVirtualInterfaceIds";
 const _SLVIIe = "ServiceLinkVirtualInterfaceId";
 const _SLo = "S3Location";
+const _SLp = "SpreadLevel";
 const _SM = "ServiceManaged";
 const _SMPPOLP = "SpotMaxPricePercentageOverLowestPrice";
 const _SMS = "SpotMaintenanceStrategies";

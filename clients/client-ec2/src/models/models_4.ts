@@ -8051,7 +8051,7 @@ export interface InstanceMaintenanceOptions {
    *          </ul>
    *          <p>This setting only applies to supported instances that have a scheduled reboot event.
    *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/schedevents_actions_reboot.html#reboot-migration">Enable or disable reboot migration</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
+   *             <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   RebootMigration?: InstanceRebootMigrationState | undefined;
@@ -8927,9 +8927,10 @@ export interface Instance {
   PrivateDnsName?: string | undefined;
 
   /**
-   * <p>[IPv4 only] The public DNS name assigned to the instance. This name is not available
+   * <p>The public DNS name assigned to the instance. This name is not available
    *             until the instance enters the <code>running</code> state. This name is only
-   *             available if you've enabled DNS hostnames for your VPC.</p>
+   *             available if you've enabled DNS hostnames for your VPC. The format of this
+   *             name depends on the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hostname-types.html#public-hostnames">public hostname type</a>.</p>
    * @public
    */
   PublicDnsName?: string | undefined;
@@ -11301,9 +11302,9 @@ export interface InstanceTypeInfo {
 
   /**
    * <p>Indicates whether reboot migration during a user-initiated reboot is supported for
-   *             instances that have a scheduled <code>system-reboot</code> event. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/schedevents_actions_reboot.html#reboot-migration">Enable or disable reboot migration</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
+   *    instances that have a scheduled <code>system-reboot</code> event. For more information,
+   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/schedevents_actions_reboot.html#reboot-migration">Enable or disable reboot migration</a> in the
+   *    <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   RebootMigrationSupport?: RebootMigrationSupport | undefined;

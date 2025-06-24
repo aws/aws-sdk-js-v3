@@ -6136,8 +6136,8 @@ export type CapacityBlockExtensionStatus =
   (typeof CapacityBlockExtensionStatus)[keyof typeof CapacityBlockExtensionStatus];
 
 /**
- * <p>Describes a Capacity Block extension. With an extension, you can
- * 			extend the duration of time for an existing Capacity Block.</p>
+ * <p>Describes a Capacity Block extension. With an extension, you can extend the duration
+ * 			of time for an existing Capacity Block.</p>
  * @public
  */
 export interface CapacityBlockExtension {
@@ -6325,8 +6325,7 @@ export interface CapacityBlockExtensionOffering {
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>The Availability Zone ID of the Capacity Block that will be
-   * 			extended.</p>
+   * <p>The Availability Zone ID of the Capacity Block that will be extended.</p>
    * @public
    */
   AvailabilityZoneId?: string | undefined;
@@ -6338,18 +6337,17 @@ export interface CapacityBlockExtensionOffering {
   StartDate?: Date | undefined;
 
   /**
-   * <p>The date and time at which the Capacity Block extension will start. This date is
-   * 			also the same as the end date of the Capacity Block that will be
-   * 			extended.</p>
+   * <p>The date and time at which the Capacity Block extension will start. This date is also
+   * 			the same as the end date of the Capacity Block that will be extended.</p>
    * @public
    */
   CapacityBlockExtensionStartDate?: Date | undefined;
 
   /**
-   * <p>The date and time at which the Capacity Block extension expires. When a Capacity
-   * 			Block expires, the reserved capacity is released and you can no longer launch
-   * 			instances into it. The Capacity Block's state changes to <code>expired</code> when
-   * 			it reaches its end date</p>
+   * <p>The date and time at which the Capacity Block extension expires. When a Capacity Block
+   * 			expires, the reserved capacity is released and you can no longer launch instances into
+   * 			it. The Capacity Block's state changes to <code>expired</code> when it reaches its end
+   * 			date</p>
    * @public
    */
   CapacityBlockExtensionEndDate?: Date | undefined;
@@ -6373,8 +6371,8 @@ export interface CapacityBlockExtensionOffering {
   CurrencyCode?: string | undefined;
 
   /**
-   * <p>Indicates the tenancy of the Capacity Block extension offering. A Capacity Block
-   * 			can have one of the following tenancy settings:</p>
+   * <p>Indicates the tenancy of the Capacity Block extension offering. A Capacity Block can
+   * 			have one of the following tenancy settings:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -6426,9 +6424,8 @@ export interface DescribeCapacityBlockOfferingsRequest {
   InstanceType?: string | undefined;
 
   /**
-   * <p>The number of instances for which to reserve capacity. Each Capacity Block
-   * 			can have up to 64 instances, and you can have up to 256 instances across Capacity
-   * 			Blocks.</p>
+   * <p>The number of instances for which to reserve capacity. Each Capacity Block can have up
+   * 			to 64 instances, and you can have up to 256 instances across Capacity Blocks.</p>
    * @public
    */
   InstanceCount?: number | undefined;
@@ -6446,9 +6443,8 @@ export interface DescribeCapacityBlockOfferingsRequest {
   EndDateRange?: Date | undefined;
 
   /**
-   * <p>The reservation duration for the Capacity Block, in hours. You must specify
-   * 			the duration in 1-day increments up 14 days, and in 7-day increments up to
-   * 			182 days.</p>
+   * <p>The reservation duration for the Capacity Block, in hours. You must specify the
+   * 			duration in 1-day increments up 14 days, and in 7-day increments up to 182 days.</p>
    * @public
    */
   CapacityDurationHours: number | undefined;
@@ -6511,8 +6507,7 @@ export interface CapacityBlockOffering {
   /**
    * <p>The number of hours (in addition to <code>capacityBlockDurationMinutes</code>) for the
    * 			duration of the Capacity Block reservation. For example, if a Capacity Block starts at
-   * 			<b>04:55</b> and ends at <b>11:30</b>,
-   * 			the hours field would be <b>6</b>.</p>
+   * 				<b>04:55</b> and ends at <b>11:30</b>, the hours field would be <b>6</b>.</p>
    * @public
    */
   CapacityBlockDurationHours?: number | undefined;
@@ -6538,8 +6533,7 @@ export interface CapacityBlockOffering {
   /**
    * <p>The number of minutes (in addition to <code>capacityBlockDurationHours</code>) for the
    * 			duration of the Capacity Block reservation. For example, if a Capacity Block starts at
-   * 			<b>08:55</b> and ends at <b>11:30</b>,
-   * 			the minutes field would be <b>35</b>.</p>
+   * 				<b>08:55</b> and ends at <b>11:30</b>, the minutes field would be <b>35</b>.</p>
    * @public
    */
   CapacityBlockDurationMinutes?: number | undefined;
