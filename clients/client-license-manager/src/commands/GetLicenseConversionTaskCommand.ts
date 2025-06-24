@@ -45,9 +45,21 @@ export interface GetLicenseConversionTaskCommandOutput extends GetLicenseConvers
  * //   ResourceArn: "STRING_VALUE",
  * //   SourceLicenseContext: { // LicenseConversionContext
  * //     UsageOperation: "STRING_VALUE",
+ * //     ProductCodes: [ // ProductCodeList
+ * //       { // ProductCodeListItem
+ * //         ProductCodeId: "STRING_VALUE", // required
+ * //         ProductCodeType: "marketplace", // required
+ * //       },
+ * //     ],
  * //   },
  * //   DestinationLicenseContext: {
  * //     UsageOperation: "STRING_VALUE",
+ * //     ProductCodes: [
+ * //       {
+ * //         ProductCodeId: "STRING_VALUE", // required
+ * //         ProductCodeType: "marketplace", // required
+ * //       },
+ * //     ],
  * //   },
  * //   StatusMessage: "STRING_VALUE",
  * //   Status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",

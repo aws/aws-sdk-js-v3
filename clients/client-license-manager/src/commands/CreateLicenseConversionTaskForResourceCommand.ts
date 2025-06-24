@@ -48,9 +48,21 @@ export interface CreateLicenseConversionTaskForResourceCommandOutput
  *   ResourceArn: "STRING_VALUE", // required
  *   SourceLicenseContext: { // LicenseConversionContext
  *     UsageOperation: "STRING_VALUE",
+ *     ProductCodes: [ // ProductCodeList
+ *       { // ProductCodeListItem
+ *         ProductCodeId: "STRING_VALUE", // required
+ *         ProductCodeType: "marketplace", // required
+ *       },
+ *     ],
  *   },
  *   DestinationLicenseContext: {
  *     UsageOperation: "STRING_VALUE",
+ *     ProductCodes: [
+ *       {
+ *         ProductCodeId: "STRING_VALUE", // required
+ *         ProductCodeType: "marketplace", // required
+ *       },
+ *     ],
  *   },
  * };
  * const command = new CreateLicenseConversionTaskForResourceCommand(input);

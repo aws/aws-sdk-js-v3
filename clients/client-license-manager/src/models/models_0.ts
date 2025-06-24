@@ -1486,6 +1486,37 @@ export interface CreateLicenseConfigurationResponse {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ProductCodeType = {
+  MARKETPLACE: "marketplace",
+} as const;
+
+/**
+ * @public
+ */
+export type ProductCodeType = (typeof ProductCodeType)[keyof typeof ProductCodeType];
+
+/**
+ * <p>A list item that contains a product code.</p>
+ * @public
+ */
+export interface ProductCodeListItem {
+  /**
+   * <p>The product code ID</p>
+   * @public
+   */
+  ProductCodeId: string | undefined;
+
+  /**
+   * <p>The product code type</p>
+   * @public
+   */
+  ProductCodeType: ProductCodeType | undefined;
+}
+
+/**
  * <p>Information about a license type conversion task.</p>
  * @public
  */
@@ -1497,6 +1528,12 @@ export interface LicenseConversionContext {
    * @public
    */
   UsageOperation?: string | undefined;
+
+  /**
+   * <p>Product codes referred to in the license conversion process.</p>
+   * @public
+   */
+  ProductCodes?: ProductCodeListItem[] | undefined;
 }
 
 /**
