@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.836.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.835.0...v3.836.0) (2025-06-24)
+
+
+### Features
+
+* **client-batch:** Add userdataType to LaunchTemplateSpecification and LaunchTemplateSpecificationOverride. ([d9d8149](https://github.com/aws/aws-sdk-js-v3/commit/d9d8149582e9f48e5652510aa31e0229aed4e7e8))
+
+
+
+
+
 # [3.835.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.834.0...v3.835.0) (2025-06-23)
 
 **Note:** Version bump only for package @aws-sdk/client-batch

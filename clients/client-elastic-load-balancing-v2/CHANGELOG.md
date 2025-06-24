@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.836.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.835.0...v3.836.0) (2025-06-24)
+
+
+### Features
+
+* **client-elastic-load-balancing-v2:** Add Paginator for DescribeAccountLimits, and fix Paginators for DescribeTrustStoreAssociations, DescribeTrustStoreRevocations, and DescribeTrustStores ([adc36eb](https://github.com/aws/aws-sdk-js-v3/commit/adc36eb1941a4dd16ab47813327de881868831e6))
+
+
+
+
+
 # [3.835.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.834.0...v3.835.0) (2025-06-23)
 
 **Note:** Version bump only for package @aws-sdk/client-elastic-load-balancing-v2

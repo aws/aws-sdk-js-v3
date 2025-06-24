@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.836.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.835.0...v3.836.0) (2025-06-24)
+
+
+### Features
+
+* **client-rds:** Adding support for RDS on Dedicated Local Zones, including local backup target, snapshot availability zone and snapshot target ([a6aa6f7](https://github.com/aws/aws-sdk-js-v3/commit/a6aa6f7fcf379c72ddd0718ed51c3bd3475fce8e))
+
+
+
+
+
 # [3.835.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.834.0...v3.835.0) (2025-06-23)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

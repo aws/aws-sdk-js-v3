@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.836.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.835.0...v3.836.0) (2025-06-24)
+
+
+### Features
+
+* **client-aiops:** Adds support for cross account investigations for CloudWatch investigations AI Operations (AIOps). ([38f5b59](https://github.com/aws/aws-sdk-js-v3/commit/38f5b599aa52580f1c9b657028106a7021118bff))
+* **client-batch:** Add userdataType to LaunchTemplateSpecification and LaunchTemplateSpecificationOverride. ([d9d8149](https://github.com/aws/aws-sdk-js-v3/commit/d9d8149582e9f48e5652510aa31e0229aed4e7e8))
+* **client-bedrock:** We are making ListFoundationModelAgreementOffers, DeleteFoundationModelAgreement, CreateFoundationModelAgreement, GetFoundationModelAvailability, PutUseCaseForModelAccess and GetUseCaseForModelAccess APIs public, previously they were console. ([cbd44d0](https://github.com/aws/aws-sdk-js-v3/commit/cbd44d0657fd2b16517d5e44d94f5a76b389da42))
+* **client-ec2:** This release allows you to create and register AMIs while maintaining their underlying EBS snapshots within Local Zones. ([cefd9f2](https://github.com/aws/aws-sdk-js-v3/commit/cefd9f2f5fa77e3792c333a0e8dd68f9bc873f4a))
+* **client-elastic-load-balancing-v2:** Add Paginator for DescribeAccountLimits, and fix Paginators for DescribeTrustStoreAssociations, DescribeTrustStoreRevocations, and DescribeTrustStores ([adc36eb](https://github.com/aws/aws-sdk-js-v3/commit/adc36eb1941a4dd16ab47813327de881868831e6))
+* **client-gamelift:** Add support for UDP ping beacons to ListLocations API, including new PingBeacon and UDPEndpoint data types within its Locations return value. Use UDP ping beacon endpoints to help measure real-time network latency for multiplayer games. ([e51464e](https://github.com/aws/aws-sdk-js-v3/commit/e51464e62dab8455f28dde6367968b8d8e8aa704))
+* **client-license-manager:** AWS License Manager now supports license type conversions for AWS Marketplace products. Customers can provide Marketplace codes in the source license context or destination license context in the CreateLicenseConversionTaskForResource requests. ([af7066f](https://github.com/aws/aws-sdk-js-v3/commit/af7066f6fa2955d13711363bd581c8c81c40eab7))
+* **client-rds:** Adding support for RDS on Dedicated Local Zones, including local backup target, snapshot availability zone and snapshot target ([a6aa6f7](https://github.com/aws/aws-sdk-js-v3/commit/a6aa6f7fcf379c72ddd0718ed51c3bd3475fce8e))
+* **client-route53resolver:** Add support for iterative DNS queries through the new INBOUND_DELEGATION endpoint. Add delegation support through the Outbound Endpoints with DELEGATE rules. ([f261f8b](https://github.com/aws/aws-sdk-js-v3/commit/f261f8b56b96ba9244bdfb227202a07c6d8f529e))
+* **client-transcribe:** This Feature Adds Support for the "et-EE" Locale for Batch Operations ([3ee5000](https://github.com/aws/aws-sdk-js-v3/commit/3ee5000ef08f512e7b1217a92ef073b1871d1a5d))
+
+
+
+
+
 # [3.835.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.834.0...v3.835.0) (2025-06-23)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.836.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.835.0...v3.836.0) (2025-06-24)
+
+
+### Features
+
+* **client-transcribe:** This Feature Adds Support for the "et-EE" Locale for Batch Operations ([3ee5000](https://github.com/aws/aws-sdk-js-v3/commit/3ee5000ef08f512e7b1217a92ef073b1871d1a5d))
+
+
+
+
+
 # [3.835.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.834.0...v3.835.0) (2025-06-23)
 
 **Note:** Version bump only for package @aws-sdk/client-transcribe
