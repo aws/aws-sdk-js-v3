@@ -301,7 +301,7 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  * //     ChecksumSHA1: "STRING_VALUE",
  * //     ChecksumSHA256: "STRING_VALUE",
  * //   },
- * //   ServerSideEncryption: "AES256" || "aws:kms" || "aws:kms:dsse",
+ * //   ServerSideEncryption: "AES256" || "aws:fsx" || "aws:kms" || "aws:kms:dsse",
  * //   SSECustomerAlgorithm: "STRING_VALUE",
  * //   SSECustomerKeyMD5: "STRING_VALUE",
  * //   SSEKMSKeyId: "STRING_VALUE",

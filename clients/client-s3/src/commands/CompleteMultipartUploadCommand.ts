@@ -257,7 +257,7 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * //   ChecksumSHA1: "STRING_VALUE",
  * //   ChecksumSHA256: "STRING_VALUE",
  * //   ChecksumType: "COMPOSITE" || "FULL_OBJECT",
- * //   ServerSideEncryption: "AES256" || "aws:kms" || "aws:kms:dsse",
+ * //   ServerSideEncryption: "AES256" || "aws:fsx" || "aws:kms" || "aws:kms:dsse",
  * //   VersionId: "STRING_VALUE",
  * //   SSEKMSKeyId: "STRING_VALUE",
  * //   BucketKeyEnabled: true || false,

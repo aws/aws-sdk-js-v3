@@ -289,7 +289,7 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *         BucketName: "STRING_VALUE", // required
  *         Prefix: "STRING_VALUE", // required
  *         Encryption: { // Encryption
- *           EncryptionType: "AES256" || "aws:kms" || "aws:kms:dsse", // required
+ *           EncryptionType: "AES256" || "aws:fsx" || "aws:kms" || "aws:kms:dsse", // required
  *           KMSKeyId: "STRING_VALUE",
  *           KMSContext: "STRING_VALUE",
  *         },
@@ -320,7 +320,7 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *             Value: "STRING_VALUE",
  *           },
  *         ],
- *         StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE",
+ *         StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE" || "FSX_OPENZFS",
  *       },
  *     },
  *   },

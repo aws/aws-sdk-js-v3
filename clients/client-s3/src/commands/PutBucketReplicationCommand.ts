@@ -150,7 +150,7 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *         Destination: { // Destination
  *           Bucket: "STRING_VALUE", // required
  *           Account: "STRING_VALUE",
- *           StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE",
+ *           StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE" || "FSX_OPENZFS",
  *           AccessControlTranslation: { // AccessControlTranslation
  *             Owner: "Destination", // required
  *           },

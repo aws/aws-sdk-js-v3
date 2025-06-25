@@ -54,13 +54,14 @@ export interface RenameObjectCommandOutput extends RenameObjectOutput, __Metadat
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p> To grant access to the <code>RenameObject</code> operation on a directory bucket, we recommend that you
- *                   use the <code>CreateSession</code> operation for session-based authorization.
- *                   Specifically, you grant the <code>s3express:CreateSession</code> permission to the
- *                   directory bucket in a bucket policy or an IAM identity-based policy. Then, you
- *                   make the <code>CreateSession</code> API call on the directory bucket to obtain a
- *                   session token. With the session token in your request header, you can make API
- *                   requests to this operation. After the session token expires, you make another
+ *                <p> To grant access to the <code>RenameObject</code> operation on a directory
+ *                   bucket, we recommend that you use the <code>CreateSession</code> operation for
+ *                   session-based authorization. Specifically, you grant the
+ *                      <code>s3express:CreateSession</code> permission to the directory bucket in a
+ *                   bucket policy or an IAM identity-based policy. Then, you make the
+ *                      <code>CreateSession</code> API call on the directory bucket to obtain a session
+ *                   token. With the session token in your request header, you can make API requests to
+ *                   this operation. After the session token expires, you make another
  *                      <code>CreateSession</code> API call to generate a new session token for use.
  *                   The Amazon Web Services CLI and SDKs will create and manage your session including refreshing
  *                   the session token automatically to avoid service interruptions when a session
@@ -71,9 +72,10 @@ export interface RenameObjectCommandOutput extends RenameObjectOutput, __Metadat
  *                   API operations, including <code>RenameObject</code>. For more information about
  *                   authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
  *                      <code>CreateSession</code>
- *                   </a>. To learn more about Zonal endpoint APT operations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-create-session.html">Authorizing Zonal endpoint API
- *                      operations with CreateSession</a> in the <i>Amazon S3 User
- *                      Guide</i>. </p>
+ *                   </a>. To learn more about Zonal endpoint API
+ *                   operations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-create-session.html">Authorizing
+ *                      Zonal endpoint API operations with CreateSession</a> in the <i>Amazon S3
+ *                      User Guide</i>. </p>
  *             </dd>
  *             <dt>HTTP Host header syntax</dt>
  *             <dd>

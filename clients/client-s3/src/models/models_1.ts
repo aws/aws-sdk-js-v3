@@ -1129,7 +1129,10 @@ export interface PutObjectOutput {
   ChecksumType?: ChecksumType | undefined;
 
   /**
-   * <p>The server-side encryption algorithm used when you store this object in Amazon S3.</p>
+   * <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p>
+   *          <note>
+   *             <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+   *          </note>
    * @public
    */
   ServerSideEncryption?: ServerSideEncryption | undefined;
@@ -1561,8 +1564,7 @@ export interface PutObjectRequest {
   Metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The server-side encryption algorithm that was used when you store this object in Amazon S3
-   *          (for example, <code>AES256</code>, <code>aws:kms</code>, <code>aws:kms:dsse</code>).</p>
+   * <p>The server-side encryption algorithm that was used when you store this object in Amazon S3 or Amazon FSx.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1596,6 +1598,10 @@ export interface PutObjectRequest {
    *
    * </p>
    *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2480,14 +2486,17 @@ export interface RenameObjectRequest {
   SourceIfUnmodifiedSince?: Date | undefined;
 
   /**
-   * <p> A unique string with a max of 64 ASCII characters in the ASCII range of 33 - 126.
-   *             <code>RenameObject</code> supports idempotency using a client token. To make an
+   * <p> A unique string with a max of 64 ASCII characters in the ASCII range of 33 - 126.</p>
+   *          <note>
+   *             <p>
+   *                <code>RenameObject</code> supports idempotency using a client token. To make an
    *          idempotent API request using <code>RenameObject</code>, specify a client token in the
    *          request. You should not reuse the same client token for other API requests. If you retry a
    *          request that completed successfully using the same client token and the same parameters,
    *          the retry succeeds without performing any further actions. If you retry a successful
    *          request using the same client token, but one or more of the parameters are different, the
    *          retry fails and an <code>IdempotentParameterMismatch</code> error is returned. </p>
+   *          </note>
    * @public
    */
   ClientToken?: string | undefined;
@@ -3539,8 +3548,10 @@ export interface SelectObjectContentRequest {
  */
 export interface UploadPartOutput {
   /**
-   * <p>The server-side encryption algorithm used when you store this object in Amazon S3 (for
-   *          example, <code>AES256</code>, <code>aws:kms</code>).</p>
+   * <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p>
+   *          <note>
+   *             <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+   *          </note>
    * @public
    */
   ServerSideEncryption?: ServerSideEncryption | undefined;
@@ -3906,8 +3917,10 @@ export interface UploadPartCopyOutput {
   CopyPartResult?: CopyPartResult | undefined;
 
   /**
-   * <p>The server-side encryption algorithm used when you store this object in Amazon S3 (for
-   *          example, <code>AES256</code>, <code>aws:kms</code>).</p>
+   * <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p>
+   *          <note>
+   *             <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+   *          </note>
    * @public
    */
   ServerSideEncryption?: ServerSideEncryption | undefined;
@@ -4560,8 +4573,10 @@ export interface WriteGetObjectResponseRequest {
   Restore?: string | undefined;
 
   /**
-   * <p> The server-side encryption algorithm used when storing requested object in Amazon S3 (for
-   *          example, AES256, <code>aws:kms</code>).</p>
+   * <p> The server-side encryption algorithm used when storing requested object in Amazon S3 or Amazon FSx.</p>
+   *          <note>
+   *             <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+   *          </note>
    * @public
    */
   ServerSideEncryption?: ServerSideEncryption | undefined;

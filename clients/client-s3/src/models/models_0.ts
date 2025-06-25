@@ -419,6 +419,7 @@ export type ChecksumType = (typeof ChecksumType)[keyof typeof ChecksumType];
  */
 export const ServerSideEncryption = {
   AES256: "AES256",
+  aws_fsx: "aws:fsx",
   aws_kms: "aws:kms",
   aws_kms_dsse: "aws:kms:dsse",
 } as const;
@@ -535,8 +536,11 @@ export interface CompleteMultipartUploadOutput {
   ChecksumType?: ChecksumType | undefined;
 
   /**
-   * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *             <code>AES256</code>, <code>aws:kms</code>).</p>
+   * <p>The server-side encryption algorithm used when storing this object in Amazon S3.</p>
+   *          <note>
+   *             <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+   *          </note>
+   *          <p></p>
    * @public
    */
   ServerSideEncryption?: ServerSideEncryption | undefined;
@@ -963,8 +967,10 @@ export interface CopyObjectOutput {
   VersionId?: string | undefined;
 
   /**
-   * <p>The server-side encryption algorithm used when you store this object in Amazon S3 (for
-   *          example, <code>AES256</code>, <code>aws:kms</code>, <code>aws:kms:dsse</code>).</p>
+   * <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p>
+   *          <note>
+   *             <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+   *          </note>
    * @public
    */
   ServerSideEncryption?: ServerSideEncryption | undefined;
@@ -1107,6 +1113,7 @@ export type ObjectLockMode = (typeof ObjectLockMode)[keyof typeof ObjectLockMode
 export const StorageClass = {
   DEEP_ARCHIVE: "DEEP_ARCHIVE",
   EXPRESS_ONEZONE: "EXPRESS_ONEZONE",
+  FSX_OPENZFS: "FSX_OPENZFS",
   GLACIER: "GLACIER",
   GLACIER_IR: "GLACIER_IR",
   INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
@@ -1603,6 +1610,10 @@ export interface CopyObjectRequest {
    *                customer managed key that you specified for the directory bucket's default encryption
    *                configuration.
    *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2455,8 +2466,10 @@ export interface CreateMultipartUploadOutput {
   UploadId?: string | undefined;
 
   /**
-   * <p>The server-side encryption algorithm used when you store this object in Amazon S3 (for
-   *          example, <code>AES256</code>, <code>aws:kms</code>).</p>
+   * <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p>
+   *          <note>
+   *             <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+   *          </note>
    * @public
    */
   ServerSideEncryption?: ServerSideEncryption | undefined;
@@ -2931,8 +2944,7 @@ export interface CreateMultipartUploadRequest {
   Metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The server-side encryption algorithm used when you store this object in Amazon S3 (for
-   *          example, <code>AES256</code>, <code>aws:kms</code>).</p>
+   * <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2954,6 +2966,10 @@ export interface CreateMultipartUploadRequest {
    *
    * </p>
    *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3194,6 +3210,9 @@ export interface SessionCredentials {
 export interface CreateSessionOutput {
   /**
    * <p>The server-side encryption algorithm used when you store objects in the directory bucket.</p>
+   *          <note>
+   *             <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+   *          </note>
    * @public
    */
   ServerSideEncryption?: ServerSideEncryption | undefined;
@@ -3272,6 +3291,8 @@ export interface CreateSessionRequest {
    *          <p>For directory buckets, there are only two supported options for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS keys (SSE-KMS) (<code>aws:kms</code>). By default, Amazon S3 encrypts data with SSE-S3.
    *          For more
    *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>
+   *             <b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p>
    * @public
    */
   ServerSideEncryption?: ServerSideEncryption | undefined;
@@ -7531,6 +7552,7 @@ export interface LifecycleRule {
    *          <code>Filter</code> must have exactly one of <code>Prefix</code>, <code>Tag</code>,
    *          <code>ObjectSizeGreaterThan</code>, <code>ObjectSizeLessThan</code>, or <code>And</code> specified. <code>Filter</code> is required if the
    *             <code>LifecycleRule</code> does not contain a <code>Prefix</code> element.</p>
+   *          <p>For more information about <code>Tag</code> filters, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-filters.html">Adding filters to Lifecycle rules</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
    *             <p>
    *                <code>Tag</code> filters are not supported for directory buckets.</p>
@@ -10000,7 +10022,10 @@ export interface GetObjectOutput {
   WebsiteRedirectLocation?: string | undefined;
 
   /**
-   * <p>The server-side encryption algorithm used when you store this object in Amazon S3.</p>
+   * <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p>
+   *          <note>
+   *             <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+   *          </note>
    * @public
    */
   ServerSideEncryption?: ServerSideEncryption | undefined;
@@ -11803,8 +11828,10 @@ export interface HeadObjectOutput {
   WebsiteRedirectLocation?: string | undefined;
 
   /**
-   * <p>The server-side encryption algorithm used when you store this object in Amazon S3 (for
-   *          example, <code>AES256</code>, <code>aws:kms</code>, <code>aws:kms:dsse</code>).</p>
+   * <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p>
+   *          <note>
+   *             <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+   *          </note>
    * @public
    */
   ServerSideEncryption?: ServerSideEncryption | undefined;
@@ -13074,6 +13101,7 @@ export interface RestoreStatus {
 export const ObjectStorageClass = {
   DEEP_ARCHIVE: "DEEP_ARCHIVE",
   EXPRESS_ONEZONE: "EXPRESS_ONEZONE",
+  FSX_OPENZFS: "FSX_OPENZFS",
   GLACIER: "GLACIER",
   GLACIER_IR: "GLACIER_IR",
   INTELLIGENT_TIERING: "INTELLIGENT_TIERING",

@@ -258,7 +258,7 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  * const command = new UploadPartCommand(input);
  * const response = await client.send(command);
  * // { // UploadPartOutput
- * //   ServerSideEncryption: "AES256" || "aws:kms" || "aws:kms:dsse",
+ * //   ServerSideEncryption: "AES256" || "aws:fsx" || "aws:kms" || "aws:kms:dsse",
  * //   ETag: "STRING_VALUE",
  * //   ChecksumCRC32: "STRING_VALUE",
  * //   ChecksumCRC32C: "STRING_VALUE",

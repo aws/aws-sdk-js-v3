@@ -152,7 +152,7 @@ export interface CreateSessionCommandOutput extends CreateSessionOutput, __Metad
  * const input = { // CreateSessionRequest
  *   SessionMode: "ReadOnly" || "ReadWrite",
  *   Bucket: "STRING_VALUE", // required
- *   ServerSideEncryption: "AES256" || "aws:kms" || "aws:kms:dsse",
+ *   ServerSideEncryption: "AES256" || "aws:fsx" || "aws:kms" || "aws:kms:dsse",
  *   SSEKMSKeyId: "STRING_VALUE",
  *   SSEKMSEncryptionContext: "STRING_VALUE",
  *   BucketKeyEnabled: true || false,
@@ -160,7 +160,7 @@ export interface CreateSessionCommandOutput extends CreateSessionOutput, __Metad
  * const command = new CreateSessionCommand(input);
  * const response = await client.send(command);
  * // { // CreateSessionOutput
- * //   ServerSideEncryption: "AES256" || "aws:kms" || "aws:kms:dsse",
+ * //   ServerSideEncryption: "AES256" || "aws:fsx" || "aws:kms" || "aws:kms:dsse",
  * //   SSEKMSKeyId: "STRING_VALUE",
  * //   SSEKMSEncryptionContext: "STRING_VALUE",
  * //   BucketKeyEnabled: true || false,

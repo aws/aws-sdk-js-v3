@@ -112,7 +112,7 @@ export interface GetBucketEncryptionCommandOutput extends GetBucketEncryptionOut
  * //     Rules: [ // ServerSideEncryptionRules // required
  * //       { // ServerSideEncryptionRule
  * //         ApplyServerSideEncryptionByDefault: { // ServerSideEncryptionByDefault
- * //           SSEAlgorithm: "AES256" || "aws:kms" || "aws:kms:dsse", // required
+ * //           SSEAlgorithm: "AES256" || "aws:fsx" || "aws:kms" || "aws:kms:dsse", // required
  * //           KMSMasterKeyID: "STRING_VALUE",
  * //         },
  * //         BucketKeyEnabled: true || false,
