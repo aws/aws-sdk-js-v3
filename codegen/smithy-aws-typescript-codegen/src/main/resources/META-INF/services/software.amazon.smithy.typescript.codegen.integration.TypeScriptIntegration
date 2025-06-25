@@ -7,6 +7,7 @@ software.amazon.smithy.aws.typescript.codegen.AddAwsAuthPlugin
 software.amazon.smithy.aws.typescript.codegen.AddTokenAuthPlugin
 software.amazon.smithy.aws.typescript.codegen.AddProtocols
 software.amazon.smithy.aws.typescript.codegen.AwsEndpointGeneratorIntegration
+software.amazon.smithy.aws.typescript.codegen.AddDefaultAwsEndpointRuleSet
 software.amazon.smithy.aws.typescript.codegen.AddNimbleCustomizations
 software.amazon.smithy.aws.typescript.codegen.AwsServiceIdIntegration
 software.amazon.smithy.aws.typescript.codegen.AwsPackageFixturesGeneratorIntegration
