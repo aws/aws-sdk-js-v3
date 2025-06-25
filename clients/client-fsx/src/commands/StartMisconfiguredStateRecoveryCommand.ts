@@ -6,11 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { StartMisconfiguredStateRecoveryRequest } from "../models/models_0";
 import {
-  StartMisconfiguredStateRecoveryRequest,
   StartMisconfiguredStateRecoveryResponse,
   StartMisconfiguredStateRecoveryResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_StartMisconfiguredStateRecoveryCommand,
   se_StartMisconfiguredStateRecoveryCommand,

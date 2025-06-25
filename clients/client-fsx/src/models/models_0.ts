@@ -4,6 +4,39 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { FSxServiceException as __BaseException } from "./FSxServiceException";
 
 /**
+ * <p>An access point with that name already exists in the Amazon Web Services Region in your Amazon Web Services account.</p>
+ * @public
+ */
+export class AccessPointAlreadyOwnedByYou extends __BaseException {
+  readonly name: "AccessPointAlreadyOwnedByYou" = "AccessPointAlreadyOwnedByYou";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>An error code indicating that an access point with that name already exists in the Amazon Web Services Region in your Amazon Web Services account.</p>
+   * @public
+   */
+  ErrorCode?: string | undefined;
+
+  /**
+   * <p>A detailed error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessPointAlreadyOwnedByYou, __BaseException>) {
+    super({
+      name: "AccessPointAlreadyOwnedByYou",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessPointAlreadyOwnedByYou.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The Microsoft Active Directory attributes of the Amazon FSx for Windows File
  *             Server file system.</p>
  * @public
@@ -3576,6 +3609,427 @@ export interface CopySnapshotAndUpdateVolumeRequest {
 }
 
 /**
+ * <p>The FSx for OpenZFS file system user that is used for authorizing all file access requests that are made using the S3 access point.</p>
+ * @public
+ */
+export interface OpenZFSPosixFileSystemUser {
+  /**
+   * <p>The UID of the file system user.</p>
+   * @public
+   */
+  Uid: number | undefined;
+
+  /**
+   * <p>The GID of the file system user.</p>
+   * @public
+   */
+  Gid: number | undefined;
+
+  /**
+   * <p>The list of secondary GIDs for the file system user. </p>
+   * @public
+   */
+  SecondaryGids?: number[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OpenZFSFileSystemUserType = {
+  POSIX: "POSIX",
+} as const;
+
+/**
+ * @public
+ */
+export type OpenZFSFileSystemUserType = (typeof OpenZFSFileSystemUserType)[keyof typeof OpenZFSFileSystemUserType];
+
+/**
+ * <p>Specifies the file system user identity that will be used for authorizing all file access requests that are made using the S3 access point.</p>
+ * @public
+ */
+export interface OpenZFSFileSystemIdentity {
+  /**
+   * <p>Specifies the FSx for OpenZFS user identity type, accepts only <code>POSIX</code>.</p>
+   * @public
+   */
+  Type: OpenZFSFileSystemUserType | undefined;
+
+  /**
+   * <p>Specifies the UID and GIDs of the file system POSIX user.</p>
+   * @public
+   */
+  PosixUser?: OpenZFSPosixFileSystemUser | undefined;
+}
+
+/**
+ * <p>Specifies the FSx for OpenZFS volume that the S3 access point will be attached to, and the file system user identity.</p>
+ * @public
+ */
+export interface CreateAndAttachS3AccessPointOpenZFSConfiguration {
+  /**
+   * <p>The ID of the FSx for OpenZFS volume to which you want the S3 access point attached.</p>
+   * @public
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p>Specifies the file system user identity to use for authorizing file read and write requests that are made using this S3 access point.</p>
+   * @public
+   */
+  FileSystemIdentity: OpenZFSFileSystemIdentity | undefined;
+}
+
+/**
+ * <p>If included, Amazon S3 restricts access to this access point to requests from the specified virtual private cloud (VPC).</p>
+ * @public
+ */
+export interface S3AccessPointVpcConfiguration {
+  /**
+   * <p>Specifies the virtual private cloud (VPC) for the S3 access point VPC configuration, if one exists.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+}
+
+/**
+ * <p>Used to create an S3 access point that accepts requests only from a virtual private cloud (VPC) to restrict data access to a private network.</p>
+ * @public
+ */
+export interface CreateAndAttachS3AccessPointS3Configuration {
+  /**
+   * <p>If included, Amazon S3 restricts access to this S3 access point to requests made from the specified virtual private cloud (VPC).</p>
+   * @public
+   */
+  VpcConfiguration?: S3AccessPointVpcConfiguration | undefined;
+
+  /**
+   * <p>Specifies an access policy to associate with the S3 access point configuration. For more information, see
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html">Configuring IAM policies for using access points</a>
+   *       in the Amazon Simple Storage Service User Guide.</p>
+   * @public
+   */
+  Policy?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const S3AccessPointAttachmentType = {
+  OPENZFS: "OPENZFS",
+} as const;
+
+/**
+ * @public
+ */
+export type S3AccessPointAttachmentType =
+  (typeof S3AccessPointAttachmentType)[keyof typeof S3AccessPointAttachmentType];
+
+/**
+ * @public
+ */
+export interface CreateAndAttachS3AccessPointRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>The name you want to assign to this S3 access point.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of S3 access point you want to create. Only <code>OpenZFS</code> is supported.</p>
+   * @public
+   */
+  Type: S3AccessPointAttachmentType | undefined;
+
+  /**
+   * <p>Specifies the configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume.</p>
+   * @public
+   */
+  OpenZFSConfiguration?: CreateAndAttachS3AccessPointOpenZFSConfiguration | undefined;
+
+  /**
+   * <p>Specifies the virtual private cloud (VPC) configuration if you're creating an access point that is restricted to a VPC.
+   *          For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/access-points-vpc.html">Creating access points restricted to a virtual private cloud</a>.</p>
+   * @public
+   */
+  S3AccessPoint?: CreateAndAttachS3AccessPointS3Configuration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const S3AccessPointAttachmentLifecycle = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type S3AccessPointAttachmentLifecycle =
+  (typeof S3AccessPointAttachmentLifecycle)[keyof typeof S3AccessPointAttachmentLifecycle];
+
+/**
+ * <p>Describes the FSx for OpenZFS attachment configuration of an S3 access point attachment.</p>
+ * @public
+ */
+export interface S3AccessPointOpenZFSConfiguration {
+  /**
+   * <p>The ID of the FSx for OpenZFS volume that the S3 access point is attached to.</p>
+   * @public
+   */
+  VolumeId?: string | undefined;
+
+  /**
+   * <p>The file system identity used to authorize file access requests made using the S3 access point.</p>
+   * @public
+   */
+  FileSystemIdentity?: OpenZFSFileSystemIdentity | undefined;
+}
+
+/**
+ * <p>Describes the S3 access point configuration of the S3 access point attachment.</p>
+ * @public
+ */
+export interface S3AccessPoint {
+  /**
+   * <p>he S3 access point's ARN.</p>
+   * @public
+   */
+  ResourceARN?: string | undefined;
+
+  /**
+   * <p>The S3 access point's alias.</p>
+   * @public
+   */
+  Alias?: string | undefined;
+
+  /**
+   * <p>The S3 access point's virtual private cloud (VPC) configuration.</p>
+   * @public
+   */
+  VpcConfiguration?: S3AccessPointVpcConfiguration | undefined;
+}
+
+/**
+ * <p>An S3 access point attached to an Amazon FSx volume.</p>
+ * @public
+ */
+export interface S3AccessPointAttachment {
+  /**
+   * <p>The lifecycle status of the S3 access point attachment. The lifecycle can have the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>AVAILABLE - the S3 access point attachment is available for use</p>
+   *             </li>
+   *             <li>
+   *                <p>CREATING - Amazon FSx is creating the S3 access point and attachment</p>
+   *             </li>
+   *             <li>
+   *                <p>DELETING - Amazon FSx is deleting the S3 access point and attachment</p>
+   *             </li>
+   *             <li>
+   *                <p>FAILED - The S3 access point attachment is in a failed state. Delete and detach the S3 access
+   *                point attachment, and create a new one.</p>
+   *             </li>
+   *             <li>
+   *                <p>UPDATING - Amazon FSx is updating the S3 access point attachment</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Lifecycle?: S3AccessPointAttachmentLifecycle | undefined;
+
+  /**
+   * <p>Describes why a resource lifecycle state changed.</p>
+   * @public
+   */
+  LifecycleTransitionReason?: LifecycleTransitionReason | undefined;
+
+  /**
+   * <p>The time that the resource was created, in seconds (since 1970-01-01T00:00:00Z),
+   *             also known as Unix time.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The name of the S3 access point attachment; also used for the name of the S3 access point.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The type of Amazon FSx volume that the S3 access point is attached to. </p>
+   * @public
+   */
+  Type?: S3AccessPointAttachmentType | undefined;
+
+  /**
+   * <p>The OpenZFSConfiguration of the S3 access point attachment.</p>
+   * @public
+   */
+  OpenZFSConfiguration?: S3AccessPointOpenZFSConfiguration | undefined;
+
+  /**
+   * <p>The S3 access point configuration of the S3 access point attachment.</p>
+   * @public
+   */
+  S3AccessPoint?: S3AccessPoint | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAndAttachS3AccessPointResponse {
+  /**
+   * <p>Describes the configuration of the S3 access point created.</p>
+   * @public
+   */
+  S3AccessPointAttachment?: S3AccessPointAttachment | undefined;
+}
+
+/**
+ * <p>The access point specified doesn't exist.</p>
+ * @public
+ */
+export class InvalidAccessPoint extends __BaseException {
+  readonly name: "InvalidAccessPoint" = "InvalidAccessPoint";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>An error code indicating that the access point specified doesn't exist.</p>
+   * @public
+   */
+  ErrorCode?: string | undefined;
+
+  /**
+   * <p>A detailed error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAccessPoint, __BaseException>) {
+    super({
+      name: "InvalidAccessPoint",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAccessPoint.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+ * @public
+ */
+export class InvalidRequest extends __BaseException {
+  readonly name: "InvalidRequest" = "InvalidRequest";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>An error code indicating that the action or operation requested is invalid.</p>
+   * @public
+   */
+  ErrorCode?: string | undefined;
+
+  /**
+   * <p>A detailed error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequest, __BaseException>) {
+    super({
+      name: "InvalidRequest",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequest.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>You have reached the maximum number of S3 access points attachments allowed for your account in this Amazon Web Services Region, or for the file system. For more information, or to request an increase,
+ *          see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html">Service quotas on FSx resources</a> in the FSx for OpenZFS User Guide.</p>
+ * @public
+ */
+export class TooManyAccessPoints extends __BaseException {
+  readonly name: "TooManyAccessPoints" = "TooManyAccessPoints";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>An error code indicating that you have reached the maximum number of S3 access points attachments allowed for your account in this Amazon Web Services Region, or for the file system.</p>
+   * @public
+   */
+  ErrorCode?: string | undefined;
+
+  /**
+   * <p>A detailed error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyAccessPoints, __BaseException>) {
+    super({
+      name: "TooManyAccessPoints",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyAccessPoints.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+ * @public
+ */
+export class VolumeNotFound extends __BaseException {
+  readonly name: "VolumeNotFound" = "VolumeNotFound";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A detailed error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<VolumeNotFound, __BaseException>) {
+    super({
+      name: "VolumeNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, VolumeNotFound.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>Another backup is already under way. Wait for completion before initiating
  *             additional backups of this file system.</p>
  * @public
@@ -3636,32 +4090,6 @@ export interface CreateBackupRequest {
    * @public
    */
   VolumeId?: string | undefined;
-}
-
-/**
- * <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
- * @public
- */
-export class VolumeNotFound extends __BaseException {
-  readonly name: "VolumeNotFound" = "VolumeNotFound";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<VolumeNotFound, __BaseException>) {
-    super({
-      name: "VolumeNotFound",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, VolumeNotFound.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -6516,7 +6944,7 @@ export interface CreateFileSystemRequest {
    *          </ul>
    *          <p>Default value is <code>SSD</code>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options"> Storage
    *                 type options</a> in the <i>FSx for Windows File Server User
-   *                 Guide</i>, <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/lustre-storage-classes">FSx for Lustre storage classes</a>
+   *                 Guide</i>, <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-fsx-lustre.html#lustre-storage-classes">FSx for Lustre storage classes</a>
    *             in the <i>FSx for Lustre User Guide</i>, and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance-intelligent-tiering">Working with Intelligent-Tiering</a>
    *             in the <i>Amazon FSx for OpenZFS User Guide</i>.</p>
    * @public
@@ -9132,6 +9560,117 @@ export interface DescribeFileSystemsRequest {
 
 /**
  * @public
+ * @enum
+ */
+export const S3AccessPointAttachmentsFilterName = {
+  FILE_SYSTEM_ID: "file-system-id",
+  TYPE: "type",
+  VOLUME_ID: "volume-id",
+} as const;
+
+/**
+ * @public
+ */
+export type S3AccessPointAttachmentsFilterName =
+  (typeof S3AccessPointAttachmentsFilterName)[keyof typeof S3AccessPointAttachmentsFilterName];
+
+/**
+ * <p>A set of Name and Values pairs used to view a select set of S3 access point attachments.</p>
+ * @public
+ */
+export interface S3AccessPointAttachmentsFilter {
+  /**
+   * <p>The name of the filter.</p>
+   * @public
+   */
+  Name?: S3AccessPointAttachmentsFilterName | undefined;
+
+  /**
+   * <p>The values of the filter.</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeS3AccessPointAttachmentsRequest {
+  /**
+   * <p>The names of the S3 access point attachments whose descriptions you want to retrieve.</p>
+   * @public
+   */
+  Names?: string[] | undefined;
+
+  /**
+   * <p>Enter a filter Name and Values pair to view a select set of S3 access point attachments.</p>
+   * @public
+   */
+  Filters?: S3AccessPointAttachmentsFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of resources to return in the response. This value must be an
+   *             integer greater than zero.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeS3AccessPointAttachmentsResponse {
+  /**
+   * <p>Array of S3 access point attachments returned after a successful <code>DescribeS3AccessPointAttachments</code> operation.</p>
+   * @public
+   */
+  S3AccessPointAttachments?: S3AccessPointAttachment[] | undefined;
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The access point specified was not found.</p>
+ * @public
+ */
+export class S3AccessPointAttachmentNotFound extends __BaseException {
+  readonly name: "S3AccessPointAttachmentNotFound" = "S3AccessPointAttachmentNotFound";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A detailed error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<S3AccessPointAttachmentNotFound, __BaseException>) {
+    super({
+      name: "S3AccessPointAttachmentNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, S3AccessPointAttachmentNotFound.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  */
 export interface DescribeSharedVpcConfigurationRequest {}
 
@@ -9375,6 +9914,42 @@ export interface DescribeVolumesRequest {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DetachAndDeleteS3AccessPointRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>The name of the S3 access point attachment that you want to delete.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DetachAndDeleteS3AccessPointResponse {
+  /**
+   * <p>The lifecycle status of the S3 access point attachment.</p>
+   * @public
+   */
+  Lifecycle?: S3AccessPointAttachmentLifecycle | undefined;
+
+  /**
+   * <p>The name of the S3 access point attachment being deleted.</p>
+   * @public
+   */
+  Name?: string | undefined;
 }
 
 /**
@@ -11584,361 +12159,6 @@ export interface CreateFileSystemFromBackupResponse {
 }
 
 /**
- * <p>The response object returned after the file system is created.</p>
- * @public
- */
-export interface CreateFileSystemResponse {
-  /**
-   * <p>The configuration of the file system that was created.</p>
-   * @public
-   */
-  FileSystem?: FileSystem | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateSnapshotResponse {
-  /**
-   * <p>A description of the snapshot.</p>
-   * @public
-   */
-  Snapshot?: Snapshot | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVolumeFromBackupResponse {
-  /**
-   * <p>Returned after a successful <code>CreateVolumeFromBackup</code> API operation,
-   *             describing the volume just created.</p>
-   * @public
-   */
-  Volume?: Volume | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVolumeResponse {
-  /**
-   * <p>Returned after a successful <code>CreateVolume</code> API operation, describing the volume just created.</p>
-   * @public
-   */
-  Volume?: Volume | undefined;
-}
-
-/**
- * @public
- */
-export interface ReleaseFileSystemNfsV3LocksResponse {
-  /**
-   * <p>A description of a specific Amazon FSx file system.</p>
-   * @public
-   */
-  FileSystem?: FileSystem | undefined;
-}
-
-/**
- * @public
- */
-export interface StartMisconfiguredStateRecoveryResponse {
-  /**
-   * <p>A description of a specific Amazon FSx file system.</p>
-   * @public
-   */
-  FileSystem?: FileSystem | undefined;
-}
-
-/**
- * <p>The response object for the <code>UpdateFileSystem</code> operation.</p>
- * @public
- */
-export interface UpdateFileSystemResponse {
-  /**
-   * <p>A description of the file system that was updated.</p>
-   * @public
-   */
-  FileSystem?: FileSystem | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSnapshotResponse {
-  /**
-   * <p>Returned after a successful <code>UpdateSnapshot</code> operation, describing the
-   *             snapshot that you updated.</p>
-   * @public
-   */
-  Snapshot?: Snapshot | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateVolumeResponse {
-  /**
-   * <p>A description of the volume just updated. Returned after a successful
-   *                 <code>UpdateVolume</code> API operation.</p>
-   * @public
-   */
-  Volume?: Volume | undefined;
-}
-
-/**
- * <p>The response object for <code>DescribeFileSystems</code> operation.</p>
- * @public
- */
-export interface DescribeFileSystemsResponse {
-  /**
-   * <p>An array of file system descriptions.</p>
-   * @public
-   */
-  FileSystems?: FileSystem[] | undefined;
-
-  /**
-   * <p>Present if there are more file systems than returned in the response (String). You
-   *             can use the <code>NextToken</code> value in the later request to fetch the
-   *             descriptions. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSnapshotsResponse {
-  /**
-   * <p>An array of snapshots.</p>
-   * @public
-   */
-  Snapshots?: Snapshot[] | undefined;
-
-  /**
-   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
-   *             present, this token indicates from what point you can continue processing the request, where
-   *             the previous <code>NextToken</code> value left off.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVolumesResponse {
-  /**
-   * <p>Returned after a successful <code>DescribeVolumes</code> operation, describing each volume.</p>
-   * @public
-   */
-  Volumes?: Volume[] | undefined;
-
-  /**
-   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
-   *             present, this token indicates from what point you can continue processing the request, where
-   *             the previous <code>NextToken</code> value left off.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>A backup of an Amazon FSx for Windows File Server, Amazon FSx for
- *             Lustre file system, Amazon FSx for NetApp ONTAP volume, or Amazon FSx
- *             for OpenZFS file system.</p>
- * @public
- */
-export interface Backup {
-  /**
-   * <p>The ID of the backup.</p>
-   * @public
-   */
-  BackupId: string | undefined;
-
-  /**
-   * <p>The lifecycle status of the backup.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AVAILABLE</code> - The backup is fully available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code> - For user-initiated backups on Lustre file systems only; Amazon FSx hasn't started creating the backup.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATING</code> - Amazon FSx is creating the backup.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TRANSFERRING</code> - For user-initiated backups on Lustre file systems only; Amazon FSx is transferring the backup to Amazon S3.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COPYING</code> - Amazon FSx is copying the backup.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code> - Amazon FSx deleted the backup and it's no longer
-   *                     available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> - Amazon FSx couldn't finish the backup.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Lifecycle: BackupLifecycle | undefined;
-
-  /**
-   * <p>Details explaining any failures that occurred when creating a backup.</p>
-   * @public
-   */
-  FailureDetails?: BackupFailureDetails | undefined;
-
-  /**
-   * <p>The type of the file-system backup.</p>
-   * @public
-   */
-  Type: BackupType | undefined;
-
-  /**
-   * <p>Displays the current percent of progress of an asynchronous task.</p>
-   * @public
-   */
-  ProgressPercent?: number | undefined;
-
-  /**
-   * <p>The time when a particular backup was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The ID of the Key Management Service (KMS) key used to encrypt the
-   *             backup of the Amazon FSx file system's data at rest. </p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the backup resource.</p>
-   * @public
-   */
-  ResourceARN?: string | undefined;
-
-  /**
-   * <p>The tags associated with a particular file system.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The metadata of the file system associated with the backup. This metadata is persisted
-   *             even if the file system is deleted.</p>
-   * @public
-   */
-  FileSystem: FileSystem | undefined;
-
-  /**
-   * <p>The configuration of the self-managed Microsoft Active Directory directory to which
-   *             the Windows File Server instance is joined.</p>
-   * @public
-   */
-  DirectoryInformation?: ActiveDirectoryBackupAttributes | undefined;
-
-  /**
-   * <p>An Amazon Web Services account ID. This ID is a 12-digit number that you use to construct Amazon
-   *             Resource Names (ARNs) for resources.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The ID of the source backup. Specifies the backup that you are copying.</p>
-   * @public
-   */
-  SourceBackupId?: string | undefined;
-
-  /**
-   * <p>The source Region of the backup. Specifies the Region from where this backup
-   *             is copied.</p>
-   * @public
-   */
-  SourceBackupRegion?: string | undefined;
-
-  /**
-   * <p>Specifies the resource type that's backed up.</p>
-   * @public
-   */
-  ResourceType?: ResourceType | undefined;
-
-  /**
-   * <p>Describes an Amazon FSx volume.</p>
-   * @public
-   */
-  Volume?: Volume | undefined;
-
-  /**
-   * <p>
-   *             The size of the backup in bytes. This represents the amount of data that the file system would contain if you restore this backup.
-   *         </p>
-   * @public
-   */
-  SizeInBytes?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface CopyBackupResponse {
-  /**
-   * <p>A backup of an Amazon FSx for Windows File Server, Amazon FSx for
-   *             Lustre file system, Amazon FSx for NetApp ONTAP volume, or Amazon FSx
-   *             for OpenZFS file system.</p>
-   * @public
-   */
-  Backup?: Backup | undefined;
-}
-
-/**
- * <p>The response object for the <code>CreateBackup</code> operation.</p>
- * @public
- */
-export interface CreateBackupResponse {
-  /**
-   * <p>A description of the backup.</p>
-   * @public
-   */
-  Backup?: Backup | undefined;
-}
-
-/**
- * <p>Response object for the <code>DescribeBackups</code> operation.</p>
- * @public
- */
-export interface DescribeBackupsResponse {
-  /**
-   * <p>An array of backups.</p>
-   * @public
-   */
-  Backups?: Backup[] | undefined;
-
-  /**
-   * <p>A <code>NextToken</code> value is present if there are more backups than returned in
-   *             the response. You can use the <code>NextToken</code> value in the subsequent request to
-   *             fetch the backups. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const OntapFileSystemConfigurationFilterSensitiveLog = (obj: OntapFileSystemConfiguration): any => ({
@@ -12171,129 +12391,4 @@ export const RestoreVolumeFromSnapshotResponseFilterSensitiveLog = (obj: Restore
 export const CreateFileSystemFromBackupResponseFilterSensitiveLog = (obj: CreateFileSystemFromBackupResponse): any => ({
   ...obj,
   ...(obj.FileSystem && { FileSystem: FileSystemFilterSensitiveLog(obj.FileSystem) }),
-});
-
-/**
- * @internal
- */
-export const CreateFileSystemResponseFilterSensitiveLog = (obj: CreateFileSystemResponse): any => ({
-  ...obj,
-  ...(obj.FileSystem && { FileSystem: FileSystemFilterSensitiveLog(obj.FileSystem) }),
-});
-
-/**
- * @internal
- */
-export const CreateSnapshotResponseFilterSensitiveLog = (obj: CreateSnapshotResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVolumeFromBackupResponseFilterSensitiveLog = (obj: CreateVolumeFromBackupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVolumeResponseFilterSensitiveLog = (obj: CreateVolumeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReleaseFileSystemNfsV3LocksResponseFilterSensitiveLog = (
-  obj: ReleaseFileSystemNfsV3LocksResponse
-): any => ({
-  ...obj,
-  ...(obj.FileSystem && { FileSystem: FileSystemFilterSensitiveLog(obj.FileSystem) }),
-});
-
-/**
- * @internal
- */
-export const StartMisconfiguredStateRecoveryResponseFilterSensitiveLog = (
-  obj: StartMisconfiguredStateRecoveryResponse
-): any => ({
-  ...obj,
-  ...(obj.FileSystem && { FileSystem: FileSystemFilterSensitiveLog(obj.FileSystem) }),
-});
-
-/**
- * @internal
- */
-export const UpdateFileSystemResponseFilterSensitiveLog = (obj: UpdateFileSystemResponse): any => ({
-  ...obj,
-  ...(obj.FileSystem && { FileSystem: FileSystemFilterSensitiveLog(obj.FileSystem) }),
-});
-
-/**
- * @internal
- */
-export const UpdateSnapshotResponseFilterSensitiveLog = (obj: UpdateSnapshotResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVolumeResponseFilterSensitiveLog = (obj: UpdateVolumeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFileSystemsResponseFilterSensitiveLog = (obj: DescribeFileSystemsResponse): any => ({
-  ...obj,
-  ...(obj.FileSystems && { FileSystems: obj.FileSystems.map((item) => FileSystemFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const DescribeSnapshotsResponseFilterSensitiveLog = (obj: DescribeSnapshotsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVolumesResponseFilterSensitiveLog = (obj: DescribeVolumesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackupFilterSensitiveLog = (obj: Backup): any => ({
-  ...obj,
-  ...(obj.FileSystem && { FileSystem: FileSystemFilterSensitiveLog(obj.FileSystem) }),
-});
-
-/**
- * @internal
- */
-export const CopyBackupResponseFilterSensitiveLog = (obj: CopyBackupResponse): any => ({
-  ...obj,
-  ...(obj.Backup && { Backup: BackupFilterSensitiveLog(obj.Backup) }),
-});
-
-/**
- * @internal
- */
-export const CreateBackupResponseFilterSensitiveLog = (obj: CreateBackupResponse): any => ({
-  ...obj,
-  ...(obj.Backup && { Backup: BackupFilterSensitiveLog(obj.Backup) }),
-});
-
-/**
- * @internal
- */
-export const DescribeBackupsResponseFilterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
-  ...obj,
-  ...(obj.Backups && { Backups: obj.Backups.map((item) => BackupFilterSensitiveLog(item)) }),
 });

@@ -6,11 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  UpdateSnapshotRequest,
-  UpdateSnapshotResponse,
-  UpdateSnapshotResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateSnapshotRequest } from "../models/models_0";
+import { UpdateSnapshotResponse, UpdateSnapshotResponseFilterSensitiveLog } from "../models/models_1";
 import { de_UpdateSnapshotCommand, se_UpdateSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**

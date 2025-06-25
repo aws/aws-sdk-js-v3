@@ -6,11 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  CreateVolumeFromBackupRequest,
-  CreateVolumeFromBackupResponse,
-  CreateVolumeFromBackupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateVolumeFromBackupRequest } from "../models/models_0";
+import { CreateVolumeFromBackupResponse, CreateVolumeFromBackupResponseFilterSensitiveLog } from "../models/models_1";
 import { de_CreateVolumeFromBackupCommand, se_CreateVolumeFromBackupCommand } from "../protocols/Aws_json1_1";
 
 /**

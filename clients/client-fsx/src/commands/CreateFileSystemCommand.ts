@@ -6,12 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  CreateFileSystemRequest,
-  CreateFileSystemRequestFilterSensitiveLog,
-  CreateFileSystemResponse,
-  CreateFileSystemResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateFileSystemRequest, CreateFileSystemRequestFilterSensitiveLog } from "../models/models_0";
+import { CreateFileSystemResponse, CreateFileSystemResponseFilterSensitiveLog } from "../models/models_1";
 import { de_CreateFileSystemCommand, se_CreateFileSystemCommand } from "../protocols/Aws_json1_1";
 
 /**

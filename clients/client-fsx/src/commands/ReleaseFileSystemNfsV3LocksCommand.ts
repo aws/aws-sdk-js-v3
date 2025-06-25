@@ -6,11 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { ReleaseFileSystemNfsV3LocksRequest } from "../models/models_0";
 import {
-  ReleaseFileSystemNfsV3LocksRequest,
   ReleaseFileSystemNfsV3LocksResponse,
   ReleaseFileSystemNfsV3LocksResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ReleaseFileSystemNfsV3LocksCommand, se_ReleaseFileSystemNfsV3LocksCommand } from "../protocols/Aws_json1_1";
 
 /**

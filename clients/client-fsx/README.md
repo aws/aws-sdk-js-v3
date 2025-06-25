@@ -238,6 +238,14 @@ CopySnapshotAndUpdateVolume
 </details>
 <details>
 <summary>
+CreateAndAttachS3AccessPoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/CreateAndAttachS3AccessPointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/CreateAndAttachS3AccessPointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/CreateAndAttachS3AccessPointCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateBackup
 </summary>
 
@@ -422,6 +430,14 @@ DescribeFileSystems
 </details>
 <details>
 <summary>
+DescribeS3AccessPointAttachments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/DescribeS3AccessPointAttachmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeS3AccessPointAttachmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeS3AccessPointAttachmentsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeSharedVpcConfiguration
 </summary>
 
@@ -450,6 +466,14 @@ DescribeVolumes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/DescribeVolumesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeVolumesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeVolumesCommandOutput/)
+
+</details>
+<details>
+<summary>
+DetachAndDeleteS3AccessPoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/DetachAndDeleteS3AccessPointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DetachAndDeleteS3AccessPointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DetachAndDeleteS3AccessPointCommandOutput/)
 
 </details>
 <details>

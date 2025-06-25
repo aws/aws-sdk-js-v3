@@ -36,6 +36,10 @@ import {
   CopySnapshotAndUpdateVolumeCommandInput,
   CopySnapshotAndUpdateVolumeCommandOutput,
 } from "../commands/CopySnapshotAndUpdateVolumeCommand";
+import {
+  CreateAndAttachS3AccessPointCommandInput,
+  CreateAndAttachS3AccessPointCommandOutput,
+} from "../commands/CreateAndAttachS3AccessPointCommand";
 import { CreateBackupCommandInput, CreateBackupCommandOutput } from "../commands/CreateBackupCommand";
 import {
   CreateDataRepositoryAssociationCommandInput,
@@ -93,6 +97,10 @@ import {
   DescribeFileSystemsCommandOutput,
 } from "../commands/DescribeFileSystemsCommand";
 import {
+  DescribeS3AccessPointAttachmentsCommandInput,
+  DescribeS3AccessPointAttachmentsCommandOutput,
+} from "../commands/DescribeS3AccessPointAttachmentsCommand";
+import {
   DescribeSharedVpcConfigurationCommandInput,
   DescribeSharedVpcConfigurationCommandOutput,
 } from "../commands/DescribeSharedVpcConfigurationCommand";
@@ -102,6 +110,10 @@ import {
   DescribeStorageVirtualMachinesCommandOutput,
 } from "../commands/DescribeStorageVirtualMachinesCommand";
 import { DescribeVolumesCommandInput, DescribeVolumesCommandOutput } from "../commands/DescribeVolumesCommand";
+import {
+  DetachAndDeleteS3AccessPointCommandInput,
+  DetachAndDeleteS3AccessPointCommandOutput,
+} from "../commands/DetachAndDeleteS3AccessPointCommand";
 import {
   DisassociateFileSystemAliasesCommandInput,
   DisassociateFileSystemAliasesCommandOutput,
@@ -142,13 +154,13 @@ import {
 import { UpdateVolumeCommandInput, UpdateVolumeCommandOutput } from "../commands/UpdateVolumeCommand";
 import { FSxServiceException as __BaseException } from "../models/FSxServiceException";
 import {
+  AccessPointAlreadyOwnedByYou,
   ActiveDirectoryError,
   AdministrativeAction,
   AssociateFileSystemAliasesRequest,
   AutocommitPeriod,
   AutoExportPolicy,
   AutoImportPolicy,
-  Backup,
   BackupBeingCopied,
   BackupInProgress,
   BackupNotFound,
@@ -157,12 +169,14 @@ import {
   CancelDataRepositoryTaskRequest,
   CompletionReport,
   CopyBackupRequest,
-  CopyBackupResponse,
   CopySnapshotAndUpdateVolumeRequest,
   CopySnapshotAndUpdateVolumeResponse,
   CreateAggregateConfiguration,
+  CreateAndAttachS3AccessPointOpenZFSConfiguration,
+  CreateAndAttachS3AccessPointRequest,
+  CreateAndAttachS3AccessPointResponse,
+  CreateAndAttachS3AccessPointS3Configuration,
   CreateBackupRequest,
-  CreateBackupResponse,
   CreateDataRepositoryAssociationRequest,
   CreateDataRepositoryAssociationResponse,
   CreateDataRepositoryTaskRequest,
@@ -177,21 +191,17 @@ import {
   CreateFileSystemOntapConfiguration,
   CreateFileSystemOpenZFSConfiguration,
   CreateFileSystemRequest,
-  CreateFileSystemResponse,
   CreateFileSystemWindowsConfiguration,
   CreateOntapVolumeConfiguration,
   CreateOpenZFSOriginSnapshotConfiguration,
   CreateOpenZFSVolumeConfiguration,
   CreateSnaplockConfiguration,
   CreateSnapshotRequest,
-  CreateSnapshotResponse,
   CreateStorageVirtualMachineRequest,
   CreateStorageVirtualMachineResponse,
   CreateSvmActiveDirectoryConfiguration,
   CreateVolumeFromBackupRequest,
-  CreateVolumeFromBackupResponse,
   CreateVolumeRequest,
-  CreateVolumeResponse,
   DataRepositoryAssociation,
   DataRepositoryAssociationNotFound,
   DataRepositoryTask,
@@ -215,7 +225,6 @@ import {
   DeleteVolumeOpenZFSConfiguration,
   DeleteVolumeRequest,
   DescribeBackupsRequest,
-  DescribeBackupsResponse,
   DescribeDataRepositoryAssociationsRequest,
   DescribeDataRepositoryAssociationsResponse,
   DescribeDataRepositoryTasksRequest,
@@ -224,14 +233,14 @@ import {
   DescribeFileCachesResponse,
   DescribeFileSystemAliasesRequest,
   DescribeFileSystemsRequest,
-  DescribeFileSystemsResponse,
+  DescribeS3AccessPointAttachmentsRequest,
+  DescribeS3AccessPointAttachmentsResponse,
   DescribeSharedVpcConfigurationRequest,
   DescribeSnapshotsRequest,
-  DescribeSnapshotsResponse,
   DescribeStorageVirtualMachinesRequest,
   DescribeStorageVirtualMachinesResponse,
   DescribeVolumesRequest,
-  DescribeVolumesResponse,
+  DetachAndDeleteS3AccessPointRequest,
   DisassociateFileSystemAliasesRequest,
   DiskIopsConfiguration,
   DurationSinceLastAccess,
@@ -248,6 +257,7 @@ import {
   IncompatibleParameterError,
   IncompatibleRegionForMultiAZ,
   InternalServerError,
+  InvalidAccessPoint,
   InvalidDataRepositoryType,
   InvalidDestinationKmsKey,
   InvalidExportPath,
@@ -255,6 +265,7 @@ import {
   InvalidNetworkSettings,
   InvalidPerUnitStorageThroughput,
   InvalidRegion,
+  InvalidRequest,
   InvalidSourceKmsKey,
   ListTagsForResourceRequest,
   LustreLogCreateConfiguration,
@@ -266,18 +277,23 @@ import {
   NotServiceResourceError,
   OpenZFSClientConfiguration,
   OpenZFSCreateRootVolumeConfiguration,
+  OpenZFSFileSystemIdentity,
   OpenZFSNfsExport,
+  OpenZFSPosixFileSystemUser,
   OpenZFSReadCacheConfiguration,
   OpenZFSUserOrGroupQuota,
   ReleaseConfiguration,
   ReleaseFileSystemNfsV3LocksRequest,
-  ReleaseFileSystemNfsV3LocksResponse,
   ResourceDoesNotSupportTagging,
   ResourceNotFound,
   RestoreOpenZFSVolumeOption,
   RestoreVolumeFromSnapshotRequest,
   RestoreVolumeFromSnapshotResponse,
   RetentionPeriod,
+  S3AccessPointAttachment,
+  S3AccessPointAttachmentNotFound,
+  S3AccessPointAttachmentsFilter,
+  S3AccessPointVpcConfiguration,
   S3DataRepositoryConfiguration,
   SelfManagedActiveDirectoryConfiguration,
   SelfManagedActiveDirectoryConfigurationUpdates,
@@ -288,13 +304,13 @@ import {
   SnapshotNotFound,
   SourceBackupUnavailable,
   StartMisconfiguredStateRecoveryRequest,
-  StartMisconfiguredStateRecoveryResponse,
   StorageVirtualMachine,
   StorageVirtualMachineFilter,
   StorageVirtualMachineNotFound,
   Tag,
   TagResourceRequest,
   TieringPolicy,
+  TooManyAccessPoints,
   UnsupportedOperation,
   UntagResourceRequest,
   UpdateDataRepositoryAssociationRequest,
@@ -307,7 +323,6 @@ import {
   UpdateFileSystemOntapConfiguration,
   UpdateFileSystemOpenZFSConfiguration,
   UpdateFileSystemRequest,
-  UpdateFileSystemResponse,
   UpdateFileSystemWindowsConfiguration,
   UpdateOntapVolumeConfiguration,
   UpdateOpenZFSVolumeConfiguration,
@@ -315,17 +330,33 @@ import {
   UpdateSharedVpcConfigurationRequest,
   UpdateSnaplockConfiguration,
   UpdateSnapshotRequest,
-  UpdateSnapshotResponse,
   UpdateStorageVirtualMachineRequest,
   UpdateStorageVirtualMachineResponse,
   UpdateSvmActiveDirectoryConfiguration,
   UpdateVolumeRequest,
-  UpdateVolumeResponse,
   Volume,
   VolumeFilter,
   VolumeNotFound,
   WindowsAuditLogCreateConfiguration,
 } from "../models/models_0";
+import {
+  Backup,
+  CopyBackupResponse,
+  CreateBackupResponse,
+  CreateFileSystemResponse,
+  CreateSnapshotResponse,
+  CreateVolumeFromBackupResponse,
+  CreateVolumeResponse,
+  DescribeBackupsResponse,
+  DescribeFileSystemsResponse,
+  DescribeSnapshotsResponse,
+  DescribeVolumesResponse,
+  ReleaseFileSystemNfsV3LocksResponse,
+  StartMisconfiguredStateRecoveryResponse,
+  UpdateFileSystemResponse,
+  UpdateSnapshotResponse,
+  UpdateVolumeResponse,
+} from "../models/models_1";
 
 /**
  * serializeAws_json1_1AssociateFileSystemAliasesCommand
@@ -376,6 +407,19 @@ export const se_CopySnapshotAndUpdateVolumeCommand = async (
   const headers: __HeaderBag = sharedHeaders("CopySnapshotAndUpdateVolume");
   let body: any;
   body = JSON.stringify(se_CopySnapshotAndUpdateVolumeRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateAndAttachS3AccessPointCommand
+ */
+export const se_CreateAndAttachS3AccessPointCommand = async (
+  input: CreateAndAttachS3AccessPointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateAndAttachS3AccessPoint");
+  let body: any;
+  body = JSON.stringify(se_CreateAndAttachS3AccessPointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -679,6 +723,19 @@ export const se_DescribeFileSystemsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeS3AccessPointAttachmentsCommand
+ */
+export const se_DescribeS3AccessPointAttachmentsCommand = async (
+  input: DescribeS3AccessPointAttachmentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeS3AccessPointAttachments");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeSharedVpcConfigurationCommand
  */
 export const se_DescribeSharedVpcConfigurationCommand = async (
@@ -727,6 +784,19 @@ export const se_DescribeVolumesCommand = async (
   const headers: __HeaderBag = sharedHeaders("DescribeVolumes");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DetachAndDeleteS3AccessPointCommand
+ */
+export const se_DetachAndDeleteS3AccessPointCommand = async (
+  input: DetachAndDeleteS3AccessPointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DetachAndDeleteS3AccessPoint");
+  let body: any;
+  body = JSON.stringify(se_DetachAndDeleteS3AccessPointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -986,6 +1056,26 @@ export const de_CopySnapshotAndUpdateVolumeCommand = async (
   let contents: any = {};
   contents = de_CopySnapshotAndUpdateVolumeResponse(data, context);
   const response: CopySnapshotAndUpdateVolumeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateAndAttachS3AccessPointCommand
+ */
+export const de_CreateAndAttachS3AccessPointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAndAttachS3AccessPointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateAndAttachS3AccessPointResponse(data, context);
+  const response: CreateAndAttachS3AccessPointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1453,6 +1543,26 @@ export const de_DescribeFileSystemsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeS3AccessPointAttachmentsCommand
+ */
+export const de_DescribeS3AccessPointAttachmentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeS3AccessPointAttachmentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeS3AccessPointAttachmentsResponse(data, context);
+  const response: DescribeS3AccessPointAttachmentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DescribeSharedVpcConfigurationCommand
  */
 export const de_DescribeSharedVpcConfigurationCommand = async (
@@ -1526,6 +1636,26 @@ export const de_DescribeVolumesCommand = async (
   let contents: any = {};
   contents = de_DescribeVolumesResponse(data, context);
   const response: DescribeVolumesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DetachAndDeleteS3AccessPointCommand
+ */
+export const de_DetachAndDeleteS3AccessPointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetachAndDeleteS3AccessPointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DetachAndDeleteS3AccessPointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1864,12 +1994,24 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "SourceBackupUnavailable":
     case "com.amazonaws.fsx#SourceBackupUnavailable":
       throw await de_SourceBackupUnavailableRes(parsedOutput, context);
-    case "BackupInProgress":
-    case "com.amazonaws.fsx#BackupInProgress":
-      throw await de_BackupInProgressRes(parsedOutput, context);
+    case "AccessPointAlreadyOwnedByYou":
+    case "com.amazonaws.fsx#AccessPointAlreadyOwnedByYou":
+      throw await de_AccessPointAlreadyOwnedByYouRes(parsedOutput, context);
+    case "InvalidAccessPoint":
+    case "com.amazonaws.fsx#InvalidAccessPoint":
+      throw await de_InvalidAccessPointRes(parsedOutput, context);
+    case "InvalidRequest":
+    case "com.amazonaws.fsx#InvalidRequest":
+      throw await de_InvalidRequestRes(parsedOutput, context);
+    case "TooManyAccessPoints":
+    case "com.amazonaws.fsx#TooManyAccessPoints":
+      throw await de_TooManyAccessPointsRes(parsedOutput, context);
     case "VolumeNotFound":
     case "com.amazonaws.fsx#VolumeNotFound":
       throw await de_VolumeNotFoundRes(parsedOutput, context);
+    case "BackupInProgress":
+    case "com.amazonaws.fsx#BackupInProgress":
+      throw await de_BackupInProgressRes(parsedOutput, context);
     case "DataRepositoryTaskExecuting":
     case "com.amazonaws.fsx#DataRepositoryTaskExecuting":
       throw await de_DataRepositoryTaskExecutingRes(parsedOutput, context);
@@ -1918,6 +2060,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidDataRepositoryType":
     case "com.amazonaws.fsx#InvalidDataRepositoryType":
       throw await de_InvalidDataRepositoryTypeRes(parsedOutput, context);
+    case "S3AccessPointAttachmentNotFound":
+    case "com.amazonaws.fsx#S3AccessPointAttachmentNotFound":
+      throw await de_S3AccessPointAttachmentNotFoundRes(parsedOutput, context);
     case "NotServiceResourceError":
     case "com.amazonaws.fsx#NotServiceResourceError":
       throw await de_NotServiceResourceErrorRes(parsedOutput, context);
@@ -1935,6 +2080,22 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
         errorCode,
       }) as never;
   }
+};
+
+/**
+ * deserializeAws_json1_1AccessPointAlreadyOwnedByYouRes
+ */
+const de_AccessPointAlreadyOwnedByYouRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessPointAlreadyOwnedByYou> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new AccessPointAlreadyOwnedByYou({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
 };
 
 /**
@@ -2154,6 +2315,19 @@ const de_InternalServerErrorRes = async (parsedOutput: any, context: __SerdeCont
 };
 
 /**
+ * deserializeAws_json1_1InvalidAccessPointRes
+ */
+const de_InvalidAccessPointRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidAccessPoint> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new InvalidAccessPoint({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1InvalidDataRepositoryTypeRes
  */
 const de_InvalidDataRepositoryTypeRes = async (
@@ -2250,6 +2424,19 @@ const de_InvalidRegionRes = async (parsedOutput: any, context: __SerdeContext): 
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new InvalidRegion({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1InvalidRequestRes
+ */
+const de_InvalidRequestRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidRequest> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new InvalidRequest({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2363,6 +2550,22 @@ const de_ResourceNotFoundRes = async (parsedOutput: any, context: __SerdeContext
 };
 
 /**
+ * deserializeAws_json1_1S3AccessPointAttachmentNotFoundRes
+ */
+const de_S3AccessPointAttachmentNotFoundRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<S3AccessPointAttachmentNotFound> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new S3AccessPointAttachmentNotFound({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ServiceLimitExceededRes
  */
 const de_ServiceLimitExceededRes = async (
@@ -2417,6 +2620,19 @@ const de_StorageVirtualMachineNotFoundRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new StorageVirtualMachineNotFound({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1TooManyAccessPointsRes
+ */
+const de_TooManyAccessPointsRes = async (parsedOutput: any, context: __SerdeContext): Promise<TooManyAccessPoints> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new TooManyAccessPoints({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2513,6 +2729,26 @@ const se_CopySnapshotAndUpdateVolumeRequest = (
 };
 
 // se_CreateAggregateConfiguration omitted.
+
+// se_CreateAndAttachS3AccessPointOpenZFSConfiguration omitted.
+
+/**
+ * serializeAws_json1_1CreateAndAttachS3AccessPointRequest
+ */
+const se_CreateAndAttachS3AccessPointRequest = (
+  input: CreateAndAttachS3AccessPointRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    Name: [],
+    OpenZFSConfiguration: _json,
+    S3AccessPoint: _json,
+    Type: [],
+  });
+};
+
+// se_CreateAndAttachS3AccessPointS3Configuration omitted.
 
 /**
  * serializeAws_json1_1CreateBackupRequest
@@ -2833,6 +3069,8 @@ const se_DescribeFileSystemAliasesRequest = (input: DescribeFileSystemAliasesReq
 
 // se_DescribeFileSystemsRequest omitted.
 
+// se_DescribeS3AccessPointAttachmentsRequest omitted.
+
 // se_DescribeSharedVpcConfigurationRequest omitted.
 
 // se_DescribeSnapshotsRequest omitted.
@@ -2840,6 +3078,19 @@ const se_DescribeFileSystemAliasesRequest = (input: DescribeFileSystemAliasesReq
 // se_DescribeStorageVirtualMachinesRequest omitted.
 
 // se_DescribeVolumesRequest omitted.
+
+/**
+ * serializeAws_json1_1DetachAndDeleteS3AccessPointRequest
+ */
+const se_DetachAndDeleteS3AccessPointRequest = (
+  input: DetachAndDeleteS3AccessPointRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    Name: [],
+  });
+};
 
 /**
  * serializeAws_json1_1DisassociateFileSystemAliasesRequest
@@ -2873,6 +3124,8 @@ const se_DisassociateFileSystemAliasesRequest = (
 
 // se_FileSystemIds omitted.
 
+// se_FileSystemSecondaryGIDs omitted.
+
 // se_Filter omitted.
 
 // se_Filters omitted.
@@ -2895,11 +3148,15 @@ const se_DisassociateFileSystemAliasesRequest = (
 
 // se_OpenZFSCreateRootVolumeConfiguration omitted.
 
+// se_OpenZFSFileSystemIdentity omitted.
+
 // se_OpenZFSNfsExport omitted.
 
 // se_OpenZFSNfsExportOptions omitted.
 
 // se_OpenZFSNfsExports omitted.
+
+// se_OpenZFSPosixFileSystemUser omitted.
 
 // se_OpenZFSReadCacheConfiguration omitted.
 
@@ -2941,6 +3198,16 @@ const se_RestoreVolumeFromSnapshotRequest = (input: RestoreVolumeFromSnapshotReq
 // se_RetentionPeriod omitted.
 
 // se_RouteTableIds omitted.
+
+// se_S3AccessPointAttachmentNames omitted.
+
+// se_S3AccessPointAttachmentsFilter omitted.
+
+// se_S3AccessPointAttachmentsFilters omitted.
+
+// se_S3AccessPointAttachmentsFilterValues omitted.
+
+// se_S3AccessPointVpcConfiguration omitted.
 
 // se_S3DataRepositoryConfiguration omitted.
 
@@ -3126,6 +3393,8 @@ const se_UpdateVolumeRequest = (input: UpdateVolumeRequest, context: __SerdeCont
 
 // se_WindowsAuditLogCreateConfiguration omitted.
 
+// de_AccessPointAlreadyOwnedByYou omitted.
+
 // de_ActiveDirectoryBackupAttributes omitted.
 
 // de_ActiveDirectoryError omitted.
@@ -3251,6 +3520,18 @@ const de_CopySnapshotAndUpdateVolumeResponse = (
     AdministrativeActions: (_: any) => de_AdministrativeActions(_, context),
     Lifecycle: __expectString,
     VolumeId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CreateAndAttachS3AccessPointResponse
+ */
+const de_CreateAndAttachS3AccessPointResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateAndAttachS3AccessPointResponse => {
+  return take(output, {
+    S3AccessPointAttachment: (_: any) => de_S3AccessPointAttachment(_, context),
   }) as any;
 };
 
@@ -3539,6 +3820,19 @@ const de_DescribeFileSystemsResponse = (output: any, context: __SerdeContext): D
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_1DescribeS3AccessPointAttachmentsResponse
+ */
+const de_DescribeS3AccessPointAttachmentsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeS3AccessPointAttachmentsResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    S3AccessPointAttachments: (_: any) => de_S3AccessPointAttachments(_, context),
+  }) as any;
+};
+
 // de_DescribeSharedVpcConfigurationResponse omitted.
 
 /**
@@ -3573,6 +3867,8 @@ const de_DescribeVolumesResponse = (output: any, context: __SerdeContext): Descr
     Volumes: (_: any) => de_Volumes(_, context),
   }) as any;
 };
+
+// de_DetachAndDeleteS3AccessPointResponse omitted.
 
 // de_DisassociateFileSystemAliasesResponse omitted.
 
@@ -3707,11 +4003,15 @@ const de_FileSystems = (output: any, context: __SerdeContext): FileSystem[] => {
   return retVal;
 };
 
+// de_FileSystemSecondaryGIDs omitted.
+
 // de_IncompatibleParameterError omitted.
 
 // de_IncompatibleRegionForMultiAZ omitted.
 
 // de_InternalServerError omitted.
+
+// de_InvalidAccessPoint omitted.
 
 // de_InvalidDataRepositoryType omitted.
 
@@ -3726,6 +4026,8 @@ const de_FileSystems = (output: any, context: __SerdeContext): FileSystem[] => {
 // de_InvalidPerUnitStorageThroughput omitted.
 
 // de_InvalidRegion omitted.
+
+// de_InvalidRequest omitted.
 
 // de_InvalidSourceKmsKey omitted.
 
@@ -3767,6 +4069,8 @@ const de_FileSystems = (output: any, context: __SerdeContext): FileSystem[] => {
 
 // de_OpenZFSFileSystemConfiguration omitted.
 
+// de_OpenZFSFileSystemIdentity omitted.
+
 // de_OpenZFSNfsExport omitted.
 
 // de_OpenZFSNfsExportOptions omitted.
@@ -3774,6 +4078,8 @@ const de_FileSystems = (output: any, context: __SerdeContext): FileSystem[] => {
 // de_OpenZFSNfsExports omitted.
 
 // de_OpenZFSOriginSnapshotConfiguration omitted.
+
+// de_OpenZFSPosixFileSystemUser omitted.
 
 // de_OpenZFSReadCacheConfiguration omitted.
 
@@ -3820,6 +4126,41 @@ const de_RestoreVolumeFromSnapshotResponse = (
 // de_RetentionPeriod omitted.
 
 // de_RouteTableIds omitted.
+
+// de_S3AccessPoint omitted.
+
+/**
+ * deserializeAws_json1_1S3AccessPointAttachment
+ */
+const de_S3AccessPointAttachment = (output: any, context: __SerdeContext): S3AccessPointAttachment => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Lifecycle: __expectString,
+    LifecycleTransitionReason: _json,
+    Name: __expectString,
+    OpenZFSConfiguration: _json,
+    S3AccessPoint: _json,
+    Type: __expectString,
+  }) as any;
+};
+
+// de_S3AccessPointAttachmentNotFound omitted.
+
+/**
+ * deserializeAws_json1_1S3AccessPointAttachments
+ */
+const de_S3AccessPointAttachments = (output: any, context: __SerdeContext): S3AccessPointAttachment[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_S3AccessPointAttachment(entry, context);
+    });
+  return retVal;
+};
+
+// de_S3AccessPointOpenZFSConfiguration omitted.
+
+// de_S3AccessPointVpcConfiguration omitted.
 
 // de_S3DataRepositoryConfiguration omitted.
 
@@ -3928,6 +4269,8 @@ const de_StorageVirtualMachines = (output: any, context: __SerdeContext): Storag
 // de_Tags omitted.
 
 // de_TieringPolicy omitted.
+
+// de_TooManyAccessPoints omitted.
 
 // de_UnsupportedOperation omitted.
 

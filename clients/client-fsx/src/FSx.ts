@@ -19,6 +19,11 @@ import {
   CopySnapshotAndUpdateVolumeCommandOutput,
 } from "./commands/CopySnapshotAndUpdateVolumeCommand";
 import {
+  CreateAndAttachS3AccessPointCommand,
+  CreateAndAttachS3AccessPointCommandInput,
+  CreateAndAttachS3AccessPointCommandOutput,
+} from "./commands/CreateAndAttachS3AccessPointCommand";
+import {
   CreateBackupCommand,
   CreateBackupCommandInput,
   CreateBackupCommandOutput,
@@ -134,6 +139,11 @@ import {
   DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand";
 import {
+  DescribeS3AccessPointAttachmentsCommand,
+  DescribeS3AccessPointAttachmentsCommandInput,
+  DescribeS3AccessPointAttachmentsCommandOutput,
+} from "./commands/DescribeS3AccessPointAttachmentsCommand";
+import {
   DescribeSharedVpcConfigurationCommand,
   DescribeSharedVpcConfigurationCommandInput,
   DescribeSharedVpcConfigurationCommandOutput,
@@ -153,6 +163,11 @@ import {
   DescribeVolumesCommandInput,
   DescribeVolumesCommandOutput,
 } from "./commands/DescribeVolumesCommand";
+import {
+  DetachAndDeleteS3AccessPointCommand,
+  DetachAndDeleteS3AccessPointCommandInput,
+  DetachAndDeleteS3AccessPointCommandOutput,
+} from "./commands/DetachAndDeleteS3AccessPointCommand";
 import {
   DisassociateFileSystemAliasesCommand,
   DisassociateFileSystemAliasesCommandInput,
@@ -226,6 +241,7 @@ const commands = {
   CancelDataRepositoryTaskCommand,
   CopyBackupCommand,
   CopySnapshotAndUpdateVolumeCommand,
+  CreateAndAttachS3AccessPointCommand,
   CreateBackupCommand,
   CreateDataRepositoryAssociationCommand,
   CreateDataRepositoryTaskCommand,
@@ -249,10 +265,12 @@ const commands = {
   DescribeFileCachesCommand,
   DescribeFileSystemAliasesCommand,
   DescribeFileSystemsCommand,
+  DescribeS3AccessPointAttachmentsCommand,
   DescribeSharedVpcConfigurationCommand,
   DescribeSnapshotsCommand,
   DescribeStorageVirtualMachinesCommand,
   DescribeVolumesCommand,
+  DetachAndDeleteS3AccessPointCommand,
   DisassociateFileSystemAliasesCommand,
   ListTagsForResourceCommand,
   ReleaseFileSystemNfsV3LocksCommand,
@@ -330,6 +348,23 @@ export interface FSx {
     args: CopySnapshotAndUpdateVolumeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CopySnapshotAndUpdateVolumeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAndAttachS3AccessPointCommand}
+   */
+  createAndAttachS3AccessPoint(
+    args: CreateAndAttachS3AccessPointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAndAttachS3AccessPointCommandOutput>;
+  createAndAttachS3AccessPoint(
+    args: CreateAndAttachS3AccessPointCommandInput,
+    cb: (err: any, data?: CreateAndAttachS3AccessPointCommandOutput) => void
+  ): void;
+  createAndAttachS3AccessPoint(
+    args: CreateAndAttachS3AccessPointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAndAttachS3AccessPointCommandOutput) => void
   ): void;
 
   /**
@@ -691,6 +726,24 @@ export interface FSx {
   ): void;
 
   /**
+   * @see {@link DescribeS3AccessPointAttachmentsCommand}
+   */
+  describeS3AccessPointAttachments(): Promise<DescribeS3AccessPointAttachmentsCommandOutput>;
+  describeS3AccessPointAttachments(
+    args: DescribeS3AccessPointAttachmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeS3AccessPointAttachmentsCommandOutput>;
+  describeS3AccessPointAttachments(
+    args: DescribeS3AccessPointAttachmentsCommandInput,
+    cb: (err: any, data?: DescribeS3AccessPointAttachmentsCommandOutput) => void
+  ): void;
+  describeS3AccessPointAttachments(
+    args: DescribeS3AccessPointAttachmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeS3AccessPointAttachmentsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeSharedVpcConfigurationCommand}
    */
   describeSharedVpcConfiguration(): Promise<DescribeSharedVpcConfigurationCommandOutput>;
@@ -757,6 +810,23 @@ export interface FSx {
     args: DescribeVolumesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeVolumesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DetachAndDeleteS3AccessPointCommand}
+   */
+  detachAndDeleteS3AccessPoint(
+    args: DetachAndDeleteS3AccessPointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachAndDeleteS3AccessPointCommandOutput>;
+  detachAndDeleteS3AccessPoint(
+    args: DetachAndDeleteS3AccessPointCommandInput,
+    cb: (err: any, data?: DetachAndDeleteS3AccessPointCommandOutput) => void
+  ): void;
+  detachAndDeleteS3AccessPoint(
+    args: DetachAndDeleteS3AccessPointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DetachAndDeleteS3AccessPointCommandOutput) => void
   ): void;
 
   /**

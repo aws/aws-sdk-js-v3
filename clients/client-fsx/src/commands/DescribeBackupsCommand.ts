@@ -6,11 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  DescribeBackupsRequest,
-  DescribeBackupsResponse,
-  DescribeBackupsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeBackupsRequest } from "../models/models_0";
+import { DescribeBackupsResponse, DescribeBackupsResponseFilterSensitiveLog } from "../models/models_1";
 import { de_DescribeBackupsCommand, se_DescribeBackupsCommand } from "../protocols/Aws_json1_1";
 
 /**

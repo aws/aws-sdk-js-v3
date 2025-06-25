@@ -66,6 +66,10 @@ import {
   CopySnapshotAndUpdateVolumeCommandInput,
   CopySnapshotAndUpdateVolumeCommandOutput,
 } from "./commands/CopySnapshotAndUpdateVolumeCommand";
+import {
+  CreateAndAttachS3AccessPointCommandInput,
+  CreateAndAttachS3AccessPointCommandOutput,
+} from "./commands/CreateAndAttachS3AccessPointCommand";
 import { CreateBackupCommandInput, CreateBackupCommandOutput } from "./commands/CreateBackupCommand";
 import {
   CreateDataRepositoryAssociationCommandInput,
@@ -123,6 +127,10 @@ import {
   DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand";
 import {
+  DescribeS3AccessPointAttachmentsCommandInput,
+  DescribeS3AccessPointAttachmentsCommandOutput,
+} from "./commands/DescribeS3AccessPointAttachmentsCommand";
+import {
   DescribeSharedVpcConfigurationCommandInput,
   DescribeSharedVpcConfigurationCommandOutput,
 } from "./commands/DescribeSharedVpcConfigurationCommand";
@@ -132,6 +140,10 @@ import {
   DescribeStorageVirtualMachinesCommandOutput,
 } from "./commands/DescribeStorageVirtualMachinesCommand";
 import { DescribeVolumesCommandInput, DescribeVolumesCommandOutput } from "./commands/DescribeVolumesCommand";
+import {
+  DetachAndDeleteS3AccessPointCommandInput,
+  DetachAndDeleteS3AccessPointCommandOutput,
+} from "./commands/DetachAndDeleteS3AccessPointCommand";
 import {
   DisassociateFileSystemAliasesCommandInput,
   DisassociateFileSystemAliasesCommandOutput,
@@ -189,6 +201,7 @@ export type ServiceInputTypes =
   | CancelDataRepositoryTaskCommandInput
   | CopyBackupCommandInput
   | CopySnapshotAndUpdateVolumeCommandInput
+  | CreateAndAttachS3AccessPointCommandInput
   | CreateBackupCommandInput
   | CreateDataRepositoryAssociationCommandInput
   | CreateDataRepositoryTaskCommandInput
@@ -212,10 +225,12 @@ export type ServiceInputTypes =
   | DescribeFileCachesCommandInput
   | DescribeFileSystemAliasesCommandInput
   | DescribeFileSystemsCommandInput
+  | DescribeS3AccessPointAttachmentsCommandInput
   | DescribeSharedVpcConfigurationCommandInput
   | DescribeSnapshotsCommandInput
   | DescribeStorageVirtualMachinesCommandInput
   | DescribeVolumesCommandInput
+  | DetachAndDeleteS3AccessPointCommandInput
   | DisassociateFileSystemAliasesCommandInput
   | ListTagsForResourceCommandInput
   | ReleaseFileSystemNfsV3LocksCommandInput
@@ -239,6 +254,7 @@ export type ServiceOutputTypes =
   | CancelDataRepositoryTaskCommandOutput
   | CopyBackupCommandOutput
   | CopySnapshotAndUpdateVolumeCommandOutput
+  | CreateAndAttachS3AccessPointCommandOutput
   | CreateBackupCommandOutput
   | CreateDataRepositoryAssociationCommandOutput
   | CreateDataRepositoryTaskCommandOutput
@@ -262,10 +278,12 @@ export type ServiceOutputTypes =
   | DescribeFileCachesCommandOutput
   | DescribeFileSystemAliasesCommandOutput
   | DescribeFileSystemsCommandOutput
+  | DescribeS3AccessPointAttachmentsCommandOutput
   | DescribeSharedVpcConfigurationCommandOutput
   | DescribeSnapshotsCommandOutput
   | DescribeStorageVirtualMachinesCommandOutput
   | DescribeVolumesCommandOutput
+  | DetachAndDeleteS3AccessPointCommandOutput
   | DisassociateFileSystemAliasesCommandOutput
   | ListTagsForResourceCommandOutput
   | ReleaseFileSystemNfsV3LocksCommandOutput
