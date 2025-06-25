@@ -1842,6 +1842,8 @@ export const se_ListAccessPointsCommand = async (
     [_b]: [, input[_B]!],
     [_nT]: [, input[_NT]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_dSI]: [, input[_DSI]!],
+    [_dST]: [, input[_DST]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -3428,6 +3430,12 @@ export const de_GetAccessPointCommand = async (
   }
   if (data[_CD] != null) {
     contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(data[_CD]));
+  }
+  if (data[_DSI] != null) {
+    contents[_DSI] = __expectString(data[_DSI]);
+  }
+  if (data[_DST] != null) {
+    contents[_DST] = __expectString(data[_DST]);
   }
   if (data.Endpoints === "") {
     contents[_E] = {};
@@ -6967,6 +6975,12 @@ const de_AccessPoint = (output: any, context: __SerdeContext): AccessPoint => {
   if (output[_BAI] != null) {
     contents[_BAI] = __expectString(output[_BAI]);
   }
+  if (output[_DSI] != null) {
+    contents[_DSI] = __expectString(output[_DSI]);
+  }
+  if (output[_DST] != null) {
+    contents[_DST] = __expectString(output[_DST]);
+  }
   return contents;
 };
 
@@ -9800,6 +9814,8 @@ const _DMRS = "DeleteMarkerReplicationStatus";
 const _DN = "DisplayName";
 const _DS = "DurationSeconds";
 const _DSCM = "DetailedStatusCodesMetrics";
+const _DSI = "DataSourceId";
+const _DST = "DataSourceType";
 const _Da = "Date";
 const _Day = "Days";
 const _De = "Details";
@@ -10176,6 +10192,8 @@ const _aa = "application_arn";
 const _b = "bucket";
 const _dB = "directoryBucket";
 const _dS = "durationSeconds";
+const _dSI = "dataSourceId";
+const _dST = "dataSourceType";
 const _e = "entry";
 const _g = "granteetype";
 const _gr = "granteeidentifier";

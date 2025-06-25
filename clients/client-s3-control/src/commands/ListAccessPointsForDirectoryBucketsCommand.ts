@@ -68,6 +68,8 @@ export interface ListAccessPointsForDirectoryBucketsCommandOutput
  * //       AccessPointArn: "STRING_VALUE",
  * //       Alias: "STRING_VALUE",
  * //       BucketAccountId: "STRING_VALUE",
+ * //       DataSourceId: "STRING_VALUE",
+ * //       DataSourceType: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

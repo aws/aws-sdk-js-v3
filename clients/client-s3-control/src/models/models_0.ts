@@ -355,6 +355,18 @@ export interface AccessPoint {
    * @public
    */
   BucketAccountId?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the data source of the access point.</p>
+   * @public
+   */
+  DataSourceId?: string | undefined;
+
+  /**
+   * <p>The type of the data source that the access point is attached to.</p>
+   * @public
+   */
+  DataSourceType?: string | undefined;
 }
 
 /**
@@ -1266,8 +1278,7 @@ export type ScopePermission = (typeof ScopePermission)[keyof typeof ScopePermiss
 
 /**
  * <p>You can use the access point scope to restrict access to specific prefixes, API operations, or a combination of both.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html">Manage the scope of your access points for directory buckets.</a>
- *          </p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html">Manage the scope of your access points for directory buckets</a>.</p>
  * @public
  */
 export interface Scope {
@@ -1296,7 +1307,10 @@ export interface CreateAccessPointRequest {
 
   /**
    * <p>The name you want to assign to this access point.</p>
-   *          <p>For directory buckets, the access point name must consist of a base name that you provide and suffix that includes the <code>ZoneID</code> (Amazon Web Services Availability Zone or Local Zone) of your bucket location, followed by <code>--xa-s3</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html">Managing access to shared datasets in directory buckets with access points</a> in the Amazon S3 User Guide.</p>
+   *          <p>For directory buckets, the access point name must consist of a base name that you provide and
+   *          suffix that includes the <code>ZoneID</code> (Amazon Web Services Availability Zone or Local Zone) of your bucket location,
+   *          followed by <code>--xa-s3</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html">Managing access to shared datasets in directory buckets with
+   *             access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
   Name: string | undefined;
@@ -1336,9 +1350,11 @@ export interface CreateAccessPointRequest {
   BucketAccountId?: string | undefined;
 
   /**
-   * <p>For directory buckets, you can filter access control to specific prefixes, API operations, or a combination of both. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html">Managing access to shared datasets in directory buckets with access points</a> in the Amazon S3 User Guide.</p>
+   * <p>For directory buckets, you can filter access control to specific prefixes, API
+   *          operations, or a combination of both. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html">Managing access to shared datasets in directory buckets with
+   *             access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
-   *             <p>Scope is not supported for access points for general purpose buckets.</p>
+   *             <p>Scope is only supported for access points attached to directory buckets.</p>
    *          </note>
    * @public
    */
@@ -4690,6 +4706,18 @@ export interface GetAccessPointResult {
    * @public
    */
   BucketAccountId?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the data source of the access point.</p>
+   * @public
+   */
+  DataSourceId?: string | undefined;
+
+  /**
+   * <p>The type of the data source that the access point is attached to.</p>
+   * @public
+   */
+  DataSourceType?: string | undefined;
 }
 
 /**
@@ -7142,6 +7170,19 @@ export interface ListAccessPointsRequest {
    * @public
    */
   MaxResults?: number | undefined;
+
+  /**
+   * <p>The unique identifier for the data source of the access point.</p>
+   * @public
+   */
+  DataSourceId?: string | undefined;
+
+  /**
+   * <p>The type of the data source that the access point is attached to. Returns only access points attached to S3 buckets by default. To return all access points specify
+   *          <code>DataSourceType</code> as <code>ALL</code>.</p>
+   * @public
+   */
+  DataSourceType?: string | undefined;
 }
 
 /**

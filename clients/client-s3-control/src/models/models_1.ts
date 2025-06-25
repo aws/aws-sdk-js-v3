@@ -441,8 +441,8 @@ export interface PutAccessPointPolicyRequest {
 
   /**
    * <p>The policy that you want to apply to the specified access point. For more information about access point
-   *          policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing access to shared datasets in general purpose buckets with
-   *             access points</a> or <a href="AmazonS3/latest/userguide/access-points-directory-buckets.html">Managing access to shared datasets in directory bucekts with access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing data access with Amazon S3
+   *             access points</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html">Managing access to shared datasets in directory buckets with access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
   Policy: string | undefined;

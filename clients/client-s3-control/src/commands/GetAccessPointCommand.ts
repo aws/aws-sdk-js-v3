@@ -82,6 +82,8 @@ export interface GetAccessPointCommandOutput extends GetAccessPointResult, __Met
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   BucketAccountId: "STRING_VALUE",
+ * //   DataSourceId: "STRING_VALUE",
+ * //   DataSourceType: "STRING_VALUE",
  * // };
  *
  * ```
