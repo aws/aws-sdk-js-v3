@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.837.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.836.0...v3.837.0) (2025-06-25)
+
+
+### Features
+
+* **client-fsx:** Add support for the ability to create Amazon S3 Access Points for Amazon FSx for OpenZFS file systems. ([2d11d52](https://github.com/aws/aws-sdk-js-v3/commit/2d11d528b42bdceda0f41ea408750b66b495601b))
+
+
+
+
+
 # [3.835.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.834.0...v3.835.0) (2025-06-23)
 
 **Note:** Version bump only for package @aws-sdk/client-fsx

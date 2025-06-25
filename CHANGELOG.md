@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.837.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.836.0...v3.837.0) (2025-06-25)
+
+
+### Features
+
+* **client-fsx:** Add support for the ability to create Amazon S3 Access Points for Amazon FSx for OpenZFS file systems. ([2d11d52](https://github.com/aws/aws-sdk-js-v3/commit/2d11d528b42bdceda0f41ea408750b66b495601b))
+* **client-s3-control:** Add support for the ability to use Amazon S3 Access Points with Amazon FSx for OpenZFS file systems. ([994df73](https://github.com/aws/aws-sdk-js-v3/commit/994df73961cff671b920c7322220a3fdee78efc9))
+* **client-s3:** Adds support for additional server-side encryption mode and storage class values for accessing Amazon FSx data from Amazon S3 using S3 Access Points ([35933a6](https://github.com/aws/aws-sdk-js-v3/commit/35933a620ffb308fb1681e876ca634f0e59acdbf))
+* **client-storage-gateway:** This release adds IPv6 support to the Storage Gateway APIs. APIs that previously only accept or return IPv4 address will now accept or return both IPv4 and IPv6 addresses. ([35abdd2](https://github.com/aws/aws-sdk-js-v3/commit/35abdd223f21825b9b8f57b764436cc988d4ba30))
+* **client-textract:** Add RotationAngle field to Geometry of WORD blocks for Textract AnalyzeDocument API ([ad27026](https://github.com/aws/aws-sdk-js-v3/commit/ad2702626c34ee0747683cb466b97208d1565921))
+* **client-workspaces-thin-client:** Remove Tags field from Get API responses ([7b1a6a9](https://github.com/aws/aws-sdk-js-v3/commit/7b1a6a9ec2ac3eb1ebc9bb4bbdf4a5485a2d9db9))
+
+
+
+
+
 # [3.836.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.835.0...v3.836.0) (2025-06-24)
 
 
