@@ -36,7 +36,7 @@ export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTe
  *         of the document.
  *      </p>
  *          <p>
- *             <code>StartTextDetection</code> returns a job identifier
+ *             <code>StartDocumentTextDetection</code> returns a job identifier
  *             (<code>JobId</code>) that you use to get the results of the operation. When text
  *          detection is finished, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS)
  *          topic that you specify in <code>NotificationChannel</code>. To get the results of the text

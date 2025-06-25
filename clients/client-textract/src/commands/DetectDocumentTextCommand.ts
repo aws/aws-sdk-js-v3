@@ -84,6 +84,7 @@ export interface DetectDocumentTextCommandOutput extends DetectDocumentTextRespo
  * //             Y: Number("float"),
  * //           },
  * //         ],
+ * //         RotationAngle: Number("float"),
  * //       },
  * //       Id: "STRING_VALUE",
  * //       Relationships: [ // RelationshipList

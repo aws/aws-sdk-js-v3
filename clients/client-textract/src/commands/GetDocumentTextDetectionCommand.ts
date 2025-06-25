@@ -94,6 +94,7 @@ export interface GetDocumentTextDetectionCommandOutput extends GetDocumentTextDe
  * //             Y: Number("float"),
  * //           },
  * //         ],
+ * //         RotationAngle: Number("float"),
  * //       },
  * //       Id: "STRING_VALUE",
  * //       Relationships: [ // RelationshipList

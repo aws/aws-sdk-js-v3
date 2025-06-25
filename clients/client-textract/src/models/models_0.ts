@@ -155,8 +155,7 @@ export interface S3Object {
   Bucket?: string | undefined;
 
   /**
-   * <p>The file name of the input document. Synchronous operations can use image files that are
-   *          in JPEG or PNG format. Asynchronous operations also support PDF and TIFF format files.</p>
+   * <p>The file name of the input document. Image files may be in PDF, TIFF, JPEG, or PNG format.</p>
    * @public
    */
   Name?: string | undefined;
@@ -631,6 +630,12 @@ export interface Geometry {
    * @public
    */
   Polygon?: Point[] | undefined;
+
+  /**
+   * <p>Provides a numerical value corresponding to the rotation of the text.</p>
+   * @public
+   */
+  RotationAngle?: number | undefined;
 }
 
 /**
@@ -777,7 +782,7 @@ export interface Block {
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>LINE</i> - A string of tab-delimited, contiguous words that are
+   *                   <i>LINE</i> - A string of space-delimited, contiguous words that are
    *                detected on a document page.</p>
    *             </li>
    *          </ul>

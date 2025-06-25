@@ -131,6 +131,7 @@ export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisRes
  * //             Y: Number("float"),
  * //           },
  * //         ],
+ * //         RotationAngle: Number("float"),
  * //       },
  * //       Id: "STRING_VALUE",
  * //       Relationships: [ // RelationshipList

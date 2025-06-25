@@ -154,6 +154,7 @@ export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, _
  * //             Y: Number("float"),
  * //           },
  * //         ],
+ * //         RotationAngle: Number("float"),
  * //       },
  * //       Id: "STRING_VALUE",
  * //       Relationships: [ // RelationshipList

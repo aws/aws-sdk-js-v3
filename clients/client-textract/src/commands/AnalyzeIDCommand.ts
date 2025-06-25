@@ -99,6 +99,7 @@ export interface AnalyzeIDCommandOutput extends AnalyzeIDResponse, __MetadataBea
  * //                 Y: Number("float"),
  * //               },
  * //             ],
+ * //             RotationAngle: Number("float"),
  * //           },
  * //           Id: "STRING_VALUE",
  * //           Relationships: [ // RelationshipList
