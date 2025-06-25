@@ -842,14 +842,6 @@ export interface Device {
    * @public
    */
   kmsKeyArn?: string | undefined;
-
-  /**
-   * <p>The tag keys and optional values for the resource.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1078,14 +1070,6 @@ export interface Environment {
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The tag keys and optional values for the resource.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-
-  /**
    * <p>The tag keys and optional values for the newly created devices for this environment.</p>
    * @public
    */
@@ -1226,14 +1210,6 @@ export interface SoftwareSet {
    * @public
    */
   arn?: string | undefined;
-
-  /**
-   * <p>The tag keys and optional values for the resource.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1624,7 +1600,6 @@ export const CreateEnvironmentResponseFilterSensitiveLog = (obj: CreateEnvironme
 export const DeviceFilterSensitiveLog = (obj: Device): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.tags && { tags: SENSITIVE_STRING }),
 });
 
 /**
@@ -1643,7 +1618,6 @@ export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.desktopEndpoint && { desktopEndpoint: SENSITIVE_STRING }),
   ...(obj.activationCode && { activationCode: SENSITIVE_STRING }),
-  ...(obj.tags && { tags: SENSITIVE_STRING }),
   ...(obj.deviceCreationTags && { deviceCreationTags: SENSITIVE_STRING }),
 });
 
@@ -1661,22 +1635,6 @@ export const GetDeviceResponseFilterSensitiveLog = (obj: GetDeviceResponse): any
 export const GetEnvironmentResponseFilterSensitiveLog = (obj: GetEnvironmentResponse): any => ({
   ...obj,
   ...(obj.environment && { environment: EnvironmentFilterSensitiveLog(obj.environment) }),
-});
-
-/**
- * @internal
- */
-export const SoftwareSetFilterSensitiveLog = (obj: SoftwareSet): any => ({
-  ...obj,
-  ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetSoftwareSetResponseFilterSensitiveLog = (obj: GetSoftwareSetResponse): any => ({
-  ...obj,
-  ...(obj.softwareSet && { softwareSet: SoftwareSetFilterSensitiveLog(obj.softwareSet) }),
 });
 
 /**

@@ -1069,7 +1069,6 @@ const de_Device = (output: any, context: __SerdeContext): Device => {
     softwareSetUpdateSchedule: __expectString,
     softwareSetUpdateStatus: __expectString,
     status: __expectString,
-    tags: _json,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
@@ -1134,7 +1133,6 @@ const de_Environment = (output: any, context: __SerdeContext): Environment => {
     softwareSetComplianceStatus: __expectString,
     softwareSetUpdateMode: __expectString,
     softwareSetUpdateSchedule: __expectString,
-    tags: _json,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
@@ -1189,7 +1187,6 @@ const de_SoftwareSet = (output: any, context: __SerdeContext): SoftwareSet => {
     releasedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     software: _json,
     supportedUntil: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    tags: _json,
     validationStatus: __expectString,
     version: __expectString,
   }) as any;
