@@ -1,5 +1,13 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.32.0 (2025-06-26)
+
+## Features
+- Upgraded to smithy-typescript 0.32.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0320-2025-06-26))
+
+## Bug Fixes
+- Added default AWS regional endpoints for generated AWS clients ([#7151](https://github.com/aws/aws-sdk-js-v3/pull/7151))
+
 ## 0.31.1 (2025-06-23)
 
 ## Features
