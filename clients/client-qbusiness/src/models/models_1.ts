@@ -6,6 +6,7 @@ import {
   ActionExecutionEvent,
   ActionReview,
   ActionSummary,
+  Attachment,
   AttachmentInput,
   AttachmentInputEvent,
   AttachmentOutput,
@@ -15,8 +16,11 @@ import {
   ChatMode,
   ChatModeConfiguration,
   ContentSource,
+  Conversation,
   CreatorModeConfiguration,
+  DataAccessorAuthenticationDetail,
   DataSourceSyncJob,
+  DataSourceSyncJobStatus,
   DocumentAttribute,
   DocumentDetails,
   EndOfInputEvent,
@@ -35,6 +39,168 @@ import {
   TopicConfiguration,
   UserAlias,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetUserResponse {
+  /**
+   * <p>A list of user aliases attached to a user.</p>
+   * @public
+   */
+  userAliases?: UserAlias[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAttachmentsRequest {
+  /**
+   * <p>The unique identifier for the Amazon Q Business application.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Amazon Q Business web experience conversation.</p>
+   * @public
+   */
+  conversationId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the user involved in the Amazon Q Business web experience conversation.</p>
+   * @public
+   */
+  userId?: string | undefined;
+
+  /**
+   * <p>If the number of attachments returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set of attachments.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of attachements to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAttachmentsResponse {
+  /**
+   * <p>An array of information on one or more attachments.</p>
+   * @public
+   */
+  attachments?: Attachment[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a later request to list the next set of attachments.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConversationsRequest {
+  /**
+   * <p>The identifier of the Amazon Q Business application.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The identifier of the user involved in the Amazon Q Business web experience conversation. </p>
+   * @public
+   */
+  userId?: string | undefined;
+
+  /**
+   * <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of Amazon Q Business conversations.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of Amazon Q Business conversations to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConversationsResponse {
+  /**
+   * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a later request to list the next set of messages.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An array of summary information on the configuration of one or more Amazon Q Business web experiences.</p>
+   * @public
+   */
+  conversations?: Conversation[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDataSourceSyncJobsRequest {
+  /**
+   * <p> The identifier of the data source connector.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q Business application connected to the data source.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The identifier of the index used with the Amazon Q Business data source connector.</p>
+   * @public
+   */
+  indexId: string | undefined;
+
+  /**
+   * <p>If the <code>maxResults</code> response was incpmplete because there is more data to retriever, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of responses.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of synchronization jobs to return in the response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p> The start time of the data source connector sync. </p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p> The end time of the data source connector sync.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>Only returns synchronization jobs with the <code>Status</code> field equal to the specified status.</p>
+   * @public
+   */
+  statusFilter?: DataSourceSyncJobStatus | undefined;
+}
 
 /**
  * @public
@@ -1605,6 +1771,12 @@ export interface CreateDataAccessorRequest {
   displayName: string | undefined;
 
   /**
+   * <p>The authentication configuration details for the data accessor. This specifies how the ISV will authenticate when accessing data through this data accessor.</p>
+   * @public
+   */
+  authenticationDetail?: DataAccessorAuthenticationDetail | undefined;
+
+  /**
    * <p>The tags to associate with the data accessor.</p>
    * @public
    */
@@ -1658,6 +1830,12 @@ export interface GetDataAccessorResponse {
   actionConfigurations?: ActionConfiguration[] | undefined;
 
   /**
+   * <p>The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.</p>
+   * @public
+   */
+  authenticationDetail?: DataAccessorAuthenticationDetail | undefined;
+
+  /**
    * <p>The timestamp when the data accessor was created.</p>
    * @public
    */
@@ -1691,6 +1869,12 @@ export interface UpdateDataAccessorRequest {
    * @public
    */
   actionConfigurations: ActionConfiguration[] | undefined;
+
+  /**
+   * <p>The updated authentication configuration details for the data accessor. This specifies how the ISV will authenticate when accessing data through this data accessor.</p>
+   * @public
+   */
+  authenticationDetail?: DataAccessorAuthenticationDetail | undefined;
 
   /**
    * <p>The updated friendly name for the data accessor.</p>
@@ -1728,6 +1912,7 @@ export const CreateDataAccessorRequestFilterSensitiveLog = (obj: CreateDataAcces
   ...obj,
   ...(obj.actionConfigurations && { actionConfigurations: obj.actionConfigurations.map((item) => item) }),
   ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.authenticationDetail && { authenticationDetail: obj.authenticationDetail }),
 });
 
 /**
@@ -1737,6 +1922,7 @@ export const GetDataAccessorResponseFilterSensitiveLog = (obj: GetDataAccessorRe
   ...obj,
   ...(obj.displayName && { displayName: SENSITIVE_STRING }),
   ...(obj.actionConfigurations && { actionConfigurations: obj.actionConfigurations.map((item) => item) }),
+  ...(obj.authenticationDetail && { authenticationDetail: obj.authenticationDetail }),
 });
 
 /**
@@ -1745,5 +1931,6 @@ export const GetDataAccessorResponseFilterSensitiveLog = (obj: GetDataAccessorRe
 export const UpdateDataAccessorRequestFilterSensitiveLog = (obj: UpdateDataAccessorRequest): any => ({
   ...obj,
   ...(obj.actionConfigurations && { actionConfigurations: obj.actionConfigurations.map((item) => item) }),
+  ...(obj.authenticationDetail && { authenticationDetail: obj.authenticationDetail }),
   ...(obj.displayName && { displayName: SENSITIVE_STRING }),
 });

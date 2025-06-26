@@ -127,6 +127,17 @@ export interface UpdateDataAccessorCommandOutput extends UpdateDataAccessorRespo
  *       },
  *     },
  *   ],
+ *   authenticationDetail: { // DataAccessorAuthenticationDetail
+ *     authenticationType: "AWS_IAM_IDC_TTI" || "AWS_IAM_IDC_AUTH_CODE", // required
+ *     authenticationConfiguration: { // DataAccessorAuthenticationConfiguration Union: only one key present
+ *       idcTrustedTokenIssuerConfiguration: { // DataAccessorIdcTrustedTokenIssuerConfiguration
+ *         idcTrustedTokenIssuerArn: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     externalIds: [ // DataAccessorExternalIds
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  *   displayName: "STRING_VALUE",
  * };
  * const command = new UpdateDataAccessorCommand(input);

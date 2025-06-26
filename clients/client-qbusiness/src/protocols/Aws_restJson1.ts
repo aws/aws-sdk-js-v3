@@ -207,6 +207,9 @@ import {
   CustomizationConfiguration,
   CustomPluginConfiguration,
   DataAccessor,
+  DataAccessorAuthenticationConfiguration,
+  DataAccessorAuthenticationDetail,
+  DataAccessorIdcTrustedTokenIssuerConfiguration,
   DataSource,
   DataSourceSyncJob,
   DataSourceVpcConfiguration,
@@ -247,6 +250,7 @@ import {
   NumberAttributeBoostingConfiguration,
   OAuth2ClientCredentialConfiguration,
   OpenIDConnectProviderConfiguration,
+  PermissionCondition,
   PersonalizationConfiguration,
   Plugin,
   PluginAuthConfiguration,
@@ -315,6 +319,7 @@ export const se_AssociatePermissionCommand = async (
   body = JSON.stringify(
     take(input, {
       actions: (_) => _json(_),
+      conditions: (_) => _json(_),
       principal: [],
       statementId: [],
     })
@@ -554,6 +559,7 @@ export const se_CreateDataAccessorCommand = async (
   body = JSON.stringify(
     take(input, {
       actionConfigurations: (_) => se_ActionConfigurationList(_, context),
+      authenticationDetail: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       displayName: [],
       principal: [],
@@ -1822,6 +1828,7 @@ export const se_UpdateDataAccessorCommand = async (
   body = JSON.stringify(
     take(input, {
       actionConfigurations: (_) => se_ActionConfigurationList(_, context),
+      authenticationDetail: (_) => _json(_),
       displayName: [],
     })
   );
@@ -2702,6 +2709,7 @@ export const de_GetDataAccessorCommand = async (
   const doc = take(data, {
     actionConfigurations: (_) => de_ActionConfigurationList(_, context),
     applicationId: __expectString,
+    authenticationDetail: _json,
     createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     dataAccessorArn: __expectString,
     dataAccessorId: __expectString,
@@ -4284,6 +4292,14 @@ const se_ConfigurationEvent = (input: ConfigurationEvent, context: __SerdeContex
 
 // se_CustomPluginConfiguration omitted.
 
+// se_DataAccessorAuthenticationConfiguration omitted.
+
+// se_DataAccessorAuthenticationDetail omitted.
+
+// se_DataAccessorExternalIds omitted.
+
+// se_DataAccessorIdcTrustedTokenIssuerConfiguration omitted.
+
 /**
  * serializeAws_restJson1DataSourceConfiguration
  */
@@ -4511,6 +4527,12 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 // se_OpenIDConnectProviderConfiguration omitted.
 
 // se_OrchestrationConfiguration omitted.
+
+// se_PermissionCondition omitted.
+
+// se_PermissionConditions omitted.
+
+// se_PermissionConditionValues omitted.
 
 // se_PersonalizationConfiguration omitted.
 
@@ -4928,6 +4950,7 @@ const de_Conversations = (output: any, context: __SerdeContext): Conversation[] 
  */
 const de_DataAccessor = (output: any, context: __SerdeContext): DataAccessor => {
   return take(output, {
+    authenticationDetail: _json,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     dataAccessorArn: __expectString,
     dataAccessorId: __expectString,
@@ -4937,6 +4960,14 @@ const de_DataAccessor = (output: any, context: __SerdeContext): DataAccessor => 
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_DataAccessorAuthenticationConfiguration omitted.
+
+// de_DataAccessorAuthenticationDetail omitted.
+
+// de_DataAccessorExternalIds omitted.
+
+// de_DataAccessorIdcTrustedTokenIssuerConfiguration omitted.
 
 /**
  * deserializeAws_restJson1DataAccessors

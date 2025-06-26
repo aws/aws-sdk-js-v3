@@ -137,6 +137,17 @@ export interface GetDataAccessorCommandOutput extends GetDataAccessorResponse, _
  * //       },
  * //     },
  * //   ],
+ * //   authenticationDetail: { // DataAccessorAuthenticationDetail
+ * //     authenticationType: "AWS_IAM_IDC_TTI" || "AWS_IAM_IDC_AUTH_CODE", // required
+ * //     authenticationConfiguration: { // DataAccessorAuthenticationConfiguration Union: only one key present
+ * //       idcTrustedTokenIssuerConfiguration: { // DataAccessorIdcTrustedTokenIssuerConfiguration
+ * //         idcTrustedTokenIssuerArn: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     externalIds: [ // DataAccessorExternalIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
  * // };

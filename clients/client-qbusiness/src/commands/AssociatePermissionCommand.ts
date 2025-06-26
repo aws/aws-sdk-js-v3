@@ -41,6 +41,15 @@ export interface AssociatePermissionCommandOutput extends AssociatePermissionRes
  *   actions: [ // QIamActions // required
  *     "STRING_VALUE",
  *   ],
+ *   conditions: [ // PermissionConditions
+ *     { // PermissionCondition
+ *       conditionOperator: "StringEquals", // required
+ *       conditionKey: "STRING_VALUE", // required
+ *       conditionValues: [ // PermissionConditionValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  *   principal: "STRING_VALUE", // required
  * };
  * const command = new AssociatePermissionCommand(input);

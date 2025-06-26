@@ -1204,6 +1204,98 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * <p>Configuration details for IAM Identity Center Trusted Token Issuer (TTI) authentication.</p>
+ * @public
+ */
+export interface DataAccessorIdcTrustedTokenIssuerConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center Trusted Token Issuer that will be used for authentication.</p>
+   * @public
+   */
+  idcTrustedTokenIssuerArn: string | undefined;
+}
+
+/**
+ * <p>A union type that contains the specific authentication configuration based on the authentication type selected.</p>
+ * @public
+ */
+export type DataAccessorAuthenticationConfiguration =
+  | DataAccessorAuthenticationConfiguration.IdcTrustedTokenIssuerConfigurationMember
+  | DataAccessorAuthenticationConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DataAccessorAuthenticationConfiguration {
+  /**
+   * <p>Configuration for IAM Identity Center Trusted Token Issuer (TTI) authentication used when the authentication type is <code>AWS_IAM_IDC_TTI</code>.</p>
+   * @public
+   */
+  export interface IdcTrustedTokenIssuerConfigurationMember {
+    idcTrustedTokenIssuerConfiguration: DataAccessorIdcTrustedTokenIssuerConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    idcTrustedTokenIssuerConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    idcTrustedTokenIssuerConfiguration: (value: DataAccessorIdcTrustedTokenIssuerConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DataAccessorAuthenticationConfiguration, visitor: Visitor<T>): T => {
+    if (value.idcTrustedTokenIssuerConfiguration !== undefined)
+      return visitor.idcTrustedTokenIssuerConfiguration(value.idcTrustedTokenIssuerConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataAccessorAuthenticationType = {
+  AWS_IAM_IDC_AUTH_CODE: "AWS_IAM_IDC_AUTH_CODE",
+  AWS_IAM_IDC_TTI: "AWS_IAM_IDC_TTI",
+} as const;
+
+/**
+ * @public
+ */
+export type DataAccessorAuthenticationType =
+  (typeof DataAccessorAuthenticationType)[keyof typeof DataAccessorAuthenticationType];
+
+/**
+ * <p>Contains the authentication configuration details for a data accessor. This structure defines how the ISV authenticates when accessing data through the data accessor.</p>
+ * @public
+ */
+export interface DataAccessorAuthenticationDetail {
+  /**
+   * <p>The type of authentication to use for the data accessor. This determines how the ISV authenticates when accessing data. You can use one of two authentication types:</p> <ul> <li> <p> <code>AWS_IAM_IDC_TTI</code> - Authentication using IAM Identity Center Trusted Token Issuer (TTI). This authentication type allows the ISV to use a trusted token issuer to generate tokens for accessing the data.</p> </li> <li> <p> <code>AWS_IAM_IDC_AUTH_CODE</code> - Authentication using IAM Identity Center authorization code flow. This authentication type uses the standard OAuth 2.0 authorization code flow for authentication.</p> </li> </ul>
+   * @public
+   */
+  authenticationType: DataAccessorAuthenticationType | undefined;
+
+  /**
+   * <p>The specific authentication configuration based on the authentication type.</p>
+   * @public
+   */
+  authenticationConfiguration?: DataAccessorAuthenticationConfiguration | undefined;
+
+  /**
+   * <p>A list of external identifiers associated with this authentication configuration. These are used to correlate the data accessor with external systems.</p>
+   * @public
+   */
+  externalIds?: string[] | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateDataAccessorResponse {
@@ -1322,6 +1414,12 @@ export interface DataAccessor {
    * @public
    */
   principal?: string | undefined;
+
+  /**
+   * <p>The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.</p>
+   * @public
+   */
+  authenticationDetail?: DataAccessorAuthenticationDetail | undefined;
 
   /**
    * <p>The timestamp when the data accessor was created.</p>
@@ -1820,7 +1918,7 @@ export interface HookConfiguration {
   invocationCondition?: DocumentAttributeCondition | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html">Using Lambda functions for Amazon Q Business document enrichment</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html">Using Lambda functions for Amazon Q Business document enrichment</a>.</p>
    * @public
    */
   lambdaArn?: string | undefined;
@@ -4768,6 +4866,44 @@ export interface AssociatedUser {
 
 /**
  * @public
+ * @enum
+ */
+export const PermissionConditionOperator = {
+  STRING_EQUALS: "StringEquals",
+} as const;
+
+/**
+ * @public
+ */
+export type PermissionConditionOperator =
+  (typeof PermissionConditionOperator)[keyof typeof PermissionConditionOperator];
+
+/**
+ * <p>Defines a condition that restricts when a permission is effective. Conditions allow you to control access based on specific attributes of the request.</p>
+ * @public
+ */
+export interface PermissionCondition {
+  /**
+   * <p>The operator to use for the condition evaluation. This determines how the condition values are compared.</p>
+   * @public
+   */
+  conditionOperator: PermissionConditionOperator | undefined;
+
+  /**
+   * <p>The key for the condition. This identifies the attribute that the condition applies to.</p>
+   * @public
+   */
+  conditionKey: string | undefined;
+
+  /**
+   * <p>The values to compare against using the specified condition operator.</p>
+   * @public
+   */
+  conditionValues: string[] | undefined;
+}
+
+/**
+ * @public
  */
 export interface AssociatePermissionRequest {
   /**
@@ -4787,6 +4923,12 @@ export interface AssociatePermissionRequest {
    * @public
    */
   actions: string[] | undefined;
+
+  /**
+   * <p>The conditions that restrict when the permission is effective. These conditions can be used to limit the permission based on specific attributes of the request.</p>
+   * @public
+   */
+  conditions?: PermissionCondition[] | undefined;
 
   /**
    * <p>The Amazon Resource Name of the IAM role for the ISV that is being granted permission.</p>
@@ -7375,168 +7517,6 @@ export interface GetUserRequest {
 }
 
 /**
- * @public
- */
-export interface GetUserResponse {
-  /**
-   * <p>A list of user aliases attached to a user.</p>
-   * @public
-   */
-  userAliases?: UserAlias[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAttachmentsRequest {
-  /**
-   * <p>The unique identifier for the Amazon Q Business application.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the Amazon Q Business web experience conversation.</p>
-   * @public
-   */
-  conversationId?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the user involved in the Amazon Q Business web experience conversation.</p>
-   * @public
-   */
-  userId?: string | undefined;
-
-  /**
-   * <p>If the number of attachments returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set of attachments.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of attachements to return.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAttachmentsResponse {
-  /**
-   * <p>An array of information on one or more attachments.</p>
-   * @public
-   */
-  attachments?: Attachment[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a later request to list the next set of attachments.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListConversationsRequest {
-  /**
-   * <p>The identifier of the Amazon Q Business application.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>The identifier of the user involved in the Amazon Q Business web experience conversation. </p>
-   * @public
-   */
-  userId?: string | undefined;
-
-  /**
-   * <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of Amazon Q Business conversations.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of Amazon Q Business conversations to return.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListConversationsResponse {
-  /**
-   * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a later request to list the next set of messages.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>An array of summary information on the configuration of one or more Amazon Q Business web experiences.</p>
-   * @public
-   */
-  conversations?: Conversation[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDataSourceSyncJobsRequest {
-  /**
-   * <p> The identifier of the data source connector.</p>
-   * @public
-   */
-  dataSourceId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Q Business application connected to the data source.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>The identifier of the index used with the Amazon Q Business data source connector.</p>
-   * @public
-   */
-  indexId: string | undefined;
-
-  /**
-   * <p>If the <code>maxResults</code> response was incpmplete because there is more data to retriever, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of responses.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of synchronization jobs to return in the response.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p> The start time of the data source connector sync. </p>
-   * @public
-   */
-  startTime?: Date | undefined;
-
-  /**
-   * <p> The end time of the data source connector sync.</p>
-   * @public
-   */
-  endTime?: Date | undefined;
-
-  /**
-   * <p>Only returns synchronization jobs with the <code>Status</code> field equal to the specified status.</p>
-   * @public
-   */
-  statusFilter?: DataSourceSyncJobStatus | undefined;
-}
-
-/**
  * @internal
  */
 export const APISchemaFilterSensitiveLog = (obj: APISchema): any => {
@@ -7569,6 +7549,7 @@ export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicatio
 export const DataAccessorFilterSensitiveLog = (obj: DataAccessor): any => ({
   ...obj,
   ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.authenticationDetail && { authenticationDetail: obj.authenticationDetail }),
 });
 
 /**
