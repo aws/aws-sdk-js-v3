@@ -63,6 +63,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //       taskRunStatusCounts: { // TaskRunStatusCounts
  * //         "<keys>": Number("int"),
  * //       },
+ * //       taskFailureRetryCount: Number("int"),
  * //       maxFailedTasksCount: Number("int"),
  * //       maxRetriesPerTask: Number("int"),
  * //       maxWorkerCount: Number("int"),

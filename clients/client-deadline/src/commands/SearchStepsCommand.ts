@@ -128,6 +128,7 @@ export interface SearchStepsCommandOutput extends SearchStepsResponse, __Metadat
  * //       taskRunStatusCounts: { // TaskRunStatusCounts
  * //         "<keys>": Number("int"),
  * //       },
+ * //       taskFailureRetryCount: Number("int"),
  * //       createdAt: new Date("TIMESTAMP"),
  * //       startedAt: new Date("TIMESTAMP"),
  * //       endedAt: new Date("TIMESTAMP"),

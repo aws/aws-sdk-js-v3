@@ -59,6 +59,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //   taskRunStatusCounts: { // TaskRunStatusCounts
  * //     "<keys>": Number("int"),
  * //   },
+ * //   taskFailureRetryCount: Number("int"),
  * //   storageProfileId: "STRING_VALUE",
  * //   maxFailedTasksCount: Number("int"),
  * //   maxRetriesPerTask: Number("int"),

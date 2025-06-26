@@ -45,13 +45,13 @@ export type AcceleratorName = (typeof AcceleratorName)[keyof typeof AcceleratorN
  */
 export interface AcceleratorSelection {
   /**
-   * <p>The name of the chip used by the GPU accelerator.</p> <p>If you specify <code>l4</code> as the name of the accelerator, you must specify <code>latest</code> or <code>grid:r550</code> as the runtime.</p> <p>The available GPU accelerators are:</p> <ul> <li> <p> <code>t4</code> - NVIDIA T4 Tensor Core GPU</p> </li> <li> <p> <code>a10g</code> - NVIDIA A10G Tensor Core GPU</p> </li> <li> <p> <code>l4</code> - NVIDIA L4 Tensor Core GPU</p> </li> <li> <p> <code>l40s</code> - NVIDIA L40S Tensor Core GPU</p> </li> </ul>
+   * <p>The name of the chip used by the GPU accelerator.</p> <p>If you specify <code>l4</code> as the name of the accelerator, you must specify <code>latest</code> or <code>grid:r570</code> as the runtime.</p> <p>The available GPU accelerators are:</p> <ul> <li> <p> <code>t4</code> - NVIDIA T4 Tensor Core GPU</p> </li> <li> <p> <code>a10g</code> - NVIDIA A10G Tensor Core GPU</p> </li> <li> <p> <code>l4</code> - NVIDIA L4 Tensor Core GPU</p> </li> <li> <p> <code>l40s</code> - NVIDIA L40S Tensor Core GPU</p> </li> </ul>
    * @public
    */
   name: AcceleratorName | undefined;
 
   /**
-   * <p>Specifies the runtime driver to use for the GPU accelerator. You must use the same runtime for all GPUs. </p> <p>You can choose from the following runtimes:</p> <ul> <li> <p> <code>latest</code> - Use the latest runtime available for the chip. If you specify <code>latest</code> and a new version of the runtime is released, the new version of the runtime is used.</p> </li> <li> <p> <code>grid:r550</code> - <a href="https://docs.nvidia.com/vgpu/17.0/index.html">NVIDIA vGPU software 17</a> </p> </li> <li> <p> <code>grid:r535</code> - <a href="https://docs.nvidia.com/vgpu/16.0/index.html">NVIDIA vGPU software 16</a> </p> </li> </ul> <p>If you don't specify a runtime, Deadline Cloud uses <code>latest</code> as the default. However, if you have multiple accelerators and specify <code>latest</code> for some and leave others blank, Deadline Cloud raises an exception.</p>
+   * <p>Specifies the runtime driver to use for the GPU accelerator. You must use the same runtime for all GPUs. </p> <p>You can choose from the following runtimes:</p> <ul> <li> <p> <code>latest</code> - Use the latest runtime available for the chip. If you specify <code>latest</code> and a new version of the runtime is released, the new version of the runtime is used.</p> </li> <li> <p> <code>grid:r570</code> - <a href="https://docs.nvidia.com/vgpu/18.0/index.html">NVIDIA vGPU software 18</a> </p> </li> <li> <p> <code>grid:r535</code> - <a href="https://docs.nvidia.com/vgpu/16.0/index.html">NVIDIA vGPU software 16</a> </p> </li> </ul> <p>If you don't specify a runtime, Deadline Cloud uses <code>latest</code> as the default. However, if you have multiple accelerators and specify <code>latest</code> for some and leave others blank, Deadline Cloud raises an exception.</p>
    * @public
    */
   runtime?: string | undefined;
@@ -4398,7 +4398,7 @@ export interface GetFleetResponse {
   description?: string | undefined;
 
   /**
-   * <p>The Auto Scaling status of the fleet.</p>
+   * <p>The status of the fleet.</p>
    * @public
    */
   status: FleetStatus | undefined;
@@ -6567,6 +6567,12 @@ export interface GetJobResponse {
   taskRunStatusCounts?: Partial<Record<TaskRunStatus, number>> | undefined;
 
   /**
+   * <p>The total number of times tasks from the job failed and were retried.</p>
+   * @public
+   */
+  taskFailureRetryCount?: number | undefined;
+
+  /**
    * <p>The storage profile ID associated with the job.</p>
    * @public
    */
@@ -7254,6 +7260,12 @@ export interface GetStepResponse {
   taskRunStatusCounts: Partial<Record<TaskRunStatus, number>> | undefined;
 
   /**
+   * <p>The total number of times tasks from the step failed and were retried.</p>
+   * @public
+   */
+  taskFailureRetryCount?: number | undefined;
+
+  /**
    * <p>The task status with which the job started.</p>
    * @public
    */
@@ -7725,6 +7737,12 @@ export interface JobSummary {
    * @public
    */
   taskRunStatusCounts?: Partial<Record<TaskRunStatus, number>> | undefined;
+
+  /**
+   * <p>The total number of times tasks from the job failed and were retried.</p>
+   * @public
+   */
+  taskFailureRetryCount?: number | undefined;
 
   /**
    * <p>The number of task failures before the job stops running and is marked as <code>FAILED</code>.</p>
@@ -8380,6 +8398,12 @@ export interface StepSummary {
    * @public
    */
   taskRunStatusCounts: Partial<Record<TaskRunStatus, number>> | undefined;
+
+  /**
+   * <p>The total number of times tasks from the step failed and were retried.</p>
+   * @public
+   */
+  taskFailureRetryCount?: number | undefined;
 
   /**
    * <p>The task status to start with on the job.</p>

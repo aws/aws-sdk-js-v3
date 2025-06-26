@@ -126,6 +126,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //       taskRunStatusCounts: { // TaskRunStatusCounts
  * //         "<keys>": Number("int"),
  * //       },
+ * //       taskFailureRetryCount: Number("int"),
  * //       priority: Number("int"),
  * //       maxFailedTasksCount: Number("int"),
  * //       maxRetriesPerTask: Number("int"),

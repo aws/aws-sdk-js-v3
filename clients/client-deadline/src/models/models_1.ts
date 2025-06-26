@@ -2354,6 +2354,12 @@ export interface JobSearchSummary {
   taskRunStatusCounts?: Partial<Record<TaskRunStatus, number>> | undefined;
 
   /**
+   * <p>The total number of times tasks from the job failed and were retried.</p>
+   * @public
+   */
+  taskFailureRetryCount?: number | undefined;
+
+  /**
    * <p>The job priority.</p>
    * @public
    */
@@ -2495,6 +2501,12 @@ export interface StepSearchSummary {
    * @public
    */
   taskRunStatusCounts?: Partial<Record<TaskRunStatus, number>> | undefined;
+
+  /**
+   * <p>The total number of times tasks from the step failed and were retried.</p>
+   * @public
+   */
+  taskFailureRetryCount?: number | undefined;
 
   /**
    * <p>The date and time the resource was created.</p>
