@@ -28,9 +28,7 @@ export interface UpdateTableCommandInput extends UpdateTableRequest {}
 export interface UpdateTableCommandOutput extends UpdateTableResponse, __MetadataBearer {}
 
 /**
- * <p>Adds new columns to the table or updates one of the table's settings, for example
- *          capacity mode, auto scaling, encryption, point-in-time recovery, or ttl settings.
- *       Note that you can only update one specific table setting per update operation.</p>
+ * <p>Adds new columns to the table or updates one of the table's settings, for example capacity mode, auto scaling, encryption, point-in-time recovery, or ttl settings. Note that you can only update one specific table setting per update operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,6 +110,17 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *       },
  *     },
  *   ],
+ *   cdcSpecification: { // CdcSpecification
+ *     status: "STRING_VALUE", // required
+ *     viewType: "STRING_VALUE",
+ *     tags: [ // TagList
+ *       { // Tag
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     propagateTags: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);
@@ -131,20 +140,16 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *  <p>You don't have sufficient access permissions to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to
- *          perform an action and the same or a different action is already
- *          in progress, or if you try to create a resource that already exists. </p>
+ *  <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to perform an action and the same or a different action is already in progress, or if you try to create a resource that already exists. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly,
- *          or its status might not be <code>ACTIVE</code>.</p>
+ *  <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The operation exceeded the service quota for this resource.  For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer
- *             Guide</i>.</p>
+ *  <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>

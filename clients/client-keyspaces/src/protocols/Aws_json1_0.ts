@@ -57,6 +57,7 @@ import {
   AutoScalingSpecification,
   CapacitySpecification,
   CapacitySpecificationSummary,
+  CdcSpecification,
   ClientSideTimestamps,
   ClusteringKey,
   ColumnDefinition,
@@ -892,6 +893,8 @@ const se_AutoScalingSpecification = (input: AutoScalingSpecification, context: _
 
 // se_CapacitySpecification omitted.
 
+// se_CdcSpecification omitted.
+
 // se_ClientSideTimestamps omitted.
 
 // se_ClusteringKey omitted.
@@ -913,6 +916,7 @@ const se_CreateTableRequest = (input: CreateTableRequest, context: __SerdeContex
   return take(input, {
     autoScalingSpecification: (_) => se_AutoScalingSpecification(_, context),
     capacitySpecification: _json,
+    cdcSpecification: _json,
     clientSideTimestamps: _json,
     comment: _json,
     defaultTimeToLive: [],
@@ -1049,6 +1053,7 @@ const se_UpdateTableRequest = (input: UpdateTableRequest, context: __SerdeContex
     addColumns: _json,
     autoScalingSpecification: (_) => se_AutoScalingSpecification(_, context),
     capacitySpecification: _json,
+    cdcSpecification: _json,
     clientSideTimestamps: _json,
     defaultTimeToLive: [],
     encryptionSpecification: _json,
@@ -1104,6 +1109,8 @@ const de_CapacitySpecificationSummary = (output: any, context: __SerdeContext): 
     writeCapacityUnits: __expectLong,
   }) as any;
 };
+
+// de_CdcSpecificationSummary omitted.
 
 // de_ClientSideTimestamps omitted.
 
@@ -1161,12 +1168,14 @@ const de_GetTableAutoScalingSettingsResponse = (
 const de_GetTableResponse = (output: any, context: __SerdeContext): GetTableResponse => {
   return take(output, {
     capacitySpecification: (_: any) => de_CapacitySpecificationSummary(_, context),
+    cdcSpecification: _json,
     clientSideTimestamps: _json,
     comment: _json,
     creationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     defaultTimeToLive: __expectInt32,
     encryptionSpecification: _json,
     keyspaceName: __expectString,
+    latestStreamArn: __expectString,
     pointInTimeRecovery: (_: any) => de_PointInTimeRecoverySummary(_, context),
     replicaSpecifications: (_: any) => de_ReplicaSpecificationSummaryList(_, context),
     resourceArn: __expectString,

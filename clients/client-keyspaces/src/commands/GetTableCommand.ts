@@ -28,11 +28,7 @@ export interface GetTableCommandInput extends GetTableRequest {}
 export interface GetTableCommandOutput extends GetTableResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the table, including the table's name and current status, the keyspace name,
- *          configuration settings, and metadata.</p>
- *          <p>To read table metadata using <code>GetTable</code>, the
- *             IAM principal needs <code>Select</code> action
- *          permissions for the table and the system keyspace.</p>
+ * <p>Returns information about the table, including the table's name and current status, the keyspace name, configuration settings, and metadata.</p> <p>To read table metadata using <code>GetTable</code>, the IAM principal needs <code>Select</code> action permissions for the table and the system keyspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,6 +107,11 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * //       },
  * //     },
  * //   ],
+ * //   latestStreamArn: "STRING_VALUE",
+ * //   cdcSpecification: { // CdcSpecificationSummary
+ * //     status: "STRING_VALUE", // required
+ * //     viewType: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
@@ -128,12 +129,10 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  *  <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly,
- *          or its status might not be <code>ACTIVE</code>.</p>
+ *  <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The operation exceeded the service quota for this resource.  For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer
- *             Guide</i>.</p>
+ *  <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
