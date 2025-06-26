@@ -54,6 +54,17 @@ export interface ModifyWorkspaceAccessPropertiesCommandOutput
  *     DeviceTypeZeroClient: "ALLOW" || "DENY",
  *     DeviceTypeLinux: "ALLOW" || "DENY",
  *     DeviceTypeWorkSpacesThinClient: "ALLOW" || "DENY",
+ *     AccessEndpointConfig: { // AccessEndpointConfig
+ *       AccessEndpoints: [ // AccessEndpointList // required
+ *         { // AccessEndpoint
+ *           AccessEndpointType: "STREAMING_WSP",
+ *           VpcEndpointId: "STRING_VALUE",
+ *         },
+ *       ],
+ *       InternetFallbackProtocols: [ // InternetFallbackProtocolList
+ *         "PCOIP",
+ *       ],
+ *     },
  *   },
  * };
  * const command = new ModifyWorkspaceAccessPropertiesCommand(input);
@@ -70,6 +81,15 @@ export interface ModifyWorkspaceAccessPropertiesCommandOutput
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more of the selected parameter values cannot be used together.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>This operation is not supported.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>

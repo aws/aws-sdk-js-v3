@@ -24,6 +24,65 @@ import { WorkSpacesServiceException as __BaseException } from "./WorkSpacesServi
 
 /**
  * @public
+ * @enum
+ */
+export const TargetWorkspaceState = {
+  ADMIN_MAINTENANCE: "ADMIN_MAINTENANCE",
+  AVAILABLE: "AVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetWorkspaceState = (typeof TargetWorkspaceState)[keyof typeof TargetWorkspaceState];
+
+/**
+ * @public
+ */
+export interface ModifyWorkspaceStateRequest {
+  /**
+   * <p>The identifier of the WorkSpace.</p>
+   * @public
+   */
+  WorkspaceId: string | undefined;
+
+  /**
+   * <p>The WorkSpace state.</p>
+   * @public
+   */
+  WorkspaceState: TargetWorkspaceState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyWorkspaceStateResult {}
+
+/**
+ * <p>Describes the information used to reboot a WorkSpace.</p>
+ * @public
+ */
+export interface RebootRequest {
+  /**
+   * <p>The identifier of the WorkSpace.</p>
+   * @public
+   */
+  WorkspaceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RebootWorkspacesRequest {
+  /**
+   * <p>The WorkSpaces to reboot. You can specify up to 25 WorkSpaces.</p>
+   * @public
+   */
+  RebootWorkspaceRequests: RebootRequest[] | undefined;
+}
+
+/**
+ * @public
  */
 export interface RebootWorkspacesResult {
   /**

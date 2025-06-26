@@ -310,6 +310,8 @@ import {
 import {
   AcceptAccountLinkInvitationRequest,
   AccessDeniedException,
+  AccessEndpoint,
+  AccessEndpointConfig,
   AccountLinkStatusEnum,
   AccountModification,
   ActiveDirectoryConfig,
@@ -416,6 +418,8 @@ import {
   ImportWorkspaceImageRequest,
   IncompatibleApplicationsException,
   InternalServerException,
+  InternetFallbackProtocol,
+  InvalidParameterCombinationException,
   InvalidParameterValuesException,
   InvalidResourceStateException,
   IosImportClientBrandingAttributes,
@@ -434,14 +438,11 @@ import {
   ModifyWorkspaceAccessPropertiesRequest,
   ModifyWorkspaceCreationPropertiesRequest,
   ModifyWorkspacePropertiesRequest,
-  ModifyWorkspaceStateRequest,
   OperatingSystemName,
   OperatingSystemNotCompatibleException,
   OperationInProgressException,
   OperationNotSupportedException,
   Protocol,
-  RebootRequest,
-  RebootWorkspacesRequest,
   ResourceAlreadyExistsException,
   ResourceAssociatedException,
   ResourceCreationFailedException,
@@ -479,6 +480,9 @@ import {
   WorkspacesPoolSession,
 } from "../models/models_0";
 import {
+  ModifyWorkspaceStateRequest,
+  RebootRequest,
+  RebootWorkspacesRequest,
   RebuildRequest,
   RebuildWorkspacesRequest,
   RegisterWorkspaceDirectoryRequest,
@@ -3511,6 +3515,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "OperationInProgressException":
     case "com.amazonaws.workspaces#OperationInProgressException":
       throw await de_OperationInProgressExceptionRes(parsedOutput, context);
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.workspaces#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "UnsupportedWorkspaceConfigurationException":
     case "com.amazonaws.workspaces#UnsupportedWorkspaceConfigurationException":
       throw await de_UnsupportedWorkspaceConfigurationExceptionRes(parsedOutput, context);
@@ -3617,6 +3624,22 @@ const de_InternalServerExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new InternalServerException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1InvalidParameterCombinationExceptionRes
+ */
+const de_InvalidParameterCombinationExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidParameterCombinationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new InvalidParameterCombinationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3878,6 +3901,12 @@ const de_WorkspacesDefaultRoleNotFoundExceptionRes = async (
 
 // se_AcceptAccountLinkInvitationRequest omitted.
 
+// se_AccessEndpoint omitted.
+
+// se_AccessEndpointConfig omitted.
+
+// se_AccessEndpointList omitted.
+
 // se_ActiveDirectoryConfig omitted.
 
 // se_ApplicationAssociatedResourceTypeList omitted.
@@ -4069,6 +4098,8 @@ const se_ImportClientBrandingRequest = (input: ImportClientBrandingRequest, cont
 
 // se_ImportWorkspaceImageRequest omitted.
 
+// se_InternetFallbackProtocolList omitted.
+
 /**
  * serializeAws_json1_1IosImportClientBrandingAttributes
  */
@@ -4250,6 +4281,12 @@ const se_IosImportClientBrandingAttributes = (
 // de_AcceptAccountLinkInvitationResult omitted.
 
 // de_AccessDeniedException omitted.
+
+// de_AccessEndpoint omitted.
+
+// de_AccessEndpointConfig omitted.
+
+// de_AccessEndpointList omitted.
 
 // de_AccountLink omitted.
 
@@ -4774,6 +4811,10 @@ const de_ImageResourceAssociationList = (output: any, context: __SerdeContext): 
 // de_IncompatibleApplicationsException omitted.
 
 // de_InternalServerException omitted.
+
+// de_InternetFallbackProtocolList omitted.
+
+// de_InvalidParameterCombinationException omitted.
 
 // de_InvalidParameterValuesException omitted.
 

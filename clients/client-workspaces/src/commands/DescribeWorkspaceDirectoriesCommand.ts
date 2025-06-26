@@ -99,6 +99,17 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * //         DeviceTypeZeroClient: "ALLOW" || "DENY",
  * //         DeviceTypeLinux: "ALLOW" || "DENY",
  * //         DeviceTypeWorkSpacesThinClient: "ALLOW" || "DENY",
+ * //         AccessEndpointConfig: { // AccessEndpointConfig
+ * //           AccessEndpoints: [ // AccessEndpointList // required
+ * //             { // AccessEndpoint
+ * //               AccessEndpointType: "STREAMING_WSP",
+ * //               VpcEndpointId: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           InternetFallbackProtocols: [ // InternetFallbackProtocolList
+ * //             "PCOIP",
+ * //           ],
+ * //         },
  * //       },
  * //       Tenancy: "DEDICATED" || "SHARED",
  * //       SelfservicePermissions: { // SelfservicePermissions

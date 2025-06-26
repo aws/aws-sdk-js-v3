@@ -190,6 +190,68 @@ export class ValidationException extends __BaseException {
  * @public
  * @enum
  */
+export const AccessEndpointType = {
+  STREAMING_WSP: "STREAMING_WSP",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessEndpointType = (typeof AccessEndpointType)[keyof typeof AccessEndpointType];
+
+/**
+ * <p>Describes the access type and endpoint for a WorkSpace.</p>
+ * @public
+ */
+export interface AccessEndpoint {
+  /**
+   * <p>Indicates the type of access endpoint.</p>
+   * @public
+   */
+  AccessEndpointType?: AccessEndpointType | undefined;
+
+  /**
+   * <p>Indicates the VPC endpoint to use for access.</p>
+   * @public
+   */
+  VpcEndpointId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InternetFallbackProtocol = {
+  PCOIP: "PCOIP",
+} as const;
+
+/**
+ * @public
+ */
+export type InternetFallbackProtocol = (typeof InternetFallbackProtocol)[keyof typeof InternetFallbackProtocol];
+
+/**
+ * <p>Describes the access endpoint configuration for a WorkSpace.</p>
+ * @public
+ */
+export interface AccessEndpointConfig {
+  /**
+   * <p>Indicates a list of access endpoints associated with this directory.</p>
+   * @public
+   */
+  AccessEndpoints: AccessEndpoint[] | undefined;
+
+  /**
+   * <p>Indicates a list of protocols that fallback to using the public Internet when streaming over a VPC endpoint is not available.</p>
+   * @public
+   */
+  InternetFallbackProtocols?: InternetFallbackProtocol[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const AccessPropertyValue = {
   ALLOW: "ALLOW",
   DENY: "DENY",
@@ -4992,6 +5054,12 @@ export interface WorkspaceAccessProperties {
    * @public
    */
   DeviceTypeWorkSpacesThinClient?: AccessPropertyValue | undefined;
+
+  /**
+   * <p>Specifies the configuration for accessing the WorkSpace.</p>
+   * @public
+   */
+  AccessEndpointConfig?: AccessEndpointConfig | undefined;
 }
 
 /**
@@ -6362,6 +6430,26 @@ export interface ImportWorkspaceImageResult {
 }
 
 /**
+ * <p>Two or more of the selected parameter values cannot be used together.</p>
+ * @public
+ */
+export class InvalidParameterCombinationException extends __BaseException {
+  readonly name: "InvalidParameterCombinationException" = "InvalidParameterCombinationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterCombinationException, __BaseException>) {
+    super({
+      name: "InvalidParameterCombinationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterCombinationException.prototype);
+  }
+}
+
+/**
  * @public
  */
 export interface ListAccountLinksRequest {
@@ -6838,63 +6926,4 @@ export class UnsupportedWorkspaceConfigurationException extends __BaseException 
     });
     Object.setPrototypeOf(this, UnsupportedWorkspaceConfigurationException.prototype);
   }
-}
-
-/**
- * @public
- * @enum
- */
-export const TargetWorkspaceState = {
-  ADMIN_MAINTENANCE: "ADMIN_MAINTENANCE",
-  AVAILABLE: "AVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type TargetWorkspaceState = (typeof TargetWorkspaceState)[keyof typeof TargetWorkspaceState];
-
-/**
- * @public
- */
-export interface ModifyWorkspaceStateRequest {
-  /**
-   * <p>The identifier of the WorkSpace.</p>
-   * @public
-   */
-  WorkspaceId: string | undefined;
-
-  /**
-   * <p>The WorkSpace state.</p>
-   * @public
-   */
-  WorkspaceState: TargetWorkspaceState | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyWorkspaceStateResult {}
-
-/**
- * <p>Describes the information used to reboot a WorkSpace.</p>
- * @public
- */
-export interface RebootRequest {
-  /**
-   * <p>The identifier of the WorkSpace.</p>
-   * @public
-   */
-  WorkspaceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RebootWorkspacesRequest {
-  /**
-   * <p>The WorkSpaces to reboot. You can specify up to 25 WorkSpaces.</p>
-   * @public
-   */
-  RebootWorkspaceRequests: RebootRequest[] | undefined;
 }
