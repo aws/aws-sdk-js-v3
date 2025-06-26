@@ -205,6 +205,30 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CreateAccountAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/CreateAccountAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/CreateAccountAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/CreateAccountAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateCloudConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/CreateCloudConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/CreateCloudConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/CreateCloudConnectorCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateConnectorDestination
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/CreateConnectorDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/CreateConnectorDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/CreateConnectorDestinationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateCredentialLocker
 </summary>
 
@@ -269,6 +293,30 @@ CreateProvisioningProfile
 </details>
 <details>
 <summary>
+DeleteAccountAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/DeleteAccountAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/DeleteAccountAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/DeleteAccountAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteCloudConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/DeleteCloudConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/DeleteCloudConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/DeleteCloudConnectorCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteConnectorDestination
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/DeleteConnectorDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/DeleteConnectorDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/DeleteConnectorDestinationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteCredentialLocker
 </summary>
 
@@ -329,6 +377,38 @@ DeleteProvisioningProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/DeleteProvisioningProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/DeleteProvisioningProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/DeleteProvisioningProfileCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeregisterAccountAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/DeregisterAccountAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/DeregisterAccountAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/DeregisterAccountAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetAccountAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/GetAccountAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/GetAccountAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/GetAccountAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetCloudConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/GetCloudConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/GetCloudConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/GetCloudConnectorCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetConnectorDestination
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/GetConnectorDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/GetConnectorDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/GetConnectorDestinationCommandOutput/)
 
 </details>
 <details>
@@ -477,6 +557,30 @@ GetSchemaVersion
 </details>
 <details>
 <summary>
+ListAccountAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/ListAccountAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/ListAccountAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/ListAccountAssociationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCloudConnectors
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/ListCloudConnectorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/ListCloudConnectorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/ListCloudConnectorsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListConnectorDestinations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/ListConnectorDestinationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/ListConnectorDestinationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/ListConnectorDestinationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListCredentialLockers
 </summary>
 
@@ -493,10 +597,34 @@ ListDestinations
 </details>
 <details>
 <summary>
+ListDeviceDiscoveries
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/ListDeviceDiscoveriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/ListDeviceDiscoveriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/ListDeviceDiscoveriesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDiscoveredDevices
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/ListDiscoveredDevicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/ListDiscoveredDevicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/ListDiscoveredDevicesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListEventLogConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/ListEventLogConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/ListEventLogConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/ListEventLogConfigurationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListManagedThingAccountAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/ListManagedThingAccountAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/ListManagedThingAccountAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/ListManagedThingAccountAssociationsCommandOutput/)
 
 </details>
 <details>
@@ -565,6 +693,14 @@ ListSchemaVersions
 </details>
 <details>
 <summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
 PutDefaultEncryptionConfiguration
 </summary>
 
@@ -589,6 +725,14 @@ PutRuntimeLogConfiguration
 </details>
 <details>
 <summary>
+RegisterAccountAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/RegisterAccountAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/RegisterAccountAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/RegisterAccountAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
 RegisterCustomEndpoint
 </summary>
 
@@ -605,6 +749,14 @@ ResetRuntimeLogConfiguration
 </details>
 <details>
 <summary>
+SendConnectorEvent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/SendConnectorEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/SendConnectorEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/SendConnectorEventCommandOutput/)
+
+</details>
+<details>
+<summary>
 SendManagedThingCommand
 </summary>
 
@@ -613,10 +765,58 @@ SendManagedThingCommand
 </details>
 <details>
 <summary>
+StartAccountAssociationRefresh
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/StartAccountAssociationRefreshCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/StartAccountAssociationRefreshCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/StartAccountAssociationRefreshCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartDeviceDiscovery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/StartDeviceDiscoveryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/StartDeviceDiscoveryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/StartDeviceDiscoveryCommandOutput/)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/TagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateAccountAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/UpdateAccountAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/UpdateAccountAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/UpdateAccountAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateCloudConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/UpdateCloudConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/UpdateCloudConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/UpdateCloudConnectorCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateConnectorDestination
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/UpdateConnectorDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/UpdateConnectorDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/UpdateConnectorDestinationCommandOutput/)
 
 </details>
 <details>

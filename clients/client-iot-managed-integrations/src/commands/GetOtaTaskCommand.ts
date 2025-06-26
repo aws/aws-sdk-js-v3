@@ -10,7 +10,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
-import { GetOtaTaskRequest, GetOtaTaskResponse } from "../models/models_0";
+import { GetOtaTaskRequest, GetOtaTaskResponse, GetOtaTaskResponseFilterSensitiveLog } from "../models/models_0";
 import { de_GetOtaTaskCommand, se_GetOtaTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -92,6 +92,9 @@ export interface GetOtaTaskCommandOutput extends GetOtaTaskResponse, __MetadataB
  * //     ],
  * //   },
  * //   Status: "IN_PROGRESS" || "CANCELED" || "COMPLETED" || "DELETION_IN_PROGRESS" || "SCHEDULED",
+ * //   Tags: { // TagsMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
@@ -106,8 +109,7 @@ export interface GetOtaTaskCommandOutput extends GetOtaTaskResponse, __MetadataB
  *  <p>User is not authorized.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
@@ -141,7 +143,7 @@ export class GetOtaTaskCommand extends $Command
   })
   .s("IotManagedIntegrations", "GetOtaTask", {})
   .n("IoTManagedIntegrationsClient", "GetOtaTaskCommand")
-  .f(void 0, void 0)
+  .f(void 0, GetOtaTaskResponseFilterSensitiveLog)
   .ser(se_GetOtaTaskCommand)
   .de(de_GetOtaTaskCommand)
   .build() {

@@ -35,8 +35,7 @@ export interface ResetRuntimeLogConfigurationCommandInput extends ResetRuntimeLo
 export interface ResetRuntimeLogConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Reset a runtime log configuration for a specific managed thing or for all managed things
- *          as a group.</p>
+ * <p>Reset a runtime log configuration for a specific managed thing or for all managed things as a group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +61,7 @@ export interface ResetRuntimeLogConfigurationCommandOutput extends __MetadataBea
  *  <p>User is not authorized.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

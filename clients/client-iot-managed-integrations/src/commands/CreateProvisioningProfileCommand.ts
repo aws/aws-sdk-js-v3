@@ -37,9 +37,7 @@ export interface CreateProvisioningProfileCommandInput extends CreateProvisionin
 export interface CreateProvisioningProfileCommandOutput extends CreateProvisioningProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Create a provisioning profile for a device to execute the provisioning flows using a
- *          provisioning template. The provisioning template is a document that defines the set of
- *          resources and policies applied to a device during the provisioning process.</p>
+ * <p>Create a provisioning profile for a device to execute the provisioning flows using a provisioning template. The provisioning template is a document that defines the set of resources and policies applied to a device during the provisioning process.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,8 +79,10 @@ export interface CreateProvisioningProfileCommandOutput extends CreateProvisioni
  *  <p>There is a conflict with the request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is temporarily unavailable.</p>

@@ -3,6 +3,21 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  CreateAccountAssociationCommand,
+  CreateAccountAssociationCommandInput,
+  CreateAccountAssociationCommandOutput,
+} from "./commands/CreateAccountAssociationCommand";
+import {
+  CreateCloudConnectorCommand,
+  CreateCloudConnectorCommandInput,
+  CreateCloudConnectorCommandOutput,
+} from "./commands/CreateCloudConnectorCommand";
+import {
+  CreateConnectorDestinationCommand,
+  CreateConnectorDestinationCommandInput,
+  CreateConnectorDestinationCommandOutput,
+} from "./commands/CreateConnectorDestinationCommand";
+import {
   CreateCredentialLockerCommand,
   CreateCredentialLockerCommandInput,
   CreateCredentialLockerCommandOutput,
@@ -43,6 +58,21 @@ import {
   CreateProvisioningProfileCommandOutput,
 } from "./commands/CreateProvisioningProfileCommand";
 import {
+  DeleteAccountAssociationCommand,
+  DeleteAccountAssociationCommandInput,
+  DeleteAccountAssociationCommandOutput,
+} from "./commands/DeleteAccountAssociationCommand";
+import {
+  DeleteCloudConnectorCommand,
+  DeleteCloudConnectorCommandInput,
+  DeleteCloudConnectorCommandOutput,
+} from "./commands/DeleteCloudConnectorCommand";
+import {
+  DeleteConnectorDestinationCommand,
+  DeleteConnectorDestinationCommandInput,
+  DeleteConnectorDestinationCommandOutput,
+} from "./commands/DeleteConnectorDestinationCommand";
+import {
   DeleteCredentialLockerCommand,
   DeleteCredentialLockerCommandInput,
   DeleteCredentialLockerCommandOutput,
@@ -82,6 +112,26 @@ import {
   DeleteProvisioningProfileCommandInput,
   DeleteProvisioningProfileCommandOutput,
 } from "./commands/DeleteProvisioningProfileCommand";
+import {
+  DeregisterAccountAssociationCommand,
+  DeregisterAccountAssociationCommandInput,
+  DeregisterAccountAssociationCommandOutput,
+} from "./commands/DeregisterAccountAssociationCommand";
+import {
+  GetAccountAssociationCommand,
+  GetAccountAssociationCommandInput,
+  GetAccountAssociationCommandOutput,
+} from "./commands/GetAccountAssociationCommand";
+import {
+  GetCloudConnectorCommand,
+  GetCloudConnectorCommandInput,
+  GetCloudConnectorCommandOutput,
+} from "./commands/GetCloudConnectorCommand";
+import {
+  GetConnectorDestinationCommand,
+  GetConnectorDestinationCommandInput,
+  GetConnectorDestinationCommandOutput,
+} from "./commands/GetConnectorDestinationCommand";
 import {
   GetCredentialLockerCommand,
   GetCredentialLockerCommandInput,
@@ -169,6 +219,21 @@ import {
   GetSchemaVersionCommandOutput,
 } from "./commands/GetSchemaVersionCommand";
 import {
+  ListAccountAssociationsCommand,
+  ListAccountAssociationsCommandInput,
+  ListAccountAssociationsCommandOutput,
+} from "./commands/ListAccountAssociationsCommand";
+import {
+  ListCloudConnectorsCommand,
+  ListCloudConnectorsCommandInput,
+  ListCloudConnectorsCommandOutput,
+} from "./commands/ListCloudConnectorsCommand";
+import {
+  ListConnectorDestinationsCommand,
+  ListConnectorDestinationsCommandInput,
+  ListConnectorDestinationsCommandOutput,
+} from "./commands/ListConnectorDestinationsCommand";
+import {
   ListCredentialLockersCommand,
   ListCredentialLockersCommandInput,
   ListCredentialLockersCommandOutput,
@@ -179,10 +244,25 @@ import {
   ListDestinationsCommandOutput,
 } from "./commands/ListDestinationsCommand";
 import {
+  ListDeviceDiscoveriesCommand,
+  ListDeviceDiscoveriesCommandInput,
+  ListDeviceDiscoveriesCommandOutput,
+} from "./commands/ListDeviceDiscoveriesCommand";
+import {
+  ListDiscoveredDevicesCommand,
+  ListDiscoveredDevicesCommandInput,
+  ListDiscoveredDevicesCommandOutput,
+} from "./commands/ListDiscoveredDevicesCommand";
+import {
   ListEventLogConfigurationsCommand,
   ListEventLogConfigurationsCommandInput,
   ListEventLogConfigurationsCommandOutput,
 } from "./commands/ListEventLogConfigurationsCommand";
+import {
+  ListManagedThingAccountAssociationsCommand,
+  ListManagedThingAccountAssociationsCommandInput,
+  ListManagedThingAccountAssociationsCommandOutput,
+} from "./commands/ListManagedThingAccountAssociationsCommand";
 import {
   ListManagedThingSchemasCommand,
   ListManagedThingSchemasCommandInput,
@@ -224,6 +304,11 @@ import {
   ListSchemaVersionsCommandOutput,
 } from "./commands/ListSchemaVersionsCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   PutDefaultEncryptionConfigurationCommand,
   PutDefaultEncryptionConfigurationCommandInput,
   PutDefaultEncryptionConfigurationCommandOutput,
@@ -239,6 +324,11 @@ import {
   PutRuntimeLogConfigurationCommandOutput,
 } from "./commands/PutRuntimeLogConfigurationCommand";
 import {
+  RegisterAccountAssociationCommand,
+  RegisterAccountAssociationCommandInput,
+  RegisterAccountAssociationCommandOutput,
+} from "./commands/RegisterAccountAssociationCommand";
+import {
   RegisterCustomEndpointCommand,
   RegisterCustomEndpointCommandInput,
   RegisterCustomEndpointCommandOutput,
@@ -249,15 +339,46 @@ import {
   ResetRuntimeLogConfigurationCommandOutput,
 } from "./commands/ResetRuntimeLogConfigurationCommand";
 import {
+  SendConnectorEventCommand,
+  SendConnectorEventCommandInput,
+  SendConnectorEventCommandOutput,
+} from "./commands/SendConnectorEventCommand";
+import {
   SendManagedThingCommandCommand,
   SendManagedThingCommandCommandInput,
   SendManagedThingCommandCommandOutput,
 } from "./commands/SendManagedThingCommandCommand";
 import {
+  StartAccountAssociationRefreshCommand,
+  StartAccountAssociationRefreshCommandInput,
+  StartAccountAssociationRefreshCommandOutput,
+} from "./commands/StartAccountAssociationRefreshCommand";
+import {
   StartDeviceDiscoveryCommand,
   StartDeviceDiscoveryCommandInput,
   StartDeviceDiscoveryCommandOutput,
 } from "./commands/StartDeviceDiscoveryCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateAccountAssociationCommand,
+  UpdateAccountAssociationCommandInput,
+  UpdateAccountAssociationCommandOutput,
+} from "./commands/UpdateAccountAssociationCommand";
+import {
+  UpdateCloudConnectorCommand,
+  UpdateCloudConnectorCommandInput,
+  UpdateCloudConnectorCommandOutput,
+} from "./commands/UpdateCloudConnectorCommand";
+import {
+  UpdateConnectorDestinationCommand,
+  UpdateConnectorDestinationCommandInput,
+  UpdateConnectorDestinationCommandOutput,
+} from "./commands/UpdateConnectorDestinationCommand";
 import {
   UpdateDestinationCommand,
   UpdateDestinationCommandInput,
@@ -286,6 +407,9 @@ import {
 import { IoTManagedIntegrationsClient, IoTManagedIntegrationsClientConfig } from "./IoTManagedIntegrationsClient";
 
 const commands = {
+  CreateAccountAssociationCommand,
+  CreateCloudConnectorCommand,
+  CreateConnectorDestinationCommand,
   CreateCredentialLockerCommand,
   CreateDestinationCommand,
   CreateEventLogConfigurationCommand,
@@ -294,6 +418,9 @@ const commands = {
   CreateOtaTaskCommand,
   CreateOtaTaskConfigurationCommand,
   CreateProvisioningProfileCommand,
+  DeleteAccountAssociationCommand,
+  DeleteCloudConnectorCommand,
+  DeleteConnectorDestinationCommand,
   DeleteCredentialLockerCommand,
   DeleteDestinationCommand,
   DeleteEventLogConfigurationCommand,
@@ -302,6 +429,10 @@ const commands = {
   DeleteOtaTaskCommand,
   DeleteOtaTaskConfigurationCommand,
   DeleteProvisioningProfileCommand,
+  DeregisterAccountAssociationCommand,
+  GetAccountAssociationCommand,
+  GetCloudConnectorCommand,
+  GetConnectorDestinationCommand,
   GetCredentialLockerCommand,
   GetCustomEndpointCommand,
   GetDefaultEncryptionConfigurationCommand,
@@ -320,9 +451,15 @@ const commands = {
   GetProvisioningProfileCommand,
   GetRuntimeLogConfigurationCommand,
   GetSchemaVersionCommand,
+  ListAccountAssociationsCommand,
+  ListCloudConnectorsCommand,
+  ListConnectorDestinationsCommand,
   ListCredentialLockersCommand,
   ListDestinationsCommand,
+  ListDeviceDiscoveriesCommand,
+  ListDiscoveredDevicesCommand,
   ListEventLogConfigurationsCommand,
+  ListManagedThingAccountAssociationsCommand,
   ListManagedThingsCommand,
   ListManagedThingSchemasCommand,
   ListNotificationConfigurationsCommand,
@@ -331,13 +468,22 @@ const commands = {
   ListOtaTasksCommand,
   ListProvisioningProfilesCommand,
   ListSchemaVersionsCommand,
+  ListTagsForResourceCommand,
   PutDefaultEncryptionConfigurationCommand,
   PutHubConfigurationCommand,
   PutRuntimeLogConfigurationCommand,
+  RegisterAccountAssociationCommand,
   RegisterCustomEndpointCommand,
   ResetRuntimeLogConfigurationCommand,
+  SendConnectorEventCommand,
   SendManagedThingCommandCommand,
+  StartAccountAssociationRefreshCommand,
   StartDeviceDiscoveryCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateAccountAssociationCommand,
+  UpdateCloudConnectorCommand,
+  UpdateConnectorDestinationCommand,
   UpdateDestinationCommand,
   UpdateEventLogConfigurationCommand,
   UpdateManagedThingCommand,
@@ -346,6 +492,57 @@ const commands = {
 };
 
 export interface IoTManagedIntegrations {
+  /**
+   * @see {@link CreateAccountAssociationCommand}
+   */
+  createAccountAssociation(
+    args: CreateAccountAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccountAssociationCommandOutput>;
+  createAccountAssociation(
+    args: CreateAccountAssociationCommandInput,
+    cb: (err: any, data?: CreateAccountAssociationCommandOutput) => void
+  ): void;
+  createAccountAssociation(
+    args: CreateAccountAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAccountAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCloudConnectorCommand}
+   */
+  createCloudConnector(
+    args: CreateCloudConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCloudConnectorCommandOutput>;
+  createCloudConnector(
+    args: CreateCloudConnectorCommandInput,
+    cb: (err: any, data?: CreateCloudConnectorCommandOutput) => void
+  ): void;
+  createCloudConnector(
+    args: CreateCloudConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCloudConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateConnectorDestinationCommand}
+   */
+  createConnectorDestination(
+    args: CreateConnectorDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConnectorDestinationCommandOutput>;
+  createConnectorDestination(
+    args: CreateConnectorDestinationCommandInput,
+    cb: (err: any, data?: CreateConnectorDestinationCommandOutput) => void
+  ): void;
+  createConnectorDestination(
+    args: CreateConnectorDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConnectorDestinationCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateCredentialLockerCommand}
    */
@@ -479,6 +676,57 @@ export interface IoTManagedIntegrations {
   ): void;
 
   /**
+   * @see {@link DeleteAccountAssociationCommand}
+   */
+  deleteAccountAssociation(
+    args: DeleteAccountAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccountAssociationCommandOutput>;
+  deleteAccountAssociation(
+    args: DeleteAccountAssociationCommandInput,
+    cb: (err: any, data?: DeleteAccountAssociationCommandOutput) => void
+  ): void;
+  deleteAccountAssociation(
+    args: DeleteAccountAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccountAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCloudConnectorCommand}
+   */
+  deleteCloudConnector(
+    args: DeleteCloudConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCloudConnectorCommandOutput>;
+  deleteCloudConnector(
+    args: DeleteCloudConnectorCommandInput,
+    cb: (err: any, data?: DeleteCloudConnectorCommandOutput) => void
+  ): void;
+  deleteCloudConnector(
+    args: DeleteCloudConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCloudConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteConnectorDestinationCommand}
+   */
+  deleteConnectorDestination(
+    args: DeleteConnectorDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConnectorDestinationCommandOutput>;
+  deleteConnectorDestination(
+    args: DeleteConnectorDestinationCommandInput,
+    cb: (err: any, data?: DeleteConnectorDestinationCommandOutput) => void
+  ): void;
+  deleteConnectorDestination(
+    args: DeleteConnectorDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConnectorDestinationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteCredentialLockerCommand}
    */
   deleteCredentialLocker(
@@ -606,6 +854,74 @@ export interface IoTManagedIntegrations {
     args: DeleteProvisioningProfileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteProvisioningProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeregisterAccountAssociationCommand}
+   */
+  deregisterAccountAssociation(
+    args: DeregisterAccountAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterAccountAssociationCommandOutput>;
+  deregisterAccountAssociation(
+    args: DeregisterAccountAssociationCommandInput,
+    cb: (err: any, data?: DeregisterAccountAssociationCommandOutput) => void
+  ): void;
+  deregisterAccountAssociation(
+    args: DeregisterAccountAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterAccountAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAccountAssociationCommand}
+   */
+  getAccountAssociation(
+    args: GetAccountAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountAssociationCommandOutput>;
+  getAccountAssociation(
+    args: GetAccountAssociationCommandInput,
+    cb: (err: any, data?: GetAccountAssociationCommandOutput) => void
+  ): void;
+  getAccountAssociation(
+    args: GetAccountAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccountAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCloudConnectorCommand}
+   */
+  getCloudConnector(
+    args: GetCloudConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCloudConnectorCommandOutput>;
+  getCloudConnector(
+    args: GetCloudConnectorCommandInput,
+    cb: (err: any, data?: GetCloudConnectorCommandOutput) => void
+  ): void;
+  getCloudConnector(
+    args: GetCloudConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCloudConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConnectorDestinationCommand}
+   */
+  getConnectorDestination(
+    args: GetConnectorDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectorDestinationCommandOutput>;
+  getConnectorDestination(
+    args: GetConnectorDestinationCommandInput,
+    cb: (err: any, data?: GetConnectorDestinationCommandOutput) => void
+  ): void;
+  getConnectorDestination(
+    args: GetConnectorDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConnectorDestinationCommandOutput) => void
   ): void;
 
   /**
@@ -906,6 +1222,60 @@ export interface IoTManagedIntegrations {
   ): void;
 
   /**
+   * @see {@link ListAccountAssociationsCommand}
+   */
+  listAccountAssociations(): Promise<ListAccountAssociationsCommandOutput>;
+  listAccountAssociations(
+    args: ListAccountAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccountAssociationsCommandOutput>;
+  listAccountAssociations(
+    args: ListAccountAssociationsCommandInput,
+    cb: (err: any, data?: ListAccountAssociationsCommandOutput) => void
+  ): void;
+  listAccountAssociations(
+    args: ListAccountAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccountAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCloudConnectorsCommand}
+   */
+  listCloudConnectors(): Promise<ListCloudConnectorsCommandOutput>;
+  listCloudConnectors(
+    args: ListCloudConnectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCloudConnectorsCommandOutput>;
+  listCloudConnectors(
+    args: ListCloudConnectorsCommandInput,
+    cb: (err: any, data?: ListCloudConnectorsCommandOutput) => void
+  ): void;
+  listCloudConnectors(
+    args: ListCloudConnectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCloudConnectorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListConnectorDestinationsCommand}
+   */
+  listConnectorDestinations(): Promise<ListConnectorDestinationsCommandOutput>;
+  listConnectorDestinations(
+    args: ListConnectorDestinationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConnectorDestinationsCommandOutput>;
+  listConnectorDestinations(
+    args: ListConnectorDestinationsCommandInput,
+    cb: (err: any, data?: ListConnectorDestinationsCommandOutput) => void
+  ): void;
+  listConnectorDestinations(
+    args: ListConnectorDestinationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConnectorDestinationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCredentialLockersCommand}
    */
   listCredentialLockers(): Promise<ListCredentialLockersCommandOutput>;
@@ -942,6 +1312,41 @@ export interface IoTManagedIntegrations {
   ): void;
 
   /**
+   * @see {@link ListDeviceDiscoveriesCommand}
+   */
+  listDeviceDiscoveries(): Promise<ListDeviceDiscoveriesCommandOutput>;
+  listDeviceDiscoveries(
+    args: ListDeviceDiscoveriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDeviceDiscoveriesCommandOutput>;
+  listDeviceDiscoveries(
+    args: ListDeviceDiscoveriesCommandInput,
+    cb: (err: any, data?: ListDeviceDiscoveriesCommandOutput) => void
+  ): void;
+  listDeviceDiscoveries(
+    args: ListDeviceDiscoveriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDeviceDiscoveriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDiscoveredDevicesCommand}
+   */
+  listDiscoveredDevices(
+    args: ListDiscoveredDevicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDiscoveredDevicesCommandOutput>;
+  listDiscoveredDevices(
+    args: ListDiscoveredDevicesCommandInput,
+    cb: (err: any, data?: ListDiscoveredDevicesCommandOutput) => void
+  ): void;
+  listDiscoveredDevices(
+    args: ListDiscoveredDevicesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDiscoveredDevicesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListEventLogConfigurationsCommand}
    */
   listEventLogConfigurations(): Promise<ListEventLogConfigurationsCommandOutput>;
@@ -957,6 +1362,24 @@ export interface IoTManagedIntegrations {
     args: ListEventLogConfigurationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEventLogConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListManagedThingAccountAssociationsCommand}
+   */
+  listManagedThingAccountAssociations(): Promise<ListManagedThingAccountAssociationsCommandOutput>;
+  listManagedThingAccountAssociations(
+    args: ListManagedThingAccountAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListManagedThingAccountAssociationsCommandOutput>;
+  listManagedThingAccountAssociations(
+    args: ListManagedThingAccountAssociationsCommandInput,
+    cb: (err: any, data?: ListManagedThingAccountAssociationsCommandOutput) => void
+  ): void;
+  listManagedThingAccountAssociations(
+    args: ListManagedThingAccountAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListManagedThingAccountAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -1095,6 +1518,23 @@ export interface IoTManagedIntegrations {
   ): void;
 
   /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutDefaultEncryptionConfigurationCommand}
    */
   putDefaultEncryptionConfiguration(
@@ -1146,6 +1586,23 @@ export interface IoTManagedIntegrations {
   ): void;
 
   /**
+   * @see {@link RegisterAccountAssociationCommand}
+   */
+  registerAccountAssociation(
+    args: RegisterAccountAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterAccountAssociationCommandOutput>;
+  registerAccountAssociation(
+    args: RegisterAccountAssociationCommandInput,
+    cb: (err: any, data?: RegisterAccountAssociationCommandOutput) => void
+  ): void;
+  registerAccountAssociation(
+    args: RegisterAccountAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterAccountAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RegisterCustomEndpointCommand}
    */
   registerCustomEndpoint(): Promise<RegisterCustomEndpointCommandOutput>;
@@ -1181,6 +1638,23 @@ export interface IoTManagedIntegrations {
   ): void;
 
   /**
+   * @see {@link SendConnectorEventCommand}
+   */
+  sendConnectorEvent(
+    args: SendConnectorEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendConnectorEventCommandOutput>;
+  sendConnectorEvent(
+    args: SendConnectorEventCommandInput,
+    cb: (err: any, data?: SendConnectorEventCommandOutput) => void
+  ): void;
+  sendConnectorEvent(
+    args: SendConnectorEventCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendConnectorEventCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SendManagedThingCommandCommand}
    */
   sendManagedThingCommand(
@@ -1198,6 +1672,23 @@ export interface IoTManagedIntegrations {
   ): void;
 
   /**
+   * @see {@link StartAccountAssociationRefreshCommand}
+   */
+  startAccountAssociationRefresh(
+    args: StartAccountAssociationRefreshCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAccountAssociationRefreshCommandOutput>;
+  startAccountAssociationRefresh(
+    args: StartAccountAssociationRefreshCommandInput,
+    cb: (err: any, data?: StartAccountAssociationRefreshCommandOutput) => void
+  ): void;
+  startAccountAssociationRefresh(
+    args: StartAccountAssociationRefreshCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAccountAssociationRefreshCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartDeviceDiscoveryCommand}
    */
   startDeviceDiscovery(
@@ -1212,6 +1703,79 @@ export interface IoTManagedIntegrations {
     args: StartDeviceDiscoveryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartDeviceDiscoveryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAccountAssociationCommand}
+   */
+  updateAccountAssociation(
+    args: UpdateAccountAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccountAssociationCommandOutput>;
+  updateAccountAssociation(
+    args: UpdateAccountAssociationCommandInput,
+    cb: (err: any, data?: UpdateAccountAssociationCommandOutput) => void
+  ): void;
+  updateAccountAssociation(
+    args: UpdateAccountAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccountAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCloudConnectorCommand}
+   */
+  updateCloudConnector(
+    args: UpdateCloudConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCloudConnectorCommandOutput>;
+  updateCloudConnector(
+    args: UpdateCloudConnectorCommandInput,
+    cb: (err: any, data?: UpdateCloudConnectorCommandOutput) => void
+  ): void;
+  updateCloudConnector(
+    args: UpdateCloudConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCloudConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateConnectorDestinationCommand}
+   */
+  updateConnectorDestination(
+    args: UpdateConnectorDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConnectorDestinationCommandOutput>;
+  updateConnectorDestination(
+    args: UpdateConnectorDestinationCommandInput,
+    cb: (err: any, data?: UpdateConnectorDestinationCommandOutput) => void
+  ): void;
+  updateConnectorDestination(
+    args: UpdateConnectorDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConnectorDestinationCommandOutput) => void
   ): void;
 
   /**

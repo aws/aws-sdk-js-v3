@@ -75,6 +75,15 @@ export interface UpdateManagedThingCommandOutput extends __MetadataBearer {}
  *       },
  *     ],
  *   },
+ *   CapabilitySchemas: [ // CapabilitySchemas
+ *     { // CapabilitySchemaItem
+ *       Format: "AWS" || "ZCL" || "CONNECTOR", // required
+ *       CapabilityId: "STRING_VALUE", // required
+ *       ExtrinsicId: "STRING_VALUE", // required
+ *       ExtrinsicVersion: Number("int"), // required
+ *       Schema: "DOCUMENT_VALUE", // required
+ *     },
+ *   ],
  *   Capabilities: "STRING_VALUE",
  *   Classification: "STRING_VALUE",
  *   HubNetworkMode: "STANDARD" || "NETWORK_WIDE_EXCLUSION",
@@ -101,8 +110,7 @@ export interface UpdateManagedThingCommandOutput extends __MetadataBearer {}
  *  <p>There is a conflict with the request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

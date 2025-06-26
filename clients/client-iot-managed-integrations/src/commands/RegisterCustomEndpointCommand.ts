@@ -32,8 +32,7 @@ export interface RegisterCustomEndpointCommandInput extends RegisterCustomEndpoi
 export interface RegisterCustomEndpointCommandOutput extends RegisterCustomEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Customers can request IoT managed integrations to manage the server trust for them or bring their own
- *          external server trusts for the custom domain. Returns an IoT managed integrations endpoint.</p>
+ * <p>Customers can request IoT managed integrations to manage the server trust for them or bring their own external server trusts for the custom domain. Returns an IoT managed integrations endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +61,7 @@ export interface RegisterCustomEndpointCommandOutput extends RegisterCustomEndpo
  *  <p>There is a conflict with the request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is temporarily unavailable.</p>

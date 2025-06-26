@@ -79,8 +79,7 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  *  <p>There is a conflict with the request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is temporarily unavailable.</p>
@@ -99,7 +98,7 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * ```javascript
  * //
  * const input = {
- *   SchemaId: "matter.ColorControl",
+ *   SchemaId: "example.ColorControl",
  *   Type: "capability"
  * };
  * const command = new ListSchemaVersionsCommand(input);
@@ -110,8 +109,8 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  *     {
  *       Description: "The Color Control cluster defined as Harmony Capability.",
  *       Namespace: "matter",
- *       SchemaId: "matter.ColorControl",
- *       SemanticVersion: "1.3",
+ *       SchemaId: "example.ColorControl",
+ *       SemanticVersion: "1.4",
  *       Type: "capability"
  *     }
  *   ]
@@ -134,8 +133,8 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  *     {
  *       Description: "The Color Control cluster defined as Harmony Capability.",
  *       Namespace: "matter",
- *       SchemaId: "matter.ColorControl",
- *       SemanticVersion: "1.3",
+ *       SchemaId: "example.ColorControl",
+ *       SemanticVersion: "1.4",
  *       Type: "capability"
  *     }
  *   ]
@@ -148,7 +147,7 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * //
  * const input = {
  *   Namespace: "matter",
- *   SchemaId: "matter.ColorControl",
+ *   SchemaId: "example.ColorControl",
  *   Type: "capability"
  * };
  * const command = new ListSchemaVersionsCommand(input);

@@ -71,8 +71,7 @@ export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse,
  *  <p>There is a conflict with the request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
@@ -94,7 +93,7 @@ export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse,
  * ```javascript
  * //
  * const input = {
- *   SchemaVersionedId: "matter.ColorControl@$latest",
+ *   SchemaVersionedId: "matter.ColorControl@1.4",
  *   Type: "capability"
  * };
  * const command = new GetSchemaVersionCommand(input);
@@ -105,15 +104,9 @@ export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse,
  *   Namespace: "matter",
  *   Schema: {
  *     $defs:     { /* empty *\/ },
- *     $id: "matter.ColorControl@1.3",
- *     $ref: "aws.capability@1.0",
+ *     $id: "/schema-versions/capability/matter.ColorControl@1.4",
+ *     $ref: "/schema-versions/definition/aws.capability@1.0",
  *     actions: [
- *       {
- *         $ref: "aws.action.ReadState@1.0"
- *       },
- *       {
- *         $ref: "aws.action.UpdateState@1.0"
- *       },
  *       {
  *         extrinsicId: "0x00",
  *         name: "MoveToHue",
@@ -145,7 +138,7 @@ export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse,
  *     title: "Color Control Cluster"
  *   },
  *   SchemaId: "matter.ColorControl",
- *   SemanticVersion: "1.3",
+ *   SemanticVersion: "1.4",
  *   Type: "capability"
  * }
  * *\/
@@ -156,7 +149,7 @@ export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse,
  * //
  * const input = {
  *   Format: "ZCL",
- *   SchemaVersionedId: "matter.ColorControl@1.3",
+ *   SchemaVersionedId: "matter.ColorControl@1.4",
  *   Type: "capability"
  * };
  * const command = new GetSchemaVersionCommand(input);
@@ -167,7 +160,7 @@ export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse,
  *   Namespace: "matter",
  *   Schema:   { /* empty *\/ },
  *   SchemaId: "matter.ColorControl",
- *   SemanticVersion: "1.3",
+ *   SemanticVersion: "1.4",
  *   Type: "capability"
  * }
  * *\/

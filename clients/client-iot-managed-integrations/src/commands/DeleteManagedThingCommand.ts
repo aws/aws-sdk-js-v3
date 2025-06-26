@@ -32,9 +32,7 @@ export interface DeleteManagedThingCommandInput extends DeleteManagedThingReques
 export interface DeleteManagedThingCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete a managed thing. If a controller is deleted, all of the devices connected to it
- *          will have their status changed to <code>PENDING</code>. It is not possible to remove a
- *          cloud device.</p>
+ * <p>Delete a managed thing. If a controller is deleted, all of the devices connected to it will have their status changed to <code>PENDING</code>. It is not possible to remove a cloud device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +62,7 @@ export interface DeleteManagedThingCommandOutput extends __MetadataBearer {}
  *  <p>There is a conflict with the request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

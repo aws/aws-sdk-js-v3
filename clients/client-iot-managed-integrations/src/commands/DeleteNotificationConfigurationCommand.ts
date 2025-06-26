@@ -43,7 +43,7 @@ export interface DeleteNotificationConfigurationCommandOutput extends __Metadata
  * // const { IoTManagedIntegrationsClient, DeleteNotificationConfigurationCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // DeleteNotificationConfigurationRequest
- *   EventType: "DEVICE_COMMAND" || "DEVICE_COMMAND_REQUEST" || "DEVICE_EVENT" || "DEVICE_LIFE_CYCLE" || "DEVICE_STATE" || "DEVICE_OTA" || "CONNECTOR_ASSOCIATION" || "CONNECTOR_ERROR_REPORT", // required
+ *   EventType: "DEVICE_COMMAND" || "DEVICE_COMMAND_REQUEST" || "DEVICE_DISCOVERY_STATUS" || "DEVICE_EVENT" || "DEVICE_LIFE_CYCLE" || "DEVICE_STATE" || "DEVICE_OTA" || "CONNECTOR_ASSOCIATION" || "ACCOUNT_ASSOCIATION" || "CONNECTOR_ERROR_REPORT", // required
  * };
  * const command = new DeleteNotificationConfigurationCommand(input);
  * const response = await client.send(command);
@@ -61,8 +61,7 @@ export interface DeleteNotificationConfigurationCommandOutput extends __Metadata
  *  <p>User is not authorized.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

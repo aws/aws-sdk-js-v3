@@ -32,11 +32,7 @@ export interface DeleteCredentialLockerCommandInput extends DeleteCredentialLock
 export interface DeleteCredentialLockerCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete a credential locker. </p>
- *          <note>
- *             <p>This operation can't be undone and any existing device won't be able to use
- *             IoT managed integrations.</p>
- *          </note>
+ * <p>Delete a credential locker. </p> <note> <p>This operation can't be undone and any existing device won't be able to use IoT managed integrations.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +58,7 @@ export interface DeleteCredentialLockerCommandOutput extends __MetadataBearer {}
  *  <p>User is not authorized.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

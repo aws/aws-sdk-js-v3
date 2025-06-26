@@ -36,9 +36,7 @@ export interface StartDeviceDiscoveryCommandInput extends StartDeviceDiscoveryRe
 export interface StartDeviceDiscoveryCommandOutput extends StartDeviceDiscoveryResponse, __MetadataBearer {}
 
 /**
- * <p> During user-guided setup, this is used to start device discovery. The authentication
- *          material (install code) is passed as a message to the controller telling it to start the
- *          discovery.</p>
+ * <p> This API is used to start device discovery for hub-connected and third-party-connected devices. The authentication material (install code) is passed as a message to the controller telling it to start the discovery.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,9 +44,13 @@ export interface StartDeviceDiscoveryCommandOutput extends StartDeviceDiscoveryR
  * // const { IoTManagedIntegrationsClient, StartDeviceDiscoveryCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // StartDeviceDiscoveryRequest
- *   DiscoveryType: "ZWAVE" || "ZIGBEE" || "CLOUD", // required
+ *   DiscoveryType: "ZWAVE" || "ZIGBEE" || "CLOUD" || "CUSTOM", // required
+ *   CustomProtocolDetail: { // CustomProtocolDetail
+ *     "<keys>": "STRING_VALUE",
+ *   },
  *   ControllerIdentifier: "STRING_VALUE",
  *   ConnectorAssociationIdentifier: "STRING_VALUE",
+ *   AccountAssociationId: "STRING_VALUE",
  *   AuthenticationMaterial: "STRING_VALUE",
  *   AuthenticationMaterialType: "ZWAVE_INSTALL_CODE",
  *   ClientToken: "STRING_VALUE",
@@ -78,8 +80,7 @@ export interface StartDeviceDiscoveryCommandOutput extends StartDeviceDiscoveryR
  *  <p>There is a conflict with the request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

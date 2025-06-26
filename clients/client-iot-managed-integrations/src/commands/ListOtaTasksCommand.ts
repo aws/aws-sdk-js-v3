@@ -71,8 +71,10 @@ export interface ListOtaTasksCommandOutput extends ListOtaTasksResponse, __Metad
  *  <p>User is not authorized.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>

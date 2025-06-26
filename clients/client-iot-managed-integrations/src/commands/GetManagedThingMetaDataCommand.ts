@@ -32,7 +32,7 @@ export interface GetManagedThingMetaDataCommandInput extends GetManagedThingMeta
 export interface GetManagedThingMetaDataCommandOutput extends GetManagedThingMetaDataResponse, __MetadataBearer {}
 
 /**
- * <p>Get the metadata information for a managed thing.</p>
+ * <p>Get the metadata information for a managed thing.</p> <note> <p>The <code>managedThing</code> <code>metadata</code> parameter is used for associating attributes with a <code>managedThing</code> that can be used for grouping over-the-air (OTA) tasks. Name value pairs in <code>metadata</code> can be used in the <code>OtaTargetQueryString</code> parameter for the <code>CreateOtaTask</code> API operation.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +63,7 @@ export interface GetManagedThingMetaDataCommandOutput extends GetManagedThingMet
  *  <p>User is not authorized.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

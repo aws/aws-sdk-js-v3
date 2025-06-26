@@ -37,8 +37,7 @@ export interface CreateEventLogConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Set the event log configuration for the account, resource type, or specific
- *          resource.</p>
+ * <p>Set the event log configuration for the account, resource type, or specific resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,8 +71,7 @@ export interface CreateEventLogConfigurationCommandOutput
  *  <p>There is a conflict with the request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The service quota has been exceeded for this request.</p>

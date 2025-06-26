@@ -43,7 +43,7 @@ export interface UpdateNotificationConfigurationCommandOutput extends __Metadata
  * // const { IoTManagedIntegrationsClient, UpdateNotificationConfigurationCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // UpdateNotificationConfigurationRequest
- *   EventType: "DEVICE_COMMAND" || "DEVICE_COMMAND_REQUEST" || "DEVICE_EVENT" || "DEVICE_LIFE_CYCLE" || "DEVICE_STATE" || "DEVICE_OTA" || "CONNECTOR_ASSOCIATION" || "CONNECTOR_ERROR_REPORT", // required
+ *   EventType: "DEVICE_COMMAND" || "DEVICE_COMMAND_REQUEST" || "DEVICE_DISCOVERY_STATUS" || "DEVICE_EVENT" || "DEVICE_LIFE_CYCLE" || "DEVICE_STATE" || "DEVICE_OTA" || "CONNECTOR_ASSOCIATION" || "ACCOUNT_ASSOCIATION" || "CONNECTOR_ERROR_REPORT", // required
  *   DestinationName: "STRING_VALUE", // required
  * };
  * const command = new UpdateNotificationConfigurationCommand(input);
@@ -62,8 +62,7 @@ export interface UpdateNotificationConfigurationCommandOutput extends __Metadata
  *  <p>User is not authorized.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

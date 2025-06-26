@@ -51,11 +51,12 @@ export interface GetDeviceDiscoveryCommandOutput extends GetDeviceDiscoveryRespo
  * // { // GetDeviceDiscoveryResponse
  * //   Id: "STRING_VALUE", // required
  * //   Arn: "STRING_VALUE", // required
- * //   DiscoveryType: "ZWAVE" || "ZIGBEE" || "CLOUD", // required
+ * //   DiscoveryType: "ZWAVE" || "ZIGBEE" || "CLOUD" || "CUSTOM", // required
  * //   Status: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT", // required
  * //   StartedAt: new Date("TIMESTAMP"), // required
  * //   ControllerId: "STRING_VALUE",
  * //   ConnectorAssociationId: "STRING_VALUE",
+ * //   AccountAssociationId: "STRING_VALUE",
  * //   FinishedAt: new Date("TIMESTAMP"),
  * //   Tags: { // TagsMap
  * //     "<keys>": "STRING_VALUE",
@@ -74,8 +75,7 @@ export interface GetDeviceDiscoveryCommandOutput extends GetDeviceDiscoveryRespo
  *  <p>User is not authorized.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

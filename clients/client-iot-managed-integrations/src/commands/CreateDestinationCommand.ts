@@ -36,8 +36,7 @@ export interface CreateDestinationCommandInput extends CreateDestinationRequest 
 export interface CreateDestinationCommandOutput extends CreateDestinationResponse, __MetadataBearer {}
 
 /**
- * <p> Create a destination. IoT managed integrations uses the destination to determine where to deliver
- *          notifications for a device. </p>
+ * <p> Create a destination. IoT managed integrations uses the destination to determine where to deliver notifications for a device. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,8 +75,7 @@ export interface CreateDestinationCommandOutput extends CreateDestinationRespons
  *  <p>There is a conflict with the request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>

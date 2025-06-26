@@ -53,7 +53,7 @@ export interface ListNotificationConfigurationsCommandOutput
  * // { // ListNotificationConfigurationsResponse
  * //   NotificationConfigurationList: [ // NotificationConfigurationListDefinition
  * //     { // NotificationConfigurationSummary
- * //       EventType: "DEVICE_COMMAND" || "DEVICE_COMMAND_REQUEST" || "DEVICE_EVENT" || "DEVICE_LIFE_CYCLE" || "DEVICE_STATE" || "DEVICE_OTA" || "CONNECTOR_ASSOCIATION" || "CONNECTOR_ERROR_REPORT",
+ * //       EventType: "DEVICE_COMMAND" || "DEVICE_COMMAND_REQUEST" || "DEVICE_DISCOVERY_STATUS" || "DEVICE_EVENT" || "DEVICE_LIFE_CYCLE" || "DEVICE_STATE" || "DEVICE_OTA" || "CONNECTOR_ASSOCIATION" || "ACCOUNT_ASSOCIATION" || "CONNECTOR_ERROR_REPORT",
  * //       DestinationName: "STRING_VALUE",
  * //     },
  * //   ],
@@ -72,8 +72,7 @@ export interface ListNotificationConfigurationsCommandOutput
  *  <p>User is not authorized.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>

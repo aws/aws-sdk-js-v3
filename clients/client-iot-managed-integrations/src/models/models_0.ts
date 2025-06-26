@@ -52,15 +52,13 @@ export interface AbortConfigCriteria {
   FailureType?: AbortCriteriaFailureType | undefined;
 
   /**
-   * <p>The minimum number of things that must receive task execution notifications before the
-   *          task can be aborted.</p>
+   * <p>The minimum number of things that must receive task execution notifications before the task can be aborted.</p>
    * @public
    */
   MinNumberOfExecutedThings?: number | undefined;
 
   /**
-   * <p>The minimum percentage of over-the-air (OTA) task execution failures that must occur to
-   *          initiate the last abort.</p>
+   * <p>The minimum percentage of over-the-air (OTA) task execution failures that must occur to initiate the last abort.</p>
    * @public
    */
   ThresholdPercentage?: number | undefined;
@@ -92,7 +90,566 @@ export class AccessDeniedException extends __BaseException {
  * @public
  * @enum
  */
+export const AssociationState = {
+  ASSOCIATION_DELETING: "ASSOCIATION_DELETING",
+  ASSOCIATION_FAILED: "ASSOCIATION_FAILED",
+  ASSOCIATION_IN_PROGRESS: "ASSOCIATION_IN_PROGRESS",
+  ASSOCIATION_SUCCEEDED: "ASSOCIATION_SUCCEEDED",
+  REFRESH_TOKEN_EXPIRED: "REFRESH_TOKEN_EXPIRED",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationState = (typeof AssociationState)[keyof typeof AssociationState];
+
+/**
+ * <p>Structure containing information about an account association, including its identifier, state, and related metadata.</p>
+ * @public
+ */
+export interface AccountAssociationItem {
+  /**
+   * <p>The unique identifier of the account association.</p>
+   * @public
+   */
+  AccountAssociationId: string | undefined;
+
+  /**
+   * <p>The current state of the account association, indicating its status in the association lifecycle.</p>
+   * @public
+   */
+  AssociationState: AssociationState | undefined;
+
+  /**
+   * <p>The error message explaining any issues with the account association, if applicable.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * <p>The identifier of the connector destination associated with this account association.</p>
+   * @public
+   */
+  ConnectorDestinationId?: string | undefined;
+
+  /**
+   * <p>The name of the account association.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A description of the account association.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the account association.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * <p>There is a conflict with the request.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateAccountAssociationRequest {
+  /**
+   * <p>An idempotency token. If you retry a request that completed successfully initially using the same client token and parameters, then the retry attempt will succeed without performing any further actions.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The identifier of the connector destination.</p>
+   * @public
+   */
+  ConnectorDestinationId: string | undefined;
+
+  /**
+   * <p>The name of the destination for the new account association.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A description of the account association request.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A set of key/value pairs that are used to manage the account association.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAccountAssociationResponse {
+  /**
+   * <p>Third-party IoT platform OAuth authorization server URL backed with all the required parameters to perform end-user authentication.</p>
+   * @public
+   */
+  OAuthAuthorizationUrl: string | undefined;
+
+  /**
+   * <p>The identifier for the account association request.</p>
+   * @public
+   */
+  AccountAssociationId: string | undefined;
+
+  /**
+   * <p>The current state of the account association request.</p>
+   * @public
+   */
+  AssociationState: AssociationState | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the account association.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The specified resource does not exist.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * Id of the affected resource
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * Type of the affected resource
+   * @public
+   */
+  ResourceType?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceId = opts.ResourceId;
+    this.ResourceType = opts.ResourceType;
+  }
+}
+
+/**
+ * <p>The service is temporarily unavailable.</p>
+ * @public
+ */
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The rate exceeds the limit.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>A validation error occurred when performing the API request.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccountAssociationRequest {
+  /**
+   * <p>The unique identifier of the account association to be deleted.</p>
+   * @public
+   */
+  AccountAssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAccountAssociationRequest {
+  /**
+   * <p>The unique identifier of the account association to retrieve.</p>
+   * @public
+   */
+  AccountAssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAccountAssociationResponse {
+  /**
+   * <p>The unique identifier of the retrieved account association.</p>
+   * @public
+   */
+  AccountAssociationId: string | undefined;
+
+  /**
+   * <p>The current status state for the account association.</p>
+   * @public
+   */
+  AssociationState: AssociationState | undefined;
+
+  /**
+   * <p>The error message explaining the current account association error.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * <p>The identifier of the connector destination associated with this account association.</p>
+   * @public
+   */
+  ConnectorDestinationId?: string | undefined;
+
+  /**
+   * <p>The name of the account association.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the account association.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the account association.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>Third party IoT platform OAuth authorization server URL backed with all the required parameters to perform end-user authentication.</p>
+   * @public
+   */
+  OAuthAuthorizationUrl: string | undefined;
+
+  /**
+   * <p>A set of key/value pairs that are used to manage the account association.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAccountAssociationsRequest {
+  /**
+   * <p>The identifier of the connector destination to filter account associations by.</p>
+   * @public
+   */
+  ConnectorDestinationId?: string | undefined;
+
+  /**
+   * <p>The maximum number of account associations to return in a single response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token used for pagination of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAccountAssociationsResponse {
+  /**
+   * <p>The list of account associations that match the specified criteria.</p>
+   * @public
+   */
+  Items?: AccountAssociationItem[] | undefined;
+
+  /**
+   * <p>A token used for pagination of results when there are more account associations than can be returned in a single response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAccountAssociationRefreshRequest {
+  /**
+   * <p>The unique identifier of the account association to refresh.</p>
+   * @public
+   */
+  AccountAssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAccountAssociationRefreshResponse {
+  /**
+   * <p>Third-party IoT platform OAuth authorization server URL with all required parameters to perform end-user authentication during the refresh process.</p>
+   * @public
+   */
+  OAuthAuthorizationUrl: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountAssociationRequest {
+  /**
+   * <p>The unique identifier of the account association to update.</p>
+   * @public
+   */
+  AccountAssociationId: string | undefined;
+
+  /**
+   * <p>The new name to assign to the account association.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The new description to assign to the account association.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * <p>Configuration settings for proactively refreshing OAuth tokens before they expire.</p>
+ * @public
+ */
+export interface ProactiveRefreshTokenRenewal {
+  /**
+   * <p>Indicates whether proactive refresh token renewal is enabled.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+
+  /**
+   * <p>The days before token expiration when the system should attempt to renew the token, specified in days.</p>
+   * @public
+   */
+  DaysBeforeRenewal?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TokenEndpointAuthenticationScheme = {
+  HTTP_BASIC: "HTTP_BASIC",
+  REQUEST_BODY_CREDENTIALS: "REQUEST_BODY_CREDENTIALS",
+} as const;
+
+/**
+ * @public
+ */
+export type TokenEndpointAuthenticationScheme =
+  (typeof TokenEndpointAuthenticationScheme)[keyof typeof TokenEndpointAuthenticationScheme];
+
+/**
+ * <p>Configuration details for OAuth authentication with a third-party service.</p>
+ * @public
+ */
+export interface OAuthConfig {
+  /**
+   * <p>The authorization URL for the OAuth service, where users are directed to authenticate and authorize access.</p>
+   * @public
+   */
+  authUrl: string | undefined;
+
+  /**
+   * <p>The token URL for the OAuth service, where authorization codes are exchanged for access tokens.</p>
+   * @public
+   */
+  tokenUrl: string | undefined;
+
+  /**
+   * <p>The OAuth scopes requested during authorization, which define the permissions granted to the application.</p>
+   * @public
+   */
+  scope?: string | undefined;
+
+  /**
+   * <p>The authentication scheme used when requesting tokens from the token endpoint.</p>
+   * @public
+   */
+  tokenEndpointAuthenticationScheme: TokenEndpointAuthenticationScheme | undefined;
+
+  /**
+   * <p>The URL where users are redirected after completing the OAuth authorization process.</p>
+   * @public
+   */
+  oAuthCompleteRedirectUrl?: string | undefined;
+
+  /**
+   * <p>Configuration for proactively refreshing OAuth tokens before they expire.</p>
+   * @public
+   */
+  proactiveRefreshTokenRenewal?: ProactiveRefreshTokenRenewal | undefined;
+}
+
+/**
+ * <p>The authentication configuration details for a connector destination, including OAuth settings and other authentication parameters.</p>
+ * @public
+ */
+export interface AuthConfig {
+  /**
+   * <p>The OAuth configuration settings used for authentication with the third-party service.</p>
+   * @public
+   */
+  oAuth?: OAuthConfig | undefined;
+}
+
+/**
+ * <p>Structure containing updated OAuth configuration settings.</p>
+ * @public
+ */
+export interface OAuthUpdate {
+  /**
+   * <p>The updated URL where users are redirected after completing the OAuth authorization process.</p>
+   * @public
+   */
+  oAuthCompleteRedirectUrl?: string | undefined;
+
+  /**
+   * <p>Updated configuration for proactively refreshing OAuth tokens before they expire.</p>
+   * @public
+   */
+  proactiveRefreshTokenRenewal?: ProactiveRefreshTokenRenewal | undefined;
+}
+
+/**
+ * <p>The updated authentication configuration details for a connector destination.</p>
+ * @public
+ */
+export interface AuthConfigUpdate {
+  /**
+   * <p>The updated OAuth configuration settings for the authentication configuration.</p>
+   * @public
+   */
+  oAuthUpdate?: OAuthUpdate | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const AuthMaterialType = {
+  CUSTOM_PROTOCOL_QR_BAR_CODE: "CUSTOM_PROTOCOL_QR_BAR_CODE",
+  DISCOVERED_DEVICE: "DISCOVERED_DEVICE",
   WIFI_SETUP_QR_BAR_CODE: "WIFI_SETUP_QR_BAR_CODE",
   ZIGBEE_QR_BAR_CODE: "ZIGBEE_QR_BAR_CODE",
   ZWAVE_QR_BAR_CODE: "ZWAVE_QR_BAR_CODE",
@@ -102,6 +659,19 @@ export const AuthMaterialType = {
  * @public
  */
 export type AuthMaterialType = (typeof AuthMaterialType)[keyof typeof AuthMaterialType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AuthType = {
+  OAUTH: "OAUTH",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthType = (typeof AuthType)[keyof typeof AuthType];
 
 /**
  * <p>Action for an Amazon Web Services capability, containing the action parameters for control.</p>
@@ -121,8 +691,7 @@ export interface CapabilityAction {
   ref?: string | undefined;
 
   /**
-   * <p>Describe a capability action with an <code>actionTraceId</code> for a response
-   *          command.</p>
+   * <p>Describe a capability action with an <code>actionTraceId</code> for a response command.</p>
    * @public
    */
   actionTraceId?: string | undefined;
@@ -225,6 +794,328 @@ export interface CapabilityReport {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const SchemaVersionFormat = {
+  AWS: "AWS",
+  CONNECTOR: "CONNECTOR",
+  ZCL: "ZCL",
+} as const;
+
+/**
+ * @public
+ */
+export type SchemaVersionFormat = (typeof SchemaVersionFormat)[keyof typeof SchemaVersionFormat];
+
+/**
+ * <p>Structure representing a capability schema item that defines the functionality and features supported by a managed thing.</p>
+ * @public
+ */
+export interface CapabilitySchemaItem {
+  /**
+   * <p>The format of the capability schema, which defines how the schema is structured and interpreted.</p>
+   * @public
+   */
+  Format: SchemaVersionFormat | undefined;
+
+  /**
+   * <p>The unique identifier of the capability defined in the schema.</p>
+   * @public
+   */
+  CapabilityId: string | undefined;
+
+  /**
+   * <p>The external identifier for the capability, used when referencing the capability outside of the AWS ecosystem.</p>
+   * @public
+   */
+  ExtrinsicId: string | undefined;
+
+  /**
+   * <p>The version of the external capability definition, used to track compatibility with external systems.</p>
+   * @public
+   */
+  ExtrinsicVersion: number | undefined;
+
+  /**
+   * <p>The actual schema definition that describes the capability's properties, actions, and events.</p>
+   * @public
+   */
+  Schema: __DocumentType | undefined;
+}
+
+/**
+ * <p>Configuration details for an AWS Lambda function used as an endpoint for a cloud connector.</p>
+ * @public
+ */
+export interface LambdaConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function used as an endpoint.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
+ * <p>The configuration details for an endpoint, which defines how to connect to and communicate with external services.</p>
+ * @public
+ */
+export interface EndpointConfig {
+  /**
+   * <p>The Lambda function configuration for the endpoint, used when the endpoint communicates through an AWS Lambda function.</p>
+   * @public
+   */
+  lambda?: LambdaConfig | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EndpointType = {
+  LAMBDA: "LAMBDA",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
+
+/**
+ * @public
+ */
+export interface CreateCloudConnectorRequest {
+  /**
+   * <p>The display name of the C2C connector.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The configuration details for the cloud connector endpoint, including connection parameters and authentication requirements.</p>
+   * @public
+   */
+  EndpointConfig: EndpointConfig | undefined;
+
+  /**
+   * <p>A description of the C2C connector.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The type of endpoint used for the cloud connector, which defines how the connector communicates with external services.</p>
+   * @public
+   */
+  EndpointType?: EndpointType | undefined;
+
+  /**
+   * <p>An idempotency token. If you retry a request that completed successfully initially using the same client token and parameters, then the retry attempt will succeed without performing any further actions.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCloudConnectorResponse {
+  /**
+   * <p>The unique identifier assigned to the newly created cloud connector.</p>
+   * @public
+   */
+  Id?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCloudConnectorRequest {
+  /**
+   * <p>The identifier of the cloud connector.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCloudConnectorRequest {
+  /**
+   * <p>The identifier of the C2C connector.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CloudConnectorType = {
+  LISTED: "LISTED",
+  UNLISTED: "UNLISTED",
+} as const;
+
+/**
+ * @public
+ */
+export type CloudConnectorType = (typeof CloudConnectorType)[keyof typeof CloudConnectorType];
+
+/**
+ * @public
+ */
+export interface GetCloudConnectorResponse {
+  /**
+   * <p>The display name of the C2C connector.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The configuration details for the cloud connector endpoint, including connection parameters and authentication requirements.</p>
+   * @public
+   */
+  EndpointConfig: EndpointConfig | undefined;
+
+  /**
+   * <p>A description of the C2C connector.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The type of endpoint used for the cloud connector, which defines how the connector communicates with external services.</p>
+   * @public
+   */
+  EndpointType?: EndpointType | undefined;
+
+  /**
+   * <p>The unique identifier of the cloud connector.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The type of cloud connector created.</p>
+   * @public
+   */
+  Type?: CloudConnectorType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCloudConnectorsRequest {
+  /**
+   * <p>The type of cloud connectors to filter by when listing available connectors.</p>
+   * @public
+   */
+  Type?: CloudConnectorType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function to filter cloud connectors by.</p>
+   * @public
+   */
+  LambdaArn?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Structure describing a connector.</p>
+ * @public
+ */
+export interface ConnectorItem {
+  /**
+   * <p>The display name of the C2C connector.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The configuration details for the cloud connector endpoint, including connection parameters and authentication requirements.</p>
+   * @public
+   */
+  EndpointConfig: EndpointConfig | undefined;
+
+  /**
+   * <p>A description of the C2C connector.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The type of endpoint used for the C2C connector.</p>
+   * @public
+   */
+  EndpointType?: EndpointType | undefined;
+
+  /**
+   * <p>The identifier of the C2C connector.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The type of cloud connector created.</p>
+   * @public
+   */
+  Type?: CloudConnectorType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCloudConnectorsResponse {
+  /**
+   * <p>The list of connectors.</p>
+   * @public
+   */
+  Items?: ConnectorItem[] | undefined;
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCloudConnectorRequest {
+  /**
+   * <p>The unique identifier of the cloud connector to update.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The new display name to assign to the cloud connector.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The new description to assign to the cloud connector.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
  * <p>The command capabilities added for the managed thing</p>
  * @public
  */
@@ -266,8 +1157,7 @@ export interface CommandEndpoint {
   endpointId: string | undefined;
 
   /**
-   * <p>Describe the endpoint with an id, a name, and the relevant capabilities for sending
-   *          commands.</p>
+   * <p>Describe the endpoint with an id, a name, and the relevant capabilities for sending commands.</p>
    * @public
    */
   capabilities: CommandCapability[] | undefined;
@@ -285,8 +1175,7 @@ export interface ConfigurationError {
   code?: string | undefined;
 
   /**
-   * <p>The error message returned when the default encryption configuration update
-   *          fails.</p>
+   * <p>The error message returned when the default encryption configuration update fails.</p>
    * @public
    */
   message?: string | undefined;
@@ -326,26 +1215,282 @@ export interface ConfigurationStatus {
 }
 
 /**
- * <p>There is a conflict with the request.</p>
+ * <p>Structure containing summary information about a connector destination, which defines how a cloud-to-cloud connector connects to a customer's AWS account.</p>
  * @public
  */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
+export interface ConnectorDestinationSummary {
   /**
-   * @internal
+   * <p>The display name of the connector destination.</p>
+   * @public
    */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
+  Name?: string | undefined;
+
+  /**
+   * <p>A description of the connector destination.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The identifier of the cloud connector associated with this connector destination.</p>
+   * @public
+   */
+  CloudConnectorId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the connector destination.</p>
+   * @public
+   */
+  Id?: string | undefined;
 }
+
+/**
+ * <p>Configuration for AWS Secrets Manager, used to securely store and manage sensitive information for connector destinations.</p>
+ * @public
+ */
+export interface SecretsManager {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The version ID of the AWS Secrets Manager secret.</p>
+   * @public
+   */
+  versionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectorDestinationRequest {
+  /**
+   * <p>The display name of the connector destination.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A description of the connector destination.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The identifier of the C2C connector.</p>
+   * @public
+   */
+  CloudConnectorId: string | undefined;
+
+  /**
+   * <p>The authentication type used for the connector destination, which determines how credentials and access are managed.</p>
+   * @public
+   */
+  AuthType: AuthType | undefined;
+
+  /**
+   * <p>The authentication configuration details for the connector destination, including OAuth settings and other authentication parameters.</p>
+   * @public
+   */
+  AuthConfig: AuthConfig | undefined;
+
+  /**
+   * <p>The AWS Secrets Manager configuration used to securely store and manage sensitive information for the connector destination.</p>
+   * @public
+   */
+  SecretsManager: SecretsManager | undefined;
+
+  /**
+   * <p>An idempotency token. If you retry a request that completed successfully initially using the same client token and parameters, then the retry attempt will succeed without performing any further actions.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectorDestinationResponse {
+  /**
+   * <p>The identifier of the C2C connector destination creation request.</p>
+   * @public
+   */
+  Id?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConnectorDestinationRequest {
+  /**
+   * <p>The identifier of the connector destination.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConnectorDestinationRequest {
+  /**
+   * <p>The identifier of the C2C connector destination.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConnectorDestinationResponse {
+  /**
+   * <p>The display name of the connector destination.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A description of the connector destination.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The identifier of the C2C connector.</p>
+   * @public
+   */
+  CloudConnectorId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the connector destination.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The authentication type used for the connector destination, which determines how credentials and access are managed.</p>
+   * @public
+   */
+  AuthType?: AuthType | undefined;
+
+  /**
+   * <p>The authentication configuration details for the connector destination, including OAuth settings and other authentication parameters.</p>
+   * @public
+   */
+  AuthConfig?: AuthConfig | undefined;
+
+  /**
+   * <p>The AWS Secrets Manager configuration used to securely store and manage sensitive information for the connector destination.</p>
+   * @public
+   */
+  SecretsManager?: SecretsManager | undefined;
+
+  /**
+   * <p>The URL where users are redirected after completing the OAuth authorization process for the connector destination.</p>
+   * @public
+   */
+  OAuthCompleteRedirectUrl?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorDestinationsRequest {
+  /**
+   * <p>The identifier of the cloud connector to filter connector destinations by.</p>
+   * @public
+   */
+  CloudConnectorId?: string | undefined;
+
+  /**
+   * <p>A token used for pagination of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of connector destinations to return in a single response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorDestinationsResponse {
+  /**
+   * <p>The list of connector destinations that match the specified criteria.</p>
+   * @public
+   */
+  ConnectorDestinationList?: ConnectorDestinationSummary[] | undefined;
+
+  /**
+   * <p>A token used for pagination of results when there are more connector destinations than can be returned in a single response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConnectorDestinationRequest {
+  /**
+   * <p>The unique identifier of the connector destination to update.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The new description to assign to the connector destination.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The new display name to assign to the connector destination.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The new authentication type to use for the connector destination.</p>
+   * @public
+   */
+  AuthType?: AuthType | undefined;
+
+  /**
+   * <p>The updated authentication configuration details for the connector destination.</p>
+   * @public
+   */
+  AuthConfig?: AuthConfigUpdate | undefined;
+
+  /**
+   * <p>The updated AWS Secrets Manager configuration for the connector destination.</p>
+   * @public
+   */
+  SecretsManager?: SecretsManager | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorEventOperation = {
+  DEVICE_COMMAND_REQUEST: "DEVICE_COMMAND_REQUEST",
+  DEVICE_COMMAND_RESPONSE: "DEVICE_COMMAND_RESPONSE",
+  DEVICE_DISCOVERY: "DEVICE_DISCOVERY",
+  DEVICE_EVENT: "DEVICE_EVENT",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectorEventOperation = (typeof ConnectorEventOperation)[keyof typeof ConnectorEventOperation];
 
 /**
  * @public
@@ -358,9 +1503,7 @@ export interface CreateCredentialLockerRequest {
   Name?: string | undefined;
 
   /**
-   * <p>An idempotency token. If you retry a request that completed successfully initially using
-   *          the same client token and parameters, then the retry attempt will succeed without
-   *          performing any further actions.</p>
+   * <p>An idempotency token. If you retry a request that completed successfully initially using the same client token and parameters, then the retry attempt will succeed without performing any further actions.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -396,29 +1539,6 @@ export interface CreateCredentialLockerResponse {
 }
 
 /**
- * <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>The service quota has been exceeded for this request.</p>
  * @public
  */
@@ -436,72 +1556,6 @@ export class ServiceQuotaExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The service is temporarily unavailable.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The rate exceeds the limit.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>A validation error occurred when performing the API request.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -548,9 +1602,7 @@ export interface CreateDestinationRequest {
   RoleArn: string | undefined;
 
   /**
-   * <p>An idempotency token. If you retry a request that completed successfully initially using
-   *          the same client token and parameters, then the retry attempt will succeed without
-   *          performing any further actions.</p>
+   * <p>An idempotency token. If you retry a request that completed successfully initially using the same client token and parameters, then the retry attempt will succeed without performing any further actions.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -563,6 +1615,8 @@ export interface CreateDestinationRequest {
 
   /**
    * <p>A set of key/value pairs that are used to manage the destination.</p>
+   *
+   * @deprecated
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -618,9 +1672,7 @@ export interface CreateEventLogConfigurationRequest {
   EventLogLevel: LogLevel | undefined;
 
   /**
-   * <p>An idempotency token. If you retry a request that completed successfully initially using
-   *          the same client token and parameters, then the retry attempt will succeed without
-   *          performing any further actions.</p>
+   * <p>An idempotency token. If you retry a request that completed successfully initially using the same client token and parameters, then the retry attempt will succeed without performing any further actions.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -656,15 +1708,13 @@ export type Role = (typeof Role)[keyof typeof Role];
  */
 export interface CreateManagedThingRequest {
   /**
-   * <p>The type of device used. This will be the hub controller, cloud device, or AWS IoT
-   *          device.</p>
+   * <p>The type of device used. This will be the hub controller, cloud device, or AWS IoT device.</p>
    * @public
    */
   Role: Role | undefined;
 
   /**
-   * <p>Owner of the device, usually an indication of whom the device belongs to. This value
-   *          should not contain personal identifiable information.</p>
+   * <p>Owner of the device, usually an indication of whom the device belongs to. This value should not contain personal identifiable information.</p>
    * @public
    */
   Owner?: string | undefined;
@@ -676,8 +1726,7 @@ export interface CreateManagedThingRequest {
   CredentialLockerId?: string | undefined;
 
   /**
-   * <p>The authentication material defining the device connectivity setup requests. The
-   *          authentication materials used are the device bar code.</p>
+   * <p>The authentication material defining the device connectivity setup requests. The authentication materials used are the device bar code.</p>
    * @public
    */
   AuthenticationMaterial: string | undefined;
@@ -719,15 +1768,19 @@ export interface CreateManagedThingRequest {
   CapabilityReport?: CapabilityReport | undefined;
 
   /**
+   * <p>The capability schemas that define the functionality and features supported by the managed thing, including device capabilities and their associated properties.</p>
+   * @public
+   */
+  CapabilitySchemas?: CapabilitySchemaItem[] | undefined;
+
+  /**
    * <p>The capabilities of the device such as light bulb.</p>
    * @public
    */
   Capabilities?: string | undefined;
 
   /**
-   * <p>An idempotency token. If you retry a request that completed successfully initially using
-   *          the same client token and parameters, then the retry attempt will succeed without
-   *          performing any further actions.</p>
+   * <p>An idempotency token. If you retry a request that completed successfully initially using the same client token and parameters, then the retry attempt will succeed without performing any further actions.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -745,7 +1798,7 @@ export interface CreateManagedThingRequest {
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The metadata for the managed thing.</p>
+   * <p>The metadata for the managed thing.</p> <note> <p>The <code>managedThing</code> <code>metadata</code> parameter is used for associating attributes with a <code>managedThing</code> that can be used for grouping over-the-air (OTA) tasks. Name value pairs in <code>metadata</code> can be used in the <code>OtaTargetQueryString</code> parameter for the <code>CreateOtaTask</code> API operation.</p> </note>
    * @public
    */
   MetaData?: Record<string, string> | undefined;
@@ -775,28 +1828,6 @@ export interface CreateManagedThingResponse {
 }
 
 /**
- * <p>The specified resource does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>You are not authorized to perform this operation.</p>
  * @public
  */
@@ -823,10 +1854,12 @@ export class UnauthorizedException extends __BaseException {
  * @enum
  */
 export const EventType = {
+  ACCOUNT_ASSOCIATION: "ACCOUNT_ASSOCIATION",
   CONNECTOR_ASSOCIATION: "CONNECTOR_ASSOCIATION",
   CONNECTOR_ERROR_REPORT: "CONNECTOR_ERROR_REPORT",
   DEVICE_COMMAND: "DEVICE_COMMAND",
   DEVICE_COMMAND_REQUEST: "DEVICE_COMMAND_REQUEST",
+  DEVICE_DISCOVERY_STATUS: "DEVICE_DISCOVERY_STATUS",
   DEVICE_EVENT: "DEVICE_EVENT",
   DEVICE_LIFE_CYCLE: "DEVICE_LIFE_CYCLE",
   DEVICE_OTA: "DEVICE_OTA",
@@ -843,8 +1876,7 @@ export type EventType = (typeof EventType)[keyof typeof EventType];
  */
 export interface CreateNotificationConfigurationRequest {
   /**
-   * <p>The type of event triggering a device notification to the customer-managed
-   *          destination.</p>
+   * <p>The type of event triggering a device notification to the customer-managed destination.</p>
    * @public
    */
   EventType: EventType | undefined;
@@ -856,15 +1888,15 @@ export interface CreateNotificationConfigurationRequest {
   DestinationName: string | undefined;
 
   /**
-   * <p>An idempotency token. If you retry a request that completed successfully initially using
-   *          the same client token and parameters, then the retry attempt will succeed without
-   *          performing any further actions.</p>
+   * <p>An idempotency token. If you retry a request that completed successfully initially using the same client token and parameters, then the retry attempt will succeed without performing any further actions.</p>
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
    * <p>A set of key/value pairs that are used to manage the notification configuration.</p>
+   *
+   * @deprecated
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -875,8 +1907,7 @@ export interface CreateNotificationConfigurationRequest {
  */
 export interface CreateNotificationConfigurationResponse {
   /**
-   * <p>The type of event triggering a device notification to the customer-managed
-   *          destination.</p>
+   * <p>The type of event triggering a device notification to the customer-managed destination.</p>
    * @public
    */
   EventType?: EventType | undefined;
@@ -935,9 +1966,7 @@ export interface ScheduleMaintenanceWindow {
  */
 export interface OtaTaskSchedulingConfig {
   /**
-   * <p>Specifies the end behavior for all task executions after a task reaches the selected
-   *             <code>endTime</code>. If <code>endTime</code> is not selected when creating the task,
-   *          then <code>endBehavior</code> does not apply.</p>
+   * <p>Specifies the end behavior for all task executions after a task reaches the selected <code>endTime</code>. If <code>endTime</code> is not selected when creating the task, then <code>endBehavior</code> does not apply.</p>
    * @public
    */
   EndBehavior?: SchedulingConfigEndBehavior | undefined;
@@ -1086,9 +2115,7 @@ export interface CreateOtaTaskRequest {
   OtaTargetQueryString?: string | undefined;
 
   /**
-   * <p>An idempotency token. If you retry a request that completed successfully initially using
-   *          the same client token and parameters, then the retry attempt will succeed without
-   *          performing any further actions.</p>
+   * <p>An idempotency token. If you retry a request that completed successfully initially using the same client token and parameters, then the retry attempt will succeed without performing any further actions.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -1153,23 +2180,20 @@ export interface OtaTaskAbortConfig {
  */
 export interface RolloutRateIncreaseCriteria {
   /**
-   * <p>The threshold for number of notified things that will initiate the increase in rate of
-   *          rollout.</p>
+   * <p>The threshold for number of notified things that will initiate the increase in rate of rollout.</p>
    * @public
    */
   numberOfNotifiedThings?: number | undefined;
 
   /**
-   * <p>The threshold for number of succeeded things that will initiate the increase in rate of
-   *          rollout.</p>
+   * <p>The threshold for number of succeeded things that will initiate the increase in rate of rollout.</p>
    * @public
    */
   numberOfSucceededThings?: number | undefined;
 }
 
 /**
- * <p>Structure representing exponential rate of rollout for an over-the-air (OTA)
- *          task.</p>
+ * <p>Structure representing exponential rate of rollout for an over-the-air (OTA) task.</p>
  * @public
  */
 export interface ExponentialRolloutRate {
@@ -1180,8 +2204,7 @@ export interface ExponentialRolloutRate {
   BaseRatePerMinute?: number | undefined;
 
   /**
-   * <p>The incremental factor for increasing the rollout rate of an over-the-air (OTA)
-   *          task.</p>
+   * <p>The incremental factor for increasing the rollout rate of an over-the-air (OTA) task.</p>
    * @public
    */
   IncrementFactor?: number | undefined;
@@ -1199,8 +2222,7 @@ export interface ExponentialRolloutRate {
  */
 export interface OtaTaskExecutionRolloutConfig {
   /**
-   * <p>Structure representing exponential rate of rollout for an over-the-air (OTA)
-   *          task.</p>
+   * <p>Structure representing exponential rate of rollout for an over-the-air (OTA) task.</p>
    * @public
    */
   ExponentialRolloutRate?: ExponentialRolloutRate | undefined;
@@ -1218,8 +2240,7 @@ export interface OtaTaskExecutionRolloutConfig {
  */
 export interface OtaTaskTimeoutConfig {
   /**
-   * <p>Specifies the amount of time the device has to finish execution of this task. The
-   *          timeout interval can be anywhere between 1 minute and 7 days.</p>
+   * <p>Specifies the amount of time the device has to finish execution of this task. The timeout interval can be anywhere between 1 minute and 7 days.</p>
    * @public
    */
   InProgressTimeoutInMinutes?: number | undefined;
@@ -1272,9 +2293,7 @@ export interface CreateOtaTaskConfigurationRequest {
   PushConfig?: PushConfig | undefined;
 
   /**
-   * <p>An idempotency token. If you retry a request that completed successfully initially using
-   *          the same client token and parameters, then the retry attempt will succeed without
-   *          performing any further actions.</p>
+   * <p>An idempotency token. If you retry a request that completed successfully initially using the same client token and parameters, then the retry attempt will succeed without performing any further actions.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -1328,9 +2347,7 @@ export interface CreateProvisioningProfileRequest {
   Name?: string | undefined;
 
   /**
-   * <p>An idempotency token. If you retry a request that completed successfully initially using
-   *          the same client token and parameters, then the retry attempt will succeed without
-   *          performing any further actions.</p>
+   * <p>An idempotency token. If you retry a request that completed successfully initially using the same client token and parameters, then the retry attempt will succeed without performing any further actions.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -1347,8 +2364,7 @@ export interface CreateProvisioningProfileRequest {
  */
 export interface CreateProvisioningProfileResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the provisioning template used in the provisioning
-   *          profile.</p>
+   * <p>The Amazon Resource Name (ARN) of the provisioning template used in the provisioning profile.</p>
    * @public
    */
   Arn?: string | undefined;
@@ -1378,8 +2394,7 @@ export interface CreateProvisioningProfileResponse {
   ClaimCertificate?: string | undefined;
 
   /**
-   * <p>The private key of the claim certificate. This is stored securely on the device for
-   *          validating the connection endpoint with IoT managed integrations using the public key.</p>
+   * <p>The private key of the claim certificate. This is stored securely on the device for validating the connection endpoint with IoT managed integrations using the public key.</p>
    * @public
    */
   ClaimCertificatePrivateKey?: string | undefined;
@@ -1539,9 +2554,7 @@ export interface DeleteManagedThingRequest {
   Identifier: string | undefined;
 
   /**
-   * <p>When set to <code>TRUE</code>, a forceful deteletion of the managed thing will occur.
-   *          When set to <code>FALSE</code>, a non-forceful deletion of the managed thing will
-   *          occur.</p>
+   * <p>When set to <code>TRUE</code>, a forceful deteletion of the managed thing will occur. When set to <code>FALSE</code>, a non-forceful deletion of the managed thing will occur.</p>
    * @public
    */
   Force?: boolean | undefined;
@@ -1552,8 +2565,7 @@ export interface DeleteManagedThingRequest {
  */
 export interface DeleteNotificationConfigurationRequest {
   /**
-   * <p>The type of event triggering a device notification to the customer-managed
-   *          destination.</p>
+   * <p>The type of event triggering a device notification to the customer-managed destination.</p>
    * @public
    */
   EventType: EventType | undefined;
@@ -1568,6 +2580,28 @@ export interface DeleteOtaTaskRequest {
    * @public
    */
   Identifier: string | undefined;
+}
+
+/**
+ * <p>The request exceeds a service limit or quota. Adjust your request parameters and try again.</p>
+ * @public
+ */
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1593,8 +2627,25 @@ export interface DeleteProvisioningProfileRequest {
 }
 
 /**
- * <p>Structure describing a destination for IoT managed integrations to deliver notifications for a
- *          device.</p>
+ * Request for deregister a managed thing from account association
+ * @public
+ */
+export interface DeregisterAccountAssociationRequest {
+  /**
+   * <p>The identifier of the managed thing to be deregistered from the account association.</p>
+   * @public
+   */
+  ManagedThingId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the account association to be deregistered.</p>
+   * @public
+   */
+  AccountAssociationId: string | undefined;
+}
+
+/**
+ * <p>Structure describing a destination for IoT managed integrations to deliver notifications for a device.</p>
  * @public
  */
 export interface DestinationSummary {
@@ -1687,8 +2738,9 @@ export interface GetDestinationResponse {
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>A set of key/value pairs that are used to manage the customer-managed
-   *          destination.</p>
+   * <p>A set of key/value pairs that are used to manage the customer-managed destination.</p>
+   *
+   * @deprecated
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1764,14 +2816,201 @@ export interface UpdateDestinationRequest {
 }
 
 /**
+ * <p>Matter attribute used in capability report.</p>
  * @public
  */
-export interface GetDeviceDiscoveryRequest {
+export interface MatterCapabilityReportAttribute {
   /**
-   * <p>The id of the device discovery job request.</p>
+   * <p>The id of the Matter attribute.</p>
    * @public
    */
-  Identifier: string | undefined;
+  id?: string | undefined;
+
+  /**
+   * <p>Name for the Amazon Web Services Matter capability report attribute.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Value for the Amazon Web Services Matter capability report attribute.</p>
+   * @public
+   */
+  value?: __DocumentType | undefined;
+}
+
+/**
+ * <p>Capability used in Matter capability report.</p>
+ * @public
+ */
+export interface MatterCapabilityReportCluster {
+  /**
+   * <p>The id of the Amazon Web Services Matter capability report cluster.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The id of the revision for the Amazon Web Services Matter capability report.</p>
+   * @public
+   */
+  revision: number | undefined;
+
+  /**
+   * <p>The id of the schema version.</p>
+   * @public
+   */
+  publicId?: string | undefined;
+
+  /**
+   * <p>The capability name used in the Amazon Web Services Matter capability report.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The spec version used in the Amazon Web Services Matter capability report.</p>
+   * @public
+   */
+  specVersion?: string | undefined;
+
+  /**
+   * <p>The attributes of the Amazon Web Services Matter capability report.</p>
+   * @public
+   */
+  attributes?: MatterCapabilityReportAttribute[] | undefined;
+
+  /**
+   * <p>The commands used with the Amazon Web Services Matter capability report.</p>
+   * @public
+   */
+  commands?: string[] | undefined;
+
+  /**
+   * <p>The events used with the Amazon Web Services Matter capability report.</p>
+   * @public
+   */
+  events?: string[] | undefined;
+
+  /**
+   * <p>32 bit-map used to indicate which features a cluster supports.</p>
+   * @public
+   */
+  featureMap?: number | undefined;
+
+  /**
+   * <p>Matter clusters used in capability report.</p>
+   * @public
+   */
+  generatedCommands?: string[] | undefined;
+
+  /**
+   * <p>The fabric index for the Amazon Web Services Matter capability report.</p>
+   * @public
+   */
+  fabricIndex?: number | undefined;
+}
+
+/**
+ * <p>Matter endpoint used in capability report.</p>
+ * @public
+ */
+export interface MatterCapabilityReportEndpoint {
+  /**
+   * <p>The id of the Amazon Web Services Matter capability report endpoint.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The type of device.</p>
+   * @public
+   */
+  deviceTypes: string[] | undefined;
+
+  /**
+   * <p>Matter clusters used in capability report.</p>
+   * @public
+   */
+  clusters: MatterCapabilityReportCluster[] | undefined;
+
+  /**
+   * <p>Heirachy of child endpoints contained in the given endpoint.</p>
+   * @public
+   */
+  parts?: string[] | undefined;
+
+  /**
+   * <p>Semantic information related to endpoint.</p>
+   * @public
+   */
+  semanticTags?: string[] | undefined;
+
+  /**
+   * <p>Semantic information related to endpoint.</p>
+   * @public
+   */
+  clientClusters?: string[] | undefined;
+}
+
+/**
+ * <p>Matter based capability report.</p>
+ * @public
+ */
+export interface MatterCapabilityReport {
+  /**
+   * <p>The version of the capability report.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The numeric identifier of the node.</p>
+   * @public
+   */
+  nodeId?: string | undefined;
+
+  /**
+   * <p>The endpoints used in the capability report.</p>
+   * @public
+   */
+  endpoints: MatterCapabilityReportEndpoint[] | undefined;
+}
+
+/**
+ * <p>Describe the device using the relevant metadata and supported clusters for device discovery.</p>
+ * @public
+ */
+export interface Device {
+  /**
+   * <p>The device id as defined by the connector.</p> <note> <p>This parameter is used for cloud-to-cloud devices only.</p> </note>
+   * @public
+   */
+  ConnectorDeviceId: string | undefined;
+
+  /**
+   * <p>The name of the device as defined by the connector.</p>
+   * @public
+   */
+  ConnectorDeviceName?: string | undefined;
+
+  /**
+   * <p>The capability report for the device.</p>
+   * @public
+   */
+  CapabilityReport: MatterCapabilityReport | undefined;
+
+  /**
+   * <p>Report of all capabilities supported by the device.</p>
+   * @public
+   */
+  CapabilitySchemas?: CapabilitySchemaItem[] | undefined;
+
+  /**
+   * <p>The metadata attributes for a device.</p>
+   * @public
+   */
+  DeviceMetadata?: __DocumentType | undefined;
 }
 
 /**
@@ -1780,6 +3019,7 @@ export interface GetDeviceDiscoveryRequest {
  */
 export const DiscoveryType = {
   CLOUD: "CLOUD",
+  CUSTOM: "CUSTOM",
   ZIGBEE: "ZIGBEE",
   ZWAVE: "ZWAVE",
 } as const;
@@ -1806,6 +3046,41 @@ export const DeviceDiscoveryStatus = {
 export type DeviceDiscoveryStatus = (typeof DeviceDiscoveryStatus)[keyof typeof DeviceDiscoveryStatus];
 
 /**
+ * <p>Structure containing summary information about a device discovery job, including its identifier, type, and status.</p>
+ * @public
+ */
+export interface DeviceDiscoverySummary {
+  /**
+   * <p>The unique identifier of the device discovery job.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The type of discovery process used to find devices.</p>
+   * @public
+   */
+  DiscoveryType?: DiscoveryType | undefined;
+
+  /**
+   * <p>The current status of the device discovery job.</p>
+   * @public
+   */
+  Status?: DeviceDiscoveryStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDeviceDiscoveryRequest {
+  /**
+   * <p>The id of the device discovery job request.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
  * @public
  */
 export interface GetDeviceDiscoveryResponse {
@@ -1822,8 +3097,7 @@ export interface GetDeviceDiscoveryResponse {
   Arn: string | undefined;
 
   /**
-   * <p>The discovery type supporting the type of device to be discovered in the device
-   *          discovery job request.</p>
+   * <p>The discovery type supporting the type of device to be discovered in the device discovery job request.</p>
    * @public
    */
   DiscoveryType: DiscoveryType | undefined;
@@ -1848,9 +3122,17 @@ export interface GetDeviceDiscoveryResponse {
 
   /**
    * <p>The ID tracking the current discovery process for one connector association.</p>
+   *
+   * @deprecated
    * @public
    */
   ConnectorAssociationId?: string | undefined;
+
+  /**
+   * <p>The identifier of the account association used for the device discovery.</p>
+   * @public
+   */
+  AccountAssociationId?: string | undefined;
 
   /**
    * <p>The timestamp value for the completion time of the device discovery.</p>
@@ -1860,9 +3142,172 @@ export interface GetDeviceDiscoveryResponse {
 
   /**
    * <p>A set of key/value pairs that are used to manage the device discovery request.</p>
+   *
+   * @deprecated
    * @public
    */
   Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDeviceDiscoveriesRequest {
+  /**
+   * <p>A token used for pagination of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of device discovery jobs to return in a single response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The discovery type to filter device discovery jobs by.</p>
+   * @public
+   */
+  TypeFilter?: DiscoveryType | undefined;
+
+  /**
+   * <p>The status to filter device discovery jobs by.</p>
+   * @public
+   */
+  StatusFilter?: DeviceDiscoveryStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDeviceDiscoveriesResponse {
+  /**
+   * <p>The list of device discovery jobs that match the specified criteria.</p>
+   * @public
+   */
+  Items?: DeviceDiscoverySummary[] | undefined;
+
+  /**
+   * <p>A token used for pagination of results when there are more device discovery jobs than can be returned in a single response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDiscoveredDevicesRequest {
+  /**
+   * <p>The identifier of the device discovery job to list discovered devices for.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>A token used for pagination of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of discovered devices to return in a single response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DiscoveryModification = {
+  DISCOVERED: "DISCOVERED",
+  NO_CHANGE: "NO_CHANGE",
+  UPDATED: "UPDATED",
+} as const;
+
+/**
+ * @public
+ */
+export type DiscoveryModification = (typeof DiscoveryModification)[keyof typeof DiscoveryModification];
+
+/**
+ * <p>Structure containing summary information about a device discovered during a device discovery job.</p>
+ * @public
+ */
+export interface DiscoveredDeviceSummary {
+  /**
+   * <p>The third-party device identifier as defined by the connector. This identifier must not contain personal identifiable information (PII).</p>
+   * @public
+   */
+  ConnectorDeviceId?: string | undefined;
+
+  /**
+   * <p>The name of the device as defined by the connector or third-party system.</p>
+   * @public
+   */
+  ConnectorDeviceName?: string | undefined;
+
+  /**
+   * <p>The list of device types or categories that the discovered device belongs to.</p>
+   * @public
+   */
+  DeviceTypes?: string[] | undefined;
+
+  /**
+   * <p>The identifier of the managed thing created for this discovered device, if one exists.</p>
+   * @public
+   */
+  ManagedThingId?: string | undefined;
+
+  /**
+   * <p>The status of the discovered device, indicating whether it has been added, removed, or modified since the last discovery.</p>
+   * @public
+   */
+  Modification?: DiscoveryModification | undefined;
+
+  /**
+   * <p>The timestamp indicating when the device was discovered.</p>
+   * @public
+   */
+  DiscoveredAt?: Date | undefined;
+
+  /**
+   * <p>The brand of the discovered device.</p>
+   * @public
+   */
+  Brand?: string | undefined;
+
+  /**
+   * <p>The model of the discovered device.</p>
+   * @public
+   */
+  Model?: string | undefined;
+
+  /**
+   * <p>The authentication material required for connecting to the discovered device, such as credentials or tokens.</p>
+   * @public
+   */
+  AuthenticationMaterial?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDiscoveredDevicesResponse {
+  /**
+   * <p>The list of discovered devices that match the specified criteria.</p>
+   * @public
+   */
+  Items?: DiscoveredDeviceSummary[] | undefined;
+
+  /**
+   * <p>A token used for pagination of results when there are more discovered devices than can be returned in a single response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1883,11 +3328,16 @@ export type DiscoveryAuthMaterialType = (typeof DiscoveryAuthMaterialType)[keyof
  */
 export interface StartDeviceDiscoveryRequest {
   /**
-   * <p>The discovery type supporting the type of device to be discovered in the device
-   *          discovery job request.</p>
+   * <p>The discovery type supporting the type of device to be discovered in the device discovery task request.</p>
    * @public
    */
   DiscoveryType: DiscoveryType | undefined;
+
+  /**
+   * <p>Additional protocol-specific details required for device discovery, which vary based on the discovery type.</p> <note> <p>For a <code>DiscoveryType</code> of <code>CUSTOM</code>, the string-to-string map must have a key value of <code>Name</code> set to a non-empty-string.</p> </note>
+   * @public
+   */
+  CustomProtocolDetail?: Record<string, string> | undefined;
 
   /**
    * <p>The id of the end-user's IoT hub.</p>
@@ -1897,13 +3347,20 @@ export interface StartDeviceDiscoveryRequest {
 
   /**
    * <p>The id of the connector association.</p>
+   *
+   * @deprecated
    * @public
    */
   ConnectorAssociationIdentifier?: string | undefined;
 
   /**
-   * <p>The authentication material required to start the local device discovery job
-   *          request.</p>
+   * <p>The identifier of the cloud-to-cloud account association to use for discovery of third-party devices.</p>
+   * @public
+   */
+  AccountAssociationId?: string | undefined;
+
+  /**
+   * <p>The authentication material required to start the local device discovery job request.</p>
    * @public
    */
   AuthenticationMaterial?: string | undefined;
@@ -1915,15 +3372,15 @@ export interface StartDeviceDiscoveryRequest {
   AuthenticationMaterialType?: DiscoveryAuthMaterialType | undefined;
 
   /**
-   * <p>An idempotency token. If you retry a request that completed successfully initially using
-   *          the same client token and parameters, then the retry attempt will succeed without
-   *          performing any further actions.</p>
+   * <p>An idempotency token. If you retry a request that completed successfully initially using the same client token and parameters, then the retry attempt will succeed without performing any further actions.</p>
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
    * <p>A set of key/value pairs that are used to manage the device discovery request.</p>
+   *
+   * @deprecated
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -2145,8 +3602,7 @@ export interface GetDefaultEncryptionConfigurationResponse {
   encryptionType: EncryptionType | undefined;
 
   /**
-   * <p>The Key Amazon Resource Name (ARN) of the AWS KMS key used for KMS encryption if you use
-   *             <code>KMS_BASED_ENCRYPTION</code>.</p>
+   * <p>The Key Amazon Resource Name (ARN) of the AWS KMS key used for KMS encryption if you use <code>KMS_BASED_ENCRYPTION</code>.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -2184,8 +3640,7 @@ export interface GetHubConfigurationRequest {}
  */
 export interface GetHubConfigurationResponse {
   /**
-   * <p>A user-defined integer value that represents the hub token timer expiry setting in
-   *          seconds.</p>
+   * <p>A user-defined integer value that represents the hub token timer expiry setting in seconds.</p>
    * @public
    */
   HubTokenTimerExpirySettingInSeconds?: number | undefined;
@@ -2259,8 +3714,7 @@ export interface GetManagedThingResponse {
   Arn?: string | undefined;
 
   /**
-   * <p>Owner of the device, usually an indication of whom the device belongs to. This value
-   *          should not contain personal identifiable information.</p>
+   * <p>Owner of the device, usually an indication of whom the device belongs to. This value should not contain personal identifiable information.</p>
    * @public
    */
   Owner?: string | undefined;
@@ -2278,15 +3732,13 @@ export interface GetManagedThingResponse {
   AdvertisedProductId?: string | undefined;
 
   /**
-   * <p>The type of device used. This will be the Amazon Web Services hub controller, cloud device, or IoT
-   *          device.</p>
+   * <p>The type of device used. This will be the Amazon Web Services hub controller, cloud device, or IoT device.</p>
    * @public
    */
   Role?: Role | undefined;
 
   /**
-   * <p>The provisioning status of the device in the provisioning workflow for onboarding to
-   *          IoT managed integrations.</p>
+   * <p>The provisioning status of the device in the provisioning workflow for onboarding to IoT managed integrations.</p>
    * @public
    */
   ProvisioningStatus?: ProvisioningStatus | undefined;
@@ -2316,8 +3768,7 @@ export interface GetManagedThingResponse {
   SerialNumber?: string | undefined;
 
   /**
-   * <p>The universal product code (UPC) of the device model. The UPC is typically used in the
-   *          United States of America and Canada.</p>
+   * <p>The universal product code (UPC) of the device model. The UPC is typically used in the United States of America and Canada.</p>
    * @public
    */
   UniversalProductCode?: string | undefined;
@@ -2329,39 +3780,33 @@ export interface GetManagedThingResponse {
   InternationalArticleNumber?: string | undefined;
 
   /**
-   * <p>The id of the connector policy.</p>
-   *          <note>
-   *             <p>This parameter is used for cloud-to-cloud devices only.</p>
-   *          </note>
+   * <p>The id of the connector policy.</p> <note> <p>This parameter is used for cloud-to-cloud devices only.</p> </note>
+   *
+   * @deprecated
    * @public
    */
   ConnectorPolicyId?: string | undefined;
 
   /**
-   * <p>The third-party device id as defined by the connector. This device id must not contain
-   *          personal identifiable information (PII).</p>
-   *          <note>
-   *             <p>This parameter is used for cloud-to-cloud devices only.</p>
-   *          </note>
+   * <p>The identifier of the connector destination associated with this managed thing.</p>
+   * @public
+   */
+  ConnectorDestinationId?: string | undefined;
+
+  /**
+   * <p>The third-party device id as defined by the connector. This device id must not contain personal identifiable information (PII).</p> <note> <p>This parameter is used for cloud-to-cloud devices only.</p> </note>
    * @public
    */
   ConnectorDeviceId?: string | undefined;
 
   /**
-   * <p>A Zwave device-specific key used during device activation.</p>
-   *          <note>
-   *             <p>This parameter is used for Zwave devices only.</p>
-   *          </note>
+   * <p>A Zwave device-specific key used during device activation.</p> <note> <p>This parameter is used for Zwave devices only.</p> </note>
    * @public
    */
   DeviceSpecificKey?: string | undefined;
 
   /**
-   * <p>The media access control (MAC) address for the device represented by the managed
-   *          thing.</p>
-   *          <note>
-   *             <p>This parameter is used for Zigbee devices only.</p>
-   *          </note>
+   * <p>The media access control (MAC) address for the device represented by the managed thing.</p> <note> <p>This parameter is used for Zigbee devices only.</p> </note>
    * @public
    */
   MacAddress?: string | undefined;
@@ -2477,8 +3922,7 @@ export interface GetManagedThingConnectivityDataResponse {
   Connected?: boolean | undefined;
 
   /**
-   * <p>The timestamp value of when the connectivity status for a managed thing was last
-   *          taken.</p>
+   * <p>The timestamp value of when the connectivity status for a managed thing was last taken.</p>
    * @public
    */
   Timestamp?: Date | undefined;
@@ -2560,8 +4004,7 @@ export interface StateCapability {
 }
 
 /**
- * <p>Describe the endpoint with an Id, a name, and the relevant capabilities for reporting
- *          state</p>
+ * <p>Describe the endpoint with an Id, a name, and the relevant capabilities for reporting state</p>
  * @public
  */
 export interface StateEndpoint {
@@ -2572,8 +4015,7 @@ export interface StateEndpoint {
   endpointId: string | undefined;
 
   /**
-   * <p>Describe the endpoint with an id, a name, and the relevant capabilities for the
-   *          reporting state.</p>
+   * <p>Describe the endpoint with an id, a name, and the relevant capabilities for the reporting state.</p>
    * @public
    */
   capabilities: StateCapability[] | undefined;
@@ -2595,8 +4037,7 @@ export interface GetManagedThingStateResponse {
  */
 export interface GetNotificationConfigurationRequest {
   /**
-   * <p>The type of event triggering a device notification to the customer-managed
-   *          destination.</p>
+   * <p>The type of event triggering a device notification to the customer-managed destination.</p>
    * @public
    */
   EventType: EventType | undefined;
@@ -2607,8 +4048,7 @@ export interface GetNotificationConfigurationRequest {
  */
 export interface GetNotificationConfigurationResponse {
   /**
-   * <p>The type of event triggering a device notification to the customer-managed
-   *          destination.</p>
+   * <p>The type of event triggering a device notification to the customer-managed destination.</p>
    * @public
    */
   EventType?: EventType | undefined;
@@ -2633,6 +4073,8 @@ export interface GetNotificationConfigurationResponse {
 
   /**
    * <p>A set of key/value pairs that are used to manage the notification configuration.</p>
+   *
+   * @deprecated
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -2825,6 +4267,12 @@ export interface GetOtaTaskResponse {
    * @public
    */
   Status?: OtaStatus | undefined;
+
+  /**
+   * <p>A set of key/value pairs that are used to manage the over-the-air (OTA) task.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2867,8 +4315,7 @@ export interface GetOtaTaskConfigurationResponse {
   Description?: string | undefined;
 
   /**
-   * <p>The timestamp value of when the over-the-air (OTA) task configuration was created
-   *          at.</p>
+   * <p>The timestamp value of when the over-the-air (OTA) task configuration was created at.</p>
    * @public
    */
   CreatedAt?: Date | undefined;
@@ -2890,8 +4337,7 @@ export interface GetProvisioningProfileRequest {
  */
 export interface GetProvisioningProfileResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the provisioning template used in the provisioning
-   *          profile.</p>
+   * <p>The Amazon Resource Name (ARN) of the provisioning template used in the provisioning profile.</p>
    * @public
    */
   Arn?: string | undefined;
@@ -2962,15 +4408,13 @@ export interface RuntimeLogConfigurations {
   LocalStoreLocation?: string | undefined;
 
   /**
-   * <p>Configuration to set the maximum number of runtime log files that can be stored on the
-   *          device before the oldest files are deleted or overwritten.</p>
+   * <p>Configuration to set the maximum number of runtime log files that can be stored on the device before the oldest files are deleted or overwritten.</p>
    * @public
    */
   LocalStoreFileRotationMaxFiles?: number | undefined;
 
   /**
-   * <p>Configuration to set the maximum bytes of runtime logs that can be stored on the device
-   *          before the oldest logs are deleted or overwritten.</p>
+   * <p>Configuration to set the maximum bytes of runtime logs that can be stored on the device before the oldest logs are deleted or overwritten.</p>
    * @public
    */
   LocalStoreFileRotationMaxBytes?: number | undefined;
@@ -2982,15 +4426,13 @@ export interface RuntimeLogConfigurations {
   UploadLog?: boolean | undefined;
 
   /**
-   * <p>Configuration to set the time interval in minutes between each batch of runtime logs
-   *          that the device uploads to the cloud.</p>
+   * <p>Configuration to set the time interval in minutes between each batch of runtime logs that the device uploads to the cloud.</p>
    * @public
    */
   UploadPeriodMinutes?: number | undefined;
 
   /**
-   * <p>Configuration to enable or disable deleting of runtime logs in the device once uploaded
-   *          to the cloud.</p>
+   * <p>Configuration to enable or disable deleting of runtime logs in the device once uploaded to the cloud.</p>
    * @public
    */
   DeleteLocalStoreAfterUpload?: boolean | undefined;
@@ -3017,21 +4459,6 @@ export interface GetRuntimeLogConfigurationResponse {
  * @public
  * @enum
  */
-export const SchemaVersionFormat = {
-  AWS: "AWS",
-  CONNECTOR: "CONNECTOR",
-  ZCL: "ZCL",
-} as const;
-
-/**
- * @public
- */
-export type SchemaVersionFormat = (typeof SchemaVersionFormat)[keyof typeof SchemaVersionFormat];
-
-/**
- * @public
- * @enum
- */
 export const SchemaVersionType = {
   CAPABILITY: "capability",
   DEFINITION: "definition",
@@ -3053,8 +4480,7 @@ export interface GetSchemaVersionRequest {
   Type: SchemaVersionType | undefined;
 
   /**
-   * <p>Schema id with a version specified. If the version is missing, it defaults to latest
-   *          version.</p>
+   * <p>Schema id with a version specified. If the version is missing, it defaults to latest version.</p>
    * @public
    */
   SchemaVersionedId: string | undefined;
@@ -3132,8 +4558,7 @@ export interface GetSchemaVersionResponse {
  */
 export interface PutHubConfigurationRequest {
   /**
-   * <p>A user-defined integer value that represents the hub token timer expiry setting in
-   *          seconds.</p>
+   * <p>A user-defined integer value that represents the hub token timer expiry setting in seconds.</p>
    * @public
    */
   HubTokenTimerExpirySettingInSeconds: number | undefined;
@@ -3144,11 +4569,32 @@ export interface PutHubConfigurationRequest {
  */
 export interface PutHubConfigurationResponse {
   /**
-   * <p>A user-defined integer value that represents the hub token timer expiry setting in
-   *          seconds.</p>
+   * <p>A user-defined integer value that represents the hub token timer expiry setting in seconds.</p>
    * @public
    */
   HubTokenTimerExpirySettingInSeconds?: number | undefined;
+}
+
+/**
+ * <p>The request is not valid.</p>
+ * @public
+ */
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3162,8 +4608,7 @@ export interface PutDefaultEncryptionConfigurationRequest {
   encryptionType: EncryptionType | undefined;
 
   /**
-   * <p>The Key Amazon Resource Name (ARN) of the AWS KMS key used for KMS encryption if you use
-   *             <code>KMS_BASED_ENCRYPTION</code>.</p>
+   * <p>The Key Amazon Resource Name (ARN) of the AWS KMS key used for KMS encryption if you use <code>KMS_BASED_ENCRYPTION</code>.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -3186,11 +4631,142 @@ export interface PutDefaultEncryptionConfigurationResponse {
   encryptionType: EncryptionType | undefined;
 
   /**
-   * <p>The Key Amazon Resource Name (ARN) of the AWS KMS key used for KMS encryption if you use
-   *             <code>KMS_BASED_ENCRYPTION</code>.</p>
+   * <p>The Key Amazon Resource Name (ARN) of the AWS KMS key used for KMS encryption if you use <code>KMS_BASED_ENCRYPTION</code>.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * The ARN of the resource for which to list tags.
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * A set of key/value pairs that are used to manage the resource.
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListManagedThingAccountAssociationsRequest {
+  /**
+   * <p>The identifier of the managed thing to list account associations for.</p>
+   * @public
+   */
+  ManagedThingId?: string | undefined;
+
+  /**
+   * <p>The identifier of the account association to filter results by. When specified, only associations with this account association ID will be returned.</p>
+   * @public
+   */
+  AccountAssociationId?: string | undefined;
+
+  /**
+   * <p>The maximum number of account associations to return in a single response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token used for pagination of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Structure representing an association between a managed thing and an account association, which connects a device to a third-party account.</p>
+ * @public
+ */
+export interface ManagedThingAssociation {
+  /**
+   * <p>The identifier of the managed thing in the association.</p>
+   * @public
+   */
+  ManagedThingId?: string | undefined;
+
+  /**
+   * <p>The identifier of the account association in the association.</p>
+   * @public
+   */
+  AccountAssociationId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListManagedThingAccountAssociationsResponse {
+  /**
+   * <p>The list of managed thing associations that match the specified criteria, including the managed thing ID and account association ID for each association.</p>
+   * @public
+   */
+  Items?: ManagedThingAssociation[] | undefined;
+
+  /**
+   * <p>A token used for pagination of results when there are more account associations than can be returned in a single response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterAccountAssociationRequest {
+  /**
+   * <p>The identifier of the managed thing to register with the account association.</p>
+   * @public
+   */
+  ManagedThingId: string | undefined;
+
+  /**
+   * <p>The identifier of the account association to register with the managed thing.</p>
+   * @public
+   */
+  AccountAssociationId: string | undefined;
+
+  /**
+   * <p>The identifier of the device discovery job associated with this registration.</p>
+   * @public
+   */
+  DeviceDiscoveryId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterAccountAssociationResponse {
+  /**
+   * <p>The identifier of the account association that was registered.</p>
+   * @public
+   */
+  AccountAssociationId?: string | undefined;
+
+  /**
+   * <p>The identifier of the device discovery job associated with this registration.</p>
+   * @public
+   */
+  DeviceDiscoveryId?: string | undefined;
+
+  /**
+   * <p>The identifier of the managed thing that was registered with the account association.</p>
+   * @public
+   */
+  ManagedThingId?: string | undefined;
 }
 
 /**
@@ -3211,9 +4787,17 @@ export interface SendManagedThingCommandRequest {
 
   /**
    * <p>The ID tracking the current discovery process for one connector association.</p>
+   *
+   * @deprecated
    * @public
    */
   ConnectorAssociationId?: string | undefined;
+
+  /**
+   * <p>The identifier of the account association to use when sending a command to a managed thing.</p>
+   * @public
+   */
+  AccountAssociationId?: string | undefined;
 }
 
 /**
@@ -3221,8 +4805,7 @@ export interface SendManagedThingCommandRequest {
  */
 export interface SendManagedThingCommandResponse {
   /**
-   * <p>The trace request identifier. This is specified by the device owner, but will be
-   *          generated by IoT managed integrations if not provided by the device owner.</p>
+   * <p>The trace request identifier. This is specified by the device owner, but will be generated by IoT managed integrations if not provided by the device owner.</p>
    * @public
    */
   TraceId?: string | undefined;
@@ -3245,8 +4828,7 @@ export interface ListManagedThingsRequest {
   CredentialLockerFilter?: string | undefined;
 
   /**
-   * <p>Filter on the type of device used. This will be the Amazon Web Services hub controller, cloud device,
-   *          or IoT device.</p>
+   * <p>Filter on the type of device used. This will be the Amazon Web Services hub controller, cloud device, or IoT device.</p>
    * @public
    */
   RoleFilter?: Role | undefined;
@@ -3259,9 +4841,23 @@ export interface ListManagedThingsRequest {
 
   /**
    * <p>Filter on a connector policy id for a managed thing.</p>
+   *
+   * @deprecated
    * @public
    */
   ConnectorPolicyIdFilter?: string | undefined;
+
+  /**
+   * <p>Filter managed things by the connector destination ID they are associated with.</p>
+   * @public
+   */
+  ConnectorDestinationIdFilter?: string | undefined;
+
+  /**
+   * <p>Filter managed things by the connector device ID they are associated with. When specified, only managed things with this connector device ID will be returned.</p>
+   * @public
+   */
+  ConnectorDeviceIdFilter?: string | undefined;
 
   /**
    * <p>Filter on the serial number of the device.</p>
@@ -3324,23 +4920,24 @@ export interface ManagedThingSummary {
   Classification?: string | undefined;
 
   /**
-   * <p>The third-party device id as defined by the connector. This device id must not contain
-   *          personal identifiable information (PII).</p>
-   *          <note>
-   *             <p>This parameter is used for cloud-to-cloud devices only.</p>
-   *          </note>
+   * <p>The third-party device id as defined by the connector. This device id must not contain personal identifiable information (PII).</p> <note> <p>This parameter is used for cloud-to-cloud devices only.</p> </note>
    * @public
    */
   ConnectorDeviceId?: string | undefined;
 
   /**
-   * <p>The id of the connector policy.</p>
-   *          <note>
-   *             <p>This parameter is used for cloud-to-cloud devices only.</p>
-   *          </note>
+   * <p>The id of the connector policy.</p> <note> <p>This parameter is used for cloud-to-cloud devices only.</p> </note>
+   *
+   * @deprecated
    * @public
    */
   ConnectorPolicyId?: string | undefined;
+
+  /**
+   * <p>The identifier of the connector destination associated with this managed thing, if applicable.</p>
+   * @public
+   */
+  ConnectorDestinationId?: string | undefined;
 
   /**
    * <p>The model of the device.</p>
@@ -3355,8 +4952,7 @@ export interface ManagedThingSummary {
   Name?: string | undefined;
 
   /**
-   * <p>Owner of the device, usually an indication of whom the device belongs to. This value
-   *          should not contain personal identifiable information.</p>
+   * <p>Owner of the device, usually an indication of whom the device belongs to. This value should not contain personal identifiable information.</p>
    * @public
    */
   Owner?: string | undefined;
@@ -3374,15 +4970,13 @@ export interface ManagedThingSummary {
   ParentControllerId?: string | undefined;
 
   /**
-   * <p>The provisioning status of the device in the provisioning workflow for onboarding to
-   *          IoT managed integrations.</p>
+   * <p>The provisioning status of the device in the provisioning workflow for onboarding to IoT managed integrations.</p>
    * @public
    */
   ProvisioningStatus?: ProvisioningStatus | undefined;
 
   /**
-   * <p>The type of device used. This will be the Amazon Web Services hub controller, cloud device, or IoT
-   *          device.</p>
+   * <p>The type of device used. This will be the Amazon Web Services hub controller, cloud device, or IoT device.</p>
    * @public
    */
   Role?: Role | undefined;
@@ -3516,8 +5110,7 @@ export interface UpdateManagedThingRequest {
   Identifier: string | undefined;
 
   /**
-   * <p>Owner of the device, usually an indication of whom the device belongs to. This value
-   *          should not contain personal identifiable information.</p>
+   * <p>Owner of the device, usually an indication of whom the device belongs to. This value should not contain personal identifiable information.</p>
    * @public
    */
   Owner?: string | undefined;
@@ -3557,6 +5150,12 @@ export interface UpdateManagedThingRequest {
    * @public
    */
   CapabilityReport?: CapabilityReport | undefined;
+
+  /**
+   * <p>The updated capability schemas that define the functionality and features supported by the managed thing.</p>
+   * @public
+   */
+  CapabilitySchemas?: CapabilitySchemaItem[] | undefined;
 
   /**
    * <p>The capabilities of the device such as light bulb.</p>
@@ -3606,8 +5205,7 @@ export interface ListNotificationConfigurationsRequest {
  */
 export interface NotificationConfigurationSummary {
   /**
-   * <p>The type of event triggering a device notification to the customer-managed
-   *          destination.</p>
+   * <p>The type of event triggering a device notification to the customer-managed destination.</p>
    * @public
    */
   EventType?: EventType | undefined;
@@ -3641,8 +5239,7 @@ export interface ListNotificationConfigurationsResponse {
  */
 export interface UpdateNotificationConfigurationRequest {
   /**
-   * <p>The type of event triggering a device notification to the customer-managed
-   *          destination.</p>
+   * <p>The type of event triggering a device notification to the customer-managed destination.</p>
    * @public
    */
   EventType: EventType | undefined;
@@ -3689,8 +5286,7 @@ export interface OtaTaskConfigurationSummary {
   Name?: string | undefined;
 
   /**
-   * <p>The timestamp value of when the over-the-air (OTA) task configuration was created
-   *          at.</p>
+   * <p>The timestamp value of when the over-the-air (OTA) task configuration was created at.</p>
    * @public
    */
   CreatedAt?: Date | undefined;
@@ -3768,29 +5364,25 @@ export interface OtaTaskExecutionSummary {
   ExecutionNumber?: number | undefined;
 
   /**
-   * <p>The timestamp value of when the over-the-air (OTA) task execution summary was last
-   *          updated.</p>
+   * <p>The timestamp value of when the over-the-air (OTA) task execution summary was last updated.</p>
    * @public
    */
   LastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp value of when the over-the-air (OTA) task execution summary is targeted to
-   *          start.</p>
+   * <p>The timestamp value of when the over-the-air (OTA) task execution summary is targeted to start.</p>
    * @public
    */
   QueuedAt?: Date | undefined;
 
   /**
-   * <p>The number of retry attempts for starting the over-the-air (OTA) task execution summary
-   *          after a failed attempt.</p>
+   * <p>The number of retry attempts for starting the over-the-air (OTA) task execution summary after a failed attempt.</p>
    * @public
    */
   RetryAttempt?: number | undefined;
 
   /**
-   * <p>The timestamp value of when the over-the-air (OTA) task execution summary
-   *          started.</p>
+   * <p>The timestamp value of when the over-the-air (OTA) task execution summary started.</p>
    * @public
    */
   StartedAt?: Date | undefined;
@@ -3971,8 +5563,7 @@ export interface ProvisioningProfileSummary {
   Id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the provisioning template used in the provisioning
-   *          profile.</p>
+   * <p>The Amazon Resource Name (ARN) of the provisioning template used in the provisioning profile.</p>
    * @public
    */
   Arn?: string | undefined;
@@ -4152,6 +5743,215 @@ export interface ListSchemaVersionsResponse {
 }
 
 /**
+ * <p>Describe a Matter cluster with an id, and the relevant attributes, commands, and events.</p>
+ * @public
+ */
+export interface MatterCluster {
+  /**
+   * <p>The cluster id.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The Matter attributes.</p>
+   * @public
+   */
+  attributes?: __DocumentType | undefined;
+
+  /**
+   * <p>Describe the Matter commands with the Matter command identifier mapped to the command fields.</p>
+   * @public
+   */
+  commands?: Record<string, __DocumentType> | undefined;
+
+  /**
+   * <p>Describe the Matter events with the Matter event identifier mapped to the event fields.</p>
+   * @public
+   */
+  events?: Record<string, __DocumentType> | undefined;
+}
+
+/**
+ * <p>Structure describing a managed thing.</p>
+ * @public
+ */
+export interface MatterEndpoint {
+  /**
+   * <p>The Matter endpoint id.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>A list of Matter clusters for a managed thing.</p>
+   * @public
+   */
+  clusters?: MatterCluster[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendConnectorEventRequest {
+  /**
+   * <p>The id of the connector between the third-party cloud provider and IoT managed integrations.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+
+  /**
+   * <p>The id of the third-party cloud provider.</p>
+   * @public
+   */
+  UserId?: string | undefined;
+
+  /**
+   * <p>The Open Connectivity Foundation (OCF) operation requested to be performed on the managed thing.</p> <note> <p>The field op can have a value of "I" or "U". The field "cn" will contain the capability types.</p> </note>
+   * @public
+   */
+  Operation: ConnectorEventOperation | undefined;
+
+  /**
+   * <p>The Open Connectivity Foundation (OCF) security specification version for the operation being requested on the managed thing. For more information, see <a href="https://openconnectivity.org/specs/OCF_Security_Specification_v1.0.0.pdf">OCF Security Specification</a>.</p>
+   * @public
+   */
+  OperationVersion?: string | undefined;
+
+  /**
+   * <p>The status code of the Open Connectivity Foundation (OCF) operation being performed on the managed thing.</p>
+   * @public
+   */
+  StatusCode?: number | undefined;
+
+  /**
+   * <p>The device state change event payload.</p> <p>This parameter will include the following three fields:</p> <ul> <li> <p> <code>uri</code>: <code>schema auc://&lt;PARTNER-DEVICE-ID&gt;/ResourcePath</code> (The <code>Resourcepath</code> corresponds to an OCF resource.)</p> </li> <li> <p> <code>op</code>: For device state changes, this field must populate as <code>n+d</code>.</p> </li> <li> <p> <code>cn</code>: The content depends on the OCF resource referenced in <code>ResourcePath</code>.</p> </li> </ul>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The id for the device discovery job.</p>
+   * @public
+   */
+  DeviceDiscoveryId?: string | undefined;
+
+  /**
+   * <p>The third-party device id as defined by the connector. This device id must not contain personal identifiable information (PII).</p> <note> <p>This parameter is used for cloud-to-cloud devices only.</p> </note>
+   * @public
+   */
+  ConnectorDeviceId?: string | undefined;
+
+  /**
+   * <p>The trace request identifier used to correlate a command request and response. This is specified by the device owner, but will be generated by IoT managed integrations if not provided by the device owner.</p>
+   * @public
+   */
+  TraceId?: string | undefined;
+
+  /**
+   * <p>The list of devices.</p>
+   * @public
+   */
+  Devices?: Device[] | undefined;
+
+  /**
+   * <p>The device endpoint.</p>
+   * @public
+   */
+  MatterEndpoint?: MatterEndpoint | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendConnectorEventResponse {
+  /**
+   * <p>The id of the connector between the third-party cloud provider and IoT managed integrations.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * The ARN of the resource to which to add tags.
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * A set of key/value pairs that are used to manage the resource
+   * @public
+   */
+  Tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * The ARN of the resource to which to add tags.
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * A list of tag keys to remove from the resource.
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
+
+/**
+ * @internal
+ */
+export const CreateAccountAssociationRequestFilterSensitiveLog = (obj: CreateAccountAssociationRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAccountAssociationResponseFilterSensitiveLog = (obj: CreateAccountAssociationResponse): any => ({
+  ...obj,
+  ...(obj.OAuthAuthorizationUrl && { OAuthAuthorizationUrl: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetAccountAssociationResponseFilterSensitiveLog = (obj: GetAccountAssociationResponse): any => ({
+  ...obj,
+  ...(obj.OAuthAuthorizationUrl && { OAuthAuthorizationUrl: SENSITIVE_STRING }),
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartAccountAssociationRefreshResponseFilterSensitiveLog = (
+  obj: StartAccountAssociationRefreshResponse
+): any => ({
+  ...obj,
+  ...(obj.OAuthAuthorizationUrl && { OAuthAuthorizationUrl: SENSITIVE_STRING }),
+});
+
+/**
  * @internal
  */
 export const CapabilityActionFilterSensitiveLog = (obj: CapabilityAction): any => ({
@@ -4285,9 +6085,38 @@ export const GetDestinationResponseFilterSensitiveLog = (obj: GetDestinationResp
 /**
  * @internal
  */
+export const DeviceFilterSensitiveLog = (obj: Device): any => ({
+  ...obj,
+  ...(obj.ConnectorDeviceId && { ConnectorDeviceId: SENSITIVE_STRING }),
+  ...(obj.ConnectorDeviceName && { ConnectorDeviceName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const GetDeviceDiscoveryResponseFilterSensitiveLog = (obj: GetDeviceDiscoveryResponse): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DiscoveredDeviceSummaryFilterSensitiveLog = (obj: DiscoveredDeviceSummary): any => ({
+  ...obj,
+  ...(obj.ConnectorDeviceId && { ConnectorDeviceId: SENSITIVE_STRING }),
+  ...(obj.ConnectorDeviceName && { ConnectorDeviceName: SENSITIVE_STRING }),
+  ...(obj.Brand && { Brand: SENSITIVE_STRING }),
+  ...(obj.Model && { Model: SENSITIVE_STRING }),
+  ...(obj.AuthenticationMaterial && { AuthenticationMaterial: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListDiscoveredDevicesResponseFilterSensitiveLog = (obj: ListDiscoveredDevicesResponse): any => ({
+  ...obj,
+  ...(obj.Items && { Items: obj.Items.map((item) => DiscoveredDeviceSummaryFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -4353,6 +6182,14 @@ export const GetNotificationConfigurationResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const GetOtaTaskResponseFilterSensitiveLog = (obj: GetOtaTaskResponse): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const GetOtaTaskConfigurationResponseFilterSensitiveLog = (obj: GetOtaTaskConfigurationResponse): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -4370,6 +6207,14 @@ export const GetProvisioningProfileResponseFilterSensitiveLog = (obj: GetProvisi
 /**
  * @internal
  */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const SendManagedThingCommandRequestFilterSensitiveLog = (obj: SendManagedThingCommandRequest): any => ({
   ...obj,
 });
@@ -4380,6 +6225,7 @@ export const SendManagedThingCommandRequestFilterSensitiveLog = (obj: SendManage
 export const ListManagedThingsRequestFilterSensitiveLog = (obj: ListManagedThingsRequest): any => ({
   ...obj,
   ...(obj.OwnerFilter && { OwnerFilter: SENSITIVE_STRING }),
+  ...(obj.ConnectorDeviceIdFilter && { ConnectorDeviceIdFilter: SENSITIVE_STRING }),
   ...(obj.SerialNumberFilter && { SerialNumberFilter: SENSITIVE_STRING }),
 });
 
@@ -4430,4 +6276,44 @@ export const OtaTaskConfigurationSummaryFilterSensitiveLog = (obj: OtaTaskConfig
 export const ListOtaTaskConfigurationsResponseFilterSensitiveLog = (obj: ListOtaTaskConfigurationsResponse): any => ({
   ...obj,
   ...(obj.Items && { Items: obj.Items.map((item) => OtaTaskConfigurationSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const MatterClusterFilterSensitiveLog = (obj: MatterCluster): any => ({
+  ...obj,
+  ...(obj.attributes && { attributes: SENSITIVE_STRING }),
+  ...(obj.commands && { commands: SENSITIVE_STRING }),
+  ...(obj.events && { events: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MatterEndpointFilterSensitiveLog = (obj: MatterEndpoint): any => ({
+  ...obj,
+  ...(obj.clusters && { clusters: obj.clusters.map((item) => MatterClusterFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SendConnectorEventRequestFilterSensitiveLog = (obj: SendConnectorEventRequest): any => ({
+  ...obj,
+  ...(obj.UserId && { UserId: SENSITIVE_STRING }),
+  ...(obj.OperationVersion && { OperationVersion: SENSITIVE_STRING }),
+  ...(obj.StatusCode && { StatusCode: SENSITIVE_STRING }),
+  ...(obj.Message && { Message: SENSITIVE_STRING }),
+  ...(obj.ConnectorDeviceId && { ConnectorDeviceId: SENSITIVE_STRING }),
+  ...(obj.Devices && { Devices: obj.Devices.map((item) => DeviceFilterSensitiveLog(item)) }),
+  ...(obj.MatterEndpoint && { MatterEndpoint: MatterEndpointFilterSensitiveLog(obj.MatterEndpoint) }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
 });

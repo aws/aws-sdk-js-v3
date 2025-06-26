@@ -32,8 +32,7 @@ export interface PutRuntimeLogConfigurationCommandInput extends PutRuntimeLogCon
 export interface PutRuntimeLogConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Set the runtime log configuration for a specific managed thing or for all managed things
- *          as a group.</p>
+ * <p>Set the runtime log configuration for a specific managed thing or for all managed things as a group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,8 +68,7 @@ export interface PutRuntimeLogConfigurationCommandOutput extends __MetadataBeare
  *  <p>User is not authorized.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

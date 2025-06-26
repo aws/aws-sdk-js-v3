@@ -36,8 +36,7 @@ export interface CreateManagedThingCommandInput extends CreateManagedThingReques
 export interface CreateManagedThingCommandOutput extends CreateManagedThingResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a managed thing. A managed thing contains the device identifier, protocol
- *          supported, and capabilities of the device in a protocol-specific format.</p>
+ * <p>Creates a managed thing. A managed thing contains the device identifier, protocol supported, and capabilities of the device in a protocol-specific format.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,7 +48,7 @@ export interface CreateManagedThingCommandOutput extends CreateManagedThingRespo
  *   Owner: "STRING_VALUE",
  *   CredentialLockerId: "STRING_VALUE",
  *   AuthenticationMaterial: "STRING_VALUE", // required
- *   AuthenticationMaterialType: "WIFI_SETUP_QR_BAR_CODE" || "ZWAVE_QR_BAR_CODE" || "ZIGBEE_QR_BAR_CODE", // required
+ *   AuthenticationMaterialType: "CUSTOM_PROTOCOL_QR_BAR_CODE" || "WIFI_SETUP_QR_BAR_CODE" || "ZWAVE_QR_BAR_CODE" || "ZIGBEE_QR_BAR_CODE" || "DISCOVERED_DEVICE", // required
  *   SerialNumber: "STRING_VALUE",
  *   Brand: "STRING_VALUE",
  *   Model: "STRING_VALUE",
@@ -82,6 +81,15 @@ export interface CreateManagedThingCommandOutput extends CreateManagedThingRespo
  *       },
  *     ],
  *   },
+ *   CapabilitySchemas: [ // CapabilitySchemas
+ *     { // CapabilitySchemaItem
+ *       Format: "AWS" || "ZCL" || "CONNECTOR", // required
+ *       CapabilityId: "STRING_VALUE", // required
+ *       ExtrinsicId: "STRING_VALUE", // required
+ *       ExtrinsicVersion: Number("int"), // required
+ *       Schema: "DOCUMENT_VALUE", // required
+ *     },
+ *   ],
  *   Capabilities: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  *   Classification: "STRING_VALUE",
@@ -115,8 +123,7 @@ export interface CreateManagedThingCommandOutput extends CreateManagedThingRespo
  *  <p>There is a conflict with the request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

@@ -31,6 +31,18 @@ import {
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
+  CreateAccountAssociationCommandInput,
+  CreateAccountAssociationCommandOutput,
+} from "../commands/CreateAccountAssociationCommand";
+import {
+  CreateCloudConnectorCommandInput,
+  CreateCloudConnectorCommandOutput,
+} from "../commands/CreateCloudConnectorCommand";
+import {
+  CreateConnectorDestinationCommandInput,
+  CreateConnectorDestinationCommandOutput,
+} from "../commands/CreateConnectorDestinationCommand";
+import {
   CreateCredentialLockerCommandInput,
   CreateCredentialLockerCommandOutput,
 } from "../commands/CreateCredentialLockerCommand";
@@ -54,6 +66,18 @@ import {
   CreateProvisioningProfileCommandOutput,
 } from "../commands/CreateProvisioningProfileCommand";
 import {
+  DeleteAccountAssociationCommandInput,
+  DeleteAccountAssociationCommandOutput,
+} from "../commands/DeleteAccountAssociationCommand";
+import {
+  DeleteCloudConnectorCommandInput,
+  DeleteCloudConnectorCommandOutput,
+} from "../commands/DeleteCloudConnectorCommand";
+import {
+  DeleteConnectorDestinationCommandInput,
+  DeleteConnectorDestinationCommandOutput,
+} from "../commands/DeleteConnectorDestinationCommand";
+import {
   DeleteCredentialLockerCommandInput,
   DeleteCredentialLockerCommandOutput,
 } from "../commands/DeleteCredentialLockerCommand";
@@ -76,6 +100,19 @@ import {
   DeleteProvisioningProfileCommandInput,
   DeleteProvisioningProfileCommandOutput,
 } from "../commands/DeleteProvisioningProfileCommand";
+import {
+  DeregisterAccountAssociationCommandInput,
+  DeregisterAccountAssociationCommandOutput,
+} from "../commands/DeregisterAccountAssociationCommand";
+import {
+  GetAccountAssociationCommandInput,
+  GetAccountAssociationCommandOutput,
+} from "../commands/GetAccountAssociationCommand";
+import { GetCloudConnectorCommandInput, GetCloudConnectorCommandOutput } from "../commands/GetCloudConnectorCommand";
+import {
+  GetConnectorDestinationCommandInput,
+  GetConnectorDestinationCommandOutput,
+} from "../commands/GetConnectorDestinationCommand";
 import {
   GetCredentialLockerCommandInput,
   GetCredentialLockerCommandOutput,
@@ -131,14 +168,38 @@ import {
 } from "../commands/GetRuntimeLogConfigurationCommand";
 import { GetSchemaVersionCommandInput, GetSchemaVersionCommandOutput } from "../commands/GetSchemaVersionCommand";
 import {
+  ListAccountAssociationsCommandInput,
+  ListAccountAssociationsCommandOutput,
+} from "../commands/ListAccountAssociationsCommand";
+import {
+  ListCloudConnectorsCommandInput,
+  ListCloudConnectorsCommandOutput,
+} from "../commands/ListCloudConnectorsCommand";
+import {
+  ListConnectorDestinationsCommandInput,
+  ListConnectorDestinationsCommandOutput,
+} from "../commands/ListConnectorDestinationsCommand";
+import {
   ListCredentialLockersCommandInput,
   ListCredentialLockersCommandOutput,
 } from "../commands/ListCredentialLockersCommand";
 import { ListDestinationsCommandInput, ListDestinationsCommandOutput } from "../commands/ListDestinationsCommand";
 import {
+  ListDeviceDiscoveriesCommandInput,
+  ListDeviceDiscoveriesCommandOutput,
+} from "../commands/ListDeviceDiscoveriesCommand";
+import {
+  ListDiscoveredDevicesCommandInput,
+  ListDiscoveredDevicesCommandOutput,
+} from "../commands/ListDiscoveredDevicesCommand";
+import {
   ListEventLogConfigurationsCommandInput,
   ListEventLogConfigurationsCommandOutput,
 } from "../commands/ListEventLogConfigurationsCommand";
+import {
+  ListManagedThingAccountAssociationsCommandInput,
+  ListManagedThingAccountAssociationsCommandOutput,
+} from "../commands/ListManagedThingAccountAssociationsCommand";
 import {
   ListManagedThingSchemasCommandInput,
   ListManagedThingSchemasCommandOutput,
@@ -163,6 +224,10 @@ import {
 } from "../commands/ListProvisioningProfilesCommand";
 import { ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput } from "../commands/ListSchemaVersionsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import {
   PutDefaultEncryptionConfigurationCommandInput,
   PutDefaultEncryptionConfigurationCommandOutput,
 } from "../commands/PutDefaultEncryptionConfigurationCommand";
@@ -175,6 +240,10 @@ import {
   PutRuntimeLogConfigurationCommandOutput,
 } from "../commands/PutRuntimeLogConfigurationCommand";
 import {
+  RegisterAccountAssociationCommandInput,
+  RegisterAccountAssociationCommandOutput,
+} from "../commands/RegisterAccountAssociationCommand";
+import {
   RegisterCustomEndpointCommandInput,
   RegisterCustomEndpointCommandOutput,
 } from "../commands/RegisterCustomEndpointCommand";
@@ -182,14 +251,33 @@ import {
   ResetRuntimeLogConfigurationCommandInput,
   ResetRuntimeLogConfigurationCommandOutput,
 } from "../commands/ResetRuntimeLogConfigurationCommand";
+import { SendConnectorEventCommandInput, SendConnectorEventCommandOutput } from "../commands/SendConnectorEventCommand";
 import {
   SendManagedThingCommandCommandInput,
   SendManagedThingCommandCommandOutput,
 } from "../commands/SendManagedThingCommandCommand";
 import {
+  StartAccountAssociationRefreshCommandInput,
+  StartAccountAssociationRefreshCommandOutput,
+} from "../commands/StartAccountAssociationRefreshCommand";
+import {
   StartDeviceDiscoveryCommandInput,
   StartDeviceDiscoveryCommandOutput,
 } from "../commands/StartDeviceDiscoveryCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateAccountAssociationCommandInput,
+  UpdateAccountAssociationCommandOutput,
+} from "../commands/UpdateAccountAssociationCommand";
+import {
+  UpdateCloudConnectorCommandInput,
+  UpdateCloudConnectorCommandOutput,
+} from "../commands/UpdateCloudConnectorCommand";
+import {
+  UpdateConnectorDestinationCommandInput,
+  UpdateConnectorDestinationCommandOutput,
+} from "../commands/UpdateConnectorDestinationCommand";
 import { UpdateDestinationCommandInput, UpdateDestinationCommandOutput } from "../commands/UpdateDestinationCommand";
 import {
   UpdateEventLogConfigurationCommandInput,
@@ -205,19 +293,36 @@ import { IoTManagedIntegrationsServiceException as __BaseException } from "../mo
 import {
   AbortConfigCriteria,
   AccessDeniedException,
+  AuthConfig,
+  AuthConfigUpdate,
   CapabilityAction,
   CapabilityReport,
   CapabilityReportCapability,
   CapabilityReportEndpoint,
+  CapabilitySchemaItem,
   CommandCapability,
   CommandEndpoint,
   ConflictException,
   CredentialLockerSummary,
+  Device,
+  DiscoveredDeviceSummary,
+  EndpointConfig,
   ExponentialRolloutRate,
   InternalFailureException,
   InternalServerException,
+  InvalidRequestException,
+  LambdaConfig,
+  LimitExceededException,
   ManagedThingSchemaListItem,
   ManagedThingSummary,
+  MatterCapabilityReport,
+  MatterCapabilityReportAttribute,
+  MatterCapabilityReportCluster,
+  MatterCapabilityReportEndpoint,
+  MatterCluster,
+  MatterEndpoint,
+  OAuthConfig,
+  OAuthUpdate,
   OtaTaskAbortConfig,
   OtaTaskConfigurationSummary,
   OtaTaskExecutionRetryConfig,
@@ -227,12 +332,14 @@ import {
   OtaTaskSchedulingConfig,
   OtaTaskSummary,
   OtaTaskTimeoutConfig,
+  ProactiveRefreshTokenRenewal,
   PushConfig,
   ResourceNotFoundException,
   RetryConfigCriteria,
   RolloutRateIncreaseCriteria,
   RuntimeLogConfigurations,
   ScheduleMaintenanceWindow,
+  SecretsManager,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
   StateCapability,
@@ -241,6 +348,86 @@ import {
   UnauthorizedException,
   ValidationException,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1CreateAccountAssociationCommand
+ */
+export const se_CreateAccountAssociationCommand = async (
+  input: CreateAccountAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/account-associations");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      ConnectorDestinationId: [],
+      Description: [],
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateCloudConnectorCommand
+ */
+export const se_CreateCloudConnectorCommand = async (
+  input: CreateCloudConnectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cloud-connectors");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      Description: [],
+      EndpointConfig: (_) => _json(_),
+      EndpointType: [],
+      Name: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateConnectorDestinationCommand
+ */
+export const se_CreateConnectorDestinationCommand = async (
+  input: CreateConnectorDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/connector-destinations");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AuthConfig: (_) => _json(_),
+      AuthType: [],
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      CloudConnectorId: [],
+      Description: [],
+      Name: [],
+      SecretsManager: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CreateCredentialLockerCommand
@@ -339,6 +526,7 @@ export const se_CreateManagedThingCommand = async (
       Brand: [],
       Capabilities: [],
       CapabilityReport: (_) => _json(_),
+      CapabilitySchemas: (_) => se_CapabilitySchemas(_, context),
       Classification: [],
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       CredentialLockerId: [],
@@ -461,6 +649,54 @@ export const se_CreateProvisioningProfileCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteAccountAssociationCommand
+ */
+export const se_DeleteAccountAssociationCommand = async (
+  input: DeleteAccountAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/account-associations/{AccountAssociationId}");
+  b.p("AccountAssociationId", () => input.AccountAssociationId!, "{AccountAssociationId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteCloudConnectorCommand
+ */
+export const se_DeleteCloudConnectorCommand = async (
+  input: DeleteCloudConnectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/cloud-connectors/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteConnectorDestinationCommand
+ */
+export const se_DeleteConnectorDestinationCommand = async (
+  input: DeleteConnectorDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/connector-destinations/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
   return b.build();
 };
 
@@ -592,6 +828,77 @@ export const se_DeleteProvisioningProfileCommand = async (
   b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeregisterAccountAssociationCommand
+ */
+export const se_DeregisterAccountAssociationCommand = async (
+  input: DeregisterAccountAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/managed-thing-associations/deregister");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AccountAssociationId: [],
+      ManagedThingId: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAccountAssociationCommand
+ */
+export const se_GetAccountAssociationCommand = async (
+  input: GetAccountAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/account-associations/{AccountAssociationId}");
+  b.p("AccountAssociationId", () => input.AccountAssociationId!, "{AccountAssociationId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetCloudConnectorCommand
+ */
+export const se_GetCloudConnectorCommand = async (
+  input: GetCloudConnectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/cloud-connectors/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetConnectorDestinationCommand
+ */
+export const se_GetConnectorDestinationCommand = async (
+  input: GetConnectorDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/connector-destinations/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -885,6 +1192,67 @@ export const se_GetSchemaVersionCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListAccountAssociationsCommand
+ */
+export const se_ListAccountAssociationsCommand = async (
+  input: ListAccountAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/account-associations");
+  const query: any = map({
+    [_CDI]: [, input[_CDI]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCloudConnectorsCommand
+ */
+export const se_ListCloudConnectorsCommand = async (
+  input: ListCloudConnectorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/cloud-connectors");
+  const query: any = map({
+    [_T]: [, input[_T]!],
+    [_LA]: [, input[_LA]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListConnectorDestinationsCommand
+ */
+export const se_ListConnectorDestinationsCommand = async (
+  input: ListConnectorDestinationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/connector-destinations");
+  const query: any = map({
+    [_CCI]: [, input[_CCI]!],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListCredentialLockersCommand
  */
 export const se_ListCredentialLockersCommand = async (
@@ -923,6 +1291,47 @@ export const se_ListDestinationsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListDeviceDiscoveriesCommand
+ */
+export const se_ListDeviceDiscoveriesCommand = async (
+  input: ListDeviceDiscoveriesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/device-discoveries");
+  const query: any = map({
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_TF]: [, input[_TF]!],
+    [_SF]: [, input[_SF]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListDiscoveredDevicesCommand
+ */
+export const se_ListDiscoveredDevicesCommand = async (
+  input: ListDiscoveredDevicesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/device-discoveries/{Identifier}/devices");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  const query: any = map({
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListEventLogConfigurationsCommand
  */
 export const se_ListEventLogConfigurationsCommand = async (
@@ -935,6 +1344,27 @@ export const se_ListEventLogConfigurationsCommand = async (
   const query: any = map({
     [_NT]: [, input[_NT]!],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListManagedThingAccountAssociationsCommand
+ */
+export const se_ListManagedThingAccountAssociationsCommand = async (
+  input: ListManagedThingAccountAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/managed-thing-associations");
+  const query: any = map({
+    [_MTI]: [, input[_MTI]!],
+    [_AAI]: [, input[_AAI]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -957,6 +1387,8 @@ export const se_ListManagedThingsCommand = async (
     [_RF]: [, input[_RF]!],
     [_PCIF]: [, input[_PCIF]!],
     [_CPIF]: [, input[_CPIF]!],
+    [_CDIF]: [, input[_CDIF]!],
+    [_CDIFo]: [, input[_CDIFo]!],
     [_SNF]: [, input[_SNF]!],
     [_PSF]: [, input[_PSF]!],
     [_NT]: [, input[_NT]!],
@@ -1110,6 +1542,22 @@ export const se_ListSchemaVersionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1PutDefaultEncryptionConfigurationCommand
  */
 export const se_PutDefaultEncryptionConfigurationCommand = async (
@@ -1178,6 +1626,30 @@ export const se_PutRuntimeLogConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1RegisterAccountAssociationCommand
+ */
+export const se_RegisterAccountAssociationCommand = async (
+  input: RegisterAccountAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/managed-thing-associations/register");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AccountAssociationId: [],
+      DeviceDiscoveryId: [],
+      ManagedThingId: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1RegisterCustomEndpointCommand
  */
 export const se_RegisterCustomEndpointCommand = async (
@@ -1209,6 +1681,38 @@ export const se_ResetRuntimeLogConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1SendConnectorEventCommand
+ */
+export const se_SendConnectorEventCommand = async (
+  input: SendConnectorEventCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/connector-event/{ConnectorId}");
+  b.p("ConnectorId", () => input.ConnectorId!, "{ConnectorId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ConnectorDeviceId: [],
+      DeviceDiscoveryId: [],
+      Devices: (_) => se_Devices(_, context),
+      MatterEndpoint: (_) => se_MatterEndpoint(_, context),
+      Message: [],
+      Operation: [],
+      OperationVersion: [],
+      StatusCode: [],
+      TraceId: [],
+      UserId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1SendManagedThingCommandCommand
  */
 export const se_SendManagedThingCommandCommand = async (
@@ -1224,10 +1728,27 @@ export const se_SendManagedThingCommandCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AccountAssociationId: [],
       ConnectorAssociationId: [],
       Endpoints: (_) => se_CommandEndpoints(_, context),
     })
   );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartAccountAssociationRefreshCommand
+ */
+export const se_StartAccountAssociationRefreshCommand = async (
+  input: StartAccountAssociationRefreshCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/account-associations/{AccountAssociationId}/refresh");
+  b.p("AccountAssociationId", () => input.AccountAssociationId!, "{AccountAssociationId}", false);
+  let body: any;
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -1247,16 +1768,135 @@ export const se_StartDeviceDiscoveryCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AccountAssociationId: [],
       AuthenticationMaterial: [],
       AuthenticationMaterialType: [],
       ClientToken: [],
       ConnectorAssociationIdentifier: [],
       ControllerIdentifier: [],
+      CustomProtocolDetail: (_) => _json(_),
       DiscoveryType: [],
       Tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  const query: any = map({
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateAccountAssociationCommand
+ */
+export const se_UpdateAccountAssociationCommand = async (
+  input: UpdateAccountAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/account-associations/{AccountAssociationId}");
+  b.p("AccountAssociationId", () => input.AccountAssociationId!, "{AccountAssociationId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Name: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateCloudConnectorCommand
+ */
+export const se_UpdateCloudConnectorCommand = async (
+  input: UpdateCloudConnectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cloud-connectors/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Name: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateConnectorDestinationCommand
+ */
+export const se_UpdateConnectorDestinationCommand = async (
+  input: UpdateConnectorDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/connector-destinations/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AuthConfig: (_) => _json(_),
+      AuthType: [],
+      Description: [],
+      Name: [],
+      SecretsManager: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -1328,6 +1968,7 @@ export const se_UpdateManagedThingCommand = async (
       Brand: [],
       Capabilities: [],
       CapabilityReport: (_) => _json(_),
+      CapabilitySchemas: (_) => se_CapabilitySchemas(_, context),
       Classification: [],
       CredentialLockerId: [],
       HubNetworkMode: [],
@@ -1387,6 +2028,72 @@ export const se_UpdateOtaTaskCommand = async (
   );
   b.m("PUT").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1CreateAccountAssociationCommand
+ */
+export const de_CreateAccountAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccountAssociationCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AccountAssociationId: __expectString,
+    Arn: __expectString,
+    AssociationState: __expectString,
+    OAuthAuthorizationUrl: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateCloudConnectorCommand
+ */
+export const de_CreateCloudConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCloudConnectorCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Id: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateConnectorDestinationCommand
+ */
+export const de_CreateConnectorDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConnectorDestinationCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Id: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
 /**
@@ -1569,6 +2276,57 @@ export const de_CreateProvisioningProfileCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteAccountAssociationCommand
+ */
+export const de_DeleteAccountAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccountAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteCloudConnectorCommand
+ */
+export const de_DeleteCloudConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCloudConnectorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteConnectorDestinationCommand
+ */
+export const de_DeleteConnectorDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConnectorDestinationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteCredentialLockerCommand
  */
 export const de_DeleteCredentialLockerCommand = async (
@@ -1705,6 +2463,106 @@ export const de_DeleteProvisioningProfileCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeregisterAccountAssociationCommand
+ */
+export const de_DeregisterAccountAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterAccountAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAccountAssociationCommand
+ */
+export const de_GetAccountAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccountAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AccountAssociationId: __expectString,
+    Arn: __expectString,
+    AssociationState: __expectString,
+    ConnectorDestinationId: __expectString,
+    Description: __expectString,
+    ErrorMessage: __expectString,
+    Name: __expectString,
+    OAuthAuthorizationUrl: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCloudConnectorCommand
+ */
+export const de_GetCloudConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCloudConnectorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Description: __expectString,
+    EndpointConfig: _json,
+    EndpointType: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetConnectorDestinationCommand
+ */
+export const de_GetConnectorDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConnectorDestinationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AuthConfig: _json,
+    AuthType: __expectString,
+    CloudConnectorId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    OAuthCompleteRedirectUrl: __expectString,
+    SecretsManager: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetCredentialLockerCommand
  */
 export const de_GetCredentialLockerCommand = async (
@@ -1816,6 +2674,7 @@ export const de_GetDeviceDiscoveryCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AccountAssociationId: __expectString,
     Arn: __expectString,
     ConnectorAssociationId: __expectString,
     ControllerId: __expectString,
@@ -1896,6 +2755,7 @@ export const de_GetManagedThingCommand = async (
     Arn: __expectString,
     Brand: __expectString,
     Classification: __expectString,
+    ConnectorDestinationId: __expectString,
     ConnectorDeviceId: __expectString,
     ConnectorPolicyId: __expectString,
     CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -2062,6 +2922,7 @@ export const de_GetOtaTaskCommand = async (
     Protocol: __expectString,
     S3Url: __expectString,
     Status: __expectString,
+    Tags: _json,
     Target: _json,
     TaskArn: __expectString,
     TaskConfigurationId: __expectString,
@@ -2173,6 +3034,72 @@ export const de_GetSchemaVersionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListAccountAssociationsCommand
+ */
+export const de_ListAccountAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccountAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCloudConnectorsCommand
+ */
+export const de_ListCloudConnectorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCloudConnectorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListConnectorDestinationsCommand
+ */
+export const de_ListConnectorDestinationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConnectorDestinationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ConnectorDestinationList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListCredentialLockersCommand
  */
 export const de_ListCredentialLockersCommand = async (
@@ -2217,6 +3144,50 @@ export const de_ListDestinationsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListDeviceDiscoveriesCommand
+ */
+export const de_ListDeviceDiscoveriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDeviceDiscoveriesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDiscoveredDevicesCommand
+ */
+export const de_ListDiscoveredDevicesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDiscoveredDevicesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: (_) => de_DiscoveredDeviceListDefinition(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListEventLogConfigurationsCommand
  */
 export const de_ListEventLogConfigurationsCommand = async (
@@ -2232,6 +3203,28 @@ export const de_ListEventLogConfigurationsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     EventLogConfigurationList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListManagedThingAccountAssociationsCommand
+ */
+export const de_ListManagedThingAccountAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListManagedThingAccountAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: _json,
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -2415,6 +3408,27 @@ export const de_ListSchemaVersionsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1PutDefaultEncryptionConfigurationCommand
  */
 export const de_PutDefaultEncryptionConfigurationCommand = async (
@@ -2476,6 +3490,29 @@ export const de_PutRuntimeLogConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1RegisterAccountAssociationCommand
+ */
+export const de_RegisterAccountAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterAccountAssociationCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AccountAssociationId: __expectString,
+    DeviceDiscoveryId: __expectString,
+    ManagedThingId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1RegisterCustomEndpointCommand
  */
 export const de_RegisterCustomEndpointCommand = async (
@@ -2514,6 +3551,27 @@ export const de_ResetRuntimeLogConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1SendConnectorEventCommand
+ */
+export const de_SendConnectorEventCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendConnectorEventCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ConnectorId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1SendManagedThingCommandCommand
  */
 export const de_SendManagedThingCommandCommand = async (
@@ -2529,6 +3587,27 @@ export const de_SendManagedThingCommandCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     TraceId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartAccountAssociationRefreshCommand
+ */
+export const de_StartAccountAssociationRefreshCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAccountAssociationRefreshCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    OAuthAuthorizationUrl: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2553,6 +3632,91 @@ export const de_StartDeviceDiscoveryCommand = async (
     StartedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateAccountAssociationCommand
+ */
+export const de_UpdateAccountAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAccountAssociationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateCloudConnectorCommand
+ */
+export const de_UpdateCloudConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCloudConnectorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateConnectorDestinationCommand
+ */
+export const de_UpdateConnectorDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectorDestinationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -2660,9 +3824,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InternalServerException":
     case "com.amazonaws.iotmanagedintegrations#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.iotmanagedintegrations#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotmanagedintegrations#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.iotmanagedintegrations#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
@@ -2672,15 +3836,21 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ValidationException":
     case "com.amazonaws.iotmanagedintegrations#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotmanagedintegrations#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.iotmanagedintegrations#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.iotmanagedintegrations#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.iotmanagedintegrations#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.iotmanagedintegrations#InternalFailureException":
       throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotmanagedintegrations#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2770,6 +3940,46 @@ const de_InternalServerExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1InvalidRequestExceptionRes
+ */
+const de_InvalidRequestExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidRequestException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InvalidRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<LimitExceededException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new LimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ResourceNotFoundExceptionRes
  */
 const de_ResourceNotFoundExceptionRes = async (
@@ -2780,6 +3990,8 @@ const de_ResourceNotFoundExceptionRes = async (
   const data: any = parsedOutput.body;
   const doc = take(data, {
     Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
@@ -2906,6 +4118,10 @@ const se_AbortConfigCriteriaList = (input: AbortConfigCriteria[], context: __Ser
     });
 };
 
+// se_AuthConfig omitted.
+
+// se_AuthConfigUpdate omitted.
+
 /**
  * serializeAws_restJson1CapabilityAction
  */
@@ -2953,6 +4169,30 @@ const se_CapabilityProperties = (input: __DocumentType, context: __SerdeContext)
 // se_CapabilityReportProperties omitted.
 
 /**
+ * serializeAws_restJson1CapabilitySchemaItem
+ */
+const se_CapabilitySchemaItem = (input: CapabilitySchemaItem, context: __SerdeContext): any => {
+  return take(input, {
+    CapabilityId: [],
+    ExtrinsicId: [],
+    ExtrinsicVersion: [],
+    Format: [],
+    Schema: (_) => se_ValidationSchema(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1CapabilitySchemas
+ */
+const se_CapabilitySchemas = (input: CapabilitySchemaItem[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_CapabilitySchemaItem(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1CommandCapabilities
  */
 const se_CommandCapabilities = (input: CommandCapability[], context: __SerdeContext): any => {
@@ -2996,7 +4236,42 @@ const se_CommandEndpoints = (input: CommandEndpoint[], context: __SerdeContext):
     });
 };
 
+// se_CustomProtocolDetail omitted.
+
+/**
+ * serializeAws_restJson1Device
+ */
+const se_Device = (input: Device, context: __SerdeContext): any => {
+  return take(input, {
+    CapabilityReport: (_) => se_MatterCapabilityReport(_, context),
+    CapabilitySchemas: (_) => se_CapabilitySchemas(_, context),
+    ConnectorDeviceId: [],
+    ConnectorDeviceName: [],
+    DeviceMetadata: (_) => se_DeviceMetadata(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1DeviceMetadata
+ */
+const se_DeviceMetadata = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
+/**
+ * serializeAws_restJson1Devices
+ */
+const se_Devices = (input: Device[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_Device(entry, context);
+    });
+};
+
 // se_DeviceTypes omitted.
+
+// se_EndpointConfig omitted.
 
 /**
  * serializeAws_restJson1ExponentialRolloutRate
@@ -3009,7 +4284,196 @@ const se_ExponentialRolloutRate = (input: ExponentialRolloutRate, context: __Ser
   });
 };
 
+// se_LambdaConfig omitted.
+
+/**
+ * serializeAws_restJson1MatterAttributes
+ */
+const se_MatterAttributes = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
+/**
+ * serializeAws_restJson1MatterCapabilityReport
+ */
+const se_MatterCapabilityReport = (input: MatterCapabilityReport, context: __SerdeContext): any => {
+  return take(input, {
+    endpoints: (_) => se_MatterCapabilityReportEndpoints(_, context),
+    nodeId: [],
+    version: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1MatterCapabilityReportAttribute
+ */
+const se_MatterCapabilityReportAttribute = (input: MatterCapabilityReportAttribute, context: __SerdeContext): any => {
+  return take(input, {
+    id: [],
+    name: [],
+    value: (_) => se_MatterCapabilityReportAttributeValue(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1MatterCapabilityReportAttributes
+ */
+const se_MatterCapabilityReportAttributes = (
+  input: MatterCapabilityReportAttribute[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_MatterCapabilityReportAttribute(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1MatterCapabilityReportAttributeValue
+ */
+const se_MatterCapabilityReportAttributeValue = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
+/**
+ * serializeAws_restJson1MatterCapabilityReportCluster
+ */
+const se_MatterCapabilityReportCluster = (input: MatterCapabilityReportCluster, context: __SerdeContext): any => {
+  return take(input, {
+    attributes: (_) => se_MatterCapabilityReportAttributes(_, context),
+    commands: _json,
+    events: _json,
+    fabricIndex: [],
+    featureMap: [],
+    generatedCommands: _json,
+    id: [],
+    name: [],
+    publicId: [],
+    revision: [],
+    specVersion: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1MatterCapabilityReportClusters
+ */
+const se_MatterCapabilityReportClusters = (input: MatterCapabilityReportCluster[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_MatterCapabilityReportCluster(entry, context);
+    });
+};
+
+// se_MatterCapabilityReportCommands omitted.
+
+/**
+ * serializeAws_restJson1MatterCapabilityReportEndpoint
+ */
+const se_MatterCapabilityReportEndpoint = (input: MatterCapabilityReportEndpoint, context: __SerdeContext): any => {
+  return take(input, {
+    clientClusters: _json,
+    clusters: (_) => se_MatterCapabilityReportClusters(_, context),
+    deviceTypes: _json,
+    id: [],
+    parts: _json,
+    semanticTags: _json,
+  });
+};
+
+// se_MatterCapabilityReportEndpointClientClusters omitted.
+
+// se_MatterCapabilityReportEndpointParts omitted.
+
+/**
+ * serializeAws_restJson1MatterCapabilityReportEndpoints
+ */
+const se_MatterCapabilityReportEndpoints = (input: MatterCapabilityReportEndpoint[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_MatterCapabilityReportEndpoint(entry, context);
+    });
+};
+
+// se_MatterCapabilityReportEndpointSemanticTags omitted.
+
+// se_MatterCapabilityReportEvents omitted.
+
+// se_MatterCapabilityReportGeneratedCommands omitted.
+
+/**
+ * serializeAws_restJson1MatterCluster
+ */
+const se_MatterCluster = (input: MatterCluster, context: __SerdeContext): any => {
+  return take(input, {
+    attributes: (_) => se_MatterAttributes(_, context),
+    commands: (_) => se_MatterCommands(_, context),
+    events: (_) => se_MatterEvents(_, context),
+    id: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1MatterClusters
+ */
+const se_MatterClusters = (input: MatterCluster[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_MatterCluster(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1MatterCommands
+ */
+const se_MatterCommands = (input: Record<string, __DocumentType>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_MatterFields(value, context);
+    return acc;
+  }, {});
+};
+
+/**
+ * serializeAws_restJson1MatterEndpoint
+ */
+const se_MatterEndpoint = (input: MatterEndpoint, context: __SerdeContext): any => {
+  return take(input, {
+    clusters: (_) => se_MatterClusters(_, context),
+    id: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1MatterEvents
+ */
+const se_MatterEvents = (input: Record<string, __DocumentType>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_MatterFields(value, context);
+    return acc;
+  }, {});
+};
+
+/**
+ * serializeAws_restJson1MatterFields
+ */
+const se_MatterFields = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
 // se_MetaData omitted.
+
+// se_OAuthConfig omitted.
+
+// se_OAuthUpdate omitted.
 
 /**
  * serializeAws_restJson1OtaTaskAbortConfig
@@ -3036,6 +4500,8 @@ const se_OtaTaskExecutionRolloutConfig = (input: OtaTaskExecutionRolloutConfig, 
 
 // se_OtaTaskTimeoutConfig omitted.
 
+// se_ProactiveRefreshTokenRenewal omitted.
+
 /**
  * serializeAws_restJson1PushConfig
  */
@@ -3059,9 +4525,18 @@ const se_PushConfig = (input: PushConfig, context: __SerdeContext): any => {
 
 // se_ScheduleMaintenanceWindowList omitted.
 
+// se_SecretsManager omitted.
+
 // se_TagsMap omitted.
 
 // se_Target omitted.
+
+/**
+ * serializeAws_restJson1ValidationSchema
+ */
+const se_ValidationSchema = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
 
 /**
  * deserializeAws_restJson1AbortConfigCriteria
@@ -3086,6 +4561,12 @@ const de_AbortConfigCriteriaList = (output: any, context: __SerdeContext): Abort
     });
   return retVal;
 };
+
+// de_AccountAssociationItem omitted.
+
+// de_AccountAssociationListDefinition omitted.
+
+// de_AuthConfig omitted.
 
 /**
  * deserializeAws_restJson1CapabilityProperties
@@ -3113,6 +4594,14 @@ const de_CapabilityProperties = (output: any, context: __SerdeContext): __Docume
 // de_ConfigurationError omitted.
 
 // de_ConfigurationStatus omitted.
+
+// de_ConnectorDestinationListDefinition omitted.
+
+// de_ConnectorDestinationSummary omitted.
+
+// de_ConnectorItem omitted.
+
+// de_ConnectorList omitted.
 
 /**
  * deserializeAws_restJson1CredentialLockerListDefinition
@@ -3142,7 +4631,44 @@ const de_CredentialLockerSummary = (output: any, context: __SerdeContext): Crede
 
 // de_DestinationSummary omitted.
 
+// de_DeviceDiscoveryListDefinition omitted.
+
+// de_DeviceDiscoverySummary omitted.
+
+// de_DeviceTypeList omitted.
+
 // de_DeviceTypes omitted.
+
+/**
+ * deserializeAws_restJson1DiscoveredDeviceListDefinition
+ */
+const de_DiscoveredDeviceListDefinition = (output: any, context: __SerdeContext): DiscoveredDeviceSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DiscoveredDeviceSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1DiscoveredDeviceSummary
+ */
+const de_DiscoveredDeviceSummary = (output: any, context: __SerdeContext): DiscoveredDeviceSummary => {
+  return take(output, {
+    AuthenticationMaterial: __expectString,
+    Brand: __expectString,
+    ConnectorDeviceId: __expectString,
+    ConnectorDeviceName: __expectString,
+    DeviceTypes: _json,
+    DiscoveredAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ManagedThingId: __expectString,
+    Model: __expectString,
+    Modification: __expectString,
+  }) as any;
+};
+
+// de_EndpointConfig omitted.
 
 // de_EventLogConfigurationListDefinition omitted.
 
@@ -3158,6 +4684,12 @@ const de_ExponentialRolloutRate = (output: any, context: __SerdeContext): Expone
     RateIncreaseCriteria: _json,
   }) as any;
 };
+
+// de_LambdaConfig omitted.
+
+// de_ManagedThingAssociation omitted.
+
+// de_ManagedThingAssociationList omitted.
 
 /**
  * deserializeAws_restJson1ManagedThingListDefinition
@@ -3204,6 +4736,7 @@ const de_ManagedThingSummary = (output: any, context: __SerdeContext): ManagedTh
     Arn: __expectString,
     Brand: __expectString,
     Classification: __expectString,
+    ConnectorDestinationId: __expectString,
     ConnectorDeviceId: __expectString,
     ConnectorPolicyId: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -3225,6 +4758,8 @@ const de_ManagedThingSummary = (output: any, context: __SerdeContext): ManagedTh
 // de_NotificationConfigurationListDefinition omitted.
 
 // de_NotificationConfigurationSummary omitted.
+
+// de_OAuthConfig omitted.
 
 /**
  * deserializeAws_restJson1OtaTaskAbortConfig
@@ -3339,6 +4874,8 @@ const de_OtaTaskSummary = (output: any, context: __SerdeContext): OtaTaskSummary
 
 // de_OtaTaskTimeoutConfig omitted.
 
+// de_ProactiveRefreshTokenRenewal omitted.
+
 // de_ProvisioningProfileListDefinition omitted.
 
 // de_ProvisioningProfileSummary omitted.
@@ -3376,6 +4913,8 @@ const de_PushConfig = (output: any, context: __SerdeContext): PushConfig => {
 const de_SchemaVersionSchema = (output: any, context: __SerdeContext): __DocumentType => {
   return output;
 };
+
+// de_SecretsManager omitted.
 
 /**
  * deserializeAws_restJson1StateCapabilities
@@ -3448,13 +4987,20 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const _AAI = "AccountAssociationId";
+const _CCI = "CloudConnectorId";
+const _CDI = "ConnectorDestinationId";
+const _CDIF = "ConnectorDestinationIdFilter";
+const _CDIFo = "ConnectorDeviceIdFilter";
 const _CIF = "CapabilityIdFilter";
 const _CLF = "CredentialLockerFilter";
 const _CPIF = "ConnectorPolicyIdFilter";
 const _EIF = "EndpointIdFilter";
 const _F = "Force";
 const _Fo = "Format";
+const _LA = "LambdaArn";
 const _MR = "MaxResults";
+const _MTI = "ManagedThingId";
 const _N = "Namespace";
 const _NF = "NamespaceFilter";
 const _NT = "NextToken";
@@ -3462,10 +5008,15 @@ const _OF = "OwnerFilter";
 const _PCIF = "ParentControllerIdentifierFilter";
 const _PSF = "ProvisioningStatusFilter";
 const _RF = "RoleFilter";
+const _SF = "StatusFilter";
 const _SI = "SchemaId";
 const _SIF = "SchemaIdFilter";
 const _SNF = "SerialNumberFilter";
 const _SV = "SemanticVersion";
 const _SVF = "SemanticVersionFilter";
+const _T = "Type";
+const _TF = "TypeFilter";
+const _TK = "TagKeys";
 const _V = "Visibility";
 const _VF = "VisibilityFilter";
+const _tK = "tagKeys";

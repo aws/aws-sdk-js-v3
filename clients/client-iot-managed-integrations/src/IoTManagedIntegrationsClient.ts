@@ -54,6 +54,18 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  CreateAccountAssociationCommandInput,
+  CreateAccountAssociationCommandOutput,
+} from "./commands/CreateAccountAssociationCommand";
+import {
+  CreateCloudConnectorCommandInput,
+  CreateCloudConnectorCommandOutput,
+} from "./commands/CreateCloudConnectorCommand";
+import {
+  CreateConnectorDestinationCommandInput,
+  CreateConnectorDestinationCommandOutput,
+} from "./commands/CreateConnectorDestinationCommand";
+import {
   CreateCredentialLockerCommandInput,
   CreateCredentialLockerCommandOutput,
 } from "./commands/CreateCredentialLockerCommand";
@@ -77,6 +89,18 @@ import {
   CreateProvisioningProfileCommandOutput,
 } from "./commands/CreateProvisioningProfileCommand";
 import {
+  DeleteAccountAssociationCommandInput,
+  DeleteAccountAssociationCommandOutput,
+} from "./commands/DeleteAccountAssociationCommand";
+import {
+  DeleteCloudConnectorCommandInput,
+  DeleteCloudConnectorCommandOutput,
+} from "./commands/DeleteCloudConnectorCommand";
+import {
+  DeleteConnectorDestinationCommandInput,
+  DeleteConnectorDestinationCommandOutput,
+} from "./commands/DeleteConnectorDestinationCommand";
+import {
   DeleteCredentialLockerCommandInput,
   DeleteCredentialLockerCommandOutput,
 } from "./commands/DeleteCredentialLockerCommand";
@@ -99,6 +123,19 @@ import {
   DeleteProvisioningProfileCommandInput,
   DeleteProvisioningProfileCommandOutput,
 } from "./commands/DeleteProvisioningProfileCommand";
+import {
+  DeregisterAccountAssociationCommandInput,
+  DeregisterAccountAssociationCommandOutput,
+} from "./commands/DeregisterAccountAssociationCommand";
+import {
+  GetAccountAssociationCommandInput,
+  GetAccountAssociationCommandOutput,
+} from "./commands/GetAccountAssociationCommand";
+import { GetCloudConnectorCommandInput, GetCloudConnectorCommandOutput } from "./commands/GetCloudConnectorCommand";
+import {
+  GetConnectorDestinationCommandInput,
+  GetConnectorDestinationCommandOutput,
+} from "./commands/GetConnectorDestinationCommand";
 import {
   GetCredentialLockerCommandInput,
   GetCredentialLockerCommandOutput,
@@ -154,14 +191,38 @@ import {
 } from "./commands/GetRuntimeLogConfigurationCommand";
 import { GetSchemaVersionCommandInput, GetSchemaVersionCommandOutput } from "./commands/GetSchemaVersionCommand";
 import {
+  ListAccountAssociationsCommandInput,
+  ListAccountAssociationsCommandOutput,
+} from "./commands/ListAccountAssociationsCommand";
+import {
+  ListCloudConnectorsCommandInput,
+  ListCloudConnectorsCommandOutput,
+} from "./commands/ListCloudConnectorsCommand";
+import {
+  ListConnectorDestinationsCommandInput,
+  ListConnectorDestinationsCommandOutput,
+} from "./commands/ListConnectorDestinationsCommand";
+import {
   ListCredentialLockersCommandInput,
   ListCredentialLockersCommandOutput,
 } from "./commands/ListCredentialLockersCommand";
 import { ListDestinationsCommandInput, ListDestinationsCommandOutput } from "./commands/ListDestinationsCommand";
 import {
+  ListDeviceDiscoveriesCommandInput,
+  ListDeviceDiscoveriesCommandOutput,
+} from "./commands/ListDeviceDiscoveriesCommand";
+import {
+  ListDiscoveredDevicesCommandInput,
+  ListDiscoveredDevicesCommandOutput,
+} from "./commands/ListDiscoveredDevicesCommand";
+import {
   ListEventLogConfigurationsCommandInput,
   ListEventLogConfigurationsCommandOutput,
 } from "./commands/ListEventLogConfigurationsCommand";
+import {
+  ListManagedThingAccountAssociationsCommandInput,
+  ListManagedThingAccountAssociationsCommandOutput,
+} from "./commands/ListManagedThingAccountAssociationsCommand";
 import {
   ListManagedThingSchemasCommandInput,
   ListManagedThingSchemasCommandOutput,
@@ -186,6 +247,10 @@ import {
 } from "./commands/ListProvisioningProfilesCommand";
 import { ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput } from "./commands/ListSchemaVersionsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   PutDefaultEncryptionConfigurationCommandInput,
   PutDefaultEncryptionConfigurationCommandOutput,
 } from "./commands/PutDefaultEncryptionConfigurationCommand";
@@ -198,6 +263,10 @@ import {
   PutRuntimeLogConfigurationCommandOutput,
 } from "./commands/PutRuntimeLogConfigurationCommand";
 import {
+  RegisterAccountAssociationCommandInput,
+  RegisterAccountAssociationCommandOutput,
+} from "./commands/RegisterAccountAssociationCommand";
+import {
   RegisterCustomEndpointCommandInput,
   RegisterCustomEndpointCommandOutput,
 } from "./commands/RegisterCustomEndpointCommand";
@@ -205,14 +274,33 @@ import {
   ResetRuntimeLogConfigurationCommandInput,
   ResetRuntimeLogConfigurationCommandOutput,
 } from "./commands/ResetRuntimeLogConfigurationCommand";
+import { SendConnectorEventCommandInput, SendConnectorEventCommandOutput } from "./commands/SendConnectorEventCommand";
 import {
   SendManagedThingCommandCommandInput,
   SendManagedThingCommandCommandOutput,
 } from "./commands/SendManagedThingCommandCommand";
 import {
+  StartAccountAssociationRefreshCommandInput,
+  StartAccountAssociationRefreshCommandOutput,
+} from "./commands/StartAccountAssociationRefreshCommand";
+import {
   StartDeviceDiscoveryCommandInput,
   StartDeviceDiscoveryCommandOutput,
 } from "./commands/StartDeviceDiscoveryCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateAccountAssociationCommandInput,
+  UpdateAccountAssociationCommandOutput,
+} from "./commands/UpdateAccountAssociationCommand";
+import {
+  UpdateCloudConnectorCommandInput,
+  UpdateCloudConnectorCommandOutput,
+} from "./commands/UpdateCloudConnectorCommand";
+import {
+  UpdateConnectorDestinationCommandInput,
+  UpdateConnectorDestinationCommandOutput,
+} from "./commands/UpdateConnectorDestinationCommand";
 import { UpdateDestinationCommandInput, UpdateDestinationCommandOutput } from "./commands/UpdateDestinationCommand";
 import {
   UpdateEventLogConfigurationCommandInput,
@@ -239,6 +327,9 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CreateAccountAssociationCommandInput
+  | CreateCloudConnectorCommandInput
+  | CreateConnectorDestinationCommandInput
   | CreateCredentialLockerCommandInput
   | CreateDestinationCommandInput
   | CreateEventLogConfigurationCommandInput
@@ -247,6 +338,9 @@ export type ServiceInputTypes =
   | CreateOtaTaskCommandInput
   | CreateOtaTaskConfigurationCommandInput
   | CreateProvisioningProfileCommandInput
+  | DeleteAccountAssociationCommandInput
+  | DeleteCloudConnectorCommandInput
+  | DeleteConnectorDestinationCommandInput
   | DeleteCredentialLockerCommandInput
   | DeleteDestinationCommandInput
   | DeleteEventLogConfigurationCommandInput
@@ -255,6 +349,10 @@ export type ServiceInputTypes =
   | DeleteOtaTaskCommandInput
   | DeleteOtaTaskConfigurationCommandInput
   | DeleteProvisioningProfileCommandInput
+  | DeregisterAccountAssociationCommandInput
+  | GetAccountAssociationCommandInput
+  | GetCloudConnectorCommandInput
+  | GetConnectorDestinationCommandInput
   | GetCredentialLockerCommandInput
   | GetCustomEndpointCommandInput
   | GetDefaultEncryptionConfigurationCommandInput
@@ -273,9 +371,15 @@ export type ServiceInputTypes =
   | GetProvisioningProfileCommandInput
   | GetRuntimeLogConfigurationCommandInput
   | GetSchemaVersionCommandInput
+  | ListAccountAssociationsCommandInput
+  | ListCloudConnectorsCommandInput
+  | ListConnectorDestinationsCommandInput
   | ListCredentialLockersCommandInput
   | ListDestinationsCommandInput
+  | ListDeviceDiscoveriesCommandInput
+  | ListDiscoveredDevicesCommandInput
   | ListEventLogConfigurationsCommandInput
+  | ListManagedThingAccountAssociationsCommandInput
   | ListManagedThingSchemasCommandInput
   | ListManagedThingsCommandInput
   | ListNotificationConfigurationsCommandInput
@@ -284,13 +388,22 @@ export type ServiceInputTypes =
   | ListOtaTasksCommandInput
   | ListProvisioningProfilesCommandInput
   | ListSchemaVersionsCommandInput
+  | ListTagsForResourceCommandInput
   | PutDefaultEncryptionConfigurationCommandInput
   | PutHubConfigurationCommandInput
   | PutRuntimeLogConfigurationCommandInput
+  | RegisterAccountAssociationCommandInput
   | RegisterCustomEndpointCommandInput
   | ResetRuntimeLogConfigurationCommandInput
+  | SendConnectorEventCommandInput
   | SendManagedThingCommandCommandInput
+  | StartAccountAssociationRefreshCommandInput
   | StartDeviceDiscoveryCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateAccountAssociationCommandInput
+  | UpdateCloudConnectorCommandInput
+  | UpdateConnectorDestinationCommandInput
   | UpdateDestinationCommandInput
   | UpdateEventLogConfigurationCommandInput
   | UpdateManagedThingCommandInput
@@ -301,6 +414,9 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CreateAccountAssociationCommandOutput
+  | CreateCloudConnectorCommandOutput
+  | CreateConnectorDestinationCommandOutput
   | CreateCredentialLockerCommandOutput
   | CreateDestinationCommandOutput
   | CreateEventLogConfigurationCommandOutput
@@ -309,6 +425,9 @@ export type ServiceOutputTypes =
   | CreateOtaTaskCommandOutput
   | CreateOtaTaskConfigurationCommandOutput
   | CreateProvisioningProfileCommandOutput
+  | DeleteAccountAssociationCommandOutput
+  | DeleteCloudConnectorCommandOutput
+  | DeleteConnectorDestinationCommandOutput
   | DeleteCredentialLockerCommandOutput
   | DeleteDestinationCommandOutput
   | DeleteEventLogConfigurationCommandOutput
@@ -317,6 +436,10 @@ export type ServiceOutputTypes =
   | DeleteOtaTaskCommandOutput
   | DeleteOtaTaskConfigurationCommandOutput
   | DeleteProvisioningProfileCommandOutput
+  | DeregisterAccountAssociationCommandOutput
+  | GetAccountAssociationCommandOutput
+  | GetCloudConnectorCommandOutput
+  | GetConnectorDestinationCommandOutput
   | GetCredentialLockerCommandOutput
   | GetCustomEndpointCommandOutput
   | GetDefaultEncryptionConfigurationCommandOutput
@@ -335,9 +458,15 @@ export type ServiceOutputTypes =
   | GetProvisioningProfileCommandOutput
   | GetRuntimeLogConfigurationCommandOutput
   | GetSchemaVersionCommandOutput
+  | ListAccountAssociationsCommandOutput
+  | ListCloudConnectorsCommandOutput
+  | ListConnectorDestinationsCommandOutput
   | ListCredentialLockersCommandOutput
   | ListDestinationsCommandOutput
+  | ListDeviceDiscoveriesCommandOutput
+  | ListDiscoveredDevicesCommandOutput
   | ListEventLogConfigurationsCommandOutput
+  | ListManagedThingAccountAssociationsCommandOutput
   | ListManagedThingSchemasCommandOutput
   | ListManagedThingsCommandOutput
   | ListNotificationConfigurationsCommandOutput
@@ -346,13 +475,22 @@ export type ServiceOutputTypes =
   | ListOtaTasksCommandOutput
   | ListProvisioningProfilesCommandOutput
   | ListSchemaVersionsCommandOutput
+  | ListTagsForResourceCommandOutput
   | PutDefaultEncryptionConfigurationCommandOutput
   | PutHubConfigurationCommandOutput
   | PutRuntimeLogConfigurationCommandOutput
+  | RegisterAccountAssociationCommandOutput
   | RegisterCustomEndpointCommandOutput
   | ResetRuntimeLogConfigurationCommandOutput
+  | SendConnectorEventCommandOutput
   | SendManagedThingCommandCommandOutput
+  | StartAccountAssociationRefreshCommandOutput
   | StartDeviceDiscoveryCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateAccountAssociationCommandOutput
+  | UpdateCloudConnectorCommandOutput
+  | UpdateConnectorDestinationCommandOutput
   | UpdateDestinationCommandOutput
   | UpdateEventLogConfigurationCommandOutput
   | UpdateManagedThingCommandOutput

@@ -66,6 +66,7 @@ export interface SendManagedThingCommandCommandOutput extends SendManagedThingCo
  *     },
  *   ],
  *   ConnectorAssociationId: "STRING_VALUE",
+ *   AccountAssociationId: "STRING_VALUE",
  * };
  * const command = new SendManagedThingCommandCommand(input);
  * const response = await client.send(command);
@@ -85,8 +86,7 @@ export interface SendManagedThingCommandCommandOutput extends SendManagedThingCo
  *  <p>User is not authorized.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
@@ -96,6 +96,9 @@ export interface SendManagedThingCommandCommandOutput extends SendManagedThingCo
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation error occurred when performing the API request.</p>

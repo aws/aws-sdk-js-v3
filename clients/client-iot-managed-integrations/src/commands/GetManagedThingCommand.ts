@@ -63,6 +63,7 @@ export interface GetManagedThingCommandOutput extends GetManagedThingResponse, _
  * //   UniversalProductCode: "STRING_VALUE",
  * //   InternationalArticleNumber: "STRING_VALUE",
  * //   ConnectorPolicyId: "STRING_VALUE",
+ * //   ConnectorDestinationId: "STRING_VALUE",
  * //   ConnectorDeviceId: "STRING_VALUE",
  * //   DeviceSpecificKey: "STRING_VALUE",
  * //   MacAddress: "STRING_VALUE",
@@ -92,8 +93,7 @@ export interface GetManagedThingCommandOutput extends GetManagedThingResponse, _
  *  <p>User is not authorized.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

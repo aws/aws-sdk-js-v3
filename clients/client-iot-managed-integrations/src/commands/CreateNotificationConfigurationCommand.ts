@@ -41,8 +41,7 @@ export interface CreateNotificationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a notification configuration. A configuration is a connection between an event
- *          type and a destination that you have already created. </p>
+ * <p>Creates a notification configuration. A configuration is a connection between an event type and a destination that you have already created. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,7 +49,7 @@ export interface CreateNotificationConfigurationCommandOutput
  * // const { IoTManagedIntegrationsClient, CreateNotificationConfigurationCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // CreateNotificationConfigurationRequest
- *   EventType: "DEVICE_COMMAND" || "DEVICE_COMMAND_REQUEST" || "DEVICE_EVENT" || "DEVICE_LIFE_CYCLE" || "DEVICE_STATE" || "DEVICE_OTA" || "CONNECTOR_ASSOCIATION" || "CONNECTOR_ERROR_REPORT", // required
+ *   EventType: "DEVICE_COMMAND" || "DEVICE_COMMAND_REQUEST" || "DEVICE_DISCOVERY_STATUS" || "DEVICE_EVENT" || "DEVICE_LIFE_CYCLE" || "DEVICE_STATE" || "DEVICE_OTA" || "CONNECTOR_ASSOCIATION" || "ACCOUNT_ASSOCIATION" || "CONNECTOR_ERROR_REPORT", // required
  *   DestinationName: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",
  *   Tags: { // TagsMap
@@ -60,7 +59,7 @@ export interface CreateNotificationConfigurationCommandOutput
  * const command = new CreateNotificationConfigurationCommand(input);
  * const response = await client.send(command);
  * // { // CreateNotificationConfigurationResponse
- * //   EventType: "DEVICE_COMMAND" || "DEVICE_COMMAND_REQUEST" || "DEVICE_EVENT" || "DEVICE_LIFE_CYCLE" || "DEVICE_STATE" || "DEVICE_OTA" || "CONNECTOR_ASSOCIATION" || "CONNECTOR_ERROR_REPORT",
+ * //   EventType: "DEVICE_COMMAND" || "DEVICE_COMMAND_REQUEST" || "DEVICE_DISCOVERY_STATUS" || "DEVICE_EVENT" || "DEVICE_LIFE_CYCLE" || "DEVICE_STATE" || "DEVICE_OTA" || "CONNECTOR_ASSOCIATION" || "ACCOUNT_ASSOCIATION" || "CONNECTOR_ERROR_REPORT",
  * // };
  *
  * ```
@@ -78,8 +77,7 @@ export interface CreateNotificationConfigurationCommandOutput
  *  <p>There is a conflict with the request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *          is unavailable.</p>
+ *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
