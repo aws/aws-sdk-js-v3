@@ -2154,10 +2154,11 @@ export interface KeyMetadata {
   DeletionDate?: Date | undefined;
 
   /**
-   * <p>The earliest time at which any imported key material permanently associated with this KMS key expires. When
-   *       a key material expires, KMS deletes the key material and the KMS key becomes unusable. This value is present
-   *       only for KMS keys whose <code>Origin</code> is <code>EXTERNAL</code> and the <code>ExpirationModel</code>
-   *       is <code>KEY_MATERIAL_EXPIRES</code>, otherwise this value is omitted.</p>
+   * <p>The earliest time at which any imported key material permanently associated with this KMS
+   *       key expires. When a key material expires, KMS deletes the key material and the KMS key
+   *       becomes unusable. This value is present only for KMS keys whose <code>Origin</code> is
+   *         <code>EXTERNAL</code> and the <code>ExpirationModel</code> is
+   *         <code>KEY_MATERIAL_EXPIRES</code>, otherwise this value is omitted.</p>
    * @public
    */
   ValidTo?: Date | undefined;
@@ -2313,11 +2314,12 @@ export interface KeyMetadata {
   XksKeyConfiguration?: XksKeyConfigurationType | undefined;
 
   /**
-   * <p>Identifies the current key material. This value is present for symmetric encryption keys with
-   *       <code>AWS_KMS</code> origin and single-Region, symmetric encryption keys with <code>EXTERNAL</code>
-   *       origin. These KMS keys support automatic or on-demand key rotation and can have multiple key materials
-   *       associated with them. KMS uses the current key material for both encryption and decryption, and the non-current
-   *       key material for decryption operations only.</p>
+   * <p>Identifies the current key material. This value is present for symmetric encryption keys
+   *       with <code>AWS_KMS</code> origin and single-Region, symmetric encryption keys with
+   *         <code>EXTERNAL</code> origin. These KMS keys support automatic or on-demand key rotation and
+   *       can have multiple key materials associated with them. KMS uses the current key material for
+   *       both encryption and decryption, and the non-current key material for decryption operations
+   *       only.</p>
    * @public
    */
   CurrentKeyMaterialId?: string | undefined;
@@ -3013,9 +3015,9 @@ export interface DecryptResponse {
   CiphertextForRecipient?: Uint8Array | undefined;
 
   /**
-   * <p>The identifier of the key material used to decrypt the ciphertext. This field is present only when
-   *       the operation uses a symmetric encryption KMS key. This field is omitted if the request includes
-   *       the <code>Recipient</code> parameter.</p>
+   * <p>The identifier of the key material used to decrypt the ciphertext. This field is present
+   *       only when the operation uses a symmetric encryption KMS key. This field is omitted if the
+   *       request includes the <code>Recipient</code> parameter.</p>
    * @public
    */
   KeyMaterialId?: string | undefined;
@@ -3184,8 +3186,7 @@ export interface DeleteImportedKeyMaterialRequest {
   /**
    * <p>Identifies the imported key material you are deleting. </p>
    *          <important>
-   *             <p>If no KeyMaterialId is specified, KMS
-   *       deletes the current key material.</p>
+   *             <p>If no KeyMaterialId is specified, KMS deletes the current key material.</p>
    *          </important>
    *          <p>To get the list of key material IDs associated with a KMS key, use <a>ListKeyRotations</a>.</p>
    * @public
@@ -3891,8 +3892,8 @@ export interface GenerateDataKeyResponse {
   CiphertextForRecipient?: Uint8Array | undefined;
 
   /**
-   * <p>The identifier of the key material used to encrypt the data key. This field is omitted if the request
-   *       includes the <code>Recipient</code> parameter.</p>
+   * <p>The identifier of the key material used to encrypt the data key. This field is omitted if
+   *       the request includes the <code>Recipient</code> parameter.</p>
    * @public
    */
   KeyMaterialId?: string | undefined;
@@ -4486,10 +4487,9 @@ export interface GetKeyRotationStatusResponse {
 
   /**
    * <p>Identifies the date and time that an in progress on-demand rotation was initiated.</p>
-   *          <p>KMS uses a background process to perform rotations. As a result, there
-   *       might be a slight delay between initiating on-demand key rotation and the rotation's
-   *       completion. Once the on-demand rotation is complete, KMS removes this field from the response. You can
-   *       use <a>ListKeyRotations</a> to view the details of the completed on-demand rotation.</p>
+   *          <p>KMS uses a background process to perform rotations. As a result, there might be a slight
+   *       delay between initiating on-demand key rotation and the rotation's completion. Once the
+   *       on-demand rotation is complete, KMS removes this field from the response. You can use <a>ListKeyRotations</a> to view the details of the completed on-demand rotation.</p>
    * @public
    */
   OnDemandRotationStartDate?: Date | undefined;
@@ -4894,28 +4894,32 @@ export interface ImportKeyMaterialRequest {
   ExpirationModel?: ExpirationModelType | undefined;
 
   /**
-   * <p>Indicates whether the key material being imported is previously associated with this KMS key or not.
-   *       This parameter is optional and only usable with symmetric encryption keys. The default is
-   *       <code>EXISTING_KEY_MATERIAL</code>. If no key material has ever been imported into the KMS key,
-   *       and this parameter is omitted, the parameter defaults to <code>NEW_KEY_MATERIAL</code>.</p>
+   * <p>Indicates whether the key material being imported is previously associated with this KMS
+   *       key or not. This parameter is optional and only usable with symmetric encryption keys. If no
+   *       key material has ever been imported into the KMS key, and this parameter is omitted, the
+   *       parameter defaults to <code>NEW_KEY_MATERIAL</code>. After the first key material is imported,
+   *       if this parameter is omitted then the parameter defaults to
+   *       <code>EXISTING_KEY_MATERIAL</code>.</p>
    * @public
    */
   ImportType?: ImportType | undefined;
 
   /**
-   * <p>Description for the key material being imported. This parameter is optional and only usable
-   *       with symmetric encryption keys. If you do not specify a key material description, KMS retains
-   *       the value you specified when you last imported the same key material into this KMS key.</p>
+   * <p>Description for the key material being imported. This parameter is optional and only
+   *       usable with symmetric encryption keys. If you do not specify a key material description, KMS
+   *       retains the value you specified when you last imported the same key material into this KMS
+   *       key.</p>
    * @public
    */
   KeyMaterialDescription?: string | undefined;
 
   /**
-   * <p>Identifies the key material being imported. This parameter is optional and only usable with
-   *       symmetric encryption keys. You cannot specify a key material ID with <code>ImportType</code> set
-   *       to <code>NEW_KEY_MATERIAL</code>. Whenever you import key material into a symmetric encryption key,
-   *       KMS assigns a unique identifier to the key material based on the KMS key ID and
-   *       the imported key material. When you re-import key material with a specified key material ID, KMS:</p>
+   * <p>Identifies the key material being imported. This parameter is optional and only usable
+   *       with symmetric encryption keys. You cannot specify a key material ID with
+   *         <code>ImportType</code> set to <code>NEW_KEY_MATERIAL</code>. Whenever you import key
+   *       material into a symmetric encryption key, KMS assigns a unique identifier to the key
+   *       material based on the KMS key ID and the imported key material. When you re-import key
+   *       material with a specified key material ID, KMS:</p>
    *          <ul>
    *             <li>
    *                <p>Computes the identifier for the key material</p>
@@ -4952,9 +4956,9 @@ export interface ImportKeyMaterialResponse {
 
 /**
  * <p>The request was rejected because the key material in the request is, expired, invalid, or
- *       does not meet expectations. For example, it is not the same key material that was previously imported or
- *       KMS expected new key material but the key material being imported is already associated with
- *       the KMS key.</p>
+ *       does not meet expectations. For example, it is not the same key material that was previously
+ *       imported or KMS expected new key material but the key material being imported is already
+ *       associated with the KMS key.</p>
  * @public
  */
 export class IncorrectKeyMaterialException extends __BaseException {
@@ -5370,12 +5374,12 @@ export interface ListKeyRotationsRequest {
 
   /**
    * <p>Use this optional parameter to control which key materials associated with this key are
-   *       listed in the response. The default value of this parameter is <code>ROTATIONS_ONLY</code>. If you omit this
-   *       parameter, KMS returns information on the key materials created by automatic or on-demand key rotation. When you
-   *       specify a value of <code>ALL_KEY_MATERIAL</code>, KMS adds the first key material and any imported key material
-   *       pending rotation to the response. This parameter can only be used with KMS keys that support
-   *       automatic or on-demand key rotation.
-   *     </p>
+   *       listed in the response. The default value of this parameter is <code>ROTATIONS_ONLY</code>. If
+   *       you omit this parameter, KMS returns information on the key materials created by automatic
+   *       or on-demand key rotation. When you specify a value of <code>ALL_KEY_MATERIAL</code>, KMS
+   *       adds the first key material and any imported key material pending rotation to the response.
+   *       This parameter can only be used with KMS keys that support automatic or on-demand key
+   *       rotation. </p>
    * @public
    */
   IncludeKeyMaterial?: IncludeKeyMaterial | undefined;
@@ -5414,7 +5418,8 @@ export const RotationType = {
 export type RotationType = (typeof RotationType)[keyof typeof RotationType];
 
 /**
- * <p>Each entry contains information about one of the key materials associated with a KMS key.</p>
+ * <p>Each entry contains information about one of the key materials associated with a KMS
+ *       key.</p>
  * @public
  */
 export interface RotationsListEntry {
@@ -5439,54 +5444,57 @@ export interface RotationsListEntry {
 
   /**
    * <p>Indicates if the key material is currently imported into KMS. It has two possible
-   *       values: <code>IMPORTED</code> or <code>PENDING_IMPORT</code>. This field is only present
-   *       for symmetric encryption KMS keys with <code>EXTERNAL</code> origin.</p>
+   *       values: <code>IMPORTED</code> or <code>PENDING_IMPORT</code>. This field is only present for
+   *       symmetric encryption KMS keys with <code>EXTERNAL</code> origin.</p>
    * @public
    */
   ImportState?: ImportState | undefined;
 
   /**
-   * <p>There are three possible values for this field: <code>CURRENT</code>, <code>NON_CURRENT</code>
-   *       and <code>PENDING_ROTATION</code>. KMS uses <code>CURRENT</code> key material for both encryption
-   *       and decryption and <code>NON_CURRENT</code> key material only for decryption. <code>PENDING_ROTATION</code>
-   *       identifies key material that has been imported for on-demand key rotation but the rotation hasn't completed.
-   *       Key material in <code>PENDING_ROTATION</code> is not permanently associated with the KMS key. You can
-   *       delete this key material and import different key material in its place. The <code>PENDING_ROTATION</code>
-   *       value is only used in symmetric encryption keys with imported key material. The other values,
-   *       <code>CURRENT</code> and <code>NON_CURRENT</code>, are used for all KMS keys that support automatic or
-   *       on-demand key rotation.</p>
+   * <p>There are three possible values for this field: <code>CURRENT</code>,
+   *         <code>NON_CURRENT</code> and <code>PENDING_ROTATION</code>. KMS uses <code>CURRENT</code>
+   *       key material for both encryption and decryption and <code>NON_CURRENT</code> key material only
+   *       for decryption. <code>PENDING_ROTATION</code> identifies key material that has been imported
+   *       for on-demand key rotation but the rotation hasn't completed. Key material in
+   *         <code>PENDING_ROTATION</code> is not permanently associated with the KMS key. You can delete
+   *       this key material and import different key material in its place. The
+   *         <code>PENDING_ROTATION</code> value is only used in symmetric encryption keys with imported
+   *       key material. The other values, <code>CURRENT</code> and <code>NON_CURRENT</code>, are used
+   *       for all KMS keys that support automatic or on-demand key rotation.</p>
    * @public
    */
   KeyMaterialState?: KeyMaterialState | undefined;
 
   /**
-   * <p>Indicates if the key material is configured to automatically expire. There are two possible values for
-   *       this field: <code>KEY_MATERIAL_EXPIRES</code> and <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>. For any key
-   *       material that expires, the expiration date and time is indicated in <code>ValidTo</code>. This field
-   *       is only present for symmetric encryption KMS keys with <code>EXTERNAL</code> origin.</p>
+   * <p>Indicates if the key material is configured to automatically expire. There are two
+   *       possible values for this field: <code>KEY_MATERIAL_EXPIRES</code> and
+   *         <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>. For any key material that expires, the expiration
+   *       date and time is indicated in <code>ValidTo</code>. This field is only present for symmetric
+   *       encryption KMS keys with <code>EXTERNAL</code> origin.</p>
    * @public
    */
   ExpirationModel?: ExpirationModelType | undefined;
 
   /**
-   * <p>Date and time at which the key material expires. This field is only present for symmetric encryption KMS
-   *       keys with <code>EXTERNAL</code> origin in rotation list entries with an <code>ExpirationModel</code>
-   *       value of <code>KEY_MATERIAL_EXPIRES</code>.</p>
+   * <p>Date and time at which the key material expires. This field is only present for symmetric
+   *       encryption KMS keys with <code>EXTERNAL</code> origin in rotation list entries with an
+   *         <code>ExpirationModel</code> value of <code>KEY_MATERIAL_EXPIRES</code>.</p>
    * @public
    */
   ValidTo?: Date | undefined;
 
   /**
-   * <p>Date and time that the key material rotation completed. Formatted as Unix time. This field is not present
-   *       for the first key material or an imported key material in <code>PENDING_ROTATION</code> state.</p>
+   * <p>Date and time that the key material rotation completed. Formatted as Unix time. This field
+   *       is not present for the first key material or an imported key material in
+   *         <code>PENDING_ROTATION</code> state.</p>
    * @public
    */
   RotationDate?: Date | undefined;
 
   /**
    * <p>Identifies whether the key material rotation was a scheduled <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-enable-disable.html">automatic rotation</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-on-demand.html">on-demand
-   *         rotation</a>. This field is not present for the first key material or an imported key material
-   *       in <code>PENDING_ROTATION</code> state.</p>
+   *         rotation</a>. This field is not present for the first key material or an imported key
+   *       material in <code>PENDING_ROTATION</code> state.</p>
    * @public
    */
   RotationType?: RotationType | undefined;
@@ -5497,10 +5505,10 @@ export interface RotationsListEntry {
  */
 export interface ListKeyRotationsResponse {
   /**
-   * <p>A list of completed key material rotations. When the optional input
-   *     parameter <code>IncludeKeyMaterial</code> is specified with a value of
-   *       <code>ALL_KEY_MATERIAL</code>, this list includes the first key material
-   *     and any imported key material pending rotation.</p>
+   * <p>A list of completed key material rotations. When the optional input parameter
+   *         <code>IncludeKeyMaterial</code> is specified with a value of <code>ALL_KEY_MATERIAL</code>,
+   *       this list includes the first key material and any imported key material pending
+   *       rotation.</p>
    * @public
    */
   Rotations?: RotationsListEntry[] | undefined;
@@ -5973,15 +5981,15 @@ export interface ReEncryptResponse {
   DestinationEncryptionAlgorithm?: EncryptionAlgorithmSpec | undefined;
 
   /**
-   * <p>The identifier of the key material used to originally encrypt the data. This field is present only when
-   *       the original encryption used a symmetric encryption KMS key.</p>
+   * <p>The identifier of the key material used to originally encrypt the data. This field is
+   *       present only when the original encryption used a symmetric encryption KMS key.</p>
    * @public
    */
   SourceKeyMaterialId?: string | undefined;
 
   /**
-   * <p>The identifier of the key material used to reencrypt the data. This field is present only when
-   *       data is reencrypted using a symmetric encryption KMS key.</p>
+   * <p>The identifier of the key material used to reencrypt the data. This field is present only
+   *       when data is reencrypted using a symmetric encryption KMS key.</p>
    * @public
    */
   DestinationKeyMaterialId?: string | undefined;
@@ -6241,9 +6249,9 @@ export interface RotateKeyOnDemandRequest {
   /**
    * <p>Identifies a symmetric encryption KMS key. You cannot perform on-demand rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS
    *         keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS
-   *       keys</a>, multi-Region KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. To perform on-demand
-   *       rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate">multi-Region keys</a>, invoke
-   *       the on-demand rotation on the primary key.</p>
+   *       keys</a>, multi-Region KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a
+   *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. To perform on-demand rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate">multi-Region
+   *         keys</a>, invoke the on-demand rotation on the primary key.</p>
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>

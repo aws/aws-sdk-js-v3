@@ -28,9 +28,9 @@ export interface ListKeyRotationsCommandInput extends ListKeyRotationsRequest {}
 export interface ListKeyRotationsCommandOutput extends ListKeyRotationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the key materials associated with the specified KMS
- *       key. You can use the optional <code>IncludeKeyMaterial</code> parameter to control which key materials
- *       are included in the response.</p>
+ * <p>Returns information about the key materials associated with the specified KMS key. You can
+ *       use the optional <code>IncludeKeyMaterial</code> parameter to control which key materials are
+ *       included in the response.</p>
  *          <p>You must specify the KMS key in all requests. You can refine the key rotations list by
  *       limiting the number of rotations returned.</p>
  *          <p>For detailed information about automatic and on-demand key rotations, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">Rotate KMS keys</a> in the
