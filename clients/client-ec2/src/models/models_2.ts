@@ -4414,6 +4414,12 @@ export interface CreateRouteRequest {
   CoreNetworkArn?: string | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the ODB network.</p>
+   * @public
+   */
+  OdbNetworkArn?: string | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -5324,6 +5330,12 @@ export interface Route {
    * @public
    */
   CoreNetworkArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ODB network.</p>
+   * @public
+   */
+  OdbNetworkArn?: string | undefined;
 }
 
 /**

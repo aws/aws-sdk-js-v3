@@ -34355,6 +34355,9 @@ const se_CreateRouteRequest = (input: CreateRouteRequest, context: __SerdeContex
   if (input[_CNAo] != null) {
     entries[_CNAo] = input[_CNAo];
   }
+  if (input[_ONA] != null) {
+    entries[_ONA] = input[_ONA];
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -54815,6 +54818,9 @@ const se_ReplaceRouteRequest = (input: ReplaceRouteRequest, context: __SerdeCont
   }
   if (input[_CNAo] != null) {
     entries[_CNAo] = input[_CNAo];
+  }
+  if (input[_ONA] != null) {
+    entries[_ONA] = input[_ONA];
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
@@ -83682,6 +83688,9 @@ const de_Route = (output: any, context: __SerdeContext): Route => {
   if (output[_cNA] != null) {
     contents[_CNAo] = __expectString(output[_cNA]);
   }
+  if (output[_oNA] != null) {
+    contents[_ONA] = __expectString(output[_oNA]);
+  }
   return contents;
 };
 
@@ -92821,6 +92830,7 @@ const _OL = "OutpostLags";
 const _OLI = "OutpostLagId";
 const _OLIu = "OutpostLagIds";
 const _OMAE = "OriginalMultiAttachEnabled";
+const _ONA = "OdbNetworkArn";
 const _OO = "OidcOptions";
 const _OR = "OperatingRegions";
 const _ORIWEA = "OutputReservedInstancesWillExpireAt";
@@ -94875,6 +94885,7 @@ const _oK = "objectKey";
 const _oLI = "outpostLagId";
 const _oLS = "outpostLagSet";
 const _oMAE = "originalMultiAttachEnabled";
+const _oNA = "odbNetworkArn";
 const _oO = "oidcOptions";
 const _oRIWEA = "outputReservedInstancesWillExpireAt";
 const _oRS = "operatingRegionSet";

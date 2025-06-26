@@ -62,6 +62,7 @@ export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataB
  *   LocalGatewayId: "STRING_VALUE",
  *   CarrierGatewayId: "STRING_VALUE",
  *   CoreNetworkArn: "STRING_VALUE",
+ *   OdbNetworkArn: "STRING_VALUE",
  *   DryRun: true || false,
  *   RouteTableId: "STRING_VALUE", // required
  *   DestinationCidrBlock: "STRING_VALUE",
