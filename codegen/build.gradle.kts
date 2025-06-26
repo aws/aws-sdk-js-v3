@@ -22,7 +22,7 @@ plugins {
     checkstyle
     jacoco
     id("com.github.spotbugs") version "4.7.1"
-    id("org.jreleaser") version "1.9.0"
+    id("org.jreleaser") version "1.18.0"
 }
 
 allprojects {
