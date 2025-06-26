@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.838.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.837.0...v3.838.0) (2025-06-26)
+
+
+### Bug Fixes
+
+* **codegen:** add default aws regional endpoints for generated clients ([#7151](https://github.com/aws/aws-sdk-js-v3/issues/7151)) ([cb4e033](https://github.com/aws/aws-sdk-js-v3/commit/cb4e0339611d6f2852544d69ebb7429638873686))
+
+
+### Features
+
+* **client-deadline:** Added fields to track cumulative task retry attempts for steps and jobs ([62c8210](https://github.com/aws/aws-sdk-js-v3/commit/62c82109c6c43711ddbd09973f54dce46229de83))
+* **client-ec2:** This release adds support for OdbNetworkArn as a target in VPC Route Tables ([cf3c376](https://github.com/aws/aws-sdk-js-v3/commit/cf3c376223fb9a18988854c1a6e4e44ff0bb5528))
+* **client-iot-managed-integrations:** Adding managed integrations APIs for IoT Device Management to onboard and control devices across different manufacturers, connectivity protocols and third party vendor clouds. APIs include managed thing operations, provisioning profile management, and cloud connector operations. ([d6080dd](https://github.com/aws/aws-sdk-js-v3/commit/d6080ddf26e29785684467cb242f8ff1f073159b))
+* **client-keyspacesstreams:** This release adds change data capture (CDC) streams support through the new Amazon Keyspaces Streams API. ([7de1d22](https://github.com/aws/aws-sdk-js-v3/commit/7de1d226dda096a247c26e15bf6f54a049f8110d))
+* **client-keyspaces:** This release provides change data capture (CDC) streams support through updates to the Amazon Keyspaces API. ([1991f3c](https://github.com/aws/aws-sdk-js-v3/commit/1991f3cf4866f30fe955ffa5454db277136ba971))
+* **client-qbusiness:** Added support for App level authentication for QBusiness DataAccessor using AWS IAM Identity center Trusted Token issuer ([8b9a8ba](https://github.com/aws/aws-sdk-js-v3/commit/8b9a8baacace059b13729288c7c5a795c29fac9c))
+* **client-workspaces:** Updated modifyStreamingProperties to support PrivateLink VPC endpoints for directories ([e92f7fb](https://github.com/aws/aws-sdk-js-v3/commit/e92f7fbb92f39f758180e1ecef6d4c7327fed8a0))
+* **clients:** update client endpoints as of 2025-06-26 ([4633ec7](https://github.com/aws/aws-sdk-js-v3/commit/4633ec72b789ba486f9d8d2c2c5b1c164d32852c))
+
+
+
+
+
 # [3.837.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.836.0...v3.837.0) (2025-06-25)
 
 

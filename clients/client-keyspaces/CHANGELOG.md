@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.838.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.837.0...v3.838.0) (2025-06-26)
+
+
+### Features
+
+* **client-keyspaces:** This release provides change data capture (CDC) streams support through updates to the Amazon Keyspaces API. ([1991f3c](https://github.com/aws/aws-sdk-js-v3/commit/1991f3cf4866f30fe955ffa5454db277136ba971))
+
+
+
+
+
 # [3.835.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.834.0...v3.835.0) (2025-06-23)
 
 **Note:** Version bump only for package @aws-sdk/client-keyspaces
