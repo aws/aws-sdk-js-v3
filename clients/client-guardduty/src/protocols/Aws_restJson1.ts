@@ -5694,7 +5694,7 @@ const de_KubernetesUserDetails = (output: any, context: __SerdeContext): Kuberne
 const de_KubernetesWorkload = (output: any, context: __SerdeContext): KubernetesWorkload => {
   return take(output, {
     ContainerUids: [, _json, `containerUids`],
-    KubernetesResourcesTypes: [, __expectString, `kubernetesResourcesTypes`],
+    KubernetesResourcesTypes: [, __expectString, `type`],
     Namespace: [, __expectString, `namespace`],
   }) as any;
 };
