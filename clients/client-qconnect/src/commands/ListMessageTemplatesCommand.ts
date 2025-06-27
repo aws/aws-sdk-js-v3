@@ -28,8 +28,7 @@ export interface ListMessageTemplatesCommandInput extends ListMessageTemplatesRe
 export interface ListMessageTemplatesCommandOutput extends ListMessageTemplatesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the available Amazon Q in Connect message templates for the specified knowledge
- *       base.</p>
+ * <p>Lists all the available Amazon Q in Connect message templates for the specified knowledge base.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

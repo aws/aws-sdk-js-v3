@@ -38,11 +38,7 @@ export interface CreateMessageTemplateAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Uploads an attachment file to the specified Amazon Q in Connect message template. The name
- *       of the message template attachment has to be unique for each message template referenced by
- *       the <code>$LATEST</code> qualifier. The body of the attachment file should be encoded using
- *       base64 encoding. After the file is uploaded, you can use the pre-signed Amazon S3 URL returned
- *       in response to download the uploaded file.</p>
+ * <p>Uploads an attachment file to the specified Amazon Q in Connect message template. The name of the message template attachment has to be unique for each message template referenced by the <code>$LATEST</code> qualifier. The body of the attachment file should be encoded using base64 encoding. After the file is uploaded, you can use the pre-signed Amazon S3 URL returned in response to download the uploaded file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,20 +78,19 @@ export interface CreateMessageTemplateAttachmentCommandOutput
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *       resource. For example, if you're using a <code>Create</code> API (such as
- *         <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the
- *       same name) is being created or mutated.</p>
+ *  <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You've exceeded your service quota. To perform the requested action, remove some of the
- *       relevant resources, or use service quotas to request a service quota increase.</p>
+ *  <p>You've exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use service quotas to request a service quota increase.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You do not have permission to perform this action.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>

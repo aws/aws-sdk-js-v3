@@ -28,8 +28,7 @@ export interface UpdateAssistantAIAgentCommandInput extends UpdateAssistantAIAge
 export interface UpdateAssistantAIAgentCommandOutput extends UpdateAssistantAIAgentResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the AI Agent that is set for use by default on an Amazon Q in Connect
- *       Assistant.</p>
+ * <p>Updates the AI Agent that is set for use by default on an Amazon Q in Connect Assistant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

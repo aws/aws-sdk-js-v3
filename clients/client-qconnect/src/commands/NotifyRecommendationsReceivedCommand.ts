@@ -33,9 +33,7 @@ export interface NotifyRecommendationsReceivedCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Removes the specified recommendations from the specified assistant's queue of newly
- *       available recommendations. You can use this API in conjunction with <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a> and a <code>waitTimeSeconds</code> input for long-polling
- *       behavior and avoiding duplicate recommendations.</p>
+ * <p>Removes the specified recommendations from the specified assistant's queue of newly available recommendations. You can use this API in conjunction with <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a> and a <code>waitTimeSeconds</code> input for long-polling behavior and avoiding duplicate recommendations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

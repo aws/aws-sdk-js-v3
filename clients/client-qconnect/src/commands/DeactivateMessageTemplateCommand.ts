@@ -28,9 +28,7 @@ export interface DeactivateMessageTemplateCommandInput extends DeactivateMessage
 export interface DeactivateMessageTemplateCommandOutput extends DeactivateMessageTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Deactivates a specific version of the Amazon Q in Connect message template . After the
- *       version is deactivated, you can no longer use the <code>$ACTIVE_VERSION</code> qualifier to
- *       reference the version in active status.</p>
+ * <p>Deactivates a specific version of the Amazon Q in Connect message template . After the version is deactivated, you can no longer use the <code>$ACTIVE_VERSION</code> qualifier to reference the version in active status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,10 +60,7 @@ export interface DeactivateMessageTemplateCommandOutput extends DeactivateMessag
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *       resource. For example, if you're using a <code>Create</code> API (such as
- *         <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the
- *       same name) is being created or mutated.</p>
+ *  <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

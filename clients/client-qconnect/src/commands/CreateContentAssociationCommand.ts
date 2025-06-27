@@ -28,25 +28,7 @@ export interface CreateContentAssociationCommandInput extends CreateContentAssoc
 export interface CreateContentAssociationCommandOutput extends CreateContentAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an association between a content resource in a knowledge base and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/step-by-step-guided-experiences.html">step-by-step guides</a>. Step-by-step guides offer instructions to agents for resolving
- *       common customer issues. You create a content association to integrate Amazon Q in Connect and
- *       step-by-step guides. </p>
- *          <p>After you integrate Amazon Q and step-by-step guides, when Amazon Q provides a
- *       recommendation to an agent based on the intent that it's detected, it also provides them with
- *       the option to start the step-by-step guide that you have associated with the content.</p>
- *          <p>Note the following limitations:</p>
- *          <ul>
- *             <li>
- *                <p>You can create only one content association for each content resource in a knowledge
- *           base.</p>
- *             </li>
- *             <li>
- *                <p>You can associate a step-by-step guide with multiple content resources.</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html">Integrate Amazon Q in Connect with
- *         step-by-step guides</a> in the <i>Amazon Connect Administrator
- *         Guide</i>. </p>
+ * <p>Creates an association between a content resource in a knowledge base and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/step-by-step-guided-experiences.html">step-by-step guides</a>. Step-by-step guides offer instructions to agents for resolving common customer issues. You create a content association to integrate Amazon Q in Connect and step-by-step guides. </p> <p>After you integrate Amazon Q and step-by-step guides, when Amazon Q provides a recommendation to an agent based on the intent that it's detected, it also provides them with the option to start the step-by-step guide that you have associated with the content.</p> <p>Note the following limitations:</p> <ul> <li> <p>You can create only one content association for each content resource in a knowledge base.</p> </li> <li> <p>You can associate a step-by-step guide with multiple content resources.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html">Integrate Amazon Q in Connect with step-by-step guides</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,20 +83,19 @@ export interface CreateContentAssociationCommandOutput extends CreateContentAsso
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *       resource. For example, if you're using a <code>Create</code> API (such as
- *         <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the
- *       same name) is being created or mutated.</p>
+ *  <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You've exceeded your service quota. To perform the requested action, remove some of the
- *       relevant resources, or use service quotas to request a service quota increase.</p>
+ *  <p>You've exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use service quotas to request a service quota increase.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You do not have permission to perform this action.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>

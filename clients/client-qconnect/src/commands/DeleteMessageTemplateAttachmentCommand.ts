@@ -33,9 +33,7 @@ export interface DeleteMessageTemplateAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes the attachment file from the Amazon Q in Connect message template that is
- *       referenced by <code>$LATEST</code> qualifier. Attachments on available message template
- *       versions will remain unchanged.</p>
+ * <p>Deletes the attachment file from the Amazon Q in Connect message template that is referenced by <code>$LATEST</code> qualifier. Attachments on available message template versions will remain unchanged.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,10 +61,7 @@ export interface DeleteMessageTemplateAttachmentCommandOutput
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *       resource. For example, if you're using a <code>Create</code> API (such as
- *         <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the
- *       same name) is being created or mutated.</p>
+ *  <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

@@ -85,6 +85,9 @@ export interface ListAIPromptsCommandOutput extends ListAIPromptsResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You do not have permission to perform this action.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *

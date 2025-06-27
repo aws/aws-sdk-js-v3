@@ -37,12 +37,7 @@ export interface UpdateKnowledgeBaseTemplateUriCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates the template URI of a knowledge base. This is only supported for knowledge bases
- *       of type EXTERNAL. Include a single variable in <code>$\{variable\}</code> format; this
- *       interpolated by Amazon Q in Connect using ingested content. For example, if you ingest a Salesforce
- *       article, it has an <code>Id</code> value, and you can set the template URI to
- *         <code>https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*$\{Id\}*\/view</code>.
- *     </p>
+ * <p>Updates the template URI of a knowledge base. This is only supported for knowledge bases of type EXTERNAL. Include a single variable in <code>$\{variable\}</code> format; this interpolated by Amazon Q in Connect using ingested content. For example, if you ingest a Salesforce article, it has an <code>Id</code> value, and you can set the template URI to <code>https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*$\{Id\}*\/view</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

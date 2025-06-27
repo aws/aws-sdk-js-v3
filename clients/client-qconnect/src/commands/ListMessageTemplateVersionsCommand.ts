@@ -33,8 +33,7 @@ export interface ListMessageTemplateVersionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists all the available versions for the specified Amazon Q in Connect message
- *       template.</p>
+ * <p>Lists all the available versions for the specified Amazon Q in Connect message template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

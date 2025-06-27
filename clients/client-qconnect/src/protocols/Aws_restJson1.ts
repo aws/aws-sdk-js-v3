@@ -292,7 +292,6 @@ import {
   EmailHeader,
   EmailMessageTemplateContent,
   EmailMessageTemplateContentBody,
-  ExtendedMessageTemplateData,
   Filter,
   FixedSizeChunkingConfiguration,
   GenerativeContentFeedbackData,
@@ -352,6 +351,7 @@ import {
   TextFullAIPromptEditTemplateConfiguration,
   TextMessage,
   ThrottlingException,
+  UnauthorizedException,
   UrlConfiguration,
   ValidationException,
   VectorIngestionConfiguration,
@@ -361,6 +361,7 @@ import {
 import {
   DataDetails,
   DataSummary,
+  ExtendedMessageTemplateData,
   ExternalSourceConfiguration,
   GenerativeChunkDataDetails,
   GenerativeDataDetails,
@@ -4333,6 +4334,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ServiceQuotaExceededException":
     case "com.amazonaws.qconnect#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.qconnect#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "RequestTimeoutException":
     case "com.amazonaws.qconnect#RequestTimeoutException":
       throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
@@ -4503,6 +4507,26 @@ const de_TooManyTagsExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new TooManyTagsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1UnauthorizedExceptionRes
+ */
+const de_UnauthorizedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnauthorizedException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new UnauthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });

@@ -28,8 +28,7 @@ export interface PutFeedbackCommandInput extends PutFeedbackRequest {}
 export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __MetadataBearer {}
 
 /**
- * <p>Provides feedback against the specified assistant for the specified target. This API only
- *       supports generative targets.</p>
+ * <p>Provides feedback against the specified assistant for the specified target. This API only supports generative targets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

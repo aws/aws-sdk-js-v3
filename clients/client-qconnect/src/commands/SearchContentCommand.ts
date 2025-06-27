@@ -28,8 +28,7 @@ export interface SearchContentCommandInput extends SearchContentRequest {}
 export interface SearchContentCommandOutput extends SearchContentResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for content in a specified knowledge base. Can be used to get a specific content
- *       resource by its name.</p>
+ * <p>Searches for content in a specified knowledge base. Can be used to get a specific content resource by its name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,6 +87,9 @@ export interface SearchContentCommandOutput extends SearchContentResponse, __Met
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You do not have permission to perform this action.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>

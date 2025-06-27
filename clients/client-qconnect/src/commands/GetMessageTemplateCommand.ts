@@ -32,12 +32,7 @@ export interface GetMessageTemplateCommandInput extends GetMessageTemplateReques
 export interface GetMessageTemplateCommandOutput extends GetMessageTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the Amazon Q in Connect message template. The message template identifier can
- *       contain an optional qualifier, for example,
- *         <code>&lt;message-template-id&gt;:&lt;qualifier&gt;</code>, which is either an actual
- *       version number or an Amazon Q Connect managed qualifier <code>$ACTIVE_VERSION</code> |
- *         <code>$LATEST</code>. If it is not supplied, then <code>$LATEST</code> is assumed
- *       implicitly.</p>
+ * <p>Retrieves the Amazon Q in Connect message template. The message template identifier can contain an optional qualifier, for example, <code>&lt;message-template-id&gt;:&lt;qualifier&gt;</code>, which is either an actual version number or an Amazon Q Connect managed qualifier <code>$ACTIVE_VERSION</code> | <code>$LATEST</code>. If it is not supplied, then <code>$LATEST</code> is assumed implicitly.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -213,6 +208,9 @@ export interface GetMessageTemplateCommandOutput extends GetMessageTemplateRespo
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You do not have permission to perform this action.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>

@@ -37,16 +37,7 @@ export interface CreateMessageTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon Q in Connect message template version from the current content and
- *       configuration of a message template. Versions are immutable and monotonically increasing. Once
- *       a version is created, you can reference a specific version of the message template by passing
- *       in <code>&lt;message-template-id&gt;:&lt;versionNumber&gt;</code> as the message template
- *       identifier. An error is displayed if the supplied <code>messageTemplateContentSha256</code> is
- *       different from the <code>messageTemplateContentSha256</code> of the message template with
- *         <code>$LATEST</code> qualifier. If multiple <code>CreateMessageTemplateVersion</code>
- *       requests are made while the message template remains the same, only the first invocation
- *       creates a new version and the succeeding requests will return the same response as the first
- *       invocation.</p>
+ * <p>Creates a new Amazon Q in Connect message template version from the current content and configuration of a message template. Versions are immutable and monotonically increasing. Once a version is created, you can reference a specific version of the message template by passing in <code>&lt;message-template-id&gt;:&lt;versionNumber&gt;</code> as the message template identifier. An error is displayed if the supplied <code>messageTemplateContentSha256</code> is different from the <code>messageTemplateContentSha256</code> of the message template with <code>$LATEST</code> qualifier. If multiple <code>CreateMessageTemplateVersion</code> requests are made while the message template remains the same, only the first invocation creates a new version and the succeeding requests will return the same response as the first invocation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -219,17 +210,13 @@ export interface CreateMessageTemplateVersionCommandOutput
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *       resource. For example, if you're using a <code>Create</code> API (such as
- *         <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the
- *       same name) is being created or mutated.</p>
+ *  <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You've exceeded your service quota. To perform the requested action, remove some of the
- *       relevant resources, or use service quotas to request a service quota increase.</p>
+ *  <p>You've exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use service quotas to request a service quota increase.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>

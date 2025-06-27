@@ -38,11 +38,7 @@ export interface UpdateMessageTemplateMetadataCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates the Amazon Q in Connect message template metadata. Note that any modification to
- *       the message template’s name, description and grouping configuration will applied to the
- *       message template pointed by the <code>$LATEST</code> qualifier and all available versions.
- *       Partial update is supported. If any field is not supplied, it will remain unchanged for the
- *       message template.</p>
+ * <p>Updates the Amazon Q in Connect message template metadata. Note that any modification to the message template’s name, description and grouping configuration will applied to the message template pointed by the <code>$LATEST</code> qualifier and all available versions. Partial update is supported. If any field is not supplied, it will remain unchanged for the message template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -210,10 +206,7 @@ export interface UpdateMessageTemplateMetadataCommandOutput
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *       resource. For example, if you're using a <code>Create</code> API (such as
- *         <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the
- *       same name) is being created or mutated.</p>
+ *  <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

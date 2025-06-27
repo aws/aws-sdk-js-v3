@@ -29,14 +29,7 @@ export interface QueryAssistantCommandInput extends QueryAssistantRequest {}
 export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>This API will be discontinued starting June 1, 2024. To receive generative responses
- *         after March 1, 2024, you will need to create a new Assistant in the Amazon Connect
- *         console and integrate the Amazon Q in Connect JavaScript library (amazon-q-connectjs) into
- *         your applications.</p>
- *          </important>
- *          <p>Performs a manual search against the specified assistant. To retrieve recommendations for
- *       an assistant, use <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a>. </p>
+ * <important> <p>This API will be discontinued starting June 1, 2024. To receive generative responses after March 1, 2024, you will need to create a new Assistant in the Amazon Connect console and integrate the Amazon Q in Connect JavaScript library (amazon-q-connectjs) into your applications.</p> </important> <p>Performs a manual search against the specified assistant. To retrieve recommendations for an assistant, use <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a>. </p>
  *
  * @deprecated QueryAssistant API will be discontinued starting June 1, 2024. To receive generative responses after March 1, 2024 you will need to create a new Assistant in the Connect console and integrate the Amazon Q in Connect JavaScript library (amazon-q-connectjs) into your applications.
  * @example
@@ -258,9 +251,7 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>The request reached the service more than 15 minutes after the date stamp on the request
- *       or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or
- *       the date stamp on the request is more than 15 minutes in the future.</p>
+ *  <p>The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

@@ -28,9 +28,7 @@ export interface UpdateSessionCommandInput extends UpdateSessionRequest {}
 export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a session. A session is a contextual container used for generating
- *       recommendations. Amazon Connect updates the existing Amazon Q in Connect session for each contact on
- *       which Amazon Q in Connect is enabled.</p>
+ * <p>Updates a session. A session is a contextual container used for generating recommendations. Amazon Connect updates the existing Amazon Q in Connect session for each contact on which Amazon Q in Connect is enabled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -123,6 +121,9 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You do not have permission to perform this action.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>

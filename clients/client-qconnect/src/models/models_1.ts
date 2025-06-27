@@ -10,8 +10,6 @@ import {
   DataReference,
   Document,
   DocumentFilterSensitiveLog,
-  ExtendedMessageTemplateData,
-  ExtendedMessageTemplateDataFilterSensitiveLog,
   GroupingConfiguration,
   GroupingConfigurationFilterSensitiveLog,
   IntentDetectedDataDetails,
@@ -24,6 +22,7 @@ import {
   MessageTemplateAttachmentFilterSensitiveLog,
   MessageTemplateAttributes,
   MessageTemplateAttributesFilterSensitiveLog,
+  MessageTemplateAttributeType,
   MessageTemplateContentProvider,
   MessageTemplateContentProviderFilterSensitiveLog,
   MessageTemplateData,
@@ -45,6 +44,132 @@ import {
 } from "./models_0";
 
 import { QConnectServiceException as __BaseException } from "./QConnectServiceException";
+
+/**
+ * <p>The extended data of a message template.</p>
+ * @public
+ */
+export interface ExtendedMessageTemplateData {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The channel subtype this message template applies to.</p>
+   * @public
+   */
+  channelSubtype: ChannelSubtype | undefined;
+
+  /**
+   * <p>The timestamp when the message template was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the message template data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
+   * @public
+   */
+  lastModifiedBy: string | undefined;
+
+  /**
+   * <p>The content of the message template.</p>
+   * @public
+   */
+  content: MessageTemplateContentProvider | undefined;
+
+  /**
+   * <p>The description of the message template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+
+  /**
+   * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
+   * @public
+   */
+  defaultAttributes?: MessageTemplateAttributes | undefined;
+
+  /**
+   * <p>The types of attributes contain the message template.</p>
+   * @public
+   */
+  attributeTypes?: MessageTemplateAttributeType[] | undefined;
+
+  /**
+   * <p>The message template attachments.</p>
+   * @public
+   */
+  attachments?: MessageTemplateAttachment[] | undefined;
+
+  /**
+   * <p>Whether the version of the message template is activated.</p>
+   * @public
+   */
+  isActive?: boolean | undefined;
+
+  /**
+   * <p>The version number of the message template version.</p>
+   * @public
+   */
+  versionNumber?: number | undefined;
+
+  /**
+   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template.</p>
+   * @public
+   */
+  messageTemplateContentSha256: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
 
 /**
  * @public
@@ -120,24 +245,13 @@ export interface CreateQuickResponseRequest {
   content: QuickResponseDataProvider | undefined;
 
   /**
-   * <p>The media type of the quick response content.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=plain</code> for a quick response written
-   *           in plain text.</p>
-   *             </li>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for a quick response
-   *           written in richtext.</p>
-   *             </li>
-   *          </ul>
+   * <p>The media type of the quick response content.</p> <ul> <li> <p>Use <code>application/x.quickresponse;format=plain</code> for a quick response written in plain text.</p> </li> <li> <p>Use <code>application/x.quickresponse;format=markdown</code> for a quick response written in richtext.</p> </li> </ul>
    * @public
    */
   contentType?: string | undefined;
 
   /**
-   * <p>The configuration information of the user groups that the quick response is accessible
-   *       to.</p>
+   * <p>The configuration information of the user groups that the quick response is accessible to.</p>
    * @public
    */
   groupingConfiguration?: GroupingConfiguration | undefined;
@@ -149,8 +263,7 @@ export interface CreateQuickResponseRequest {
   description?: string | undefined;
 
   /**
-   * <p>The shortcut key of the quick response. The value should be unique across the
-   *   knowledge base. </p>
+   * <p>The shortcut key of the quick response. The value should be unique across the knowledge base. </p>
    * @public
    */
   shortcutKey?: string | undefined;
@@ -168,19 +281,13 @@ export interface CreateQuickResponseRequest {
   channels?: string[] | undefined;
 
   /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
-   *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
-   *   <code>zh_CN</code>, <code>zh_TW</code>
-   *          </p>
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
    * @public
    */
   language?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -306,17 +413,7 @@ export interface QuickResponseData {
   name: string | undefined;
 
   /**
-   * <p>The media type of the quick response content.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written
-   *           in plain text.</p>
-   *             </li>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response
-   *           written in richtext.</p>
-   *             </li>
-   *          </ul>
+   * <p>The media type of the quick response content.</p> <ul> <li> <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written in plain text.</p> </li> <li> <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p> </li> </ul>
    * @public
    */
   contentType: string | undefined;
@@ -352,22 +449,19 @@ export interface QuickResponseData {
   description?: string | undefined;
 
   /**
-   * <p>The configuration information of the user groups that the quick response is accessible
-   *       to.</p>
+   * <p>The configuration information of the user groups that the quick response is accessible to.</p>
    * @public
    */
   groupingConfiguration?: GroupingConfiguration | undefined;
 
   /**
-   * <p>The shortcut key of the quick response. The value should be unique across the
-   *   knowledge base.</p>
+   * <p>The shortcut key of the quick response. The value should be unique across the knowledge base.</p>
    * @public
    */
   shortcutKey?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response
-   *       data.</p>
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response data.</p>
    * @public
    */
   lastModifiedBy?: string | undefined;
@@ -379,17 +473,13 @@ export interface QuickResponseData {
   isActive?: boolean | undefined;
 
   /**
-   * <p>The Amazon Connect contact channels this quick response applies to.
-   *       The supported contact channel types include <code>Chat</code>.</p>
+   * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
    * @public
    */
   channels?: string[] | undefined;
 
   /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
-   *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
-   *   <code>zh_CN</code>, <code>zh_TW</code>
-   *          </p>
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
    * @public
    */
   language?: string | undefined;
@@ -417,15 +507,13 @@ export interface CreateQuickResponseResponse {
  */
 export interface DeactivateMessageTemplateRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain
-   *       any qualifier.</p>
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
    * @public
    */
   messageTemplateId: string | undefined;
@@ -503,8 +591,7 @@ export interface DeleteKnowledgeBaseResponse {}
  */
 export interface DeleteMessageTemplateRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -526,15 +613,13 @@ export interface DeleteMessageTemplateResponse {}
  */
 export interface DeleteMessageTemplateAttachmentRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain
-   *       any qualifier.</p>
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
    * @public
    */
   messageTemplateId: string | undefined;
@@ -780,8 +865,7 @@ export interface GetMessageTemplateRequest {
   messageTemplateId: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -886,8 +970,7 @@ export interface ImportJobSummary {
   metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The configuration information of the external source that the resource data are imported
-   *       from.</p>
+   * <p>The configuration information of the external source that the resource data are imported from.</p>
    * @public
    */
   externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
@@ -898,8 +981,7 @@ export interface ImportJobSummary {
  */
 export interface ListImportJobsRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -928,8 +1010,7 @@ export interface ListImportJobsResponse {
   importJobSummaries: ImportJobSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -940,8 +1021,7 @@ export interface ListImportJobsResponse {
  */
 export interface ListKnowledgeBasesRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1007,13 +1087,7 @@ export interface KnowledgeBaseSummary {
   renderingConfiguration?: RenderingConfiguration | undefined;
 
   /**
-   * <p>The configuration information for the customer managed key used for encryption. </p>
-   *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>,
-   *         <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and
-   *         <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the
-   *       key to invoke Amazon Q in Connect. </p>
-   *          <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
-   *         your instance</a>.</p>
+   * <p>The configuration information for the customer managed key used for encryption. </p> <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>, <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the key to invoke Amazon Q in Connect. </p> <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for your instance</a>.</p>
    * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
@@ -1053,8 +1127,7 @@ export interface ListKnowledgeBasesResponse {
  */
 export interface ListMessageTemplatesRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1066,8 +1139,7 @@ export interface ListMessageTemplatesRequest {
   maxResults?: number | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -1127,8 +1199,7 @@ export interface MessageTemplateSummary {
   lastModifiedTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template
-   *       data.</p>
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
    * @public
    */
   lastModifiedBy: string | undefined;
@@ -1174,22 +1245,19 @@ export interface ListMessageTemplatesResponse {
  */
 export interface ListMessageTemplateVersionsRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain
-   *       any qualifier.</p>
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
    * @public
    */
   messageTemplateId: string | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1277,8 +1345,7 @@ export interface ListMessageTemplateVersionsResponse {
  */
 export interface RenderMessageTemplateRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -1290,10 +1357,7 @@ export interface RenderMessageTemplateRequest {
   messageTemplateId: string | undefined;
 
   /**
-   * <p>An object that specifies the values to use for variables in the message template. This
-   *       object contains different categories of key-value pairs. Each key defines a variable or
-   *       placeholder in the message template. The corresponding value defines the value for that
-   *       variable.</p>
+   * <p>An object that specifies the values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the value for that variable.</p>
    * @public
    */
   attributes: MessageTemplateAttributes | undefined;
@@ -1327,15 +1391,13 @@ export interface RenderMessageTemplateResponse {
  */
 export interface UpdateMessageTemplateRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain
-   *       any qualifier.</p>
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
    * @public
    */
   messageTemplateId: string | undefined;
@@ -1347,19 +1409,13 @@ export interface UpdateMessageTemplateRequest {
   content?: MessageTemplateContentProvider | undefined;
 
   /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
-   *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
-   *   <code>zh_CN</code>, <code>zh_TW</code>
-   *          </p>
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
    * @public
    */
   language?: string | undefined;
 
   /**
-   * <p>An object that specifies the default values to use for variables in the message template.
-   *       This object contains different categories of key-value pairs. Each key defines a variable or
-   *       placeholder in the message template. The corresponding value defines the default value for
-   *       that variable.</p>
+   * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
    * @public
    */
   defaultAttributes?: MessageTemplateAttributes | undefined;
@@ -1381,15 +1437,13 @@ export interface UpdateMessageTemplateResponse {
  */
 export interface UpdateMessageTemplateMetadataRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain
-   *       any qualifier.</p>
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
    * @public
    */
   messageTemplateId: string | undefined;
@@ -1429,8 +1483,7 @@ export interface UpdateMessageTemplateMetadataResponse {
  */
 export interface ListQuickResponsesRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1484,17 +1537,7 @@ export interface QuickResponseSummary {
   name: string | undefined;
 
   /**
-   * <p>The media type of the quick response content.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written
-   *           in plain text.</p>
-   *             </li>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response
-   *           written in richtext.</p>
-   *             </li>
-   *          </ul>
+   * <p>The media type of the quick response content.</p> <ul> <li> <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written in plain text.</p> </li> <li> <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p> </li> </ul>
    * @public
    */
   contentType: string | undefined;
@@ -1524,8 +1567,7 @@ export interface QuickResponseSummary {
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response
-   *       data.</p>
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response data.</p>
    * @public
    */
   lastModifiedBy?: string | undefined;
@@ -1537,8 +1579,7 @@ export interface QuickResponseSummary {
   isActive?: boolean | undefined;
 
   /**
-   * <p>The Amazon Connect contact channels this quick response applies to.
-   *       The supported contact channel types include <code>Chat</code>.</p>
+   * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
    * @public
    */
   channels?: string[] | undefined;
@@ -1561,8 +1602,7 @@ export interface ListQuickResponsesResponse {
   quickResponseSummaries: QuickResponseSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1597,17 +1637,7 @@ export interface UpdateQuickResponseRequest {
   content?: QuickResponseDataProvider | undefined;
 
   /**
-   * <p>The media type of the quick response content.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written
-   *           in plain text.</p>
-   *             </li>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response
-   *           written in richtext.</p>
-   *             </li>
-   *          </ul>
+   * <p>The media type of the quick response content.</p> <ul> <li> <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written in plain text.</p> </li> <li> <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p> </li> </ul>
    * @public
    */
   contentType?: string | undefined;
@@ -1637,8 +1667,7 @@ export interface UpdateQuickResponseRequest {
   removeDescription?: boolean | undefined;
 
   /**
-   * <p>The shortcut key of the quick response. The value should be unique across the
-   *   knowledge base.</p>
+   * <p>The shortcut key of the quick response. The value should be unique across the knowledge base.</p>
    * @public
    */
   shortcutKey?: string | undefined;
@@ -1656,17 +1685,13 @@ export interface UpdateQuickResponseRequest {
   isActive?: boolean | undefined;
 
   /**
-   * <p>The Amazon Connect contact channels this quick response applies to.
-   *       The supported contact channel types include <code>Chat</code>.</p>
+   * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
    * @public
    */
   channels?: string[] | undefined;
 
   /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
-   *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
-   *   <code>zh_CN</code>, <code>zh_TW</code>
-   *          </p>
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
    * @public
    */
   language?: string | undefined;
@@ -1704,8 +1729,7 @@ export interface RemoveKnowledgeBaseTemplateUriResponse {}
  */
 export interface SearchContentRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1762,43 +1786,7 @@ export type MessageTemplateFilterOperator =
   (typeof MessageTemplateFilterOperator)[keyof typeof MessageTemplateFilterOperator];
 
 /**
- * <p>The message template fields to filter the message template query results by. The following
- *       is the list of supported field names:</p>
- *          <ul>
- *             <li>
- *                <p>name</p>
- *             </li>
- *             <li>
- *                <p>description</p>
- *             </li>
- *             <li>
- *                <p>channel</p>
- *             </li>
- *             <li>
- *                <p>channelSubtype</p>
- *             </li>
- *             <li>
- *                <p>language</p>
- *             </li>
- *             <li>
- *                <p>qualifier</p>
- *             </li>
- *             <li>
- *                <p>createdTime</p>
- *             </li>
- *             <li>
- *                <p>lastModifiedTime</p>
- *             </li>
- *             <li>
- *                <p>lastModifiedBy</p>
- *             </li>
- *             <li>
- *                <p>groupingConfiguration.criteria</p>
- *             </li>
- *             <li>
- *                <p>groupingConfiguration.values</p>
- *             </li>
- *          </ul>
+ * <p>The message template fields to filter the message template query results by. The following is the list of supported field names:</p> <ul> <li> <p>name</p> </li> <li> <p>description</p> </li> <li> <p>channel</p> </li> <li> <p>channelSubtype</p> </li> <li> <p>language</p> </li> <li> <p>qualifier</p> </li> <li> <p>createdTime</p> </li> <li> <p>lastModifiedTime</p> </li> <li> <p>lastModifiedBy</p> </li> <li> <p>groupingConfiguration.criteria</p> </li> <li> <p>groupingConfiguration.values</p> </li> </ul>
  * @public
  */
 export interface MessageTemplateFilterField {
@@ -1842,43 +1830,7 @@ export const Order = {
 export type Order = (typeof Order)[keyof typeof Order];
 
 /**
- * <p>The message template fields to order the message template query results by. The following
- *       is the list of supported field names:</p>
- *          <ul>
- *             <li>
- *                <p>name</p>
- *             </li>
- *             <li>
- *                <p>description</p>
- *             </li>
- *             <li>
- *                <p>channel</p>
- *             </li>
- *             <li>
- *                <p>channelSubtype</p>
- *             </li>
- *             <li>
- *                <p>language</p>
- *             </li>
- *             <li>
- *                <p>qualifier</p>
- *             </li>
- *             <li>
- *                <p>createdTime</p>
- *             </li>
- *             <li>
- *                <p>lastModifiedTime</p>
- *             </li>
- *             <li>
- *                <p>lastModifiedBy</p>
- *             </li>
- *             <li>
- *                <p>groupingConfiguration.criteria</p>
- *             </li>
- *             <li>
- *                <p>groupingConfiguration.values</p>
- *             </li>
- *          </ul>
+ * <p>The message template fields to order the message template query results by. The following is the list of supported field names:</p> <ul> <li> <p>name</p> </li> <li> <p>description</p> </li> <li> <p>channel</p> </li> <li> <p>channelSubtype</p> </li> <li> <p>language</p> </li> <li> <p>qualifier</p> </li> <li> <p>createdTime</p> </li> <li> <p>lastModifiedTime</p> </li> <li> <p>lastModifiedBy</p> </li> <li> <p>groupingConfiguration.criteria</p> </li> <li> <p>groupingConfiguration.values</p> </li> </ul>
  * @public
  */
 export interface MessageTemplateOrderField {
@@ -1926,16 +1878,7 @@ export const Priority = {
 export type Priority = (typeof Priority)[keyof typeof Priority];
 
 /**
- * <p>The message template fields to query message templates by. The following is the list of
- *       supported field names:</p>
- *          <ul>
- *             <li>
- *                <p>name</p>
- *             </li>
- *             <li>
- *                <p>description</p>
- *             </li>
- *          </ul>
+ * <p>The message template fields to query message templates by. The following is the list of supported field names:</p> <ul> <li> <p>name</p> </li> <li> <p>description</p> </li> </ul>
  * @public
  */
 export interface MessageTemplateQueryField {
@@ -1958,15 +1901,13 @@ export interface MessageTemplateQueryField {
   operator: MessageTemplateQueryOperator | undefined;
 
   /**
-   * <p>Whether the query expects only exact matches on the attribute field values. The results of
-   *       the query will only include exact matches if this parameter is set to false.</p>
+   * <p>Whether the query expects only exact matches on the attribute field values. The results of the query will only include exact matches if this parameter is set to false.</p>
    * @public
    */
   allowFuzziness?: boolean | undefined;
 
   /**
-   * <p>The importance of the attribute field when calculating query result relevancy scores. The
-   *       value set for this parameter affects the ordering of search results.</p>
+   * <p>The importance of the attribute field when calculating query result relevancy scores. The value set for this parameter affects the ordering of search results.</p>
    * @public
    */
   priority?: Priority | undefined;
@@ -2001,8 +1942,7 @@ export interface MessageTemplateSearchExpression {
  */
 export interface SearchMessageTemplatesRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -2014,8 +1954,7 @@ export interface SearchMessageTemplatesRequest {
   searchExpression: MessageTemplateSearchExpression | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2081,8 +2020,7 @@ export interface MessageTemplateSearchResultData {
   lastModifiedTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template
-   *       data.</p>
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
    * @public
    */
   lastModifiedBy: string | undefined;
@@ -2112,10 +2050,7 @@ export interface MessageTemplateSearchResultData {
   groupingConfiguration?: GroupingConfiguration | undefined;
 
   /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
-   *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
-   *   <code>zh_CN</code>, <code>zh_TW</code>
-   *          </p>
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
    * @public
    */
   language?: string | undefined;
@@ -2160,46 +2095,7 @@ export type QuickResponseFilterOperator =
   (typeof QuickResponseFilterOperator)[keyof typeof QuickResponseFilterOperator];
 
 /**
- * <p>The quick response fields to filter the quick response query results by.</p>
- *          <p>The following is the list of supported field names.</p>
- *          <ul>
- *             <li>
- *                <p>name</p>
- *             </li>
- *             <li>
- *                <p>description</p>
- *             </li>
- *             <li>
- *                <p>shortcutKey</p>
- *             </li>
- *             <li>
- *                <p>isActive</p>
- *             </li>
- *             <li>
- *                <p>channels</p>
- *             </li>
- *             <li>
- *                <p>language</p>
- *             </li>
- *             <li>
- *                <p>contentType</p>
- *             </li>
- *             <li>
- *                <p>createdTime</p>
- *             </li>
- *             <li>
- *                <p>lastModifiedTime</p>
- *             </li>
- *             <li>
- *                <p>lastModifiedBy</p>
- *             </li>
- *             <li>
- *                <p>groupingConfiguration.criteria</p>
- *             </li>
- *             <li>
- *                <p>groupingConfiguration.values</p>
- *             </li>
- *          </ul>
+ * <p>The quick response fields to filter the quick response query results by.</p> <p>The following is the list of supported field names.</p> <ul> <li> <p>name</p> </li> <li> <p>description</p> </li> <li> <p>shortcutKey</p> </li> <li> <p>isActive</p> </li> <li> <p>channels</p> </li> <li> <p>language</p> </li> <li> <p>contentType</p> </li> <li> <p>createdTime</p> </li> <li> <p>lastModifiedTime</p> </li> <li> <p>lastModifiedBy</p> </li> <li> <p>groupingConfiguration.criteria</p> </li> <li> <p>groupingConfiguration.values</p> </li> </ul>
  * @public
  */
 export interface QuickResponseFilterField {
@@ -2229,46 +2125,7 @@ export interface QuickResponseFilterField {
 }
 
 /**
- * <p>The quick response fields to order the quick response query results by.</p>
- *          <p>The following is the list of supported field names.</p>
- *          <ul>
- *             <li>
- *                <p>name</p>
- *             </li>
- *             <li>
- *                <p>description</p>
- *             </li>
- *             <li>
- *                <p>shortcutKey</p>
- *             </li>
- *             <li>
- *                <p>isActive</p>
- *             </li>
- *             <li>
- *                <p>channels</p>
- *             </li>
- *             <li>
- *                <p>language</p>
- *             </li>
- *             <li>
- *                <p>contentType</p>
- *             </li>
- *             <li>
- *                <p>createdTime</p>
- *             </li>
- *             <li>
- *                <p>lastModifiedTime</p>
- *             </li>
- *             <li>
- *                <p>lastModifiedBy</p>
- *             </li>
- *             <li>
- *                <p>groupingConfiguration.criteria</p>
- *             </li>
- *             <li>
- *                <p>groupingConfiguration.values</p>
- *             </li>
- *          </ul>
+ * <p>The quick response fields to order the quick response query results by.</p> <p>The following is the list of supported field names.</p> <ul> <li> <p>name</p> </li> <li> <p>description</p> </li> <li> <p>shortcutKey</p> </li> <li> <p>isActive</p> </li> <li> <p>channels</p> </li> <li> <p>language</p> </li> <li> <p>contentType</p> </li> <li> <p>createdTime</p> </li> <li> <p>lastModifiedTime</p> </li> <li> <p>lastModifiedBy</p> </li> <li> <p>groupingConfiguration.criteria</p> </li> <li> <p>groupingConfiguration.values</p> </li> </ul>
  * @public
  */
 export interface QuickResponseOrderField {
@@ -2300,22 +2157,7 @@ export const QuickResponseQueryOperator = {
 export type QuickResponseQueryOperator = (typeof QuickResponseQueryOperator)[keyof typeof QuickResponseQueryOperator];
 
 /**
- * <p>The quick response fields to query quick responses by.</p>
- *          <p>The following is the list of supported field names.</p>
- *          <ul>
- *             <li>
- *                <p>content</p>
- *             </li>
- *             <li>
- *                <p>name</p>
- *             </li>
- *             <li>
- *                <p>description</p>
- *             </li>
- *             <li>
- *                <p>shortcutKey</p>
- *             </li>
- *          </ul>
+ * <p>The quick response fields to query quick responses by.</p> <p>The following is the list of supported field names.</p> <ul> <li> <p>content</p> </li> <li> <p>name</p> </li> <li> <p>description</p> </li> <li> <p>shortcutKey</p> </li> </ul>
  * @public
  */
 export interface QuickResponseQueryField {
@@ -2338,15 +2180,13 @@ export interface QuickResponseQueryField {
   operator: QuickResponseQueryOperator | undefined;
 
   /**
-   * <p>Whether the query expects only exact matches on the attribute field values. The results of
-   *       the query will only include exact matches if this parameter is set to false.</p>
+   * <p>Whether the query expects only exact matches on the attribute field values. The results of the query will only include exact matches if this parameter is set to false.</p>
    * @public
    */
   allowFuzziness?: boolean | undefined;
 
   /**
-   * <p>The importance of the attribute field when calculating query result relevancy scores. The
-   *       value set for this parameter affects the ordering of search results.</p>
+   * <p>The importance of the attribute field when calculating query result relevancy scores. The value set for this parameter affects the ordering of search results.</p>
    * @public
    */
   priority?: Priority | undefined;
@@ -2393,8 +2233,7 @@ export interface SearchQuickResponsesRequest {
   searchExpression: QuickResponseSearchExpression | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2406,8 +2245,7 @@ export interface SearchQuickResponsesRequest {
   maxResults?: number | undefined;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#user-defined-attributes">user-defined Amazon Connect contact attributes</a> to be resolved when search
-   *       results are returned.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#user-defined-attributes">user-defined Amazon Connect contact attributes</a> to be resolved when search results are returned.</p>
    * @public
    */
   attributes?: Record<string, string> | undefined;
@@ -2449,17 +2287,7 @@ export interface QuickResponseSearchResultData {
   name: string | undefined;
 
   /**
-   * <p>The media type of the quick response content.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written
-   *           in plain text.</p>
-   *             </li>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response
-   *           written in richtext.</p>
-   *             </li>
-   *          </ul>
+   * <p>The media type of the quick response content.</p> <ul> <li> <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written in plain text.</p> </li> <li> <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p> </li> </ul>
    * @public
    */
   contentType: string | undefined;
@@ -2501,29 +2329,25 @@ export interface QuickResponseSearchResultData {
   description?: string | undefined;
 
   /**
-   * <p>The configuration information of the user groups that the quick response is accessible
-   *       to.</p>
+   * <p>The configuration information of the user groups that the quick response is accessible to.</p>
    * @public
    */
   groupingConfiguration?: GroupingConfiguration | undefined;
 
   /**
-   * <p>The shortcut key of the quick response. The value should be unique across the
-   *   knowledge base.</p>
+   * <p>The shortcut key of the quick response. The value should be unique across the knowledge base.</p>
    * @public
    */
   shortcutKey?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response search
-   *       result data.</p>
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response search result data.</p>
    * @public
    */
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>The Amazon Connect contact channels this quick response applies to.
-   *       The supported contact channel types include <code>Chat</code>.</p>
+   * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
    * @public
    */
   channels?: string[] | undefined;
@@ -2535,15 +2359,13 @@ export interface QuickResponseSearchResultData {
   language?: string | undefined;
 
   /**
-   * <p>The user defined contact attributes that are not resolved when the search result is
-   *       returned.</p>
+   * <p>The user defined contact attributes that are not resolved when the search result is returned.</p>
    * @public
    */
   attributesNotInterpolated?: string[] | undefined;
 
   /**
-   * <p>The user defined contact attributes that are resolved when the search result is
-   *       returned.</p>
+   * <p>The user defined contact attributes that are resolved when the search result is returned.</p>
    * @public
    */
   attributesInterpolated?: string[] | undefined;
@@ -2566,8 +2388,7 @@ export interface SearchQuickResponsesResponse {
   results: QuickResponseSearchResultData[] | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2630,25 +2451,13 @@ export interface StartContentUploadResponse {
  */
 export interface StartImportJobRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For importing Amazon Q in Connect quick responses, this should be a <code>QUICK_RESPONSES</code>
-   *           type knowledge base.</p>
-   *             </li>
-   *          </ul>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p> <ul> <li> <p>For importing Amazon Q in Connect quick responses, this should be a <code>QUICK_RESPONSES</code> type knowledge base.</p> </li> </ul>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The type of the import job.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For importing quick response resource, set the value to
-   *           <code>QUICK_RESPONSES</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The type of the import job.</p> <ul> <li> <p>For importing quick response resource, set the value to <code>QUICK_RESPONSES</code>.</p> </li> </ul>
    * @public
    */
   importJobType: ImportJobType | undefined;
@@ -2672,8 +2481,7 @@ export interface StartImportJobRequest {
   metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The configuration information of the external source that the resource data are imported
-   *       from.</p>
+   * <p>The configuration information of the external source that the resource data are imported from.</p>
    * @public
    */
   externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
@@ -2959,8 +2767,7 @@ export interface GenerativeChunkDataDetails {
   references?: DataSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of chunks. Use the value returned in the previous response in
-   *       the next request to retrieve the next set of chunks.</p>
+   * <p>The token for the next set of chunks. Use the value returned in the previous response in the next request to retrieve the next set of chunks.</p>
    * @public
    */
   nextChunkToken?: string | undefined;
@@ -3101,6 +2908,23 @@ export interface QueryAssistantResponse {
    */
   nextToken?: string | undefined;
 }
+
+/**
+ * @internal
+ */
+export const ExtendedMessageTemplateDataFilterSensitiveLog = (obj: ExtendedMessageTemplateData): any => ({
+  ...obj,
+  ...(obj.content && { content: MessageTemplateContentProviderFilterSensitiveLog(obj.content) }),
+  ...(obj.groupingConfiguration && {
+    groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
+  }),
+  ...(obj.defaultAttributes && {
+    defaultAttributes: MessageTemplateAttributesFilterSensitiveLog(obj.defaultAttributes),
+  }),
+  ...(obj.attachments && {
+    attachments: obj.attachments.map((item) => MessageTemplateAttachmentFilterSensitiveLog(item)),
+  }),
+});
 
 /**
  * @internal
