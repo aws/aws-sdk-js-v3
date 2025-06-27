@@ -3,7 +3,7 @@ import { buildQueryString } from "@smithy/querystring-builder";
 import { HttpHandlerOptions, Provider } from "@smithy/types";
 import { EventEmitter } from "events";
 
-import { requestTimeout } from "./request-timeout";
+import { requestTimeout as requestTimeoutFn } from "./request-timeout";
 
 /**
  * Represents the http options that can be passed to the xhr http client.
@@ -114,12 +114,12 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler<XhrHttpH
 
   public async handle(
     request: HttpRequest,
-    { abortSignal }: HttpHandlerOptions = {}
+    { abortSignal, requestTimeout }: HttpHandlerOptions = {}
   ): Promise<{ response: HttpResponse }> {
     if (!this.config) {
       this.config = await this.configProvider;
     }
-    const requestTimeoutInMs = Number(this.config!.requestTimeout) | 0;
+    const requestTimeoutInMs = Number(requestTimeout ?? this.config!.requestTimeout) | 0;
 
     // if the request was already aborted, prevent doing extra work
     if (abortSignal?.aborted) {
@@ -214,7 +214,7 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler<XhrHttpH
         this.emit(EVENTS.BEFORE_XHR_SEND, xhr);
         xhr.send(body);
       }),
-      requestTimeout(requestTimeoutInMs),
+      requestTimeoutFn(requestTimeoutInMs),
     ];
     let removeSignalEventListener = () => {};
     if (abortSignal) {

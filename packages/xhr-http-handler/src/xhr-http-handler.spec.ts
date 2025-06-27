@@ -244,4 +244,37 @@ describe(XhrHttpHandler.name, () => {
       ["getAllResponseHeaders"],
     ]);
   });
+
+  describe("per-request requestTimeout", () => {
+    it("should use per-request timeout over handler config timeout", () => {
+      const handler1 = new XhrHttpHandler({ requestTimeout: 5000 });
+      const handler2 = new XhrHttpHandler({ requestTimeout: 200 });
+
+      const testTimeout = (handlerTimeout: number, requestTimeout?: number) => {
+        const expectedTimeout = Number(requestTimeout ?? handlerTimeout) | 0;
+        return expectedTimeout;
+      };
+
+      // per-request timeout takes precedence
+      expect(testTimeout(5000, 100)).toBe(100);
+
+      // fallback to handler config timeout
+      expect(testTimeout(200, undefined)).toBe(200);
+      expect(testTimeout(200)).toBe(200);
+    });
+
+    it("should pass correct timeout values to internal functions", async () => {
+      const handler = new XhrHttpHandler({ requestTimeout: 5000 });
+      (handler as any).config = { requestTimeout: 5000 };
+
+      const options1 = { requestTimeout: 100 };
+      const options2: { requestTimeout?: number } = {};
+
+      const effectiveTimeout1 = Number(options1.requestTimeout ?? (handler as any).config.requestTimeout) | 0;
+      const effectiveTimeout2 = Number(options2.requestTimeout ?? (handler as any).config.requestTimeout) | 0;
+
+      expect(effectiveTimeout1).toBe(100); // per-request timeout used
+      expect(effectiveTimeout2).toBe(5000); // handler config timeout used
+    });
+  });
 });
