@@ -3228,6 +3228,55 @@ it("RestJsonHttpPayloadWithStructure:ServerResponse", async () => {
 });
 
 /**
+ * Serializes a structure in the payload
+ */
+it("RestJsonHttpPayloadWithStructureAndEmptyResponseBody:ServerResponse", async () => {
+  class TestService implements Partial<RestJsonService<{}>> {
+    HttpPayloadWithStructure(input: any, ctx: {}): Promise<HttpPayloadWithStructureServerOutput> {
+      const response = {
+        nested: null,
+      } as any;
+      return Promise.resolve({ ...response, $metadata: {} });
+    }
+  }
+  const service: any = new TestService();
+  const testMux = new httpbinding.HttpBindingMux<"RestJson", keyof RestJsonService<{}>>([
+    new httpbinding.UriSpec<"RestJson", "HttpPayloadWithStructure">("POST", [], [], {
+      service: "RestJson",
+      operation: "HttpPayloadWithStructure",
+    }),
+  ]);
+  class TestSerializer extends HttpPayloadWithStructureSerializer {
+    deserialize = (output: any, context: any): Promise<any> => {
+      return Promise.resolve({});
+    };
+  }
+  const request = new HttpRequest({ method: "POST", hostname: "example.com" });
+  const serFn: (
+    op: RestJsonServiceOperations
+  ) => __OperationSerializer<RestJsonService<{}>, RestJsonServiceOperations, __ServiceException> = (op) => {
+    return new TestSerializer();
+  };
+  const handler = new RestJsonServiceHandler(
+    service,
+    testMux,
+    serFn,
+    serializeFrameworkException,
+    (ctx: {}, f: __ValidationFailure[]) => {
+      if (f) {
+        throw f;
+      }
+      return undefined;
+    }
+  );
+  const r = await handler.handle(request, {});
+
+  expect(r.statusCode).toBe(200);
+
+  expect(!r.body || r.body === `{}`).toBeTruthy();
+});
+
+/**
  * Serializes a union in the payload.
  */
 it("RestJsonHttpPayloadWithUnion:ServerRequest", async () => {
@@ -3361,8 +3410,8 @@ it("RestJsonHttpPayloadWithUnion:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                              \"greeting\": \"hello\"
-                                          }`;
+                                                \"greeting\": \"hello\"
+                                            }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -5456,8 +5505,8 @@ it("RestJsonJsonBlobs:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                  \"data\": \"dmFsdWU=\"
-                                                                              }`;
+                                                                                    \"data\": \"dmFsdWU=\"
+                                                                                }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -5578,22 +5627,22 @@ it("RestJsonJsonEnums:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                    \"fooEnum1\": \"Foo\",
-                                                                                    \"fooEnum2\": \"0\",
-                                                                                    \"fooEnum3\": \"1\",
-                                                                                    \"fooEnumList\": [
-                                                                                        \"Foo\",
-                                                                                        \"0\"
-                                                                                    ],
-                                                                                    \"fooEnumSet\": [
-                                                                                        \"Foo\",
-                                                                                        \"0\"
-                                                                                    ],
-                                                                                    \"fooEnumMap\": {
-                                                                                        \"hi\": \"Foo\",
-                                                                                        \"zero\": \"0\"
-                                                                                    }
-                                                                                }`;
+                                                                                      \"fooEnum1\": \"Foo\",
+                                                                                      \"fooEnum2\": \"0\",
+                                                                                      \"fooEnum3\": \"1\",
+                                                                                      \"fooEnumList\": [
+                                                                                          \"Foo\",
+                                                                                          \"0\"
+                                                                                      ],
+                                                                                      \"fooEnumSet\": [
+                                                                                          \"Foo\",
+                                                                                          \"0\"
+                                                                                      ],
+                                                                                      \"fooEnumMap\": {
+                                                                                          \"hi\": \"Foo\",
+                                                                                          \"zero\": \"0\"
+                                                                                      }
+                                                                                  }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -5714,23 +5763,23 @@ it("RestJsonJsonIntEnums:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                      \"integerEnum1\": 1,
-                                                                                      \"integerEnum2\": 2,
-                                                                                      \"integerEnum3\": 3,
-                                                                                      \"integerEnumList\": [
-                                                                                          1,
-                                                                                          2,
-                                                                                          3
-                                                                                      ],
-                                                                                      \"integerEnumSet\": [
-                                                                                          1,
-                                                                                          2
-                                                                                      ],
-                                                                                      \"integerEnumMap\": {
-                                                                                          \"abc\": 1,
-                                                                                          \"def\": 2
-                                                                                      }
-                                                                                  }`;
+                                                                                        \"integerEnum1\": 1,
+                                                                                        \"integerEnum2\": 2,
+                                                                                        \"integerEnum3\": 3,
+                                                                                        \"integerEnumList\": [
+                                                                                            1,
+                                                                                            2,
+                                                                                            3
+                                                                                        ],
+                                                                                        \"integerEnumSet\": [
+                                                                                            1,
+                                                                                            2
+                                                                                        ],
+                                                                                        \"integerEnumMap\": {
+                                                                                            \"abc\": 1,
+                                                                                            \"def\": 2
+                                                                                        }
+                                                                                    }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -5922,55 +5971,55 @@ it("RestJsonLists:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                        \"stringList\": [
-                                                                                            \"foo\",
-                                                                                            \"bar\"
-                                                                                        ],
-                                                                                        \"stringSet\": [
-                                                                                            \"foo\",
-                                                                                            \"bar\"
-                                                                                        ],
-                                                                                        \"integerList\": [
-                                                                                            1,
-                                                                                            2
-                                                                                        ],
-                                                                                        \"booleanList\": [
-                                                                                            true,
-                                                                                            false
-                                                                                        ],
-                                                                                        \"timestampList\": [
-                                                                                            1398796238,
-                                                                                            1398796238
-                                                                                        ],
-                                                                                        \"enumList\": [
-                                                                                            \"Foo\",
-                                                                                            \"0\"
-                                                                                        ],
-                                                                                        \"intEnumList\": [
-                                                                                            1,
-                                                                                            2
-                                                                                        ],
-                                                                                        \"nestedStringList\": [
-                                                                                            [
-                                                                                                \"foo\",
-                                                                                                \"bar\"
-                                                                                            ],
-                                                                                            [
-                                                                                                \"baz\",
-                                                                                                \"qux\"
-                                                                                            ]
-                                                                                        ],
-                                                                                        \"myStructureList\": [
-                                                                                            {
-                                                                                                \"value\": \"1\",
-                                                                                                \"other\": \"2\"
-                                                                                            },
-                                                                                            {
-                                                                                                \"value\": \"3\",
-                                                                                                \"other\": \"4\"
-                                                                                            }
-                                                                                        ]
-                                                                                    }`;
+                                                                                          \"stringList\": [
+                                                                                              \"foo\",
+                                                                                              \"bar\"
+                                                                                          ],
+                                                                                          \"stringSet\": [
+                                                                                              \"foo\",
+                                                                                              \"bar\"
+                                                                                          ],
+                                                                                          \"integerList\": [
+                                                                                              1,
+                                                                                              2
+                                                                                          ],
+                                                                                          \"booleanList\": [
+                                                                                              true,
+                                                                                              false
+                                                                                          ],
+                                                                                          \"timestampList\": [
+                                                                                              1398796238,
+                                                                                              1398796238
+                                                                                          ],
+                                                                                          \"enumList\": [
+                                                                                              \"Foo\",
+                                                                                              \"0\"
+                                                                                          ],
+                                                                                          \"intEnumList\": [
+                                                                                              1,
+                                                                                              2
+                                                                                          ],
+                                                                                          \"nestedStringList\": [
+                                                                                              [
+                                                                                                  \"foo\",
+                                                                                                  \"bar\"
+                                                                                              ],
+                                                                                              [
+                                                                                                  \"baz\",
+                                                                                                  \"qux\"
+                                                                                              ]
+                                                                                          ],
+                                                                                          \"myStructureList\": [
+                                                                                              {
+                                                                                                  \"value\": \"1\",
+                                                                                                  \"other\": \"2\"
+                                                                                              },
+                                                                                              {
+                                                                                                  \"value\": \"3\",
+                                                                                                  \"other\": \"4\"
+                                                                                              }
+                                                                                          ]
+                                                                                      }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -6026,8 +6075,8 @@ it("RestJsonListsEmpty:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                          \"stringList\": []
-                                                                                      }`;
+                                                                                            \"stringList\": []
+                                                                                        }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -6250,15 +6299,15 @@ it("RestJsonJsonMaps:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                            \"denseStructMap\": {
-                                                                                                \"foo\": {
-                                                                                                    \"hi\": \"there\"
-                                                                                                },
-                                                                                                \"baz\": {
-                                                                                                    \"hi\": \"bye\"
-                                                                                                }
-                                                                                            }
-                                                                                        }`;
+                                                                                              \"denseStructMap\": {
+                                                                                                  \"foo\": {
+                                                                                                      \"hi\": \"there\"
+                                                                                                  },
+                                                                                                  \"baz\": {
+                                                                                                      \"hi\": \"bye\"
+                                                                                                  }
+                                                                                              }
+                                                                                          }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -6319,13 +6368,13 @@ it("RestJsonDeserializesZeroValuesInMaps:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                              \"denseNumberMap\": {
-                                                                                                  \"x\": 0
-                                                                                              },
-                                                                                              \"denseBooleanMap\": {
-                                                                                                  \"x\": false
-                                                                                              }
-                                                                                          }`;
+                                                                                                \"denseNumberMap\": {
+                                                                                                    \"x\": 0
+                                                                                                },
+                                                                                                \"denseBooleanMap\": {
+                                                                                                    \"x\": false
+                                                                                                }
+                                                                                            }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -6384,11 +6433,11 @@ it("RestJsonDeserializesDenseSetMap:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                \"denseSetMap\": {
-                                                                                                    \"x\": [],
-                                                                                                    \"y\": [\"a\", \"b\"]
-                                                                                                }
-                                                                                            }`;
+                                                                                                  \"denseSetMap\": {
+                                                                                                      \"x\": [],
+                                                                                                      \"y\": [\"a\", \"b\"]
+                                                                                                  }
+                                                                                              }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -6773,8 +6822,8 @@ it("RestJsonJsonTimestamps:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                  \"normal\": 1398796238
-                                                                                              }`;
+                                                                                                    \"normal\": 1398796238
+                                                                                                }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -6830,8 +6879,8 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                    \"dateTime\": \"2014-04-29T18:30:38Z\"
-                                                                                                }`;
+                                                                                                      \"dateTime\": \"2014-04-29T18:30:38Z\"
+                                                                                                  }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -6887,8 +6936,8 @@ it("RestJsonJsonTimestampsWithDateTimeOnTargetFormat:ServerResponse", async () =
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                      \"dateTimeOnTarget\": \"2014-04-29T18:30:38Z\"
-                                                                                                  }`;
+                                                                                                        \"dateTimeOnTarget\": \"2014-04-29T18:30:38Z\"
+                                                                                                    }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -6944,8 +6993,8 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                        \"epochSeconds\": 1398796238
-                                                                                                    }`;
+                                                                                                          \"epochSeconds\": 1398796238
+                                                                                                      }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -7001,8 +7050,8 @@ it("RestJsonJsonTimestampsWithEpochSecondsOnTargetFormat:ServerResponse", async 
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                          \"epochSecondsOnTarget\": 1398796238
-                                                                                                      }`;
+                                                                                                            \"epochSecondsOnTarget\": 1398796238
+                                                                                                        }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -7058,8 +7107,8 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                            \"httpDate\": \"Tue, 29 Apr 2014 18:30:38 GMT\"
-                                                                                                        }`;
+                                                                                                              \"httpDate\": \"Tue, 29 Apr 2014 18:30:38 GMT\"
+                                                                                                          }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -7115,8 +7164,8 @@ it("RestJsonJsonTimestampsWithHttpDateOnTargetFormat:ServerResponse", async () =
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                              \"httpDateOnTarget\": \"Tue, 29 Apr 2014 18:30:38 GMT\"
-                                                                                                          }`;
+                                                                                                                \"httpDateOnTarget\": \"Tue, 29 Apr 2014 18:30:38 GMT\"
+                                                                                                            }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -7677,10 +7726,10 @@ it("RestJsonDeserializeStringUnionValue:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                \"contents\": {
-                                                                                                                    \"stringValue\": \"foo\"
-                                                                                                                }
-                                                                                                            }`;
+                                                                                                                  \"contents\": {
+                                                                                                                      \"stringValue\": \"foo\"
+                                                                                                                  }
+                                                                                                              }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -7738,10 +7787,10 @@ it("RestJsonDeserializeBooleanUnionValue:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                  \"contents\": {
-                                                                                                                      \"booleanValue\": true
-                                                                                                                  }
-                                                                                                              }`;
+                                                                                                                    \"contents\": {
+                                                                                                                        \"booleanValue\": true
+                                                                                                                    }
+                                                                                                                }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -7799,10 +7848,10 @@ it("RestJsonDeserializeNumberUnionValue:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                    \"contents\": {
-                                                                                                                        \"numberValue\": 1
-                                                                                                                    }
-                                                                                                                }`;
+                                                                                                                      \"contents\": {
+                                                                                                                          \"numberValue\": 1
+                                                                                                                      }
+                                                                                                                  }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -7860,10 +7909,10 @@ it("RestJsonDeserializeBlobUnionValue:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                      \"contents\": {
-                                                                                                                          \"blobValue\": \"Zm9v\"
-                                                                                                                      }
-                                                                                                                  }`;
+                                                                                                                        \"contents\": {
+                                                                                                                            \"blobValue\": \"Zm9v\"
+                                                                                                                        }
+                                                                                                                    }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -7921,10 +7970,10 @@ it("RestJsonDeserializeTimestampUnionValue:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                        \"contents\": {
-                                                                                                                            \"timestampValue\": 1398796238
-                                                                                                                        }
-                                                                                                                    }`;
+                                                                                                                          \"contents\": {
+                                                                                                                              \"timestampValue\": 1398796238
+                                                                                                                          }
+                                                                                                                      }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -7982,10 +8031,10 @@ it("RestJsonDeserializeEnumUnionValue:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                          \"contents\": {
-                                                                                                                              \"enumValue\": \"Foo\"
-                                                                                                                          }
-                                                                                                                      }`;
+                                                                                                                            \"contents\": {
+                                                                                                                                \"enumValue\": \"Foo\"
+                                                                                                                            }
+                                                                                                                        }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -8043,10 +8092,10 @@ it("RestJsonDeserializeListUnionValue:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                            \"contents\": {
-                                                                                                                                \"listValue\": [\"foo\", \"bar\"]
-                                                                                                                            }
-                                                                                                                        }`;
+                                                                                                                              \"contents\": {
+                                                                                                                                  \"listValue\": [\"foo\", \"bar\"]
+                                                                                                                              }
+                                                                                                                          }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -8107,13 +8156,13 @@ it("RestJsonDeserializeMapUnionValue:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                              \"contents\": {
-                                                                                                                                  \"mapValue\": {
-                                                                                                                                      \"foo\": \"bar\",
-                                                                                                                                      \"spam\": \"eggs\"
-                                                                                                                                  }
-                                                                                                                              }
-                                                                                                                          }`;
+                                                                                                                                \"contents\": {
+                                                                                                                                    \"mapValue\": {
+                                                                                                                                        \"foo\": \"bar\",
+                                                                                                                                        \"spam\": \"eggs\"
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -8173,12 +8222,12 @@ it("RestJsonDeserializeStructureUnionValue:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                \"contents\": {
-                                                                                                                                    \"structureValue\": {
-                                                                                                                                        \"hi\": \"hello\"
-                                                                                                                                    }
-                                                                                                                                }
-                                                                                                                            }`;
+                                                                                                                                  \"contents\": {
+                                                                                                                                      \"structureValue\": {
+                                                                                                                                          \"hi\": \"hello\"
+                                                                                                                                      }
+                                                                                                                                  }
+                                                                                                                              }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -27905,34 +27954,34 @@ it.skip("RestJsonServerPopulatesDefaultsInResponseWhenMissingInParams:ServerResp
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                          \"defaultString\": \"hi\",
-                                                                                                                                          \"defaultBoolean\": true,
-                                                                                                                                          \"defaultList\": [],
-                                                                                                                                          \"defaultDocumentMap\": {},
-                                                                                                                                          \"defaultDocumentString\": \"hi\",
-                                                                                                                                          \"defaultDocumentBoolean\": true,
-                                                                                                                                          \"defaultDocumentList\": [],
-                                                                                                                                          \"defaultTimestamp\": 0,
-                                                                                                                                          \"defaultBlob\": \"YWJj\",
-                                                                                                                                          \"defaultByte\": 1,
-                                                                                                                                          \"defaultShort\": 1,
-                                                                                                                                          \"defaultInteger\": 10,
-                                                                                                                                          \"defaultLong\": 100,
-                                                                                                                                          \"defaultFloat\": 1.0,
-                                                                                                                                          \"defaultDouble\": 1.0,
-                                                                                                                                          \"defaultMap\": {},
-                                                                                                                                          \"defaultEnum\": \"FOO\",
-                                                                                                                                          \"defaultIntEnum\": 1,
-                                                                                                                                          \"emptyString\": \"\",
-                                                                                                                                          \"falseBoolean\": false,
-                                                                                                                                          \"emptyBlob\": \"\",
-                                                                                                                                          \"zeroByte\": 0,
-                                                                                                                                          \"zeroShort\": 0,
-                                                                                                                                          \"zeroInteger\": 0,
-                                                                                                                                          \"zeroLong\": 0,
-                                                                                                                                          \"zeroFloat\": 0.0,
-                                                                                                                                          \"zeroDouble\": 0.0
-                                                                                                                                      }`;
+                                                                                                                                            \"defaultString\": \"hi\",
+                                                                                                                                            \"defaultBoolean\": true,
+                                                                                                                                            \"defaultList\": [],
+                                                                                                                                            \"defaultDocumentMap\": {},
+                                                                                                                                            \"defaultDocumentString\": \"hi\",
+                                                                                                                                            \"defaultDocumentBoolean\": true,
+                                                                                                                                            \"defaultDocumentList\": [],
+                                                                                                                                            \"defaultTimestamp\": 0,
+                                                                                                                                            \"defaultBlob\": \"YWJj\",
+                                                                                                                                            \"defaultByte\": 1,
+                                                                                                                                            \"defaultShort\": 1,
+                                                                                                                                            \"defaultInteger\": 10,
+                                                                                                                                            \"defaultLong\": 100,
+                                                                                                                                            \"defaultFloat\": 1.0,
+                                                                                                                                            \"defaultDouble\": 1.0,
+                                                                                                                                            \"defaultMap\": {},
+                                                                                                                                            \"defaultEnum\": \"FOO\",
+                                                                                                                                            \"defaultIntEnum\": 1,
+                                                                                                                                            \"emptyString\": \"\",
+                                                                                                                                            \"falseBoolean\": false,
+                                                                                                                                            \"emptyBlob\": \"\",
+                                                                                                                                            \"zeroByte\": 0,
+                                                                                                                                            \"zeroShort\": 0,
+                                                                                                                                            \"zeroInteger\": 0,
+                                                                                                                                            \"zeroLong\": 0,
+                                                                                                                                            \"zeroFloat\": 0.0,
+                                                                                                                                            \"zeroDouble\": 0.0
+                                                                                                                                        }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -28106,47 +28155,47 @@ it.skip("RestJsonServerPopulatesNestedDefaultValuesWhenMissingInInResponseParams
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                            \"dialog\": {
-                                                                                                                                                \"language\": \"en\",
-                                                                                                                                                \"greeting\": \"hi\"
-                                                                                                                                            },
-                                                                                                                                            \"dialogList\": [
-                                                                                                                                                {
-                                                                                                                                                    \"greeting\": \"hi\"
-                                                                                                                                                },
-                                                                                                                                                {
-                                                                                                                                                    \"greeting\": \"hi\",
-                                                                                                                                                    \"farewell\": {
-                                                                                                                                                        \"phrase\": \"bye\"
-                                                                                                                                                    }
-                                                                                                                                                },
-                                                                                                                                                {
-                                                                                                                                                    \"language\": \"it\",
-                                                                                                                                                    \"greeting\": \"ciao\",
-                                                                                                                                                    \"farewell\": {
-                                                                                                                                                        \"phrase\": \"arrivederci\"
-                                                                                                                                                    }
-                                                                                                                                                }
-                                                                                                                                            ],
-                                                                                                                                            \"dialogMap\": {
-                                                                                                                                                \"emptyDialog\": {
-                                                                                                                                                    \"greeting\": \"hi\"
-                                                                                                                                                },
-                                                                                                                                                \"partialEmptyDialog\": {
-                                                                                                                                                    \"language\": \"en\",
-                                                                                                                                                    \"greeting\": \"hi\",
-                                                                                                                                                    \"farewell\": {
-                                                                                                                                                        \"phrase\": \"bye\"
-                                                                                                                                                    }
-                                                                                                                                                },
-                                                                                                                                                \"nonEmptyDialog\": {
-                                                                                                                                                    \"greeting\": \"konnichiwa\",
-                                                                                                                                                    \"farewell\": {
-                                                                                                                                                        \"phrase\": \"sayonara\"
-                                                                                                                                                    }
-                                                                                                                                                }
-                                                                                                                                            }
-                                                                                                                                        }`;
+                                                                                                                                              \"dialog\": {
+                                                                                                                                                  \"language\": \"en\",
+                                                                                                                                                  \"greeting\": \"hi\"
+                                                                                                                                              },
+                                                                                                                                              \"dialogList\": [
+                                                                                                                                                  {
+                                                                                                                                                      \"greeting\": \"hi\"
+                                                                                                                                                  },
+                                                                                                                                                  {
+                                                                                                                                                      \"greeting\": \"hi\",
+                                                                                                                                                      \"farewell\": {
+                                                                                                                                                          \"phrase\": \"bye\"
+                                                                                                                                                      }
+                                                                                                                                                  },
+                                                                                                                                                  {
+                                                                                                                                                      \"language\": \"it\",
+                                                                                                                                                      \"greeting\": \"ciao\",
+                                                                                                                                                      \"farewell\": {
+                                                                                                                                                          \"phrase\": \"arrivederci\"
+                                                                                                                                                      }
+                                                                                                                                                  }
+                                                                                                                                              ],
+                                                                                                                                              \"dialogMap\": {
+                                                                                                                                                  \"emptyDialog\": {
+                                                                                                                                                      \"greeting\": \"hi\"
+                                                                                                                                                  },
+                                                                                                                                                  \"partialEmptyDialog\": {
+                                                                                                                                                      \"language\": \"en\",
+                                                                                                                                                      \"greeting\": \"hi\",
+                                                                                                                                                      \"farewell\": {
+                                                                                                                                                          \"phrase\": \"bye\"
+                                                                                                                                                      }
+                                                                                                                                                  },
+                                                                                                                                                  \"nonEmptyDialog\": {
+                                                                                                                                                      \"greeting\": \"konnichiwa\",
+                                                                                                                                                      \"farewell\": {
+                                                                                                                                                          \"phrase\": \"sayonara\"
+                                                                                                                                                      }
+                                                                                                                                                  }
+                                                                                                                                              }
+                                                                                                                                          }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -28253,10 +28302,10 @@ it("RestJsonOutputUnionWithUnitMember:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                              \"action\": {
-                                                                                                                                                  \"quit\": {}
-                                                                                                                                              }
-                                                                                                                                          }`;
+                                                                                                                                                \"action\": {
+                                                                                                                                                    \"quit\": {}
+                                                                                                                                                }
+                                                                                                                                            }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -28461,10 +28510,10 @@ it("PostUnionWithJsonNameResponse1:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                \"value\": {
-                                                                                                                                                    \"FOO\": \"hi\"
-                                                                                                                                                }
-                                                                                                                                            }`;
+                                                                                                                                                  \"value\": {
+                                                                                                                                                      \"FOO\": \"hi\"
+                                                                                                                                                  }
+                                                                                                                                              }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -28522,10 +28571,10 @@ it("PostUnionWithJsonNameResponse2:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                  \"value\": {
-                                                                                                                                                      \"_baz\": \"hi\"
-                                                                                                                                                  }
-                                                                                                                                              }`;
+                                                                                                                                                    \"value\": {
+                                                                                                                                                        \"_baz\": \"hi\"
+                                                                                                                                                    }
+                                                                                                                                                }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -28583,10 +28632,10 @@ it("PostUnionWithJsonNameResponse3:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                    \"value\": {
-                                                                                                                                                        \"bar\": \"hi\"
-                                                                                                                                                    }
-                                                                                                                                                }`;
+                                                                                                                                                      \"value\": {
+                                                                                                                                                          \"bar\": \"hi\"
+                                                                                                                                                      }
+                                                                                                                                                  }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -28913,19 +28962,19 @@ it("RestJsonRecursiveShapes:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                      \"nested\": {
-                                                                                                                                                          \"foo\": \"Foo1\",
-                                                                                                                                                          \"nested\": {
-                                                                                                                                                              \"bar\": \"Bar1\",
-                                                                                                                                                              \"recursiveMember\": {
-                                                                                                                                                                  \"foo\": \"Foo2\",
-                                                                                                                                                                  \"nested\": {
-                                                                                                                                                                      \"bar\": \"Bar2\"
-                                                                                                                                                                  }
-                                                                                                                                                              }
-                                                                                                                                                          }
-                                                                                                                                                      }
-                                                                                                                                                  }`;
+                                                                                                                                                        \"nested\": {
+                                                                                                                                                            \"foo\": \"Foo1\",
+                                                                                                                                                            \"nested\": {
+                                                                                                                                                                \"bar\": \"Bar1\",
+                                                                                                                                                                \"recursiveMember\": {
+                                                                                                                                                                    \"foo\": \"Foo2\",
+                                                                                                                                                                    \"nested\": {
+                                                                                                                                                                        \"bar\": \"Bar2\"
+                                                                                                                                                                    }
+                                                                                                                                                                }
+                                                                                                                                                            }
+                                                                                                                                                        }
+                                                                                                                                                    }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29337,16 +29386,16 @@ it("RestJsonSimpleScalarProperties:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                            \"stringValue\": \"string\",
-                                                                                                                                                            \"trueBooleanValue\": true,
-                                                                                                                                                            \"falseBooleanValue\": false,
-                                                                                                                                                            \"byteValue\": 1,
-                                                                                                                                                            \"shortValue\": 2,
-                                                                                                                                                            \"integerValue\": 3,
-                                                                                                                                                            \"longValue\": 4,
-                                                                                                                                                            \"floatValue\": 5.5,
-                                                                                                                                                            \"DoubleDribble\": 6.5
-                                                                                                                                                        }`;
+                                                                                                                                                              \"stringValue\": \"string\",
+                                                                                                                                                              \"trueBooleanValue\": true,
+                                                                                                                                                              \"falseBooleanValue\": false,
+                                                                                                                                                              \"byteValue\": 1,
+                                                                                                                                                              \"shortValue\": 2,
+                                                                                                                                                              \"integerValue\": 3,
+                                                                                                                                                              \"longValue\": 4,
+                                                                                                                                                              \"floatValue\": 5.5,
+                                                                                                                                                              \"DoubleDribble\": 6.5
+                                                                                                                                                          }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29458,9 +29507,9 @@ it("RestJsonSupportsNaNFloatInputs:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                \"floatValue\": \"NaN\",
-                                                                                                                                                                \"DoubleDribble\": \"NaN\"
-                                                                                                                                                            }`;
+                                                                                                                                                                  \"floatValue\": \"NaN\",
+                                                                                                                                                                  \"DoubleDribble\": \"NaN\"
+                                                                                                                                                              }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29517,9 +29566,9 @@ it("RestJsonSupportsInfinityFloatInputs:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                  \"floatValue\": \"Infinity\",
-                                                                                                                                                                  \"DoubleDribble\": \"Infinity\"
-                                                                                                                                                              }`;
+                                                                                                                                                                    \"floatValue\": \"Infinity\",
+                                                                                                                                                                    \"DoubleDribble\": \"Infinity\"
+                                                                                                                                                                }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29576,9 +29625,9 @@ it("RestJsonSupportsNegativeInfinityFloatInputs:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                    \"floatValue\": \"-Infinity\",
-                                                                                                                                                                    \"DoubleDribble\": \"-Infinity\"
-                                                                                                                                                                }`;
+                                                                                                                                                                      \"floatValue\": \"-Infinity\",
+                                                                                                                                                                      \"DoubleDribble\": \"-Infinity\"
+                                                                                                                                                                  }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29685,15 +29734,15 @@ it("RestJsonSparseListsSerializeNull:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                      \"sparseStringList\": [
-                                                                                                                                                                          null,
-                                                                                                                                                                          \"hi\"
-                                                                                                                                                                      ],
-                                                                                                                                                                      \"sparseShortList\": [
-                                                                                                                                                                          null,
-                                                                                                                                                                          2
-                                                                                                                                                                      ]
-                                                                                                                                                                  }`;
+                                                                                                                                                                        \"sparseStringList\": [
+                                                                                                                                                                            null,
+                                                                                                                                                                            \"hi\"
+                                                                                                                                                                        ],
+                                                                                                                                                                        \"sparseShortList\": [
+                                                                                                                                                                            null,
+                                                                                                                                                                            2
+                                                                                                                                                                        ]
+                                                                                                                                                                    }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -30029,15 +30078,15 @@ it("RestJsonSparseJsonMaps:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                        \"sparseStructMap\": {
-                                                                                                                                                                            \"foo\": {
-                                                                                                                                                                                \"hi\": \"there\"
-                                                                                                                                                                            },
-                                                                                                                                                                            \"baz\": {
-                                                                                                                                                                                \"hi\": \"bye\"
-                                                                                                                                                                            }
-                                                                                                                                                                       }
-                                                                                                                                                                    }`;
+                                                                                                                                                                          \"sparseStructMap\": {
+                                                                                                                                                                              \"foo\": {
+                                                                                                                                                                                  \"hi\": \"there\"
+                                                                                                                                                                              },
+                                                                                                                                                                              \"baz\": {
+                                                                                                                                                                                  \"hi\": \"bye\"
+                                                                                                                                                                              }
+                                                                                                                                                                         }
+                                                                                                                                                                      }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -30104,19 +30153,19 @@ it("RestJsonDeserializesSparseNullMapValues:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                          \"sparseBooleanMap\": {
-                                                                                                                                                                              \"x\": null
-                                                                                                                                                                          },
-                                                                                                                                                                          \"sparseNumberMap\": {
-                                                                                                                                                                              \"x\": null
-                                                                                                                                                                          },
-                                                                                                                                                                          \"sparseStringMap\": {
-                                                                                                                                                                              \"x\": null
-                                                                                                                                                                          },
-                                                                                                                                                                          \"sparseStructMap\": {
-                                                                                                                                                                              \"x\": null
-                                                                                                                                                                          }
-                                                                                                                                                                      }`;
+                                                                                                                                                                            \"sparseBooleanMap\": {
+                                                                                                                                                                                \"x\": null
+                                                                                                                                                                            },
+                                                                                                                                                                            \"sparseNumberMap\": {
+                                                                                                                                                                                \"x\": null
+                                                                                                                                                                            },
+                                                                                                                                                                            \"sparseStringMap\": {
+                                                                                                                                                                                \"x\": null
+                                                                                                                                                                            },
+                                                                                                                                                                            \"sparseStructMap\": {
+                                                                                                                                                                                \"x\": null
+                                                                                                                                                                            }
+                                                                                                                                                                        }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -30177,13 +30226,13 @@ it("RestJsonDeserializesZeroValuesInSparseMaps:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                            \"sparseNumberMap\": {
-                                                                                                                                                                                \"x\": 0
-                                                                                                                                                                            },
-                                                                                                                                                                            \"sparseBooleanMap\": {
-                                                                                                                                                                                \"x\": false
-                                                                                                                                                                            }
-                                                                                                                                                                        }`;
+                                                                                                                                                                              \"sparseNumberMap\": {
+                                                                                                                                                                                  \"x\": 0
+                                                                                                                                                                              },
+                                                                                                                                                                              \"sparseBooleanMap\": {
+                                                                                                                                                                                  \"x\": false
+                                                                                                                                                                              }
+                                                                                                                                                                          }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -30242,11 +30291,11 @@ it("RestJsonDeserializesSparseSetMap:ServerResponse", async () => {
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                              \"sparseSetMap\": {
-                                                                                                                                                                                  \"x\": [],
-                                                                                                                                                                                  \"y\": [\"a\", \"b\"]
-                                                                                                                                                                              }
-                                                                                                                                                                          }`;
+                                                                                                                                                                                \"sparseSetMap\": {
+                                                                                                                                                                                    \"x\": [],
+                                                                                                                                                                                    \"y\": [\"a\", \"b\"]
+                                                                                                                                                                                }
+                                                                                                                                                                            }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -30306,12 +30355,12 @@ it("RestJsonDeserializesSparseSetMapAndRetainsNull:ServerResponse", async () => 
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                                \"sparseSetMap\": {
-                                                                                                                                                                                    \"x\": [],
-                                                                                                                                                                                    \"y\": [\"a\", \"b\"],
-                                                                                                                                                                                    \"z\": null
-                                                                                                                                                                                }
-                                                                                                                                                                            }`;
+                                                                                                                                                                                  \"sparseSetMap\": {
+                                                                                                                                                                                      \"x\": [],
+                                                                                                                                                                                      \"y\": [\"a\", \"b\"],
+                                                                                                                                                                                      \"z\": null
+                                                                                                                                                                                  }
+                                                                                                                                                                              }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
