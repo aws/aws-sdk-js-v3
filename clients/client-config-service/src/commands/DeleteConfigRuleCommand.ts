@@ -39,27 +39,15 @@ export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
  * 				<code>DescribeConfigRules</code> request.</p>
  *          <note>
  *             <p>
- *                <b>Recommendation: Stop recording resource compliance before deleting rules</b>
+ *                <b>Recommendation: Consider excluding the <code>AWS::Config::ResourceCompliance</code> resource type from recording before deleting rules</b>
  *             </p>
- *             <p>It is highly recommended that you stop recording for the <code>AWS::Config::ResourceCompliance</code> resource type before you delete rules in your account.
- * 				Deleting rules creates CIs for <code>AWS::Config::ResourceCompliance</code> and can affect your Config <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html">configuration recorder</a> costs.
- *
- * 				If you are deleting rules which evaluate a large number of resource types,
+ *             <p>Deleting rules creates configuration items (CIs) for <code>AWS::Config::ResourceCompliance</code>
+ * 				that can affect your costs for the configuration recorder. If you are deleting rules which evaluate a large number of resource types,
  * 				this can lead to a spike in the number of CIs recorded.</p>
- *             <p>Best practice:</p>
- *             <ol>
- *                <li>
- *                   <p>Stop recording <code>AWS::Config::ResourceCompliance</code>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>Delete rule(s)</p>
- *                </li>
- *                <li>
- *                   <p>Turn on recording for <code>AWS::Config::ResourceCompliance</code>
- *                   </p>
- *                </li>
- *             </ol>
+ *             <p>To avoid the associated costs, you can opt to disable recording
+ * 				for the <code>AWS::Config::ResourceCompliance</code> resource type before deleting rules, and re-enable recording after the rules have been deleted.</p>
+ *             <p>However, since deleting rules is an asynchronous process, it might take an hour or more to complete. During the time
+ * 				when recording is disabled for <code>AWS::Config::ResourceCompliance</code>, rule evaluations will not be recorded in the associated resource’s history.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

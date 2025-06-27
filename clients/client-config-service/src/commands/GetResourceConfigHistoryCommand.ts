@@ -29,16 +29,22 @@ export interface GetResourceConfigHistoryCommandOutput extends GetResourceConfig
 
 /**
  * <important>
- *             <p>For accurate reporting on the compliance status, you must record the <code>AWS::Config::ResourceCompliance</code> resource type.
- * 			For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html">Selecting Which Resources Config Records</a>.</p>
+ *             <p>For accurate reporting on the compliance status, you must record the <code>AWS::Config::ResourceCompliance</code> resource type.</p>
+ *             <p>For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html">Recording Amazon Web Services Resources</a> in the <i>Config Resources Developer Guide</i>.</p>
  *          </important>
- *          <p>Returns a list of <code>ConfigurationItems</code> for the specified resource.
- * 			The list contains details about each state of the resource
+ *          <p>Returns a list of configurations items (CIs) for the specified resource.</p>
+ *          <p>
+ *             <b>Contents</b>
+ *          </p>
+ *          <p>The list contains details about each state of the resource
  * 			during the specified time interval. If you specified a retention
- * 			period to retain your <code>ConfigurationItems</code> between a
+ * 			period to retain your CIs between a
  * 			minimum of 30 days and a maximum of 7 years (2557 days), Config
- * 			returns the <code>ConfigurationItems</code> for the specified
+ * 			returns the CIs for the specified
  * 			retention period. </p>
+ *          <p>
+ *             <b>Pagination</b>
+ *          </p>
  *          <p>The response is paginated. By default, Config returns a
  * 			limit of 10 configuration items per page. You can customize this
  * 			number with the <code>limit</code> parameter. The response includes
