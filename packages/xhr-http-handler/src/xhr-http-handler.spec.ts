@@ -246,35 +246,92 @@ describe(XhrHttpHandler.name, () => {
   });
 
   describe("per-request requestTimeout", () => {
-    it("should use per-request timeout over handler config timeout", () => {
-      const handler1 = new XhrHttpHandler({ requestTimeout: 5000 });
-      const handler2 = new XhrHttpHandler({ requestTimeout: 200 });
+    it("should use per-request timeout over handler config timeout", async () => {
+      const handler = new XhrHttpHandler({ requestTimeout: 5000 });
 
-      const testTimeout = (handlerTimeout: number, requestTimeout?: number) => {
-        const expectedTimeout = Number(requestTimeout ?? handlerTimeout) | 0;
-        return expectedTimeout;
-      };
+      const requestTimeoutSpy = vi.spyOn(await import("./request-timeout"), "requestTimeout");
 
-      // per-request timeout takes precedence
-      expect(testTimeout(5000, 100)).toBe(100);
+      const mockRequest = new HttpRequest({
+        method: "GET",
+        hostname: "example.com",
+        protocol: "https:",
+        path: "/",
+        headers: {},
+      });
 
-      // fallback to handler config timeout
-      expect(testTimeout(200, undefined)).toBe(200);
-      expect(testTimeout(200)).toBe(200);
+      class TimeoutXhrMock extends XhrMock {
+        send(...args: any[]) {
+          this.captureArgs("send")(...args);
+          // let it timeout
+        }
+      }
+
+      (global as any).XMLHttpRequest = TimeoutXhrMock;
+
+      try {
+        await handler.handle(mockRequest, { requestTimeout: 100 });
+      } catch (error) {
+        // expected to timeout
+      }
+
+      // verify requestTimeout function was called with per-request timeout (100), not handler timeout (5000)
+      expect(requestTimeoutSpy).toHaveBeenCalledWith(100);
+
+      requestTimeoutSpy.mockRestore();
+      (global as any).XMLHttpRequest = XhrMock; // restore original mock
     });
 
-    it("should pass correct timeout values to internal functions", async () => {
-      const handler = new XhrHttpHandler({ requestTimeout: 5000 });
-      (handler as any).config = { requestTimeout: 5000 };
+    it("should fall back to handler config timeout when per-request timeout not provided", async () => {
+      const handler = new XhrHttpHandler({ requestTimeout: 200 });
 
-      const options1 = { requestTimeout: 100 };
-      const options2: { requestTimeout?: number } = {};
+      const requestTimeoutSpy = vi.spyOn(await import("./request-timeout"), "requestTimeout");
 
-      const effectiveTimeout1 = Number(options1.requestTimeout ?? (handler as any).config.requestTimeout) | 0;
-      const effectiveTimeout2 = Number(options2.requestTimeout ?? (handler as any).config.requestTimeout) | 0;
+      const mockRequest = new HttpRequest({
+        method: "GET",
+        hostname: "example.com",
+        protocol: "https:",
+        path: "/",
+        headers: {},
+      });
 
-      expect(effectiveTimeout1).toBe(100); // per-request timeout used
-      expect(effectiveTimeout2).toBe(5000); // handler config timeout used
+      class TimeoutXhrMock extends XhrMock {
+        send(...args: any[]) {
+          this.captureArgs("send")(...args);
+        }
+      }
+
+      (global as any).XMLHttpRequest = TimeoutXhrMock;
+
+      try {
+        await handler.handle(mockRequest, {});
+      } catch (error) {}
+
+      expect(requestTimeoutSpy).toHaveBeenCalledWith(200);
+
+      requestTimeoutSpy.mockRestore();
+      (global as any).XMLHttpRequest = XhrMock;
+    });
+
+    it("should handle zero timeout correctly", async () => {
+      const handler = new XhrHttpHandler({ requestTimeout: 1000 });
+
+      const requestTimeoutSpy = vi.spyOn(await import("./request-timeout"), "requestTimeout");
+
+      const mockRequest = new HttpRequest({
+        method: "GET",
+        hostname: "example.com",
+        protocol: "https:",
+        path: "/",
+        headers: {},
+      });
+
+      try {
+        await handler.handle(mockRequest, { requestTimeout: 0 });
+      } catch (error) {}
+
+      expect(requestTimeoutSpy).toHaveBeenCalledWith(0);
+
+      requestTimeoutSpy.mockRestore();
     });
   });
 });
