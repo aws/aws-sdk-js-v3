@@ -14,7 +14,7 @@ class XhrMock {
   public static captures: any[] = [];
   public static DONE = 4;
 
-  private captureArgs =
+  protected captureArgs =
     (caller: string) =>
     (...args: any[]) => {
       XhrMock.captures.push([caller, ...args]);
