@@ -3665,7 +3665,7 @@ export interface EmailAddressMetadata {
   EmailAddressArn?: string | undefined;
 
   /**
-   * <p>The email address with the instance, in [^\s@]+@[^\s@]+\.[^\s@]+ format.</p>
+   * <p>The email address, including the domain.</p>
    * @public
    */
   EmailAddress?: string | undefined;
@@ -5021,12 +5021,12 @@ export interface SendChatIntegrationEventResponse {
 }
 
 /**
- * <p>Contains information about a source or destination email address</p>
+ * <p>Contains information about a source or destination email address.</p>
  * @public
  */
 export interface EmailAddressInfo {
   /**
-   * <p>The email address with the instance, in [^\s@]+@[^\s@]+\.[^\s@]+ format.</p>
+   * <p>The email address, including the domain.</p>
    * @public
    */
   EmailAddress: string | undefined;
@@ -5039,12 +5039,14 @@ export interface EmailAddressInfo {
 }
 
 /**
- * <p>The additional recipients information of outbound email.</p>
+ * <p>Information about the additional recipients of outbound email.</p>
  * @public
  */
 export interface OutboundAdditionalRecipients {
   /**
-   * <p>The additional CC email address recipients information.</p>
+   * <p>Information about the <b>additional</b> CC email address recipients.
+   *    Email recipients are limited to 50 total addresses: 1 required recipient in the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SendOutboundEmail.html#API_SendOutboundEmail_RequestBody">DestinationEmailAddress</a> field and up to 49 recipients in the 'CcEmailAddresses'
+   *    field.</p>
    * @public
    */
   CcEmailAddresses?: EmailAddressInfo[] | undefined;
@@ -5676,18 +5678,28 @@ export interface StartContactStreamingResponse {
 }
 
 /**
- * <p>The additional TO CC recipients information of inbound email.</p>
+ * <p>Information about the additional TO and CC recipients of an inbound email contact.</p>
+ *          <note>
+ *             <p>You can include up to 50 email addresses in total, distributed across
+ *     <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartEmailContact.html#API_StartEmailContact_RequestBody">DestinationEmailAddress</a>, <code>ToAddresses</code>, and <code>CcAddresses</code>. This total must include one required
+ *     <code>DestinationEmailAddress</code>. You can then specify up to 49 addresses allocated across <code>ToAddresses</code>
+ *     and <code>CcAddresses</code> as needed.</p>
+ *          </note>
  * @public
  */
 export interface InboundAdditionalRecipients {
   /**
-   * <p>The additional recipients information present in to list.</p>
+   * <p>The <b>additional</b> recipients information present in to list.
+   *    You must have 1 required recipient (<code>DestinationEmailAddress</code>). You can then specify up to
+   *    49 additional recipients (across <code>ToAddresses</code> and <code>CcAddresses</code>), for a total of 50 recipients.</p>
    * @public
    */
   ToAddresses?: EmailAddressInfo[] | undefined;
 
   /**
-   * <p>The additional recipients information present in cc list.</p>
+   * <p>The <b>additional</b> recipients information present in cc list.
+   *    You must have 1 required recipient (<code>DestinationEmailAddress</code>). You can then specify up to
+   *    49 additional recipients (across <code>ToAddresses</code> and <code>CcAddresses</code>), for a total of 50 recipients.</p>
    * @public
    */
   CcAddresses?: EmailAddressInfo[] | undefined;
@@ -5828,7 +5840,7 @@ export interface StartOutboundEmailContactRequest {
   ContactId: string | undefined;
 
   /**
-   * <p>The email address associated with the instance.</p>
+   * <p>The email address associated with the Amazon Connect instance.</p>
    * @public
    */
   FromEmailAddress?: EmailAddressInfo | undefined;
@@ -5840,7 +5852,7 @@ export interface StartOutboundEmailContactRequest {
   DestinationEmailAddress: EmailAddressInfo | undefined;
 
   /**
-   * <p>The addtional recipients address of email in CC.</p>
+   * <p>The additional recipients address of email in CC.</p>
    * @public
    */
   AdditionalRecipients?: OutboundAdditionalRecipients | undefined;

@@ -63,7 +63,7 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  *   UserInfo: { // UserInfo
  *     UserId: "STRING_VALUE",
  *   },
- *   InitiateAs: "CONNECTED_TO_USER",
+ *   InitiateAs: "CONNECTED_TO_USER" || "COMPLETED",
  *   Name: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   SegmentAttributes: { // SegmentAttributes

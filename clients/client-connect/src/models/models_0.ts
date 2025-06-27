@@ -3012,6 +3012,7 @@ export class ConflictException extends __BaseException {
  * @enum
  */
 export const InitiateAs = {
+  COMPLETED: "COMPLETED",
   CONNECTED_TO_USER: "CONNECTED_TO_USER",
 } as const;
 
@@ -3441,7 +3442,7 @@ export interface CreateEmailAddressRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The email address with the instance, in [^\s@]+@[^\s@]+\.[^\s@]+ format.</p>
+   * <p>The email address, including the domain.</p>
    * @public
    */
   EmailAddress: string | undefined;
@@ -4938,7 +4939,7 @@ export interface OutboundCallerConfig {
 }
 
 /**
- * <p>The outbound email address Id.</p>
+ * <p>The outbound email address ID.</p>
  * @public
  */
 export interface OutboundEmailConfig {

@@ -1461,6 +1461,10 @@ export interface CreateContactRequest {
 
   /**
    * <p>User details for the contact</p>
+   *          <important>
+   *             <p>UserInfo is required when creating an EMAIL contact with OUTBOUND and AGENT_REPLY contact
+   *     initiation methods.</p>
+   *          </important>
    * @public
    */
   UserInfo?: UserInfo | undefined;
@@ -2024,8 +2028,7 @@ export interface StartChatContactRequest {
   ParticipantDetails: ParticipantDetails | undefined;
 
   /**
-   * <p>The initial message to be sent to the newly created chat. If you have a Lex bot in your
-   *    flow, the initial message is not delivered to the Lex bot.</p>
+   * <p>The initial message to be sent to the newly created chat.</p>
    * @public
    */
   InitialMessage?: ChatMessage | undefined;
@@ -2125,7 +2128,7 @@ export interface StartEmailContactRequest {
   FromEmailAddress: EmailAddressInfo | undefined;
 
   /**
-   * <p>The email address associated with the instance.</p>
+   * <p>The email address associated with the Amazon Connect instance.</p>
    * @public
    */
   DestinationEmailAddress: string | undefined;
