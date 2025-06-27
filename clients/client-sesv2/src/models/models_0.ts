@@ -834,7 +834,7 @@ export interface EmailTemplateContent {
 export interface Template {
   /**
    * <p>The name of the template. You will refer to this name when you send email using the
-   *                 <code>SendTemplatedEmail</code> or <code>SendBulkTemplatedEmail</code> operations.
+   *                 <code>SendEmail</code> or <code>SendBulkEmail</code> operations.
    *         </p>
    * @public
    */
@@ -2541,14 +2541,17 @@ export const DkimSigningAttributesOrigin = {
   AWS_SES_AP_SOUTHEAST_2: "AWS_SES_AP_SOUTHEAST_2",
   AWS_SES_AP_SOUTHEAST_3: "AWS_SES_AP_SOUTHEAST_3",
   AWS_SES_AP_SOUTH_1: "AWS_SES_AP_SOUTH_1",
+  AWS_SES_AP_SOUTH_2: "AWS_SES_AP_SOUTH_2",
   AWS_SES_CA_CENTRAL_1: "AWS_SES_CA_CENTRAL_1",
   AWS_SES_EU_CENTRAL_1: "AWS_SES_EU_CENTRAL_1",
+  AWS_SES_EU_CENTRAL_2: "AWS_SES_EU_CENTRAL_2",
   AWS_SES_EU_NORTH_1: "AWS_SES_EU_NORTH_1",
   AWS_SES_EU_SOUTH_1: "AWS_SES_EU_SOUTH_1",
   AWS_SES_EU_WEST_1: "AWS_SES_EU_WEST_1",
   AWS_SES_EU_WEST_2: "AWS_SES_EU_WEST_2",
   AWS_SES_EU_WEST_3: "AWS_SES_EU_WEST_3",
   AWS_SES_IL_CENTRAL_1: "AWS_SES_IL_CENTRAL_1",
+  AWS_SES_ME_CENTRAL_1: "AWS_SES_ME_CENTRAL_1",
   AWS_SES_ME_SOUTH_1: "AWS_SES_ME_SOUTH_1",
   AWS_SES_SA_EAST_1: "AWS_SES_SA_EAST_1",
   AWS_SES_US_EAST_1: "AWS_SES_US_EAST_1",
@@ -2670,6 +2673,12 @@ export interface DkimSigningAttributes {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>AWS_SES_AP_SOUTH_2</code> – Configure DKIM for the identity by replicating from a parent
+   *                     identity in Asia Pacific (Hyderabad) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>AWS_SES_EU_WEST_3</code> – Configure DKIM for the identity by replicating from a parent
    *                     identity in Europe (Paris) region using Deterministic Easy-DKIM (DEED).
    *                 </p>
@@ -2702,6 +2711,12 @@ export interface DkimSigningAttributes {
    *                <p>
    *                   <code>AWS_SES_AP_NORTHEAST_2</code> – Configure DKIM for the identity by replicating from a
    *                     parent identity in Asia Pacific (Seoul) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_ME_CENTRAL_1</code> – Configure DKIM for the identity by replicating from a parent
+   *                     identity in Middle East (UAE) region using Deterministic Easy-DKIM (DEED).
    *                 </p>
    *             </li>
    *             <li>
@@ -2756,6 +2771,12 @@ export interface DkimSigningAttributes {
    *                <p>
    *                   <code>AWS_SES_EU_CENTRAL_1</code> – Configure DKIM for the identity by replicating from a
    *                     parent identity in Europe (Frankfurt) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_EU_CENTRAL_2</code> – Configure DKIM for the identity by replicating from a parent
+   *                     identity in Europe (Zurich) region using Deterministic Easy-DKIM (DEED).
    *                 </p>
    *             </li>
    *             <li>
@@ -2951,6 +2972,12 @@ export interface DkimAttributes {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>AWS_SES_AP_SOUTH_2</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Asia Pacific (Hyderabad) region using Deterministic Easy-DKIM (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>AWS_SES_EU_WEST_3</code> – Indicates that DKIM was configured for the identity by
    *                     replicating signing attributes from a parent identity in Europe (Paris) region using Deterministic Easy-DKIM (DEED).
    *                 </p>
@@ -2985,6 +3012,12 @@ export interface DkimAttributes {
    *                   <code>AWS_SES_AP_NORTHEAST_2</code> – Indicates that DKIM was configured for the identity by
    *                     replicating signing attributes from a parent identity in Asia Pacific (Seoul) region using Deterministic Easy-DKIM
    *                     (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_ME_CENTRAL_1</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Middle East (UAE) region using Deterministic Easy-DKIM (DEED).
    *                 </p>
    *             </li>
    *             <li>
@@ -3046,6 +3079,12 @@ export interface DkimAttributes {
    *                   <code>AWS_SES_EU_CENTRAL_1</code> – Indicates that DKIM was configured for the identity by
    *                     replicating signing attributes from a parent identity in Europe (Frankfurt) region using Deterministic Easy-DKIM
    *                     (DEED).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES_EU_CENTRAL_2</code> – Indicates that DKIM was configured for the identity by
+   *                     replicating signing attributes from a parent identity in Europe (Zurich) region using Deterministic Easy-DKIM (DEED).
    *                 </p>
    *             </li>
    *             <li>
@@ -4715,10 +4754,10 @@ export interface EventDestination {
    *                   <code>RENDERING_FAILURE</code> - The email wasn't sent because of a
    *                     template rendering issue. This event type can occur when template data is
    *                     missing, or when there is a mismatch between template parameters and data. (This
-   *                     event type only occurs when you send email using the <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_SendTemplatedEmail.html">
-   *                      <code>SendTemplatedEmail</code>
-   *                   </a> or <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_SendBulkTemplatedEmail.html">
-   *                      <code>SendBulkTemplatedEmail</code>
+   *                     event type only occurs when you send email using the <a href="https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_SendEmail.html">
+   *                      <code>SendEmail</code>
+   *                   </a> or <a href="https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_SendBulkEmail.html">
+   *                      <code>SendBulkEmail</code>
    *                   </a> API operations.) </p>
    *             </li>
    *             <li>
